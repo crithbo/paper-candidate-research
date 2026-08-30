@@ -1,0 +1,35 @@
+schema_version: r3-preflight-request-response-contract-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+parent_blocker: {path: PREFLIGHT_RESUME1_EXECUTION_BLOCKER.yaml, sha256: 59F42CA95206794E1B25336E6E92488C310748E9FFCD99222EB6FDC6BB81CFE2}
+candidate_pool_sha256: 22CF0D0C9CC1C7DB1317DA085D323EDFBC1394C67E116B2FC1AD29A9F5E7D3AC
+transport: {method: OPEN_EXACT_URL_ONCE, redirects: PLATFORM_DEFAULT__RECORD_FINAL_URL_IF_EXPOSED, retries: 0, external_search: false, response_body_persistence: false}
+success_contract: official_or_author_page_reachable__title_year_venue_identity_matches_pool_row__public_fulltext_or_authorized_fulltext_route_boolean_recorded
+failure_reasons: [HTTP_OR_TRANSPORT_UNAVAILABLE, IDENTITY_METADATA_MISMATCH, NO_PUBLIC_FULLTEXT_ROUTE, SOURCE_PAGE_UNREADABLE, IDENTITY_EXCLUDED]
+requests:
+  - {id: R3A01, pool_row: METHOD_SYSTEM_01, source_url: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+  - {id: R3A02, pool_row: METHOD_SYSTEM_02, source_url: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+  - {id: R3A03, pool_row: METHOD_SYSTEM_03, source_url: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+  - {id: R3A04, pool_row: METHOD_SYSTEM_04, source_url: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+  - {id: R3A05, pool_row: METHOD_SYSTEM_05, source_url: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+  - {id: R3A06, pool_row: METHOD_SYSTEM_06, source_url: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+  - {id: R3A07, pool_row: COMPILER_FORMAL_01, source_url: 'https://zenodo.org/records/7277737'}
+  - {id: R3A08, pool_row: COMPILER_FORMAL_02, source_url: 'https://www.vldb.org/pvldb/vol13.html'}
+  - {id: R3A09, pool_row: COMPILER_FORMAL_03, source_url: 'https://proceedings.mlsys.org/paper_files/paper/2021'}
+  - {id: R3A10, pool_row: COMPILER_FORMAL_04, source_url: 'https://dl.acm.org/doi/proceedings/10.1145/3445814'}
+  - {id: R3A11, pool_row: COMPILER_FORMAL_05, source_url: 'https://dl.acm.org/doi/proceedings/10.1145/3385412'}
+  - {id: R3A12, pool_row: COMPILER_FORMAL_06, source_url: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+  - {id: R3A13, pool_row: MEASUREMENT_BENCHMARK_01, source_url: 'https://proceedings.mlsys.org/paper_files/paper/2020/file/411e39b117e885341f25efb8912945f7-Paper.pdf'}
+  - {id: R3A14, pool_row: MEASUREMENT_BENCHMARK_02, source_url: 'https://dl.acm.org/doi/proceedings/10.1145/3293882'}
+  - {id: R3A15, pool_row: MEASUREMENT_BENCHMARK_03, source_url: 'https://dl.acm.org/doi/proceedings/10.1145/3293882'}
+  - {id: R3A16, pool_row: MEASUREMENT_BENCHMARK_04, source_url: 'https://dl.acm.org/doi/proceedings/10.1145/3426428'}
+  - {id: R3A17, pool_row: MEASUREMENT_BENCHMARK_05, source_url: 'https://proceedings.neurips.cc/paper/2021'}
+  - {id: R3A18, pool_row: MEASUREMENT_BENCHMARK_06, source_url: 'https://dl.acm.org/doi/proceedings/10.1145/3419111'}
+  - {id: R3A19, pool_row: HARDWARE_MEMORY_01, source_url: 'https://ieeexplore.ieee.org/document/10946723'}
+  - {id: R3A20, pool_row: HARDWARE_MEMORY_02, source_url: 'https://dl.acm.org/doi/proceedings/10.1109/ISCA45697.2020'}
+  - {id: R3A21, pool_row: HARDWARE_MEMORY_03, source_url: 'https://dl.acm.org/doi/proceedings/10.1145/3352460'}
+  - {id: R3A22, pool_row: HARDWARE_MEMORY_04, source_url: 'https://dl.acm.org/doi/proceedings/10.1145/3307650'}
+  - {id: R3A23, pool_row: HARDWARE_MEMORY_05, source_url: 'https://dl.acm.org/doi/proceedings/10.1109/ISCA45697.2020'}
+  - {id: R3A24, pool_row: HARDWARE_MEMORY_06, source_url: 'https://ieeexplore.ieee.org/xpl/conhome/8662085/proceeding'}
+ledger_contract: {rows: 24, row_key: request_id, required_fields: [request_id, pool_row, source_url, official_page_reachable, title_year_venue_match, public_fulltext_route, identity_excluded, static_hard_gate_preflight, disposition_reason], missing_response: failure_reason_required, retries: 0}
+phase_B: forbidden
+forbidden: [search_query, unfrozen_url, final_selection, evidence_extraction, packet_creation, gold_expected_label_access, code_artifact_binary_download, build, probe, experiment, production_candidate_registration, StageB]

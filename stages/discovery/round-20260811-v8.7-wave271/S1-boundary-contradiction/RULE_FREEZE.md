@@ -1,0 +1,6 @@
+# Rule freeze — Wave271
+
+- Assignment: `DISCOVERY-S1-20260811-V8.7-WAVE271-TARGET-ABI-BOUNDARY-WITNESS-FIRST-FRESH-BREADTH`.
+- Frozen: AGENTS `66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063`; plan `52BD8C4A8143C82AAB56FE79C6F181E36CE5EF1728D34CF36FD6FBCC729CB0BE`; registry `E70616AE3A067AA5E307D355B487D9914559F5A4843FC9A6072B2E29DBB01132`; ROLE `FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3`.
+- Production method: v8.7+R5-P0, `DISCOVERY_QUALITY_MODE=OFF`; known actions can support N2 only with target-specific non-generic algorithm/guarantee and a strong witness.
+- Excluded: APX/RVV/PPC/RVC/LoongArch, current lane objects, eBPF and old same-object lineages. No experiment, Stage0/A/B, large download, automation, shared write or E-drive use.

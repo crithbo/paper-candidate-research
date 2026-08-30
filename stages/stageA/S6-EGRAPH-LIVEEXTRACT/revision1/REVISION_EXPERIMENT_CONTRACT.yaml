@@ -1,0 +1,178 @@
+schema_version: stagea-revision-experiment-contract-v1
+topic_id: S6-EGRAPH-LIVEEXTRACT
+stage: STAGEA_REVISION1
+contract_status: FROZEN_BEFORE_ARTIFACT_MATERIALIZATION_IMPLEMENTATION_OR_EXECUTION
+frozen_on: 2026-08-09
+lane_id: MIGRATION_ONEOFF_CANDIDATE_OWNER
+assignment_id: S6-EGRAPH-LIVEEXTRACT-STAGEA-REVISION1-20260809
+project_root: D:\project\writing\reserch
+write_scope: D:\project\writing\reserch\stages\stageA\S6-EGRAPH-LIVEEXTRACT\revision1
+initial_package_handoff_sha256: c7942144046bd53f7c8b8c77c5e1cbad075d37f452c7573de8fd5e0ce2566502
+cross_assignment_contamination_declared: false
+stageb_authorized: false
+stageb_user_approval_id: null
+positive_claim_ceiling: PRELIMINARY_SUPPORT
+
+atomic_gate: NATURAL_MULTI_ALTERNATIVE_EGRAPH_WITH_BACKEND_VALID_SIZE_COST_AND_SAME_B_STRICT_WITNESS_OR_STRUCTURAL_INCREMENT
+
+research_question: >-
+  On one pinned public natural compiler e-graph, after a deterministic acyclic
+  projection and with the same root, closure, semantics, target-informed
+  operation/output-size mapping, allocation convention, information, and
+  peak-live budget B, does the exact joint extraction/materialization/
+  recomputation/scheduling oracle produce a strict non-dominated cost--peak
+  point unavailable to both exact sequential controls?
+
+source:
+  system: Diospyros equality-saturation compiler for four-lane DSP vectorization
+  paper: Vectorization for Digital Signal Processors via Equality Saturation, ASPLOS 2021
+  paper_url: https://doi.org/10.1145/3445814.3446707
+  artifact_repository: https://github.com/egraphs-good/extraction-gym.git
+  artifact_commit: 903ba0f818b50608fe20ae9e0f03c35cb27bc50a
+  artifact_path: data/diospyros/simple_vec_add_root_7.json
+  git_blob_oid_sha1: 0a6fdaa6432a55b7c49001bd83531835efc6a1af
+  raw_byte_length: 17477
+  raw_sha256: 8301352a6b70d0d79bd0eeecfdff39081e3f565b000ccabc8ba5ca63653b05d8
+  raw_url: https://raw.githubusercontent.com/egraphs-good/extraction-gym/903ba0f818b50608fe20ae9e0f03c35cb27bc50a/data/diospyros/simple_vec_add_root_7.json
+  local_locked_path: inputs/simple_vec_add_root_7.json
+  maximum_download_bytes: 1048576
+  naturalness_label: PUBLIC_COMPILER_GENERATED_EGRAPH
+
+object:
+  root_eclasses: ['7']
+  declared_semantics: nodes in one source e-class are equivalent programs under the pinned Diospyros rewrite closure
+  malformed_node_rule: discard a node unless its eclass field exactly equals the node-id prefix before the final dot
+  acyclic_projection_rule: >-
+    Build the union e-class dependency graph after malformed-node filtering;
+    repeatedly remove each e-node having a child in the same nontrivial SCC or
+    a direct self dependency until the union graph is acyclic. Retain every
+    remaining node reachable from root 7 and every remaining alternative in
+    each reachable e-class. No cost, size, or result is consulted.
+  closure: exact transitive closure of root 7 over every retained alternative
+  extraction: exactly one retained e-node per reachable selected e-class; only selected-root closure is charged
+  purity: source expressions are treated as pure deterministic values
+  approximation: forbidden
+  source_node_invention: forbidden
+  source_cost_edit: forbidden except exact integer scaling and frozen leaf convention below
+  minimum_required_distinct_extractions: 2
+
+backend_mapping:
+  numeric_element_type: IEEE-754 32-bit scalar, matching the pinned Diospyros four-lane DSP study object
+  vector_width: 4
+  eclass_output_type_rule: >-
+    An e-class is vector-valued iff at least one retained source e-node has op
+    in {Vec, LitVec, VecAdd, VecMinus, VecMul, VecMAC}; otherwise scalar-valued.
+    E-class equivalence requires all alternatives to share that result type.
+  scalar_output_bytes: 4
+  vector_output_bytes: 16
+  external_leaf_rule: childless constants and program inputs are immutable external values; their temporary size and scheduled execution cost are zero
+  operation_cost_rule: >-
+    For each non-leaf retained source e-node, multiply the artifact's embedded
+    numeric cost by 1000 exactly: source 0.001 -> 1, 0.1 -> 100, 1.0 -> 1000.
+    Units are Diospyros/extraction-gym target-operation milli-cost, not measured latency.
+  cost_scope: every non-leaf execution, including recomputation
+  unsupported_mapping_claims:
+    - measured cycle latency
+    - register allocator spill cost
+    - cache or DRAM traffic
+    - machine energy
+
+allocation_and_schedule:
+  materialization: at most one resident value per selected non-leaf e-class
+  compute_precondition: every selected non-leaf child value is resident; external leaves are always available
+  recomputation: allowed only by re-executing the same selected representative after deletion
+  deletion: any resident non-root value may be deleted at zero target-operation cost
+  root_emission: computing root 7 emits it and does not leave it resident
+  peak_live_definition: resident temporary bytes immediately before a compute plus the computed output bytes
+  root_output_accounting: root output bytes are charged during its producing action
+  external_input_accounting: excluded from temporary peak because inputs are caller-owned immutable values for every method
+  budget_values_bytes: every multiple of 4 from 4 through the sum of retained non-leaf e-class output sizes
+
+optimization:
+  primary_objective: minimize total target-operation milli-cost subject to peak_live <= B and root emission
+  tie_break: emitted operation count, extraction signature, then lexicographic action trace
+  exactness: exhaustive extraction enumeration plus exact Dijkstra search over emitted-root and resident-value state
+  deployability: exact small-object oracle ceiling only
+
+sequential_controls:
+  - id: RUNTIME_FIRST_THEN_EXACT_SCHEDULE
+    extraction_stage: all globally minimum one-shot selected-DAG source-cost extractions; preserve exact ties
+    scheduling_stage: exact materialization/recomputation scheduler under B; choose best preserved tie
+  - id: MEMORY_FIRST_THEN_EXACT_SCHEDULE
+    extraction_stage: all globally minimum recomputation-free peak-live extractions; then minimum one-shot source cost; preserve exact ties
+    scheduling_stage: exact materialization/recomputation scheduler under B; choose best preserved tie
+  - id: JOINT_EXACT_ORACLE
+    extraction_stage: all retained exact extractions
+    scheduling_stage: exact materialization/recomputation scheduler under B
+
+fairness:
+  same_object: true
+  same_root_and_closure: true
+  same_budget_B: true
+  same_information: true
+  same_cost_and_size_mapping: true
+  same_schedule_action_space: true
+  same_exact_tie_handling: true
+
+witness_definition: >-
+  At one identical B, all three methods are feasible and the joint oracle has
+  strictly lower total target-operation milli-cost than both exact sequential
+  controls. The point must replay exactly and must not alter extraction
+  semantics, output type, or root.
+
+structural_increment_definition: >-
+  A new explicit theorem or exhaustively certified structural characterization
+  on the frozen natural object that does not depend on invented/synthetic sizes
+  and leaves a bounded same-object residual not already absorbed by either
+  sequential control. Merely proving that a sequential control absorbs the
+  candidate is a STOP result, not a PASS increment.
+
+negative_region_and_stop_rules:
+  enumerate_all_budget_values: true
+  enumerate_all_exact_extractions: true
+  stop_recommended_if:
+    - fewer than two reachable exact extractions remain
+    - source-to-backend type, size, or cost mapping fails validation
+    - no strict witness and no qualifying structural increment exists
+    - every feasible joint optimum is absorbed by at least one sequential control
+    - oracle, replay, determinism, same-object, or dominance check fails
+  reserve_recommended_only_if: public artifact acquisition alone fails after the pinned source and checksum are frozen
+  pass_recommended_only_if: a replayable natural strict witness or qualifying structural increment exists
+  no_second_revision: true
+
+metrics:
+  structure: [retained_eclasses, retained_enodes, exact_extractions, runtime_first_ties, memory_first_ties]
+  mechanism: [materializations, deletions, recomputations, explored_schedule_states]
+  outcome: [peak_live_bytes, total_target_operation_millicost, emitted_operations]
+  full_cost: [artifact_bytes, projection_time_ms, extraction_enumeration_time_ms, schedule_search_time_ms, wall_time_ms, peak_python_rss_bytes, result_bytes]
+
+randomness:
+  classification: deterministic
+  seed: null
+  repetitions: 2
+  expected_reproduction: exact equality of canonical semantic output; wall-time and RSS telemetry excluded
+
+commands:
+  acquire: curl.exe -L --fail --max-time 30 -o inputs/simple_vec_add_root_7.json <raw_url>
+  lock_and_project: python prepare_natural.py --source inputs/simple_vec_add_root_7.json --output inputs/locked_natural_projection.json
+  test: python -m unittest -v test_revision.py
+  run_1: python run_revision.py --input inputs/locked_natural_projection.json --output results/run1.json
+  run_2: python run_revision.py --input inputs/locked_natural_projection.json --output results/run2.json
+  validate: python validate_revision.py --source inputs/simple_vec_add_root_7.json --projection inputs/locked_natural_projection.json --run1 results/run1.json --run2 results/run2.json --output results/validation.json
+
+resource_limits:
+  artifact_download: 1_MiB
+  wall_time_per_command: 15_minutes
+  peak_rss: 2_GiB
+  exclusive_hardware: false
+  stageb_or_formal_scale_execution: forbidden
+
+success_criteria:
+  source_sha256_exact_match: true
+  source_byte_length_exact_match: true
+  retained_extraction_count_at_least_two: true
+  unit_tests_all_pass: true
+  every_reported_schedule_replays: true
+  double_replay_canonical_hash_equal: true
+  all_eleven_fallacy_checks_reported: true
+  claim_honesty: positive result remains PRELIMINARY_SUPPORT and never MAIN_CLAIM_ESTABLISHED

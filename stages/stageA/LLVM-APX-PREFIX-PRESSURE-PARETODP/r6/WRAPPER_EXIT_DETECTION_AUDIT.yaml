@@ -1,0 +1,22 @@
+schema: wrapper-exit-detection-audit-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R6-UINT32-CHECKER-PORTABILITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+obligation: FIRST_CHILD_FAILURE_MUST_STOP_PLANNED_PAIR
+checker: {path: resources/src/harness/orbit_pareto.ps1, sha256: C8662B3F0FBE3AC4F371D972F75371300EB847CD969B69A06110E8E47BDBCB26}
+runner: {path: resources/src/harness/run_checker_pair.ps1, sha256: 69582FEA4BE8CFF88B4B9AC88E4D414A9D6A1B471A3488A97571E0ED99CD22AB}
+negative_control:
+  expected_child_exit: 73
+  actual_child_exit: 73
+  wrapper_exit: 0
+  marker_present: true
+  checker_output_absent: true
+  second_checker_launch: false
+  raw_output: resources/logs/checker/negative_control_output.txt
+  raw_output_sha256: FF68A7CE56D26BD074E6E84A9164759F8355C3C17D05F77B57ED4F1EACA657B8
+  audit_output: resources/logs/checker/negative_control_result.json
+  audit_output_sha256: 49916ECB469E2AEAFEFF6978C10E066D3B2CF6A6AE98E64C12EF7378606A36DB
+automatic_retry: false
+extra_variant: false
+result: PASS_WRAPPER_DETECTS_NONZERO_CHILD_EXIT_AND_STOPS_PAIR
+scientific_inference: NONE
+

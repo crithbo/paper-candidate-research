@@ -1,0 +1,41 @@
+schema: discovery-rq-candidates-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE121
+topic_id: SOURCE121-PORTFOLIO-S3
+formed_after_exact_carrier_freeze: true
+frontend_mode: PRODUCTION
+frontend_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+primary_rqs:
+  - id: RQ01
+    carrier: C01
+    rq: Can a model-agnostic observation-age SLO controller use LeRobot's existing timestamps, latency observations, and action-queue state to schedule observation dispatch and action admission under variable inference/network delay, while preserving the same policy, action semantics, and no-idle contract?
+    type: SYSTEM_ARCHITECTURE
+  - id: RQ02
+    carrier: C02
+    rq: Does LeRobot RTC already bound the age of the observation underlying each executed action, or does it instead close only asynchronous chunk continuity and action-conditioned inpainting for supported flow/diffusion policies?
+    type: SYSTEM_ARCHITECTURE
+  - id: RQ03
+    carrier: C03
+    rq: Can RoboCasa's LeRobot-format timestamps and recorded states support a reproducible canonical observation-action trace for evaluating age violations without claiming natural network latency?
+    type: BENCHMARK_DATASET
+  - id: RQ04
+    carrier: C04
+    rq: Do AgiBot World timestamps and failure annotations expose an estimable relation between observation age and failure under fixed policy/task identity?
+    type: MEASUREMENT_CHARACTERIZATION
+  - id: RQ05
+    carrier: C05
+    rq: Does LIBERO expose sufficient timing identity to distinguish observation age from action-horizon and policy errors under asynchronous replay?
+    type: BENCHMARK_DATASET
+  - id: RQ06
+    carrier: C06
+    rq: Can robomimic demonstrations provide a same-object timing oracle for distributed asynchronous inference rather than only environment-step replay?
+    type: REPLICATION_NEGATIVE
+  - id: RQ07
+    carrier: C07
+    rq: Does BridgeData V2 preserve the clocks needed to evaluate runtime observation-age decisions under variable transport and inference delay?
+    type: MEASUREMENT_CHARACTERIZATION
+  - id: RQ08
+    carrier: C08
+    rq: Can RLBench's simulator state and demonstrations define a canonical disturbance-and-delay trace while keeping the action semantics fixed?
+    type: BENCHMARK_DATASET
+result_aware_backfill_forbidden: true
+

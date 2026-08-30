@@ -1,0 +1,54 @@
+schema: mainline-a3-start-authorization-v1
+authorized_at: 2026-08-26T06:50:00+08:00
+authorized_by: MAINLINE
+authorization_id: MAINLINE-START-20260826-PPC-R8-A3-STABLE-MIR-PATH
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+addendum_id: PPC-R8-A3-STABLE-RELATIVE-MIR-INPUT-PATH
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+A3_addendum_sha256: 7B26BA25455C75B611823DB616B338DCD8B24CD61B7C671D76FE99C35AC0AA55
+A3_ack_sha256: 8CA35B02EC352DD040D6B35E486CA4E4B8EDDFA00AC20A626AF7C88ACD32B1EA
+A2_acceptance_sha256: E2AEA52E3BE2422D2111C94301DBED78400D7B2325429302B474841EEB6A9748
+start_scope: EXACT_MACHINEVERIFIER_RELATIVE_INPUT_ARG_AND_TWO_FRESH_SYNTHETIC_REPLAYS
+first_actions:
+  - WRITE_A3_STABLE_PATH_CORRECTION_PRECOMMIT
+  - PRESERVE_A2_HANDOFF_AND_MANIFEST_AS_PASS2
+single_edit:
+  file: resources/src/actual_claim_harness/actual_claim_harness.py
+  original_sha256: 6593C28CFF8021D85A3B95721FBCC4125B93F301DF6DA414BCD69DEEC14B343B
+  substitution: 'MachineVerifier absolute mir Path argument -> relative literal input.mir'
+  occurrences: 1
+  expected_sha256: B4155CD20EDE6E2F994B69E61B6FC796D70848E4902E1FC1FCAEAA000673A2FE
+  expected_bytes: 21929
+  source_edit_operations_max: 1
+fresh_execution:
+  old_A2_replays: INVALIDATED_NON_EVIDENCE_RETAIN_RAW
+  corrected_replays: [1, 2]
+  native_tool_commands_per_replay_expected: 11
+  additional_total_command_records_max: 24
+  cumulative_total_command_records_max: 58
+  automatic_retry: false
+  exact_raw_machineverified_byte_equality_required: true
+  J5_pass_required_before_J6: true
+  J6_plan_executed: false
+forbidden_actions:
+  - RERUN_J0_COPY_OR_HASH_ACCEPTANCE
+  - MODIFY_TRACE_MODEL_OR_ANY_OTHER_IMPLEMENTATION_OR_INPUT_FILE
+  - POSTHOC_NORMALIZE_OR_EDIT_OUTPUT_ARTIFACTS
+  - SHARE_OR_OVERWRITE_REPLAY_INPUT_FILES
+  - ANY_SELECTED_OR_RESERVE_CORPUS_TOOL_OR_RESULT_OBSERVATION
+  - CLAIM_RUN
+  - NETWORK_NEW_COPY_EXTRACTION_BUILD_RETRY
+  - SCIENTIFIC_INFERENCE_REVISION_PIVOT_STATE_TRANSITION_CLEANUP_OR_STAGEB
+limits:
+  selected_or_reserve_corpus_tool_invocations_max: 0
+  claim_runs_max: 0
+  network_bytes_max: 0
+shared_control_drift_after_start:
+  disposition: EXPECTED_MAINLINE_STATUS_UPDATE_ONLY
+  retain_frozen_A3_snapshot: true
+r9_start_authorized: false
+scientific_revision_consumed: false
+scientific_state_effect: NONE
+next_owner: CANDIDATE_EXECUTION_LANE_2

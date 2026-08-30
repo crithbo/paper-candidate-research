@@ -1,0 +1,47 @@
+schema: ppc-r9-a2-a26-replay-comparison-failure-v1
+recorded_at: 2026-08-26T08:58:20.0759555+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+addendum_id: PPC-R9-A2-REQUIRED-NEGATIVE-INVARIANT-CHECKER-CORRECTION
+gate: A26_K5_TWO_FRESH_FULL_REPLAYS_EXACT_EQUALITY
+route: FAIL_CLOSED_REPLAY_EQUALITY_AUDITOR_CONSTRUCTION
+evidence_ceiling: CONTROL_NON_CLAIM_TWO_REPLAYS_PASS_BUT_EQUALITY_AUDITOR_INVALID__NO_SCIENTIFIC_INFERENCE
+underlying_replays:
+  replay_1: {commands: 17, completed: 17, native_checks: PASS_7_OF_7, full_cost_dependency: PASS, deterministic_payload_canonical_sha256: F716DA318ED27815AAE54CBDCF30BD07F0172152918A4A11261D2486593D72AE, deterministic_payload_file_sha256: 86D8D4DF7C92AE73C6CF2CBB58327F9CCABA0EC23AC78856A711696AC362A411, summary_sha256: 7EB192E9F6515E2ADFD717217F114894BDB1C68B81CE32C899F83738C39B5CC8}
+  replay_2: {commands: 17, completed: 17, native_checks: PASS_7_OF_7, full_cost_dependency: PASS, deterministic_payload_canonical_sha256: F716DA318ED27815AAE54CBDCF30BD07F0172152918A4A11261D2486593D72AE, deterministic_payload_file_sha256: 86D8D4DF7C92AE73C6CF2CBB58327F9CCABA0EC23AC78856A711696AC362A411, summary_sha256: 0D0005CF8C9F0C3C84DAC0ECF10A0E2B0A4A60B83840E3C7B8908EA007AD7F19}
+raw_equality_observation:
+  relative_files_each: 54
+  byte_exact_files: 38
+  required_core_raw_files: 12
+  required_core_raw_byte_exact: true
+  different_files: 16
+  path_normalized_readobj_objdump_logs_equal: 6_OF_6
+  native_checker_core_equal: true
+  full_cost_deterministic_core_equal: true
+  replay_summary_core_equal_excluding_replay_id: true
+first_unexpected_result:
+  equality_auditor_exit_code: 1
+  reported_status: FAIL_CLOSED_UNEXPECTED_REPLAY_DIFFERENCE
+  reported_precommit_root_normalized_equal: false
+  reported_metrics_structure_failures: [logs/command_metrics.json, all_command_metrics.json]
+mechanical_diagnosis_after_stop:
+  command_precommit_parsed_and_root_normalized_semantics_equal: true
+  raw_string_replace_false_negative_reason: JSON_ESCAPED_WINDOWS_PATHS_NOT_MATCHED_BY_UNESCAPED_ROOT_REPLACEMENT
+  remaining_metrics_differences_at_command_17:
+    - {field: input_bytes, replay_1: 73081, replay_2: 73083}
+    - {field: outputs_0_bytes, replay_1: 4103, replay_2: 4101}
+  byte_count_difference_origin: SERIALIZED_TIMING_RSS_AND_PATH_DERIVED_DYNAMIC_METADATA_LENGTH
+  deterministic_payload_or_core_raw_difference: false
+  equality_auditor_corrected_or_rerun: false
+first_failure_policy:
+  replay_rerun: false
+  comparison_command_changed_or_rerun: false
+  source_edit_after_first_A2_tool: false
+  A27_started: false
+  r10_plan_generated: false
+automatic_retries: 0
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_runs: 0
+claim_bearing_observations: 0
+scientific_revision_consumed: false
+scientific_inference: NONE
+

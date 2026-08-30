@@ -1,0 +1,54 @@
+assignment_id: STAGE0-P1-20260814-ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION-PRIMARY-V8.7
+mode: PRIMARY
+topic_id: ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_QUEUED_AFTER_SME_PRIMARY
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source30-primary\ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_rq_frontend_mode: PRODUCTION
+discovery_rq_frontend_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+discovery_claim_pack_mode: OFF
+v9_output: false
+quality_floor: TIER_B_Q2_VIABLE
+required_reads:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules\ROLE_STAGE0_REVIEW.md
+  - templates\STAGE0_REPORT.md
+  - templates\Q1_COMPARATOR_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source30\S6-direct-algorithm-software\TOPIC_BRIEF__ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION.md
+  - stages\discovery\round-20260814-adaptive-source30\S6-direct-algorithm-software\SOURCE_COLLISION_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source30\S6-direct-algorithm-software\CANDIDATE_GRADE_DEEP_REVIEWS.md
+  - stages\discovery\round-20260814-adaptive-source30\S6-direct-algorithm-software\QUESTION_CARDS.md
+  - stages\discovery\round-20260814-adaptive-source30\S6-direct-algorithm-software\SOURCE_ROLE_LEDGER.yaml
+  - stages\discovery\round-20260814-adaptive-source30\S6-direct-algorithm-software\handoff.yaml
+input_hashes:
+  brief_sha256: A4087015629B716E1C2F4289187399483B21FBDDF2435C49E960E7987AD346CB
+  source_collision_matrix_sha256: ABE433B43A61AF993EB4000AA3EEA5121306B555937478E2F6699656D117BCA9
+  deep_reviews_sha256: BFE1190AEABA55CC15AF9FD0A517C1F36049A615D9E9D9BB9C1E9A2E35A0D2C9
+  discovery_handoff_sha256: AC26C281A3149D4ADA65A332DD29E1DC7293F346D8E962596E814F93F0E2EF8A
+  discovery_manifest_sha256: 0AA37F25CC08F06AA64A85354126583D846EF784EA8525C650F3ED69C68E93AD
+frozen_exact_object:
+  object: FIXED_ARMV8_1M_MVE_LOB_LLVM_MACHINEFUNCTION__ACTIVE_LANE_BRANCH_EXCEPTION_SEMANTICS
+  action: MULTIBLOCK_VPT_VCTP_LOW_OVERHEAD_LOOP_REGION_AND_FALLBACK_CONSTRUCTION
+  comparator: CURRENT_LLVM_VECTORIZER__MVETAILPREDICATION__ARMLOWOVERHEADLOOPS_COMPOSITION
+  contribution_route: N2_TARGET_SPECIFIC_BOUNDED_STATE_FPT_OR_CERTIFIED_PARETO_CONSTRUCTION
+independent_attack_requirements:
+  - Pin one current LLVM commit, Armv8.1-M MVE+LOB target/features, exact IR/MachineFunction, source paths and all default/non-default tail-predication and low-overhead-loop controls.
+  - Reconstruct the complete-enough current vectorizer, MVETailPredication, MVETailPredUtils and ARMLowOverheadLoops action union; an implementation comment is not an absence proof.
+  - Construct or falsify one public in-tree two-basic-block same-function witness with two complete stock-native-legal plans preserving vector results, active lanes, branches, exceptions and object semantics.
+  - Test whether current union already reaches the proposed VPT/VCTP/DLSTP/WLSTP/LETP region/fallback frontier under equal information and full cost.
+  - Attack whether the state and recurrence are MVE-specific and future-action/legality preserving rather than generic CFG scheduling, loop transformation or Pareto packaging.
+  - Audit strongest same-object compiler literature and freeze a finite Stage A killer only if a non-absorbed native residual survives.
+decision_rules:
+  stop_if: [no native legal same-object two-plan witness, current union directly absorbs the action_and_frontier, residual changes active_lane_branch_exception_semantics, recurrence reduces to generic_CFG_or_loop_scheduling, primary direct collision]
+  revise_once_only_if: one atomic static gate closes a target-specific residual without changing object target semantics or comparator
+  pass_only_if: independent Tier-B-or-better MVE-specific residual with finite Stage A route
+evidence_ceiling: E1_STATIC_STAGE0_ONLY__NO_IMPLEMENTATION_NO_RESULT_CLAIM
+forbidden: [candidate_implementation, claim_bearing_experiment, benchmark_run, build, system_install, stageA, stageB, shared_control_write, v9_output, network_security_topic]
+required_outputs: [STAGE0_REPORT.md, Q1_COMPARATOR_MATRIX.md, SOURCE_AUDIT.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

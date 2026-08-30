@@ -1,0 +1,84 @@
+schema_version: mainline-resource-recovery-addendum-v1
+assignment_id: MAINLINE-20260822-COUPLED-AGENT-REPLAY-PREFREEZE2-TRANSPORT
+topic_id: COUPLED-AGENT-REPLAY-REV0
+authority:
+  - USER_EXPLICIT_REPLACE_STOPPED_PATCHVALUE_WITH_NEW_TOPIC_20260822
+  - USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+purpose: Resolve only the already frozen exact public identities and deterministic task list after the S3 transport blocker; make no collision, novelty or Stage0 inference.
+
+prior_blocker:
+  handoff: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze1\handoff.yaml
+  handoff_sha256: 3279C1AF59B46B28C46A0C147305A8809CF811EF2E0B28FF777FF03AD0B0DE6C
+  disposition: RESOURCE_BLOCKED_IDENTITY_FREEZE__NO_SCIENTIFIC_INFERENCE
+
+exact_routes:
+  openhands_ref:
+    url: https://api.github.com/repos/OpenHands/OpenHands/git/ref/heads/main
+    expected_commit_from_official_commit_page: ab23be62ad724fe83483036a0900bed7b7859166
+    required_fields: [commit_sha, tree_sha, response_sha256]
+  model_metadata:
+    url: https://huggingface.co/api/models/Qwen/Qwen2.5-Coder-7B-Instruct
+    expected_revision_from_official_metadata: c03e6d358207e414f1eca0bb1891e29f1db0e242
+    required_fields: [model_id, revision, license, architecture, response_sha256]
+  dataset_metadata:
+    url: https://huggingface.co/api/datasets/princeton-nlp/SWE-bench_Verified
+    expected_revision_from_official_commit_page: c104f840cc67f8b6eec6f759ebc8b2693d585d4a
+    required_fields: [dataset_id, revision, response_sha256]
+  dataset_file:
+    url: https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/data/test-00000-of-00001.parquet
+    expected_sha256: A45B1FE4E2F0C8390B2B2938AC83E92ED5979000856808F3679C07812E9E6DCD
+    expected_size_bytes: 2096679
+    use: read instance_id column only, sort in ascending Unicode code-point order, retain first 16, and hash canonical UTF-8 newline-delimited list
+  dataset_rows_fallback:
+    route_template: https://datasets-server.huggingface.co/rows?dataset=princeton-nlp/SWE-bench_Verified&config=default&split=test&revision=c104f840cc67f8b6eec6f759ebc8b2693d585d4a&offset={0,100,200,300,400}&length=100
+    exact_offsets: [0, 100, 200, 300, 400]
+    source_role: official Hugging Face dataset-viewer rows for the already frozen dataset revision; instance_id extraction only
+    activation_reason: bundled local Python has no parquet reader and software installation is forbidden
+    use: collect instance_id only, verify 500 unique rows, sort in ascending Unicode code-point order, retain first 16
+
+frozen_nonidentity_fields:
+  state_boundary: Immediately after the first native OpenHands tool action has completed and its observation has been incorporated into agent state, before the next model call.
+  I0: Continue with the frozen native OpenHands policy and context unchanged.
+  I1_exact_utf8_text: "Before finishing, run the repository's relevant tests, inspect every failure, and revise the patch when a failure is attributable to the patch. Do not use hidden evaluator information."
+  decoding: {temperature: 0.6, top_p: 0.95, top_k: 0, max_new_tokens_per_model_call: 4096}
+  native_terminal_semantics: absorbing
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze2-mainline
+  resource_root: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze2-mainline\resources
+  resource_inventory: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze2-mainline\RESOURCE_INVENTORY.yaml
+
+resource_envelope:
+  attempts_max: 18
+  accepted_persisted_bytes_max: 67108864
+  cpu_time_max: 30m
+  wall_time_max: 1h
+  system_install: false
+  global_environment_change: false
+  no_substitute_or_route_expansion: true
+
+allowed_actions:
+  - Use the bundled process-local Node or Python runtime to retrieve only the exact URLs above.
+  - Persist exact response bodies and the one 2.1 MiB parquet file under resource_root.
+  - Use the bundled Python parquet reader only to extract and sort instance_id.
+  - If no bundled parquet reader is available, retrieve only the five exact official dataset-viewer row pages above and extract instance_id.
+  - Write the canonical pre-evidence identity freeze and inventory under unique_write_directory.
+
+forbidden_actions:
+  - Read or search CAR, Coupled Token Generation, Counterfactual Token Generation, agent replay, novelty, comparator or contrary material.
+  - Read the user proposal or prior S5 scientific packet.
+  - Change any identity, state boundary, intervention, decoding or task selection rule.
+  - Download weights, source archives, containers or task images; run agents/models/benchmarks/experiments; install software.
+  - Make any scientific, collision, quality or Stage0 decision.
+
+required_outputs:
+  - PRE_EVIDENCE_OBJECT_FREEZE.yaml
+  - FIXED_TASK_LIST.txt
+  - IDENTITY_PROVENANCE.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+allowed_dispositions:
+  - PRE_EVIDENCE_EXACT_OBJECT_FREEZE_SEALED
+  - RESOURCE_BLOCKED_IDENTITY_FREEZE__NO_SCIENTIFIC_INFERENCE

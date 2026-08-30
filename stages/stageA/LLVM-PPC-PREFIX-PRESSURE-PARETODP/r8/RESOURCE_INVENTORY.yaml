@@ -1,0 +1,21 @@
+schema_version: assignment-resource-inventory-v4
+identity: {topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP, assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD, resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources, finalized_at: 2026-08-26T07:03:26.1165721+08:00}
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, artifact_state: ARTIFACT_CLOSED__A3_PRECLAIM_GATE_PASS_HANDOFF_PENDING, cleanup_owner: MAINLINE}
+root_measurement: {logical_bytes: 248032109, file_count: 405, directory_count_including_root: 205, reparse_entry_count: 0, active_related_processes: 0, active_process_check: ZERO_MATCHING_PYTHON_CLANG_CMAKE_NINJA_LLVM_LLD_PROCESS_NAMES, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL}
+resource_envelope: {stored_bytes_max: 536870912, stored_bytes_used: 248032109, network_bytes_used: 0, selected_or_reserve_corpus_tool_invocations_used: 0, claim_bearing_runs_used: 0, automatic_retries: 0}
+entries:
+  - {path: resources/src/r6_input, files: 26, logical_bytes: 134206, class: TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY, reproducibility_minimum: true}
+  - {path: resources/env/ppc-toolchain, files: 133, logical_bytes: 244073942, class: TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY, reproducibility_minimum: true}
+  - {path: resources/src/actual_claim_harness, files: 7, logical_bytes: 1851043, class: TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY, reproducibility_minimum: true, reason: A3_CORRECTED_HARNESS_AND_FULLY_EXPANDED_R9_PLAN}
+  - {path: resources/build/actual_harness, files: 31, logical_bytes: 109415, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, claim_critical: true, reason: A1_INVALIDATED_RAW}
+  - {path: resources/build/actual_harness_a2, files: 76, logical_bytes: 317262, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, claim_critical: true, reason: A2_INVALIDATED_RAW_EXACT_PATH_FAILURE}
+  - {path: resources/build/actual_harness_a3, files: 76, logical_bytes: 315841, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, claim_critical: true, reason: TWO_FRESH_EXACT_PRECLAIM_REPLAYS}
+  - {path: resources/logs, files: 7, logical_bytes: 9834, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, claim_critical: true}
+  - {path: resources/cache, files: 49, logical_bytes: 1220566, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, claim_critical: false}
+  - {path: resources/tmp, files: 0, logical_bytes: 0, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, claim_critical: false}
+  - {path: resources/downloads, files: 0, logical_bytes: 0, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, claim_critical: false}
+  - {path: resources/archives, files: 0, logical_bytes: 0, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, claim_critical: false}
+cleanup: {owner: MAINLINE, owner_cleanup_allowed: false, exact_candidates: [resources/cache, resources/tmp, resources/downloads, resources/archives], performed: false}
+validation: {resource_root_exact_match: true, root_under_workspace: true, reparse_traversal_check: true, required_directories_present: true, envelope_within_limit: true, all_persisted_entries_classified: true, result: FINALIZED_A3_PRECLAIM_GATE_PASS__NO_SCIENTIFIC_INFERENCE}
+

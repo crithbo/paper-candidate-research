@@ -1,0 +1,26 @@
+schema: resource-inventory-v1
+assignment_id: STAGEA-L2-20260830-ORT-EP-ASSIGNMENT-STABILITY-A0
+run_id: A0_FINAL_RESOURCE_BLOCKER
+policy:
+  resource_localization_sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA
+  artifact_lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  artifact_lifecycle_sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED
+resource_root: E:/project/writing/reserch/stages/stageA/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/a0-execution-readiness-20260830/resources
+top_level_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+measurement: {files: 433, logical_bytes: 840454452, reparse_points: 0, active_related_processes: 0}
+network: {attempts_used: 3, attempts_max: 24, persisted_payload_bytes: 231528373, exact_transfer_bytes: UNAVAILABLE__NOT_ESTIMATED, transfer_bytes_max: 1073741824}
+stored_bytes_max: 2147483648
+redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PIP_CACHE_DIR: resources/cache/pip, PYTHONPYCACHEPREFIX: resources/cache/pycache}
+entries:
+  - {relative: downloads/onnxruntime_gpu-1.26.0-cp312-cp312-win_amd64.whl, bytes: 226548963, sha256: 5F49C44689894650990E4C8A857D2EDAFC276FBD79BBA57CEB224BD18D25D491, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, provenance: official_PyPI}
+  - {relative: src/models/mnist-8.onnx, bytes: 26454, sha256: 2F06E72DE813A8635C9BC0397AC447A601BDBFA7DF4BEBC278723B958831C9BF, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, provenance: official_ONNX_Model_Zoo}
+  - {relative: src/models/squeezenet1.0-12.onnx, bytes: 4952956, sha256: DEC81A8684617770B3CF13FADC1D92565D1D453D23935FC6388B792D99C992BD, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, provenance: official_ONNX_Model_Zoo}
+  - {relative: src, files: 5, logical_bytes: 4995554, content_manifest_sha256: BDD32E5E3A1B6B61E61FAEEA18F6B9012D7111881C7748024CAA115D53291188, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, provenance: models_and_assignment_scripts}
+  - {relative: build, files: 3, logical_bytes: 102733, content_manifest_sha256: E5BC596D88380FBC7535AACBFC813180EAE8FE89AA82793965CACE9DAFE11AF3, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, provenance: packet_cell_ids_and_control_raw}
+  - {relative: env/ort-1.26.0, files: 327, logical_bytes: 379695264, content_manifest_sha256: 978BE264B5592929207EA8BBC89D267FB6F2D77C53B4D2591710280F2767A176, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, provenance: no_index_no_deps_local_install}
+  - {relative: env/ort-1.26.0/onnxruntime/capi/onnxruntime_providers_cuda.dll, bytes: 340580664, sha256: 46F3DE043EE9467A64DC3E2E97DEB447301B9C0DAF9FBE7963870586E24D7DED, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, provenance: ORT_GPU_wheel}
+  - {relative: cache, files: 88, logical_bytes: 229105546, content_manifest_sha256: 19F3388458340D3A828201D6D0D6F31976965A1EFF77EAAAF2A68CC90039D87D, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, provenance: process_local_pip_and_python_cache}
+  - {relative: logs, files: 9, logical_bytes: 6392, content_manifest_sha256: 2546F5E8960D23501AA4447AA4EDC3E6739322004863D57EA6BD28623E6CC20D, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, provenance: acquisition_install_control_and_inventory_capture}
+external_system_dependencies:
+  - {path: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA, disposition: EXTERNAL_SYSTEM_MANAGED__NOT_CLEANUP_TARGET}
+cleanup_performed: false

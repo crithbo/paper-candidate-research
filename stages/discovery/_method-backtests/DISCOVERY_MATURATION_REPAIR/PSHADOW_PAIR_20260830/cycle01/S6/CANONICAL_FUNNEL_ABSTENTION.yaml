@@ -1,0 +1,33 @@
+schema: discovery-canonical-funnel-honest-abstention-v1
+assignment_id: DMR-V1-PSHADOW-CYCLE-01-S6
+lane_id: DISCOVERY_S6_DIRECT_ALGORITHM_SOFTWARE
+cycle_id: DMR-V1-PSHADOW-CYCLE-01
+status: HONEST_ABSTENTION__ORDER_DEVIATION
+canonical_disposition: NO_CANONICAL_RQ_CARD_OR_BRIEF
+scientific_inference: NONE
+candidate_state_effect: NONE
+stage0_dispatch_effect: NONE
+frozen_required_order: [canonical_first, shadow_nomination_or_none_second, handoff_and_manifest]
+observed_deviation:
+  id: LOCAL_SEED_FREEZE_MISSING_BEFORE_FIRST_OFFICIAL_SOURCE_CALL
+  required: local canonical seed portfolio and primary RQ freeze before targeted evidence lookup
+  observed: official-source calls were made before a local seed/RQ artifact was frozen
+  consequence: source observations cannot be admitted into the canonical funnel; no post-hoc seed, RQ, question card, brief, or result-aware backfill is created
+  recovery: a new MAINLINE-frozen assignment may restart the canonical funnel from its required first step
+source_budget_ledger:
+  maximum: 6
+  consumed: 6
+  actions:
+    - {ordinal: 1, role: ANCHOR, action: open, target: 'https://github.com/microsoft/BitBLAS', outcome: no_usable_text_returned}
+    - {ordinal: 2, role: ANCHOR, action: search, target: 'site:github.com/microsoft/BitBLAS MatmulConfig', outcome: no_usable_text_returned}
+    - {ordinal: 3, role: CURRENT, action: search, target: 'microsoft BitBLAS GitHub MatmulConfig', outcome: official repository/documentation locators returned}
+    - {ordinal: 4, role: CURRENT, action: open, target: 'microsoft/BitBLAS matmul_dequantize_impl.py', outcome: current source locator returned}
+    - {ordinal: 5, role: CONTRARY, action: open, target: 'USENIX OSDI24 Ladder slides', outcome: primary project presentation locator returned}
+    - {ordinal: 6, role: ESCAPE, action: open, target: 'microsoft/BitBLAS QuickStart.md', outcome: official API/configuration locator returned}
+  further_calls: forbidden
+observations_not_admitted_as_canonical_evidence:
+  - BitBLAS official materials expose MatmulConfig, low-bit transform/dequantization-related configuration, and tuning-related interfaces.
+  - Ladder materials describe hardware-aware tensor transformations and their scheduling space.
+  - These observations are retained only as non-canonical stop context because the required pre-evidence freeze was not completed.
+prohibited_actions_confirmed_not_run: [canonical_seed_after_results, canonical_rq_after_results, question_card, topic_brief, shadow_nomination, repair_execution, download, build, experiment, stage0, stagea, stageb, shared_write]
+next_action: HANDOFF_SEALED__WAIT_SIX_LANE_BARRIER

@@ -1,0 +1,124 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  artifact_state: GC_COMPLETE__EXACT_PPC_TOOLCHAIN_AND_LOGS_RETAINED
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: EXACT_PPC_TOOLCHAIN_RESOURCE_GATE_HANDOFF_ACCEPTED
+  downstream_consumer: STAGEA_PPC_PRECLAIM_RESUME_AFTER_RESOURCE_PASS
+  post_close_retained_bytes_max: 2147483648
+  phase_closeout_retention_path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/RESUME_CAPSULE.yaml
+  cleanup_receipt_path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/CLEANUP_RECEIPT.yaml
+identity:
+  topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+  assignment_id: STAGEA-L1-20260826-LLVM-PPC-R2-OFFICIAL-REDIRECT-COMPATIBLE-EXACT-TOOLCHAIN
+  stage_or_mode: STAGEA_RESOURCE_GATE_RESUME_FROM_REDIRECT_POLICY_BLOCKER
+  run_id: PPC_R2_EXACT_RESOURCE_BUILD_GATE
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources
+  inventory_path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/RESOURCE_INVENTORY.yaml
+root_measurement:
+  logical_bytes: 244395392
+  allocated_bytes: null
+  measurement_method: POST_GC_LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+  file_count: 162
+  directory_count_including_root: 129
+  longest_persisted_path_characters: 259
+  reparse_entry_count: 0
+required_directories: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+redirect_preflight:
+  status: PASS_EXACT_BOUNDED_REDIRECT_AND_PROCESS_LOCAL_WRITABLE_SURFACES
+  process_local_only: true
+  system_or_user_environment_modified: false
+  map: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONNOUSERSITE: '1', PIP_CACHE_DIR: resources/cache/pip, XDG_CACHE_HOME: resources/cache/xdg, CLANG_MODULE_CACHE_PATH: resources/cache/clang-modules, CCACHE_DISABLE: '1'}
+  redirect_chain: [github.com, release-assets.githubusercontent.com]
+  redirects_followed: 1
+  signed_query_persisted_or_logged: false
+resource_envelope:
+  network_bytes_max: 268435456
+  max_single_response_bytes: 209715200
+  total_network_attempts_max: 3
+  attempts_per_asset: 1
+  followed_redirects_total_max: 1
+  stored_bytes_max: 15032385536
+  cpu_seconds_max: 36000
+  wall_seconds_max: 36000
+  build_jobs_max: 2
+  source_extraction_attempts_max: 1
+  tool_extraction_attempts_max: 1
+  configure_attempts_max: 1
+  clean_build_attempts_max: 1
+  gpu_hours_max: 0
+  network_bytes_used: 230139347
+  network_attempts_used: 3
+  redirects_followed_used: 1
+  stored_bytes_used: 244395392
+  source_extraction_attempts_used: 1
+  tool_extraction_attempts_used: 1
+  configure_attempts_used: 1
+  clean_build_attempts_used: 1
+  build_jobs_used: 2
+  build_steps_completed: 2826
+  gpu_hours_used: 0
+  exact_cpu_seconds_used: UNAVAILABLE__NOT_ESTIMATED
+  exact_wall_seconds_used: UNAVAILABLE__NOT_ESTIMATED
+entries:
+  - {path: resources/downloads/llvm-commit-f127b4c19c63b0492fb924934e37e032c17ea35b.json, logical_bytes: 6641, file_count: 1, sha256: E64F34464C58A1356359629FBBE629E40975B494A009AED5821CF0CDF7923492, creating_run: SAME_TOPIC_R1_EXACT_COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [PPC_R2_BUILD], provenance: ACCEPTED_SAME_TOPIC_R1_OFFICIAL_GITHUB_COMMIT_METADATA, license: METADATA, reacquirable: true, recovery: SAME_TOPIC_ACCEPTED_COPY_OR_OFFICIAL_API, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_RESOURCE_HANDOFF, receipt_reference: null}
+  - {path: resources/downloads/llvm-project-f127b4c19c63b0492fb924934e37e032c17ea35b.tar.gz, logical_bytes: 280166423, file_count: 1, sha256: C7871896611513E3E850818A7E5C6B0C600BE60BA46260105602EB9BFBD651CF, creating_run: SAME_TOPIC_R1_EXACT_COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [PPC_R2_BUILD], provenance: ACCEPTED_SAME_TOPIC_R1_OFFICIAL_LLVM_CODELOAD, license: APACHE_2_WITH_LLVM_EXCEPTION, reacquirable: true, recovery: SAME_TOPIC_ACCEPTED_COPY_OR_OFFICIAL_CODELOAD, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_RESOURCE_HANDOFF, receipt_reference: null}
+  - {path: resources/downloads/llvm-mingw-20260616-ucrt-x86_64.zip, logical_bytes: 187504083, file_count: 1, sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35, creating_run: OFFICIAL_ASSET_ATTEMPT_1_OF_1, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [PPC_R2_BUILD], provenance: OFFICIAL_GITHUB_RELEASE_ONE_BOUNDED_REDIRECT, license: MULTI_LICENSE_NOTICES_PACKAGED, reacquirable: true, recovery: EXACT_OFFICIAL_REDIRECT_ROUTE, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_RESOURCE_HANDOFF, receipt_reference: null}
+  - {path: resources/downloads/cmake-4.4.2-py3-none-win_amd64.whl, logical_bytes: 42325289, file_count: 1, sha256: C28388FE95298486169C45C0EC8BDF067AABCB59273B98A4CDAE8BE5CD9C74F3, creating_run: OFFICIAL_ASSET_ATTEMPT_1_OF_1, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [PPC_R2_BUILD], provenance: OFFICIAL_PYPI_FILES, license: INCLUDED_NOTICES_PACKAGED, reacquirable: true, recovery: EXACT_OFFICIAL_PYPI_URL, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_RESOURCE_HANDOFF, receipt_reference: null}
+  - {path: resources/downloads/ninja-1.13.0-py3-none-win_amd64.whl, logical_bytes: 309975, file_count: 1, sha256: FB8EE8719F8AF47FED145CCED4A85F0755DD55D45B2BDDAF7431FA89803C5F3E, creating_run: OFFICIAL_ASSET_ATTEMPT_1_OF_1, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [PPC_R2_BUILD], provenance: OFFICIAL_PYPI_FILES, license: INCLUDED_NOTICES_PACKAGED, reacquirable: true, recovery: EXACT_OFFICIAL_PYPI_URL, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_RESOURCE_HANDOFF, receipt_reference: null}
+  - {path: resources/src, logical_bytes: 2265363700, file_count: 181580, directory_count_including_root: 16681, hash_scope: ARCHIVE_DERIVED_EXACT_SOURCE_PLUS_RECORDED_SAFE_SYMLINK_MATERIALIZATION, creating_run: SOURCE_EXTRACTION_ATTEMPT_1_OF_1, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: EXACT_SOURCE_ARCHIVE_C7871896, license: NOTICES_PACKAGED, reacquirable: true, recovery: EXTRACT_ONCE_FROM_EXACT_ARCHIVE_WITH_RECORDED_POLICY, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_PACKAGE_AND_ZERO_ACTIVE_PROCESS, receipt_reference: null}
+  - {path: resources/build, logical_bytes: 2392481620, file_count: 3309, directory_count_including_root: 788, hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY, creating_run: CONFIGURE_1_AND_CLEAN_BUILD_1, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: EXACT_CONFIGURE_AND_BUILD_LOGS, license: NOT_APPLICABLE, reacquirable: true, recovery: RECONFIGURE_AND_REBUILD_FROM_EXACT_INPUTS, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_PACKAGE_AND_ZERO_ACTIVE_PROCESS, receipt_reference: null}
+  - {path: resources/env/t, logical_bytes: 839345887, file_count: 13669, directory_count_including_root: 353, hash_scope: THREE_EXACT_TOOL_ARCHIVES_EXTRACTED_ONCE, creating_run: TOOL_EXTRACTION_ATTEMPT_1_OF_1, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: LLVM_MINGW_CMAKE_NINJA_EXACT_ASSETS, license: NOTICES_PACKAGED, reacquirable: true, recovery: EXTRACT_ONCE_FROM_EXACT_ASSETS, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_PACKAGE_AND_ZERO_ACTIVE_PROCESS, receipt_reference: null}
+  - {path: resources/env/ppc-toolchain, logical_bytes: 244073942, file_count: 133, directory_count_including_root: 123, package_manifest_sha256: 39CF76C8DA10D645F26789C3FF1A4E3A47839C70DBDAC3D5A4AED73C6792094C, creating_run: PACKAGE_AND_FINALIZE, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [STAGEA_PPC_PRECLAIM_RESUME_AFTER_RESOURCE_PASS], provenance: EXACT_BUILD_OUTPUTS_RUNTIME_DLLS_NOTICES_PROVENANCE_NONCLAIM_SMOKE, license: 90_NOTICES_INCLUDED, reacquirable: true, recovery: PPC_R2_EXACT_REBUILD, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC, receipt_reference: null}
+  - {path: resources/cache, logical_bytes: 513979, file_count: 24, directory_count_including_root: 16, hash_scope: REGENERABLE_PROCESS_LOCAL_CACHE, creating_run: PROCESS_LOCAL_REDIRECT, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: REGENERABLE, license: NOT_APPLICABLE, reacquirable: true, recovery: REGENERATE, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, delete_after_gate: MAINLINE_ACCEPTS_HANDOFF_AND_ZERO_ACTIVE_PROCESS, receipt_reference: null}
+  - {path: resources/tmp, logical_bytes: 66396, file_count: 18, directory_count_including_root: 2, hash_scope: OWNER_SCRIPTS_AND_SMOKE_WORKING_FILES__SMOKE_EVIDENCE_COPIED_TO_PACKAGE, creating_run: OWNER_RESOURCE_GATE, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: PROJECT_INTERNAL, license: PROJECT_INTERNAL, reacquirable: false, recovery: PACKAGE_CONTAINS_SMOKE_EVIDENCE, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, delete_after_gate: MAINLINE_ACCEPTS_HANDOFF_AND_ZERO_ACTIVE_PROCESS, receipt_reference: null}
+  - {path: resources/logs, logical_bytes: 321450, file_count: 29, directory_count_including_root: 3, hash_scope: COMMAND_BUILD_EXTRACTION_NETWORK_SMOKE_PACKAGE_AND_INVENTORY_SNAPSHOT_LOGS, creating_run: OWNER_RESOURCE_GATE, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [MAINLINE_AUDIT], provenance: RAW_RESOURCE_RECORDS, license: PROJECT_INTERNAL, reacquirable: false, recovery: RETAIN, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC, receipt_reference: null}
+inventory_snapshots:
+  - {path: resources/logs/resource-inventory/pre-handoff-before-snapshot-accounting.yaml, bytes: 12316, sha256: 2DFDF9D367043FA4E399476E2372921E2B60057D28C2543A35BD0CF96444183F, scope: PRE_HANDOFF_CANONICAL_INVENTORY_BEFORE_SNAPSHOT_SELF_ACCOUNTING}
+shared_assets_consumed: []
+external_system_dependencies:
+  - {name: Windows, version: 10.0.26200.0, role: host_os, project_asset: false, class: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED}
+  - {name: bundled_workspace_python, version: 3.12.13, role: orchestration_only, project_asset: false, class: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED}
+cleanup:
+  owner: MAINLINE
+  owner_cleanup_allowed: false
+  authorized_descendants: [resources/src, resources/build, resources/env/t, resources/cache, resources/tmp, resources/downloads]
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY]
+  exact_cleanup_candidates: [resources/src, resources/build, resources/env/t, resources/cache, resources/tmp, resources/downloads]
+  active_owner_or_process_count: 0
+  performed: true
+  projected_postclose_retained_paths: [resources/env/ppc-toolchain, resources/logs]
+  projected_postclose_retained_bytes: 244395392
+  post_close_budget_bytes: 2147483648
+  projected_postclose_budget_pass: true
+  deleted_entries: [resources/src, resources/build, resources/env/t, resources/cache, resources/tmp, resources/downloads]
+  deleted_file_count: 198605
+  deleted_logical_bytes: 6008083993
+  postdelete_file_count: 162
+  postdelete_logical_bytes: 244395392
+  cleanup_receipt_sha256: 0D2322BB88CCD37B18FBEC8550A16980E321CDC805A5486A0864EA6CDB53F0BF
+  performed_at: 2026-08-26T01:32:00+08:00
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: POSTCLOSEOUT_EXACT_BUILD_SOURCE_ENV_DOWNLOAD_CACHE_TMP_GC
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: true
+  deterministic_recovery_routes_complete: true
+  closeout_budget_or_exception_pass: true
+  owner_cleanup_performed: false
+  cleanup_receipt_valid: true
+  result: GC_COMPLETE__EXACT_PPC_TOOLCHAIN_AND_LOGS_RETAINED__NO_SCIENTIFIC_INFERENCE

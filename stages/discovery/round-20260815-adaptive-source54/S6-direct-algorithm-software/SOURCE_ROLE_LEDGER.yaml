@@ -1,0 +1,23 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE54-R40-ORDINARY-BREADTH-V1
+query_role_summary:
+  ANCHOR: {core: 1, adjacent: 0, off_topic: 0, exact_history: 0, current_fatal: 0, anchorable_unresolved: 0}
+  CURRENT: {core: 1, adjacent: 0, off_topic: 0, exact_history: 0, current_fatal: 0, anchorable_unresolved: 0}
+  CONTRARY: {core: 0, adjacent: 1, off_topic: 0, exact_history: 0, current_fatal: 0, anchorable_unresolved: 0}
+sources:
+  - id: SRC01
+    role: ANCHOR_AND_CURRENT
+    url: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
+    accessed_utc: 2026-08-15
+    provenance: GNU Project official current GCC manual
+    decisive_facets: [fipa_ra, caller_save_registers, same_compilation_unit, compile_order, lto_partition_incompatibility, profile_recommendation]
+    observation: Current documentation constrains the native caller-save allocation action and shows it is not a missing primitive.
+  - id: SRC02
+    role: CONTRARY_GENERIC_KERNEL
+    url: https://gcc.gnu.org/onlinedocs/gccint/RTL-passes.html
+    accessed_utc: 2026-08-15
+    provenance: GNU Project GCC Internals
+    decisive_facets: [register_allocation, pseudo_elimination, hard_register_or_stack_assignment]
+    observation: The closest contrary class is ordinary register allocation; no GHC/LLVM/Source53 material is relied on.
+source_locus_not_expanded: gcc/ipa-ra.cc
+reason_not_expanded: RQ fails the source-supported non-generic discriminator before any action-absence claim or raw admission; source unavailability is not asserted.
+resource_actions: []

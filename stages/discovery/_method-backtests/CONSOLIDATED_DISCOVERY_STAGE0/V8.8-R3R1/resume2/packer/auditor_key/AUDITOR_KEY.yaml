@@ -1,0 +1,31 @@
+auditor_only: true
+assignment_id: BACKTEST-PACKER-L1-20260811-CONSOLIDATED-V8.8-R3R1-RESUME2
+case_gold:
+  k4p7: {stratum: unseen_current_collision_sentinel, disposition: STRUCTURAL_DROP, proposed_brief: false, candidate_grade_deep_review: false, proposal_grade: false, basis: DIRECT_ABSORPTION, structural_proof: SAME_INFORMATION_SAME_CONTRACT_FULL_COST_REPLAY, minimum_set_invariant: 's01 retention action; s02 request/accounting action; s03 configuration action'}
+  m8q2: {stratum: unseen_current_collision_sentinel, disposition: STRUCTURAL_DROP, proposed_brief: false, candidate_grade_deep_review: false, proposal_grade: false, basis: DIRECT_ABSORPTION, structural_proof: SAME_INFORMATION_SAME_CONTRACT_FULL_COST_REPLAY, minimum_set_invariant: 's01 access-path construction; s02 predicate action; s03 statement-plan integration'}
+  t5r1: {stratum: underdefined_nonstructural, disposition: NOT_ADMITTED_UNFROZEN, proposed_brief: false, candidate_grade_deep_review: false, proposal_grade: false, basis: UNFROZEN_ACTION, structural_proof: NONE, minimum_set_invariant: 'no frozen A_c/P/W_m/F_n'}
+  v3n9: {stratum: underdefined_nonstructural, disposition: NOT_ADMITTED_UNFROZEN, proposed_brief: false, candidate_grade_deep_review: false, proposal_grade: false, basis: UNFROZEN_ACTION, structural_proof: NONE, minimum_set_invariant: 'no frozen A_c/P/W_m/F_n'}
+  a6x4: {stratum: true_structural, disposition: STRUCTURAL_DROP, proposed_brief: false, candidate_grade_deep_review: false, proposal_grade: false, basis: CHANGED_GUARANTEE, structural_proof: CHANGED_GUARANTEE, minimum_set_invariant: 's01 verifier; s02 admission; s03 documented safety boundary'}
+  e1w6: {stratum: true_structural, disposition: STRUCTURAL_DROP, proposed_brief: false, candidate_grade_deep_review: false, proposal_grade: false, basis: DIRECT_ABSORPTION, structural_proof: SAME_INFORMATION_SAME_CONTRACT_FULL_COST_REPLAY, minimum_set_invariant: 's01 exploration; s02 final plan; s03 optimizer full-cost design'}
+  h7d3: {stratum: historical_positive_stage0_shape, disposition: DEEP_DIVE_REQUIRED, proposed_brief: true, candidate_grade_deep_review: true, proposal_grade: true, basis: COMPLETE_RESIDUAL, structural_proof: NONE, minimum_set_invariant: 'complete bounded certificate and no direct replay in supplied slice'}
+  p2y8: {stratum: historical_positive_stage0_shape, disposition: DEEP_DIVE_REQUIRED, proposed_brief: true, candidate_grade_deep_review: true, proposal_grade: false, basis: COMPLETE_RESIDUAL, structural_proof: NONE, minimum_set_invariant: 'complete residual with one bounded configuration closure gap'}
+  c9f5: {stratum: resource_unimplemented_control, disposition: RESOURCE_BLOCKED, proposed_brief: false, candidate_grade_deep_review: false, proposal_grade: false, basis: RESOURCE_ONLY, structural_proof: NONE, minimum_set_invariant: 'unavailable implementation environment is resource-only'}
+  r4b0: {stratum: resource_unimplemented_control, disposition: RESOURCE_BLOCKED, proposed_brief: false, candidate_grade_deep_review: false, proposal_grade: false, basis: RESOURCE_ONLY, structural_proof: NONE, minimum_set_invariant: 'missing measurement harness is resource-only'}
+source_identity_map:
+  k4p7: 'Redis 7.4.0: evict.c, server.c, redis.conf'
+  m8q2: 'SQLite version-3.45.0: where.c, whereexpr.c, select.c'
+  t5r1: 'nginx release-1.24.0: cache, upstream, request source'
+  v3n9: 'Node.js v20.11.1: outgoing HTTP, HTTP/2 core, HTTP docs'
+  a6x4: 'Linux v6.8: BPF verifier, syscall, verifier documentation'
+  e1w6: 'PostgreSQL REL_16_0: optimizer path, planner, optimizer README'
+  h7d3: 'Go go1.22.0: HTTP server, transport, deflate'
+  p2y8: 'Kubernetes v1.29.0: scheduler cycle, framework interface, config types'
+  c9f5: 'OpenJDK jdk-21+35: Deflater, Inflater, ZipFile'
+  r4b0: 'CPython v3.12.0: functools, weakref, collections init'
+acceptance_predicates:
+  sentinels: '2/2 semantic minimum-set recall and 0/2 broad leakage'
+  underdefined: '2/2 NOT_ADMITTED_UNFROZEN; 0 invented structural proofs'
+  structural: '2/2 not packaged and 2/2 correct proof type'
+  historical_positive: '2/2 deep review; at least 1 proposal grade or one clear bounded nonstructural gap'
+  resource: '0/2 runtime/resource-only structural disposition'
+  universal: 'all proposed briefs have full certificate; no hard-gate bypass; no terminal revival; integrity PASS'

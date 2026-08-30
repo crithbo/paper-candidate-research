@@ -1,0 +1,21 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-14F00B4F47004C29
+cutoff_date: 2022-06-01
+contribution_type: SYSTEM_ARCHITECTURE
+exact_object: first-level data prefetching using local address deltas and timeliness
+natural_scenario: standard CPU traces with irregular but locally repeating access sequences
+problem: global or fixed-offset predictors issue late or wasteful requests when local streams interleave
+atomic_action: learn deltas within local access contexts and issue only requests predicted to arrive before demand
+mechanism: local correlation plus timeliness filtering targets useful near-future lines without global pattern pollution
+information_condition: local address history, demand timing, cache state, and outstanding request timing
+comparators: [offset_prefetcher, spatial_pattern_prefetcher, multi_lookahead_prefetcher, system_aware_learning_prefetcher]
+claim_endpoint: speedup and timeliness at matched bandwidth and storage
+full_cost: [speedup, accuracy, coverage, timeliness, bandwidth, pollution, storage]
+minimum_falsifier: no matched-budget improvement over strong local and global predictors
+source_cards:
+  - {id: S01, year: 2016, role: best_offset_prefetching}
+  - {id: S02, year: 2019, role: spatial_pattern_prefetching}
+  - {id: S03, year: 2019, role: multi_lookahead_offset_prefetching}
+  - {id: S04, year: 2021, role: system_aware_learning_prefetching}
+local_resource_envelope: ROUTE_OUTSIDE_WINDOWS_LOCAL__TRACE_SIMULATION_REQUIRED
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

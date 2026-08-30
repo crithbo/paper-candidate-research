@@ -1,0 +1,52 @@
+schema: rvv-r5c-a2-execution-blocker-v1
+assignment_id: STAGEA-L1-20260826-LLVM-RVV-R5C-TRANSITIVE-SPLIT-QUOTIENT-DEPENDENCY-CLOSURE-A2
+result: FAIL_CLOSED_SOFT_ENGINEERING_BLOCKER
+first_failure_gate: C7_NEGATIVE_CONTROL_AGGREGATION
+first_failure_error: negative_control_contract_failure
+failure_class: ORDER_SENSITIVE_CASE_LIST_COMPARISON_AFTER_SORTED_JSON_ROUNDTRIP
+mechanical_basis:
+  required_case_count: 12
+  individual_case_results_true: 12
+  required_order:
+    - MISSING_LEAF
+    - UNKNOWN_PARENT
+    - CROSS_CLASS_OR_LMUL
+    - CYCLE
+    - ORPHAN_DESCENDANT
+    - MULTIROOT_DESCENDANT
+    - MISSING_SPILL
+    - MISSING_RELOAD_OR_FUTURE_USE
+    - MUTATED_TRANSITIVE_GRAPH_HASH
+    - MUTATED_FUTURE_ACTION_OR_COST_SIGNATURE
+    - F4_WITHOUT_CLOSURE
+    - F5_WITH_MUTATED_CLOSURE
+  observed_order:
+    - CROSS_CLASS_OR_LMUL
+    - CYCLE
+    - MISSING_LEAF
+    - MISSING_RELOAD_OR_FUTURE_USE
+    - MISSING_SPILL
+    - MULTIROOT_DESCENDANT
+    - ORPHAN_DESCENDANT
+    - UNKNOWN_PARENT
+    - MUTATED_TRANSITIVE_GRAPH_HASH
+    - MUTATED_FUTURE_ACTION_OR_COST_SIGNATURE
+    - F4_WITHOUT_CLOSURE
+    - F5_WITH_MUTATED_CLOSURE
+  values_failure: false
+  order_comparison_failure: true
+runner_status_sha256: EF6EA42ADCA71124D4EC4EBC0E3AECC16E3731F44E30B8EEC6380AC311DA6A29
+internal_command_records: 14
+no_bytecode_static_compiles_passed: 3
+fresh_llc_commands_passed: 2
+split_closure_component: PASS
+F3_F4_F5_components: PASS
+automatic_retry: false
+source_edit_after_failure: false
+natural_or_selected_tool_invocations: 0
+claim_bearing_runs: 0
+scientific_inference: NONE
+scientific_revision_consumed: false
+second_pivot_or_revision: false
+state_transition_performed: false
+cleanup_performed: false

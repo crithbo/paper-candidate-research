@@ -1,0 +1,21 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+opportunity_family_id: S1-R16A-F03
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+cutoff: 2026-08-13
+opportunity_family: {canonical_signature: RUST_ONCE__POISON_FORCE_RECOVERY__FIXED_INIT_GRAPH__HAPPENS_BEFORE__STD_UNION__CPU_RSS_BLOCKING, relations: []}
+queries:
+  - {query_id: Q03, text: "site:doc.rust-lang.org std sync Once call_once_force poison", purpose: current state/recovery semantics, source_or_search_engine: official Rust documentation/source, executed_at: 2026-08-13, filters: [official], read_depth: SOURCE, key_result_ids: [S03], exclusions_with_reasons: ["No test execution permitted."], state_change: neutral snapshot frozen}
+sources:
+  - {source_id: S03, title_or_artifact: "Rust std::sync::Once", canonical_version: stable/nightly current docs accessed 2026-08-13, locator: "https://doc.rust-lang.org/stable/src/std/sync/once.rs.html", source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE, normalized_variants: [], repository_commit_config_or_dataset_hash: rust-std-source-route}
+claims:
+  - claim_id: C03
+    text: Once has incomplete, poisoned and complete states; call_once_force can clear poison after successful forced initialization.
+    priority: HIGH
+    priority_rationale: fixes recovery action and guarantee
+    source_links: [{source_id: S03, relation: DIRECT, locator: Once/OnceState source docs, evidence_status: DIRECT_OBSERVATION, conflict: "", permitted_conclusion: neutral contract fact only}]
+direct_coverage: {target_source_or_union: Rust std Once and platform once implementation union, predicates: {same_object_function_protocol: UNKNOWN, same_scenario_workload: UNKNOWN, same_or_weaker_information: UNKNOWN, atomic_action_covered: UNKNOWN, same_or_stronger_legality_quality_guarantee: UNKNOWN, same_nonworse_full_cost: UNKNOWN, comparable_scale_platform_version_config: UNKNOWN, sufficient_read_or_reproduction_depth: UNKNOWN}}
+independent_prior_current_audit: {owner_or_lane: S1, query_ids: [Q03], completed: false}
+stopping: {high_impact_items_bounded: false, latest_and_current_union_checked: false, first_party_depth_sufficient: false, heterogeneous_independent_path_complete: false, contrary_search_complete: false, natural_or_canonical_carrier_frozen: true, full_cost_frozen: false, marginal_sources_no_longer_decision_changing: false, decisive_contradictions_resolved_or_bounded: false, disposition: SEARCH_BOUNDED_OPEN}
+execution_readiness: {state: E1, e1_evidence: [official-source-docs], e2_authorization_id: "", e2_allowlist: {}, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: Neutral source snapshot only.

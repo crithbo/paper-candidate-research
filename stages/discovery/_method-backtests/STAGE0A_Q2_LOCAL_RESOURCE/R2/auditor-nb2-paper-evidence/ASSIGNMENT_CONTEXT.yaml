@@ -1,0 +1,28 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+identity: {lane_id: BACKTEST-AUDITOR, lane_thread_id: 01a034d0-e86d-7ba0-ac31-1ca60477b3ce, role_id: DISCOVERY_BACKTEST_AUDITOR, assignment_id: BACKTEST-AUDITOR-20260827-STAGEA-PAPER-EVIDENCE-R2-NB2, topic_id: STAGEA_PAPER_EVIDENCE_BACKTEST_R2, stage_or_mode: PAPER_EVIDENCE_GOLD_COMPARISON, status: BOOTSTRAP_ACK_PENDING, resume_point: STAGEA_GATE_ACCEPTED, next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY}
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: BACKTEST-AUDITOR
+  allowed_actions: [read_immutable_gate_outputs, read_auditor_gold_key_after_start, write_auditor_comparison_and_final_report]
+  forbidden_actions: [new_experiment, new_probe, network, resource_creation, production_candidate_registration, StageB, blind_nonblind_metric_merge, unbiased_recall_claim, threshold_75_claim]
+boundaries: {unique_write_directory: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/auditor-nb2-paper-evidence, resource_root: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/auditor-nb2-paper-evidence/resources, write_allowed_paths: [E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/auditor-nb2-paper-evidence, E:/project/writing/reserch/stages/stageA/_compatibility/paper-evidence-20260827/FINAL_STAGEA_BACKTEST_REPORT.md], network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 6ACE88DEC02A79E30A9B2890227D61DE98AB8EA0DEDB69FF546860D3B252C685}
+  registry_snapshot: {path: registry.yaml, sha256: 8C2FDD581F283B0C15F17E861B52645FD9AB7ACCD413DFEB726BBF09093A8299}
+  role_rule: {path: rules/ROLE_DISCOVERY_BACKTEST.md, sha256: 74056A6BF3F6A1ABBFF56A13BA27DCD9656B39DD6673D046935C312D39033C23}
+  skills: [{path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+  templates: [{path: templates/DISCOVERY_METHOD_BACKTEST.md, sha256: 442CD660FD993C75611B22C87B2C1C928B2A46E7691D9D75E12A0010822A6DA8}]
+minimum_inputs:
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/auditor-nb2-paper-evidence/ASSIGNMENT.yaml, sha256: CE1D55EADF865DBA6A9EA24D7C0366061985B5B216EBD2738F0955FE4435EA07}
+  - {path: stages/stageA/_compatibility/paper-evidence-20260827/gate/PAPER_EVIDENCE_STAGEA_GATE_REPORT.yaml, sha256: 089C34B34E796598BD7E91A2696946B990697B9A49B1A0D8F134FABD3BAD4569}
+  - {path: stages/stageA/_compatibility/paper-evidence-20260827/gate/handoff.yaml, sha256: 6A8E2628D531733143A89261BE62A7514F0642F6AF4FD6F52E9906BA14296438}
+  - {path: stages/stageA/_compatibility/paper-evidence-20260827/gate/HASH_MANIFEST.sha256, sha256: 8ACF40D84E21C7134E7BFDAF8A3CE54C0565234ABA100A5F00F3CC16E516E977}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/ENRICHED_PAPER_EVIDENCE_CAPSULES_MANIFEST.yaml, sha256: 152E118F169F43DAA7316C19F6EE2745425FE3CF72F7E579B7A29E9643050061}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/AUDITOR_GOLD_KEY.yaml, sha256: C3F813395CDB4AF93FFDF7DC89E77973FEA24749C3E36FDA6A2CACEB55043D82, visibility: AUDITOR_ONLY_AFTER_START}
+  - {path: stages/rule-audit/RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2/BLIND_PILOT_DISPOSITION.yaml, sha256: 3F1D8B9A4A4F7263DBE5F52A9F65B6ED6F219C354758BDDAAD90FBDE5F36312D}
+evidence_ceiling: PAPER_REPORTED_OR_AUTHOR_ARTIFACT_REPORTED__NO_PROJECT_REPRODUCTION_CLAIM
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: VALIDATED}

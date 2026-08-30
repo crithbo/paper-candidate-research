@@ -1,0 +1,101 @@
+schema: ppc-r8-a3-handoff-v1
+created_at: 2026-08-26T07:07:52.9546882+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+addendum_id: PPC-R8-A3-STABLE-RELATIVE-MIR-INPUT-PATH
+decision: PASS_PRECLAIM_ACTUAL_NATURAL_HARNESS_FIDELITY__READY_FOR_SEPARATE_R9_CLAIM_ASSIGNMENT__NO_SCIENTIFIC_INFERENCE
+evidence_ceiling: CONTROL_NON_CLAIM_PRECLAIM_CONTRACT_FIDELITY_ONLY__NO_SCIENTIFIC_INFERENCE
+ordered_gate: {J0: REUSED_PASS_NO_RERUN, J1: PASS, J2: PASS, J3: PASS, J4: PASS, J5: PASS_EXACT_RAW_TWO_REPLAY, J6: PASS_FULLY_EXPANDED_PLAN_NOT_EXECUTED}
+A3_patch:
+  file: resources/src/actual_claim_harness/actual_claim_harness.py
+  original_sha256: 6593C28CFF8021D85A3B95721FBCC4125B93F301DF6DA414BCD69DEEC14B343B
+  corrected_sha256: B4155CD20EDE6E2F994B69E61B6FC796D70848E4902E1FC1FCAEAA000673A2FE
+  corrected_bytes: 21929
+  logical_edit_locations: 1
+  semantics: MACHINEVERIFIER_ARGV_ABSOLUTE_MIR_PATH_TO_RELATIVE_LITERAL_INPUT.MIR
+  edit_audit: {path: A3_SOURCE_EDIT_AUDIT.yaml, sha256: C803958AB0EA74CCDA1CDA26324B4582A7617115DF23F40F0F8CDB59D4E604A4}
+  final_exact_frozen_target_match: true
+A2_pass2_preserved:
+  handoff: {path: handoff.pass2_exact_replay_module_id_path_fail.yaml, sha256: 6E46907F29CBB678C3E93ED81ABAFAD59EDF81E734FA5858C36481B13B57A40F}
+  manifest: {path: HASH_MANIFEST.pass2_exact_replay_module_id_path_fail.sha256, sha256: B5B8253FBBA8CDCA990C8CB2E09D791F65B59D7C7B8379D198A97DBBB4BD1366}
+fresh_replays:
+  replay_1:
+    path: resources/build/actual_harness_a3/replay_1
+    native_commands: 11
+    all_exit_zero: true
+    all_checkers_pass: true
+    replay_summary_sha256: BFB657A1CF61F3AFD5F6C6DD7D9F4AC818514155714ACD8FFF14D3F04A99056F
+    deterministic_payload_file_sha256: 655C813151708752FAE23E124E4954E0190C338ECB4C9B4E1744FFB4DB010A3B
+    machineverified_sha256: 85675799D1E3BAFFEB233CBC954F8B33F69449ABD2DB9A9E08509C128C50CCCC
+  replay_2:
+    path: resources/build/actual_harness_a3/replay_2
+    native_commands: 11
+    all_exit_zero: true
+    all_checkers_pass: true
+    replay_summary_sha256: E19925616675659BBF64CC569E659BEF30BDFEA9AF9C87CE21292A08973161B3
+    deterministic_payload_file_sha256: 655C813151708752FAE23E124E4954E0190C338ECB4C9B4E1744FFB4DB010A3B
+    machineverified_sha256: 85675799D1E3BAFFEB233CBC954F8B33F69449ABD2DB9A9E08509C128C50CCCC
+  equal_candidate_base_result_sha256: 6EA87DD5ED1DFEC4F34F2EE23B0BA9500D7718ED9695BF14D43BF8BDD85992F9
+  equal_trace_sha256: 390F7E670641E95479809EAD51582827435ED39A3CF2E864B96CAC1C127F3930
+  machineverifier_argv_input_both: input.mir
+  machineverifier_cwds_and_input_files_isolated: true
+  exact_raw_machineverified_byte_equal: true
+  exact_raw_deterministic_payload_byte_equal: true
+  posthoc_normalization_or_shared_overwrite: false
+r9_plan:
+  path: resources/src/actual_claim_harness/r9_processes.json
+  sha256: 1EDCDB7AF51AB94C4E48988EF0BEE734CC413953F89261419530B7EC751AA878
+  internal_sha256: D6E6A629C82B3539BB98B81D0D5B6612CECDA1CCBCE543D8C66F1F04C6B3143F
+  validation_sha256: 030DD65F8DCC774ED8EC1A250AFB5472677FFA070C374EA5AD518666B8E99FAE
+  rows: 32
+  selected_rows: 16
+  compile_argv_total: 512
+  link_argv_total: 1024
+  ablation_argv_total: 64
+  checker_rows: 32
+  full_cost_rows: 32
+  fully_expanded_absolute_paths: true
+  unresolved_variables_or_generator_labels: 0
+  future_resource_root_absent: true
+  executed: false
+execution_summary:
+  new_native_command_records: 22
+  new_native_successes: 22
+  additional_record_limit: 24
+  cumulative_native_command_records_including_A1_A2_A3: 56
+  cumulative_record_limit: 58
+  automatic_retries: 0
+  selected_or_reserve_corpus_tool_invocations: 0
+  claim_bearing_runs: 0
+  network_bytes: 0
+  resource_files: 405
+  resource_logical_bytes: 248032109
+  resource_reparse_entries: 0
+  active_related_processes: 0
+  A3_native_cpu_seconds_sum: 0.453125
+  A3_native_wall_seconds_sum: 1.35100539997802
+  A3_peak_rss_bytes_max: 23523328
+  r9_plan_rows: 32
+  r9_plan_executed: false
+  cleanup_performed: false
+scientific_boundary: {claim_bearing_observations: 0, scientific_revision_consumed: false, mechanism_pivot_consumed: false, state_transition_performed: false, stageb_action_performed: false, scientific_inference: NONE}
+canonical_hashes:
+  A3_precommit_sha256: 0B61BA103F4569BF121D6180205C9A85E8C98D302DED98EF8390E8C54C58A413
+  A3_source_edit_audit_sha256: C803958AB0EA74CCDA1CDA26324B4582A7617115DF23F40F0F8CDB59D4E604A4
+  A3_run_precommit_sha256: 40989D3DBB0FF8C8B7B3DA9236947E36FDDFFB34ED058D196E15ECC590F6C45D
+  environment_lock_sha256: EE10F0DB8ACB862C12BC33871E34A256DD477E35EAD1F24C156E83B4EE8019B7
+  actual_cli_audit_sha256: FAF539DC188679D39514BCC4A7CA44F821B2DA548600563586D587079343D1A2
+  input_driven_candidate_audit_sha256: 4936B683C775AF7A6CBFA30F7FA3EED7887279B131E9D5F32F45BCE408CA88C6
+  expanded_union_ablation_audit_sha256: FD135850E3F163539BA10E95CA173C0644B67F8D8F97A381890C23E36B426CE3
+  native_checker_evidence_audit_sha256: 4FA3A4C22B1622746A4EF0F0FB5EA0618FA190663E8DA5DB179B0F0367C65070
+  real_command_full_cost_audit_sha256: B6C9E3552ED623B6E2A662B52EA25B9D207A0AC348DACD0999294716D7F24FF5
+  synthetic_native_fidelity_smoke_sha256: AB8087DB730A7D7C46D990E3B29ACE225561C742277BD4E7ABE921E198935788
+  r9_expanded_command_precommit_sha256: DB3D175196F755051A00F957B451D166220AA21A32E372EC01D1DA694C777495
+  preclaim_gate_sha256: 301692410DD382348C0B86F54D6C5CB800D604B30C686E5BCF10802A44BB44D6
+  reproducibility_report_sha256: 88B1275EEF04B697576B76839F711BE7E9FC0B698DC34E8D1962C2B97F6BF8A8
+  resource_inventory_sha256: C02570EB5E5356416DD921E0C0E669A8AEEE2707166E04EC63648950166B58EC
+  retention_sha256: 370FBEBAA8057BD0549F3D83E1D4A8F6E396C80317477AA4D197644472793064
+  resume_capsule_sha256: 6DE4A8656CD82ACD96BE17E6AA22312B6C6271D71F5DEA08A220FB397CBCA8F6
+exact_cleanup_candidate_leaves: [resources/cache, resources/tmp, resources/downloads, resources/archives]
+owner_cleanup_allowed: false
+future_claim_requires_separate_mainline_frozen_assignment_and_start: true
+next_action: MAINLINE_ACCEPT_HANDOFF_AND_DECIDE_SEPARATE_R9_CLAIM_ASSIGNMENT

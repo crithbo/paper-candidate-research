@@ -1,0 +1,47 @@
+{
+  "schema": "vhlo-a0-readiness-packet-v1",
+  "assignment_id": "STAGEA-L2-20260830-VHLO-SEMANTIC-COMPAT-A0",
+  "topic_id": "SOURCE120-S1-VHLO-SEMANTIC-COMPAT",
+  "object": "StableHLO portable artifacts created by official compatibility APIs and consumed after reference deserialization",
+  "claim_ceiling": "CONDITIONAL_CANONICAL_FORMAL_ORACLE_COMPATIBILITY_ONLY",
+  "source_freeze": "OFFICIAL_SOURCE_FREEZE.yaml",
+  "versions": ["0.9.0", "1.20.0"],
+  "witness_classes": [
+    {"id": "EXACT_INTEGER", "selection_rule": "spec-defined integer arithmetic with exact typed inputs", "oracle": "EXACT"},
+    {"id": "TOLERANCE_FLOAT", "selection_rule": "floating operation with preregistered finite atol/rtol and identical inputs", "oracle": "TOLERANCE"},
+    {"id": "IMPLEMENTATION_DEFINED_ACCURACY", "selection_rule": "operation whose StableHLO accuracy is explicitly outside the portable semantic guarantee", "oracle": "IMPLEMENTATION_DEFINED"},
+    {"id": "UNSUPPORTED_CONSUMER_SURFACE", "selection_rule": "legal reference artifact at a frozen version with a preregistered consumer support predicate", "oracle": "UNSUPPORTED"}
+  ],
+  "oracle_taxonomy": {
+    "EXACT": {"comparison": "typed structural equality including shape dtype integer values NaN class and signed-zero policy"},
+    "TOLERANCE": {"comparison": "same-shape same-dtype elementwise |a-b| <= atol + rtol*|reference|", "atol": 0.00001, "rtol": 0.00001, "nan_equal": true, "signed_zero_equal": true},
+    "IMPLEMENTATION_DEFINED": {"comparison": "record support and output schema only; no semantic incompatibility verdict"},
+    "UNSUPPORTED": {"comparison": "record preregistered unsupported status in denominator; never delete or relabel as incompatibility"}
+  },
+  "executors": [
+    {"id": "REFERENCE", "commit": "6a5902c7c0f7b3085a502d148b846a62eaa20501", "tool_root": "E:/project/writing/reserch/stages/stageA/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/a0-execution-readiness-20260830/resources/env/stablehlo/bin", "binding_status": "UNBOUND_NATIVE_BYTES"},
+    {"id": "IREE", "commit": "ee89ff3011fb5bfb952d1471fd3b745c8b06b916", "tool_root": "E:/project/writing/reserch/stages/stageA/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/a0-execution-readiness-20260830/resources/env/iree/bin", "binding_status": "UNBOUND_NATIVE_BYTES_AND_EMBEDDED_REVISION"},
+    {"id": "XLA", "commit": "5ce7908a2d32a9f91fd99380435cda1b645c8cc7", "tool_root": "E:/project/writing/reserch/stages/stageA/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/a0-execution-readiness-20260830/resources/env/xla/bin", "binding_status": "UNBOUND_NATIVE_BYTES_AND_CURRENT_HEAD"}
+  ],
+  "planned_matrix": {"witness_classes": 4, "versions": 2, "executors": 3, "planned_cells": 24, "executed_cells": 0},
+  "argv_contract": {
+    "status": "INCOMPLETE_UNBOUND_TOOLS__NO_EXECUTION_ALLOWED",
+    "reference_deserialize": ["E:/project/writing/reserch/stages/stageA/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/a0-execution-readiness-20260830/resources/env/stablehlo/bin/stablehlo-translate.exe", "--deserialize", "ABSOLUTE_ARTIFACT_PATH", "-o", "ABSOLUTE_DESERIALIZED_PATH"],
+    "iree_compile": ["E:/project/writing/reserch/stages/stageA/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/a0-execution-readiness-20260830/resources/env/iree/bin/iree-compile.exe", "--iree-input-type=stablehlo", "--iree-hal-target-device=local", "--iree-hal-local-target-device-backends=vmvx", "ABSOLUTE_WITNESS_PATH", "-o", "ABSOLUTE_VMFB_PATH"],
+    "iree_run": ["E:/project/writing/reserch/stages/stageA/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/a0-execution-readiness-20260830/resources/env/iree/bin/iree-run-module.exe", "--module=ABSOLUTE_VMFB_PATH", "--input=ABSOLUTE_INPUT_PATH"],
+    "xla_run": ["E:/project/writing/reserch/stages/stageA/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/a0-execution-readiness-20260830/resources/env/xla/bin/run_hlo_module.exe", "--platform=CPU", "--reference_platform=", "--input_format=stablehlo", "--print_literals=true", "ABSOLUTE_WITNESS_PATH"]
+  },
+  "output_schema": {
+    "required_mechanical_fields": ["cell_id", "witness_class", "target_version", "executor", "command_exit", "timeout", "required_outputs_present", "schema_valid", "support_status", "oracle_class", "raw_receipt_sha256", "full_cost_receipt_sha256"],
+    "hidden_until_A1": ["semantic_decision_delta", "compatibility_failure_rate", "consumer_ranking_or_coverage"]
+  },
+  "full_cost": {
+    "required_fields": ["cpu_seconds", "wall_seconds", "peak_rss_bytes", "input_bytes", "artifact_bytes", "serialization_bytes", "compile_bytes", "runtime_output_bytes", "normalization_cpu_seconds", "triage_cpu_seconds", "exit_status", "timeout"],
+    "units_frozen": true,
+    "missing_cost_is_fail_closed": true
+  },
+  "support_intersection": {"status": "INCOMPLETE", "reason": ["IREE embedded StableHLO revision unresolved", "XLA current HEAD and embedded StableHLO revision unresolved"]},
+  "firewall": {"relative_or_compatibility_results_visible": false, "result_aware_witness_or_consumer_change": false, "claim_matrix_execution": false},
+  "a0_status": "EXECUTION_CONTRACT_HOLD_PENDING_SCHEMA_CONTROL"
+}
+

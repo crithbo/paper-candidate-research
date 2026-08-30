@@ -1,0 +1,36 @@
+schema_version: cleanup-receipt-v1
+identity: {topic_id: COUPLED-AGENT-REPLAY-REV0, assignment_id: MAINLINE-20260822-COUPLED-AGENT-REPLAY-PREFREEZE2-TRANSPORT, closeout_event: ACCEPTED_HANDOFF_LEGACY_EXACT_CLEANUP, cleanup_id: MAINLINE-LEGACY-COUPLED-AGENT-TRANSPORT-JSON-20260824, actor: MAINLINE, performed_at: 2026-08-24T21:08:00+08:00}
+authority: {artifact_lifecycle_mode: LEGACY_EXACT_APPROVAL_NOT_AUTOMATIC_POLICY, policy_sha256: C8FDB53916138BB91C4A980657891D5B1FB9F41A4C9FE5DD4F619E60BBB256CE, user_approval_ids: [USER-PHASE-CLOSEOUT-STORAGE-LIFECYCLE-V1-20260824, USER-CONTINUE-E-DRIVE-STORAGE-HYGIENE-20260824]}
+predelete:
+  record_path: stages/control/e-drive-cutover-lifecycle-implementation-20260824-V1/legacy_cleanup/LEGACY_CLEANUP_PREDELETE.yaml
+  record_sha256: C5B51AE9E71420C457F216123E462B10F9ACA6C39AF72E4B01602F01C978BB3F
+  exact_target_count: 5
+  file_count: 5
+  logical_bytes: 8125013
+  containment_pass: true
+  root_blacklist_pass: true
+  reparse_count: 0
+  active_owner_or_process_count: 0
+  retained_hash_gate: PASS_PINNED_TWINS_5_OF_5
+  downstream_gate: PASS_HANDOFF_SEALED_LANE_IDLE
+  recovery_gate: PASS_IDENTICAL_PINNED_TWINS_AND_RETRIEVAL_SCRIPTS
+deleted_targets:
+  - {path: resources/src/hf-rows-0.json, bytes: 1629065, sha256: 1C3850DA017BD530532C42F80035DF75ECC6ED7943E1494D0A5302C60D67FF3D}
+  - {path: resources/src/hf-rows-100.json, bytes: 1293192, sha256: AD2828DA9A1A8AB3BE3000672F287393CE83BC0102DC48BE114E5E60ED0E18CB}
+  - {path: resources/src/hf-rows-200.json, bytes: 2092339, sha256: B0F1A84AA338D3CA7FDFC387D49435DEB52DFA6CEF00899B299CC5F7844A9370}
+  - {path: resources/src/hf-rows-300.json, bytes: 2411482, sha256: 1E4DB401E4969DDD52A497872BE782D252FA5207C2988D3B139064F07222E28F}
+  - {path: resources/src/hf-rows-400.json, bytes: 698935, sha256: A99AB0683594B82169E5A5531451F8CEBDDCBB6B6A0895654E7ED6E50AD80B0E}
+postdelete:
+  target_absence: PASS_5_OF_5
+  deleted_file_count: 5
+  deleted_logical_bytes: 8125013
+  retained_hash_validation: PASS_PINNED_TWINS_5_OF_5
+  capsule_validation: NOT_APPLICABLE_PRE_EVIDENCE_FREEZE_PACKET_RETAINED
+  budget_validation: PASS_RECLAIMED_DUPLICATE_TRANSPORT_ONLY
+resource_inventory:
+  path: stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-prefreeze2-mainline/RESOURCE_INVENTORY.yaml
+  precleanup_sha256: 018993C3E7FF6FBF3D6C23A6FDA217D3220F36D7B6AF32F99223F48E760CEECA
+  postcleanup_sha256: F2905F1FC0733972D3183C5F9927280E795D342875E15D7D5686A93991A1CFC8
+recoverability: {project_local_undelete: false, route: COPY_IDENTICAL_PINNED_TWIN_OR_RERUN_RETAINED_RETRIEVAL_SCRIPT, tested: true, test_evidence: stages/control/artifact-lifecycle-dry-run-20260824-V1/replays/recovery/hf-rows-0.recovered.json}
+state_effect: {scientific_state_changed: false, scientific_revision_consumed: false, artifact_state: GC_COMPLETE_LEGACY_EXACT_CLEANUP}
+validation: {receipt_parse: true, hashes_complete: true, result: PASS}

@@ -1,0 +1,53 @@
+schema: candidate-resource-request-proposal-v1
+request_id: V8-EXACT-WIN64-CANDIDATE-BUILD-20260811-R3F1-NEXT
+status: PROPOSED_NOT_AUTHORIZED
+topic_id: V8-SNAPSHOT-CONSTRAINT-SCHEDULER
+resume_assignment_type: RESOURCE_STAGEA_RESUME_FROM_BLOCKER
+proposed_write_directory: 'stages\stageA\V8-SNAPSHOT-CONSTRAINT-SCHEDULER\resume1'
+exact_commit: c635f0d160b6e988b5ea5a907511a2929beb5d5e
+platform: windows-x64-native
+r3f2_linux_required: false
+r3f2_linux_authorized: false
+preferred_route:
+  kind: OFFICIAL_SOURCE_AND_PUBLIC_WINDOWS_BUILD
+  source: https://chromium.googlesource.com/v8/v8.git
+  acquisition: fetch_v8_then_checkout_exact_commit_then_gclient_sync
+  build_seed: GN_ARGS_AND_DEPENDENCIES.yaml
+  required_outputs: [d8.exe, mksnapshot.exe, cctest.exe, snapshot_blob.bin]
+  required_mutability: serializer_and_snapshot_source_instrumentation_and_rebuild
+  user_precondition: >-
+    PROVIDE_A_LICENSE_APPROPRIATE_WINDOWS_CXX_AND_SDK_INSTALLATION_OR_PROVIDE_AN_EQUIVALENT_CANDIDATE_CAPABLE_EXACT_COMMIT_PACKAGE
+accepted_alternative:
+  kind: USER_PROVIDED_CANDIDATE_CAPABLE_PACKAGE
+  required_contents:
+    - exact source and DEPS closure
+    - d8.exe and mksnapshot.exe from one Windows x64 configuration
+    - symbols or rebuild-capable objects
+    - exact effective GN args and compiler/SDK/depot_tools/GN/Ninja identities
+    - all file hashes, V8 license and third-party notices
+proposed_resource_ceiling:
+  public_cpu_only: true
+  gpu: false
+  max_download_gib: 35
+  max_workspace_high_water_gib: 120
+  max_cpu_hours: 24
+  max_wall_hours: 6
+  max_logical_processors: 32
+  rationale:
+    - official Windows build documentation requires at least 100GB free NTFS space
+    - current D drive has 304.91GiB free and 31.69GiB RAM
+    - exact LUCI remote build time is reference metadata only and is not a local-time estimate
+fail_closed_conditions:
+  - exact commit/tree/DEPS/license mismatch
+  - dependency or tool provenance cannot be frozen
+  - effective GN args differ on any format-affecting dimension
+  - matching stock writer/reader smoke fails
+  - budget high-water exceeded
+  - acquisition requires an unapproved system install, global mutation, credential, Linux route or archive substitute
+on_resource_pass:
+  - preserve unmodified stock build and hashes
+  - close the original five-item PRE_CLAIM_CONTRACT_FIDELITY_GATE
+  - begin claim-bearing StageA work only after that gate passes
+scientific_revision_consumed_by_resource_bootstrap: false
+stageb_authorized: false
+

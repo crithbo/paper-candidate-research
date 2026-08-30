@@ -1,0 +1,46 @@
+diff --git a/AGENTS.md b/AGENTS.md
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ advisory only @@
+- 系统缓存不属于项目资产，也不承诺位于 D 盘。
++ 系统缓存不属于项目资产，也不承诺位于 E 盘。
++ 项目权威根为 `E:\project\writing\reserch`；新 assignment 不得登记旧 D 盘项目路径。
++ 新增“文件与存储生命周期”段，内容见 PATH_MIGRATION_RULE_PROPOSAL.md。
+
+diff --git a/registry.yaml b/registry.yaml
+--- a/registry.yaml
++++ b/registry.yaml
+@@ advisory only @@
+-project_root: D:\project\writing\reserch
++project_root: E:\project\writing\reserch
+-    workspace_root: D:\project\writing\reserch
++    workspace_root: E:\project\writing\reserch
+
+diff --git a/rules/RESOURCE_LOCALIZATION.md b/rules/RESOURCE_LOCALIZATION.md
+--- a/rules/RESOURCE_LOCALIZATION.md
++++ b/rules/RESOURCE_LOCALIZATION.md
+@@ advisory only @@
+-D:\project\writing\reserch
++E:\project\writing\reserch
+-D:\project\writing\reserch\projects\_assets\<asset_id>
++E:\project\writing\reserch\projects\_assets\<asset_id>
+
+diff --git a/rules/ARTIFACT_LIFECYCLE.md b/rules/ARTIFACT_LIFECYCLE.md
+new file mode 100644
+--- /dev/null
++++ b/rules/ARTIFACT_LIFECYCLE.md
+@@ advisory only @@
++Install `PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1` from the accepted proposal package:
++`stages/rule-audit/RULE-AUDIT-20260824-PHASE-CLOSEOUT-STORAGE-LIFECYCLE-R1/STORAGE_LIFECYCLE_POLICY_DRAFT.md`.
+
+diff --git a/templates/HANDOFF.yaml b/templates/HANDOFF.yaml
+--- a/templates/HANDOFF.yaml
++++ b/templates/HANDOFF.yaml
+@@ advisory only @@
+-  cleanup_status: NOT_REQUESTED
++  artifact_lifecycle_mode: null # OFF | DRY_RUN | PRODUCTION
++  cleanup_status: null # GC_PENDING | CAPSULE_SEALED | GC_COMPLETE | GC_BLOCKED | RETAINED_WITH_EXCEPTION
++  closeout_retention_path: null
++  closeout_retention_sha256: null
++  post_close_retained_bytes: null
+

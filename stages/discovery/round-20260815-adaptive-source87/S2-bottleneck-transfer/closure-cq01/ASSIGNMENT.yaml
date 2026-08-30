@@ -1,0 +1,55 @@
+assignment_id: SOURCE-CLOSURE-SOURCE87-S2-CQ01-GRAALVM-CLASS-INIT-IMAGE-HEAP-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+write_owner: ASSIGNED_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source87/S2-bottleneck-transfer/closure-cq01
+parent_assignment: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE87-R40-ORDINARY-BREADTH-V1
+parent_handoff_sha256: 77AE32B3A73C4858CAC8E83070E7182190C7AD570E74D0964D02F34E436EEAD6
+parent_queue_sha256: BE361182AAEF00DEA7508FD0EAB78FBECD7DDE4525221436D92C58FACD6A4073
+parent_question_card_sha256: 95BF2FD3E803221619EAE162FD803B2CC9E3E9FCD07659EF0EA0295648DC79D6
+queue_item: S2-87-CQ01
+queue_status_at_freeze: PENDING_UNEXECUTED__ATTEMPTS_0__NOT_EXHAUSTED
+exact_project: oracle/graal
+deterministic_version_rule: resolve the official refs/heads/master or repository-default commit SHA at the first counted bounded attempt and pin every retained source to that one SHA
+exact_object: one fixed closed-world Java application and reachability set built by stock Native Image for a fixed target, with unchanged class-initialization behavior, image-heap legality, executable semantics, and application output
+primary_routes:
+  - https://api.github.com/repos/oracle/graal
+  - https://api.github.com/repos/oracle/graal/commits/<resolved_default_branch>
+  - https://api.github.com/repos/oracle/graal/git/trees/<resolved_commit_sha>?recursive=1
+  - https://raw.githubusercontent.com/oracle/graal/<resolved_commit_sha>/<deterministically_selected_class_initialization_safety_source>
+  - https://raw.githubusercontent.com/oracle/graal/<resolved_commit_sha>/<deterministically_selected_image_heap_construction_or_layout_source>
+  - https://raw.githubusercontent.com/oracle/graal/<resolved_commit_sha>/<one_fixed_in_tree_native_image_test_or_demo_and_relevant_config_locus>
+route_selection_rule: resolve repository default branch once, then select only immediate Native Image class-init safety, image-heap construction/layout, relevant option/config, and one in-tree fixed-app carrier path; record zero matches without absence inference
+required_outputs:
+  - immutable current oracle/graal commit and exact source loci
+  - complete stock class-init safety/controls plus image-heap construction/layout action and relevant default/non-default config union within bounded loci
+  - one fixed stock-legal application carrier and two complete legal init-layout plans if source exposes them
+  - whether a union-external GraalVM-specific joint action and finite safety/layout exact/FPT/approximation/certified guarantee can be frozen
+  - strongest direct current collision and generic proof/packing/config objection
+  - full-cost dimensions and a finite falsifier route
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_CHANGED_SEMANTICS_OR_GENERIC_PROOF_PACKING_CONFIG__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide_clean_brief_Q2_PASS_STOP_or_stage_state
+  - change_fixed_closed_world_app_init_behavior_image_heap_or_full_cost_endpoint
+  - run_build_install_experiment_or_claim_bearing_observation
+  - clone_repository_or_download_archives
+  - search_outside_exact_project_source_scope
+  - treat_404_zero_match_transport_failure_or_missing_tool_as_absence
+  - read_or_use_Source88_or_later_Discovery_outcomes
+  - read_or_use_Source92_R75_OpenXLA_TVM_or_ONNX_closure_output
+resource_localization:
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source87/S2-bottleneck-transfer/closure-cq01/resources
+  inventory: stages/discovery/round-20260815-adaptive-source87/S2-bottleneck-transfer/closure-cq01/RESOURCE_INVENTORY.yaml
+  max_acquisition_calls: 6
+  max_success_response_bytes_each: 8388608
+  max_persisted_bytes: 16777216
+  max_wall_seconds: 1800
+  pre_call_monotonic_attempt_counter: required
+  eight_standard_subdirectories: required
+model_route: {model: gpt-5.6-terra, reasoning: high}
+notify_mainline_on_finish_or_blocker: true

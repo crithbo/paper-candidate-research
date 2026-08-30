@@ -1,0 +1,28 @@
+llvm-calc-occupancy - AMDGPU occupancy calculator
+
+Target
+  Triple:              amdgpu-amd-amdhsa
+  GPU (-mcpu):         gfx90a
+  Wavefront size:      64
+  Max waves/EU:        8 (waves per SIMD, hardware limit)
+  EUs (SIMDs) per CU:  4
+  LDS per CU:          65536 bytes (64 KiB)
+  Addressable LDS:     65536 bytes (64 KiB) per workgroup
+
+Inputs
+  Workgroup size:      1 .. 1024 (unspecified -> full range)
+  VGPRs per lane:      80
+  SGPRs per wave:      102
+  LDS per workgroup:   unspecified (0)
+
+Per-constraint occupancy (waves/EU)
+  Workgroup + LDS:     8
+  VGPRs:               6
+  SGPRs:               6
+
+Result
+  Occupancy:           6 waves/EU (24 waves/CU)
+  Limited by:          VGPRs, SGPRs
+  Next step:           reach 7 waves/EU (requires all of):
+      VGPRs <= 72 (currently 80)
+      SGPRs <= 96 (currently 102)

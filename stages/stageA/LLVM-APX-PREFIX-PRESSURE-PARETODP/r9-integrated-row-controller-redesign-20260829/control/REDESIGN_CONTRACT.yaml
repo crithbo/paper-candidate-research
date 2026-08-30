@@ -1,0 +1,28 @@
+schema: stagea-same-object-evaluation-redesign-v1
+assignment_id: STAGEA-L1-20260829-LLVM-APX-R9-INTEGRATED-ROW-CONTROLLER-REDESIGN
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+classification: SOFT_ENGINEERING_BLOCKER__SEPARATE_SAME_OBJECT_REDESIGN
+identity_preserved: [exact_object, atomic_action, claim_endpoint, guarantee, selected_rows, baselines, natural_denominator]
+purpose: freeze_a_complete_preexecution_packet_before_any_control_or_claim_run
+frozen_inputs:
+  command_plan: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/REBOUND_R8_COMMAND_PLAN.yaml, sha256: A2734145DF704EC9BBD6DFA36E7906B089FB86B7D758F96694D9E1704B646B32}
+  asset_record: {path: projects/_assets/ASSET-LLVM-APX-A1194BE1/ASSET_RECORD.yaml, sha256: D199BB024D254BC30322B52D302A13B04C2C99A1AEB92773929B62B1E5813A5D}
+  apx_driver_files:
+    - {name: apx_r8_row_driver.py, sha256: B042EC1F1C1EDF993DE57EE6C28A34F4766252941D6AB7BF1041E51819DA750E}
+    - {name: apx_tpd_r7c.py, sha256: FC1E6CB729A5F6693A6264C5B0DDFD24C73129638419278E879705C676C10FF1}
+    - {name: apx_tpd.py, sha256: 5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086}
+    - {name: catalog_contract.json, sha256: BC129B73FC7FABC488C3B4A52C41737EFBE398000542AC2CDCD382E5337CC6CA}
+    - {name: independent_oracle.py, sha256: 7BD2FB476C912621320021238AE458C63F62B5DDC34F5368C783C176489EA205}
+    - {name: tiny_trace.json, sha256: AD7F2DBE3F19DFFCD1EB0C3B4FDF80DCDDA7DCC71BACC769FCF40AF022F57910}
+required_static_outputs: [APX_R9_EXECUTABLE_PACKET.yaml, APX_R9_COMMAND_DAG.json, APX_R9_CONTROLLER.py, APX_R9_STATIC_VALIDATION.yaml, EXACT_RESOURCE_COPY_MANIFEST.yaml]
+packet_requirements:
+  - copy all six pinned apx_tpd files beneath assignment resources/src/apx_tpd before control
+  - copy the four frozen selected corpus inputs and no reserve inputs before control
+  - freeze literal argv, cwd, env, timeout, stdout, stderr and output paths for every row command
+  - controller records per-command cpu_seconds, wall_seconds, peak_rss_bytes, exit_code and persisted bytes
+  - full-cost producer consumes every command receipt and contains no placeholder or future-run token
+  - control row remains non-claim-bearing and hides relative effects
+allowed_actions: [read_frozen_inputs, write_required_static_outputs, static_lint_max_3]
+forbidden_actions: [resource_copy, tool_execution, control_row, claim_row, network, result_aware_change, shared_install, stageb]
+next_gate: MAINLINE_STATIC_PACKET_ACCEPTANCE
+

@@ -1,0 +1,108 @@
+schema_version: stage0-assignment-v1
+assignment_id: STAGE0-P4-20260822-COUPLED-AGENT-SDK-REPLAY-PRIMARY
+mode: PRIMARY
+lane: STAGE0-BATCH-GATE
+authority: USER_EXPLICIT_REPLACE_STOPPED_PATCHVALUE_WITH_NEW_TOPIC_20260822
+topic_id: COUPLED-AGENT-SDK-REPLAY-REV0
+status_on_dispatch: ACTIVE
+
+independence:
+  discovery_lane_must_not_review_its_own_topic: true
+  reviewer_must_reconstruct_object_estimand_collision_and_q2_shape: true
+  discovery_ready_label_is_not_binding: true
+  prior_stopped_or_dropped_topic_status_and_evidence_inheritance: forbidden
+
+frozen_rules:
+  project_rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__research-topic-discovery-r1-r40-20260815
+  role_stage0_sha256: BC58D2A365AFF6A0F82290CC3CC4E16177DBFDA69D1B28260084E9BE6B56E48C
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  quality_target: Q2_MINIMUM_Q1_PRIORITY
+
+frozen_input:
+  upstream_directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-sdk-replay-rev0-discovery1
+  upstream_handoff: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-sdk-replay-rev0-discovery1\handoff.yaml
+  upstream_handoff_sha256: C6C0B0A52F1488456AE775B34B0D67583836EA84C875E40B58022ACCC2F20022
+  upstream_manifest_sha256: 4FE96D0F7D661C27BCA034895536E473228E2303FB62B75B04EF86A07F32A9D4
+  pre_evidence_freeze: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-sdk-replay-rev0-prefreeze1-mainline\PRE_EVIDENCE_OBJECT_FREEZE.yaml
+  pre_evidence_freeze_sha256: AD38B7F836D6BB18DA3C85BCC62D77A3E24B523E7E851820BB9DC1B96F4D5D1E
+  new_topic: true
+  prior_topics: [PATCHYIELD-CALL, PATCHVALUE-COUNTERFACTUAL-REV0, COUPLED-AGENT-REPLAY-REV0]
+  permitted_relation_to_prior: MOTIVATION_ONLY__NO_STATUS_SCORE_REVISION_OR_SCIENTIFIC_EVIDENCE_INHERITANCE
+
+frozen_object:
+  software_agent_sdk_commit: ddac55697c5d15cf8a34495b5ed6d46c86db092a
+  software_agent_sdk_tree: ee9887e03ede5fb4b8fba7c6f65f228afe99c51f
+  qwen_revision: c03e6d358207e414f1eca0bb1891e29f1db0e242
+  swebench_verified_revision: c104f840cc67f8b6eec6f759ebc8b2693d585d4a
+  fixed_task_count: 16
+  task_list_sha256: 32729224C6BA9EF3A2D47AD86FBB7E7993350D3C0B0A88D0F684A015A0EC240D
+  state_boundary: post-first-native-SDK-tool-observation, before next model call
+  interventions: frozen I0 versus exact I1 text in upstream packet
+  native_terminal_semantics: absorbing
+
+required_checks:
+  - Independently verify that the frozen SDK commit defines the native agent loop, tool action/observation boundary and complete state needed by the estimand.
+  - Determine whether two copy-isolated mutable SDK states can be reconstructed at that boundary without changing the object; cover events/history, agent/context, workspace/filesystem, processes, tools, RNG and evaluator-relevant state.
+  - Verify that the frozen Qwen revision has a finite public logits/sampling-control route sufficient for the proposed shared-exogenous-randomness construction.
+  - Independently audit CAR, Coupled Token Generation, Counterfactual Token Generation/Gumbel-Max SCM, and current agent branching/replay/paired-evaluation work for direct absorption.
+  - Decide whether the proposed token-plus-agent-state keep-shared/split/fallback algorithm has a target-specific guarantee beyond generic coupling composition and paired statistics.
+  - Require a precise conditional marginal-correctness statement, coupling-failure semantics, and at least one nontrivial variance/sample-complexity/direct-effect guarantee or conservative fallback.
+  - Audit fair comparators, fixed-object information parity, the full two-branch/logit/state-copy/tool/evaluator/sample cost, natural carrier validity and no-benefit regions.
+  - Judge whether a credible Q2 paper shape remains without assuming a positive experiment; isolate the shortest Stage A fidelity killer.
+
+frozen_claim_ceiling:
+  primary: AGENT_LEVEL_SHARED_RANDOMNESS_COUPLING_FOR_FIXED_I1_MINUS_I0_NATIVE_TERMINAL_EFFECT
+  method_name: CoARSE
+  not_claimed:
+    - general_agent_causality
+    - arbitrary_agents_models_or_benchmarks
+    - positive_variance_or_sample_savings_result
+    - production_deployment_or_safety_guarantee
+    - inherited_PatchValue_or_PatchYield_result
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-primary
+  resource_root: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-primary\resources
+  resource_inventory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-primary\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+allowed_actions:
+  - Read only the accepted new-topic Discovery package, pre-evidence freeze and Stage0 role/templates.
+  - Retrieve bounded official/current source, documentation, public primary papers and metadata required for independent static review.
+  - Persist small excerpts/metadata under resource_root and write review artifacts only under unique_write_directory.
+
+forbidden_actions:
+  - Read either prior CoupledAgentReplay scientific review as evidence, or reopen PatchYield/PatchValue.
+  - Run agents, model inference, branch rollouts, SWE-bench tasks, hidden tests, containers, builds, simulations or experiments.
+  - Download model weights, task/container images, large datasets or install software.
+  - Modify Discovery outputs, plan.md, registry.yaml, rules, templates or any other assignment directory.
+  - Treat missing implementation, hardware or positive result as a scientific rejection.
+
+resource_envelope:
+  official_or_primary_routes_max: 40
+  accepted_persisted_bytes_max: 201326592
+  cpu_time_max: 1h
+  wall_time_max: 2h
+  system_install: false
+  global_environment_change: false
+  failure_consequence: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+
+required_outputs:
+  - STAGE0_REPORT.md
+  - Q1_COMPARATOR_MATRIX.md
+  - CURRENT_SOURCE_AND_COLLISION_AUDIT.md
+  - IDENTIFIABILITY_AUDIT.md
+  - SOURCE_LOG.md
+  - HANDOFF.yaml
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+allowed_decisions:
+  - PASS_RECOMMENDED
+  - RESERVE_RECOMMENDED
+  - REVISE_ONCE
+  - STOP
+
+next_step:
+  rule: Mainline routes PASS, REVISE_ONCE, or boundary-sensitive STOP to independent Stage0 confirmation. No Stage A/B is authorized here.

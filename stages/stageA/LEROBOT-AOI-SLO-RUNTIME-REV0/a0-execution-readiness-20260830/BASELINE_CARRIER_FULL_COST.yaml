@@ -1,0 +1,13 @@
+schema: lerobot-aoi-baseline-carrier-full-cost-v1
+static_grid:
+  g: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  fps: [10, 20, 30]
+  actions_per_chunk: [4, 8, 16]
+  aggregate_fn_name: [weighted_average, latest_only, average, conservative]
+  selection: validation_only_then_frozen_on_test
+equal_occupancy_match_key: [queue_size, action_chunk_size, fps, actions_per_chunk, aggregate_fn_name, offered_observation_id, request_budget]
+natural_carrier: actual_same_host_client_server_inference_timing_joined_to_public_canonical_task_outcome
+minimum_trace_cases: 1
+full_cost_dimensions: [wall_time, control_step_rate, policy_calls, gpu_time, serialized_bytes, queue_occupancy, contributor_age, aggregation_count, discard_count, trim_count, empty_queue, hold, safe_stop, task_success, precompute, validation, fallback]
+result_aware_trace_or_grid_selection: false
+claim_execution_in_A0: false

@@ -1,0 +1,22 @@
+schema: strong-baseline-consumption-audit-v3
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM-A2
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+obligation: A21_A23_STRONG_BASELINE_CONSUMPTION_AND_DISTINCTNESS
+native_outputs:
+  LLVM_CURRENT_COMPLETE: {path: resources/logs/control/a2/llvm_current_complete.mir, sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A, output_created: true, consumed_by_checker: true, consumed_by_full_cost: true, status: PASS}
+  LLVM_FINITE_TUNING_GRID_RELOCATION_ENABLED: {path: resources/logs/control/a2/llvm_tuning_relocation_enabled.mir, sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A, output_created: true, consumed_by_checker: true, consumed_by_full_cost: true, status: PASS}
+comparators:
+  LABELED_PARETO_DP: {total_states: 6, transition_rows: 8, frontier_points: 2, consumed_by_checker: true, status: PASS}
+  GENERIC_EXACT_TINY_SUBTRACTOR: {enumerated_plans: 6, frontier_points: 2, consumed_by_checker: true, status: PASS}
+  EXHAUSTIVE_MICRO_ORACLE: {enumerated_plans: 6, frontier_points: 2, consumed_by_checker: true, status: PASS}
+candidate: {algorithm: ORBIT_CANONICAL_PER_ACTION_DP, total_states: 3, transition_rows: 4, frontier_points: 2, backpointer_reconstruction: true}
+candidate_labeled_generic_oracle_exact_frontier: true
+candidate_distinct_state_reduction: true
+declared_but_unconsumed_strong_baseline_detected: false
+A1_output_overwritten: false
+child_argv_changed: false
+output_postprocessing: false
+retry_performed: false
+result: PASS_ALL_DECLARED_STRONG_BASELINES_CONSUMED
+claim_bearing_observation: false
+scientific_inference: NONE_PRECLAIM_CONTROL_ONLY

@@ -1,0 +1,72 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  artifact_state: BLOCKER_HANDOFF_FROZEN_WAITING_MAINLINE
+  closeout_event: PPC_R4_PRECLAIM_HANDOFF_ACCEPTED
+  downstream_consumer: MAINLINE_DISPOSITION_AND_POSSIBLE_NEW_PPC_CORRECTION_ASSIGNMENT
+  post_close_retained_bytes_max: 805306368
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: RESUME_CAPSULE.yaml
+identity:
+  topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+  assignment_id: STAGEA-L1-20260826-LLVM-PPC-R4-GLOBAL-MODIFIER-ORDER-CORRECTION
+  stage_or_mode: STAGEA_PRECLAIM_ENGINEERING_CORRECTION_AND_FRESH_F1_F5
+  run_id: PPC-R4-FRESH-ATTEMPT-1
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r4
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r4/resources
+  inventory_path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r4/RESOURCE_INVENTORY.yaml
+root_measurement: {logical_bytes: 575072633, files: 3793, directories_including_root: 204, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true}
+required_directories: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+redirect_preflight: {status: PASS_PROCESS_LOCAL, process_local_only: true, system_or_user_environment_modified: false, tools: [assignment_local_python_runner]}
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 1073741824
+  cpu_seconds_max: 14400
+  gpu_hours_max: 0
+  wall_seconds_max: 28800
+  max_parallel_processes: 2
+  network_bytes_used: 0
+  stored_bytes_used: 575072633
+  command_cpu_seconds_observed: 0.5
+  command_wall_seconds_observed: 1.28424290000112
+  attempts_used: {same_topic_copy: 1, source_edits: 1, fresh_runner_invocations: 1, planned_replay_started: 1, automatic_retry: 0}
+entries:
+  - {path: resources/downloads, files: 2, logical_bytes: 280173064, provenance: exact_r3_same_topic_copy, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, resume_critical: true}
+  - {path: resources/env/ppc-toolchain, files: 133, logical_bytes: 244073942, provenance: exact_r3_same_topic_copy_package_132_of_132, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, resume_critical: true}
+  - {path: resources/src, files: 3619, logical_bytes: 50773273, provenance: exact_r3_copy_with_one_authorized_two-token-order_edit, retention_class: RESUME_CRITICAL_UNTIL_UNBLOCKED, resume_critical: true}
+  - {path: resources/build, files: 4, logical_bytes: 4768, provenance: r3_partial_copy_plus_fresh_r4_replay1_F1, retention_class: RESUME_CRITICAL_UNTIL_UNBLOCKED, resume_critical: true}
+  - {path: resources/logs, files: 35, logical_bytes: 47586, provenance: r3_upstream_logs_plus_fresh_r4_command_logs, retention_class: RESUME_CRITICAL_UNTIL_UNBLOCKED, resume_critical: true}
+  - {path: resources/tmp, files: 0, logical_bytes: 0, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/archives, files: 0, logical_bytes: 0, retention_class: EMPTY_STANDARD_DIRECTORY}
+  - {path: resources/cache, files: 0, logical_bytes: 0, retention_class: EMPTY_STANDARD_DIRECTORY}
+shared_assets_consumed: []
+external_system_dependencies: [preinstalled_Windows, bundled_assignment_script_Python_runtime]
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  closeout_plan_accepted: false
+  downstream_inputs_accepted: false
+  capsule_sealed: false
+  active_owner_or_process_count: 0
+  active_process_measurement_method: Get-Process_executable_path_where_readable
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  reparse_entries: 0
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  closeout_budget_or_exception_pass: true
+  result: PASS_MECHANICAL_INVENTORY__BLOCKER_SCIENTIFICALLY_NEUTRAL
+

@@ -1,0 +1,37 @@
+assignment_id: SOURCE-CLOSURE-SOURCE57-S2-SCQ-S57-01-WASMTIME-GC-V45-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+queue_item: SCQ-S57-01
+write_directory: stages/discovery/round-20260815-adaptive-source57/S2-bottleneck-transfer/closure-scq-s57-01
+disposition: STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_GENERIC_TABLE_POLICY__RETURN_TO_MAINLINE
+state_authority: NONE__RETURN_TO_MAINLINE_ONLY
+project_pin:
+  project: bytecodealliance/wasmtime
+  version: v45.0.0
+  resolved_commit: 377cd917af258d932d55b201a646917ecf193639
+resource_envelope:
+  attempts_including_carried_parent_attempt: 6
+  attempts_cap: 6
+  persisted_response_bytes: 2162253
+  persisted_bytes_cap: 16777216
+  localization: PASS
+closure_summary:
+  - Stock module translation validates type sections and interns types per recursion group.
+  - Stock TypeRegistry hash-conses whole recursion groups across modules, manages their lifetimes, and canonicalizes types/entities to VMSharedTypeIndex.
+  - The candidate atomic action is already present in the tagged current union; engine table/order/hash changes are generic interning policy.
+  - No same-semantics union-external recursive-type/RTT action can be frozen without changing group or type semantics.
+stock_oracle:
+  - validator.type_section
+  - ModuleTypes.intern_rec_group
+  - Engine.register_and_canonicalize_types
+forbidden_inferences_preserved:
+  - no raw, brief, tier, Q2, PASS, STOP, or stage-state decision
+  - no Source58 or Source59 material read
+  - no absence inference from transport, 404, zero match, or missing tool
+canonical_files:
+  report: SOURCE_CLOSURE_REPORT.md
+  current_upstream_audit: CURRENT_UPSTREAM_AUDIT.md
+  resource_inventory: RESOURCE_INVENTORY.yaml
+  attempt_ledger: resources/logs/acquisition-attempt-ledger.yaml
+  manifest: HASH_MANIFEST.sha256
+next_action: Return the prebrief disposition to mainline; no further acquisition or downstream action is authorised by this assignment.
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

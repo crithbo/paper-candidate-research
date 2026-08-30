@@ -1,0 +1,57 @@
+schema_version: RESOURCE_FAILURE_RECORD_V1
+assignment_id: RESOURCE-STAGEA-L2-20260811-AIGER-DELTA-SCHEDULE-RESUME1-R3E
+topic_id: AIGER-DELTA-SCHEDULE
+status: BLOCKED_USER_ACTION_REQUIRED
+failure_stage: RESOURCE_BUILD_AND_NATIVE_SMOKE
+claim_bearing_observation_obtained: false
+scientific_revision_consumed: false
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+resource_ready: false
+stagea_auto_resume_triggered: false
+component_results:
+  aiger:
+    exact_commit: 039ec1a2cc37d3093ac35c4b6df65336b346f409
+    clean_build_attempts: 2
+    attempt_1:
+      status: FAIL
+      error: configure sed substitution rejected absolute CC path containing slashes
+      log_sha256: 8A8D9458A3C738D79EBB28326EEB2F1FD22BCC513FD0DD93D5B84A54126FDE87
+    attempt_2:
+      status: BUILD_PASS__SMOKE_FAIL
+      invocation_correction: process-local PATH with CC=clang; same compiler; no source change
+      executable_sha256: C074052C66DA92B3062EDD5A9BBD3B7CD0D4BDD29B011EC738CCBF9683257811
+      log_sha256: 491FC5524432416C4F91D59254CA73AED319C7CBD4CBFD0EB19DF982038B0CA8
+      help_exit_code: 0
+      stock_smoke_first_write_exit_code: 0
+      stock_smoke_readback_exit_code: 1
+      stock_smoke_error: expected space or new line after number of and gates 1
+      emitted_binary_sha256: D1CE42CC4D0BDD5D4CEB2E750BA988891CCB2C126E321F5F2902C1122A89BAE0
+      mechanical_cause: binary writer opens destination with fopen mode w; Windows CRT emitted CRLF in binary AIGER header while native reader opens rb and rejects CR
+  abc:
+    exact_commit: 6c51a9238544bce6eb300b7b1c3e5bb4215bec84
+    clean_build_attempts: 2
+    attempt_1:
+      status: FAIL
+      invocation: make -j2 CC=clang CXX=clang++ ABC_USE_NO_READLINE=1
+      error: LLP64 pointer and 64-bit word type mismatch under generated LIN64 flags
+      log_sha256: C5FA2EBB414A27850DAC7B2196E5851C3B708218B63A11B34294659F908AAF42
+    attempt_2:
+      status: FAIL
+      invocation: make -j2 CC=clang CXX=clang++ ABC_USE_NO_READLINE=1 ABC_USE_STDINT_H=1 ABC_MAKE_NO_DEPS=1
+      mechanical_correction: official Makefile options only; no source change
+      error: bundled CaDiCaL file.hpp references undeclared getc_unlocked and putc_unlocked on this Windows toolchain
+      log_sha256: 126A4DAF2FF8E79714E992400D133CE3D4B3E3AA80CAA8B2C398ED807E85A3F0
+  yosys:
+    exact_commit: 0f2bcb94b7dc8310a52abf6eef3a7e1a9f09b552
+    source_and_required_gitlink_dependencies_acquired: true
+    clean_build_attempts: 0
+    status: NOT_STARTED_AFTER_CONJUNCTIVE_GATE_BECAME_IMPOSSIBLE
+    reason: exact ABC exhausted both allowed clean builds and AIGER stock binary smoke failed; no remaining approved route could pass the required native union
+unexecuted:
+  - YOSYS_BUILD
+  - NATIVE_SIX_AND_UNION_REPLAY
+  - PRE_CLAIM_CONTRACT_FIDELITY_GATE
+  - HWMCC_DOWNLOAD_OR_NATURAL_RUN
+  - CANDIDATE_OR_BASELINE_CLAIM_RUN
+  - STAGEB
+

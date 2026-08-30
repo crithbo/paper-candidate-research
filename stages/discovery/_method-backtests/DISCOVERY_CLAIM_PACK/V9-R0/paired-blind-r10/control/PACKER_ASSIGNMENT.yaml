@@ -1,0 +1,176 @@
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-PAIRED-BLIND-R10
+authorization_id: DISCOVERY-CLAIMPACK-V9-CONTINUOUS-EXECUTION-20260813-R10
+role: DISCOVERY_BACKTEST_PACKER_LANE
+task_id: 019fe4e9-9c1d-7ea2-b45d-356f1a9a9545
+workspace_root: D:\project\writing\reserch
+created_at: 2026-08-13T11:40:41+08:00
+status: FROZEN_PENDING_DISPATCH
+
+method_under_test:
+  id: DISCOVERY-CLAIM-PACK-V9-R0
+  protocol: rules\DISCOVERY_CLAIM_PACK.md
+  protocol_sha256: 6DDCF4CE3CC76900FB6AAEF5876ED0D3E824489F3894F4C092C481176F256DA9
+  canonical_production_mode_during_backtest: OFF
+  evaluated_mode: SHADOW_NONCANONICAL
+  legacy_arm_mode: OFF
+  paired_same_snapshot_required: true
+  candidate_evidence_use_allowed: false
+
+frozen_control_inputs:
+  registry_pre_assignment_sha256: 4CD4396BD1FEF84DAAACC5546BC791C62531E89D230FCD07770026623F2BD619
+  plan_pre_assignment_sha256: 6C65F487C5D532C75B5AD30D9630E61106E8A155EE95A5F253F6A753F80FE5D8
+  history_pre_assignment_sha256: 3AACD2063A47B61F0B2D06C5B42EBB785E57749ED050245E10AB995988AFC920
+  AGENTS_md_sha256: 84FB3A35189C22EFFD426D49B71E2848CA29ED76D971A1B387DCD99A2DA1BF35
+  role_discovery_backtest_sha256: 82EF55746418D5F507681878BCB7046445A65F4B892CCB5BACAAEE5BC7A758C0
+  role_mainline_sha256: 96BFE824CDB15F638CF6320CC344D35578323E84CE576F1E703ED886EBBB85A5
+  discovery_claim_pack_sha256: 6DDCF4CE3CC76900FB6AAEF5876ED0D3E824489F3894F4C092C481176F256DA9
+  discovery_method_backtest_template_sha256: 22C1377DAC8F536C9508DE9CF789B3C8A4851E6CD58352A1BBC33B277A4EE439
+  handoff_template_sha256: A180FE98DDFB6C2F3452D066481133C3D9E86C914920E4344C4B1D7A1D76F509
+  r10_directive_sha256: 434C6C1B52E8F202666A209B79FD0EF6A7AA10C989533D223513037D1DD3B8D6
+  r10_handoff_sha256: 07B837AC5753EB4BCD26AED6F0E69814B43B8F951C1E5FE826A467F8352B970E
+  r10_manifest_sha256: 90E07D4B1A04566CC3753C8929CFF19F6CC70A877BAB468E7D68043E92967F3A
+
+write_boundary:
+  sole_output_directory: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r10\packer
+  existing_files_may_be_overwritten: false
+  control_directory_read_only_to_packer: true
+  shared_files_writable: false
+  downstream_dispatch_allowed: false
+
+packer_objective:
+  - Freeze a contamination-auditable paired same-snapshot legacy-versus-V9 evaluation.
+  - Freeze actual primary or authoritative pre-cutoff source bytes; snippets, stubs, failed pages and post-cutoff target material are forbidden.
+  - Keep executor-visible material neutral and identity-blind; put labels, target identities and scoring keys only under auditor_key.
+  - Do not execute either method and do not score or predict calibration.
+
+sample_design:
+  development_regression_cases: 12
+  development_regression_pass_determinative: false
+  blind_initial_cases: 24
+  blind_expansion_increment_cases: 8
+  blind_maximum_cases: 40
+  blind_pool_must_be_frozen_before_executor: true
+  development_and_blind_identity_overlap_allowed: false
+  prior_v8_8_case_identity_reuse_allowed: false
+  minimum_contribution_types_initial: 4
+  minimum_contribution_types_maximum: 5
+  maximum_fraction_from_one_contribution_type: 0.35
+  required_initial_strata:
+    later_success_positive: 4
+    direct_structural_negative: 4
+    partial_coverage_or_narrowing: 4
+    unfinished_but_nonstructural: 4
+    stale_document_current_feature_trap: 4
+    style_attractive_weak_package: 4
+  expansion_tranches:
+    - tranche_id: B1
+      size: 8
+      identities_hidden_from_executor: true
+    - tranche_id: B2
+      size: 8
+      identities_hidden_from_executor: true
+  natural_or_canonical_carrier_required: true
+  target_postpublication_material_executor_visible: false
+
+paired_execution_contract_to_freeze:
+  model_route: gpt-5.6-terra/medium
+  same_model_tools_source_universe_cutoff_budget: true
+  deterministic_cross_over_order_seed_required: true
+  legacy_arm: DISCOVERY_CLAIM_PACK_MODE_OFF__V8_7_R5_P0
+  v9_arm: DISCOVERY_CLAIM_PACK_MODE_SHADOW__DISCOVERY_CLAIM_PACK_V9_R0
+  preserve_raw_queries_sources_claims_relations_state_changes_costs_and_outputs: true
+  executor_auditor_key_access_allowed: false
+  robustness_subset_minimum_cases: 8
+  robustness_perturbations:
+    - neutral_rendering
+    - title_length_and_synonym_rewrite
+    - evidence_order
+    - noncritical_noise
+    - credible_contrary_evidence
+
+preregistered_primary_endpoints:
+  hard_gate_leak_count:
+    acceptance: EXACTLY_0
+  terminal_stop_revival_count:
+    acceptance: EXACTLY_0
+  e2_to_academic_evidence_leak_count:
+    acceptance: EXACTLY_0
+  contamination_or_identity_leak:
+    acceptance: NONE
+  critical_source_recall_difference_v9_minus_legacy:
+    uncertainty: ONE_SIDED_90_PERCENT_PAIRED_BOOTSTRAP_OR_EXACT_MATCHED_INTERVAL
+    noninferiority_margin: -0.10
+    acceptance: LOWER_BOUND_AT_LEAST_MARGIN
+  false_structural_drop_rate_difference_v9_minus_legacy:
+    uncertainty: ONE_SIDED_90_PERCENT_PAIRED_BOOTSTRAP_OR_EXACT_MATCHED_INTERVAL
+    noninferiority_margin: 0.05
+    acceptance: UPPER_BOUND_AT_MOST_MARGIN
+  decision_ready_facet_completeness_difference_v9_minus_legacy:
+    uncertainty: ONE_SIDED_90_PERCENT_PAIRED_BOOTSTRAP_OR_EXACT_MATCHED_INTERVAL
+    point_estimate_minimum: 0.10
+    lower_bound_minimum: -0.05
+  audit_cost_ratio_v9_over_legacy:
+    acceptance: MEDIAN_RATIO_AT_MOST_2_5_AND_NO_UNDISCLOSED_COST
+
+secondary_endpoints:
+  - direct_coverage_predicate_accuracy
+  - unfinished_nonstructural_retention
+  - claim_source_coverage
+  - contradiction_disclosure
+  - decision_stability_under_perturbation
+  - contribution_object_mechanism_diversity
+  - expected_stage0_material_repair
+
+sequential_stop_rule:
+  evaluate_blind_initial_n: 24
+  if_all_hard_and_primary_acceptance_clear: CALIBRATED_ELIGIBLE_PENDING_AUDITOR
+  if_hard_gate_leak_or_contamination_or_terminal_revival_or_e2_leak: STOP_NOT_CALIBRATED
+  if_primary_endpoint_clearly_crosses_failure_boundary: STOP_NOT_CALIBRATED
+  if_interval_inconclusive_at_24: EXPAND_BY_8_TO_32
+  if_interval_inconclusive_at_32: EXPAND_BY_8_TO_40
+  if_interval_inconclusive_at_40: PILOT_NOT_CALIBRATED_INCONCLUSIVE
+  automatic_second_repack_or_method_revision_allowed: false
+  answer_key_hardcoding_or_threshold_change_allowed: false
+
+resource_envelope:
+  public_network_retrieval_allowed: true
+  allowed_source_classes:
+    - publisher_or_preprint_primary_paper
+    - official_project_documentation
+    - official_current_source_or_release_metadata
+    - author_or_institution_artifact
+    - official_standard_or_dataset_metadata
+  total_network_bytes_max: 786432000
+  individual_artifact_bytes_max: 26214400
+  total_temporary_plus_sealed_bytes_max: 1610612736
+  cpu_hours_max: 12
+  wall_hours_max: 48
+  exact_url_attempts_max: 2
+  verified_range_continuation_max_per_artifact: 1
+  source_build_allowed: false
+  package_install_allowed: false
+  system_install_allowed: false
+  global_environment_change_allowed: false
+  e2_engineering_smoke_allowed: false
+  candidate_experiment_allowed: false
+  large_download_allowed: false
+  exclusive_hardware_allowed: false
+  external_communication_allowed: false
+
+mandatory_deliverables:
+  - sealed_input_manifest.yaml
+  - sealed_method_contract.yaml
+  - case_index_without_labels.yaml
+  - executor_input
+  - auditor_key
+  - contamination_audit.md
+  - PACKER_REPORT.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+failure_policy:
+  insufficient_primary_sources: FAILED_NOT_DISPATCHABLE
+  resource_or_transport_failure: FAILED_NOT_DISPATCHABLE_RESOURCE_BLOCKER
+  contamination_unknown: FAILED_NOT_DISPATCHABLE_CONTAMINATION_UNKNOWN
+  scientific_inference_from_packer_failure_allowed: false
+  user_policy_decision_required_after_failure: true

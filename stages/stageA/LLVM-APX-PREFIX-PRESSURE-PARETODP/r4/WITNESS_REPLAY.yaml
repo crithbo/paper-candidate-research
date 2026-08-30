@@ -1,0 +1,30 @@
+schema: witness-replay-v1
+assignment_id: STAGEA-L3-20260825-LLVM-APX-R4-PRECLAIM-FIDELITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+obligation: F2_CORRECTED_WITNESS_REPLAY_EQUIVALENCE
+corrected_witness: {eflags_live: true, both_sources_live: true, destination_distinct: true, registers: [EAX, EDX, ECX], no_rex_subset: true, ndd_expected_bytes: '62 f4 7c 18 01 ca', legacy_expected_bytes: '89 d0 01 c8'}
+mc_capability_control:
+  command: llvm-mc.exe -triple=x86_64-unknown -mattr=+ndd,+egpr -show-encoding -filetype=asm apx_witness.s
+  exit_code: 0
+  ndd_encoding_exact: true
+  legacy_sequence_exact: true
+  log: resources/logs/f0/llvm_mc_capability.txt
+  log_sha256: FE392549F6E4573405FDEAD1969EFE18173EAB937C0A0F725E98B1C78D41761F
+machineverifier_materialization:
+  replay_1:
+    command: llc.exe apx_witness.mir -mtriple=x86_64-unknown -mattr=+ndd,+egpr -start-before=x86-compress-evex -verify-machineinstrs -show-mc-encoding -o -
+    exit_code_signed: -1073741795
+    exit_code_hex: '0xC000001D'
+    log: resources/logs/replay1/llc_machineverifier.txt
+    log_sha256: 5C6E194A5FD3839789CB789151FB552295936C98399702CAE5DC9D8C176561CF
+    failure_stage: X86_ASSEMBLY_PRINTER
+    failure_text: 'Assertion failed: Bits != 0 && Cannot print this instruction.'
+    machineverifier_explicit_error_reported: false
+    machineverifier_pass_may_not_be_inferred_from_later_failure: true
+  replay_2: {status: NOT_RUN_NO_AUTOMATIC_RETRY}
+value_and_eflags_equivalence: NOT_RUN_AFTER_NATIVE_MATERIALIZATION_FAILURE
+abi_cfi_unwind_exception_audit: NOT_RUN_AFTER_NATIVE_MATERIALIZATION_FAILURE
+resource_or_tool_failure: false
+construct_or_fidelity_failure: true
+result: FAIL_CLOSED_F2_UNPRINTABLE_CUSTOM_MIR
+scientific_inference: NONE

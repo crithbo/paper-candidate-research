@@ -1,0 +1,104 @@
+schema_version: stage0-assignment-v1
+assignment_id: STAGE0-PRIMARY-20260823-SEGMENTED-SCALE-W4A16-REV0
+mode: PRIMARY
+topic_id: SEGMENTED-SCALE-W4A16-REV0
+write_directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260823-segmented-scale-primary
+resource_root: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260823-segmented-scale-primary\resources
+source_cutoff: 2026-08-23T23:59:59+08:00
+
+authority:
+  user_attachment: C:\Users\15383\.codex\attachments\6cdeab19-8bc1-4016-b42c-c1a1a1a296e0\pasted-text.txt
+  user_attachment_sha256: 211ACD9455C1210D78A8A3E458DF6242C98A314C8157FF310A30E79974E62DD0
+  discovery_handoff: D:\project\writing\reserch\stages\discovery\user-proposed-20260823\segmented-scale-w4a16-rev0-promotion-closure\handoff.yaml
+  discovery_handoff_sha256: 76542C7720E9857247E649245BAC6FF36EDB65DF7EAEA56398357EBD7F52981A
+  discovery_manifest_sha256: DADC783AEA7FEE9B7E9A33570D23E949AA0932B66F50F4FDE7A195E6EBAE3337
+  policy: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+
+frozen_rules:
+  agents_sha256: 26DB9F4C2D43349A2BA5B741947561D4FED2FE5EC65327C02D273D3905F5A522
+  role_stage0_review_sha256: BC58D2A365AFF6A0F82290CC3CC4E16177DBFDA69D1B28260084E9BE6B56E48C
+  stage0_report_template_sha256: 321DB6FEF1838EAA4759F3662C27721F2131441DAB8EBF5E58DFCF9DD3004CE7
+  q1_comparator_template_sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  resource_inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+
+discovery_inputs:
+  topic_brief:
+    path: D:\project\writing\reserch\stages\discovery\user-proposed-20260823\segmented-scale-w4a16-rev0-promotion-closure\TOPIC_BRIEF.md
+    sha256: 4C60F1A5F0BF61ADE8851818904EF6DE1F7CF76F1E0E1C65E1780CD6E8AF456B
+  question_card:
+    path: D:\project\writing\reserch\stages\discovery\user-proposed-20260823\segmented-scale-w4a16-rev0-promotion-closure\DISCOVERY_QUESTION_CARD.md
+    sha256: 3D81F6F4E1A5A91BBE53F8D6CC9A56F76ECB0646F7887B27B3BBE44A4D71EB47
+  current_upstream_reality_check:
+    path: D:\project\writing\reserch\stages\discovery\user-proposed-20260823\segmented-scale-w4a16-rev0-promotion-closure\CURRENT_UPSTREAM_REALITY_CHECK.md
+    sha256: DBCDF0EBF0D8B6A133CF0F9594DB975EB043457AC117F22D0D254979A75C9526
+  correctness_and_full_cost:
+    path: D:\project\writing\reserch\stages\discovery\user-proposed-20260823\segmented-scale-w4a16-rev0-promotion-closure\CORRECTNESS_AND_FULL_COST_CERTIFICATE.md
+    sha256: C6F5DE9A7736421B3A1B50C3B28F59C813559656DC6DB3D8C7B55E21731709F0
+
+frozen_object:
+  runtime: vLLM_v0.26.0
+  commit: 568afb3a13806beb53bb2e6bd518269357b237c0
+  target: AMD_gfx1151
+  operator: DENSE_LINEAR__M16_SMALL_BATCH_GEMM
+  quantization: GPTQ_SEQUENTIAL__UINT4B8__G32__FP16_IN_OUT__FP32_ACCUM
+  action: REGISTER_STAGED_SEGMENT_SCALE_TILE_FOR_MULTI_GROUP_K_TILE
+  q: [2, 4]
+  shapes:
+    - [2048, 6144]
+    - [2048, 2048]
+    - [2048, 16384]
+    - [8192, 2048]
+  immutable_semantics:
+    - exact_W4A16_output_contract
+    - fixed_packed_nibble_mapping
+    - fixed_scale_group_mapping
+    - FP32_accumulation
+    - FP16_output
+
+primary_questions:
+  - Does the candidate retain a non-generic target-specific N2 action after independently rebuilding the current implementation and paper union?
+  - Is M16 a credible implementation or natural carrier rather than a post-hoc synthetic escape from the M<=5 HIP path?
+  - Can a finite Stage A killer distinguish the candidate from MoE-style indexing, compiler hoisting, HIP skinny extension, and ordinary loop fusion?
+  - Does the full-cost frontier plausibly survive scale-register pressure, extra N programs, occupancy, spill, and integration cost without claiming scale-byte reduction?
+  - If the hypothesis later holds, is the minimum paper shape credibly TIER_B_Q2_VIABLE or higher?
+
+required_current_union:
+  - vLLM_dense_Triton_W4A16_exact_route
+  - vLLM_MoE_GPTQ_AWQ_metadata_route
+  - vLLM_RDNA_HIP_skinny_route
+  - Marlin_same_format_and_M16_scope
+  - CUTLASS_or_FlashInfer_same_operator_scope
+  - Triton_block_scaled_matmul
+  - strongest_recent_same_object_paper_or_implementation
+
+resource_budget:
+  official_or_primary_network_calls_max: 32
+  persisted_response_bytes_max: 33554432
+  cpu_seconds_max: 3600
+  wall_seconds_max: 7200
+  allowed: read_only_source_documentation_paper_retrieval
+  forbidden:
+    - build_or_compilation
+    - kernel_or_model_execution
+    - performance_experiment
+    - weights_or_large_dataset_download
+    - system_install_or_global_environment_change
+    - StageA_or_StageB
+  resource_failure_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+
+required_outputs:
+  - STAGE0_REPORT.md
+  - Q1_COMPARATOR_MATRIX.md
+  - CURRENT_UPSTREAM_REALITY_CHECK.md
+  - COLLISION_AND_BASELINE_AUDIT.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+allowed_recommendations:
+  - PASS_RECOMMENDED
+  - RESERVE_RECOMMENDED
+  - REVISE_ONCE
+  - STOP
+

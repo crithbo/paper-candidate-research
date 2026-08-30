@@ -1,0 +1,26 @@
+schema_version: resume-capsule-v1
+assignment_id: STAGEA-L3-20260825-LLVM-APX-R4-PRECLAIM-FIDELITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+state: PRECLAIM_FAIL_CLOSED_F2_X86_ASSEMBLY_PRINTER_ASSERT
+exact_object: FIXED_LLVM_MACHINEIR_LIVENESS_X86_64_ABI_UNWIND_APX_TARGET_AND_PROGRAM_SEMANTICS
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+claim_ceiling: PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY__NO_SCIENTIFIC_INFERENCE
+ordered_gate: {F0: PASS, F1: PASS_STATIC_PREFLIGHT, F2: FAIL_CLOSED, F3: NOT_RUN, F4: NOT_RUN}
+failure_kernel:
+  command_class: LLC_MACHINEVERIFIER_MATERIALIZATION
+  failure_stage: X86_ASSEMBLY_PRINTER
+  exit_code_hex: '0xC000001D'
+  assertion: 'Bits != 0 && Cannot print this instruction.'
+  raw_log: resources/logs/replay1/llc_machineverifier.txt
+  raw_log_sha256: 5C6E194A5FD3839789CB789151FB552295936C98399702CAE5DC9D8C176561CF
+claim_bearing_observation: false
+scientific_revision_consumed: false
+mechanism_pivot_consumed: false
+automatic_retry_authorized: false
+same_assignment_resume_authorized: false
+future_resume_gate: NEW_MAINLINE_EXACT_ASSIGNMENT_AND_AUTHORIZATION_REQUIRED
+future_resume_point: REVIEW_AND_CORRECT_UNPRINTABLE_CUSTOM_MIR_THEN_RESTART_F2_FROM_IMMUTABLE_FAILURE
+natural_performance_or_claim_run_authorized: false
+owner_cleanup_performed: false
+resource_root_logical_bytes: 613551030
+next_action: MAINLINE_MECHANICAL_AND_POLICY_REVIEW_ONLY

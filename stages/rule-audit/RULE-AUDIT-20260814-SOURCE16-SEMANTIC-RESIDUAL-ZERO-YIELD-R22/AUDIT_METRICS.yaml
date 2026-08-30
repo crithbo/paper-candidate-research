@@ -1,0 +1,128 @@
+schema_version: 'RULE_AUDIT_METRICS_V1'
+audit_id: 'RULE-AUDIT-20260814-SOURCE16-SEMANTIC-RESIDUAL-ZERO-YIELD-R22'
+as_of: '2026-08-14'
+evidence_mode: 'READ_ONLY_ARTIFACT_AUDIT'
+claim_ceiling: 'PROCESS_DIAGNOSIS_AND_ASSIGNMENT_LOCAL_PROPOSAL_ONLY'
+
+comparison:
+  r21_input_baseline_source13_14:
+    raw_or_scoped_events: 72
+    audit_reconciled_unique_families_approx: 68
+    deep_reviews: 23
+    structural_drops: 17
+    not_admitted_unfrozen: 5
+    clean_stage0_briefs: 1
+    deep_structural_drop_fraction: 0.7391
+  source16:
+    raw_cards: 36
+    audit_reconciled_unique_families: 34
+    deep_reviews: 12
+    structural_drops: 7
+    not_admitted_unfrozen: 5
+    clean_stage0_briefs: 0
+    deep_structural_drop_fraction: 0.5833
+    deep_unfrozen_fraction: 0.4167
+    third_depth_reviews_used: 0
+    known_repeat_contained_or_saturated_raw_minimum: 10
+    known_repeat_contained_or_saturated_raw_fraction_minimum: 0.2778
+
+source16_by_lane:
+  S1:
+    raw: 6
+    unique: 6
+    deep: 2
+    structural_drop: 2
+    unfrozen: 0
+    clean_brief: 0
+    telemetry_issue: 'two RAW_ONLY rows lack a final disposition mapping'
+  S2:
+    raw: 6
+    unique: 6
+    deep: 2
+    structural_drop: 1
+    unfrozen: 1
+    clean_brief: 0
+    known_repeat_or_contained_minimum: 3
+  S3:
+    raw: 6
+    unique: 6
+    deep: 2
+    structural_drop: 1
+    unfrozen: 1
+    clean_brief: 0
+    known_repeat_or_contained_minimum: 1
+  S4:
+    raw: 6
+    unique: 4
+    deep: 2
+    structural_drop: 0
+    unfrozen: 2
+    clean_brief: 0
+    known_repeat_or_contained_minimum: 2
+    execution_issue: 'reported zero pre-outcome D1 cards but nevertheless performed two deep reviews'
+  S5:
+    raw: 6
+    unique: 6
+    deep: 2
+    structural_drop: 1
+    unfrozen: 1
+    clean_brief: 0
+    known_repeat_or_contained_minimum: 3
+  S6:
+    raw: 6
+    unique: 6
+    deep: 2
+    structural_drop: 2
+    unfrozen: 0
+    clean_brief: 0
+    known_repeat_or_contained_minimum: 1
+    telemetry_issue: 'handoff says four structural drops while the detailed evidence enumerates five'
+
+root_cause_ranking:
+  - rank: 1
+    cause: 'SOURCE_ARCHETYPE_NOT_ROTATED'
+    evidence: 'opportunity origins remained dominated by mature compiler, runtime, profiler and current-tool surfaces'
+  - rank: 2
+    cause: 'PRE_RAW_IDENTITY_AND_DORMANCY_FILTER_NOT_ENFORCED'
+    evidence: 'at least ten of thirty-six admitted raw cards were known repeats, contained variants or saturated families'
+  - rank: 3
+    cause: 'SOURCE_ROLES_NOT_SEMANTICALLY_INDEPENDENT'
+    evidence: 'the same first-party documentation often filled opportunity anchor, current union and subtractor; tests were used as both carrier and oracle'
+  - rank: 4
+    cause: 'SAME_OBJECT_CLOSURE_MOVED_TOO_EARLY'
+    evidence: 'some lane contracts demanded two complete native plans or outputs before depth instead of a witness skeleton and finite closure route'
+  - rank: 5
+    cause: 'SYMMETRIC_DEPTH_ALLOCATION_AND_EXECUTION_DRIFT'
+    evidence: 'every lane received two reviews, no third review was used, and S4 reviewed without a pre-outcome D1 card'
+  - rank: 6
+    cause: 'LOCAL_SCIENTIFIC_SCARCITY_SIGNAL'
+    evidence: 'strong current-union absorption is credible for the sampled mature public tool surfaces, but does not establish global topic scarcity'
+
+recommended_pilot:
+  profile: 'PROBLEM_EVIDENCE_FIRST_DIVERSE_SOURCE_V1'
+  duration_complete_six_lane_cycles: 1
+  lane_count: 6
+  per_lane_locator_scout_ceiling: 8
+  per_lane_fresh_raw_ceiling: 6
+  total_raw_ceiling: 36
+  total_depth_ceiling: 12
+  depth_ceiling_by_lane: {S1: 1, S2: 2, S3: 2, S4: 3, S5: 2, S6: 2}
+  outcome_aware_backfill: false
+  proposal_quota: false
+  zero_brief_is_legal: true
+  v9_mode: 'OFF'
+
+mechanical_acceptance_checks:
+  known_repeat_active_hold_stop_or_dormant_admitted_to_raw: 0
+  preoutcome_d1_required_for_every_deep_row: true
+  raw_unique_d1_deep_brief_ledger_reconciles: true
+  source_roles_recorded_separately: true
+  natural_carrier_may_be_only_a_stock_test_suite: false
+  mature_tool_primary_origin_cap_per_applicable_lane: 1
+  scientific_gates_changed: false
+  automatic_repeat_after_zero_cycle: false
+
+decision: 'PATCH_RECOMMENDED__ASSIGNMENT_LOCAL_NEXT_BOUNDARY'
+fresh_generic_user_approval_required: false
+permanent_shared_rule_change_requires_user_approval: true
+lane_return_state: 'IDLE_REUSABLE_AWAITING_USER_DIALOGUE'

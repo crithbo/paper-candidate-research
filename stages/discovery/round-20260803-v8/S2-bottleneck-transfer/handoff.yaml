@@ -1,0 +1,105 @@
+schema_version: discovery-source-handoff-v2
+round_id: round-20260803-v8
+source_session: DISCOVERY-S2-BOTTLENECK-TRANSFER
+task_id: 019fc62c-ef51-7073-bc32-2c583bb73ed6
+delegation_source_thread_id: 019fadc8-afb2-7cc3-85c7-fee56974b612
+opportunity_lens:
+  - O2_BOTTLENECK_TRANSFER
+discovery_method_revision: v2
+generated_at: 2026-08-03T14:55:14+08:00
+output_directory: 'stages\discovery\round-20260803-v8\S2-bottleneck-transfer'
+
+method_release:
+  status: CALIBRATED
+  evidence:
+    - 'stages\discovery\_method-backtests\O2_BOTTLENECK_TRANSFER\v2\backtest_review.md'
+    - 'stages\discovery\_method-backtests\O2_BOTTLENECK_TRANSFER\v2\handoff.yaml'
+  positive_recoveries: 3_of_3
+  negative_control: ABSTAIN
+  leakage_or_contamination: false
+  boundary: Calibration releases production Discovery only; it is not candidate or Stage 0 authorization.
+
+batch_status: COMPLETE_PRODUCTION_CONVERGENCE
+production_state: COMPLETE_AWAITING_MAINLINE_DECISION
+scope_compliance:
+  formal_grounded_briefs_emitted: 1
+  stage0_recommendations_emitted: 1
+  stage0_a_b_directories_created: false
+  experiments_run: false
+  gpu_or_npu_used: false
+  artifacts_downloaded_or_executed: false
+  mainline_files_modified: false
+  writes_outside_assigned_directory: false
+
+three_pass_convergence:
+  genealogy_seed_distance: complete
+  current_competing_mechanism_and_same_object_collision: complete
+  artifact_natural_input_ai_executability: complete
+  novelty_scope: >
+    Fresh primary-source searches were run after CALIBRATED. SEARCH_BOUNDED_OPEN
+    from raw scouting was not used as a novelty conclusion.
+
+recommendations:
+  - id: COH-REGION-LIFECYCLE
+    status: PROPOSE_STAGE0
+    brief: 'stages\discovery\round-20260803-v8\S2-bottleneck-transfer\TOPIC_BRIEF_COH-REGION-LIFECYCLE.md'
+    origin_raw_opportunity: RO-S2-01
+    contribution_route: N2
+    exact_object: >
+      Static region-lifecycle planning for immutable-after-initialization regions
+      on coherent CPU-GPU nodes: jointly choose allocation representation,
+      initialization executor, and finite pre-phase materialization actions.
+    direct_fatal_search: NOT_FOUND_WITHIN_SEARCH
+    strongest_subtraction_risk: Tuned CUDA managed memory plus advice/prefetch may erase the oracle gap.
+    natural_inputs: Rodinia and Qiskit Quantum Volume, pending independent artifact verification.
+    ai_execution_category: AI_CORE_CONDITIONAL
+    required_independent_gate: >
+      Repeat exact-object novelty search and assess whether tuned UVM/prefetch,
+      explicit copy, and oracle baselines are feasible before any Stage 0 PASS.
+
+raw_dispositions:
+  - id: RO-S2-01
+    production_disposition: PROPOSE_STAGE0_RECOMMENDATION
+  - id: RO-S2-02
+    production_disposition: DROP_DIRECT_SUBTRACT
+    reason: FlashAttention-4, Nautilus, and Twill absorb lowering/numerical/schedule union.
+  - id: RO-S2-03
+    production_disposition: RETAIN_RAW_NEGATIVE_ABSORBED
+  - id: RO-S2-04
+    production_disposition: RETAIN_DIRECT_FATAL
+  - id: RO-S2-05
+    production_disposition: RETAIN_DIRECT_FATAL
+  - id: RO-S2-06
+    production_disposition: RETAIN_DIRECT_SUBTRACT
+
+outputs:
+  - path: 'stages\discovery\round-20260803-v8\S2-bottleneck-transfer\STARTUP.md'
+    bytes: 4732
+    sha256: 6d05e2d09272efdc7f6bab2102c670fc80630b37227c5c0fdc32d5d92b8d784c
+  - path: 'stages\discovery\round-20260803-v8\S2-bottleneck-transfer\RAW_OPPORTUNITIES.md'
+    bytes: 16549
+    sha256: a7e4e723e70b1a7857dec75f913859e387aeabfcb14186283a2e3ba687e48a68
+  - path: 'stages\discovery\round-20260803-v8\S2-bottleneck-transfer\SEARCH_LOG.md'
+    bytes: 6186
+    sha256: 0dd86fd3e5ee230f75ba6a541bd36856fcd22f1b5d32ecb9dab7847377764d4f
+  - path: 'stages\discovery\round-20260803-v8\S2-bottleneck-transfer\TOPIC_BRIEF_COH-REGION-LIFECYCLE.md'
+    bytes: 10541
+    sha256: d1a1d4fe2b3f1f420ad946a104cf7a3b7aaab700d528b82c96fdfb3e051c399e
+  - path: 'stages\discovery\round-20260803-v8\S2-bottleneck-transfer\PROGRESS.md'
+    bytes: 2323
+    sha256: e0175de7a021c379342c31a5dd2274d5ac256535a958fbf1147fee33dfbb74a4
+  - path: 'stages\discovery\round-20260803-v8\S2-bottleneck-transfer\handoff.yaml'
+    sha256: NOT_SELF_HASHED
+
+notifications:
+  batch_complete: true
+  direct_fatal_cross_topic: []
+  ownership_or_resource_hard_blocker: false
+  file_conflict: false
+
+recommended_mainline_action:
+  state_transition_requested: false
+  action: >
+    Decide independently whether COH-REGION-LIFECYCLE merits Stage 0 review.
+    Do not treat this recommendation as a Stage 0 creation, candidate upgrade,
+    or authorization for hardware/artifact experiments.

@@ -1,0 +1,21 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+identity: {lane_id: STAGEA-GATE, lane_thread_id: 01a034d0-d990-7d50-9d9f-a6d05a81bf11, role_id: STAGEA_GATE_REVIEW, assignment_id: NONBLIND-STAGEA-GATE-20260827-CVC5, topic_id: NONBLIND_STAGEA_COMPATIBILITY__CVC5, stage_or_mode: INDEPENDENT_STAGEA_GATE, status: BOOTSTRAP_ACK_PENDING, resume_point: REVIEW_CVC5_P1_ONLY, next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY}
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: STAGEA-GATE
+  allowed_actions: [read_only_independent_review_after_mainline_start]
+  forbidden_actions: [new_experiment, new_probe, resource_creation, network, production_candidate_registration, StageB, gold_final_disposition]
+boundaries: {unique_write_directory: E:/project/writing/reserch/stages/stageA/_reviews/nonblind-20260827-cvc5, resource_root: E:/project/writing/reserch/stages/stageA/_reviews/nonblind-20260827-cvc5/resources, write_allowed_paths: [E:/project/writing/reserch/stages/stageA/_reviews/nonblind-20260827-cvc5], network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 2934D15DF761FE6C57D30CC29417A01F6353B4CC68227DD5C35A0249B24DD5BB}
+  registry_snapshot: {path: registry.yaml, sha256: 041E0808501F80DA569F4F3D565180A902714ED8963DD98ED23E3C42A3CBE26F}
+  role_rule: {path: rules/ROLE_STAGEA_REVIEW.md, sha256: 3F625031306861248D817C36905E3D0AB0DCDB3B8B6B959673975BDB6128FF01}
+  skills: [{path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+  templates: [{path: templates/INDEPENDENT_REVIEW_REPORT.md, sha256: 248B94097ECA6B39072A5056BA4EE3ABB47F1D30960621792403D0A43FA8B01C}]
+minimum_inputs: [{path: stages/stageA/_reviews/nonblind-20260827-cvc5/ASSIGNMENT.yaml, sha256: C8487D8D3B303BD3C57C38436D52A93D7E80D680D0B3D0DB288C904E4E80955B}]
+evidence_ceiling: MINIMAL_CANONICAL_PROBE__NONBLIND_COMPATIBILITY_ONLY__NO_PRODUCTION_CANDIDATE_OR_STAGEB
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: VALIDATED}

@@ -1,0 +1,24 @@
+schema: source120-s5-evidence-ledger-v1
+assignment_id: DISCOVERY-S5-20260830-SOURCE120-EXACT-CARRIER
+cutoff: 2026-08-30
+calls_used: 10
+calls_max: 24
+sources:
+  - {role: ANCHOR, locator: https://github.com/HPMLL/BurstGPT, supports: C01 schema}
+  - {role: ANCHOR, locator: https://github.com/microsoft/vidur, supports: C02 carrier and metrics}
+  - {role: ANCHOR, locator: https://github.com/kvcache-ai/Mooncake/blob/main/FAST25-release/README.md, supports: C03 timestamps-lengths-prefix-hashes}
+  - {role: ANCHOR, locator: https://huggingface.co/datasets/lmsys/lmsys-chat-1m, supports: C04 fields and timing absence}
+  - {role: ANCHOR, locator: https://huggingface.co/datasets/allenai/WildChat-1M, supports: C05 timestamp semantics}
+  - {role: ANCHOR, locator: https://github.com/PrincetonUniversity/LLMCompass, supports: C07 static analyzer boundary}
+  - {role: ANCHOR, locator: https://github.com/abhibambhaniya/GenZ-LLM-Analyzer, supports: C08 static analyzer boundary}
+  - {role: ANCHOR, locator: https://github.com/casys-kaist/LLMServingSim, supports: C09 online simulator carrier}
+  - {role: ANCHOR, locator: https://github.com/vllm-project/vllm/blob/main/docs/benchmarking/cli.md, supports: C10 benchmark modes}
+  - {role: CURRENT, locator: https://github.com/vllm-project/vllm/blob/main/docs/features/kv_offloading_usage.md, supports: LRU-ARC-custom policy union}
+  - {role: CONTRARY, locator: https://arxiv.org/abs/2607.16892, supports: C01-C02 direct collision}
+  - {role: CONTRARY, locator: https://arxiv.org/abs/2605.18825, supports: C03 adaptive prefix eviction collision}
+  - {role: CONTRARY, locator: https://arxiv.org/abs/2608.01657, supports: C03 responsibility-aware collision}
+  - {role: CONTRARY, locator: https://arxiv.org/abs/2603.08739, supports: C09 adaptive tier collision}
+  - {role: CONTRARY, locator: https://arxiv.org/abs/2608.20280, supports: C10 adjacent semantic-cache benchmark}
+  - {role: CONTRARY, locator: https://arxiv.org/abs/2607.05399, supports: C10 adjacent KV-compression benchmark}
+result_aware_backfill: false
+claim_ceiling: CONDITIONAL_STAGE0_BRIEF__NO_MAIN_RESULT

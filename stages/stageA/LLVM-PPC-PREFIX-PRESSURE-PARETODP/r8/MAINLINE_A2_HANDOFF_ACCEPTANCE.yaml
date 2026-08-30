@@ -1,0 +1,63 @@
+schema: mainline-preclaim-exact-replay-path-failure-acceptance-v1
+accepted_at: 2026-08-26T06:40:00+08:00
+accepted_by: MAINLINE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+addendum_id: PPC-R8-A2-ELF-SYMBOL-RANGE-PARSER-CORRECTION
+decision: ACCEPT_FAIL_CLOSED_EXACT_REPLAY_MODULE_ID_PATH_MISMATCH__NO_SCIENTIFIC_INFERENCE
+canonical_hashes:
+  handoff_sha256: 6E46907F29CBB678C3E93ED81ABAFAD59EDF81E734FA5858C36481B13B57A40F
+  manifest_sha256: B5B8253FBBA8CDCA990C8CB2E09D791F65B59D7C7B8379D198A97DBBB4BD1366
+  gate_sha256: C2B8EA0BDD26DEC8A87BBC8E5EDE959D05C9E93D6608E978C8DC55DFAB421DA0
+  inventory_sha256: 0159A9394DF179B34D4E260DAE3413A2F419775F6028BDBB5A8966877AF3A8BE
+validation:
+  manifest: PASS_76_OF_76
+  resource_files: 327
+  resource_logical_bytes: 245928016
+  reparse_entries: 0
+  active_related_processes: 0
+  fresh_replays: 2
+  native_commands: PASS_22_OF_22
+  native_checkers: PASS_14_OF_14
+  retries: 0
+  selected_or_reserve_tool_invocations: 0
+  claim_runs: 0
+accepted_progress:
+  J0: REUSED_PASS_NO_RERUN
+  J1: PASS
+  J2: PASS
+  J3: PASS
+  J4: PASS
+  candidate_base_result_sha256_both_replays: 6EA87DD5ED1DFEC4F34F2EE23B0BA9500D7718ED9695BF14D43BF8BDD85992F9
+  trace_sha256_both_replays: 390F7E670641E95479809EAD51582827435ED39A3CF2E864B96CAC1C127F3930
+accepted_failure:
+  gate: J5_EXACT_BYTE_REPLAY
+  only_differing_artifact: machineverified.s
+  only_differing_line: 2
+  semantic_candidate_checker_opcode_or_cost_difference: false
+  replay_1_sha256: 033EAD59AD58D0B14D2FB6C1119F4D9AE8E5AD84872D1A58AA1C543469685DBC
+  replay_2_sha256: A4D775D089095C94AC17F216AF55D8FB6688546586AD72870C2320890228AB55
+  cause: MACHINEVERIFIER_INPUT_ARGV_USES_ABSOLUTE_REPLAY_SPECIFIC_INPUT_MIR_PATH_EMBEDDED_AS_MODULE_ID
+finite_engineering_correction:
+  eligible: true
+  file: resources/src/actual_claim_harness/actual_claim_harness.py
+  original_sha256: 6593C28CFF8021D85A3B95721FBCC4125B93F301DF6DA414BCD69DEEC14B343B
+  original_bytes: 21921
+  exact_substitution_scope: MACHINEVERIFIER_COMMAND_INPUT_ARG_ONLY
+  exact_substitution: 'absolute mir Path argument -> relative literal input.mir'
+  occurrences: 1
+  expected_corrected_sha256: B4155CD20EDE6E2F994B69E61B6FC796D70848E4902E1FC1FCAEAA000673A2FE
+  expected_bytes: 21929
+  working_directory_remains_each_replay_independent_artifacts_directory: true
+  input_files_remain_replay_local_and_independent: true
+  posthoc_normalization_allowed: false
+  other_command_or_source_change_forbidden: true
+  old_A2_replays_invalidated: true
+  fresh_replays_required: 2
+  J0_rerun_forbidden: true
+accepted_evidence_ceiling: PRECLAIM_REAL_NATIVE_CONTROL_J1_J4_PASS_WITH_PATH_METADATA_REPLAY_MISMATCH__NO_SCIENTIFIC_INFERENCE
+r9_claim_start_allowed: false
+claim_bearing_observation_count: 0
+scientific_revision_consumed: false
+scientific_state_effect: NONE
+next_action: FREEZE_R8_A3_STABLE_RELATIVE_MIR_INPUT_PATH_CORRECTION_AND_REACK

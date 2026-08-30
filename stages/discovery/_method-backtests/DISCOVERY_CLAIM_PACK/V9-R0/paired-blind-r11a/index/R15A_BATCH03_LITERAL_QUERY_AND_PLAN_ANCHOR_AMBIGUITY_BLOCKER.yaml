@@ -1,0 +1,57 @@
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+approval_id: R11A-R13B-BATCH02-PARTIAL-PREFLIGHT-RECOVERY-20260813-R15A
+status: FAILED_NOT_DISPATCHABLE__R15A_BATCH03_LITERAL_QUERY_AND_PLAN_ANCHOR_AMBIGUITY__NO_SCIENTIFIC_INFERENCE
+gate: BATCH03_PRECALL_MANDATORY_FREEZE__BEFORE_EXTERNAL_CALL
+controls_verified:
+  recovery_amendment_sha256: 009D26E4EE262628A530866B50B1CADFCA739D643B0A408A8EF8EC5AC38964A3
+  request1_quarantine_ledger_sha256: DE9551BA29BE62F0EEA21BDB24BA5F70533AEEB38D6E667469221791D352F3EA
+  structured_transport_gate_sha256: 7F0207C719853F3442872C1C366859DDAF00C8C3395468D8E8FAB377471162D9
+  control_manifest_sha256: DC7DB5CF6B9FD9E289D7E6CDDD189B2C31F42B92A8360D9C1EA0DDC59A303BA4
+structured_transport_ready_fields:
+  endpoint: https://api.openalex.org/works
+  method: GET
+  authentication: NONE
+  per_page: 12
+  select: id,title,doi,primary_location,publication_year
+  order: RESPONSE_JSON_RESULTS_ARRAY_ORDER_AS_RECEIVED
+  maximum_calls: 2
+  raw_slot_reservation_per_call: 12
+unclosed_precall_fields:
+  - 'The frozen request parameter specifies search=PRECALL_FROZEN_LITERAL_QUERY, but provides no literal query for request ordinal 1 or 2.'
+  - 'The mandatory precall freeze requires public_seed_and_request_plan_sha256, but the Batch03 gate supplies neither a public seed nor a Batch03 request-plan artifact/hash.'
+  - 'No deterministic query-catalog or seed-to-query transform is supplied; “query choice must be deterministic and result-independent” is a property requirement, not an executable deterministic transform.'
+why_fail_closed:
+  - 'Selecting a topic/query or inventing a request-plan hash would create the pre-call selection input rather than freeze a user/mainline-provided input.'
+  - 'The gate explicitly requires all precall fields before call and requires ambiguity to fail closed.'
+  - 'Without a frozen query, an exact credential-free URL hash cannot be calculated.'
+actions_not_taken:
+  OpenAlex_calls_issued: 0
+  raw_slots_consumed_in_batch03: 0
+  raw_response_files_written: 0
+  raw_response_model_read: false
+  ordered_row_freezes_written: 0
+  candidate_identity_hashes_written: 0
+  commitment_written: false
+  private_intersection_started: false
+  source_qualification_started: false
+  batch01_or_batch02_quarantined_content_referenced: false
+counters_preserved:
+  raw_used: 56
+  raw_remaining: 32
+  unique_used: 4
+  unique_remaining: 68
+  eligible_count: 2
+  canonical_mode: OFF
+resource_ledger:
+  accepted_frozen_response_bytes_on_disk_actual: 3524441
+  new_r15a_network_bytes: 0
+  new_r15a_frozen_artifact_bytes: 0
+  network_bytes: NOT_DIRECTLY_OBSERVABLE__AT_LEAST_3626270_PRIOR_RESPONSE_BYTES
+  cpu_hours_cumulative_estimate: 0.26
+  wall_hours_cumulative_estimate: 0.86
+  external_resource_envelope_remaining: true
+minimum_user_action:
+  required: 'Provide an immutable additive Batch03 request plan with request ordinal 1 and 2 literal queries (or a deterministic public-seed-to-query catalog/algorithm), public seed, request-plan artifact SHA256, and explicit confirmation that the two 12-slot reservations remain unissued.'
+  required_boundary: 'Preserve Batch03 12+12 slots, no retry/pagination/replacement, raw response-before-parse protocol, and Batch01/02 quarantine.'
+  not_requested: [threshold_change, query_guessing, source_qualification, private_intersection, Phase2, executor_or_auditor_run, scientific_reclassification]
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

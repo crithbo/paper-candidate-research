@@ -1,0 +1,42 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE59
+retrieval_date: 2026-08-15
+network_or_resource_actions: []
+sources:
+  - source_id: SRC01_GCC_CURRENT_RENDERED_SOURCE
+    role: CURRENT_SOURCE
+    locator: https://codebrowser.dev/gcc/gcc/genautomata.cc.html
+    version_or_date: rendered current source retrieved 2026-08-15; head commit requires Stage0 pin
+    decisive_points:
+      - "Comments state that union automaton states are not generated yet."
+      - "The stated intended use is more accurate interlock scheduling at a control-flow joint point."
+      - "The source exposes deterministic/nondeterministic construction and generator representation paths."
+  - source_id: SRC02_GCC_15_2_GENAUTOMATA
+    role: CURRENT_RELEASE_SOURCE
+    locator: https://gnu.googlesource.com/gcc/+/refs/tags/releases/gcc-15.2.0/gcc/genautomata.cc
+    version_or_date: GCC 15.2 release tag
+    decisive_points:
+      - "The release source repeats the ungenerated union-state limitation."
+      - "It documents the target reservation automaton construction boundary."
+  - source_id: SRC03_GCC_INTERNALS_PIPELINE
+    role: OFFICIAL_SEMANTICS_AND_CONFIG
+    locator: https://gcc.gnu.org/onlinedocs/gccint/Processor-pipeline-description.html
+    version_or_date: GCC Internals documentation retrieved 2026-08-15
+    decisive_points:
+      - "The DFA hazard recognizer is generated from processor-pipeline descriptions."
+      - "Automata options include no-minimization, no-comb-vect, ndfa and collapse-ndfa."
+  - source_id: SRC04_GCC_SUMMIT_2003
+    role: PRIMARY_ANCHOR_AND_CONTRARY
+    locator: https://gcc.gnu.org/projects/summit/2003/Automaton_Scheduler.pdf
+    version_or_date: 2003 GCC Summit paper
+    decisive_points:
+      - "Union states were identified as needed at joins/modulo scheduling."
+      - "Naive enumeration is expensive, so this is an anchor and a contrary feasibility warning, not novelty proof."
+  - source_id: SRC05_GCC_2006_VLIW
+    role: DIRECT_ADJACENT_SUBTRACTOR
+    locator: https://gcc.gnu.org/projects/summit/2006-GCC-User-Summit-Proceedings.pdf
+    version_or_date: 2006 GCC User Summit proceedings
+    decisive_points:
+      - "Interblock/VLIW scheduling is adjacent but does not by itself establish a generated union-state recognizer constructor."
+source_limits:
+  - "No source download, build, or experiment was performed."
+  - "Mainline commit identity and a full direct-collision survey remain a finite Stage0 closure debt."

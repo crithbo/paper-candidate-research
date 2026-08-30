@@ -1,0 +1,74 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S2-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+opportunity_family_id: S2R16A-02-OPENSSH-KNOWNHOSTS-HASHLOOKUP
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+cutoff: 2026-08-13
+opportunity_family:
+  canonical_signature: OPENSSH_KNOWN_HOSTS|FIXED_HOSTKEY_SET|HASHED_HOSTNAME_MATCH|STOCK_SSH_HOSTKEY_CHECK|BUILD_LOOKUP_VERIFY_BYTES
+  relations: []
+queries:
+  - query_id: Q001
+    text: OpenSSH known_hosts hashed-hostname lookup source and action union
+    purpose: current source and same-object action check
+    source_or_search_engine: official OpenSSH manual and upstream source route
+    executed_at: 2026-08-13
+    filters: [first_party, current]
+    read_depth: SECTIONS
+    key_result_ids: [S001]
+    exclusions_with_reasons: [no experiment or download permitted]
+    state_change: bounded shadow classification
+sources:
+  - source_id: S001
+    title_or_artifact: OpenSSH ssh-keygen and ssh known_hosts documentation
+    canonical_version: master snapshot accessed 2026-08-13
+    locator: openssh-portable ssh-keygen.1 ssh.1 hostfile.c sshconnect2.c readconf.c
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SECTIONS
+    normalized_variants: []
+    repository_commit_config_or_dataset_hash: master route; no absence claim
+claims:
+  - claim_id: C001
+    text: HashKnownHosts and ssh-keygen -H express the stock hashed-hostname representation while acceptance remains stock host-key verification.
+    priority: HIGH
+    priority_rationale: decides same-object reader contract
+    source_links:
+      - source_id: S001
+        relation: DIRECT
+        locator: ssh-keygen -F/-H and hostfile source route
+        evidence_status: SYSTEM_INFERENCE
+        conflict: no implementation-absence claim
+        permitted_conclusion: C0_DIRECT_COVERED__SHADOW
+direct_coverage:
+  target_source_or_union: stock OpenSSH known_hosts read/write/configuration union
+  predicates:
+    same_object_function_protocol: TRUE
+    same_scenario_workload: TRUE
+    same_or_weaker_information: UNKNOWN
+    atomic_action_covered: TRUE
+    same_or_stronger_legality_quality_guarantee: TRUE
+    same_nonworse_full_cost: UNKNOWN
+    comparable_scale_platform_version_config: UNKNOWN
+    sufficient_read_or_reproduction_depth: FALSE
+independent_prior_current_audit:
+  owner_or_lane: S2 source lane; independent audit pending if promoted
+  query_ids: [Q001]
+  completed: false
+stopping:
+  high_impact_items_bounded: false
+  latest_and_current_union_checked: true
+  first_party_depth_sufficient: false
+  heterogeneous_independent_path_complete: false
+  contrary_search_complete: false
+  natural_or_canonical_carrier_frozen: true
+  full_cost_frozen: true
+  marginal_sources_no_longer_decision_changing: false
+  decisive_contradictions_resolved_or_bounded: false
+  disposition: SEARCH_BOUNDED_OPEN
+execution_readiness:
+  state: E1
+  e1_evidence: [official manuals and source routes only]
+  e2_authorization_id: ''
+  e2_allowlist: {}
+  e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0
+  scientific_inference_permitted: false
+claim_ceiling: Noncanonical V9 shadow classification only; cannot change canonical disposition or candidate state.

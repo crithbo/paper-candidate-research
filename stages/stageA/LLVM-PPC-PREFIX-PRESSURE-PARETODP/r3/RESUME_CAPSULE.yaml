@@ -1,0 +1,34 @@
+schema: ppc-r3-preclaim-resume-capsule-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R3-PRECLAIM-F1-F5
+capsule_state: OWNER_FINALIZED_WAITING_MAINLINE_ACCEPTANCE
+immutable_failure_directory: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r3
+first_failure: {stage: F2_MIR_EMISSION, tag: replay1.llc.mir_emit, error: "expected 'global' or 'constant'", retry_performed: false}
+completed_before_failure:
+  - exact same-topic inputs hash accepted
+  - one selective safe source extraction
+  - replay1 F1 assembler/readobj/objdump/lld/linked-readobj/linked-objdump
+not_started:
+  - MachineVerifier
+  - replay2
+  - F3 complete equal-information union
+  - F4 tiny oracle execution and checking
+  - F5 full tiny control
+minimum_resume_inputs:
+  - resources/downloads/llvm-commit-f127b4c19c63b0492fb924934e37e032c17ea35b.json
+  - resources/downloads/llvm-project-f127b4c19c63b0492fb924934e37e032c17ea35b.tar.gz
+  - resources/env/ppc-toolchain/PACKAGE_MANIFEST.json
+  - resources/src/harness/ppc_exact_witness.s
+  - resources/src/harness/ppc_union_input.ll
+  - resources/src/harness/run_preclaim.py
+  - resources/logs/preclaim/first_failure.json
+  - resources/logs/preclaim/replay1.llc.mir_emit.stderr.txt
+minimum_mechanical_correction: "replace '@target_value_ir = hidden dso_local ... global' with valid '@target_value_ir = dso_local hidden ... global' and apply the same valid modifier order to target_array_ir"
+resume_constraints:
+  new_assignment_and_new_directory_required: true
+  overwrite_r3_forbidden: true
+  automatic_retry_forbidden: true
+  network: 0
+  no_natural_or_claim_run: true
+  no_state_transition_or_stageb: true
+next_owner: MAINLINE
+scientific_inference: NONE

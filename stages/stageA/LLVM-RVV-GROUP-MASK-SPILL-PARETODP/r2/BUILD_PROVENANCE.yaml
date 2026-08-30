@@ -1,0 +1,81 @@
+schema_version: build-provenance-v1
+assignment_id: STAGEA-L1-20260825-LLVM-RVV-R2-E-ROOT-EXACT-TOOLCHAIN
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+result: FAILED_RESOURCE_PLATFORM_PATH_LENGTH__NO_SCIENTIFIC_INFERENCE
+exact_source:
+  commit: 5bb2565693f062a9e99929db1814a7a076d4dc76
+  tree_sha: 05f29dac4871a84a3b04ef10892beca7b4007912
+  commit_metadata_bytes: 14428
+  commit_metadata_sha256: 7104CB0CA8DCDF6C5A9AC89A31C8F65F45CDEA336C938E21DA483A405D2605E3
+  commit_signature_verified: true
+  source_archive_bytes: 280166923
+  source_archive_sha256: BC0E5CC6B7F4978242749E0FF666DDA851994EFFC178BD782C4799D7C2B52695
+  license: Apache-2.0 WITH LLVM-exception
+official_assets:
+  result: PASS_5_OF_5
+  network_attempts: 5/5
+  attempts_per_asset: 1
+  network_bytes: 510320698
+  network_bytes_max: 671088640
+  max_single_response_bytes: 280166923
+  max_single_response_bytes_allowed: 335544320
+  unlisted_asset_or_mirror_used: false
+  automatic_retry_performed: false
+archive_preflight:
+  source_members: 198248
+  source_regular_files: 181551
+  source_directories: 16678
+  source_links_validated_for_containment: 19
+  unsupported_members: 0
+  llvm_mingw_regular_files: 9483
+  cmake_regular_files: 4173
+  ninja_regular_files: 13
+  result: PASS
+source_extraction:
+  attempt_ordinal: 1
+  source_root: resources/src/s
+  regular_files_created_before_failure: 71167
+  logical_bytes_created_before_failure: 616586465
+  reparse_or_symlink_created: false
+  result: FAIL_RESOURCE_PATH_CAPABILITY
+  error_type: FileNotFoundError
+  error_errno: 2
+  failed_path_characters_windows_form: 260
+  failed_parent_characters_windows_form: 223
+  failed_relative_path: libcxx/test/std/thread/thread.mutex/thread.mutex.requirements/thread.sharedtimedmutex.requirements/thread.sharedtimedmutex.class/try_lock_until_deadlock_bug.pass.cpp
+  filesystem: exFAT
+  retry_performed: false
+tool_extraction:
+  status: NOT_STARTED__SOURCE_EXTRACTION_FAILED_FIRST
+path_contract:
+  build_root: resources/build
+  build_root_windows_characters: 94
+  projected_prior_long_object_directory_characters: 225
+  required_strict_upper_bound: 240
+  build_projection_result: PASS
+  source_extraction_path_result: FAIL_AT_260_CHARACTER_REGULAR_FILE
+  subst_junction_symlink_reparse_used: false
+configure:
+  attempts_used: 0
+  attempts_allowed: 1
+  status: NOT_STARTED__PRIOR_RESOURCE_FAILURE
+build:
+  clean_build_attempts_used: 0
+  clean_build_attempts_allowed: 1
+  jobs_used: 0
+  jobs_allowed: 2
+  status: NOT_STARTED__CONFIGURE_NOT_RUN
+required_outputs:
+  llc.exe: NOT_BUILT
+  llvm-mc.exe: NOT_BUILT
+  llvm-objdump.exe: NOT_BUILT
+  llvm-readobj.exe: NOT_BUILT
+  opt.exe: NOT_BUILT
+  FileCheck.exe: NOT_BUILT
+smokes:
+  version_and_registered_targets: NOT_RUN_REQUIRED_OUTPUTS_MISSING
+  generic_tiny_riscv_mir_machineverifier: NOT_RUN_REQUIRED_OUTPUTS_MISSING
+rvv_f1_f5_started: false
+forced_pressure_typed_replay_quotient_baseline_or_natural_run_started: false
+scientific_or_claim_bearing_action_started: false
+

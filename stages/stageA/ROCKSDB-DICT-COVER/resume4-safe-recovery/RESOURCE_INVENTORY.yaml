@@ -1,0 +1,79 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: ROCKSDB-DICT-COVER
+  assignment_id: SAFE-RECOVERY-L3-20260815-ROCKSDB-NVD-PYPI-RESUME4
+  stage_or_mode: STAGEA_RESOURCE_GATE_RESUME
+  run_id: RESUME4_SAFE_RECOVERY
+  unique_write_directory: D:\project\writing\reserch\stages\stageA\ROCKSDB-DICT-COVER\resume4-safe-recovery
+  resource_root: D:\project\writing\reserch\stages\stageA\ROCKSDB-DICT-COVER\resume4-safe-recovery\resources
+  inventory_path: D:\project\writing\reserch\stages\stageA\ROCKSDB-DICT-COVER\resume4-safe-recovery\RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T15:49:31.496Z
+  finalized_at: 2026-08-15T15:51:42.145Z
+root_measurement:
+  logical_bytes: 9563
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS_PROCESS_LOCAL_REDIRECTS_AND_PATH_BOUNDARY
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - POWERSHELL_DOTNET_HTTPCLIENT
+    - BUNDLED_WORKSPACE_PYTHON
+resource_envelope:
+  network_bytes_max: 134217728
+  stored_bytes_max: 536870912
+  cpu_hours_max: 0.5
+  gpu_hours_max: 0
+  wall_seconds_max: 3600
+  attempts_max: 12
+  network_bytes_used: 0
+  stored_bytes_used: 9563
+  attempts_used: 1
+entries:
+  - id: FROZEN_UNMODIFIED_CONVERTER
+    kind: SOURCE_COPY
+    path: resources/src/prepare_manifests.py
+    source_path: stages/stageA/ROCKSDB-DICT-COVER/scripts/prepare_manifests.py
+    logical_bytes: 9563
+    sha256: E93D8D7A7AB47B2A65751064F5114FCD9E919813F2A7F810123FDCAF7FD7E244
+    provenance: BYTE_IDENTICAL_COPY_FROM_IMMUTABLE_TOPIC_SOURCE
+    license: INHERITED_SOURCE_FILE_LICENSE_CONTEXT
+    validation: PASS_SOURCE_AND_DESTINATION_HASH_EQUAL
+shared_assets_consumed: []
+external_system_dependencies:
+  - PLATFORM_DEFAULT_TLS
+  - PREINSTALLED_DOTNET_POWERSHELL
+  - BUNDLED_WORKSPACE_PYTHON
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: BLOCKED_RESOURCE_GATE__FIRST_OFFICIAL_ASSET_TLS_FAILURE

@@ -1,0 +1,25 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: STAGE0-PRIMARY-20260830-MLPERF-INFERRED-RANK-VALIDITY, topic_id: MLPERF-INFERRED-RANK-VALIDITY, lane_id: STAGE0_PRIMARY, thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c, role: STAGE0_PRIMARY}
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+frozen_control:
+  agents: {path: AGENTS.md, sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655}
+  plan: {path: plan.md, sha256: B534071694ADEE8C81B568C03F592878073CD3C04DE7C440531A297176A8BA42}
+  registry: {path: registry.yaml, sha256: 7AAB11C570055785F4AB0356C42A27D97ED271320E7FB9F4C9AFAA904F1C6291}
+  role: {path: rules/ROLE_STAGE0_REVIEW.md, sha256: BC4A6D6D5DE5CEC3DD69A1F8556276F95B405E81773FFC7F4A860B5769CAF2FE}
+  academic_skill: {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  deep_research_workflow: {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/deep-research/WORKFLOW.md, sha256: 055E902187665C2437D0F41F35E2CC9C11FB5D62A736CF3ED23E44193BD4F029}
+  resource_rule: {path: rules/RESOURCE_LOCALIZATION.md, sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA}
+  lifecycle_rule: {path: rules/ARTIFACT_LIFECYCLE.md, sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED}
+  templates: {stage0_report: 0A4066F6A4BD9683BC9D9D2C2001DA5E6DEBBC1A8AD90185485FC78E39D20F55, q1_matrix: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87, bootstrap_ack: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+minimum_inputs:
+  control: {path: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY/control/ASSIGNMENT.yaml, sha256: 4E5A7AB2AC7BEE71E5FFCF77104F5BAD736FD7AAEA949B340693E810C2A0A1DE}
+  brief: {path: stages/discovery/round-20260830-strategy-source120/S4-objective-constraint/TOPIC_BRIEF.md, sha256: 5E97FB68A4911A14AA31CC69F9F85F442192DCAF12DAE55AA98459FBC929C3F5}
+  handoff: {path: stages/discovery/round-20260830-strategy-source120/S4-objective-constraint/handoff.yaml, sha256: BC3851460A6DF083170FB54E1C16E9EA1C2BC418DF5BA150924EF31102B20919}
+  manifest: {path: stages/discovery/round-20260830-strategy-source120/S4-objective-constraint/HASH_MANIFEST.sha256, sha256: 5D1D2CBAB3C96F6FFD736A7CE85DBCB9AD0D0449CB35DD11E5DDF121A53BDFF8}
+unique_write_directory: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY
+resource_root: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY/resources
+bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+forbidden: [network_before_start, scientific_judgment_before_start, candidate_implementation, stagea, stageb, shared_write]
+pause_signal: finish_current_primary_review_and_handoff_then_no_successor
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP

@@ -1,0 +1,34 @@
+schema: mainline-preclaim-blocker-acceptance-v1
+accepted_at: 2026-08-26T03:25:00+08:00
+accepted_by: MAINLINE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R3-PRECLAIM-F1-F5
+decision: ACCEPT_FAIL_CLOSED_PRECLAIM_ENGINEERING_BLOCKER__NO_SCIENTIFIC_INFERENCE
+canonical_hashes: {handoff_sha256: 21B5D10F4D4D783A656481471E07B585A4F11CE187829D359C809DE55C3B7C3A, manifest_sha256: 770996CB3B8A5876DFD61A67B6713A4A12B385B4803AE46D6B7C2A9C1D2345C6}
+validation: {manifest_entries: 36, missing_or_hash_mismatch: 0, resource_files: 3775, resource_logical_bytes: 575051772, reparse_entries: 0, active_related_processes: 0}
+accepted_failure:
+  tag: replay1.llc.mir_emit
+  exact_error: "ppc_union_input.ll:3:27: expected 'global' or 'constant'"
+  parser_stage_before_machineverifier: true
+  replay_2_started: false
+  automatic_retry: false
+  F1: PARTIAL_REPLAY1_ONLY_NOT_PASS
+  F2: BLOCKED_BEFORE_MACHINEVERIFIER_NOT_PASS
+  F3_F4_F5: NOT_STARTED
+accepted_evidence_ceiling: PARTIAL_PRECLAIM_CONTROL_AND_ENGINEERING_BLOCKER_ONLY__NO_SCIENTIFIC_INFERENCE
+claim_bearing_observation_count: 0
+scientific_revision_consumed: false
+finite_resume_correction:
+  eligible: true
+  source_file: resources/src/harness/ppc_union_input.ll
+  original_sha256: D2EC9F564FBAE963A0515E6028EF2FD10E436CC8EAADF5F14EB0068A227BAD19
+  exact_substitutions:
+    - "@target_value_ir = hidden dso_local -> @target_value_ir = dso_local hidden"
+    - "@target_array_ir = hidden dso_local -> @target_array_ir = dso_local hidden"
+  exact_substitution_occurrences: 2
+  expected_corrected_sha256: 77A92601566F1CD5190B0FD5892EE62C295E00F64AC018BF5782B965DC268F3E
+  all_other_bytes_unchanged: true
+  new_immutable_assignment_required: true
+lifecycle_disposition: DEFER_R3_GC_UNTIL_R4_ACCEPTS_EXACT_INPUT_COPIES_AND_HANDOFF
+owner_lane_released: true
+next_action: FREEZE_PPC_R4_EXACT_TWO_GLOBAL_MODIFIER_ORDER_CORRECTION__RESTART_F1_F5_FRESH

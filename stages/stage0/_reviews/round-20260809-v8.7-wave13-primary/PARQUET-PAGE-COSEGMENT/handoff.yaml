@@ -1,0 +1,82 @@
+assignment_id: STAGE0-P1-20260809-PARQUET-PAGE-COSEGMENT-PRIMARY-V8.7
+topic_id: PARQUET-PAGE-COSEGMENT
+role: PRIMARY
+review_cutoff: 2026-08-09
+decision: PASS_RECOMMENDED
+decision_status: PENDING_LONG_LIVED_CONFIRMATION_SENTRY
+quality_tier: TIER_B_Q2_VIABLE
+structural_paper_potential: CONDITIONAL_TIER_B_Q2_VIABLE
+current_evidence_readiness: FINITE_FIDELITY_GAP__LEGAL_ACTION_AND_CURRENT_CDC_PARITY_REQUIRED
+confidence: 0.81
+stageA_authorized: false
+stageB_authorized: false
+same_object:
+  input: FIXED_TYPED_ORDERED_TABLE_PLUS_DECLARED_TRAINING_WORKLOAD
+  output: ONE_STANDARD_SELF_CONTAINED_PARQUET_FILE_PER_INPUT
+  invariants:
+    - SCHEMA_TYPED_VALUES_NULLS_AND_ROW_ORDER
+    - ROW_GROUP_BOUNDARIES
+    - UNMODIFIED_PINNED_ARROW_DATAFUSION_READER
+    - IDENTICAL_SQL_RESULTS
+  forbidden:
+    - ROW_REORDER_OR_RECLUSTER
+    - CUSTOM_READER_OR_EXTERNAL_INDEX
+    - PER_PAGE_CODEC_SWITCHING
+    - NONSTANDARD_PAGE_OR_METADATA
+decisive_current_source_findings:
+  - COLUMN_CHUNK_CODEC__NO_ARBITRARY_PER_PAGE_CODEC
+  - PAGE_ENCODING_AND_DATAPAGEV2_IS_COMPRESSED_ARE_LEGAL_PAGE_ACTIONS
+  - BLOOM_FILTER_IS_COLUMN_CHUNK_SCOPE
+  - CURRENT_ARROW_CDC_ALREADY_PROVIDES_NONUNIFORM_PAGE_BOUNDARIES
+surviving_residual:
+  status: SEARCH_BOUNDED_OPEN
+  id: WORKLOAD_CONDITIONED_LEGAL_PAGE_CUT_AND_REPRESENTATION_CONSTRUCTOR
+  paper_core: >-
+    Under identical declared workload information and fixed native semantics,
+    jointly construct legal row-aligned page cuts and standard representations
+    under full file/write budgets, outside every preregistered fixed-writer and
+    current CDC configuration.
+innovation:
+  N1: NOT_SUPPORTED
+  N2: CONDITIONAL_SUPPORTED
+  N3: NOT_ESTABLISHED
+mandatory_fair_baselines:
+  - PINNED_CURRENT_DATAFUSION_ARROW_DEFAULT
+  - SAME_INFORMATION_FINITE_LEGAL_FIXED_WRITER_GRID
+  - CURRENT_ARROW_CDC_MIN_MAX_NORM_GRID_WITH_BOUNDED_REPRESENTATION_GRID
+  - BOUNDARY_ONLY_AND_REPRESENTATION_ONLY_ABLATIONS
+shared_facilities:
+  arrow_page_index_late_materialization: HELD_CONSTANT_READER_PATH
+external_roles:
+  oasis: DEPLOYMENT_SUBTRACTOR_NOT_FAIR_SAME_HARDWARE_BASELINE
+  compression_aware_physical_design: METHOD_GENEALOGY_DIFFERENT_OBJECT
+fidelity_closure:
+  status: FINITE_PUBLIC_CPU_ROUTE
+  preclaim_required: true
+  blocker: none
+killer:
+  corpus: 20_FROZEN_NYC_TLC_MONTHLY_FILES
+  decisive_conditions:
+    - ANY_VALIDITY_OR_SQL_EQUIVALENCE_FAILURE
+    - ANY_BENEFIT_REQUIRING_FORBIDDEN_ACTION
+    - CURRENT_FIXED_OR_CDC_GRID_REPRODUCES_ALL_CANDIDATE_ACTIONS
+    - NATURAL_BOUNDARY_CHOICE_ON_LESS_THAN_20_PERCENT_OF_FILES
+    - NO_SIZE_LE_5_PERCENT_AND_QUERY_P50_GE_10_PERCENT_POINT_ON_AT_LEAST_12_OF_20
+    - FULL_PLANNING_AND_WRITE_COST_ERASES_PARETO_ADVANTAGE
+claim_ceiling: >-
+  No performance, natural-frequency, optimality, firstness or production-trace
+  claim. Only a current-source-corrected conditional Tier-B research potential
+  and finite falsification route are supported.
+score:
+  academic: 54
+  ai: 26
+  total: 80
+  ai_core_fraction: 0.80
+deliverables:
+  - STAGE0_REPORT.md
+  - Q1_COMPARATOR_MATRIX.md
+  - SOURCE_AUDIT.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+next_lane: LONG_LIVED_CONFIRMATION_SENTRY_ONLY
+lane_state_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE

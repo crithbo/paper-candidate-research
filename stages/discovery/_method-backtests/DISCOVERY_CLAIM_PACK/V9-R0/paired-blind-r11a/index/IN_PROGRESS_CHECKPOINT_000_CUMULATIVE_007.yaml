@@ -1,0 +1,59 @@
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+checkpoint_status: IN_PROGRESS_CHECKPOINT
+checkpoint_ordinal: 0
+cumulative_from: IN_PROGRESS_CHECKPOINT_000_CUMULATIVE_006.yaml
+eligible_families: 0
+per_family_anchor_locator_exclusion_closure:
+  f6c1:
+    target_anchor:
+      accepted: true
+      artifact: artifacts/f6c1/target_anchor_abs.html
+      url: https://arxiv.org/abs/1904.01009
+      bytes: 40483
+      sha256: A1FB332BA1F61BF31C1B01FAD104EF0D6C85AD01595EED1C40980B2A702E782A
+      target_date: '2019-04-01'
+    pre_cutoff_locators:
+      - 'Official GitHub commits API: 2019-03-29 commit 65e7fa1fbc420318806be40e08c27d9555d8ba31; role=dated history; frozen.'
+      - 'Official GitHub contents API at that commit: README.md; role=commit-pinned content path; frozen.'
+      - 'Official GitHub git-tree API at that commit; role=source-tree manifest; frozen.'
+    target_pdf: 'Two short-read attempts rejected; target HTML anchor retained as complete official anchor.'
+    exclusion: PENDING__OLD_AUDITOR_KEY_CONTAINS_NO_DISCOVERABLE_IDENTITY_HASH_FIELD
+    qualification: PENDING__EXCLUSION_AND_CLAIM_STRUCTURE_STRATUM_UNCLOSED
+  l2r9:
+    target_anchor:
+      accepted: true
+      artifacts: [artifacts/l2r9/target_anchor_abs.html, artifacts/l2r9/target_anchor.pdf]
+      target_date: '2020-02-25'
+      pdf_bytes: 501183
+      pdf_sha256: CA9DE3D7B4B176E6523E197EC4A83CAA82F988D9654AF7B6AA5F0B1A48AE2494
+    pre_cutoff_locators:
+      - 'Official GitHub commits API: 2020-02-24 commit 28e8695785083926b97e2f99aa12241954b46f06; role=dated history; frozen.'
+      - 'Official GitHub contents API at that commit: mlir/README.md; role=commit-pinned content path; frozen.'
+      - 'Official GitHub git-tree API at that commit; role=source-tree manifest; frozen.'
+    exclusion: PENDING__OLD_AUDITOR_KEY_CONTAINS_NO_DISCOVERABLE_IDENTITY_HASH_FIELD
+    qualification: PENDING__EXCLUSION_AND_CLAIM_STRUCTURE_STRATUM_UNCLOSED
+  q7m2: PENDING__UNCHANGED
+  n4x8: PENDING__UNCHANGED
+identity_hash_exclusion_read:
+  allowed_old_key_path: 'CONSOLIDATED_DISCOVERY_STAGE0/V8.8-R3R1/resume2/packer/auditor_key/AUDITOR_KEY.yaml'
+  operation: 'Field-only search for identity_hash / stable hash / target hash.'
+  result: 'No identity-hash field found; no old case/outcome/answer content was copied.'
+  consequence: 'Exclusion cannot be marked PASS; no eligibility promotion.'
+request_handling:
+  complete_response_only: true
+  f6c1_pdf: 'Two incomplete reads rejected; no partial byte persisted.'
+  l2r9_pdf: 'Second allowed PDF request completed and was frozen.'
+  per_url_limit_observed: true
+resource_ledger:
+  accepted_frozen_response_bytes_on_disk_actual: 3463429
+  network_bytes: NOT_DIRECTLY_OBSERVABLE__AT_LEAST_3519619_ACCEPTED_RESPONSE_BYTES__DUPLICATE_REQUESTS_AND_REJECTED_SHORT_READS_LOGGED
+  temporary_plus_sealed_bytes_artifact_lower_bound: 3463429
+  cpu_hours_cumulative_estimate: 0.11
+  wall_hours_cumulative_estimate: 0.40
+  envelope_remaining: true
+remaining_routes:
+  - 'Obtain an authorized old identity-hash denylist source; field-only absence cannot prove exclusion.'
+  - 'Complete auditor-private claim-structure and stratum assignment only after identity exclusion closes.'
+  - 'Continue pending q7m2/n4x8 only within recorded URL attempt limits.'
+continue_or_fail_closed: CONTINUE__ELIGIBILITY_BELOW_60_AND_ENVELOPE_REMAINS
+no_scientific_inference: true

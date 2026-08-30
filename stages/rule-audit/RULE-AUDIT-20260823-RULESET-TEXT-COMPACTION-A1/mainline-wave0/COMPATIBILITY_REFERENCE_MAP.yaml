@@ -1,0 +1,61 @@
+schema: ruleset-compaction-compatibility-map-v1
+wave: WAVE0
+generated_at: 2026-08-23T16:30:00+08:00
+authority: MAINLINE_ONLY
+scope:
+  candidate_states_changed: false
+  scientific_gates_changed: false
+  assignment_decisions_changed: false
+
+archive_candidates:
+  core_policy_preview:
+    live_path: rules/CORE_POLICY.md
+    live_sha256: C3E764C4CA88BFF4793E1FED111FDE10B6494074BA584CBD5D4647422D6CFEB6
+    live_bytes: 14095
+    status: SHADOW_P1_NOT_PRODUCTION
+    legacy_shadow_roles_expected_sha256: 30B24D069673DAD4EB555C5FC4DE4CCA6EB9D2108697BE7031FAEF75F9B42803
+    self_consistency: FAIL__EXPECTED_BYTES_NOT_PRESENT
+  rule_shadow_bundle:
+    live_root: rules/_shadow_v9
+    files: 9
+    bytes: 52057
+  template_shadow_bundle:
+    live_root: templates/_shadow_v9
+    files: 4
+    bytes: 2709
+
+direct_live_references:
+  - source: registry.yaml
+    node: user_authorization_suite_20260810_r3.p1
+    targets:
+      - rules/CORE_POLICY.md
+      - rules/_shadow_v9/ROLE_MAINLINE.md
+      - rules/_shadow_v9/ROLE_DISCOVERY.md
+      - rules/_shadow_v9/ROLE_CANDIDATE_OWNER.md
+    classification: HISTORICAL_SHADOW_VALIDATION__NOT_PRODUCTION
+  - source: rules/ROLE_PAPER_PROJECT.md
+    target: rules/CORE_POLICY.md
+    classification: CONDITIONAL_ONLY__NO_PRODUCTION_PIN_EXISTS
+
+bounded_reverse_reference_scan:
+  scanned_roots:
+    - registry.yaml
+    - AGENTS.md
+    - plan.md
+    - history.md
+    - rules/
+    - templates/
+    - stages/**/control/
+    - stages/rule-audit/
+  excluded_resource_roots: true
+  nonterminal_assignment_direct_references: []
+  historical_audit_reference_count: 10
+  conclusion: SAFE_TO_ARCHIVE_EXACT_BYTES_WITH_PATH_MAP__UNSAFE_TO_DELETE_UNIQUE_BYTES
+
+wave1_constraints:
+  - COPY_AND_HASH_VERIFY_BEFORE_REMOVING_LIVE_PREVIEW_BYTES
+  - KEEP_LIVE_INDEX_AT_OLD_ROOTS
+  - UPDATE_REGISTRY_HISTORICAL_P1_PATHS
+  - DO_NOT_COMPACT_ACTIVE_ROLES_OR_TEMPLATES_BEFORE_ACTIONABILITY_EQUIVALENCE_REPLAY
+  - DO_NOT_ENABLE_REGISTRY_SLICE_BEFORE_WAVE2_BACKTEST
+

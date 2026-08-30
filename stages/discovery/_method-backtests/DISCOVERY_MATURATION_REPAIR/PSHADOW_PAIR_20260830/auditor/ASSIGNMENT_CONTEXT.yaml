@@ -1,0 +1,40 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+role: DISCOVERY_BACKTEST_AUDITOR
+assignment_id: DMR-V1-PSHADOW-PAIR-AUDITOR-20260830
+lane_id: DISCOVERY_BACKTEST_AUDITOR_LANE
+lane_thread_id: 01a034d0-e86d-7ba0-ac31-1ca60477b3ce
+model_route: {model: gpt-5.6-terra, thinking: high}
+unique_write_directory: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/auditor
+shared_snapshot:
+  agents: {path: AGENTS.md, sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655}
+  plan: {path: plan.md, sha256: DF76BF9633FE2093EFA6899524212B56186A16167D873109C10D244C799AEA7B}
+  registry: {path: registry.yaml, sha256: 957AA58662C2C4020F343FDCB4F5B22BC57D3D97CBE81F814D1CA5AB7834C7E6}
+  role_rule: {path: rules/ROLE_DISCOVERY_BACKTEST.md, sha256: 74056A6BF3F6A1ABBFF56A13BA27DCD9656B39DD6673D046935C312D39033C23}
+minimum_inputs:
+  - {path: stages/control/user-authorizations/USER_DISCOVERY_REPAIR_FAST_TEST_AND_RULE_CONSOLIDATION_20260830.yaml, sha256: 9B3F2425041DB29EA5D1BCB2B1DE9A4DF2A5BA8C63DD6AFAF1E7ADFB1646C052}
+  - {path: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/PAIR_CONTROL.yaml, sha256: 15D22D324A14459A2B68D0984676B1A3FDEC72704FC6914DABD38E787666038D}
+  - {path: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/CYCLE01_MAINLINE_ACCEPTANCE.yaml, sha256: 9AE4233D4E50992861FBB0E4F79FC167E9B3DC47C4BD1BD358074F88F2B2DBD4}
+  - {path: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/CYCLE02_MAINLINE_ACCEPTANCE.yaml, sha256: 64ECB4FFD8C6C425C9B20ED4CDC406664F0117B69DFA86DE04C9FF66A7EE8EC6}
+  - {path: stages/rule-audit/RULE-AUDIT-20260830-DISCOVERY-MATURATION-REPAIR-FAST-SHADOW-R1/FAST_SHADOW_CONTRACT.yaml, sha256: AF1F2E0D1CEEBDEA4B5B15946DB0DA73EAC8B2980EE2D36E8151BB163621E6C3}
+  - {path: stages/rule-audit/RULE-AUDIT-20260830-DISCOVERY-MATURATION-REPAIR-FAST-SHADOW-R1/RETROSPECTIVE_CASES.yaml, sha256: 03DBE4964677108CF6AE0A653D95B541BB83BD2C767D055DBEDB14BFFD19153F}
+  - {path: stages/rule-audit/RULE-AUDIT-20260830-DISCOVERY-MATURATION-REPAIR-FAST-SHADOW-R1/RETROSPECTIVE_RESULT.yaml, sha256: D24CED4D0D271699A9FF02F80F17132959AF92E263843F5049A4159A6CE8C058}
+  - {path: stages/rule-audit/RULE-AUDIT-20260830-DISCOVERY-MATURATION-REPAIR-FAST-SHADOW-R1/handoff.yaml, sha256: 6658AB7C3A1C946E998683635AA2B8CBA5A38EA438A54C708F346584F1BC8D83}
+  - {path: stages/rule-audit/RULE-AUDIT-20260830-DISCOVERY-MATURATION-REPAIR-FAST-SHADOW-R1/HASH_MANIFEST.sha256, sha256: 70EE2EA27918897DB00175783189D1FF967E52DC600EDCF068A5EE382CE95857}
+allowed_read_roots:
+  - stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/cycle01
+  - stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/cycle02
+evaluation_questions:
+  - Did the historical replay support maturation without reviving structural negatives, with its nonblind small-cohort limitation stated?
+  - Did both prospective cycles preserve identity, canonical-first order, state firewall, no backfill, and honest abstention?
+  - Did the method produce any prospective eligible one-vector repair nomination, executed repair, or clean brief?
+  - Does evidence support merging bounded debt closure into the existing Discovery owner, continuing shadow with a narrower hypothesis, or retiring this method?
+  - Did rule consolidation correctly avoid installing a parallel live maturation rule?
+required_decision: [MERGE_INTO_EXISTING_DISCOVERY_OWNER, CONTINUE_SHADOW_WITH_NARROWER_HYPOTHESIS, RETIRE_METHOD]
+required_calibration_verdict: [CALIBRATED, NOT_CALIBRATED, CONTAMINATION_UNKNOWN]
+required_outputs: [BOOTSTRAP_ACK.yaml, backtest_review.md, handoff.yaml, HASH_MANIFEST.sha256]
+forbidden_inputs: [other_candidate_scientific_outputs, stage0_gold_or_target_labels_not_in_retrospective_packet, unrelated_history, private_sources]
+forbidden_actions: [network, download, build, experiment, candidate_or_queue_state_change, stage0_dispatch, shared_rule_write, stagea, stageb]
+bootstrap_permissions: [read_frozen_inputs, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+resource_root: null
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP

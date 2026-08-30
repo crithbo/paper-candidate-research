@@ -1,0 +1,128 @@
+schema_version: rocksdict-preclaim-environment-lock-v1
+created_at: 2026-08-25T14:40:00+08:00
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-RESUME6-E-ROOT-PRECLAIM-FIDELITY
+topic_id: ROCKSDB-DICT-COVER
+run_scope: PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY
+run_class: CONTROL_NON_CLAIM_BEARING
+network_bytes: 0
+claim_bearing_action: false
+
+host:
+  os: Microsoft Windows NT 10.0.26200.0
+  os_architecture: X64
+  process_architecture: X64
+  powershell: 7.6.4
+  processor_identifier: AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD
+  logical_processors: 32
+  gpu_used: false
+  exclusive_device_used: false
+
+boundaries:
+  workspace_root: E:/project/writing/reserch
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity
+  resource_root: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources
+  upstream_same_topic_manifest_root: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume5-e-root-official-assets/resources/build/manifests
+  cross_topic_resource_access: false
+  system_install_or_global_change: false
+
+frozen_contract:
+  experiment_contract_sha256: 8B578D63EE6DC515DB60E6D5A7D29AECEE35EAFF816AF7D800888C9746CEDC70
+  rocksdb_commit: 1dfa7297933df05237ac11376d6cb69d32591b1d
+  zstd_commit: 82d322c4973d9e2968d94047a40892bc6d9a9bdf
+  manifest_closure_sha256: 673B96BB41B667111061E9DAB888C4AAF1E3017A28D1196ADD0B546BB3F38EEE
+  upstream_input_acceptance_sha256: B72DB74C03782DAF792E8D32CC91C9CD41F7CFA302C2F67DA5063AC793F47F31
+  accepted_manifest_count: 20
+  accepted_manifest_bytes: 61951583
+
+source_archives:
+  - {path: resources/archives/rocksdb-1dfa7297933df05237ac11376d6cb69d32591b1d.zip, bytes: 16699060, sha256: C1D20F66CB03A0643254696B83B62C4135A78960E8C0B42C7A10FF1DA31B7575, provenance: git_archive_exact_clean_commit}
+  - {path: resources/archives/zstd-82d322c4973d9e2968d94047a40892bc6d9a9bdf.zip, bytes: 2775980, sha256: 6F1E08FAC824B46984754E0296ABDFDE7147D4142468CD610D7A932357FEBE03, provenance: git_archive_exact_clean_commit}
+
+toolchain:
+  compiler: clang++ 22.1.8 x86_64-w64-windows-gnu
+  cmake: 4.4.2
+  ninja: 1.13.2
+  build_jobs_max: 2
+  archives:
+    - {path: resources/archives/llvm-mingw-20260616-ucrt-x86_64.zip, bytes: 187504083, sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35}
+    - {path: resources/archives/cmake-4.4.2-windows-x86_64.zip, bytes: 54405968, sha256: E8139D85B3813BC38833142AE1940472E9A587E9B5D2718AC1804C60F4E57A64}
+    - {path: resources/archives/ninja-win-1.13.2.zip, bytes: 291570, sha256: 07FC8261B42B20E71D1720B39068C2E14FFCEE6396B76FB7A795FB460B78DC65}
+  process_local_redirects:
+    TEMP: resources/tmp
+    TMP: resources/tmp
+    TMPDIR: resources/tmp
+    PYTHONPYCACHEPREFIX: resources/cache/pycache
+    PYTHONNOUSERSITE: '1'
+    PIP_CACHE_DIR: resources/cache/pip
+    DOTNET_CLI_HOME: resources/cache/dotnet-home
+    NUGET_PACKAGES: resources/cache/nuget
+
+zstd:
+  unchanged_static_library_sha256: 04DEC078758D0FDF9449D6D3E76FB220174A82527ADC3146323B0C081C60DE91
+  zdict_header_sha256: ABACADB94E3F79E591F4B1648E839B0160FBF4291211FD01BDBA1380269B245C
+  trainer: unchanged_ZDICT_trainFromBuffer_at_pinned_commit
+
+patched_rocksdb:
+  original_builder_sha256: A3277289A87693030603B6745A58F0CC049F281C8114702DB39E7A52C541A9E4
+  patched_builder_path: resources/src/rocksdb/table/block_based/block_based_table_builder.cc
+  patched_builder_sha256: 9BB41C3A169E3EC2BF7865C3D1BE135A3EE5F0774C7D88AE096D2B55242AE323
+  patched_cmake_path: resources/src/rocksdb/CMakeLists.txt
+  patched_cmake_sha256: 42C853C3F698CF6E655ACECFCAADE5125D58C26C4A7F89A6E02D95B0A50DF849
+  assignment_local_selector_interface: [ROCKSDICT_SELECTOR_MODE, ROCKSDICT_TRACE_PATH]
+  public_format_or_reader_change: false
+
+harness:
+  source_path: resources/src/harness/rocksdict_preclaim_harness.cc
+  source_sha256: 3155101C727F6FF76AA262C1C7E0663B77E6CDF18832DA7C3F3B3EC59D39D0D2
+  executable_path: resources/build/frozen/rocksdict_preclaim_harness.exe
+  executable_sha256: 22A57C80065AC0883AA62678DB7BAD7546BDC08A51064EBDA9721DE991DC34D4
+  static_rocksdb_path: resources/build/frozen/librocksdb-preclaim.a
+  static_rocksdb_sha256: 638973B80FD6181CC0B20DDA025D013CF1EA8C6306E3CC9DEB52C02805D6B6C3
+  static_zstd_path: resources/build/frozen/libzstd.a
+  static_zstd_sha256: 04DEC078758D0FDF9449D6D3E76FB220174A82527ADC3146323B0C081C60DE91
+  runtime:
+    - {path: resources/env/runtime/libc++.dll, sha256: 952B41B1370DDB5E7299CC9FCEFCE2AD8C2021409948B057EC4D903C03760B6C}
+    - {path: resources/env/runtime/libunwind.dll, sha256: 8D9F60801F50C0A6CB7BEB7FD2E121F98BF39EBE40E6C7E07A8A39FCCB817C03}
+  frozen_runtime_smoke: PASS_CONTROL_NON_CLAIM_C1_G1
+
+control_matrix:
+  path: resources/build/control_runs_final7
+  methods: [B0, B1, B2, B3, B4, B5, C1]
+  grid_cells: [G1, G2]
+  replays: [R1, R2]
+  run_count: 28
+  accepted_run_count: 28
+  summary_sha256: 66719333E215EE3F23946FCFADCC0402F5283965E375F0B87EF461B6FF9904D3
+  replay_verification_sha256: C3D58031711DC614D16820F2F483B4CB05196E883B703BB9FBF8620AF798713D
+  natural_manifest_used: false
+
+full_cost_path_smoke:
+  path: resources/logs/full_cost_collection_path_smoke.json
+  sha256: 9AF9EBDFAA33022476F806C40BFA24F86F94E1F5FCEDB4562071D9AE41BAD18A
+  process_poll_interval_ms: 10
+  hard_timeout_seconds: 120
+  exit_code: 0
+  network_bytes: 0
+  claim_bearing_action: false
+
+engineering_corrections:
+  scientific_revision_consumed: false
+  invalidated_non_evidence_roots:
+    - resources/build/rocksdb-preclaim
+    - resources/build/control_runs
+    - resources/build/control_runs_valid
+    - resources/build/control_runs_final
+    - resources/build/control_runs_final2
+    - resources/build/control_runs_final3
+    - resources/build/control_runs_final4
+    - resources/build/control_runs_final5
+    - resources/build/control_runs_final6
+  canonical_build_root: resources/build/rocksdb-preclaim-r1
+  canonical_control_root: resources/build/control_runs_final7
+
+validation:
+  source_commits_clean_before_archive: true
+  pinned_key_file_hashes_match: true
+  network_disabled: true
+  system_or_user_environment_modified: false
+  result: LOCKED_FOR_PRECLAIM_CONTROL_ONLY

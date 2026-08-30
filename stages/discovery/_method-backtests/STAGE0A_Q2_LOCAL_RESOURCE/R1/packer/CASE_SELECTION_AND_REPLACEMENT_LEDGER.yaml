@@ -1,0 +1,79 @@
+schema: result-independent-case-selection-v1
+created_at: 2026-08-26T17:42:00+08:00
+assignment_id: BACKTEST-PACKER-20260826-STAGE0A-Q2-LOCAL-RESOURCE-R1
+visibility: PACKER_AND_FINAL_AUDITOR_ONLY
+selection_frozen_before_executor_output: true
+executor_output_existed: false
+tested_method_executed: false
+case_scoring_performed: false
+
+replacement_decision:
+  excluded_original: P06_SOURCE_COMPRESSION
+  exclusion_reason: STATIC_WINDOWS_RESOURCE_PREFLIGHT_FAILED__POSIX_DEV_LIBRARIES_AND_SHELL_ENTRY_REQUIRED
+  scientific_inference: NONE
+  replacement: ALT01_WEBGRAPH_LLP
+  replacement_order_position: 1
+  replacement_gold_qualified: true
+  replacement_local_resource_pass: true
+  second_alternate_considered: false
+  outcome_aware: false
+
+sealed_stage0_positive_pool:
+  count: 12
+  original_cases_retained: [P01_HNSW, P02_ANN_BENCHMARKS, P03_EGG, P04_CVC5, P05_CARCARA, P07_PGM_INDEX, P08_ALEX, P09_PYTHIA, P10_BERTI, P11_BOLT, P12_MESS]
+  alternate_cases_inserted: [ALT01_WEBGRAPH_LLP]
+  original_cases_excluded_before_blind_assignment: [P06_SOURCE_COMPRESSION]
+sealed_stage0_direct_fatal_pool:
+  count: 4
+  cases: [N01_CURRENT_UNION_DIRECT_ABSORPTION, N02_GENERIC_WRAPPER, N03_SAME_INFORMATION_SELECTOR, N04_GENERIC_PARTITION_SOLVER]
+stagea_operational_pool_if_stage0_survives:
+  count: 8
+  cases: [P01_HNSW, P02_ANN_BENCHMARKS, P03_EGG, P04_CVC5, P05_CARCARA, ALT01_WEBGRAPH_LLP, P07_PGM_INDEX, P08_ALEX]
+stagea_routing_controls_if_stage0_survives:
+  count: 4
+  cases: [P09_PYTHIA, P10_BERTI, P11_BOLT, P12_MESS]
+
+neutral_id_mapping:
+  C-9622BCF5360747AB: P01_HNSW
+  C-1E10CE43D01C4B93: P02_ANN_BENCHMARKS
+  C-33F7F9CB19284BC4: P03_EGG
+  C-DDDDF3F00E3F4428: P04_CVC5
+  C-C98C8F4C76584088: P05_CARCARA
+  C-BD14C6257DB84D7E: ALT01_WEBGRAPH_LLP
+  C-1B61273411BF4421: P07_PGM_INDEX
+  C-DB98638FE01A426A: P08_ALEX
+  C-B8C4102CFFE444B0: P09_PYTHIA
+  C-14F00B4F47004C29: P10_BERTI
+  C-151972EC3DB44E83: P11_BOLT
+  C-1D4BF9F12CB743E2: P12_MESS
+  C-C4BDE6267B264BCB: N01_CURRENT_UNION_DIRECT_ABSORPTION
+  C-6D9B50D69A8F4CA3: N02_GENERIC_WRAPPER
+  C-B45878DDEB384E44: N03_SAME_INFORMATION_SELECTOR
+  C-537C3ADA58FF4BAF: N04_GENERIC_PARTITION_SOLVER
+unused_random_id_evidence:
+  C-55410A13FA794715:
+    original_case: P06_SOURCE_COMPRESSION
+    status: DISCARDED_BEFORE_SEAL_AFTER_PREDECLARED_RESOURCE_REPLACEMENT
+    ever_visible_to_executor: false
+
+randomization:
+  generator: System.Guid.NewGuid_v4_first_64_bits_uppercase
+  semantic_information_encoded: false
+  uniqueness_count: 17_OF_17
+  selected_mapping_count: 16
+  mapping_location_policy: AUDITOR_ONLY
+
+negative_control_gold_kernels:
+  C-C4BDE6267B264BCB: SAME_OBJECT_ACTION_ALREADY_PRESENT_IN_CUTOFF_UNION
+  C-6D9B50D69A8F4CA3: GENERIC_WRAPPER_WITHOUT_DISTINCT_MECHANISM_OR_ENDPOINT
+  C-B45878DDEB384E44: SAME_INFORMATION_SELECTOR_ABSORBED_BY_COMPARATOR
+  C-537C3ADA58FF4BAF: GENERIC_PARTITION_SOLVER_RESTATEMENT
+
+validation:
+  stage0_positive_count: 12
+  stage0_negative_count: 4
+  stagea_primary_local_count: 8
+  heavy_routing_controls_in_operational_denominator: false
+  replacement_after_executor_output: false
+  negative_controls_changed: false
+  result: PASS_RESULT_INDEPENDENT_SELECTION

@@ -1,0 +1,3 @@
+# Rule freeze — Wave131 natural failure phenomenon N3 breadth
+
+`DISCOVERY-S1-20260811-V8.7-WAVE131-NATURAL-FAILURE-PHENOMENON-N3-BREADTH`; 2026-08-11; `v8.7+R5-P0`, `QUALITY_MODE=OFF`. N3 admission requires a reproducible natural corpus, current explanation/baseline, stability and confound control, same-object utilization mechanism or independent characterization shape, full cost and finite killer. A single issue/exception is not a regularity. Inputs: AGENTS `66231f71ef6ab250a1ad9ff576d5840978f09efc03bf5d2f0527d47f4d82b063`; plan `7b3403108641bf8d5f2b82aa06cf2036f35bf9500d2aba4c23d167311136a33d`; registry `46a27bc9c44661f0c76b28548d6eefc804ef9eb53f15c0f6db9581c98593409b`; ROLE `fcb9bd73c39f39d31f6c8154e6b48ea23187ff28bdf2bb3d9c59e3d28fa518a3`.

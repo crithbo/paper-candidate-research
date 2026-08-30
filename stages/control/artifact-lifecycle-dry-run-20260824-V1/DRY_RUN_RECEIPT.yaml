@@ -1,0 +1,10 @@
+schema_version: cleanup-receipt-v1
+identity: {topic_id: LIFECYCLE-VALIDATION, assignment_id: ARTIFACT-LIFECYCLE-DRY-RUN-20260824-V1, closeout_event: DRY_RUN, cleanup_id: DRY-RUN-NO-DELETE, actor: MAINLINE, performed_at: 2026-08-24T21:05:00+08:00}
+authority: {artifact_lifecycle_mode: DRY_RUN, policy_sha256: C8FDB53916138BB91C4A980657891D5B1FB9F41A4C9FE5DD4F619E60BBB256CE, user_approval_ids: [USER-PHASE-CLOSEOUT-STORAGE-LIFECYCLE-V1-20260824]}
+predelete: {exact_target_count: 0, file_count: 0, logical_bytes: 0, containment_pass: true, root_blacklist_pass: true, reparse_count: 0, active_owner_or_process_count: NOT_APPLICABLE_NO_DELETE, retained_hash_gate: true, downstream_gate: PASS, recovery_gate: PASS}
+deleted_targets: []
+postdelete: {target_absence: NOT_APPLICABLE_NO_DELETE, deleted_file_count: 0, deleted_logical_bytes: 0, retained_hash_validation: PASS_ZERO_DRIFT, capsule_validation: PASS_ALL_CASES, budget_validation: PASS_ALL}
+recoverability: {project_local_undelete: false, route: PINNED_TWIN_COPY_REPLAY, tested: true, test_evidence: stages/control/artifact-lifecycle-dry-run-20260824-V1/replays/recovery/hf-rows-0.recovered.json}
+state_effect: {scientific_state_changed: false, scientific_revision_consumed: false, artifact_state: CAPSULE_SEALED_DRY_RUN}
+validation: {receipt_parse: true, hashes_complete: true, result: PASS}
+

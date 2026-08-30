@@ -1,0 +1,15 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE116-MERGED-PATCH-LINEAGE-RESIDUAL-V1
+cutoff: '2026-08-24'
+sources:
+  - {source_id: S116-01, title_or_artifact: LLVM MLIR issue 216535, canonical_version: open 2026-08-16, locator: https://github.com/llvm/llvm-project/issues/216535, source_role: CONTRARY, read_depth: SECTIONS}
+  - {source_id: S116-02, title_or_artifact: Triton issue 11153, canonical_version: open 2026-08-03, locator: https://github.com/triton-lang/triton/issues/11153, source_role: CONTRARY, read_depth: SECTIONS}
+  - {source_id: S116-03, title_or_artifact: PyTorch issue 190973, canonical_version: current issue view, locator: https://github.com/pytorch/pytorch/issues/190973, source_role: CONTRARY, read_depth: SECTIONS}
+claims:
+  - claim_id: C116-01
+    text: Located sources are open issue reports or a local fix reference, not a complete merged-patch parent/current/test/flag lineage with a same-object current residual.
+    priority: HIGH
+    source_links: [{source_id: S116-01, relation: PARTIAL, locator: issue status and reproducer, evidence_status: AUTHOR_CLAIM, conflict: no merged patch lineage, permitted_conclusion: no raw}, {source_id: S116-02, relation: PARTIAL, locator: issue status and reproducer, evidence_status: AUTHOR_CLAIM, conflict: no parent/current flag closure, permitted_conclusion: no raw}, {source_id: S116-03, relation: PARTIAL, locator: issue fix reference, evidence_status: AUTHOR_CLAIM, conflict: no frozen project carrier/residual, permitted_conclusion: local patch is locator only}]
+stopping: {high_impact_items_bounded: true, latest_and_current_union_checked: true, first_party_depth_sufficient: false, heterogeneous_independent_path_complete: false, contrary_search_complete: true, natural_or_canonical_carrier_frozen: false, full_cost_frozen: false, marginal_sources_no_longer_decision_changing: true, decisive_contradictions_resolved_or_bounded: true, disposition: NOT_ADMITTED_UNFROZEN}
+execution_readiness: {state: E0, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: NO_RAW_ADMISSION__NO_CLAIM

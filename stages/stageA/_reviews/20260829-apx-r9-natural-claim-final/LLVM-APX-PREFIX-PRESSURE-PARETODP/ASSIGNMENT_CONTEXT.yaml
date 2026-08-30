@@ -1,0 +1,28 @@
+schema_version: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+assignment_id: STAGEA-GATE-20260829-APX-R9-NATURAL-CLAIM-FINAL-INPUTS
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+lane_id: STAGEA_GATE_REVIEW_LANE_1
+role: INDEPENDENT_STAGEA_REVIEW
+model_route: gpt-5.6-terra
+thinking: high
+unique_write_directory: stages/stageA/_reviews/20260829-apx-r9-natural-claim-final/LLVM-APX-PREFIX-PRESSURE-PARETODP
+resource_root: stages/stageA/_reviews/20260829-apx-r9-natural-claim-final/LLVM-APX-PREFIX-PRESSURE-PARETODP/resources
+current_state: BOOTSTRAP_PENDING__FORMAL_STAGEA_CLAIM_GATE__FINAL_CANONICAL_INPUTS
+user_authorization: USER_CONTINUOUS_STAGEA_ECP_AUTONOMY_20260829
+frozen_control:
+  agents: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: D711AD4515B65DE278E41FBE49068B13F753CD379E50178D6F4F8A60D134D548}
+  registry: {path: registry.yaml, sha256: 643627C8AE000217468AC6E4D73B5BA37C338CBCA85AD95B2B74F11BE2D1731A}
+  role_rule: {path: rules/ROLE_STAGEA_REVIEW.md, sha256: 3F625031306861248D817C36905E3D0AB0DCDB3B8B6B959673975BDB6128FF01}
+  academic_skill: {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  reviewer_workflow: {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/academic-paper-reviewer/WORKFLOW.md, sha256: 5469CDABFEB6FAC7CCBE88CAF1A85C55E9F46977F9DC3AEFC84EFF1CE93E1672}
+  assignment: {path: stages/stageA/_reviews/20260829-apx-r9-natural-claim-final/LLVM-APX-PREFIX-PRESSURE-PARETODP/control/ASSIGNMENT.yaml, sha256: CCBBCEF65A7D67D7F06386AE4B83F94B7762004AB2495BB619A7C49D3BAE958C}
+minimum_inputs:
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_CLAIM_RESULT.yaml, sha256: F485BEBAFA1AFC3D984F02B21CF90FE73564B4A5C922291010C4913C6340D82E}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/handoff.yaml, sha256: 0A8744019AD6F566050D4D60243773E719CC8BCF1275A8D7905FFC5A1F3E4C60}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/HASH_MANIFEST.sha256, sha256: 44DCD952C7B51431FD72F0B24FF39F97E449EBE496B7927AEC8ABB3F669831C8}
+forbidden_inputs: [stages/stageA/_reviews/20260829-apx-r9-natural-claim/LLVM-APX-PREFIX-PRESSURE-PARETODP/INDEPENDENT_REVIEW_REPORT.md]
+allowed_action: WRITE_BOOTSTRAP_ACK_ONLY
+forbidden_actions: [review_judgment_before_start, modify_owner_files, resource_copy, tool_replay, new_experiment, claim_run, network, shared_write, state_change, stageb]
+next_action: FULL_READ_AND_WRITE_BOOTSTRAP_ACK_THEN_WAIT

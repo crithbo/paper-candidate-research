@@ -1,0 +1,19 @@
+schema: stagea-static-packet-correction-start-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R12-STATIC-CORRECTION2
+correction_ordinal: 2
+static_lint_edits_after_success: 2_of_3
+frozen_inputs:
+  packet_sha256: 1983A5303F7D7979DD3D5F4394190E420BE5E27985F904F790FCA2D119667F02
+  dag_sha256: A5EFA9158C6357B84C63D806A3676E2AE8B1C754487ED96EA47EA2A57A086001
+  producer_sha256: AD7A61FF5C75E8B4EE95287DFC2E55CB1CC663DAE5A78137435EE48E38F77E34
+  copy_manifest_sha256: CD7499964BDE21072465FC7026BA331668E076058FF7A054FBB435F4AB92F9D7
+allowed_files: [PPC_R12_EXECUTABLE_PACKET.yaml, PPC_R12_COMMAND_DAG.json, PPC_R12_STATIC_VALIDATION.yaml]
+required_changes:
+  - replace DAG candidate runner path with r12 resources/src/runner/materializer_harness.py
+  - replace DAG baseline collector path with r12 resources/src/runner/baseline_cost_collector.py
+  - replace packet full-cost input with r12 resources/src/inputs/selected-00.ll
+  - make packet and DAG full-cost argv byte-identical
+  - validation must parse actual packet/DAG/copy manifest and assert old_v2_executable_source_refs=0, original_r6_runtime_input_refs=0, runner_copy_rows=3, selected_copy_rows=16, metrics=15+56=71, bundles=16, placeholders=0
+forbidden_changes: [producer_source, exact16_selection, baseline_grid, denominator_71, bundle_count_16, object, mechanism, guarantee, metrics, result_visibility]
+forbidden_actions: [resource_copy, tool_execution, control_row, claim_row, network, shared_write, cleanup, stageb]
+stop_after: CORRECTED_STATIC_PACKET_SEALED__WAIT_MAINLINE

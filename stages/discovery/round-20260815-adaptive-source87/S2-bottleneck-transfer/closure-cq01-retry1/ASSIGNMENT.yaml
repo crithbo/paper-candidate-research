@@ -1,0 +1,67 @@
+schema_version: discovery-source-closure-retry-v1
+assignment_id: SOURCE-CLOSURE-RESUME-BATCH07-ITEM02-SOURCE87-S2-GRAALVM-RETRY1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_COLLISION_AND_CARRIER_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+write_owner: ASSIGNED_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source87/S2-bottleneck-transfer/closure-cq01-retry1
+queue_item: S2-87-CQ01-RETRY1
+retry_of: stages/discovery/round-20260815-adaptive-source87/S2-bottleneck-transfer/closure-cq01
+exact_project: oracle/graal
+immutable_commit: f3c130e4d5345b81968f0f9d94fedb87c7143b8c
+commit_policy: REUSE_EXACTLY__NO_BRANCH_REFRESH_OR_SUBSTITUTE_COMMIT
+exact_object: one fixed closed-world Java application compiled by stock GraalVM Native Image with unchanged Java/native behavior, class-initialization safety semantics, image format/loader endpoint and full-cost boundary
+frozen_family: GRAALVM_NATIVE_IMAGE__FIXED_CLOSED_WORLD_JAVA_APP__PROVEN_SAFE_CLASS_INIT_IMAGE_HEAP_LAYOUT_JOINT_CONSTRUCTOR__IMAGE_COLD_START_FULL_COST
+retry_goal:
+  - close current class-initialization policy/options and image-heap layout/sorting action union at the immutable commit
+  - freeze one complete in-tree closed-world application carrier and two complete stock-legal class-init-plus-layout plans if source exposes them
+  - freeze a GraalVM-specific union-external joint action and finite safety/layout guarantee or return exact structural/unresolved reason
+official_source_routes:
+  - https://api.github.com/repos/oracle/graal/git/commits/f3c130e4d5345b81968f0f9d94fedb87c7143b8c
+  - https://raw.githubusercontent.com/oracle/graal/f3c130e4d5345b81968f0f9d94fedb87c7143b8c/substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/classinitialization/ClassInitializationSupport.java
+  - https://raw.githubusercontent.com/oracle/graal/f3c130e4d5345b81968f0f9d94fedb87c7143b8c/substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/classinitialization/ClassInitializationOptions.java
+  - https://raw.githubusercontent.com/oracle/graal/f3c130e4d5345b81968f0f9d94fedb87c7143b8c/substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/image/NativeImageHeap.java
+  - https://raw.githubusercontent.com/oracle/graal/f3c130e4d5345b81968f0f9d94fedb87c7143b8c/substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/image/ImageHeapLayouter.java
+  - https://raw.githubusercontent.com/oracle/graal/f3c130e4d5345b81968f0f9d94fedb87c7143b8c/substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/image/DefaultImageHeapObjectSorter.java
+  - https://raw.githubusercontent.com/oracle/graal/f3c130e4d5345b81968f0f9d94fedb87c7143b8c/substratevm/src/com.oracle.svm.test/src/com/oracle/svm/test/clinit/TestClassInitialization.java
+  - https://api.github.com/repos/oracle/graal/contents/substratevm/src/com.oracle.svm.test/src/com/oracle/svm/test/clinit?ref=f3c130e4d5345b81968f0f9d94fedb87c7143b8c
+selection_rule: from the frozen clinit test directory select at most one additional Java carrier whose lowercase basename contains initialization and differs from the fixed test; choose lexicographically first, record zero-match as telemetry, do not expand directories
+frozen_primary_searches:
+  - 'GraalVM Native Image class initialization image heap layout optimization'
+  - 'GraalVM native image build time class initialization object layout'
+primary_selection_rule: open at most two primary research papers whose title or abstract explicitly names GraalVM Native Image and jointly addresses class initialization with image-heap layout; otherwise record SEARCH_BOUNDED_OPEN without absence inference
+required_outputs:
+  - immutable commit proof and exact retained loci
+  - complete bounded class-init/image-layout/options current union
+  - fixed closed-world application carrier and two complete stock-legal plans, or exact bounded reason unclosed
+  - union-external GraalVM-specific action, information boundary, non-generic discriminator and finite safety/layout guarantee verdict
+  - direct collision and generic policy/packing/controller objection
+  - full-cost dimensions and finite falsifier route
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_GENERIC_POLICY_PACKING_CONTROLLER__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+authority_boundary: {clean_brief: false, q2_or_candidate_grade: false, pass_stop_or_stage_state: false}
+forbidden:
+  - read Batch7 ONNX output, Batch6 outputs, other closure outputs, later Discovery, rule audit, terminal or held queues
+  - change fixed app, behavior, class-init safety, image format/loader, information premise, full-cost endpoint, project or commit
+  - clone, archive download, build, install, compile, run, test, benchmark or claim-bearing observation
+  - use unofficial sources, substitute routes, unbounded search, or infer absence/novelty from 404, zero match, transport or tool failure
+resource_localization:
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source87/S2-bottleneck-transfer/closure-cq01-retry1/resources
+  inventory: stages/discovery/round-20260815-adaptive-source87/S2-bottleneck-transfer/closure-cq01-retry1/RESOURCE_INVENTORY.yaml
+  max_official_calls: 15
+  max_success_response_bytes_each: 8388608
+  max_network_bytes: 50331648
+  max_persisted_bytes: 50331648
+  max_wall_seconds: 3600
+  max_frozen_searches: 2
+  max_primary_papers_opened: 2
+  pre_call_monotonic_attempt_counter: required
+  eight_standard_subdirectories: required
+rules:
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+notify_mainline_on_finish_or_blocker: true

@@ -1,0 +1,25 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE50-TYPED-PORTFOLIO-SELECTIVE-DEPTH-V1
+sources:
+  - id: SRC50-01
+    role: CURRENT_UPSTREAM
+    title: LLVM RISCVMakeCompressible current producer
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/lib/Target/RISCV/RISCVMakeCompressible.cpp
+    version_or_date: "main observed 2026-08-15"
+    selection_rule: "Official source: current pass analyzes compressible uses, creates a copy/base adjustment, and updates operands to compressible forms."
+    disposition: CURRENT_ACTION_DIRECT_SUBTRACTOR
+  - id: SRC50-02
+    role: DIRECT_COLLISION
+    title: "Register Allocation for Compressed ISAs in LLVM, CC 2023"
+    url: https://pp.ipd.kit.edu/uploads/publikationen/fried23cc.pdf
+    version_or_date: "2023"
+    selection_rule: "Primary same-object compressed-ISA LLVM allocator paper."
+    disposition: FROZEN_DIRECT_COLLISION
+  - id: SRC50-03
+    role: HISTORICAL_IDENTITY
+    title: Source42 and Source48 S6 canonical handoffs
+    url: stages/discovery/round-20260815-adaptive-source48/S6-direct-algorithm-software/handoff.yaml
+    version_or_date: "frozen internal deliveries"
+    selection_rule: "Used solely for all-history five-field identity containment."
+    disposition: IDENTITY_PRECHECK
+network_acquisition: []
+budget_status: NO_RESOURCE_ACTIONS

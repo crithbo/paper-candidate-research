@@ -1,0 +1,21 @@
+schema: candidate-resource-preflight-assignment-v1
+assignment_id: SAFE-PREFLIGHT-L3-20260815-V8-RESUME2
+topic_id: V8-SNAPSHOT-CONSTRAINT-SCHEDULER
+task_id: 019fe603-a460-71d0-9631-2a0665780ce5
+role_rule: rules/ROLE_CANDIDATE_OWNER.md
+control: stages/stageA/_assignments/20260815/AUTONOMOUS_SAFE_BLOCKER_RECOVERY_CONTROL.yaml
+read_only_inputs:
+  - stages/stageA/_resource-preflight/V8-20260811-R3F1
+  - stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/initial
+write_directory: stages/stageA/_resource-preflight/V8-20260815-safe-resume2
+frozen_object:
+  v8_commit: c635f0d160b6e988b5ea5a907511a2929beb5d5e
+objective: >-
+  Reconcile the completed R3F1 preflight with the current machine. Inspect already installed
+  Windows C++ SDK/build tools and already local V8 assets, then freeze exact official source,
+  dependency, download-size, disk, CPU and command estimates. Do not download the V8 body or
+  build it if any global report-before threshold would be crossed.
+claim_bearing_allowed: false
+success_route: MAINLINE_REVIEW_OF_EXACT_SMALL_OR_LARGE_RESOURCE_REQUEST
+failure_route: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+

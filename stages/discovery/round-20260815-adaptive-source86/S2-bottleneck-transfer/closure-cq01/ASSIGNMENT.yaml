@@ -1,0 +1,55 @@
+assignment_id: SOURCE-CLOSURE-SOURCE86-S2-CQ01-ONNXRUNTIME-PARTITION-MEMORY-PATTERN-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+write_owner: ASSIGNED_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source86/S2-bottleneck-transfer/closure-cq01
+parent_assignment: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE86-R40-ORDINARY-BREADTH-V1
+parent_handoff_sha256: 4792B2E8B9938E3C05FEFE3DBAA76D17C936CEFB9F6671DDAD3FC10CAFDD825A
+parent_queue_sha256: E42F08F73150F034AE29DAECC26A70886E17438C6F508C40E22084E27F4FF0FE
+parent_question_card_sha256: A0F856A84753EFE7A629D3B5389E9FC5B1602A23D625BB388BB7F39C42B89BAC
+queue_item: S2-86-CQ01
+queue_status_at_freeze: PENDING_UNEXECUTED__ATTEMPTS_0__NOT_EXHAUSTED
+exact_project: microsoft/onnxruntime
+deterministic_version_rule: resolve the official refs/heads/main commit SHA at the first counted bounded attempt and pin every retained source to that one SHA
+exact_object: one fixed ONNX graph and weights loaded by a stock InferenceSession with fixed providers, device configuration, input shapes and values, outputs, partition legality, and repeated-shape execution semantics
+primary_routes:
+  - https://api.github.com/repos/microsoft/onnxruntime/commits/main
+  - https://api.github.com/repos/microsoft/onnxruntime/git/trees/<resolved_commit_sha>?recursive=1
+  - https://raw.githubusercontent.com/microsoft/onnxruntime/<resolved_commit_sha>/<deterministically_selected_graph_partitioner_or_execution_provider_partition_source>
+  - https://raw.githubusercontent.com/microsoft/onnxruntime/<resolved_commit_sha>/<deterministically_selected_memory_pattern_planner_or_session_state_source>
+  - https://raw.githubusercontent.com/microsoft/onnxruntime/<resolved_commit_sha>/<deterministically_selected_memory_optimizer_arena_or_config_source>
+  - https://raw.githubusercontent.com/microsoft/onnxruntime/<resolved_commit_sha>/<one_fixed_in_tree_partition_memory_pattern_test_or_official_model_locus>
+route_selection_rule: after commit pin, select only immediate graph partition or EP capability, memory-pattern planner/session state, memory optimizer/arena/config, and one in-tree fixed graph carrier path; record zero matches without absence inference
+required_outputs:
+  - immutable current microsoft/onnxruntime commit and exact source loci
+  - complete stock partition/EP plus memory-pattern/arena/optimizer action and relevant default/non-default config union within bounded loci
+  - one fixed stock-legal ONNX graph carrier and two complete legal partition-allocation plans if the in-tree source exposes them
+  - whether a union-external ORT-specific joint action and finite target/provider-specific exact/FPT/approximation/certified guarantee can be frozen
+  - strongest direct current collision and generic graph-partition/packing/controller objection
+  - full-cost dimensions and a finite falsifier route
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_GENERIC_PARTITION_PACKING_CONTROLLER__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide_clean_brief_Q2_PASS_STOP_or_stage_state
+  - change_fixed_graph_provider_session_output_or_full_cost_endpoint
+  - run_build_install_experiment_or_claim_bearing_observation
+  - clone_repository_or_download_archives
+  - search_outside_exact_project_source_scope
+  - treat_404_zero_match_transport_failure_or_missing_tool_as_absence
+  - read_or_use_Source87_or_later_Discovery_outcomes
+  - read_or_use_Source91_R74_OpenXLA_or_TVM_closure_output
+resource_localization:
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source86/S2-bottleneck-transfer/closure-cq01/resources
+  inventory: stages/discovery/round-20260815-adaptive-source86/S2-bottleneck-transfer/closure-cq01/RESOURCE_INVENTORY.yaml
+  max_acquisition_calls: 6
+  max_success_response_bytes_each: 8388608
+  max_persisted_bytes: 16777216
+  max_wall_seconds: 1800
+  pre_call_monotonic_attempt_counter: required
+  eight_standard_subdirectories: required
+model_route: {model: gpt-5.6-terra, reasoning: high}
+notify_mainline_on_finish_or_blocker: true

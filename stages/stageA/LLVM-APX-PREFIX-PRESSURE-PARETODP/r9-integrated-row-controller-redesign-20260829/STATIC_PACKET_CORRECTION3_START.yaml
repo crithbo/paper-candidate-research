@@ -1,0 +1,20 @@
+schema: stagea-static-packet-correction-start-v1
+assignment_id: STAGEA-L1-20260829-LLVM-APX-R9-INTEGRATED-ROW-CONTROLLER-REDESIGN
+correction_ordinal: 3
+static_lint_edits_after_success: 3_of_3
+source_plan: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/REBOUND_R8_COMMAND_PLAN.yaml, sha256: A2734145DF704EC9BBD6DFA36E7906B089FB86B7D758F96694D9E1704B646B32}
+mechanical_selection: FIRST_EIGHT_ROWS_EXACTLY__S01_TO_S04_X_REPLAY_1_2
+literal_substitutions:
+  - {old: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources, new: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources}
+  - {old: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/env/apx-toolchain/bin/llc.exe, new: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a4-explicit-resource-copy-20260829/resources/env/apx-toolchain/bin/llc.exe}
+allowed_files: [APX_R9_EXECUTABLE_PACKET.yaml, APX_R9_COMMAND_DAG.json, APX_R9_CONTROLLER.py, APX_R9_STATIC_VALIDATION.yaml]
+required_changes:
+  - DAG contains exactly eight row objects and nine named literal argv arrays per row copied from the source plan after only the two substitutions above
+  - total literal command arrays equals seventy-two; every argv has absolute executable/input/output paths and no placeholder or symbolic token
+  - controller loads DAG, executes each row serially with shell false and first-failure stop, records stdout/stderr/exit/timeout/cpu/wall/Windows child peak RSS/input bytes/output bytes and validates each --out artifact schema
+  - controller writes an outer full-cost ledger from all nine command receipts per row; driver COLLECTED_BY_FUTURE_RUNNER strings are never treated as measured values
+  - validation recomputes row_count=8, commands_per_row=9, command_count=72, selected_ids=[S01,S02,S03,S04], replays=[1,2], placeholder_count=0 and every producer-consumer edge
+  - packet references the exact DAG/controller/copy manifest and keeps claim_ready false pending control execution
+forbidden_changes: [selected_rows, replay_count, command_order, argv_tokens_other_than_two_substitutions, baselines, denominator, object, mechanism, guarantee, metrics, result_visibility]
+forbidden_actions: [resource_create_or_copy, tool_execution, control_row, claim_row, network, shared_write, shared_install, cleanup, stageb]
+stop_after: FINAL_STATIC_OUTPUTS_SEALED__WAIT_MAINLINE

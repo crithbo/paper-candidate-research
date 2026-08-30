@@ -1,0 +1,28 @@
+topic_id: GPU-GDS-COFLOW
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: RAPIDS cuDF Parquet scan over frozen public TPC-H Parquet queries with GDS/cuFile and host-buffered async fallback
+main_claim: A selectivity-and-decode-slack-aware joint GDS batch/stream policy can create an end-to-end latency/CPU frontier beyond FIFO and predicate-first ordering under a complete same-byte ledger.
+academic_value_score: 55
+ai_executability_score: 24
+ai_executability_class: AI_CORE_CONDITIONAL
+ai_core_fraction: 0.72
+strongest_baseline:
+  - cuDF current Parquet/decompression path
+  - GDS cuFile direct, batch, stream, and fallback APIs
+  - FIFO batching and predicate-first ordering
+  - same-cost offline ordering upper bound
+decisive_evidence:
+  - fixed query pair showing a selectivity/decode-slack order inversion
+  - end-to-end matched ledger beating both online baselines
+unresolved_risks:
+  - direct GDS path may lack accessible hardware/filesystem
+  - current cuDF implementation may already make an equivalent decision
+  - no natural inversion may occur on frozen workloads
+next_killer_gate: Within 72h, produce or fail to produce a deterministic order-inversion witness and matched replay advantage.
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: Event-replay and host-buffered async evidence without a supported GDS host; no direct-DMA performance claim.
+execution_authority: No formal GPU/storage experiment authorized; Stage 0 analysis only.
+file_hashes: {}

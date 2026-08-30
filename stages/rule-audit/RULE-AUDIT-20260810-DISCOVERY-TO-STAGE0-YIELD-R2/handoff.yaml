@@ -1,0 +1,56 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260810-DISCOVERY-TO-STAGE0-YIELD-R2
+assignment_status: COMPLETE_PROPOSAL_READY
+decision: BACKTEST_REQUIRED
+USER_APPROVAL_REQUIRED: true
+user_approval_status: NOT_YET_APPROVED
+backtest_required: true
+production_patch_authorized: false
+shared_files_modified: false
+shared_control_write_allowed: false
+candidate_or_downstream_stage_started: false
+experiment_or_download_started: false
+terminal_topics_reopened: false
+write_directory: D:\project\writing\reserch\stages\rule-audit\RULE-AUDIT-20260810-DISCOVERY-TO-STAGE0-YIELD-R2
+evidence_snapshot:
+  registry_updated_at: "2026-08-10T18:17:00+08:00"
+  registry_sha256: CC8B3ED0F0079BE6EC8906FBF527440D2AD1A5EC07BC1D04D6861F9F311439BA
+  r1_report_sha256: C418468339E248F05D13D78B987DC8603202EFF57EA7314E6A5E5C468E7BFD57
+  r1_proposal_sha256: 01779E730B0FFBEF25AAF635EF21CAD95B0BF2C846941B9ADA517C2E51A6AAC1
+  wave39_discovery_manifest_sha256: 599702F16DAC90960CCD1F27817FD2A19E6B08306FE5261260854016FA14381B
+  wave39_stage0_primary_manifest_sha256: E3EED1FDB253ED703F3D546DD6A11CB64E613D2383887050E2C09E5A40A69D68
+  wave39_stage0_confirmation_manifest_sha256: 24D1112D9CAC73898D84D7483A3AE3D45FB59A9556647E36C4420814386AA07D
+  wave39_stage0_revision_manifest_sha256: 00DAF995B0A8CCEE08C5DE64291B0CBB829EDD568E41DD03DDD8009055195DD3
+  wave41_discovery_manifest_sha256: 01C3B8A778CF49EF7A102CFFFF744D00CF6727C8A9F015B1D08BE611668C4A15
+  wave41_stage0_primary_manifest_sha256: C2862210C86F3A56A0C8FEF8D76814F44FCA6E0455A4B27E83DA02AA48EA851A
+  wave42_discovery_manifest_sha256: C82EB4F099FC3F0BE9B7F120FF647B520AC087ECCEBBA9D83F8E57DD334657EA
+  wave43_discovery_manifest_sha256: 5E4C07A6814A69A2BD1A6D97D59AE2ECD2EA9305B9B1BFB11998B0CF581C9F05
+bottleneck_attribution:
+  primary: DISCOVERY_CURRENT_SOURCE_AND_PAPER_COLLISION_COMPLETENESS
+  co_primary: DISCOVERY_ATOMIC_ACTION_AND_MODEL_DIVERGENCE_SPECIFICATION
+  secondary: STAGE0_MODEL_CERTIFICATE_VS_NATIVE_REALIZATION_BOUNDARY
+  substantial_reasonable_elimination: true
+recommendation_scope:
+  consolidated_v8_8_backtest: true
+  production_rule_change_now: false
+  candidate_state_migration: false
+  existing_topic_redecision: false
+deliverables:
+  report:
+    path: RULE_AUDIT_REPORT.md
+    sha256: F578966D68901A5E95A723E63DC14F568DDB2F54ADAE09CF3EEAA4E6062C3FCF
+  proposal:
+    path: RULE_CHANGE_PROPOSAL.md
+    sha256: 6EF8795ADF0A8593B17CA2AD3B788E7A25F5E7DA2F413A465D491034E9C92EB5
+affected_shared_files_if_backtest_passes_and_user_later_approves_patch:
+  - rules/ROLE_DISCOVERY.md
+  - rules/ROLE_STAGE0_REVIEW.md
+  - rules/ROLE_MAINLINE.md
+  - templates/TOPIC_BRIEF.md
+  - templates/STAGE0_REPORT.md
+mainline_action: >-
+  Await explicit user approval. If approved, create only the sealed consolidated
+  v8.8 PACKER-EXECUTOR-AUDITOR historical backtest. Do not edit production rules
+  or templates until the auditor passes every threshold and the user gives a
+  second explicit approval on the exact patch.
+lane_return: IDLE_REUSABLE_AWAITING_USER_DIALOGUE

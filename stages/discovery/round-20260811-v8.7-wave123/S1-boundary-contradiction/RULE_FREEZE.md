@@ -1,0 +1,3 @@
+# Rule freeze — Wave123 crash-consistent metadata constructor breadth
+
+`DISCOVERY-S1-20260811-V8.7-WAVE123-CRASH-CONSISTENT-METADATA-CONSTRUCTOR-BREADTH`; 2026-08-11; `v8.7+R5-P0`, `QUALITY_MODE=OFF`. Same crash/recovery semantics, native oracle, current union, natural carrier/full cost and finite killer are mandatory. Scheduler/controller, generic journaling, wrapper or weaker durability are excluded. Inputs: AGENTS `66231f71ef6ab250a1ad9ff576d5840978f09efc03bf5d2f0527d47f4d82b063`; plan `027ee47d3fe952ba0bff0bb71a2da1122bbcfbf2bec536d7a22148bf6dbdca36`; registry `57a84c1040daa7d56daa02799a3b37b793fd5e8cbf71fb112c2677fd6a185c6b`; ROLE `fcb9bd73c39f39d31f6c8154e6b48ea23187ff28bdf2bb3d9c59e3d28fa518a3`.

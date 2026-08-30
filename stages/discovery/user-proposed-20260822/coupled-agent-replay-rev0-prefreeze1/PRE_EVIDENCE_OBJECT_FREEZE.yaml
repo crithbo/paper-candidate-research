@@ -1,0 +1,55 @@
+schema_version: coupled-agent-replay-pre-evidence-freeze-v1
+assignment_id: DISCOVERY-S3-20260822-COUPLED-AGENT-REPLAY-PREFREEZE1
+topic_id: COUPLED-AGENT-REPLAY-REV0
+lane: DISCOVERY-S3-NATURAL-STRUCTURE
+mode: CLEAN_PRE_EVIDENCE_IDENTITY_FREEZE_ONLY
+assignment_sha256: 64CDB19D7DC54341C65A64431AB1D69FB47B984F63B3BE676C9A43A5579F54E1
+disposition: RESOURCE_BLOCKED_IDENTITY_FREEZE__NO_SCIENTIFIC_INFERENCE
+phase_completion:
+  phase0_read_only_rule_and_assignment_hash_check: PASS
+  phase1_create_resource_root_and_process_local_redirection_preflight: PASS
+  phase2_resolve_agent_model_dataset_identities_only: BLOCKED_AT_AGENT_REF
+  phase3_enumerate_and_hash_fixed_16_task_list: NOT_RUN__DEPENDENT_ON_PHASE2
+  phase4_seal_pre_evidence_object_freeze_and_manifest: SEALED_BLOCKED_RECORD
+scientific_inference_allowed: false
+collision_or_novelty_review_performed: false
+known_blocker_code_only: PRE_EVIDENCE_EXACT_OBJECT_FREEZE_NOT_SEALED
+frozen_contract_not_applied_without_exact_identity:
+  agent:
+    project: OpenHands
+    official_repository: https://github.com/OpenHands/OpenHands
+    selector: Resolve refs/heads/main exactly once from official GitHub API; commit/tree SHA unavailable.
+  model:
+    repository_id: Qwen/Qwen2.5-Coder-7B-Instruct
+    revision: UNRESOLVED__PHASE2_STOPPED_BEFORE_MODEL_ROUTE
+  benchmark:
+    dataset_id: princeton-nlp/SWE-bench_Verified
+    revision: UNRESOLVED__PHASE2_STOPPED_BEFORE_DATASET_ROUTE
+    ordered_instance_ids: NOT_ENUMERATED
+    fixed_task_list_sha256: NOT_COMPUTED
+state_boundary_frozen_by_assignment:
+  definition: Immediately after the first native OpenHands tool action has completed and its observation has been incorporated into agent state, before the next model call.
+  tasks_without_boundary: Retain in the task list and mark the branch pair structurally unexecutable; do not replace the task.
+interventions_frozen_by_assignment:
+  I0_canonical_text: Continue with the frozen native OpenHands policy and context unchanged.
+  I0_utf8_byte_length: 71
+  I0_sha256: 5193E683046753A6E27E3DC428283682D816F8FBDA7E2ED2C0303E12B62C9D8C
+  I1_exact_utf8_text: Before finishing, run the repository's relevant tests, inspect every failure, and revise the patch when a failure is attributable to the patch. Do not use hidden evaluator information.
+  I1_utf8_byte_length: 184
+  I1_sha256: 5A593F28B4AFDDCEC69581DE412F3B1986B430AE57B1EA1CC6233231C0590A4A
+decoding_frozen_by_assignment:
+  temperature: 0.6
+  top_p: 0.95
+  top_k: 0
+  max_new_tokens_per_model_call: 4096
+  native_terminal_semantics: absorbing
+  sampling_randomness_requirement: public token probability or logit access sufficient for a future coupling implementation
+evaluator_frozen_by_assignment:
+  role: SWE-bench Verified stock patch evaluator in a future deterministic isolated environment
+  online_visibility: forbidden
+  execution_in_this_assignment: forbidden
+blocker:
+  class: RESOURCE_TRANSPORT_UNAVAILABLE
+  exact_required_route: https://api.github.com/repos/OpenHands/OpenHands/git/ref/heads/main
+  consequence: No project/model/dataset substitution; no task-list enumeration; no collision search; no scientific claim.
+  minimum_resume_action: Provide a frozen assignment-local, read-only, official GitHub API transport that returns the exact ref response and permits the remaining predeclared official metadata calls.

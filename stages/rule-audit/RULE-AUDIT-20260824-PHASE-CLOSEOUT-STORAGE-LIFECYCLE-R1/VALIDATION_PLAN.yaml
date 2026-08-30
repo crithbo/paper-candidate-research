@@ -1,0 +1,63 @@
+schema_version: artifact-lifecycle-validation-plan-v1
+proposal_id: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+mode: PROPOSAL_ONLY__NO_ACTION
+scientific_backtest_required: false
+destructive_dry_run_required: true
+shared_files_modified: false
+cleanup_executed: false
+
+test_matrix:
+  - case_class: DISCOVERY_ZERO_OUTPUT
+    minimum_cases: 1
+    required_check: capsule retains audit chain while all ephemeral resources are identified
+  - case_class: STAGE0_STOP
+    minimum_cases: 1
+    required_check: terminal capsule reproduces direct-fatal or independent STOP basis
+  - case_class: STAGEA_STOP
+    minimum_cases: 2
+    required_check: owner/gate conclusion remains auditable after deleting build/toolchain/source copies
+  - case_class: STAGEA_PASS_PENDING_STAGEB
+    minimum_cases: 1
+    required_check: downstream user packet and replay-critical evidence remain intact
+  - case_class: BLOCKED_OR_RESERVE
+    minimum_cases: 2
+    required_check: resume capsule preserves exact recovery entry and unique unavailable assets
+
+required_negative_controls:
+  - build_tree_contains_only_copy_of_claim_critical_binary
+  - downloaded_archive_is_not_reacquirable
+  - source_checkout_has_dirty_patch_not_exported
+  - downstream_input_not_yet_accepted
+  - reparse_or_junction_descendant
+  - active_process_owns_target
+  - terminal_report_without_decisive_raw_or_witness
+
+acceptance_criteria:
+  claim_critical_hash_drift: 0
+  downstream_missing_input_incidents: 0
+  blocked_or_reserve_resume_breaks: 0
+  wrong_root_or_reparse_targets: 0
+  unclassified_persisted_entries: 0
+  cleanup_receipt_parse_and_hash_validation: PASS_ALL
+  at_least_one_reacquire_or_rebuild_replay: PASS
+  at_least_one_downstream_read_replay: PASS
+  retained_bytes_within_budget_or_exception: PASS_ALL
+
+rollout:
+  - OFF_SCHEMA_ONLY
+  - DRY_RUN_NO_DELETE
+  - SHADOW_SAFE_LEAVES_ONLY
+  - PRODUCTION_NEW_ASSIGNMENTS_ONLY
+
+rollback_triggers:
+  - ANY_CLAIM_CRITICAL_HASH_DRIFT
+  - ANY_DOWNSTREAM_MISSING_INPUT
+  - ANY_RESUME_FAILURE_CAUSED_BY_CLEANUP
+  - ANY_RECOVERY_ROUTE_FAILURE_FOR_DELETED_ENTRY
+  - ANY_WRONG_ROOT_REPARSE_OR_ACTIVE_PROCESS_VIOLATION
+
+legacy_migration:
+  automatic: false
+  requires_separate_inventory: true
+  requires_exact_user_approval: true
+

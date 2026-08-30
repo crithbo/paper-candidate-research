@@ -1,0 +1,75 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA}
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED
+  cutover_id: USER-PHASE-CLOSEOUT-STORAGE-LIFECYCLE-V1-20260824
+  artifact_state: CLOSED_NO_RESOURCE_ACTION
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: DISCOVERY_HANDOFF
+  downstream_consumer: MAINLINE_STAGE0_ROUTING_IF_ACCEPTED
+  post_close_retained_bytes_max: 67108864
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: null
+  cleanup_receipt_path: null
+identity:
+  topic_id: SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+  assignment_id: DISCOVERY-S1-20260830-SOURCE122
+  stage_or_mode: DISCOVERY
+  run_id: SOURCE122-S1-CANONICAL-WAVE-01
+  unique_write_directory: stages/discovery/round-20260830-strategy-source122/S1-boundary-contradiction
+  resource_root: stages/discovery/round-20260830-strategy-source122/S1-boundary-contradiction/resources
+  inventory_path: stages/discovery/round-20260830-strategy-source122/S1-boundary-contradiction/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-30T04:16:19+08:00
+  finalized_at: 2026-08-30T04:16:19+08:00
+root_measurement: {logical_bytes: 0, allocated_bytes: null, measurement_method: RESOURCE_ROOT_ABSENT_NO_PERSISTED_RESOURCE, measurement_complete: true}
+required_directories: {downloads: null, archives: null, src: null, build: null, env: null, cache: null, tmp: null, logs: null}
+redirect_preflight: {status: NOT_REQUIRED_NO_RESOURCE_ACTION, process_local_only: true, system_or_user_environment_modified: false, tools: []}
+resource_envelope:
+  network_bytes_max: 67108864
+  stored_bytes_max: 134217728
+  cpu_hours_max: 2
+  gpu_hours_max: 0
+  wall_seconds_max: null
+  attempts_max: 24
+  network_bytes_used: UNAVAILABLE_BROWSER_TELEMETRY_NOT_ESTIMATED
+  stored_bytes_used: 0
+  attempts_used: 24
+entries: []
+shared_assets_consumed: []
+external_system_dependencies:
+  - {name: Codex web retrieval, class: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED, persisted_project_file: false}
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  allowed_automatic_retention_classes: []
+  closeout_plan_accepted: true
+  downstream_inputs_accepted: false
+  capsule_sealed: false
+  active_owner_or_process_count: 0
+  predelete_target_count: 0
+  predelete_file_count: 0
+  predelete_logical_bytes: 0
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: NOT_APPLICABLE_NO_RESOURCES
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: NOT_APPLICABLE_NO_RESOURCE_ACTION
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: NOT_APPLICABLE
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: true
+  deterministic_recovery_routes_complete: NOT_APPLICABLE
+  closeout_budget_or_exception_pass: true
+  cleanup_receipt_valid: NOT_APPLICABLE
+  result: PASS_NO_RESOURCE_ACTION_RESOURCE_ROOT_ABSENT

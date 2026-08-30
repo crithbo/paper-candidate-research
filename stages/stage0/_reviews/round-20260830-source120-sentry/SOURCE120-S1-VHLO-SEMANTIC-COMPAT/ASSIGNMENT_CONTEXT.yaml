@@ -1,0 +1,16 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: STAGE0-SENTRY-20260830-SOURCE120-S1-VHLO-SEMANTIC-COMPAT, topic_id: SOURCE120-S1-VHLO-SEMANTIC-COMPAT, lane_id: STAGE0_SENTRY, thread_id: 01a034d0-cda0-74b3-a099-b4b711d9d8a8, role: STAGE0_SENTRY}
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+frozen_control: {agents: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655, plan: C16A5FC62B41FBEDF65E30C6FC9A8491CB5C27E2289F8F1753AFA2C6CE914C09, registry: BB1111411CC29840DA67E5032EBD9CA330C510D6C34F5F6C69D256A0BBB3EE02, role: BC4A6D6D5DE5CEC3DD69A1F8556276F95B405E81773FFC7F4A860B5769CAF2FE, academic_skill: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F, deep_research_workflow: 055E902187665C2437D0F41F35E2CC9C11FB5D62A736CF3ED23E44193BD4F029}
+minimum_inputs:
+  control: {path: stages/stage0/_reviews/round-20260830-source120-sentry/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/control/ASSIGNMENT.yaml, sha256: 9504185DA82725E228D940A5DFDDF1732EC996332807E4CD65131C8F006BC213}
+  primary_report: {path: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/STAGE0_REPORT.md, sha256: 9DC16734A1297EC301C9D4AD85AD4A86F84D837DD6E916C78BD7F416A2F53872}
+  primary_handoff: {path: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/handoff.yaml, sha256: 24F75E9A1B9DA457EE54E99939D1364CA9A64368AD506040DF47EAD37D934342}
+unique_write_directory: stages/stage0/_reviews/round-20260830-source120-sentry/SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+resource_root: stages/stage0/_reviews/round-20260830-source120-sentry/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/resources
+bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+forbidden: [network_before_start, judgment_before_start, repeat_full_primary, stagea, stageb, shared_write]
+pause_signal: finish_current_sentry_and_handoff_then_no_successor
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP
+

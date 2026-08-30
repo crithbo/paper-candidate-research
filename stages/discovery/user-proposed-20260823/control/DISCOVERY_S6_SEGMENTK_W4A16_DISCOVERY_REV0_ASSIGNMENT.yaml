@@ -1,0 +1,168 @@
+schema_version: discovery-investigation-assignment-v1
+assignment_id: DISCOVERY-S6-20260823-SEGMENTK-W4A16-DISCOVERY-REV0
+investigation_id: SEGMENTK-W4A16-DISCOVERY-REV0
+topic_id_created: false
+title: SegmentK_W4A16__SAME_OBJECT_MULTI_GROUP_TILE_CURRENT_UNION_CLOSURE
+role: DISCOVERY_S6_DIRECT_ALGORITHM_SOFTWARE
+status_on_dispatch: ACTIVE
+authority: USER_ATTACHMENT_REVISED_FREEZE_PACKROUTE_SEGMENTK_QISA_20260823
+
+input_proposal:
+  path: C:\Users\15383\.codex\attachments\c07d0046-9cdb-43ba-9692-177008f8bbcd\pasted-text.txt
+  sha256: C8A239523EE0C227F9F4114173494FF3FE2A3ED49ECAF0C60FB97EE9BC3C9CC3
+  trust: USER_APPROVED_INVESTIGATION_SCOPE__FACTUAL_CLAIMS_REQUIRE_INDEPENDENT_VERIFICATION
+
+current_mainline_facts:
+  qrefine: STAGE0_PASS_CONFIRMED__STAGEA_REBOOT_PENDING__DO_NOT_REPEAT_STAGE0
+  qnn: BLOCKED_USER_ACTION_REQUIRED__INTERFACE_RESOURCE_GAP__DO_NOT_DOWNGRADE_TO_LOCATOR_ONLY
+  qpack: TERMINAL_DISCOVERY_DROP__DO_NOT_REOPEN
+  qgroup: TERMINAL_DISCOVERY_DROP__DO_NOT_REOPEN
+
+frozen_rules:
+  agents_sha256: 26DB9F4C2D43349A2BA5B741947561D4FED2FE5EC65327C02D273D3905F5A522
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  research_topic_discovery_skill_revision: RESEARCH_TOPIC_DISCOVERY_CURRENT_20260823
+  research_topic_discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  source_portfolio_sha256: FE3BC9503F70ED4BD729B338A7729BFA5CA3A3747312D63AF83D59B93FFE1F4D
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  topic_brief_template_sha256: F1EF88AFE26DB2949E86CD66187821E5331AA3081DF5C76D6D271530CAC87637
+  seed_pool_template_sha256: 31B6A89548313B51EFD0C7685ACF50EA56D6EC5C0B557BD9E8B920C7E2179470
+  rq_candidate_template_sha256: 0FF1E7FD811C3BCA84D15DA9713B7A27ED8EB9076C2939316AF43DA85168F5BF
+  question_card_template_sha256: D157B1B5D14C0DCEB3D238E85075777C3850C7E145ABD5EA8A3A111D3D022739
+  resource_inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  registry_identity_surface_sha256: 4667B7ECF6FD9CF604C0190E6A8C7B1DF360B32C470DD42EEAEFC02486AD009F
+
+method_modes:
+  discovery_quality_mode: OFF
+  discovery_claim_pack_mode: OFF
+  discovery_rq_frontend_mode: OFF
+  native_first_order_mode: ASSIGNMENT_LOCAL_ADVISORY_ONLY
+  model: EXISTING_LONG_LIVED_LANE_MODEL__NO_OVERRIDE
+  reasoning: HIGH
+
+source_cutoff: 2026-08-23T23:59:59+08:00
+scientific_ceiling: PRE_TOPIC_CURRENT_UNION_CLOSURE_ONLY__NO_RAW_STAGE0_SPEEDUP_OR_IMPLEMENTATION_CLAIM
+stage0_dispatch_allowed: false
+cross_platform_requirement: false
+
+frozen_object:
+  runtime: vLLM_v0.26.0
+  commit: 568afb3a13806beb53bb2e6bd518269357b237c0
+  baseline_source_to_verify: vllm/model_executor/kernels/linear/mixed_precision/triton_w4a16.py
+  baseline_blob_to_verify: bc0a587b676309da6c3c4d63e092086ee7a5f78e
+  reference_workload_source_to_resolve: rdna_hybrid_w4a16.py
+  reference_blob_to_verify: 01c353c5547475df5bb6ab9c91617ee208468abd
+  target: AMD_gfx1151
+  regime: DENSE_LINEAR__M1_DECODE_GEMV
+  weight: PACKED_UINT4B8__SYMMETRIC_BIAS_8
+  packing: GPTQ_SEQUENTIAL__8_INT4_PER_INT32__PHYSICAL_K_BY_N_DIV_8
+  activation: FP16
+  scale: FP16
+  group_size: 32
+  zero_point: NONE
+  accumulator: FP32
+  output: FP16
+  shapes:
+    - {K: 2048, N: 6144}
+    - {K: 2048, N: 2048}
+    - {K: 2048, N: 16384}
+    - {K: 8192, N: 2048}
+
+candidate_action_grammar:
+  block_k: q_times_group_size
+  q_values: [2, 4]
+  scale_tile: q_by_block_n
+  metadata_rule: LOAD_EACH_GROUP_OUTPUT_TILE_SCALE_ONCE_THEN_BROADCAST_OVER_ITS_32_K_ELEMENTS
+  prohibited_trivialization: PER_ELEMENT_GLOBAL_SCALE_GATHER_ONLY
+  contribution_hypothesis: SEGMENT_STAGED_MULTI_GROUP_METADATA_PIPELINE_FOR_DENSE_M1_INT4_W4A16
+
+primary_rq: >-
+  For the exact gfx1151 dense M=1 GPTQ-sequential W4A16 object, does a
+  segment-staged q-group metadata pipeline with BLOCK_K in {64,128} leave a
+  same-object non-generic schedule residual after subtracting vLLM dense and
+  MoE GPTQ/AWQ kernels, the RDNA hybrid path, Marlin/CUTLASS/FlashInfer and
+  Triton block-scaled matmul, with a finite local correctness invariant and a
+  plausible static cost frontier?
+
+current_union_matrix_required_fields:
+  - same_mathematical_operator
+  - same_physical_packing
+  - same_M1_regime
+  - same_target
+  - block_k_greater_than_group_size
+  - scale_load_granularity
+  - zero_point_behavior
+
+comparators_to_close:
+  - vLLM_dense_triton_w4a16
+  - vLLM_fused_moe_kernel_gptq_awq
+  - vLLM_RDNA_hybrid_W4A16
+  - Marlin_same_checkpoint_format
+  - CUTLASS_or_FlashInfer_W4A16_weight_only
+  - Triton_block_scaled_matmul
+
+investigation_questions:
+  S0_exact_current_union: Determine whether any production implementation already satisfies the full frozen dense-M1/int4/G32/gfx1151/segment-staged tuple.
+  S1_direct_adaptation: Compare the MoE per-element/group-index route with the proposed dense segment staging using source and available compiler artifacts; do not build or compile in this assignment, and leave unavailable IR evidence as bounded debt rather than negative evidence.
+  S2_schedule_freedom: Verify that at least q and a native metadata staging policy are meaningful independent decisions rather than group_idx equals offs_k divided by 32.
+  S3_local_invariant: Freeze ScaleUsed(k,n), nibble mapping, segment coverage, tail and FP32 accumulation invariants without requiring a general GPU verifier.
+  S4_static_cost_direction: Determine from source/dataflow whether the action can reduce metadata loads, group-index instructions, K-loop iterations or pipeline startups while recording register/broadcast/staging costs.
+
+fastest_scientific_fatals:
+  - EXACT_PRODUCTION_IMPLEMENTATION_ALREADY_HAS_THE_COMPLETE_FROZEN_ACTION
+  - COMPILER_OR_CURRENT_KERNEL_SOURCE_PROVES_DIRECT_MOE_ADAPTATION_RECOVERS_THE_SAME_SEGMENT_STRUCTURE
+  - RESIDUAL_IS_ONLY_PER_ELEMENT_GROUP_INDEXING_OR_AUTOTUNE
+  - LOCAL_CORRECTNESS_REQUIRES_REBUILDING_A_GENERAL_GPU_VERIFIER
+  - STATIC_DATAFLOW_HAS_NO_PLAUSIBLE_COST_REDUCTION_AND_ONLY_ADDS_METADATA_OR_REGISTER_PRESSURE
+  - OBJECT_REQUIRES_CHANGING_PACKING_OPERATOR_TARGET_OR_NUMERIC_CONTRACT
+
+unresolved_not_fatal:
+  - NO_KERNEL_EXECUTION_OR_SPEEDUP_IN_THIS_ASSIGNMENT
+  - NO_LOCALLY_GENERATED_TTIR_TTGIR_OR_LLVM
+  - NO_FINAL_BLOCK_N_WARP_OR_PIPELINE_STAGE
+  - NO_CROSS_VENDOR_MECHANISM
+
+allowed_actions:
+  - Bounded read-only official source, documentation, issue and primary-paper lookup.
+  - Persist small assignment-local source excerpts and metadata under resource_root.
+  - Produce one pre-topic current-union closure disposition.
+forbidden_actions:
+  - Run kernels, GPU experiments, builds, compiler pipelines, models or containers.
+  - Implement the SegmentK kernel or autotune it.
+  - Require NVIDIA and AMD support as a universal admission gate.
+  - Treat missing IR, hardware, implementation or positive result as scientific rejection.
+  - Create SEGMENTED-SCALE-W4A16-REV0 or dispatch Stage0.
+  - Reopen QGroup or modify QRefine/shared control files.
+
+resource_envelope:
+  network_or_source_calls_max: 24
+  accepted_persisted_bytes_total_max: 134217728
+  cpu_time_max: 1h
+  wall_time_max: 2h
+  system_install: false
+  global_environment_change: false
+  source_rule: OFFICIAL_FIRST_PARTY_OR_PRIMARY_PAPER_ONLY__NO_ACCESS_BYPASS
+  failure_consequence: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260823\segmentk-w4a16-discovery-rev0-closure1
+  resource_root: D:\project\writing\reserch\stages\discovery\user-proposed-20260823\segmentk-w4a16-discovery-rev0-closure1\resources
+  resource_inventory: D:\project\writing\reserch\stages\discovery\user-proposed-20260823\segmentk-w4a16-discovery-rev0-closure1\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+required_outputs:
+  - DIVERGENCE_SEED_POOL.md
+  - RQ_CANDIDATE.md
+  - CURRENT_UNION_MATRIX.md
+  - MOE_DIRECT_ADAPTATION_AUDIT.md
+  - LOCAL_INVARIANT_AND_COST_SKETCH.md
+  - INVESTIGATION_REPORT.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+allowed_dispositions:
+  - CLOSED_TO_TYPED_RQ__MAINLINE_MAY_CREATE_NEW_TOPIC__NO_STAGE0
+  - EARLY_FATAL__DO_NOT_CREATE_TOPIC
+  - UNRESOLVED_BACKLOG__NO_SCIENTIFIC_INFERENCE
+  - BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE

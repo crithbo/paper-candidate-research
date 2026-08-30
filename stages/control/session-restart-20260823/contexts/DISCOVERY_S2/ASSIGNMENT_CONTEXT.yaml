@@ -1,0 +1,30 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+generated_at: 2026-08-23T18:10:36+08:00
+context_mode: DUAL_READ_SHADOW
+mainline_task_or_contact: 01a02e08-06de-7281-89ab-eb4965cccc92
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_ACTION
+thread_mapping: {new_thread_id: 01a02e08-1076-7df0-83cf-74b2844a3507, old_thread_id: 019fc62c-ef51-7073-bc32-2c583bb73ed6}
+identity: {lane_id: DISCOVERY-S2, role_id: DISCOVERY, assignment_id: IDLE-REUSABLE-RESTART-20260823, topic_id: null, stage_or_mode: IDLE, status: IDLE_REUSABLE, resume_point: WAIT_FOR_ASSIGNMENT, next_action: WRITE_BOOTSTRAP_ACK_THEN_WAIT, source_assignment_path: null, source_assignment_sha256: null}
+authority: {policy_authority: USER, shared_file_writer: MAINLINE, canonical_writer: null, user_approval_ids: [], allowed_actions: [read_context, write_bootstrap_ack], forbidden_actions: [screen_topics, search, download, build, experiment, pre_read_next_assignment, change_state], forbidden_inputs: [old_chat_unregistered_candidate_memory]}
+boundaries: {unique_write_directory: 'D:/project/writing/reserch/stages/control/session-restart-20260823/contexts/DISCOVERY_S2', resource_root: null, read_only_paths: [AGENTS.md, plan.md, registry.yaml, rules/ROLE_DISCOVERY.md], write_allowed_paths: [stages/control/session-restart-20260823/contexts/DISCOVERY_S2/BOOTSTRAP_ACK.yaml], network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 665A557A6C8AD8030F97B1767D06B500D658674681FFBF021A276C5B31DBC61B}
+  plan: {path: plan.md, sha256: BFC72BAB2492AB44330EC6091E4159944D750D437AC4FACE323BA2FFDC593A9C}
+  registry_snapshot: {path: registry.yaml, sha256: 7E0199903CF4C2105F2444A2E07F230437835A6A3CFABE228041FF7C978E7DA2}
+  role_rule: {path: rules/ROLE_DISCOVERY.md, sha256: 80906D40E43835007D99B571FACB1F52D8B0A66C085C2220F46AA19E961E8CB1}
+  conditional_protocols: []
+  skills: [{name: research-topic-discovery, path: .agents/skills/research-topic-discovery/SKILL.md, sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2, mode: IDLE_NO_EXECUTION}]
+  templates: [{path: templates/DISCOVERY_QUESTION_CARD.md, sha256: D157B1B5D14C0DCEB3D238E85075777C3850C7E145ABD5EA8A3A111D3D022739}, {path: templates/DISCOVERY_EVIDENCE_LEDGER.yaml, sha256: E6FB0DD43147E677E38DFFF4EAE2B8FB63ED79D74EAC3C08A9142A391F63E9E9}, {path: templates/TOPIC_BRIEF.md, sha256: F1EF88AFE26DB2949E86CD66187821E5331AA3081DF5C76D6D271530CAC87637}, {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}]
+minimum_inputs: []
+expected_outputs: [BOOTSTRAP_ACK.yaml]
+budget: {science_assignments: 0}
+claim_ceiling: NO_SCIENTIFIC_ASSIGNMENT
+evidence_ceiling: NO_SCIENTIFIC_INFERENCE
+scientific_revision: {allowed_total: null, consumed: null, remaining: null, exceptional_revision_authorized: false}
+mechanism_pivot: {allowed: null, consumed: null, remaining: null}
+identity_and_collision: {exact_identity_digest: IDLE_DISCOVERY_S2, terminal_identity_digest: PRESERVE_TERMINAL_REGISTRY, current_collision_digest: null, terminal_stop_non_revival_asserted: true}
+user_and_blocker_state: {user_action_required: false, blocker_state: NO_ASSIGNMENT, blocker_packet_path: null, resource_policy_path: rules/RESOURCE_LOCALIZATION.md, resource_policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+stop_and_escalation_conditions: [any_science_action_before_new_assignment]
+handoff_requirements: [ack_only, wait_for_mainline_assignment]
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: PASS__IDLE, result: PASS__ACK_REQUIRED}

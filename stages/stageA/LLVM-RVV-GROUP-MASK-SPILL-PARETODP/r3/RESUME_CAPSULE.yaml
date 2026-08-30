@@ -1,0 +1,34 @@
+schema_version: resume-capsule-v1
+assignment_id: STAGEA-L1-20260825-LLVM-RVV-R3-LONG-PATH-AWARE-EXACT-TOOLCHAIN
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+state: EXACT_RISCV_TOOLCHAIN_RESOURCE_GATE_READY_FOR_MAINLINE_ACCEPTANCE
+original_stage: STAGEA_RESOURCE_GATE_LONG_PATH_RESUME
+exact_commit: 5bb2565693f062a9e99929db1814a7a076d4dc76
+claim_ceiling: RESOURCE_GATE_ONLY__NO_RVV_PRECLAIM_NATURAL_OR_PERFORMANCE_CLAIM
+evidence_ceiling: EXACT_BUILD_AND_TOOL_CAPABILITY_VALIDATION_ONLY__NO_SCIENTIFIC_INFERENCE
+claim_bearing_observation: false
+scientific_revision_consumed: false
+resource_gate: {network_bytes: 0, exact_same_topic_assets: 5/5, long_path_preflight: PASS, source_extraction: PASS_1_OF_1, tool_extraction: PASS_1_OF_1, configure: PASS_1_OF_1, clean_build: PASS_1_OF_1, build_jobs: 2, required_outputs: 6/6, runtime_dlls: 2/2, license_notice_files: 93, nonclaim_smokes: PASS_2_OF_2_CAPABILITY_GROUPS}
+downstream_input:
+  path: resources/env/rvv-toolchain
+  logical_bytes: 195813113
+  file_count: 102
+  manifest: resources/env/rvv-toolchain/TOOL_MANIFEST.json
+  manifest_sha256: 5E6599C5EEC88D09B6D1623BD6BD889E6DAC943C792029D71B632D8C1693138D
+  required_tools:
+    - {name: llc.exe, sha256: 65A9EAE8B026DF2328B3A75048959CBF8F9F9AC7F86E854C7DDAC8F86485C643}
+    - {name: llvm-mc.exe, sha256: 74FCA6CA90F5472CEA8A50065071A8A72DDC440A9EF5DF28FCF11B3E7B9514B6}
+    - {name: llvm-objdump.exe, sha256: 329FA1D2BCF52E0FBE3F481A68F79DDEB979908084574D61B6FE23DF160E8F66}
+    - {name: llvm-readobj.exe, sha256: 0359BC9944AD26F1655010547E0B203E0603C01C32B17FFA24FE0CAD629AD8E8}
+    - {name: opt.exe, sha256: 5583672702C3E633C00EAB74B5131F9BF65497ED2EDD87BA501B060C99531959}
+    - {name: FileCheck.exe, sha256: A598D5C1A3EEFDB1D69839F4E28AD0BDB6B23241BF0263B6B26C933575E008AF}
+  runtime_dlls:
+    - {name: libc++.dll, sha256: 952B41B1370DDB5E7299CC9FCEFCE2AD8C2021409948B057EC4D903C03760B6C}
+    - {name: libunwind.dll, sha256: 8D9F60801F50C0A6CB7BEB7FD2E121F98BF39EBE40E6C7E07A8A39FCCB817C03}
+  smoke_summary: resources/logs/smokes/SMOKE_SUMMARY.json
+  smoke_summary_sha256: 8501B4A7CAFFAFD308128D3A2841F441E2F05FE7E5DC9F19812C503E8FB8D963
+consumer: STAGEA_RVV_PRECLAIM_RESUME_AFTER_RESOURCE_PASS
+consumer_accepted: false
+next_action: MAINLINE_MECHANICAL_ACCEPTANCE_CAPSULE_SEAL_AND_SEPARATE_PRECLAIM_ASSIGNMENT
+forbidden_without_new_assignment: [RVV F1-F5, forced-pressure, typed replay, quotient, baseline, natural, benchmark, performance, full-cost, claim-bearing run, scientific conclusion, state transition, owner cleanup]
+owner_cleanup_performed: false

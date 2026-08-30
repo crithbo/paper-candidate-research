@@ -1,0 +1,18 @@
+queue_status: PENDING_NOT_EXHAUSTED
+items:
+  - id: CQ01
+    rq: RQ01
+    status: PENDING_UNEXECUTED
+    exact_project: sourceware/glibc
+    exact_object: current x86-64 TLSDESC dynamic resolver/relocation and direct TLS-descriptor dlopen/dlclose test paths
+    deterministic_version_rule: resolve Sourceware master commit SHA at execution and inspect the direct paths reached from `_dl_tlsdesc_dynamic` and its named `tst-gnu2-tls*` test family
+    outcome_independent_question: What legal descriptor state transitions, resolver/relaxation actions, and module-lifetime guards are currently in the same-object union?
+    co_defined_bundle: atomic action + natural test trace + full-cost estimand
+    maximum_primary_sources: 2
+    attempts_before_execution: 0
+    exhausted: false
+    finite_stop_conditions:
+      - current union directly realizes the candidate state construction
+      - ABI/lifetime rules make any alternate state changed-object
+      - a legal two-state descriptor trace is frozen
+    result: UNRESOLVED_BACKLOG

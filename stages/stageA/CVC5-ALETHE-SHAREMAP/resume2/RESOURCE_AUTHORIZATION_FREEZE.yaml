@@ -1,0 +1,83 @@
+schema: resource-stagea-r2bc-authorization-freeze-v1
+topic_id: CVC5-ALETHE-SHAREMAP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+assignment_id: RESOURCE-STAGEA-L2-20260811-CVC5-ALETHE-SHAREMAP-RESUME2-R2BC
+authorization_ids:
+  - RESOURCE-UNBLOCK-SMALL-BATCH-20260811-R2B
+  - STAGEA-AUTO-RESUME-AFTER-RESOURCE-PASS-20260811-R2C
+frozen_at: 2026-08-11T12:53:16+08:00
+unique_write_directory: stages\stageA\CVC5-ALETHE-SHAREMAP\resume2
+cross_assignment_contamination: false
+queue_prefetch: false
+
+control_freeze:
+  AGENTS.md: 66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063
+  plan.md: 6CE3E9207E02F4DC24D7B4126EEB7A9E9210AC51FF1D64440F2C7FF1BE12373D
+  registry.yaml: E18E1145EDCF11DF0A0843DD93AE9FB65A26C8CF41C64E4B300CA567F175C33D
+  ROLE_CANDIDATE_OWNER.md: 30E23336CF339771821EAEC8B2C7011025BA815D613DB639E68121FDCDE54D1F
+  verification: ALL_MATCH_AT_ASSIGNMENT_ENTRY
+  concurrent_control_drift:
+    detected_at_terminal_check: true
+    plan_observed_sha256: 41DA0FA8FEB2E2A0EC2D80129686BFD5C64C0F2D9D1AD02BC5806BFDFED06E08
+    registry_observed_sha256: 340DB5BBB8647009282AC54C3842E185EC82E0223B890F018EA03C46842AF6C0
+    disposition: RECORD_ONLY__ENTRY_FREEZE_RETAINED__NO_NEW_FACTS_IMPORTED
+
+input_freeze:
+  original_stagea_contract_sha256: 27CDF36933F93B0C096AA73DA6A9DC49505872B0D0A7A565EE959F5EF7331FA3
+  original_stagea_report_sha256: CB710BF9538F019604F5938A68AD08472F44FEC50D559A6F528DFB2AF4C86454
+  original_stagea_handoff_sha256: 438BF3B07F2EDD822B5D75D1F96738D6D296E23B9739B57D4D523B685B6675C3
+  original_stagea_manifest_sha256: F25A38B7B149C40C4DCA073323DFA81E4810D0DEB55C8988489859750E043908
+  resume1_report_sha256: 1BE66F2376B1E5D77C6FE8DB81E59450584BC8E5B955B6112809800CFE49F474
+  resume1_blocker_packet_sha256: 89814864BD406A5DA7538EBED63110C334AD802CF8C6E90306AC410119FE95E2
+  resume1_source_manifest_sha256: 0F1928473F7980780F7C51327A4EEF6C492A7669B2E0EDBCEA3618C5A2286949
+  resume1_handoff_sha256: CE82C8B9A5047FAE7B26DE6B09D033103ED1694DFBDBAECE26D8CBBFAD15F858
+  resume1_manifest_sha256: 737BB658104DF653BAA6D964B9F66D8250B9DCF27996704C9FB894F9214362CA
+
+ordered_authority:
+  phase_1: RESOURCE_VALIDATION_ONLY
+  phase_1_required_asset: UNMODIFIED_CARCARA_1_1_0_WINDOWS_X64_EXECUTABLE
+  phase_1_required_checks:
+    - OFFICIAL_RELEASE_PROVENANCE
+    - LICENSE
+    - ACTUAL_BYTES_AND_SHA256
+    - UNMODIFIED_VERSION_AND_HELP
+    - MINIMAL_STOCK_CHECKER_SMOKE
+  phase_2: AUTO_RESUME_FROZEN_STAGEA_ONLY_IF_PHASE_1_PASS
+  phase_2_preclaim_gate_required: true
+  phase_2_claim_bearing_allowed_before_gate_pass: false
+
+resource_limits:
+  total_resume2_bytes_max: 6442450944
+  cumulative_cpu_hours_max: 4
+  gpu_allowed: false
+  exclusive_device_allowed: false
+  system_install_allowed: false
+  global_environment_mutation_allowed: false
+  stageb_allowed: false
+  automation_allowed: false
+
+asset_contract:
+  project: ufmg-smite/carcara
+  version: carcara-1.1.0
+  exact_commit: 5d817d86bd18ea2a850a580d602f17f36959ee99
+  commit_signature: VALID_GITHUB_VERIFICATION
+  license: Apache-2.0
+  required_platform: windows-x86_64
+  source_must_be_unmodified: true
+  weak_checker_substitution_allowed: false
+  expected_incoming_path: stages\stageA\CVC5-ALETHE-SHAREMAP\resume2\incoming\carcara.exe
+
+acceptance:
+  require_windows_binary_present: true
+  require_byte_size_and_sha256: true
+  require_build_provenance_to_exact_tag: true
+  require_unmodified_version_help_smoke: true
+  require_stock_checker_smoke: true
+  current_status: FAIL_CLOSED__NO_WINDOWS_RELEASE_OR_INCOMING_ASSET
+
+failure_policy:
+  decision: BLOCKED_USER_ACTION_REQUIRED
+  claim_bearing_observation: false
+  scientific_revision_consumed: false
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  stop_reserve_archive_allowed: false

@@ -1,0 +1,11 @@
+schema_version: mainline-r3-packer-l2-a1-start-v1
+assignment_id: BACKTEST-PACKER-L2-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3-A1-PACKET-MAP
+bootstrap_acceptance_sha256: E0B386CD0230CCF85CC65B36C13732E736C4A899824AC463369586BECA123481
+start_authorized: true
+model_route: {model: gpt-5.6-terra, thinking: medium}
+allowed_actions: [exact_four_case_id_content_remap_in_two_new_corrected_packets, mapping_audit, handoff_manifest]
+required_remaps: [R3P02_FROM_R3P03, R3P03_FROM_R3P02, R3P11_FROM_R3P12, R3P12_FROM_R3P11]
+forbidden: [network, selection_change, evidence_change, gold_expected_label_read, reviewer_output, build, probe, experiment, production_candidate_registration, StageB]
+outputs: [STAGE0_NEUTRAL_PACKET.corrected.yaml, STAGEA_ANONYMIZED_PACKET.corrected.yaml, A1_MAPPING_AUDIT.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+scientific_state_transition: false
+context_plan_registry_mutation_during_run: false

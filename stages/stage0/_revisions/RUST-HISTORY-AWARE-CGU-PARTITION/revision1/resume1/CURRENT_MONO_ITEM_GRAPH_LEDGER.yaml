@@ -1,0 +1,26 @@
+schema: mono-item-static-ledger-v1
+assignment_id: STAGE0-P1-20260814-RUST-HISTORY-AWARE-CGU-PARTITION-REVISION1-RESUME1
+status: CURRENT_CARRIER_OBSERVED__STATIC_EVIDENCE_ONLY
+command:
+  argv: [rustc, --edition=2018, --crate-name, smallvec, --test, -C, codegen-units=2, -C, opt-level=0, -Zprint-mono-items=y, src/lib.rs]
+  source: work/smallvec-1.15.2/smallvec-1.15.2/src/lib.rs
+  output_log: logs/current-test-mono-cgu2.all.txt
+  result: CODEGEN_MONO_ITEM_ENUMERATION_SUCCEEDED__FINAL_LINK_FAILED_LINK_EXE_ABSENT
+  claim_bearing: false
+observed_native_assignment:
+  mono_item_lines: 2246
+  cgu_0_internal: 770
+  cgu_0_external: 371
+  cgu_1_internal: 843
+  cgu_1_external: 262
+  test_root_or_closure_lines: 143
+  native_cgu_names: [smallvec.de470bcfe38de814-cgu.0, smallvec.de470bcfe38de814-cgu.1]
+legality_boundary:
+  complete_item_identity: PRINTED_MONO_ITEM_IDENTITY_AND_NATIVE_CGU_SCOPE
+  source_defined_actions: [item_placement, inline_copy_placement, cgu_merge, deterministic_naming, internalization, distinct_symbol_check]
+  not_claimed: [complete_usage_edge_graph, actual_linked_binary, size_estimate_for_each_item, candidate_partition_output, performance_result]
+  consequence: STATIC_GATE_CAN_TEST_STRUCTURAL_NON_GENERICITY_BUT_CANNOT_CLAIM_DEPLOYMENT_RESULT
+reproducibility:
+  current_source_sha256: 8ED6A63F02C8539C91A8685A86F4099661BA3DA017932F6EBBEA6DE3F0FA7C90
+  rustc_commit: ba28ff76f353a722f31c4f3dd2ac4e437d36411b
+  test_link_failure: link.exe absent

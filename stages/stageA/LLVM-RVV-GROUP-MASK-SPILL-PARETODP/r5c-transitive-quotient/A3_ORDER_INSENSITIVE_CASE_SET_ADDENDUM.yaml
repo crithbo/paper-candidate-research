@@ -1,0 +1,74 @@
+schema: rvv-r5c-a3-order-insensitive-required-case-set-addendum-v1
+created_at: 2026-08-26T17:26:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+assignment_id: STAGEA-L1-20260826-LLVM-RVV-R5C-TRANSITIVE-SPLIT-QUOTIENT-DEPENDENCY-CLOSURE-A3
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient
+resource_root: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient/resources
+
+classification:
+  blocker_class: SOFT_ENGINEERING_BLOCKER
+  reason: ORDER_SENSITIVE_REQUIRED_CASE_KEY_COMPARISON_AFTER_SORTED_JSON_ROUNDTRIP
+  exact_object_mechanism_action_baselines_negative_controls_changed: false
+  scientific_revision_consumption: false
+  mechanism_pivot_state: CONSUMED_1_OF_1__NO_SECOND_PIVOT
+  user_gate: NONE
+
+a2_freeze:
+  handoff_sha256: 5A18F0D44A74F02B71C72D9929A29954B9B821F1B3E6E7874F29507C6C6BFD7E
+  manifest_sha256: BC25DA7E856FA66E0C8290FF6DD50B890694D71FC9FE99A5760566427EB44F65
+  mainline_acceptance_sha256: 4D175FA7C83EA71E3A5AA6D616B5753D7B17B1349AE9D31E837B129B1FDC7008
+  runner_sha256: A8FDE70D27142698F4553FE62933E9326102D44A0912E1185680328FADAFBA21
+  runner_bytes: 9430
+  required_case_count: 12
+  individual_case_results_true: 12
+  values_failure: false
+  order_comparison_failure: true
+  fresh_llc_machineverifier_commands_passed: 2
+  fresh_replay_sha256: AE30D1243442F787A117EBBD708F9CC1E75DF96975E505B4EA015FC14238799B
+  preserve_all_a2_a1_and_pass1_canonical_and_raw_files: true
+  preservation_directory: pass3_case_order_only
+
+exact_runner_edit:
+  source_path: resources/src/split_closure/run_r5c.py
+  old_sha256: A8FDE70D27142698F4553FE62933E9326102D44A0912E1185680328FADAFBA21
+  old_bytes: 9430
+  source_edit_transactions_max: 1
+  replacements:
+    - occurrences_required: 1
+      old: 'LOGS = RESOURCES / "logs" / "r5c_a2"'
+      new: 'LOGS = RESOURCES / "logs" / "r5c_a3"'
+      reason: PRESERVE_A2_RAW_AND_REQUIRE_FRESH_OUTPUT_ROOT
+    - occurrences_required: 1
+      old: '        if list(all_cases) != required or not all(all_cases.values()):'
+      new: '        if set(all_cases) != set(required) or not all(all_cases[name] for name in required):'
+      reason: REQUIRE_EXACT_KEY_SET_AND_ALL_PREDECLARED_VALUES_TRUE_WITHOUT_DEPENDING_ON_SERIALIZATION_ORDER
+  expected_sha256: 3D1C17A36490D71860EF66986499ADC0E2286486DE9EAAFACBE5CDD20AAD03ED
+  expected_bytes: 9452
+  permitted_semantic_change: ORDER_INSENSITIVE_EXACT_REQUIRED_CASE_SET_AGGREGATION_ONLY
+  forbidden_changes: [CASE_NAMES, CASE_COUNT, CASE_GENERATORS, EXPECTED_PASS_FAIL_POLARITY, CLOSURE_METHOD, F3_F4_F5, LLC_COMMAND, WITNESS, BASELINE, METRIC, DENOMINATOR]
+
+ordered_gate:
+  A30_PRESERVE_A2_A1_PASS1: BYTE_EXACT_ALL_CANONICAL_AND_RAW_EVIDENCE
+  A31_ONE_EXACT_RUNNER_TRANSACTION_AND_HASH_FREEZE: PASS_REQUIRED
+  A32_STATIC_COMPILE_NO_BYTECODE: PASS_REQUIRED
+  A33_RUNNER_LAUNCH_ONCE_FRESH_R5C_A3: PASS_REQUIRED
+  A34_EXISTING_C2_C7_UNCHANGED: PASS_REQUIRED
+  A35_EXACT_REQUIRED_CASE_SET_AND_ALL_VALUES_TRUE: PASS_REQUIRED
+  A36_CANONICAL_RESEAL: PASS_REQUIRED
+
+limits: {network_bytes_max: 0, source_edit_transactions_max: 1, exact_outer_launch_attempts_max: 1, alternate_interpreters_max: 0, fresh_llc_commands_max: 2, control_tool_command_records_max: 68, automatic_retry: false, natural_or_selected_tool_invocations_max: 0, claim_bearing_runs_max: 0, owner_cleanup_allowed: false, stageb_allowed: false}
+forbidden_actions: [DELETE_OR_OVERWRITE_A2_A1_OR_PASS1_EVIDENCE, CHANGE_CASE_SET_CASE_VALUES_OR_EXPECTED_POLARITY, USE_ALTERNATE_INTERPRETER, CHANGE_OTHER_SOURCE_OR_SCIENTIFIC_CONTRACT, SECOND_PIVOT_OR_SCIENTIFIC_REVISION, NATURAL_SELECTED_CLAIM_STATE_CLEANUP_OR_STAGEB, RETRY]
+
+bootstrap:
+  ack_path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient/A3_ACK.yaml
+  only_ack_before_acceptance: true
+  ready_requires: [ALL_HASHES_MATCH, BOTH_IN_MEMORY_REPLACEMENTS_OCCUR_ONCE_AND_MATCH_EXPECTED_HASH, A2_PRESERVATION_AND_FRESH_R5C_A3_ROOT_UNDERSTOOD, EXACT_REQUIRED_CASE_SET_SEMANTICS_UNDERSTOOD, ZERO_NATURAL_CLAIM_SCIENCE, DIFFERENCES_EMPTY, A3_ACTION_STARTED_FALSE]
+  refuse_on_any_difference: true
+
+success_route: RVV_R5C_PRECLAIM_FIDELITY_PASS__RETURN_SAME_INDEPENDENT_GATE
+failure_route: FAIL_CLOSED_RVV_R5C_A3_PRECLAIM__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+next_action: WRITE_A3_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE_AND_A3_START

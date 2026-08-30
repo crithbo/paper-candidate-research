@@ -1,0 +1,103 @@
+schema_version: resource-unblock-freeze-v1
+freeze_status: CLOSED_BEFORE_NETWORK_ACQUISITION
+frozen_at: 2026-08-10T14:28:33+08:00
+assignment_id: RESOURCE-UNBLOCK-L2-20260810-ROCKSDB-R1
+authorization_id: UNBLOCK-AUTH-20260810-R1
+topic_id: ROCKSDB-DICT-COVER
+lane_id: CANDIDATE_EXECUTION_LANE_2
+write_directory: D:\project\writing\reserch\stages\stageA\ROCKSDB-DICT-COVER\resume1
+
+input_freeze:
+  initial_contract: D:\project\writing\reserch\stages\stageA\ROCKSDB-DICT-COVER\EXPERIMENT_CONTRACT.yaml
+  initial_contract_sha256: 8B578D63EE6DC515DB60E6D5A7D29AECEE35EAFF816AF7D800888C9746CEDC70
+  initial_blocker_packet_sha256: CFDC394809DCEDCAA36E6EE655FF64C10CD7AE420F6A98CC97B7382002ECDA09
+  initial_handoff_sha256: B33826868E661C0229FD9C2170892F8F436C2C68EBE370012774D9D75B1FACD0
+  initial_hash_manifest_sha256: 7DF818674F8458A23340495C9B6F3B8B13C870F36A66DE563662D65E864BCF45
+  converter_source: D:\project\writing\reserch\stages\stageA\ROCKSDB-DICT-COVER\scripts\prepare_manifests.py
+  converter_sha256: E93D8D7A7AB47B2A65751064F5114FCD9E919813F2A7F810123FDCAF7FD7E244
+
+authority_scope:
+  purpose: OFFICIAL_INPUT_ACQUISITION_INTEGRITY_VALIDATION_AND_UNMODIFIED_READABILITY_SMOKE_ONLY
+  permitted_sources:
+    - https://nvd.nist.gov/feeds/json/cve/2.0/
+    - https://pypi.org/pypi/
+  nvd_authority: NIST_NVD_OFFICIAL_CVE_JSON_2_0_DATA_FEEDS
+  pypi_authority: PYPI_OFFICIAL_JSON_API
+  nvd_license_note: US_GOVERNMENT_DATA_SOURCE_WITH_ATTRIBUTION_RETAINED
+  pypi_license_note: PACKAGE_DECLARED_LICENSE_METADATA_RETAINED__JSON_REGISTRY_METADATA_ONLY
+  old_partial_reuse_allowed: false
+  old_partial_concatenation_allowed: false
+  mirror_allowed: false
+  corpus_substitution_allowed: false
+  system_install_allowed: false
+  global_environment_mutation_allowed: false
+  candidate_or_baseline_execution_allowed: false
+  sst_or_trainer_execution_allowed: false
+  claim_bearing_execution_allowed: false
+  scientific_revision_consumption_allowed: false
+  stageb_allowed: false
+  automation_allowed: false
+
+resource_limits:
+  clean_retries_per_asset_max: 3
+  each_retry_starts_at_byte_zero: true
+  network_bytes_total_max: 1073741824
+  topic_directory_bytes_max: 4294967296
+  cpu_hours_total_max: 4
+  gpu: false
+  exclusive_device: false
+
+validation_contract:
+  http_status_required: 200
+  content_length_vs_actual_required: true
+  raw_sha256_required: true
+  official_url_and_retrieval_time_required: true
+  response_last_modified_and_etag_record_if_present: true
+  gzip_integrity_required_for_nvd: true
+  json_parse_and_schema_smoke_required: true
+  nvd_required_schema:
+    - vulnerabilities_array
+    - each_sampled_entry_has_cve_object
+    - each_sampled_cve_has_id
+  pypi_required_schema:
+    - info_object
+    - releases_object
+    - urls_array
+    - info_name_matches_requested_package
+  license_metadata_required: true
+  expected_length_source: OFFICIAL_HTTP_CONTENT_LENGTH_AT_ACQUISITION
+  expected_sha256_source: COMPUTED_ONLY_AFTER_BYTE_COMPLETE_OFFICIAL_ACQUISITION
+  nvd_2017_blocker_expected_length: 7706425
+
+frozen_manifest_population:
+  required_count: 20
+  family_count: 2
+  canonical_converter_must_remain_unmodified: true
+  entries:
+    - {id: nvd-2015, family: NVD_JSON_2_0, acquisition: REUSE_VERIFIED_COMPLETE_INITIAL_ASSET, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2015.json.gz", expected_bytes: 4190045, expected_raw_sha256: 36D62C93A5F15ACDCBA69513F3CA86D44A35E10ACD44258E5A49AFE1EB24B0C0}
+    - {id: nvd-2016, family: NVD_JSON_2_0, acquisition: REUSE_VERIFIED_COMPLETE_INITIAL_ASSET, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2016.json.gz", expected_bytes: 5159096, expected_raw_sha256: E3A4B0B68C30065FB24417DDF1240E8149B3F99F433F4A262B776090A24E930F}
+    - {id: nvd-2017, family: NVD_JSON_2_0, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2017.json.gz", expected_bytes: 7706425, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: nvd-2018, family: NVD_JSON_2_0, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2018.json.gz", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: nvd-2019, family: NVD_JSON_2_0, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2019.json.gz", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: nvd-2020, family: NVD_JSON_2_0, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2020.json.gz", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: nvd-2021, family: NVD_JSON_2_0, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2021.json.gz", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: nvd-2022, family: NVD_JSON_2_0, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2022.json.gz", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: nvd-2023, family: NVD_JSON_2_0, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2023.json.gz", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: nvd-2024, family: NVD_JSON_2_0, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2024.json.gz", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: pypi-boto3, family: PYPI_JSON_API, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://pypi.org/pypi/boto3/json", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: pypi-botocore, family: PYPI_JSON_API, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://pypi.org/pypi/botocore/json", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: pypi-django, family: PYPI_JSON_API, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://pypi.org/pypi/django/json", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: pypi-pandas, family: PYPI_JSON_API, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://pypi.org/pypi/pandas/json", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: pypi-numpy, family: PYPI_JSON_API, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://pypi.org/pypi/numpy/json", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: pypi-scipy, family: PYPI_JSON_API, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://pypi.org/pypi/scipy/json", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: pypi-tensorflow, family: PYPI_JSON_API, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://pypi.org/pypi/tensorflow/json", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: pypi-torch, family: PYPI_JSON_API, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://pypi.org/pypi/torch/json", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: pypi-matplotlib, family: PYPI_JSON_API, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://pypi.org/pypi/matplotlib/json", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+    - {id: pypi-scikit-learn, family: PYPI_JSON_API, acquisition: CLEAN_OFFICIAL_DOWNLOAD, url: "https://pypi.org/pypi/scikit-learn/json", expected_bytes: OFFICIAL_RESPONSE, expected_raw_sha256: ACQUISITION_TIME_FREEZE}
+
+outcome_boundary:
+  resource_ready_initial: false
+  claim_bearing: false
+  scientific_revision: false
+  stageb: false
+  scientific_inference_allowed: false

@@ -1,0 +1,21 @@
+schema: phase-closeout-retention-v1
+assignment_id: STAGEA-L2-20260830-ORT-EP-ASSIGNMENT-STABILITY-A0
+closeout_kind: A0_RESOURCE_BLOCKER_HANDOFF
+lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+retain:
+  - {path: resources/downloads/onnxruntime_gpu-1.26.0-cp312-cp312-win_amd64.whl, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: exact frozen runtime artifact}
+  - {path: resources/src/models, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: exact public model identities}
+  - {path: resources/build/packet, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: 144 result-independent cell IDs and contract}
+  - {path: resources/build/control/provider-schema-lineage/result.json, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: decisive actual-provider fallback evidence}
+  - {path: resources/logs/control/provider-schema-lineage.stderr.txt, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: missing CUDA runtime dependency evidence}
+  - {path: resources/env/ort-1.26.0, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: exact local ORT installation}
+  - {path: ORT_PROVIDER_OPTIONS.json, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: ordered provider options hash}
+cleanup_candidates_after_accepted_handoff:
+  - {path: resources/cache, files: 88, logical_bytes: 229105546, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, content_manifest_sha256: 19F3388458340D3A828201D6D0D6F31976965A1EFF77EAAAF2A68CC90039D87D}
+  - {path: resources/tmp, files: 0, logical_bytes: 0, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/archives, files: 0, logical_bytes: 0, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+deletion_gate: MAINLINE_ACCEPTED_HANDOFF_PLUS_CONTAINMENT_REPARSE_ACTIVE_PROCESS_AND_RESUME_CHECKS
+scientific_state_effect: NONE
+

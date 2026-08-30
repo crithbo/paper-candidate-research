@@ -1,0 +1,34 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE84-R40-ORDINARY-BREADTH-V1
+lane: S1_BOUNDARY_CONTRADICTION
+write_directory: stages/discovery/round-20260815-adaptive-source84/S1-boundary-contradiction
+canonical_mode: v8.7
+rq_frontend_mode: RQ_REFINEMENT_STAGED_EVIDENCE_V1/PRODUCTION
+claim_pack_mode: OFF
+v9_mode: OFF
+disposition: COMPLETE_ZERO_PROPOSALS
+funnel:
+  divergence_seeds: 6
+  selected_exact_anchors: 1
+  primary_rqs: 1
+  screen_signatures: 1
+  evidence_qualified_raw: 0
+  candidate_grade_deep_reviews: 0
+  clean_stage0_briefs: 0
+families:
+  - signature: POSIX_PTHREAD_ATFORK__PREPARE_PARENT_CHILD_CALLBACK_ORDER__FIXED_POSTFORK_LOCK_STATE_ENDPOINT__GLIBC_FORK_FULL_COST
+    history_relation: NO_MATCH__NOT_NOVELTY_PROOF
+    canonical_disposition: EXCLUDED_BEFORE_RAW__CALLBACK_ORDER_IS_OBSERVABLE_OR_GENERIC_LOCK_LIFETIME_CONTROL
+    exact_object: pthread_atfork callback registrations around one fork trace
+    same_object_endpoint: same parent/child callback effects and post-fork lock state
+    current_strongest_union: POSIX semantics, glibc manual _Fork distinction, glibc callback-order source lineage
+    natural_carrier: multithreaded POSIX application/library fork path
+    full_cost: callback CPU, synchronization, fork pause, locks/resources, recovery and end-to-end latency
+    structural_reason: changed callback order changes visible parent/child state; unchanged trace is generic callback control
+    finite_killer: two order-dependent callback lock-effect trace
+source_closure_queue: EMPTY_NOT_EXHAUSTED
+transport_telemetry:
+  - POSIX direct browser route returned HTTP_403; no scientific inference
+resource_actions_performed: false
+scientific_negative_inference_from_resources: false
+next_step: No Stage0. A future assignment needs a distinct non-generic same-endpoint mechanism, not callback ordering.
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

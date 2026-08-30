@@ -1,0 +1,95 @@
+schema: rvv-r5c-transitive-split-quotient-dependency-receipt-v1
+created_at: 2026-08-26T15:52:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+assignment_id: STAGEA-L1-20260826-LLVM-RVV-R5C-TRANSITIVE-SPLIT-QUOTIENT-DEPENDENCY-CLOSURE
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient
+resource_root: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient/resources
+
+route:
+  source_gate_assignment: STAGEA-GATE-20260826-LLVM-RVV-R5-SPLIT-CLOSURE-PRECLAIM
+  source_gate_handoff_sha256: 18BA5DE9CB39FC54B2C569FD44537862ED474712CE286C9ABC4EFC1B96E92936
+  source_gate_manifest_sha256: A303CFA22CF46EF9A960B36977B384BE9FDE38D2495C76B7A56537018753B6EA
+  correction_route_sha256: AF88FBA44D8F0BBF8C36414F98C43ADCBD83C79B2165C6C38C608849B0C08F55
+  classification: ENGINEERING_CORRECTION_IN_CONTRACT
+  scientific_revision_consumption: false
+  mechanism_pivot_budget: REMAINS_CONSUMED_1_OF_1__NO_SECOND_PIVOT
+  exact_object_mechanism_action_baselines_gate: unchanged
+
+same_topic_input:
+  source_resource_root: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5/resources
+  source_handoff_sha256: 967B53E77BA847710B2BFBAD9F1BD119CF004D4DFBE30B7067D634FD3B806A93
+  source_manifest_sha256: 481FB226432012B26E78C348B397AF9741637C0B31FD404CA3DA7877591219FE
+  source_files_actual_at_gate: 141
+  source_bytes_actual_at_gate: 198380512
+  copy_attempts_max: 1
+  source_modify_or_delete_allowed: false
+
+source_scope:
+  permitted_existing_files_to_modify:
+    - resources/src/split_closure/split_closure.py
+    - resources/src/harness/rvv_preclaim.py
+  modify_existing_files_max: 2
+  permitted_new_file:
+    - resources/src/split_closure/run_r5c.py
+  new_files_max: 1
+  all_other_copied_bytes_immutable: true
+  source_freeze_before_first_tool: true
+  expected_final_source_hashes_precommitted: false
+  reason_no_expected_hash: IMPLEMENTATION_IS_BEHAVIORALLY_FROZEN_BY_TRANSITIVE_GRAPH_DEPENDENCY_AND_NEGATIVE_CONTROLS_NOT_BY_ONE_FORMATTING_SPEC
+
+transitive_split_graph_contract:
+  source: RAW_FRESH_MACHINEIR_REGISTER_TABLE_AND_STACK_OPERATIONS
+  root_derivation: ALL_REGISTER_NODES_WITH_DESCENDANTS_AND_NO_PARENT__NO_HARDCODED_REGISTER_IDS
+  graph_requirements: [ACYCLIC, EVERY_DESCENDANT_REACHES_EXACTLY_ONE_ROOT, ALL_PARENT_EDGES_RECORDED, TRANSITIVE_ANCESTRY_RECORDED, NO_ORPHAN_OR_UNKNOWN_NODE]
+  per_path_obligations: [REGISTER_CLASS, LMUL, MASK_LIVENESS, INTERFERENCE_PHYSREG, SPILL_SLOT, RELOAD_CHAIN, FUTURE_USE_RESTORATION, BACKPOINTER]
+  fail_closed_on: [MISSING_CHILD, UNKNOWN_PARENT, CROSS_CLASS_OR_LMUL, CYCLE, ORPHAN_DESCENDANT, MULTIROOT_DESCENDANT, MISSING_PHYSREG, MISSING_SPILL, MISSING_RELOAD, MISSING_FUTURE_USE, INCOMPLETE_BACKPOINTER]
+
+quotient_dependency_contract:
+  state_signature_must_include: [TRANSITIVE_SPLIT_GRAPH_HASH, ROOT_TO_LEAF_PATH_OBLIGATIONS, FUTURE_ACTION_SIGNATURE, COST_AND_SPILL_RELOAD_SIGNATURE, MASK_AND_INTERFERENCE_SIGNATURE]
+  successor_relation_must_be_explicit: true
+  merge_only_if_future_action_and_cost_equivalent: true
+  F4_must_consume: [SPLIT_CLOSURE_ARTIFACT_PATH, SPLIT_CLOSURE_SHA256, QUOTIENT_STATE_SIGNATURES, SUCCESSOR_RELATION]
+  F5_must_consume: [SPLIT_CLOSURE_ARTIFACT_PATH, SPLIT_CLOSURE_SHA256, BASELINE_PARITY_FULL_COST_FIELDS, SPILL_RELOAD_AND_FUTURE_USE_COST]
+  no_closure_argument: FAIL_CLOSED
+  mutated_closure_hash_or_obligation: FAIL_CLOSED
+  output_dependency_receipts_required: true
+
+negative_controls:
+  required: [MISSING_LEAF, UNKNOWN_PARENT, CROSS_CLASS_OR_LMUL, CYCLE, ORPHAN_DESCENDANT, MULTIROOT_DESCENDANT, MISSING_SPILL, MISSING_RELOAD_OR_FUTURE_USE, MUTATED_TRANSITIVE_GRAPH_HASH, MUTATED_FUTURE_ACTION_OR_COST_SIGNATURE, F4_WITHOUT_CLOSURE, F5_WITH_MUTATED_CLOSURE]
+  all_must_fail_closed: true
+
+fresh_execution_and_receipts:
+  output_root: resources/logs/r5c
+  replay_count: 2
+  replay_roots_must_be_fresh: true
+  llc_machineverifier_commands: 2
+  command_receipt_fields: [COMMAND_ID, ARGV, CWD, START_UTC, END_UTC, EXIT_CODE, STDOUT_SHA256, STDERR_SHA256, OUTPUT_PATH, OUTPUT_SHA256, TIMEOUT_SECONDS, RETRY_COUNT]
+  each_exit_code_must_be_zero: true
+  replay_MIR_byte_exact: true
+  checker_and_F3_F5_receipts_required: true
+  canonical_reproducibility_report_must_match_receipts: true
+  automatic_retry: false
+
+ordered_gate:
+  C0_COPY_AND_HASH_ACCEPT_R5_RESOURCE: PASS_REQUIRED
+  C1_IMPLEMENT_AND_FREEZE_THREE_FILES: PASS_REQUIRED
+  C2_STATIC_COMPILE: PASS_3_OF_3
+  C3_TRANSITIVE_GRAPH_NEGATIVE_CONTROLS: PASS_ALL_12
+  C4_FRESH_REPLAY_1_WITH_RECEIPT: PASS_REQUIRED
+  C5_FRESH_REPLAY_2_WITH_RECEIPT: PASS_REQUIRED
+  C6_SPLIT_CLOSURE_AND_REPLAY_EXACTNESS: PASS_REQUIRED
+  C7_F4_F5_DEPENDENCY_AND_MUTATION_CONTROLS: PASS_REQUIRED
+  C8_CANONICAL_PRECLAIM_RESEAL: PASS_REQUIRED
+
+limits: {network_bytes_max: 0, resource_root_logical_bytes_max: 536870912, cpu_seconds_max: 14400, wall_seconds_max: 28800, max_parallel_processes: 2, input_copy_attempts_max: 1, modify_existing_files_max: 2, new_files_max: 1, control_tool_command_records_max: 64, fresh_llc_commands_max: 2, natural_or_selected_tool_invocations_max: 0, claim_bearing_runs_max: 0, automatic_retry: false}
+soft_blocker_recovery: {mode: ENGINEERING_CORRECTION_IN_CONTRACT, policy_path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, policy_sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74}
+resource_localization: {mode: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97, every_write_under_resource_root: true}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, post_close_retained_bytes_max: 268435456, cleanup_owner: MAINLINE, owner_cleanup_allowed: false, downstream_consumer: INDEPENDENT_PRECLAIM_GATE}
+forbidden_actions: [MODIFY_R5_R4_OR_UPSTREAM, HARDCODE_REGISTER_IDS_OR_IMMEDIATE_PARENT_SET, IGNORE_SPLITS_OR_LOWER_MACHINEVERIFIER, CHANGE_WITNESS_OBJECT_MECHANISM_BASELINE_OR_GATE, SECOND_PIVOT_OR_SCIENTIFIC_REVISION, NATURAL_SELECTED_CLAIM_STATE_CLEANUP_OR_STAGEB, RETRY_OR_RESULT_BASED_EDIT]
+success_route: RVV_R5C_PRECLAIM_FIDELITY_PASS__RETURN_SAME_INDEPENDENT_GATE
+failure_route: FAIL_CLOSED_RVV_R5C_PRECLAIM__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+required_outputs: [BOOTSTRAP_ACK.yaml, SAME_TOPIC_INPUT_ACCEPTANCE.yaml, SOURCE_IMPLEMENTATION_FREEZE.yaml, TRANSITIVE_SPLIT_GRAPH_AND_QUOTIENT_AUDIT.yaml, NEGATIVE_CONTROL_RESULTS.yaml, COMMAND_RECEIPT_INDEX.yaml, F4_F5_DEPENDENCY_AUDIT.yaml, PRE_CLAIM_TRANSITIVE_SPLIT_GATE.yaml, REPRODUCIBILITY_REPORT.yaml, RESOURCE_INVENTORY.yaml, PHASE_CLOSEOUT_RETENTION.yaml, RESUME_CAPSULE.yaml, handoff.yaml, HASH_MANIFEST.sha256]

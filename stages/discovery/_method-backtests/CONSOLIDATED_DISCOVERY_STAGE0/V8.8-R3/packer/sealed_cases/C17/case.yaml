@@ -1,0 +1,34 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C17
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-09T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [CUDA_GPU, AMDGPU, COMPILER, SCHEDULING]
+raw_opportunity: >-
+  The backend scheduler balances register pressure, occupancy and instruction
+  scheduling under target-specific resource limits. Examine a joint scheduling
+  and register-allocation construction that targets discrete occupancy cliffs
+  while preserving the native machine contract.
+runtime_event:
+  phase: PRECLAIM_TOOLCHAIN_AND_CORPUS_SETUP
+  raw_observation: >-
+    The checksum-frozen public bootstrap archive arrived short of its declared
+    byte count, so it was not extracted or used; no MIR corpus replay or
+    claim-bearing observation occurred.
+  claim_bearing_observation: false
+required_analysis:
+  - compare the entire backend scheduling action and known joint-codegen work
+  - state target/register/occupancy semantics and all compile/runtime costs
+  - classify the short transfer as resource-only, not a scientific counterexample
+  - enforce a compiler-source ceiling absent native GPU execution
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C17/sources/S01_GCNSchedStrategy.cpp, sha256: 17843EBB9EEEECF1351D876A5CA27310BDE86587D9BCED685EDA7C610D801EB0, bytes: 128027, url: "https://raw.githubusercontent.com/llvm/llvm-project/c4a3c977f1f9138fb69bf936e532c94f0bb8a3cd/llvm/lib/Target/AMDGPU/GCNSchedStrategy.cpp", available_by: "2026-08-09", role: CURRENT_FIRST_PARTY_BACKEND_ACTION}
+  - {source_id: S02, path: sealed_cases/C17/sources/S02_AMDGPUUsage.rst, sha256: F0B4F60E5DFAA4CC54E5DB69058FB3CFE61E5087A2A5AC30844DEE26953A543F, bytes: 1442185, url: "https://raw.githubusercontent.com/llvm/llvm-project/c4a3c977f1f9138fb69bf936e532c94f0bb8a3cd/llvm/docs/AMDGPUUsage.rst", available_by: "2026-08-09", role: TARGET_AND_RESOURCE_SEMANTICS}
+  - {source_id: S03, path: sealed_cases/C17/sources/S03_unison-paper.pdf, sha256: B646F42587B0ED927C84196D0975F9FA778D8D6BBBCF963AE60B9EE7588833BD, bytes: 1508464, url: "https://arxiv.org/pdf/1804.02452", available_by: "2018-04-06", role: CLOSEST_JOINT_CODEGEN_GENEALOGY}
+exclusions:
+  - local candidate title, later asset hashes and every Stage-A outcome
+  - native GPU results or post-cutoff backend changes
+claim_ceiling: COMPILER_SOURCE_AND_MODEL_ONLY__NO_GPU_PERFORMANCE_OR_HARDWARE_CLAIM
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL
+

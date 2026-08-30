@@ -1,0 +1,114 @@
+schema_version: "stagea-contract-v8.7"
+assignment_id: "STAGEA-L2-20260811-LLVM-PPC-PREFIX-PRESSURE-PARETODP-INITIAL-V8.7"
+topic_id: "LLVM-PPC-PREFIX-PRESSURE-PARETODP"
+lane_id: "CANDIDATE_EXECUTION_LANE_2"
+stage: "StageA"
+phase: "INITIAL"
+created_at: "2026-08-11T09:59:25+08:00"
+workspace_root: "D:/project/writing/reserch"
+write_boundary: "D:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/initial"
+queue_prefetch_performed: false
+cross_assignment_facts_reused: false
+
+control_freeze:
+  agents_sha256: "66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063"
+  plan_sha256: "ABBA0D9BE6A09AE8F4DDF27DF0622FA2FBDD5925EC73F52A0D9E74207D5687D6"
+  registry_sha256: "1A348E546A73BE605380D22FAE84967C083E80A9A7B0603B21D1A6546B937181"
+  candidate_owner_rule_sha256: "30E23336CF339771821EAEC8B2C7011025BA815D613DB639E68121FDCDE54D1F"
+  academic_research_suite_sha256: "A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F"
+  verification: "ALL_MATCH_AT_ASSIGNMENT_ENTRY"
+  concurrent_control_drift:
+    detected_at_terminal_check: true
+    plan_observed_sha256: "38BBCA80B816879AF06494D2B826F19CB79063430E7F7B859E0F5871855D88F6"
+    registry_observed_sha256: "DDDA54F13B9A59949A5A65AD6F1E35D47C25C5203C55A2588555A5EA552B6761"
+    disposition: "RECORD_ONLY__ENTRY_FREEZE_RETAINED__NO_NEW_FACTS_IMPORTED"
+
+upstream_freeze:
+  llvm_commit: "f127b4c19c63b0492fb924934e37e032c17ea35b"
+  closing_report_sha256: "42B0A547381AC29B1780EF51CFC2F2EAC13C7D2DD2B70097A17F83D454E0D167"
+  closing_handoff_sha256: "F08D42616BB11EBAD5A98D9681669BC7148499D1C5C1DD044FC4860CEC2D060B"
+  closing_manifest_sha256: "754181D61F7E566939ECD276F64A7297A987BD64CEAE6EA68A28FDB0C38F8B31"
+  manifests_verified:
+    primary: "4/4"
+    confirmation: "2/2"
+    revision1: "4/4"
+    closing: "2/2"
+  quality_tier: "TIER_B_Q2_VIABLE__CONDITIONAL_STATIC_CERTIFICATE"
+  stage0_revision_consumed: true
+
+frozen_same_object:
+  target: "Power10 ppc64le Linux ELFv2"
+  code_model: "medium"
+  input: "fixed pre-form MachineIR trace"
+  symbol_binding: "defined non-preemptible dso_local or hidden"
+  memory_contract: "fixed nonvolatile-load and alias semantics"
+  call_contract: "fixed ELFv2 call clobbers, ABI, frame, DWARF and unwind"
+  linker: "pinned ld.lld from the same LLVM commit"
+  permitted_actions:
+    - "direct non-GOT PCREL34 PLDpc loaded-value access"
+    - "PADDI address materialization plus ordinary LD"
+    - "complete native form/RA/coalesce/spill/frame/MC/link actions"
+  forbidden_actions:
+    - "GOT PLDpc witness"
+    - "ABI, binding, code-model, CFG, linker or object-format change"
+    - "generic solver substituted for PPC-TPD"
+    - "arbitrary register renaming"
+    - "post-result tuning"
+
+preclaim_contract_fidelity_gate:
+  mandatory: true
+  policy: "ALL_FIVE_PASS_OR_FAIL_CLOSED"
+  gates:
+    - id: "F1_EXACT_DIRECT_WITNESS"
+      requirement: >-
+        Reproduce exact dso_local/hidden non-GOT R_PPC64_PCREL34 direct
+        PLDpc and PADDI+LD witness under the frozen call and memory contract.
+    - id: "F2_NATIVE_VALIDATION"
+      requirement: >-
+        Validate assembler, llvm-readobj typed relocation/addend, llvm-objdump
+        form, ld.lld output, DWARF/unwind and observable semantics.
+    - id: "F3_COMPLETE_NATIVE_UNION"
+      requirement: >-
+        Replay current LLVM/lld form selection, greedy/PBQP RA,
+        coalescing/spills/frame, default-on pre-emit/late peepholes, MC/linker
+        relaxation and the finite legal configuration grid with equal information.
+    - id: "F4_TINY_NATIVE_ORACLE"
+      requirement: >-
+        Compare PPC-TPD frontiers and merge decisions against exhaustive legal
+        native traces, preserving all future actions and declared costs.
+    - id: "F5_FULL_COST"
+      requirement: >-
+        Freeze and collect model/optimizer, compile/link/verification/runtime
+        CPU and RSS, bytes, spills/copies/frame, typed relocations and static uops.
+  current_status: "FAIL_CLOSED_AT_F1_RESOURCE_PREFLIGHT"
+  proxy_results_allowed: false
+
+natural_probe:
+  corpus: "10-20 public LLVM PPC tests or LLVM Test-Suite functions"
+  allowed_only_after_fidelity_pass: true
+  current_status: "NOT_STARTED__PROHIBITED_BY_RESOURCE_BLOCKER"
+  repeated_measurement: "deterministic double replay required"
+  runtime_claim_without_power_hardware: false
+  killer:
+    - "no legal direct non-GOT pair"
+    - "any semantic/object/relocation/unwind mismatch"
+    - "complete current union reproduces candidate action or guarantee"
+    - "cap-only or non-action frontier"
+    - "no p50/p90 full-cost Pareto residual"
+
+authority_and_cost:
+  stagea_authorized: true
+  stageb_authorized: false
+  pending_user_stageb_review: false
+  stageb_user_approval_id: null
+  system_install_authorized: false
+  global_environment_change_authorized: false
+  large_toolchain_acquisition_authorized: false
+  gpu_or_exclusive_device_authorized: false
+  claim_bearing_observation: false
+  stagea_scientific_revision_consumed: false
+
+failure_policy:
+  current_decision: "BLOCKED_USER_ACTION_REQUIRED"
+  evidence_ceiling: "RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE"
+  prohibited_inference: ["PASS", "STOP", "RESERVE"]

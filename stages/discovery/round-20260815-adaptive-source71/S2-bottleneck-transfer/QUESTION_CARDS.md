@@ -1,0 +1,9 @@
+# Question-card outcomes — Source71
+
+| RQ | Same-object contract | Current native union | Carrier / oracle | Initial full-cost | Minimum falsifier | Result |
+|---|---|---|---|---|---|---|
+| RQ-S71-01 | Fixed modules/resources/target runtime and stock image/class-loader results | `jlink` module closure and current compression/string-sharing/endian/plugin controls; `jimage` inspectable implementation container | Versioned JDK module set; stock startup/class/resource lookup result | image build CPU/RSS/temp/bytes + cold/warm startup/lookup | A reader-equivalent image-directory action with target-specific algorithm/guarantee beyond plugins/packing | `STRUCTURAL_DROP__CURRENT_JLINK_PLUGIN_UNION_OR_GENERIC_IMAGE_PACKING` |
+| RQ-S71-02 | Fixed crate graph/compiler/target and stock rustc dependent-crate semantics | rmeta/rlib metadata, rustc_metadata encoder/decoder, lazy/offset representation and incremental persistence | Versioned Rust workspace; rustc compilation and artifact semantic oracle | metadata emit/import + compile CPU/RSS/temp/bytes | A metadata constructor outside existing serialisation/offset techniques and generic codec design | `STRUCTURAL_DROP__CURRENT_METADATA_UNION_OR_GENERIC_SERIALIZATION` |
+| RQ-S71-03 | Fixed host code/code objects/GPU and stock HIP module/kernels | hipcc/clang-offload-bundler object bundle, load-time registration, module/library load and function extraction | Versioned HIP program; stock module load and kernel result | bundle build/bytes + host registration/load CPU/RSS + device memory/first launch/runtime | A loader-equivalent code-object construction outside bundle, registration/load and API union | `STRUCTURAL_DROP__CURRENT_HIP_CODE_OBJECT_LOAD_UNION_OR_GENERIC_PACKING` |
+
+All dispositions are source/action-based. None rests on missing implementation, result, resource or AI readiness.

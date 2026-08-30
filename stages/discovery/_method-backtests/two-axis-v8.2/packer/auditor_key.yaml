@@ -1,0 +1,41 @@
+schema_version: discovery-two-axis-auditor-key-v8.2
+confidentiality: PACKER_AND_FUTURE_AUDITOR_ONLY
+executor_must_not_read: true
+target_key:
+  L1-P01: {title: MapReduce: Simplified Data Processing on Large Clusters, venue: OSDI_2004, publication: '2004-12-06', source: 'https://www.usenix.org/conference/osdi-04/mapreduce-simplified-data-processing-large-clusters'}
+  L1-P02: {title: Dryad: Distributed Data-Parallel Programs from Sequential Building Blocks, venue: EuroSys_2007, publication: '2007-03-21', source: 'https://doi.org/10.1145/1272996.1273005'}
+  L1-P03: {title: Spanner: Becoming a SQL System, venue: SIGMOD_2017, publication: '2017-05-14', source: 'https://doi.org/10.1145/3035918.3056103'}
+  L2-P01: {title: ZeRO: Memory Optimizations Toward Training Trillion Parameter Models, venue: SC_2020, publication: '2020-11-16', source: 'https://doi.org/10.1109/SC41405.2020.00024'}
+  L2-P02: {title: FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness, venue: NeurIPS_2022, publication: '2022-11-28', source: 'https://proceedings.neurips.cc/paper_files/paper/2022/hash/7a9d5b7f65e7f6b8b7b6e92e1d6b1ef3-Abstract-Conference.html'}
+  L2-P03: {title: Efficient Memory Management for Large Language Model Serving with PagedAttention, venue: SOSP_2023, publication: '2023-10-23', source: 'https://doi.org/10.1145/3600006.3613165'}
+  L3-P01: {title: Dremel: Interactive Analysis of Web-Scale Datasets, venue: VLDB_2010, publication: '2010-09-13', source: 'https://www.vldb.org/pvldb/vol3/R29.pdf'}
+  L3-P02: {title: GraphChi: Large-Scale Graph Computation on Just a PC, venue: OSDI_2012, publication: '2012-10-08', source: 'https://www.usenix.org/conference/osdi12/technical-sessions/presentation/kyrola'}
+  L3-P03: {title: X-Stream: Edge-centric Graph Processing using Streaming Partitions, venue: SOSP_2013, publication: '2013-11-03', source: 'https://doi.org/10.1145/2517349.2522740'}
+  L4-P01: {title: Dynamo: Amazon's Highly Available Key-value Store, venue: SOSP_2007, publication: '2007-10-02', source: 'https://doi.org/10.1145/1294261.1294281'}
+  L4-P02: {title: Shenango: Achieving High CPU Efficiency for Latency-sensitive Datacenter Workloads, venue: NSDI_2019, publication: '2019-02-26', source: 'https://www.usenix.org/conference/nsdi19/presentation/ousterhout'}
+  L4-P03: {title: Serving DNNs like Clockwork: Performance Predictability from the Bottom Up, venue: OSDI_2020, publication: '2020-11-04', source: 'https://www.usenix.org/conference/osdi20/presentation/gujarati'}
+  L5-P01: {title: Quantiles and Equidepth Histograms over Data Streams, venue: VLDB_2001, publication: '2001-09-11', source: 'https://doi.org/10.1016/B978-155860804-8/50024-6'}
+  L5-P02: {title: Cuckoo Filter: Practically Better Than Bloom, venue: CoNEXT_2014, publication: '2014-12-02', source: 'https://doi.org/10.1145/2674005.2674994'}
+  L5-P03: {title: BlinkDB: Queries with Bounded Errors and Bounded Response Times on Very Large Data, venue: EuroSys_2013, publication: '2013-04-14', source: 'https://doi.org/10.1145/2465351.2465355'}
+  L6-P01: {title: Halide: A Language and Compiler for Optimizing Parallelism, Locality, and Recomputation in Image Processing Pipelines, venue: PLDI_2013, publication: '2013-06-19', source: 'https://doi.org/10.1145/2491956.2462176'}
+  L6-P02: {title: Souper: A Synthesizing Superoptimizer, venue: ASPLOS_2017, publication: '2017-04-08', source: 'https://doi.org/10.1145/3037697.3037754'}
+  L6-P03: {title: egg: Fast and Extensible Equality Saturation, venue: POPL_2021, publication: '2021-01-17', source: 'https://doi.org/10.1145/3434304'}
+negative_key:
+  L1-N01: {mode: baseline_selector_absorption, verdict: BELOW_Q2_STOP}
+  L1-N02: {mode: ordinary_tuning_wrapper, verdict: BELOW_Q2_STOP}
+  L2-N01: {mode: baseline_selector_absorption, verdict: BELOW_Q2_STOP}
+  L2-N02: {mode: undefined_object_or_fairness, verdict: BELOW_Q2_STOP}
+  L3-N01: {mode: no_novelty_route, verdict: BELOW_Q2_STOP}
+  L3-N02: {mode: no_finite_evidence_route, verdict: BELOW_Q2_STOP}
+  L4-N01: {mode: ordinary_tuning_wrapper, verdict: BELOW_Q2_STOP}
+  L4-N02: {mode: undefined_object_or_fairness, verdict: BELOW_Q2_STOP}
+  L5-N01: {mode: baseline_selector_absorption, verdict: BELOW_Q2_STOP}
+  L5-N02: {mode: no_novelty_route, verdict: BELOW_Q2_STOP}
+  L6-N01: {mode: ordinary_tuning_wrapper, verdict: BELOW_Q2_STOP}
+  L6-N02: {mode: no_finite_evidence_route, verdict: BELOW_Q2_STOP}
+auditor_acceptance:
+  structural_recovery_minimum: '2_of_3_per_lens'
+  evidence_incomplete_positive_misclassified_as_stop: forbidden
+  hard_negative_forced_packaging: forbidden
+  decisive_leakage_verdict: CONTAMINATION_UNKNOWN
+provenance_and_hash_policy: "For every positive target, the canonical landing page/DOI in target_key is the authoritative provenance; auditor must retrieve the frozen source record and recompute byte hashes before unsealing. No such source identity is visible to EXECUTOR."

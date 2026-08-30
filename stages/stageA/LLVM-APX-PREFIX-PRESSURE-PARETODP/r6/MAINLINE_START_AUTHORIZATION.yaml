@@ -1,0 +1,28 @@
+schema: mainline-start-authorization-v1
+issued_at: 2026-08-26T01:15:00+08:00
+issued_by: MAINLINE
+decision: START_AUTHORIZED
+authorization_ids: [USER-PARALLEL-STAGEA-READY-CANDIDATES-20260825, USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825]
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R6-UINT32-CHECKER-PORTABILITY
+lane_id: CANDIDATE_EXECUTION_LANE_3
+lane_thread_id: 01a034d0-d67f-7f32-ab5f-54454407cb22
+context_sha256: 5BCE4B2FAD3BE54D41192CC92C38FE7E6BA8A237834F96248229C9B0229D5949
+bootstrap_ack_sha256: 5C2FFD753D7F79C79424A16E85112A07FB9325B302D70432DF1918ED9FF4AEA8
+bootstrap_acceptance: {disposition: ACCEPTED_READY, frozen_hashes: PASS, differences_or_ambiguities: [], resource_root_absent: true, scientific_or_resource_action_started: false}
+allowed_after_start:
+  - create eight r6 standard resource directories
+  - copy and hash-accept only frozen r5 tool/harness/log inputs
+  - write CHECKER_CORRECTION_PRECOMMIT before one assignment-local checker edit
+  - apply exactly one numeric portability patch using the frozen decimal constants, sample set and sign-overflow formula
+  - add wrapper exit detection without changing checker semantics
+  - run a wrapper negative control proving first failure is detected and stops the pair
+  - run the first checker replay; run the second planned replay only if first exit is zero and output result is PASS
+  - require the two successful outputs to be exact and audit F2 value/EFLAGS plus F3/F4 outputs
+  - finalize canonical preclaim handoff and wait
+correction_boundary: {checker_edits_max: 1, llc_or_mc_rerun: false, witness_mir_tool_contract_sample_flag_action_grammar_or_cost_change: false, second_checker_edit: false, extra_variant: false, automatic_retry: false}
+scientific_boundary: {claim_bearing_action_allowed: false, natural_performance_or_full_cost_allowed: false, scientific_revision_authorized: false, owner_state_transition_authority: false, stageb_authorized: false}
+budgets: {network_bytes_max: 0, stored_bytes_max: 1073741824, cpu_seconds_max: 3600, wall_seconds_max: 7200, max_parallel_processes: 1, gpu_hours_max: 0}
+failure_policy: {negative_control_or_first_replay_or_pair_failure: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE, same_assignment_retry: forbidden}
+lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, cleanup_owner: MAINLINE, owner_cleanup_allowed: false, post_close_retained_bytes_max: 67108864}
+next_action: COPY_ACCEPT__PRECOMMIT__ONE_CHECKER_PATCH__NEGATIVE_CONTROL__GATED_REPLAY_PAIR__AUDIT_HANDOFF

@@ -1,0 +1,66 @@
+{
+  "after_trace_sha256": "a04637e56743bfd22bf9a80d86c63e4e44bcd3ee5067156f6adb09281cca14d5",
+  "all_native_checks_pass": true,
+  "atomic_mapping": [
+    "MODULE-contained BLOCKINFO",
+    "move final module VST grammar from immediate scope to existing BLOCKINFO block-14 group",
+    "replace unused final block-12 ID-21 grammar with legal shorter duplicate",
+    "preserve every earlier application ID and BLOCKINFO word length",
+    "remove immediate VST DEFINE_ABBREV",
+    "assign unchanged FNENTRY record to inherited ID 8"
+  ],
+  "baseline_dis": {
+    "command": [
+      "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+      "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\results\\fidelity_native_minimal.bc",
+      "-o",
+      "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\scope_witness\\baseline.ll"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "before_trace_sha256": "a04637e56743bfd22bf9a80d86c63e4e44bcd3ee5067156f6adb09281cca14d5",
+  "canonical_decoded_ir_equal": true,
+  "input_bytes": 1736,
+  "input_sha256": "3b8facdb17349e321355bf4153e3c0b5d9949629a31ac66e12d53922da62edd7",
+  "native_checks": {
+    "bcanalyzer": {
+      "command": [
+        "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-bcanalyzer.exe",
+        "-disable-histogram",
+        "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\scope_witness\\blockinfo_scope.bc"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Summary of D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\scope_witness\\blockinfo_scope.bc:\n         Total size: 13824b/1728.00B/432W\n        Stream type: LLVM IR\n  # Toplevel Blocks: 3\n\nPer-block Summary:\n  Block ID #0 (BLOCKINFO_BLOCK):\n      Num Instances: 1\n         Total Size: 1152b/144.00B/36W\n    Percent of file: 8.3333%\n      Num SubBlocks: 0\n        Num Abbrevs: 27\n        Num Records: 3\n    Percent Abbrevs: 0.0000%\n\n  Block ID #8 (MODULE_BLOCK):\n      Num Instances: 1\n         Total Size: 800b/100.00B/25W\n    Percent of file: 5.7870%\n      Num SubBlocks: 7\n        Num Abbrevs: 2\n        Num Records: 5\n    Percent Abbrevs: 40.0000%\n\n  Block ID #11 (CONSTANTS_BLOCK):\n      Num Instances: 1\n         Total Size: 124b/15.50B/3W\n    Percent of file: 0.8970%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 3\n    Percent Abbrevs: 66.6667%\n\n  Block ID #12 (FUNCTION_BLOCK):\n      Num Instances: 1\n         Total Size: 338b/42.25B/10W\n    Percent of file: 2.4450%\n      Num SubBlocks: 2\n        Num Abbrevs: 0\n        Num Records: 9\n    Percent Abbrevs: 66.6667%\n\n  Block ID #13 (IDENTIFICATION_BLOCK_ID):\n      Num Instances: 1\n         Total Size: 214b/26.75B/6W\n    Percent of file: 1.5480%\n      Num SubBlocks: 0\n        Num Abbrevs: 2\n        Num Records: 2\n    Percent Abbrevs: 100.0000%\n\n  Block ID #14 (VALUE_SYMTAB):\n      Num Instances: 2\n         Total Size: 476b/59.50B/14W\n    Percent of file: 3.4433%\n       Average Size: 238.00/29.75B/7W\n  Tot/Avg SubBlocks: 0/0.000000e+00\n    Tot/Avg Abbrevs: 0/0.000000e+00\n    Tot/Avg Records: 10/5.000000e+00\n    Percent Abbrevs: 100.0000%\n\n  Block ID #17 (TYPE_BLOCK_ID):\n      Num Instances: 1\n         Total Size: 437b/54.62B/13W\n    Percent of file: 3.1612%\n      Num SubBlocks: 0\n        Num Abbrevs: 6\n        Num Records: 8\n    Percent Abbrevs: 25.0000%\n\n  Block ID #21 (OPERAND_BUNDLE_TAGS_BLOCK):\n      Num Instances: 1\n         Total Size: 1813b/226.62B/56W\n    Percent of file: 13.1149%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 12\n    Percent Abbrevs: 0.0000%\n\n  Block ID #22 (METADATA_KIND_BLOCK):\n      Num Instances: 1\n         Total Size: 7245b/905.62B/226W\n    Percent of file: 52.4089%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 47\n    Percent Abbrevs: 0.0000%\n\n  Block ID #23 (STRTAB_BLOCK):\n      Num Instances: 1\n         Total Size: 918b/114.75B/28W\n    Percent of file: 6.6406%\n      Num SubBlocks: 0\n        Num Abbrevs: 1\n        Num Records: 1\n    Percent Abbrevs: 100.0000%\n\n  Block ID #26:\n      Num Instances: 1\n         Total Size: 245b/30.62B/7W\n    Percent of file: 1.7723%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 2\n    Percent Abbrevs: 0.0000%\n\n"
+    },
+    "llvm_dis": {
+      "command": [
+        "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+        "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\scope_witness\\blockinfo_scope.bc",
+        "-o",
+        "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\scope_witness\\blockinfo_scope.ll"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "opt_verify": {
+      "command": [
+        "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\opt.exe",
+        "-passes=verify",
+        "-disable-output",
+        "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\scope_witness\\blockinfo_scope.bc"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  },
+  "nonclaim_role": "PRE_CLAIM_NATIVE_SCOPE_LEGALITY_EQUIVALENCE_WITNESS",
+  "output_bytes": 1728,
+  "output_sha256": "215d9514c7052a4d2c79b68f04e9c9fe4044b3996fa119f795d8a7b2ca20d613",
+  "schema": "llvm-native-scope-witness-v1",
+  "trace_equal": true
+}

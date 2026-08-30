@@ -1,0 +1,16 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-P1A7-PROBE-RUNTIME
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P1A6_handoff.yaml, sha256: CEE0B4643739F2E6C848369FE13B9A3323738E3D19E34A1FADF8B4A0C98A41CE}, {path: resources/build/probe/hnsw_minimal_probe.exe, retention: COMPILE_PASS__DO_NOT_MODIFY}]
+only_change: copy_existing_frozen_libcxx_and_libunwind_DLLs_to_probe_executable_directory_then_run_existing_three_cells
+sources: [resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/libc++.dll, resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/libunwind.dll]
+destination: resources/build/probe
+allowed_command_sequence:
+  - {id: P1A7S0, command: verify_source_DLL_hashes_and_probe_destination_absence, stop_on_nonzero: true}
+  - {id: P1A7S1, command: copy_two_exact_DLLs_once, stop_on_nonzero: true}
+  - {id: P1A7S2, command: run_existing_probe_cell_1_once, stop_on_nonzero: true}
+  - {id: P1A7S3, command: run_existing_probe_cell_2_once, stop_on_nonzero: true}
+  - {id: P1A7S4, command: run_existing_probe_cell_3_once, stop_on_nonzero: true}
+prohibitions: [recompile, harness_edit, input_or_parameter_change, alternate_runtime, system_DLL_install, global_PATH_change, production_or_stageB_action]
+scientific_revision_consumed: false

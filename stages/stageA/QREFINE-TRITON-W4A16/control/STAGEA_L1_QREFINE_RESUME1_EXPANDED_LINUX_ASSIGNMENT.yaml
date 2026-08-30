@@ -1,0 +1,135 @@
+schema_version: stagea-assignment-v1
+assignment_id: STAGEA-L1-20260822-QREFINE-TRITON-W4A16-RESUME1-EXPANDED-LINUX
+topic_id: QREFINE-TRITON-W4A16
+lane: CANDIDATE-EXECUTION-LANE-1
+authority: USER_QREFINE_EXPANDED_LINUX_RESOURCE_ENVELOPE_20260822
+status_on_dispatch: ACTIVE
+resume_from_blocker: true
+
+upstream_initial:
+  assignment_id: STAGEA-L1-20260821-QREFINE-TRITON-W4A16-INITIAL
+  assignment_sha256: 561935821E5885261889EE4C59C31ED419AE7EB8DBCA8A35E21FBC002ACB80CB
+  directory: D:\project\writing\reserch\stages\stageA\QREFINE-TRITON-W4A16\initial
+  handoff_sha256: 4EF72E9CEE857F585AA04967EB3896FFAA58EC34CC6617E4493D7652521506AB
+  manifest_sha256: E6C0E60E67817D709587DF223B302D1DA1D90A6E7D9CAD0DD0F843F149753007
+  decision: BLOCKED_USER_ACTION_REQUIRED
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed: false
+  claim_bearing_observation_obtained: false
+  immutable: true
+
+frozen_rules:
+  role_candidate_owner_sha256: A703F21B9F33EE341A942501948BC313FACC9D0BAB15F3EE943FC590B65BF519
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  stagea_report_template_sha256: DEF37897F8A64A0C7F0822FE629BBB2B78B91A787CE594165CC29B1F14CE15B1
+  q1_comparator_template_sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87
+  quality_target: Q2_MINIMUM_Q1_PRIORITY
+
+exact_object:
+  operator: w4a16_decode_gemv_m1_g128_uint4b8_fp16
+  triton_release: v3.7.1
+  triton_commit: f797708c0626e5f9840ca5b0a98790e2c7cb09ad
+  llvm_commit: 1f126a6dea50d185c0781743a667390037ae88bd
+  vllm_anchor_release: v0.26.0
+  vllm_anchor_commit: 568afb3a13806beb53bb2e6bd518269357b237c0
+  targets: [sm89, gfx1100]
+  verifier_boundary: LLVM_DIALECT_MLIR__POST_PM_RUN_MAKE_LLIR__PRE_LLVM_TO_MODULE
+  excluded_claims: [tl.dot, tensor_core, WMMA, MFMA, binary_equivalence]
+
+resource_recovery_preflight:
+  required_before_large_download: true
+  allowed_existing_executors:
+    - already_enabled_WSL_distribution
+    - already_installed_Docker_or_Podman_with_Linux_container_support
+    - assignment_local_portable_Linux_executor_with_public_provenance_and_no_system_change
+  if_no_compatible_executor: BLOCKED_USER_ACTION_REQUIRED__SYSTEM_OR_WSL_INSTALL_NEEDS_SEPARATE_EXPLICIT_AUTHORITY
+  do_not_download_exact_llvm_until_executor_route_is_proven: true
+  forbidden_system_actions:
+    - install_or_enable_WSL_or_VirtualMachinePlatform
+    - install_Docker_Podman_HyperV_or_system_driver
+    - modify_registry_boot_configuration_global_PATH_or_user_environment
+    - require_reboot
+
+authorized_official_resources:
+  - id: TRITON_EXACT_LLVM_UBUNTU_X64
+    url: https://oaitriton.blob.core.windows.net/public/llvm-builds/llvm-1f126a6d-ubuntu-x64-1.tar.gz
+    expected_content_length: 356721745
+    expected_last_modified: 2026-06-16
+    expected_etag: 0x8DECBFDB1C678CF
+    provenance: official_Triton_LLVM_build_storage
+  - id: TRITON_3_7_1_MANYLINUX_CP312_X86_64
+    selection_rule: official_PyPI_triton_3_7_1_CPython_3_12_x86_64_manylinux_wheel
+    expected_content_length: 197719725
+    provenance: official_PyPI
+  - id: PRIMARY_SOLVER
+    selection_rule: one_official_Z3_or_cvc5_release_binary_compatible_with_the_proven_Linux_executor
+    provenance: official_project_release_only
+
+expanded_resource_envelope:
+  single_download_bytes_max: 536870912
+  total_network_bytes_max: 1342177280
+  persisted_assignment_bytes_max: 8589934592
+  cpu_time_max: 4h
+  wall_time_max: 8h
+  processors_max: 4
+  official_route_attempts_max: 30
+  remote_or_exclusive_gpu: false
+  system_install: false
+  global_environment_change: false
+  failure_consequence: BLOCKED_USER_ACTION_REQUIRED__RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+
+preclaim_contract_fidelity_gate:
+  must_pass_before_claim_bearing_run: true
+  requirements:
+    - observer_only_capture_does_not_change_module_pipeline_options_attributes_or_conversion
+    - structural_hash_operation_inventory_roundtrip_and_identity_witness
+    - exact_solver_version_binary_hash_command_IEEE_support_and_timeout_freeze
+    - semantic_critical_uninterpreted_operations_equal_zero
+    - strongest_current_union_and_baseline_parity_for_Triton_native_verifier_FpSan_pointer_verifier_Wang_style_MLIR_TV_and_verified_lifting
+    - full_cost_ledger
+  on_fail: FAIL_CLOSED__NO_CLAIM_BEARING_OBSERVATION
+
+claim_bearing_scope_after_gate:
+  allowed: true
+  preregistered_mutants_exact: 12
+  small_composition_check: true
+  sm89_performance_witness_if_local_target_accessible: optional
+  gfx1100_performance_witness_if_target_not_accessible: not_required_for_validator_scientific_decision
+  scientific_revision: NOT_CONSUMED_BY_RESOURCE_OR_ENGINEERING_RECOVERY
+  stageb_authorized: false
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\stageA\QREFINE-TRITON-W4A16\resume1-expanded-linux
+  resource_root: D:\project\writing\reserch\stages\stageA\QREFINE-TRITON-W4A16\resume1-expanded-linux\resources
+  resource_inventory: D:\project\writing\reserch\stages\stageA\QREFINE-TRITON-W4A16\resume1-expanded-linux\RESOURCE_INVENTORY.yaml
+  upstream_initial_write_allowed: false
+  shared_control_write_allowed: false
+
+process_local_redirection_required:
+  - HOME
+  - USERPROFILE_FOR_CHILD_WHEN_SAFE
+  - XDG_CACHE_HOME
+  - PIP_CACHE_DIR
+  - TMP
+  - TEMP
+  - TRITON_CACHE_DIR
+
+required_outputs:
+  - STAGEA_REPORT.md
+  - PRE_CLAIM_CONTRACT_FIDELITY_GATE.yaml
+  - ENVIRONMENT_LOCK.yaml
+  - RESOURCE_AUTHORIZATION_FREEZE.yaml
+  - RESOURCE_INVENTORY.yaml
+  - OPERATION_INVENTORY.yaml
+  - MUTANT_RESULTS.yaml
+  - RUN_INDEX.yaml
+  - COMMAND_LOG.md
+  - REPRODUCE.md
+  - USER_REVIEW_PACKET.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+next_stage_rule:
+  scientific_PASS_REVISE_STOP_requires_independent_stagea_gate: true
+  resource_blocker_before_claim_observation_requires_gate: false
+  stageb_forbidden: true

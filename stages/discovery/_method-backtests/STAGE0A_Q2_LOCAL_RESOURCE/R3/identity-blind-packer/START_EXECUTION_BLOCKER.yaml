@@ -1,0 +1,10 @@
+schema: start-execution-blocker-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+first_unmet_precondition: PER_CANDIDATE_PUBLIC_EVIDENCE_AND_HARD_GATE_PREFLIGHT_NOT_YET_FROZEN_FOR_AUDITED_POOL
+observed_inputs:
+  candidate_pool: {path: stages/rule-audit/RULE-AUDIT-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-BACKTEST-R3/CANDIDATE_SOURCE_POOL.yaml, sha256: 22CF0D0C9CC1C7DB1317DA085D323EDFBC1394C67E116B2FC1AD29A9F5E7D3AC}
+  selection_addendum: {path: SELECTION_INPUT_ADDENDUM.yaml, sha256: 82DD462AF74FCB1014552BE1DEEA046C35CDE128567BC0FBF18AD5DFECBB192C}
+  start_authorization: {path: MAINLINE_START_AUTHORIZATION.round2.yaml, sha256: 3CE5CB24C4765FBC3D93E0914BD8B2E4E5BE7145F663C613C58F628D8E2E5D07}
+reason: Selection contract requires removal of public-evidence or hard-gate preflight failures before deterministic per-stratum selection, but no per-candidate frozen qualification/preflight record exists yet.
+actions_remain_zero: {final_selection: true, R3_network_source_acquisition: true, resource_creation: true, packet_creation: true, scoring: true, build_probe_experiment: true}
+next_action: MAINLINE_MUST_FREEZE_OR_EXPLICITLY_AUTHORIZE_THE_PER_CANDIDATE_PREFLIGHT_SEQUENCE

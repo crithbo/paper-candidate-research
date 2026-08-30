@@ -1,0 +1,20 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-DB98638FE01A426A
+cutoff_date: 2019-05-22
+contribution_type: METHOD_ALGORITHM
+exact_object: in-memory updatable learned range index over numeric keys
+natural_scenario: mixed point lookup and insert workloads with evolving key distributions
+problem: read-only learned layouts incur costly shifts or lose accuracy when inserts and outliers change the distribution
+atomic_action: adapt model nodes, data-node gaps, and split/expand policy online as updates arrive
+mechanism: workload-aware structural adaptation preserves model-guided lookup while controlling update movement and retraining
+information_condition: key order, local density, observed insertions, node occupancy, and model error
+comparators: [balanced_range_tree, read_only_learned_index, piecewise_model_index, adaptive_radix_tree]
+claim_endpoint: read-write throughput and memory envelope after charging retraining and restructuring
+full_cost: [lookup_time, insert_time, memory, build_time, retraining, split_expand_cost]
+minimum_falsifier: no robust read-write advantage over strong tree and learned comparators
+source_cards:
+  - {id: S01, year: 2018, role: read_only_learned_index_origin}
+  - {id: S02, year: 2019, role: update_aware_piecewise_model_baseline}
+  - {id: S03, year: 2013, role: adaptive_tree_baseline}
+local_resource_envelope: WINDOWS_NATIVE_CPU__VISUAL_STUDIO_CMAKE__INCLUDED_1000_KEY_SAMPLE
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

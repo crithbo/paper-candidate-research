@@ -1,0 +1,108 @@
+schema_version: discovery-prebrief-source-and-collision-closure-v2
+assignment_id: SOURCE-CLOSURE-RESUME-BATCH04-ITEM01-SOURCE89-S2-RUSTC-RETRY1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_AND_PRIMARY_COLLISION_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+batch_program: PENDING-RAW-BATCHED-RESUME-20260815
+batch_control: stages/discovery/raw-closure-batches/BATCH-20260815-04/CONTROL.yaml
+batch_order: 1
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+public_acquisition_authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+write_owner: ASSIGNED_LONG_LIVED_SOURCE_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source89/S2-bottleneck-transfer/closure-cq01-retry1
+parent_assignment: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE89-R40-ORDINARY-BREADTH-V1
+parent_assignment_sha256: D84891D0C12FF2359B4E875CB712046F787EC8D69231D50DBFC402ABA8B5B17C
+parent_handoff_sha256: 94BB5857781A3AFD96624627F4DE6167E6F413585A6FCBF8DC57D6DFB7CB47D8
+parent_queue_sha256: A943C9C632529CCD6D13480C287B4F0FC8C1ACF85EBD7914FC8DCE5869A18DBD
+parent_question_card_sha256: E3B0F9B892377A6F1D67659579B7CD57785EEC90C30C2C65DDB9302E74279D54
+parent_current_check_sha256: 0468CBBDE53EDC25648E2F4D5227CD4B8BE3D81FF75D64F25978527D25BF62CB
+prior_closure_assignment_sha256: 0EE34E8C3B50B4D48D70511632DE83149D1EE9EA208B00412D7627D7BCCC63E0
+prior_closure_handoff_sha256: BC07564A78AFDF08BDF95122626285C1F335C2A4984EA3AE271881206B24B651
+prior_closure_report_sha256: C14BC6955CD87790830750FBAF24BA1A50191906A4A22ECFA2A7B5F32B810287
+prior_closure_manifest_sha256: E15C482F0A93FF12B666D594C8591E924E6B597D884643F589B6F199A2BDEC15
+queue_item: S2-89-CQ01
+queue_status_at_freeze: RESUME_AFTER_BOUNDED_PATH_DRIFT__PRIOR_ATTEMPTS_6__NOT_EXHAUSTED
+claim_ceiling: SOURCE_AND_PRIMARY_COLLISION_CLOSURE_ONLY__NO_CLEAN_BRIEF_Q2_PASS_STOP_OR_STAGE_AUTHORITY
+exact_identity:
+  project: rust-lang/rust
+  immutable_commit: 68c677ac3f013d2e587f47e198c92e551716191e
+  family_signature: RUSTC__FIXED_ASYNC_CRATE__COROUTINE_LIVE_SET_STATE_LAYOUT_JOINT_CONSTRUCTOR__FUTURE_POLL_FULL_COST
+  object: one fixed async Rust crate and target under stock poll, output, drop, borrow, ownership and language semantics
+  endpoint: unchanged acceptance, poll/output/drop behavior, future representation legality and target ABI
+  candidate_action: jointly construct saved-local state placement and variants from live-across-yield, move and borrow facts
+  full_cost: [compiler_cpu_rss_temp, future_bytes, binary_bytes, allocation_cost, transition_and_poll_cost, transform_overhead]
+version_rule: reuse the prior immutable rust-lang/rust commit exactly; no branch refresh or version substitution
+allowed_official_routes:
+  - https://api.github.com/repos/rust-lang/rust/contents/compiler/rustc_mir_transform/src?ref=68c677ac3f013d2e587f47e198c92e551716191e
+  - https://api.github.com/repos/rust-lang/rust/contents/compiler/rustc_mir_transform/src/coroutine?ref=68c677ac3f013d2e587f47e198c92e551716191e
+  - https://api.github.com/repos/rust-lang/rust/contents/compiler/rustc_middle/src/mir?ref=68c677ac3f013d2e587f47e198c92e551716191e
+  - https://api.github.com/repos/rust-lang/rust/contents/tests/ui/coroutine?ref=68c677ac3f013d2e587f47e198c92e551716191e
+  - https://rustc-dev-guide.rust-lang.org/mir/dataflow.html
+  - https://rustc-dev-guide.rust-lang.org/coroutine-closures.html
+license_and_provenance: {source_license: Apache-2.0 OR MIT, provenance: official rust-lang/rust repository and official rustc-dev-guide only}
+deterministic_source_selection:
+  coroutine_directory_priority_names: [mod.rs, lower.rs, state.rs, by_move_body.rs, drop.rs]
+  coroutine_max_downloads: 3
+  mir_directory_tokens_in_order: [coroutine, generator]
+  mir_max_downloads: 1
+  rule: use only present direct entries from the exact directory listings, in priority order, and only their pinned download_url; missing names are path-drift telemetry
+deterministic_test_selection:
+  directory: tests/ui/coroutine
+  filename_tokens_in_priority_order: [state, async, drop]
+  rule: choose the lexicographically first direct .rs file containing the first token with any match and use only its pinned download_url for one call
+bounded_primary_collision_search:
+  search_queries_in_order:
+    - 'site:dl.acm.org Rust async coroutine state machine layout saved locals compiler'
+    - 'site:arxiv.org Rust async state machine layout liveness saved locals'
+  max_search_queries: 2
+  max_primary_candidates_opened: 2
+  candidate_selection_rule: open at most the first primary paper per query whose title or abstract concerns Rust or semantics-preserving coroutine state layout; generic async-runtime work is RELATED only
+  no_match_rule: bounded no-match remains unresolved and is not novelty or current-absence evidence
+fields_to_close:
+  - current coroutine lowering, saved-local liveness/borrow, state-transform, representation/layout and option union
+  - one fixed in-tree carrier and two complete stock-legal state-layout plans if exposed
+  - whether a union-external rustc-native joint action and finite exact/FPT/Pareto/approximation guarantee can be frozen
+  - direct same-object primary collision and strongest generic interference-graph coloring_or_packing objection
+  - finite falsifier and full-cost reconciliation
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_PRIMARY_COLLISION_OR_GENERIC_LAYOUT_KERNEL__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+forbidden:
+  - decide clean brief, Q2, PASS, STOP, candidate, or stage state
+  - change crate, target, poll/output/drop/borrow/ownership semantics, ABI, or full-cost denominator
+  - clone, build, install, compile, run tests, benchmark, or make claim-bearing observations
+  - recursive repository tree, archive, issue, pull request, mirror, broad literature review or substitute search query
+  - exceed two frozen searches or open more than two primary candidates
+  - substitute route after 404, empty listing, rate limit or transport failure
+  - infer novelty, current absence, correctness, performance or exhaustion from missing material
+  - read Batch1/2/3 outputs, Batch4 Item2, any other closure output beyond the frozen prior rustc closure, Source90+ outcome, rule-audit result, held queue or terminal identity
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source89/S2-bottleneck-transfer/closure-cq01-retry1/resources
+  inventory: stages/discovery/round-20260815-adaptive-source89/S2-bottleneck-transfer/closure-cq01-retry1/RESOURCE_INVENTORY.yaml
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+resource_envelope:
+  max_acquisition_calls: 15
+  max_search_queries: 2
+  max_primary_candidates_opened: 2
+  max_success_response_bytes_each: 10485760
+  max_network_bytes: 50331648
+  max_persisted_bytes: 50331648
+  max_cpu_hours: 0.75
+  max_gpu_hours: 0
+  max_wall_seconds: 3600
+  pre_call_monotonic_attempt_counter: required
+  build_or_install_allowed: false
+  experiment_allowed: false
+rules:
+  discovery_skill_revision: RESEARCH_TOPIC_DISCOVERY_R1_R40_20260815
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+model_route: {model: gpt-5.6-terra, reasoning: high}
+required_outputs: [SOURCE_CLOSURE_REPORT.md, CURRENT_UPSTREAM_AUDIT.md, PRIMARY_COLLISION_AUDIT.md, RESOURCE_INVENTORY.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+notify_mainline_on_finish_or_blocker: true
+next_batch_item_must_not_be_read_or_started: S2-90-CQ01-RETRY1

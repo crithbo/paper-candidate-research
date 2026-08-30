@@ -1,0 +1,84 @@
+schema_version: stage0-assignment-v1
+assignment_id: STAGE0-C2-20260822-PATCHVALUE-COUNTERFACTUAL-CONFIRMATION
+mode: SENTRY
+lane: STAGE0-CONFIRMATION-SENTRY-D
+authority: USER_EXPLICIT_REPLACE_PATCHYIELD_WITH_NEW_TOPIC_AND_CONTINUE_REVIEW_20260821
+status_on_dispatch: ACTIVE
+
+upstream_primary:
+  assignment_id: STAGE0-P3-20260821-PATCHVALUE-COUNTERFACTUAL-PRIMARY
+  directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-patchvalue-primary
+  handoff: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-patchvalue-primary\handoff.yaml
+  handoff_sha256: 7D2B39D18820EE840892D2E118A16DCA2B16E94FCD8D509186B5A48EABA8DB4E
+  manifest_sha256: D04BFEFA3C49051A0278B343CACAA73061199ED085F97B50B8F4B7F3215AF60F
+
+upstream_discovery:
+  topic_id: PATCHVALUE-COUNTERFACTUAL-REV0
+  directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260821\patchvalue-counterfactual-rev0
+  handoff_sha256: 9E2F036FB6D061DB73568D6F2E7161A235169E622C5F90848FF95DE9B336BB55
+  manifest_sha256: 0BD6DE2423EC33096135FE16D84B1DC3DA4865C6CFBA331E368EA9A359289C24
+
+frozen_rules:
+  role_stage0_sha256: BC58D2A365AFF6A0F82290CC3CC4E16177DBFDA69D1B28260084E9BE6B56E48C
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  stage0_report_template_sha256: 321DB6FEF1838EAA4759F3662C27721F2131441DAB8EBF5E58DFCF9DD3004CE7
+  q1_comparator_matrix_template_sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87
+  quality_target: Q2_MINIMUM_Q1_PRIORITY
+
+independence:
+  sentry_did_not_participate_in_discovery_or_primary: required
+  recheck_decisive_minimum_sources_independently: required
+  do_not_repeat_full_stage0: true
+  allowed_decisions: [CONFIRM, DISAGREE, PROVENANCE_FAIL]
+
+topic:
+  topic_id: PATCHVALUE-COUNTERFACTUAL-REV0
+  relation_to_patchyield: NEW_TOPIC__NO_STATUS_OR_EVIDENCE_INHERITANCE
+  primary_decision: REVISE_ONCE
+  primary_quality_if_gate_closes: TIER_B_Q2_VIABLE
+  primary_atomic_gate: FROZEN_SAME_STATE_BRANCH_FIDELITY__NONATTRIBUTION_CONTINUATION_VALUE_CERTIFICATE
+  required_recheck:
+    - whether the full clone schema and reset transcript can establish same-state branch identity and SUTVA without changing the fixed agent object
+    - whether future stop-versus-h-complete-calls is formally and empirically non-equivalent to Causal Agent Replay or ordinary action attribution
+    - whether the estimand avoids terminal success classification, routing, restart, remaining-time prediction, and generic allocation relabeling
+    - whether the five required evidence items form one bounded falsifiable revision rather than an open implementation program
+    - whether the failure sentinel STOP__CAUSAL_REPLAY_RELABEL_OR_NONIDENTIFIED_BRANCH_EFFECT is mechanically correct
+    - whether conditional Tier B paper shape survives current strongest baselines and full-cost accounting
+  output_subdirectory: PATCHVALUE-COUNTERFACTUAL-REV0
+
+excluded_topic:
+  topic_id: PATCHYIELD-CALL
+  rule: TERMINAL_CONTEXT_ONLY__DO_NOT_REVIEW_OR_REVIVE
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-patchvalue-confirmation
+  resource_root: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-patchvalue-confirmation\resources
+  resource_inventory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-patchvalue-confirmation\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+allowed_actions:
+  - Read the primary and Discovery packages named above.
+  - Independently open only the decisive official/current sources and public papers needed to confirm or disagree.
+  - Persist small source or paper excerpts and provenance under resource_root.
+  - Write one confirmation report and canonical handoff inside unique_write_directory.
+
+forbidden_actions:
+  - Execute the revision, agent, rollout, hidden evaluator, model, container, dataset, benchmark, build, or claim-bearing experiment.
+  - Revive PATCHYIELD, inherit its Stage0 state, design another replacement topic, or enter Stage A/B.
+  - Modify upstream outputs, plan.md, registry.yaml, rules, templates, or another assignment directory.
+
+resource_envelope:
+  decisive_routes_max: 12
+  accepted_persisted_bytes_total_max: 134217728
+  cpu_time_max: 1h
+  wall_time_max: 2h
+  system_install: false
+  global_environment_change: false
+  failure_consequence: PROVENANCE_FAIL_OR_BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+
+required_outputs:
+  - CONFIRMATION_REPORT.md
+  - SOURCE_LOG.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256

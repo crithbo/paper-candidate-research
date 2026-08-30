@@ -1,0 +1,58 @@
+assignment_id: DISCOVERY-S6-20260814-ADAPTIVE-SOURCE29-RQ-PRODUCTION-V1
+lane: S6_DIRECT_ALGORITHM_SOFTWARE
+write_directory: stages/discovery/round-20260814-adaptive-source29/S6-direct-algorithm-software
+method:
+  canonical: V8_7_POTENTIAL_READINESS_SEPARATED
+  rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  discovery_claim_pack_mode: OFF
+  v9_output: false
+frozen_contract:
+  lane_assignment_sha256: 0ED8AFC5F8D934E22C5678953EB5F4D2284BA24B2C476E09F87F15A5867D84EC
+  control_sha256: 739FB786A65CA8569623575ED0D09C7D0E18A6E67A9B0F4E8C0408E112E1AE2D
+funnel:
+  offline_seed_non_evidence: 10
+  rq_candidate: 4
+  evidence_qualified_raw: 1
+  excluded_before_raw: 1
+  locator_only_or_source_queue: 2
+  C0: 1
+  candidate_grade_deep: 1
+  stage0_brief: 1
+families:
+  - id: AARCH64-SME-JOINT-TILE-ABI-CONSTRUCTION
+    signature: fixed ArmSME MLIR/LLVM CFG+call attributes+target features+ABI; joint virtual-tile binding and PSTATE.SM/ZA boundary representation; LLVM verifier/object semantics; compile/state-byte cost
+    identity_relation: FRESH_VS_SOURCE28_AMX
+    disposition: PROPOSE_STAGE0__FINITE_FIDELITY_GAP
+    quality_tier: TIER_B_Q2_VIABLE
+    brief: TOPIC_BRIEF__AARCH64-SME-JOINT-TILE-ABI-CONSTRUCTION.md
+    stage0_priority: immediate_independent_review
+    decisive_stage0_questions:
+      - Does a two-tile/one-call legal source-level witness admit two ABI-legal plans?
+      - Does current LLVM's sequential composition already realize the same Pareto frontier?
+      - Is there a direct same-object joint tile/ABI certified constructor in primary literature?
+    stop_or_narrow: current/literature absorption, witness illegality, generic-allocation reduction, or changed ABI semantics
+  - id: RISCV-VTYPE-VL-TRANSITION-CONSTRUCTION
+    signature: fixed LLVM RVV MachineFunction+VTYPE/VL state insertion
+    disposition: STRUCTURAL_DROP__CURRENT_UNION_ABSORPTION
+    basis: official current source documents cross-basic-block dataflow and VSETVLI insertion after allocation
+  - id: ETHOS_U_CASCADE_SRAM_COMMAND_CONSTRUCTION
+    disposition: LOCATOR_ONLY__SOURCE_CLOSURE_QUEUE
+    basis: fixed source-level action union and stock same-object oracle not closed
+  - id: COOPERATIVE_MATRIX_REGION_LOWERING
+    disposition: LOCATOR_ONLY__IDENTITY_NOT_CLOSED
+    basis: target-specific producer/consumer identity and historical SPIR-V overlap require mainline-confirmed distinct signature
+deliverables:
+  required_outputs_present:
+    - DIVERGENCE_SEED_POOL.md
+    - RQ_CANDIDATES.md
+    - QUESTION_CARDS.md
+    - SOURCE_CLOSURE_QUEUE.yaml
+    - SOURCE_ROLE_LEDGER.yaml
+    - DISCOVERY_LOG.md
+    - SOURCE_COLLISION_MATRIX.md
+    - TOPIC_BRIEF__AARCH64-SME-JOINT-TILE-ABI-CONSTRUCTION.md
+  manifest: HASH_MANIFEST.sha256
+communication:
+  clean_brief_notification: SENT_BEFORE_FINAL_SEAL
+  final_notification: PENDING_MANIFEST_VERIFICATION
+lane_return_state: IDLE_REUSABLE_AWAITING_MAINLINE

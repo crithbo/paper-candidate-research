@@ -1,0 +1,24 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE67-R40-ORDINARY-BREADTH-V1
+lane: S2_BOTTLENECK_TRANSFER
+write_directory: stages/discovery/round-20260815-adaptive-source67/S2-bottleneck-transfer
+freeze:
+  assignment_sha256: 241EFEC5D31E97E4EEBFF25ED10217C877A14D6C4F36D73141A733ECF87A39DD
+  control_sha256: D57104D0223C924B5068FD1ED9B17E6A840A1799CF768D79ED2106FBCFC26698
+  skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+method: {canonical: v8.7, rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION, model_route: gpt-5.6-terra/high, v9: OFF, claim_pack: OFF, selective_depth: OFF, anchor_first: OFF}
+result:
+  disposition: COMPLETE_ZERO_PROPOSALS
+  clean_stage0_briefs: 0
+  raw_count: 0
+  deep_count: 0
+  plain_chinese_summary: >-
+    Clang PCH、JDK CDS 与 containerd 的对象均有完整 native reader/loader transition；
+    剩余仅是通用 archive packing、选择或 wrapper，未形成同对象残余。
+families:
+  - {signature: CLANG_PCH__FIXED_HEADERSET_TARGET_TU_OUTPUT__AST_SERIALIZATION_INDEX_VALIDATION_CONSTRUCTOR__SAME_AST_READER, disposition: EXCLUDED_BEFORE_RAW__CURRENT_LAZY_AST_READER_UNION_OR_GENERIC_SERIALIZATION}
+  - {signature: HOTSPOT_CDS__FIXED_CLASSSET_JDK_OPTIONS__ARCHIVE_RELOCATION_VALIDATION_CONSTRUCTOR__SAME_CDS_LOADER, disposition: EXCLUDED_BEFORE_RAW__CURRENT_STATIC_DYNAMIC_ARCHIVE_UNION_OR_GENERIC_PACKING}
+  - {signature: CONTAINERD_OCI__FIXED_MANIFEST_LAYER_BYTES_FILESYSTEM_TREE__UNPACK_SNAPSHOT_CONSTRUCTOR__SAME_CONTENTSTORE_SNAPSHOTTER_READER, disposition: EXCLUDED_BEFORE_RAW__CURRENT_SNAPSHOTTER_DIFFER_UNION_OR_WRAPPER}
+integrity: {R50_parallel_audit_used: false, held_or_terminal_identity_reopened: false, resource_actions: 0, network_security_topics: excluded}
+manifest: HASH_MANIFEST.sha256
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE
+next_action: mainline_minimal_acceptance_only

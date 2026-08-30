@@ -1,0 +1,36 @@
+schema: discovery-deep-reviews-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE123
+reviews:
+  - review_id: DR01
+    rq_id: RQ04
+    carrier: CUTLASS_block_scaled_grouped_GEMM
+    type: COMPILER_TOOL
+    attempted_atomic_action: jointly compact ragged expert activation rows and hardware-swizzled scale rows under exact block-scaled grouped GEMM semantics
+    source_supported_problem: cuDNN current APIs use aligned padded_offsets and Transformer Engine records 128-aligned per-expert token counts
+    strongest_fair_baselines: [cuDNN_unified_SM100_blockscaled_grouped_GEMM, TMA_Adaptive_FP8, SonicMoE]
+    direct_current_union: FlashInfer_0_6_18_MXFP8_MoE_zero_padding_mode
+    subtractor_result: token-packed activations CSR expert boundaries and m_per_expert_1 are already implemented; only four-row scale padding remains
+    target_specific_decision_consequence_after_subtraction: INSUFFICIENT_FOR_Q2
+    outcome: STRUCTURAL_DROP__DIRECT_CURRENT_COLLISION
+  - review_id: DR02
+    rq_id: RQ03
+    carrier: Triton_block_scaled_matmul
+    type: METHOD_ALGORITHM
+    attempted_atomic_action: lossless run or delta coding of E8M0 scale factors with per-warp decode
+    immutable_contract: exact OCP MX values and same block-scaled matmul result
+    source_supported_discriminator: NOT_FOUND_WITHIN_BOUND__NO_NATURAL_REPEAT_OR_DELTA_LAW
+    current_constraints: dense hardware scale operand and mandatory packed or swizzled access layout
+    strongest_current_union: [OCP_MX, Triton_preshuffled_scales, CUTLASS_Swizzle32x4x4, M2XFP_metadata_augmented_formats]
+    outcome: NOT_ADMITTED_UNFROZEN__GENERIC_COMPRESSION_WITHOUT_NATURAL_ANCHOR
+  - review_id: DR03
+    rq_id: RQ02
+    carrier: torchao_sparse_Marlin
+    type: METHOD_ALGORITHM
+    attempted_atomic_action: co-pack 2_4 mask and quant-group scale addressing
+    strongest_current_union: [Sparse_Marlin_primary_paper, torchao_sparse_Marlin_current_backend]
+    target_specific_decision_consequence: ALREADY_EXPRESSED_BY_CURRENT_UNION
+    outcome: STRUCTURAL_DROP__DIRECT_CURRENT_COLLISION
+deep_review_count: 3
+clean_brief_count: 0
+strong_model_packet_count: 0
+

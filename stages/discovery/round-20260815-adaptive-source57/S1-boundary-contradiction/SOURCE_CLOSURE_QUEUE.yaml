@@ -1,0 +1,17 @@
+queue_status: PENDING_NOT_EXHAUSTED
+items:
+  - id: CQ01
+    rq: RQ01
+    status: PENDING_UNEXECUTED
+    exact_project: bytecodealliance/wasmtime
+    exact_object: current default-branch atomic wait/notify dispatch and immediate native waiter implementation
+    deterministic_version_rule: resolve the repository default-branch commit SHA at route execution; inspect only the path reached from the documented Wasm atomic wait/notify implementation entrypoint
+    outcome_independent_question: What native waiter key/layout actions and configuration inputs are currently reachable for the fixed Wasm wait/notify contract?
+    bundle_to_close: atomic action + exact runtime carrier + cost estimand
+    maximum_primary_sources: 2
+    attempts_before_execution: 0
+    exhausted: false
+    finite_stop_conditions:
+      - source has fixed no-choice layout or the proposed variation reduces to generic scheduler policy
+      - a source-defined two-layout same-semantics witness is frozen
+    result: UNRESOLVED_BACKLOG

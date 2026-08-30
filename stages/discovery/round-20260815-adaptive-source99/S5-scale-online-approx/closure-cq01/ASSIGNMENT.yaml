@@ -1,0 +1,85 @@
+schema_version: discovery-prebrief-source-closure-v2
+assignment_id: SOURCE-CLOSURE-RESUME-BATCH02-ITEM01-SOURCE99-S5-OPENJDK-CDS-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+batch_program: PENDING-RAW-BATCHED-RESUME-20260815
+batch_control: stages/discovery/raw-closure-batches/BATCH-20260815-02/CONTROL.yaml
+batch_order: 1
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+public_acquisition_authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+write_owner: ASSIGNED_LONG_LIVED_SOURCE_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source99/S5-scale-online-approx/closure-cq01
+parent_assignment: DISCOVERY-S5-20260815-ADAPTIVE-SOURCE99-R40-ORDINARY-BREADTH-V1
+parent_handoff_sha256: D3F0694A3EF048C758AC6D4B766D9878F7D7D1313A0C8C54588BAE4EB5D821D4
+parent_queue_sha256: 54600CB1E155C24F3B7F4EB1BC9816D3049B44543FFEAE0D48FD22A3E6D4EA0B
+parent_question_card_sha256: 436FA13324F0693DA61BB1B18D6D6EC53C2268DF03F4A36E43D6E37039F05973
+queue_item: S5-99-CQ01
+queue_status_at_freeze: PENDING_UNEXECUTED__ATTEMPTS_0__NOT_EXHAUSTED
+claim_ceiling: SOURCE_CLOSURE_ONLY__NO_CLEAN_BRIEF_Q2_PASS_STOP_OR_STAGE_AUTHORITY
+exact_identity:
+  project: openjdk/jdk
+  version: jdk-24+36
+  family_signature: OPENJDK_CDS_EXACT_SHARED_ARCHIVE__BOUNDED_RECOURSE_DYNAMIC_DELTA_CONSTRUCTOR
+  object: fixed JVM CDS archive acceptance and stock class-loading semantics under one fixed classpath update
+  endpoint: unchanged archive validation, class identity/loading, fallback and JVM execution semantics
+  full_cost: [archive_write_cpu, metadata_copy, transient_rss, archive_bytes, compatibility_check, startup_load_cost, fallback_cost]
+deterministic_version_rule: resolve official tag jdk-24+36 to one immutable openjdk/jdk commit at the first counted call and pin every retained source to that commit
+allowed_official_sources:
+  - https://api.github.com/repos/openjdk/jdk/commits/jdk-24%2B36
+  - https://raw.githubusercontent.com/openjdk/jdk/<resolved_commit_sha>/<precommitted_cds_source_or_test_path>
+  - https://docs.oracle.com/en/java/javase/24/docs/specs/man/java.html
+license_and_provenance:
+  source_license: GPL-2.0-only WITH Classpath-exception-2.0 where applicable
+  provenance: official openjdk/jdk repository and Oracle Java 24 documentation only
+route_selection_rule: >-
+  After the immutable tag pin, use only direct precommitted CDS loci for static/dynamic
+  archive construction, base/dynamic layering, archive validation/file mapping, CDS option
+  ownership and one in-tree acceptance/compatibility witness. No recursive repository clone,
+  no different release, mirror, issue, paper or general web search is allowed.
+fields_to_close:
+  - complete static, dynamic, base-layer, jcmd, ArchiveClassesAtExit and AutoCreateSharedArchive source union
+  - exact metadata reuse, invalidation and rewrite action boundaries under classpath update
+  - delta action legality under stock archive acceptance and compatibility checks
+  - one fixed stock-legal acceptance/fallback witness and two complete plans if source exposes them
+  - whether a union-external OpenJDK-native bounded archive-delta action and finite guarantee can be frozen
+  - strongest direct current collision and generic archive_packing_or_cache_controller objection
+  - finite falsifier and full-cost reconciliation
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_CHANGED_ARCHIVE_ENDPOINT_OR_GENERIC_PACKING_CONTROLLER__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide clean brief, Q2, PASS, STOP, candidate, or stage state
+  - change exact release, classpath update, CDS acceptance/class-loading endpoint, or full-cost denominator
+  - build OpenJDK, run Java, dump archives, benchmark, install, or execute claim-bearing observation
+  - use substitute search after 404, zero match, rate limit, or transport failure
+  - infer current absence, novelty, correctness, performance, or exhaustion from missing material
+  - read Batch1 outputs, any other raw closure output, Source100 or later Discovery outcome, rule-audit result, held queue, or terminal identity beyond frozen parent files
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source99/S5-scale-online-approx/closure-cq01/resources
+  inventory: stages/discovery/round-20260815-adaptive-source99/S5-scale-online-approx/closure-cq01/RESOURCE_INVENTORY.yaml
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+resource_envelope:
+  max_acquisition_calls: 10
+  max_success_response_bytes_each: 10485760
+  max_network_bytes: 50331648
+  max_persisted_bytes: 50331648
+  max_cpu_hours: 0.5
+  max_gpu_hours: 0
+  max_wall_seconds: 2700
+  pre_call_monotonic_attempt_counter: required
+  build_or_install_allowed: false
+  experiment_allowed: false
+rules:
+  discovery_skill_revision: RESEARCH_TOPIC_DISCOVERY_R1_R40_20260815
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+model_route: {model: gpt-5.6-terra, reasoning: high}
+required_outputs: [SOURCE_CLOSURE_REPORT.md, CURRENT_UPSTREAM_AUDIT.md, RESOURCE_INVENTORY.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+notify_mainline_on_finish_or_blocker: true
+next_batch_item_must_not_be_read_or_started: S5-100-CQ01

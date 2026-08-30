@@ -1,0 +1,19 @@
+topic_id: ANN-PQ-QUERYBUDGET
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: "Frozen FAISS IndexIVFPQ/IndexIVFPQR with per-query (nprobe, exact-rerank-budget) decisions on public ANN queries."
+main_claim: "A calibrated joint controller yields a non-dominated Recall@K-p99 point over the fair dynamic-probe plus dynamic-rerank union."
+academic_value_score: 57
+ai_executability_score: 29
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.85
+strongest_baseline: "Static Pareto sweep plus matched per-query nprobe-only and rerank-only controllers, their union, and exact IndexFlat."
+decisive_evidence: "Held-out public queries show a statistically supported joint-action order inversion under a fixed quality contract."
+unresolved_risks: "Adaptive ANN literature may already contain the same joint decision; controller may be reducible to a single action."
+next_killer_gate: "Reproduce fair union and test whether joint actions strictly dominate it on one frozen BigANN split."
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: "Executable FAISS benchmark evidence only; no unrun result or production claim."
+execution_authority: "No formal large-scale experiment authorized; Stage 0 analysis only."
+file_hashes: "topic_brief.md:f262cc734bec57623dd96c9a5fdbb6033e7ec2db9d47acea3d131da10281aab5; source_log.md:5e26f3c99f6caf047b45f7be8c7524020067482f65ca0a339c97f635e8849086"

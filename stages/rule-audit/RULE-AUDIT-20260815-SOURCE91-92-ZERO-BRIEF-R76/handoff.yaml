@@ -1,0 +1,22 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260815-SOURCE91-92-ZERO-BRIEF-R76
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+disposition: NO_CHANGE
+recommendation: RETAIN_ORDINARY_R40__NO_SUCCESSOR_MICRO_RULE__KEEP_PENDING_RAW_AND_MECHANICAL_CONTINUATIONS_SEPARATE_FROM_CLEAN_BRIEF
+assignment: {path: stages/rule-audit/_assignments/RULE_AUDIT_SOURCE91_92_ZERO_BRIEF_R76.yaml, sha256: 83DDDEE46A4AC8A5128A425F097254EE06F262281AB033C9584F8D5D43891897}
+scope: {included: [Source91, Source92], forbidden_input: [Source93, OPENXLA_TVM_ONNX_GRAALVM_CLOSURES, ALL_HELD_TERMINAL_QUEUES], source93_read: false, closures_read: false, held_terminal_queues_read: false, queue_execution: false, retrieval_download_experiment_automation: false, shared_files_modified: false}
+funnel: {source91: {evidence_qualified_raw: 1, clean_stage0_brief: 0}, source92: {evidence_qualified_raw: 1, clean_stage0_brief: 0}}
+separation:
+  S2-91-CQ01: {status: PENDING_UNEXECUTED, attempt_count: 0, source93_evidence: false}
+  S2-92-CQ01: {status: PENDING_UNEXECUTED, attempt_count: 0, source93_evidence: false}
+  mechanical_continuations: {scientific_fields_changed: false, resource_attempts_changed: false}
+findings: {new_attributable_rule_defect: false, ordinary_r40_supported: true, successor_micro_rule_justified: false}
+authorization: {user_policy_decision_required: false, mainline_shared_patch_required: false, backtest_required: false}
+validation:
+  required_files: PASS
+  assignment_hash: PASS
+  counts: PASS__SOURCE91_RAW_1_BRIEF_0__SOURCE92_RAW_1_BRIEF_0
+  forbidden_input: PASS__SOURCE93_CLOSURES_AND_HELD_QUEUES_NOT_READ
+  prohibited_actions: PASS
+  resource_localization: PASS__EMPTY_ROOT
+  manifest_replay: PASS__FIVE_CANONICAL_ARTIFACTS

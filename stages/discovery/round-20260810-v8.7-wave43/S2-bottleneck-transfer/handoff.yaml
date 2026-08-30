@@ -1,0 +1,49 @@
+assignment_id: DISCOVERY-S2-20260810-V8.7-WAVE43-POTENTIAL-RESCREEN
+lane: S2-bottleneck-transfer
+method_used: >-
+  production_v2_v8.1_plus_v8.6_fidelity_closure_plan_plus_v8.7_current_upstream_reality
+method_not_used: two_axis_v8.2r2_tls_blocked
+cutoff_date: '2026-08-10'
+write_scope: stages/discovery/round-20260810-v8.7-wave43/S2-bottleneck-transfer
+scope:
+  rescreened_only:
+    - Apache_Kafka_tiered_storage
+    - Apache_Flink_checkpointing
+  explicitly_not_rescreened:
+    - SQLite_WAL
+    - Linux_io_uring
+    - ClickHouse_data_skipping_indexes
+result: COMPLETE_ZERO_PROPOSALS
+propose_stage0: []
+screened:
+  - object: Apache_Kafka_tiered_storage
+    structural_paper_potential: TIER_B_Q2_VIABLE_IF_LEGAL_UNION_EXTERNAL_ACTION_IS_FROZEN
+    current_evidence_readiness: HUMAN_CORE_FIDELITY_GAP
+    decision: DROP
+    reason: >-
+      The hydrate/lease/residency candidate lacks a finite same-fetch transition
+      and fair comparator boundary; it might otherwise be a wrapper or change
+      retention/availability semantics. This is not an implementation or
+      source-transport inference.
+  - object: Apache_Flink_checkpointing
+    structural_paper_potential: TIER_B_Q2_VIABLE_IF_LEGAL_SELECTIVE_CUT_EXISTS
+    current_evidence_readiness: FINITE_FIDELITY_GAP
+    decision: DROP
+    reason: >-
+      The selective edge/channel capture proposal lacks a frozen minimal
+      same-guarantee barrier/recovery witness. This is not a claim that current
+      upstream lacks a mode, nor a rejection for missing implementation/result.
+source_transport_note: >-
+  Official-source transport limitations lower only current-evidence readiness.
+  They support neither absence claims nor scientific negative inference.
+scientific_basis: >-
+  Native policies were treated as strongest baselines, not automatic algorithmic
+  absorption. No candidate supplied both a legal complete same-object atomic
+  action and a finite auditable fidelity closure.
+state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE
+deliverables:
+  - DISCOVERY_LOG.md
+  - SOURCE_COLLISION_MATRIX.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+hash_manifest: HASH_MANIFEST.sha256

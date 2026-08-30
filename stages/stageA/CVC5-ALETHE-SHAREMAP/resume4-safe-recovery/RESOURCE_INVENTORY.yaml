@@ -1,0 +1,282 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: CVC5-ALETHE-SHAREMAP
+  assignment_id: SAFE-RECOVERY-L1-20260815-CVC5-RESUME4
+  stage_or_mode: STAGEA_RESOURCE_SAFE_RECOVERY
+  run_id: safe-recovery-r4-20260815-01
+  unique_write_directory: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery
+  resource_root: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery\resources
+  inventory_path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery\RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T00:00:00+08:00
+  finalized_at: 2026-08-15T23:50:54.2897944+08:00
+root_measurement:
+  logical_bytes: 1533870899
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources\downloads
+  archives: resources\archives
+  src: resources\src
+  build: resources\build
+  env: resources\env
+  cache: resources\cache
+  tmp: resources\tmp
+  logs: resources\logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: C:\Windows\System32\curl.exe
+      version: 8.21.0
+      writable_surfaces: [resources\downloads, resources\logs, resources\tmp]
+      controls: [literal_output_path, TEMP, TMP, TMPDIR]
+    - executable: C:\Windows\System32\tar.exe
+      version: bsdtar-3.8.4
+      writable_surfaces: [resources\env\msys64, resources\src, resources\tmp]
+      controls: [literal_C_directory, TEMP, TMP, TMPDIR]
+    - executable: resources\env\msys64\usr\bin\pacman.exe
+      version: PENDING_EXTRACTION
+      writable_surfaces: [resources\env\msys64, resources\cache\pacman, resources\logs, resources\tmp]
+      controls: [isolated_root, cachedir, logfile, TEMP, TMP, TMPDIR, HOME]
+    - executable: resume3 exact Rust 1.72 cargo/rustc binaries
+      version: 1.72.0-x86_64-pc-windows-gnu
+      writable_surfaces: [resources\cache\cargo-home, resources\build, resources\tmp, resources\logs]
+      controls: [CARGO_HOME, CARGO_TARGET_DIR, TEMP, TMP, TMPDIR, RUSTC, process-local PATH]
+resource_envelope:
+  network_bytes_max: 536870912
+  stored_bytes_max: 2147483648
+  cpu_hours_max: 1
+  gpu_hours_max: 0
+  wall_seconds_max: 7200
+  attempts_max: 10
+  network_bytes_used: 184649508
+  network_bytes_measurement: RETAINED_PAYLOAD_LOWER_BOUND__FAILED_HTTP_AND_MIRROR_RETRY_BYTES_UNAVAILABLE
+  stored_bytes_used: 1533870899
+  attempts_used: 6
+entries:
+  - relative_path: resources\downloads\msys2-base-x86_64-20260611.tar.xz
+    absolute_path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery\resources\downloads\msys2-base-x86_64-20260611.tar.xz
+    class: IMMUTABLE_OFFICIAL_NETWORK_ARCHIVE
+    logical_bytes: 53555380
+    source_uri: https://repo.msys2.org/distrib/x86_64/msys2-base-x86_64-20260611.tar.xz
+    version_or_commit: MSYS2_BASE_20260611
+    license: MULTI_PACKAGE_OPEN_SOURCE__SEE_INSTALLED_PACKAGE_METADATA
+    sha256: A2D047E8EE213C3C6A49A8DE427EB1069DF12207C0422FF1B3CBB5C905C34221
+    hash_scope: CONTENT_SHA256
+    creating_run: safe-recovery-r4-20260815-01
+    retention_reason: REPRODUCIBLE_PORTABLE_TOOLCHAIN_BOOTSTRAP
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources\downloads\msys2-base-x86_64-20260611.tar.xz.sig
+    absolute_path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery\resources\downloads\msys2-base-x86_64-20260611.tar.xz.sig
+    class: OFFICIAL_DETACHED_SIGNATURE
+    logical_bytes: 566
+    source_uri: https://repo.msys2.org/distrib/x86_64/msys2-base-x86_64-20260611.tar.xz.sig
+    version_or_commit: MSYS2_BASE_20260611
+    license: NOT_APPLICABLE
+    sha256: 076F5623B702D5016CF0253E1D14A6BD4870A90243243E96409B227F0D5BF70F
+    hash_scope: CONTENT_SHA256
+    creating_run: safe-recovery-r4-20260815-01
+    retention_reason: PROVENANCE_VERIFICATION
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources\downloads\msys2-base-x86_64-20260611.tar.xz.sha256
+    absolute_path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery\resources\downloads\msys2-base-x86_64-20260611.tar.xz.sha256
+    class: OFFICIAL_RELEASE_CHECKSUM
+    logical_bytes: 100
+    source_uri: https://github.com/msys2/msys2-installer/releases/download/2026-06-11/msys2-base-x86_64-20260611.tar.xz.sha256
+    version_or_commit: MSYS2_BASE_20260611
+    license: NOT_APPLICABLE
+    sha256: B098A55E4E0D6119775DE3B38120C0503607F537C7F34552758A1F95EBD347EA
+    asserted_archive_sha256: A2D047E8EE213C3C6A49A8DE427EB1069DF12207C0422FF1B3CBB5C905C34221
+    verification: EXACT_MATCH
+    hash_scope: CONTENT_SHA256
+    creating_run: safe-recovery-r4-20260815-01
+    retention_reason: OFFICIAL_HASH_PROVENANCE
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources\logs\resource-inventory\safe-recovery-r4-20260815-01-pre-download.yaml
+    class: IMMUTABLE_INVENTORY_SNAPSHOT
+    logical_bytes: 3658
+    sha256: DCBD0091B3B62C6BD576AA8C72740D78ED5D2170FCA5C2515AF1E720DDF40CB7
+    hash_scope: CONTENT_SHA256
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: resources\logs\resource-inventory\safe-recovery-r4-20260815-01-post-download.yaml
+    class: IMMUTABLE_INVENTORY_SNAPSHOT
+    logical_bytes: 5812
+    sha256: 9C66189B0D77D889DA7FD4F803FB0BBC909B5A9E2E05EC92EE49DB5EEA78E8F4
+    hash_scope: CONTENT_SHA256
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: resources\logs\resource-inventory\safe-recovery-r4-20260815-01-final.yaml
+    class: IMMUTABLE_INVENTORY_SNAPSHOT
+    logical_bytes: 13909
+    sha256: 9B0CFFA81C25336B2BCE23008B97E44E827A8F69F5FC013342B688F0C6920258
+    hash_scope: CONTENT_SHA256
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: resources\env\msys64
+    absolute_path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery\resources\env\msys64
+    class: PROCESS_LOCAL_PORTABLE_TOOLCHAIN_PREFIX
+    logical_bytes: 841403648
+    source_uri: OFFICIAL_MSYS2_BASE_PLUS_SIGNED_OFFICIAL_PACKAGE_TRANSACTIONS
+    version_or_commit: MSYS2_BASE_20260611_UPDATED_20260815__MINGW64_GCC_16.2.0-3
+    license: MULTI_PACKAGE_OPEN_SOURCE__PACKAGE_METADATA_RETAINED
+    sha256: 914AF0E0A2E01E6F115A2F2166B9607D7A7D27B0DA0E04E8E6E5E6D2A473D686
+    hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY
+    creating_run: safe-recovery-r4-20260815-01
+    retention_reason: REPRODUCIBILITY_DEPENDENCY
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources\cache\pacman
+    class: ASSIGNMENT_LOCAL_PACKAGE_CACHE
+    logical_bytes: 101694811
+    sha256: 50B5BA91795A44B5EA96FE0970F8F162CC29E201D0730D9A56A553F9594272BA
+    hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY
+    deletion_status: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF
+  - relative_path: resources\cache
+    class: ASSIGNMENT_LOCAL_PACKAGE_CACHES_FINAL
+    logical_bytes: 359151920
+    sha256: 2111E7F7A557BD6A274EEEE213274F5C516B3361CD73F249C65D8784A50E031C
+    hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY
+    retention_reason: REPRODUCE_LOCKED_DEPENDENCY_FETCH_AND_FAILED_BUILD
+    deletion_status: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF
+  - relative_path: resources\env\msys64\mingw64\bin\gcc.exe
+    class: CLAIM_CRITICAL_TOOL_BINARY
+    logical_bytes: 3302709
+    version_or_commit: 16.2.0-3
+    license: GPL-3.0-or-later
+    sha256: AB37C11763FDCB3BF6F809B5D033A31EBEB77F10BA5934C72FA37287EE56144F
+    hash_scope: CONTENT_SHA256
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources\env\msys64\mingw64\lib\gcc\x86_64-w64-mingw32\16.2.0\libgcc_eh.a
+    class: CLAIM_CRITICAL_GNU_RUNTIME_ARCHIVE
+    logical_bytes: 11726
+    version_or_commit: GCC_16.2.0-3
+    license: GPL-3.0-or-later_WITH_GCC-exception-3.1
+    sha256: 9F2A47DD4D2530F54A771139F532D4560223630173F5FF4ADABD26A2A37CF46E
+    hash_scope: CONTENT_SHA256
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources\env\msys64\mingw64\lib\gcc\x86_64-w64-mingw32\16.2.0\libgcc.a
+    class: CLAIM_CRITICAL_GNU_RUNTIME_ARCHIVE
+    logical_bytes: 3030766
+    version_or_commit: GCC_16.2.0-3
+    license: GPL-3.0-or-later_WITH_GCC-exception-3.1
+    sha256: 2FB177D002383F802852CE7506096AF5FF9EA22836F0D31D51849DE485214ED2
+    hash_scope: CONTENT_SHA256
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources\build\smoke\c_link_smoke.exe
+    class: NON_CLAIM_BEARING_LINK_SMOKE
+    logical_bytes: 102396
+    sha256: B186DE9D296E066A1454E01D368E0D41E00DD7FA9318B6E31EDD7568E52AAB30
+    hash_scope: CONTENT_SHA256
+    evidence_reference: C_LINK_SMOKE_PASS
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: resources\build\smoke\rust_link_smoke.exe
+    class: NON_CLAIM_BEARING_LINK_SMOKE
+    logical_bytes: 5490230
+    sha256: F1736CA04441E51DD9382D4E2805F9592AA514DEB74B0FD563461732F455433C
+    hash_scope: CONTENT_SHA256
+    evidence_reference: RUST_GNU_LINK_SMOKE_PASS
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: resources\archives\carcara-1.1.0.zip
+    class: IMMUTABLE_FROZEN_SOURCE_ARCHIVE_COPY
+    logical_bytes: 1382442
+    source_uri: READ_ONLY_RESUME3_VERIFIED_ARCHIVE
+    version_or_commit: 5d817d86bd18ea2a850a580d602f17f36959ee99
+    license: Apache-2.0
+    sha256: FCD42C4ED6501B690E3F363E980B2B1403A1A7C9DF262FECC0A4C831B8960F30
+    hash_scope: CONTENT_SHA256
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources\src\carcara-carcara-1.1.0
+    class: PINNED_UNMODIFIED_SOURCE_TREE
+    logical_bytes: 2469505
+    version_or_commit: 5d817d86bd18ea2a850a580d602f17f36959ee99
+    license: Apache-2.0
+    sha256: 080D1D6B7472A236C4BF6E47F07646182CAF2D7BEF270E90796AC4EC332C271E
+    hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY
+    content_manifest: resources\logs\carcara-source-files.sha256
+    content_manifest_sha256: 79F052442AE3FF77838AEBA558A6493FBBF0A23CB94AD7DB280B031150B7D48F
+    frozen_resume3_file_equality: 72_OF_72_EXACT
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources\logs\carcara-source-files.sha256
+    class: CLAIM_CRITICAL_SOURCE_CONTENT_MANIFEST
+    logical_bytes: 6860
+    sha256: 79F052442AE3FF77838AEBA558A6493FBBF0A23CB94AD7DB280B031150B7D48F
+    hash_scope: CONTENT_SHA256
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: resources\build\carcara-target
+    class: FAILED_CLEAN_BUILD_TREE
+    logical_bytes: 270262825
+    sha256: 4A2862EE4C8B918E331AFDE76F10BD9052C9496A633070CBA7EBB86F8D83D9B6
+    hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY
+    creating_command: cargo build --release --locked --offline -p carcara-cli
+    build_exit_code: 101
+    build_wall_seconds: 26.192
+    carcara_executable_count: 0
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: resources\logs\carcara-clean-build.combined.log
+    class: CLAIM_CRITICAL_BUILD_LOG
+    logical_bytes: 4982
+    sha256: 8A2AB4E57525CD096D0F8ED8101543740AA80AD2B42B9904CB99BE6479626E22
+    hash_scope: CONTENT_SHA256
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: resources\build\carcara-target\release\build\gmp-mpfr-sys-7107cdddf71b20a3\out\build\gmp-build\config.log
+    class: CLAIM_CRITICAL_NATIVE_CONFIGURE_LOG
+    logical_bytes: 13509
+    sha256: 776222AA6522513B840493F7A1902D2C4C5BADB985E1B53BABC070B9338BD11E
+    hash_scope: CONTENT_SHA256
+    failure: WINDOWS_ABSOLUTE_CC_BACKSLASHES_CONSUMED_BY_POSIX_SHELL__COMMAND_NOT_FOUND_127
+    deletion_status: RETAIN_CLAIM_CRITICAL
+read_only_frozen_inputs:
+  - path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume3
+    disposition: READ_ONLY_ASSIGNMENT_INPUT__NOT_SHARED_ASSET
+    handoff_sha256: 58D6DA9748D9C873C5C8204846FF4F22B4A4D74AAF44204BDAA745C6BD8E9D42
+    manifest_sha256: DCF71D989FED906718B3827EE6A9D9D4897F6060343C569BB7D8B7CE6F423271
+  - path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume3\toolchain\rustup-home\toolchains\1.72.0-x86_64-pc-windows-gnu\bin\rustc.exe
+    version: 1.72.0
+    sha256: 0968EB36AB120BBEA43FD9A1D2811570EF900CF4CA7F6A48F122C182C717ED77
+    disposition: READ_ONLY_ASSIGNMENT_INPUT__EXECUTED_WITH_CURRENT_RESOURCE_OUTPUTS_ONLY
+  - path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume3\toolchain\rustup-home\toolchains\1.72.0-x86_64-pc-windows-gnu\bin\cargo.exe
+    version: 1.72.0
+    sha256: E91B95ECB8306BB6CA109CAA3F04E178B49EB5AEEA1949CC9BEB032996838D2F
+    disposition: READ_ONLY_ASSIGNMENT_INPUT__EXECUTED_WITH_CURRENT_RESOURCE_OUTPUTS_ONLY
+shared_assets_consumed: []
+external_system_dependencies:
+  - path: C:\Windows\System32\curl.exe
+    status: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED
+  - path: C:\Windows\System32\tar.exe
+    status: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: BLOCKED__PORTABLE_GCC_LINK_SMOKES_PASS__ONLY_CLEAN_CARCARA_BUILD_FAILED_BEFORE_BINARY
+resource_gate_final:
+  portable_msys2_provenance_hash_license: PASS
+  gcc_and_libgcc_present: PASS
+  c_link_smoke: PASS
+  rust_1_72_gnu_link_smoke: PASS
+  frozen_source_archive_and_72_file_equality: PASS
+  cargo_fetch_locked: PASS
+  clean_unmodified_locked_build: FAIL_GMP_CONFIGURE_CC_PATH_TRANSLATION
+  clean_build_attempts_consumed: 1_OF_1
+  carcara_binary: NOT_PRODUCED
+  version_help_checker_smoke: NOT_RUN
+  resource_ready: false
+  claim_bearing: false
+  scientific_revision_consumed: false
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE

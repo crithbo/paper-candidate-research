@@ -1,0 +1,52 @@
+schema_version: phase-closeout-retention-v1
+created_at: 2026-08-25T18:33:56.8775107+08:00
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-R7-NATURAL-CLAIM-PILOT
+topic_id: ROCKSDB-DICT-COVER
+decision: FAIL_CLOSED_INVALID_CLAIM_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+artifact_lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+resource_root:
+  files: 26872
+  logical_bytes: 1644287060
+  reparse_count: 0
+  active_related_processes: 0
+mandatory_retention:
+  - {path: resources/src, reason: ACCEPTED_MANIFESTS_PATCHED_CORE_PRECLAIM_AND_NEW_CLAIM_HARNESS_SOURCE}
+  - {path: resources/build/frozen, reason: FROZEN_PRECLAIM_BINARY_AND_STATIC_LINK_INPUTS}
+  - {path: resources/build/claim-harness/rocksdict_claim_harness.exe, bytes: 11099136, sha256: 41CBC5D3E5CF79DCC314076A0B2AABC8E8C3506D4DA6816869C7A12087B5DB42}
+  - {path: resources/build/claim-runs, files: 5452, bytes: 331806359, reason: ALL_342_PASS_AND_2_FAIL_RAW_EVIDENCE_RETAINED_UNTIL_MAINLINE_AND_INDEPENDENT_GATE_DISPOSITION}
+  - {path: resources/env/runtime, reason: CLAIM_HARNESS_RUNTIME}
+  - {path: resources/logs/claim_harness_build_and_smoke/smoke-summary.json, reason: FOUR_COMPATIBILITY_SMOKES}
+  - {path: resources/logs/claim-runner-summary.json, reason: MATRIX_STOP_AND_COST_SUMMARY}
+cleanup_candidates_exact_leaves:
+  - {path: resources/env/llvm-mingw, files: 9483, bytes: 740825211, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/env/cmake, files: 8819, bytes: 143269940, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/env/ninja, files: 1, bytes: 603648, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/archives/llvm-mingw-20260616-ucrt-x86_64.zip, files: 1, bytes: 187504083, class: TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY}
+  - {path: resources/archives/cmake-4.4.2-windows-x86_64.zip, files: 1, bytes: 54405968, class: TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY}
+  - {path: resources/archives/ninja-win-1.13.2.zip, files: 1, bytes: 291570, class: TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY}
+  - {path: resources/build/claim-harness/CMakeFiles, files: 12, bytes: 656312, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/claim-harness/CMakeCache.txt, files: 1, bytes: 18616, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/claim-harness/build.ninja, files: 1, bytes: 40323, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/claim-harness/cmake_install.cmake, files: 1, bytes: 2365, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/claim-harness/.ninja_deps, files: 1, bytes: 173848, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/claim-harness/.ninja_log, files: 1, bytes: 199, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/cache/pycache, files: 39, bytes: 962593, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/logs/claim_harness_build_and_smoke/synthetic-R1/db, files: 10, bytes: 145026, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/logs/claim_harness_build_and_smoke/synthetic-R2/db, files: 10, bytes: 145776, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+cleanup_candidate_count: 15
+cleanup_candidate_files: 18382
+cleanup_candidate_logical_bytes: 1129045478
+projected_retained_logical_bytes: 515241582
+post_close_retained_bytes_max: 1610612736
+projected_budget_pass: true
+deletion_gate: MAINLINE_ACCEPTED_HANDOFF__DOWNSTREAM_DISPOSITION__LITERAL_CONTAINMENT__ZERO_REPARSE__ZERO_ACTIVE_PROCESS__RETAINED_HASH_RECHECK
+explicitly_forbidden_cleanup:
+  - resources/build/claim-runs
+  - resources/build/claim-harness/rocksdict_claim_harness.exe
+  - resources/src
+  - resources/build/frozen
+  - resources/env/runtime
+  - assignment_root
+  - resource_root

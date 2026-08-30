@@ -1,0 +1,19 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE31-RQ-PRODUCTION-V1
+queue:
+  - rq_id: RQ-S01-2
+    signature: RISCV_ZCMP__FIXED_PSABI__WHOLE_CALLGRAPH_COMPRESSED_FRAME_CONSTRUCTION
+    status: CLOSED_BEFORE_RAW__GENERIC_KERNEL
+    evidence: Official Zc v1.0 defines push/pop instructions; current LLVM RISCVUsage marks Zcmp supported.
+    conclusion: >-
+      The proposed save/restore placement is a frame-lowering/code-size heuristic
+      without a target-specific semantic discriminator or non-generic guarantee.
+    canonical_disposition: EXCLUDED_BEFORE_RAW__GENERIC_WRAPPER_OR_SOLVER
+  - rq_id: RQ-S02-2
+    signature: WASM_EXCEPTION_TAG__FIXED_ENGINE_ABI__WHOLE_MODULE_MATERIALIZATION
+    status: LOCATOR_ONLY__CURRENT_ENGINE_UNION_UNCLOSED
+    evidence: >-
+      Current WebAssembly core/embedding specifications freeze tag, catch, and propagated
+      exception semantics; the bounded route did not pin a single engine's source/configuration
+      action union for tag representation and host ABI.
+    closure_debt: [PIN_ENGINE_COMMIT, ENUMERATE_EH_FLAGS_AND_TAG_REPRESENTATION, FREEZE_PUBLIC_MODULE_CARRIER]
+    canonical_disposition: LOCATOR_ONLY__PUBLIC_EVIDENCE_UNCLOSED

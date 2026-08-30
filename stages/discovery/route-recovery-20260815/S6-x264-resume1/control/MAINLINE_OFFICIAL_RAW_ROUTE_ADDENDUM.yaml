@@ -1,0 +1,40 @@
+schema: discovery-route-recovery-mainline-addendum-v1
+assignment_id: SAFE-ROUTE-RECOVERY-S6-20260815-X264-RESUME1-OFFICIAL-API
+authorization_id: USER_AUTONOMOUS_SAFE_BLOCKER_RECOVERY_20260815
+task_id: 019fc62d-c1a6-7170-b584-57c881d32475
+role_rule: rules/ROLE_DISCOVERY.md
+role_rule_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+discovery_skill: .agents/skills/research-topic-discovery/SKILL.md
+discovery_skill_revision: research-topic-discovery-current-20260815
+discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+discovery_claim_pack_mode: OFF
+discovery_rq_frontend_mode: OFF
+prior_handoff: stages/discovery/route-recovery-20260815/S6-x264/handoff.yaml
+write_directory: stages/discovery/route-recovery-20260815/S6-x264-resume1
+resource_localization:
+  policy: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  resource_root: D:\project\writing\reserch\stages\discovery\route-recovery-20260815\S6-x264-resume1\resources
+  inventory_path: D:\project\writing\reserch\stages\discovery\route-recovery-20260815\S6-x264-resume1\RESOURCE_INVENTORY.yaml
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  redirect_requirement: PROCESS_LOCAL_ONLY
+  cleanup_owner: MAINLINE
+exact_object: VideoLAN_x264_current_default_branch__fixed_frame_sequence_H264_decoder_semantics
+purpose: CURRENT_OFFICIAL_SOURCE_LOCUS_FOR_LOOKAHEAD_AND_FRAME_TYPE_ACTION_UNION_ONLY
+new_independent_official_route:
+  commit_metadata: https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/commits/master
+  raw_file_template: https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/files/{percent_encoded_path}/raw?ref={resolved_commit_sha}
+  paths:
+    - encoder/lookahead.c
+    - encoder/slicetype.c
+    - encoder/slicetype.h
+    - x264.h
+max_network_attempts: 5
+expected_download_bytes: BELOW_4_MIB_TOTAL
+stored_bytes_max: 8388608
+cpu_hours_max: 0.1
+wall_seconds_max: 1800
+allowed_actions: [OFFICIAL_API_GET, PERSIST_RESPONSE, HASH, STATIC_CURRENT_UNION_REVIEW]
+forbidden: [ROBOTS_OR_ANUBIS_BYPASS, UNOFFICIAL_MIRROR, CLONE, BUILD, EXPERIMENT, NEW_RQ, NOVELTY_OR_ABSENCE_INFERENCE]
+claim_authority: NONE__ROUTE_AND_CURRENT_UNION_CLOSURE_ONLY
+failure_route: BLOCKED_TRANSPORT_OR_SITE_POLICY__NO_SCIENTIFIC_INFERENCE

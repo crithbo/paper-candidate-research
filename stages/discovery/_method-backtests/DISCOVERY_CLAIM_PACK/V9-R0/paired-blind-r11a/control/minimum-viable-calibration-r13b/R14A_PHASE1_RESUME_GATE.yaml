@@ -1,0 +1,33 @@
+schema: R11A_R13B_R14A_PHASE1_RESUME_GATE_V1
+approval_id: R11A-R13B-BATCH01-RAW-CAP-RECOVERY-20260813-R14A
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+same_assignment_and_index_directory: true
+resume_from_batch: R13B-02
+canonical_mode: OFF
+inputs:
+  recovery_amendment_sha256: 3D83B438C228C64E2ACDD999C77C23F85DD85E9E9D6BC63675A7CDE703C05C65
+  aggregate_quarantine_ledger_sha256: 7108FBCEC8E268565315A30A765584496AD3836476A6F893E61C814D0C4A1953
+  batch02_request_plan_sha256: C4CD2AFBE675AF595B9E8DD1A35A13D5784F838035A20F059A9D515833A16C1E
+  batch02_request_reservation_sha256: 0BC4EBDE91B0B3B55BF4CD1B0E269D579D7410817D1128E65E6B86E34F0E9D2A
+mechanical_validation:
+  approval_matches: PASS
+  base_hashes_match: PASS
+  append_only_files: PASS
+  batch01_blocker_preserved: PASS
+  checkpoint011_preserved: PASS
+  quarantine_contains_no_identity_or_content: PASS
+  raw_arithmetic_4_plus_40_equals_44: PASS
+  raw_remaining_88_minus_44_equals_44: PASS
+  unique_arithmetic_4_plus_0_equals_4: PASS
+  unique_remaining_72_minus_4_equals_68: PASS
+  batch02_reserved_12_plus_12_equals_24: PASS
+  no_replacement_or_fifth_batch: PASS
+  no_phase2_executor_auditor_shadow_or_production: PASS
+resume_allowed: true
+allowed_next_action: R13B_02_PUBLIC_IDENTITY_PREFLIGHT_PER_FROZEN_RESERVATION_ONLY
+stop_for_mainline_after:
+  - PROVIDER_ORDER_FREEZE_AND_COMMITMENT_READY_FOR_PRIVATE_INTERSECTION
+  - ANY_GATE_FAILURE_OR_AMBIGUITY
+private_intersection_allowed_before_new_commitment: false
+phase2_or_downstream_dispatch_allowed: false
+scientific_inference: NONE

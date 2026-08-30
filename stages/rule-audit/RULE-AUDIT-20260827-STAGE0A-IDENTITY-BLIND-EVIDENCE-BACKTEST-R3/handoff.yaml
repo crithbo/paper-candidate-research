@@ -1,0 +1,33 @@
+schema: rule-audit-stage0a-identity-blind-evidence-backtest-r3-handoff-v1
+audit_id: RULE-AUDIT-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-BACKTEST-R3
+created_at: '2026-08-27'
+from_role: RULE_AUDIT_SENTRY
+to_role: MAINLINE
+status: READY_FOR_CONTINUOUS_EXECUTION
+user_authorization: USER_CONTINUE_STAGE0A_PARTIAL_BLIND_DIRECT_EVIDENCE_UNTIL_FINAL_REPORT_20260827
+scope: NEW_CALIBRATION_BATCH_ONLY
+shared_files_modified: false
+positive_target: 12
+negative_controls: 4
+exclude_prior_r1_r2_identities: true
+candidate_source_pool: {path: CANDIDATE_SOURCE_POOL.yaml, sha256: 22CF0D0C9CC1C7DB1317DA085D323EDFBC1394C67E116B2FC1AD29A9F5E7D3AC, candidates: 24, strata: 4}
+local_execution: false
+reviewer_external_search: false
+stage0_collision_mode: INDEPENDENT_AUDITOR_ADJUSTMENT_AFTER_BLIND_NONCOLLISION_DECISION
+blind_mode: IDENTITY_BLIND__PURPOSE_VISIBLE
+contamination_fallback: SAME_PACKET_NONBLIND__METRICS_SEPARATE
+resource_budget: {stored_bytes_max: 805306368, source_attempts_max: 96, code_or_artifact_downloads_max: 0}
+requested_mainline_actions:
+  - freeze PACKER selection and evidence extraction assignment
+  - enforce prior-identity exclusion and result-independent stratified hash selection
+  - freeze neutral Stage0 packet and auditor-only collision/gold key
+  - run Stage0 noncollision reviewer with network and search forbidden
+  - apply independent collision adjustment after immutable Stage0 output
+  - run identity-blind StageA evidence gate on survivors
+  - on contamination reuse same packet nonblind and keep metrics separate
+  - run final AUDITOR and write canonical report
+  - continue autonomously until final report acceptance or true external blocker
+final_report: stages/stageA/_compatibility/stage0a-identity-blind-paper-evidence-20260827/FINAL_STAGE0A_IDENTITY_BLIND_BACKTEST_REPORT.md
+production_candidate_state_change_allowed: false
+StageB_allowed: false
+next_gate: MAINLINE_ACCEPTANCE_AND_PACKER_FREEZE

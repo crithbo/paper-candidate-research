@@ -1,0 +1,32 @@
+assignment_id: STAGE0-P1-20260815-LLVM-AMDGPU-GFX12-GLOBAL-LOAD-LDS-LOWERING-PREBRIEF-CLOSURE-V8.7
+topic_id: LLVM-AMDGPU-GFX12-GLOBAL-LOAD-LDS-LOWERING
+mode: PREBRIEF_SOURCE_CLOSURE
+disposition: NOT_ADMITTED_UNFROZEN__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+stage_authorization:
+  full_stage0_primary: false
+  stageA: false
+  stageB: false
+current_source_pin: 08e48243b19ded3f9423913c1e0b274a3472358a
+decisive_finding: >-
+  Current SIISelLowering explicitly handles amdgcn_global_load_lds and async
+  variants with global/flat source and LDS-destination memory operands. It is
+  a mandatory fair-union comparator, but does not alone establish a complete
+  placement/wait/occupancy constructor or its absorption.
+closure_gap: >-
+  No frozen public same-kernel two-plan carrier, complete wait/placement control
+  catalog, or target-specific residual/guarantee. The official 404 and a zero
+  filename match are not used as absence evidence.
+resource_status:
+  acquisition_calls: 6
+  cap: 6
+  retained_responses: 5
+  logical_bytes: 2156253
+  localization: PASS
+next_step: >-
+  Requires a new bounded source-closure assignment before raw or clean-brief
+  promotion; do not route to full Stage0 from this package.
+outputs:
+  review: SOURCE_CLOSURE_REVIEW.md
+  resource_inventory: RESOURCE_INVENTORY.yaml
+  manifest: HASH_MANIFEST.sha256
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

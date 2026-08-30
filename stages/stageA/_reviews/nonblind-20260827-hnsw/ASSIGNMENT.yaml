@@ -1,0 +1,19 @@
+schema: independent-stagea-review-assignment-v1
+assignment_id: NONBLIND-STAGEA-GATE-20260827-HNSW
+role: STAGEA_GATE_REVIEW
+subject_assignment: NONBLIND-STAGEA-20260826-HNSW-P1A7-PROBE-RUNTIME
+unique_write_directory: E:/project/writing/reserch/stages/stageA/_reviews/nonblind-20260827-hnsw
+lane_mapping: {review_lane: STAGEA-GATE, reviewer_thread: 01a034d0-d990-7d50-9d9f-a6d05a81bf11, owner_lane: CANDIDATE-L1, owner_thread: 01a034d0-d0a8-72c2-bb87-3ed590d87620, independence: reviewer_did_not_implement_or_run_probe}
+status: BOOTSTRAP_REACK_PENDING
+resume_point: REVIEW_F0_AND_P1A7_ONLY
+next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY
+resource_boundary: {resource_root: E:/project/writing/reserch/stages/stageA/_reviews/nonblind-20260827-hnsw/resources, resources_must_remain_absent: true, network_allowed: false, experiment_allowed: false}
+inputs:
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/F0_MAINLINE_FIDELITY_ACCEPTANCE.yaml, sha256: A1B4B3B1D7CAAD4F63437C97905B2ABD31505A40F21112999516EC8D9F2EAB4B}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/F0_FIDELITY_CONTRACT_REPORT.yaml, sha256: BABB01AB349E8DC9F896744441FBFC098C653753CF96A5B27B5CB94460FA445B}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/P1A7_MAINLINE_PROBE_ACCEPTANCE.yaml, sha256: B0F85E8027FB71B0A38C272AFC394B12F9E3E99DE9FC2411D95D0D580A331AB2}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/P1A7_handoff.yaml, sha256: 39800CE34BEEB127AE4C0BEDDFA93E9103555AD48B550186932E8BF1BE04DA4B}
+scope: [fidelity_contract, fixed_inputs_oracle_grid, full_cost, delete_replace_witness, evidence_ceiling]
+forbidden: [new_experiment, new_probe, production_candidate_registration, StageB, gold_final_disposition]
+expected_output: INDEPENDENT_REVIEW_REPORT.md
+model_route: {model: gpt-5.6-terra, thinking: high}

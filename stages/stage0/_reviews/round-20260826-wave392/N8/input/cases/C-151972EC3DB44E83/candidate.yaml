@@ -1,0 +1,20 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-151972EC3DB44E83
+cutoff_date: 2018-07-18
+contribution_type: COMPILER_TOOL
+exact_object: post-link optimization of large executable binaries using execution profiles
+natural_scenario: large service binaries whose final layout differs materially from source-level expectations
+problem: compiler and link-time optimization lack full visibility into the final binary layout and deployed execution profile
+atomic_action: recover binary control flow, reorder functions and blocks, and rewrite the linked executable from profile data
+mechanism: post-link visibility enables layout and code transformations after all compile/link decisions are materialized
+information_condition: executable image, relocation and unwind metadata, control-flow reconstruction, and hardware profile
+comparators: [compiler_profile_guided_optimization, sample_based_feedback_optimization, linker_layout, unchanged_binary]
+claim_endpoint: end-to-end runtime improvement while preserving executable correctness and metadata
+full_cost: [profile_collection, rewrite_time, code_size, runtime, build_deployment_cost, correctness]
+minimum_falsifier: no end-to-end gain over profile-guided compiler/linker baselines after all overheads
+source_cards:
+  - {id: S01, year: 2016, role: warehouse_scale_sample_feedback_optimization}
+  - {id: S02, year: 2017, role: hardware_profile_and_branch_trace_interface}
+  - {id: S03, year: 2018, role: compiler_and_binary_toolchain}
+local_resource_envelope: ROUTE_OUTSIDE_WINDOWS_LOCAL__ELF_AND_LINUX_PROFILE_INTERFACE_REQUIRED
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

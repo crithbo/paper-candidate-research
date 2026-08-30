@@ -1,0 +1,36 @@
+schema: mainline-start-authorization-v1
+issued_at: 2026-08-25T18:12:56+08:00
+issued_by: MAINLINE
+decision: START_AUTHORIZED
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+assignment_id: STAGEA-L1-20260825-LLVM-RVV-R3-LONG-PATH-AWARE-EXACT-TOOLCHAIN
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+context_sha256: E5663C64BBE6A1FFA239F3CEB1D709466A96FED73574FBC2711C150138595A66
+bootstrap_ack_sha256: 6572B4D293F16DF73657331E0B049D68BF8C1E667345CB63EAD498BFA55384DF
+pass1_superseded_ack_sha256: D146E779C1C2B26E07B0FD7DBCC4D08C3B67032528CF11547C33773957FEDB21
+bootstrap_acceptance: {disposition: ACCEPTED_READY, frozen_hashes: PASS_23_OF_23, stale_r2_pointer_absent: true, differences_or_ambiguities: [], resource_root_absent: true, scientific_or_resource_action_started: false}
+allowed_after_start:
+  - create eight standard r3 resource directories
+  - run a non-persisting long-path capability preflight
+  - copy and hash-accept only the five exact r2 same-topic assets
+  - safe-extract with a process-local Win32 extended-length path API while preserving logical paths
+  - extract the exact portable toolchain once
+  - configure once and run one clean two-job build
+  - package the six required tools, runtime DLLs, notices and provenance
+  - run only version/registered-target and generic tiny RISC-V MIR MachineVerifier non-claim smokes
+  - finalize resource inventory, lifecycle proposal, capsule and handoff
+long_path_boundary:
+  required_api: WIN32_EXTENDED_LENGTH_PREFIX_OR_EQUIVALENT_LONG_PATH_AWARE_DOTNET_API
+  logical_paths: [resources/src/s, resources/env/t, resources/build]
+  api_prefix_must_not_persist_in_manifest_paths: true
+  forbidden: [subst, junction, symlink, reparse, flatten, rename, source_patch]
+  path_capability_preflight_required_before_copy_or_extract: true
+attempt_limits: {source_extraction: 1, tool_extraction: 1, configure: 1, clean_build: 1, build_jobs: 2, automatic_retry: false}
+budgets: {network_bytes_max: 0, stored_bytes_max: 10737418240, cpu_seconds_max: 28800, wall_seconds_max: 28800, gpu_hours_max: 0}
+scientific_boundary: {claim_bearing_action_allowed: false, RVV_F1_F5_allowed: false, scientific_revision_authorized: false, owner_state_transition_authority: false, stageb_authorized: false}
+monitoring: {process_alive: required, output_growth: required, hard_timeout_seconds: 28800, monitored_root: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/resources}
+failure_policy: {path_or_resource_failure: BLOCKED_USER_ACTION_REQUIRED__RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE, automatic_retry: forbidden}
+lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, cleanup_owner: MAINLINE, owner_cleanup_allowed: false, downstream_consumer: STAGEA_RVV_PRECLAIM_RESUME_AFTER_RESOURCE_PASS, post_close_retained_bytes_max: 2147483648}
+next_action: LONG_PATH_PREFLIGHT__COPY_EXACT_ASSETS__EXTRACT_BUILD_SMOKE__HANDOFF
+

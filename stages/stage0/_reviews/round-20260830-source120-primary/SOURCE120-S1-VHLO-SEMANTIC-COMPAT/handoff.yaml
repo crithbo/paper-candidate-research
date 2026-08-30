@@ -1,0 +1,91 @@
+schema: handoff-transport-envelope-v2
+topic_id: SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+assignment_id: STAGE0-PRIMARY-20260830-SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+lane_id: STAGE0_PRIMARY
+role_id: STAGE0_PRIMARY
+source_stage: STAGE0
+assignment_state: FROZEN_AWAITING_MAINLINE
+input_freeze_sha256: B019CC9DF09A803BD7731C2B589BF1878408EA7F5206F33A4083DE1077D4C7D4
+cross_assignment_contamination_declared: false
+
+user_summary_cn:
+  outcome: 'PRIMARY 建议 PASS，质量档为 TIER_B_Q2_VIABLE；仅保留版本窗口×规范分层 oracle×多 consumer 的 N3 兼容性测量核。'
+  main_reason: '没有 current direct fatal，但 #1245/current testdata、VHLO suite、OpenXLA benchmark 与 MLIR/DL-compiler testing 已扣除解释器、witness、基础 oracle 与泛化 cross-runtime comparison 的大部分方法新颖性。'
+  next_step: 'MAINLINE 机械验收后交 SENTRY 独立确认；不得直接创建 Stage A。'
+  user_action_required: false
+  user_action: null
+
+decision:
+  scientific_verdict: PASS_RECOMMENDED
+  operational_disposition: READY
+  quality_tier: TIER_B_Q2_VIABLE
+  confidence: 0.73
+  novelty_route: N3_PRIMARY__N1_TAXONOMY_SECONDARY__NO_GENERIC_N2
+  direct_fatal: false
+  collision_state: SEARCH_BOUNDED_OPEN__HEAVY_DIRECT_SUBTRACTION
+  evidence_ceiling: CONDITIONAL_CANONICAL_FORMAL_ORACLE_COMPATIBILITY_ONLY__NO_MAIN_RESULT
+  claim_bearing_observation_obtained: false
+  scientific_revision_consumed: false
+  repair_vector: [OMITTED_CURRENT_SAME_OBJECT, OMITTED_FIRST_PARTY_FEATURE]
+
+current_source_freeze:
+  stablehlo_visible_main_commit: 6a5902c7c0f7b3085a502d148b846a62eaa20501
+  stablehlo_current_vhlo_version: 1.20.0
+  stablehlo_minimum_vhlo_version: 0.9.0
+  iree_visible_main_commit: ee89ff3011fb5bfb952d1471fd3b745c8b06b916
+  xla_static_consumer_locus: run_hlo_module--input_format=stablehlo
+  execution_freeze_warning: 'Stage A must re-resolve and freeze immutable current commits; web index freshness is not an execution freeze.'
+
+strongest_subtractors:
+  - stablehlo_issue_1245_and_current_testdata_interpreter
+  - stablehlo_vhlo_versioned_roundtrip_suite
+  - openxla_comparative_benchmark_cross_runtime_artifacts_and_accuracy
+  - iree_consumer_native_stablehlo_tests
+  - nnsmith_hirgen_desil_methodological_union
+
+residual_kernel:
+  exact_object: StableHLO_portable_artifacts_within_documented_version_windows
+  claim: 'A pinned cross-version, cross-consumer matrix with specification-typed outcomes can reveal stable compatibility decision structure beyond the current test union.'
+  forbidden_claims: [generic_interpreter_integration_novelty, bit_exact_all_consumers, generic_harness_composition_as_N2, global_first_claim]
+
+stagea_killer:
+  prerequisite: independent_SENTRY_CONFIRM
+  first_gate: freeze_exact_commits_support_intersection_oracle_taxonomy_denominator_full_cost_and_one_manual_trace
+  mini_matrix: four_oracle_classes_x_two_versions_x_reference_plus_two_consumers
+  kill_if:
+    - insufficient_legal_cross_version_consumer_triples
+    - no_valid_decision_coverage_beyond_named_union
+    - all_disagreements_are_unsupported_out_of_contract_or_threshold_artifacts
+    - classification_unstable_on_replay
+    - deliverable_reduces_to_glue_without_stable_empirical_taxonomy
+  positive_ceiling: PRELIMINARY_NON_FALSIFICATION_ONLY
+
+execution_accounting:
+  model: gpt-5.6-sol
+  thinking: high
+  temporary_user_command_override_only: true
+  search_or_open_connector_calls_used: 19
+  search_or_open_connector_calls_max: 32
+  exact_network_bytes_available: false
+  build_or_experiment_count: 0
+  resource_download_or_persistent_resource_action_count: 0
+  candidate_implementation_count: 0
+  stagea_stageb_actions: 0
+  shared_writes: 0
+  usage_reset_soft_pause: FINISH_CURRENT_PRIMARY_REVIEW_AND_HANDOFF_THEN_NO_SUCCESSOR
+
+artifact_pointers:
+  canonical_report: {path: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/STAGE0_REPORT.md, sha256: 9DC16734A1297EC301C9D4AD85AD4A86F84D837DD6E916C78BD7F416A2F53872}
+  q1_q2_calibration: {path: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/Q1_COMPARATOR_MATRIX.md, sha256: DF1C04C1D98EA6B1255E3B7010576F05561114D9A8EA10ECAE773D3ADE51D648}
+  independent_review: {path: null, sha256: null}
+  resource_inventory: {path: null, sha256: null}
+  lifecycle_or_retention: {path: null, sha256: null}
+
+next_gate:
+  proposed_stage_or_gate: INDEPENDENT_STAGE0_SENTRY
+  exact_action: 'Independently confirm the heavy subtraction, nonfatal eight-predicate residual, Tier-B measurement shape and Stage-A glue-harness killer.'
+  authority_required: MAINLINE
+  stageb_user_approval_id: null
+
+pause_after_handoff: true
+successor_permitted: false

@@ -1,0 +1,3 @@
+# UNIQUE_OPPORTUNITY_FAMILIES
+
+Each row freezes a natural carrier and denominator for a possible later action: ZooKeeper client/session traces (epoch, writes, watches, recovery time/state); Pulsar transaction traces (publish, commit/abort, delivery/ack, storage/latency); Cockroach SQL traces (commit/retry, locks/WAL, state/error); Temporal workflow histories (commands, side effects, retries, durable history); Kubernetes API traces (spec/status/resourceVersion, persistence, observable object); systemd unit/journal traces (start/stop/restart, process state, journal, latency).  None has a preliminary union-external atomic action-divergence witness.

@@ -1,0 +1,48 @@
+schema_version: coupled-agent-replay-prefreeze-handoff-v1
+assignment_id: MAINLINE-20260822-COUPLED-AGENT-REPLAY-PREFREEZE2-TRANSPORT
+topic_id: COUPLED-AGENT-REPLAY-REV0
+disposition: PRE_EVIDENCE_EXACT_OBJECT_FREEZE_SEALED
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+scientific_inference: NONE
+stage0_authority: false
+
+frozen_object:
+  openhands_commit: 4bf8dd3aaf1217916b2ce8a6f9168fa7633a26f8
+  openhands_tree: 2d8abc2cd08afe0fe80ebaa31c8f31892e20a4fe
+  qwen_revision: c03e6d358207e414f1eca0bb1891e29f1db0e242
+  swebench_verified_revision: c104f840cc67f8b6eec6f759ebc8b2693d585d4a
+  fixed_task_count: 16
+  fixed_task_list_sha256: 32729224C6BA9EF3A2D47AD86FBB7E7993350D3C0B0A88D0F684A015A0EC240D
+  state_boundary_and_interventions_frozen: true
+  decoding_and_absorbing_terminal_semantics_frozen: true
+
+resource_result:
+  official_attempts: 15
+  accepted_response_bytes: 18359480
+  stored_resource_bytes: 18361842
+  software_installed: false
+  model_weights_or_source_archives_downloaded: false
+  agent_or_benchmark_execution: false
+  envelope_within_limit: true
+
+canonical_files:
+  pre_evidence_object_freeze:
+    path: PRE_EVIDENCE_OBJECT_FREEZE.yaml
+    sha256: FDE85543CA7DE5564C4B388F936606D09D233B77BA432A16515BCCCCF8CB42F4
+  fixed_task_list:
+    path: FIXED_TASK_LIST.txt
+    sha256: 32729224C6BA9EF3A2D47AD86FBB7E7993350D3C0B0A88D0F684A015A0EC240D
+  identity_provenance:
+    path: IDENTITY_PROVENANCE.md
+    sha256: 19CE7F4E1993245986F0F1DEFFACF77A4623D63A7563FAB4F6420CBE8FF06281
+  resource_inventory:
+    path: RESOURCE_INVENTORY.yaml
+    sha256: 018993C3E7FF6FBF3D6C23A6FDA217D3220F36D7B6AF32F99223F48E760CEECA
+  transport_addendum:
+    path: ..\control\MAINLINE_COUPLED_AGENT_REPLAY_PREFREEZE2_TRANSPORT_ADDENDUM.yaml
+    sha256: 61A7339A09E9AF241E63FCD2E2597DA1036842E08D3A567E3397A28FCD2F004A
+
+next_gate:
+  action: Route the immutable object packet to a fresh Discovery lane that did not participate in the identity freeze.
+  purpose: current-union, collision, generic-kernel and target-specific-guarantee review
+  forbidden: change any frozen identity, task, state boundary, intervention, decoding parameter or terminal semantics

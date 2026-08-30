@@ -1,0 +1,11 @@
+# Evidence-qualified question-card decisions
+
+| RQ | Exact public anchor and current-source locus | Same-object oracle | Current-union / contrary finding | Decision |
+|---|---|---|---|---|
+| S101-01 Skyframe | Bazel's official Skyframe design and codebase documentation define immutable `SkyKey`/`SkyValue`, `SkyFunction` dependency requests, bottom-up invalidation, and change pruning. | Bit-for-bit clean rebuild and stock target outputs. | The suggested whole update is a generic dynamic dependency-graph/incremental-build kernel. The official design already frames the all-or-nothing mutation limitation; no target-specific action/guarantee beyond the generic kernel was identified. | `EXCLUDED_BEFORE_RAW__GENERIC_KERNEL_OR_DIRECT_CURRENT_SUBTRACTOR` |
+| S101-02 GHC | Current GHC User Guide documents `--copying-gc` default, `--nonmoving-gc`, allocator/GC controls, and incompatible modes. | Same executable behavior, RTS exit/result and event-log semantics. | The apparent two-action choice is collector selection plus RTS parameter control; the candidate mechanism is ordinary concurrent mark-sweep/GC scheduling, not a GHC-specific whole constructor. | `EXCLUDED_BEFORE_RAW__CONFIGURATION_OR_GENERIC_GC_KERNEL` |
+| S101-03 SpiderMonkey Warp | Mozilla's current Searchfox JIT tree contains WarpBuilder, WarpOracle, Warp snapshot/transpiler, code generation and bailout paths. | Stock JavaScript behavior with normal deoptimization recovery. | Candidate actions are ordinary JIT specialization, optimization and bailout control. No non-generic target-specific guarantee was frozen before the raw gate. | `EXCLUDED_BEFORE_RAW__GENERIC_COMPILER_OPTIMIZATION_KERNEL` |
+| S101-04 Dart VM type flow | Official Dart SDK repository identifies the current VM compiler locus. | Proposed AOT program behavior. | Exact natural carrier, current option union, and target-specific non-generic action promise were not closed in the bounded cycle. | `LOCATOR_ONLY__RQ_BACKLOG` |
+| S101-06 FFmpeg recovery | No sufficient current official producer/consumer/action triad was frozen within bounded review. | Proposed decoded-frame equality. | Retained as locator only; no raw decision. | `LOCATOR_ONLY__RQ_BACKLOG` |
+
+No item passed the evidence-qualified raw gate. Missing implementation, result, or resources was not used as a scientific negative inference.

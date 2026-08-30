@@ -1,0 +1,78 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_path: rules/ARTIFACT_LIFECYCLE.md, policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, artifact_state: GC_COMPLETE__BLOCKER_CAPSULE_RETAINED, legacy_disposition: NOT_APPLICABLE, closeout_event: EXACT_PPC_TOOLCHAIN_RESOURCE_GATE_HANDOFF_ACCEPTED, downstream_consumer: PPC_R2_REDIRECT_COMPATIBLE_RESOURCE_RESUME, post_close_retained_bytes_max: 2147483648, phase_closeout_retention_path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r1/PHASE_CLOSEOUT_RETENTION.yaml, capsule_path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r1/RESUME_CAPSULE.yaml, cleanup_receipt_path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r1/CLEANUP_RECEIPT.yaml}
+identity: {topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP, assignment_id: STAGEA-L1-20260826-LLVM-PPC-R1-E-ROOT-EXACT-TOOLCHAIN, stage_or_mode: STAGEA_RESOURCE_GATE_RESUME_FROM_BLOCKER, run_id: R1_OFFICIAL_ASSET_REDIRECT_BLOCKER, unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r1, resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r1/resources, inventory_path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r1/RESOURCE_INVENTORY.yaml, created_at: '2026-08-26T00:21:12.1517318+08:00', started_at: '2026-08-26T00:16:35+08:00', finalized_at: '2026-08-26T00:26:15.8985138+08:00'}
+root_measurement: {logical_bytes: 280198868, allocated_bytes: null, measurement_method: POST_GC_LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true, file_count: 10, directory_count: 10, longest_persisted_path_characters: 236, reparse_entry_count: 0, measurement_record: resources/logs/final_measurement.json}
+required_directories: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+redirect_preflight: {status: PASS_LONG_PATH_AND_STRICT_ZERO_REDIRECT_NETWORK_ROUTE, process_local_only: true, system_or_user_environment_modified: false, tools: [DOTNET_SYSTEM_IO_EXTENDED_PATH, BUNDLED_PYTHON_3_12_13_NO_REDIRECT_HANDLER], map: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONNOUSERSITE: '1', PIP_CACHE_DIR: resources/cache/pip, XDG_CACHE_HOME: resources/cache/xdg}}
+resource_envelope:
+  network_bytes_max: 671088640
+  max_single_response_bytes: 335544320
+  total_network_attempts_max: 5
+  attempts_per_asset: 1
+  stored_bytes_max: 15032385536
+  cpu_seconds_max: 36000
+  wall_seconds_max: 36000
+  build_jobs_max: 2
+  source_extraction_attempts_max: 1
+  tool_extraction_attempts_max: 1
+  configure_attempts_max: 1
+  clean_build_attempts_max: 1
+  gpu_hours_max: 0
+  network_bytes_used: 280173064
+  stored_bytes_used: 280198868
+  network_attempts_used: 3
+  source_extraction_attempts_used: 0
+  tool_extraction_attempts_used: 0
+  configure_attempts_used: 0
+  clean_build_attempts_used: 0
+  gpu_hours_used: 0
+  exact_cpu_seconds_used: UNAVAILABLE__NOT_ESTIMATED
+entries:
+  - {path: resources/downloads/llvm-commit-f127b4c19c63b0492fb924934e37e032c17ea35b.json, logical_bytes: 6641, file_count: 1, sha256: E64F34464C58A1356359629FBBE629E40975B494A009AED5821CF0CDF7923492, creating_run: OFFICIAL_ASSET_ATTEMPT_1_OF_1, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [PPC_REDIRECT_POLICY_RESUME], provenance: OFFICIAL_GITHUB_COMMIT_API, license: METADATA, reacquirable: true, recovery: OFFICIAL_SOURCE_OR_HASH_PINNED_SAME_TOPIC_COPY_UNDER_NEW_AUTHORIZATION, retention_class: RESUME_CRITICAL_UNTIL_UNBLOCKED, delete_after_gate: NEVER_AUTOMATIC_WHILE_BLOCKED, receipt_reference: null}
+  - {path: resources/downloads/llvm-project-f127b4c19c63b0492fb924934e37e032c17ea35b.tar.gz, logical_bytes: 280166423, file_count: 1, sha256: C7871896611513E3E850818A7E5C6B0C600BE60BA46260105602EB9BFBD651CF, creating_run: OFFICIAL_ASSET_ATTEMPT_1_OF_1, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [PPC_REDIRECT_POLICY_RESUME], provenance: OFFICIAL_LLVM_CODELOAD_EXACT_COMMIT, license: APACHE_2_WITH_LLVM_EXCEPTION, reacquirable: true, recovery: OFFICIAL_SOURCE_OR_HASH_PINNED_SAME_TOPIC_COPY_UNDER_NEW_AUTHORIZATION, retention_class: RESUME_CRITICAL_UNTIL_UNBLOCKED, delete_after_gate: NEVER_AUTOMATIC_WHILE_BLOCKED, receipt_reference: null}
+  - {path: resources/cache, logical_bytes: 1646998, file_count: 74, hash_scope: REGENERABLE_PYTHON_BYTECODE_ONLY, creating_run: PROCESS_LOCAL_REDIRECT, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: REGENERABLE, license: NOT_APPLICABLE, reacquirable: true, recovery: REGENERATE, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, delete_after_gate: MAINLINE_ACCEPTS_BLOCKER_AND_ZERO_ACTIVE_PROCESS, receipt_reference: CLEANUP_RECEIPT.yaml}
+  - {path: resources/tmp, logical_bytes: 10728, file_count: 2, hash_scope: DOWNLOADER_AND_MEASUREMENT_SCRIPTS, creating_run: OWNER_RESOURCE_GATE, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [MAINLINE_AUDIT, PPC_REDIRECT_POLICY_RESUME], provenance: OWNER_SCRIPTS, license: PROJECT_INTERNAL, reacquirable: false, recovery: RETAIN, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC, receipt_reference: null}
+  - {path: resources/logs, logical_bytes: 15076, file_count: 6, hash_scope: REQUEST_REDIRECT_FAILURE_MEASUREMENT_AND_INVENTORY_SNAPSHOT, creating_run: OWNER_RESOURCE_GATE, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [MAINLINE_AUDIT, PPC_REDIRECT_POLICY_RESUME], provenance: RAW_RESOURCE_RECORDS, license: PROJECT_INTERNAL, reacquirable: false, recovery: RETAIN, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC, receipt_reference: null}
+shared_assets_consumed: []
+external_system_dependencies:
+  - {name: Windows, version: 10.0.26200.0, role: host_os, project_asset: false}
+  - {name: bundled_workspace_python, version: 3.12.13, role: orchestration_only, project_asset: false, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA}
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: [resources/cache]
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY]
+  closeout_plan_accepted: true
+  downstream_inputs_accepted: true
+  capsule_sealed: true
+  active_owner_or_process_count: 0
+  predelete_target_count: 1
+  predelete_file_count: 74
+  predelete_logical_bytes: 1646998
+  performed: true
+  deleted_entries: [resources/cache]
+  deleted_file_count: 74
+  deleted_logical_bytes: 1646998
+  postdelete_file_count: 10
+  postdelete_logical_bytes: 280198868
+  cleanup_receipt_sha256: DB6CF912ACBE3DEF36F777E6A86A6347609539CA690EC57CDF29B897E0148CFB
+  performed_at: 2026-08-26T00:37:00+08:00
+  recoverability: RETAINED_EXACT_INPUTS_PLUS_NEW_REDIRECT_COMPATIBLE_ASSET_ROUTE
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  reparse_entry_count: 0
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: NOT_APPLICABLE_RESOURCE_FAILURE_BEFORE_CLAIM
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: true
+  deterministic_recovery_routes_complete: true
+  closeout_budget_or_exception_pass: true
+  projected_post_close_retained_bytes: 280198868
+  cleanup_receipt_valid: true
+  result: GC_COMPLETE__BLOCKER_CAPSULE_RETAINED__NO_SCIENTIFIC_INFERENCE

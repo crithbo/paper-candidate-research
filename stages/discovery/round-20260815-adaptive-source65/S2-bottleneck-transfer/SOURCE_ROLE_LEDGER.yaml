@@ -1,0 +1,42 @@
+ledger_version: v1
+network_search_calls: 1
+sources:
+  - id: SRC-S65-01
+    role: CURRENT_AND_CONTRARY
+    url: https://docs.wasmtime.dev/api/cranelift_codegen/settings/struct.Flags.html
+    title: Cranelift code generation Flags
+    version_or_date: current API, retrieved 2026-08-15
+    provenance: official_project_api
+    source_finding: allocator mode includes backtracking with range splitting and code-quality tradeoff
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - id: SRC-S65-02
+    role: CURRENT
+    url: https://docs.wasmtime.dev/api/cranelift/prelude/isa/aarch64/inst/index.html
+    title: Cranelift AArch64 instruction API
+    version_or_date: current API, retrieved 2026-08-15
+    provenance: official_project_api
+    source_finding: spill temporary/register reservation is explicit and may require multi-stage allocation analysis
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - id: SRC-S65-03
+    role: CURRENT
+    url: https://rustc-dev-guide.rust-lang.org/queries/incremental-compilation-in-detail.html
+    title: Incremental compilation in detail
+    version_or_date: current Rust Compiler Development Guide, retrieved 2026-08-15
+    provenance: official_project_documentation
+    source_finding: immutable old dep-graph, try-mark-green reuse, and new-graph node/edge construction
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - id: SRC-S65-04
+    role: CURRENT_AND_CONTRARY
+    url: https://www.w3.org/TR/webgpu/
+    title: WebGPU
+    version_or_date: current W3C Recommendation, retrieved 2026-08-15
+    provenance: official_normative_specification
+    source_finding: pipeline layout and bind-group descriptors, fixed validation/compatibility, explicit versus auto layouts
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+notes:
+  - Retrieval was official and read-only; no source checkout, build, experiment, or artifact acquisition took place.
+  - Direct primary-paper collision work did not begin because no RQ entered raw; no novelty claim is made.

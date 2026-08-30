@@ -1,0 +1,15 @@
+schema_version: qrefine-operation-inventory-v1
+assignment_id: STAGEA-L1-20260821-QREFINE-TRITON-W4A16-INITIAL
+inventory_kind: FROZEN_POLICY_CATALOG_ONLY__NO_CAPTURED_MODULE
+targets:
+  sm89: {module_captured: false, observed_operations: []}
+  gfx1100: {module_captured: false, observed_operations: []}
+policy_source: resources/src/freeze-pack-qrefine/tcb_policy.yaml
+required_classes:
+  memory: [llvm_address_space_mapping, pointer_arithmetic, alignment, masked_load, masked_store, out_of_bounds_exclusion, shared_or_lds_addressing_if_used]
+  discrete: [integer_load_i32, logical_and_arithmetic_shift, bit_mask, nibble_extraction, uint4b8_bias_decode, group_index, scale_index, tail_predicate, output_index]
+  floating: [fp16_to_fp32_conversion, fp16_multiply_or_frozen_equivalent, fp32_add, explicit_fp32_fma_if_present, subgroup_shuffle, frozen_reduction_tree, fp32_to_fp16_cast, rounding_mode, denormal_behavior]
+  control: [loop_bounds, branch_predicates, barrier_or_subgroup_synchronization_if_present]
+semantic_critical_uninterpreted_ops_max: 0
+semantic_critical_uninterpreted_ops_observed: null
+status: NOT_ASSESSABLE_WITHOUT_EXECUTABLE_CAPTURE

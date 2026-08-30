@@ -1,0 +1,17 @@
+schema: paper-evidence-locator-enrichment-assignment-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-R2-LOCATOR1
+role: DISCOVERY_BACKTEST_PACKER
+parent_assignment: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+unique_write_directory: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1
+resource_root: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/resources
+scope: same_12_positive_plus_4_negative_population__no_case_replacement
+network_allowed: true
+allowed_sources: [official_paper_pdf, publisher_page, arXiv, author_pdf, artifact_AE_page]
+resource_limits: {stored_bytes_max: 536870912, source_attempts_max: 48}
+forbidden: [code_or_artifact_download, build, probe, experiment, local_redo, production_candidate_registration, StageB, scoring, gold_reveal_to_gate]
+input_p1: {capsules_manifest: ../paper-evidence-packer/PAPER_EVIDENCE_CAPSULES_MANIFEST.yaml, sha256: 8B120844D26DBAB59DE7FED363F3CCF2253CFC61F0F6FE9679DDAA93FC9A5D88, auditor_key: ../paper-evidence-packer/AUDITOR_GOLD_KEY.yaml, sha256_auditor_only: CDFBA3FE32A05E8A1D723C802DC9DDD13AE9FC335BACBF3E2F956BF16896F1C8}
+required_per_positive: [at_least_one_exact_section_page_table_figure_or_theorem_locator, StageA_premise_or_comparator_or_natural_evidence_or_full_cost, explicit_EVIDENCE_MISSING_IF_TRULY_UNREPORTED]
+negative_control_rule: keep_single_injected_defect_unchanged
+expected_outputs: [ENRICHED_PAPER_EVIDENCE_CAPSULES_MANIFEST.yaml, BLIND_PILOT_NEUTRAL_PACKET.yaml, AUDITOR_GOLD_KEY.yaml, handoff.yaml]
+next_gate: MAINLINE_CAPSULE_ACCEPTANCE_THEN_CONDITIONAL_BLIND_PILOT
+model_route: {model: gpt-5.6-terra, thinking: medium}

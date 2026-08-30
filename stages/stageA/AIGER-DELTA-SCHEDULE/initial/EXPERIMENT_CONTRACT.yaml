@@ -1,0 +1,63 @@
+schema_version: STAGEA_CONTRACT_V1
+assignment:
+  lane_id: CANDIDATE-EXECUTION-LANE-1
+  assignment_id: STAGEA-L1-20260810-AIGER-DELTA-SCHEDULE-INITIAL-R3P0
+  topic_id: AIGER-DELTA-SCHEDULE
+  unique_write_root: D:\project\writing\reserch\stages\stageA\AIGER-DELTA-SCHEDULE\initial
+  frozen_rule_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility
+  cross_assignment_contamination: false
+  stageb_authorized: false
+  stageb_user_approval_id: null
+input_freeze:
+  agents_sha256: 2B0DA6CAD951C6E1E4F371B7BCF8E2BDF6A5E41CF53D9895614E118219A6AC8D
+  plan_sha256: A3BB13D0A91F8FC3DC1F4928C64CFCE6B7311B3CF225CF8109F4A730867183AB
+  registry_sha256: C0D0A44B4CE5A8EC9F49F8509BBCF52844FBCFCB8CA98E44CB7EB7536E8DB
+  candidate_owner_rule_sha256: 30E23336CF339771821EAEC8B2C7011025BA815D613DB639E68121FDCDE54D1F
+  discovery_brief_sha256: 179A41BFF132986FC37FC6E4FB71764B9F39A36CE7ACB7A4032B7370D344EC2A
+  discovery_handoff_sha256: 50AB1097AC9F981C644D559BFD3765A1507F66796AC85C46B90F68D54158EEE1
+  discovery_manifest_self_sha256: 16EF94DC69CCB0F6A3C26DD2919C5CE27E9E00342B4A6966FFD26EA0D5147439
+  primary_report_sha256: 5DCFD38CBF13396EF11D2F6A5379DA8C31042CDAA6910D383B5C9A49D5CDF516
+  primary_q1_sha256: C7E41B99ED50C900E6798605B33DB3B0C1D77DBE6F2CBF2AEA650B79D79CF30C
+  primary_source_audit_sha256: 64D3915E57E2A51D789B8E20243B3D357CEF86E4C958E70F486129094BA85F75
+  primary_handoff_sha256: A89CE0E7AE163DA2CB07566A81CBD00A0CFF95A09F61CDFCCEDACE941E8897A7
+  primary_manifest_self_sha256: 6A8D77F924127B395DAF706457CE72BB3BA3D78F802BDC8C9A58DE1192CFF974
+  confirmation_report_sha256: 6FE7D537142E474379FC971F3E68F8138EE592770525120038D62E08D3D4A382
+  confirmation_handoff_sha256: CDE0500EC473C8F7E3561B51C4BD876F7474B5F956B965D2ECBA7B7CDB43FF75
+  confirmation_manifest_self_sha256: 7D182184E27C62ACBB7483E9C2179A8E41785D7E624E13D04C425395BE4AEECD
+exact_object:
+  format: standard binary AIGER 1.9
+  identity: fixed reachable AND DAG, PI/latch identities and order, output/bad/constraint/justice/fairness order, inversion bits, reset/property semantics, and Boolean functions
+  only_action: whole-DAG legal topological bijection of AND vertices to consecutive post-interface identifiers
+  excluded: [logic_rewrite, merge, deletion, interface_reorder, property_reorder, aig2, ascii_replacement, external_codec]
+objective:
+  primary: sum of native ULEB128 byte lengths of lhs-rhs0 and rhs0-rhs1 for every AND
+  deployment: whole standard binary AIGER file bytes
+  directional_full_cost_dimensions: [graph_extraction_cpu, scheduling_search_cpu, serialization_cpu, native_reader_cpu, equality_check_cpu, peak_rss, input_bytes, output_bytes, disk_io_bytes, fallback_and_failure]
+candidate_algorithm_freeze:
+  exact_small_state: an exact partial topological prefix with assigned consecutive ranks, live dependency/rederivation state, and next rank
+  transition: append any currently ready AND vertex; assign the next consecutive identifier; orient rhs0 >= rhs1 as required by the format
+  recurrence: F(prefix)=min over ready v of native_delta_cost(v,next_rank,assigned_fanin_ranks)+F(prefix+v)
+  terminal: all fixed AND vertices scheduled
+  exact_control_complexity: O(number_of_legal_topological_orders * number_of_ANDs) time and O(number_of_ANDs) DFS stack, excluding retained result tables
+  stronger_n2_route: exact live-frontier DP retaining exact ages/ranks of scheduled live predecessors; honest provisional bound n^O(w), not claimed FPT
+  n2_status_before_execution: NOT_ESTABLISHED__GENERIC_EXACT_CONTROL_ONLY
+  scalable_candidate_status: NOT_IMPLEMENTED
+preclaim_gate:
+  required_native_pins:
+    aiger: 039ec1a2cc37d3093ac35c4b6df65336b346f409
+    yosys: 0f2bcb94b7dc8310a52abf6eef3a7e1a9f09b552
+    abc: 6c51a9238544bce6eb300b7b1c3e5bb4215bec84
+  native_union: [AIGER_REFERENCE_NOOP_REENCODE_ROOT_DFS, YOSYS_COMPLETE_SAME_OBJECT_GRID_INCLUDING_NO_SORT, ABC_DEFAULT, ABC_U_IF_IDENTITY_CONTRACT_PASSES]
+  independent_control: scripts/witness_control.js
+  claim_bearing_corpus_run_forbidden_until: PASS
+  actual_status: FAIL_CLOSED__NATIVE_BUILD_AND_COMPARATOR_TOOLCHAIN_UNAVAILABLE
+natural_killer:
+  corpus: public HWMCC binary AIGER subset, family-stratified and hash-frozen only after preclaim PASS
+  eligibility_denominator: all successfully reference-parsed fixed-object inputs, retaining null, threshold-inert, timeout, equality-fail, and fallback outcomes
+  natural_object_count: 0
+  started: false
+decision_boundary:
+  resource_failure_before_claim: BLOCKED_USER_ACTION_REQUIRED
+  evidence_ceiling_on_resource_failure: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed: false
+  stageb: false

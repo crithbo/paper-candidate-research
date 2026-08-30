@@ -1,0 +1,14 @@
+schema: stagea-static-packet-correction-start-v1
+assignment_id: STAGEA-L1-20260829-LLVM-APX-R9-INTEGRATED-ROW-CONTROLLER-REDESIGN
+correction_ordinal: 2
+static_lint_edits_after_success: 2_of_3
+allowed_files: [APX_R9_EXECUTABLE_PACKET.yaml, APX_R9_COMMAND_DAG.json, APX_R9_CONTROLLER.py, APX_R9_STATIC_VALIDATION.yaml]
+required_changes:
+  - rows must equal exactly [S01, S02, S03, S04] with two replays each and no other selected or reserve row
+  - derive every per-row command from the pinned REBOUND_R8_COMMAND_PLAN without changing tokens, then relocate only source and output paths according to EXACT_RESOURCE_COPY_MANIFEST
+  - store each complete argv as a JSON array including input, input-sha256, identity, replay, eligibility receipt, output-root, llc when required, all producer inputs and output paths
+  - implement controller command_table plus shell_false subprocess execution, process-local env, timeout, stdout/stderr persistence, cpu/wall/rss/exit/persisted-byte receipt, required output and schema assertions, and first-failure stop
+  - update validation from actual packet, DAG and controller content; require selected_count=4, replay_count=2, placeholder_count=0, command_count and producer-consumer closure
+forbidden_changes: [selected_rows, reserve_rows, baselines, denominator, object, mechanism, guarantee, metrics, result_visibility]
+forbidden_actions: [resource_create_or_copy, tool_execution, control_row, claim_row, network, shared_write, shared_install, cleanup, stageb]
+stop_after: CORRECTED_STATIC_OUTPUTS_SEALED__WAIT_MAINLINE

@@ -1,0 +1,27 @@
+schema: phase-closeout-retention-v1
+created_at: 2026-08-26T05:30:00Z
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9C-PER-ACTION-TPD-BASELINE-CLOSURE
+artifact_lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+closeout_event: PPC_R9C_PRECLAIM_HANDOFF_ACCEPTED
+current_disposition: HANDOFF_PENDING_MAINLINE_ACCEPTANCE
+retain:
+  - {path: resources/src/r6_input, class: REPRODUCIBILITY_MINIMUM}
+  - {path: resources/env/ppc-toolchain, class: REPRODUCIBILITY_MINIMUM}
+  - {path: resources/src/natural_materializer, class: CORRECTED_SOURCE_AND_CONTROL_FIXTURE}
+  - {path: resources/build/control_replay_1, class: CLAIM_CRITICAL_CONTROL_FAILURE_EVIDENCE}
+  - {path: resources/build/control_replay_2, class: CLAIM_CRITICAL_CONTROL_FAILURE_EVIDENCE}
+exact_cleanup_candidate_leaves_after_accepted_handoff:
+  - resources/downloads
+  - resources/archives
+  - resources/cache
+  - resources/tmp
+cleanup_candidate_count: 4
+owner_cleanup_allowed: false
+owner_cleanup_actions: 0
+cleanup_owner: MAINLINE
+downstream_consumer: SEPARATE_MAINLINE_FROZEN_CORRECTION_OR_INDEPENDENT_DISPOSITION
+post_close_retained_bytes_max: 536870912
+current_resource_bytes: 305797209
+post_close_budget_pass_without_cleanup: true
+scientific_effect_of_cleanup: NONE
+

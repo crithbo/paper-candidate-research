@@ -1,0 +1,17 @@
+schema: exact-public-carrier-portfolio-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE120-EXACT-CARRIER
+frozen_before_rq_convergence: true
+carriers:
+  - {id: C01, name: WebLINX, locator: https://github.com/McGill-NLP/weblinx, fields: [demonstration, replay, turn, multi_turn_dialogue, web_actions], kind: CANONICAL_BENCHMARK_ONLY}
+  - {id: C02, name: Mind2Web, locator: https://osu-nlp-group.github.io/Mind2Web/, fields: [action_sequence, DOM_snapshot, screenshot, HAR, trace], kind: CANONICAL_BENCHMARK_ONLY}
+  - {id: C03, name: SWE-Gym, locator: https://github.com/SWE-Gym/SWE-Gym, fields: [repository_task, executable_environment, tests, agent_trajectory], kind: IMPLEMENTATION_CARRIER_ONLY}
+  - {id: C04, name: R2E-Gym, locator: https://github.com/agentica-project/R2E-Gym, fields: [full_trajectory, execution_time, exit_reason, output_patch], kind: IMPLEMENTATION_CARRIER_ONLY}
+  - {id: C05, name: RH20T, locator: https://rh20t.github.io/, fields: [camera_timestamps, force_torque_timestamps, high_frequency_robot_data, completion_rating], kind: NATURAL}
+  - {id: C06, name: Open_X_Embodiment, locator: https://github.com/google-deepmind/open_x_embodiment, fields: [RLDS_episode, observations, actions, task_string, heterogeneous_embodiment], kind: NATURAL}
+  - {id: C07, name: CALVIN, locator: https://github.com/mees/calvin/blob/main/dataset/README.md, fields: [per_timestep_sensors, actions, robot_state, scene_state, language_sequence_indexes], kind: CANONICAL_BENCHMARK_ONLY}
+  - {id: C08, name: ManiSkill, locator: https://github.com/haosulab/ManiSkill/blob/main/docs/source/user_guide/datasets/demos.md, fields: [actions, terminated, truncated, env_states, observations, success, fail], kind: CANONICAL_FORMAL_ORACLE}
+excluded_locator:
+  name: AgentTrek
+  reason: project page states dataset will be released; no exact public data carrier frozen
+carrier_count: 8
+scientific_denominator_effect: NONE_UNTIL_RAW_GATE

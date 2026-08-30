@@ -1,0 +1,62 @@
+schema_version: stage0-handoff-v8.4
+assignment_id: STAGE0-P1-20260809-GIT-PACK-FOREST-PRIMARY-V8.4
+topic_id: GIT-PACK-FOREST
+role: PRIMARY
+lane_id: STAGE0-BATCH-GATE/PRIMARY
+decision: PASS_RECOMMENDED
+confirmation_status: PENDING_CONFIRMATION
+quality_tier: TIER_B_Q2_VIABLE
+structural_paper_potential: TIER_B_Q2_VIABLE
+current_evidence_readiness: MODERATE_FINITE_CPU_ROUTE
+confidence: 0.73
+novelty_route: N2
+academic_score: 51
+ai_executability_score: 22
+total_score: 73
+ai_core_fraction: 0.72
+evidence_ceiling: DESIGN_AND_PRIMARY_SOURCE_AUDIT_ONLY__NO_CLAIM_BEARING_RESULT
+collision_status: SEARCH_BOUNDED_OPEN
+direct_fatal_found: false
+stageA_authorized: false
+stageB_authorized: false
+registry_entry_present_at_review_start: false
+provenance_warning: TOPIC_NOT_FOUND_IN_REGISTRY_AT_PRIMARY_START
+blocker_required: false
+human_reserve_required: false
+exact_object: >-
+  One fixed public repository reachable canonical object manifest mapped to one
+  self-contained Git pack plus index, with unchanged hash algorithm, codec,
+  object set and native strict verification.
+residual_kernel: >-
+  A capped type-preserving candidate graph, globally constrained bounded-depth
+  delta forest and legal write order whose useful actions are outside the finite
+  current-Git window/path/reuse/island union under equal semantics and full cost.
+strongest_fair_baselines:
+  - current Git default pack-objects/repack
+  - finite budget-matched window/depth/window-memory configurations
+  - legal path-walk and name-hash-version configurations
+  - reuse/no-reuse and delta-island variants only under identical input semantics
+  - deterministic simple constructors under the same candidate budget
+  - exact tiny-instance oracle as ceiling only
+stageA_killer:
+  premise: >-
+    Natural Git histories contain affordable useful delta edges outside the
+    complete finite current-Git union and the joint forest/layout produces a
+    non-dominated full-cost point.
+  stop_if:
+    - residual useful-edge coverage is below 10 percent
+    - any object equality, self-containment, index-pack strict or fsck strict check fails
+    - no p50 and p90 full-cost Pareto advantage survives the fair union
+    - candidate graph or optimization cost consumes the size or access benefit
+  positive_ceiling: PRELIMINARY_SUPPORT_ONLY
+required_next_review: LONG_LIVED_STAGE0_CONFIRMATION_SENTRY
+input_provenance:
+  discovery_brief_sha256: 14A2649EF836E804A2A75F3FBD60946AE2FD2533E2A79ABA7B7D5CDA86886526
+  discovery_handoff_sha256: 68E38B40BFEC320519BB6CB92712E207FEAF12732B992ABE46AEF5208E66EDF5
+  discovery_manifest_sha256: 736638AED4B1C05137301A03C0D6FEF0FFA50E08CE7B11CA60AA5ADBC9980C12
+outputs:
+  report: STAGE0_REPORT.md
+  comparator: Q1_COMPARATOR_MATRIX.md
+  source_audit: SOURCE_AUDIT.md
+  hash_manifest: HASH_MANIFEST.sha256
+lane_state_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE

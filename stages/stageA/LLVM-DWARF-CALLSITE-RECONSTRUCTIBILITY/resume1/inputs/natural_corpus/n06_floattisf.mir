@@ -1,0 +1,588 @@
+--- |
+  ; ModuleID = 'D:\project\writing\reserch\stages\stageA\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\resume1\results\natural_corpus_eligibility\floattisf.bc'
+  source_filename = "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins\\floattisf.c"
+  target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+  target triple = "x86_64-unknown-linux-gnu"
+  
+  ; Function Attrs: nounwind
+  define dso_local float @__floattisf(i128 noundef %a) local_unnamed_addr #0 !dbg !28 {
+  entry:
+      #dbg_value(i128 %a, !37, !DIExpression(), !38)
+      #dbg_value(i128 %a, !39, !DIExpression(), !66)
+    %cmp.i = icmp eq i128 %a, 0, !dbg !68
+    br i1 %cmp.i, label %__floatXiYf__.exit, label %if.end.i, !dbg !70
+  
+  if.end.i:                                         ; preds = %entry
+    %shr.i = ashr i128 %a, 127, !dbg !71
+      #dbg_value(i128 %shr.i, !48, !DIExpression(), !66)
+    %xor.i = xor i128 %shr.i, %a, !dbg !72
+    %sub.i = sub i128 %xor.i, %shr.i, !dbg !73
+      #dbg_value(i128 %sub.i, !39, !DIExpression(), !66)
+      #dbg_value(i128 %sub.i, !74, !DIExpression(), !79)
+    %call.i.i = tail call i32 @__clzti2(i128 noundef %sub.i) #2, !dbg !81
+      #dbg_value(!DIArgList(i32 128, i32 %call.i.i), !55, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_minus, DW_OP_stack_value), !66)
+      #dbg_value(!DIArgList(i32 127, i32 %call.i.i), !57, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_minus, DW_OP_stack_value), !66)
+    %cmp3.i = icmp slt i32 %call.i.i, 104, !dbg !82
+    br i1 %cmp3.i, label %if.then4.i, label %if.else30.i, !dbg !84
+  
+  if.then4.i:                                       ; preds = %if.end.i
+    switch i32 %call.i.i, label %if.else9.i [
+      i32 103, label %if.then6.i
+      i32 102, label %if.end18.i
+    ], !dbg !85
+  
+  if.then6.i:                                       ; preds = %if.then4.i
+    %shl.i = shl i128 %sub.i, 1, !dbg !88
+      #dbg_value(i128 %shl.i, !39, !DIExpression(), !66)
+    br label %if.end18.i, !dbg !90
+  
+  if.else9.i:                                       ; preds = %if.then4.i
+    %sub10.i = sub i32 102, %call.i.i, !dbg !91
+    %sh_prom.i = zext nneg i32 %sub10.i to i128, !dbg !94
+    %shr11.i = lshr i128 %sub.i, %sh_prom.i, !dbg !94
+    %sub12.i = add nsw i32 %call.i.i, 26, !dbg !95
+    %sh_prom13.i = zext nneg i32 %sub12.i to i128, !dbg !96
+    %shr14.i = lshr i128 -1, %sh_prom13.i, !dbg !96
+    %and.i = and i128 %shr14.i, %sub.i, !dbg !97
+    %cmp15.i = icmp ne i128 %and.i, 0, !dbg !98
+    %conv16.i = zext i1 %cmp15.i to i128, !dbg !99
+    %or.i = or i128 %shr11.i, %conv16.i, !dbg !100
+      #dbg_value(i128 %or.i, !39, !DIExpression(), !66)
+    br label %if.end18.i
+  
+  if.end18.i:                                       ; preds = %if.else9.i, %if.then6.i, %if.then4.i
+    %a.addr.0.i = phi i128 [ %shl.i, %if.then6.i ], [ %sub.i, %if.then4.i ], [ %or.i, %if.else9.i ], !dbg !66
+      #dbg_value(i128 %a.addr.0.i, !39, !DIExpression(), !66)
+    %0 = trunc i128 %a.addr.0.i to i32, !dbg !101
+    %1 = lshr i32 %0, 2, !dbg !101
+    %conv21.i = and i32 %1, 1, !dbg !101
+    %conv22.i = zext nneg i32 %conv21.i to i128, !dbg !102
+    %or23.i = or i128 %a.addr.0.i, %conv22.i, !dbg !103
+      #dbg_value(i128 %or23.i, !39, !DIExpression(), !66)
+    %inc.i = add nsw i128 %or23.i, 1, !dbg !104
+      #dbg_value(i128 %inc.i, !39, !DIExpression(), !66)
+    %shr24.i = lshr i128 %inc.i, 2, !dbg !105
+      #dbg_value(i128 poison, !39, !DIExpression(), !66)
+    %2 = and i128 %inc.i, 67108864, !dbg !106
+    %tobool.not.i = icmp eq i128 %2, 0, !dbg !106
+    %extract.t66.i = trunc i128 %shr24.i to i32, !dbg !108
+    br i1 %tobool.not.i, label %if.end34.i, label %if.then26.i, !dbg !108
+  
+  if.then26.i:                                      ; preds = %if.end18.i
+    %shr27.i = lshr i128 %inc.i, 3, !dbg !109
+      #dbg_value(i128 poison, !39, !DIExpression(), !66)
+      #dbg_value(!DIArgList(i32 128, i32 %call.i.i), !57, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_minus, DW_OP_stack_value), !66)
+    %extract.t.i = trunc i128 %shr27.i to i32, !dbg !111
+    br label %if.end34.i, !dbg !111
+  
+  if.else30.i:                                      ; preds = %if.end.i
+    %sub31.i = add nsw i32 %call.i.i, -104, !dbg !112
+    %sh_prom32.i = zext nneg i32 %sub31.i to i128, !dbg !114
+    %shl33.i = shl i128 %sub.i, %sh_prom32.i, !dbg !115
+      #dbg_value(i128 %shl33.i, !39, !DIExpression(), !66)
+    %extract.t67.i = trunc i128 %shl33.i to i32
+    br label %if.end34.i
+  
+  if.end34.i:                                       ; preds = %if.else30.i, %if.then26.i, %if.end18.i
+    %.pn.i = phi i32 [ 128, %if.then26.i ], [ 127, %if.end18.i ], [ 127, %if.else30.i ]
+    %a.addr.1.off0.i = phi i32 [ %extract.t.i, %if.then26.i ], [ %extract.t66.i, %if.end18.i ], [ %extract.t67.i, %if.else30.i ]
+    %e.0.i = sub i32 %.pn.i, %call.i.i, !dbg !66
+      #dbg_value(i128 poison, !39, !DIExpression(), !66)
+      #dbg_value(i32 %e.0.i, !57, !DIExpression(), !66)
+      #dbg_value(i32 32, !58, !DIExpression(), !66)
+      #dbg_value(i32 -2147483648, !60, !DIExpression(), !66)
+      #dbg_value(i32 8, !62, !DIExpression(), !66)
+      #dbg_value(i32 127, !63, !DIExpression(), !66)
+      #dbg_value(i32 8388607, !64, !DIExpression(), !66)
+    %conv35.i = trunc nsw i128 %shr.i to i32, !dbg !116
+    %and36.i = and i32 %conv35.i, -2147483648, !dbg !117
+    %add.i = shl i32 %e.0.i, 23, !dbg !118
+    %shl37.i = add i32 %add.i, 1065353216, !dbg !118
+    %and40.i = and i32 %a.addr.1.off0.i, 8388607, !dbg !119
+    %or38.i = or disjoint i32 %and40.i, %and36.i, !dbg !120
+    %or41.i = or i32 %or38.i, %shl37.i, !dbg !121
+      #dbg_value(!DIArgList(i32 %and40.i, i32 %and36.i, i32 %shl37.i), !65, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_LLVM_arg, 2, DW_OP_or, DW_OP_or, DW_OP_stack_value), !66)
+      #dbg_value(!DIArgList(i32 %and40.i, i32 %and36.i, i32 %shl37.i), !122, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_LLVM_arg, 2, DW_OP_or, DW_OP_or, DW_OP_stack_value), !133)
+    %3 = bitcast i32 %or41.i to float, !dbg !135
+      #dbg_value(float %3, !131, !DIExpression(), !133)
+    br label %__floatXiYf__.exit
+  
+  __floatXiYf__.exit:                               ; preds = %entry, %if.end34.i
+    %retval.0.i = phi float [ %3, %if.end34.i ], [ 0.000000e+00, %entry ], !dbg !66
+    ret float %retval.0.i, !dbg !136
+  }
+  
+  declare !dbg !137 i32 @__clzti2(i128 noundef) local_unnamed_addr #1
+  
+  attributes #0 = { nounwind "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+  attributes #1 = { "frame-pointer"="all" "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+  attributes #2 = { nobuiltin nounwind "no-builtins" }
+  
+  !llvm.dbg.cu = !{!0}
+  !llvm.module.flags = !{!16, !17, !18, !19, !20, !21}
+  !llvm.ident = !{!22}
+  !llvm.errno.tbaa = !{!23}
+  
+  !0 = distinct !DICompileUnit(language: DW_LANG_C11, file: !1, producer: "clang version 24.0.0git", isOptimized: true, runtimeVersion: 0, emissionKind: FullDebug, enums: !2, retainedTypes: !8, splitDebugInlining: false, nameTableKind: None)
+  !1 = !DIFile(filename: "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/floattisf.c", directory: "D:/project/writing/reserch", checksumkind: CSK_MD5, checksum: "56f3bc3a0cfcf9bdd8f7e249c00b2491")
+  !2 = !{!3}
+  !3 = !DICompositeType(tag: DW_TAG_enumeration_type, file: !4, line: 48, baseType: !5, size: 32, elements: !6)
+  !4 = !DIFile(filename: "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/int_to_fp.h", directory: "", checksumkind: CSK_MD5, checksum: "856256e21f9a44efe7a0d2571d2baa39")
+  !5 = !DIBasicType(name: "unsigned int", size: 32, encoding: DW_ATE_unsigned)
+  !6 = !{!7}
+  !7 = !DIEnumerator(name: "dstSigBits", value: 23)
+  !8 = !{!9, !13}
+  !9 = !DIDerivedType(tag: DW_TAG_typedef, name: "usrc_t", file: !4, line: 31, baseType: !10)
+  !10 = !DIDerivedType(tag: DW_TAG_typedef, name: "__uint128_t", file: !11, baseType: !12)
+  !11 = !DIFile(filename: "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/floattisf.c", directory: "", checksumkind: CSK_MD5, checksum: "56f3bc3a0cfcf9bdd8f7e249c00b2491")
+  !12 = !DIBasicType(name: "unsigned __int128", size: 128, encoding: DW_ATE_unsigned)
+  !13 = !DIDerivedType(tag: DW_TAG_typedef, name: "dst_rep_t", file: !4, line: 45, baseType: !14)
+  !14 = !DIDerivedType(tag: DW_TAG_typedef, name: "uint32_t", file: !15, line: 202, baseType: !5)
+  !15 = !DIFile(filename: "stages/stageA/LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY/resume1/build/lib/clang/24/include/stdint.h", directory: "D:/project/writing/reserch", checksumkind: CSK_MD5, checksum: "e0d709cfd45c240304ff650668138b52")
+  !16 = !{i32 7, !"Dwarf Version", i32 5}
+  !17 = !{i32 2, !"Debug Info Version", i32 3}
+  !18 = !{i32 8, !"PIC Level", i32 2}
+  !19 = !{i32 7, !"PIE Level", i32 2}
+  !20 = !{i32 7, !"frame-pointer", i32 2}
+  !21 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+  !22 = !{!"clang version 24.0.0git"}
+  !23 = !{!24, !25, i64 0}
+  !24 = !{!"__libc_errno", !25, i64 0}
+  !25 = !{!"int", !26, i64 0}
+  !26 = !{!"omnipotent char", !27, i64 0}
+  !27 = !{!"Simple C/C++ TBAA"}
+  !28 = distinct !DISubprogram(name: "__floattisf", scope: !29, file: !29, line: 28, type: !30, scopeLine: 28, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !36, keyInstructions: true)
+  !29 = !DIFile(filename: "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins\\floattisf.c", directory: "", checksumkind: CSK_MD5, checksum: "56f3bc3a0cfcf9bdd8f7e249c00b2491")
+  !30 = !DISubroutineType(types: !31)
+  !31 = !{!32, !33}
+  !32 = !DIBasicType(name: "float", size: 32, encoding: DW_ATE_float)
+  !33 = !DIDerivedType(tag: DW_TAG_typedef, name: "ti_int", file: !34, line: 84, baseType: !35)
+  !34 = !DIFile(filename: "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/int_types.h", directory: "", checksumkind: CSK_MD5, checksum: "0cefa99f1024f3001da915c45d60c390")
+  !35 = !DIBasicType(name: "__int128", size: 128, encoding: DW_ATE_signed)
+  !36 = !{!37}
+  !37 = !DILocalVariable(name: "a", arg: 1, scope: !28, file: !29, line: 28, type: !33)
+  !38 = !DILocation(line: 0, scope: !28)
+  !39 = !DILocalVariable(name: "a", arg: 1, scope: !40, file: !41, line: 17, type: !45)
+  !40 = distinct !DISubprogram(name: "__floatXiYf__", scope: !41, file: !41, line: 17, type: !42, scopeLine: 17, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !47, keyInstructions: true)
+  !41 = !DIFile(filename: "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/int_to_fp_impl.inc", directory: "", checksumkind: CSK_MD5, checksum: "9fd5cbedc109bb28744049a29cde5945")
+  !42 = !DISubroutineType(types: !43)
+  !43 = !{!44, !45}
+  !44 = !DIDerivedType(tag: DW_TAG_typedef, name: "dst_t", file: !4, line: 44, baseType: !32)
+  !45 = !DIDerivedType(tag: DW_TAG_typedef, name: "src_t", file: !4, line: 30, baseType: !46)
+  !46 = !DIDerivedType(tag: DW_TAG_typedef, name: "__int128_t", file: !11, baseType: !35)
+  !47 = !{!39, !48, !50, !55, !57, !58, !60, !62, !63, !64, !65}
+  !48 = !DILocalVariable(name: "s", scope: !40, file: !41, line: 27, type: !49)
+  !49 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !45)
+  !50 = !DICompositeType(tag: DW_TAG_enumeration_type, scope: !40, file: !41, line: 21, baseType: !5, size: 32, elements: !51)
+  !51 = !{!52, !53, !54}
+  !52 = !DIEnumerator(name: "dstMantDig", value: 24)
+  !53 = !DIEnumerator(name: "srcBits", value: 128)
+  !54 = !DIEnumerator(name: "srcIsSigned", value: 1)
+  !55 = !DILocalVariable(name: "sd", scope: !40, file: !41, line: 30, type: !56)
+  !56 = !DIBasicType(name: "int", size: 32, encoding: DW_ATE_signed)
+  !57 = !DILocalVariable(name: "e", scope: !40, file: !41, line: 31, type: !56)
+  !58 = !DILocalVariable(name: "dstBits", scope: !40, file: !41, line: 62, type: !59)
+  !59 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !56)
+  !60 = !DILocalVariable(name: "dstSignMask", scope: !40, file: !41, line: 63, type: !61)
+  !61 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !13)
+  !62 = !DILocalVariable(name: "dstExpBits", scope: !40, file: !41, line: 64, type: !59)
+  !63 = !DILocalVariable(name: "dstExpBias", scope: !40, file: !41, line: 65, type: !59)
+  !64 = !DILocalVariable(name: "dstSignificandMask", scope: !40, file: !41, line: 66, type: !61)
+  !65 = !DILocalVariable(name: "result", scope: !40, file: !41, line: 68, type: !61)
+  !66 = !DILocation(line: 0, scope: !40, inlinedAt: !67)
+  !67 = distinct !DILocation(line: 28, column: 54, scope: !28)
+  !68 = !DILocation(line: 18, column: 9, scope: !69, inlinedAt: !67, atomGroup: 1, atomRank: 2)
+  !69 = distinct !DILexicalBlock(scope: !40, file: !41, line: 18, column: 7)
+  !70 = !DILocation(line: 18, column: 9, scope: !69, inlinedAt: !67, atomGroup: 1, atomRank: 1)
+  !71 = !DILocation(line: 27, column: 35, scope: !40, inlinedAt: !67, atomGroup: 3, atomRank: 2)
+  !72 = !DILocation(line: 29, column: 18, scope: !40, inlinedAt: !67)
+  !73 = !DILocation(line: 29, column: 23, scope: !40, inlinedAt: !67, atomGroup: 4, atomRank: 2)
+  !74 = !DILocalVariable(name: "x", arg: 1, scope: !75, file: !4, line: 32, type: !9)
+  !75 = distinct !DISubprogram(name: "clzSrcT", scope: !4, file: !4, line: 32, type: !76, scopeLine: 32, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !78, keyInstructions: true)
+  !76 = !DISubroutineType(types: !77)
+  !77 = !{!56, !9}
+  !78 = !{!74}
+  !79 = !DILocation(line: 0, scope: !75, inlinedAt: !80)
+  !80 = distinct !DILocation(line: 30, column: 22, scope: !40, inlinedAt: !67)
+  !81 = !DILocation(line: 32, column: 48, scope: !75, inlinedAt: !80, atomGroup: 1, atomRank: 2)
+  !82 = !DILocation(line: 32, column: 10, scope: !83, inlinedAt: !67, atomGroup: 7, atomRank: 2)
+  !83 = distinct !DILexicalBlock(scope: !40, file: !41, line: 32, column: 7)
+  !84 = !DILocation(line: 32, column: 10, scope: !83, inlinedAt: !67, atomGroup: 7, atomRank: 1)
+  !85 = !DILocation(line: 40, column: 12, scope: !86, inlinedAt: !67, atomGroup: 8, atomRank: 1)
+  !86 = distinct !DILexicalBlock(scope: !87, file: !41, line: 40, column: 9)
+  !87 = distinct !DILexicalBlock(scope: !83, file: !41, line: 32, column: 24)
+  !88 = !DILocation(line: 41, column: 9, scope: !89, inlinedAt: !67, atomGroup: 9, atomRank: 2)
+  !89 = distinct !DILexicalBlock(scope: !86, file: !41, line: 40, column: 31)
+  !90 = !DILocation(line: 42, column: 5, scope: !89, inlinedAt: !67)
+  !91 = !DILocation(line: 45, column: 29, scope: !92, inlinedAt: !67)
+  !92 = distinct !DILexicalBlock(scope: !93, file: !41, line: 44, column: 12)
+  !93 = distinct !DILexicalBlock(scope: !86, file: !41, line: 42, column: 16)
+  !94 = !DILocation(line: 45, column: 22, scope: !92, inlinedAt: !67)
+  !95 = !DILocation(line: 46, column: 62, scope: !92, inlinedAt: !67)
+  !96 = !DILocation(line: 46, column: 31, scope: !92, inlinedAt: !67)
+  !97 = !DILocation(line: 46, column: 15, scope: !92, inlinedAt: !67)
+  !98 = !DILocation(line: 46, column: 70, scope: !92, inlinedAt: !67)
+  !99 = !DILocation(line: 46, column: 11, scope: !92, inlinedAt: !67)
+  !100 = !DILocation(line: 45, column: 50, scope: !92, inlinedAt: !67, atomGroup: 11, atomRank: 2)
+  !101 = !DILocation(line: 49, column: 18, scope: !87, inlinedAt: !67)
+  !102 = !DILocation(line: 49, column: 10, scope: !87, inlinedAt: !67)
+  !103 = !DILocation(line: 49, column: 7, scope: !87, inlinedAt: !67, atomGroup: 12, atomRank: 2)
+  !104 = !DILocation(line: 50, column: 5, scope: !87, inlinedAt: !67, atomGroup: 13, atomRank: 2)
+  !105 = !DILocation(line: 51, column: 7, scope: !87, inlinedAt: !67, atomGroup: 14, atomRank: 2)
+  !106 = !DILocation(line: 53, column: 11, scope: !107, inlinedAt: !67, atomGroup: 15, atomRank: 2)
+  !107 = distinct !DILexicalBlock(scope: !87, file: !41, line: 53, column: 9)
+  !108 = !DILocation(line: 53, column: 11, scope: !107, inlinedAt: !67, atomGroup: 15, atomRank: 1)
+  !109 = !DILocation(line: 54, column: 9, scope: !110, inlinedAt: !67, atomGroup: 16, atomRank: 2)
+  !110 = distinct !DILexicalBlock(scope: !107, file: !41, line: 53, column: 40)
+  !111 = !DILocation(line: 56, column: 5, scope: !110, inlinedAt: !67)
+  !112 = !DILocation(line: 59, column: 23, scope: !113, inlinedAt: !67)
+  !113 = distinct !DILexicalBlock(scope: !83, file: !41, line: 58, column: 10)
+  !114 = !DILocation(line: 59, column: 7, scope: !113, inlinedAt: !67)
+  !115 = !DILocation(line: 59, column: 7, scope: !113, inlinedAt: !67, atomGroup: 18, atomRank: 2)
+  !116 = !DILocation(line: 68, column: 29, scope: !40, inlinedAt: !67)
+  !117 = !DILocation(line: 68, column: 42, scope: !40, inlinedAt: !67)
+  !118 = !DILocation(line: 69, column: 57, scope: !40, inlinedAt: !67)
+  !119 = !DILocation(line: 70, column: 44, scope: !40, inlinedAt: !67)
+  !120 = !DILocation(line: 68, column: 57, scope: !40, inlinedAt: !67)
+  !121 = !DILocation(line: 69, column: 72, scope: !40, inlinedAt: !67, atomGroup: 24, atomRank: 2)
+  !122 = !DILocalVariable(name: "x", arg: 1, scope: !123, file: !4, line: 74, type: !13)
+  !123 = distinct !DISubprogram(name: "dstFromRep", scope: !4, file: !4, line: 74, type: !124, scopeLine: 74, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !126, keyInstructions: true)
+  !124 = !DISubroutineType(types: !125)
+  !125 = !{!44, !13}
+  !126 = !{!122, !127, !131}
+  !127 = distinct !DICompositeType(tag: DW_TAG_union_type, scope: !123, file: !4, line: 75, size: 32, elements: !128)
+  !128 = !{!129, !130}
+  !129 = !DIDerivedType(tag: DW_TAG_member, name: "f", scope: !127, file: !4, line: 76, baseType: !44, size: 32)
+  !130 = !DIDerivedType(tag: DW_TAG_member, name: "i", scope: !127, file: !4, line: 77, baseType: !13, size: 32)
+  !131 = !DILocalVariable(name: "rep", scope: !123, file: !4, line: 78, type: !132)
+  !132 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !127)
+  !133 = !DILocation(line: 0, scope: !123, inlinedAt: !134)
+  !134 = distinct !DILocation(line: 71, column: 10, scope: !40, inlinedAt: !67)
+  !135 = !DILocation(line: 78, column: 11, scope: !123, inlinedAt: !134, atomGroup: 1, atomRank: 1)
+  !136 = !DILocation(line: 28, column: 47, scope: !28, atomGroup: 1, atomRank: 1)
+  !137 = !DISubprogram(name: "__clzti2", scope: !138, file: !138, line: 114, type: !139, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+  !138 = !DIFile(filename: "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/int_lib.h", directory: "", checksumkind: CSK_MD5, checksum: "2ae4f081ccf66e66008a022af77dcec0")
+  !139 = !DISubroutineType(types: !140)
+  !140 = !{!56, !33}
+...
+---
+name:            __floattisf
+alignment:       1
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   true
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 18, class: fr32, preferred-register: '', flags: [  ] }
+  - { id: 19, class: fr32, preferred-register: '', flags: [  ] }
+  - { id: 20, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 21, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 23, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 24, class: fr32, preferred-register: '', flags: [  ] }
+  - { id: 25, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 26, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 27, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 28, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 29, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 30, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 31, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 32, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 33, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 34, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 35, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 36, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 37, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 38, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 39, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 40, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 41, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 42, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 43, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 44, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 45, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 46, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 47, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 48, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 49, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 50, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 51, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 52, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 53, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 54, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 55, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 56, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 57, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 58, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 59, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 60, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 61, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 62, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 63, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 64, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 65, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 66, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 67, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 68, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 69, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 70, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 71, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 72, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 73, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 74, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 75, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 76, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 77, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 78, class: fr32, preferred-register: '', flags: [  ] }
+  - { id: 79, class: gr64_nosp, preferred-register: '', flags: [  ] }
+  - { id: 80, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 81, class: gr64_nosp, preferred-register: '', flags: [  ] }
+  - { id: 82, class: gr32, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$rdi', virtual-reg: '%20' }
+  - { reg: '$rsi', virtual-reg: '%21' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: all
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 4294967295
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:
+  - { bb: 2, offset: 15, fwdArgRegs: 
+      - { arg: 0, reg: '$rdi' }
+      - { arg: 1, reg: '$rsi' } }
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  amxProgModel:    None
+body:             |
+  bb.0.entry:
+    successors: %bb.1(0x30000000), %bb.2(0x50000000)
+    liveins: $rdi, $rsi
+  
+    DBG_PHI $rdi, 20
+    DBG_PHI $rsi, 19
+    %3:gr64 = COPY $rsi
+    %2:gr64_with_sub_8bit = COPY $rdi
+    DBG_INSTR_REF !37, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(19, 0), debug-location !38
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(19, 0), debug-location !66
+    DBG_INSTR_REF !37, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(20, 0), debug-location !38
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(20, 0), debug-location !66
+    %25:gr64 = COPY %2, debug-location !68
+    dead %25:gr64 = OR64rr %25, %3, implicit-def $eflags, debug-location !68
+    JCC_1 %bb.2, 5, implicit killed $eflags, debug-location !70
+  
+  bb.1:
+    successors: %bb.12(0x80000000)
+  
+    %78:fr32 = FsFLD0SS
+    JMP_1 %bb.12, debug-location !70
+  
+  bb.2.if.end.i:
+    successors: %bb.3(0x40000000), %bb.10(0x40000000)
+  
+    %0:gr64_with_sub_8bit = COPY %3, debug-location !71
+    %0:gr64_with_sub_8bit = SAR64ri %0, 63, implicit-def dead $eflags, debug-instr-number 1, debug-location !71
+    DBG_INSTR_REF !48, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(1, 0), debug-location !66
+    DBG_INSTR_REF !48, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(1, 0), debug-location !66
+    %3:gr64 = XOR64rr %3, %0, implicit-def dead $eflags, debug-location !73
+    %2:gr64_with_sub_8bit = XOR64rr %2, %0, implicit-def dead $eflags, debug-location !73
+    %2:gr64_with_sub_8bit = SUB64rr %2, %0, implicit-def $eflags, debug-instr-number 2, debug-location !73
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(2, 0), debug-location !66
+    DBG_INSTR_REF !74, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(2, 0), debug-location !79
+    %3:gr64 = SBB64rr %3, %0, implicit-def dead $eflags, implicit killed $eflags, debug-instr-number 3, debug-location !73
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(3, 0), debug-location !66
+    DBG_INSTR_REF !74, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(3, 0), debug-location !79
+    ADJCALLSTACKDOWN64 0, 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !81
+    $rdi = COPY %2, debug-location !81
+    $rsi = COPY %3, debug-location !81
+    CALL64pcrel32 target-flags(x86-plt) @__clzti2, csr_64, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rsp, implicit-def $ssp, implicit-def $eax, debug-instr-number 21, debug-location !81
+    ADJCALLSTACKUP64 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !81
+    undef %81.sub_32bit:gr64_nosp = COPY killed $eax, debug-location !81
+    DBG_INSTR_REF !55, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_minus, DW_OP_stack_value), 128, dbg-instr-ref(21, 8), debug-location !66
+    DBG_INSTR_REF !57, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_minus, DW_OP_stack_value), 127, dbg-instr-ref(21, 8), debug-location !66
+    CMP32ri %81.sub_32bit, 103, implicit-def $eflags, debug-location !82
+    JCC_1 %bb.10, 15, implicit killed $eflags, debug-location !84
+    JMP_1 %bb.3, debug-location !84
+  
+  bb.3.if.then4.i:
+    successors: %bb.13(0x2aaaaaab), %bb.4(0x55555555)
+  
+    CMP32ri %81.sub_32bit, 102, implicit-def $eflags, debug-location !85
+    JCC_1 %bb.4, 5, implicit killed $eflags, debug-location !85
+  
+  bb.13:
+    successors: %bb.7(0x80000000)
+  
+    JMP_1 %bb.7, debug-location !85
+  
+  bb.4.if.then4.i:
+    successors: %bb.5(0x40000001), %bb.6(0x3fffffff)
+  
+    CMP32ri %81.sub_32bit, 103, implicit-def $eflags, debug-location !85
+    JCC_1 %bb.6, 5, implicit killed $eflags, debug-location !85
+    JMP_1 %bb.5, debug-location !85
+  
+  bb.5.if.then6.i:
+    successors: %bb.7(0x80000000)
+  
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(5, 0), debug-location !66
+    %2:gr64_with_sub_8bit = ADD64rr %2, %2, implicit-def dead $eflags, debug-instr-number 6, debug-location !88
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(6, 0), debug-location !66
+    JMP_1 %bb.7, debug-location !90
+  
+  bb.6.if.else9.i:
+    successors: %bb.7(0x80000000)
+  
+    %41:gr8 = MOV8ri 102, debug-location !94
+    %41:gr8 = SUB8rr %41, %81.sub_8bit, implicit-def dead $eflags, debug-location !94
+    %42:gr64 = COPY %2, debug-location !94
+    $cl = COPY %41, debug-location !94
+    %42:gr64 = SHRD64rrCL %42, %3, implicit-def dead $eflags, implicit $cl, debug-location !94
+    %45:gr64 = COPY %3, debug-location !94
+    $cl = COPY %41, debug-location !94
+    %45:gr64 = SHR64rCL %45, implicit-def dead $eflags, implicit $cl, debug-location !94
+    undef %46.sub_32bit:gr64_with_sub_8bit = MOV32r0 implicit-def dead $eflags
+    TEST8ri %41, 64, implicit-def $eflags, debug-location !94
+    %45:gr64 = CMOV64rr %45, %42, 4, implicit killed $eflags, debug-location !94
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(7, 0), debug-location !66
+    %80:gr32 = LEA64_32r %81, 1, $noreg, 26, $noreg, debug-location !96
+    $cl = COPY %80.sub_8bit, debug-location !98
+    %3:gr64 = SHLD64rrCL %3, %2, implicit-def dead $eflags, implicit $cl, debug-location !98
+    $cl = COPY %80.sub_8bit, debug-location !98
+    %2:gr64_with_sub_8bit = SHL64rCL %2, implicit-def dead $eflags, implicit $cl, debug-location !98
+    TEST8ri %80.sub_8bit, 64, implicit-def $eflags, debug-location !98
+    %3:gr64 = CMOV64rr %3, %2, 5, implicit $eflags, debug-location !98
+    %2:gr64_with_sub_8bit = CMOV64rr %2, %46, 5, implicit killed $eflags, debug-location !98
+    undef %7.sub_32bit:gr64_with_sub_8bit = MOV32r0 implicit-def dead $eflags, debug-location !98
+    dead %2:gr64_with_sub_8bit = OR64rr %2, %3, implicit-def $eflags, debug-location !98
+    %7.sub_8bit:gr64_with_sub_8bit = SETCCr 5, implicit killed $eflags, debug-location !98
+    %7:gr64_with_sub_8bit = OR64rr %7, %45, implicit-def dead $eflags, debug-instr-number 8, debug-location !100
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(8, 0), debug-location !66
+    %2:gr64_with_sub_8bit = COPY %7
+  
+  bb.7.if.end18.i:
+    successors: %bb.8(0x40000000), %bb.9(0x40000000)
+  
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(13, 0), debug-location !66
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(9, 0), debug-location !66
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(9, 0), debug-location !66
+    undef %60.sub_32bit:gr64_with_sub_8bit = COPY %2.sub_32bit, debug-location !101
+    %60.sub_32bit:gr64_with_sub_8bit = SHR32ri %60.sub_32bit, 2, implicit-def dead $eflags, debug-location !101
+    %60.sub_32bit:gr64_with_sub_8bit = AND32ri %60.sub_32bit, 1, implicit-def dead $eflags, debug-location !101
+    %60:gr64_with_sub_8bit = OR64rr %60, %2, implicit-def dead $eflags, debug-instr-number 10, debug-location !103
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(10, 0), debug-location !66
+    %60:gr64_with_sub_8bit = ADD64ri32 %60, 1, implicit-def dead $eflags, debug-instr-number 11, debug-location !104
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(11, 0), debug-location !66
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(12, 0), debug-location !66
+    DBG_VALUE $noreg, $noreg, !39, !DIExpression(), debug-location !66
+    TEST32ri %60.sub_32bit, 67108864, implicit-def $eflags, debug-location !106
+    JCC_1 %bb.9, 5, implicit killed $eflags, debug-location !108
+  
+  bb.8:
+    successors: %bb.11(0x80000000)
+  
+    %60:gr64_with_sub_8bit = SHR64ri %60, 2, implicit-def dead $eflags
+    %76:gr32 = MOV32ri 127
+    JMP_1 %bb.11, debug-location !108
+  
+  bb.9.if.then26.i:
+    successors: %bb.11(0x80000000)
+  
+    %60:gr64_with_sub_8bit = SHR64ri %60, 3, implicit-def dead $eflags, debug-location !109
+    DBG_VALUE $noreg, $noreg, !39, !DIExpression(), debug-location !66
+    DBG_INSTR_REF !57, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_minus, DW_OP_stack_value), 128, dbg-instr-ref(21, 8), debug-location !66
+    %76:gr32 = MOV32ri 128
+    JMP_1 %bb.11, debug-location !111
+  
+  bb.10.if.else30.i:
+    successors: %bb.11(0x80000000)
+  
+    %82:gr32 = LEA64_32r %81, 1, $noreg, -104, $noreg, debug-location !115
+    $cl = COPY %82.sub_8bit, debug-location !115
+    %2:gr64_with_sub_8bit = SHL64rCL %2, implicit-def dead $eflags, implicit $cl, debug-location !115
+    undef %60.sub_32bit:gr64_with_sub_8bit = MOV32r0 implicit-def dead $eflags, debug-location !115
+    TEST8ri %82.sub_8bit, 64, implicit-def $eflags, debug-location !115
+    %60:gr64_with_sub_8bit = CMOV64rr %60, %2, 4, implicit killed $eflags, debug-instr-number 4, debug-location !115
+    DBG_INSTR_REF !39, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(4, 0), debug-location !66
+    DBG_VALUE $noreg, $noreg, !39, !DIExpression(DW_OP_LLVM_fragment, 64, 64), debug-location !66
+    %76:gr32 = MOV32ri 127
+  
+  bb.11.if.end34.i:
+    successors: %bb.12(0x80000000)
+  
+    %76:gr32 = SUB32rr %76, %81.sub_32bit, implicit-def dead $eflags, debug-instr-number 14, debug-location !66
+    DBG_INSTR_REF !57, !DIExpression(DW_OP_LLVM_arg, 0), dbg-instr-ref(14, 0), debug-location !66
+    DBG_VALUE $noreg, $noreg, !39, !DIExpression(), debug-location !66
+    DBG_VALUE 32, $noreg, !58, !DIExpression(), debug-location !66
+    DBG_VALUE -2147483648, $noreg, !60, !DIExpression(), debug-location !66
+    DBG_VALUE 8, $noreg, !62, !DIExpression(), debug-location !66
+    DBG_VALUE 127, $noreg, !63, !DIExpression(), debug-location !66
+    DBG_VALUE 8388607, $noreg, !64, !DIExpression(), debug-location !66
+    %0.sub_32bit:gr64_with_sub_8bit = AND32ri %0.sub_32bit, -2147483648, implicit-def dead $eflags, debug-instr-number 17, debug-location !117
+    %76:gr32 = SHL32ri %76, 23, implicit-def dead $eflags, debug-location !118
+    %76:gr32 = ADD32ri %76, 1065353216, implicit-def dead $eflags, debug-instr-number 18, debug-location !118
+    %60.sub_32bit:gr64_with_sub_8bit = AND32ri %60.sub_32bit, 8388607, implicit-def dead $eflags, debug-instr-number 16, debug-location !119
+    %60.sub_32bit:gr64_with_sub_8bit = ADD32rr_DB %60.sub_32bit, %0.sub_32bit, implicit-def dead $eflags, debug-location !120
+    %60.sub_32bit:gr64_with_sub_8bit = OR32rr %60.sub_32bit, %76, implicit-def dead $eflags, debug-location !121
+    DBG_INSTR_REF !65, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_LLVM_arg, 2, DW_OP_or, DW_OP_or, DW_OP_stack_value), dbg-instr-ref(16, 0), dbg-instr-ref(17, 0), dbg-instr-ref(18, 0), debug-location !66
+    DBG_INSTR_REF !122, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_LLVM_arg, 2, DW_OP_or, DW_OP_or, DW_OP_stack_value), dbg-instr-ref(16, 0), dbg-instr-ref(17, 0), dbg-instr-ref(18, 0), debug-location !133
+    %78:fr32 = MOVDI2SSrr %60.sub_32bit, debug-instr-number 15, debug-location !135
+    DBG_INSTR_REF !131, !DIExpression(DW_OP_LLVM_arg, 0), dbg-instr-ref(15, 0), debug-location !133
+  
+  bb.12.__floatXiYf__.exit:
+    $xmm0 = COPY %78, debug-location !136
+    RET 0, killed $xmm0, debug-location !136
+...

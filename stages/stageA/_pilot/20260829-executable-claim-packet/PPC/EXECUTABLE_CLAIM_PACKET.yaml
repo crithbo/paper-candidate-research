@@ -1,0 +1,41 @@
+schema: executable-claim-packet-v1
+pilot_assignment: PILOT-PPC-20260829-EXECUTABLE-CLAIM-PACKET
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+packet_status: E1_STATIC_COMPILED__E2_ASSET_BIND_PENDING
+claim_visibility: NONE
+execution_performed: false
+scientific_invariants:
+  exact_object: PPC prefix-pressure same-function MIR materialization
+  atomic_action: same-function direct-PCREL load materialization with native PPC lowering
+  comparator_union: current LLVM greedy/PBQP × pcrel × peephole × lld-relax
+  metric_denominator: explicit command metrics, no performance fields visible in E0-E2
+  guarantee: no result-aware changes; natural/canonical inputs fixed before any run
+same_function_witness:
+  required_before_control_row: true
+  source: accepted r11 same-object redesign contract
+  status: STATIC_REQUIREMENT_ONLY
+natural_input_contract:
+  selected_inputs: 16
+  replay_count_per_input: 2
+  exact_input_manifest_required: true
+  current_asset_bind_status: MISSING_FROM_PILOT_ASSET_RECORD
+  no_input_substitution: true
+baseline_contract:
+  single_collector: true
+  collector_interface: assignment-local baseline_cost_collector.py invoking frozen _run_strong_baseline_grid
+  expected_metrics_per_input: 56
+  expected_bundles_per_input: 16
+  full_cost_union_per_row: 71
+  r10_invalid_denominator_reused: false
+asset_bind:
+  shared_asset_id: ASSET-LLVM-PPC-F127B4C
+  tool_record: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain/bin/llc.exe, sha256: 706EACEC5579CE3B1FD09AA57B0CCB0442B9B9182C4938081F033CC2A076A7CB}
+  source_record: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r10-natural-claim-execution-20260829/resources/src/natural_materializer/materializer_harness.py, sha256: C504250677F59E3B2EE2C054E51D160EE632D3E9E84688BA93C20C0236525C53}
+  missing_for_e2: [exact_16_input_manifest, ld.lld.exe, llvm-readobj.exe, llvm-objdump.exe]
+command_dag: COMMAND_DAG.json
+engineering_firewall:
+  visible_fields: [exit_code, required_outputs_present, schema_valid, missing_paths, version_or_hash_drift, timeout]
+  hidden_fields: [candidate_performance, baseline_performance, speedup, Pareto_result, relative_rank]
+  shared_rule_or_skill_install: false
+  natural_or_claim_execution: false
+stop_conditions: [asset_hash_or_path_drift, missing_input_hash, missing_tool, schema_failure, any_nonzero_exit, any_denominator_or_baseline_change]

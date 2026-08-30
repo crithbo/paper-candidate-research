@@ -1,0 +1,27 @@
+schema: user-continuous-pipeline-authorization-v1
+authorization_id: USER_CONTINUOUS_DISCOVERY_STAGEA_SOLHIGH_UNTIL_USAGE_RESET_20260830
+authorized_at: 2026-08-30T02:00:00+08:00
+source: current_user_command
+scope:
+  discovery: CONTINUOUS_CANONICAL_DISCOVERY_TO_STAGE0_TO_STAGEA
+  stagea: RESUME_APX_PPC_AND_RECONCILE_RVV_UNDER_NEW_PRODUCTION_RULE
+  stage0: ROUTE_ACCEPTED_CLEAN_BRIEFS_THROUGH_PRIMARY_AND_SENTRY
+temporary_model_override:
+  model: gpt-5.6-sol
+  thinking: high
+  applies_to: all_branch_assignments_and_followups_spawned_by_this_user_command
+  expires_on: next_user_command
+  future_commands_restore_rule_default_routing: true
+pause_supersession:
+  supersedes_for_scope: USER_PAUSE_STAGEA_FOR_CACHE_RULE_REVIEW_20260829
+  resumed_topics: [LLVM-APX-PREFIX-PRESSURE-PARETODP, LLVM-PPC-PREFIX-PRESSURE-PARETODP, LLVM-RVV-GROUP-MASK-SPILL-PARETODP]
+  remains_blocked: [CAUSECASE-PREFETCH-REV0_LINUX_CHAMPSIM]
+usage_reset_soft_pause:
+  automation_id: codex-8-30-11-00
+  signal: USAGE_RESET_CONFIRMED__SOFT_PAUSE_AFTER_CURRENT_ITEM__NO_NEW_DISCOVERY_WAVE
+  discovery_effect: finish_current_wave_then_no_successor
+  stage0_stagea_effect: finish_current_atomic_item_and_safe_handoff_then_no_successor
+  hard_interrupt_running_process: forbidden
+  current_cycle_confirmation: false
+  historical_2026_08_24_confirmation_does_not_apply: true
+not_authorized: [STAGEB, FORMAL_PROJECT, SYSTEM_INSTALL, WSL_OR_LINUX_ACTION, DRIVER_OR_ADMIN_ACTION, EXTERNAL_COMMUNICATION, PRIVATE_DATA_OR_LICENSE_EXPANSION]

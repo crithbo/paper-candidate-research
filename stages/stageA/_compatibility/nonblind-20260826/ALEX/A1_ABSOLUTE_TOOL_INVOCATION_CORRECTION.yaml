@@ -1,0 +1,17 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-ALEX-A1-ABSOLUTE-TOOLS
+parent_assignment: NONBLIND-STAGEA-20260826-ALEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: PORTABLE_TOOL_INVOCATION_BLOCKER.yaml, sha256: 7EA755C3CD8CA0E160722B55A5BCDE426222E55D6BFDB3D1D68D0E44CD90CB34}]
+only_change: absolute_assignment_local_clang_clangxx_ninja_invocation
+paths:
+  C: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\ALEX\resources\env\llvm-mingw-20260616-ucrt-x86_64\bin\clang.exe
+  CXX: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\ALEX\resources\env\llvm-mingw-20260616-ucrt-x86_64\bin\clang++.exe
+  NINJA: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\ALEX\resources\env\ninja-1.13.2\ninja.exe
+allowed_command_sequence:
+  - {id: A1S0, command: '& <absolute_clang> --version', stop_on_nonzero: true}
+  - {id: A1S1, command: '& <absolute_clangxx> --version', stop_on_nonzero: true}
+  - {id: A1S2, command: '& <absolute_ninja> --version', stop_on_nonzero: true}
+  - {id: A1S3, command: resume_author_preclaim_configure_build_once_with_explicit_absolute_tools, stop_on_nonzero: true}
+prohibitions: [redownload, reextract, alternate_toolchain, system_install, global_environment_change, source_edit, fidelity_or_probe_before_preclaim]
+scientific_revision_consumed: false

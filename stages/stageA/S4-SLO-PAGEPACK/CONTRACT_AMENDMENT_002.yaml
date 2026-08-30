@@ -1,0 +1,34 @@
+schema_version: stagea-pre-observation-contract-amendment-v1
+amendment_id: S4-SLO-PAGEPACK-PREOBS-NONVACUITY-002
+frozen_at: '2026-08-09T17:22:00+08:00'
+assignment_id: STAGEA-L1-20260809-S4-SLO-PAGEPACK-INITIAL
+parent_contract: EXPERIMENT_CONTRACT.yaml
+parent_contract_sha256: 16D52CFF36AEBD7B44742EED21BB9A0D059D08ACBE3F1A3DACDE2C8F7EA0AB23
+prior_amendment: CONTRACT_AMENDMENT_001.yaml
+prior_amendment_sha256: AC5E0D87F8A0BF7EA14D3610263575C4DBB91826DD38AE8B357FFC498482FD0E
+claim_bearing_observation_before_amendment: false
+scientific_revision_consumed: false
+mechanism_changed: false
+workload_or_trace_slice_changed: false
+evaluation_epoch_access_inspected_for_selection: false
+reason: >-
+  A causal boundary-only selection dry check showed that access-only ranks put
+  all twelve selected objects into one 4KiB page in each of the first two
+  reduced epochs. Such instances cannot exercise page packing and would make
+  the registered killer vacuous. No candidate, baseline, objective, feasibility,
+  or evaluation-epoch access result had been computed.
+binding_selection_replacement: >-
+  At each boundary, among live objects with footprint <= 2048 bytes and positive
+  previous-epoch accesses, sort first by previous access count and SHA-256(key)
+  and split into lower, middle, and upper access-count terciles. Within each
+  tercile, sort by footprint then SHA-256(key), and select the objects at the
+  four evenly spaced inclusive size ranks round(i*(m-1)/3), i=0..3. De-duplicate
+  by key and fill any shortage by increasing SHA-256(key) within that tercile.
+  This selects exactly twelve objects using boundary-available information only.
+registered_nonvacuity_dry_check:
+  evaluation_access_used: false
+  selected_object_count_each_epoch: 12
+  initial_next_fit_page_counts: [3, 2, 3]
+  total_selected_footprints_bytes: [7904, 7840, 7904]
+all_other_parent_contract_and_amendment_001_fields: unchanged
+

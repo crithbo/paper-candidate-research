@@ -1,0 +1,20 @@
+schema: mlperf-rank-validity-redesign1-canonical-claim-result-v1
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-METHOD-REDESIGN1
+topic_id: MLPERF-INFERRED-RANK-VALIDITY
+claim_ceiling: CANONICAL_MLPERF_BENCHMARK_VALIDITY_ONLY
+execution: {static_compile_attempts: 1, claim_processes: 1, retries: 0, network: 0, result_aware_filter_or_refit: false}
+denominator:
+  v5.1: {input_rows: 1448, edge_rows: 862, eligible_pairs: 0, inferred_without_measured: 536, measured_without_inferred: 326}
+  v6.0: {input_rows: 520, edge_rows: 55, eligible_pairs: 0, inferred_without_measured: 35, measured_without_inferred: 20}
+unit_fidelity: {edge_rows: 917, accepted: 917, rejected: 0, unit_mismatch: 0}
+formula_and_rank: {formula_error_pairs: 0, rank_strata: 0, legal_statistics_computed: false, reason: NO_EXACT_ELIGIBLE_PAIRS}
+full_cost: {cpu_seconds: 0.046875, child_wall_seconds: 0.053943899998557754, wrapper_wall_seconds: 0.3611839999939548, child_peak_working_set_bytes: 30593024, input_bytes: 3032470, output_bytes: 14771, network_bytes: 0}
+scientific_verdict_recommendation: BELOW_Q2_STOP__STRUCTURAL_PAIR_FEASIBILITY_FALSE
+reason: BOTH_PINNED_RELEASES_HAVE_ZERO_EXACT_MEASURED_INFERRED_PAIRS_AFTER_COMPLETE_VALID_UNIT_NORMALIZATION
+supported_claims:
+  - frozen_official_summary_carriers_do_not_support_the_preregistered_exact_measured_vs_inferred_pair_estimand
+  - formula_error_and_rank_validity_cannot_be_estimated_under_the_frozen_same_object_contract
+unsupported_claims: [formula_bias_direction, rank_correlation_value, rank_reversal_rate, natural_deployment_effect, StageA_PASS, StageB_readiness]
+formal_state_change_authority: MAINLINE_AND_INDEPENDENT_STAGEA_GATE_ONLY
+stageb_authorized: false
+next_action: INDEPENDENT_STAGEA_GATE

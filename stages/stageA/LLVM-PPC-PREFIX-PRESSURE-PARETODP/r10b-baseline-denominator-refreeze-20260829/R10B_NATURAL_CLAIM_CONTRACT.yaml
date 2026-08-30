@@ -1,0 +1,23 @@
+schema: ppc-r10b-natural-claim-contract-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10B-BASELINE-DENOMINATOR-REFREEZE
+mode: CONTRACT_REFREEZE_ONLY
+execution_performed: false
+sources:
+  existing_harness: {path: ../r10-natural-claim-execution-20260829/resources/src/natural_materializer/materializer_harness.py, sha256: C504250677F59E3B2EE2C054E51D160EE632D3E9E84688BA93C20C0236525C53}
+  invalid_r10_validation: {path: ../r10-natural-claim-execution-20260829/ROW_SUBCOMMAND_ORDER_VALIDATION.yaml, sha256: 453157C0A222CC87B5123A38C539C5529CB345A8DE281C9EBFB6D52D867B2217}
+frozen_natural_matrix:
+  selected_inputs: 16
+  functions: 16
+  replays_per_input: 2
+  future_processes: 32
+  preservation_requirement: exact_existing_selected_input_set_and_same_function_witness
+actual_existing_harness_cardinality_per_future_process:
+  same_function_candidate_replay: {all_metrics: 15, candidate_metrics: 9, direct_baseline_metrics: 6}
+  strong_baseline_grid: {compile: 8, link: 16, inspection: 32, metrics: 56, bundles: 16, graph_output: strong_baseline_dependency_graph.json}
+  required_full_cost_metric_denominator: 71
+contract_sufficiency: FAIL_CLOSED
+failure: "Existing run_full_cost does not aggregate the strong-baseline grid's 56 command metrics into its CPU/wall/RSS summaries; it only summarizes 9 candidate and 6 direct-baseline metrics."
+forbidden_remediation: [source_edit, new_aggregator_implementation, altered_cost_denominator, third_execution_patch]
+disposition: ABANDON_R10_ROUTE__RETURN_TO_STAGEA_SAME_OBJECT_EVALUATION_REDESIGN
+evidence_ceiling: NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: false

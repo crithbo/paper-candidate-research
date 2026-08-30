@@ -1,0 +1,69 @@
+schema_version: build-provenance-v1
+assignment_id: STAGEA-L1-20260825-LLVM-APX-RESUME2-E-ROOT-SELF-CONTAINED-BUILD
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+result: FAILED_RESOURCE_PLATFORM_PATH_LENGTH__NO_SCIENTIFIC_INFERENCE
+exact_source:
+  commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+  commit_metadata_sha256: 21813151E583064407035F9194C4E85A91ACC41776456803F2B85D8076415E6F
+  commit_verification: {verified: true, reason: valid}
+  archive_bytes: 278674752
+  archive_sha256: F90FFC22BF3B220B726C2E4D7953076520C4188ED4409213AFB9829B98254747
+  license: Apache-2.0 WITH LLVM-exception
+  regular_file_and_directory_size_closure: PASS
+  unrepresentable_exfat_symlinks: 19
+  missing_symlink_build_graph_references: 0
+critical_source_parity:
+  - {path: llvm/lib/Target/X86/X86CompressEVEX.cpp, bytes: 20877, sha256: C14BE28C53C01FD8A1ECB78DFCE5F5ADC7E0087AFB36DB07D2E72484ED6A8F44, archive_match: true}
+  - {path: llvm/lib/Target/X86/X86RegisterInfo.td, bytes: 36722, sha256: EE539479EB2E3E8B6E38167112DBBBD3584130B73F97581D37E19697F4738F44, archive_match: true}
+  - {path: llvm/test/MC/X86/apx/add-att.s, bytes: 15533, sha256: 627369D2B24D2A96CFD0BC8D5638F2215CA8F9A592B8502585D89C26AA33B4AF, archive_match: true}
+  - {path: llvm/test/CodeGen/X86/apx/add.ll, bytes: 49949, sha256: 957CE7DA0206D91867D7B282FBA01DA192FE3C870A36FE3D3268A839EFEDE7B9, archive_match: true}
+bootstrap_tools:
+  llvm_mingw_archive: {version: 20260616, bytes: 187504083, sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35}
+  clang: {version: 22.1.8, commit: ca7933e47d3a3451d81e72ac174dcb5aa28b59d1, target: x86_64-w64-windows-gnu, sha256: A8B7A614EEADD9105F814BE3701A7F312CDA4CEA51751B75B408C16100C94E85}
+  llvm_windres: {sha256: 255FC12528B80CADE02A4F8393065221DBD1F3A7FDF930A4E21C3076399750F5}
+  cmake: {version: 4.4.2, archive_sha256: C28388FE95298486169C45C0EC8BDF067AABCB59273B98A4CDAE8BE5CD9C74F3, executable_sha256: 414AD2A5DCABBB2A49BA1514E6651523865AE306B73A0E769F18E14CAB1570E8}
+  ninja: {version: 1.13.0.git.kitware.jobserver-pipe-1, archive_sha256: FB8EE8719F8AF47FED145CCED4A85F0755DD55D45B2BDDAF7431FA89803C5F3E, executable_sha256: CB4590BAD18F01607E819908D536FBA71AFBE36EB0F1D5A13C60D88D635CA959}
+  python_external: {version: 3.12.13, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA, disposition: EXTERNAL_SYSTEM_MANAGED}
+configure:
+  generator: Ninja
+  build_type: Release
+  assertions: true
+  targets_to_build: X86
+  enabled_projects: [clang]
+  include_tests: false
+  build_utils: true
+  include_utils: true
+  optional_dependencies_disabled: [zlib, zstd, libxml2, curl, httplib, libedit, terminfo, ffi, libpfm, dia_sdk]
+  configure_attempts: 1
+  corrected_reconfigure_attempts: 1
+  correction: NORMALIZE_CMAKE_TOOL_PATHS_TO_FORWARD_SLASH__NO_SOURCE_OR_SEMANTIC_CHANGE
+  cache_sha256: DD39189389041A0503F207B1083C3CA3484B77D2C439925A6DEC3D1810EA4323
+  build_ninja_sha256: 27E1455BFDEB23CC54A22164A0C7C3991CB4FBEBC52162BF043833FCA9779AFE
+  result: PASS
+build:
+  clean_build_ordinal: 1
+  jobs: 2
+  targets: [llc, llvm-mc, llvm-objdump, llvm-readobj, opt, FileCheck, clang]
+  started_at: 2026-08-25T14:07:52.5855399+08:00
+  ended_at: 2026-08-25T14:30:27.9734228+08:00
+  wall_seconds: 1355.388
+  exit_code: 1
+  last_progress: 2407/3156
+  decisive_error: 'ninja mkdir SharedLexicalRepresentation: No such file or directory'
+  failed_full_path_chars: 266
+  filesystem: exFAT
+  required_output_status:
+    llc.exe: MISSING
+    llvm-mc.exe: MISSING
+    llvm-objdump.exe: MISSING
+    llvm-readobj.exe: MISSING
+    opt.exe: MISSING
+    FileCheck.exe: MISSING
+    clang.exe: MISSING
+  non_deliverable_partial_bins: [clang-tblgen.exe, llvm-lit.cmd, llvm-lit.py, llvm-min-tblgen.exe, llvm-tblgen.exe]
+  retry_performed: false
+smokes:
+  version_and_registered_targets: NOT_RUN_REQUIRED_OUTPUTS_MISSING
+  apx_mc_roundtrip: NOT_RUN_REQUIRED_OUTPUTS_MISSING
+  tiny_mir_machineverifier: NOT_RUN_REQUIRED_OUTPUTS_MISSING
+scientific_or_claim_bearing_action_started: false

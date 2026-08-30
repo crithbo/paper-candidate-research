@@ -1,0 +1,148 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260830-SOURCE120-EXACT-CARRIER
+opportunity_family_id: OF-S120-S1-VHLO-SEMANTIC-COMPAT-01
+claim_pack_protocol_revision: OFF
+cutoff: 2026-08-30T00:00:00+08:00
+opportunity_family:
+  canonical_signature: "StableHLO portable-artifact compatibility; versioned VHLO compendium; executable semantic witnesses; specification-typed oracle; cross-version and cross-consumer compatibility decision"
+  relations:
+    - other_family_id: STABLEHLO-ISSUE-1245
+      relation: CONTAINS
+      evidence_ids: [SRC_COMPAT, SRC_1245]
+queries:
+  - query_id: Q001
+    text: "official StableHLO compatibility VHLO semantic reference interpreter tests"
+    purpose: current guarantee, suite, and planned action
+    source_or_search_engine: official-source web search/open
+    executed_at: 2026-08-30
+    filters: [official repository, current documentation]
+    read_depth: SECTIONS
+    key_result_ids: [C001, C002, C003]
+    exclusions_with_reasons: []
+    state_change: "generic interpreter-use action directly subtracted; residual narrowed to witness/oracle/consumer method"
+  - query_id: Q002
+    text: "official StableHLO interpreter checks exact tolerance specification"
+    purpose: oracle feasibility and semantic boundary
+    source_or_search_engine: official-source web search/open
+    executed_at: 2026-08-30
+    filters: [official repository, current documentation]
+    read_depth: SECTIONS
+    key_result_ids: [C004, C005]
+    exclusions_with_reasons: []
+    state_change: "finite fidelity route identified without executing it"
+  - query_id: Q003
+    text: "official ONNX and IREE conformance carriers contrary implementations"
+    purpose: alternate-carrier and direct-collision triage
+    source_or_search_engine: official-source web search/open
+    executed_at: 2026-08-30
+    filters: [official repository, current source]
+    read_depth: SOURCE
+    key_result_ids: [C006]
+    exclusions_with_reasons: ["single-backend support gaps do not independently form a Q2 contribution"]
+    state_change: "RQ04-RQ08 excluded or merged"
+sources:
+  - source_id: SRC_COMPAT
+    title_or_artifact: StableHLO Compatibility
+    canonical_version: main as observed 2026-08-30
+    locator: https://github.com/openxla/stablehlo/blob/main/docs/compatibility.md
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: FULL_TEXT
+    normalized_variants: []
+    repository_commit_config_or_dataset_hash: "current main; exact commit not exposed by web renderer"
+  - source_id: SRC_REFERENCE
+    title_or_artifact: StableHLO Interpreter Design
+    canonical_version: main as observed 2026-08-30
+    locator: https://github.com/openxla/stablehlo/blob/main/docs/reference.md
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SECTIONS
+    normalized_variants: []
+    repository_commit_config_or_dataset_hash: "current main; exact commit not exposed by web renderer"
+  - source_id: SRC_SPEC
+    title_or_artifact: StableHLO Specification
+    canonical_version: main as observed 2026-08-30
+    locator: https://github.com/openxla/stablehlo/blob/main/docs/spec.md
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SECTIONS
+    normalized_variants: []
+    repository_commit_config_or_dataset_hash: "current main; exact commit not exposed by web renderer"
+  - source_id: SRC_1245
+    title_or_artifact: "StableHLO issue #1245: Use the interpreter in stablehlo/testdata"
+    canonical_version: observed 2026-08-30
+    locator: https://github.com/openxla/stablehlo/issues/1245
+    source_role: CONTRARY
+    read_depth: SECTIONS
+    normalized_variants: []
+    repository_commit_config_or_dataset_hash: issue-1245
+claims:
+  - claim_id: C001
+    text: StableHLO compatibility promises same semantics for portable artifacts inside defined backward and forward windows.
+    priority: HIGH
+    priority_rationale: defines the exact decision endpoint
+    source_links:
+      - {source_id: SRC_COMPAT, relation: DIRECT, locator: "Guarantees", evidence_status: AUTHOR_CLAIM, conflict: "none", permitted_conclusion: "semantic compatibility is the native contract"}
+  - claim_id: C002
+    text: The current compatibility suite checks syntactic identity after versioned serialization/deserialization.
+    priority: HIGH
+    priority_rationale: establishes the exact current baseline
+    source_links:
+      - {source_id: SRC_COMPAT, relation: DIRECT, locator: "Tests", evidence_status: AUTHOR_CLAIM, conflict: "none", permitted_conclusion: "current documented suite is syntactic"}
+  - claim_id: C003
+    text: Using the reference interpreter in compatibility tests is already official future work.
+    priority: HIGH
+    priority_rationale: direct subtraction of the generic proposal
+    source_links:
+      - {source_id: SRC_COMPAT, relation: OPPOSE, locator: "Future work", evidence_status: AUTHOR_CLAIM, conflict: "generic candidate absorbed", permitted_conclusion: "interpreter use alone is not residual"}
+      - {source_id: SRC_1245, relation: OPPOSE, locator: "issue body", evidence_status: AUTHOR_CLAIM, conflict: "generic action named", permitted_conclusion: "must require a stricter contribution"}
+  - claim_id: C004
+    text: The official interpreter is designed as a specification-readable reference and exposes exact and tolerance-aware checks.
+    priority: HIGH
+    priority_rationale: bounds a finite pre-claim implementation route
+    source_links:
+      - {source_id: SRC_REFERENCE, relation: SUPPORT, locator: "Testing the StableHLO interpreter", evidence_status: AUTHOR_CLAIM, conflict: "none", permitted_conclusion: "oracle implementation is plausible, not yet validated"}
+  - claim_id: C005
+    text: Blanket numerical equality is not part of the compatibility guarantee for implementation-defined accuracy regions.
+    priority: HIGH
+    priority_rationale: requires typed oracle/exclusion classes
+    source_links:
+      - {source_id: SRC_COMPAT, relation: DIRECT, locator: "Out of scope / Numerical accuracy", evidence_status: AUTHOR_CLAIM, conflict: "none", permitted_conclusion: "candidate must not overclaim numeric equivalence"}
+      - {source_id: SRC_SPEC, relation: SUPPORT, locator: "operation semantics", evidence_status: AUTHOR_CLAIM, conflict: "op-specific regions remain", permitted_conclusion: "oracle must be spec-aware"}
+  - claim_id: C006
+    text: Other official conformance carriers already provide native node or comparative tests and do not establish this StableHLO versioned semantic-compatibility residual.
+    priority: MEDIUM
+    priority_rationale: excludes adjacent seeds without claiming global novelty
+    source_links:
+      - {source_id: SRC_COMPAT, relation: CARRIER, locator: "Tests", evidence_status: SYSTEM_INFERENCE, conflict: "independent literature audit open", permitted_conclusion: "retain only as methodological adjacency"}
+direct_coverage:
+  target_source_or_union: "StableHLO current compatibility documentation, VHLO suite, interpreter/spec, and issue #1245"
+  predicates:
+    same_object_function_protocol: PASS
+    same_scenario_workload: PASS
+    same_or_weaker_information: PASS
+    atomic_action_covered: UNKNOWN
+    same_or_stronger_legality_quality_guarantee: UNKNOWN
+    same_nonworse_full_cost: UNKNOWN
+    comparable_scale_platform_version_config: UNKNOWN
+    sufficient_read_or_reproduction_depth: UNKNOWN
+independent_prior_current_audit:
+  owner_or_lane: STAGE0
+  query_ids: []
+  completed: false
+stopping:
+  high_impact_items_bounded: true
+  latest_and_current_union_checked: true
+  first_party_depth_sufficient: true
+  heterogeneous_independent_path_complete: false
+  contrary_search_complete: true
+  natural_or_canonical_carrier_frozen: true
+  full_cost_frozen: true
+  marginal_sources_no_longer_decision_changing: true
+  decisive_contradictions_resolved_or_bounded: true
+  disposition: DECISION_READY
+execution_readiness:
+  state: E1
+  e1_evidence: [SRC_COMPAT, SRC_REFERENCE, SRC_SPEC]
+  e2_authorization_id: ""
+  e2_allowlist: {}
+  e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0
+  scientific_inference_permitted: false
+claim_ceiling: "Discovery-only proposal; no semantic divergence, coverage gain, or consumer failure has been observed"

@@ -1,0 +1,62 @@
+schema_version: discovery-r16a-replacement-handoff-v1
+assignment_id: DISCOVERY-S5-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+subtree: replacement-01
+completed_at: '2026-08-13'
+frozen_control:
+  master_sha256: 0F63DB562E04A3D90F3D058A070D271C9C707553E5A321F5DC35193D5671F471
+  control_manifest_sha256: 3681B20701DCEADE21761275135446C20E957913190FA4BCC984EE30CB120824
+  canonical_method: v8.7
+  claim_pack_mode: SHADOW
+prior_delivered_package:
+  state: EXCLUDED_REPEATED__R16A_DEDUP
+  action: PRESERVED_UNCHANGED
+  excluded_signatures: [Cargo, APT, ThinLTO, Conda]
+replacement_integrity:
+  target_unique_opportunity_families: 4
+  exact_predepth_dedup_scope: [plan.md, registry.yaml, history.md]
+  exact_predepth_dedup_result: no literal hit for the four replacement signatures
+  cross_lane_authority: MAINLINE
+  canonical_sealed_before_shadow: true
+  shadow_isolated_from_canonical: true
+  experiments_or_E2_run: false
+families:
+  - opportunity_family_id: R16A-S5-R01
+    signature: "Nix valid store paths; content-identical file hard-link coalescing; same paths; scan/hash/link/I-O/disk"
+    canonical_disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_ATOMIC_ACTION
+    shadow_disposition: C0_DIRECT_COVERED__STRUCTURAL_DROP
+    action_difference: "No residual: current nix-store optimise is the frozen whole action."
+    source_difference: "Shadow exposes direct-coverage predicates but adds no source."
+    full_cost: [scan, hash, link, store-I/O, disk]
+    leakage_check: PASS__CANONICAL_SEALED_BEFORE_SHADOW
+    stability: STABLE
+  - opportunity_family_id: R16A-S5-R02
+    signature: "Helm chart directory plus index.yaml; construct/merge stock-readable index; archive/index read-write/bytes"
+    canonical_disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_ATOMIC_ACTION
+    shadow_disposition: C0_DIRECT_COVERED__STRUCTURAL_DROP
+    action_difference: "No residual: helm repo index plus --merge/--url is the frozen union."
+    source_difference: "Shadow enumerates non-default union controls only."
+    full_cost: [archive-read, metadata-parse, index-read, index-write, bytes]
+    leakage_check: PASS__CANONICAL_SEALED_BEFORE_SHADOW
+    stability: STABLE
+  - opportunity_family_id: R16A-S5-R03
+    signature: "OCI manifest/blob graph; read-only mark-sweep unreachable blobs; scan/mark/delete/availability cost"
+    canonical_disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_ATOMIC_ACTION
+    shadow_disposition: C0_DIRECT_COVERED__STRUCTURAL_DROP
+    action_difference: "No residual: native registry garbage-collect is the complete frozen action."
+    source_difference: "Shadow makes the read-only availability predicate explicit."
+    full_cost: [manifest-scan, mark-set-memory, blob-scan, deletion, availability-interruption]
+    leakage_check: PASS__CANONICAL_SEALED_BEFORE_SHADOW
+    stability: STABLE
+  - opportunity_family_id: R16A-S5-R04
+    signature: "PyPA Simple API package metadata; valid HTML/JSON serialization; metadata/serialization/bytes/parse cost"
+    canonical_disposition: NOT_ADMITTED_UNFROZEN__CURRENT_CONSTRUCTOR_UNION_AND_WITNESS_UNCLOSED
+    shadow_disposition: CU_UNKNOWN__NON_ADMISSION
+    action_difference: "No complete current constructor union or legal two-action witness was closed."
+    source_difference: "Shadow separates specification facts from an unproven implementation gap."
+    full_cost: [metadata-extraction, serialization, served-bytes, client-parse]
+    leakage_check: PASS__CANONICAL_SEALED_BEFORE_SHADOW
+    stability: STABLE
+proposal_summary:
+  propose_stage0: []
+  reason: "Three exact actions are directly covered by current native unions; one remains honest UNFROZEN. No proposal quota was applied."
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

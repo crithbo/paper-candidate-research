@@ -1,0 +1,17 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S4-20260824-SOURCE113-SERVING-TRACE-CHARACTERIZATION-V1
+topic_id: SOURCE113-PORTFOLIO-S4
+lane_id: DISCOVERY_S4
+lane_mode: S4_OBJECTIVE_CONSTRAINT
+thread_id: 01a02e08-1606-71b0-89d9-3fc204478b08
+common_contract: stages/discovery/round-20260824-strategy-source113/control/CONTROL.yaml
+common_contract_sha256: 847C50788259B7A3B218F40705264CBBE704F592E300D427DB51A1020DB1A27A
+write_directory: stages/discovery/round-20260824-strategy-source113/S4-objective-constraint
+resource_root: stages/discovery/round-20260824-strategy-source113/S4-objective-constraint/resources
+focus: TRACE_REPLAY_BENCHMARK_RANKING_VALIDITY
+anchor_portfolio: [VIDUR_PUBLIC_RESULT_TRACE_ARTIFACT]
+mandatory_pre_rq_check: READ_ALL_PREDECESSOR_DENYLISTS_AND_SOURCE112_ADDENDUM
+forbidden_inputs: [GROUP_REPOSITORY, CRFEPOCH_STAGE0]
+model_route: {model: gpt-5.6-terra, reasoning: high}
+modes: {rq_frontend: PRODUCTION, claim_pack: OFF, quality: OFF, selective_depth: OFF}
+next_action_before_start: WRITE_BOOTSTRAP_ACK_AND_WAIT

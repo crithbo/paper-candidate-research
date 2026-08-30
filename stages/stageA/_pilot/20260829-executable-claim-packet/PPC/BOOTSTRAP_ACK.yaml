@@ -1,0 +1,25 @@
+schema: executable-claim-packet-pilot-bootstrap-ack-v1
+assignment_id: PILOT-PPC-20260829-EXECUTABLE-CLAIM-PACKET
+lane_id: CANDIDATE_EXECUTION_LANE_2
+role_id: CANDIDATE_OWNER
+stage: E0_ASSET_BIND
+context: {path: ASSIGNMENT_CONTEXT.yaml, sha256: 113B1FA29F345D77EC6D3B6FF8681B0164C78703EFFA993C6276F4F2EE9D04B3}
+frozen_control:
+  AGENTS_sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75
+  plan_sha256: CD95F566EA74BD8929937FACD6565ECBFFFEC9E9D4D828F2C44CDE6759CAD737
+  registry_sha256: BA2C080D857E6971003A6895EF22F3E20EFDEBB3142CB1D82310058AFA8FD2F8
+  pilot_contract_sha256: 23DF5A10EEA736E0E51FFD50C9EA241B70CE59EA4E2B8B0DFC80EEC74F017D64
+asset_binding:
+  asset_record: {path: projects/_assets/ASSET-LLVM-PPC-F127B4C/ASSET_RECORD.yaml, sha256: 586434BECDEF910AD7844B7041183E9FA01F5AE25D677223D6160AD717C42010}
+  tool: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain/bin/llc.exe, bytes: 68959744, sha256: 706EACEC5579CE3B1FD09AA57B0CCB0442B9B9182C4938081F033CC2A076A7CB, result: MATCH}
+  source: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r10-natural-claim-execution-20260829/resources/src/natural_materializer/materializer_harness.py, bytes: 89441, sha256: C504250677F59E3B2EE2C054E51D160EE632D3E9E84688BA93C20C0236525C53, result: MATCH}
+boundary:
+  unique_write_directory: stages/stageA/_pilot/20260829-executable-claim-packet/PPC
+  resource_root_absent: true
+  dual_read_registry_performed: true
+  E1_or_E2_started: false
+  resource_or_tool_or_claim_action_started: false
+  shared_rule_or_skill_install_started: false
+differences_or_ambiguities: []
+ack_disposition: READY
+next_action: WAIT_FOR_MAINLINE_E0_ACCEPTANCE

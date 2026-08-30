@@ -1,0 +1,13 @@
+# SOURCE / COLLISION MATRIX
+
+| Claim or boundary | First-party source | What it establishes | Counterevidence / status |
+|---|---|---|---|
+| DEX has aligned data and offset-addressed sections | [AOSP DEX format](https://source.android.com/docs/core/runtime/dex-format) | Data items have alignment/padding; version 041/container is distinct and experimental. | Does not license arbitrary table/index changes. |
+| ART has a real layout writer and semantic output check | [ART dexlayout source](https://android.googlesource.com/platform/art/%2B/303d8c2849/dexlayout/dexlayout.cc), [dexlayout current tree](https://android.googlesource.com/platform/art/+/refs/heads/main/dexlayout/) | Calls string/class-data/code layout, writes output, reopens with ART loader, checks IR contents while ignoring offsets. | Direct absorption of ordinary layout; candidate retains it as baseline. |
+| ART layout is profile-driven | [same dexlayout source](https://android.googlesource.com/platform/art/%2B/303d8c2849/dexlayout/dexlayout.cc) | Hot/startup/used/sometimes categories control current layout sorting. | The current policy might be configurable enough to reproduce a proposed action; Stage A must enumerate options. |
+| D8/R8 are current DEX producers | [AOSP R8 source tree](https://android.googlesource.com/platform/external/r8/+/refs/heads/main/), [R8 source package](https://android.googlesource.com/platform/external/r8/+/refs/heads/main/src/main/java/com/android/tools/r8) | D8 produces DEX; R8 produces optimized DEX. | All relevant command/config inputs belong in strongest union. |
+| ART execution/config alters baseline costs | [Configure ART](https://source.android.com/docs/core/runtime/configure) | compiler filters and dexpreopt/product/module switches are current official configuration. | Startup/read comparison without matching filter/product is invalid. |
+| Direct same-object layout subtractor | [Meta ReDex engineering report](https://engineering.fb.com/2016/04/12/android/open-sourcing-redex-making-android-apps-smaller-and-faster/) | Feedback-directed DEX class layout exists and reports startup motivation. | Not accepted as an absence proof; it is included in strong union and direct collision review. |
+| Fair same-information patcher | [RFC 3284 VCDIFF](https://www.rfc-editor.org/rfc/rfc3284) | Standard delta comparator for the same predecessor and current DEX. | Candidate must not be a delta wrapper; it jointly constructs the final legal DEX. |
+
+Source pin boundary: links point to official upstream current references available on 2026-08-11. Stage A must record the peeled ART/R8 commits, exact command help/options and nondefault settings; this brief does not assert any unverified implementation absence.

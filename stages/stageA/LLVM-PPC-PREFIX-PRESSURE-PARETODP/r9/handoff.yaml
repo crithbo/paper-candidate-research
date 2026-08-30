@@ -1,0 +1,148 @@
+schema: ppc-r9-same-function-materializer-a3-handoff-v1
+created_at: 2026-08-26T09:38:38.0350163+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+addendum_id: PPC-R9-A3-STRUCTURED-REPLAY-EQUALITY-AUDITOR
+decision: PASS_SAME_FUNCTION_MATERIALIZER_PRECLAIM_CONTROL_FIDELITY__READY_FOR_SEPARATE_R10_EXACT_CLAIM_ASSIGNMENT__NO_SELECTED_CORPUS_OR_SCIENTIFIC_INFERENCE
+evidence_ceiling: SAME_FUNCTION_INPUT_SPECIFIC_MATERIALIZER_FIDELITY_AND_R10_EXPANDED_PLAN_ONLY__NO_SELECTED_CORPUS_TOOL_OR_CLAIM_OBSERVATION
+preclaim_gate_ready: true
+
+ordered_gate:
+  K0_INPUT_ACCEPTANCE: REUSED_PASS_NO_RECOPY
+  K1_CONTROL_MIR_PROBES: REUSED_PASS_2_OF_2_NO_RERUN
+  A30_PRESERVE_A2_CANONICAL: PASS_BYTE_EXACT
+  A31_IMPLEMENT_STRUCTURED_AUDITOR: PASS_ONE_FILE_OF_TWO_MAX
+  A32_STATIC_COMPILE_AUDITOR: PASS_ONE_ATTEMPT
+  A33_SEVEN_VALIDATION_CONTROLS: PASS_7_OF_7
+  A34_RETAINED_REPLAY_STRUCTURED_AUDIT: PASS_DIFFERENCES_0
+  A35_K6_R10_32_PROCESS_PLAN: PASS_GENERATED_VALIDATED_NOT_EXECUTED
+  A36_RESEAL_CANONICAL_HANDOFF: COMPLETE
+
+A2_preservation:
+  handoff: {path: handoff.pass3_a26_equality_auditor_fail.yaml, sha256: 99DA9B2762AC5F7AA1C16578D37ADDDA93A130F5D0BD879610408379695EF991, byte_exact: true}
+  manifest: {path: HASH_MANIFEST.pass3_a26_equality_auditor_fail.sha256, sha256: ADE24570C8F4528721E59CC05A35C8A6E17A1F290AA638A5F6AFB1F172456F43, byte_exact: true}
+
+immutable_A2_replays:
+  replay_1: {root: resources/build/a2_replay_1, files: 54, logical_bytes: 323999, commands: 17, native_checks: PASS_7_OF_7, full_cost: PASS, deterministic_payload_file_sha256: 86D8D4DF7C92AE73C6CF2CBB58327F9CCABA0EC23AC78856A711696AC362A411}
+  replay_2: {root: resources/build/a2_replay_2, files: 54, logical_bytes: 324003, commands: 17, native_checks: PASS_7_OF_7, full_cost: PASS, deterministic_payload_file_sha256: 86D8D4DF7C92AE73C6CF2CBB58327F9CCABA0EC23AC78856A711696AC362A411}
+  manifest_validation: PASS_108_OF_108
+  modified_deleted_or_rerun_under_A3: false
+
+A31_A32_auditor_implementation:
+  root: resources/src/replay_equality_auditor
+  implementation_files: 1
+  maximum_files: 2
+  source: {path: resources/src/replay_equality_auditor/structured_replay_auditor.py, bytes: 30553, sha256: FD5C3E257AA6E29036A53DCE4737BC6005FCE5FAC549469613AFFE81F2C32F17}
+  modes: [audit, controls]
+  static_compile: {status: PASS_ONE_ATTEMPT, explicit_cfile: resources/cache/p/a3a.pyc, bytes: 33115, sha256: 1C3622A9EFC684ED0B83266CC6347A740D82B7250980CDE20180FA7CC65F69C7}
+  source_edits_after_first_A3_tool: 0
+  existing_source_files_modified: 0
+
+A33_validation_controls:
+  status: PASS_7_OF_7
+  summary: {path: resources/build/a3_auditor_controls/controls_summary.json, sha256: 89797092B0A30FFAC2B3849FFE360E38EDF4058609DC01706BC9CA13A11DCED0}
+  retained_pair: PASS
+  dynamic_only_mutation: PASS
+  deterministic_payload_mutation: EXPECTED_FAIL
+  one_core_raw_byte_mutation: EXPECTED_FAIL
+  native_checker_status_mutation: EXPECTED_FAIL
+  full_cost_deterministic_payload_mutation: EXPECTED_FAIL
+  command_exit_code_mutation: EXPECTED_FAIL
+  unexpected_results: 0
+
+A34_retained_structured_audit:
+  status: PASS
+  output: {path: resources/build/a3_retained_audit/audit_result.json, bytes: 47164, sha256: 43E16EFEB92F015DD8EDBA003534E0C2467AF7926D00A05E9F5D38F74A0EEEF0}
+  file_set: {left: 54, right: 54, relative_set_equal: true}
+  classification: {raw_byte_exact: 38, normalized_tool_text: 6, structured_json_or_jsonl: 10, union: 54, overlap: 0, core_raw: 12}
+  differences: 0
+  dynamic_telemetry_and_derived_exclusion_records: 204
+  frozen_dynamic_exclusions_only: true
+  new_tolerance_or_exclusion_added: false
+
+A35_r10_plan:
+  status: PASS_GENERATED_VALIDATED_NOT_EXECUTED
+  plan: {path: resources/build/a3_r10_plan/r10_process_plan.json, bytes: 2122078, sha256: 0D4B73BB594896D6B25793B3826BB4605561317CE3A92165C7BEF698AACA1DF5, canonical_sha256: A1E3D2BF3CD9C62D3F6F64A412080FF24831C3C7D143DD42CB4FCC1357925149}
+  validation: {path: resources/build/a3_r10_plan/r10_plan_validation.json, bytes: 285, sha256: B1D489B4C26A9C23D526AE79B0F7889E18B9418627766CEE78415D7C671C474A, status: PASS, failures: 0}
+  future_assignment_id: STAGEA-L2-20260826-LLVM-PPC-R10-EXACT-NATURAL-CLAIM
+  future_resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r10/resources
+  process_rows: 32
+  denominator: EXACT_16_SELECTED
+  reserve_rows: 0
+  compile_argv_per_row: 16
+  link_argv_per_row: 32
+  ablation_argv_per_row: 2
+  checker_rows: 32
+  full_cost_rows: 32
+  unresolved_variables_or_labels: 0
+  nonabsolute_paths: 0
+  future_resource_root_created: false
+  execution_performed: false
+  selected_or_reserve_tool_invocations_in_r9: 0
+  claim_runs_in_r9: 0
+
+execution_summary:
+  input_copy_attempts_cumulative: 3
+  synthetic_tool_command_records_cumulative: 78
+  synthetic_tool_command_records_max: 300
+  selected_or_reserve_corpus_tool_invocations: 0
+  claim_bearing_runs: 0
+  claim_bearing_observations: 0
+  network_bytes: 0
+  automatic_retries: 0
+  resource_files: 1114
+  resource_logical_bytes: 252896422
+  resource_directories_including_root: 267
+  resource_reparse_entries: 0
+  active_related_processes: 0
+  exact_assignment_cpu_seconds: UNAVAILABLE__NOT_ESTIMATED
+  exact_assignment_wall_seconds: UNAVAILABLE__NOT_ESTIMATED
+  r10_plan_rows: 32
+  r10_plan_executed: false
+  cleanup_performed: false
+
+scientific_boundary:
+  control_non_claim_only: true
+  scientific_revision_consumed: false
+  mechanism_pivot_consumed: false
+  state_transition_performed: false
+  stageb_action_performed: false
+  scientific_inference: NONE
+
+canonical_hashes:
+  A3_addendum_sha256: 2E19509E9B1F87DEB3A175EECDEA788B29C1DF26DB89BAD0A9F8D4E8E5E8A7ED
+  A3_ack_sha256: 030EA90D4FBD3438AD6E37567A28F0FEDD786EE10DEB3CA92F64B5F79FD645B0
+  A3_ack_acceptance_sha256: B06EEC3B901B09805DB0C76BBD08E2810D6C972FF6C59D5CCBBB49C3DDFECC3C
+  A3_start_sha256: E23766AA5A9E7B56E77FA1E4372FC4E2D3CF099E126041C541239165D4F51B54
+  A30_precommit_sha256: 0AF7847283FB4D628F4C73F23D07CEDFFBFD6AAB4791C6D8A061CB14A18C4F29
+  A30_audit_sha256: 5B6067231FEC2A476BD84A8F80E19ADB5E8223DF5504B49BFA1E3E584E747666
+  A31_precommit_sha256: 1F8362A2471187E46C935B359922987D4CAFEB2B6B4AF05CD10EFAEBD6C29A9D
+  A31_audit_sha256: 6C68E09B066B2D0BA91B2D52320DCCC30D5F8058705F4E604DEB899306D8615D
+  A32_precommit_sha256: 2B066900842D2596CA90B53001091D4D0CFC3D15F6DCB65BCE0B4B137F0AF3AB
+  A32_audit_sha256: 31D7F7778F899FEDE071E3C8480D704BC0B7BFC9229F85BD1BA2376F8A475B5C
+  A33_precommit_sha256: 43731632AC7817F33C907F7848FDB0D58D0BAC5A3AB78C9E27837F99140A1500
+  A33_audit_sha256: B1A7DB745E58C934D5834FF1AE0079D377D46C347F6E4D8967F5993833F9F71A
+  A34_precommit_sha256: 3A8732EAA6BA7A6B3D50B737ACC7A9021FAFD2C84B79CAE4CD70FD29B3E20D32
+  A34_audit_sha256: 589010D2B39717978835F05932A807C2675CE6EAE4728A44993C70E4C4E55742
+  A35_precommit_sha256: 92FAE1322DE6E0698B6C39DC1533BB4DCA3C06DDE3C01BCC366C92F6B4F86CD4
+  A35_audit_sha256: 5FDEE4B03657CB4075207DB70C220BB5A2181740F61A11C046C77EDCEDA90CF5
+  implementation_audit_sha256: 844E82D501B661FFD384CBE9E57878D5645291616970782BD0342D1FDA88F9AE
+  same_function_materializer_audit_sha256: 59E0DAEF3661745CD6D6F9C8D56918D34C7B63AA7DD45CFB9D7E73D325920047
+  input_specific_PPC_TPD_audit_sha256: 364B9071E2EE08BD2304855AD571597E258218DEC5DE3AC06AC51403400F1CB1
+  candidate_output_consumption_audit_sha256: 017FCAA8C1E04A9F21232B35B1C0C9DA51FA1BA7C886BA7B4CB5ADA8F8769EFD
+  real_full_cost_dependency_audit_sha256: 878FA269C81DB3800DEABD510F5EA9627EA2D6CC44EC3516601F7AE76D345764
+  synthetic_fidelity_smoke_sha256: 3DDC93D7633D59248A75A59A1B5BB3368FAE1E9A0E62E5CAF108D621D5C59BC7
+  r10_precommit_sha256: E12303D5C0D0F7D3DA237925C616D264474F84E538B8EB20C08BA2BA8630D9F7
+  reproducibility_report_sha256: 4289E7761BA2C1B6D50E22B91C69F69D223DA50B413626084F2B15D9ACB75200
+  preclaim_gate_sha256: CF39A74272A354EC33B6860CFC8B7F964AF94652DFA7B4B2746D5AE79BC8A0E5
+  resource_inventory_sha256: 3454302EE5682F9BB046AB4BA7ADA6F2A5E513CB0CD2C7A7156D68D72FA5520F
+  retention_sha256: A89F43359CFDD3586B8CBDD63B452739B237CF6107610073A5CC1D0B5A005D82
+  resume_capsule_sha256: DB07CB40879F995C6DF71C9C3ECB8BD5758FFEAA8A3B7653CA535D8E4DCA8AEE
+
+exact_cleanup_candidate_leaves: [resources/cache, resources/tmp, resources/downloads, resources/archives]
+owner_cleanup_allowed: false
+future_resume_requires_new_mainline_freeze: true
+scientific_revision_remains_unconsumed: true
+next_action: MAINLINE_ACCEPT_A3_PRECLAIM_HANDOFF_THEN_FREEZE_SEPARATE_R10_EXACT_NATURAL_CLAIM_ASSIGNMENT

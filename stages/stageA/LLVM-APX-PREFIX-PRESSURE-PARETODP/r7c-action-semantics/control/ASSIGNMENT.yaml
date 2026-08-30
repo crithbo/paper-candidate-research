@@ -1,0 +1,105 @@
+schema: apx-r7c-action-semantics-baseline-oracle-corpus-closure-v1
+created_at: 2026-08-26T16:27:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7C-ACTION-SEMANTICS-BASELINE-ORACLE-CORPUS-CLOSURE
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_3
+lane_thread_id: 01a034d0-d67f-7f32-ab5f-54454407cb22
+unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics
+resource_root: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/resources
+
+route:
+  source_gate_handoff_sha256: 1997923F7F30711018708BB383E29BAA93D0BF04DC8797759EA1CBBCC6B4AFDF
+  source_gate_manifest_sha256: 3DB766883506984F2A4586BD0FBFB1FFE690B4967025C885141BB457A86C9270
+  source_gate_acceptance_sha256: 97F7673273FF0213B16D9FD21F7D4A0051777CF38B2E81011A8BC6A662713660
+  route_id: APX_R7C_ACTION_SEMANTICS_BASELINE_PARSER_ORACLE_AND_CORPUS_ELIGIBILITY_CLOSURE_V1
+  blocker_class: SOFT_METHOD_BLOCKER
+  same_object_RQ_endpoint_guarantee_strong_baselines: unchanged
+  mechanism_pivot_budget: 1_OF_1_STAGEA
+  mechanism_pivot_consumption_event: FIRST_EXECUTION_OF_CHANGED_ACTION_HANDLERS_NATIVE_PARSER_OR_INDEPENDENT_ORACLE
+  scientific_revision_consumption: false
+
+same_topic_inputs:
+  source_resource_root: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7/resources
+  source_handoff_sha256: CE848F66230F11B0EB961FEE95502D8E387ACA26E9A4D5395F3536452486C512
+  source_manifest_sha256: 112B89E539E8F2EA922D690D02D1C2C60D66AEFFE80236916CF75DD445924DFF
+  allowed_copy_roots: [resources/env/apx-toolchain, resources/src/apx_tpd, resources/src/llvm_subset, resources/src/r6_harness, resources/logs/control/a2, resources/logs/corpus]
+  copy_attempts_max: 6
+  source_modify_or_delete_allowed: false
+
+implementation_scope:
+  existing_source_files_modify_max: 2
+  new_source_files_max: 5
+  total_source_files_max: 7
+  frozen_tiny_trace_object_change_allowed: false
+  source_freeze_before_first_changed_component_execution: true
+  required_components: [ACTION_SPECIFIC_TRANSITION_ENGINE, STRUCTURED_NATIVE_MIR_ACTION_COST_PARSER, SEMANTICALLY_INDEPENDENT_EXHAUSTIVE_MICRO_ORACLE, STATIC_APX_MACHINEIR_CORPUS_ELIGIBILITY_FREEZER, FULLY_RESOLVED_TYPE_SPECIFIC_R8_PLAN_GENERATOR]
+
+native_action_contract:
+  catalog_rows_expected: 14
+  each_row_requires: [UNIQUE_ACTION_ID, LLVM_SOURCE_ANCHOR, INPUT_STATE_FIELDS, LEGALITY_PREDICATE, EXECUTABLE_TRANSITION_HANDLER, COST_DELTA, OBLIGATION_DELTA, FAILURE_CASE]
+  every_catalog_action_must_be_exercised_by_preclaim_unit_row: true
+  unknown_or_unused_action: FAIL_CLOSED
+  generic_non_action_specific_state_transform: forbidden
+
+candidate_DP_contract:
+  decision_order: TRACE_ACTION_ORDER
+  state_signature: [BOUNDARY, SIGMA, LIVE_RANGES, SPILLS, SAVED_REGS, FRAME, CFI, FLAGS, RELOCATIONS, EGPR_MODE, DESTINATION_MODE, CALLEE_SCRATCH, ABI_OBLIGATIONS, FUTURE_ACTION_SIGNATURE, EXACT_COST_VECTOR]
+  transition: ACTION_ID_DISPATCH_TO_UNIQUE_HANDLER
+  recurrence: INITIALIZE__TRANSITION_EACH_ACTION__MERGE_ONLY_FUTURE_EQUIVALENT__PARETO_PRUNE__RECONSTRUCT_WITH_BACKPOINTERS
+  two_global_state_or_closed_form_proxy: forbidden
+  handler_coverage_receipt_required: true
+
+native_baseline_contract:
+  inputs: [CURRENT_LLVM_MIR, RELOCATION_TUNING_MIR]
+  structured_parser_must_extract: [INSTRUCTION_ACTIONS, OPERANDS, REGISTER_CLASSES, EGPR_AND_NDD_FORMS, SPILL_FRAME_CFI, FLAGS, RELOCATIONS, STATIC_BYTES_OR_AUDITABLE_SURROGATE]
+  action_or_cost_hardcoding: forbidden
+  current_and_tuning_arms_remain_separate: true
+  identical_MIR_interpretation: REAL_NULL_TUNING_RESULT
+  each_native_arm_consumed_by_checker_and_full_cost: true
+
+oracle_and_subtractor_contract:
+  labeled_DP: separate_state_label_semantics_required
+  generic_exact_subtractor: separate_generic_action_product_required
+  micro_oracle: EXHAUSTIVE_ENUMERATION_FROM_RAW_TINY_TRACE_SEMANTICS_WITHOUT_IMPORTING_CANDIDATE_HANDLER_ENUMERATOR_OR_PRUNER
+  unique_row_accounting: required
+  candidate_oracle_frontier_equality_on_tiny_trace: required
+  mutation_controls: [REMOVE_ACTION_HANDLER, SWAP_ACTION_HANDLER, HARDCODE_NATIVE_ACTION, HARDCODE_NATIVE_COST, SHARE_CANDIDATE_TRANSITION_WITH_ORACLE, DUPLICATE_OR_SKIP_ORACLE_ROW, COLLAPSE_CURRENT_AND_TUNING_ARM, MUTATE_COST_OR_OBLIGATION]
+
+corpus_eligibility_contract:
+  pre_result_static_only: true
+  eligible_row_requires: [EXACT_FILE_HASH, X86_64_TARGET, APX_OR_EGPR_RELEVANT_FEATURE_OR_INSTRUCTION_LOCUS, MACHINEIR_OR_REPRODUCIBLE_IR_TO_FROZEN_PASS_BOUNDARY_ROUTE, FROZEN_FUNCTION_OR_TEST_ID, SAME_PROGRAM_SEMANTICS_AND_ABI_SCOPE]
+  generic_x86_or_unproven_APX_eligibility: reject_before_selection
+  selector_forbidden_inputs: [CANDIDATE_RESULT, BASELINE_RESULT, TINY_ORACLE_RESULT, PERFORMANCE, TOOL_OUTPUT_ON_SELECTED_OR_RESERVE]
+  select_exact: 16
+  reserve_exact: 4
+  reserve_backfill: false
+  selected_or_reserve_tool_invocations: 0
+
+r8_plan_contract:
+  rows: 32
+  row_identity: 16_SELECTED_X_2_REPLAYS
+  reserve_rows: 0
+  each_row_requires: [ELIGIBILITY_RECEIPT_HASH, TYPE_OR_ACTION_ID, INPUT_PATH_AND_HASH, FUNCTION_OR_TEST_ID, CANDIDATE_ARGV, CURRENT_BASELINE_ARGV, TUNING_BASELINE_ARGV, LABELED_GENERIC_ORACLE_ARGV, CHECKER_ARGV, FULL_COST_ARGV, FRESH_OUTPUT_ROOT, REPLAY_ID]
+  unresolved_or_nonabsolute_paths: 0
+  execution_performed: false
+
+ordered_gate:
+  C0_COPY_AND_HASH_ACCEPT_REQUIRED_R7_ROOTS: PASS_REQUIRED
+  C1_IMPLEMENT_FREEZE_AND_STATIC_COMPILE: PASS_REQUIRED
+  C2_ACTION_HANDLER_COVERAGE_AND_MUTATION_CONTROLS: PASS_REQUIRED
+  C3_STRUCTURED_NATIVE_PARSER_AND_NULL_TUNING_RECEIPTS: PASS_REQUIRED
+  C4_CANDIDATE_LABELED_GENERIC_INDEPENDENT_ORACLE_TINY_GATE: PASS_REQUIRED
+  C5_STATIC_SAME_OBJECT_CORPUS_ELIGIBILITY_AND_16_PLUS_4_FREEZE: PASS_REQUIRED
+  C6_FULLY_RESOLVED_32_ROW_PLAN_NOT_EXECUTED: PASS_REQUIRED
+  C7_CANONICAL_PRECLAIM_RESEAL: PASS_REQUIRED
+
+limits: {network_bytes_max: 0, resource_root_logical_bytes_max: 1610612736, cpu_seconds_max: 21600, wall_seconds_max: 43200, max_parallel_processes: 2, input_copy_attempts_max: 6, existing_source_files_modify_max: 2, new_source_files_max: 5, control_tool_command_records_max: 300, selected_or_reserve_tool_invocations_max: 0, claim_bearing_runs_max: 0, automatic_retry: false}
+soft_blocker_recovery: {mode: SOFT_METHOD_BLOCKER_ONE_SAME_ID_MECHANISM_PIVOT, policy_path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, policy_sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74}
+resource_localization: {mode: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97, every_write_under_resource_root: true}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, post_close_retained_bytes_max: 805306368, cleanup_owner: MAINLINE, owner_cleanup_allowed: false, downstream_consumer: INDEPENDENT_PRECLAIM_GATE}
+forbidden_actions: [MODIFY_R7_OR_UPSTREAM, CHANGE_TINY_TRACE_OBJECT_RQ_ENDPOINT_GUARANTEE_OR_STRONG_BASELINES, HARDCODE_NATIVE_ACTION_OR_COST, SHARE_CANDIDATE_TRANSITION_LOGIC_WITH_MICRO_ORACLE, RESULT_AWARE_CORPUS_SELECTION, COMPILE_OR_INSPECT_SELECTED_OR_RESERVE, NATURAL_CLAIM_PERFORMANCE_SCIENTIFIC_REVISION_STATE_CLEANUP_OR_STAGEB, RETRY_OR_RESULT_BASED_EDIT]
+success_route: APX_R7C_PRECLAIM_FIDELITY_PASS__RETURN_INDEPENDENT_GATE
+failure_route: FAIL_CLOSED_APX_R7C_PRECLAIM__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+required_outputs: [BOOTSTRAP_ACK.yaml, SAME_TOPIC_INPUT_ACCEPTANCE.yaml, IMPLEMENTATION_FREEZE.yaml, ACTION_HANDLER_COVERAGE_AUDIT.yaml, NATIVE_BASELINE_PARSER_AUDIT.yaml, INDEPENDENT_MICRO_ORACLE_AUDIT.yaml, CORPUS_ELIGIBILITY_AND_FREEZE_AUDIT.yaml, R8_PLAN_VALIDATION.yaml, PRE_CLAIM_ACTUAL_APX_TPD_GATE.yaml, REPRODUCIBILITY_REPORT.yaml, RESOURCE_INVENTORY.yaml, PHASE_CLOSEOUT_RETENTION.yaml, RESUME_CAPSULE.yaml, handoff.yaml, HASH_MANIFEST.sha256]

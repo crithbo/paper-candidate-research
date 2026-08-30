@@ -1,0 +1,33 @@
+schema: stagea-natural-claim-start-v1
+assignment_id: STAGEA-L2-20260829-LLVM-APX-R9-NATURAL-CLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+model_route: gpt-5.6-terra
+thinking: high
+authority:
+  gate_report: {path: stages/stageA/_reviews/20260829-apx-r9-preclaim-fidelity/LLVM-APX-PREFIX-PRESSURE-PARETODP/INDEPENDENT_REVIEW_REPORT.md, sha256: C10A32BFDA007AA5EC47C8CF1A8B4C182E199659B8B051E46DF6C46BAF58DC5F}
+  packet: {path: APX_R9_EXECUTABLE_PACKET.yaml, sha256: E4DFAC313496C124CE1305CD718C39A12AB96811D9E8194703B99F1DC4E41B76}
+  dag: {path: APX_R9_COMMAND_DAG.json, sha256: 2D4351FD99101794A809122EB5A92521B74898FE117D2DB9859F0FB52C942EA7}
+  controller: {path: APX_R9_CONTROLLER.py, sha256: 25F643B96CF17F031FB6BE1D4CBC6C4F5B8A96CBEE79381EDA937FBCD769A469}
+  control_status: {path: resources/logs/control/APX-R8-S01-R1/CONTROL_STATUS.json, sha256: 4CFE4D2DE305E7DE8431D082B952990570775C900E613F615FAA42976BC29736}
+preclaim_preservation:
+  source: resources/logs/rows/APX-R8-S01-R1
+  destination: resources/logs/control/APX-R8-S01-R1/row_outputs_snapshot
+  action: COPY_EVERY_EXISTING_FILE_ONCE_WITH_RELATIVE_PATH_SIZE_SHA256_MANIFEST
+  manifest: CONTROL_ROW_SNAPSHOT_MANIFEST.yaml
+  overwrite: false
+  required_before_claim: true
+claim_command:
+  argv: [C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, -B, E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_CONTROLLER.py, --dag, E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_COMMAND_DAG.json, --output, E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/claim/controller]
+  cwd: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829
+  env: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONNOUSERSITE: '1'}
+  timeout_seconds: 14400
+  attempts_max: 1
+  automatic_retry: false
+frozen_denominator: {selected_inputs: 4, replays_each: 2, rows: 8, commands_per_row: 9, commands: 72, result_based_exclusion: false, reserve_backfill: false}
+required_outputs: [CONTROL_ROW_SNAPSHOT_MANIFEST.yaml, resources/logs/claim/controller/outer_full_cost_ledger.json, APX_R9_CLAIM_RESULT.yaml, STAGEA_REPORT.md, handoff.yaml, HASH_MANIFEST.sha256, RESOURCE_INVENTORY.yaml, PHASE_CLOSEOUT_RETENTION.yaml]
+claim_analysis:
+  allowed: [replay_determinism, action_coverage, candidate_labeled_generic_oracle_relation, native_current_tuning_separation, directional_full_cost, failure_regions, claim_ceiling]
+  forbidden: [change_inputs, drop_rows, backfill_reserve, change_baselines, change_denominator, change_metrics, post_result_code_change]
+first_failure_policy: FAIL_CLOSED__PRESERVE_RAW__NO_RETRY
+stageb: forbidden
+stop_after: OWNER_CLAIM_HANDOFF__WAIT_INDEPENDENT_STAGEA_GATE

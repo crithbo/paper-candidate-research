@@ -1,0 +1,37 @@
+assignment_id: DISCOVERY-S2-20260814-ADAPTIVE-SOURCE28-RQ-PRODUCTION-V1
+lane: S2_BOTTLENECK_TRANSFER
+write_directory: stages/discovery/round-20260814-adaptive-source28/S2-bottleneck-transfer
+method:
+  canonical: V8_7_POTENTIAL_READINESS_SEPARATED
+  discovery_rq_frontend_mode: PRODUCTION
+  rq_frontend_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+  discovery_claim_pack_mode: OFF
+result:
+  disposition: COMPLETE_ZERO_PROPOSALS
+  clean_stage0_briefs: 0
+  scientific_conclusion: 两条进入raw的跨层线均未形成可送Stage0的clean brief；一条为current-union/generic结构淘汰，另一条为有限source/action闭合不足。UPMEM仅定位，不作负推断。
+funnel:
+  offline_seeds: 6
+  rq_candidates: 3
+  evidence_qualified_raw: 2
+  locator_only: 1
+  C0: 2
+  deep: 2
+  briefs: 0
+families:
+  - signature: S2_ROCM_DME_LDS_COMPILER_JOINT_CONSTRUCTOR__FIXED_HIP_KERNEL_SEMANTICS
+    disposition: NOT_ADMITTED_UNFROZEN
+    reason: current compiler union and union-external atomic action were not frozen within the bounded source route
+  - signature: S2_SYCL_DEVICE_IMAGE_PARTITION_RUNTIME_METADATA__FIXED_PROGRAM_TARGET_SET
+    disposition: DROP
+    reason: documented split-mode/current metadata union absorbs target-specific residual; remainder is generic partitioning
+  - signature: S2_UPMEM_HOST_TRANSFER_DPU_TASKLET_CONSTRUCTOR__FIXED_DPU_PROGRAM
+    disposition: LOCATOR_ONLY
+    reason: version-pinned official current union is queued as one finite source closure item
+  - signature: S2_CUDA_TMA_DESCRIPTOR_LAYOUT__HOPPER_TENSOR_MAP
+    disposition: EXCLUDED_REPEAT
+  - signature: S2_LINUX_CXL_PAGE_TIERING_CONSTRUCTOR
+    disposition: EXCLUDED_CONTROLLER
+prohibited_actions_not_run: [experiment, benchmark, build, install, E2, Stage0_A_B, shared_control_write]
+canonical_manifest: HASH_MANIFEST.sha256
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

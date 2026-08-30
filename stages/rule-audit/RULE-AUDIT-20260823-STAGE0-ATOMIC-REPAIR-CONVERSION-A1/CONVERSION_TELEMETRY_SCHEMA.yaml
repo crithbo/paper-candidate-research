@@ -1,0 +1,168 @@
+schema_version: stage0-atomic-repair-conversion-telemetry-v1
+status: PROPOSAL_ONLY
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  audit_proposal_author: RULE_AUDIT_SENTRY
+  scientific_decision_authority: NONE
+
+mode:
+  field: STAGE0_ATOMIC_REPAIR_TRACE_MODE
+  allowed: [OFF, SHADOW, PRODUCTION]
+  proposed_initial: SHADOW
+  missing_defaults_to: OFF
+  shadow_changes_candidate_decisions: false
+  production_cutover_requires_independent_backtest: true
+
+repair_trace:
+  schema_version: atomic-repair-trace-v1
+  required_identity_fields:
+    - repair_id
+    - topic_id
+    - source_stage
+    - initial_review_assignment_id
+    - independent_confirmation_assignment_id
+    - rule_revision
+    - exact_object_digest
+    - primary_rq_digest
+    - claim_endpoint_digest
+  eligibility_predicates:
+    direct_fatal_absent: true
+    same_object_unchanged: true
+    primary_rq_unchanged: true
+    claim_endpoint_unchanged: true
+    one_falsifiable_atomic_gap: true
+    finite_closure_route: true
+    revision_budget_available: true
+    terminal_topic: false
+  required_patch_fields:
+    - initial_defect
+    - allowed_delta
+    - forbidden_delta
+    - author_claim
+    - changed_artifact_paths
+    - changed_artifact_sha256
+    - required_evidence_type
+    - evidence_paths_and_sha256
+    - falsifier
+    - claim_ceiling_after_patch
+    - full_cost_dimensions
+    - no_gain_and_failure_region
+  independence_fields:
+    - repair_participant_task_ids
+    - repair_participant_roles
+    - independent_closer_task_id
+    - closer_nonparticipation_attestation
+  verification_vocabulary:
+    - FULLY_ADDRESSED
+    - PARTIALLY_ADDRESSED
+    - NOT_ADDRESSED
+    - MADE_WORSE
+    - CANNOT_VERIFY
+
+cohort:
+  cohort_id_required: true
+  cutoff_required: true
+  denominator_definition: ALL_INDEPENDENTLY_CONFIRMED_STAGE0_REVISE_ONCE_CASES_AT_OR_BEFORE_FROZEN_CUTOFF
+  enter_denominator_once: AT_INDEPENDENT_STAGE0_CONFIRM_REVISE_ONCE
+  later_stage0_stop_or_hold_removes_from_denominator: false
+  direct_stage0_pass_enters_denominator: false
+  direct_fatal_or_object_change_enters_denominator: false
+  terminal_revival_allowed: false
+  legacy_missing_fields: LEGACY_PARTIAL
+
+outcome_states:
+  - STAGE0_REPAIR_NOT_STARTED
+  - STAGE0_REPAIR_EXECUTED
+  - STAGE0_CLOSING_PASS
+  - STAGE0_CLOSING_STOP
+  - STAGE0_CLOSING_HOLD
+  - STAGEA_NOT_STARTED
+  - STAGEA_RESOURCE_BLOCKED_NO_SCIENTIFIC_INFERENCE
+  - STAGEA_PRECLAIM_FIDELITY_PASS
+  - STAGEA_PRECLAIM_FIDELITY_FAIL_INVALIDATED_NON_EVIDENCE
+  - STAGEA_VALID_DECISIVE_OBSERVATION
+  - INDEPENDENT_STAGEA_GATE_PASS
+  - INDEPENDENT_STAGEA_GATE_STOP
+  - INDEPENDENT_STAGEA_GATE_HOLD
+  - HUMAN_RESEARCH_RESERVE
+  - NOT_YET_MATURE
+
+record:
+  required_fields:
+    - cohort_id
+    - cutoff
+    - repair_id
+    - topic_id
+    - stage0_confirmation_decision
+    - stage0_repair_execution_state
+    - stage0_closing_outcome
+    - stagea_start_state
+    - stagea_preclaim_fidelity_state
+    - valid_decisive_observation_state
+    - independent_stagea_gate_outcome
+    - resource_or_policy_censoring
+    - owner_self_decision
+    - full_cost_status
+    - evidence_ceiling
+    - current_maturity
+    - artifact_paths_and_sha256
+  resource_or_policy_censoring_allowed:
+    - NONE
+    - RESOURCE_BLOCKED_NO_SCIENTIFIC_INFERENCE
+    - POLICY_HOLD
+    - HUMAN_CORE_RESERVE
+    - INVALID_CONSTRUCT_NO_VALID_OBSERVATION
+  unobservable_value: NOT_YET_MEASURABLE
+  zero_imputation_for_missing_or_unmatured: forbidden
+  owner_self_pass_counts_as_independent_pass: false
+  resource_failure_counts_as_scientific_failure: false
+
+metrics:
+  primary:
+    name: independent_stagea_gate_pass_from_original_stage0_repair_cohort
+    numerator: count(independent_stagea_gate_outcome == INDEPENDENT_STAGEA_GATE_PASS)
+    denominator: count(all cohort records)
+    label: RAW_COHORT_CONVERSION_NOT_ACCEPTANCE_PROBABILITY
+  secondary:
+    name: valid_decisive_stagea_observation_from_original_stage0_repair_cohort
+    numerator: count(valid_decisive_observation_state == STAGEA_VALID_DECISIVE_OBSERVATION)
+    denominator: count(all cohort records)
+  matured_view:
+    denominator: count(records with independent gate PASS or STOP)
+    exclusions: [RESOURCE_BLOCKED_NO_SCIENTIFIC_INFERENCE, POLICY_HOLD, NOT_YET_MATURE]
+    label: DESCRIPTIVE_MATURED_SUBSET__SELECTION_BIASED
+  cost_fields:
+    - elapsed_wall_if_observable
+    - model_or_user_cost_if_observable
+    - stage0_repair_work_units
+    - stagea_work_units
+    - full_cost_collection_complete
+  causal_claim_allowed: false
+
+validation:
+  repair_id_unique: true
+  topic_enters_cohort_at_most_once_per_stage_revision: true
+  exact_object_digest_stable_across_trace: true
+  repair_participant_and_closer_sets_disjoint: true
+  all_positive_conversion_requires_independent_gate_pass: true
+  all_positive_conversion_requires_full_cost_status: COMPLETE_OR_DIRECTIONALLY_COMPLETE
+  historical_decision_rewrite_forbidden: true
+  terminal_state_rewrite_forbidden: true
+  any_unknown_preserved_as_not_yet_measurable: true
+
+reporting:
+  required_strata:
+    - stage0_closing_outcome
+    - stagea_preclaim_fidelity_state
+    - independent_stagea_gate_outcome
+    - resource_or_policy_censoring
+    - repair_vector_category
+    - contribution_type
+  minimum_sample_for_probability_language: NOT_DEFINED_BY_THIS_PROPOSAL
+  permitted_language: descriptive conversion rate with frozen denominator and censoring disclosure
+  forbidden_language:
+    - repair causally increases acceptance probability
+    - Stage0 pass equals paper acceptance
+    - missing or blocked equals failure
+

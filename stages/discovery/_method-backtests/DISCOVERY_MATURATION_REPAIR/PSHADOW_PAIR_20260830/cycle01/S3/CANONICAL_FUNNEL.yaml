@@ -1,0 +1,48 @@
+schema: discovery-canonical-funnel-v1
+assignment_id: DMR-V1-PSHADOW-CYCLE-01-S3
+lane_id: DISCOVERY_S3_NATURAL_STRUCTURE
+canonical_state_effect: NONE
+stage0_dispatch_effect: NONE
+source_budget:
+  max_search_or_open_calls: 6
+  calls_used: 4
+  source_roles:
+    ANCHOR: 2
+    CURRENT: 2
+    CONTRARY: 0
+    ESCAPE: 0
+funnel:
+  seed:
+    id: S3-SEED-01
+    status: NON_EVIDENCE
+    idea: Prompt-template fields and generation limits may expose a structured input factor that changes a Windows LLM execution-provider ranking.
+  rq_candidate:
+    id: S3-RQ-01
+    primary_rq: For the MLPerf Client Windows LLM scenario, can a frozen prompt-shape and cache-state estimand support a non-generic provider-selection or benchmark-validity claim?
+    stable_object: MLCommons MLPerf Client LLM scenario and its Windows execution-provider configurations.
+    immutable_guarantee: Same model/task semantics, fixed prompt/corpus denominator, and full provider/setup cost.
+    counterfactual: A benchmark user would choose a different Windows execution provider or qualify a provider ranking by a frozen prompt-structure class.
+  selected_locator:
+    id: S3-LOCATOR-01
+    exact_public_identity: mlcommons/mlperf_client v1.6.1 release family; current official repository documentation and schemas inspected.
+    carrier_kind: IMPLEMENTATION_CARRIER_ONLY
+    source_loci:
+      - https://github.com/mlcommons/mlperf_client
+      - https://github.com/mlcommons/mlperf_client/blob/main/docs/LLM_PROMPTS_GENERATION.md
+      - https://github.com/mlcommons/mlperf_client/blob/main/data/LLMInputSchema.json
+    current_facts:
+      - The project exposes Windows execution providers and configurable provider/device settings.
+      - Prompt templates carry structured system/user fields and context/max generation lengths.
+      - The LLM input schema includes prompt objects, model context length, generation controls, category, and chat-template behavior.
+    strongest_current_alternative: Existing configuration is already an explicit provider/configuration selection surface; a prompt-conditioned selection policy would be a generic wrapper unless a target-specific residual is established.
+  question_card:
+    raw_required_audit: INCOMPLETE
+    non_generic_discriminator: NOT_ESTABLISHED
+    direct_fatal: NONE_FOUND_WITHIN_BOUNDED_OFFICIAL_READ
+    finite_closure_route: A future assignment would need a frozen same-model/provider grid, a prompt-shape estimand, an observable ranking endpoint, and a non-generic action beyond provider selection.
+    full_cost_boundary: Prompt preparation, token/context length, provider/model stack, device selection, warm-up, and end-to-end benchmark cost.
+    disposition: LOCATOR_ONLY
+    reason_zh: 当前官方资料证明输入结构与 provider 配置都可观察，但未证明存在非通用的同对象动作、排名反转或不能被现有配置选择吸收的 residual。
+canonical_disposition: HONEST_ABSTENTION__LOCATOR_ONLY
+eligible_for_stage0: false
+scientific_or_resource_action_started: false

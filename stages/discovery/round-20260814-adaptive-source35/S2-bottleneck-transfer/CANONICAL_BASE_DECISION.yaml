@@ -1,0 +1,76 @@
+assignment_id: DISCOVERY-S2-20260814-ADAPTIVE-SOURCE35-BASE-RQ-NONPRODUCT-SHADOW-V1
+decision_kind: CANONICAL_BASE_DECISION
+method:
+  canonical: V8_7_POTENTIAL_READINESS_SEPARATED
+  rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  claim_pack: OFF
+  v9: OFF
+base_decision_immutable_after_sha256_record: true
+security_scope: EXCLUDED__NETWORK_SECURITY_VULNERABILITY_ATTACK_EXPLOIT_PROTOCOL_SECURITY
+base_funnel:
+  seeds_non_evidence:
+    - id: S35-01
+      engine: ADJACENT_POSSIBLE_OR_BOUNDARY
+      family: CUDA_VMM_FABRIC_HANDLE_MAPPING
+    - id: S35-02
+      engine: CONSTRAINT_MANIPULATION
+      family: TENSORRT_DYNAMIC_OUTPUT_ALLOCATION
+    - id: S35-03
+      engine: PROBLEM_REFRAMING
+      family: CUDA_UNIFIED_MEMORY_ACCESS_ADVICE
+    - id: S35-04
+      engine: BISOCIATION_STRUCTURAL_TRANSFER
+      family: XLA_BUFFER_DONATION_RUNTIME
+      disposition: RQ_BACKLOG__SOURCE_LOCUS_UNFROZEN
+    - id: S35-05
+      engine: JANUSIAN_TENSION
+      family: CHIPLET_RUNTIME_BUFFER_PLACEMENT
+      disposition: RQ_BACKLOG__PUBLIC_NATIVE_IDENTITY_UNFROZEN
+    - id: S35-06
+      engine: COMPOSE_DECOMPOSE_SIMPLIFY
+      family: NPU_COMMAND_BUFFER_MATERIALIZATION
+      disposition: RQ_BACKLOG__GENERIC_SCHEDULER_RISK
+  rq_selected_before_evidence:
+    - RQ-S35-01__CUDA_VMM_FABRIC_HANDLE_MAPPING
+    - RQ-S35-02__TENSORRT_DYNAMIC_OUTPUT_ALLOCATION
+    - RQ-S35-03__CUDA_UNIFIED_MEMORY_ACCESS_ADVICE
+  locators:
+    - id: QC-S35-01
+      exact_object: Fixed multi-GPU CUDA program with fixed virtual-address contract, allocation contents and kernel outputs.
+      current_source: https://docs.nvidia.com/cuda/cuda-programming-guide/04-special-topics/virtual-memory-management.html
+      current_source_date: 2026-08-14
+      base_disposition: EXCLUDED_BEFORE_RAW__CURRENT_NATIVE_VMM_ACTION_UNION
+      reason: >-
+        Current VMM already exposes reserve, physical allocation, map/unmap,
+        access rights, fabric-handle and alias actions. No target-specific
+        whole action or bounded guarantee beyond low-level API composition was frozen.
+    - id: QC-S35-02
+      exact_object: Fixed TensorRT engine, network semantics, input sequence, output tensors and dynamic-shape contract.
+      current_source: https://docs.nvidia.com/deeplearning/tensorrt/latest/inference-library/dynamic-shapes-basics.html
+      current_source_date: 2026-08-14
+      base_disposition: EXCLUDED_BEFORE_RAW__CURRENT_NATIVE_OUTPUT_ALLOCATOR_UNION
+      reason: >-
+        Current TensorRT documents shape inference, IOutputAllocator, preallocation,
+        growth/recycling strategies and current-pool behavior. The sketch is an
+        allocator strategy/configuration, not a frozen target-specific N2.
+    - id: QC-S35-03
+      exact_object: Fixed CUDA program, managed allocation contents, kernel output and CUDA memory-consistency contract.
+      current_source: https://docs.nvidia.com/cuda/cuda-programming-guide/04-special-topics/unified-memory.html
+      current_source_date: 2026-08-14
+      base_disposition: EXCLUDED_BEFORE_RAW__PLACEMENT_ADVICE_OR_RUNTIME_POLICY
+      reason: >-
+        The possible intervention is access/placement advice or runtime migration
+        policy. No non-configuration same-object algorithmic action/guarantee was frozen.
+counts:
+  seeds_non_evidence: 6
+  rq_selected: 3
+  rq_backlog: 3
+  question_cards: 3
+  evidence_qualified_raw: 0
+  c0_d1_deep: 0
+  clean_stage0_briefs: 0
+base_outcome: COMPLETE_ZERO_PROPOSALS
+base_conclusion_zh: >-
+  三个冻结 locator 都在 canonical current-union/generic-action 门前止步；没有
+  evidence-qualified raw、C0、deep 或 clean brief。此结论不依赖 shadow，也不把
+  缺实现、结果、资源或 AI readiness 作科学负推断。

@@ -1,0 +1,38 @@
+assignment_id: STAGE0-P1-20260814-RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP-PRIMARY-V8.7
+mode: PRIMARY
+topic_id: RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_QUEUED_AFTER_X86_STACKCLASH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source09-primary\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+quality_floor: TIER_B_Q2_VIABLE
+required_reads:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules\ROLE_STAGE0_REVIEW.md
+  - templates\STAGE0_REPORT.md
+  - templates\Q1_COMPARATOR_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source09\S2-bottleneck-transfer\TOPIC_BRIEF_RISCV_ZCMP_CALLEESAVE_PUSHLIST_PARETODP.md
+  - stages\discovery\round-20260814-adaptive-source09\S2-bottleneck-transfer\SOURCE_COLLISION_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source09\S2-bottleneck-transfer\DISCOVERY_LOG.md
+  - stages\discovery\round-20260814-adaptive-source09\S2-bottleneck-transfer\handoff.yaml
+input_hashes:
+  brief_sha256: 6B2030A5744AD06F89FF8AC7CE8D40306BF8DEEA4F0883EADE1BBE993A7959B2
+  source_collision_matrix_sha256: 384899B82FA6E6D7704056EE73A8AF4A3E40EFA773B680400C031227F6BDE096
+  discovery_log_sha256: 5F5053B944EA64762711BBB119ABA83139055EC709F956962958334349877300
+  discovery_handoff_sha256: 5B5725FC6EC679783F7921FC4F79010AFBE483A76890CB1BE0691AF22190E4ED
+  discovery_manifest_sha256: 58A3E40B3FB3F3552E66F23F5D40484826BA10E19F86368F46BDA3EFF352DEAB
+independent_attack_requirements:
+  - Pin current LLVM commit, RV32 or RV64 target, psABI, Zcmp feature flags, RA, frame lowering, callee-save selection, push-pop optimizer, unwind and assembler/linker union.
+  - Require one fixed MachineFunction with two complete stock-native legal plans preserving behavior, ABI and unwind while differing jointly in callee-save coloring, legal Zcmp register list/stack adjustment and spill realization.
+  - Reconstruct whether current RA/frame/Zcmp pass composition or exposed options already realize all proposed actions/frontier points.
+  - Attack target-specific bounded state and FPT/Pareto guarantee versus generic register allocation, frame packing or late peephole selection.
+  - Audit strongest paper/source collision, public compiler corpus, compile/code/frame/spill/prologue/runtime full cost and a finite Stage A killer.
+forbidden: [implementation, experiment, benchmark, source_build, system_install, stageA, stageB, shared_control_write]
+required_outputs: [STAGE0_REPORT.md, Q1_COMPARATOR_MATRIX.md, SOURCE_AUDIT.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,16 @@
+schema: mainline-static-packet-review-v1
+assignment_id: STAGEA-L1-20260829-LLVM-APX-R9-INTEGRATED-ROW-CONTROLLER-REDESIGN
+decision: REJECT_STATIC_PACKET__BOUNDED_CORRECTION_REQUIRED
+validated_hashes:
+  packet: 2ECBF14E8D95568E5B8795750714A3FCBE5B7D028613BA14F28F9B1DFC081473
+  dag: 4DF7999FADA84BCF9CE46881D9E1ECC4C7AAD2CAEF0A69D600977B32810848BE
+  controller: 1446CC757CB45155F1F085E3ABE512DA95B71F19ECEEE9F9AC85D8170031B8AC
+  validation: E3FA0592DDFF3CAE8B5FBF8AE46070B7B2D339F6B8525B400A69E036243F4A7D
+first_defect: COMMAND_DAG_CONTAINS_SYMBOLIC_ARGV_PLACEHOLDER
+defects:
+  - E2_CONTROL uses string FROZEN_PER_ROW_ARGV instead of a literal argv array
+  - APX_R9_CONTROLLER.py has no command table, subprocess execution, capture, timeout, metric or output validation implementation
+  - static validation claims literal argv and real process-cost closure despite the two defects above
+control_or_claim_authorized: false
+scientific_inference: NONE
+

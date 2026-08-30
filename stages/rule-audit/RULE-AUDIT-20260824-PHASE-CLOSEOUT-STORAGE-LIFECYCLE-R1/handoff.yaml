@@ -1,0 +1,48 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260824-PHASE-CLOSEOUT-STORAGE-LIFECYCLE-R1
+target: USER_POLICY_REVIEW
+status: COMPLETE_PROPOSAL_ONLY__AWAITING_USER_POLICY_DECISION
+decision_label: USER_POLICY_DECISION_REQUIRED
+secondary_label: PATCH_RECOMMENDED
+proposal_id: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+shared_files_modified: false
+candidate_or_scientific_states_modified: false
+files_deleted_moved_archived_or_compressed: false
+scientific_or_resource_action_started: false
+scientific_backtest_required: false
+destructive_dry_run_required: true
+
+current_rule_assessment:
+  resource_localization_and_cleanup_safety_present: true
+  mandatory_phase_closeout_retention_lifecycle_present: false
+  stop_retention_capsule_schema_present: false
+  handoff_cleanup_default: NOT_REQUESTED
+
+evidence:
+  accepted_cleanup_waves: 3
+  reclaimed_files: 917833
+  reclaimed_logical_bytes: 34933305880
+  scientific_state_changes_from_cleanup: 0
+  remaining_exact_duplicate_upper_bound_bytes: 1536805890
+
+recommendation:
+  install_new_authority: rules/ARTIFACT_LIFECYCLE.md
+  policy_bundle: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  stop_semantics: MINIMAL_TERMINAL_EVIDENCE_CAPSULE__NOT_REPORT_ONLY
+  scientific_state_and_artifact_state_separate: true
+  new_assignments_only_initial_cutover: true
+  legacy_migration_separate: true
+
+user_decisions_required:
+  - AUTOMATIC_DELETION_CLASSES
+  - DEFAULT_POST_CLOSE_RETAINED_BYTE_BUDGETS
+  - TERMINAL_CAPSULE_ARCHIVE_LOCATION
+  - GC_COMPLETION_BEFORE_LANE_REUSE_VS_BOUNDED_SLA
+  - LEGACY_MIGRATION_REMAINS_SEPARATE
+
+canonical_outputs:
+  report: {path: RULE_AUDIT_REPORT.md, sha256: D1904442DEDDABE26514C9F358039F9B79214F2D0481CA79E127BF854B17466E}
+  proposal: {path: RULE_CHANGE_PROPOSAL.md, sha256: F9E54BF7F599C4088BD1789FA0637CE7B7F9A2003A47E86B3CECC6AC6AE48F0E}
+  policy_draft: {path: STORAGE_LIFECYCLE_POLICY_DRAFT.md, sha256: 49116E076652012FE03DC8EBD32E49BD6EAFC56FAC49D7CB42CAAB394C52DAA6}
+  validation_plan: {path: VALIDATION_PLAN.yaml, sha256: 25BC941967764343E52A3BB3A3ADEB0C28CE8F9A609CAB68BF5BA9712CA43332}
+  manifest: HASH_MANIFEST.sha256

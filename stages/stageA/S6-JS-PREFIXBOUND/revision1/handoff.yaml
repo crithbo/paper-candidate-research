@@ -1,0 +1,182 @@
+schema_version: stagea-revision-handoff-v1
+topic_id: S6-JS-PREFIXBOUND
+source_stage: STAGEA_REVISION1
+proposed_next_stage: STAGEA_GATE_REVIEW
+revision_gate: CONTRACT_FAITHFUL_COSTED_NONVACUITY_GATE
+
+lane:
+  lane_id: CANDIDATE-EXECUTION-LANE-1
+  assignment_id: STAGEA-L1-20260809-S6-JS-PREFIXBOUND-R1
+  write_directory: stages\stageA\S6-JS-PREFIXBOUND\revision1
+  cross_assignment_contamination: false
+  no_preread_of_next_assignment: true
+  suggested_state_after_mainline_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE
+
+input_freeze:
+  initial_handoff_sha256: 7E5F1C6B76714F3817DD348B1C57A70D6EFFCF9E9EC795E5D6F242E3FE7404F8
+  gate_handoff_sha256: 9C43D3BF0C652BAE44A1B1D7C0B8D1B4C37BC4D98E5F772E00C64496B2D6A654
+  revision_contract_sha256: 3F0C3E5C169060E3B3CCD1281972141F93E6A78894E670CF0287B23741310EBD
+  job_4a_sha256: C80E515F37A633ADCA3AB45BBD5CBA20E760C80A71D7841B51E64154B1008065
+  job_4a_bytes: 450
+
+decision: PASS_RECOMMENDED
+decision_scope: RETURN_TO_INDEPENDENT_STAGEA_GATE_ONLY
+quality_tier: TIER_A_Q1_POTENTIAL
+quality_tier_qualification: HIGHLY_CONDITIONAL_ON_UNBOUNDED_COMPACT_CHARACTERIZATION_CHEAP_BOUND_DPOMEGA_FIDELITY_AND_NATURAL_FULL_COST
+stagea_probe_support: PRELIMINARY_SUPPORT
+evidence_ceiling: FINITE_CONTRACT_FAITHFUL_COSTED_NONVACUITY_WITH_NATURAL_STRUCTURE_ONLY
+novelty_route: N2
+
+same_object:
+  status: PASS_FOR_FROZEN_FINITE_RESTRICTION
+  object_changed: false
+  workload_changed: false
+  ndv_contract_fidelity: PASS
+  formal_instance_count: 19440
+  natural_probe: JOB_4A_STRUCTURE_ONLY
+
+correctness:
+  full_vector_optimum_mismatches: 0
+  compact_optimum_mismatches: 0
+  compact_equivalence_mismatches: 0
+  future_equivalence_counterexamples: 0
+  bound_checks: 404479
+  bound_overestimates: 0
+
+costed_nonvacuity:
+  exact_states: 404479
+  full_vector_states: 389774
+  compact_states: 389774
+  exact_transitions: 877024
+  full_vector_transitions: 873661
+  compact_transitions: 873661
+  exact_retained_payload_bytes: 20929349
+  full_vector_retained_payload_bytes: 53678883
+  compact_retained_payload_bytes: 20327780
+  full_vector_work_residual_units: -63498387
+  full_vector_retained_residual_bytes: -32749534
+  full_vector_absorbed: true
+  compact_pivot_triggered: true
+  compact_pivot_attempts: 1
+  compact_work_residual_units: -64616558
+  compact_retained_residual_bytes: 601569
+  compact_retained_residual_fraction: 0.0287428433631643
+  positive_deterministic_local_residual: true
+  selected_representation: COMPACT_EQUIVALENT_CLASS_ID_ARRAY
+  optimizer_speedup_supported: false
+  logical_work_reduction_supported: false
+  persistent_payload_reduction_supported: true
+
+bound_oracle:
+  used_for_pruning: false
+  evaluations: 404479
+  completion_oracle_calls: 808958
+  oracle_transitions: 10291832
+  logical_work_total: 58192861
+  cheap_or_useful_bound_supported: false
+
+natural_structure_result:
+  job_4a_exact_states: 29
+  job_4a_compact_states: 24
+  job_4a_exact_transitions: 44
+  job_4a_compact_transitions: 41
+  exact_compact_optimum_identical: true
+  claim_limit: NATURAL_GRAPH_AND_EQUIVALENCE_STRUCTURE_ONLY_NOT_PERFORMANCE
+
+reproducibility:
+  primary_completed: true
+  replay_completed: true
+  all_nonvolatile_fields_exact_match: true
+  validator_removed_entire_full_cost_object: false
+  ignored_fields_only:
+    - phase_costs.*.wall_time_seconds
+    - phase_costs.*.process_cpu_time_seconds
+    - phase_costs.*.peak_incremental_tracemalloc_bytes
+    - total_wall_time_seconds
+    - total_process_cpu_time_seconds
+    - overall_peak_tracemalloc_bytes
+  network_used_during_probe: false
+  gpu_used: false
+
+q1_calibration:
+  status: PARITY_CONDITIONAL_WITH_EXECUTABLE_GAP
+  collision_status: SEARCH_BOUNDED_OPEN_WITH_DIRECT_SUBTRACT
+  comparator: REVISION_Q1_COMPARATOR_MATRIX.md
+  core_open_gaps:
+    - UNBOUNDED_EQUIVALENCE_AND_ADMISSIBILITY_THEOREM
+    - COMPACT_CHARACTERIZATION_WITHOUT_FULL_VECTOR_CONSTRUCTION
+    - CHEAP_BOUND_WITH_MEASURED_SEARCH_VALUE
+    - DPOMEGA_EXECUTABLE_FIDELITY
+    - NATURAL_CARDINALITY_AND_MULTI_WORKLOAD_FULL_COST
+    - SCALE_TOPOLOGY_AND_FAILURE_BOUNDARY
+    - LATEST_COLLISION_CLOSURE
+
+claim_ceiling:
+  supported:
+    - FROZEN_NDV_FINITE_OPTIMUM_PRESERVATION
+    - COMPACT_REPRODUCES_FULL_VECTOR_EQUIVALENCE_IN_ENUMERATED_SCOPE
+    - ZERO_ENUMERATED_BOUND_OVERESTIMATES
+    - SMALL_POSITIVE_CANONICAL_PERSISTENT_PAYLOAD_RESIDUAL
+    - JOB_4A_NATURAL_STRUCTURE_STATE_RESIDUAL
+  unsupported:
+    - OPTIMIZER_SPEEDUP
+    - LOGICAL_WORK_REDUCTION
+    - PROCESS_RSS_REDUCTION
+    - CHEAP_OR_USEFUL_PRUNING_BOUND
+    - DPOMEGA_EXECUTABLE_FIDELITY
+    - NATURAL_COST_OR_DBMS_PERFORMANCE
+    - UNBOUNDED_THEOREM
+    - GLOBAL_NOVELTY
+
+revision_usage:
+  stagea_revision_consumed: true
+  mechanism_pivot_used: true
+  mechanism_pivot_remaining: 0
+  additional_stagea_revision_allowed: false
+
+resource_status:
+  blocked_user_action_required: false
+  network_required_for_completion: false
+  blocker: null
+
+authorization:
+  pending_user_stageb_review: false
+  stageb_user_approval_id: null
+  stageb_authorized: false
+  formal_large_scale_experiment_authorized: false
+  execution_authority: STAGEA_REVISION_COMPLETE__INDEPENDENT_GATE_REREVIEW_REQUIRED__STAGEB_FORBIDDEN
+
+outputs:
+  revision_stagea_report:
+    path: REVISION_STAGEA_REPORT.md
+    sha256: B004AD1555B2CC343F4DC02827D38D46E2F0A793C79F45ABC80450474141F489
+  revision_results:
+    path: REVISION_RESULTS.md
+    sha256: C05E12CEF07F5A06F2502DD88D2A4D7935916B1D84BEA13B2DDD498DC2B8EDF7
+  revision_q1_comparator:
+    path: REVISION_Q1_COMPARATOR_MATRIX.md
+    sha256: 16B6753798F600AA76D823619642223D18B797441BD5C16D4EF0A0061A80C687
+  revision_user_review_packet:
+    path: REVISION_USER_REVIEW_PACKET.md
+    sha256: 8DF36B8A97F85F2A887E0FB9CD7839BBEE80E3AC4CF4FD3B6AB8C2C34821EA05
+  revision_command_log:
+    path: REVISION_COMMAND_LOG.md
+    sha256: EAE90ABD44A253DACB1D442824795B7B4EF6DA756AD289F898BD84B48B2B2F20
+  primary_result:
+    path: artifacts\revision_primary.json
+    sha256: 5C926FF2B2FC0650A7E42D67ED158163DAFFADD249692A306CE1145ED4F3103D
+  replay_result:
+    path: artifacts\revision_replay.json
+    sha256: EBEFF5CDFF9AFCC96CDADB0E08290F5D3E2FEBC405F7C5B2A37009CF8656D709
+  replay_validation:
+    path: artifacts\replay_validation.json
+    sha256: 2B85348D42864E08EF1C0EE3A2E8BDD26E4F55077C808955B62351989E07C28E
+  hash_manifest: HASH_MANIFEST.sha256
+
+mainline_action_requested:
+  - MECHANICALLY_VERIFY_HASH_MANIFEST
+  - ACCEPT_LANE_HANDOFF
+  - SET_LANE_IDLE_REUSABLE_AFTER_ACCEPTANCE
+  - DISPATCH_FROZEN_REVISION_TO_INDEPENDENT_STAGEA_GATE
+  - DO_NOT_SET_PENDING_user_stageb_review_BEFORE_GATE_PASS
+  - KEEP_stageb_user_approval_id_NULL

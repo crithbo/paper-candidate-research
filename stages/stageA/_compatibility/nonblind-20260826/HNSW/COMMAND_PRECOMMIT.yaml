@@ -1,0 +1,22 @@
+schema: nonblind-stagea-compatibility-command-precommit-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW
+mode: NONBLIND_STAGEA_COMPATIBILITY
+start_authorization_path: MAINLINE_START_AUTHORIZATION.yaml
+start_authorization_sha256: 14B8C8E948915AF23F3A2EB0D803FE1E025048F9F0379BDAB11734533111C695
+author_artifact: nmslib/hnswlib
+commit: d9b3608c83d83b46c96e25088cb1d729b29dcfe9
+archive_url: https://codeload.github.com/nmslib/hnswlib/tar.gz/d9b3608c83d83b46c96e25088cb1d729b29dcfe9
+ordered_commands: [S0_CMAKE_VERSION, S1_TAR_VERSION, S2_SINGLE_CODELOAD_DOWNLOAD, S3_ARCHIVE_SHA256_BEFORE_EXTRACTION, S4_TAR_EXTRACTION, S5_CMAKE_CONFIGURE, S6_CMAKE_BUILD_TEST_UPDATES, S7_AUTHOR_UPDATE_TEST]
+download_attempts_max: 1
+redirects_allowed: 0
+build_wall_seconds_max: 7200
+single_probe_wall_seconds_max: 21600
+resource_root_bytes_max: 1000000000
+process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, CMAKE_BUILD_PARALLEL_LEVEL: 2}
+no_retry: true
+no_alternate_artifact: true
+author_artifact_replay_only: true
+production_candidate_registration: false
+production_state_transition: false
+stageB: false
+gold_or_blind_input_read: false

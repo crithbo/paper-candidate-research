@@ -1,0 +1,57 @@
+schema: apx-r9-executable-claim-packet-v2
+assignment_id: STAGEA-L1-20260829-LLVM-APX-R9-INTEGRATED-ROW-CONTROLLER-REDESIGN
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+status: STATIC_PACKET_ONLY__NO_EXECUTION
+asset_id: ASSET-LLVM-APX-A1194BE1
+claim_ready: false
+identity_preserved: [exact_object, atomic_action, claim_endpoint, guarantee, selected_rows, baselines, natural_denominator]
+selected_inputs: [S01, S02, S03, S04]
+selected_ids: [S01, S02, S03, S04]
+replay_count: 2
+replays: [1, 2]
+selected_count: 4
+row_count: 8
+commands_per_row: 9
+command_count: 72
+command_order: [prepare_same_object_trace, llvm_current_complete, llvm_finite_tuning_grid, orbit_candidate, labeled_pareto_dp, generic_exact_subtractor, independent_micro_oracle, checker, full_cost]
+placeholder_count: 0
+pilot_rows: 4
+reserve_rows_max: 2
+baseline_union: [llvm_current, llvm_finite_tuning, generic_exact_subtractor, independent_micro_oracle]
+full_cost_fields: [cpu_seconds, wall_seconds, peak_rss_bytes, input_bytes, output_bytes, exit_code, persisted_bytes, timeout, version_or_hash_drift]
+control_effects_hidden: true
+result_based_exclusion: false
+source_plan:
+  path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/REBOUND_R8_COMMAND_PLAN.yaml
+  sha256: A2734145DF704EC9BBD6DFA36E7906B089FB86B7D758F96694D9E1704B646B32
+mechanical_substitutions:
+  - old: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources
+    new: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources
+    count: 376
+  - old: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/env/apx-toolchain/bin/llc.exe
+    new: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a4-explicit-resource-copy-20260829/resources/env/apx-toolchain/bin/llc.exe
+    count: 24
+artifacts:
+  command_dag:
+    path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_COMMAND_DAG.json
+    sha256: 2D4351FD99101794A809122EB5A92521B74898FE117D2DB9859F0FB52C942EA7
+  controller:
+    path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_CONTROLLER.py
+    sha256: 25F643B96CF17F031FB6BE1D4CBC6C4F5B8A96CBEE79381EDA937FBCD769A469
+  copy_manifest:
+    path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/EXACT_RESOURCE_COPY_MANIFEST.yaml
+    sha256: E42F754F779DD490AFF4BC1E916B0B9C861F9B80668FA70CA531557662A5CE0C
+controller_contract:
+  dag_loaded_at_runtime: true
+  serial_rows: true
+  serial_commands: true
+  shell: false
+  first_failure_stop: true
+  capture: [stdout, stderr]
+  measured_cost_source: [process, filesystem]
+  windows_child_peak_rss: true
+  output_schema_validation: true
+  outer_full_cost_ledger: true
+  future_runner_strings_measured: false
+execution_performed: false
+scientific_inference: NONE

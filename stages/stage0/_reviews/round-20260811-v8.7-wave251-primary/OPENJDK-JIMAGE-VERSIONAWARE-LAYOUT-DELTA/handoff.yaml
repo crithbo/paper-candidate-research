@@ -1,0 +1,95 @@
+schema_version: stage0-handoff-v8.7
+assignment_id: STAGE0-P1-20260811-OPENJDK-JIMAGE-VERSIONAWARE-LAYOUT-DELTA-PRIMARY-V8.7
+topic_id: OPENJDK-JIMAGE-VERSIONAWARE-LAYOUT-DELTA
+lane_id: STAGE0-BATCH-GATE-PRIMARY
+mode: PRIMARY
+decision: STOP
+quality_tier: BELOW_Q2_STOP
+confidence: 0.93
+confirmation_status: NOT_REQUIRED__NON_BORDERLINE_SCIENTIFIC_STOP
+stage_semantics: CONDITIONAL_PAPER_POTENTIAL_ONLY
+evidence_ceiling: CURRENT_SOURCE_AND_STATIC_MECHANISM_REVIEW_ONLY
+novelty_route_assessed: N2_NOT_ESTABLISHED
+structural_paper_potential: BELOW_Q2_STOP__EVEN_IF_POSITIVE_RESULTS
+current_evidence_readiness: FINITE_BUT_NON_CURATIVE
+search_status: SEARCH_BOUNDED_OPEN
+direct_paper_fatal_found: false
+scientific_stop_basis:
+  - CURRENT_ORDER_RESOURCES_COMPLETE_LIST_ACTION
+  - NONCLASS_STREAM_ASSUMPTION_CONTRADICTED_BY_CURRENT_PLUGIN
+  - GENERIC_FINITE_LAYERED_SHORTEST_PATH_COLLAPSE
+  - NO_TARGET_SPECIFIC_N2_STATE_OR_GUARANTEE
+current_upstream:
+  project: openjdk/jdk
+  checked_head_and_source_pin: bc674c21af6123be4a247e758728de870aa96eb5
+  head_date: '2026-08-10T19:52:18Z'
+  checked_date: '2026-08-11'
+  checked_paths:
+    - src/jdk.jlink/share/classes/jdk/tools/jlink/internal/plugins/OrderResourcesPlugin.java
+    - src/jdk.jlink/share/classes/jdk/tools/jlink/internal/ImageFileCreator.java
+    - src/jdk.jlink/share/classes/jdk/tools/jlink/internal/runtimelink/JimageDiffGenerator.java
+    - src/jdk.jlink/share/classes/jdk/tools/jlink/internal/runtimelink/ResourceDiff.java
+    - src/jdk.jlink/share/classes/jdk/tools/jlink/internal/JlinkTask.java
+    - make/Images.gmk
+  current_source_result: >-
+    The native plugin sorts every CLASS_OR_RESOURCE by configured ordinal then
+    path and accepts a current list/pattern action. The standard build already
+    supplies order-resources patterns and conditionally a generated classlist.
+    The frozen candidate's final release-chain DP is generic shortest path once
+    its finite candidate family and actual delta edges are materialized.
+input_freeze:
+  agents_sha256: 66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063
+  plan_sha256: B4F51DBA79ABB1EA420D2FAEB13290C4D4804C60CE7AE5A7A7859DAB2D0895B1
+  registry_sha256: 0AE48BAA6396178D93686701DE9D3EA04BC426D13AB4CC6CBDCD6629C9FDF8B2
+  role_stage0_review_sha256: 741EC3544797FF8A5BF337E1E3448B5F683823E5229F818F162834400581626E
+  source_brief_sha256: 4043409BEB6921B8BA56B6810F5B986A7ECB8E464B1F3AD9962381123982020F
+  source_handoff_sha256: 0F317223DBB0E1A22CC71FB91D4261291233D21F42BA751621A4AF7B1433AB93
+  source_manifest_self_sha256: DD14DDB5F20B4024EA89FE579EFEEE0CCD5A871F7A5A2B04DD580B41FEBFC79F
+  source_manifest_verification: 7/7_PASS
+shared_control_drift:
+  detected_after_review: true
+  reviewer_wrote_shared_controls: false
+  final_observed_registry_sha256: A26BA044C732DEE3372BBD73CE9CD3A1C27FFC4FC4BB380B23E66D9A077F2EFC
+  final_observed_plan_sha256: D9757B9AD8230C9234EC420274F9645B9E11A5EA8836F0F930F4BB64E50951E9
+  disposition: SCIENTIFIC_DECISION_REMAINS_BOUND_TO_START_FREEZE__MAINLINE_MECHANICAL_RECONCILIATION_REQUIRED
+failure_sentinel: BELOW_Q2_STOP__ORDER_RESOURCES_LIST_SELECTOR_AND_GENERIC_LAYERED_DELTA_DP
+same_id_revision_allowed: false
+new_id_successor_conditions:
+  - retain exact stock jimage reader/jrt/launcher contract and current full jlink baseline
+  - define an unmaterialized target-specific jimage state/action relation rather than a pre-enumerated list family
+  - provide a non-generic exact/FPT/approximation/formal guarantee that does not follow from layered shortest path
+  - model actual order-resources semantics for every CLASS_OR_RESOURCE and default build ordering
+  - show a finite same-object action-divergence witness and full-cost natural-tag falsifier
+strong_baselines:
+  - current complete jlink and make/Images.gmk order-resources invocation
+  - same-information stock/default/per-version list actions
+  - VCDIFF plus one strong binary delta after final legal jimage construction
+  - exact generic layered shortest path over the same materialized family
+score:
+  academic_value: 31
+  ai_executability_bonus: 26
+  total: 57
+  ai_class: AI_CORE_EXECUTABLE
+  estimated_ai_core_fraction: 0.86
+q1_q2_calibration:
+  q1_status: PARITY_NOT_PLAUSIBLE
+  q2_status: NOT_MET__STRUCTURAL_N2_FAILURE
+stage0_repair_vector:
+  - OMITTED_CURRENT_SAME_OBJECT
+  - OMITTED_FIRST_PARTY_FEATURE
+  - OMITTED_GENERIC_KERNEL
+  - ATOMIC_ACTION_UNCLEAR
+  - Q2_SHAPE_GAP
+authorizations:
+  stageA: false
+  stageB: false
+  experiment: false
+  benchmark: false
+next_route: MAINLINE_MECHANICAL_ACCEPTANCE_ONLY
+deliverables:
+  - STAGE0_REPORT.md
+  - Q1_COMPARATOR_MATRIX.md
+  - SOURCE_AUDIT.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+lane_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE

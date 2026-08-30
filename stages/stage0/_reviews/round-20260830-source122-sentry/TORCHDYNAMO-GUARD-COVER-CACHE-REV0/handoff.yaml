@@ -1,0 +1,103 @@
+schema: handoff-transport-envelope-v2
+topic_id: TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+assignment_id: STAGE0-SENTRY-20260830-TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+lane_id: STAGE0_SENTRY
+role_id: STAGE0_SENTRY
+source_stage: STAGE0
+assignment_state: FROZEN_AWAITING_MAINLINE
+input_freeze_sha256: 9A931076E3182B9EDA136B8A02E70A50DE4D157CFB7BCF17784F3EC3965FA3F4
+cross_assignment_contamination_declared: false
+
+user_summary_cn:
+  outcome: "SENTRY 确认 PRIMARY 的 REVISE_ONCE；不是 STOP，也不得直接 Stage A。一次同对象 revision 与独立 closing 后仍有 Tier-B/Q2 潜力。"
+  main_reason: "PyTorch 2.13 已覆盖 guarded dispatch、MRU/插入序、isolate buckets、limits、automatic dynamic/PGO、guard filtering 与多层 cache；但没有完成 restricted ShapeEnv cover、compile-unit-compatible logical compaction 和 ownership-proven physical reclamation 的同一动作。#166926 证明 guard overlap/implication 不足以保证 recomputation 可互换。"
+  next_step: "MAINLINE 若接受，只允许一次同对象 contract revision：冻结 exact non-shape quotient、solver-certified ShapeEnv implication、output/side-effect/autograd/recompute compatibility、logical/physical ownership、完整 baseline/Q2 denominator；之后交独立 Stage 0 closing。"
+  user_action_required: false
+  user_action: null
+
+decision:
+  sentry_disposition: CONFIRM
+  scientific_verdict: REVISE_ONCE
+  operational_disposition: NONE
+  quality_tier: TIER_B_Q2_VIABLE
+  quality_tier_condition: ONLY_AFTER_BOUNDED_REVISION_AND_INDEPENDENT_CLOSING
+  direct_fatal: false
+  evidence_ceiling: CURRENT_PYTORCH_2_13_FIRST_PARTY_SOURCE_AND_PUBLIC_PRIMARY_TEXT__ZERO_CANDIDATE_RESULT
+  claim_bearing_observation_obtained: false
+  scientific_revision_consumed: false
+
+independent_confirmation:
+  pytorch_2_13_current_union: CONFIRMED_HEAVY_SUBTRACTION
+  arbitrary_guard_implication: REJECTED_AS_UNSOUND_PRIMARY_RELATION
+  decisive_counterexample: PYTORCH_ISSUE_166926__OVERLAPPING_VALID_ENTRIES_NOT_RECOMPUTE_INTERCHANGEABLE
+  restricted_quotient: EXACT_EQUAL_NON_SHAPE_COMPATIBILITY_CLASS_X_SOLVER_CERTIFIED_SHAPE_REGION
+  logical_retirement: DYNAMO_DISPATCH_ONLY__NATIVE_INVALIDATE_IS_BASELINE
+  physical_reclamation: SEPARATE_ACTION__SOLE_OWNER_REFCOUNT_PROOF_REQUIRED
+  q2_minimum: {models_min: 12, workload_families_min: 3, cpu_plus_public_cuda: true, positive_negative_streams: true, recomputation_negative_if_training_scope_retained: true}
+  bounded_revision: CONFIRMED_ELIGIBLE__ONE_PREOBSERVATION_SOUNDNESS_OWNERSHIP_DEFECT
+  post_closing_stagea_killer: CONFIRMED_WITH_RECOMPUTATION_CONTROL
+
+execution_scope:
+  model_route: gpt-5.6-sol/high__TEMPORARY_USER_COMMAND_OVERRIDE
+  search_query_items: 7
+  open_items: 17
+  budgeted_search_or_open_used: 24
+  budgeted_search_or_open_max: 24
+  in_page_find_operations: 4
+  implementation: 0
+  build_or_experiment: 0
+  stagea_or_stageb_started: false
+  shared_write: false
+  current_cycle_usage_reset_confirmed: false
+
+allowed_revision:
+  preserve: [exact_one_torch_compile_frame_and_bucket_object, online_result_independent_signature_stream, past_only_information_contract, exact_PyTorch_semantics, cumulative_compile_execution_dispatch_and_residency_endpoint, public_CPU_single_GPU_resource_ceiling]
+  required_delta: [exact_equal_non_shape_compatibility_quotient, solver_certified_ShapeEnv_implication_only, output_side_effect_autograd_recompute_compatibility_oracle, logical_vs_physical_retirement_split, sole_owner_refcount_proof_for_physical_reclamation, full_PyTorch_2_13_baseline_grid, Q2_all_cell_denominator, exact_source_pinned_hook_before_claim_execution]
+  forbidden_delta: [arbitrary_guard_dropping, unsafe_filter_as_primary, generic_cache_or_set_cover, proxy_only_scientific_PASS, result_dependent_stream_or_cells, physical_memory_claim_without_ownership, object_or_endpoint_change, StageA_before_independent_closing]
+  revision_consumed_now: false
+
+post_closing_killer:
+  packet: "two public frames from different families; 4-8 preregistered signatures each; one certified-overlap positive and one activation-checkpoint/recompute compatibility negative"
+  mandatory_controls: [full_PyTorch_2_13_native_grid, MRU_vs_insertion_order, isolate_and_limit_grid, PGO_and_automatic_dynamic, simple_cache, offline_full_cost_oracle, exact_observable_compatibility_checks, logical_ownership_ledger]
+  kill_if: [no_nontrivial_certified_pair, any_observable_or_recompute_mismatch, no_safe_source_pinned_logical_retirement_hook, no_independent_gain_without_physical_reclamation, native_or_simple_within_5_percent_of_frontier_everywhere, residual_becomes_generic_caching]
+
+artifact_pointers:
+  canonical_report:
+    path: stages/stage0/_reviews/round-20260830-source122-sentry/TORCHDYNAMO-GUARD-COVER-CACHE-REV0/SENTRY_STAGE0_REPORT.md
+    sha256: AA0439C9825E3C0945951C25D0B234E4BD2CFA41D86C96FF2B54B73BA2B05615
+  raw_or_decisive_evidence:
+    - "SENTRY_STAGE0_REPORT.md#independent-pytorch-2-13-current-union-audit"
+    - "SENTRY_STAGE0_REPORT.md#arbitrary-guard-and-recomputation-counterexample"
+    - "SENTRY_STAGE0_REPORT.md#logical-versus-physical-retirement-ownership"
+  comparator_or_full_cost:
+    - "SENTRY_STAGE0_REPORT.md#minimum-q2-breadth-and-fair-baselines"
+    - "SENTRY_STAGE0_REPORT.md#post-closing-stage-a-killer"
+  independent_review:
+    path: stages/stage0/_reviews/round-20260830-source122-sentry/TORCHDYNAMO-GUARD-COVER-CACHE-REV0/SENTRY_STAGE0_REPORT.md
+    sha256: AA0439C9825E3C0945951C25D0B234E4BD2CFA41D86C96FF2B54B73BA2B05615
+  resource_inventory: {path: null, sha256: null}
+  lifecycle_or_retention: {path: null, sha256: null}
+  capsule_or_resume: {path: null, sha256: null}
+
+blocker:
+  kind: null
+  user_blocker_packet: null
+  resume_directory: null
+  attempts_or_routes_exhausted: null
+
+next_gate:
+  proposed_stage_or_gate: STAGE0_CONTRACT_REVISION_THEN_INDEPENDENT_CLOSING
+  exact_action: "execute one same-object restricted-quotient/ownership contract revision only; no Stage A until a separate closing accepts it"
+  authority_required: MAINLINE
+  stageb_user_approval_id: null
+
+file_hashes:
+  ASSIGNMENT_CONTEXT.yaml: 9A931076E3182B9EDA136B8A02E70A50DE4D157CFB7BCF17784F3EC3965FA3F4
+  BOOTSTRAP_ACK.pass1_refuse.yaml: CFEE0D0C7592CB4CDC95B3D9E356328DADE1092DE9F3B75949CCAAA95C4A79CF
+  BOOTSTRAP_ACK.pass2_refuse.yaml: FA5739A0CBE8C49D68EAEC0F0D06F852A562B598FA1E7516BBD58C74C47EB4E5
+  BOOTSTRAP_ACK.yaml: EDAA9B49245EA326AC7019299B67ABC51A016135562C55ED541A24B97822994C
+  MAINLINE_BOOTSTRAP_ACCEPTANCE.yaml: B14BB9146D4C070029E1BECD7EC180D2423113E9CFF10CD68F905350FC081E0F
+  MAINLINE_START.yaml: EEA871E84EA8D621ED12E79723D69AA4598DFC4C194E8FD260FEA652C1265E5C
+  SENTRY_STAGE0_REPORT.md: AA0439C9825E3C0945951C25D0B234E4BD2CFA41D86C96FF2B54B73BA2B05615
+hash_manifest_file: HASH_MANIFEST.sha256
+

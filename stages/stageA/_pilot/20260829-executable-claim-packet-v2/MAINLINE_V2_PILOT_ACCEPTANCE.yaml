@@ -1,0 +1,34 @@
+schema: mainline-stagea-ecp-v2-pilot-acceptance-v1
+accepted_at: 2026-08-29T18:56:00+08:00
+decision: ACCEPT_PILOT_TERMINAL_ENGINEERING_RESULT__NO_SCIENTIFIC_INFERENCE
+pilot_result: PILOT_FAIL__ACCEPTANCE_THRESHOLD_MATHEMATICALLY_UNREACHABLE
+acceptance_threshold: 2_of_3_valid_natural_observations
+observed_valid_natural_observations: 0_of_3
+verified_inputs:
+  - path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/MAINLINE_V2_PILOT_DISPOSITION.yaml
+    sha256: 5B547E2EB99D32E3A1F1ED7330F77375A77BC30500F9A7AFD9DD8D63EAACF773
+  - path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/APX/V2_ENGINEERING_STATUS.yaml
+    sha256: CC494D71619268AAB0A5388F979C1BBC8C0025621E757B873819A4D922CC88CE
+  - path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/APX/MAINLINE_E2_ROUTE_DISPOSITION.yaml
+    sha256: 8FD779D9607B8D879F8640AF6F39921183D401C8E8BE6E46623AC56143A04D1E
+  - path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/ENGINEERING_STATUS.yaml
+    sha256: 734A5DF92810E4F3BA088F5E51F6FBA0C97F1D1B2401B05F5ED853061131C687
+  - path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/MAINLINE_E2_ROUTE_DISPOSITION.yaml
+    sha256: 554470396580C7625AA6A6E8670520F2702321D5E1B2B77CE6AB909BCF1079F4
+  - path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/RVV/MAINLINE_EARLY_PILOT_DISPOSITION.yaml
+    sha256: 97786DE5C7DC965D20E45756401051BCC09B26E045C2FCBBAFBEF0DEFB349E06
+topic_results:
+  APX: EXECUTION_CONTRACT_HOLD__ZERO_VALID_CLAIM_ROWS
+  PPC: EXECUTION_CONTRACT_HOLD__ZERO_VALID_CLAIM_ROWS
+  RVV: NOT_RUN_AFTER_EARLY_PILOT_FAILURE
+scientific_stop: false
+stagea_pass_effect: NONE
+shared_policy_effect:
+  retain_partial_infrastructure: true
+  install_full_ecp_template: false
+  create_ecp_skill: false
+lane_effect: RELEASE_APX_PPC_RVV_CANDIDATE_LANES
+next_action: >-
+  Do not issue additional V2 micro-corrections. Any future continuation must be
+  a separately frozen same-object Stage A evaluation redesign under the user's
+  continuous-autonomy boundaries, or a user-gated hard-resource route.

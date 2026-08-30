@@ -1,0 +1,24 @@
+schema: executorch-method-redesign1-precommit-v1
+assignment_id: STAGEA-L3-20260830-EXECUTORCH-QFALLBACK-METHOD-REDESIGN1
+written_before_first_network_call: true
+redesign: {ordinal: 1_of_1, consumption_point: first_network_call_by_acquisition_controller}
+acquisition_controller:
+  outer_processes_max: 1
+  pip_internal_calls: [exact_antlr_sdist_no_deps, executorch_and_binary_dependency_resolution]
+  exact_antlr_sdist: {filename: antlr4-python3-runtime-4.9.3.tar.gz, sha256: F224469B4168294902BB1EFA80A8BF7855F24C99AEF99CBEFC1BCD3CCE77881B}
+  exact_executorch_wheel: {filename: executorch-1.4.1-cp312-cp312-win_amd64.whl, sha256: 5BBB6CF3D8DBDC9CAB6F0E3BB2E83618E26D776B7365845B284BB01FBA219AD5}
+  model: HuggingFaceTB/SmolLM2-135M@93efa2f097d58c2a74874c7e644dbc9b0cee75a2
+  model_transport: direct_HTTP_revision_snapshot_inside_same_outer_process
+  retries: 0
+  stored_bytes_max: 2147483648
+frozen_unchanged:
+  variants: [portable_only, xnnpack_standard, xnnpack_extended_if_legal]
+  quality_thresholds: {atol: 0.0001, rtol: 0.001, top1_token_agreement: 1.0}
+  feature_schema_source: ../a0-execution-readiness-20260830/EXECUTORCH_A0_PACKET.json
+  full_cost_fields: unchanged
+  profiling_arms: [off, on]
+  warmup: 3
+  measured_repetitions: 10
+  claim_ceiling: RELEASE_SPECIFIC_CANONICAL_WINDOWS_XNNPACK_BENCHMARK_ONLY
+forbidden: [second_network_process, alternate_model, alternate_executorch_version, retry, backfill, heldout, system_install, proprietary_backend, StageB, shared_write]
+claim_visibility_before_gate: NONE

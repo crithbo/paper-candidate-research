@@ -1,0 +1,88 @@
+schema: rvv-r5c-a1-exact-bundled-python-launch-v1
+created_at: 2026-08-26T16:20:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+assignment_id: STAGEA-L1-20260826-LLVM-RVV-R5C-TRANSITIVE-SPLIT-QUOTIENT-DEPENDENCY-CLOSURE-A1
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient
+resource_root: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient/resources
+
+classification:
+  blocker_class: SOFT_ENGINEERING_BLOCKER
+  reason: OUTER_RUNNER_PROCESS_NOT_CREATED_BECAUSE_UNQUALIFIED_PYTHON_COMMAND_IS_NOT_ON_PATH
+  exact_object_mechanism_action_baselines_gate_changed: false
+  scientific_revision_consumption: false
+  mechanism_pivot_state: CONSUMED_1_OF_1__NO_SECOND_PIVOT
+  user_gate: NONE
+
+pass1_freeze:
+  handoff_sha256: 9C51528472C039B2A378F5BB0D3208890E962E0E6C1B9FE6EB549495C8D9006B
+  manifest_sha256: 33791D54DA2BFD543415995D4709DA0D3C1F7F07CF428E05BE326B828CDBC2B0
+  source_freeze_sha256: ED8EFFDD3D249731ECEBEB125B42369F13B31267B5E3492672471E1AF4CCC6A8
+  runner_original_sha256: C5E7DD95774977A4CBD8B0254A1E23BBB956F75E9EE65F729347F48412568399
+  launch_stderr_sha256: 0A64EC68F061C4F6CA15A972A8ABD4BAA5BAEC68A7FB0448028FAE81CFB27496
+  outer_process_started: false
+  fresh_llc_commands_started: 0
+  checker_or_negative_controls_started: 0
+  preserve_all_pass1_canonical_files: true
+  preservation_directory: pass1_interpreter_not_found
+
+exact_interpreter:
+  path: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+  sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA
+  source: CODEX_BUNDLED_WORKSPACE_DEPENDENCY_RUNTIME
+  system_install_or_PATH_change: false
+  alternate_interpreter_fallback_allowed: false
+
+exact_fresh_output_edit:
+  source_path: resources/src/split_closure/run_r5c.py
+  old_sha256: C5E7DD95774977A4CBD8B0254A1E23BBB956F75E9EE65F729347F48412568399
+  old_bytes: 9358
+  old_line_occurrences_required: 1
+  old_line: 'LOGS = RESOURCES / "logs" / "r5c"'
+  new_line: 'LOGS = RESOURCES / "logs" / "r5c_a1"'
+  expected_sha256: C7FC18782C0658B0DBD11F18995475D9F0CF373B6AA6B6649E7277D35FC44A20
+  expected_bytes: 9361
+  source_edit_transactions_max: 1
+  reason: PRESERVE_EXISTING_RESOURCES_LOGS_R5C_LAUNCH_FAILURE_AND_REQUIRE_A_FRESH_RUNNER_ROOT
+  other_source_files_must_remain_hash_exact: {split_closure.py: 256C78891FAAE6AB78741FABD309274DAFAF979F092A492A867BB580B1B73D4F, rvv_preclaim.py: 1924CA21C1E42EB4E5C5A094B7871C1AC5AA226589C2D0272360F531CE5FDC36}
+
+exact_outer_launch:
+  cwd: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient
+  argv:
+    - C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+    - '-B'
+    - resources/src/split_closure/run_r5c.py
+  process_local_environment:
+    TEMP: resources/tmp/a1
+    TMP: resources/tmp/a1
+    TMPDIR: resources/tmp/a1
+    PYTHONPYCACHEPREFIX: resources/cache/pycache-a1
+    PYTHONDONTWRITEBYTECODE: '1'
+  launch_attempts_max: 1
+  runner_internal_python: pathlib.Path(sys.executable).resolve()
+  runner_internal_interpreter_must_equal_exact_path: true
+
+ordered_gate:
+  A10_PRESERVE_PASS1: BYTE_EXACT_ALL_CANONICAL_AND_LAUNCH_FAILURE
+  A11_ONE_EXACT_LOG_ROOT_SOURCE_EDIT_AND_STATIC_HASH_FREEZE: PASS_REQUIRED
+  A12_EXACT_INTERPRETER_VERSION_AND_HASH_PREFLIGHT: PASS_REQUIRED
+  A13_RUNNER_LAUNCH_ONCE: PASS_REQUIRED
+  A14_EXISTING_C2_C7: EXECUTE_IN_FROZEN_ORDER_WITH_RECEIPTS
+  A15_EXISTING_C8_CANONICAL_RESEAL: PASS_REQUIRED
+
+limits: {network_bytes_max: 0, source_edit_transactions_max: 1, exact_outer_launch_attempts_max: 1, alternate_interpreters_max: 0, fresh_llc_commands_max: 2, control_tool_command_records_max: 65, automatic_retry: false, natural_or_selected_tool_invocations_max: 0, claim_bearing_runs_max: 0, owner_cleanup_allowed: false, stageb_allowed: false}
+forbidden_actions: [DELETE_OR_OVERWRITE_PASS1_FAILURE_EVIDENCE, USE_UNQUALIFIED_PYTHON_PY_OR_ALTERNATE_INTERPRETER, CHANGE_OTHER_SOURCE_OR_SCIENTIFIC_CONTRACT, SECOND_PIVOT_OR_SCIENTIFIC_REVISION, NATURAL_SELECTED_CLAIM_STATE_CLEANUP_OR_STAGEB, RETRY]
+
+bootstrap:
+  ack_path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient/A1_ACK.yaml
+  read_order: [AGENTS.md, plan.md, BASE_R5C_CONTEXT_CONTROL_AND_START, AUTONOMOUS_SOFT_BLOCKER_RECOVERY, PASS1_HANDOFF_MANIFEST_SOURCE_FREEZE_AND_LAUNCH_FAILURE, THIS_ADDENDUM, EXACT_INTERPRETER_AND_THREE_SOURCES, RELATED_REGISTRY_DUAL_READ]
+  only_ack_before_acceptance: true
+  ready_requires: [ALL_HASHES_MATCH, EXACT_INTERPRETER_EXISTS_AND_HASH_MATCHES, OLD_LOG_LINE_OCCURS_ONCE_AND_IN_MEMORY_EDIT_MATCHES_EXPECTED_HASH, PASS1_PRESERVATION_AND_FRESH_R5C_A1_ROOT_UNDERSTOOD, ZERO_NATURAL_CLAIM_SCIENCE, DIFFERENCES_EMPTY, A1_ACTION_STARTED_FALSE]
+  refuse_on_any_difference: true
+
+success_route: RVV_R5C_PRECLAIM_FIDELITY_PASS__RETURN_SAME_INDEPENDENT_GATE
+failure_route: FAIL_CLOSED_RVV_R5C_A1_PRECLAIM__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+next_action: WRITE_A1_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE_AND_A1_START

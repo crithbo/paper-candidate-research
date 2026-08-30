@@ -1,0 +1,7 @@
+# Unique opportunity families
+
+No family survived raw.
+
+`GCC_RANGER_GIMPLE_SSA_RANGE_QUERY_CONSTRUCTION__FIXED_C_CPP_GIMPLE_CFG_AND_FLAGS__SEMANTICS_PRESERVING_RANGE_FACTS_AND_OPTIMIZATION_DECISIONS__PATH_CONTEXT_RANGE_CACHE_JOIN`: `EXCLUDED_BEFORE_RAW__STRUCTURAL_DROP__CURRENT_RANGE_QUERY_UNION_PLUS_GENERIC_ABSTRACT_INTERPRETATION_KERNEL`.
+
+The decision is a mechanism/guarantee subtraction, not an inference from implementation, results, resources, or AI readiness.

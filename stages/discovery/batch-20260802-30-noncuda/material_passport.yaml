@@ -1,0 +1,66 @@
+schema_version: material-passport-v1
+batch_id: batch-20260802-30-noncuda
+source_stage: DISCOVERY
+created_at: 2026-08-02
+scope: "Primary/official-source collision scan for two proposed non-CUDA topics; no paper full text was asserted human-read."
+source_status: SEARCH_BOUNDED_OPEN
+sources:
+  - key: usenix-hotpar12-dynamic-compiler
+    url: https://www.usenix.org/conference/hotpar12/lightweight-approach-compiling-and-scheduling-highly-dynamic-parallel-programs
+    type: primary_paper
+    used_for: "MLIR-SHAPE-REGION dynamic-compilation baseline"
+    human_read: false
+  - key: usenix-atc25-plus
+    url: https://www.usenix.org/conference/atc25/technical-sessions
+    type: conference_official_record
+    used_for: "ML compiler schedule extensibility baseline"
+    human_read: false
+  - key: mlir-shape
+    url: https://mlir.llvm.org/docs/Dialects/Shape/
+    type: official_documentation
+    used_for: "Open compiler semantics/carrier"
+    human_read: false
+  - key: iree
+    url: https://iree.dev/
+    type: official_project_documentation
+    used_for: "Open compiler/runtime carrier"
+    human_read: false
+  - key: deferred-ivm-sigmod96
+    url: https://www.vldb.org/dblp/db/conf/sigmod/ColbyGLMT96.html
+    type: primary_paper_record
+    used_for: "IVM-PRESTATE-COARSEN deferred-IVM baseline"
+    human_read: false
+  - key: ivm-overview
+    url: https://www.vldb.org/dblp/db/journals/debu/GuptaM95.html
+    type: primary_paper_record
+    used_for: "IVM taxonomy and auxiliary-state collision"
+    human_read: false
+  - key: streaming-view-pvldb25
+    url: https://www.vldb.org/pvldb/vol18/p5153-zhou.pdf
+    type: primary_paper
+    used_for: "Concurrent/prestate maintenance collision boundary"
+    human_read: false
+  - key: dynamic-kcore-pvldb
+    url: https://www.vldb.org/pvldb/vol9/p1217-sariyuce.pdf
+    type: primary_paper
+    used_for: "Drop boundary for dynamic-k-core direction"
+    human_read: false
+claims:
+  - claim: "No direct collision was located for either proposal within the recorded scan."
+    status: search_bounded_only
+    next_verification: "Stage 0 same-object audit"
+artifacts:
+  - path: BATCH_SUMMARY.md
+    sha256: AB838ABFD474C58DE7D1C3699100FB64B27C8DD195107577F130B99546DF04C0
+  - path: DROP.md
+    sha256: E63C2A60F4D91E200058A5E23CC1451699C36B8D5C7B7EF05BD7B5136B4E9066
+  - path: SEARCH_LOG.md
+    sha256: AD997ED41FA96FDC738E541040FEECCD2C795E035901D026A0C1F59D83655ADC
+  - path: MLIR-SHAPE-REGION/topic_brief.md
+    sha256: 6B92DA269AE9C962FDEE14B56D71924502E2179807E6E189F278371FE41C7B85
+  - path: MLIR-SHAPE-REGION/handoff.yaml
+    sha256: 4293F50ECD1C6264006AAA941026FDE5E517C336DDC82D54F97B2576C0E7AFE7
+  - path: IVM-PRESTATE-COARSEN/topic_brief.md
+    sha256: 05C2D1693C41616BA50883E01D3F64B670C166A950E9084A5E77E969CFE37FCF
+  - path: IVM-PRESTATE-COARSEN/handoff.yaml
+    sha256: D5DA9D1DB5EA317DA9B28A62C7C5CFCD510A97D5E05E0E5995FBF0C6183FA0A0

@@ -1,0 +1,68 @@
+schema: R11A_R13B_BATCH01_RAW_CAP_RECOVERY_AMENDMENT_V1
+approval_id: R11A-R13B-BATCH01-RAW-CAP-RECOVERY-20260813-R14A
+approved_at: 2026-08-13T18:00:00+08:00
+implementation_owner: MAINLINE_ONLY
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+canonical_mode: OFF
+base:
+  r13b_approval_id: R11A-MINIMUM-VIABLE-CALIBRATION-20260813-R13B
+  r13b_audit_manifest_sha256: 185027D0FD75EB554C0EF7B0E72095F8FA7CAD7B788175C9DF2EFB46F5D36E79
+  r13b_implementation_manifest_sha256: 7586075114C2A766E4D4A2C919876A91BB51B830D705B29E99C221BA8AD2CBD1
+  checkpoint_011_sha256: BC280D6E3D9D86841A1B889E308129DED101EF3FEDC4FD5072018E7DEE83A43B
+  batch01_breach_blocker_sha256: 01C22B29C05051925A9D508FD216F087679EE8D3B12760B2CE6C68B5CC1A6EB5
+  r14_audit_manifest_sha256: 29046785C0989F8158614C473A4844124C8C40AE637DDF62EBCB6EA513CDA383
+disposition:
+  selected_option: B
+  batch01_status: INVALID_RAW_CAP_BREACH__NO_COMMITMENT__NO_SCIENTIFIC_INFERENCE
+  raw_attempts_permanently_charged: 40
+  failed_transactions_quarantined_whole: true
+  commitment_added: false
+  replay_reconstruction_reference_or_postselection: forbidden
+  private_intersection_or_source_qualification_from_failed_transactions: forbidden
+counters:
+  total_raw_ceiling: 88
+  raw_used: 44
+  raw_remaining: 44
+  total_unique_ceiling: 72
+  unique_used: 4
+  unique_remaining: 68
+  eligible_count_preserved: 2
+resume:
+  same_assignment: true
+  same_index_directory: true
+  next_batch: R13B-02
+  replacement_batch01: forbidden
+  fifth_batch: forbidden
+  batch02_raw_cap: 24
+  batch02_unique_cap: 20
+  batch03_raw_cap: 24
+  batch03_unique_cap: 20
+  batch04_raw_cap: 12
+  batch04_unique_cap: 8
+  effective_raw_cap_formula: MIN_ORIGINAL_BATCH_RAW_CAP_AND_GLOBAL_RAW_REMAINING_AT_RESERVATION
+future_preflight:
+  append_only_request_reservation_before_call: required
+  mainline_count_gate_before_call: required
+  provider_order_frozen_before_semantic_filtering: required
+  normalization_cross_batch_dedup_commitment_intersection_qualification_order: unchanged
+fail_closed:
+  any_counter_timing_or_quarantine_ambiguity: true
+  any_replay_or_postselection: true
+  any_collision_private_leak_cap_or_budget_breach: true
+  below_24_final_result: FAILED_NOT_DISPATCHABLE__BLIND_CORE_UNCLOSED__NO_SCIENTIFIC_INFERENCE
+not_authorized:
+  - PHASE2
+  - EXECUTOR
+  - AUDITOR
+  - SHADOW
+  - DISCOVERY
+  - STAGE0
+  - STAGEA
+  - STAGEB
+  - E2
+  - EXPERIMENT
+  - DOWNLOAD
+  - AUTOMATION
+  - NEW_EXTERNAL_SERVICE
+  - PRODUCTION
+scientific_inference: NONE

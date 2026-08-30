@@ -1,0 +1,67 @@
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+authorization_id: DISCOVERY-CLAIMPACK-V9-PACKER-TWO-PHASE-20260813-R11A
+checkpoint_status: IN_PROGRESS_CHECKPOINT
+checkpoint_ordinal: 0
+eligible_families: 0
+minimum_required_for_mainline_acceptance: 60
+target_family_count: 72
+six_strata_counts:
+  later_success_positive: 0
+  direct_structural_negative: 0
+  partial_coverage_or_narrowing: 0
+  unfinished_but_nonstructural: 0
+  stale_document_current_feature_trap: 0
+  style_attractive_weak_package: 0
+contribution_type_counts: {}
+pending_or_rejected:
+  pending_locator_only: 16
+  rejected_as_qualification_evidence: 16
+  reason: 'Search metadata, snippets, and indexed pages are locator-only. No result was promoted without complete pre-cutoff primary bytes, later-anchor bytes, two additional dated primary locators, and identity/cutoff proof.'
+systematic_routes_attempted:
+  - route: official_proceedings_and_publisher_indexes
+    queries:
+      - 'site:usenix.org/conference artifact systems 2021'
+      - 'site:dl.acm.org/doi PLDI 2021 artifact compiler'
+    outcome: 'Official artifact-evaluation and proceedings locators obtained; not per-family qualification bundles.'
+  - route: primary_preprint_indexes
+    queries:
+      - 'site:arxiv.org computer science 2016 paper later success open source artifact'
+      - 'site:arxiv.org current feature stale documentation software systems paper'
+      - 'site:arxiv.org direct structural negative systems paper artifact'
+      - 'site:arxiv.org unfinished prototype non structural systems paper'
+      - 'site:arxiv.org/abs software system artifact 2020 compiler'
+      - 'site:arxiv.org/abs systems source code 2021 evaluation artifact'
+      - 'site:arxiv.org/abs current implementation documentation feature 2020'
+      - 'site:arxiv.org/abs prototype not implemented systems 2020'
+    outcome: 'Preprint locators obtained across systems/compiler/formal/measurement, pending primary-byte and outcome-anchor closure.'
+  - route: first_party_project_repositories_and_release_histories
+    outcome: 'Not yet started; next route.'
+  - route: backward_and_forward_citation_chaining
+    outcome: 'Not yet started; next route after official-paper selection.'
+  - route: heterogeneous_search
+    coverage_observed: [systems, compiler, formal, measurement]
+    missing_focus: [database_storage, algorithms, benchmark_dataset, replication_negative]
+resource_ledger:
+  network_bytes: 0
+  frozen_bytes: 0
+  temporary_plus_sealed_bytes: 0
+  cpu_hours: 0.01
+  wall_hours: 0.03
+  remaining_network_bytes: 1073741824
+  remaining_storage_bytes: 2147483648
+  remaining_cpu_hours: 15.99
+  remaining_wall_hours: 71.97
+unresolved_qualification_facets:
+  - per-family primary pre-cutoff byte freeze
+  - per-family target/later-outcome anchor byte freeze
+  - official publication/outcome dates and strict cutoff proof
+  - two additional dated primary locators per family
+  - auditor-private identity and independent dedup proof
+  - six-stratum and five-contribution-type coverage
+next_search_routes:
+  - 'Select official USENIX/ACM proceedings candidates and retrieve only small complete primary PDFs or official HTML/source artifacts under the byte cap.'
+  - 'Use first-party repository release history for stale-document/current-feature and unfinished-but-nonstructural strata.'
+  - 'Use citation chaining from selected primary papers to establish later-outcome anchors without exposing them outside auditor-private records.'
+  - 'Expand into database/storage, algorithms/formal, benchmark/dataset, and replication/negative sources.'
+failure_status: NOT_APPLICABLE__ENVELOPE_AND_SYSTEMATIC_ROUTES_REMAIN
+no_scientific_inference: true

@@ -1,0 +1,129 @@
+schema: stage0a-local-resource-static-preflight-v1
+created_at: 2026-08-26T17:32:00+08:00
+assignment_id: BACKTEST-PACKER-20260826-STAGE0A-Q2-LOCAL-RESOURCE-R1
+mode: STATIC_ONLY_NO_BUILD_NO_INSTALL_NO_EXTRACT_NO_PROBE
+platform: WINDOWS_NATIVE_NO_WSL
+compute: CPU_OR_SINGLE_RTX4070
+per_future_case_limits: {stored_bytes_max: 20000000000, build_wall_seconds_max: 7200, single_probe_wall_seconds_max: 21600}
+evidence_ledger: resources/src/PACKER_PRIMARY_SOURCE_LEDGER.yaml
+decision_time: BEFORE_RANDOM_ID_ASSIGNMENT_AND_BEFORE_ANY_EXECUTOR_OUTPUT
+
+primary_cases:
+  P01_HNSW:
+    outcome: PASS_PRIMARY_LOCAL
+    official_artifact: https://github.com/nmslib/hnswlib
+    platform_basis: header-only C++11 and Python binding; CMake entry is platform-neutral
+    dependency_and_license: C++11; Python optional; LICENSE present
+    expected_assignment_local_bytes_upper_bound: 1000000000
+    future_entry_command: cmake configure/build of bounded update test or Python binding against generated vectors
+    canonical_small_input: deterministic generated vectors or small SIFT subset
+    reacquire_route: official GitHub source archive at frozen commit
+    prohibited_requirement_present: false
+  P02_ANN_BENCHMARKS:
+    outcome: PASS_PRIMARY_LOCAL
+    official_artifact: https://github.com/erikbern/ann-benchmarks
+    platform_basis: official runner exposes local mode; executor packet must exclude install.py and Docker
+    dependency_and_license: Python; requirements file; repository license metadata must remain visible only in packer/auditor provenance
+    expected_assignment_local_bytes_upper_bound: 2000000000
+    future_entry_command: python run.py --local --dataset random-xs-20-angular with one predeclared local adapter and bounded runs
+    canonical_small_input: official random-xs CI dataset
+    reacquire_route: official GitHub source archive plus official small dataset generator
+    prohibited_requirement_present: false
+    guard: DOCKER_DAEMON_PATH_FORBIDDEN_AND_NOT_A_FALLBACK
+  P03_EGG:
+    outcome: PASS_PRIMARY_LOCAL
+    official_artifact: https://github.com/egraphs-good/egg
+    platform_basis: Rust library and cargo test entry are Windows-capable; no mandatory OS-specific service
+    dependency_and_license: Rust/Cargo; MIT
+    expected_assignment_local_bytes_upper_bound: 3000000000
+    future_entry_command: cargo test --release --test math with assignment-local Cargo home and target
+    canonical_small_input: repository math/prop/lambda tests
+    reacquire_route: official GitHub source archive at publication-era commit
+    prohibited_requirement_present: false
+  P04_CVC5:
+    outcome: PASS_PRIMARY_LOCAL
+    official_artifact: https://github.com/cvc5/cvc5
+    platform_basis: official Win64 release assets exist; source docs also describe Windows MSYS2/Mingw
+    dependency_and_license: open-source C++; COPYING; no system install needed when using portable release
+    expected_assignment_local_bytes_upper_bound: 1000000000
+    future_entry_command: portable cvc5 binary on bounded SMT-LIB fixtures
+    canonical_small_input: official SMT-LIB examples or tiny public QF fixtures
+    reacquire_route: official GitHub release asset with published SHA256
+    prohibited_requirement_present: false
+  P05_CARCARA:
+    outcome: PASS_PRIMARY_LOCAL
+    official_artifact: https://github.com/ufmg-smite/carcara
+    platform_basis: Rust CLI with no required daemon; checker command consumes two ordinary files
+    dependency_and_license: Rust/Cargo 1.87+; Apache-2.0
+    expected_assignment_local_bytes_upper_bound: 4000000000
+    future_entry_command: assignment-local cargo build followed by carcara check on bounded example pair
+    canonical_small_input: small SMT-LIB problem plus Alethe proof from official examples/benchmark subset
+    reacquire_route: official GitHub source archive and official release
+    prohibited_requirement_present: false
+  P06_SOURCE_COMPRESSION:
+    outcome: FAIL_USE_PREDECLARED_ALTERNATE
+    official_artifact: https://github.com/acubeLab/PPC_utils4BigData
+    failure_basis: official setup requires python-dev, libfuzzy-dev, zstd and POSIX source activation; no documented Windows-native no-install entry
+    available_small_inputs: DEBUG datasets of 34MiB, 75MiB, and 259MiB
+    scientific_inference: NONE_RESOURCE_PREFLIGHT_ONLY
+    replacement: ALT01_WEBGRAPH_LLP
+    retry_or_outcome_aware_replacement: false
+  P07_PGM_INDEX:
+    outcome: PASS_PRIMARY_LOCAL
+    official_artifact: https://github.com/gvinciguerra/PGM-index
+    platform_basis: header-only C++ library with standard CMake and no mandatory OS service
+    dependency_and_license: C++17-compatible compiler; Apache-2.0
+    expected_assignment_local_bytes_upper_bound: 1500000000
+    future_entry_command: compile official simple example and bounded tuner/checker under local MSVC or clang-cl
+    canonical_small_input: official generated one-million-integer example plus bounded public real-key subset
+    reacquire_route: official GitHub source archive
+    prohibited_requirement_present: false
+  P08_ALEX:
+    outcome: PASS_PRIMARY_LOCAL
+    official_artifact: https://github.com/microsoft/ALEX
+    platform_basis: README explicitly directs Windows users to load the repository as a Visual Studio CMake project
+    dependency_and_license: C++14; MIT
+    expected_assignment_local_bytes_upper_bound: 1500000000
+    future_entry_command: Visual Studio CMake build of example/test/benchmark in assignment-local build directory
+    canonical_small_input: repository sample_keys.bin with 1000 keys
+    reacquire_route: official Microsoft GitHub source archive
+    prohibited_requirement_present: false
+
+predeclared_alternates:
+  ALT01_WEBGRAPH_LLP:
+    outcome: PASS_PRIMARY_LOCAL__SELECTED_REPLACEMENT_FOR_P06
+    official_artifact: https://github.com/vigna/webgraph
+    platform_basis: Java framework distributed as jars; no POSIX-only service is required for bounded graph compression
+    dependency_and_license: Java; LGPL-2.1+ or Apache-2.0 components
+    expected_assignment_local_bytes_upper_bound: 2500000000
+    future_entry_command: assignment-local Java classpath over a small public graph and fixed ordering task
+    canonical_small_input: small public web/social graph or deterministic bounded graph fixture
+    reacquire_route: official GitHub source/archive and official WebGraph dataset page
+    prohibited_requirement_present: false
+  ALT02_ALIVE2:
+    outcome: NOT_SELECTED__RESERVE_ONLY
+    official_artifact: https://github.com/AliveToolkit/alive2
+    static_risk: recent LLVM, Z3, re2c and CMake/Ninja required; exact Windows bundle not yet frozen in this assignment
+    replacement_trigger_reached: false
+
+routing_controls:
+  P09_PYTHIA: {outcome: ROUTING_CONTROL_ONLY, reason: ChampSim/Linux traces and hardware-synthesis route exceed Windows-native local denominator}
+  P10_BERTI: {outcome: ROUTING_CONTROL_ONLY, reason: ChampSim/Linux trace-heavy artifact exceeds Windows-native local denominator}
+  P11_BOLT: {outcome: ROUTING_CONTROL_ONLY, reason: ELF/Linux perf-LBR workflow is outside Windows-native local denominator}
+  P12_MESS: {outcome: ROUTING_CONTROL_ONLY, reason: numactl/taskset/perf/hardware-counter and privileged Linux setup is outside Windows-native local denominator}
+
+operational_primary_selection:
+  count: 8
+  cases: [P01_HNSW, P02_ANN_BENCHMARKS, P03_EGG, P04_CVC5, P05_CARCARA, ALT01_WEBGRAPH_LLP, P07_PGM_INDEX, P08_ALEX]
+  replacements_used: [{excluded: P06_SOURCE_COMPRESSION, replacement: ALT01_WEBGRAPH_LLP, reason: STATIC_WINDOWS_RESOURCE_FAILURE}]
+  second_alternate_used: false
+  result_independent: true
+  executor_output_existed_at_decision_time: false
+
+network_and_action_accounting:
+  tested_method_runs: 0
+  build_install_extract_experiment_runs: 0
+  claim_bearing_observations: 0
+  scientific_revision_consumed: false
+  candidate_or_scientific_state_changed: false
+  conclusion: PASS_STATIC_RESOURCE_PREFLIGHT_WITH_ONE_PREDECLARED_REPLACEMENT

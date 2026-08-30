@@ -1,0 +1,27 @@
+assignment_id: STAGE0-P1-20260814-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-REVISION1-V8.7
+mode: PRIMARY_REVISION1
+topic_id: LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_READY_TO_DISPATCH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_revisions\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\revision1
+scientific_revision_limit: 1
+scientific_revision_index: 1
+sole_gate: SAME_MIR_TWO_PLAN_CLOBBER_WITNESS__TARGET_SPECIFIC_CALLSITE_FRONTIER
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source08-primary\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+confirmation_directory: stages\stage0\_reviews\round-20260814-adaptive-source08-confirmation\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+frozen_inputs:
+  primary_manifest_sha256: 699F5C28DBC96C6BBB756896F556AD99D7E85555AC380D0E400640883FFC8EF1
+  confirmation_manifest_sha256: 282BD7617CF6412B0579AD09FD1344C78B91ABC5F89B7225F8824EE3932872F3
+  confirmation_review_sha256: A2D0D0C829420FC700172D67F24B8B8E6396C12231FCE625307DE6F160942B6A
+  confirmation_handoff_sha256: 595BD5BE4370FF0653148ED37248A39760682549A3964C6531371859D2C80D45
+mandatory_closure:
+  - Pin one LLVM commit, target/triple/ABI/optimization/debug configuration and compatible current debug-location mode.
+  - Give one fixed pre-RA clobber MachineIR and two complete native-legal allocation/spill/rematerialization/DWARF plans with identical executable, ABI and unwind semantics.
+  - Prove different valid call-site reconstructibility and full-cost Pareto coordinates not reproduced by current allocator plus LiveDebugVariables, LiveDebugValues and DwarfDebug union.
+  - Define target/call-site-specific bounded state preserving future native legality and declared full cost with honest exact/FPT/certified frontier and no-gain boundary.
+  - Freeze but do not run the finite Stage A fidelity killer.
+failure_sentinel: BELOW_Q2_STOP__METADATA_ONLY_OR_GENERIC_RA_OR_CURRENT_UNION_ABSORPTION
+forbidden: [new_topic, second_revision, metadata_only_claim, generic_RA_CP_ILP, implementation, build, experiment, benchmark, download, stageA, stageB, shared_control_write]
+required_outputs: [REVISION_REPORT.md, CURRENT_ACTION_AND_FRONTIER_AUDIT.md, CLAIM_MATRIX.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {next_if_gate_closed: INDEPENDENT_REVISION1_CLOSING, notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

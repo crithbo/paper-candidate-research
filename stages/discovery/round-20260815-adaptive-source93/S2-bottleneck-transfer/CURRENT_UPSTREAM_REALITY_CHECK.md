@@ -1,0 +1,1 @@
+Docs establish stock JIT expressions and tuple deforming, with `jit_expressions` and `jit_tuple_deforming` default on and cost thresholds controlling activation. Strong union includes all these actions/settings with same query facts. Main is unpinned: no absence or direct-collision absence claim. `PARTIALLY_FROZEN_UNION__SOURCE_CLOSURE_REQUIRED`.

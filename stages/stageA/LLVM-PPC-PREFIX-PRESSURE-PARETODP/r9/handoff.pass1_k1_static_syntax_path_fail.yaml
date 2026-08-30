@@ -1,0 +1,87 @@
+schema: ppc-r9-same-function-materializer-handoff-v1
+created_at: 2026-08-26T08:02:17.7947501+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+decision: FAIL_CLOSED_SAME_FUNCTION_MATERIALIZER_FIDELITY__K1_STATIC_SYNTAX_CONTROL_REDIRECT_PATH_FAILURE__NO_SELECTED_CORPUS_OR_SCIENTIFIC_INFERENCE
+evidence_ceiling: K0_EXACT_INPUT_ACCEPTANCE_AND_UNEXECUTED_IMPLEMENTATION_SOURCE_ONLY__NO_MATERIALIZER_FIDELITY
+ordered_gate:
+  K0_INPUT_ACCEPTANCE: PASS_EXACT_R6_R2_R8
+  K1_SAME_FUNCTION_MIR_MATERIALIZER: FAIL_CLOSED_BEFORE_MATERIALIZER_EXECUTION
+  K2_INPUT_SPECIFIC_PPC_TPD: NOT_STARTED
+  K3_NATIVE_CHECKERS_CONSUME_CANDIDATE_OUTPUTS: NOT_STARTED
+  K4_REAL_FULL_COST_CONSUMES_CANDIDATE_AND_BASELINE_METRICS: NOT_STARTED
+  K5_TWO_FRESH_EXACT_REPLAYS: NOT_STARTED
+  K6_R10_FULLY_EXPANDED_32_PROCESS_PLAN: NOT_STARTED
+K0_input_acceptance:
+  copy_attempts: 3_OF_3
+  r6: {files: 26, logical_bytes: 134206, per_file_equal: true}
+  r2: {files: 133, logical_bytes: 244073942, manifest_entries: 132, failures: 0}
+  r8: {files: 5, logical_bytes: 62799, hash_failures: 0}
+  reparse_entries: 0
+K1_control_probes:
+  original_MIR: {path: resources/build/k1_probe/control.original.mir, sha256: 5E5BC7869492171AAACB5C8A3C197912D2703CB7F98F3916735B60EB8B821DEB}
+  current_union_flag_reference_MIR: {path: resources/build/k1_probe/control.pcrel_linker_opt_false.mir, sha256: 5E5BC7869492171AAACB5C8A3C197912D2703CB7F98F3916735B60EB8B821DEB}
+  observed_control: {function: ir_pressure_control, direct_PLDpc_loads: 12, target: target_array_ir, offsets: [0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88], live_across_call_values: 12}
+assignment_local_implementation:
+  root: resources/src/natural_materializer
+  files: 3
+  source_hashes:
+    common.py: EE19181CEA403725748E22E0F632ABA97639C81EAABEB0BC6DA16249520414D7
+    materializer_harness.py: A28B269C522A96B81AA79C7F907864BA2277C0E6ABCA1108BACA9010F4C01D80
+    r10_plan.py: 0366CCC8D98D0489C604A31A56E29761C3EC9C2E3D8479C7909E99652697890C
+  intended_same_function_action: ONE_PADDI8pc_BASE_PLUS_TWELVE_LD_WITH_ORIGINAL_CFG_CALL_ABI_RETURN_AND_LOAD_OFFSETS
+  static_syntax_validated: false
+  executed: false
+  fixed_synthetic_witness_candidate_alternative_used: false
+first_failure:
+  record: K1_STATIC_SYNTAX_FAILURE.yaml
+  sha256: BBAE8A2D92C2F81B12A3E8848C8F5E525B57F51A29919DD0E1CBED316587FC83
+  command: PYTHON_3_12_PY_COMPILE_THREE_IMPLEMENTATION_FILES
+  exit_code: 1
+  failure_surface: LOCALIZED_PYTHON_BYTECODE_TEMP_PATH_PARENT_CREATION
+  automatic_retry: false
+  command_or_redirect_changed_after_failure: false
+execution_summary:
+  input_copy_attempts: 3
+  synthetic_tool_command_records: 3
+  synthetic_tool_command_records_max: 300
+  selected_or_reserve_corpus_tool_invocations: 0
+  claim_bearing_runs: 0
+  claim_bearing_observations: 0
+  network_bytes: 0
+  automatic_retries: 0
+  resource_files: 213
+  resource_logical_bytes: 245226693
+  resource_directories_including_root: 179
+  resource_reparse_entries: 0
+  active_related_processes: 0
+  exact_cpu_seconds: UNAVAILABLE__NOT_ESTIMATED
+  exact_wall_seconds: UNAVAILABLE__NOT_ESTIMATED
+  r10_plan_rows: 0
+  r10_plan_executed: false
+  cleanup_performed: false
+scientific_boundary: {scientific_revision_consumed: false, mechanism_pivot_consumed: false, state_transition_performed: false, stageb_action_performed: false, scientific_inference: NONE}
+canonical_hashes:
+  same_topic_input_acceptance_sha256: 45E077BABEB4B5B0D5EAE0D29435DF217D345B098863A4F7A615B2B8A4B63590
+  redirect_preflight_sha256: 4702DD3BBD0A583B437C5A661297968BD8E96374A76F4DDF1151DD703BF45D51
+  K0_copy_precommit_sha256: 8E4C44A322432D8B6C5DC73318B8D60A869AF37909543690359A82C73EDB2549
+  K1_MIR_probe_precommit_sha256: F4116A475600C00810FA6EC45EF9F96C7B6B1DFA42722C1E559ABCC978829D56
+  K1_native_reference_precommit_sha256: 88823D513FF654D6989685BFC78E11EAB0E1F49ACEC940583186CEC6A02E9952
+  implementation_audit_sha256: 35E27DAECB02C8B535B05B747EAE768F0C750D325F74A0802E6592DA6462B370
+  K1_static_syntax_precommit_sha256: C8A7B01C7FADB0E2150014670E33A393CE20C2B11384FE8CBFBC7C088D8645C5
+  same_function_materializer_audit_sha256: BDEE80035FD549CC8CB1706420120F4F54432F722BE6D1856F70D92236AC31D0
+  input_specific_PPC_TPD_audit_sha256: A93AEA347EE4F63104AD21F7D192B28141C8507BE640CD0BCB973DE984B4BE32
+  candidate_output_consumption_audit_sha256: 1C6BCB43019B80DE96A262F4E41D1F1E6A4D473DB15225C86D976A18EE44588E
+  real_full_cost_dependency_audit_sha256: FE3092154FC49A507A7DB0C7187CFC5691390225B59E9B98AFDFD76976F1D331
+  synthetic_same_function_smoke_sha256: 3E95DA232E6BA74C0D1C498D5FFBA855F1CA50FC739A5BE4375651FE56BEB2A6
+  r10_precommit_sha256: FFBEB4F9DAD2221535AF4BEDF57480ADB1691AF68597909172412CD696FAFF72
+  preclaim_gate_sha256: 2C2FD654AA73BC401900F7988FD72AE341269080AEE70173FEFCB14ED6B5B4D5
+  reproducibility_report_sha256: EFD3684BCA7A1E6797E8B0E6AA5D1545AF87781E53166E69AB5EDAD6AB04D35F
+  resource_inventory_sha256: 10F295647412B8F86DD7F961C12257B03A0F315E765ADEE2761E0CA0EBC6BCDC
+  retention_sha256: 2CCEEE39629557BB7C66DB6F26DC2141C9EC804CC978E5045DF0F1231E2C1B67
+  resume_capsule_sha256: FDADD136629384FEEB057F69D48ABF896C8B41B82A6C64B294D58E011F98A43C
+exact_cleanup_candidate_leaves: [resources/cache, resources/tmp, resources/downloads, resources/archives]
+owner_cleanup_allowed: false
+future_resume_requires_new_mainline_freeze: true
+next_action: MAINLINE_ACCEPT_FAIL_CLOSED_HANDOFF_AND_DECIDE_BOUNDED_K1_ENGINEERING_CORRECTION

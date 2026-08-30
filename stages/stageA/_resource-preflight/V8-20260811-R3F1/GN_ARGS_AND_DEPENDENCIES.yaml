@@ -1,0 +1,80 @@
+schema: v8-win64-next-build-seed-v1
+status: PREFLIGHT_SEED_ONLY__NOT_AN_EXECUTED_OR_SCIENTIFIC_CONFIG
+exact_commit: c635f0d160b6e988b5ea5a907511a2929beb5d5e
+official_ci_reference:
+  build_id: '8673841892324615937'
+  builder: V8 Win64 - builder
+  explicit_gn_args:
+    dcheck_always_on: false
+    is_component_build: false
+    is_debug: false
+    symbol_level: 1
+    target_cpu: x64
+    use_remoteexec: true
+    v8_enable_google_benchmark: true
+  generated_build_files_status: SUCCESS
+  compile_status: SUCCESS
+  build_step_seconds: 196.491
+  compile_step_seconds: 123.320
+local_next_seed:
+  explicit_gn_args:
+    dcheck_always_on: false
+    is_component_build: false
+    is_debug: false
+    symbol_level: 1
+    target_os: win
+    target_cpu: x64
+    v8_target_cpu: x64
+    use_remoteexec: false
+    v8_enable_google_benchmark: true
+    v8_use_external_startup_data: true
+  permitted_difference_from_ci_seed:
+    - USE_REMOTEEXEC_TRUE_TO_FALSE__BUILD_TRANSPORT_ONLY__MUST_BE_CONFIRMED_BY_EFFECTIVE_ARG_AND_OUTPUT_AUDIT
+    - MAKE_IMPLICIT_WIN_X64_AND_EXTERNAL_STARTUP_DATA_DEFAULTS_EXPLICIT__MUST_MATCH_EXACT_SOURCE_RESOLUTION
+  required_targets: [d8, mksnapshot, cctest]
+  required_effective_arg_audit:
+    - target_os
+    - target_cpu
+    - v8_target_cpu
+    - v8_use_external_startup_data
+    - v8_enable_pointer_compression
+    - v8_enable_pointer_compression_shared_cage
+    - v8_enable_external_code_space
+    - v8_enable_sandbox
+    - v8_enable_sandboxed_pointers
+    - v8_enable_shared_ro_heap
+    - v8_enable_pointer_compression_8gb
+    - v8_enable_static_roots
+    - v8_enable_i18n_support
+    - v8_enable_webassembly
+    - v8_enable_embedded_builtins
+    - v8_enable_short_builtin_calls
+    - v8_snapshot_toolchain
+    - is_clang
+    - clang_use_chrome_plugins
+    - use_custom_libcxx
+  runtime_snapshot_inputs_to_freeze:
+    - predictable
+    - random_seed
+    - rehash_snapshot
+    - verify_snapshot_checksum
+    - startup_script
+    - warmup_script
+    - builtins_profile_input
+    - snapshot_compression_mode
+dependencies:
+  official_source_route:
+    - public Git
+    - depot_tools in assignment-local directory
+    - fetch v8 / gclient sync in cmd.exe-local environment
+    - exact V8 checkout and exact DEPS closure
+  windows_prerequisites_user_provisioned:
+    - Visual Studio 2026 >=18.0.0 with Desktop development with C++ and MFC/ATL
+    - Windows 11 SDK 10.0.28000.2270
+    - Debugging Tools >=10.0.26100.3323
+  environment_rules:
+    - DEPOT_TOOLS_WIN_TOOLCHAIN=0 for a public non-Google local Visual Studio route
+    - no system or global PATH mutation by the agent
+    - use process-local cmd.exe environment only
+    - preserve all source, dependency, tool, executable, args and output hashes
+

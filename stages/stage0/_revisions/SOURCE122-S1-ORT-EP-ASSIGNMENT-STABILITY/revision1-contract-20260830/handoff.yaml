@@ -1,0 +1,108 @@
+schema: handoff-transport-envelope-v2
+topic_id: SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+assignment_id: STAGE0-REVISION1-20260830-ORT-EP-ASSIGNMENT-STABILITY
+lane_id: STAGE0_PRIMARY
+role_id: STAGE0_PRIMARY_REVISION
+source_stage: STAGE0_REVISION
+assignment_state: FROZEN_AWAITING_MAINLINE
+input_freeze_sha256: 336A46575133C4C4A5762349C0E48DE8CF918AFC98B80E6F154179524ECF9BF6
+cross_assignment_contamination_declared: false
+
+user_summary_cn:
+  outcome: "Stage 0 revision 1/1 静态合同已完成并消费；未产生科学结果，等待独立 closing。"
+  main_reason: "同一 ORT/ONNX 对象与 held-out decision-validity RQ 保持不变；已把双 endpoint 收敛为固定 ORT 1.26.0 CUDA+CPU 的 optimizer-level BASIC/EXTENDED/ALL 决策，并冻结 legality、semantic-region quotient、all-cell denominator、Q2 breadth/baselines 与 Stage A killer。"
+  next_step: "MAINLINE 机械验收后交未参与本次合同构造的 Stage 0 reviewer 做 independent closing；接受前禁止 Stage A。"
+  user_action_required: false
+  user_action: null
+
+decision:
+  upstream_scientific_verdict: REVISE_ONCE
+  revision_contract_disposition: COMPLETE_AWAIT_INDEPENDENT_CLOSING
+  operational_disposition: NONE
+  quality_tier_ceiling: TIER_B_Q2_VIABLE_ONLY_IF_INDEPENDENT_CLOSING_ACCEPTS
+  evidence_ceiling: STATIC_CONTRACT_ONLY__ZERO_CANDIDATE_RESULT
+  claim_bearing_observation_obtained: false
+  scientific_revision_consumed: true
+  scientific_revision_usage: 1_of_1
+
+revision_preservation:
+  object_preserved: true
+  research_question_preserved: true
+  claim_endpoint_preserved: true
+  evidence_ceiling_preserved: true
+  generic_bug_finding_substitution: false
+  result_aware_selection: false
+  failed_cell_exclusion: false
+  private_QNN_requirement: false
+
+frozen_contract:
+  primary_endpoint: fixed_onnxruntime_gpu_1_26_0_CUDA_then_CPU_choose_BASIC_EXTENDED_ALL_on_source_and_measure_heldout_regret
+  diagnostic_only: ORT_DISABLE_ALL
+  relation_families:
+    - ONNX_Function_expansion_or_inlining
+    - inverse_Transpose_or_Reshape_identity
+    - Split_then_Concat_reconstruction
+    - constrained_Gemm_to_MatMul_plus_Add
+  legality_levels: [L0_PROTO_LEGAL, L1_RELATION_JUSTIFIED, L2_NUMERIC_ORACLE]
+  lineage: semantic_region_zero_one_many_quotient_with_explicit_failure_outcomes
+  denominator: model_x_source_representation_x_heldout_relation_instance_x_optimizer_action_x_repetition_x_process_control_arm
+  q2_minimum: {models: 12, model_families: 3, relation_families: 4, heldout_models_relations: true, second_release_or_same_version_public_EP_stratum: true}
+  strongest_baselines: [output_only_differential, raw_timing, simple_structure, native_assignment_info, full_per_representation_optimizer_grid, version_compatible_public_Mobius_QNN_lineage]
+  stagea_killer: 2_model_families_x_2_relation_families_plus_normalized_negative_x_BASIC_EXTENDED_ALL_with_paired_instrumentation_process_controls
+
+execution_scope:
+  model_route: gpt-5.6-sol/high__TEMPORARY_USER_COMMAND_OVERRIDE
+  search: 0
+  network: 0
+  resource_action: 0
+  implementation: 0
+  build_or_experiment: 0
+  stagea_or_stageb_started: false
+  shared_write: false
+  current_cycle_usage_reset_confirmed: false
+
+artifact_pointers:
+  canonical_report:
+    path: stages/stage0/_revisions/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/revision1-contract-20260830/REVISION_REPORT.md
+    sha256: A4207AA3EB2C753220E6ABAB2B4B84C2FE6D28DD11E95706B781D946BDBD71B7
+  raw_or_decisive_evidence:
+    - path: stages/stage0/_revisions/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/revision1-contract-20260830/REVISED_STAGE0_CONTRACT.yaml
+      sha256: 6E3943CD77D4E1EF80C3434C35B02F897082E63A84DB860F5C5A0C91D9A1F1B0
+    - path: stages/stage0/_revisions/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/revision1-contract-20260830/LEGALITY_AND_LINEAGE_CONTRACT.yaml
+      sha256: 051A48FDB6B0F34D47B2BDD5629D9B35BC9F549F55A9C1080029CD41539C7640
+    - path: stages/stage0/_revisions/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/revision1-contract-20260830/ALL_CELL_DENOMINATOR.yaml
+      sha256: 20B115B1BDC1CF4599EC06C66A3E735EB4AFB3426B4C6A7C73F19AB0EAC4DE9D
+  comparator_or_full_cost:
+    - path: stages/stage0/_revisions/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/revision1-contract-20260830/Q2_BREADTH_AND_BASELINES.yaml
+      sha256: C2AEEEBF7CAF8350A7DB5F5A1151C55C3FCA862D2273AE189C1ACD64897E70E4
+    - path: stages/stage0/_revisions/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/revision1-contract-20260830/STAGEA_KILLER_PLAN.yaml
+      sha256: 14D4C4EF9171D05E5EB6300D76FEBCB7A025C50692899EB6FE0AD687E80F8C8D
+  independent_review: {path: null, sha256: null}
+  resource_inventory: {path: null, sha256: null}
+  lifecycle_or_retention: {path: null, sha256: null}
+  capsule_or_resume: {path: null, sha256: null}
+
+blocker:
+  kind: null
+  user_blocker_packet: null
+  resume_directory: null
+  attempts_or_routes_exhausted: null
+
+next_gate:
+  proposed_stage_or_gate: STAGE0_INDEPENDENT_REVISION_CLOSING
+  exact_action: "verify preservation, one-endpoint closure, relation legality, semantic-region quotient completeness, all-cell denominator, Q2 breadth/baselines and StageA killer; do not execute StageA"
+  authority_required: MAINLINE
+  stageb_user_approval_id: null
+
+file_hashes:
+  ASSIGNMENT_CONTEXT.yaml: 336A46575133C4C4A5762349C0E48DE8CF918AFC98B80E6F154179524ECF9BF6
+  BOOTSTRAP_ACK.yaml: D3B2F81F9110BF16F05A8E0E197AA106AC62D1AC57884C4E496C48BFC60FA0D2
+  MAINLINE_BOOTSTRAP_ACCEPTANCE.yaml: CEBF250919EE4FC5B124C08B82768BFB2CD4E25786AB0B836E96F1052FA00133
+  MAINLINE_START.yaml: FD7DCE0E656153EB896F542DC79C0933F5C025A48D74A8F75AF4150CEFF37770
+  REVISED_STAGE0_CONTRACT.yaml: 6E3943CD77D4E1EF80C3434C35B02F897082E63A84DB860F5C5A0C91D9A1F1B0
+  LEGALITY_AND_LINEAGE_CONTRACT.yaml: 051A48FDB6B0F34D47B2BDD5629D9B35BC9F549F55A9C1080029CD41539C7640
+  ALL_CELL_DENOMINATOR.yaml: 20B115B1BDC1CF4599EC06C66A3E735EB4AFB3426B4C6A7C73F19AB0EAC4DE9D
+  Q2_BREADTH_AND_BASELINES.yaml: C2AEEEBF7CAF8350A7DB5F5A1151C55C3FCA862D2273AE189C1ACD64897E70E4
+  STAGEA_KILLER_PLAN.yaml: 14D4C4EF9171D05E5EB6300D76FEBCB7A025C50692899EB6FE0AD687E80F8C8D
+  REVISION_REPORT.md: A4207AA3EB2C753220E6ABAB2B4B84C2FE6D28DD11E95706B781D946BDBD71B7
+hash_manifest_file: HASH_MANIFEST.sha256

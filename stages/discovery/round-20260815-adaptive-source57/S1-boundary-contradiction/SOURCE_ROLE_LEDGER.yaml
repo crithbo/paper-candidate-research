@@ -1,0 +1,25 @@
+sources:
+  - id: SRC01_WASM_THREADS_SPEC
+    role: ANCHOR
+    url: https://webassembly.github.io/threads/core/_download/WebAssembly.pdf
+    version_or_date: Release 2.0 + Threads, Draft 2023-10-10; observed 2026-08-15
+    provenance: official WebAssembly specification
+    finding: wait atomically compares a linear-memory value and can suspend until timeout or wake; notify wakes waiting threads at an address.
+  - id: SRC02_WASM_THREADS_INSTRUCTIONS
+    role: ANCHOR_SEMANTICS
+    url: https://webassembly.github.io/threads/core/syntax/instructions.html
+    version_or_date: Draft 2023-10-10; observed 2026-08-15
+    provenance: official WebAssembly Threads specification
+    finding: wait/notify/fence are primitive synchronization and their result is observable.
+  - id: SRC03_WASMTIME_REPOSITORY
+    role: CURRENT_ROUTE
+    url: https://github.com/bytecodealliance/wasmtime
+    version_or_date: current repository landing page observed 2026-08-15
+    provenance: upstream project
+    finding: establishes the exact project, not a source-level wait-queue action inventory.
+  - id: SRC04_WASM_RELAXED_EXEC
+    role: CONTRARY_SEMANTICS
+    url: https://webassembly.github.io/threads/core/exec/relaxed.html
+    version_or_date: Draft 2023-10-10; observed 2026-08-15
+    provenance: official specification
+    finding: the semantic model identifies a per-location wait queue and head-order wake attempt.

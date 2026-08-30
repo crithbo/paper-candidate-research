@@ -1,0 +1,179 @@
+schema: stage0-confirmation-handoff-v8.7
+assignment_id: STAGE0-C1-20260809-LLVM-BITCODE-ABBREV-PLANNER-CONFIRM-V8.7
+candidate_id: LLVM-BITCODE-ABBREV-PLANNER
+role: STAGE0_CONFIRMATION_SENTRY
+mode: CONFIRMATION
+cutoff_date: 2026-08-09
+
+decision:
+  protocol_disposition: CONFIRM
+  scientific_disposition: CONFIRM_STAGE0_PASS
+  structural_paper_potential: TIER_B_Q2_VIABLE
+  structural_potential_is_conditional: true
+  current_evidence_readiness: FINITE_FIDELITY_GAP__PINNED_RECORD_TRACE_AND_CURRENT_WRITER_PARITY_REQUIRED
+  direct_same_object_fatal_collision_found: false
+  revision_required: false
+  confidence: 0.84
+
+confirmed_residual:
+  id: GLOBAL_COSTED_NATIVE_ABBREVIATION_GRAMMAR_SCOPE_ASSIGNMENT_PLANNER
+  novelty_status: SEARCH_BOUNDED_OPEN
+  proposition: >-
+    For a pinned LLVM Module and frozen expanded semantic block-record trace,
+    construct a legal native abbreviation grammar, definition scope and order,
+    unchanged-record assignment, and fallback plan that jointly accounts for
+    definition amortization and stepwise abbreviation-ID/code-width costs,
+    while producing ordinary raw bitcode accepted by the pinned native reader.
+  non_product_requirement: >-
+    N2 requires a named global algorithm or formal guarantee coupling grammar
+    construction, shared/local scope, definition order, record coverage and
+    assignment, and ID-width steps. Schema patches, unused-template deletion,
+    flag sweeps, emitter patches, postprocessors, opaque solvers, and local byte
+    heuristics are insufficient.
+
+exact_object:
+  input: pinned_LLVM_Module_and_frozen_expanded_semantic_block_record_trace
+  output: one_ordinary_raw_native_LLVM_bitcode_file
+  invariants:
+    - pinned_unmodified_native_reader_accepts_output
+    - canonical_decoded_IR_is_equal
+    - native_opt_verify_passes
+    - expanded_semantic_record_values_and_order_are_identical
+  permitted_actions:
+    - legal_abbreviation_grammar_construction
+    - legal_BLOCKINFO_or_immediate_block_definition_scope_and_order
+    - induced_abbreviation_ID_and_code_width
+    - unchanged_record_assignment_to_legal_abbreviation_or_UNABBREV_RECORD
+  forbidden_drift:
+    - IR_or_semantic_record_change
+    - record_reorder_omission_split_or_merge
+    - module_split_or_merge
+    - alternative_codec_or_non_native_reader
+    - external_compression_as_primary_objective
+
+writer_option_normalization:
+  audit_all_relevant_default_and_nondefault_flags: true
+  trace_changing_flags_are_candidate_actions: false
+  rule: >-
+    Freeze trace-changing options identically within each comparison stratum;
+    compare executable matched points rather than a metric-wise union across
+    different semantic traces.
+
+current_source_absorption:
+  B0_includes:
+    - fixed_BLOCKINFO_abbreviations
+    - block_local_abbreviations
+    - dynamic_abbreviation_ID_width
+    - string_type_instruction_and_record_shape_dependent_choices
+    - abbreviated_and_UNABBREV_RECORD_fallbacks
+    - all_relevant_writer_options_under_matched_trace_contract
+  direct_subtractor:
+    - LLVM_D150371_schema_based_TargetExtType_abbreviation
+  implication: one_schema_abbreviation_or_emitter_local_patch_is_not_N2
+  joint_global_planner_found_in_bounded_current_source_audit: false
+
+bcdb_boundary:
+  classification: DIRECT_SUBTRACTOR__SAME_NATIVE_FORMAT_AND_READER_NEGATIVE_CONTROL__DIFFERENT_PRIMARY_OBJECTIVE_AND_PIPELINE
+  native_LLVM_decode_overlap: true
+  raw_native_abbreviation_baseline: false
+  reason: >-
+    BCDB rewrites LLVM-decodable bitstreams for downstream database/external
+    compression and deliberately enlarges uncompressed bitcode; it subtracts
+    generic re-encoding/compression claims but does not replace B0-B2 for the
+    frozen raw-native abbreviation-only objective.
+  escalation_rule: >-
+    If a future claim includes external compression or changes the storage
+    pipeline, BCDB becomes a direct fair baseline and same-object review must
+    be reopened.
+
+fair_baselines:
+  - id: B0
+    description: complete_pinned_current_native_writer_under_matched_trace_and_options
+  - id: B1
+    description: current_grammar_subset_scope_and_record_assignment_oracle
+  - id: B2
+    description: greedy_full_bounded_grammar_scope_assignment_planner_with_exact_net_bit_cost
+  - id: B3
+    description: small_instance_exact_ceiling_only
+  fairness:
+    same_pinned_module_and_expanded_record_trace: true
+    same_candidate_grammar_bounds_and_budget_for_B2: true
+    exact_definition_alignment_payload_fallback_and_ID_width_costs: true
+    executable_points_only_no_metricwise_synthetic_union: true
+
+stage_a_preclaim_route:
+  route_exists: true
+  route_type: PUBLIC_CPU_OPEN_SOURCE_SAME_SEMANTICS
+  authorized: false
+  corpus: 100_preregistered_natural_public_modules
+  immutable_inputs:
+    - full_LLVM_commit_and_relevant_source_blob_hashes
+    - repositories_commits_licenses_build_commands_and_module_hashes
+    - expanded_semantic_record_trace_and_matched_writer_options
+  must_check:
+    - complete_current_action_enumeration_and_B1_parity
+    - native_parse_and_canonical_decoded_module_equality
+    - opt_verify
+    - exact_DEFINE_ABBREV_BLOCKINFO_alignment_payload_fallback_and_ID_width_accounting
+    - small_witness_crossing_at_least_one_ID_width_step
+    - residual_action_on_at_least_10_percent_of_natural_modules
+    - raw_bytes_plus_planning_write_read_CPU_wall_RSS_p50_p90_full_cost
+    - non_dominated_executable_point_against_B0_B1_B2
+  positive_probe_interpretation: INITIAL_SUPPORT_ONLY_NOT_CORE_CLAIM_PROOF
+  missing_implementation_or_results_is_stop_reason: false
+
+stop_if_later:
+  - every_legal_action_or_gain_is_reproduced_by_B1_or_B2
+  - mechanism_collapses_to_schema_patch_flag_sweep_or_local_emitter_heuristic
+  - expanded_record_trace_native_parse_canonical_equality_or_verify_fails
+  - external_compression_changed_record_content_or_non_native_reader_is_required
+  - no_natural_module_exposes_retained_residual_action
+  - full_cost_eliminates_every_non_dominated_point
+
+claim_ceiling:
+  permitted_now: >-
+    Conditional search-bounded Tier B residual for a global costed native LLVM
+    bitcode abbreviation grammar/scope/assignment planner under frozen expanded
+    record equality and complete current-writer/B1/B2 baselines.
+  prohibited_now:
+    - first_LLVM_bitcode_abbreviation_optimization
+    - fixed_template_current_writer
+    - first_LLVM_compatible_reencoding_or_compression
+    - natural_headroom_or_performance_has_been_demonstrated
+    - global_algorithm_or_formal_guarantee_has_been_established
+    - Tier_A_Q1_potential
+    - Stage_A_or_Stage_B_is_authorized
+
+input_integrity:
+  discovery_manifest_sha256: F6F248E2A6D7FF6F1D4CAFBCF43AA943A755842F911935E0050DAAA6BA0B145F
+  discovery_files_verified: 4
+  discovery_files_total: 4
+  primary_manifest_sha256: C4ADD3490038378F574A8496C90D4DA2A8F9053D58E4807E1069FFAE08E07A05
+  primary_files_verified: 4
+  primary_files_total: 4
+  provenance_conflict: false
+
+search_boundary:
+  status: SEARCH_BOUNDED_OPEN
+  covered:
+    - official_LLVM_bitcode_format_and_tool_docs
+    - current_upstream_BitcodeWriter_and_BitstreamWriter_source
+    - current_upstream_schema_abbreviation_change_D150371
+    - exact_object_abbreviation_planner_searches
+    - BCDB_primary_artifact_description
+  resource_failure: remote_git_commit_resolution_failed_due_to_local_credential_provider
+  inference_from_resource_failure: none
+
+permissions:
+  stage_a_authorized: false
+  stage_b_authorized: false
+  experiments_authorized: false
+  implementation_authorized: false
+  master_files_modified: false
+
+deliverables:
+  - CONFIRMATION_REVIEW.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

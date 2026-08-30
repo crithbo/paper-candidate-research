@@ -1,0 +1,118 @@
+schema: stage0-confirmation-handoff-v8.6
+assignment_id: STAGE0-C1-20260809-CVC5-ALETHE-SHAREMAP-CONFIRM-V8.6
+candidate_id: CVC5-ALETHE-SHAREMAP
+role: STAGE0_CONFIRMATION_SENTRY
+mode: CONFIRMATION
+cutoff_date: 2026-08-09
+
+decision:
+  protocol_disposition: CONFIRM
+  scientific_disposition: CONFIRM_REVISE_ONCE
+  structural_paper_potential: TIER_B_Q2_VIABLE
+  structural_potential_is_conditional: true
+  current_evidence_readiness: FINITE_FIDELITY_GAP
+  original_candidate_direct_pass: false
+  revision_executed: false
+  revision_budget_consumed_by_confirmation: false
+
+decisive_finding:
+  id: CURRENT_CVC5_NATIVE_ALETHE_SHARING_ABSORBS_FROZEN_MISSING_CONSTRUCTOR
+  class: DIRECT_FATAL_FOR_FROZEN_GAP
+  confirmed: true
+  statement: >-
+    Current cvc5 AletheProofPrinter integrates AletheLetBinding, derives native
+    letification from dagThresh, and emits :named @p_* definitions/references;
+    therefore the frozen missing-native-sharing premise cannot support a direct
+    Stage 0 PASS.
+  historical_source_status: HISTORICALLY_TRUE_IN_CVC5_1_1_2_BUT_STALE_FOR_CURRENT_BASELINE
+
+revision_gate:
+  id: CURRENT_NATIVE_LETIFIER_RESIDUAL__BEHAVIORALLY_COMPLETE_THRESHOLD_FAMILY
+  atomicity: CONFIRMED_WITH_MECHANICAL_NORMALIZATION
+  proposition: >-
+    Under one pinned current cvc5/Alethe/Carcara contract and the same fixed
+    cvc5 proof object, exhibit a legal candidate selection action or nontrivial
+    algorithmic guarantee not expressible by any behaviorally distinct native
+    AletheLetBinding output induced by dag-thresh, while preserving exact
+    expanded terms and checker acceptance, and define a finite natural-corpus
+    full-cost route that can later test the residual.
+  strongest_same_object_baseline:
+    - pinned_cvc5_1_3_4_or_immutable_current_commit
+    - current_AletheProofPrinter_plus_AletheLetBinding
+    - behaviorally_complete_finite_dag_thresh_output_family_per_fixed_proof
+    - native_sharing_disabled_ablation
+  must_show:
+    - a_same_proof_legal_action_outside_the_complete_native_threshold_family
+    - an_algorithm_or_formal_guarantee_rather_than_parameter_selection
+    - theorem_rule_expansion_format_and_checker_fidelity
+    - a_finite_natural_full_cost_evidence_route
+  stop_if:
+    - threshold_tuning_or_native_output_selection
+    - incomplete_or_cherry_picked_dag_thresh_grid
+    - emitter_patch_only
+    - postprocessor_only
+    - local_byte_heuristic_without_independent_algorithmic_guarantee
+    - changed_theorem_proof_rules_format_checker_or_expanded_terms
+    - no_action_or_guarantee_outside_native_family
+
+claim_ceiling:
+  permitted_now: >-
+    Search-bounded conditional residual: current official sources checked here
+    do not establish a scope-aware/costed same-proof legal-selection constructor
+    outside the complete native threshold family.
+  prohibited_now:
+    - current_cvc5_lacks_native_Alethe_sharing
+    - scope_safety_alone_is_novel
+    - residual_has_been_demonstrated
+    - performance_or_size_improvement_has_been_established
+    - Stage_A_or_Stage_B_is_authorized
+
+readiness_and_route:
+  route_exists: true
+  route_type: PUBLIC_CPU_OPEN_SOURCE_SAME_SEMANTICS
+  components:
+    - released_or_commit_pinned_cvc5
+    - Alethe_specification
+    - Carcara_checker
+  missing_implementation_or_results_is_stop_reason: false
+
+source_boundary:
+  allowed_sources_used:
+    - cvc5_official_source_and_documentation
+    - cvc5_original_system_paper
+    - Alethe_official_specification_and_original_material
+    - veriT_official_material
+    - Carcara_upstream_repository
+    - CPC_Ethos_cvc5_upstream_material
+  latest_checked_through: 2026-08-09
+  direct_current_residual_collision_found: false
+  absence_label: SEARCH_BOUNDED_NOT_PROOF_OF_NOVELTY
+
+input_integrity:
+  discovery_manifest_sha256: 24989909247799552B26B56645DA8559D346965A34B2C97F1AE5A86B6BC8F91C
+  discovery_files_verified: 4
+  discovery_files_total: 4
+  primary_manifest_sha256: 1D52D2F60866505AF0173C18FA234B3A41E4B04013B791F52849659BAFFB169B
+  primary_files_verified: 4
+  primary_files_total: 4
+  provenance_conflict: false
+
+confidence:
+  current_native_collision: 0.99
+  atomic_gate_assessment: 0.88
+  conditional_tier_b_assessment: 0.82
+
+permissions:
+  stage_a_authorized: false
+  stage_b_authorized: false
+  experiments_authorized: false
+  implementation_authorized: false
+  master_files_modified: false
+
+deliverables:
+  - CONFIRMATION_REVIEW.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE
+

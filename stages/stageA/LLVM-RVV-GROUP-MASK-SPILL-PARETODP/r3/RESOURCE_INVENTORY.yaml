@@ -1,0 +1,96 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_path: rules/ARTIFACT_LIFECYCLE.md, policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824, artifact_state: GC_COMPLETE, legacy_disposition: NOT_APPLICABLE, closeout_event: EXACT_RVV_TOOLCHAIN_RESOURCE_GATE_HANDOFF_ACCEPTED, downstream_consumer: STAGEA_RVV_PRECLAIM_RESUME_AFTER_RESOURCE_PASS, post_close_retained_bytes_max: 2147483648, phase_closeout_retention_path: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/PHASE_CLOSEOUT_RETENTION.yaml, capsule_path: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/RESUME_CAPSULE.yaml, cleanup_receipt_path: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/CLEANUP_RECEIPT.yaml}
+identity: {topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP, assignment_id: STAGEA-L1-20260825-LLVM-RVV-R3-LONG-PATH-AWARE-EXACT-TOOLCHAIN, stage_or_mode: STAGEA_RESOURCE_GATE_LONG_PATH_RESUME, run_id: R3_EXACT_BUILD_1_OF_1, unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3, resource_root: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/resources, inventory_path: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/RESOURCE_INVENTORY.yaml, created_at: '2026-08-25T17:55:00+08:00', started_at: '2026-08-25T18:12:56+08:00', finalized_at: '2026-08-25T19:08:26.7724448+08:00'}
+root_measurement: {logical_bytes: 196155536, allocated_bytes: null, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true, file_count: 137, directory_count: 11, longest_persisted_path_characters: 205, reparse_entry_count: 0, measurement_record: CLEANUP_RECEIPT.yaml, precleanup_measurement_record: resources/logs/final_measurement.json}
+required_directories:
+  downloads: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/resources/downloads
+  archives: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/resources/archives
+  src: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/resources/src
+  build: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/resources/build
+  env: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/resources/env
+  cache: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/resources/cache
+  tmp: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/resources/tmp
+  logs: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r3/resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools: [BUNDLED_PYTHON_3_12_13, DOTNET_SYSTEM_IO_EXTENDED_PATH, LLVM_MINGW_20260616, CMAKE_4_4_2, NINJA_1_13_0]
+  map: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONNOUSERSITE: '1', PIP_CACHE_DIR: resources/cache/pip, XDG_CACHE_HOME: resources/cache/xdg, PATH: ASSIGNMENT_CHILD_PROCESS_ONLY, LONG_PATH_API: PROCESS_LOCAL_WIN32_EXTENDED_PREFIX}
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 10737418240
+  cpu_seconds_max: 28800
+  wall_seconds_max: 28800
+  build_jobs_max: 2
+  source_extraction_attempts_max: 1
+  tool_extraction_attempts_max: 1
+  configure_attempts_max: 1
+  clean_build_attempts_max: 1
+  gpu_hours_max: 0
+  network_bytes_used: 0
+  stored_bytes_used: 196155536
+  source_extraction_attempts_used: 1
+  tool_extraction_attempts_used: 1
+  configure_attempts_used: 1
+  clean_build_attempts_used: 1
+  build_jobs_used: 2
+  gpu_hours_used: 0
+  observed_assignment_wall_seconds: 3330.772
+  exact_cpu_seconds_used: UNAVAILABLE__NOT_ESTIMATED
+entries:
+  - {path: resources/downloads/llvm-commit-5bb2565693f062a9e99929db1814a7a076d4dc76.json, logical_bytes: 14428, file_count: 1, sha256: 7104CB0CA8DCDF6C5A9AC89A31C8F65F45CDEA336C938E21DA483A405D2605E3, creating_run: SAME_TOPIC_ASSET_COPY, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: R2_HASH_PINNED_OFFICIAL_ASSET, license: METADATA, reacquirable: true, recovery: SAME_TOPIC_R2_OR_OFFICIAL_SOURCE_UNDER_NEW_AUTHORIZATION, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_HANDOFF, receipt_reference: CLEANUP_RECEIPT.yaml}
+  - {path: resources/downloads/llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76.tar.gz, logical_bytes: 280166923, file_count: 1, sha256: BC0E5CC6B7F4978242749E0FF666DDA851994EFFC178BD782C4799D7C2B52695, creating_run: SAME_TOPIC_ASSET_COPY, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: R2_HASH_PINNED_OFFICIAL_ASSET, license: APACHE_2_WITH_LLVM_EXCEPTION, reacquirable: true, recovery: SAME_TOPIC_R2_OR_OFFICIAL_SOURCE_UNDER_NEW_AUTHORIZATION, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_HANDOFF_AND_BUNDLE_HASHES_PASS, receipt_reference: CLEANUP_RECEIPT.yaml}
+  - {path: resources/downloads/llvm-mingw-20260616-ucrt-x86_64.zip, logical_bytes: 187504083, file_count: 1, sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35, creating_run: SAME_TOPIC_ASSET_COPY, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: R2_HASH_PINNED_OFFICIAL_ASSET, license: MULTI_LICENSE_RETAIN_INCLUDED_NOTICES, reacquirable: true, recovery: SAME_TOPIC_R2_OR_OFFICIAL_SOURCE_UNDER_NEW_AUTHORIZATION, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_HANDOFF_AND_BUNDLE_HASHES_PASS, receipt_reference: CLEANUP_RECEIPT.yaml}
+  - {path: resources/downloads/cmake-4.4.2-py3-none-win_amd64.whl, logical_bytes: 42325289, file_count: 1, sha256: C28388FE95298486169C45C0EC8BDF067AABCB59273B98A4CDAE8BE5CD9C74F3, creating_run: SAME_TOPIC_ASSET_COPY, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: R2_HASH_PINNED_OFFICIAL_ASSET, license: INCLUDED_NOTICES_RETAIN, reacquirable: true, recovery: SAME_TOPIC_R2_OR_OFFICIAL_SOURCE_UNDER_NEW_AUTHORIZATION, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_HANDOFF, receipt_reference: CLEANUP_RECEIPT.yaml}
+  - {path: resources/downloads/ninja-1.13.0-py3-none-win_amd64.whl, logical_bytes: 309975, file_count: 1, sha256: FB8EE8719F8AF47FED145CCED4A85F0755DD55D45B2BDDAF7431FA89803C5F3E, creating_run: SAME_TOPIC_ASSET_COPY, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: R2_HASH_PINNED_OFFICIAL_ASSET, license: INCLUDED_NOTICE_RETAIN, reacquirable: true, recovery: SAME_TOPIC_R2_OR_OFFICIAL_SOURCE_UNDER_NEW_AUTHORIZATION, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_HANDOFF, receipt_reference: CLEANUP_RECEIPT.yaml}
+  - {path: resources/src/s, logical_bytes: 2265353834, file_count: 181551, hash_scope: EXACT_ARCHIVE_HASH_PLUS_CLOSED_REGULAR_FILE_AND_BYTE_COUNTS, creating_run: SOURCE_EXTRACTION_1_OF_1, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: EXACT_LLVM_ARCHIVE_LONG_PATH_EXTRACTION, license: APACHE_2_WITH_LLVM_EXCEPTION, reacquirable: true, recovery: LONG_PATH_AWARE_REEXTRACTION_OF_PINNED_ARCHIVE, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_HANDOFF_AND_BUNDLE_HASHES_PASS, receipt_reference: CLEANUP_RECEIPT.yaml}
+  - {path: resources/build, logical_bytes: 1019818791, file_count: 2329, hash_scope: CMAKE_CACHE_BUILD_NINJA_BUILD_RESULT_AND_REQUIRED_OUTPUT_HASHES, creating_run: CONFIGURE_1_BUILD_1, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: BUILD_PROVENANCE.yaml, license: DERIVED_LLVM_BUILD, reacquirable: true, recovery: NEW_AUTHORIZED_EXACT_REBUILD, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_HANDOFF_AND_TOOL_BUNDLE, receipt_reference: CLEANUP_RECEIPT.yaml}
+  - {path: resources/env/t, logical_bytes: 839345887, file_count: 13669, hash_scope: THREE_PINNED_ARCHIVES_PLUS_BOOTSTRAP_EXECUTABLE_HASHES, creating_run: TOOL_EXTRACTION_1_OF_1, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: LLVM_MINGW_CMAKE_NINJA_PINNED_ASSETS, license: INCLUDED_NOTICES_COPIED_TO_BUNDLE, reacquirable: true, recovery: REEXTRACT_PINNED_ASSETS, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTS_HANDOFF_AND_TOOL_BUNDLE, receipt_reference: CLEANUP_RECEIPT.yaml}
+  - {path: resources/env/rvv-toolchain, logical_bytes: 195813113, file_count: 102, sha256_scope: resources/env/rvv-toolchain/TOOL_MANIFEST.json, manifest_sha256: 5E6599C5EEC88D09B6D1623BD6BD889E6DAC943C792029D71B632D8C1693138D, creating_run: PACKAGE_AND_NONCLAIM_SMOKE, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [STAGEA_RVV_PRECLAIM_RESUME_AFTER_RESOURCE_PASS], provenance: BUILD_PROVENANCE.yaml, license: 93_PACKAGED_LICENSE_NOTICE_FILES, reacquirable: true, recovery: NEW_AUTHORIZED_EXACT_REBUILD, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC, receipt_reference: null}
+  - {path: resources/cache, logical_bytes: 1393593, file_count: 52, hash_scope: REGENERABLE_PYTHON_BYTECODE_ONLY, creating_run: PROCESS_LOCAL_REDIRECT, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [], provenance: REGENERABLE, license: NOT_APPLICABLE, reacquirable: true, recovery: REGENERATE, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, delete_after_gate: MAINLINE_ACCEPTS_HANDOFF_AND_ZERO_ACTIVE_PROCESS, receipt_reference: CLEANUP_RECEIPT.yaml}
+  - {path: resources/tmp, logical_bytes: 42291, file_count: 9, hash_scope: DETERMINISTIC_RESOURCE_GATE_SCRIPTS, creating_run: OWNER_RESOURCE_GATE, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [MAINLINE_AUDIT], provenance: OWNER_SCRIPTS, license: PROJECT_INTERNAL, reacquirable: false, recovery: RETAIN, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC, receipt_reference: null}
+  - {path: resources/logs, logical_bytes: 300132, file_count: 26, hash_scope: EXTRACTION_CONFIGURE_BUILD_PACKAGE_SMOKE_MEASUREMENT_AND_INVENTORY_SNAPSHOTS, creating_run: OWNER_RESOURCE_GATE, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [MAINLINE_AUDIT, STAGEA_RVV_PRECLAIM_RESUME_AFTER_RESOURCE_PASS], provenance: RAW_RESOURCE_RECORDS, license: PROJECT_INTERNAL, reacquirable: false, recovery: RETAIN, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC, receipt_reference: null}
+shared_assets_consumed: []
+external_system_dependencies:
+  - {name: Windows, version: 10.0.26200.0, role: host_os, project_asset: false}
+  - {name: bundled_workspace_python, version: 3.12.13, role: orchestration_only, project_asset: false, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA}
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: [resources/downloads/llvm-commit-5bb2565693f062a9e99929db1814a7a076d4dc76.json, resources/downloads/llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76.tar.gz, resources/downloads/llvm-mingw-20260616-ucrt-x86_64.zip, resources/downloads/cmake-4.4.2-py3-none-win_amd64.whl, resources/downloads/ninja-1.13.0-py3-none-win_amd64.whl, resources/src/s, resources/build, resources/env/t, resources/cache]
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY]
+  closeout_plan_accepted: true
+  downstream_inputs_accepted: true
+  capsule_sealed: true
+  active_owner_or_process_count: 0
+  predelete_target_count: 9
+  predelete_file_count: 197606
+  predelete_logical_bytes: 4636232803
+  performed: true
+  deleted_entries: [resources/downloads/llvm-commit-5bb2565693f062a9e99929db1814a7a076d4dc76.json, resources/downloads/llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76.tar.gz, resources/downloads/llvm-mingw-20260616-ucrt-x86_64.zip, resources/downloads/cmake-4.4.2-py3-none-win_amd64.whl, resources/downloads/ninja-1.13.0-py3-none-win_amd64.whl, resources/src/s, resources/build, resources/env/t, resources/cache]
+  deleted_file_count: 197606
+  deleted_logical_bytes: 4636232803
+  postdelete_file_count: 137
+  postdelete_logical_bytes: 196155536
+  cleanup_receipt_sha256: D0BA0738382337DFE1241428EC53EC1C3479D846110F875E45A384892C575BA3
+  performed_at: '2026-08-25T19:25:16+08:00'
+  recoverability: PINNED_SAME_TOPIC_ASSETS_PLUS_LONG_PATH_EXTRACTION_AND_EXACT_REBUILD
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  reparse_entry_count: 0
+  required_directories_present: POSTCLOSEOUT_EXACT_BUILD_AND_CACHE_ROOT_GC__CLOSED_ASSIGNMENT
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: NOT_APPLICABLE_RESOURCE_ONLY_GATE
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: true
+  deterministic_recovery_routes_complete: true
+  closeout_budget_or_exception_pass: true
+  projected_post_close_retained_bytes: 196155536
+  cleanup_receipt_valid: true
+  result: GC_COMPLETE__EXACT_RISCV_TOOLCHAIN_RETAINED__NO_SCIENTIFIC_INFERENCE

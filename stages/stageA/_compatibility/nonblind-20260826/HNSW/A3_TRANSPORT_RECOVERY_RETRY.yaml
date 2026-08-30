@@ -1,0 +1,11 @@
+schema: user-authorized-transport-retry-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A3-RECOVERY
+authority: USER-RETRY-TRANSPORT-RECOVERY-20260826
+preflight: {command: curl.exe --head --fail --max-redirs 0 https://cmake.org/files/v3.31/cmake-3.31.6-windows-x86_64.zip, observed: HTTP_200, content_length: 46473549}
+preserve: [{path: A2_handoff.yaml, sha256: 264761D08F3840B41C339F70DB05883551619D929DAC619B122798E6964F4546}]
+only_change: one_fresh_curl_transport_attempt_for_same_official_cmake_archive_after_recovered_preflight
+archive: {url: https://cmake.org/files/v3.31/cmake-3.31.6-windows-x86_64.zip, path: resources/archives/cmake-3.31.6-windows-x86_64.zip, sha256: d163cd3ab4959b0a53fa8988f2ddbd2e6c501658201e6a154386bad9dbe4f836}
+command: curl.exe --fail --silent --show-error --max-redirs 0 --output <archive_path> <official_url>
+attempts_max: 1
+then: SHA256_validate_then_resume_A1S2_through_parent_S7_once
+stop_conditions: [any_failure_fail_closed_no_further_retry, checksum_mismatch]

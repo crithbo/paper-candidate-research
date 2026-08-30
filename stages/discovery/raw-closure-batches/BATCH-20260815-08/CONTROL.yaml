@@ -1,0 +1,60 @@
+schema_version: pending-raw-batched-resume-v1
+batch_program_id: PENDING-RAW-BATCHED-RESUME-20260815
+batch_id: BATCH-20260815-08
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+public_acquisition_authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+scheduling:
+  mode: SERIAL_WITHIN_BATCH
+  active_assignment_limit: 1
+  status: COMPLETE__TWO_UNRESOLVED__ZERO_BLOCKERS
+  ordered_items:
+    - order: 1
+      queue_id: S2-92-CQ01-RETRY1
+      family: RUBY_YJIT_CODE_BLOCK_SIDE_EXIT_JOINT_CONSTRUCTOR
+      state: COMPLETE_ACCEPTED__UNRESOLVED_BACKLOG
+      task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+      dispatch_turn_id: 01a00552-8242-7d01-9ed3-fad2581dc786
+      assignment: stages/discovery/round-20260815-adaptive-source92/S2-bottleneck-transfer/closure-cq01-retry1/ASSIGNMENT.yaml
+      assignment_sha256: A982E88C2A53F292950241B53640D710B0370E72E6F91232A81E39684EBAF089
+    - order: 2
+      queue_id: S2-93-CQ01-RETRY1
+      family: POSTGRESQL_EXPRESSION_TUPLE_DEFORM_JIT_JOINT_CONSTRUCTOR
+      state: COMPLETE_ACCEPTED__UNRESOLVED_BACKLOG
+      task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+      dispatch_turn_id: 01a00557-6e8b-7c23-a61b-36ba0044779a
+      assignment: stages/discovery/round-20260815-adaptive-source93/S2-bottleneck-transfer/closure-cq01-retry1/ASSIGNMENT.yaml
+      assignment_sha256: 224F78C57AB1348CA0CA3FCA1008522D9E03E665E85351AAEFEA2B47F16172FE
+item1_result:
+  disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+  immutable_pin: d17a0d008310e36d1e16f9614c7ca01fe38cf3d6
+  calls_used: 9
+  persisted_bytes: 826312
+  report_sha256: 40149FB7B67D4623D143AFCAC542852C1CA4D89EF740014CD894A785707DB59C
+  handoff_sha256: 1C5FD31FF1C6E210388DA71D99802C23E27999F2CF4351F939A7C465E8D26032
+  manifest_sha256: A18308A0C9D11F0983A2C86B123691ADF0AFAEFD83360B4FB8BCF0B5BDAB8E6D
+  closure_basis: stock code-block placement side-exit invalidation and code-GC union is closed, but same-program two plans and YJIT-specific finite guarantee remain unclosed
+  scientific_or_stage_authority: false
+item2_result:
+  disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+  immutable_pin: 7e6e294e4e451c55c52caa1ff68df9858912d066
+  calls_used: 8
+  persisted_bytes: 2200065
+  report_sha256: FD30F60BF59BDADC900C38CC38270D0AD39D603116DD0DD827A5D78FF7171800
+  handoff_sha256: 6AB9DC956902F03E5986A44B259E4A65651E7A19E600B46B082CA47A953048EE
+  manifest_sha256: 47DFE87969AE210FDDE2BFC49DAED4872200FF57FFF8E466295EBED88454D5FB
+  closure_basis: current expression JIT tuple-deform provider context settings and fallback union is closed, but no SQL carrier matched either authorized deterministic rule, so fixed query two plans residual and finite guarantee remain unclosed
+  scientific_or_stage_authority: false
+batch_summary: {processed: 2, unresolved_backlog: 2, structural_fatal: 0, resource_blocker: 0, clean_brief_or_stage_authority: 0}
+cumulative_program_summary: {processed: 16, unresolved_backlog: 13, structural_fatal: 3, resource_blocker: 0, clean_brief_or_stage_authority: 0, remaining_unprocessed_raw: 0}
+priority_basis: Ruby YJIT first because prior closure retained a stock carrier but not complete code-block/exit plans; PostgreSQL follows only after mainline acceptance
+previous_batch:
+  control: stages/discovery/raw-closure-batches/BATCH-20260815-07/CONTROL.yaml
+  outcome: COMPLETE__TWO_UNRESOLVED__ZERO_BLOCKERS
+remaining_unprocessed_raw_at_batch_start: 2
+rules:
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+permissions:
+  additional_user_permission_required: false
+  private_sources_system_install_hardware_budget_expansion_claim_experiment_or_stage_transition: forbidden_without_new_authority

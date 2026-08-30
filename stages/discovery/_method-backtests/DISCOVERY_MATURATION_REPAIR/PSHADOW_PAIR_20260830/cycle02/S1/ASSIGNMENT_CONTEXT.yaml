@@ -1,0 +1,41 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+role: DISCOVERY
+assignment_id: DMR-V1-PSHADOW-CYCLE-02-S1
+lane_id: DISCOVERY_S1_BOUNDARY_CONTRADICTION
+lane_thread_id: 01a034d0-b721-76d2-ace4-9665a8fffa3c
+pair_freeze_id: DMR-V1-PSHADOW-PAIR-20260830
+cycle_id: DMR-V1-PSHADOW-CYCLE-02
+model_route: {model: gpt-5.6-terra, thinking: medium}
+shared_snapshot: &shared
+  agents: {path: AGENTS.md, sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655}
+  plan: {path: plan.md, sha256: 0952FEB03E137235B00B059D103896331F0A779A0E23BB970B95E53984398FDE}
+  registry: {path: registry.yaml, sha256: E5A3F74DB069B3D9FF0E5138B9FF48F20C19F92F1BB820ABA2EFA0F68CF37A37}
+  role_rule: {path: rules/ROLE_DISCOVERY.md, sha256: 4583C7A555AF03E8365D74FFCB9B890107EB877A35059E3BA7CFDCE45E593EBD}
+  skill: {path: .agents/skills/research-topic-discovery/SKILL.md, sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2}
+  source_portfolio: {path: .agents/skills/research-topic-discovery/references/source-portfolios.md, sha256: FE3BC9503F70ED4BD729B338A7729BFA5CA3A3747312D63AF83D59B93FFE1F4D}
+  seed_template: {path: templates/DISCOVERY_DIVERGENCE_SEED_POOL.md, sha256: 31B6A89548313B51EFD0C7685ACF50EA56D6EC5C0B557BD9E8B920C7E2179470}
+  rq_template: {path: templates/DISCOVERY_RQ_CANDIDATE.md, sha256: 0FF1E7FD811C3BCA84D15DA9713B7A27ED8EB9076C2939316AF43DA85168F5BF}
+  question_card_template: {path: templates/DISCOVERY_QUESTION_CARD.md, sha256: D157B1B5D14C0DCEB3D238E85075777C3850C7E145ABD5EA8A3A111D3D022739}
+  brief_template: {path: templates/TOPIC_BRIEF.md, sha256: 4AB3144E0E9D366D702C37CAD4377A25E18DFEA746CA65224A18CAA2745E8FE4}
+minimum_inputs: &inputs
+  - {path: stages/control/user-authorizations/USER_DISCOVERY_REPAIR_FAST_TEST_AND_RULE_CONSOLIDATION_20260830.yaml, sha256: 9B3F2425041DB29EA5D1BCB2B1DE9A4DF2A5BA8C63DD6AFAF1E7ADFB1646C052}
+  - {path: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/PAIR_CONTROL.yaml, sha256: 15D22D324A14459A2B68D0984676B1A3FDEC72704FC6914DABD38E787666038D}
+  - {path: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/CYCLE02_CONTROL.yaml, sha256: 2687DF7E0EA22A0068EF23745D6DB5E0721BCCAB84E69AA1308F11922CA81E8F}
+  - {path: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/CYCLE01_MAINLINE_ACCEPTANCE.yaml, sha256: 9AE4233D4E50992861FBB0E4F79FC167E9B3DC47C4BD1BD358074F88F2B2DBD4}
+  - {path: stages/rule-audit/RULE-AUDIT-20260830-DISCOVERY-MATURATION-REPAIR-FAST-SHADOW-R1/SHADOW_PROTOCOL_SNAPSHOT.md, sha256: 6D484DD1E2DBDEB90EC070310D8620911CDFE7505C5E390920481FACE3B745BD}
+  - {path: stages/rule-audit/RULE-AUDIT-20260830-DISCOVERY-MATURATION-REPAIR-FAST-SHADOW-R1/SHADOW_BOUNDED_DEBT_CLOSURE_TEMPLATE.yaml, sha256: A1307597A56C1D161735853E18744F5A4672200177D865009CC3B96D9C806ABA}
+lane_focus:
+  anchor: huggingface/optimum-quanto current main quantize/freeze dispatch source
+  anchor_question: Do quantized tensor freeze, serialization and kernel dispatch share one auditable numerical contract that changes backend-lowering decisions?
+  carrier_decision_mechanism: small HF model on CPU/RTX4070; safe quantized dispatch selection; freeze-boundary semantics
+  repair_vector: CURRENT_UNION_EXACT_QUESTION
+modes: &modes {discovery_claim_pack: OFF, discovery_quality: OFF, discovery_rq_frontend: PRODUCTION, bounded_debt_closure_shadow_test: true}
+budget: &budget {canonical_search_or_open_calls_max: 6, source_role_budget: {ANCHOR: 2, CURRENT: 2, CONTRARY: 1, ESCAPE: 1}, nomination_max: 1, repair_execution_max: 0, download_build_experiment: 0}
+required_order: &order [freeze_local_seed_and_primary_rq_before_first_source_call, canonical_first, shadow_nomination_or_none_second, handoff_and_manifest]
+forbidden: &forbidden [repair_execution_before_six_lane_barrier, result_aware_backfill, stage0_dispatch_effect, candidate_download, build, experiment, stagea, stageb, shared_write]
+bootstrap_permissions: [read_frozen_inputs, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+unique_write_directory: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/cycle02/S1
+resource_root: null
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP
+

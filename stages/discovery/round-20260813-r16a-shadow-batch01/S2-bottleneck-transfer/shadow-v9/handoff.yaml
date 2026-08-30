@@ -1,0 +1,15 @@
+assignment_id: DISCOVERY-S2-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+protocol: DISCOVERY-CLAIM-PACK-V9-R0
+mode: SHADOW
+canonical_input_manifest: ../canonical-v8.7/HASH_MANIFEST.sha256
+neutral_snapshot: ../neutral-source-snapshot/SNAPSHOT.md
+noncanonical: true
+cannot_change: [canonical_decision, candidate_state, registry_state, stage0_decision]
+families:
+  S2R16A-01-OPENSSL-HASHDIR: C0_DIRECT_COVERED__SHADOW
+  S2R16A-02-OPENSSH-KNOWNHOSTS-HASHLOOKUP: C0_DIRECT_COVERED__SHADOW
+  S2R16A-03-PHP-OPCACHE-FILECACHE: C0_DIRECT_COVERED__SHADOW
+  S2R16A-04-SYSTEMD-JOURNAL-CONSTRUCTOR: SEARCH_BOUNDED_OPEN__SHADOW
+canonical_shadow_leakage_check: PASS__NO_SHADOW_TO_CANONICAL_DATAFLOW
+decision_stability: STABLE__FOUR_OF_FOUR_CANONICAL_DISPOSITIONS_UNCHANGED
+e2_or_experiment: NOT_RUN

@@ -1,0 +1,12 @@
+schema: rule-audit-assignment-v1
+audit_id: RULE-AUDIT-20260830-SOURCE118-119-ZERO-YIELD
+role: RULE_AUDIT_SENTRY
+thread_id: 01a034d0-b495-7d02-9b36-d43b6f33de96
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+inputs:
+  - stages/discovery/round-20260824-strategy-source118
+  - stages/discovery/round-20260830-strategy-source119/MAINLINE_ACCEPTANCE.yaml
+  - stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/auditor/backtest_review.md
+objective: identify_first_failed_conversion_and_propose_exactly_one_RETAIN_DOWNGRADE_REMOVE_bounded_change
+forbidden: [SHARED_WRITE, CANDIDATE_STATE_CHANGE, SOURCE120_READ, NETWORK, STAGE0, STAGEA, STAGEB]
+unique_write_directory: stages/rule-audit/RULE-AUDIT-20260830-SOURCE118-119-ZERO-YIELD

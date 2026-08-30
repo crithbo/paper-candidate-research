@@ -1,0 +1,41 @@
+audit_id: RULE-AUDIT-20260815-SOURCE80-81-CONSECUTIVE-ZERO-BRIEF-R65
+role: RULE-AUDIT-SENTRY
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+disposition: NO_CHANGE
+recommendation: RETAIN_ORDINARY_R40__NO_SUCCESSOR_MICRO_RULE__KEEP_RAW_NOT_ADMITTED_UNFROZEN_AND_PENDING_CLOSURE_SEPARATION
+contract: {path: stages/rule-audit/_assignments/RULE_AUDIT_SOURCE80_81_ZERO_BRIEF_R65.yaml, sha256: 48AD427F4319105C2D43E0BB113FBC2AD6719D753031EBC7E51C8D69671E5171}
+scope:
+  included: [Source80 canonical control and telemetry, Source81 canonical control telemetry and closure queues, current shared rules]
+  explicitly_excluded: [Source82 files outcomes and state, external retrieval download and queue execution, experiments automation and all Stage work]
+canonical_inputs:
+  source80_control_sha256: EAAC1433B4CDC331B8A42F45F5D9B27F0F25D973490B1B298DF2A2E2277BD4D7
+  source81_control_sha256: A1B6028AB6D6A3F266C8D8F3A4131DB22250CBEF68386B67903DBD73581272F1
+funnel_counts:
+  source80: {admitted_raw: 0, clean_stage0_brief: 0}
+  source81: {admitted_raw: 1, clean_stage0_brief: 0, deep_reviews: 0}
+raw_separation:
+  raw_family: RISCV_GP_WINDOW_DATA_GROUP_LAYOUT__FIXED_MEDLOW_STATIC_ELF__STOCK_LLD_RELAX_GP
+  disposition: NOT_ADMITTED_UNFROZEN__FINITE_CURRENT_UNION_AND_GUARANTEE_CLOSURE_REQUIRED
+  stage0_brief_created: false
+  scientific_negative_inference: false
+  automatic_reopen: false
+pending_closure_debts:
+  - {queue_id: S81-CQ01, status: PENDING_UNEXECUTED, attempt_count: 0, stage0_debt: false, source82_evidence: false, scientific_negative_inference: false}
+  - {queue_id: S81-CQ02, status: PENDING_UNEXECUTED, attempt_count: 0, stage0_debt: false, source82_evidence: false, scientific_negative_inference: false}
+findings:
+  source81_new_attributable_rule_evidence: true
+  evidence_type: POSITIVE_PROCESS_TELEMETRY__RAW_TO_UNFROZEN_SEPARATION_WORKED
+  rule_defect_observed: false
+authorization: {user_policy_approval_required: false, backtest_required: false, mainline_shared_patch_required: false, shared_files_modified: false, source82_read: false, queue_or_external_action_authorized: false}
+mainline_action:
+  - Continue ordinary R40 only at a later safe assignment boundary.
+  - Do not execute, auto-reopen, or count S81-CQ01/CQ02 as Stage0 debt or Source82 evidence.
+  - Do not add a successor micro-rule from Source80–81 evidence.
+resource_localization: {inventory: RESOURCE_INVENTORY.yaml, resource_action: NONE, validation: PASS__EMPTY_ROOT_NO_RESOURCE_ACTION}
+validation:
+  required_files_present: PASS
+  key_counts_consistent: PASS__SOURCE80_0_0__SOURCE81_1_0
+  raw_closure_stage_separation: PASS
+  scope_respected: PASS__SOURCE82_NOT_READ
+  prohibited_actions_absent: PASS
+  manifest_replay: PASS__5_OF_5

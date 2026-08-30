@@ -1,0 +1,28 @@
+assignment_id: DISCOVERY-S3-20260814-ADAPTIVE-SOURCE27-ORIGIN-GROUNDED-V1-RESUME1
+capsule_id: S3_OPENALEX_QUARTERLY_SNAPSHOT_CHAIN
+records:
+  - source_role: ANCHOR_AND_CURRENT_UNION
+    url_or_deterministic_rule: https://developers.openalex.org/download/snapshot-format
+    selection_rule: frozen official snapshot-format route; accessed 2026-08-14
+    version_or_date: current official developer documentation
+    license_or_provenance: OpenAlex official developer documentation
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_PERSISTED
+    disposition: SEMANTICS_CONFIRMED__TWO_CONTENT_ADDRESSED_MANIFESTS_UNCLOSED
+    note: >-
+      Official documentation states free snapshots refresh quarterly, uses per-entity Redshift manifests,
+      and requires re-reading the manifest for consistency. It also gives total snapshot size around 330 GB.
+  - source_role: CONTRARY_OR_CLOSURE_ROUTE
+    url_or_deterministic_rule: https://openalex.s3.amazonaws.com/data/works/manifest
+    selection_rule: precommitted stock manifest route for a deterministic natural release chain
+    version_or_date: attempted 2026-08-14
+    license_or_provenance: OpenAlex public S3 bucket named in official documentation
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_PERSISTED
+    disposition: BOUNDED_ROUTE_UNCLOSED__TOOL_SAFE_URL_REJECTION
+    note: >-
+      The read-only browser rejected the S3 manifest URL as unsafe. No alternate endpoint, retry,
+      download, CLI, installation, or large snapshot acquisition was attempted.
+debian_routes:
+  disposition: EXHAUSTED_TWO_OFFICIAL_404_RESPONSES__DO_NOT_RETRY_OR_REPLACE
+  source: frozen_resume_assignment

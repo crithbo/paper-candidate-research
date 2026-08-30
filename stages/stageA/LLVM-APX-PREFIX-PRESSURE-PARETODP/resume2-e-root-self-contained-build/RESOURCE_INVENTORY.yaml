@@ -1,0 +1,236 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  artifact_state: GC_COMPLETE
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: EXACT_TOOLCHAIN_RESOURCE_GATE_HANDOFF_ACCEPTED
+  downstream_consumer: STAGEA_APX_PRECLAIM_RESUME_AFTER_RESOURCE_PASS
+  post_close_retained_bytes_max: 2147483648
+  phase_closeout_retention_path: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/resume2-e-root-self-contained-build/PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/resume2-e-root-self-contained-build/RESUME_CAPSULE.yaml
+  cleanup_receipt_path: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/resume2-e-root-self-contained-build/CLEANUP_RECEIPT.yaml
+identity:
+  topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+  assignment_id: STAGEA-L1-20260825-LLVM-APX-RESUME2-E-ROOT-SELF-CONTAINED-BUILD
+  stage_or_mode: STAGEA_RESOURCE_GATE_RESUME_FROM_BLOCKER
+  run_id: APX-RESOURCE-GATE-20260825-R1
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/resume2-e-root-self-contained-build
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/resume2-e-root-self-contained-build/resources
+  inventory_path: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/resume2-e-root-self-contained-build/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-25T12:50:03+08:00
+  finalized_at: 2026-08-25T14:37:55.8018998+08:00
+root_measurement:
+  logical_bytes: 1368471202
+  allocated_bytes: null
+  file_count: 13721
+  directory_count: 365
+  longest_persisted_path_characters: 253
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL_WITH_WIN32_LONG_PATH_PREFIX
+  measurement_snapshot_path: CLEANUP_RECEIPT.yaml
+  precleanup_measurement_snapshot_path: resources/logs/final_resource_measurement.json
+  measurement_snapshot_sha256: FAFDA45FB345963726B1F2A229F7BB3634DF5F69711D5097142F0B9612470944
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS_PROCESS_LOCAL_ONLY
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - {tool: BUNDLED_WORKSPACE_PYTHON_HTTPS, TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONNOUSERSITE: '1', PIP_CACHE_DIR: resources/cache/pip, XDG_CACHE_HOME: resources/cache/xdg}
+    - {tool: CMAKE_NINJA_LLVM_MINGW, TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PATH_change: PROCESS_LOCAL_PREFIX_ONLY, build_directory: resources/build/llvm-apx, logs: resources/logs}
+resource_envelope:
+  network_bytes_max: 671088640
+  max_single_response_bytes: 335544320
+  stored_bytes_max: 8589934592
+  cpu_hours_max: 3
+  gpu_hours_max: 0
+  wall_seconds_max: 10800
+  attempts_max: 6
+  attempts_per_asset_or_route: 1
+  build_jobs_max: 2
+  clean_builds_max: 1
+  corrected_reconfigure_max: 1
+  network_bytes_used: 508822273
+  stored_bytes_used: 1368471202
+  attempts_used: 6
+  clean_builds_used: 1
+  corrected_reconfigure_used: 1
+  build_wall_seconds: 1355.388
+  cpu_seconds_used: null
+  wall_seconds_used: null
+  unobserved_cost_note: 本次运行环境没有提供精确的进程树 CPU 与全 assignment wall 统计，未作估算；2 jobs 与各阶段时间戳均保留。
+entries:
+  - id: DOWNLOADS_OFFICIAL_FIVE
+    path: resources/downloads
+    class: IMMUTABLE_OFFICIAL_NETWORK_RESPONSES
+    logical_bytes: 508822273
+    file_count: 5
+    hash_scope: EACH_FILE_CONTENT_SHA256
+    source_and_hashes:
+      - {file: llvm-commit-a1194be1baefa99d20a09bd04b16056be0ab7225.json, bytes: 8174, sha256: 21813151E583064407035F9194C4E85A91ACC41776456803F2B85D8076415E6F, source: https://api.github.com/repos/llvm/llvm-project/commits/a1194be1baefa99d20a09bd04b16056be0ab7225}
+      - {file: llvm-project-a1194be1baefa99d20a09bd04b16056be0ab7225.tar.gz, bytes: 278674752, sha256: F90FFC22BF3B220B726C2E4D7953076520C4188ED4409213AFB9829B98254747, source: https://github.com/llvm/llvm-project/archive/a1194be1baefa99d20a09bd04b16056be0ab7225.tar.gz}
+      - {file: llvm-mingw-20260616-ucrt-x86_64.zip, bytes: 187504083, sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35, source: https://github.com/mstorsjo/llvm-mingw/releases/download/20260616/llvm-mingw-20260616-ucrt-x86_64.zip}
+      - {file: cmake-4.4.2-py3-none-win_amd64.whl, bytes: 42325289, sha256: C28388FE95298486169C45C0EC8BDF067AABCB59273B98A4CDAE8BE5CD9C74F3, source: https://files.pythonhosted.org/packages/06/9e/3e572a9a8966eec43b6d75b8b8d9543ca2182ec4006a538fb239e004a3cf/cmake-4.4.2-py3-none-win_amd64.whl}
+      - {file: ninja-1.13.0-py3-none-win_amd64.whl, bytes: 309975, sha256: FB8EE8719F8AF47FED145CCED4A85F0755DD55D45B2BDDAF7431FA89803C5F3E, source: https://files.pythonhosted.org/packages/29/45/c0adfbfb0b5895aa18cec400c535b4f7ff3e52536e0403602fc1a23f7de9/ninja-1.13.0-py3-none-win_amd64.whl}
+    provenance: OFFICIAL_GITHUB_GITHUB_RELEASE_AND_PYPI
+    license: LLVM_APACHE_2_WITH_LLVM_EXCEPTION__LLVM_MINGW_MULTI_LICENSE__CMAKE_APACHE_BSD__NINJA_APACHE_2
+    claim_critical: false
+    reproducibility_minimum: true
+    downstream_consumers: [BLOCKER_RESUME, FUTURE_AUTHORIZED_SHORT_PATH_BUILD]
+    reacquirable: true
+    retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM
+    delete_after_gate: USER_DECLINES_RESUME_AND_MAINLINE_SEALS_TERMINAL_RESOURCE_CAPSULE
+  - id: SOURCE_EXTRACTED_LLVM
+    path: resources/src/llvm
+    class: PINNED_SOURCE_WORKING_COPY
+    logical_bytes: 2248766267
+    file_count: 180530
+    hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY
+    metadata_index_sha256: D45624170E804B1C9CC250107AB6F4E58492734542BD17095C214CA268B616FF
+    source_archive_sha256: F90FFC22BF3B220B726C2E4D7953076520C4188ED4409213AFB9829B98254747
+    exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+    extraction_note: ALL_REGULAR_FILES_AND_DIRECTORIES_SIZE_CLOSED__19_NON_BUILD_SYMLINKS_UNREPRESENTABLE_ON_EXFAT__BUILD_GRAPH_REFERENCES_ZERO
+    claim_critical: false
+    reproducibility_minimum: false
+    downstream_consumers: []
+    reacquirable: true
+    recovery_command: REEXTRACT_RETAINED_EXACT_SOURCE_ARCHIVE_WITH_LONG_PATH_AWARE_TOOL
+    retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF
+    delete_after_gate: MAINLINE_ACCEPTS_BLOCKER_HANDOFF_AND_RETAINED_ARCHIVE_HASH_IS_REVALIDATED
+  - id: BUILD_LLVM_APX_FAILED_PARTIAL
+    path: resources/build/llvm-apx
+    class: FAILED_PARTIAL_BUILD_TREE
+    logical_bytes: 1085043570
+    file_count: 3112
+    hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY
+    metadata_index_sha256: 353CA397D78768131FF2999CAD39A03E4A27F7A940DDBECD61A6FD86ECB55E58
+    creating_run: CLEAN_BUILD_1_OF_1
+    result: FAILED_PATH_LENGTH_AT_2407_OF_3156
+    claim_critical: false
+    reproducibility_minimum: false
+    downstream_consumers: []
+    reacquirable: true
+    recovery_command: NEW_USER_AUTHORIZED_RESUME_WITH_SHORT_PATH_NAMESPACE_AND_NEW_BUILD_ATTEMPT
+    retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF
+    delete_after_gate: MAINLINE_ACCEPTS_BLOCKER_AND_BUILD_FAILURE_CAPSULE_HASHES_PASS
+  - id: ENV_SELF_CONTAINED_TOOLS
+    path: resources/env
+    class: ASSIGNMENT_LOCAL_PORTABLE_TOOLCHAIN
+    logical_bytes: 839345887
+    file_count: 13669
+    hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY
+    metadata_index_sha256: 314A33BE96A5C9F82A825F5D5726B9D28E7C74572058FC4045EB8EA0D57A7416
+    exact_tool_hashes:
+      - {tool: clang.exe, sha256: A8B7A614EEADD9105F814BE3701A7F312CDA4CEA51751B75B408C16100C94E85}
+      - {tool: llvm-windres.exe, sha256: 255FC12528B80CADE02A4F8393065221DBD1F3A7FDF930A4E21C3076399750F5}
+      - {tool: cmake.exe, sha256: 414AD2A5DCABBB2A49BA1514E6651523865AE306B73A0E769F18E14CAB1570E8}
+      - {tool: ninja.exe, sha256: CB4590BAD18F01607E819908D536FBA71AFBE36EB0F1D5A13C60D88D635CA959}
+    claim_critical: false
+    reproducibility_minimum: true
+    downstream_consumers: [FUTURE_AUTHORIZED_SHORT_PATH_BUILD]
+    reacquirable: true
+    retention_class: RESUME_CRITICAL_UNTIL_UNBLOCKED
+    delete_after_gate: USER_DECLINES_RESUME
+  - id: CACHE_ASSIGNMENT_LOCAL
+    path: resources/cache
+    class: TOOL_CACHE
+    logical_bytes: 1710726
+    file_count: 65
+    hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY
+    metadata_index_sha256: 36E886F4EC6E468F59FF5973B9486CEC081DE6A54F0333D520601FF146BE1B1D
+    claim_critical: false
+    reproducibility_minimum: false
+    downstream_consumers: []
+    reacquirable: true
+    retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT
+    delete_after_gate: MAINLINE_ACCEPTS_BLOCKER_HANDOFF
+  - id: TMP_REPRODUCTION_SCRIPTS
+    path: resources/tmp
+    class: ASSIGNMENT_EXECUTION_SCRIPTS
+    logical_bytes: 73847
+    file_count: 14
+    hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY
+    metadata_index_sha256: F5A889F7E3929835D41D7A4B2EC6138CEC98ED24B040EB1FF3F4325F71C07FB8
+    claim_critical: false
+    reproducibility_minimum: true
+    downstream_consumers: [BLOCKER_REPLAY]
+    reacquirable: false
+    retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM
+    delete_after_gate: NEVER_AUTOMATIC
+  - id: LOGS_AND_FAILURE_CAPSULE
+    path: resources/logs
+    class: RESOURCE_GATE_RAW_LOGS_AND_EXTRACTED_FAILURE_EVIDENCE
+    logical_bytes: 20229193
+    file_count: 33
+    hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY
+    claim_critical: true
+    reproducibility_minimum: true
+    downstream_consumers: [MAINLINE_ACCEPTANCE, FUTURE_RESUME]
+    reacquirable: false
+    retention_class: KEEP_CAPSULE_CLAIM_CRITICAL
+    delete_after_gate: NEVER_AUTOMATIC
+shared_assets_consumed: []
+external_system_dependencies:
+  - {name: BUNDLED_WORKSPACE_PYTHON, version: 3.12.13, path: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA, disposition: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED}
+  - {name: WINDOWS_BSDTAR, version: 3.8.4, disposition: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED}
+  - {name: E_VOLUME, filesystem: exFAT, symlink_support: false, max_component_length: 255, disposition: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED}
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: [resources/src/llvm, resources/build/llvm-apx, resources/cache]
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY]
+  exact_cleanup_candidates:
+    - {path: resources/src/llvm, logical_bytes: 2248766267, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: RETAINED_SOURCE_ARCHIVE_REVALIDATED_AND_MAINLINE_ACCEPTS_BLOCKER}
+    - {path: resources/build/llvm-apx, logical_bytes: 1085043570, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: BUILD_FAILURE_CAPSULE_HASHES_PASS_AND_MAINLINE_ACCEPTS_BLOCKER}
+    - {path: resources/cache, logical_bytes: 1710726, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: ZERO_ACTIVE_PROCESS_AND_MAINLINE_ACCEPTS_BLOCKER}
+  projected_post_close_retained_bytes: 1368471200
+  closeout_plan_accepted: true
+  downstream_inputs_accepted: true
+  capsule_sealed: true
+  active_owner_or_process_count: 0
+  predelete_target_count: 3
+  predelete_file_count: 183707
+  predelete_logical_bytes: 3335520563
+  performed: true
+  deleted_entries: [resources/src/llvm, resources/build/llvm-apx, resources/cache]
+  deleted_file_count: 183727
+  deleted_logical_bytes: 3336065266
+  owner_measurement_delta_files: 20
+  owner_measurement_delta_logical_bytes: 544703
+  gc_reclassification_sha256: FF777A819590A481A626FE40466B508378A435178AD439F8F32AC138BC759C7D
+  cleanup_receipt_sha256: BDFA311032135D4AB54A2C9EEE219F4D9EEA98131F294E3B4A9BEF964BA6F2B7
+  postdelete_file_count: 13721
+  postdelete_logical_bytes: 1368471202
+  performed_at: '2026-08-25T16:46:42+08:00'
+  recoverability: RETAINED_DOWNLOAD_ARCHIVES_ENV_LOGS_AND_REPLAY_SCRIPTS
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: POSTCLOSEOUT_EXACT_BUILD_AND_CACHE_ROOT_GC__CLOSED_ASSIGNMENT
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: true
+  deterministic_recovery_routes_complete: true
+  closeout_budget_or_exception_pass: PASS_1368471202_LT_2147483648
+  cleanup_receipt_valid: true
+  result: GC_COMPLETE__DOWNSTREAM_R3_TOOLCHAIN_ACCEPTED__NO_SCIENTIFIC_INFERENCE

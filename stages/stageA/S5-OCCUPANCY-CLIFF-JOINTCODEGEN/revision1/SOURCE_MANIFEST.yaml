@@ -1,0 +1,57 @@
+manifest_version: "revision1-source-v1"
+frozen_at: "2026-08-09T12:34:01+08:00"
+candidate_id: "S5-OCCUPANCY-CLIFF-JOINTCODEGEN"
+
+exact_llvm_source:
+  repository: "https://github.com/llvm/llvm-project.git"
+  commit: "1f112d62e1fa2c4f1a04887abd72da1ed61cf791"
+  git_identity_rule: "detached HEAD must equal the frozen commit; only llvm/ is sparse-checked-out"
+  content_hash: "Git commit SHA-1 1f112d62e1fa2c4f1a04887abd72da1ed61cf791"
+
+bootstrap_toolchain:
+  role: "bootstrap compiler only; never counted as the evaluated LLVM baseline"
+  project: "mstorsjo/llvm-mingw"
+  release: "20260616 (LLVM 22.1.8)"
+  release_commit: "170b7e1ec4ad1d9264e6ba320cd4d02f96299c60"
+  asset: "llvm-mingw-20260616-ucrt-x86_64.zip"
+  url: "https://github.com/mstorsjo/llvm-mingw/releases/download/20260616/llvm-mingw-20260616-ucrt-x86_64.zip"
+  size_bytes_reported: 187695104
+  sha256: "b9b68a4d276e16fa25802aaba458e4638f64b3884c290aaccdc2d87083b6ca35"
+
+build_driver_wheels:
+  - package: "cmake"
+    version: "4.1.0"
+    asset: "cmake-4.1.0-py3-none-win_amd64.whl"
+    url: "https://files.pythonhosted.org/packages/7c/d0/73cae88d8c25973f2465d5a4457264f95617c16ad321824ed4c243734511/cmake-4.1.0-py3-none-win_amd64.whl"
+    size_bytes: 37551115
+    sha256: "76e8e7d80a1a9bb5c7ec13ec8da961a8c5a997247f86a08b29f0c2946290c461"
+  - package: "ninja"
+    version: "1.11.1.4"
+    asset: "ninja-1.11.1.4-py3-none-win_amd64.whl"
+    url: "https://files.pythonhosted.org/packages/5b/10/9b8fe9ac004847490cc7b54896124c01ce2d87d95dc60aabd0b8591addff/ninja-1.11.1.4-py3-none-win_amd64.whl"
+    size_bytes: 296461
+    sha256: "4617b3c12ff64b611a7d93fd9e378275512bb36eff8babff7c83f5116b4f8d66"
+
+natural_kernel_source:
+  repository: "https://github.com/ROCm/rocm-examples.git"
+  commit: "269e9068d6fd6e68b1cc5a76eb77744f88af42ec"
+  content_hash: "Git commit SHA-1 269e9068d6fd6e68b1cc5a76eb77744f88af42ec"
+  license_file_required: true
+  frozen_directories:
+    - "Programming-Guide/Tutorials/Performance-Optimization/basic_image_gamma_correction"
+    - "Programming-Guide/Tutorials/Performance-Optimization/grid_stride_image_gamma_correction"
+    - "Programming-Guide/Tutorials/Performance-Optimization/tiling_matrix_multiply"
+    - "Programming-Guide/Tutorials/Performance-Optimization/tiling_matrix_transpose"
+    - "Tutorials/reduction"
+    - "HIP-Basic/matrix_multiplication"
+    - "HIP-Basic/moving_average"
+    - "HIP-Basic/saxpy"
+  selection_rule: "extract every complete __global__ function from the eight frozen directories, sort by repository path and function name, and retain the first 8-16 functions that compile to legal amdgpu11.00 pre-scheduler MIR"
+  exclusion_rule: "exclude any function requiring unavailable generated headers or proprietary libraries; do not substitute LLVM regression tests"
+
+current_collision_sources:
+  - url: "https://github.com/llvm/llvm-project/blob/1f112d62e1fa2c4f1a04887abd72da1ed61cf791/llvm/lib/Target/AMDGPU/GCNSchedStrategy.cpp"
+    blob_sha: "5816559fcc8992c05627e233cb88099e0036d42d"
+    classification: "DIRECT_SUBTRACT_CURRENT_STAGED_OCCUPANCY_PRESSURE"
+  - url: "https://github.com/llvm/llvm-project/actions/runs/31289096202"
+    note: "exact-period LLVM premerge CI built Windows/Linux but published only small premerge result artifacts, not a reusable llc toolchain"

@@ -1,0 +1,16 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE40-CARRIER-COMMITMENT-CLOSURE
+lane: S2_BOTTLENECK_TRANSFER
+task_id: 019fc62c-ef51-7073-bc32-2c583bb73ed6
+write_directory: stages/discovery/round-20260815-adaptive-source40/S2-bottleneck-transfer
+common_contract: stages/discovery/round-20260815-adaptive-source40/control/CONTROL.yaml
+common_contract_sha256: 92C26777A11C79F5A5E163E63A0D1A5FE73FFE73DFFDCE638F3ECA4A9B946993
+model_route: {breadth: gpt-5.6-terra, reasoning: medium, strong_packet_slot: NONE}
+resource_root: stages/discovery/round-20260815-adaptive-source40/S2-bottleneck-transfer/resources
+resource_inventory: stages/discovery/round-20260815-adaptive-source40/S2-bottleneck-transfer/RESOURCE_INVENTORY.yaml
+source_profile: [GPU_NPU_data_movement_or_memory_cliff, accelerator_command_stream_or_runtime_boundary, NDP_PIM_or_interconnect_partial_primitive]
+required_frontend: SEED_TO_2_OR_3_SAME_OBJECT_RQ_THEN_IDENTITY_COMMITMENT_THEN_TARGETED_EVIDENCE
+source_closure: {per_lane_max: 2, routes_per_locator_max: 3, pre_call_monotonic_counter: required}
+rotation_requirement: exclude_Source25_through_39_exact_identities_and_terminal_identities_without_external_delta
+primary_origin_exclusions: [network_security, API_only_selector, paper_owned_complete_constructor]
+deep_ceiling: 2
+

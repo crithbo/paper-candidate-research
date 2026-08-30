@@ -1,0 +1,40 @@
+assignment_id: DISCOVERY-S5-20260814-ADAPTIVE-SOURCE14
+lane: S5_SCALE_ONLINE_APPROX
+method: V8_7_CANONICAL
+discovery_claim_pack_mode: OFF
+write_directory: stages/discovery/round-20260814-adaptive-source14/S5-scale-online-approx
+completed_at: '2026-08-14T00:00:00+08:00'
+result: COMPLETE_ZERO_PROPOSALS
+summary_zh: >-
+  Source14 聚焦量化正确性与加速器映射，完成六个对象筛查和 ONNX Runtime、torchao 两条深审。
+  两者的格式、位宽、校准、通道、override、backend/packing 等均属于 current native union；
+  数值调试工具不是新的 target-specific guarantee。QNN 和 TFLite 与现有 active/reserve/hold
+  身份重合；IREE 与 StableHLO/TOSA 缺少所需的 stock 同对象语义检查器。未建议 Stage0。
+counts:
+  scoped_families: 6
+  deep_reviews: 2
+  propose_stage0: 0
+  clean_briefs: 0
+canonical_dispositions:
+  - signature: ONNXRUNTIME_QDQ__FIXED_ONNX_MODEL_TO_QDQ_OR_QOPERATOR__CALIBRATED_QUANTIZED_CONSTRUCTION__GEN_INFER_ERROR_COST
+    disposition: DROP_CURRENT_UNION_ABSORPTION
+  - signature: TORCHAO_PT2E__FIXED_EXPORTED_GRAPH_TO_BACKEND_QUANTIZED_GRAPH__PACKED_TENSOR_CONSTRUCTION__CONVERT_DEBUG_COST
+    disposition: DROP_CURRENT_UNION_ABSORPTION
+  - signature: ONNXRUNTIME_QNN__FIXED_QDQ_MODEL_TO_QNN_GRAPH
+    disposition: EXCLUDED_ACTIVE_OR_RESERVE_IDENTITY
+  - signature: TFLITE_MICRO__FIXED_MODEL_TO_QUANTIZED_FLATBUFFER
+    disposition: EXCLUDED_ACTIVE_OR_HOLD_IDENTITY
+  - signature: IREE_QUANTIZED_ACCELERATOR__IR_TO_TARGET_EXECUTABLE
+    disposition: NOT_ADMITTED_UNFROZEN__NO_FIXED_STOCK_EQUIVALENCE_CHECKER
+  - signature: STABLEHLO_TOSA__UNIFORM_QUANT_IR_LOWERING
+    disposition: DROP_PRE_RAW__STRUCTURAL_VERIFIER_NOT_TARGET_CHECKER
+excluded_scope:
+  network_security_and_protocol_attack: true
+  vulnerabilities_exploits_and_reproduction: true
+scientific_boundary:
+  no_current_absence_claim: true
+  no_resource_or_readiness_negative_inference: true
+  no_execution_performed: true
+  no_stage0_created: true
+next_step_for_mainline: NO_STAGE0_ACTION
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

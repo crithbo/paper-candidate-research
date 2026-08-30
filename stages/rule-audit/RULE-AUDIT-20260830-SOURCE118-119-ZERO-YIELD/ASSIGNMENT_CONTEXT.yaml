@@ -1,0 +1,18 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: RULE-AUDIT-20260830-SOURCE118-119-ZERO-YIELD, lane_id: RULE_AUDIT_SENTRY, thread_id: 01a034d0-b495-7d02-9b36-d43b6f33de96, role: RULE_AUDIT_SENTRY}
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+frozen_control:
+  agents: {path: AGENTS.md, sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655}
+  plan: {path: plan.md, sha256: C0F0E1A6E60BA56718E7C54D80629C2C91FC829EF18A4CD2DDFA0876A1424FD2}
+  registry: {path: registry.yaml, sha256: 9813635CF4AE7D950CC76F4C830EE4B932CBC73EFED173E523BA3119B606BBED}
+  role: {path: rules/ROLE_RULE_AUDIT.md, sha256: BBFBE3E47A8475E1C3D709C0125EE308620F7910879F50F850B397F7FFC1EF8E}
+  academic_skill: {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+minimum_inputs:
+  assignment: {path: stages/rule-audit/RULE-AUDIT-20260830-SOURCE118-119-ZERO-YIELD/ASSIGNMENT.yaml, sha256: 1D1B08220E7D0255A0CAFD4D2EFA4EE81CE1E4B9BB39A03D0FD73B2CC971DD92}
+  source119_acceptance: stages/discovery/round-20260830-strategy-source119/MAINLINE_ACCEPTANCE.yaml
+  dmr_auditor_review: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/auditor/backtest_review.md
+unique_write_directory: stages/rule-audit/RULE-AUDIT-20260830-SOURCE118-119-ZERO-YIELD
+bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+forbidden: [read_SOURCE120, network, shared_write, candidate_state_change, stage0, stagea, stageb]
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP

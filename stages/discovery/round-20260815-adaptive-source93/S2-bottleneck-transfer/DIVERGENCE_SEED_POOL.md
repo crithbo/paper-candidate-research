@@ -1,0 +1,1 @@
+Non-evidence seeds: JIT expression/deform joint IR (selected); tuple-layout cache; JIT threshold cost; expression/deform code sharing; LLVM module locality; deopt frontier. No seed is evidence or count.

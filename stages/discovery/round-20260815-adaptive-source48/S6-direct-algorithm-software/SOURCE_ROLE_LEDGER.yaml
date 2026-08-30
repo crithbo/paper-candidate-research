@@ -1,0 +1,21 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE48-CANONICAL-BASELINE-CONTINUATION-V1
+sources:
+  - id: S01
+    role: CURRENT_UPSTREAM_SOURCE
+    url: https://github.com/gcc-mirror/gcc/blob/master/gcc/ipa-icf.cc
+    version_or_date: "master mirror of git://gcc.gnu.org/git/gcc.git; inspected 2026-08-15"
+    provenance: "Repository page identifies the public mirror and its official gcc.git origin."
+    decisive_observation: "Interprocedural ICF visits functions/read-only variables, establishes semantic congruence classes by hash/deep comparison/value numbering, and legally realizes aliases, redirects, thunks or clones."
+  - id: S02
+    role: OFFICIAL_CURRENT_DOCUMENTATION_AND_FLAGS
+    url: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
+    version_or_date: "current page inspected 2026-08-15"
+    decisive_observation: "-fipa-icf functions/variables/both, LTO relation, visibility/unwind caveat and default-on -O2/-Os union."
+  - id: S03
+    role: CONTRARY_CURRENT_SOURCE_DETAIL
+    url: https://github.com/gcc-mirror/gcc/blob/master/gcc/ipa-icf.cc
+    version_or_date: "master mirror inspected 2026-08-15"
+    decisive_observation: "The implementation's stated seven-stage class construction and merge procedure is direct contrary evidence, not an absence inference."
+search_boundary:
+  primary_direct_collision: "Current producer is itself a direct same-object subtractor; no historical-paper novelty claim is required for a structural drop."
+  no_absence_claim: true

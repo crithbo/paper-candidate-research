@@ -1,0 +1,24 @@
+schema: apx-r7c-reproducibility-report-v1
+assignment_id: STAGEA-L3-20260829-LLVM-APX-R7C-A4-EXPLICIT-RESOURCE-COPY
+authoritative_project_root: E:/project/writing/reserch
+resource_copy:
+  source: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a2-oracle-reimport-20260828/resources
+  destination: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a4-explicit-resource-copy-20260829/resources
+  command_contract: ROBOCOPY /E /COPY:DAT /DCOPY:DAT /R:0 /W:0 /256 ONCE
+  observed: {files: 8183, logical_bytes: 512139455, reparse_entries: 0}
+  copy_attempts: 1
+  source_or_destination_mutation_after_copy: false
+static_compile:
+  interpreter: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+  flags: [-B]
+  PYTHONPYCACHEPREFIX: UNSET
+  PYTHONDONTWRITEBYTECODE: '1'
+  source_sha256: 7BD2FB476C912621320021238AE458C63F62B5DDC34F5368C783C176489EA205
+  result: PASS
+controls:
+  c4_tiny: {independent_oracle: PASS, preclaim: PASS}
+  c5_corpus: {selected: 16, reserve: 4, result: PASS}
+  c6_plan: {rows: 32, executed: false, result: PASS}
+forbidden_action_counters: {network_bytes: 0, retries: 0, source_edits: 0, wrapper_edits: 0, C3_reruns: 0, C4_formal_reruns: 0, selected_tool_runs: 0, natural_runs: 0, claim_runs: 0, stageb_runs: 0, cleanup_runs: 0, second_pivot: 0, scientific_revision: 0, shared_state_transition: 0}
+reproducibility_result: PASS_PRECLAIM_ONLY
+scientific_inference: NONE

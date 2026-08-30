@@ -1,0 +1,554 @@
+{
+  "schema": "llvm-dwarf-natural-codesite-freeze-v1",
+  "selection_rule": "one_lowest_arg_per_call_then_deterministic_round_robin_across_result_blind_exact_commit_compiler_rt_builtin_translation_units_ordered_by_source_function_bb_offset",
+  "selection_is_result_blind": true,
+  "source_commit": "e72ba6cf366a3180cbf5a8690d9e50665880ab76",
+  "source_archive_sha256": "643B7011C512E3204C88F836F4E2A9913C20F03D1BEA5421B60EACB7B527814C",
+  "candidate_or_union_results_inspected_for_selection": false,
+  "translation_units": 15,
+  "eligible_sites_in_frozen_units": 73,
+  "eligible_distinct_calls_in_frozen_units": 36,
+  "selected_site_count": 30,
+  "sites": [
+    {
+      "source_relpath": "compiler-rt/lib/builtins/atomic.c",
+      "source_sha256": "49460E687FA4D9C32321ADE9D06F70740F9389183028922D97D06DB97E9C581D",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n01_atomic.bc",
+      "bitcode_sha256": "7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469",
+      "prera_mir": "inputs/natural_corpus/n01_atomic.mir",
+      "prera_mir_sha256": "AE64199FDB1CF27134511E27380A545DB26C810D0B810839397F9B52AA2598F9",
+      "site": {
+        "function": "__atomic_compare_exchange",
+        "bb": 176,
+        "offset": 4,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%131"
+      },
+      "index": 1
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/crtbegin.c",
+      "source_sha256": "914D5440E1D1009AA63AB2597026D02FE0D4B772AC648A1D4DD16B0A6ADD2C6B",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n02_crtbegin.bc",
+      "bitcode_sha256": "3ACA0BFAD12EB308A44C1F236169C3B173045011C9DD4AD9425C86BA6567D141",
+      "prera_mir": "inputs/natural_corpus/n02_crtbegin.mir",
+      "prera_mir_sha256": "CBF39CD6BF633FF29FF093943D3D157A2A65053E1B48B5A6D8F7D033E36DBE4C",
+      "site": {
+        "function": "__do_fini",
+        "bb": 2,
+        "offset": 3,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%3"
+      },
+      "index": 2
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/divtc3.c",
+      "source_sha256": "9E679671CCCD06FAD99C8888F2147EA4BF0883EEEA5DE03D75688C1D40089E10",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n03_divtc3.bc",
+      "bitcode_sha256": "B81E83BF5421685316235761B1463D382F25D5D519675F39E1690E19E84CA410",
+      "prera_mir": "inputs/natural_corpus/n03_divtc3.mir",
+      "prera_mir_sha256": "AD9C0ADB1E0B2BC595D38D2593213727E1598DA9A690CF1F652CBE07C3A2CDE4",
+      "site": {
+        "function": "__divtc3",
+        "bb": 8,
+        "offset": 3,
+        "arg": 0,
+        "arg_reg": "edi",
+        "source_vreg": "%3"
+      },
+      "index": 3
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/divxc3.c",
+      "source_sha256": "2F7814E11D2866C7C2504EF6CC9C223F9F56183F1B2D510269A2C728BE5F91C5",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n04_divxc3.bc",
+      "bitcode_sha256": "1A9AB16C0A7674CAA20999713662E0D73885CA66179BD7B40698500F3900553C",
+      "prera_mir": "inputs/natural_corpus/n04_divxc3.mir",
+      "prera_mir_sha256": "A222D3BF9808DE21CE7F00B34FD2BE1917A392D9CA6F03CBAA32F3177B79B07D",
+      "site": {
+        "function": "__divxc3",
+        "bb": 1,
+        "offset": 14,
+        "arg": 1,
+        "arg_reg": "edi",
+        "source_vreg": "%44"
+      },
+      "index": 4
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/floattidf.c",
+      "source_sha256": "6E676A5F03AE29781B3978AB6B7510317D896B929FCDA5084D2FE4B650999491",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n05_floattidf.bc",
+      "bitcode_sha256": "8BB520F4746A23BC2C71334CAE3191DCE7B8B9DB300C03A494B0D181331FFF8E",
+      "prera_mir": "inputs/natural_corpus/n05_floattidf.mir",
+      "prera_mir_sha256": "2AD09C18E09BCD9273B299D757210179AD06E4A1D93AE03C2BD8B0BE20F9115A",
+      "site": {
+        "function": "__floattidf",
+        "bb": 2,
+        "offset": 15,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%2"
+      },
+      "index": 5
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/floattisf.c",
+      "source_sha256": "47ECD2D414DDF7BAC1A065F7AADE5B06A1DD9EB4B99045FC6B481920F718EBC7",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n06_floattisf.bc",
+      "bitcode_sha256": "CE5AD6FA61065C4E5A33C02075DA97391E3927A35F4D594A2466680F8CC3F76E",
+      "prera_mir": "inputs/natural_corpus/n06_floattisf.mir",
+      "prera_mir_sha256": "6CA319B69760C1C0938064C8D2147ED32E71DCB1380F1B652BAB7C4FC9C37245",
+      "site": {
+        "function": "__floattisf",
+        "bb": 2,
+        "offset": 15,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%2"
+      },
+      "index": 6
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/floattitf.c",
+      "source_sha256": "9A220868E01D45BAB5AEFBE80592BD7A71AD2D3C94A286A7BE4C9DB39E151672",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n07_floattitf.bc",
+      "bitcode_sha256": "0E8629A1A302B93E1493D3E8AD4B46C1C423556D25E7B882A23C34DBF11674EE",
+      "prera_mir": "inputs/natural_corpus/n07_floattitf.mir",
+      "prera_mir_sha256": "CE7CBB0FDF27DD7245FA0CBD755AFD0CB42F86E6F1D3FD2BB1DDC8032A0D5A8B",
+      "site": {
+        "function": "__floattitf",
+        "bb": 2,
+        "offset": 15,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%2"
+      },
+      "index": 7
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/floattixf.c",
+      "source_sha256": "3DEAE4F6E889DC864F720B78F1D1A48450935B25703781384E034D7C419E3D4A",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n08_floattixf.bc",
+      "bitcode_sha256": "7CE8854D690D539DEFBFEE27B2456EA95AF740123E46DED53565F0040D2302B7",
+      "prera_mir": "inputs/natural_corpus/n08_floattixf.mir",
+      "prera_mir_sha256": "51ECA310439AE6117EEDB3DD0E3E077E2DB26531E6FA511F202AF48E9DA7803A",
+      "site": {
+        "function": "__floattixf",
+        "bb": 1,
+        "offset": 14,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%2"
+      },
+      "index": 8
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/floatuntidf.c",
+      "source_sha256": "A0D1DB27D8B19DB400A765FE6401E5027187441394CDA8DDC939F130397E643B",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n09_floatuntidf.bc",
+      "bitcode_sha256": "9A4AD0F8BD7F9B3EFA819FE89C7070318E7F8C740210C78DB5B5A118EA36255C",
+      "prera_mir": "inputs/natural_corpus/n09_floatuntidf.mir",
+      "prera_mir_sha256": "4CFDA9E0E755E998A9DCF5FE3DF888F7B5847B89F0D44F65E7607EAB15F35DDD",
+      "site": {
+        "function": "__floatuntidf",
+        "bb": 2,
+        "offset": 8,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%65"
+      },
+      "index": 9
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/floatuntisf.c",
+      "source_sha256": "08E0E906C19113ED07AA5895A9EBC03342FDADBF26483A71C85962839ECA5BD3",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n10_floatuntisf.bc",
+      "bitcode_sha256": "9BE04A85D9D82067DF87E0FA40FEAEE4D1D3CE6CE71BB4BAB9717BD500AF7EB5",
+      "prera_mir": "inputs/natural_corpus/n10_floatuntisf.mir",
+      "prera_mir_sha256": "C0A20874844878F22297AE9CFE6B70736F30C12B0DCB0B12AF70A9D60B52DEAD",
+      "site": {
+        "function": "__floatuntisf",
+        "bb": 2,
+        "offset": 8,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%69"
+      },
+      "index": 10
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/floatuntitf.c",
+      "source_sha256": "9372575D4F406767739B7499815F1EC3AAEBA89EA71E081542D79C3A94A5E731",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n11_floatuntitf.bc",
+      "bitcode_sha256": "6E313E81253F0781464282516E37F69679954305D5FF27FF0E7996CA53976C36",
+      "prera_mir": "inputs/natural_corpus/n11_floatuntitf.mir",
+      "prera_mir_sha256": "E1AFA0A5000793742767877F071C497E8B833C2EAF8033F0E3D5D46A8598DE64",
+      "site": {
+        "function": "__floatuntitf",
+        "bb": 2,
+        "offset": 8,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%70"
+      },
+      "index": 11
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/floatuntixf.c",
+      "source_sha256": "24D72E4F7B6328702B7FFE031127A738D046275E4C85FC01EB62FC742AFDAFFF",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n12_floatuntixf.bc",
+      "bitcode_sha256": "CF4A70EC8EE092097A8949892BBA02823D7EF67B55E33FFA26546641C6822938",
+      "prera_mir": "inputs/natural_corpus/n12_floatuntixf.mir",
+      "prera_mir_sha256": "204F49D48CAF2ADF3179D0356DDCC0DEF41533F561B311458C48A52EF93F75A6",
+      "site": {
+        "function": "__floatuntixf",
+        "bb": 1,
+        "offset": 4,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%60"
+      },
+      "index": 12
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/gcc_personality_v0.c",
+      "source_sha256": "08E4369C5F4ECD41AC8039D0DBEBA9FF548B1AF1FF536738EB56DBA5198F2E76",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n13_gcc_personality_v0.bc",
+      "bitcode_sha256": "75B11C82E3C3ACCA90B6812AE50A69F9B7165DAD6134B2128DC5C80AF65F971F",
+      "prera_mir": "inputs/natural_corpus/n13_gcc_personality_v0.mir",
+      "prera_mir_sha256": "1B05C3245400443FB57DD9B1293E4B7B93157934AAA625867E6233AF21AADCBB",
+      "site": {
+        "function": "__gcc_personality_v0",
+        "bb": 1,
+        "offset": 2,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%33"
+      },
+      "index": 13
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/muloti4.c",
+      "source_sha256": "A116475E0F4E98E16054E3E0492D55CC911691A0FAC6DFEDBE024EAE9B0E02BC",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n14_muloti4.bc",
+      "bitcode_sha256": "E6E625E64D6A00FC62880FB009DC00CBED30D3EAEBC7E8A9CFF66E1B1832F829",
+      "prera_mir": "inputs/natural_corpus/n14_muloti4.mir",
+      "prera_mir_sha256": "A03CE78A5AB1A6511EA76FF84944000584C8283F94891997920B542532A40E56",
+      "site": {
+        "function": "__muloti4",
+        "bb": 6,
+        "offset": 6,
+        "arg": 1,
+        "arg_reg": "rsi",
+        "source_vreg": "%45"
+      },
+      "index": 14
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/mulvti3.c",
+      "source_sha256": "3372782348A85AE38441419F5A570C45CC26EA79C32D807FB7C76D4F60CD3B1B",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n15_mulvti3.bc",
+      "bitcode_sha256": "426FB91D9FFC2154772A34E180D077CD53467A402E3A00803BEA0388FF2A2AB8",
+      "prera_mir": "inputs/natural_corpus/n15_mulvti3.mir",
+      "prera_mir_sha256": "256949A39272F1D152F606B95EF6F3C94982469D8459BDF4E14DAED7E21A7C19",
+      "site": {
+        "function": "__mulvti3",
+        "bb": 10,
+        "offset": 6,
+        "arg": 1,
+        "arg_reg": "rsi",
+        "source_vreg": "%55"
+      },
+      "index": 15
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/atomic.c",
+      "source_sha256": "49460E687FA4D9C32321ADE9D06F70740F9389183028922D97D06DB97E9C581D",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n01_atomic.bc",
+      "bitcode_sha256": "7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469",
+      "prera_mir": "inputs/natural_corpus/n01_atomic.mir",
+      "prera_mir_sha256": "AE64199FDB1CF27134511E27380A545DB26C810D0B810839397F9B52AA2598F9",
+      "site": {
+        "function": "__atomic_compare_exchange",
+        "bb": 177,
+        "offset": 4,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%131"
+      },
+      "index": 16
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/divtc3.c",
+      "source_sha256": "9E679671CCCD06FAD99C8888F2147EA4BF0883EEEA5DE03D75688C1D40089E10",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n03_divtc3.bc",
+      "bitcode_sha256": "B81E83BF5421685316235761B1463D382F25D5D519675F39E1690E19E84CA410",
+      "prera_mir": "inputs/natural_corpus/n03_divtc3.mir",
+      "prera_mir_sha256": "AD9C0ADB1E0B2BC595D38D2593213727E1598DA9A690CF1F652CBE07C3A2CDE4",
+      "site": {
+        "function": "__divtc3",
+        "bb": 9,
+        "offset": 42,
+        "arg": 0,
+        "arg_reg": "edi",
+        "source_vreg": "%1"
+      },
+      "index": 17
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/divxc3.c",
+      "source_sha256": "2F7814E11D2866C7C2504EF6CC9C223F9F56183F1B2D510269A2C728BE5F91C5",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n04_divxc3.bc",
+      "bitcode_sha256": "1A9AB16C0A7674CAA20999713662E0D73885CA66179BD7B40698500F3900553C",
+      "prera_mir": "inputs/natural_corpus/n04_divxc3.mir",
+      "prera_mir_sha256": "A222D3BF9808DE21CE7F00B34FD2BE1917A392D9CA6F03CBAA32F3177B79B07D",
+      "site": {
+        "function": "__divxc3",
+        "bb": 1,
+        "offset": 21,
+        "arg": 1,
+        "arg_reg": "edi",
+        "source_vreg": "%44"
+      },
+      "index": 18
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/gcc_personality_v0.c",
+      "source_sha256": "08E4369C5F4ECD41AC8039D0DBEBA9FF548B1AF1FF536738EB56DBA5198F2E76",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n13_gcc_personality_v0.bc",
+      "bitcode_sha256": "75B11C82E3C3ACCA90B6812AE50A69F9B7165DAD6134B2128DC5C80AF65F971F",
+      "prera_mir": "inputs/natural_corpus/n13_gcc_personality_v0.mir",
+      "prera_mir_sha256": "1B05C3245400443FB57DD9B1293E4B7B93157934AAA625867E6233AF21AADCBB",
+      "site": {
+        "function": "__gcc_personality_v0",
+        "bb": 3,
+        "offset": 3,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%33"
+      },
+      "index": 19
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/muloti4.c",
+      "source_sha256": "A116475E0F4E98E16054E3E0492D55CC911691A0FAC6DFEDBE024EAE9B0E02BC",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n14_muloti4.bc",
+      "bitcode_sha256": "E6E625E64D6A00FC62880FB009DC00CBED30D3EAEBC7E8A9CFF66E1B1832F829",
+      "prera_mir": "inputs/natural_corpus/n14_muloti4.mir",
+      "prera_mir_sha256": "A03CE78A5AB1A6511EA76FF84944000584C8283F94891997920B542532A40E56",
+      "site": {
+        "function": "__muloti4",
+        "bb": 7,
+        "offset": 6,
+        "arg": 1,
+        "arg_reg": "rsi",
+        "source_vreg": "%39"
+      },
+      "index": 20
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/mulvti3.c",
+      "source_sha256": "3372782348A85AE38441419F5A570C45CC26EA79C32D807FB7C76D4F60CD3B1B",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n15_mulvti3.bc",
+      "bitcode_sha256": "426FB91D9FFC2154772A34E180D077CD53467A402E3A00803BEA0388FF2A2AB8",
+      "prera_mir": "inputs/natural_corpus/n15_mulvti3.mir",
+      "prera_mir_sha256": "256949A39272F1D152F606B95EF6F3C94982469D8459BDF4E14DAED7E21A7C19",
+      "site": {
+        "function": "__mulvti3",
+        "bb": 12,
+        "offset": 6,
+        "arg": 1,
+        "arg_reg": "rsi",
+        "source_vreg": "%46"
+      },
+      "index": 21
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/atomic.c",
+      "source_sha256": "49460E687FA4D9C32321ADE9D06F70740F9389183028922D97D06DB97E9C581D",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n01_atomic.bc",
+      "bitcode_sha256": "7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469",
+      "prera_mir": "inputs/natural_corpus/n01_atomic.mir",
+      "prera_mir_sha256": "AE64199FDB1CF27134511E27380A545DB26C810D0B810839397F9B52AA2598F9",
+      "site": {
+        "function": "__atomic_compare_exchange",
+        "bb": 178,
+        "offset": 4,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%132"
+      },
+      "index": 22
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/divxc3.c",
+      "source_sha256": "2F7814E11D2866C7C2504EF6CC9C223F9F56183F1B2D510269A2C728BE5F91C5",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n04_divxc3.bc",
+      "bitcode_sha256": "1A9AB16C0A7674CAA20999713662E0D73885CA66179BD7B40698500F3900553C",
+      "prera_mir": "inputs/natural_corpus/n04_divxc3.mir",
+      "prera_mir_sha256": "A222D3BF9808DE21CE7F00B34FD2BE1917A392D9CA6F03CBAA32F3177B79B07D",
+      "site": {
+        "function": "__divxc3",
+        "bb": 2,
+        "offset": 15,
+        "arg": 1,
+        "arg_reg": "edi",
+        "source_vreg": "%208"
+      },
+      "index": 23
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/gcc_personality_v0.c",
+      "source_sha256": "08E4369C5F4ECD41AC8039D0DBEBA9FF548B1AF1FF536738EB56DBA5198F2E76",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n13_gcc_personality_v0.bc",
+      "bitcode_sha256": "75B11C82E3C3ACCA90B6812AE50A69F9B7165DAD6134B2128DC5C80AF65F971F",
+      "prera_mir": "inputs/natural_corpus/n13_gcc_personality_v0.mir",
+      "prera_mir_sha256": "1B05C3245400443FB57DD9B1293E4B7B93157934AAA625867E6233AF21AADCBB",
+      "site": {
+        "function": "__gcc_personality_v0",
+        "bb": 3,
+        "offset": 9,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%33"
+      },
+      "index": 24
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/atomic.c",
+      "source_sha256": "49460E687FA4D9C32321ADE9D06F70740F9389183028922D97D06DB97E9C581D",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n01_atomic.bc",
+      "bitcode_sha256": "7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469",
+      "prera_mir": "inputs/natural_corpus/n01_atomic.mir",
+      "prera_mir_sha256": "AE64199FDB1CF27134511E27380A545DB26C810D0B810839397F9B52AA2598F9",
+      "site": {
+        "function": "__atomic_exchange",
+        "bb": 36,
+        "offset": 4,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%32"
+      },
+      "index": 25
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/divxc3.c",
+      "source_sha256": "2F7814E11D2866C7C2504EF6CC9C223F9F56183F1B2D510269A2C728BE5F91C5",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n04_divxc3.bc",
+      "bitcode_sha256": "1A9AB16C0A7674CAA20999713662E0D73885CA66179BD7B40698500F3900553C",
+      "prera_mir": "inputs/natural_corpus/n04_divxc3.mir",
+      "prera_mir_sha256": "A222D3BF9808DE21CE7F00B34FD2BE1917A392D9CA6F03CBAA32F3177B79B07D",
+      "site": {
+        "function": "__divxc3",
+        "bb": 2,
+        "offset": 27,
+        "arg": 1,
+        "arg_reg": "edi",
+        "source_vreg": "%208"
+      },
+      "index": 26
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/gcc_personality_v0.c",
+      "source_sha256": "08E4369C5F4ECD41AC8039D0DBEBA9FF548B1AF1FF536738EB56DBA5198F2E76",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n13_gcc_personality_v0.bc",
+      "bitcode_sha256": "75B11C82E3C3ACCA90B6812AE50A69F9B7165DAD6134B2128DC5C80AF65F971F",
+      "prera_mir": "inputs/natural_corpus/n13_gcc_personality_v0.mir",
+      "prera_mir_sha256": "1B05C3245400443FB57DD9B1293E4B7B93157934AAA625867E6233AF21AADCBB",
+      "site": {
+        "function": "__gcc_personality_v0",
+        "bb": 4,
+        "offset": 5,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%43"
+      },
+      "index": 27
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/atomic.c",
+      "source_sha256": "49460E687FA4D9C32321ADE9D06F70740F9389183028922D97D06DB97E9C581D",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n01_atomic.bc",
+      "bitcode_sha256": "7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469",
+      "prera_mir": "inputs/natural_corpus/n01_atomic.mir",
+      "prera_mir_sha256": "AE64199FDB1CF27134511E27380A545DB26C810D0B810839397F9B52AA2598F9",
+      "site": {
+        "function": "__atomic_exchange",
+        "bb": 36,
+        "offset": 10,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%32"
+      },
+      "index": 28
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/gcc_personality_v0.c",
+      "source_sha256": "08E4369C5F4ECD41AC8039D0DBEBA9FF548B1AF1FF536738EB56DBA5198F2E76",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n13_gcc_personality_v0.bc",
+      "bitcode_sha256": "75B11C82E3C3ACCA90B6812AE50A69F9B7165DAD6134B2128DC5C80AF65F971F",
+      "prera_mir": "inputs/natural_corpus/n13_gcc_personality_v0.mir",
+      "prera_mir_sha256": "1B05C3245400443FB57DD9B1293E4B7B93157934AAA625867E6233AF21AADCBB",
+      "site": {
+        "function": "__gcc_personality_v0",
+        "bb": 12,
+        "offset": 3,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%57"
+      },
+      "index": 29
+    },
+    {
+      "source_relpath": "compiler-rt/lib/builtins/atomic.c",
+      "source_sha256": "49460E687FA4D9C32321ADE9D06F70740F9389183028922D97D06DB97E9C581D",
+      "license": "Apache-2.0-WITH-LLVM-exception",
+      "bitcode": "inputs/natural_corpus/n01_atomic.bc",
+      "bitcode_sha256": "7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469",
+      "prera_mir": "inputs/natural_corpus/n01_atomic.mir",
+      "prera_mir_sha256": "AE64199FDB1CF27134511E27380A545DB26C810D0B810839397F9B52AA2598F9",
+      "site": {
+        "function": "__atomic_load",
+        "bb": 28,
+        "offset": 4,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%19"
+      },
+      "index": 30
+    }
+  ]
+}

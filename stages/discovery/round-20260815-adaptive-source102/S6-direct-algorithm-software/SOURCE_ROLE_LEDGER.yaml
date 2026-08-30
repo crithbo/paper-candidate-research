@@ -1,0 +1,38 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE102-R40-ORDINARY-BREADTH-V1
+source_policy: official_or_primary_only
+network_acquisition: none
+roles:
+  - id: S102-SQLITE-NGQP
+    role: ANCHOR_CURRENT_CONTRARY
+    url: https://www.sqlite.org/queryplanner-ng.html
+    publisher: SQLite
+    version_or_date: current page, last updated 2025-07-12
+    decisive_use: documents current N3 search, star-query heuristic and current parameterized planning context
+  - id: S102-SQLITE-PRAGMA
+    role: CURRENT_DEFAULT_NONDEFAULT
+    url: https://www.sqlite.org/pragma.html
+    publisher: SQLite
+    version_or_date: official current documentation accessed 2026-08-15
+    decisive_use: `PRAGMA optimize`, analysis-mask defaults/non-defaults and current statistics-maintenance path
+  - id: S102-CMAKE-UNITY
+    role: ANCHOR_CURRENT_UNION
+    url: https://cmake.org/cmake/help/latest/variable/CMAKE_UNITY_BUILD.html
+    publisher: CMake
+    version_or_date: CMake 4.4.0-rc3 documentation
+    decisive_use: unity build developer-control default is off
+  - id: S102-CMAKE-UNITY-PROPERTY
+    role: CURRENT_ACTION_CONFIG_UNION
+    url: https://cmake.org/cmake/help/v3.29/prop_tgt/UNITY_BUILD.html
+    publisher: CMake
+    version_or_date: official property documentation; versioned supporting source
+    decisive_use: BATCH/GROUP, batch size, ordering preservation, source exclusions and ODR controls
+  - id: S102-JEMALLOC
+    role: ANCHOR_LOCATOR_ONLY
+    url: https://jemalloc.net/jemalloc.3.html
+    publisher: jemalloc
+    version_or_date: official manual accessed 2026-08-15
+    decisive_use: locator only; extent hooks and API do not support an absence claim
+source_action_telemetry:
+  downloaded_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  project_local_persistence: false
+  query_roles: {anchor: 2, current: 3, contrary: 2, escape: 0}

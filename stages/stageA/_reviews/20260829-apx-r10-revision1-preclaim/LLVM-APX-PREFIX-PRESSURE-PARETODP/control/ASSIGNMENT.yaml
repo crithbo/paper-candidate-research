@@ -1,0 +1,22 @@
+schema: independent-stagea-revision-preclaim-review-assignment-v1
+assignment_id: STAGEA-GATE-20260829-APX-R10-REVISION1-NO-ACTION-IDENTITY-PRECLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+review_scope: PRECLAIM_FIDELITY_OF_AUTHORIZED_REVISE_ONCE
+questions:
+  - Is NO_APX_ACTION_IDENTITY with cost [0,0,0] the honest same-object identity action for a row with no applicable APX transformation, or does it improperly mask the S02 coverage failure?
+  - Do native_action_applicable/no_action_identity/failure_region_retained preserve the negative case and prevent it from being counted as candidate gain?
+  - Are nonempty rows, selected set, two replays, baselines, denominator, cost schema and guarantee unchanged?
+  - May the patched driver proceed to a non-claim control and then full frozen denominator, consuming REVISE_ONCE only when first executed?
+minimum_inputs:
+  - {path: stages/stageA/_reviews/20260829-apx-r9-natural-claim-final/LLVM-APX-PREFIX-PRESSURE-PARETODP/INDEPENDENT_REVIEW_REPORT.md, sha256: 48BCFDE732B2FBC460B940F2B09C4A3C550F13B9520690E208EA6817105D1D31}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/apx_r8_row_driver.py, sha256: B042EC1F1C1EDF993DE57EE6C28A34F4766252941D6AB7BF1041E51819DA750E}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_PATCHED_ROW_DRIVER.py, sha256: B4783E43EFB5A43C7212E8B64BFE554E3D430848396CDE04407AF163A1803133}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_CONTROLLER.py, sha256: 25F643B96CF17F031FB6BE1D4CBC6C4F5B8A96CBEE79381EDA937FBCD769A469}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_COMMAND_DAG.json, sha256: 9FA5EE23E85AAD9395C78547E81F5FBEDE8C5E642C37D05D95FB1075536240CC}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_EXECUTABLE_PACKET.yaml, sha256: CEFA8F1E7C00A1AC0230CB91E1FC3D90BC637CDA55C72B4A632ABA33768F3466}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_STATIC_VALIDATION.yaml, sha256: 9B4E0F75EBA3331F87E5899758232DC736311A8A24DD7E9CF810289CD08CD969}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/EXACT_INPUT_COPY_MANIFEST.yaml, sha256: 827DBBC107E5B67D066DBA73F567D00886F5DB48495CF7240FFDD0A7A55AABB5}
+static_facts: {patch_scope: prepare_empty_action_branch_only, rows: 8, commands: 72, placeholders: 0, controller_compile: PASS, revision_consumed: false}
+allowed_actions: [read_only_review, targeted_hash_and_diff_check, write_bootstrap_ack_then_after_start_report_handoff_manifest]
+forbidden_actions: [modify_owner_files, resource_copy, execute_patched_driver, tool_replay, experiment, claim_run, network, shared_write, state_change, stageb]
+scientific_ceiling: PRECLAIM_REVISION_FIDELITY_ONLY__NO_SCIENTIFIC_INFERENCE

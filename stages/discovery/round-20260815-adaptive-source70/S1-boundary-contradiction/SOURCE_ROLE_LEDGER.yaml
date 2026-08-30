@@ -1,0 +1,35 @@
+cycle: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE70-R40-ORDINARY-BREADTH-V1
+retrieval_date: '2026-08-15'
+resource_actions: NONE
+sources:
+  - id: SRC01
+    role: ANCHOR
+    title: 'AsyncDrop in std::future'
+    url: https://doc.rust-lang.org/std/future/trait.AsyncDrop.html
+    publisher: Rust Project
+    version_or_date: 'std 1.97.1, 8bab26f4f, 2026-07-14'
+    provenance: official_rustdoc
+    decision_relevance: fixes implicit AsyncDrop invocation and deallocation-after-completion semantics.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC02
+    role: CURRENT
+    title: 'rustc async drop elaboration source'
+    url: https://doc.rust-lang.org/stable/nightly-rustc/src/rustc_mir_transform/elaborate_drop.rs.html
+    publisher: Rust Project
+    version_or_date: 'nightly source snapshot accessed 2026-08-15'
+    provenance: official_rendered_upstream_source
+    decision_relevance: exposes async-drop glue eligibility/elaboration as an existing current compiler mechanism.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC03
+    role: CONTRARY
+    title: 'Tracking Issue for async drop codegen #126482'
+    url: https://github.com/rust-lang/rust/issues/126482
+    publisher: Rust Project
+    version_or_date: 'open tracking issue, snapshot accessed 2026-08-15'
+    provenance: official_upstream_tracking_record
+    decision_relevance: records current async-drop codegen, coroutine/type support, and existing drop-glue optimization trajectory; not used to infer absence.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+source_role_outcome: FIXED_GUARANTEE_LEAVES_CURRENT_OR_GENERIC_KERNEL_ONLY

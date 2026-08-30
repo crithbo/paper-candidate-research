@@ -1,0 +1,30 @@
+schema: discovery-prospective-shadow-handoff-v1
+assignment_id: DMR-V1-PSHADOW-CYCLE-01-S1
+lane_id: DISCOVERY_S1_BOUNDARY_CONTRADICTION
+status: COMPLETE__CANONICAL_LOCATOR_ONLY__SHADOW_NONE
+canonical_funnel:
+  seed_count: 1
+  rq_count: 1
+  selected_locator_count: 1
+  evidence_qualified_raw_count: 0
+  clean_stage0_brief_count: 0
+  disposition: NOT_ADMITTED_UNFROZEN__CURRENT_PARAMETERIZED_ACTION_SURFACE
+  scientific_inference: NONE
+official_source_actions:
+  consumed: 6
+  maximum: 6
+  records:
+    - {role: ANCHOR, action: search, locator: https://github.com/microsoft/T-MAC}
+    - {role: ANCHOR, action: open, locator: https://github.com/microsoft/T-MAC}
+    - {role: CURRENT, action: open, locator: https://api.github.com/repos/microsoft/T-MAC/git/trees/main?recursive=1, result: NO_USABLE_RESPONSE}
+    - {role: CURRENT, action: open, locator: https://github.com/microsoft/T-MAC/tree/main/python/t_mac}
+    - {role: CURRENT, action: open, locator: https://github.com/microsoft/T-MAC/tree/main/python/t_mac/ops}
+    - {role: CURRENT, action: open, locator: https://github.com/microsoft/T-MAC/blob/main/python/t_mac/ops/qgemm.py}
+current_source_finding: QGeMMLUTBitsCodegen exposes LUT group, weight/activation grouping, SIMD, aggregation, fast-aggregation, and zero-point controls; no non-generic action outside that surface was frozen.
+shadow:
+  nomination: NONE
+  result: NOT_RUN
+  canonical_state_effect: NONE
+forbidden_actions_not_run: [repair_execution, download, build, experiment, candidate_state_change, stage0_dispatch_effect, stagea, stageb, shared_write]
+next_action: WAIT_SIX_LANE_BARRIER
+manifest_path: HASH_MANIFEST.sha256

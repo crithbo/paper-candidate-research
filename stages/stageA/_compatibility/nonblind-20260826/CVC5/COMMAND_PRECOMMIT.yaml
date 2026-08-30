@@ -1,0 +1,18 @@
+schema: nonblind-stagea-command-precommit-v1
+assignment_id: NONBLIND-STAGEA-20260826-CVC5
+mode: NONBLIND_STAGEA_COMPATIBILITY
+start_authorization:
+  path: MAINLINE_START_AUTHORIZATION.yaml
+  sha256: E3832F5F90927F6C42676B93BEB5FA4041563C9622EE2D499D50A49462717B12
+authorized_scope: [S0_RESOURCE_LAYOUT, S1_OFFICIAL_RELEASE_DOWNLOAD, S2_SHA256_VERIFY, S3_LOCAL_EXTRACT, S4_VERSION_CONFIRM]
+deferred_scope: [S5_CANONICAL_SMTLIB_PROBE_PENDING_FIDELITY_FREEZE_AND_MAINLINE_ACCEPTANCE]
+source:
+  url: https://github.com/cvc5/cvc5/releases/download/cvc5-1.3.4/cvc5-Win64-x86_64-static.zip
+  expected_sha256: 279fe7e95810cfb62433fcfc2932f35325a665f32d3697ff33f75e31d5c6a179
+  redirects_max: 1
+  allowed_redirect_chain: github.com_to_release-assets.githubusercontent.com_only
+  download_attempts_max: 1
+  retry_allowed: false
+process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp}
+prohibitions: [alternate_artifact, TLS_bypass, system_install, global_environment_change, production_candidate_registration, production_state_transition, stageB, gold_input, blind_metric_merge, cleanup]
+scientific_or_resource_action_started_before_precommit: false

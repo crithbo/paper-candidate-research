@@ -1,0 +1,17 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A2-CMAKE-GITHUB-TRANSPORT
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A1_handoff.yaml, sha256: 1F0367FDBB569AA5E819FAB6974BB6E5E6EC4A9E3903871DBD6A74F68B0A6FAE}, {path: A1_HASH_MANIFEST.sha256, sha256: 556E8874D2D9460BB19921D505620233F904104B0ACF92B93F5E9FD6A190FE86}]
+only_change: official_transport_url_and_one_redirect_allowance_for_same_portable_cmake_archive
+portable_cmake:
+  url: https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-windows-x86_64.zip
+  archive_path: resources/archives/cmake-3.31.6-windows-x86_64.zip
+  sha256: d163cd3ab4959b0a53fa8988f2ddbd2e6c501658201e6a154386bad9dbe4f836
+  redirects_allowed: 1
+  allowed_redirect_chain: github.com_to_release_assets.githubusercontent.com_only
+  download_attempts_max: 1
+then: resume_A1S1_through_A1S5_exactly_once_after_checksum_match
+stop_conditions: [authentication_or_transport_failure_fail_closed, checksum_mismatch, redirect_chain_mismatch, any_command_failure, no_retry_or_further_transport]
+unchanged: [portable_cmake_version_and_sha, author_commit, author_archive_route, artifact_replay_mode, comparator_contract, probe_budget, evidence_ceiling, production_and_stageB_prohibitions]
+scientific_revision_consumed: false

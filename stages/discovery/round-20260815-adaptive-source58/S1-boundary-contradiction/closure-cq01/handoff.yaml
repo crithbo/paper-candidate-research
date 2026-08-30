@@ -1,0 +1,33 @@
+schema: DISCOVERY_SOURCE_CLOSURE_HANDOFF_V1
+assignment_id: SOURCE-CLOSURE-SOURCE58-S1-CQ01-WASMTIME-COMPONENT-POST-RETURN-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source58/S1-boundary-contradiction/closure-cq01
+disposition: STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_CHANGED_OBJECT__RETURN_TO_MAINLINE
+state_authority: NONE
+forbidden_inference:
+  - No clean-brief, Q2, candidate, PASS, STOP, or stage-state conclusion is made here.
+  - The HTTP 404 route is not evidence of source absence.
+frozen_identity:
+  project: bytecodealliance/wasmtime
+  commit: bc2f967927f9f0e839095a752bf554c4a09fdd13
+  exact_object: default-branch component lowering and lifting post-return dispatch reached from CanonicalOptions under the fixed Component Model Canonical ABI contract
+finding:
+  current_native_union: TypedFunc::call automatically invokes post_return_impl with post_return_arg before returning the lifted result.
+  same_object_two_schedule_witness: NOT_FROZEN
+  reason: The old explicit post_return surface is a deprecated no-op; a different cleanup schedule would change the native call-chain/ownership endpoint or duplicate/elide its current action.
+carrier_and_oracle:
+  carrier: TypedFunc<Params, Return>::call in crates/wasmtime/src/runtime/component/func/typed.rs
+  stock_oracle: current typed-call lowering/call/lift/post_return_impl/return sequence
+resource_summary:
+  acquisition_calls: 6
+  persisted_response_bytes: 2398803
+  localization_status: CLOSED_WITHIN_CAP
+canonical_files:
+  - ASSIGNMENT.yaml
+  - RESOURCE_INVENTORY.yaml
+  - CURRENT_UPSTREAM_AUDIT.md
+  - SOURCE_CLOSURE_REPORT.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+next_owner: MAINLINE_ONLY
+lane_status_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

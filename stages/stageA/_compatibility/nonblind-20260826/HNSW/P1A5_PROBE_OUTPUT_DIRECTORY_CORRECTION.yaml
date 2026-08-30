@@ -1,0 +1,15 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-P1A5-PROBE-DIR
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P1A4_handoff.yaml, sha256: B2A1D529461C0B1492F20C5B9A14E16FA3DBC84531EB3187DD6219657EF44A2F}]
+only_change: create_existing_frozen_probe_output_directory_before_same_absolute_no_cwd_compile
+output_directory: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\HNSW\resources\build\probe
+allowed_command_sequence:
+  - {id: P1A5S0, command: create_literal_output_directory_once_if_absent, stop_on_nonzero: true}
+  - {id: P1A5S1, command: same_absolute_no_cwd_clangxx_compile_existing_harness_once, stop_on_nonzero: true}
+  - {id: P1A5S2, command: run_existing_probe_cell_1_once, stop_on_nonzero: true}
+  - {id: P1A5S3, command: run_existing_probe_cell_2_once, stop_on_nonzero: true}
+  - {id: P1A5S4, command: run_existing_probe_cell_3_once, stop_on_nonzero: true}
+prohibitions: [harness_edit, input_or_parameter_change, compiler_or_cwd_change, retry_after_failure, production_or_stageB_action]
+scientific_revision_consumed: false

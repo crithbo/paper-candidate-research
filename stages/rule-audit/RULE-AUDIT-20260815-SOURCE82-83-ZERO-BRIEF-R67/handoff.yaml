@@ -1,0 +1,48 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260815-SOURCE82-83-ZERO-BRIEF-R67
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+disposition: NO_CHANGE
+recommendation: RETAIN_ORDINARY_R40__NO_SUCCESSOR_MICRO_RULE__PRESERVE_PRE_RQ_ANCHOR_LOCATOR_AND_HELD_QUEUE_SEPARATION
+assignment:
+  path: stages/rule-audit/_assignments/RULE_AUDIT_SOURCE82_83_ZERO_BRIEF_R67.yaml
+  sha256: D48355CDECF4EDB43E80D1558D0A90D6F83F82CE81665405EEA0DC6E0A8AC733
+scope:
+  included: [Source82, Source83]
+  forbidden_input: Source84
+  source84_read: false
+  source84_contacted: false
+  source84_modified: false
+  queue_execution: false
+  retrieval_download_experiment_automation: false
+  shared_files_modified: false
+canonical_inputs:
+  source82_control_sha256: 3BBC7CF07EAAF84CE2F94E966C852BF00DC7BB8E7EFECF2F0DD13C3D92F0B70D
+  source83_control_sha256: 8376D1B6BCC46DE744717C7E03643B293126C3D4C39D1D50632EC212436B1302
+funnel:
+  source82: {evidence_qualified_raw: 0, clean_stage0_brief: 0}
+  source83: {evidence_qualified_raw: 0, clean_stage0_brief: 0}
+held_context:
+  source81_raw_status: NOT_ADMITTED_UNFROZEN
+  source81_stage0_debt: false
+  source83_evidence: false
+  queues:
+    S81-CQ01: {status: PENDING_UNEXECUTED, attempt_count: 0}
+    S81-CQ02: {status: PENDING_UNEXECUTED, attempt_count: 0}
+findings:
+  source83_new_attributable_rule_defect: false
+  healthy_abstention_or_unclosed_frontend: true
+  successor_micro_rule_justified: false
+authorization:
+  user_policy_decision_required: false
+  mainline_shared_patch_required: false
+  backtest_required: false
+  new_assignment_local_action: none
+validation:
+  required_files: PASS
+  assignment_hash: PASS
+  counts: PASS__SOURCE82_RAW_0_BRIEF_0__SOURCE83_RAW_0_BRIEF_0
+  separation: PASS__HELD_QUEUES_NOT_USED_AS_SOURCE83_EVIDENCE
+  forbidden_input: PASS__SOURCE84_NOT_READ
+  prohibited_actions: PASS
+  resource_localization: PASS__EMPTY_ROOT
+  manifest_replay: PASS__FIVE_CANONICAL_ARTIFACTS

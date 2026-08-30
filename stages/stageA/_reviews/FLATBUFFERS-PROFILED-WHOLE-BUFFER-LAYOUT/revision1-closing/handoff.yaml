@@ -1,0 +1,92 @@
+schema_version: "stagea-independent-gate-handoff-v1"
+lane_id: "STAGEA-GATE-REVIEW-LANE-1"
+assignment_id: "STAGEA-G1-20260811-FLATBUFFERS-PROFILED-WHOLE-BUFFER-LAYOUT-REVISION1-CLOSING-V8.7"
+topic_id: "FLATBUFFERS-PROFILED-WHOLE-BUFFER-LAYOUT"
+review_type: "REVISION1_CLOSING"
+role: "INDEPENDENT_STAGEA_GATE_REVIEW"
+
+decision:
+  code: "CONFIRM_STOP"
+  confidence: 0.97
+  quality_tier: "BELOW_Q2_STOP"
+  evidence_ceiling: "CORRECTED_TRACE_PROFILED_SAME_OBJECT_24_MODEL_STAGEA_NEGATIVE__INDEPENDENTLY_CONFIRMED"
+  scientific_basis: "TWO_PREREGISTERED_KILLERS_TRIGGERED"
+  resource_failure_basis: false
+  revision_budget: "1/1_CONSUMED"
+  scientific_revision_consumed: true
+  second_revision_authorized: false
+
+stop_kernel:
+  useful_action_train: "0/383"
+  useful_action_heldout: "0/763"
+  useful_action_all: "0/1146"
+  useful_action_fraction: 0.0
+  required_useful_action_fraction: 0.10
+  heldout_primary_metric_with_negative_p50_and_p90: null
+  raw_bytes_candidate_minus_union_pct_p50: 1.37614678899083
+  raw_bytes_candidate_minus_union_pct_p90: 1.93658225154288
+  warm_trace_wall_candidate_minus_union_pct_p50: 0.795947901591892
+  warm_trace_wall_candidate_minus_union_pct_p90: 4.0249723787133
+  cold_trace_wall_candidate_minus_union_pct_p50: 0.92527729130181
+  cold_trace_wall_candidate_minus_union_pct_p90: 1.91288283686325
+
+scope_boundary:
+  mechanism: "FROZEN_FB_RCFDP_SIGNATURE_AWARE_REVISION1"
+  corpus: "24_OFFICIAL_TFLITE_MICRO_MODELS__11_TRAIN_13_HELDOUT"
+  trace: "704_REQUESTS__23936_EVENTS__34_ENDPOINTS__UNIFORM_ENDPOINT_COUNTS"
+  comparator: "FROZEN_8_ARM_EXECUTABLE_SAME_OBJECT_UNION"
+  beam: 8
+  planning_cap: 20000
+  general_flatbuffers_impossibility_claim: false
+  arbitrary_trace_claim: false
+  other_mechanism_claim: false
+
+integrity:
+  owner_manifest_entries_verified: 94
+  owner_manifest_entries_total: 94
+  owner_manifest_bytes_covered: 5557846
+  owner_manifest_verification: "PASS"
+  preclaim_gate_before_first_claim_row: true
+  claim_rows_before_preclaim_pass: 0
+  natural_rows: 192
+  natural_rows_eligible_exact: 192
+  models: 24
+  arms_per_model: 8
+  heldout_leakage_detected: false
+  object_drift_detected: false
+  baseline_unfairness_detected: false
+  cross_assignment_contamination: false
+
+frozen_control_sha256:
+  plan_md: "72FB538177B62C51193E832A7C0F5CF3710847874AB125683536D22FAD35A819"
+  registry_yaml: "EFACA60F60E2AB917BFBCF1F5472DCB8EF38ED024D89E609FCF44B0D1ABE03CC"
+  role_stagea_review_md: "7403DD87FD0091BA836F782EE215AFDFB231BB5AFBF37570571B09EC524E94A8"
+
+owner_input_sha256:
+  stagea_report_md: "917AC6F495F65B9898BB25DAAEFC99B3999FF2AB9467DB105A3CE7956F5676F7"
+  experiment_contract_yaml: "14F752877DCACAC262665E84FFEA50E83AEA346186A0B70E6D9ED9106E70618F"
+  results_md: "32485624194671C037F1A87F9999F79C2BDD8141135670A8D7D04D385E9276E7"
+  full_cost_ledger_md: "F63D76EAECCB0C54789B61A9EB9C7E3E7577D58F8E569DE45CF9AEDEB0E8E501"
+  user_review_packet_md: "8B299F123991CD3D74ADC3CBAAF67C5A064EDECA051F4F2FD59CCFC3F2F42BD3"
+  handoff_yaml: "BD0A80D6B7E05D1BA78EDB8552B8CEBFD4C63E1A873490FA503768ED233B95A2"
+  hash_manifest_sha256: "72A84CA17702E0519DB3C4681E5F2075EBAD58EC3E070E43A1E42040E01EDDD9"
+
+review_output_sha256:
+  INDEPENDENT_REVIEW_REPORT.md: "C94954D8B88120DEAEA96CF18EBBE8B9CF292FB25FDBBDDEA3F853F21252CEA1"
+  RECOMPUTATION_AUDIT.md: "716811F93591753D583E2A813DC96BCFE2013CA9D15C4D7FB675083961708FA6"
+  BASELINE_AUDIT.md: "63F4146DA25F8564DF5AC1A272084B989842E4962F4630FCF32CE1AD201F1AFC"
+  USER_REVIEW_PACKET.md: "86B4DE5D440DAE5475F5A6E2F8D270586F196330E2EEEAE15535AA24A2A8CBE8"
+
+authorization:
+  stageb: false
+  stageb_user_approval_id: null
+  pending_user_stageb_review: false
+  formal_project_creation: false
+  new_claim_bearing_experiment_run: false
+  owner_files_modified: false
+  shared_control_files_modified: false
+  external_volume_reference_used: false
+
+terminal_state:
+  assignment_complete: true
+  lane_state: "IDLE_REUSABLE_AWAITING_MAINLINE"

@@ -1,0 +1,11 @@
+schema: nonblind-stagea-command-receipt-index-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A4-EXFAT-SYMLINK
+records:
+  - {id: A4S0, status: PASS, command: "tar -xf existing_archive -C resources/src/hnswlib-a4 --exclude=hnswlib-d9b3608c83d83b46c96e25088cb1d729b29dcfe9/python_bindings/setup.py"}
+  - {id: A4S1, status: PASS, checks: [excluded_setup_py_absent, CMakeLists_present, cpp_examples_present, partial_tree_not_overwritten]}
+  - {id: PARENT_S5_CONFIGURE, status: FAILED_FAIL_CLOSED, generator: NMake_Makefiles, error_class: NMAKE_NOT_FOUND_AND_CXX_COMPILER_UNSET, command_count: 1, stderr_path: resources/logs/A4S2_cmake_configure.stderr.txt}
+  - {id: PARENT_S6_BUILD, status: NOT_STARTED}
+  - {id: PARENT_S7_AUTHOR_TEST, status: NOT_STARTED}
+  - {id: FIDELITY_AND_PROBE, status: NOT_STARTED}
+retry_count: 0
+scientific_inference: NONE

@@ -1,0 +1,44 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE02
+lane: S1_BOUNDARY_CONTRADICTION
+write_directory: stages/discovery/round-20260814-adaptive-source02/S1-boundary-contradiction
+completion_state: COMPLETE_ZERO_PROPOSALS
+lane_state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE
+method:
+  canonical: V8_7_POTENTIAL_READINESS_SEPARATED
+  local_source_profile: SATURATION_AWARE_SOURCE_PROFILE_V1__ASSIGNMENT_LOCAL
+  discovery_claim_pack_mode: OFF
+  v9_output_generated: false
+telemetry:
+  raw: 6
+  rescreen: 1
+  fresh: 5
+  accepted_unique: 5
+  deep_reviews: 3
+  clean_briefs: 0
+carry_forward_closure:
+  family: LLVM_CXX20_COROUTINE_FRAME_LAYOUT_EXCEPTION_CLEANUP
+  result: STRUCTURAL_DROP
+  reason: current CoroFrame/CoroSplit frame construction and optimization union absorbs the action; remaining delta is generic layout/cost tuning
+fresh_dispositions:
+  structural_drop:
+    - LLVM_STACKMAP_PATCHPOINT__JIT_DEOPT_STATE_PUBLICATION__MACHINE_LOCATION_CONTRACT
+    - GLIBC_IFUNC__RESOLVER_TIMING__ELF_RELOCATION_CONSTRUCTOR_BOUNDARY
+    - CLANG_MUSTTAIL__CLEANUP_SCOPE__TAILCALL_EXCEPTION_BOUNDARY
+  finite_fidelity_gap:
+    - WASM_COMPONENT_ASYNC_ABI__STACK_SWITCHING__CONTINUATION_INSTANCE_LIFETIME
+    - LLVM_GC_STATEPOINT__BASE_DERIVED_RELOCATION__EXCEPTIONAL_EDGE_SAFETYPOINT
+next_safe_step:
+  - A new frozen depth assignment may pin one Wasm engine or one LLVM GC client/runtime; no rescreen is authorized by this handoff.
+canonical_files:
+  - RULE_FREEZE.md
+  - RAW_SCREEN_ROW_EVENTS.md
+  - UNIQUE_OPPORTUNITY_FAMILIES.md
+  - CANDIDATE_GRADE_DEEP_REVIEWS.md
+  - SOURCE_COLLISION_MATRIX.md
+  - DISCOVERY_LOG.md
+manifest: HASH_MANIFEST.sha256
+minimal_validation:
+  required_files_present_and_readable: true
+  identity_and_counts_consistent: true
+  no_topic_brief_for_zero_proposals: true
+  no_shared_control_write: true

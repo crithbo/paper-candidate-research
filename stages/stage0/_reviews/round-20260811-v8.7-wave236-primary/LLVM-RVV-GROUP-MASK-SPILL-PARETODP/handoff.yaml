@@ -1,0 +1,105 @@
+schema_version: stage0-handoff-v8.7
+assignment_id: STAGE0-P1-20260811-LLVM-RVV-GROUP-MASK-SPILL-PARETODP-PRIMARY-V8.7
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+lane_id: STAGE0-BATCH-GATE-PRIMARY
+mode: PRIMARY
+decision: REVISE_ONCE
+quality_tier: TIER_B_Q2_VIABLE
+quality_tier_is_conditional: true
+confidence: 0.88
+confirmation_status: PENDING_CONFIRMATION
+stage_semantics: CONDITIONAL_PAPER_POTENTIAL_ONLY
+evidence_ceiling: CURRENT_SOURCE_AND_STATIC_DESIGN_REVIEW_ONLY
+novelty_route:
+  - N2
+structural_paper_potential: TIER_B_Q2_VIABLE_IF_ATOMIC_GATE_CLOSES
+current_evidence_readiness: MEDIUM_LOW_FINITE_STATIC_CLOSURE
+search_status: SEARCH_BOUNDED_OPEN
+direct_fatal_found: false
+current_upstream:
+  project: llvm/llvm-project
+  commit: 5bb2565693f062a9e99929db1814a7a076d4dc76
+  cutoff_date: 2026-08-11
+  source_blobs:
+    RISCVTargetMachine.cpp: 517e48faa104348f5ae22bed6001cfe8deb500a8
+    RISCVRegisterInfo.td: 9d43277bcdafef2ac3110f5e91424be6cad4f051
+    RISCVRegisterInfo.cpp: f51f56cb10a46d8ac4092c910ccd4b460072ffe2
+    RISCVInsertVSETVLI.cpp: feceefe1b8550c2191267342ea781d78223508de
+    RISCVVMV0Elimination.cpp: d72d27c983ada7c0310915be4d71820e660bff92
+input_freeze:
+  registry_sha256: 88B1D221E35BCAEE7A0BC46997235F747D48F87A0FB151A633F4986E836BFCE2
+  plan_sha256: 88551293C686C9245F352CDD1BA9C2CB1B5899734F6DA052350F8C23F7891C57
+  topic_brief_sha256: A685791F469B3687CCA828568369A3675FBE4734034BC6A45909188C464C7420
+  source_collision_matrix_sha256: 68D3EEEB1BA3D8A64845E50DBD35A6D8546B6149C90ED3DD60EDD45A29933F53
+  candidate_grade_deep_reviews_sha256: 0584B294DFD35CB0AEB9598C85A07846B36973773C97DAB9BE94DB23532213FD
+  source_handoff_sha256: A5E63B1232A46F3645B4AF8F31189D2627FC2B5336E4B17AD52076B9BD9B0EEB
+  source_manifest_self_sha256: 8B8267B0AE29549CA49055E985920CFB84BE9C534AFA9DE104BD019F02B399A9
+  source_manifest_verification: 8/8_PASS
+shared_control_drift:
+  detected_after_review: true
+  reviewer_wrote_shared_controls: false
+  final_observed_registry_sha256: 18A88A189133258A0B07B926B4074CDBA2C2FA792C4F19E045400912518F6FB6
+  final_observed_plan_sha256: 9344C0D044110C7807EB702A90A2CEEDF61B2482CCE490FEDD1BA96FD36D1000
+  disposition: SCIENTIFIC_DECISION_REMAINS_BOUND_TO_START_FREEZE__MAINLINE_MECHANICAL_RECONCILIATION_REQUIRED
+atomic_revision_gate:
+  id: SOUND_RVV_TRACE_ACTION_AND_QUOTIENT_CERTIFICATE
+  proposition: >-
+    Under one pinned current LLVM RVV MachineIR/ABI/VLEN/target contract,
+    a finite action catalog and future-action-and-cost-preserving equivalence
+    define an exact target-specific Pareto DP, and a fully legal forced-pressure
+    witness separates its nondominated action from the complete current
+    sequential pipeline.
+  required_closure:
+    - legal forced-pressure MIR witness with sufficient live aligned groups and v0/NoV0 constraints
+    - explicit production-versus-proposed action catalog including open PR 105661 typed spill
+    - complete state, transition, base, terminal, cost, and equivalence definitions
+    - honest fixed-ISA exact or genuine parameterized complexity guarantee
+    - complete mapping to current LLVM, sequential partial-spill, and exact-oracle comparators
+  falsifiers:
+    - no legal forced-pressure action-divergence witness
+    - merged states have different legal or cost-distinct suffixes
+    - typed spill changes fixed semantics or crosses an inline-asm legality boundary
+    - remaining method is generic fixed-register enumeration or CP with RVV labels
+  failure_sentinel: BELOW_Q2_STOP__INVALID_PRESSURE_WITNESS_OR_GENERIC_FIXED_REGISTER_ENUMERATION
+  scientific_revision_budget_if_confirmed: 1
+key_findings:
+  - one VRM8 group plus v0 mask plus one fractional temporary does not force pressure or spill
+  - fractional LMUL values use the ordinary VR physical class in current LLVM
+  - current production uses whole-register spill lowering
+  - typed partial spill remains open LLVM PR 105661 and is not landed at the pin
+  - current vector RA precedes RISCVInsertVSETVLI and scalar RA
+  - no identical same-object joint exact optimizer was found in the bounded search
+  - Unison is a material generic-kernel subtractor
+strong_baselines:
+  - complete pinned current LLVM RVV pipeline and finite allocator/configuration grid
+  - pinned current LLVM plus complete sequential legal whole-versus-typed spill comparator
+  - same-grammar exact exhaustive-or-CP oracle for small traces
+external_subtractors:
+  - GCC current RVV maximum-LMUL and cost controls
+  - adaptive fine-grained grouping paper DOI 10.19734/j.issn.1001-3695.2026.01.0020
+  - Zoozve arXiv 2504.15678
+  - Closer in the Gap arXiv 2605.10860
+score:
+  academic_value: 46
+  ai_executability_bonus: 26
+  total: 72
+  ai_class: AI_CORE_EXECUTABLE
+  estimated_ai_core_fraction: 0.85
+stage0_repair_vector:
+  - ATOMIC_ACTION_UNCLEAR
+  - OMITTED_GENERIC_KERNEL
+  - FULL_COST_GAP
+  - Q2_SHAPE_GAP
+authorizations:
+  stageA: false
+  stageB: false
+  experiment: false
+  benchmark: false
+next_route: SAME_LONG_LIVED_D_ROOT_CONFIRMATION_SENTRY
+deliverables:
+  - STAGE0_REPORT.md
+  - Q1_COMPARATOR_MATRIX.md
+  - SOURCE_AUDIT.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+lane_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE

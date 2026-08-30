@@ -1,0 +1,152 @@
+schema_version: discovery-round-manifest-v1
+round_id: round-20260803-v8
+created_at: 2026-08-03T13:53:48+08:00
+model_policy_confirmed_at: 2026-08-03T14:03:37+08:00
+authority: USER_APPROVED_MAINLINE_DISPATCH
+method_revision: v2
+production_state: PRODUCTION_DISCOVERY_ENABLED_AFTER_CALIBRATION
+project_root: D:\project\writing\reserch
+stage0_submission_allowed: true
+reason: All six source lenses passed independent method-v2 historical backtest; Discovery may propose grounded briefs to Stage 0 but may not create Stage 0 itself.
+
+model_routing:
+  current_in_progress_turns: DO_NOT_RESTART_TO_AVOID_EXTRA_TOKEN_COST
+  discovery_sources: gpt-5.6-terra/medium
+  measurement_observatory: gpt-5.6-terra/medium
+  backtest_packer: gpt-5.6-terra/medium
+  backtest_executor: gpt-5.6-terra/medium
+  mechanical_hash_and_format_checks: gpt-5.6-terra/low
+  stage0_primary: gpt-5.6-terra/high
+  stage0_decisive_disagreement: gpt-5.6-sol/high
+  stagea_candidate_owner: gpt-5.6-sol/high
+  stageb_candidate_owner: gpt-5.6-sol/high
+  stageb_independent_review: gpt-5.6-sol/xhigh
+  exceptional_xhigh_only_for:
+    - COMPLEX_THEOREM_EQUIVALENCE
+    - DECISIVE_PASS_STOP_DISAGREEMENT
+    - STAGEB_FINAL_INDEPENDENT_REVIEW
+  default_escalation_forbidden: true
+  future_followups_must_apply_this_routing: true
+
+source_threads:
+  DISCOVERY-S1-BOUNDARY-CONTRADICTION:
+    task_id: 019fc62c-b47a-7b73-9e3a-6c0c6461f7a9
+    opportunity_lens:
+      - O1_ASSUMPTION_BREAK
+      - O6_CONTRADICTION_ANOMALY_OR_PRIMITIVE_MISMATCH
+    directory: stages\discovery\round-20260803-v8\S1-boundary-contradiction
+    status: COMPLETE_PRODUCTION_CONVERGENCE_ACCEPTED_FOR_STAGE0
+    model_route: gpt-5.6-terra/medium
+    raw_opportunity_count: 4
+    grounded_brief_count: 1
+    stage0_proposal_count: 1
+    handoff_sha256: 14C6906A3E3CA763685759701C4BAE2CF5F959B54001EFB0B391D7CBA08230E7
+  DISCOVERY-S2-BOTTLENECK-TRANSFER:
+    task_id: 019fc62c-ef51-7073-bc32-2c583bb73ed6
+    opportunity_lens:
+      - O2_BOTTLENECK_TRANSFER
+    directory: stages\discovery\round-20260803-v8\S2-bottleneck-transfer
+    status: COMPLETE_PRODUCTION_CONVERGENCE_ACCEPTED_FOR_STAGE0
+    model_route: gpt-5.6-terra/medium
+    raw_opportunity_count: 6
+    grounded_brief_count: 1
+    stage0_proposal_count: 1
+    handoff_sha256: B20E5061CCE859F6E2134EAD53C5B44478F17382152285E5CD4F72553343FC0D
+  DISCOVERY-S3-NATURAL-STRUCTURE:
+    task_id: 019fc62d-2bf6-73e3-b2ff-bb536d18367f
+    opportunity_lens:
+      - O3_NATURAL_STRUCTURE
+    directory: stages\discovery\round-20260803-v8\S3-natural-structure
+    status: COMPLETE_PRODUCTION_CONVERGENCE_ZERO_PROPOSALS_ACCEPTED
+    model_route: gpt-5.6-terra/medium
+    raw_opportunity_count: 5
+    grounded_brief_count: 0
+    stage0_proposal_count: 0
+    handoff_sha256: 2A433AF40C70ADCB151EACD4D4F20C671435524627928EE4291CC8B98E48FACF
+  DISCOVERY-S4-OBJECTIVE-CONSTRAINT:
+    task_id: 019fc62d-5d0c-7a60-a892-525836398502
+    opportunity_lens:
+      - O4_OBJECTIVE_OR_CONSTRAINT_SHIFT
+    directory: stages\discovery\round-20260803-v8\S4-objective-constraint
+    status: COMPLETE_PRODUCTION_CONVERGENCE_ACCEPTED_FOR_STAGE0
+    model_route: gpt-5.6-terra/medium
+    raw_opportunity_count: 5
+    grounded_brief_count: 1
+    stage0_proposal_count: 1
+    handoff_sha256: 796DE06D89D3454E647DFF1F0AF54D4DEF2E99DC1FFC917AF2D9F381194593D2
+  DISCOVERY-S5-SCALE-ONLINE-APPROX:
+    task_id: 019fc62d-8e59-7c30-b98c-4ba1be3048f0
+    opportunity_lens:
+      - O5_SCALE_ONLINE_OR_APPROXIMATION
+    directory: stages\discovery\round-20260803-v8\S5-scale-online-approx
+    status: COMPLETE_PRODUCTION_CONVERGENCE_ACCEPTED_FOR_STAGE0
+    model_route: gpt-5.6-terra/medium
+    raw_opportunity_count: 6
+    grounded_brief_count: 1
+    stage0_proposal_count: 1
+    handoff_sha256: 9A772636484773E3ED3C62652F808DB39EE161DF0BE366D8B444D75E2B9FAC96
+  DISCOVERY-S6-DIRECT-ALGORITHM-SOFTWARE:
+    task_id: 019fc62d-c1a6-7170-b584-57c881d32475
+    opportunity_lens:
+      - O7_DIRECT_ALGORITHM_OR_SOFTWARE_ADVANCE
+    directory: stages\discovery\round-20260803-v8\S6-direct-algorithm-software
+    status: COMPLETE_PRODUCTION_CONVERGENCE_ACCEPTED_FOR_STAGE0
+    model_route: gpt-5.6-terra/medium
+    raw_opportunity_count: 4
+    grounded_brief_count: 2
+    stage0_proposal_count: 2
+    handoff_sha256: 1CD2C6542A3574C195ED355BE5DF453349691043DAD9B7BCE25E781DA8AD437C
+  DISCOVERY-M1-MEASUREMENT-OBSERVATORY:
+    task_id: 019fc62d-ee9f-79e3-9c6d-6aeb8be1e3ac
+    opportunity_lens:
+      - O8_MEASUREMENT_CHARACTERIZATION_OR_BENCHMARK_GAP
+    directory: stages\discovery\round-20260803-v8\M1-measurement-observatory
+    status: PLAN_ONLY_NOT_ACTIVATED_WAITING_BACKTEST_TRIGGER
+    measurement_run_count: 0
+    stage0_proposal_count: 0
+    startup_sha256: C5DA2B95AEF948029AFB6E53C62F146023904E5F85C9B9C1FF0D895CA76761AB
+    measurement_plan_sha256: E719DBC11D86FD0AFDDDEA5DBF2D0B18601C2C892249FDE1ABC1DF53543191FB
+
+backtest:
+  packer:
+    task_id: 019fc62e-2e4d-7b73-8c4f-00ebb813fd97
+    title: DISCOVERY-BACKTEST-PACKER
+    status: COMPLETE_ACCEPTED_ARCHIVED
+  executor:
+    task_id: 019fc651-8391-74f1-b26a-32808fdb3e4d
+    title: DISCOVERY-BACKTEST-EXECUTOR
+    status: COMPLETE_ACCEPTED_ARCHIVED
+    model_route: gpt-5.6-terra/medium
+    handoff_sha256: 7A457F0E325C8921157398083198A8FACD60E88F410BC749A6177A43A0EF48BF
+  auditor:
+    task_id: 019fc65d-415e-7f32-8440-4b100d9a0fdc
+    title: DISCOVERY-BACKTEST-AUDITOR
+    status: COMPLETE_ALL_SIX_CALIBRATED_ACCEPTED_ARCHIVED
+    model_route: gpt-5.6-terra/medium
+    calibrated_lenses:
+      - O1_O6_BOUNDARY_CONTRADICTION
+      - O2_BOTTLENECK_TRANSFER
+      - O3_NATURAL_STRUCTURE
+      - O4_OBJECTIVE_CONSTRAINT_SHIFT
+      - O5_SCALE_ONLINE_APPROXIMATION
+      - O7_DIRECT_ALGORITHM_SOFTWARE
+
+retained_stage0_threads:
+  primary:
+    task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+    title: STAGE0-BATCH-GATE
+    status: COMPLETE_ALL_SIX_REVISE_ONCE_ACCEPTED_FOR_CONFIRMATION
+    batch_decision_sha256: F6A2A7D2B7937B41A46BEBCFF6F716E36977767E3079FA36F6B33F3CF3AD2BC2
+    manifest_sha256: BEABF1C94B761DEBE1BC7345181DE545C160F589C6CA2A29C970F36440395A18
+  confirmation:
+    task_id: 019fb450-69c2-7bd2-a563-5e0822326e78
+    title: STAGE0-CONFIRMATION-SENTRY
+    status: ACTIVE_ROUND_20260803_V8_CONFIRMATION
+
+constraints:
+  - Discovery creators cannot review their own topics at Stage 0.
+  - Pre-backtest raw opportunities are not candidates or novelty evidence.
+  - No Stage 0 proposal may be emitted before CALIBRATED backtest acceptance.
+  - New tasks remain unpinned; only the mainline may be pinned.
+  - No GPU, benchmark, large download, formal experiment, or project mutation is authorized.
+  - Do not use Sol/xhigh for ordinary Discovery, bibliographic retrieval, batch status, or mechanical verification.

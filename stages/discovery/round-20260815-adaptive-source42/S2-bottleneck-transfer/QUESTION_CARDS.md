@@ -1,0 +1,9 @@
+# Source42 question cards
+
+| Card | Exact public identity and same-object contract | Current official locus / contrary action union | Full-cost initial boundary | Mechanical preflight | Front-end disposition |
+|---|---|---|---|---|---|
+| QC-42-02 | QNN multi-graph context binary; graph values, common weights and outputs unchanged | QNN Weight Sharing Feature and current QNN SDK guide: weight sharing, multigraph context, binary generation/configuration | conversion/context-build CPU/RSS/ROM + context load/RAM + inference latency | `NO_MATCH`, then frozen direct current collision | `EXCLUDED_BEFORE_RAW__FROZEN_DIRECT_CURRENT_COLLISION` |
+| QC-42-03 | XLA GPU StableHLO module with same shapes/sharding/result semantics | XLA flags/effort levels/architecture: collective pipeline, latency-hiding scheduler, combiner, double buffering and cost estimator | HLO/compile CPU/RSS + executable bytes + peak buffers + collective/runtime latency | `RELATED_ONLY_DO_NOT_EXCLUDE`, then frozen direct current collision | `EXCLUDED_BEFORE_RAW__CURRENT_UNION_CONFIGURATION_AND_SCHEDULER` |
+| QC-42-04 | oneDNN Graph DAG with same logical tensors, partition semantics and outputs | oneDNN compiled partition and scratchpad docs: compiler-chosen opaque layout, in-place pairs, user/library scratchpad lifecycle | compile CPU/RSS + scratchpad/temporary bytes + execution/read-write latency | `NO_MATCH`, then frozen direct current collision/generic-shell test | `EXCLUDED_BEFORE_RAW__CURRENT_UNION_OR_GENERIC_ALLOCATOR_POLICY` |
+
+All cards have a public carrier/oracle route (QNN versioned context binary; public XLA StableHLO examples; oneDNN Graph examples). None has a union-external target-specific N1/N2 action after the contrary source was checked. The missing implementations, outcomes, resource availability and AI readiness played no role.

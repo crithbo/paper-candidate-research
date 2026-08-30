@@ -1,0 +1,32 @@
+schema_version: rule-audit-assignment-v1
+audit_id: RULE-AUDIT-20260824-SOURCE106-107-FIRST-FAILED-CONVERSION-A4
+assignment_id: RULE-AUDIT-20260824-SOURCE106-107-FIRST-FAILED-CONVERSION-A4
+lane_id: RULE_AUDIT
+thread_id: 01a02e08-0b16-7ed2-bfc4-f37b5ad86992
+trigger: TWO_CONSECUTIVE_COMPLETE_SIX_LANE_ZERO_CLEAN_BRIEF_CYCLES
+trigger_cycles: [SOURCE106, SOURCE107]
+mode: PROPOSAL_ONLY
+write_directory: stages/rule-audit/RULE-AUDIT-20260824-SOURCE106-107-FIRST-FAILED-CONVERSION-A4
+question: Locate the first failed conversion across Source106 and Source107, distinguish source-family/current-union saturation from rule/template/execution/resource defect, declare each recent allocation pilot RETAIN/DOWNGRADE/REMOVE, and recommend at most one future bounded change or NO_CHANGE while Source108 proceeds independently.
+minimum_inputs:
+  - accepted A2 and A3 reports/proposals/handoffs
+  - Source106 and Source107 accepted control, handoffs, manifests and registered funnel records
+  - current AGENTS, Discovery and Rule Audit role rules
+allowed_actions: [READ_MINIMUM_REGISTERED_INPUTS, COMPARE_SOURCE106_SOURCE107_TRANSITIONS, DIAGNOSE_FIRST_FAILED_CONVERSION, EVALUATE_RECENT_ALLOCATION_PILOTS, WRITE_PROPOSAL_ONLY_OUTPUTS]
+forbidden_actions:
+  - MODIFY_SHARED_RULE_TEMPLATE_SKILL_CONTROL_OR_CANDIDATE_FILES
+  - READ_OR_USE_SOURCE108_RESULTS_OR_BACKWRITE_SOURCE108
+  - START_NETWORK_SEARCH_DOWNLOAD_BUILD_EXPERIMENT_QUEUE_BACKTEST_AUTOMATION_OR_STAGE
+  - RELAX_Q2_COLLISION_BASELINE_NATURAL_EVIDENCE_FULL_COST_CLAIM_CEILING_OR_STOP_NON_REVIVAL
+  - CREATE_PRODUCTION_MICRORULE_QUOTA_OR_BROAD_CATEGORY_COOLDOWN
+required_analysis:
+  - FIRST_FAILED_CONVERSION_SOURCE106_AND_SOURCE107
+  - SOURCE_FAMILY_CURRENT_UNION_VS_RULE_TEMPLATE_EXECUTION_RESOURCE_CAUSE
+  - PILOT_DISPOSITIONS_FOR_CARRIER_FIRST_ARTIFACT_ROTATION_SINGLE_GPU_SOFTWARE_ROTATION
+  - ONE_BOUNDED_FUTURE_CHANGE_OR_NO_CHANGE
+  - SHADOW_BACKTEST_ROLLBACK_IF_BEHAVIOR_CHANGE
+expected_outputs: [RULE_AUDIT_REPORT.md, RULE_CHANGE_PROPOSAL.md, handoff.yaml, HASH_MANIFEST.sha256]
+resource_actions_allowed: false
+candidate_or_state_authority: false
+source108_may_continue_without_waiting: true
+

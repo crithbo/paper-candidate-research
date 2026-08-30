@@ -1,0 +1,3 @@
+# Question Card
+
+Current ExecuTorch documents ahead-of-time `to_edge_transform_and_lower`, `XnnpackPartitioner`, delegated/non-delegated graph sections and portable CPU fallback. The partitioner already controls delegable operators/precisions/per-op mode; custom LLM guidance requires inspecting delegation information. The frozen RQ supplies no distinct action beyond this current native partition/fallback mechanism. Full-cost boundary includes lowering, serialization, delegate calls, portable fallback, host runtime, copies/workspace and CPU execution. Disposition: `EXCLUDED_BEFORE_RAW__CURRENT_EXECUTORCH_XNNPACK_PARTITION_FALLBACK_ACTION_COVERAGE`.

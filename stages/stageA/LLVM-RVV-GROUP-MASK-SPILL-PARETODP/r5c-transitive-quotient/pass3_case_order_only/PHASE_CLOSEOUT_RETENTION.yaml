@@ -1,0 +1,17 @@
+schema: phase-closeout-retention-v1
+assignment_id: STAGEA-L1-20260826-LLVM-RVV-R5C-TRANSITIVE-SPLIT-QUOTIENT-DEPENDENCY-CLOSURE-A2
+result: BLOCKER_RETENTION_FROZEN
+resource_root_bytes: 198462436
+post_close_retained_bytes_max: 268435456
+within_post_close_budget: true
+downstream_consumer: MAINLINE_BOUNDED_ENGINEERING_CORRECTION_OR_INDEPENDENT_PRECLAIM_GATE
+retain:
+  - {path: pass1_interpreter_not_found, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: PASS1_FAILURE}
+  - {path: pass2_pycache_overlong, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: A1_CANONICAL_AND_RAW_FAILURE}
+  - {path: resources/env, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: SAME_TOPIC_EXACT_TOOL_PACKAGE}
+  - {path: resources/src, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: FROZEN_A2_IMPLEMENTATION}
+  - {path: resources/logs/r5c_a2, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: A2_RAW_COMPONENT_RESULTS_AND_RECEIPTS}
+cleanup_candidates: []
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+scientific_inference: NONE

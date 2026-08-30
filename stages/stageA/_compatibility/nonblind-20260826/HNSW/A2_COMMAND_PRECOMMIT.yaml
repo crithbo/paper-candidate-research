@@ -1,0 +1,22 @@
+schema: nonblind-stagea-command-precommit-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A2-CMAKE-GITHUB-TRANSPORT
+mode: NONBLIND_STAGEA_COMPATIBILITY
+correction:
+  path: A2_GITHUB_RELEASE_TRANSPORT_CORRECTION.yaml
+  sha256: 2853212860527F2EC1DE4D743A50D7761867FBEFE0B6EFFD281F078755D7BB5B
+preserved_parent_evidence:
+  - path: A1_handoff.yaml
+    sha256: 1F0367FDBB569AA5E819FAB6974BB6E5E6EC4A9E3903871DBD6A74F68B0A6FAE
+  - path: A1_HASH_MANIFEST.sha256
+    sha256: 556E8874D2D9460BB19921D505620233F904104B0ACF92B93F5E9FD6A190FE86
+command_id: A2S0
+command: "Invoke-WebRequest -UseBasicParsing -MaximumRedirection 1 -Uri https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-windows-x86_64.zip -OutFile resources/archives/cmake-3.31.6-windows-x86_64.zip"
+transport_contract:
+  attempts_max: 1
+  redirects_max: 1
+  redirect_chain: github.com_to_release-assets.githubusercontent.com_only
+  expected_sha256: d163cd3ab4959b0a53fa8988f2ddbd2e6c501658201e6a154386bad9dbe4f836
+  no_retry: true
+  no_alternate_artifact_or_route: true
+postcondition_before_next_step: exact_sha256_match_required
+scientific_or_resource_action_started_before_precommit: false

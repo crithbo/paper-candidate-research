@@ -1,0 +1,16 @@
+[configure.sh] using clang as compiler
+[configure.sh] using default compilation flags
+./configure.sh: line 56: [: =: unary operator expected
+[configure.sh] WARNING: can not find '../picosat' directory (no 'aigbmc' target)
+[configure.sh] WARNING: can not find '../lingeling' directory
+[configure.sh] WARNING: no proper '../lingeling' nor '../picosat' (will not build 'aigbmc' nor 'aigdep')
+[configure.sh] compiling with: clang -O -DNDEBUG
+real 0.18
+user 0.04
+sys 0.15
+clang -O -DNDEBUG -c aiger.c
+clang -O -DNDEBUG -c aigtoaig.c
+clang -O -DNDEBUG -o aigtoaig aigtoaig.o aiger.o
+real 1.08
+user 0.04
+sys 0.10

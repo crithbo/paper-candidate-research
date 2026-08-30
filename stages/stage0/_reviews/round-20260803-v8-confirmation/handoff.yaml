@@ -1,0 +1,57 @@
+schema_version: 1
+review_round: round-20260803-v8
+role: STAGE0-CONFIRMATION-SENTRY
+mode: SENTRY
+status: COMPLETE
+write_scope: stages/stage0/_reviews/round-20260803-v8-confirmation/
+primary_input:
+  root: stages/stage0/_reviews/round-20260803-v8-primary/
+  hash_manifest_sha256: BEABF1C94B761DEBE1BC7345181DE545C160F589C6CA2A29C970F36440395A18
+  content_entries_verified: 25
+  verification: PASS
+decisions:
+  S1-O6-MOBILE-TRAFFIC-CRITICALITY:
+    conclusion: DISAGREE
+    revise_once_confirmed: false
+    gate_disposition: VETO_CURRENT_NONATOMIC_GATE
+    direct_fatal_collision: false
+    stage_a_authorized: false
+  COH-REGION-LIFECYCLE:
+    conclusion: CONFIRM
+    revise_once_confirmed: true
+    gate_disposition: UNCHANGED
+    direct_fatal_collision: false
+    stage_a_authorized: false
+  O4-DYNCACHE-PGM:
+    conclusion: CONFIRM
+    revise_once_confirmed: true
+    gate_disposition: UNCHANGED
+    direct_fatal_collision: false
+    stage_a_authorized: false
+  S5-OCCUPANCY-CLIFF-JOINTCODEGEN:
+    conclusion: CONFIRM
+    revise_once_confirmed: true
+    gate_disposition: UNCHANGED
+    direct_fatal_collision: false
+    stage_a_authorized: false
+  S6-EGRAPH-LIVEEXTRACT:
+    conclusion: CONFIRM
+    revise_once_confirmed: true
+    gate_disposition: UNCHANGED
+    direct_fatal_collision: false
+    stage_a_authorized: false
+  S6-JS-PREFIXBOUND:
+    conclusion: CONFIRM
+    revise_once_confirmed: true
+    gate_disposition: UNCHANGED
+    direct_fatal_collision: false
+    stage_a_authorized: false
+escalation:
+  sol_decisive_recommended: false
+  reason: No substantive PASS/STOP scientific split; S1 is a gate-atomicity disagreement.
+constraints_observed:
+  - No Stage A or B was created or authorized.
+  - No revision was created or executed.
+  - No GPU, hardware, or formal experiment was run.
+  - No PRIMARY, Discovery, registry, plan, history, rules, or template file was modified.
+next_owner: mainline_controller

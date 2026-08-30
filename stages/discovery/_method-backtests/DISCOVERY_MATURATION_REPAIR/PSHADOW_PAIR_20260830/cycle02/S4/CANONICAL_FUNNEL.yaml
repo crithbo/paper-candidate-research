@@ -1,0 +1,14 @@
+schema: discovery-canonical-funnel-abstention-v1
+assignment_id: DMR-V1-PSHADOW-CYCLE-02-S4
+canonical_seed_rq_freeze: CANONICAL_SEED_RQ_FREEZE.yaml
+canonical_frozen_before_shadow: true
+source_budget: {maximum: 6, consumed: 2, roles_used: [ANCHOR, CURRENT]}
+official_sources:
+  - {locator: https://huggingface.co/docs/lerobot/async, finding: async_policy_server_robot_client__actions_per_chunk__queue_threshold__remote_server_supported}
+  - {locator: https://github.com/huggingface/lerobot/blob/main/src/lerobot/async_inference/robot_client.py, finding: TimedObservation_and_TimedAction__queue_timestamps_and_queue_size_visible}
+canonical_disposition:
+  status: LOCATOR_ONLY__FULL_COST_AND_NATURAL_CARRIER_UNFROZEN
+  reason: The official async stack exposes timestamped observations/actions and queue state, but this bounded review does not yet freeze a natural local-versus-remote workload, comparable device/network full-cost denominator, or a minimum falsifier for an age-deadline claim.
+  scientific_or_candidate_state_effect: NONE
+  stage0_dispatch_effect: NONE
+  claim_ceiling: NO_SCIENTIFIC_INFERENCE

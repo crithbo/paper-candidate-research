@@ -1,0 +1,65 @@
+schema_version: RESOURCE_AUTHORIZATION_FREEZE_V1
+assignment:
+  lane_id: CANDIDATE-EXECUTION-LANE-2
+  assignment_id: RESOURCE-STAGEA-L2-20260811-AIGER-DELTA-SCHEDULE-RESUME1-R3E
+  authorization_id: AIGER-EXACT-TOOLCHAIN-RESUME-20260811-R3E
+  topic_id: AIGER-DELTA-SCHEDULE
+  unique_write_root: D:\project\writing\reserch\stages\stageA\AIGER-DELTA-SCHEDULE\resume1
+  immutable_new_directory_created: true
+  overwrite_old_directory_allowed: false
+  cross_assignment_contamination_declared: false
+  queue_pre_read_declared: false
+input_freeze:
+  agents_sha256: B7122A5ACC5CF02A602988548E7464BF03362059293B083796BA1687D2CFAC73
+  plan_sha256: CEC5C562711CED5FC909DDA8A2D7E179EE6C57A9055E4957FF473CC6FE37D051
+  registry_sha256: C17A8543F00E6DCF741E529E84D548BBA0F2A2FCC363E65CF23E575A07CDB71E
+  candidate_owner_rule_sha256: 96601A060F56B44B95BCBCC4F234E3B107238D4C4655A535679DE88A8D3B3FDC
+  initial_contract_sha256: 8262CCF6F5C39C9F7E2E586AFF592D1A62429B7971B40514267DF2DBC7584287
+  initial_blocker_sha256: E6C304C562DCFA751744A81A3396053EE7A1F70C7E9857A5EC300766896EDD83
+  initial_handoff_sha256: AB8F63EF2930E2EBA4BB6F720C250D367A25848467B478BFA65D4F0637669410
+  initial_manifest_self_sha256: CF0D997A59AF8F162BA7DCAD26A869987769C332BD19D709F42DB4B59A23455D
+  stage0_confirmation_report_sha256: 6FE7D537142E474379FC971F3E68F8138EE592770525120038D62E08D3D4A382
+  stage0_confirmation_handoff_sha256: CDE0500EC473C8F7E3561B51C4BD876F7474B5F956B965D2ECBA7B7CDB43FF75
+  stage0_confirmation_manifest_self_sha256: 7D182184E27C62ACBB7483E9C2179A8E41785D7E624E13D04C425395BE4AEECD
+resource_scope:
+  mode: RESOURCE_FIRST__CONDITIONAL_STAGEA_AUTO_RESUME
+  exact_commits:
+    aiger: 039ec1a2cc37d3093ac35c4b6df65336b346f409
+    yosys: 0f2bcb94b7dc8310a52abf6eef3a7e1a9f09b552
+    abc: 6c51a9238544bce6eb300b7b1c3e5bb4215bec84
+  official_source_urls:
+    aiger: https://codeload.github.com/arminbiere/aiger/tar.gz/039ec1a2cc37d3093ac35c4b6df65336b346f409
+    yosys: https://codeload.github.com/YosysHQ/yosys/tar.gz/0f2bcb94b7dc8310a52abf6eef3a7e1a9f09b552
+    abc: https://codeload.github.com/berkeley-abc/abc/tar.gz/6c51a9238544bce6eb300b7b1c3e5bb4215bec84
+  source_patch_allowed: false
+  lockfile_patch_allowed: false
+  test_patch_allowed: false
+  clean_builds_per_component_max: 2
+  bootstrap_read_only_root: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume1\toolchain\msys64
+  bootstrap_invocation: ABSOLUTE_PATH_ONLY__PROCESS_LOCAL_ENVIRONMENT_ONLY
+  global_path_mutation_allowed: false
+  system_install_allowed: false
+  stageb_authorized: false
+  automation_allowed: false
+budgets:
+  storage_limit_bytes: 8589934592
+  cpu_limit_seconds: 21600
+  gpu_or_exclusive_device: false
+gates:
+  resource_pass_requires:
+    - EXACT_COMMIT_PROVENANCE
+    - SOURCE_ARCHIVE_BYTES_AND_SHA256
+    - UPSTREAM_LICENSE
+    - UNMODIFIED_NATIVE_BUILD
+    - NATIVE_VERSION_OR_HELP_SMOKE
+  stagea_auto_resume_requires:
+    - RESOURCE_PASS
+    - NATIVE_SIX_AND_WITNESS_PASS
+    - PRE_CLAIM_CONTRACT_FIDELITY_GATE_PASS
+  natural_hwmcc_forbidden_before_stagea_auto_resume: true
+failure_policy:
+  resource_routes_exhausted: BLOCKED_USER_ACTION_REQUIRED
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed: false
+  scientific_stop_or_reserve_allowed: false
+

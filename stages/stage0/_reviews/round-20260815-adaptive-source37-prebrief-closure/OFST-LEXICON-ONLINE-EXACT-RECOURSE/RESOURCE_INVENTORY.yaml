@@ -1,0 +1,102 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: OFST-LEXICON-ONLINE-EXACT-RECOURSE
+  assignment_id: STAGE0-P1-20260815-OFST-LEXICON-ONLINE-EXACT-RECOURSE-PREBRIEF-CLOSURE-V8.7
+  stage_or_mode: PREBRIEF_SOURCE_CLOSURE
+  run_id: ofst-prebrief-source-closure-20260815
+  unique_write_directory: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source37-prebrief-closure\OFST-LEXICON-ONLINE-EXACT-RECOURSE
+  resource_root: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source37-prebrief-closure\OFST-LEXICON-ONLINE-EXACT-RECOURSE\resources
+  inventory_path: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source37-prebrief-closure\OFST-LEXICON-ONLINE-EXACT-RECOURSE\RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T00:00:00+08:00
+  finalized_at: null
+root_measurement:
+  logical_bytes: 0
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: false
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: powershell
+      version: 7.6.4
+      writable_surfaces: [Invoke-WebRequest-OutFile, TEMP, TMP, TMPDIR, XDG_CACHE_HOME]
+      redirects: [resources/downloads, resources/tmp, resources/cache]
+      evidence: resources/logs/redirect-preflight.md
+resource_envelope:
+  network_bytes_max: 50331648
+  stored_bytes_max: 100663296
+  cpu_hours_max: null
+  gpu_hours_max: 0
+  wall_seconds_max: null
+  attempts_max: 8
+  network_bytes_used: 3637797
+  stored_bytes_used: 3637797
+  attempts_used: 16
+entries:
+  - relative_path: resources/downloads/cmudict-main-commit.json
+    class: OFFICIAL_RELEASE_METADATA
+    logical_bytes: 11390
+    source_uri: https://api.github.com/repos/cmusphinx/cmudict/commits/master
+    version_or_commit: 74790861f652b15e4ac49015a90074ad62a27690
+    license: CMUdict_repository_license_not_separately_verified
+    sha256: 632568AFC68D646F33013DBAE059C125418A8C1EDB4C148FC39AFAD61CE2EAC3
+    hash_scope: CONTENT_SHA256
+    retention: RETAIN_CLAIM_CRITICAL
+    evidence_role: versioned_carrier_head
+  - relative_path: resources/downloads/cmudict-history-2.json
+    class: OFFICIAL_RELEASE_METADATA
+    logical_bytes: 7919
+    source_uri: https://api.github.com/repos/cmusphinx/cmudict/commits?path=cmudict.dict&per_page=2
+    version_or_commit: 0f8072f814306c5ee4fbf992ed853601b12c01f9; e333fd5c72ca1511dead13c33b3e18b4d135233d
+    license: CMUdict_repository_license_not_separately_verified
+    sha256: 6136C0571A99D036568B131277AAB860F8522FEB5D253F535C6C0C2B3B73585C
+    hash_scope: CONTENT_SHA256
+    retention: RETAIN_CLAIM_CRITICAL
+    evidence_role: history_locator_only
+  - relative_path: resources/downloads/cmudict-current-dict
+    class: OFFICIAL_VERSIONED_CARRIER
+    logical_bytes: 3618488
+    source_uri: https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict
+    version_or_commit: master_observed_with_head_metadata_74790861f652b15e4ac49015a90074ad62a27690
+    license: CMUdict_repository_license_not_separately_verified
+    sha256: 81917843C7F44CE2B094AC63873C2C7A4CF802040792C455BA3CA406891C3D22
+    hash_scope: CONTENT_SHA256
+    retention: RETAIN_CLAIM_CRITICAL
+    evidence_role: carrier_post_state_only
+shared_assets_consumed: []
+external_system_dependencies:
+  - executable: powershell
+    status: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: false
+  claim_critical_content_hashes_present: false
+  result: ATTEMPT_ENVELOPE_EXCEEDED__NO_FURTHER_RESOURCE_ACTION__NO_SCIENTIFIC_INFERENCE

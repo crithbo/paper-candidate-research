@@ -1,0 +1,79 @@
+schema: ort-equivalent-representation-legality-lineage-v1
+assignment_id: STAGE0-REVISION1-20260830-ORT-EP-ASSIGNMENT-STABILITY
+topic_id: SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+
+legality_ladder:
+  L0_PROTO_LEGAL:
+    requirement: model_and_transformed_representation_pass_the_same_frozen_ONNX_schema_type_shape_and_loadability_checks
+    interpretation: syntactically_and_structurally_admissible_only
+    insufficient_for_equivalence_claim: true
+  L1_RELATION_JUSTIFIED:
+    requirement: all_relation_specific_preconditions_and_opset_domain_attribute_constraints_are_proven_from_the_frozen_models
+    interpretation: relation_is_semantically_justified_under_declared_preconditions
+    insufficient_for_claim_bearing_cell_without_L2: true
+  L2_NUMERIC_ORACLE:
+    requirement: paired_outputs_pass_the_frozen_dtype_shape_NaN_Inf_signed_zero_and_numeric_tolerance_policy_on_all_frozen_oracle_inputs
+    interpretation: eligible_for_primary_heldout_decision_validity_analysis
+    failure_is_denominator_visible: true
+
+relation_families:
+  ONNX_Function_expansion_or_inlining:
+    L1_preconditions:
+      - function_domain_opset_and_attribute_bindings_identical
+      - optional_inputs_outputs_and_default_attributes_preserved
+      - expansion_or_inlining_introduces_no_external_state_or_new_observable_output
+      - topological_value_dependencies_preserved
+  inverse_Transpose_or_Reshape_identity:
+    L1_preconditions:
+      - transpose_permutations_are_exact_inverses_or_reshape_roundtrip_preserves_element_order
+      - rank_element_count_and_dtype_preserved
+      - no_aliasing_or_layout_observable_outside_the_frozen_ONNX_semantics
+      - dynamic_dimension_constraints_are_proved_for_the_frozen_input_domain
+  Split_then_Concat_reconstruction:
+    L1_preconditions:
+      - split_and_concat_use_the_same_normalized_axis
+      - split_lengths_form_a_complete_nonoverlapping_partition
+      - concat_order_matches_source_order
+      - intermediate_outputs_have_no_additional_observable_consumers
+  constrained_Gemm_to_MatMul_plus_Add:
+    L1_preconditions:
+      - alpha_equals_1_and_beta_equals_1
+      - transA_equals_0_and_transB_equals_0
+      - C_is_present_and_its_broadcast_semantics_match_Add_exactly
+      - dtype_shape_and_opset_semantics_are_frozen
+      - L2_numeric_oracle_checks_backend_specific_rounding_effects
+
+normalized_away_negative_control:
+  construction: identity_or_inverse_pair_expected_to_be_removed_by_ORT_ENABLE_BASIC
+  purpose: distinguish_representation_effect_from_observer_or_session_noise
+  expected_lineage: NORMALIZED_AWAY_ZERO
+  unexpected_survival_or_decision_flip: FAILS_NEGATIVE_CONTROL
+
+semantic_region_quotient:
+  unit: SEMANTIC_REGION_ID
+  source_region_definition: maximal_relation_scoped_source_subgraph_with_frozen_input_output_boundary
+  optimized_region_definition: maximal_runtime_or_optimized_subgraph_attributable_to_one_or_more_source_semantic_regions
+  mapping: bipartite_source_region_to_optimized_region_relation
+  cardinalities:
+    ZERO: source_region_has_no_surviving_optimized_region
+    ONE: source_region_maps_to_exactly_one_optimized_region
+    MANY: source_region_maps_to_multiple_regions_or_multiple_source_regions_map_to_one_fused_region
+  explicit_outcomes:
+    NORMALIZED_AWAY_ZERO: relation_region_is_removed_or_canonicalized_before_assignment
+    PRESERVED_ONE: one_to_one_semantic_region_survives
+    FUSED_MANY_TO_ONE: multiple_source_regions_share_one_optimized_region
+    EXPANDED_ONE_TO_MANY: one_source_region_maps_to_multiple_optimized_regions
+    UNMATCHED: runtime_or_optimized_region_has_no_auditable_source_region_match
+    UNSUPPORTED: public_assignment_or_lineage_surface_cannot_represent_the_region
+    SESSION_FAIL: ORT_session_creation_or_execution_fails
+    ILLEGAL_L0: representation_fails_proto_legality
+    UNPROVEN_L1: relation_preconditions_are_not_proved
+    NUMERIC_FAIL_L2: paired_numeric_oracle_fails
+  no_silent_drop: true
+  ambiguous_mapping_policy: retain_cell_and_label_UNMATCHED_or_UNSUPPORTED
+
+claim_eligibility:
+  requires: [L0_PROTO_LEGAL, L1_RELATION_JUSTIFIED, L2_NUMERIC_ORACLE, NONAMBIGUOUS_SEMANTIC_REGION_QUOTIENT]
+  ineligible_cells_remain_in_all_cell_denominator: true
+  ineligible_cells_cannot_support_positive_assignment_feature_claims: true
+

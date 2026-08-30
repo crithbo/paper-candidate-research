@@ -1,0 +1,93 @@
+schema: apx-r7-a1-powershell-argv-transport-v1
+created_at: 2026-08-26T14:08:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM-A1
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_3
+lane_thread_id: 01a034d0-d67f-7f32-ab5f-54454407cb22
+unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7
+resource_root: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7/resources
+
+classification:
+  blocker_class: SOFT_ENGINEERING_BLOCKER
+  policy_sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74
+  reason: POWERSHELL_PARSE_FAILED_ON_UNQUOTED_COMMA_BEARING_MATTR_TOKEN_BEFORE_CHILD_CREATION
+  exact_child_argv_semantics_changed: false
+  implementation_or_scientific_contract_changed: false
+  scientific_revision_consumption: false
+  mechanism_pivot_consumption: false
+  user_gate: NONE
+
+pass1_freeze:
+  handoff_sha256: A82CC95174826FF2675C9A820323A85CF9F5B403FBBA118715A591F4267A1F0E
+  manifest_sha256: 64B63B8C1B9D38728F4FB35E4C6E4CEE62231162FC905BE3CCFD0A636EBE338E
+  control_precommit_sha256: 87A1C5ADC5184BADFE45E45AAC9DC2DB3B3245C4032EA5EAC0844E34DF031718
+  failure_audit_sha256: 1C40342A62DB620419BC8FF53F3ABC2A7D2439898B06EF79074E694C3A85932B
+  preclaim_gate_sha256: 789B11A5CCA56CBF444FC44252361E2941F23BB4E5AB26E0322F5DFE67E6C370
+  failure_raw_sha256: 38CD8D71DE2DACDBB567537AA38D4F4955141167FF8CE0F76D40F8A42873B273
+  failed_child_process_started: false
+  command_retry_or_change_after_failure: false
+  P1_catalog_sha256: CF406685A11968882608273C9D86B9B1806C562B3B4DD64B933926EDB2F677FC
+  R6_formal_control_sha256: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966
+  selected_or_reserve_tool_invocations: 0
+  claim_bearing_observations: 0
+
+immutable_implementation:
+  apx_tpd_py_sha256: 5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086
+  catalog_contract_sha256: BC129B73FC7FABC488C3B4A52C41737EFBE398000542AC2CDCD382E5337CC6CA
+  tiny_trace_sha256: AD7F2DBE3F19DFFCD1EB0C3B4FDF80DCDDA7DCC71BACC769FCF40AF022F57910
+  source_edit_allowed: false
+
+exact_wrapper_correction:
+  type: POWERSHELL_CALL_OPERATOR_WITH_EACH_CHILD_ARGUMENT_AS_A_SINGLE_QUOTED_LITERAL
+  working_directory: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7
+  current_complete_argv:
+    - resources/env/apx-toolchain/bin/llc.exe
+    - resources/src/r6_harness/apx_witness.mir
+    - '-mtriple=x86_64-unknown'
+    - '-mattr=+ndd,+egpr'
+    - '-start-before=x86-compress-evex'
+    - '-stop-after=x86-compress-evex'
+    - '-verify-machineinstrs'
+    - '-o'
+    - resources/logs/control/llvm_current_complete.mir
+  tuning_argv:
+    - resources/env/apx-toolchain/bin/llc.exe
+    - resources/src/r6_harness/apx_witness.mir
+    - '-mtriple=x86_64-unknown'
+    - '-mattr=+ndd,+egpr'
+    - '-x86-enable-apx-for-relocation'
+    - '-start-before=x86-compress-evex'
+    - '-stop-after=x86-compress-evex'
+    - '-verify-machineinstrs'
+    - '-o'
+    - resources/logs/control/llvm_tuning_relocation_enabled.mir
+  invocation_requirement: CALL_OPERATOR_AND_ARGUMENT_ARRAY_OR_EQUIVALENT_SINGLE_QUOTED_TOKENS_WITHOUT_INVOKE_EXPRESSION
+  child_argv_must_equal_precommit_token_for_token: true
+  shell_command_string_reparse: forbidden
+  source_or_output_postprocessing: forbidden
+
+ordered_gate:
+  A10_PRESERVE_PASS1: BYTE_EXACT
+  A11_REUSE_P1_CATALOG_AND_R6_FORMAL_CONTROL: HASH_EXACT_NO_RERUN
+  A12_CURRENT_COMPLETE_WITH_CORRECTED_TRANSPORT: EXIT0_AND_OUTPUT_SHA256_FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A
+  A13_TUNING_RELOCATION_ENABLED_WITH_CORRECTED_TRANSPORT: EXIT0_AND_DETERMINISTIC_MIR
+  A14_ACTUAL_DP_STRONG_BASELINE_ORACLE: PASS_ALL_CHECKS
+  A15_RESULT_INDEPENDENT_CORPUS_FREEZE: EXACT_16_SELECTED_4_RESERVE_ZERO_SELECTED_TOOL
+  A16_GENERATE_UNEXECUTED_R8_PLAN: EXACT_32_ROWS_ZERO_EXECUTED
+  A17_CANONICAL_RESEAL: REQUIRED
+
+limits: {network_bytes_max: 0, implementation_edits_max: 0, wrapper_transport_corrections_max: 1, current_complete_attempts_max: 1, tuning_attempts_max: 1, preclaim_attempts_max: 1, corpus_freeze_attempts_max: 1, plan_generation_attempts_max: 1, automatic_retry: false, selected_or_reserve_tool_invocations_max: 0, claim_bearing_runs_max: 0, owner_cleanup_allowed: false, stageb_allowed: false}
+forbidden_actions: [CHANGE_CHILD_ARGV_OR_EXPECTED_OUTPUT, INVOKE_EXPRESSION_OR_STRING_REPARSE, IMPLEMENTATION_EDIT, FULL_TREE_EXTRACTION, NATURAL_SELECTED_CLAIM_SCIENCE_REVISION_PIVOT_STATE_CLEANUP_OR_STAGEB, RETRY_OR_RESULT_BASED_CORPUS_CHANGE]
+
+bootstrap:
+  ack_path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7/A1_ACK.yaml
+  read_order: [AGENTS.md, plan.md, ORIGINAL_R7_CONTEXT_CONTROL_AND_PRECOMMIT, AUTONOMOUS_SOFT_BLOCKER_RECOVERY, PASS1_HANDOFF_MANIFEST_AND_FAILURE_AUDITS, THIS_ADDENDUM, IMMUTABLE_IMPLEMENTATION_AND_RETAINED_CONTROL_OUTPUTS, RELATED_REGISTRY_DUAL_READ]
+  only_ack_before_acceptance: true
+  ready_requires: [ALL_HASHES_MATCH, P3_CHILD_NEVER_STARTED, EXACT_CHILD_ARGV_PRESERVED, QUOTED_MATTR_TRANSPORT_UNDERSTOOD, ZERO_SELECTED_CLAIM_SCIENCE, DIFFERENCES_EMPTY, A1_ACTION_STARTED_FALSE]
+  refuse_on_any_difference: true
+
+success_route: PASS_APX_ACTUAL_DP_AND_CORPUS_PRECLAIM__WAIT_INDEPENDENT_GATE
+failure_route: FAIL_CLOSED_APX_R7_A1_PRECLAIM__NO_SELECTED_OR_SCIENTIFIC_INFERENCE
+next_action: WRITE_A1_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE_AND_A1_START

@@ -1,0 +1,49 @@
+schema: discovery-maturation-repair-prospective-cycle-v1
+pair_freeze_id: DMR-V1-PSHADOW-PAIR-20260830
+cycle_id: DMR-V1-PSHADOW-CYCLE-01
+dispatch_order: [S1, S2, S3, S4, S5, S6]
+selection_order_after_barrier: [S2, S4, S1, S3, S5, S6]
+lanes:
+  S1:
+    viewpoint: BOUNDARY_CONTRADICTION
+    track: LOW_BIT_COMPILER_KERNEL
+    anchor: microsoft/T-MAC current main; README plus LUT kernel/config source
+    anchor_question: Can the current LUT kernel format, activation and tiling contract define a same-quantization non-tuning execution action?
+    carrier_decision_mechanism: Windows CPU public low-bit model; choose LUT decomposition/tiling; lookup mixed-precision compute
+    repair_vector: ATOMIC_ACTION_OR_ESTIMAND
+  S2:
+    viewpoint: BOTTLENECK_TRANSFER
+    track: SINGLE_GPU_RUNTIME_MEMORY
+    anchor: huggingface/transformers v5.6.2 KV-cache documentation and same-tag cache_utils.py
+    anchor_question: Do layer class, sliding-window and offload semantics define a per-layer residency decision beyond whole-cache mode selection?
+    carrier_decision_mechanism: public Mistral/Llama small model on CPU plus RTX4070; GPU/CPU KV residency; layer-class-aware asynchronous prefetch/offload
+    repair_vector: ONE_CODEFINED_BUNDLE
+  S3:
+    viewpoint: NATURAL_STRUCTURE
+    track: PERFORMANCE_MODEL_DIAGNOSTICS
+    anchor: mlcommons/mlperf_client v1.6.1 LLM scenario/config and prompt generation
+    anchor_question: Can prompt construction and scenario contracts freeze an input-structure estimand that changes Windows execution-provider rankings?
+    carrier_decision_mechanism: Windows MLPerf Client Llama2 fixture; CUDA/OrtGenAI/WindowsML route selection; prompt-shape/cache-state ranking reversal
+    repair_vector: COMPARATOR_AND_FULL_COST
+  S4:
+    viewpoint: OBJECTIVE_CONSTRAINT
+    track: PUBLIC_NDP_PIM_BRIDGE
+    anchor: CMU-SAFARI/ramulator2 v2.1 branch HBM3 and controller interfaces
+    anchor_question: Can the current interface carry host-memory command co-scheduling for a public LLM KV/GEMV address trace?
+    carrier_decision_mechanism: CPU-generated public trace plus Ramulator2; command placement/schedule; bank/channel contention-aware PIM bridge
+    repair_vector: NATURAL_OR_CANONICAL_CARRIER
+  S5:
+    viewpoint: SCALE_ONLINE_APPROX
+    track: SINGLE_GPU_RUNTIME_MEMORY
+    anchor: LMCache/LMCache dev CPU-offload quickstart and local CPU backend
+    anchor_question: Do prefix metadata and storage APIs define reuse-distance-aware CPU admission/eviction rather than fixed offload?
+    carrier_decision_mechanism: single-GPU vLLM plus CPU RAM; choose KV CPU tier admission; reuse probability versus PCIe/TTFT/full-cost
+    repair_vector: CURRENT_UNION_EXACT_QUESTION
+  S6:
+    viewpoint: DIRECT_ALGORITHM_SOFTWARE
+    track: LOW_BIT_COMPILER_KERNEL
+    anchor: microsoft/BitBLAS current main MatmulConfig/source plus Ladder OSDI24 artifact
+    anchor_question: Across decode/prefill M ranges, do layout transform and dequant placement define a same-semantics compiler decision beyond autotuning?
+    carrier_decision_mechanism: RTX4070-mappable W4A16 shapes; layout/dequant codegen selection; hardware-aware tensor transform
+    repair_vector: ATOMIC_ACTION_OR_ESTIMAND
+

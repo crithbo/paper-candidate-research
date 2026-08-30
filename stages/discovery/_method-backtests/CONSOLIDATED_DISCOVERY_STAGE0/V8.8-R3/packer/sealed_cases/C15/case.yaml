@@ -1,0 +1,33 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C15
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-08T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [SMT_SOLVING, PROOF_FORMAT, FORMAL_VERIFICATION, NON_CUDA]
+raw_opportunity: >-
+  A versioned proof-output document states that sharing is disabled for one
+  proof format, while the cutoff-current source includes explicit let-binding
+  machinery. Reconcile stale documentation with current source before deciding
+  whether any narrower scope-safe sharing-map construction remains.
+runtime_event:
+  phase: PRECLAIM_FIDELITY_RESOURCE_SETUP
+  raw_observation: >-
+    The unmodified external checker dependency cannot complete its locked build
+    on the available platform; no candidate build, natural corpus or
+    claim-bearing comparison has run.
+  claim_bearing_observation: false
+required_analysis:
+  - current source overrides an obsolete broad absence statement
+  - subtract the current implemented threshold/let-binding family
+  - do not convert the checker/toolchain failure into a scientific disposition
+  - any narrow residual still requires O/I/A_b/A_c/P/W_m/C/F_n
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C15/sources/S01_cvc5-1.1.2-alethe.html, sha256: F7740ED6FD15735D3677018113120CEC951AAF748D3DBB27BF779FA005283AB2, bytes: 15949, url: "https://cvc5.github.io/docs/cvc5-1.1.2/proofs/output_alethe.html", available_by: "2024-12-31", role: STALE_VERSIONED_DOCUMENTATION_TRAP}
+  - {source_id: S02, path: sealed_cases/C15/sources/S02_alethe_printer.cpp, sha256: 52E6686FB1B5D06ABBCDDAF2169AF85AAFF686D015E2D1C86C11C7EF45A1CCF4, bytes: 12511, url: "https://raw.githubusercontent.com/cvc5/cvc5/e8c0387caeceaf631e0d3b114373b1bc7942334b/src/proof/alethe/alethe_printer.cpp", available_by: "2026-07-29", role: CURRENT_UPSTREAM_REALITY_CHECK}
+  - {source_id: S03, path: sealed_cases/C15/sources/S03_alethe-spec.pdf, sha256: 01E2A58B960F72E2839588BFC2C1640ED157E674E34FE87875D5933FA61C1CFD, bytes: 395984, url: "https://verit.loria.fr/alethe.pdf", available_by: "2024-12-31", role: FORMAT_AND_LEGALITY_AUTHORITY}
+exclusions:
+  - local candidate title, later source audit and all Stage-A blocker labels
+  - post-cutoff cvc5 or checker changes
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL
+

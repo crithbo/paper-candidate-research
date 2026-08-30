@@ -1,0 +1,54 @@
+schema: stage0-primary-handoff-v1
+created_at: 2026-08-30T07:56:28+08:00
+assignment_id: STAGE0-PRIMARY-20260830-VLLM-PREFIX-FUTURE-KV-RESERVATION
+topic_id: VLLM-PREFIX-FUTURE-KV-RESERVATION-REV0
+lane_id: STAGE0_PRIMARY
+role: PRIMARY
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+input_context_sha256: D6E0E35986F2CA7C6A3FA8F964B17569E20421531EE03352056EC85344EE6B17
+accepted_ack_sha256: 4CB294D982C5E7DD5BD4CBDD8471147678702E38C3FC4673AB7C0612F4252CB4
+scientific_verdict: STOP
+operational_disposition: NONE
+quality_tier: BELOW_Q2_STOP
+confidence: 0.88
+stage_semantics: conditional_paper_potential_screen__no_main_claim_established
+search_open_usage: {used: 32, maximum: 32, cutoff_date: 2026-08-30}
+decisive_findings:
+  - current_vllm_reserves_full_input_sequence_by_default_but_not_future_declared_output_cap
+  - current_sglang_prefill_adder_already_budgets_future_KV_from_max_new_tokens_prefix_marginal_extend_and_current_capacity
+  - sglang_default_clip_ratio_and_retraction_mean_direct_fatal_eight_predicates_are_not_all_satisfied
+  - hard_no_capacity_preemption_under_only_declared_caps_forces_worst_case_private_cap_feasibility
+  - remaining_selector_collapses_to_generic_cap_sum_knapsack_or_submodular_cost_packing_without_a_frozen_new_algorithm_or_bound
+  - azure_and_burstgpt_public_traces_expose_realized_input_output_lengths_not_arrival_time_declared_caps_and_prefix_provenance
+  - using_realized_output_length_as_cap_would_be_forbidden_oracle_leakage
+direct_collision_class: DIRECT_SUBTRACT_NOT_DIRECT_FATAL
+generic_kernel_gate: FATAL_NO_NONTRIVIAL_N1_N2_N3_REMAINS
+natural_evidence_gate: FATAL_DECLARED_CAP_AND_PREFIX_PROVENANCE_ABSENT
+linux_cuda_classification:
+  resource_only: true
+  scientific_verdict_dependency: false
+  blocker: false
+stagea_recommended: false
+sentry_eligibility_note: MAINLINE_may_route_only_under_ROLE_STAGE0_REVIEW_policy
+scientific_revision_consumed: false
+user_action_required: false
+forbidden_actions_observed:
+  candidate_implementation: false
+  build: false
+  experiment: false
+  StageA: false
+  StageB: false
+  shared_write: false
+  trace_or_artifact_download: false
+repair_vector:
+  - OMITTED_CURRENT_SAME_OBJECT
+  - OMITTED_FIRST_PARTY_FEATURE
+  - OMITTED_GENERIC_KERNEL
+  - NATURAL_CARRIER_GAP
+  - Q2_SHAPE_GAP
+canonical_outputs:
+  report: STAGE0_REPORT.md
+  q1_calibration: q1_calibration.md
+  manifest: HASH_MANIFEST.sha256
+next_action: MAINLINE_ACCEPT_STOP_AND_DO_NOT_START_STAGEA
+stop_and_wait: true

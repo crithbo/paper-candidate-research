@@ -1,0 +1,21 @@
+topic_id: GPU-NCCLGROUPCUT
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: Partitioning eligible NCCL aggregation group regions with event edges while preserving collective matching and communicator order
+main_claim: A verified boundary partitioner can improve modeled critical-path overlap after launch and event costs
+academic_value_score: 57
+ai_executability_score: 23
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.72
+strongest_baseline: Original grouped program, fully ungrouped program, greedy contiguous split; GC3 and AutoCCL as adjacent baselines
+decisive_evidence: A validated trace rewrite that improves a natural trace beyond grouped, ungrouped, and greedy alternatives
+unresolved_risks: Hidden NCCL legality constraints; direct-equivalent literature; simulator-to-hardware gap
+next_killer_gate: Implement communicator-order validator and find a natural trace where a legal cut is non-dominated
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: Trace-level legality plus discrete-event model; no multi-GPU throughput result
+execution_authority: DISCOVERY_ONLY
+file_hashes:
+  topic_brief.md: 7196b7c0ff1c572c0a0198712b5bbe71d8f1e60f5e19615d77c44062afe280f6
+  source_log.md: 9f02721a41a99db5939efdb69620e2e20af26a1cfe8d2b63033bf3e90f9ba6c7

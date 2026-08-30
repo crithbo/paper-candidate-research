@@ -1,0 +1,20 @@
+schema_version: mainline-r3-identity-blind-packer-start-authorization-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+issued_at: 2026-08-27
+bootstrap_acceptance_path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer/MAINLINE_BOOTSTRAP_ACCEPTANCE.yaml
+bootstrap_acceptance_sha256: D9A089044A42FEFB08284802CE683895B509FE4B148CAA3E96EDD500939ABE36
+start_authorized: true
+model_route: {model: gpt-5.6-terra, thinking: medium}
+allowed_actions:
+  - result_independent_identity_excluded_stratified_selection
+  - official_paper_author_appendix_AE_metadata_acquisition
+  - identity_key_and_auditor_gold_sealing
+  - neutral_stage0_packet_and_anonymized_stagea_packet_sealing
+  - write_packer_handoff_and_manifest
+network_allowlist: [official_publisher, arxiv, author_pdf, appendix, AE_metadata]
+resource_limits: {stored_bytes_max: 805306368, source_attempts_max: 96, code_or_artifact_downloads_max: 0}
+forbidden_actions: [code_download, artifact_download, binary_download, build, probe, experiment, production_candidate_registration, StageB, result_aware_replacement]
+reviewer_secrecy: [selected_identity, title, authors, venue, DOI, locator, gold_label, expected_disposition]
+required_outputs: [PACKER_SELECTION_LEDGER.yaml, PACKER_EVIDENCE_CAPSULE_MANIFEST.yaml, STAGE0_NEUTRAL_PACKET.yaml, STAGEA_ANONYMIZED_PACKET.yaml, AUDITOR_IDENTITY_COLLISION_AND_GOLD_KEY.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+scientific_state_transition: false
+context_plan_registry_mutation_during_run: false

@@ -1,0 +1,35 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE43-GLOBAL-IDENTITY-CLOSURE-CONTINUATION-V1
+status: NONEMPTY_NOT_EXHAUSTED
+entries:
+  - rq_id: RQ01
+    family_signature: SWIFT_ASYNC_CONTEXT_FORWARDING__FIXED_ASYNC_ABI__CALL_FRAME_COST
+    status: PENDING_ATTEMPTED_INCONCLUSIVE
+    attempts: 1
+    attempted_route: official Swift source/ABI retrieval timed out without source bytes
+    exact_project_object_version_rule: >-
+      One project only: swiftlang/swift.  Select the default-branch commit returned by the
+      repository's official commit endpoint on the first successful Source43 retry; inspect
+      that exact commit's async-context lowering locus and its matched test only.
+    primary_route: official swiftlang/swift current source and matched test for AsyncContext lowering
+    fallback_route: NONE
+    closure_question: whether a non-generic same-ABI forwarding action exists beyond coroutine frame/call lowering
+    exhaustion_rule: only an actual one-project attempt or a mechanical unavailability proof may exhaust this item.
+  - rq_id: RQ03
+    family_signature: LLVM_BYREF_INVOKE__FIXED_ABI_UNWIND__CALL_FRAME_LIFETIME
+    status: PENDING_ATTEMPTED_INCONCLUSIVE
+    attempts: 1
+    attempted_route: official LLVM LangRef retrieval completed but did not yield a byref-specific current source/lowering locus in the bounded excerpt
+    exact_project_object_version_rule: >-
+      One project only: llvm/llvm-project.  Select the default-branch commit returned by the
+      repository's official commit endpoint on the first successful Source43 retry; inspect
+      `byref` parameter-attribute semantics and the directly matched lowering/test locus at that commit.
+    primary_route: official llvm.org LangRef plus llvm/llvm-project current lowering/test locus
+    fallback_route: NONE
+    closure_question: whether a target-specific legal byref/invoke lifetime construction remains after stock ABI/frame lowering
+    exhaustion_rule: only an actual one-project attempt or a mechanical unavailability proof may exhaust this item.
+backlog_not_queue:
+  - RQ02
+  - RQ04
+notes:
+  - No disjunctive project/source route is present.
+  - PENDING_ATTEMPTED_INCONCLUSIVE means the single frozen project route was attempted but did not return the named decisive locus. It is not exhausted and has no scientific implication.

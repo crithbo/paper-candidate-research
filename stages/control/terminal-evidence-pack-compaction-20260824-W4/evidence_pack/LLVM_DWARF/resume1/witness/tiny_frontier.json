@@ -1,0 +1,52 @@
+{
+  "schema": "bounded-call-cut-exact-pareto-v1",
+  "state_components": [
+    "location",
+    "alias_clobber",
+    "frame_cfi",
+    "forward_source_class",
+    "entry_eligible"
+  ],
+  "complete_native_action_count": 2,
+  "dp_frontier_action_ids": [
+    "A_CALLER_SAVED_RAX",
+    "B_CALLEE_SAVED_RBX"
+  ],
+  "exact_ceiling_action_ids": [
+    "A_CALLER_SAVED_RAX",
+    "B_CALLEE_SAVED_RBX"
+  ],
+  "dp_equals_exhaustive_ceiling": true,
+  "points": [
+    {
+      "action": "A_CALLER_SAVED_RAX",
+      "state": [
+        "RAX",
+        "csr_64_alias_and_clobber_mask",
+        "alignment_only_CFI",
+        "computed_caller_saved_unrecognized",
+        false
+      ],
+      "reconstructible": 0,
+      "text_bytes": 80,
+      "debug_bytes": 963,
+      "eh_frame_bytes": 52,
+      "csr_actions": 0
+    },
+    {
+      "action": "B_CALLEE_SAVED_RBX",
+      "state": [
+        "RBX",
+        "csr_64_alias_and_clobber_mask",
+        "saved_CSR_CFI",
+        "callee_saved_direct",
+        false
+      ],
+      "reconstructible": 1,
+      "text_bytes": 80,
+      "debug_bytes": 979,
+      "eh_frame_bytes": 60,
+      "csr_actions": 1
+    }
+  ]
+}

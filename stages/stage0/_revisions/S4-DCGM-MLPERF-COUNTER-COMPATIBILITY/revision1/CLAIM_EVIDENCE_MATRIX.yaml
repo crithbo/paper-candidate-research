@@ -1,0 +1,44 @@
+assignment_id: STAGE0-P1-20260814-S4-DCGM-MLPERF-COUNTER-COMPATIBILITY-REVISION1-V8.7
+atomic_gate: PINNED_DCGM_NATIVE_GROUP_CONTRACT__MLPERF_PAIRED_WINDOW_CONCLUSION_STABILITY_CERTIFICATE
+scientific_revision_consumed: true
+static_contract:
+  gpu: NVIDIA_Tesla_T4_single_non_MIG_non_GPM
+  dcgm: 4.6.1
+  driver: R450.80.02
+  mlperf: v5.1_ResNet50_v1_5_edge_Offline_closed
+  qsl_order: ascending_0_through_49999
+  fields: [1002, 1003, 1004, 1005, 1008]
+  delay_ms: 100
+  plan_a: stock_automatic_multiplex_all_fields
+  plan_b: complete_native_partition_G1_1002_1003_1004_1005__G2_1008
+  blocks: 32
+  warmup_seconds: 15
+  timed_window_seconds: 60
+  conclusion: descriptive_three_level_activity_balance_label
+  materiality: classification_change_or_0_05_boundary_crossing
+claims:
+  - claim: T4 group layout makes A.1/A.3 field requests multiplexed and permits B.0 concurrently.
+    evidence: NVIDIA DCGM Profiling T4 example
+    status: static_documented
+  - claim: the same fields/delay and complete partition rule prevent B from becoming a selector/controller.
+    evidence: frozen revision contract
+    status: static_protocol
+  - claim: C(A) differs from C(B) on any stratum.
+    evidence: none; hardware observation forbidden
+    status: unobserved
+  - claim: held-out BERT stratum validates the boundary.
+    evidence: none; StageA falsifier only
+    status: unobserved
+  - claim: CounterPoint directly absorbs this full DCGM+MLPerf contract.
+    evidence: CounterPoint abstract/case study
+    status: not_established_SEARCH_BOUNDED_OPEN
+fidelity_killer:
+  - runtime_catalogue_not_frozen_grammar
+  - fields_or_delay_differ
+  - quality_or_qsl_contract_drift
+  - heldout_no_material_conclusion_change
+  - direct_same_contract_absorption
+claim_ceiling: >-
+  Only a pinned T4/MLPerf counter-reporting validity boundary; neither kernel attribution,
+  causal bottleneck diagnosis, universal counter reliability, nor observed result is claimed.
+

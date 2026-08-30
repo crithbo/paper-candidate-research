@@ -1,0 +1,24 @@
+schema: nonblind-stagea-compatibility-start-v1
+assignment_id: NONBLIND-STAGEA-20260826-ANN-BENCHMARKS
+authority: {issued_by: MAINLINE, model: gpt-5.6-terra, thinking: high}
+decision: START_AUTHORIZED__EXACT_AUTHOR_ARTIFACT_LOCAL_MODE_ONLY
+source:
+  repository: erikbern/ann-benchmarks
+  commit: 2e081ad32c1eccab72dcb739ad886c310b90f715
+  archive_url: https://codeload.github.com/erikbern/ann-benchmarks/tar.gz/2e081ad32c1eccab72dcb739ad886c310b90f715
+  archive_path: resources/archives/ann-benchmarks-2e081ad32c1eccab72dcb739ad886c310b90f715.tar.gz
+  archive_hash_rule: SINGLE_DOWNLOAD__SHA256_BEFORE_EXTRACTION
+  redirects_allowed: 0
+  download_attempts_max: 1
+resource_layout: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PIP_CACHE_DIR: resources/cache/pip, PYTHONPYCACHEPREFIX: resources/cache/pycache}
+allowed_command_sequence:
+  - {id: S0, command: C:/Windows/py.exe -3 --version, purpose: frozen_local_python_identity, stop_on_nonzero: true}
+  - {id: S1, command: create_eight_literal_resource_subdirectories_with_New_Item_Path, stop_on_nonzero: true}
+  - {id: S2, command: Invoke-WebRequest -UseBasicParsing -MaximumRedirection 0 -Uri <archive_url> -OutFile <archive_path>, stop_on_nonzero: true}
+  - {id: S3, command: Get-FileHash -Algorithm SHA256 <archive_path>, stop_on_nonzero: true}
+  - {id: S4, command: tar -xf <archive_path> -C resources/src, stop_on_nonzero: true}
+fidelity_before_probe: [freeze_exact_local_adapter_and_random_xs_input, verify_Docker_absent_and_local_mode_semantics, freeze_full_cost_schema, mainline_accept_preclaim_contract_fidelity_gate]
+after_fidelity_only: [one_bounded_local_mode_probe_under_21600_seconds, immutable_handoff]
+stop_conditions: [any_failure_or_over_2000000000_bytes_or_build_over_7200_seconds_fail_closed_no_retry]
+prohibitions_remain: [Docker_daemon, install_py_or_Docker_path, alternate_artifact, retry, production_candidate_registration, production_state_transition, stageB, gold_input, blind_metric_merge, cleanup]

@@ -1,0 +1,112 @@
+schema: independent-apx-r7-actual-dp-and-baseline-audit-v1
+assignment_id: STAGEA-GATE-20260826-LLVM-APX-R7-ACTUAL-DP-CORPUS-PRECLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+review_mode: STATIC_SOURCE_AND_PINNED_RAW_ONLY
+owner_artifacts_modified: false
+owner_tools_executed: false
+
+input_integrity:
+  owner_manifest_sha256: 112B89E539E8F2EA922D690D02D1C2C60D66AEFFE80236916CF75DD445924DFF
+  manifest_entries_rehashed: 67
+  manifest_entries_passed: 67
+  manifest_entries_failed: 0
+  decisive_source_sha256: 5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086
+  catalog_contract_sha256: BC129B73FC7FABC488C3B4A52C41737EFBE398000542AC2CDCD382E5337CC6CA
+  tiny_trace_sha256: AD7F2DBE3F19DFFCD1EB0C3B4FDF80DCDDA7DCC71BACC769FCF40AF022F57910
+  raw_preclaim_sha256: 8D4654A176681E154882D4C56E9A8C4F0A7760C361C97500DB1FEE684BCBB309
+
+G0_IDENTITY:
+  disposition: PASS
+  exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+  exact_object: FIXED_LLVM_MACHINEIR_LIVENESS_X86_64_ABI_UNWIND_APX_TARGET_AND_PROGRAM_SEMANTICS
+  evidence: CONTEXT_CLAIM_MATRIX_TRACE_CATALOG_RAW_AND_OWNER_HANDOFF_IDENTITIES_MATCH
+  caveat: CORPUS_ROW_ELIGIBILITY_IS_SEPARATELY_REJECTED_AT_G6
+
+G1_NATIVE_ACTION_CATALOG:
+  disposition: FAIL__COMPLETENESS_NOT_ESTABLISHED
+  observed_action_rows: 14
+  observed_source_loci: 9
+  observed_source_hashes_match: true
+  defect_class: INCOMPLETE_NATIVE_ACTION_INTERFACE_VALIDATION
+  decisive_findings:
+    - BUILD_CATALOG_ACCEPTS_A_SOURCE_CATEGORY_WHEN_ANY_ONE_LISTED_TOKEN_MATCHES__NOT_ALL_REQUIRED_SEMANTIC_ANCHORS
+    - UNCOVERED_ACTIONS_IS_DERIVED_ONLY_FROM_CATEGORY_NAME_MEMBERSHIP__NOT_ACTION_SPECIFIC_SOURCE_OR_TRANSITION_VALIDATION
+    - COMPLETE_ENOUGH_CATEGORIES_IS_COPIED_FROM_THE_HAND_AUTHORED_CONTRACT_WITHOUT_AN_INDEPENDENT_COMPLETENESS_CHECK
+    - REGISTER_FAMILY_SOURCE_PASSED_WITH_GR32_NOREX_MATCH_WHILE_THE_DECLARED_EGPR_TOKEN_DID_NOT_MATCH
+    - FOURTEEN_TRANSITION_LABELS_HAVE_ZERO_EXECUTABLE_TRANSITION_LABEL_CONSUMERS_IN_APX_TPD_PY
+  source_pointers:
+    catalog_token_acceptance: resources/src/apx_tpd/apx_tpd.py:343-355
+    copied_completeness_claim: resources/src/apx_tpd/apx_tpd.py:364-369
+    catalog_transition_rows: resources/src/apx_tpd/catalog_contract.json
+  inference_limit: THIS_REJECTS_PRECLAIM_COMPLETENESS_PROOF__IT_DOES_NOT_PROVE_A_SCIENTIFIC_NEGATIVE
+
+G2_ACTUAL_PER_ACTION_DP:
+  disposition: FAIL__ACTION_TRANSITION_SEMANTICS_NOT_IMPLEMENTED
+  positive_static_structure:
+    state_signature_fields_present: true
+    per_boundary_action_loop_present: true
+    pareto_pruning_present: true
+    action_id_backpointers_and_replay_present: true
+    observed_candidate_states: 3
+    observed_labeled_states: 6
+    observed_candidate_transition_rows: 4
+    observed_labeled_transition_rows: 8
+  decisive_findings:
+    - APPLY_ACTION_BRANCHES_ONLY_ON_CONSUME_EFLAGS_AND_OTHERWISE_ONLY_INCREMENTS_BOUNDARY
+    - DECLARED_ACTION_TRANSITION_FIELD_IS_NEVER_READ
+    - COPY_SPILL_SAVE_FRAME_CFI_AND_RELOCATION_ACTION_LABELS_HAVE_NO_ACTION_SPECIFIC_STATE_TRANSFORM
+    - TWO_STATE_PROXY_ABSENCE_CHECK_ONLY_TESTS_FOR_A_FORBIDDEN_STRING_AND_TRANSITION_COUNT_AT_LEAST_FOUR
+  source_pointers:
+    action_application: resources/src/apx_tpd/apx_tpd.py:149-157
+    dp_recurrence: resources/src/apx_tpd/apx_tpd.py:232-288
+    proxy_check: resources/src/apx_tpd/apx_tpd.py:431-443
+  toy_state_reduction_interpretation: REAL_FOR_THE_TWO_BOUNDARY_TOY_GRAPH__NOT_FIDELITY_EVIDENCE_FOR_THE_FROZEN_ACTION_INTERFACE
+
+G3_BASELINE_AND_SUBTRACTOR_CONSUMPTION:
+  disposition: FAIL__NATIVE_BASELINE_CONSUMPTION_IS_HARDCODED_PROXY
+  labeled_dp_execution_path_present: true
+  generic_product_enumeration_path_present: true
+  current_output_read: true
+  tuning_output_read: true
+  decisive_findings:
+    - PARSE_BASELINE_MIR_CHECKS_ONLY_ADD32RR_ND_AND_EFLAGS_SUBSTRINGS
+    - PARSE_BASELINE_MIR_THEN_HARDCODES_NDD_DIRECT_PLUS_CONSUME_EFLAGS_AND_DERIVES_COST_FROM_THE_CANDIDATE_CATALOG
+    - CONSUMED_BY_CHECKER_AND_CONSUMED_BY_FULL_COST_ARE_LITERAL_TRUE_FIELDS_NOT_INDEPENDENT_OUTPUT_DEPENDENCY_PROOFS
+    - BASELINE_POINTS_COVERED_ONLY_CHECKS_THE_HARDCODED_COST_TUPLE_AGAINST_THE_CANDIDATE_FRONTIER
+  source_pointers:
+    native_parser: resources/src/apx_tpd/apx_tpd.py:376-388
+    baseline_dependency: resources/src/apx_tpd/apx_tpd.py:413-420
+    pass_predicate: resources/src/apx_tpd/apx_tpd.py:431-444
+  generic_subtractor_note: GENERIC_EXACT_ENUMERATION_IS_NOT_LABEL_ONLY_BUT_SHARES_THE_SAME_INCOMPLETE_TRANSITION_HANDLER
+
+G4_TUNING_FLAG_EFFECT:
+  disposition: PASS__REAL_NULL_BASELINE_RESULT
+  current_mir_sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A
+  tuning_relocation_enabled_mir_sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A
+  byte_length_each: 2024
+  byte_identical: true
+  interpretation: THE_FROZEN_RELOCATION_TUNING_ARM_PRODUCED_NO_OUTPUT_CHANGE_RELATIVE_TO_CURRENT_LLVM__THIS_IS_A_REAL_NULL_BASELINE_RESULT
+  hidden_relabelled_or_dismissed: false
+  effect_on_G3: NULL_RESULT_IS_PRESERVED_BUT_DOES_NOT_REPAIR_THE_HARDCODED_CONSUMPTION_PATH
+  scientific_inference: NONE_PRECLAIM_CONTROL_ONLY
+
+G5_TINY_ORACLE_AND_CERTIFICATE:
+  disposition: FAIL__COMMON_MODE_ORACLE_CANNOT_VALIDATE_MISSING_TRANSITION_SEMANTICS
+  observed_candidate_labeled_generic_oracle_frontiers_equal: true
+  observed_frontier_points: 2
+  certified_pair: ECX_EDX
+  certified_boundaries: 2
+  certificate_nonvacuous_on_toy_graph: true
+  decisive_findings:
+    - RECURSIVE_MICRO_ORACLE_REUSES_LEGAL_ACTIONS_ACTION_IS_LEGAL_APPLY_ACTION_AND_TERMINAL_OK_WITH_THE_CANDIDATE
+    - ALL_FOUR_FRONTIERS_THEREFORE_SHARE_THE_UNUSED_TRANSITION_FIELD_DEFECT
+    - CERTIFICATE_RECORD_ROW_CHECKS_ARE_CUMULATIVE_SIX_THEN_EIGHT_BUT_CONTROL_FULL_COST_SUMS_THEM_AS_FOURTEEN__EIGHT_UNIQUE_CHECKS_WERE_PERFORMED
+  source_pointers:
+    certificate: resources/src/apx_tpd/apx_tpd.py:187-220
+    recursive_oracle: resources/src/apx_tpd/apx_tpd.py:315-329
+    cumulative_count_sum: resources/src/apx_tpd/apx_tpd.py:452-460
+
+overall_disposition: FAIL_G1_G2_G3_G5__G0_G4_PASS
+fatal_findings: [INCOMPLETE_NATIVE_ACTION_INTERFACE, ACTION_TRANSITION_SEMANTICS_UNIMPLEMENTED, NATIVE_BASELINE_DECLARED_BUT_NOT_SEMANTICALLY_CONSUMED, COMMON_MODE_ORACLE]
+scientific_or_claim_effect: NONE
+

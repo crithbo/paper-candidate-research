@@ -1,0 +1,154 @@
+schema: stage0-confirmation-handoff-v8.7
+assignment_id: STAGE0-C1-20260809-PARQUET-PAGE-COSEGMENT-CONFIRM-V8.7
+candidate_id: PARQUET-PAGE-COSEGMENT
+role: STAGE0_CONFIRMATION_SENTRY
+mode: CONFIRMATION
+cutoff_date: 2026-08-09
+
+decision:
+  protocol_disposition: CONFIRM
+  scientific_disposition: CONFIRM_STAGE0_PASS
+  structural_paper_potential: TIER_B_Q2_VIABLE
+  structural_potential_is_conditional: true
+  current_evidence_readiness: FINITE_FIDELITY_GAP
+  direct_same_object_fatal_collision_found: false
+  revision_required: false
+
+confirmed_residual:
+  id: WORKLOAD_CONDITIONED_LEGAL_PAGE_CUT_AND_REPRESENTATION_CONSTRUCTOR
+  novelty_status: SEARCH_BOUNDED_OPEN
+  proposition: >-
+    Under fixed typed rows, row order, row groups, one standard self-contained
+    Parquet file, and one pinned unmodified Arrow/DataFusion reader, construct
+    workload-conditioned row-aligned page cuts and format-legal page
+    representations outside every executable point in the complete finite
+    fixed-writer and CDC min/max/norm plus representation grids.
+  non_product_requirement: >-
+    The mechanism must be a globally budgeted constructor or algorithm with a
+    stated property; configuration selection, threshold tuning, hotness policy,
+    or choosing an existing grid point is not N2.
+
+format_boundary:
+  codec_scope: COLUMN_CHUNK
+  bloom_scope: COLUMN_CHUNK
+  legal_page_actions:
+    - row_aligned_page_cuts
+    - type_correct_standard_page_encoding_under_single_column_chunk_dictionary_contract
+    - DataPageV2_compressed_or_uncompressed_retention_under_fixed_column_chunk_codec
+    - standard_derived_page_index_and_offset_metadata
+  dictionary_constraints:
+    - at_most_one_dictionary_page_per_column_chunk
+    - dictionary_page_must_precede_data_pages
+    - no_arbitrary_independent_dictionary_per_page
+  prohibited_actions:
+    - per_page_codec
+    - page_local_bloom_filter
+    - row_reorder_or_reclustering
+    - row_group_changes
+    - custom_reader
+    - external_index_or_nonstandard_correctness_metadata
+
+current_source_absorption:
+  arrow_cdc_absorbs:
+    - generic_nonuniform_boundaries
+    - rolling_hash_content_conditioned_boundaries
+    - preregistered_min_max_norm_grid
+  writer_family_absorbs:
+    - fixed_page_byte_and_row_caps
+    - exposed_global_and_per_column_encoding_compression_dictionary_statistics_and_bloom_options
+    - current_DataPageV2_compression_retention_behavior
+  shared_reader_facilities:
+    - PageIndex
+    - OffsetIndex
+    - late_materialization
+    - native_page_pruning
+
+strongest_same_object_baseline:
+  - id: B0
+    description: pinned_current_Arrow_DataFusion_default_writer
+  - id: B1
+    description: complete_preregistered_finite_fixed_writer_plus_legal_representation_grid
+  - id: B2
+    description: complete_preregistered_CDC_min_max_norm_crossed_with_same_representation_grid
+  fairness:
+    same_declared_workload_for_all_arms: true
+    same_selection_budget_for_all_arms: true
+    page_index_and_late_materialization_held_constant: true
+    full_planning_write_query_cost_charged: true
+    executable_points_only_no_metricwise_synthetic_union: true
+
+additional_comparator:
+  id: GSOP_PVLDB_2017
+  class: METHODOLOGICAL_OBJECT_CHANGING_SUBTRACTOR
+  direct_fatal: false
+  reason: >-
+    GSOP uses workloads to reorganize Parquet-backed blocks, but changes tuple
+    organization, row-group/column-group layout, metadata, and reader-side tuple
+    reconstruction; it does not preserve the frozen standard-file/native-reader
+    page object.
+
+stage_a_preclaim_route:
+  route_exists: true
+  route_type: PUBLIC_CPU_OPEN_SOURCE_SAME_SEMANTICS
+  corpus: 20_preregistered_natural_NYC_TLC_Parquet_files
+  must_check:
+    - strict_typed_value_null_order_and_row_group_equality
+    - standard_single_file_self_containment
+    - native_reader_acceptance_and_identical_SQL_results
+    - legal_action_outside_complete_B1_B2_family
+    - useful_retained_residual_action_rate_at_least_10_percent
+    - full_planning_search_write_query_CPU_wall_RSS_bytes_and_variance
+    - size_within_plus_5_percent_and_p50_query_at_least_10_percent_better_on_at_least_12_of_20_files
+    - no_p90_or_full_cost_regression_that_erases_the_point
+  positive_probe_interpretation: INITIAL_SUPPORT_ONLY_NOT_CORE_CLAIM_PROOF
+  missing_implementation_or_results_is_stop_reason: false
+
+stop_if_later:
+  - every_candidate_action_is_reproduced_by_complete_B1_or_B2
+  - action_requires_illegal_per_page_codec_or_page_local_bloom
+  - action_violates_dictionary_or_type_legality
+  - mechanism_is_only_parameter_or_policy_selection
+  - custom_reader_metadata_row_order_or_row_group_change_is_required
+  - same_information_or_identical_SQL_contract_fails
+
+claim_ceiling:
+  permitted_now: >-
+    Conditional search-bounded Tier B residual for a workload-conditioned legal
+    page-cut and representation constructor outside the complete current
+    fixed/CDC family under a standard-file native-reader contract.
+  prohibited_now:
+    - first_nonuniform_Parquet_pages
+    - first_content_aware_Parquet_pages
+    - per_page_codec_or_page_local_bloom_claim
+    - PageIndex_or_late_materialization_as_candidate_novelty
+    - constructor_or_performance_has_been_established
+    - Tier_A_Q1_potential_on_current_material
+    - Stage_A_or_Stage_B_is_authorized
+
+input_integrity:
+  discovery_manifest_sha256: B221BD4C82389F3A1A684B630D5281AB5BDFF61C70CA8EF0BAB463DF805F3BCB
+  discovery_files_verified: 4
+  discovery_files_total: 4
+  primary_manifest_sha256: 77EA9AF69BB4775DF859F7C1C1F12D724A05F1F210C467FE47A847FC83EF2FE3
+  primary_files_verified: 4
+  primary_files_total: 4
+  provenance_conflict: false
+
+confidence:
+  format_and_current_source: 0.98
+  same_object_residual: 0.85
+  conditional_tier_b: 0.83
+
+permissions:
+  stage_a_authorized: false
+  stage_b_authorized: false
+  experiments_authorized: false
+  implementation_authorized: false
+  master_files_modified: false
+
+deliverables:
+  - CONFIRMATION_REVIEW.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

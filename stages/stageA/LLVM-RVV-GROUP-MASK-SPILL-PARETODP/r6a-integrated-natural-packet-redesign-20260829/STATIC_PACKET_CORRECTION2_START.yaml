@@ -1,0 +1,24 @@
+schema: stagea-static-packet-correction-start-v1
+assignment_id: STAGEA-L2-20260829-LLVM-RVV-R6A-INTEGRATED-NATURAL-PACKET-REDESIGN
+correction_ordinal: 2
+static_lint_edits_after_success: 3_of_3
+authority:
+  review_report: {path: stages/stageA/_reviews/20260829-rvv-r6a-baseline-fidelity/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/INDEPENDENT_REVIEW_REPORT.md, sha256: 935DC9406CF3AFCABE8F6E2BA8FB174A98CE91121DD2290AB5942594AB4CFC42}
+  support_matrix: {path: BASELINE_SUPPORT_MATRIX.yaml, sha256: 38BD12198470849ED10D462790936176C23D493F8D265D5A502EC12D07F5D7E1}
+implementation_sources:
+  - {role: split_closure, source: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/src/split_closure/split_closure.py, bytes: 12353, sha256: 256C78891FAAE6AB78741FABD309274DAFAF979F092A492A867BB580B1B73D4F}
+  - {role: quotient_oracle_and_baseline, source: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/src/harness/rvv_preclaim.py, bytes: 16579, sha256: 1924CA21C1E42EB4E5C5A094B7871C1AC5AA226589C2D0272360F531CE5FDC36}
+allowed_files: [RVV_R6A_EXECUTABLE_PACKET.yaml, RVV_R6A_COMMAND_DAG.json, RVV_R6A_CONTROLLER.py, RVV_R6A_STATIC_VALIDATION.yaml, RVV_R6A_COMPARATOR_JUSTIFICATION.yaml, EXACT_IMPLEMENTATION_COPY_MANIFEST.yaml]
+required_changes:
+  - freeze assignment-local copy destinations for split_closure.py and rvv_preclaim.py with exact hashes
+  - implement deterministic function-document extraction for all four selected function names; preserve the exact source YAML document and required module preamble; assert exactly one named function in each extracted MIR
+  - for each row freeze greedy replay1, greedy replay2, split_closure check, rvv_preclaim f4, rvv_preclaim f5 and one controller orchestration/full-cost receipt
+  - represent prior-output SHA arguments only as typed producer edges SHA256_OF(node.output), never free text placeholders
+  - implement controller subprocess execution with shell false, process-local env, timeout, stdout/stderr, exit, cpu, wall and Windows child peak RSS collection, first unexpected failure stop and immutable receipts
+  - replace inherited PPC metric constants with exactly six cost receipts per row and twenty-four total for four rows
+  - comparator justification must state that full-pipeline modes fail the exact MIR-stage liveness precondition and PBQP run-pass is unregistered; greedy run-pass is proposed as the only same-stage executable comparator, pending independent re-review
+  - claim_ready remains false until function extraction, candidate closure, legality/full-cost control and independent comparator re-review all pass
+hard_validation: [selected_functions_4, extracted_function_docs_4, forced_pressure_refs_0, missing_stages_paths_0, ppc_metric_constants_0, command_rows_24, typed_dynamic_edges_only, controller_exec_implemented, claim_ready_false]
+forbidden_changes: [selected_functions, exact_object, transitive_split_obligations, guarantee, natural_denominator, result_visibility]
+forbidden_actions: [resource_copy, function_extraction_execution, tool_execution, control_row, claim_row, network, shared_write, shared_install, cleanup, stageb]
+stop_after: CORRECTED_STATIC_OUTPUTS_SEALED__WAIT_MAINLINE_AND_INDEPENDENT_REREVIEW

@@ -1,0 +1,20 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE66-R40-ORDINARY-BREADTH-V1
+lane: S1_BOUNDARY_CONTRADICTION
+write_directory: stages/discovery/round-20260815-adaptive-source66/S1-boundary-contradiction
+result: COMPLETE_ZERO_PROPOSALS
+rule_freeze: RULE_FREEZE.md
+forbidden_inputs: R49_AUDIT__GCC_GENAUTOMATA_STOP__SOURCE55_58_59_63_HELD_QUEUES__NOT_READ
+method: {canonical: v8.7, rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION, claim_pack: OFF, v9: OFF, selective_depth: OFF, model: gpt-5.6-terra/high}
+funnel: {non_evidence_seeds: 4, selected_anchors: 1, rq_candidates: 1, ordinary_closures: 1, raw: 0, deep: 0, clean_briefs: 0}
+identity_preflight: NO_MATCH__NO_NOVELTY_INFERENCE
+screened_locator:
+  signature: CPYTHON314_FREE_THREADED__BIASED_DEFERRED_PERTHREAD_REFCOUNT__FIXED_CAPI_OBJECT_LIFETIME__CPYTHON_CURRENT_UNION__CPU_RSS_QUEUE_MERGE_PAUSE_DELAY
+  disposition: EXCLUDED_BEFORE_RAW__EARLY_FATAL_CURRENT_NATIVE_UNION_PLUS_CONTROLLER_ONLY
+  rationale: Current native union implements biased/deferred/per-thread count and queued/merge/reclaim actions. Timing them differently is controller policy; changing them alters C-API lifetime/thread-safety semantics.
+  evidence: [https://docs.python.org/3/howto/free-threading-python.html, https://docs.python.org/3/c-api/threads.html, https://github.com/python/cpython/blob/main/Objects/object.c]
+scientific_inference_boundary: Current action-union/controller-only structural exclusion; no negative inference from missing implementation, result, resource, hardware or AI readiness.
+source_closure_queue: EMPTY_NOT_EXHAUSTED
+proposal: NONE
+resource_inventory: RESOURCE_INVENTORY.yaml
+manifest: HASH_MANIFEST.sha256
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

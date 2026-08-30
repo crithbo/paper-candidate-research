@@ -1,0 +1,33 @@
+schema: stagea-revision-static-start-v1
+assignment_id: STAGEA-L2-20260829-LLVM-APX-R10-REVISION1-NO-ACTION-IDENTITY
+model_route: gpt-5.6-luna
+thinking: xhigh
+allowed_outputs: [APX_R10_PATCHED_ROW_DRIVER.py, APX_R10_CONTROLLER.py, APX_R10_COMMAND_DAG.json, APX_R10_EXECUTABLE_PACKET.yaml, APX_R10_STATIC_VALIDATION.yaml, EXACT_INPUT_COPY_MANIFEST.yaml]
+driver_patch:
+  source_sha256: B042EC1F1C1EDF993DE57EE6C28A34F4766252941D6AB7BF1041E51819DA750E
+  function: prepare
+  exact_semantics:
+    - compute observed and action_options exactly as source
+    - if action_options is empty append exactly {id: NO_APX_ACTION_IDENTITY, cost: [0, 0, 0], native_form: NO_APX_ACTION}
+    - add trace booleans native_action_applicable, no_action_identity and failure_region_retained
+    - trace result is PASS for both positive-action and explicit no-action identity rows
+    - nonempty action_options and all other code remain byte-logically unchanged
+dag_relocation:
+  source_dag_sha256: 2D4351FD99101794A809122EB5A92521B74898FE117D2DB9859F0FB52C942EA7
+  old_root: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources
+  new_root: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/resources
+  replace_driver_with: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/resources/src/apx_tpd/apx_r8_row_driver.py
+  selected_rows: 8
+  commands: 72
+  command_order_unchanged: true
+controller: exact_copy_of_r9_controller_with_only_assignment_resource_root_derived_from_new_file_location
+copy_manifest:
+  source_inputs: r9/resources/src/corpus/S01_to_S04
+  source_driver_bundle: r9/resources/src/apx_tpd
+  patched_driver_destination_overrides_source_driver: true
+  copy_attempts_future_max: 1
+static_validation:
+  required: [sole_patch_scope, no_action_identity_exact, positive_rows_unchanged, rows_8, commands_72, placeholders_0, all_paths_r10_or_shared_asset, baselines_unchanged, denominator_unchanged, controller_compile, claim_ready_false]
+  lint_edits_max: 3
+forbidden_actions: [resource_create_or_copy, execute_patched_driver, tool_execution, control_row, claim_row, network, shared_write, cleanup, stageb]
+stop_after: STATIC_REVISION_PACKET_SEALED__WAIT_MAINLINE_AND_INDEPENDENT_PRECLAIM_GATE

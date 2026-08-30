@@ -1,0 +1,17 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-ALEX-A5-DIRECT-EXAMPLE
+parent_assignment: NONBLIND-STAGEA-20260826-ALEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A4_AUTHOR_CMAKE_DOWNLOAD_BLOCKER.yaml, sha256: 574636A37C1B8B88FD5F76D8B716018FB5B6635C077049C42177B1DA26C7E0DB}]
+author_source_analysis: {example: src/examples/main.cpp, dependency: relative_author_core_header_only, doctest_dependency: none, frozen_semantics: bulk_load_insert_erase_iterate_range_duplicate_find_stats}
+only_change: bypass_unavailable_author_CMake_doctest_download_by_directly_compiling_existing_author_example_with_existing_absolute_clangxx
+compiler: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\ALEX\resources\env\llvm-mingw-20260616-ucrt-x86_64\bin\clang++.exe
+source: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\ALEX\resources\src\ALEX-4370da6aa8b509fdc9b0d2c49faa0624b0078589\src\examples\main.cpp
+output: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\ALEX\resources\build\alex_author_example.exe
+allowed_command_sequence:
+  - {id: A5S0, command: create_literal_resources_build_if_absent, stop_on_nonzero: true}
+  - {id: A5S1, command: absolute_clangxx_compile_existing_author_main_cpp_once, stop_on_nonzero: true}
+  - {id: A5S2, command: run_existing_author_example_once, stop_on_nonzero: true}
+evidence_ceiling: AUTHOR_ARTIFACT_WINDOWS_COMPATIBLE_EXAMPLE_PRECLAIM_ONLY__NOT_NATURAL_CLAIM
+prohibitions: [author_CMake_edit, doctest_download, source_edit, custom_harness, redownload, system_or_global_mutation, fidelity_or_probe_before_preclaim]
+scientific_revision_consumed: false

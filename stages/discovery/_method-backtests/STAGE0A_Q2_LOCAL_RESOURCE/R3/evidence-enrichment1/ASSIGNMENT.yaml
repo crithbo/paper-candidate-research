@@ -1,0 +1,22 @@
+schema: r3-stagea-evidence-enrichment-assignment-v1
+assignment_id: BACKTEST-PACKER-L2-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3-EVIDENCE1
+role: DISCOVERY_BACKTEST_PACKER
+lane_id: BACKTEST-PACKER-L2
+lane_thread_id: 01a034d0-e533-7d21-aeeb-ac8465688a7e
+topic_id: STAGE0A_IDENTITY_BLIND_EVIDENCE_BACKTEST_R3
+unique_write_directory: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/evidence-enrichment1
+resource_root: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/evidence-enrichment1/resources
+status: BOOTSTRAP_ACK_PENDING
+inputs:
+  stagea_packet: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/STAGEA_ANONYMIZED_PACKET.yaml, sha256: BA621A4D5006EDDBD8574FCD3521FEECD301E42C8C25E770A87275A142F4F294}
+  evidence_manifest: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/PACKER_EVIDENCE_CAPSULE_MANIFEST.yaml, sha256: E6CBB4919A7E2D8BB3E80AA450D7037C42884AF6FECEF82551C82A86096DA798}
+  packer_handoff: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/handoff.yaml, sha256: 0E831D1CBDEA7DE7C8AEDA2B3B4E9043843470091D5136D7210EF9FE457DE812}
+scope: SUPPLEMENT_ANONYMIZED_EVIDENCE_FOR_12_POSITIVE_AND_4_NEGATIVE_CASES
+allowed_sources: [official_publisher, official_proceedings, arxiv, author_pdf, appendix, AE_metadata]
+resource_limits: {stored_bytes_max: 536870912, source_attempts_max: 48, code_or_artifact_downloads_max: 0}
+required_fields_positive: [case_id, internal_evidence_id, mechanism_atomic_action, reported_metric_unit_denominator, comparator_configuration, natural_or_canonical_workload, full_cost_components, legality_or_equivalence_witness, boundaries_unreported_items]
+required_fields_negative: [control_id, injected_defect, expected_gate_dimension_affected, defect_evidence]
+redaction: [title, authors, venue, DOI, URL, repository, artifact_name, gold_label, expected_disposition]
+forbidden_actions: [code_download, artifact_download, binary_download, build, probe, experiment, scoring, reviewer_dispatch, production_candidate_registration, StageB]
+outputs: [ANONYMIZED_EVIDENCE_SUPPLEMENT.yaml, SUPPLEMENT_SOURCE_LEDGER.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+model_route: {model: gpt-5.6-terra, thinking: medium}

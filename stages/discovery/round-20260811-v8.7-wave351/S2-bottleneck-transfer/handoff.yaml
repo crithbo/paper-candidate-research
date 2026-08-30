@@ -1,0 +1,54 @@
+assignment_id: DISCOVERY-S2-20260811-V8.7-WAVE351-OPENZFS-SEND-RECEIVE-STATE-CLOSURE-DEPTH
+lane: S2-bottleneck-transfer
+status: IDLE_REUSABLE_AWAITING_MAINLINE
+completion: COMPLETE_ZERO_PROPOSALS
+decision: NOT_ADMITTED_UNFROZEN
+authoritative_method: v8.7+R5-P0
+discovery_quality_mode: OFF
+cutoff_date: '2026-08-11'
+write_boundary: stages/discovery/round-20260811-v8.7-wave351/S2-bottleneck-transfer
+rule_freeze:
+  AGENTS.md: 66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063
+  plan.md: EB7043F18218AF3BD1167C034544F1EE135EEA392B7092C470DA43459043C0FC
+  registry.yaml: 7189C5683169DEF9D5549398026F82D968725E4249E38BFEC6456A157B086FD1
+  rules/ROLE_DISCOVERY.md: FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3
+source_pin:
+  project: openzfs/zfs
+  ref: master
+  commit: eec144ac031b1b4217f643b11ccd19f49faa8460
+  observed_date: '2026-08-11'
+funnel:
+  raw_row_events: 1
+  repeat_rescreens: 1
+  unique_opportunity_families: 0
+  candidate_grade_deep_reviews: 1
+  grounded_briefs: 0
+same_object:
+  contract: Fixed source/destination snapshots, common base/history, feature/encryption state, values/metadata and stock receive/scrub/resume behavior.
+  stock_oracle: zfs receive plus snapshot/property equality, scrub and resume-token behavior.
+strongest_current_union:
+  - full/incremental/intermediate send streams
+  - compressed/large-block/embed/raw modes
+  - receive property and rollback constraints
+  - partial receive/resume token/send -t
+  - stream checksums and zstream tools
+non_admission_reason: >-
+  No stock-legal union-external joint source-state and receiver-state action with a target-specific guarantee is frozen.
+  Remaining forms are options, stream packing, transport controller, generic transformation or changed state semantics.
+fidelity_closure:
+  natural_carrier: Version-pinned public OpenZFS snapshots/streams with common base and bounded interrupted receive.
+  full_cost: Send/receive/resume CPU-RSS-temp-bytes; transport/final bytes; scrub and cold-warm access.
+  killer_within_72h: Require P0/P1 receive, snapshot/property/scrub and resume equivalence; fail on changed history/features/receiver or generic action.
+collision_status: SEARCH_BOUNDED_OPEN__NOT_A_NOVELTY_CONCLUSION
+non_reasons:
+  - missing implementation
+  - missing positive result
+  - data/resource availability
+  - AI readiness
+terminal_stop: false
+manifest: HASH_MANIFEST.sha256
+artifacts:
+  - DISCOVERY_LOG.md
+  - SOURCE_COLLISION_MATRIX.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256

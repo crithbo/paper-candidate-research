@@ -1,0 +1,3 @@
+# Rule freeze
+
+Assignment SHA256 `40B8AACC7A1CB0C4860D5884CACD77E509E217CFBE07AC8FE58666ECBA1D6FE2`; control SHA256 `F12ACC25D62DA4DAAB3371A576E6DEA0C73ECC34F0298CD82D021B0F5CD406EC`. Source48 canonical baseline restored; Source49 typed portfolio and Source50 selective depth OFF. R39 audit is not applied.

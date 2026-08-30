@@ -1,0 +1,7 @@
+# Rule freeze
+
+Assignment: `DISCOVERY-S6-20260811-V8.7-WAVE264-SPHINX-INVERTED-INDEX-GLOBAL-CONSTRUCTOR-N2-CLOSURE`.
+
+Frozen hashes: registry `7D29786F3D198B232E7B127365EF8D042773629749FCDCE95EFF3B1FFFA93E60`; plan `257E2E1A9AEC3BAE11B6225D30BAC53652D7F3C7CC86A02870060352D5E50D83`; ROLE `FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3`.
+
+Method: v8.7 + R5-P0; `DISCOVERY_QUALITY_MODE=OFF`. Fixed object: documents, analyzer, schema and stock Sphinx query semantics. Generic inverted-index compression/packing/ILP, indexer flags, merge controller and custom format/reader are excluded.

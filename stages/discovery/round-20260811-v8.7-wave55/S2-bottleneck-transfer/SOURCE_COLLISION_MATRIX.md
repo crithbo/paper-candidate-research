@@ -1,0 +1,25 @@
+# Source / collision / action-space matrix
+
+**Assignment:** `DISCOVERY-S2-20260811-V8.7-WAVE55-BOTTLENECK-TRANSFER-HARDWARE-SOFTWARE`  
+**Cutoff:** 2026-08-11. Sources are first-party project repositories or official documentation/release material.
+
+| Unique family | Primary current-source anchor (frozen 2026-08-11) | Exact object and cost denominator | Current union / flags checked | Collision or admission finding | Final |
+|---|---|---|---|---|---|
+| UCX registration/cache | [UCX master NEWS](https://github.com/openucx/ucx/blob/master/NEWS), [UCX current FAQ](https://github.com/openucx/ucx/blob/master/docs/source/faq.md) | one UCX send/receive with current completion/ordering; end-to-end transfer cost including registration/cache work | registration and rkey caches; `UCX_MEMTYPE_CACHE`; protocol and transport selection | current source records registration/cache and rkey/protocol mechanisms; proposed cache choice is not a whole union-external action | `DROP` |
+| DPDK mbuf/descriptors | [DPDK mlx5 current guide](https://github.com/DPDK/dpdk/blob/main/doc/guides/nics/mlx5.rst) | packet RX/TX, byte delivery preserved; packet full path | queue memory region/umem, rearm/clock queue, timestamp scheduling configuration | only queue/allocator/schedule choice was frozen; no global same-object construction witness | `DROP` |
+| SPDK bdev/NVMe-oF | [SPDK repository](https://github.com/spdk/spdk), [SPDK releases](https://github.com/spdk/spdk/releases) | bdev request with completion/data-integrity semantics; request + accel + metadata + polling cost | bdev submit/channel, accel sequence, metadata hide/ownership, iovec request copy, poll/interrupt and multipath options | current union composes the proposed atomic operations; no quality/guarantee delta | `DROP` |
+| DMA-BUF/IOMMU map | [Linux DMA-BUF documentation](https://docs.kernel.org/driver-api/dma-buf.html) | shared buffer attachment/map with exporter/importer semantics; map/unmap + device use | attachment, map/unmap, fence/sync semantics | candidate action would need a different ownership/lifetime contract; finite same-object construction not frozen | `NOT_ADMITTED_UNFROZEN` |
+| LLVM OpenMP target | [LLVM OpenMP target data documentation](https://llvm.org/docs/OpenMPSupport.html) | target region result with OpenMP mapping semantics; lowering + map + runtime cost | `target data`, `map`, mapper, runtime/libomptarget interfaces | a lowering/emitter choice is wrapper-like unless a new complete mapping algorithm is defined | `STRUCTURAL_DROP` |
+| GCC offload map | [GCC offloading documentation](https://gcc.gnu.org/onlinedocs/libgomp/Offload-Target-Specific-Information.html) | offloaded region result with OpenMP/OpenACC mapping semantics | target/device configuration and mapping path | no fixed union-external construction; routine compiler choice | `STRUCTURAL_DROP` |
+| Linux blk-crypto | [Linux blk-crypto documentation](https://docs.kernel.org/block/inline-encryption.html) | encrypted block I/O under hardware key/sector semantics; full submit/completion cost | inline-encryption capability/configuration and fallback path | proposed joint action could not retain same device/guarantee without hardware-dependent object change | `DROP` |
+| KVM dirty logging | [KVM API documentation](https://www.kernel.org/doc/html/latest/virt/kvm/api.html) | guest-memory migration dirtiness with recovery semantics; mark + retrieve + scan cost | dirty-log/bitmap and hardware-assisted interfaces | no finite non-scheduling action preserved the migration guarantee | `NOT_ADMITTED_UNFROZEN` |
+| Arrow Flight transport | [Arrow Flight documentation](https://arrow.apache.org/docs/format/Flight.html) | Flight data exchange with its carrier/ownership semantics; serialization + transfer cost | Arrow buffers, Flight data stream and memory transport interfaces | zero-copy framing alters the carrier/ownership boundary; no same-object action frozen | `STRUCTURAL_DROP` |
+| OpenJDK NUMA/GC | [OpenJDK HotSpot GC documentation](https://openjdk.org/groups/hotspot/docs/HotSpotGlossary.html) | managed heap with GC correctness; collection + locality cost | collector and memory-placement configuration surface | placement policy/tuning is not a complete new GC action | `STRUCTURAL_DROP` |
+
+## Cross-lane deduplication
+
+Wave52’s action-first directions and earlier wave families are excluded: UST, AIGER, PIM/NDP, GPU scheduling, CXL, CVC5, PB, Git, RocksDB, ORC, Kafka/Flink and the Wave29–52 reviewed compiler/storage/index objects. The table’s ten families are distinct within this package. None was promoted merely because a source has a hook, plugin, or configuration point.
+
+## Reality-check boundary
+
+The matrix records source facets that were inspected for candidate-grade rows. It does **not** assert a global absence from a project based on old documents, issues, release notes, or future-work text. The only direct-absorption determinations are the three deep-reviewed rows, where the frozen proposed atomic action is already in the documented/source current union. Other rows remain bounded raw screens or are structural object/guarantee failures.

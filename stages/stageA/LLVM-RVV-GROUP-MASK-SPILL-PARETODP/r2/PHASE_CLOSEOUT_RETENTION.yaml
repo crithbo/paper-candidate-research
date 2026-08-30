@@ -1,0 +1,28 @@
+schema_version: phase-closeout-retention-v1
+assignment_id: STAGEA-L1-20260825-LLVM-RVV-R2-E-ROOT-EXACT-TOOLCHAIN
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+closeout_state: BLOCKER_HANDOFF_PENDING_MAINLINE_ACCEPTANCE
+scientific_state_effect: NONE
+current_resource_root_bytes: 1128988666
+post_close_retained_bytes_max: 2147483648
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+active_owner_or_process_count_at_closeout: 0
+keep:
+  - {path: resources/downloads, bytes: 510320698, files: 5, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: exact official assets with exhausted one-attempt network envelope}
+  - {path: resources/tmp, bytes: 24814, files: 3, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: exact downloader extractor and measurement scripts}
+  - {path: resources/logs, bytes: 37573, files: 11, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: raw download preflight failure and measurement evidence}
+exact_cleanup_candidates:
+  - {path: resources/src/s, bytes: 616586465, files: 71167, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: MAINLINE_ACCEPTS_BLOCKER_AND_REVALIDATES_RETAINED_SOURCE_ARCHIVE_HASH, recovery: reextract retained exact archive in a new authorized long-path-aware resume}
+  - {path: resources/cache, bytes: 2019116, files: 84, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: MAINLINE_ACCEPTS_BLOCKER_AND_ZERO_ACTIVE_PROCESS, recovery: deterministic regeneration}
+exact_cleanup_candidate_count: 2
+exact_cleanup_candidate_file_count: 71251
+exact_cleanup_candidate_bytes: 618605581
+projected_post_close_retained_bytes: 510383085
+projected_budget_result: PASS
+downstream_inputs_accepted: false
+capsule_sealed: false
+cleanup_receipt_path: CLEANUP_RECEIPT.yaml
+cleanup_receipt_exists: false
+never_delete_automatically: [assignment root, resource root, control files, resources/downloads, resources/tmp, resources/logs]
+

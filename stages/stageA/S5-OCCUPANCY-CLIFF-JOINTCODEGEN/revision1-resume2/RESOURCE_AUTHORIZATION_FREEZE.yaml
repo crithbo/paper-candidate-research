@@ -1,0 +1,67 @@
+schema_version: "resource-unblock-freeze-v1"
+frozen_at: "2026-08-10T15:36:51+08:00"
+authorization_id: "UNBLOCK-AUTH-20260810-R1"
+assignment_id: "RESOURCE-UNBLOCK-L2-20260810-S5-R1"
+topic_id: "S5-OCCUPANCY-CLIFF-JOINTCODEGEN"
+lane_id: "CANDIDATE_EXECUTION_LANE_2"
+phase: "RESOURCE_UNBLOCK_ONLY"
+
+write_scope:
+  only_directory: "D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/revision1-resume2"
+  writes_outside_only_directory: false
+  source_asset_mutation_allowed: false
+
+immutable_inputs:
+  revision1_handoff_sha256: "51EEB138E89AB43EC76ECD5C4A1DE24A986C0BEB372EE7AAD800A0736DABADB6"
+  revision1_manifest_sha256: "48E78E80EADA239362E9242B4EACABCA00CE5D7B3F359B0E8B2B5456ED7D25F1"
+  resume1_handoff_sha256: "EBD9AD833023B36AAC43980B669BAEC0AA121CB9561AE6EC5A4A4002AA832B0D"
+  resume1_manifest_sha256: "9F85FDA6AD654D7251439741F890438A66D62618384001FAA530786FF0BF7C25"
+  cleanup_record_sha256: "FB3272C19B4667925B27F4CC8B979469F87D3778AB0BB91A24DA77A247340DE7"
+
+asset_contract:
+  name: "llvm-mingw-20260616-ucrt-x86_64.zip"
+  role: "bootstrap asset only; not an evaluated LLVM toolchain and not scientific evidence"
+  official_url: "https://github.com/mstorsjo/llvm-mingw/releases/download/20260616/llvm-mingw-20260616-ucrt-x86_64.zip"
+  expected_bytes: 187504083
+  expected_sha256: "B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35"
+  source_path: "D:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/tools/archives/llvm-mingw-20260616-ucrt-x86_64.zip"
+  source_access: "READ_ONLY_BY_CONTRACT"
+  temporary_copy_path: "incoming/llvm-mingw-20260616-ucrt-x86_64.zip.copying"
+  verified_path: "verified/llvm-mingw-20260616-ucrt-x86_64.zip"
+  acceptance_rule: "TEMP_COPY_BYTES_AND_SHA256_MUST_BOTH_MATCH_BEFORE_MOVE_TO_VERIFIED"
+  detached_signature_required: false
+  provenance_chain: "official HTTPS release URL + exact expected byte count + frozen release SHA-256 + previously validated exact source/corpus commit identities"
+
+authorized_actions:
+  clean_local_copy_count: 1
+  exact_size_validation: true
+  sha256_validation: true
+  move_after_validation: true
+  official_downloads_if_local_copy_or_hash_fails: "MAXIMUM_TWO_AND_ONLY_IF_NECESSARY"
+  official_downloads_used_at_freeze: 0
+
+forbidden_actions:
+  extraction: true
+  build: true
+  tool_execution: true
+  mir_generation_or_execution: true
+  candidate_execution: true
+  baseline_execution: true
+  benchmark: true
+  claim_bearing_observation: true
+  scientific_revision_consumption: true
+  stageb: true
+  system_install: true
+  global_environment_mutation: true
+  automation: true
+
+claim_boundary:
+  claim_bearing: false
+  scientific_revision: false
+  evidence_ceiling: "RESOURCE_VALIDATION_ONLY__NO_SCIENTIFIC_INFERENCE"
+  resource_ready_semantics: "ASSET_READY_ONLY__NOT_STAGEA_READY__NOT_SCIENTIFIC_PASS"
+  stagea_ready_from_this_assignment: false
+  scientific_pass_from_this_assignment: false
+  pending_user_stageb_review: false
+  stageb_user_approval_id: null
+  stageb_authorized: false

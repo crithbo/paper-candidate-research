@@ -1,0 +1,27 @@
+assignment_id: DISCOVERY-S4-20260814-ADAPTIVE-SOURCE14
+lane: S4_OBJECTIVE_CONSTRAINT
+state: IDLE_REUSABLE_AWAITING_MAINLINE
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+write_directory: stages/discovery/round-20260814-adaptive-source14/S4-objective-constraint
+counts:
+  raw_screen_row_event: 6
+  unique_opportunity_family: 4
+  candidate_grade_deep_review: 2
+  stage0_brief: 0
+  propose_stage0: 0
+conclusion: COMPLETE_ZERO_PROPOSALS
+summary_zh: >-
+  本轮完成 GPU/accelerator 测量干扰筛查，未形成 clean brief。ROCprofiler dispatch counting 的串行化/潜在
+  deadlock 与 device counting 的无 kernel attribution，及 Nsight Compute replay/cache/tool-overhead 对 tail 时间含义的
+  影响，都是可信的测量风险；但尚未同时冻结版本化自然并发 workload、估计量和混杂、full-cost、留出反证及
+  结论改变阈值。因而诚实记为 NOT_ADMITTED_UNFROZEN，而非因资源、实现或无结果淘汰。
+next_step_zh: >-
+  等待主线验收与下一 assignment。未来仅在先有自然 HIP/CUDA 并发 workload 面板和完整测量合同的条件下再审，
+  不得把 profiler flag、mode selector 或 dashboard 重包装为论文。
+clean_brief: false
+manifest: HASH_MANIFEST.sha256
+required_files:
+  - DISCOVERY_LOG.md
+  - SOURCE_COLLISION_MATRIX.md
+  - HASH_MANIFEST.sha256

@@ -1,0 +1,30 @@
+assignment_id: DISCOVERY-S6-20260814-ADAPTIVE-SOURCE12
+lane: S6_DIRECT_ALGORITHM_SOFTWARE
+method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+write_directory: stages/discovery/round-20260814-adaptive-source12/S6-direct-algorithm-software
+status: COMPLETE_ZERO_PROPOSALS
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+funnel:
+  scoped_objects: 1
+  candidate_grade_deep_reviews: 1
+  proposed_stage0: 0
+  structural_drops: 1
+families:
+  - signature: SFRAME_PRODUCER_CONSUMER__FIXED_ELF_CODE_UNWIND_QUERY_SEMANTICS__TARGET_SPECIFIC_FRAME_RECORD_CONSTRUCTION
+    exact_object: Fixed AMD64 ELF code and CFI-derived CFA/FP/RA query map under standard SFrame V3 reader semantics.
+    producer_consumer: GNU as plus GNU ld / libsframe plus readelf
+    current_union: CFI-derived generation; gsframe enable-disable-and-V3 controls; ld merge and sorted FDE index; standards-compliant decode.
+    legal_two_plan_witness: PC-sorted versus format-legal unsorted FDE-index order with identical FDE/FRE semantics and appropriately set flag.
+    canonical_disposition: STRUCTURAL_DROP__GENERIC_RECORD_LAYOUT_ONLY__NO_FURTHER_EXTENSION_OF_SFRAME_ROUTE
+    structural_paper_potential: BELOW_Q2_STOP
+    current_evidence_readiness: SOURCE_READY
+    reason: The only frozen divergence is generic index-or-record representation; no target-specific whole constructor, guarantee, or fair residual remains.
+    natural_route: Version-pinned CFI-bearing x86-64 GNU/binutils or LLVM Test-Suite objects.
+    full_cost: assembler-linker CPU-wall-RSS-temp; ELF-and-sframe bytes; decoder-query CPU-RSS; unwind lookup latency.
+    finite_killer: Stock-consumer-accepted same-map pair with target-specific non-generic global frame action and nontrivial guarantee.
+    no_further_extension: true
+notes:
+  - No experiments, builds, downloads, installations, Stage0/A/B, or shared-control writes were performed.
+  - The structural drop does not rely on absent implementation, missing result, resource limitation, or AI readiness.
+  - The contract prohibits fresh backfill; none was added.

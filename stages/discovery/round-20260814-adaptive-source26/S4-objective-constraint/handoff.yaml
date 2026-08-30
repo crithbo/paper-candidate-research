@@ -1,0 +1,43 @@
+assignment_id: DISCOVERY-S4-20260814-ADAPTIVE-SOURCE26-EVIDENCE-CLOSURE-TRIAD-V1
+lane: S4_OBJECTIVE_CONSTRAINT
+write_directory: stages/discovery/round-20260814-adaptive-source26/S4-objective-constraint
+frozen_inputs:
+  assignment_sha256: A5F395A53F104020EF4F3B1E62DFCB7DEAEC926149EAA1188AA417C381341FC6
+  control_sha256: C549A742D3B2682FCD0E91BB02126C5DA946D872920A5E32B4AE2F2A269C0F8D
+method:
+  canonical: v8.7
+  discovery_claim_pack_mode: OFF
+  v9_output: OFF
+source_policy:
+  official_primary_only: true
+  bounded_retrieval: true
+  source_role_ledger: SOURCE_ROLE_LEDGER.yaml
+  unobserved_bytes_or_hashes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+funnel:
+  offline_seeds: 12
+  engines_used: 8
+  precommitted_locators: 3
+  bounded_source_routes: 5
+  fresh_raw: 0
+  C0: 0
+  deep: 0
+  clean_briefs: 0
+  propose_stage0: 0
+records:
+  - signature: S4_MLPERF_HPC_CURRENT_FULLCOST_VALIDITY
+    disposition: STRUCTURAL_DROP__RETIRED_SUITE_NOT_CURRENT_TARGET
+    rationale: official suite page records retirement in January 2025.
+  - signature: S4_MLPERF_AUTOMOTIVE_V05_TAIL_RESOURCE_VALIDITY
+    disposition: LOCATOR_ONLY__PUBLIC_EVIDENCE_UNCLOSED
+    rationale: current task semantics/reproduction branch closed; complete versioned joint-resource panel/comparator not closed.
+  - signature: S4_MLPERF_INFERENCE_V51_POWER_COVERAGE_RANKING
+    disposition: LOCATOR_ONLY__PUBLIC_EVIDENCE_UNCLOSED
+    rationale: current release/docs close workload and power context; complete public panel/hold-out not closed.
+final_disposition: COMPLETE_ZERO_PROPOSALS
+plain_chinese_summary: >-
+  本轮按预承诺的三类来源逐项核验。HPC 对象已退休；Automotive 与 Inference 的官方语义已核实，
+  但在受限公开路线下无法闭合完整联合资源面板与反证比较器。因此不形成 raw 或 brief，也没有把缺资料写成科学负结论。
+next_step: >-
+  只有另行授权并能固定公开规则/导出与留出比较器的 source-only assignment，才可重新检查两个 LOCATOR_ONLY；
+  不得直接进入 Stage 0。
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

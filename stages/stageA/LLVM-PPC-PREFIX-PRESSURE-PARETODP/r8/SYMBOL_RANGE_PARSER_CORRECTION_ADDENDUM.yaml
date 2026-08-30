@@ -1,0 +1,117 @@
+schema: ppc-r8-elf-symbol-range-parser-correction-addendum-v1
+generated_by: MAINLINE
+generated_at: 2026-08-26T06:20:00+08:00
+addendum_id: PPC-R8-A2-ELF-SYMBOL-RANGE-PARSER-CORRECTION
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+status: A2_ACK_PENDING
+base_context_sha256: AF0AF5A6F5CEF9205004AAC6FB6F9E99B44773919C400DE1F8125635CBADAD3B
+A1_addendum_sha256: B4A58692078F4373AB93C62E81795491C907EA818D16346C6ECC2211A5379F22
+A1_start_sha256: 0878A08A9F9106176AF1307399B68A2114D35E8E147F7F61E409A98E1D1BB068
+A1_handoff_sha256: 9CABD4E700438DE5183CE2FA595D690F2F58F97259D78748C9A901EB6C2B733A
+A1_manifest_sha256: 122D85F7872C87BA997FA87719FC0FF6D59FBA60121BE3F3F06BDC956156164F
+A1_mainline_acceptance_sha256: CC01B6B4D7593FEF7D509793A538700FC7130093A7979C73919A8A8C79DDBE99
+frozen_shared_snapshot:
+  plan_sha256: 0CABA582A95F59D29E20A65EC6F571FD46D427CC70A931F618ED08273D63FE00
+  registry_sha256: E17FA54E5930AD590AC170F5934B0C3611E42D28B1361CDD8FD681DE5B4A70ED
+
+classification:
+  type: ENGINEERING_CORRECTION_IN_PRECLAIM_CONTRACT
+  scientific_revision_consumed: false
+  exact_object_mechanism_comparator_corpus_metric_claim_changed: false
+  input_bytes_or_symbols_changed: false
+  J0_rerun_allowed: false
+  selected_or_reserve_tool_invocations_so_far: 0
+  claim_runs_so_far: 0
+
+resource_precondition:
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources
+  files: 251
+  logical_bytes: 245603214
+  reparse_entries: 0
+  active_related_processes: 0
+  implementation_files: 5
+  successful_native_tool_commands_retained: 11
+
+pass1_preservation:
+  before_edit_copy_handoff_to: handoff.pass1_function_boundary_parser_fail.yaml
+  before_edit_copy_manifest_to: HASH_MANIFEST.pass1_function_boundary_parser_fail.sha256
+  expected_handoff_sha256: 9CABD4E700438DE5183CE2FA595D690F2F58F97259D78748C9A901EB6C2B733A
+  expected_manifest_sha256: 122D85F7872C87BA997FA87719FC0FF6D59FBA60121BE3F3F06BDC956156164F
+
+single_file_patch_scope:
+  file: resources/src/actual_claim_harness/trace_model.py
+  original_sha256: BDA3B305DFD8A17CC723BD62D72C901608EFA33DAD0F396E878F1F54CE0ACB2F
+  allowed_semantic_change:
+    - PARSE_EXACT_ELF_FUNCTION_SYMBOL_NAME_TYPE_VALUE_AND_SIZE_FROM_WITNESS_READOBJ
+    - REQUIRE_UNIQUE_TYPE_FUNCTION_SYMBOL_WITH_SIZE_GT_ZERO
+    - DEFINE_HALF_OPEN_INTERVAL_VALUE_LE_INSTRUCTION_ADDRESS_LT_VALUE_PLUS_SIZE
+    - KEEP_ONLY_OBJDUMP_INSTRUCTIONS_INSIDE_INTERVAL
+    - VERIFY_EACH_RETAINED_INSTRUCTION_START_AND_ENCODED_END_DO_NOT_CROSS_SYMBOL_END
+    - FAIL_CLOSED_ON_MISSING_DUPLICATE_NONFUNCTION_ZERO_SIZE_OVERFLOW_EMPTY_RANGE_OR_CROSSING_INSTRUCTION
+  forbidden_semantic_change:
+    - DELETE_NOP_OR_ANY_OPCODE_BY_NAME_AS_PADDING_HEURISTIC
+    - CHANGE_EXPECTED_DIRECT_OR_MATERIALIZED_OPCODE_SEQUENCE
+    - CHANGE_RELOCATION_SEMANTICS_COST_MODEL_RECURRENCE_CHECKERS_OR_CLI
+    - CHANGE_ANY_OTHER_IMPLEMENTATION_FILE
+  source_edit_operations_max: 1
+
+frozen_symbol_evidence:
+  readobj_path: resources/build/actual_harness/replay_1/logs/07_readobj_witness.stdout.txt
+  readobj_sha256: 6778B4F4E17B6A661E89DFD0F15CF74BB25E39069E76D498C55722A23EC3C0A3
+  objdump_path: resources/build/actual_harness/replay_1/logs/08_objdump_witness.stdout.txt
+  objdump_sha256: 7C92E636734223DF6194C4EC2430145AAF1079853C89343DF17BBB57AABD5838
+  direct: {name: witness_direct, type: Function, value: 0x0, size: 12, interval: '[0x0,0xC)', expected_opcodes: [pld, blr], excluded_out_of_range: [{address: 0xC, opcode: nop}]}
+  materialized: {name: witness_materialized, type: Function, value: 0x10, size: 16, interval: '[0x10,0x20)', expected_opcodes: [paddi, ld, blr]}
+
+fresh_execution_after_patch:
+  old_replay_1_disposition: INVALIDATED_NON_EVIDENCE__RETAIN_RAW
+  corrected_full_replays: 2
+  replay_order: [1, 2]
+  native_tool_commands_per_replay_expected: 11
+  additional_total_command_records_max: 24
+  cumulative_total_command_records_max: 36
+  automatic_retry: false
+  J1_must_pass_before_J2_J6: true
+  selected_or_reserve_corpus_tool_invocations_max: 0
+  claim_runs_max: 0
+
+allowed_actions_after_A2_start:
+  - WRITE_A2_SYMBOL_RANGE_CORRECTION_PRECOMMIT
+  - PRESERVE_PASS1_HANDOFF_AND_MANIFEST
+  - PATCH_ONLY_TRACE_MODEL_PY_WITH_FROZEN_SYMBOL_RANGE_SEMANTICS
+  - RUN_TWO_FRESH_SYNTHETIC_NATIVE_REPLAYS_WITH_NEW_OUTPUT_ROOTS
+  - CONTINUE_J2_J6_ONLY_AFTER_J1_PASS
+  - GENERATE_FULLY_EXPANDED_R9_32_PROCESS_PLAN_WITHOUT_EXECUTION
+  - WRITE_CANONICAL_PRECLAIM_PACKAGE
+forbidden_actions:
+  - RERUN_J0_COPY_OR_HASH_ACCEPTANCE
+  - MODIFY_ANY_R6_INPUT_R2_TOOLCHAIN_OR_OTHER_IMPLEMENTATION_FILE
+  - OPCODE_BASED_PADDING_FILTER
+  - ANY_SELECTED_OR_RESERVE_CORPUS_COMPILER_LINKER_VERIFIER_DISASSEMBLY_OR_RESULT_OBSERVATION
+  - CLAIM_RUN
+  - NETWORK_NEW_COPY_EXTRACTION_LLVM_SOURCE_PATCH_OR_REBUILD
+  - RETRY_RESULT_BASED_EXCLUSION_BACKFILL_OR_COMMAND_CHANGE
+  - SCIENTIFIC_INFERENCE_REVISION_PIVOT_STATE_TRANSITION_CLEANUP_OR_STAGEB
+limits:
+  source_edit_operations_max: 1
+  additional_total_command_records_max: 24
+  cumulative_total_command_records_max: 36
+  selected_or_reserve_tool_invocations_max: 0
+  claim_runs_max: 0
+  automatic_retry: false
+ack_requirement:
+  path: A2_ACK.yaml
+  must_confirm:
+    - ALL_BASE_A1_ACCEPTANCE_ADDENDUM_AND_SHARED_HASHES
+    - RESOURCE_TREE_251_FILES_245603214_BYTES_0_REPARSE_0_ACTIVE
+    - TRACE_MODEL_ORIGINAL_HASH_AND_SINGLE_FILE_SCOPE
+    - READOBJ_AND_OBJDUMP_EVIDENCE_HASHES_AND_EXACT_INTERVALS
+    - OPCODE_BASED_PADDING_FILTER_FORBIDDEN
+    - OLD_REPLAY_1_INVALIDATED_AND_TWO_FRESH_REPLAYS_REQUIRED
+    - J0_NO_RERUN_SELECTED_OR_RESERVE_TOOL_ZERO_CLAIM_ZERO
+    - DIFFERENCES_OR_AMBIGUITIES_EMPTY
+success_route: ACTUAL_NATURAL_CLAIM_HARNESS_FIDELITY_PASS__WAIT_SEPARATE_R9_EXACT_CLAIM_ASSIGNMENT
+failure_route: FAIL_CLOSED_ACTUAL_NATURAL_HARNESS_FIDELITY__NO_SELECTED_CORPUS_OR_SCIENTIFIC_INFERENCE

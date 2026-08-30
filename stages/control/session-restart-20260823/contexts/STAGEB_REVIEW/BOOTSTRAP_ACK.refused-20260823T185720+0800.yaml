@@ -1,0 +1,64 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-23T18:57:20+08:00
+lane_id: STAGEB-INDEPENDENT-REVIEW-LANE-1
+role_id: STAGEB_INDEPENDENT_REVIEW
+assignment_id: DORMANT-RESTART-20260823
+topic_id: null
+assignment_context_path: D:/project/writing/reserch/stages/control/session-restart-20260823/contexts/STAGEB_REVIEW/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: 0C46B04FF23E2F0FEAC10E618F44FDB13099F29E7D35864607150A5B4AAB47A2
+old_chat_memory_required: false
+
+frozen_hash_ack:
+  AGENTS_sha256: 665A557A6C8AD8030F97B1767D06B500D658674681FFBF021A276C5B31DBC61B
+  plan_sha256: BFC72BAB2492AB44330EC6091E4159944D750D437AC4FACE323BA2FFDC593A9C
+  registry_snapshot_sha256: 7E0199903CF4C2105F2444A2E07F230437835A6A3CFABE228041FF7C978E7DA2
+  role_rule_sha256: 37D9FD30AF963DD762F230C0EBF9E40EBF1088C39285F3B1EEE5DB2E38B67398
+  skill_hashes: []
+  template_hashes:
+    - path: templates/INDEPENDENT_REVIEW_REPORT.md
+      sha256: 8691068CB490024C2D93D0D770287E290597B5F682C881632DCA845746C2D441
+    - path: templates/BOOTSTRAP_ACK.yaml
+      sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B
+  source_assignment_sha256: null
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: true
+
+boundary_ack:
+  unique_write_directory_exact: D:/project/writing/reserch/stages/control/session-restart-20260823/contexts/STAGEB_REVIEW
+  resource_root_exact: null
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: null
+  contamination_detected: false
+
+execution_ack:
+  current_status: DORMANT__NOT_AUTHORIZED
+  resume_point: WAIT_FOR_TOPIC_SPECIFIC_STAGEB_ACCEPTED_OWNER_PACKAGE
+  next_action: RETURN_TO_MAINLINE_WITHOUT_ACTION__CONTEXT_REPAIR_REQUIRED
+  user_gate_or_blocker: NO_TOPIC_SPECIFIC_STAGEB_APPROVAL_OR_PACKAGE
+  scientific_or_resource_action_started: false
+
+differences_or_ambiguities:
+  - code: MISSING_FROZEN_ROLE_REQUIRED_SKILL_HASH
+    required_path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md
+    observed_sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F
+    context_pin: null
+    detail: ROLE_STAGEB_INDEPENDENT_REVIEW requires academic-research-suite/SKILL.md, but frozen_control.skills is empty.
+  - code: MISSING_FROZEN_ROLE_REQUIRED_TEMPLATE_HASH
+    required_path: templates/Q1_COMPARATOR_MATRIX.md
+    observed_sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87
+    context_pin: null
+    detail: ROLE_STAGEB_INDEPENDENT_REVIEW requires Q1_COMPARATOR_MATRIX.md, but frozen_control.templates omits it.
+  - code: HASH_COMPLETENESS_DECLARATION_CONFLICT
+    detail: validation.hashes_complete is true although the role-required skill and template pins above are absent.
+ack_disposition: REFUSE_MISSING_OR_CONFLICTING_CONTEXT
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

@@ -1,0 +1,22 @@
+# CANDIDATE_GRADE_DEEP_REVIEWS — Wave160
+
+## DEEP-160-01 — Reactome reaction-hypergraph incidence DP: `DROP`
+
+- **Exact object, oracle and natural carrier.** Reactome V97 is a curated, peer-reviewed pathway resource with 2,883 human pathways and 16,423 reactions. The proposed exact task is: given frozen pathway/event identifiers, return the native participating entities/events or a specified reachability projection. Reactome models reactions as explicit conversions of input physical entities to output entities and makes those events/pathways accessible through its Content Service.
+- **Condition and complete N2 action.** The condition is bounded incidence-hypertree width of a selected reaction/entity subgraph, computable from the same graph. The whole action is a join DP whose state is the complete entity boundary across a reaction hyperedge; it preserves the exact native entity/event result. A minimal witness is one reaction with two inputs and two outputs where two shared entities must be maintained jointly.
+- **Strongest current union / reality check.** Reactome's current Content Service exposes pathway events and participating physical entities. Its official current documentation also gives equivalent same-graph Cypher `MATCH` queries. Thus the native projection/reachability decision, same input information and output are already accessible in the current API/graph union. No claim that an internal incidence DP is absent is made; the documented API and Cypher capability are adverse evidence to a residual.
+- **Six-dimensional audit.** Decision: native event/entity relation; information: frozen IDs and stored graph; complexity/resources: proposed preprocessing and query work must be counted against API/graph service; quality: identical projection semantics; full cost: graph extraction plus DP versus native query; generalization/no-gain: no externally distinct guarantee survives. This is direct functional absorption, not a readiness failure.
+- **Latest collision.** Reactome V97 and current Content Service/API documentation, including a same-graph Cypher example.
+- **≤72h killer (not run).** Freeze a small V97 pathway and native Content Service/Cypher projection, then compare entity/event sets to the proposed recurrence for every witness subgraph. Equality is required for fidelity but leaves no observable action gap.
+- **Structural paper potential.** `BELOW_Q2_STOP` because current same-object union already supplies the exact output action; no Stage0 brief.
+
+## DEEP-160-02 — ChEBI ontology-path factorization: `DROP`
+
+- **Exact object, oracle and natural carrier.** ChEBI is an open curated chemical ontology/database. The current 2.0 Web Services list entity, ontology `children`, `parents` and `all_children_in_path` endpoints; its downloads provide versioned FULL/CORE/LITE ontology serializations. The exact task is the returned relation-path/descendant set under the frozen endpoint semantics.
+- **Condition and complete N2 action.** A bounded-depth/branching predicate is computable from the same ontology. The intended constructor factorizes repeated descendant prefixes and merges them through a diamond witness, returning the exact endpoint result and not merely choosing an index setting.
+- **Strongest current union / reality check.** Current official API explicitly supplies children, parents and all-children-in-path actions; the public OpenAPI schema includes their GET/POST endpoints, alongside exact structure and advanced search controls. This is contrary evidence to an absence claim and directly absorbs the externally stated closure result. No undocumented implementation deficit is inferred.
+- **Six-dimensional audit.** Decision and information match the endpoint; quality is the same exact returned relation set; preprocessing/storage and query work are full-cost dimensions; no different complexity or guarantee that a user can observe remains; the candidate is neither a new object nor a new output semantics.
+- **Latest collision.** ChEBI 2.0 official service documentation and the official versioned ontology source.
+- **≤72h killer (not run).** Freeze one ontology release, endpoint request and a diamond relation witness; exact compare the proposed reconstructed set with the official endpoint. If equal, action divergence remains absent; if not, it changed native semantics.
+- **Structural paper potential.** `BELOW_Q2_STOP` from direct current-union absorption; no Stage0 brief.
+

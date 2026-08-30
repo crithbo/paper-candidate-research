@@ -1,0 +1,39 @@
+schema: candidate-stagea-handoff-v1
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L2-20260829-LLVM-APX-R10-REVISION1-CLAIM
+lane_id: CANDIDATE_EXECUTION_LANE_2
+unique_write_directory: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829
+handoff_kind: REVISION_CONSUMED__NATURAL_CLAIM_FIRST_FAILURE__INDEPENDENT_FORMAL_GATE_REQUIRED
+decision: INCONCLUSIVE__REVISION_CONSUMED__INCOMPLETE_FROZEN_DENOMINATOR
+scientific_state_change_authority: MAINLINE_ONLY
+revision: {kind: REVISE_ONCE, ordinal: 1_of_1, consumed: true, consumption_record_sha256: 256F0AD5A4AE08E17A36DE91826F26D1C00C852CC6E041A94727CAF99E8171E3, second_revision_allowed: false}
+execution_summary:
+  attempts_used: 1
+  retries_used: 0
+  frozen_rows_expected: 8
+  frozen_commands_expected: 72
+  commands_started: 55
+  complete_rows: 6
+  partial_rows: 1
+  not_started_rows: 1
+  first_failure: {row_id: APX-R8-S04-R1, selected_id: S04, function_or_test_id: asmconstraint, command_id: prepare_same_object_trace, exit_code: 2, timeout: false, reason: PREPARE_LLC_FAILED__TRACE_OUTPUT_MISSING}
+revision_evidence:
+  no_action_identity_replays: 2
+  no_action_identity_candidate_gain_count: 0
+  positive_action_replays: 4
+  completed_checker_rows: 6
+  checker_relation_exact: true
+  native_current_tuning_separation: true
+evidence_ceiling: REVISION_CONSUMED__INCOMPLETE_FROZEN_DENOMINATOR__INDEPENDENT_GATE_REQUIRED
+unsupported_claims: [candidate_advantage, baseline_relative_effect, Pareto_relation, directional_full_cost, StageA_PASS, scientific_STOP, StageB_readiness]
+preservation:
+  copy_receipt: {path: REVISION_COPY_RECEIPT.yaml, sha256: 01204D8A2C7AC57F72604B7905189DC347593ACCE725C7CAB8E5B449B308A1FC}
+  revision_consumption: {path: REVISION_CONSUMPTION.yaml, sha256: 256F0AD5A4AE08E17A36DE91826F26D1C00C852CC6E041A94727CAF99E8171E3}
+  claim_ledger: {path: resources/logs/claim/controller/outer_full_cost_ledger.json, sha256: 91E55A88103D3EC5BB8213D7E006D4694EA08DCEA47EFCC48BA086D4B48BE2A5}
+  first_failure: {path: resources/logs/claim/controller/first_failure.json, sha256: ADC637982B244735AF3BC5F2B2F91675263AAA6DC0126F9F0B9651398E51A955}
+  claim_result: {path: APX_R10_CLAIM_RESULT.yaml, sha256: 8490A474F1AA59C9A28C2A0AE2C2316065361C566FAE00939B1B01DDB77CDFFB}
+  stagea_report: {path: STAGEA_REPORT.md, sha256: E1BDCB4493B7C8FE5C547F5964F1AE20C037F9649F5D0EC074D3965CC7288BF2}
+  inventory: {path: RESOURCE_INVENTORY.yaml, sha256: 9E1578B1CA45E4BF77ACF02CC1418526951EAFBCA6CD8CD1CFC2E83F82C094A9}
+  retention: {path: PHASE_CLOSEOUT_RETENTION.yaml, sha256: 5181FB6D0A3C0B0EA0B267028B5551FF110F2FC79793155A6CF6B20527B157C2}
+resource_status: {network_bytes: 0, root_files: 195, root_logical_bytes: 1754714, reparse_points: 0, cleanup_performed: false}
+next_action: INDEPENDENT_FORMAL_STAGEA_GATE__NO_OWNER_SECOND_REVISION_OR_EXECUTION

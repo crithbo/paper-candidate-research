@@ -1,0 +1,20 @@
+schema: discovery-question-cards-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE123
+cards:
+  - {id: QC01, rq_id: RQ01, carrier: torchao_TensorCoreTiledLayout, disposition: EXCLUDED_BEFORE_RAW__SUPERSEDED_CURRENT_IDENTITY, reason: current torchao removed the frozen AffineQuantizedTensor layout surface and replaced it with dtype plus packing-format subclasses}
+  - {id: QC02, rq_id: RQ02, carrier: torchao_MarlinSparseLayout, disposition: EXCLUDED_BEFORE_RAW__DIRECT_CURRENT_COLLISION, reason: Sparse-Marlin already co-designs INT4 packing group scales and 2:4 metadata for tensor-core execution}
+  - {id: QC03, rq_id: RQ03, carrier: Triton_block_scaled_matmul, disposition: LOCATOR_ONLY, reason: hardware requires a dense shuffled scale stream and no official natural model carrier demonstrated repeated or small-delta E8M0 runs; a codec without that anchor is generic compression}
+  - {id: QC04, rq_id: RQ04, carrier: CUTLASS_block_scaled_grouped_GEMM, disposition: EXCLUDED_BEFORE_RAW__DIRECT_CURRENT_COLLISION_AFTER_SUBTRACTION, reason: FlashInfer already provides Blackwell MXFP8 token-packed zero-padding MoE grouped GEMM down to one token per expert; removing only its residual four scale rows is too narrow for Q2}
+  - {id: QC05, rq_id: RQ05, carrier: Transformer_Engine_MXFP8_NVFP4, disposition: EXCLUDED_BEFORE_RAW__CURRENT_UNION_AND_DYNAMIC_SEMANTICS, reason: block scales are dynamically computed and swizzled in current recipes; longer compiler-managed lifetimes would change semantics unless values are identical and no source-supported repetition contract exists}
+  - {id: QC06, rq_id: RQ06, carrier: bitsandbytes_nested_4bit, disposition: EXCLUDED_BEFORE_RAW__DIRECT_CURRENT_COLLISION_AND_GENERIC_LAYERING, reason: current gemm_4bit already fuses nested absmax code offset and second-level metadata consumption; another dictionary layer lacks a non-generic source-supported residual}
+  - {id: QC07, rq_id: RQ07, carrier: llama_cpp_K_quants, disposition: LOCATOR_ONLY, reason: K-quants already tightly pack scale and minimum fields and no official natural repeated or all-zero subblock law was found within the bound}
+  - {id: QC08, rq_id: RQ08, carrier: Marlin, disposition: EXCLUDED_BEFORE_RAW__DIRECT_CURRENT_COLLISION, reason: Marlin explicitly reshuffles weights and group scales offline and current integrations pre-permute scales or repack GPTQ checkpoints before execution}
+  - {id: QC09, rq_id: RQ09, carrier: BitBLAS, disposition: LOCATOR_ONLY, reason: Ladder transform propagation and dequant integration already own the broad layout-reuse action; no target-specific remaining scale-decode action was frozen}
+  - {id: QC10, rq_id: RQ10, carrier: GemLite, disposition: EXCLUDED_BEFORE_RAW__ROUTINE_SHAPE_SPECIALIZATION, reason: group size is constrained to multiples of 32 with current autotuning; a tail micro-layout is a narrow shape optimization without a source-supported stable law or general algorithmic delta}
+raw_required_complete_count: 0
+evidence_qualified_raw_count: 0
+locator_only_count: 3
+structural_exclusion_count: 7
+source_closure_queue_count: 0
+result_aware_backfill: false
+

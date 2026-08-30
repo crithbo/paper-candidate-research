@@ -1,0 +1,30 @@
+topic_id: THEORY-MXIO
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: "两层存储中 payload 与 block-scale metadata 均显式计费的 GEMM；参数含 granularity、layout、fanout、fast-memory M 与 scale production"
+main_claim: "typed communication model 存在经典 GEMM bound + compulsory bytes 遗漏的非平凡区间，并可由 metadata-aware schedule 达到"
+academic_value_score: 55
+ai_executability_score: 26
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.86
+strongest_baseline:
+  - "classical tight GEMM I/O lower bounds"
+  - "classical bound + compulsory scale/output bytes"
+  - "CUTLASS/Triton standard blocked scale layouts and tiling"
+decisive_evidence:
+  - "冻结单层与双层 block-scale DAG/存储模型"
+  - "小规模 exact I/O enumeration or ILP oracle"
+  - "typed lower-bound conjecture 与 matching schedule 的参数化 gap"
+unresolved_risks:
+  - "metadata traffic 可能始终是低阶 compulsory term"
+  - "layout-dependent常数可能不足以形成理论贡献"
+  - "最终严谨证明需研究者审阅"
+next_killer_gate: "72 小时内寻找 classical+bytes bound 不紧且 typed bound 与 exact oracle 一致的参数族；A 失败可保持对象/指标 pivot hypergraph bound 一次"
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: "Discovery/Stage0：理论模型、CPU exhaustive/ILP oracle 与 trace-level schedule；无硬件性能结论"
+execution_authority: "AI 可使用 CPU 和公开规范/源码完成核心分析；正式 theorem/投稿由研究者裁决"
+file_hashes:
+  topic_brief.md: 1ff9fffc60dc44b3f4fa5e0e6ff765c4830e7def8a60e98ca254afe624c3676f
+  source_log.md: 588bd266c29cca28abf7f4df410289d1ff5a9d670271c97df1d8b5fe6631f3e4

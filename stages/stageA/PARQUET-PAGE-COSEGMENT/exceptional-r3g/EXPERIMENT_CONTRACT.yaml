@@ -1,0 +1,112 @@
+schema_version: "stagea-exceptional-fidelity-r3g-v1"
+assignment_id: "STAGEA-L1-20260811-PARQUET-PAGE-COSEGMENT-EXCEPTIONAL-FIDELITY-R3G"
+authorization_id: "POLICY-HOLD-DISPOSITION-20260811-R3G"
+topic_id: "PARQUET-PAGE-COSEGMENT"
+stage: "STAGEA_EXCEPTIONAL_FIDELITY_ONLY"
+preregistered_before_corrected_claim_bearing_run: true
+exceptional_revision:
+  topic_scoped_one_time: true
+  changes_general_one_revision_rule: false
+  consumed_at_registration: false
+  consume_event: "first corrected natural-object comparison starts"
+allowed_repairs:
+  - "execute frozen deterministic Latin arm rotation"
+  - "allocate shared, baseline-only, and candidate-only costs to the corresponding arms"
+  - "complete the Stage0-frozen native representation/baseline family"
+prohibited:
+  - "mechanism, object, workload, corpus, SQL, reader, threshold, or claim expansion"
+  - "Stage B, automation, system installation, global environment change, project creation"
+frozen_inputs:
+  owner_resume_manifest_sha256: "96D84A4C34C1E57441AA0DBDA9BEB446F55B743F258700B5E3FBB914845F24A9"
+  owner_handoff_sha256: "D800E6ABBA60618CB53925CF55440371546547026780DA41F41774E56B240DE0"
+  gate_manifest_sha256: "4FA942F2160B810641D16FE0F58542640DB5C21AF6C494CB2316112EEB1D3978"
+  gate_handoff_sha256: "E737B0031E26DF254E99B187CDE339E4A214F5B7D3576C7B33AA2A10B525EA59"
+  gate_report_sha256: "58A554BEE55139B38FA7C19844386306F20CCB844ED255E8FE30665653F3E76A"
+  frozen_implementation_sha256: "38E7BC74352BFD235709BD383E087BF5CEDF978DE2017BBC65BD9764A083EFF6"
+  corpus: "20 whole NYC TLC Green Taxi monthly Parquet files, 2024-01 through 2025-08"
+  corpus_source_tree: "stages/stageA/PARQUET-PAGE-COSEGMENT/resume1/inputs/replay2"
+exact_object:
+  input: "one frozen standard Parquet file"
+  output: "one standard self-contained Parquet file per arm"
+  invariants: ["typed values and nulls", "schema", "row order", "row-group count and boundaries", "DataFusion SQL scalar results"]
+  reader: "unmodified apache-datafusion-python 54.0.0 with page index and pushdown enabled"
+  writer_stack: "PyArrow 25.0.0 plus frozen standard DataPageV2 writer"
+  page_format: "Parquet 2.6; ZSTD; PageIndex and OffsetIndex"
+workload:
+  train: "unchanged days 02/09/16/23, trip_distance [1,3)/[3,5)/[5,10), fare_amount [10,25)/[25,50)"
+  heldout: "unchanged days 05/12/19/26, trip_distance [0.5,2)/[4,8)/[10,20), fare_amount [5,15)/[20,40)/[50,100)"
+  query_shape: "COUNT(*), SUM(total_amount), AVG(trip_distance)"
+  query_repetitions: 9
+  warmups: 2
+baseline_family:
+  source_original: true
+  boundary_grid:
+    fixed_row_limits: [1024, 4096, 16384, 65536]
+    fixed_page_bytes: [65536, 262144, 1048576]
+    cdc_min_max_norm:
+      - [65536, 262144, 0]
+      - [262144, 1048576, 1]
+      - [262144, 2097152, 2]
+  representation_grid:
+    - "NATIVE_V1_ZSTD_PLAIN"
+    - "NATIVE_V1_ZSTD_DICTIONARY_WITH_NATIVE_FALLBACK"
+    - "NATIVE_V2_ZSTD_PLAIN"
+    - "NATIVE_V2_ZSTD_DICTIONARY_WITH_NATIVE_FALLBACK"
+    - "NATIVE_V2_ZSTD_BYTE_STREAM_SPLIT_WITH_PLAIN_FALLBACK"
+    - "FROZEN_CUSTOM_V2_ZSTD_ALWAYS_COMPRESSED_PLAIN"
+    - "FROZEN_CUSTOM_V2_ZSTD_RETENTION_THRESHOLD_0_9_PLAIN"
+  product_points_per_file: 106
+  executable_point_rule: "every point is actually materialized, hashed, parsed, and scored on training information; no metric-wise envelope"
+  selection_scalar: "lexicographic (training predicted page-overread score, whole-file bytes, config_id)"
+  selected_point: "one executable point, rewritten once for deploy/write accounting"
+candidate:
+  id: "GLOBAL_BUDGETED_WORKLOAD_CONDITIONED_COSEGMENT"
+  implementation: "unchanged frozen whole-file three-column page-budget DP and workload-conditioned DataPageV2 retention"
+  fallback: "emit selected strongest-union configuration and charge attempted candidate cost"
+preclaim_gate:
+  required: true
+  natural_claim_forbidden_before_pass: true
+  checks:
+    - "input and upstream manifest/hash continuity"
+    - "106-point action catalog cardinality and uniqueness"
+    - "all seven representation paths execute on non-natural witness"
+    - "Arrow/DataFusion typed/schema/row-group/SQL equality"
+    - "custom V2 index/header/retention legality"
+    - "Latin schedule balance and execution trace"
+    - "typed ledger allocation identity"
+latin_rotation:
+  rule: "for query q and repetition r (including warmups), arm order is [union,candidate] iff (file_index+q+r) mod 2=0, else [candidate,union]"
+  balance: "each arm is first either 5 or 6 of 11 executions per query; across adjacent files roles invert"
+cost_ledger:
+  shared_preprocessing: "decode/footer/workload setup; split 50/50 by wall_ns and cpu_ns"
+  baseline_only: "complete family materialization, parse, scoring, selection; union arm only"
+  candidate_only: "candidate DP and retention construction; candidate arm only"
+  deploy_write: "selected union rewrite and candidate rewrite; own arm"
+  query: "Latin-rotated warmups and nine measured repetitions; own arm; warmup cost recorded but excluded from p50/p90 and included in full cost"
+  verification: "Arrow/DataFusion/index/SQL replay; own arm when attributable, shared digest checks 50/50"
+  units: ["wall_ns", "cpu_ns", "peak_rss_bytes", "logical_read_bytes", "logical_write_bytes", "temporary_bytes", "output_bytes", "fallback_count", "failure_count"]
+  full_wall_ns:
+    union: "0.5*shared_wall + baseline_only_wall + union_deploy_write_wall + union_query_total_wall + 0.5*shared_verification_wall"
+    candidate: "0.5*shared_wall + candidate_only_wall + candidate_deploy_write_wall + candidate_query_total_wall + 0.5*shared_verification_wall"
+decision_thresholds:
+  useful_outside_action_rate_min: 0.10
+  p50_files_improvement_ge_10pct_min: 12
+  p90_candidate_nonworse_files_required: 20
+  size_ratio_max_each_file: 1.05
+  full_cost: "candidate must retain a strict non-dominated point against selected strongest union"
+  positive_ceiling: "PRELIMINARY_SUPPORT"
+  decisive_negative: "fair corrected family absorbs candidate or any frozen killer fails"
+replays:
+  count: 2
+  independent_processes: true
+  non_timing_projection_and_output_hashes_must_match: true
+resource_ceiling:
+  workspace_bytes_lt: 4294967296
+  cpu_hours_lt: 4
+  gpu: false
+  exclusive_device: false
+  network_bytes: 0
+stageb_authorized: false
+stageb_started: false
+stageb_user_approval_id: null
+shared_control_write: false

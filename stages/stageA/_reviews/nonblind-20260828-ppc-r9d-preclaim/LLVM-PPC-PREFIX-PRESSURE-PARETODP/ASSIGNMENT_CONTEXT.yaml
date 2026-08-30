@@ -1,0 +1,43 @@
+schema_version: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+created_at: 2026-08-28T09:20:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER_RESUME_NONLINUX_STAGEA_AFTER_BACKTEST_CLOSEOUT_20260828, USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825]
+identity:
+  lane_id: STAGEA_GATE
+  lane_thread_id: 01a034d0-d990-7d50-9d9f-a6d05a81bf11
+  role_id: STAGEA_REVIEW
+  assignment_id: STAGEA-GATE-20260828-LLVM-PPC-R9D-INDEPENDENT-STATIC-PRECLAIM
+  topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+  stage: STAGEA_INDEPENDENT_PRECLAIM_GATE
+  authoritative_project_root: E:/project/writing/reserch
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/_reviews/nonblind-20260828-ppc-r9d-preclaim/LLVM-PPC-PREFIX-PRESSURE-PARETODP
+  resource_root: E:/project/writing/reserch/stages/stageA/_reviews/nonblind-20260828-ppc-r9d-preclaim/LLVM-PPC-PREFIX-PRESSURE-PARETODP/resources
+frozen_shared_snapshots:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 2B64C15BAF585DB54D336B3C19CABE31F6C0869E2F0AC14B861A2565B3390B7E}
+  registry: {path: registry.yaml, sha256: B071B64680F7AC3B3EC29386DEAB807EB39484D707AE0C084DB3E44F777DF69D}
+rules_and_skills:
+  role_rule: {path: rules/ROLE_STAGEA_REVIEW.md, sha256: 3F625031306861248D817C36905E3D0AB0DCDB3B8B6B959673975BDB6128FF01}
+  soft_blocker_recovery: {path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74}
+  academic_skill: {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  experiment_workflow: {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/experiment-agent/WORKFLOW.md, sha256: 389747B305FFA4160D1B2CEAF97B98A61EF9583CD45C473EFED5B4B414E27889}
+templates:
+  bootstrap_ack: {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+  stagea_report: {path: templates/STAGEA_REPORT.md, sha256: DF9AA27111D303600FD4C7F81DEB1FF52FFD6C308973D33B8A9EC59CA4542D7F}
+assignment_control: {path: stages/stageA/_reviews/nonblind-20260828-ppc-r9d-preclaim/LLVM-PPC-PREFIX-PRESSURE-PARETODP/control/ASSIGNMENT.yaml, sha256: B28D53F3157C2710A87914AEB4A8A96F81FD9D4099DED4A43FFCBF56AC8A44A0}
+minimum_inputs:
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim/handoff.yaml, sha256: D356DE4F27FAD4174CB4C3049C78BBE84C1E56126FF0B069BCF1268185F3944B, purpose: OWNER_PRECLAIM_PACKET}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim/HASH_MANIFEST.sha256, sha256: D1A22B7FB29164B680C4AE2300265B8461725CF0791D7EB6B6842A55BBE8EE32, purpose: OWNER_MANIFEST}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim/PRE_CLAIM_COMMAND_COST_AND_R10_GATE.yaml, sha256: 5BB7503A208F40ACDB6E28276C89892CC45F09EADF7EE1668CC733B1318BB495, purpose: FROZEN_GATE_CONTRACT}
+current_status: {assignment_state: BOOTSTRAP_ACK_PENDING, resource_root_absent: true, owner_packet_accepted: true, compiler_linker_checker_commands_allowed: false, natural_or_claim_allowed: false, scientific_revision_consumed: false, start_authorized_by_mainline: false}
+permissions: {write_scope: ONLY_UNIQUE_WRITE_DIRECTORY, static_review_only: true, network_bytes_max: 0, compiler_linker_checker_commands_max: 0, selected_or_reserve_tool_invocations_max: 0, claim_bearing_runs_max: 0, stageb_allowed: false}
+forbidden_actions: [ANY_ACTION_BEFORE_ACK_ACCEPTANCE_AND_START, COMPILER_LINKER_READOBJ_OBJDUMP_CHECKER_OR_NATURAL_RUN, MODIFICATION_OF_OWNER_PACKET_OR_SHARED_FILES, SCIENTIFIC_REVISION_OR_STATE_TRANSITION, GOLD_OR_PRODUCTION_CUTOVER]
+bootstrap_instructions:
+  read_order: [AGENTS.md, plan.md, THIS_CONTEXT, ROLE_STAGEA_REVIEW, AUTONOMOUS_SOFT_BLOCKER_RECOVERY, ACADEMIC_SKILL_AND_WORKFLOW, TEMPLATES, ASSIGNMENT_CONTROL, MINIMUM_INPUTS, FULL_REGISTRY_AND_RELATED_DUAL_READ]
+  bootstrap_only: true
+  unique_ack_path: stages/stageA/_reviews/nonblind-20260828-ppc-r9d-preclaim/LLVM-PPC-PREFIX-PRESSURE-PARETODP/BOOTSTRAP_ACK.yaml
+  ready_condition: ALL_HASHES_STATUS_PERMISSIONS_MATCH_AND_DIFFERENCES_EMPTY
+  refuse_condition: ANY_DIFFERENCE_OR_DRIFT
+resume_point: WRITE_BOOTSTRAP_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE
+next_action_after_start: INDEPENDENT_STATIC_PRECLAIM_GATE_ONLY_NO_NATIVE_OR_CLAIM

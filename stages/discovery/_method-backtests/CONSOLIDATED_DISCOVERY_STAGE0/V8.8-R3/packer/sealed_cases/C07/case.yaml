@@ -1,0 +1,27 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C07
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-09T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [CUDA_GPU, MICROSCALING_QUANTIZATION, COMPILER_RUNTIME]
+raw_opportunity: >-
+  Microscaling formats pair quantized payload blocks with scale metadata and
+  expose hardware layout constraints. Examine whether view/layout closure or
+  scale fragmentation yields a new same-type representation or algorithm,
+  without changing the fixed sink type or its required scale association.
+required_analysis:
+  - freeze the exact payload/scale type and all native legal layouts
+  - reject a paired linear-layout product presented under a new name
+  - reject multi-scale fragments when they change the target type or guarantee
+  - enforce a documentation/source evidence ceiling with no hardware claim
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C07/sources/S01_ocp-mx-v1.pdf, sha256: D195D6A36DD4A0C89064AF0C479BCAAD5C0FE29D63F628502EA6D7C4B4279421, bytes: 812323, url: "https://www.opencompute.org/documents/ocp-microscaling-formats-mx-v1-0-spec-final-pdf", available_by: "2023-12-31", role: FORMAT_AUTHORITY}
+  - {source_id: S02, path: sealed_cases/C07/sources/S02_ptx-isa.html, sha256: E91DAFCE5083999EEC0A2D5C86143EDD3FB9CDD4B592F031EF8BC236C279DD78, bytes: 3312703, url: "https://docs.nvidia.com/cuda/archive/13.0.0/parallel-thread-execution/index.html", available_by: "2025-12-31", role: VENDOR_NATIVE_TYPE_AND_ACTION_SURFACE}
+  - {source_id: S03, path: sealed_cases/C07/sources/S03_transformer-engine-fp8.ipynb, sha256: 05B00252A257326CE76759DCE02BF8BB5D5221D45359EA13988F3C90996C108F, bytes: 25107, url: "https://raw.githubusercontent.com/NVIDIA/TransformerEngine/bffde8f4a0a4eea9036dc753e28269247e5de69d/docs/examples/fp8_primer.ipynb", available_by: "2026-07-31", role: FIRST_PARTY_SOFTWARE_REALIZATION}
+exclusions:
+  - terminal candidate identity, proposed lattice and all later reviews
+  - measurements or silicon behavior not present in the source set
+claim_ceiling: SPECIFICATION_AND_SOFTWARE_SOURCE_ONLY__NO_GPU_MEASUREMENT
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL
+

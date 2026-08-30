@@ -1,0 +1,41 @@
+audit_id: RULE-AUDIT-20260810-SCREENING-THROUGHPUT-PARALLELISM-R4
+status: USER_APPROVED__HANDED_TO_MAINLINE_FOR_TWO_CYCLE_SHADOW_PILOT__AWAITING_IMPLEMENTATION_RESULT
+decision: PATCH_RECOMMENDED
+proposal_id: ADAPTIVE-WIP-FAST-HANDOFF-BURST-R4
+shared_files_modified: false
+user_approval_present: true
+user_approval_required: false
+scientific_behavior_backtest_required: false
+shadow_scheduling_pilot_required: true
+parallelism_conclusion:
+  permanent_per_stage_lane_increase_now: false
+  temporary_total_burst_seat_recommended: 1
+  reuse_existing_long_lived_lane_only: true
+  create_new_per_candidate_task: false
+  discovery_expansion_before_v8_8_pass: false
+primary_bottlenecks:
+  - DISCOVERY_BRIEF_PRECISION
+  - STAGE0_TO_STAGEA_YIELD
+  - MAINLINE_HANDOFF_ACCEPTANCE_HEAD_OF_LINE
+not_current_bottlenecks:
+  - RAW_SCREENING_RATE
+  - STAGE0_LANE_CAPACITY
+  - CANDIDATE_LANE_CAPACITY
+  - STAGEA_GATE_CAPACITY
+affected_shared_files_if_approved:
+  - rules/ROLE_MAINLINE.md
+  - rules/_shadow_v9/CONTROL_PLANE_SCHEMA.md
+registry_candidate_state_migration: NONE
+active_topic_decisions_changed: false
+blocked_hold_terminal_topics_changed: false
+terminal_revival: false
+stageb_authorized: false
+artifacts:
+  report: RULE_AUDIT_REPORT.md
+  report_sha256: DB415FE8072E5A32590FE334C414864D94E179979E7DAAAB678E2CF1EBAB75F4
+  proposal: RULE_CHANGE_PROPOSAL.md
+  proposal_sha256: 786BF1D8B8FEAD8F16BF72B07CACE49B84740135633753D57435592A0111F273
+  input_snapshot: AUDIT_INPUT_SNAPSHOT.md
+  input_snapshot_sha256: 4A1519FDA914339542E399D3F4D9B03055FB06CDC78EA917452D9EEE09F43017
+  user_approval_directive: USER_APPROVAL_IMPLEMENTATION_DIRECTIVE.md
+  manifest: HASH_MANIFEST.sha256

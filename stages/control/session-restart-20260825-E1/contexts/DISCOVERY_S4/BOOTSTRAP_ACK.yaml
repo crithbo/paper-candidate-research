@@ -1,0 +1,125 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-25T01:50:31.2281865+08:00
+reack_round: 2
+prior_ack_content_reused: false
+lane_id: DISCOVERY-S4
+role_id: DISCOVERY
+assignment_id: IDLE-REUSABLE-E-RESTART-20260825
+topic_id: null
+assignment_context_path: stages/control/session-restart-20260825-E1/contexts/DISCOVERY_S4/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: EE11DBDA182E16C5098C5CD9F1D981700A847D4632E57C6C2A4773DBDF0E70F4
+old_chat_memory_required: false
+
+cwd_ack:
+  actual_cwd: 'E:\project\writing\reserch'
+  authoritative_project_root: 'E:\project\writing\reserch'
+  exact_match: true
+
+thread_mapping_ack:
+  new_thread_id: 01a034d0-bf13-7512-8e42-b9cd6a5df0fa
+  old_thread_id: 01a02e08-1606-71b0-89d9-3fc204478b08
+  context_plan_registry_consistent: true
+
+frozen_hash_ack:
+  AGENTS_sha256: AD70E26C184B8932EC4A929D756EF64C4A77567232E2D75B7A52701A289C17C4
+  plan_sha256: C9035660029D1850147E4714059FC4D13759FE5E72E90137498FBBB932725919
+  registry_snapshot_sha256: 239131A20B520FB6B8CD04710DC0E744DEDAC3A0AB91D808882DB63E33B0D98C
+  role_rule_sha256: 30FF95541B80377947CA77F8FD30DFD3366D54B0AFB087B812A7DDCAE83555EE
+  skill_hashes:
+    - name: research-topic-discovery
+      path: .agents/skills/research-topic-discovery/SKILL.md
+      sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  template_hashes:
+    - path: templates/DISCOVERY_QUESTION_CARD.md
+      sha256: D157B1B5D14C0DCEB3D238E85075777C3850C7E145ABD5EA8A3A111D3D022739
+    - path: templates/DISCOVERY_EVIDENCE_LEDGER.yaml
+      sha256: E6FB0DD43147E677E38DFFF4EAE2B8FB63ED79D74EAC3C08A9142A391F63E9E9
+    - path: templates/TOPIC_BRIEF.md
+      sha256: F1EF88AFE26DB2949E86CD66187821E5331AA3081DF5C76D6D271530CAC87637
+    - path: templates/BOOTSTRAP_ACK.yaml
+      sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B
+  conditional_protocol_hashes:
+    - path: rules/RESOURCE_LOCALIZATION.md
+      sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+      mode: READ_ONLY_NO_RESOURCE_ACTION
+    - path: rules/ARTIFACT_LIFECYCLE.md
+      sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+      mode: OFF_BOOTSTRAP_CONTROL_ONLY
+  source_assignment_sha256: null
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  minimum_inputs: []
+  registry_dual_read_performed: true
+
+plan_registry_snapshot_ack:
+  plan_lane_status: BOOTSTRAP_CONTEXT_PENDING__IDLE_REUSABLE
+  plan_context_path: stages/control/session-restart-20260825-E1/contexts/DISCOVERY_S4/ASSIGNMENT_CONTEXT.yaml
+  plan_next_action: ACK_THEN_REMAIN_IDLE__NO_SUCCESSOR_DISPATCH
+  registry_migration_status: CONTROL_DRIFT_FIXED__CONTEXTS_REGENERATING__ACKS_PENDING
+  registry_lane_ack_state: PENDING
+  registry_accepted_ack_count: 0
+  registry_pending_ack_count: 19
+  registry_rejected_or_ambiguous_ack_count: 2
+  registry_current_scientific_assignment_count: 0
+  registry_queue_or_science_started: false
+  registry_download_build_experiment_started: false
+  registry_automation_started: false
+  registry_candidate_scientific_states_changed: false
+  consistent_with_context: true
+
+role_state_authority_ack:
+  role: DISCOVERY
+  stage_or_mode: IDLE
+  current_status: IDLE_REUSABLE__SUCCESSOR_STOPPED__ACK_PENDING
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: null
+  allowed_actions:
+    - read_context
+    - write_bootstrap_ack
+  state_transition_authorized: false
+  network_authorized: false
+  experiment_authorized: false
+  science_assignment_budget: 0
+  claim_ceiling: CONTROL_BOOTSTRAP_ONLY
+  evidence_ceiling: NO_SCIENTIFIC_INFERENCE
+
+boundary_ack:
+  unique_write_directory_exact: E:/project/writing/reserch/stages/control/session-restart-20260825-E1/contexts/DISCOVERY_S4
+  resource_root_exact: null
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  forbidden_inputs:
+    - D_ROOT_PROJECT_FILES
+    - old_chat_unregistered_state
+  forbidden_actions:
+    - discovery
+    - search
+    - queue
+    - download
+    - build
+    - experiment
+    - pre_read_next_assignment
+    - automation
+    - state_transition
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: NONE
+  contamination_detected: false
+
+execution_ack:
+  current_status: IDLE_REUSABLE__SUCCESSOR_STOPPED__ACK_PENDING
+  resume_point: E_ROOT_BOOTSTRAP_ACK
+  next_action: WAIT_FOR_MAINLINE_ACCEPTANCE
+  user_gate_or_blocker: MAINLINE_BOOTSTRAP_ACK_ACCEPTANCE_REQUIRED
+  scientific_or_resource_action_started: false
+
+differences_or_ambiguities: []
+ack_disposition: READY
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

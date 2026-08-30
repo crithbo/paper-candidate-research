@@ -1,0 +1,6 @@
+# RULE_FREEZE — DISCOVERY-S1-20260811-V8.7-WAVE167-PETRA-POLICY-REDACTION-VERIFIER-BOUNDARY-DEPTH-REDTEAM
+
+- Frozen date: 2026-08-11; `v8.7+R5-P0`; `DISCOVERY_QUALITY_MODE=OFF`.
+- Full input hashes: `AGENTS.md` `66231f71ef6ab250a1ad9ff576d5840978f09efc03bf5d2f0527d47f4d82b063`; `plan.md` `f3914529414e4be887a7cb83284a13fa7d3159dbe032f662b595cf972bcd4084`; `registry.yaml` `30f8df86c1ac71939e13c9d31934af14037d97d1ebfaaab38063186c224954da`; `ROLE_DISCOVERY.md` `fcb9bd73c39f39d31f6c8154e6b48ea23187ff28bdf2bb3d9c59e3d28fa518a3`; `TOPIC_BRIEF.md` `41d7b1977c6c467e31762b097c3f53c4314900e5c69ad8351ebb709f3963a130`.
+- Frozen first-party evidence: [Security'26 Petra paper](https://www.usenix.org/system/files/conference/usenixsecurity26/sec26_prepub_ishgair.pdf), [Zenodo artifact v1](https://zenodo.org/records/17906622), and [SBOMCtl main](https://github.com/TSELab/SBOMCtl), all accessed 2026-08-11. Artifact record: Zenodo v1, published 2025-12-12, 72.5 kB archive, repository URL `TSELab/SBOMCtl`; current public repository exposes `privateSBOMExchange` and states it is a research prototype, not production-ready.
+- No issue, future-work statement, unavailable download, or lack of implementation/result is used as absence/negative scientific evidence.

@@ -1,0 +1,55 @@
+assignment_id: SOURCE-CLOSURE-SOURCE90-S2-CQ01-SWIFT-SIL-OWNERSHIP-ARC-LAYOUT-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+write_owner: ASSIGNED_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source90/S2-bottleneck-transfer/closure-cq01
+parent_assignment: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE90-R40-ORDINARY-BREADTH-V1
+parent_handoff_sha256: 4375C5787AB659780018C89BE17D0F13743BD76095ECFD0A25D1AC84B9FDF4B6
+parent_queue_sha256: 1EC286CDA1603E6C335FD901CA506BFEAA5D4CBF6FBB471E498BD7E15D8847EE
+parent_question_card_sha256: 6CAFB4FBF074A18B02E506B1CC2B1A6A83F98370E190499794A9085DF61D96E5
+queue_item: S2-90-CQ01
+queue_status_at_freeze: PENDING_UNEXECUTED__ATTEMPTS_0__NOT_EXHAUSTED
+exact_project: swiftlang/swift
+deterministic_version_rule: resolve official refs/heads/main or repository-default commit SHA at the first counted bounded attempt and pin every retained source to that one SHA
+exact_object: one fixed Swift module ABI and target compiled by stock Swift with unchanged ownership, lifetime, object-access, ARC, language and runtime semantics and the same full-cost endpoint
+primary_routes:
+  - https://api.github.com/repos/swiftlang/swift
+  - https://api.github.com/repos/swiftlang/swift/commits/main
+  - https://raw.githubusercontent.com/swiftlang/swift/<resolved_commit_sha>/lib/SILOptimizer/ARC/ARCSequenceOpts.cpp
+  - https://raw.githubusercontent.com/swiftlang/swift/<resolved_commit_sha>/lib/SILOptimizer/ARC/ARCAnalysis.cpp
+  - https://raw.githubusercontent.com/swiftlang/swift/<resolved_commit_sha>/lib/SILOptimizer/Transforms/AllocBoxToStack.cpp
+  - https://raw.githubusercontent.com/swiftlang/swift/<resolved_commit_sha>/test/SILOptimizer/arc_sequence_opts.sil
+route_selection_rule: resolve repository default branch once, then use only the four precommitted direct swiftlang/swift raw paths; retain 404 or renamed-path telemetry without substituting an unbounded search and without absence inference
+required_outputs:
+  - immutable current swiftlang/swift commit and exact retained source loci
+  - bounded stock SIL ownership, ARC optimization, object-access/lifetime lowering, layout/codegen and relevant option union visible in retained loci
+  - one fixed stock-legal in-tree SIL carrier and two complete legal ownership-plus-layout plans if source exposes them
+  - whether a union-external Swift-specific joint action and finite exact/FPT/approximation/certified guarantee can be frozen
+  - strongest direct current collision and generic ARC placement/layout-packing/controller objection
+  - full-cost dimensions and finite falsifier route
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_CHANGED_SEMANTICS_OR_GENERIC_ARC_LAYOUT_CONTROLLER__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide_clean_brief_Q2_PASS_STOP_or_stage_state
+  - change_fixed_module_ABI_target_ownership_lifetime_object_access_ARC_language_or_full_cost_endpoint
+  - run_build_install_experiment_or_claim_bearing_observation
+  - clone_repository_or_download_archives
+  - search_outside_exact_project_source_scope
+  - treat_404_zero_match_transport_failure_or_missing_tool_as_absence
+  - read_or_use_Source91_or_later_Discovery_outcomes
+  - read_or_use_R81_R82_Rustc_JSC_OpenXLA_TVM_ONNX_GraalVM_or_other_closure_outputs
+resource_localization:
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source90/S2-bottleneck-transfer/closure-cq01/resources
+  inventory: stages/discovery/round-20260815-adaptive-source90/S2-bottleneck-transfer/closure-cq01/RESOURCE_INVENTORY.yaml
+  max_acquisition_calls: 6
+  max_success_response_bytes_each: 8388608
+  max_persisted_bytes: 16777216
+  max_wall_seconds: 1800
+  pre_call_monotonic_attempt_counter: required
+  eight_standard_subdirectories: required
+model_route: {model: gpt-5.6-terra, reasoning: high}
+notify_mainline_on_finish_or_blocker: true

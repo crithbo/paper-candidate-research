@@ -1,0 +1,51 @@
+assignment_id: STAGE0-P1-20260814-SYSTEMZ-PACKEDSTACK-CALLEESAVE-JOINT-CONSTRUCTION-PREBRIEF-CLOSURE-V8.7
+run_id: preflight-20260814-01
+policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+resource_root: D:\project\writing\reserch\stages\stage0\_reviews\round-20260814-adaptive-source32-prebrief-closure\SYSTEMZ-PACKEDSTACK-CALLEESAVE-JOINT-CONSTRUCTION\resources
+required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+logical_size_bytes: 82561
+measurement_method: recursive_logical_file_length_under_resource_root_including_retained_responses_and_metadata
+resource_entries:
+  - relative_path: downloads/llvm-main-commit.json
+    class: immutable_official_current_commit_metadata
+    logical_bytes: 10482
+    source_uri: https://api.github.com/repos/llvm/llvm-project/commits/main
+    version_or_commit: 72edcedcdf0a8de68338e9b42f4effd1f21e9725
+    license: LLVM_Apache_2_0_with_LLVM_exception__upstream_repository_metadata
+    sha256: 8C660DF871481547FE763050B5C11AAD31B2A59321344BA05B045D55DE5D7492
+    creating_run: acquire-current-source-20260814-01
+    retention_reason: current_upstream_pin
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: downloads/SystemZFrameLowering.cpp
+    class: immutable_official_source_blob
+    logical_bytes: 62159
+    source_uri: https://raw.githubusercontent.com/llvm/llvm-project/72edcedcdf0a8de68338e9b42f4effd1f21e9725/llvm/lib/Target/SystemZ/SystemZFrameLowering.cpp
+    version_or_commit: 72edcedcdf0a8de68338e9b42f4effd1f21e9725
+    license: LLVM_Apache_2_0_with_LLVM_exception
+    sha256: 3EB1E9DF1D328649F098176BCBA2865F4C7B3D5005733CEC926F30AA15F45B7F
+    creating_run: acquire-current-source-20260814-01
+    retention_reason: claim_critical_current_action_audit
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: downloads/SystemZFrameLowering.h
+    class: immutable_official_source_blob
+    logical_bytes: 7418
+    source_uri: https://raw.githubusercontent.com/llvm/llvm-project/72edcedcdf0a8de68338e9b42f4effd1f21e9725/llvm/lib/Target/SystemZ/SystemZFrameLowering.h
+    version_or_commit: 72edcedcdf0a8de68338e9b42f4effd1f21e9725
+    license: LLVM_Apache_2_0_with_LLVM_exception
+    sha256: BBDF7ED6A3836BB13C514FFB74456402097FE6F07113EB3A26FA2E145AC18397
+    creating_run: acquire-current-source-20260814-01
+    retention_reason: claim_critical_current_action_interface
+    deletion_status: RETAIN_CLAIM_CRITICAL
+external_system_dependencies:
+  - executable: powershell
+    location: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED
+    role: process_local_preflight_only
+redirect_preflight:
+  status: PASS_FOR_POWERSHELL_INVOKE_WEBREQUEST_ONLY
+  record: resources/logs/REDIRECT_PREFLIGHT__preflight-20260814-01.md
+inventory_snapshot: resources/logs/resource-inventory/acquire-current-source-20260814-01-complete.yaml
+cleanup_owner: MAINLINE
+lane_cleanup_authorized: false
+deletion_status: BLOCKED_BY_ACTIVE_PROCESS_OR_ASSIGNMENT

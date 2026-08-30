@@ -1,0 +1,47 @@
+schema_version: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+created_at: 2026-08-29T00:55:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER_RESUME_NONLINUX_STAGEA_AFTER_BACKTEST_CLOSEOUT_20260828, USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+identity:
+  lane_id: CANDIDATE_EXECUTION_LANE_3
+  lane_thread_id: 01a034d0-d67f-7f32-ab5f-54454407cb22
+  role_id: CANDIDATE_OWNER
+  assignment_id: STAGEA-L3-20260829-LLVM-APX-R7C-A4-EXPLICIT-RESOURCE-COPY
+  topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+  stage: STAGEA_PRECLAIM_ENGINEERING_CORRECTION
+  authoritative_project_root: E:/project/writing/reserch
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a4-explicit-resource-copy-20260829
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a4-explicit-resource-copy-20260829/resources
+  read_only_input_directory: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a2-oracle-reimport-20260828/resources
+frozen_shared_snapshots:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 5A8FFFFD80C91BA5E82860342372E7C41E4A23C9518B2A80EEB3C2DD296A85F7}
+  registry: {path: registry.yaml, sha256: F2F6D192EA3AFB7CA343154D682E7A05FDBA8EC4BA47BA74565D9FEA329EF777}
+rules_and_skills:
+  role_rule: {path: rules/ROLE_CANDIDATE_OWNER.md, sha256: 4373A320D7EF96FB5EB1683872FEC9CDCB9EA6D16ACDF893CA997C5FB2745A1A}
+  soft_blocker_recovery: {path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74}
+  resource_localization: {path: rules/RESOURCE_LOCALIZATION.md, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+  artifact_lifecycle: {path: rules/ARTIFACT_LIFECYCLE.md, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6}
+  academic_skill: {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  experiment_workflow: {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/experiment-agent/WORKFLOW.md, sha256: 389747B305FFA4160D1B2CEAF97B98A61EF9583CD45C473EFED5B4B414E27889}
+templates:
+  bootstrap_ack: {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+  stagea_report: {path: templates/STAGEA_REPORT.md, sha256: DF9AA27111D303600FD4C7F81DEB1FF52FFD6C308973D33B8A9EC59CA4542D7F}
+  resource_inventory: {path: templates/RESOURCE_INVENTORY.yaml, sha256: E859CE19DC3EB906EF391B1D8039E7B02A762EB74D7421454E40BB4539FEEEC7}
+assignment_control: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a4-explicit-resource-copy-20260829/control/ASSIGNMENT.yaml, sha256: B93378FFA18679C5FB3C8E1B507FF2A96E291147A14516B320DADBB3D72EA8B9}
+minimum_inputs:
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a3-no-bytecode-compile-20260828/handoff.yaml, sha256: A7CA01A409A94C3305B24B2D9021C33F3AD694C28357DB701418F9F333DE9F9B, purpose: PRIOR_RESOURCE_COPY_BLOCKER}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a3-no-bytecode-compile-20260828/A3_FAILURE_RAW.txt, sha256: 8EB3CA533F1CD34CA8E1148F90683436F68967A5C5D468095FC886FDD31A4C57, purpose: EXACT_COPY_PREFLIGHT_FAILURE}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a2-oracle-reimport-20260828/RESOURCE_INVENTORY.yaml, sha256: EAE21488ABD83048684F62FBB523ADB1257C1BA019D2AD95D59811430EE87F70, purpose: READ_ONLY_RESOURCE_TREE_EXPECTED_8183_FILES}
+current_status: {assignment_state: BOOTSTRAP_ACK_PENDING, source_tree_exists: true, destination_resource_root_absent: true, copy_attempts_max: 1, static_compile_attempts_max: 1, C4_tiny_to_C7_control_attempts_max: 1, network_bytes_max: 0, selected_or_natural_or_claim_runs_max: 0, scientific_revision_consumed: false, start_authorized_by_mainline: false}
+permissions: {write_scope: ONLY_UNIQUE_WRITE_DIRECTORY, explicit_absolute_copy_once: true, source_semantics_edit_allowed: false, wrapper_edit_allowed: false, no_bytecode_compile: true, C3_parser_rerun_allowed: false, C4_formal_rerun_allowed: false, stageb_allowed: false, owner_cleanup_allowed: false}
+forbidden_actions: [ANY_ACTION_BEFORE_ACK_ACCEPTANCE_AND_START, MODIFY_A1_A2_A3_EVIDENCE, COPY_RETRY, SOURCE_OR_WRAPPER_EDIT, RERUN_C3_OR_C4_FORMAL, NETWORK, ALTERNATE_TOOLCHAIN, SELECTED_NATURAL_CLAIM, STAGEB, CLEANUP, SECOND_PIVOT, SCIENTIFIC_REVISION, SHARED_STATE_TRANSITION]
+bootstrap_instructions:
+  read_order: [AGENTS.md, plan.md, THIS_CONTEXT, ROLE_CANDIDATE_OWNER, AUTONOMOUS_SOFT_BLOCKER_RECOVERY, RESOURCE_AND_LIFECYCLE, ACADEMIC_SKILL_AND_WORKFLOW, TEMPLATES, MINIMUM_INPUTS, FULL_REGISTRY_AND_RELATED_DUAL_READ]
+  bootstrap_only: true
+  unique_ack_path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a4-explicit-resource-copy-20260829/BOOTSTRAP_ACK.yaml
+  ready_condition: ALL_HASHES_STATUS_PERMISSIONS_MATCH_AND_DIFFERENCES_EMPTY
+  refuse_condition: ANY_DIFFERENCE_OR_DRIFT
+resume_point: WRITE_BOOTSTRAP_ACK_ONLY_THEN_WAIT_FOR_MAINLINE
+next_action_after_start: ABSOLUTE_ROBOCOPY_ONCE_VERIFY_8183_FILES_THEN_NO_BYTECODE_STATIC_COMPILE_AND_C4_TINY_TO_C7

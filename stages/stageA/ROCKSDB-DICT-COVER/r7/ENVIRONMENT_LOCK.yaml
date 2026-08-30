@@ -1,0 +1,60 @@
+schema_version: rocksdict-r7-environment-lock-v1
+created_at: 2026-08-25T18:33:56.8775107+08:00
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-R7-NATURAL-CLAIM-PILOT
+addendum_id: ROCKSDB-R7-NATURAL-KVMAN1-CLAIM-HARNESS-A1
+topic_id: ROCKSDB-DICT-COVER
+host:
+  os: Microsoft Windows NT 10.0.26200.0
+  architecture: X64
+  logical_processors: 32
+  gpu_used: false
+boundaries:
+  workspace_root: E:/project/writing/reserch
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/r7
+  resource_root: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/r7/resources
+  network_bytes: 0
+  cross_topic_input: false
+  system_or_global_environment_change: false
+toolchain:
+  compiler: clang++ 22.1.8 x86_64-w64-windows-gnu
+  cmake: 4.4.2
+  ninja: 1.13.2
+  configure_attempts: 1
+  clean_build_attempts: 1
+  build_jobs: 2
+  automatic_retry: false
+  archives:
+    - {file: llvm-mingw-20260616-ucrt-x86_64.zip, bytes: 187504083, sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35}
+    - {file: cmake-4.4.2-windows-x86_64.zip, bytes: 54405968, sha256: E8139D85B3813BC38833142AE1940472E9A587E9B5D2718AC1804C60F4E57A64}
+    - {file: ninja-win-1.13.2.zip, bytes: 291570, sha256: 07FC8261B42B20E71D1720B39068C2E14FFCEE6396B76FB7A795FB460B78DC65}
+frozen_inputs:
+  preclaim_source_sha256: 3155101C727F6FF76AA262C1C7E0663B77E6CDF18832DA7C3F3B3EC59D39D0D2
+  preclaim_binary_sha256: 22A57C80065AC0883AA62678DB7BAD7546BDC08A51064EBDA9721DE991DC34D4
+  candidate_core_sha256: 9BB41C3A169E3EC2BF7865C3D1BE135A3EE5F0774C7D88AE096D2B55242AE323
+  rocksdb_static_sha256: 638973B80FD6181CC0B20DDA025D013CF1EA8C6306E3CC9DEB52C02805D6B6C3
+  zstd_static_sha256: 04DEC078758D0FDF9449D6D3E76FB220174A82527ADC3146323B0C081C60DE91
+  accepted_manifest_count: 20
+  accepted_manifest_bytes: 61951583
+claim_harness:
+  source_sha256: 709D415C82A602C55215AE1352F0F08AEDFC7AE4D06B827EE91BF4A1CA9BC288
+  cmake_source_sha256: 78357CA2FD45D7143A0DBEEB0789DB105C33E386E062D00C58ACC31F54C7C80C
+  executable_bytes: 11099136
+  executable_sha256: 41CBC5D3E5CF79DCC314076A0B2AABC8E8C3506D4DA6816869C7A12087B5DB42
+  compatibility_smokes: PASS_4_OF_4
+  quiescence_gate: PASS_ZERO_MATCHING_PROCESS
+matrix:
+  expected_processes: 560
+  completed_processes: 344
+  pass_processes: 342
+  deterministic_fail_processes: 2
+  not_started_processes: 216
+  concurrent_processes_max: 2
+  process_cpu_seconds: 122.765625
+  matrix_wall_seconds: 652.5779999999977
+  retries: 0
+  result_based_exclusions: 0
+validation:
+  frozen_hashes_unchanged: true
+  active_related_processes_at_closeout: 0
+  resource_reparse_count: 0
+  result: LOCKED_FAIL_CLOSED_INVALID_CLAIM_CONSTRUCTION

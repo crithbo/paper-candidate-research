@@ -1,0 +1,63 @@
+schema: same-topic-claim-input-acceptance-v1
+created_at: 2026-08-25T17:38:55.3218994+08:00
+topic_id: ROCKSDB-DICT-COVER
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-R7-NATURAL-CLAIM-PILOT
+lane_id: CANDIDATE_EXECUTION_LANE_2
+source_assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-RESUME6-E-ROOT-PRECLAIM-FIDELITY
+source_root: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources
+destination_root: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/r7/resources
+source_access: READ_ONLY_HASH_PINNED_SAME_TOPIC
+source_modify_or_delete_allowed: false
+upstream_postcleanup_inventory_sha256: 0FCD64F374B5D1D767B0C918F0C8A8009E3909C81B577B7B581824DFDD5961E5
+upstream_resource_tree_index_sha256: 6C14187F490EBC565C1A1896054BCF7ED1B9A2F54382AB10F8E5A37118F3DB7C
+
+copy_ledger:
+  - attempt: 1
+    action: CREATE_EIGHT_STANDARD_DIRECTORIES_THEN_COPY_THREE_TREES
+    result: COPY_COMMAND_DID_NOT_COPY_FILES
+    exact_error: POWERSHELL_COPY_ITEM_LITERALPATH_DOES_NOT_EXPAND_WILDCARD
+    files_copied: 0
+    scientific_effect: NONE
+    retry_class: NOT_A_CLAIM_RUN__EXPLICIT_ENGINEERING_COMMAND_CORRECTION
+  - attempt: 2
+    action: EXPLICIT_CHILD_ITEM_COPY_OF_THREE_FROZEN_TREES
+    result: PASS
+    automatic_retry: false
+
+accepted_trees:
+  - source: resources/src
+    destination: resources/src
+    files: 3009
+    bytes: 120924595
+    tree_sha256: BB422A956D525172FEEE0D4D608F081213632B29296825E90DA64791F7A2498C
+    destination_per_file_hash_mismatches: 0
+    destination_extra_files: 0
+    reparse_count: 0
+  - source: resources/build/frozen
+    destination: resources/build/frozen
+    files: 3
+    bytes: 47943324
+    tree_sha256: 6BED3634B5D5194F6CAEAAC0DB54F42F2F83035F1BEEB8465A1ABC727AA7B6D5
+    destination_per_file_hash_mismatches: 0
+    destination_extra_files: 0
+    reparse_count: 0
+  - source: resources/env/runtime
+    destination: resources/env/runtime
+    files: 2
+    bytes: 2299392
+    tree_sha256: 6DC336C15FD5F13AE2E95531A294A4A87946259C4ED07ED38762C64FB8F21A23
+    destination_per_file_hash_mismatches: 0
+    destination_extra_files: 0
+    reparse_count: 0
+
+validation:
+  standard_directories_present: 8_OF_8
+  source_destination_files_hash_equal: 3014_OF_3014
+  source_destination_bytes_equal: 171167311_OF_171167311
+  exact_manifest_count: 20
+  exact_manifest_bytes: 61951583
+  exact_harness_sha256: 22A57C80065AC0883AA62678DB7BAD7546BDC08A51064EBDA9721DE991DC34D4
+  exact_candidate_implementation_sha256: 9BB41C3A169E3EC2BF7865C3D1BE135A3EE5F0774C7D88AE096D2B55242AE323
+  network_bytes: 0
+  claim_bearing_observation_started: false
+  result: PASS__EXACT_SAME_TOPIC_INPUTS_ACCEPTED

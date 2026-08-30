@@ -1,0 +1,29 @@
+schema: stagea-a0-assignment-v1
+assignment_id: STAGEA-L1-20260830-LEROBOT-AOI-SLO-RUNTIME-A0
+topic_id: LEROBOT-AOI-SLO-RUNTIME-REV0
+lane_id: CANDIDATE_EXECUTION_LANE_1
+mode: A0_EXECUTION_READINESS
+stagea_scope_budget_mode: PRODUCTION
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+unique_write_directory: stages/stageA/LEROBOT-AOI-SLO-RUNTIME-REV0/a0-execution-readiness-20260830
+resource_root: stages/stageA/LEROBOT-AOI-SLO-RUNTIME-REV0/a0-execution-readiness-20260830/resources
+stage0_inputs:
+  primary_handoff: {path: stages/stage0/_reviews/round-20260830-source121-primary/LEROBOT-AOI-SLO-RUNTIME-REV0/handoff.yaml, sha256: 47491B95C29F135F38DB754B9967D7C65415544CE44FF3766FD3CFFCDC3EB915}
+  sentry_handoff: {path: stages/stage0/_reviews/round-20260830-source121-sentry/LEROBOT-AOI-SLO-RUNTIME-REV0/handoff.yaml, sha256: 710D1017909114BF68C29B481C55EF705506A3B8B61F8B97C1537FE2072463EC}
+claim_ceiling: CANONICAL_SAME_HOST_TIMING_AND_FORMAL_PROVENANCE_ONLY
+exact_object: LeRobot_commit_4aaff99be4a1d81568c08c8f0296b41b40c99ec4_distributed_async_protocol
+a0_objective:
+  - freeze exact async client_server_source_paths_and_hashes
+  - freeze client_monotonic_origin_pair_and_contributor_sidecar_semantics_without_wire_change
+  - freeze complete short_trace_universe_queue_le4_two_overlapping_chunks_duplicate_timestep_reordered_returns_four_aggregators_empty_mustgo_wallclock_jumps
+  - freeze full_event_history_reference_oracle_and_candidate_sidecar_checker
+  - freeze static_joint_g_grid_fps_chunk_aggregation_baseline_and_equal_occupancy_match
+  - freeze natural same_host inference timing carrier and full_cost ledger
+  - run one nonclaim manual trace_schema_control_only
+a1_plan: {formal_probe_families: 1, natural_trace_replay_cases: 1, claim_run_requires_separate_start: true}
+budget: {network_attempts_max: 24, network_bytes_max: 536870912, stored_bytes_max: 1073741824, cpu_hours_max: 6, gpu_hours_max: 0, a0_initial_round: 1, engineering_correction_batches_max: 2}
+firewall_hidden_until_a1: [legality_failure_count, equal_occupancy_incremental_value, age_violation_direction, candidate_vs_grid_effect]
+allowed_after_start: [official_source_acquisition, assignment_local_checker_and_packet_implementation, one_nonclaim_control, readiness_inventory_retention_handoff]
+forbidden: [claim_universe_or_trace_execution, result_visibility, wire_protocol_change, result_aware_trace_or_grid_selection, policy_or_action_value_change, StageB, shared_write, system_install]
+current_cycle_usage_reset_confirmed: false
+

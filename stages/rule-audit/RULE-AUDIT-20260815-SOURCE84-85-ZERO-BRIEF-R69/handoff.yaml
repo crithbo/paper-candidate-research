@@ -1,0 +1,44 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260815-SOURCE84-85-ZERO-BRIEF-R69
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+disposition: NO_CHANGE
+recommendation: RETAIN_ORDINARY_R40__NO_SUCCESSOR_MICRO_RULE__KEEP_INDEPENDENT_PENDING_RAW_CLOSURES_SEPARATE_FROM_CLEAN_BRIEF_AND_NEXT_CYCLE_EVIDENCE
+assignment:
+  path: stages/rule-audit/_assignments/RULE_AUDIT_SOURCE84_85_ZERO_BRIEF_R69.yaml
+  sha256: EA9765194E010EEFBCB1B130F5ACD9BAFF4D1487A79694803DBB5BFB8CA1EE11
+scope:
+  included: [Source84, Source85]
+  forbidden_input: Source86
+  source86_read: false
+  source86_contacted: false
+  source86_modified: false
+  queue_execution: false
+  retrieval_download_experiment_automation: false
+  shared_files_modified: false
+canonical_inputs:
+  source84_control_sha256: 0075087D0CA6327331CDF5720A3335FA8E44BA400C934E3F50FF065892D009E9
+  source85_control_sha256: 1F442226A86C6C6E1E9799D54A868BC5CE6B8190BF2D6522325FAD756D522054
+funnel:
+  source84: {evidence_qualified_raw: 1, clean_stage0_brief: 0}
+  source85: {evidence_qualified_raw: 1, clean_stage0_brief: 0}
+pending_raw_closures:
+  S2-84-CQ01: {topic: OpenXLA, status: PENDING_UNEXECUTED, attempt_count: 0, exhausted: false, source86_evidence: false}
+  S2-85-CQ01: {topic: TVM_Relax, status: PENDING_UNEXECUTED, attempt_count: 0, exhausted: false, source86_evidence: false}
+findings:
+  new_attributable_rule_defect: false
+  independent_raw_closure_separation_correct: true
+  successor_micro_rule_justified: false
+authorization:
+  user_policy_decision_required: false
+  mainline_shared_patch_required: false
+  backtest_required: false
+  new_assignment_local_action: none
+validation:
+  required_files: PASS
+  assignment_hash: PASS
+  counts: PASS__SOURCE84_RAW_1_BRIEF_0__SOURCE85_RAW_1_BRIEF_0
+  separation: PASS__PENDING_QUEUES_NOT_USED_AS_SOURCE86_EVIDENCE
+  forbidden_input: PASS__SOURCE86_NOT_READ
+  prohibited_actions: PASS
+  resource_localization: PASS__EMPTY_ROOT
+  manifest_replay: PASS__FIVE_CANONICAL_ARTIFACTS

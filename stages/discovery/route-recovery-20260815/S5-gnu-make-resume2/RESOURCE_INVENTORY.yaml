@@ -1,0 +1,47 @@
+assignment_id: SAFE-ROUTE-RECOVERY-S5-20260815-GNU-MAKE-RESUME2-DOTNET-TRANSPORT
+authorization_id: USER_AUTONOMOUS_SAFE_BLOCKER_RECOVERY_20260815
+resource_policy:
+  path: rules/RESOURCE_LOCALIZATION.md
+  sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+resource_root: D:\project\writing\reserch\stages\discovery\route-recovery-20260815\S5-gnu-make-resume2\resources
+required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+preflight:
+  tool: DOTNET_SYSTEM_NET_HTTP_HTTPCLIENT
+  platform_tls_policy: PLATFORM_DEFAULT__NO_CERTIFICATE_OR_PROTOCOL_BYPASS
+  expected_writable_surfaces: [explicit destination file, TEMP, TMP, TMPDIR]
+  redirect_map:
+    primary_output: resources/downloads/make.texi
+    fallback_output: resources/archives/make-4.4.1.tar.gz
+    TEMP: resources/tmp
+    TMP: resources/tmp
+    TMPDIR: resources/tmp
+  redirect_reliability: HttpClient has no package/build/cache surface; explicit FileStream destinations are under resource root
+  status: PASS
+budget:
+  max_network_attempts: 2
+  max_download_bytes: 3145728
+  max_stored_bytes: 8388608
+  max_cpu_seconds: 360
+  max_wall_seconds: 1800
+attempts:
+  count: 2
+  entries:
+    - number: 1
+      tool: DOTNET_SYSTEM_NET_HTTP_HTTPCLIENT
+      source_uri: https://git.savannah.gnu.org/cgit/make.git/plain/doc/make.texi
+      role: CURRENT_OFFICIAL_MANUAL_SOURCE_LOCUS
+      result: ATTEMPTED_PLATFORM_DEFAULT_TLS_FAILURE__NO_BYTES_PERSISTED
+      response_bytes: 0
+      scientific_inference: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+    - number: 2
+      tool: DOTNET_SYSTEM_NET_HTTP_HTTPCLIENT
+      source_uri: https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz
+      role: OFFICIAL_GNU_RELEASE_ARCHIVE_FALLBACK
+      fixed_member: make-4.4.1/doc/make.texi
+      result: ATTEMPTED_PLATFORM_DEFAULT_TLS_FAILURE__NO_BYTES_PERSISTED
+      response_bytes: 0
+      scientific_inference: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+entries: []
+root_logical_bytes: 862
+root_measurement_method: Get-ChildItem_sum_of_file_lengths
+scientific_inference: NONE__ROUTE_AND_CURRENT_UNION_CLOSURE_ONLY

@@ -1,0 +1,204 @@
+schema_version: stagea-reserve-risk-probe-contract-v1
+preregistered_before_claim_bearing_observation: true
+lane_id: CANDIDATE_EXECUTION_LANE_2
+assignment_id: STAGEA-L2-20260809-S1-O6-MOBILE-TRAFFIC-CRITICALITY-RESERVE-PROBE
+topic_id: S1-O6-MOBILE-TRAFFIC-CRITICALITY
+input_freeze_sha256: AF8EDE3A7B9186A665C51C898AE0FB87F1CF6D49D839D1BDD1ADB8662BD9985D
+stage_semantics: STAGEA_RESTRICTED_HIGHEST_RISK_PROBE
+prior_reserve_provenance: HUMAN_RESEARCH_RESERVE__AI_AUXILIARY_ONLY
+prior_reserve_provenance_preserved: true
+stageb_authorized: false
+pending_user_stageb_review: false
+stageb_user_approval_id: null
+resource_ceiling:
+  disk_bytes: 4294967296
+  cpu_hours: 4
+  gpu: false
+  exclusive_device: false
+
+frozen_proposition: >-
+  A source-and-budget-preserving request-level criticality contract at the first
+  shared mobile NoC/DRAM arbiter has at least one equal-quality full-cost
+  non-dominated point relative to same-information native transaction QoS.
+stagea_killer: FIRST_ARBITER_CAUSAL_DELTA_VS_NATIVE_TRANSACTION_QOS
+positive_ceiling: PRELIMINARY_SUPPORT_OR_NOT_FALSIFIED_ONLY
+scientific_stop_allowed_only_if:
+  - NATIVE_TRANSACTION_QOS_COVERS_ALL_EQUAL_QUALITY_CANDIDATE_POINTS_ON_THE_FROZEN_NATURAL_SAME_OBJECT
+  - CANDIDATE_ACTION_REDUCES_TO_AXQOS_OR_EQUIVALENT_NATIVE_TRANSACTION_QOS_ON_THE_FROZEN_OBJECT
+reserve_required_if: >-
+  Public primary or author artifacts cannot close a natural request-to-first-
+  shared-arbiter mapping and the causal interpretation remains a human-owned
+  central research input.
+
+natural_mapping_contract:
+  object: NATURAL_MOBILE_FOREGROUND_PLUS_ON_DEVICE_LLM_CONCURRENCY
+  accepted_foreground_families:
+    - UI_FRAME_DEADLINE_TRAFFIC
+    - CAMERA_OR_ISP_QUALITY_DEADLINE_TRAFFIC
+  background_family: ON_DEVICE_LLM_INFERENCE
+  required_per_request_fields:
+    - immutable_request_id
+    - natural_workload_and_run_id
+    - source_engine_or_process
+    - source_operation_or_phase
+    - issue_time
+    - address_or_auditable_address_class
+    - read_or_write
+    - payload_or_burst_bytes
+    - dependency_or_completion_boundary
+    - quality_or_deadline_membership
+    - complete_route_to_first_shared_arbiter
+    - first_shared_arbiter_identity
+    - native_transaction_qos_value_if_present
+    - published_or_author_attested_mapping_locator
+  completeness_gate: >-
+    Every accepted natural request must be traceable from source semantics to a
+    named first shared arbiter; aggregate bandwidth, end-to-end jank alone,
+    inferred identities, or synthetic requests do not satisfy the mapping.
+  prohibited_substitutions:
+    - SYNTHETIC_TRACE
+    - SPLIT_OR_DUPLICATED_SAMPLE_AS_INDEPENDENT_NATURAL_TRACE
+    - NON_MOBILE_SOC_OBJECT
+    - END_TO_END_ONLY_MEASUREMENT_WITHOUT_REQUEST_TO_ARBITER_PROVENANCE
+
+source_and_budget_preservation:
+  immutable_across_candidate_and_baselines:
+    - request_arrival_sequence
+    - request_payload_and_burst_geometry
+    - address_or_address_class_sequence
+    - read_write_direction
+    - request_dependencies_and_completion_boundaries
+    - source_identity_information
+    - foreground_deadline_or_quality_membership
+    - model_weights
+    - decoding_rule
+    - output_quality_metric
+    - thermal_and_power_envelope
+    - starvation_and_bandwidth_budget
+  information_budget_rule: >-
+    The candidate may expose no source, criticality, deadline, or budget bits to
+    the arbiter that are unavailable to the strongest native transaction-QoS
+    cell. If the native interface is four bits, candidate state visible at the
+    arbitration decision is capped to an equivalent sixteen-symbol alphabet;
+    richer source-side state must be charged and projected before comparison.
+  forbidden_advantage:
+    - future_information
+    - changed_arrivals
+    - hidden_yield_or_preemption
+    - extra_bandwidth_or_queue_capacity
+    - relaxed_fairness_or_starvation
+    - changed_application_or_model_quality
+
+equal_quality_definition:
+  foreground: >-
+    Identical input/run and output semantics; identical frame/camera quality
+    target and deadline definition. A point is equal-quality only if it does not
+    worsen the frozen foreground correctness/quality vector; latency or jank is
+    an outcome axis, not permission to change output quality.
+  llm: >-
+    Identical model weights, prompt/request set, decoding algorithm and output-
+    quality evaluation. Throughput or token latency may vary, but generated-
+    output quality may not be traded away.
+  system: >-
+    Identical thermal/power envelope, memory capacity, bandwidth limit,
+    starvation bound and completion set.
+  pareto_axes:
+    minimize:
+      - foreground_deadline_miss_or_jank
+      - foreground_request_tail_latency
+      - full_cost_energy_or_power_proxy
+      - metadata_storage_and_control_cost
+    maximize:
+      - llm_useful_throughput
+    hard_constraints:
+      - output_quality_equal
+      - starvation_bound_equal
+      - source_and_budget_preserved
+
+full_cost_ledger:
+  - natural_trace_acquisition_and_mapping_time
+  - source_side_classification_compute_and_state
+  - metadata_bits_and_propagation_storage
+  - queue_entries_and_per_source_state
+  - arbiter_comparator_and_selection_work
+  - arbitration_latency_or_cycle_impact
+  - DRAM_timing_and_row_buffer_effect
+  - protected_and_background_bandwidth_loss
+  - fairness_and_starvation_enforcement
+  - energy_power_and_thermal_proxy
+  - control_plane_setup_and_reconfiguration
+  - cold_start_and_steady_state
+  - fallback_detection_and_fallback_cost
+  - software_yield_or_preemption_cost_where_applicable
+  - trace_model_validation_and_unexplained_error
+
+finite_baseline_cells:
+  - id: B0_STOCK
+    mechanism: ACCELERATOR_WIDE_PRIORITY_PLUS_FR_FCFS_OR_WEIGHTED_ARBITRATION
+    role: DEPLOYMENT_BASELINE
+  - id: B1_SERENO
+    mechanism: SERENO_STYLE_SOFTWARE_YIELD_WITH_IDENTICAL_APPLICATION_CONTRACT
+    role: DIRECT_SUBTRACTOR
+  - id: B2_XSCHED
+    mechanism: XSCHED_STYLE_COMMAND_PRIORITY_OR_PREEMPTION
+    role: DIRECT_SUBTRACTOR
+  - id: B3_NATIVE_TRANSACTION_QOS_STATIC
+    mechanism: NATIVE_PER_TRANSACTION_AXQOS_OR_EQUIVALENT_STATIC_MAPPING
+    role: STRONG_SAME_INFORMATION_BASELINE
+  - id: B4_NATIVE_TRANSACTION_QOS_DYNAMIC
+    mechanism: NATIVE_PER_TRANSACTION_AXQOS_OR_EQUIVALENT_DYNAMIC_MAPPING_WITH_IDENTICAL_SOURCE_AND_INFORMATION_BUDGET
+    role: STRONGEST_SAME_INFORMATION_BASELINE
+  - id: CANDIDATE
+    mechanism: SOURCE_AND_BUDGET_PRESERVING_FIRST_SHARED_ARBITER_CONTRACT
+    role: CANDIDATE
+offline_ceiling:
+  id: EDF
+  role: OFFLINE_HEADROOM_CEILING_ONLY
+  union_oracle: false
+  deployable_baseline: false
+
+atomicity_boundary:
+  qos_encodability: prerequisite_or_subtractor_fact_not_a_joint_stop_certificate
+  natural_mapping: evidence_acquisition_gate
+  pareto_residual: scientific_outcome_gate_only_after_mapping_and_comparators_close
+  bundled_three_gate_certificate_forbidden: true
+
+decision_rules:
+  blocked: PRE_OBSERVATION_NETWORK_PERMISSION_LICENSE_DATA_OR_TOOLCHAIN_FAILURE
+  reserve: HUMAN_CAUSAL_MAPPING_REMAINS_CENTRAL_AFTER_PUBLIC_SOURCE_AUDIT
+  stop: STRICT_NATIVE_QOS_ABSORPTION_ON_VALID_NATURAL_SAME_OBJECT_EVIDENCE
+  pass: STRICT_EQUAL_QUALITY_FULL_COST_NONDOMINATED_RESIDUAL_ON_VALID_NATURAL_SAME_OBJECT_EVIDENCE
+  positive_wording: PRELIMINARY_SUPPORT_OR_NOT_FALSIFIED
+
+pre_claim_contract_fidelity_gate:
+  status: FAIL_CLOSED_HUMAN_CORE_MAPPING_UNCLOSED
+  disposition_recorded_after_source_audit: true
+  claim_bearing_observation_obtained: false
+  claim_bearing_probe_started: false
+  claim_bearing_run_forbidden_until_pass: true
+  required_closures:
+    - complete_first_shared_arbiter_action_path
+    - native_qos_comparator_normative_semantics_and_actual_parameters
+    - identical_source_budget_quality_denominators
+    - every_full_cost_dimension_has_unit_boundary_and_collection_path
+    - one_natural_small_witness_with_legality_equivalence_object_identity_and_action_coverage
+  proxy_policy: >-
+    Any partial queue model, aggregate bandwidth trace, inferred mapping,
+    synthetic request stream, or local priority experiment is retained only as
+    CODEC_OR_IMPLEMENTATION_CONTROL__NON_CLAIM_BEARING and cannot support PASS
+    or STOP.
+  fail_closed_route_if_human_mapping_is_central: RESERVE_RECOMMENDED_WITH_USER_RESEARCH_REQUEST
+  fail_closed_route_if_resource_transport_fails: BLOCKED_USER_ACTION_REQUIRED
+  unresolved_closures:
+    - COMPLETE_NATURAL_PER_REQUEST_SOURCE_TO_FIRST_SHARED_ARBITER_ACTION_PATH
+    - ACTUAL_MOBILE_NATIVE_QOS_COMPARATOR_SEMANTICS_AND_PARAMETERS
+    - SAME_OBJECT_PER_REQUEST_DENOMINATOR_AND_ACTION_COVERAGE
+    - UNIT_BEARING_COLLECTION_PATHS_FOR_ARBITER_AND_PHYSICAL_FULL_COSTS
+    - NATURAL_SMALL_WITNESS_PASSING_LEGALITY_EQUIVALENCE_OBJECT_IDENTITY_AND_ACTION_COVERAGE
+  non_scientific_resource_failure_present: false
+  decision_implication: >-
+    Public primary sources close only natural end-to-end workload, aggregate
+    effects, topology-level attribution, protocol-level QoS fields, and adjacent
+    software or command schedulers. Human acquisition and causal annotation of
+    the frozen request-to-arbiter object remain central, so no proxy run is
+    scientifically admissible and the assignment routes to human reserve.

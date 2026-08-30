@@ -1,0 +1,45 @@
+schema_version: "stagea-natural-corpus-freeze-v1"
+frozen_before_acquisition_and_natural_execution: true
+frozen_at: "2026-08-10T20:35:00+08:00"
+activation_basis:
+  preclaim_gate: "PASS"
+  structural_domain_cases: 2048
+  strict_native_divergence_cases: 531
+  first_strict_case: "case-0043"
+
+corpora:
+  - id: "LAW_CNR_2000_NATIVE_ORDER"
+    first_party_host: "data.law.di.unimi.it"
+    graph_url: "http://data.law.di.unimi.it/webdata/cnr-2000/cnr-2000.graph"
+    properties_url: "http://data.law.di.unimi.it/webdata/cnr-2000/cnr-2000.properties"
+    provenance_url: "http://data.law.di.unimi.it/webdata/cnr-2000/"
+    transport_note: "official host HTTP is used because both Windows Schannel and topic-local OpenSSL failed the host's HTTPS negotiation; content is accepted only after SHA-256 freeze"
+    order: "published native vertex order"
+    transformation: "none; native sequential reader materializes exact successor lists"
+    evidence_role: "primary natural ordered web graph"
+  - id: "SNAP_WIKI_VOTE_ASCENDING_ID"
+    first_party_host: "snap.stanford.edu"
+    data_url: "https://snap.stanford.edu/data/wiki-Vote.txt.gz"
+    provenance_url: "https://snap.stanford.edu/data/wiki-Vote.html"
+    order: "all observed original integer IDs sorted ascending and mapped to contiguous ranks"
+    edge_direction: "FromNodeId -> ToNodeId exactly as published"
+    duplicates: "remove exact duplicate directed arcs"
+    self_loops: "preserve if present"
+    isolated_nodes: "no new nodes; node set is the union of published endpoints"
+    successor_order: "ascending mapped target rank"
+    evidence_role: "independent natural directed network"
+
+common_native_config:
+  webgraph: "0.6.2"
+  endianness: "BE"
+  codes: "Gamma/Unary/Gamma/Gamma/Zeta(3)"
+  min_interval_length: 4
+  compression_window_W: 4
+  max_reference_depth_D: 3
+  chunk_size: 128
+  comparator: "complete released final BvCompZ pipeline"
+  candidate: "complete legal-action exact frontier DP"
+
+hash_freeze_rule: "record downloaded raw bytes and transformed exact-object hashes before any natural compression"
+selection_adaptivity: false
+fallback: "resource failure before either natural claim observation is reported as a resource boundary; it does not erase the already completed structural claim-bearing observation or create a resource-only ceiling"

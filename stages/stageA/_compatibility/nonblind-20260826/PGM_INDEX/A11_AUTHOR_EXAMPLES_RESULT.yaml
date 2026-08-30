@@ -1,0 +1,10 @@
+schema: author-artifact-windows-example-preclaim-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A11-AUTHOR-EXAMPLES
+decision: PASS_AUTHOR_WINDOWS_COMPATIBLE_EXAMPLES_ONLY__AWAIT_FIDELITY_GATE
+build: {targets: [example_simple, example_updates], result: PASS}
+runs:
+  - {path: resources/build/pgm-ninja-a9/examples/example_simple.exe, result: PASS, output: EMPTY_STDOUT_STDERR}
+  - {path: resources/build/pgm-ninja-a9/examples/example_updates.exe, result: PASS, output: EMPTY_STDOUT_STDERR}
+excluded: [example_mapped, tests, build_all, natural_probe, claim_probe]
+evidence_ceiling: AUTHOR_ARTIFACT_WINDOWS_COMPATIBLE_EXAMPLE_PRECLAIM_ONLY__NOT_NATURAL_CLAIM
+scientific_boundary: {scientific_inference: NONE, claim_bearing_observation: false, fidelity_gate_passed: false, production_state: false, stageB: false}

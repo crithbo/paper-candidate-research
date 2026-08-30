@@ -1,0 +1,93 @@
+retrieval_cutoff: '2026-08-14'
+budget:
+  successful_response_bytes_per_attempt_max: 8388608
+  persisted_bytes_per_locator_max: 16777216
+  successful_response_bytes_per_lane_max: 67108864
+  persisted_source_snapshot_bytes: 100314
+precommitted_locators:
+  - locator_id: Q26-01
+    exact_object_hypothesis: >-
+      A version-pinned ONNX Model Zoo model graph and test-data object, with unchanged
+      ONNX inference semantics under the stock ONNX Runtime reader.
+    target_specific_counterfactual: >-
+      A repeated release-family shape/initializer law would have to select a whole,
+      reader-compatible offline representation action not expressible by current ONNX
+      Runtime graph-optimization levels and offline serialization.
+    source_plan_order:
+      anchor:
+        primary: https://raw.githubusercontent.com/onnx/models/main/README.md
+        fallback: https://github.com/onnx/models
+      current_union:
+        primary: https://onnxruntime.ai/docs/performance/model-optimizations/
+        fallback: https://onnxruntime.ai/docs/performance/model-optimizations/graph-optimizations.html
+      contrary:
+        primary: https://onnxruntime.ai/docs/performance/model-optimizations/graph-optimizations.html
+        fallback: https://onnxruntime.ai/docs/performance/model-optimizations/ort-format-model-runtime-optimization.html
+    sources:
+      - source_role: ANCHOR
+        url_or_deterministic_rule: https://raw.githubusercontent.com/onnx/models/main/README.md
+        selection_rule: Current official repository README; small deterministic text entrypoint for model-zoo format, usage, and license.
+        version_or_date: main branch retrieved 2026-08-14
+        license_or_provenance: Official onnx/models upstream; README states Apache-2.0.
+        response_bytes: 30985
+        sha256: c37072919507ea0465e63f574fdfb9f6085a80a4ff51252c8dfe2c4ff332b3c9
+        disposition: USED__CARRIER_ANCHOR_ONLY
+      - source_role: CURRENT_UNION
+        url_or_deterministic_rule: https://onnxruntime.ai/docs/performance/model-optimizations/
+        selection_rule: Current official runtime page; small deterministic HTML entrypoint for stock optimization families.
+        version_or_date: retrieved 2026-08-14
+        license_or_provenance: Official ONNX Runtime documentation.
+        response_bytes: 37263
+        sha256: 7dd0da65cf78d053b633d1e264a80ac69febf4cfbe5c3e6eeff7800b06efc3b5
+        disposition: USED__CURRENT_UNION
+      - source_role: CONTRARY
+        url_or_deterministic_rule: https://onnxruntime.ai/docs/performance/model-optimizations/graph-optimizations.html
+        selection_rule: Official current page selected before lookup as the contrary route for offline/online and graph/layout action coverage.
+        version_or_date: search snapshot accessed 2026-08-14
+        license_or_provenance: Official ONNX Runtime documentation.
+        response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        disposition: USED_VIA_BOUNDED_WEB_SNAPSHOT__CONTRARY_TO_ABSENCE
+  - locator_id: Q26-02
+    exact_object_hypothesis: >-
+      A version-pinned MLPerf Inference workload/result release, preserving the suite's
+      prescribed benchmark semantics, as a possible measurement-characterization carrier.
+    target_specific_counterfactual: >-
+      A release-history workload-composition law would have to change a measurement or
+      offline construction decision without becoming a hardware/config selector or
+      extrapolating a canonical benchmark result into a natural deployment claim.
+    source_plan_order:
+      anchor:
+        primary: https://raw.githubusercontent.com/mlcommons/inference/master/README.md
+        fallback: https://docs.mlcommons.org/inference/index_gh/
+      current_union:
+        primary: https://github.com/mlcommons/inference_policies/blob/master/inference_rules.adoc
+        fallback: https://docs.mlcommons.org/inference/submission/
+      contrary:
+        primary: https://mlcommons.org/benchmarks/inference-datacenter/
+        fallback: https://arxiv.org/abs/1911.02549
+    sources:
+      - source_role: ANCHOR
+        url_or_deterministic_rule: https://raw.githubusercontent.com/mlcommons/inference/master/README.md
+        selection_rule: Current official benchmark repository README; deterministic small entrypoint showing release history and suite purpose.
+        version_or_date: master branch retrieved 2026-08-14
+        license_or_provenance: Official MLCommons inference upstream; benchmark repository provenance.
+        response_bytes: 32066
+        sha256: f66315a67b93ab23b2e9bd791c43a0d7b84e2a9ae03ea7aaa54607cb70a7484f
+        disposition: USED__CANONICAL_BENCHMARK_ANCHOR
+      - source_role: CURRENT_UNION
+        url_or_deterministic_rule: https://github.com/mlcommons/inference_policies/blob/master/inference_rules.adoc
+        selection_rule: Official current rules route precommitted to identify stock permitted workload/measurement semantics.
+        version_or_date: search snapshot accessed 2026-08-14
+        license_or_provenance: Official MLCommons upstream rules repository.
+        response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        disposition: USED_VIA_BOUNDED_WEB_SNAPSHOT__UNION_ROUTE
+      - source_role: CONTRARY
+        url_or_deterministic_rule: https://mlcommons.org/benchmarks/inference-datacenter/
+        selection_rule: Official result/metric overview precommitted to prevent natural-deployment extrapolation from the benchmark carrier.
+        version_or_date: search snapshot accessed 2026-08-14
+        license_or_provenance: Official MLCommons benchmark page.
+        response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        disposition: USED_VIA_BOUNDED_WEB_SNAPSHOT__CONTRARY_TO_OVERGENERALIZATION

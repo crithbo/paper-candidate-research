@@ -1,0 +1,74 @@
+schema_version: discovery-v9-r16ab-joint-auditor-metric-ledger-v1
+assignment_id: DISCOVERY-AUDITOR-20260813-R16AB-V9-PROSPECTIVE-SHADOW-TWO-WAVE
+rule_hashes:
+  discovery_claim_pack_sha256: 6DDCF4CE3CC76900FB6AAEF5876ED0D3E824489F3894F4C092C481176F256DA9
+  joint_auditor_assignment_sha256: 42A916563725EE6E38FB1AFEB7C9921FA11DB9C3EEE68324A8B0277FC7598CDE
+input_integrity:
+  r16a_sample_ledger_sha256: 91F25C2F88DB6A23B73EA9E8B0067A0A5F6CC5A9924D14DF9DE011E469235E25
+  r16a_auditor_manifest_sha256: 386B0465CBF33879508CBD1C4FA23D7B1E9F28502A353386592BA23033F7A32F
+  r16a_auditor_manifest_verification: PASS_3_OF_3
+  r16b_postsample_manifest_verification: PASS_4_OF_4
+  r16b_recursive_manifest_verification: PASS_39_OF_39__ZERO_ERRORS
+  r16b_control_addendum_hashes:
+    sample_ledger: 79161FEB133D08D1E963B79E80BFD2DB62E26E7A94875599B642967F7C2B5C20
+    dedup_ledger: FD9CB0F1CC271AD252826D1D99B4DFE4FEB7F8C7C2C6340E7383A9A6F10B5A5E
+    cost_aggregate: 646F415A532CC454F13D74DBC72C2CDF00977DB41C50A4CBB14895C7A451EDC2
+  contamination_or_leakage: NONE_DETECTED
+  terminal_stop_revival: 0
+family_dedup:
+  r16a_accepted_unique: 24
+  r16b_accepted_unique: 24
+  total_accepted_unique: 48
+  r16b_dedup_unit: OPPORTUNITY_FAMILY__NOT_LITERAL_SIGNATURE
+  r16b_historical_or_contained_exclusions: 15
+  r16b_cross_lane_or_source_exclusions: 6
+  replacements: DUPLICATE_ONLY
+  outcome_or_yield_replacement_used: false
+  status: PASS
+canonical_shadow_order_and_stability:
+  canonical_mode_during_waves: OFF
+  global_mode_after_audit: OFF
+  canonical_before_shadow: PASS__48_OF_48
+  canonical_shadow_leakage: PASS__0_OF_48
+  stable_shadow_dispositions:
+    r16a: 24/24
+    r16b: 24/24
+    combined: 48/48
+  source_action_corrections:
+    observed: 48
+    canonical_decision_changes: 0
+    status: OBSERVED_STABILITY_ONLY__NOT_CALIBRATION_EVIDENCE
+quality_and_stage0:
+  canonical_clean_briefs:
+    r16a: 0
+    r16b: 0
+    combined: 0
+  stage0_feedback_or_repair_vectors:
+    r16a: 0
+    r16b: 0
+    combined: 0
+  clean_brief_precision: UNIDENTIFIABLE__ZERO_DENOMINATOR
+  zero_over_zero_interpretation: NOT_PERFECT_PRECISION
+  stage0_repair_vector_interpretation: UNOBSERVED__VACUOUS_ACCOUNTING_NOT_QUALITY_EVIDENCE
+cost_accounting:
+  r16b_observed_wall_seconds_sum: 38915.818
+  wall_interpretation: SUM_OF_CONCURRENT_LANE_INTERVALS__NOT_ELAPSED_PROJECT_TIME
+  r16b_output_files: 150
+  r16b_output_bytes: 180226
+  model_token_and_monetary: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  cpu: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  network_io: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  io_comparability: PARTIAL__OUTPUT_BYTES_OBSERVED__NETWORK_UNOBSERVED
+  schema_uniformity: PRESENT_FOR_ALL_SIX_R16B_LANES
+  zero_vs_unobserved: DISTINGUISHED
+  cost_metric_status: PARTIAL__NOT_SUFFICIENT_FOR_COMPARATIVE_COST_CALIBRATION
+protocol_sufficiency:
+  prospective_waves: 2
+  two_wave_requirement: SATISFIED
+  clean_brief_precision_identifiable: false
+  stage0_feedback_identifiable: false
+  production_cutover_authorized: false
+  production_recommendation: DO_NOT_CUT_OVER__KEEP_GLOBAL_MODE_OFF
+verdict: PILOT_NOT_CALIBRATED_INCONCLUSIVE__CLEAN_BRIEF_PRECISION_UNIDENTIFIABLE
+production_state_changed: false
+completion_status: IDLE_REUSABLE_AWAITING_MAINLINE

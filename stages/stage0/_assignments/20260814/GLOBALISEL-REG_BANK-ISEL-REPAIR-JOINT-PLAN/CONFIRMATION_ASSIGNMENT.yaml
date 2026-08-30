@@ -1,0 +1,26 @@
+assignment_id: STAGE0-C2-20260814-GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN-CONFIRM-V8.7
+mode: SENTRY
+topic_id: GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_READY_TO_DISPATCH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source01-confirmation\GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source01-primary\GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+primary_decision: REVISE_ONCE
+primary_atomic_gate: PINNED_RBI_ACTION_CATALOG__NONLOCAL_BOUNDED_REGION_CERTIFICATE
+primary_hashes:
+  report_sha256: CC7CC2F2D8E7A2240AB671F87D1C506B3D5FC5FD30FE1767F887B806890EA4D7
+  q1_sha256: 22F01163E57EC55FE1BA36C8AD80C77065EC88E99F16703EC7CECFFF1D49EF8B
+  source_sha256: E98365E803228A069BFB8BFD87D56759787AFFC214091ECD4A06DBD61A7D4019
+  handoff_sha256: 29AF8C3395167562EAADFAB476F48BD437FCA7F0EA202E7D7665D2FE671B6810
+  manifest_sha256: 62EF07ABD3B2AAE0509EA2D3E2D2C81C25847885ABF1137ECB51B57D98CED43C
+independent_attack_requirements:
+  - Independently recheck current RegBankSelect Fast/Greedy, target RBI alternatives, CFG-aware RepairingPlacement and Global mode status.
+  - Decide whether one immutable target can provide two complete legal same-MIR nonlocal plans outside the current union.
+  - Attack finite future-action/cost-preserving state, exact/FPT guarantee, full-cost and Stage A killer.
+  - Confirm REVISE_ONCE, confirm STOP, or disagree with explicit evidence; do not execute revision.
+forbidden: [revision_execution, implementation, experiment, benchmark, build, stageA, stageB, shared_control_write]
+required_outputs: [CONFIRMATION_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

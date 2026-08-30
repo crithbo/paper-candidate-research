@@ -1,0 +1,22 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: STAGE0-SENTRY-20260830-MLPERF-INFERRED-RANK-VALIDITY, topic_id: MLPERF-INFERRED-RANK-VALIDITY, lane_id: STAGE0_SENTRY, thread_id: 01a034d0-cda0-74b3-a099-b4b711d9d8a8, role: STAGE0_SENTRY}
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+frozen_control:
+  agents: {path: AGENTS.md, sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655}
+  plan: {path: plan.md, sha256: 494CA29AC38E61EF26C7E8D014FCF52BFD5E292408F72613977308D753360EF6}
+  registry: {path: registry.yaml, sha256: 46D7B7EE760DC7FF40E04394DFA67D336E34F63887E8EE4BBB69BDEE4BC597C0}
+  role: {path: rules/ROLE_STAGE0_REVIEW.md, sha256: BC4A6D6D5DE5CEC3DD69A1F8556276F95B405E81773FFC7F4A860B5769CAF2FE}
+  academic_skill: {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  deep_research_workflow: {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/deep-research/WORKFLOW.md, sha256: 055E902187665C2437D0F41F35E2CC9C11FB5D62A736CF3ED23E44193BD4F029}
+minimum_inputs:
+  control: {path: stages/stage0/_reviews/round-20260830-source120-sentry/MLPERF-INFERRED-RANK-VALIDITY/control/ASSIGNMENT.yaml, sha256: A79E00B6C9538179E641B401E997A2D9CF1B48E8C88B144CBBCEC06B7210FFD4}
+  primary_report: {path: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY/STAGE0_REPORT.md, sha256: 35DFA9AAB21CFB54990AC8122083B64D89B294DDE2340A0F20E447EF299B0661}
+  primary_handoff: {path: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY/handoff.yaml, sha256: 8A103741D122203D5C7B0213D4816EE325779C7E4740BCBD570F9C3AEFA348B3}
+unique_write_directory: stages/stage0/_reviews/round-20260830-source120-sentry/MLPERF-INFERRED-RANK-VALIDITY
+resource_root: stages/stage0/_reviews/round-20260830-source120-sentry/MLPERF-INFERRED-RANK-VALIDITY/resources
+bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+forbidden: [network_before_start, judgment_before_start, repeat_full_primary, stagea, stageb, shared_write]
+pause_signal: finish_current_sentry_and_handoff_then_no_successor
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP
+

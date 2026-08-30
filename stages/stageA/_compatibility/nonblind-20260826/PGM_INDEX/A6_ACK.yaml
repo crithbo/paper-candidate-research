@@ -1,0 +1,15 @@
+schema: nonblind-stagea-engineering-correction-ack-v1
+created_at: 2026-08-27T00:05:00+08:00
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A6-TOOLCHAIN
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+lane_id: CANDIDATE-L2
+correction: {path: A6_LOCAL_LLVM_MINGW_NINJA_CORRECTION.yaml, sha256: E70C2FA6ACA4042D38A2820EE36D7FB1EE052843D08FA86D53844D9DAA6B0AE3}
+preserved_blocker: {path: PGM_CONFIGURE_TOOLCHAIN_BLOCKER.yaml, sha256: 005D2527EB583B65D7415A68BCB052D15FFD026F183C34608BF16B70E5B269B7}
+verified_assets:
+  - {path: resources/archives/llvm-mingw-20260616-ucrt-x86_64.zip, sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35, bytes: 187504083, contained: true}
+  - {path: resources/archives/ninja-win-v1.13.2.zip, sha256: 07FC8261B42B20E71D1720B39068C2E14FFCEE6396B76FB7A795FB460B78DC65, bytes: 291570, contained: true}
+scope: {generator: Ninja, explicit_C: resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/clang.exe, explicit_CXX: resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/clang++.exe, NMake_generator: forbidden, system_or_PATH_or_registry_change: false, alternate_toolchain: false, retry_after_failure: false}
+prestart_state: {toolchain_extracted: false, ninja_extracted: false, configure_build_ctest_attempts: 0, scientific_action_started: false}
+differences_or_ambiguities: []
+ack_disposition: READY
+next_action: WAIT_FOR_MAINLINE_A6_ACCEPTANCE_AND_START

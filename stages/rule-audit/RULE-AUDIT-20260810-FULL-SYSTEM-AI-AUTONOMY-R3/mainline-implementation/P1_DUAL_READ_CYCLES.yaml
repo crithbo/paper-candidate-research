@@ -1,0 +1,47 @@
+schema: p1-shadow-dual-read-cycles-v1
+authoritative_source: registry.yaml
+shadow_schema: rules/_shadow_v9/CONTROL_PLANE_SCHEMA.md
+authoritative_registry_cutover: false
+cycles:
+  - cycle_id: P1-DUAL-READ-1-AIGER-STAGE0-TO-STAGEA
+    authoritative:
+      topic_path: candidates.AIGER-DELTA-SCHEDULE
+      status: STAGEA_ACTIVE
+      stage0_confirmation_decision: CONFIRM_STAGE0_PASS
+      stagea_assignment_id: STAGEA-L1-20260810-AIGER-DELTA-SCHEDULE-INITIAL-R3P0
+      lane_path: task_pool.candidate_execution_lane_1
+      lane_status: ACTIVE
+    shadow_projection:
+      topic_stage: STAGEA
+      scientific_disposition: ACTIVE
+      execution_state: ACTIVE
+      assignment_state: ACTIVE
+      lane_state: ACTIVE
+    reconciliation: PASS
+    scientific_decision_changed_by_projection: false
+  - cycle_id: P1-DUAL-READ-2-R4-SCHEDULING-CUTOVER
+    authoritative:
+      policy_path: adaptive_wip_scheduling
+      policy_id: ADAPTIVE-WIP-FAST-HANDOFF-BURST-R4
+      base_active_seats: 4
+      maintenance_coexistence_burst: 1
+      current_ready_queue_count: 0
+      current_burst_eligible: false
+    shadow_projection:
+      scheduling_view_present: true
+      topic_state_mutation: false
+      per_stage_maximum: 4
+      production_discovery_expansion_before_v8_8_pass: false
+    reconciliation: PASS
+    scientific_decision_changed_by_projection: false
+count_reconciliation:
+  stage0_independent_pass: 14
+  stagea_independent_pass: 1
+  stagea_independent_stop: 6
+  stageb_independent_accepted: 0
+  formal_candidate: 0
+  r4_ready_queue_after_cycle2: 0
+  result: PASS
+rollback:
+  action: IGNORE_OR_DELETE_SHADOW_DERIVED_VIEWS_AND_RETAIN_REGISTRY_YAML
+  scientific_state_rollback_required: false

@@ -1,0 +1,51 @@
+schema: mlperf-rank-validity-a0-preclaim-contract-v1
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-A0
+claim_ceiling: CANONICAL_MLPERF_BENCHMARK_VALIDITY_ONLY
+releases:
+  development: {id: v5.1, role: FREEZE_SCHEMA_AND_PREDECLARED_DIAGNOSTICS}
+  held_out: {id: v6.0, role: ONE_SHOT_RELEASE_STABILITY_CONFIRMATION}
+official_formulas:
+  single_stream_to_multistream: {expression: 8_times_single_stream_99th_percentile_latency, output_unit: milliseconds}
+  multistream_to_offline: {expression: 8000_divided_by_multistream_mean_latency_ms, output_unit: samples_per_second}
+  single_stream_to_offline: {expression: 1000_divided_by_single_stream_mean_latency_ms, output_unit: samples_per_second}
+  inherited_fields: [accuracy, power]
+scenario_semantics:
+  SingleStream: {published_metric: 90th_percentile_early_stopping_latency, formula_source_statistic: 99th_percentile_or_mean_as_applicable, metric_class: latency}
+  MultiStream: {published_metric: 99th_percentile_query_latency, query_samples: 8, metric_class: latency}
+  Offline: {published_metric: measured_throughput, metric_class: throughput}
+unit_contract:
+  latency_canonical_unit: milliseconds
+  throughput_canonical_unit: items_per_second_preserving_benchmark_item_identity
+  forbidden: [cross_benchmark_unit_conversion, token_to_sample_conversion_without_native_identity, implicit_percentile_substitution]
+pairing_key_order: [version, ID, Submitter, Availability, Category, Suite, System, Platform, UsedModel, Model, Accuracy, Software, operating_system, has_power]
+pairing_rules:
+  suite: edge_only
+  target_scenario_must_match: true
+  one_measured_and_one_inferred_target_required: true
+  cross_release_pairing: forbidden
+  cross_submitter_or_system_or_model_or_accuracy_or_software_pairing: forbidden
+  duplicate_or_ambiguous_pair: exclude_and_count_missingness
+inferred_classification:
+  measured_tokens: [0, false, '0', 'false']
+  inferred_tokens: [1, true, '1', 'true']
+  missing_or_other: AMBIGUOUS_EXCLUDE_AND_COUNT
+missingness:
+  preregistered_buckets: [missing_required_field, ambiguous_inferred_flag, unsupported_scenario, unit_mismatch, duplicate_measured, duplicate_inferred, measured_without_inferred, inferred_without_measured, formula_source_statistic_unavailable]
+  result_based_exclusion: forbidden
+claim_metrics_frozen_but_not_executed:
+  - signed_and_absolute_formula_error_in_native_units
+  - relative_error_with_zero_denominator_guard
+  - spearman_rank_correlation_with_tie_policy
+  - pairwise_rank_reversal_rate
+  - top_k_membership_and_order_instability
+  - missingness_by_release_benchmark_and_scenario
+  - release_stability_without_refit_on_v6.0
+materiality_threshold: {relative_error: 0.02, frozen_before_results: true}
+output_schema: PARSER_OUTPUT_SCHEMA.json
+full_cost:
+  denominator: all_rows_and_all_exact_eligible_pairs_in_each_pinned_release
+  collectors: [network_attempts_and_bytes, stored_bytes, parser_cpu_seconds, parser_wall_seconds, peak_rss_bytes, input_bytes, output_bytes, matching_and_missingness_time, formula_time, rank_time, validation_time, retained_bytes]
+  acquisition_amortization: report_separately_and_include_total
+  excluded_costs: []
+result_firewall: {a0_formula_error_distribution: hidden, a0_rank_correlation: hidden, a0_rank_reversal: hidden, a0_candidate_direction: hidden}
+freeze_status: PASS_STATIC_CONTRACT

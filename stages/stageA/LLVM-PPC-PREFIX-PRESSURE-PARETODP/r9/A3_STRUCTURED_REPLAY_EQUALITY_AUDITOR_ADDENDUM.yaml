@@ -1,0 +1,205 @@
+schema: ppc-r9-a3-structured-replay-equality-auditor-addendum-v1
+created_at: 2026-08-26T09:08:00+08:00
+created_by: MAINLINE
+authorization_ids:
+  - USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825
+  - MAINLINE-R9-A3-STRUCTURED-REPLAY-EQUALITY-AUDITOR-20260826
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+addendum_id: PPC-R9-A3-STRUCTURED-REPLAY-EQUALITY-AUDITOR
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9
+resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources
+
+frozen_shared_snapshot:
+  plan: {path: plan.md, sha256: CCB68945B05716BFD58371C8D574A5B3BBE0B97159C9772ADA77F9DD8D50C8EB}
+  registry: {path: registry.yaml, sha256: 6248802A45D6BC1B763E76E1F916BE3685EF9F7D6C44B7D60E11F70B3E367C3D}
+  related_records:
+    - autonomous_stagea_wave_20260826.ppc_r9
+    - no_wsl_localized_resource_recovery_20260825.llvm_queue.PPC
+    - candidates.stagea_llvm_ppc_prefix_pressure_paretodp_initial
+    - role_threads.candidate_execution_lane_2
+
+frozen_A2_handoff:
+  handoff: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/handoff.yaml, sha256: 99DA9B2762AC5F7AA1C16578D37ADDDA93A130F5D0BD879610408379695EF991}
+  manifest: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/HASH_MANIFEST.sha256, sha256: ADE24570C8F4528721E59CC05A35C8A6E17A1F290AA638A5F6AFB1F172456F43}
+  inventory: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/RESOURCE_INVENTORY.yaml, sha256: 6CAD09FD6308C471537400C17789D54966664149E1CD6DAC9E2EAA247DB14680}
+  retention: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/PHASE_CLOSEOUT_RETENTION.yaml, sha256: 67C6FE8A7E8038892B3ABBD6791340C1AB9BA6277CCBFA331E805BB26FC8A045}
+  capsule: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/RESUME_CAPSULE.yaml, sha256: 4E95385CA7D4E323069187A378A1AD6584FFF8AABAD2F1C89AE8760ADBABFA8D}
+  replay_precommit: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/A2_A26_FRESH_REPLAYS_PRECOMMIT.yaml, sha256: 4C8801666654D4CF7C60FFB9F95DA5B1925051FBFED65C68C5E51A4EB29444B1}
+  replay_audit: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/A2_A26_FRESH_REPLAYS_AUDIT.yaml, sha256: B7550742E946591E7A6812104EF14A2D5ACFFF8F8D09EE012EE29D0890601F41}
+  replay_failure: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/A2_A26_REPLAY_COMPARISON_FAILURE.yaml, sha256: 02B7592540620AF0585634364B70695B17D3EEEC81D4F6BF8494B51F8BEFFE68}
+  mainline_independent_acceptance: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/MAINLINE_A2_HANDOFF_ACCEPTANCE.yaml, sha256: 137CB220BD626B9CB05215E286E5D7535D799F686EDFA623E4D9BA9CC4665013}
+
+immutable_replay_inputs:
+  replay_1_root: resources/build/a2_replay_1
+  replay_2_root: resources/build/a2_replay_2
+  files_each: 54
+  logical_bytes: [323999, 324003]
+  commands_each: 17
+  native_checkers_each: PASS_7_OF_7
+  full_cost_dependency_each: PASS
+  deterministic_payload_canonical_sha256_equal: F716DA318ED27815AAE54CBDCF30BD07F0172152918A4A11261D2486593D72AE
+  deterministic_payload_file_sha256_equal: 86D8D4DF7C92AE73C6CF2CBB58327F9CCABA0EC23AC78856A711696AC362A411
+  required_core_raw_files: 12
+  required_core_raw_byte_exact: true
+  modify_delete_or_rerun_allowed: false
+
+frozen_equality_contract_from_A2_precommit:
+  deterministic_payload_sha256_equal: true
+  direct_and_materialized_MIR_content_equal: true
+  baseline_and_candidate_object_content_equal: true
+  baseline_and_candidate_ELF_content_equal: true
+  candidate_trace_and_result_canonical_hash_equal: true
+  native_checker_statuses_equal: true
+  full_cost_structural_payload_equal: true
+  tool_stdout_and_stderr_content_equal_where_path_independent: true
+  excluded_from_exact_equality: [timing, RSS, absolute_paths, replay_id]
+  new_tolerance_or_exclusion_allowed: false
+
+auditor_implementation:
+  root: resources/src/replay_equality_auditor
+  maximum_files: 2
+  existing_before_A3: false
+  binary_build_allowed: false
+  source_freeze_after_first_tool: true
+  requirements:
+    - ENUMERATE_IDENTICAL_RELATIVE_FILE_SET_54_OF_54
+    - PARSE_JSON_OR_JSONL_BEFORE_RECURSIVE_PATH_NORMALIZATION
+    - MAP_BOTH_ABSOLUTE_REPLAY_ROOTS_TO_ONE_LITERAL_REPLAY_ROOT_TOKEN
+    - REQUIRE_38_RAW_BYTE_EXACT_FILES_REMAIN_EXACT
+    - REQUIRE_12_NAMED_CORE_RAW_FILES_BYTE_EXACT
+    - COMPARE_SIX_PATH_BEARING_READOBJ_OBJDUMP_LOGS_AFTER_ROOT_NORMALIZATION
+    - COMPARE_COMMAND_PRECOMMIT_JSONL_STRUCTURALLY_AFTER_ROOT_NORMALIZATION
+    - COMPARE_COMMAND_METRICS_STRUCTURALLY_WITH_ONLY_FROZEN_DYNAMIC_FIELDS_EXCLUDED
+    - COMPARE_NATIVE_CHECKER_SEMANTIC_CHECKS_AND_STATUS_EXACT
+    - COMPARE_FULL_COST_DETERMINISTIC_COST_PAYLOAD_AND_DEPENDENCY_STATUS_EXACT
+    - COMPARE_REPLAY_SUMMARY_EXCLUDING_ONLY_REPLAY_ID
+    - RECORD_ALL_DYNAMIC_TELEMETRY_VALUES_AND_EXCLUSION_REASON
+    - FAIL_ON_MISSING_EXTRA_UNCLASSIFIED_OR_UNEXPECTED_DIFFERENCE
+
+file_classification_contract:
+  raw_byte_exact_count_observed: 38
+  structured_or_normalized_count: 16
+  normalized_tool_text:
+    - logs/07_baseline_readobj.stdout.txt
+    - logs/08_baseline_objdump.stdout.txt
+    - logs/09_candidate_readobj.stdout.txt
+    - logs/10_candidate_objdump.stdout.txt
+    - logs/13_candidate_linked_readobj.stdout.txt
+    - logs/14_candidate_linked_objdump.stdout.txt
+  structured_json_or_jsonl:
+    - all_command_metrics.json
+    - baseline_command_metrics.json
+    - candidate_command_metrics.json
+    - full_cost.json
+    - native_checkers.json
+    - replay_summary.json
+    - logs/16_candidate_output_consuming_native_check.stdout.txt
+    - logs/17_real_full_cost_consuming_candidate_and_baseline.stdout.txt
+    - logs/command_metrics.json
+    - logs/command_precommit.jsonl
+  union_must_equal_all_54_files: true
+
+structured_comparison_rules:
+  recursive_string_path_normalization: AFTER_JSON_PARSE
+  command_metrics:
+    require_exact_per_row: [command_id, phase, argv_after_path_normalization, cwd_after_path_normalization, input_paths_after_path_normalization, output_paths_after_path_normalization, status, exit_code, timed_out, timeout_seconds, automatic_retry, output_growth_events]
+    excluded_dynamic_fields_all_rows: [cpu_seconds, wall_seconds, peak_rss_bytes]
+    command_16_output_raw_hash: EXCLUDED_BECAUSE_NATIVE_CHECKER_STRUCTURED_CONTENT_COMPARED_SEPARATELY
+    command_17_input_bytes_and_output_raw_bytes_hash: EXCLUDED_BECAUSE_INPUT_METRICS_AND_FULL_COST_CONTAIN_FROZEN_DYNAMIC_TELEMETRY_AND_STRUCTURED_CONTENT_IS_COMPARED_SEPARATELY
+    all_other_input_bytes_and_output_bytes_hashes: EXACT_AFTER_PATH_CLASSIFICATION
+  native_checker:
+    require_exact: [schema, function, hardcoded_pass, scientific_inference, all_pass, check_names_status_passed_and_deterministic_observations]
+    consumed_evidence_paths: EXACT_AFTER_ROOT_NORMALIZATION
+    consumed_evidence_dynamic_raw_hashes: EXCLUDED_ONLY_WHERE_REFERENCED_FILE_IS_SEPARATELY_STRUCTURED_OR_PATH_NORMALIZED
+  full_cost:
+    require_exact: [schema, dependency_validation, deterministic_cost_payload, scope, scientific_inference, target_runtime_or_hardware_performance_claim, units]
+    dynamic_process_cost_values: RECORD_NONNEGATIVE_NOT_EQUALITY
+    consumed_dependency_paths: EXACT_AFTER_ROOT_NORMALIZATION
+    consumed_dependency_raw_hashes: EXCLUDED_ONLY_FOR_SEPARATELY_STRUCTURED_METRICS_OR_PATH_NORMALIZED_TOOL_TEXT
+  replay_summary:
+    excluded_field: replay
+    all_other_fields_exact: true
+
+auditor_validation_controls:
+  fixture_root: resources/build/a3_auditor_controls
+  retained_replay_pair: EXPECT_PASS
+  dynamic_only_mutation: EXPECT_PASS
+  deterministic_payload_mutation: EXPECT_FAIL
+  one_core_raw_byte_mutation: EXPECT_FAIL
+  native_checker_status_mutation: EXPECT_FAIL
+  full_cost_deterministic_payload_mutation: EXPECT_FAIL
+  command_exit_code_mutation: EXPECT_FAIL
+  total_cases: 7
+  retained_replay_roots_modified: false
+  unexpected_result_stops: true
+
+A3_ordered_execution:
+  A30_PRESERVE_A2_CANONICAL:
+    handoff_destination: handoff.pass3_a26_equality_auditor_fail.yaml
+    manifest_destination: HASH_MANIFEST.pass3_a26_equality_auditor_fail.sha256
+    byte_exact_required: true
+  A31_IMPLEMENT_AUDITOR_BEFORE_ANY_TOOL: MAX_2_FILES
+  A32_STATIC_COMPILE_AUDITOR_ONCE: PASS_REQUIRED
+  A33_RUN_7_VALIDATION_CONTROLS: PASS_7_OF_7_REQUIRED
+  A34_AUDIT_RETAINED_REPLAYS_ONCE: PASS_REQUIRED
+  A35_A27_GENERATE_VALIDATE_R10_PLAN: EXACT_32_ROWS_NOT_EXECUTED
+  A36_RESEAL_CANONICAL_HANDOFF: REQUIRED
+  first_failure_policy: STOP_NO_EDIT_RETRY_OR_COMMAND_CHANGE
+
+r10_plan_gate:
+  generator: resources/src/natural_materializer/r10_plan.py
+  generator_sha256: 0366CCC8D98D0489C604A31A56E29761C3EC9C2E3D8479C7909E99652697890C
+  selected_denominator: EXACT_16_FROM_R6
+  rows: 32
+  reserve_rows: 0
+  generated_commands_must_be_absolute_and_fully_expanded: true
+  candidate_checker_and_full_cost_dependencies_explicit: true
+  execution_allowed: false
+  selected_or_reserve_tool_invocations: 0
+
+budgets_cumulative:
+  network_bytes_max: 0
+  resource_root_logical_bytes_max: 536870912
+  cpu_seconds_max: 21600
+  wall_seconds_max: 43200
+  max_parallel_processes: 2
+  synthetic_tool_command_records_max: 300
+  selected_or_reserve_corpus_tool_invocations_max: 0
+  claim_bearing_runs_max: 0
+  automatic_retry: false
+
+forbidden:
+  - ANY_A3_ACTION_BEFORE_A3_ACK_ACCEPTANCE_AND_A3_START
+  - MODIFY_MATERIALIZER_COMMON_R10_PLAN_OR_ANY_EXISTING_SOURCE
+  - MODIFY_DELETE_OR_RERUN_A2_REPLAY_ROOTS
+  - ADD_DYNAMIC_TOLERANCE_OR_POSTHOC_EXCLUSION_NOT_LISTED_HERE
+  - SELECTED_OR_RESERVE_CORPUS_TOOL_INVOCATION
+  - CLAIM_BEARING_RUN_OR_R10_PLAN_EXECUTION
+  - NETWORK_RETRY_RESULT_BASED_EDIT_EXCLUSION_BACKFILL_OR_COMMAND_CHANGE
+  - SCIENTIFIC_INFERENCE_REVISION_PIVOT_STATE_TRANSITION_CLEANUP_OR_STAGEB
+
+A3_ack:
+  path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/A3_ACK.yaml
+  bootstrap_only: true
+  must_confirm:
+    - ALL_FROZEN_HASHES_AND_SHARED_RECORDS_MATCH
+    - A2_CANONICAL_AND_BOTH_REPLAY_ROOTS_UNCHANGED
+    - REPLAY_1_AND_REPLAY_2_IDENTITY_AND_54_FILE_SETS
+    - A2_PRECOMMIT_EXCLUDES_ONLY_TIMING_RSS_ABSOLUTE_PATHS_REPLAY_ID
+    - EXACT_38_RAW_6_NORMALIZED_TEXT_10_STRUCTURED_CLASSIFICATION
+    - AUDITOR_IMPLEMENTATION_ROOT_ABSENT
+    - PRESERVATION_IMPLEMENTATION_TOOL_AUDIT_AND_R10_PLAN_NOT_STARTED
+    - SELECTED_OR_RESERVE_TOOL_ZERO_CLAIM_ZERO_SCIENCE_ZERO
+    - DIFFERENCES_OR_AMBIGUITIES_EMPTY
+    - A3_ACTION_STARTED_FALSE
+  ready_condition: ALL_MATCH
+  refuse_condition: ANY_DIFFERENCE_OR_DRIFT
+
+scientific_revision_consumed: false
+claim_bearing_observation_count: 0
+selected_or_reserve_corpus_tool_invocations: 0
+r10_claim_authorized: false
+next_action: WRITE_A3_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_A3_START

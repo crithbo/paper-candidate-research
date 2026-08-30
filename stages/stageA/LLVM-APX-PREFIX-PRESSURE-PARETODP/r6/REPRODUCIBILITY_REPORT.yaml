@@ -1,0 +1,38 @@
+schema: reproducibility-report-v3
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R6-UINT32-CHECKER-PORTABILITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+start_authorization_sha256: B75A772DC2804120F3DD638D34B968D4A8D7F274A94E93FABE1C70C31C5A25C0
+run_index:
+  - {id: INPUT_COPY_AND_HASH_REACCEPTANCE, classification: CONTROL_NON_CLAIM_BEARING, result: PASS, tool_manifest_records: 96, tool_manifest_failures: 0}
+  - {id: SINGLE_ASSIGNMENT_LOCAL_CHECKER_PATCH, classification: ENGINEERING_NON_CLAIM_BEARING, result: PASS_BOUNDED_NUMERIC_PORTABILITY_AND_EXIT_DETECTION, edits_used: 1_OF_1}
+  - {id: WRAPPER_EXIT_NEGATIVE_CONTROL, classification: CONTROL_NON_CLAIM_BEARING, result: PASS_EXPECTED_EXIT_73_CAPTURED_AND_PAIR_STOPPED, output_sha256: 49916ECB469E2AEAFEFF6978C10E066D3B2CF6A6AE98E64C12EF7378606A36DB}
+  - {id: F2_CHECKER_REPLAY1, classification: CONTROL_NON_CLAIM_BEARING, result: PASS_EXIT_ZERO, output_sha256: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966}
+  - {id: F2_CHECKER_REPLAY2, classification: CONTROL_NON_CLAIM_BEARING, result: PASS_EXIT_ZERO_AFTER_FIRST_PASS_GATE, output_sha256: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966}
+  - {id: F3_CERTIFICATE_AUDIT, classification: CONTROL_NON_CLAIM_BEARING, result: PASS_FROZEN_BOUNDED_GRAMMAR}
+  - {id: F4_ORACLE_AUDIT, classification: CONTROL_NON_CLAIM_BEARING, result: PASS_FROZEN_LABELED_QUOTIENT_EQUIVALENCE}
+carried_forward_not_rerun:
+  F0: PASS_HASH_REACCEPTED
+  F1: PASS_STATIC_PREFLIGHT_WITHOUT_REINTERPRETATION
+  F2_LLC_PAIR: {status: PASS_TWO_EXIT_ZERO_EXACT_REPLAYS, output_sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A}
+retry_audit:
+  automatic_retries: 0
+  extra_command_variants: 0
+  negative_control_commands: 1_OF_1_PLANNED
+  checker_commands: 2_OF_2_PLANNED
+  second_checker_launch_gate: FIRST_EXIT_ZERO_AND_FIRST_RESULT_PASS
+  second_checker_launch_gate_satisfied: true
+  llc_or_mc_commands_in_r6: 0
+monitoring: {process_alive: SYNCHRONOUS_EXIT_OBSERVED, output_growth: ASSIGNMENT_LOCAL_FILES, timeout_triggered: false}
+budgets:
+  network_bytes_used: 0
+  resource_root_logical_bytes: 321726055
+  resource_root_logical_bytes_max: 1073741824
+  harness_build_attempts_used: 0
+  max_parallel_processes_observed: 1
+  max_parallel_processes_allowed: 1
+  gpu_hours_used: 0
+  exact_cpu_and_wall: UNAVAILABLE__NOT_ESTIMATED
+forbidden_actions: {network: NOT_RUN, llc_or_mc_rerun: NOT_RUN, build: NOT_RUN, second_checker_edit: NOT_RUN, extra_variant_or_retry: NOT_RUN, witness_mir_tool_contract_sample_flag_action_grammar_or_cost_change: NOT_RUN, natural_performance_full_cost_claim: NOT_RUN, science_revision_or_pivot: NOT_RUN, cleanup: NOT_RUN, stageb: NOT_RUN}
+result: REPRODUCIBLE_EXACT_CHECKER_PAIR_PASS__PRECLAIM_CONTROL_ONLY
+

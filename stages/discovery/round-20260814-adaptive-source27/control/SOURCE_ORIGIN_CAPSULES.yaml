@@ -1,0 +1,129 @@
+schema_version: source-origin-capsules-v1
+frozen_at: 2026-08-14T14:10:00+08:00
+purpose: SOURCE_ORIGIN_ONLY__NO_NOVELTY_OR_OUTCOME_CLAIM
+common_rule:
+  exact_bytes_or_commit_must_be_frozen_before_a_locator_can_survive: true
+  source_is_an_origin_not_an_admission: true
+  mature_tool_or_paper_owned_constructor_may_only_be_comparator_or_carrier: true
+  source25_26_same_surface_without_content_addressable_delta: COOLDOWN_ONE_CYCLE
+
+lanes:
+  S1:
+    - capsule_id: S1_OPENMP60_OFFLOAD_SEMANTIC_BOUNDARY
+      deterministic_locators:
+        - https://www.openmp.org/specifications/
+        - https://clang.llvm.org/docs/OpenMPSupport.html
+        - https://openmp.llvm.org/
+      selection_rule: OPENMP_6_0_NOVEMBER_2024_PLUS_2025_ERRATA__LLVM_22_1_8_OR_NEWER_FROZEN_CURRENT_SOURCE_PATHS
+      provenance_license: OPENMP_ARBITB_SPEC_PROVENANCE__LLVM_APACHE_2_WITH_LLVM_EXCEPTION
+      object_class: VERSIONED_OPENMP_PROGRAM_AND_HOST_DEVICE_ABI
+      allowed_carrier_class: OFFICIAL_SPEC_EXAMPLE_OR_OFFICIAL_TEST_WITH_CURRENT_CLANG_FLANG_LIBOMPTARGET_PATH
+      cooldown_note: DIFFERENT_FROM_SOURCE25_26_MOPS_ZFA_TOOL_SURFACES
+    - capsule_id: S1_RISCV_PSABI_1_1_CURRENT_CALL_BOUNDARY
+      deterministic_locators:
+        - https://riscv-non-isa.github.io/riscv-elf-psabi-doc/
+        - https://github.com/riscv-non-isa/riscv-elf-psabi-doc
+      selection_rule: PSABI_1_1_PRERELEASE_2026_07_01_OR_NEWER_DOCUMENT_PUBLISHED_BY_CUTOFF__FREEZE_EXACT_SOURCE_COMMIT
+      provenance_license: RISC_V_NON_ISA_OFFICIAL_PUBLIC_SPEC__REPOSITORY_LICENSE_TO_BE_RECORDED_BY_LANE
+      object_class: FIXED_RISCV_ELF_ABI_PROGRAM_AND_CALL_BOUNDARY_STATE
+      allowed_carrier_class: OFFICIAL_ABI_TEST_OR_SMALL_NATIVE_LEGAL_PROGRAM_WITH_CURRENT_COMPILER_LINKER_READER_PATH
+      cooldown_note: NOT_THE_SOURCE25_26_RVV_VSETVLI_OR_ZFA_ENDPOINT
+
+  S2:
+    - capsule_id: S2_MLCOMMONS_CHAKRA_TRACE_SCHEMA
+      deterministic_locators:
+        - https://github.com/mlcommons/chakra
+        - https://github.com/mlcommons/chakra/blob/main/USER_GUIDE.md
+      selection_rule: LATEST_NON_PRERELEASE_TAG_OR_MAIN_COMMIT_AT_2026_08_14__FREEZE_SCHEMA_PROTO_AND_ONE_PUBLIC_TRACE_ID
+      provenance_license: MLCOMMONS_OFFICIAL__MIT
+      object_class: VERSIONED_DISTRIBUTED_ACCELERATOR_EXECUTION_TRACE_AND_SCHEMA
+      allowed_carrier_class: PUBLIC_CHAKRA_TRACE_OR_DETERMINISTIC_SCHEMA_VALIDATED_SLICE
+      cooldown_note: NOT_SOURCE26_NSIGHT_TIMELINE_SURFACE
+    - capsule_id: S2_ACCELSIM_130_TRACE_AND_CORRELATION
+      deterministic_locators:
+        - https://github.com/accel-sim/accel-sim-framework/releases
+        - https://github.com/accel-sim/accel-sim-framework
+      selection_rule: OFFICIAL_V1_3_0_RELEASE_IF_AVAILABLE_BY_CUTOFF_ELSE_LATEST_NON_PRERELEASE__FREEZE_TAG_COMMIT_TRACE_FORMAT_AND_PUBLIC_VALIDATION_ID
+      provenance_license: ACCEL_SIM_OFFICIAL_PUBLIC_REPOSITORY__LICENSE_TO_BE_RECORDED_BY_LANE
+      object_class: FIXED_GPU_TRACE_SIMULATOR_AND_CORRELATION_CONTRACT
+      allowed_carrier_class: OFFICIAL_TRACE_OR_PUBLIC_VALIDATION_WORKLOAD_WITH_STOCK_READER
+      cooldown_note: DISTINCT_FROM_SOURCE25_26_GENERIC_ACCELERATOR_TRACE_LOCATORS_BY_EXACT_SIMULATOR_CONTRACT
+
+  S3:
+    - capsule_id: S3_OPENALEX_QUARTERLY_SNAPSHOT_CHAIN
+      deterministic_locators:
+        - https://developers.openalex.org/download/overview
+        - https://developers.openalex.org/download/snapshot-format
+      selection_rule: TWO_CONSECUTIVE_PUBLIC_QUARTERLY_SNAPSHOTS_AVAILABLE_BY_2026_08_14__FREEZE_MANIFEST_AND_ENTITY_FILE_IDS
+      provenance_license: OPENALEX_OFFICIAL_PUBLIC_SNAPSHOT__PROVENANCE_LICENSE_RECORDED_FROM_OFFICIAL_DOCS
+      object_class: VERSIONED_SCHOLARLY_GRAPH_RELEASE_CHAIN
+      allowed_carrier_class: MANIFEST_PINNED_NATURAL_RELEASE_DELTA_WITH_STOCK_SCHEMA_READER
+      cooldown_note: NOT_SOURCE25_26_CRATES_ONNX_MLPERF_IDENTITY
+    - capsule_id: S3_DEBIAN_SNAPSHOT_PACKAGE_CHAIN
+      deterministic_locators:
+        - https://snapshot.debian.org/
+        - https://www.debian.org/doc/manuals/debian-handbook/sect.apt-get.en.html
+      selection_rule: TWO_EXACT_ARCHIVE_TIMESTAMPS_BEFORE_2026_08_14__FREEZE_INRELEASE_RELEASE_PACKAGES_HASHES_AND_APT_READER_VERSION
+      provenance_license: DEBIAN_PUBLIC_ARCHIVE__PER_PACKAGE_LICENSES_OUT_OF_SCOPE_FOR_SMALL_METADATA_SLICE
+      object_class: VERSIONED_DISTRIBUTION_PACKAGE_DEPENDENCY_AND_BINARY_METADATA_CHAIN
+      allowed_carrier_class: CONTENT_ADDRESSED_RELEASE_PACKAGES_METADATA_WITH_STOCK_APT_READER
+      cooldown_note: DISTINCT_FROM_SOURCE25_26_TOOL_SURFACES
+
+  S4:
+    - capsule_id: S4_OPENML_VERSIONED_BENCHMARK_SUITE
+      deterministic_locators:
+        - https://github.com/openml/benchmark-suites
+        - https://www.openml.org/apis
+      selection_rule: ONE_PUBLIC_SUITE_VERSION_AND_MACHINE_READABLE_TASK_RUN_RESULT_EXPORT_AVAILABLE_BY_2026_08_14__FREEZE_IDS_AND_API_SCHEMA
+      provenance_license: OPENML_OFFICIAL_PUBLIC_API_AND_REPOSITORY__LICENSES_RECORDED_BY_LANE
+      object_class: CANONICAL_BENCHMARK_SUITE_TASK_AND_RESULT_PANEL
+      allowed_carrier_class: CANONICAL_BENCHMARK_ONLY__NO_NATURAL_DEPLOYMENT_EXTRAPOLATION
+      cooldown_note: NOT_SOURCE25_26_MLPERF_SURFACE
+    - capsule_id: S4_RENAISSANCE_VERSIONED_JVM_BENCHMARK_RESULTS
+      deterministic_locators:
+        - https://github.com/renaissance-benchmarks/renaissance/releases
+        - https://renaissance.dev/
+      selection_rule: LATEST_NON_PRERELEASE_RELEASE_BY_2026_08_14__FREEZE_TAG_HARNESS_SCHEMA_AND_PUBLIC_RESULT_ARTIFACT_IF_AVAILABLE
+      provenance_license: RENAISSANCE_OFFICIAL_PUBLIC_REPOSITORY__LICENSE_RECORDED_BY_LANE
+      object_class: VERSIONED_JVM_BENCHMARK_SUITE_AND_MEASUREMENT_HARNESS
+      allowed_carrier_class: CANONICAL_BENCHMARK_RESULT_OR_REPRODUCIBLE_PUBLIC_RUN_RECORD
+      cooldown_note: DISTINCT_FROM_SOURCE25_26_MLPERF_AND_RETIRED_HPC_ENDPOINTS
+
+  S5:
+    - capsule_id: S5_HERDTOOLS7_ARCH_MEMORY_MODEL_LITMUS
+      deterministic_locators:
+        - https://github.com/herd/herdtools7
+      selection_rule: LATEST_NON_PRERELEASE_RELEASE_OR_MAIN_COMMIT_AT_2026_08_14__FREEZE_ONE_ARCH_CAT_MODEL_AND_PUBLIC_LITMUS_SET
+      provenance_license: HERDTOOLS7_OFFICIAL_PUBLIC_REPOSITORY__LICENSE_RECORDED_BY_LANE
+      object_class: FIXED_ARCHITECTURE_MEMORY_MODEL_AND_LITMUS_CORPUS
+      allowed_carrier_class: TARGET_SPECIFIC_FORMAL_MODEL_PLUS_STOCK_CHECKER_COUNTEREXAMPLE
+      cooldown_note: NOT_SOURCE25_26_SPIRV_BINARYEN_YOSYS_SURFACE
+    - capsule_id: S5_RISCV_SAIL_FORMAL_SPEC
+      deterministic_locators:
+        - https://github.com/riscv/sail-riscv
+      selection_rule: LATEST_OFFICIAL_RELEASE_OR_MAIN_COMMIT_AT_2026_08_14__FREEZE_CONFIG_SCHEMA_MODEL_AND_ONE_PUBLIC_TEST_ID
+      provenance_license: RISC_V_OFFICIAL_PUBLIC_REPOSITORY__BSD_2_CLAUSE
+      object_class: FIXED_RISCV_ISA_CONFIGURATION_AND_FORMAL_EXECUTION_MODEL
+      allowed_carrier_class: OFFICIAL_MODEL_CONFIG_PLUS_STOCK_EMULATOR_OR_THEOREM_PROVER_COUNTEREXAMPLE
+      cooldown_note: DISTINCT_FROM_SOURCE25_26_GENERIC_FORMAL_WRAPPERS
+
+  S6:
+    - capsule_id: S6_AMDGPU_GFX12_ROCWMMA_NATIVE_ACTIONS
+      deterministic_locators:
+        - https://llvm.org/docs/AMDGPUUsage.html
+        - https://github.com/ROCm/rocWMMA/releases
+      selection_rule: LLVM_22_1_8_OR_NEWER_FROZEN_AMDGPU_SOURCE_PLUS_LATEST_NON_PRERELEASE_ROCWMMA_RELEASE_BY_2026_08_14
+      provenance_license: LLVM_APACHE_2_WITH_LLVM_EXCEPTION__ROCWMMA_MIT
+      object_class: FIXED_AMDGPU_GFX12_WAVE_MATRIX_PROGRAM_AND_ABI
+      allowed_carrier_class: OFFICIAL_SAMPLE_OR_TEST_WITH_TWO_STOCK_NATIVE_LEGAL_BACKEND_ACTIONS
+      cooldown_note: NOT_SOURCE25_26_SME_SVE_OR_GENERIC_MIXED_PRECISION_SURFACE
+    - capsule_id: S6_LOONGARCH_OPENBLAS_NATIVE_KERNEL_ACTIONS
+      deterministic_locators:
+        - https://github.com/OpenMathLib/OpenBLAS/releases
+        - https://github.com/llvm/llvm-project/tree/main/llvm/lib/Target/LoongArch
+      selection_rule: LATEST_NON_PRERELEASE_OPENBLAS_RELEASE_BY_2026_08_14_PLUS_LLVM_22_1_8_OR_NEWER_FROZEN_LOONGARCH_SOURCE
+      provenance_license: OPENBLAS_BSD_3_CLAUSE__LLVM_APACHE_2_WITH_LLVM_EXCEPTION
+      object_class: FIXED_LOONGARCH64_OPENBLAS_KERNEL_AND_TARGET_ABI
+      allowed_carrier_class: OFFICIAL_KERNEL_TEST_OR_SMALL_PUBLIC_PROGRAM_WITH_TWO_NATIVE_LEGAL_ACTIONS
+      cooldown_note: DISTINCT_FROM_SOURCE25_26_AARCH64_RVV_AND_ACCELERATOR_TRACE_SURFACES
+

@@ -1,0 +1,91 @@
+schema_version: discovery-targeted-revision-assignment-v1
+assignment_id: DISCOVERY-S5-20260821-PATCHYIELD-STAGE0-REVISION1
+lane: DISCOVERY-S5-SCALE-ONLINE-APPROX
+authority: USER_EXPLICIT_PATCHYIELD_REPAIR_AND_INDEPENDENT_STAGE0_20260821
+topic_id: PATCHYIELD-CALL
+mode: FROZEN_STAGE0_REVISION1_STATIC_CERTIFICATE
+status_on_dispatch: ACTIVE
+scientific_revision: REVISE_ONCE__CONSUMED_BY_THIS_ASSIGNMENT
+
+frozen_inputs:
+  original_archive: C:\Users\15383\Downloads\stage0_freeze_pack_2026-08-21.zip
+  original_archive_sha256: 1F1696FBBF39C4C6810386E8472692EA1E434011B15D02E10F84A3C3F61E9B67
+  discovery_repair_directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260821\patchyield-repair
+  discovery_repair_handoff_sha256: E08EA73212F809B0CFD9130523BFC077101439587254923981374854FD5A22B7
+  primary_review_directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-primary\PATCHYIELD-CALL
+  primary_batch_handoff_sha256: 9BBF5390E1A21E4526AF1C92358DAE506A3C70A3CCB9821935E609B7CDB0406E
+  confirmation_directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-confirmation\PATCHYIELD-CALL
+  confirmation_batch_handoff_sha256: 04C57FA1FF5C5A8FC06FFAC50EAB152C79B5042E3AAFFDAA91A68578128923B4
+  confirmation_batch_manifest_sha256: 0E115048B614F5C932B9044A0C86B2A16F717A4920621E02470E9D5D355DDA9C
+
+frozen_rules:
+  project_rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__research-topic-discovery-r1-r40-20260815
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  research_topic_discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  discovery_rq_frontend_mode: PRODUCTION
+  rq_frontend_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+  discovery_claim_pack_mode: OFF
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260821\patchyield-stage0-revision1
+  resource_root: D:\project\writing\reserch\stages\discovery\user-proposed-20260821\patchyield-stage0-revision1\resources
+  resource_inventory: D:\project\writing\reserch\stages\discovery\user-proposed-20260821\patchyield-stage0-revision1\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+frozen_object:
+  agent_and_serving: UNCHANGED_FROM_DISCOVERY_REPAIR
+  model_dataset_evaluator: UNCHANGED_FROM_DISCOVERY_REPAIR
+  hardware: NVIDIA_H100_SXM_80GB__SINGLE_GPU
+  action: SELECT_NEXT_COMPLETE_NON_PREEMPTIVE_LLM_CALL_FROM_SIMULTANEOUSLY_READY_ADMITTED_SESSIONS
+  deadline: ARRIVAL_RELATIVE__UNCHANGED
+  fairness_cap: READY_CALL_BYPASS_LE_16__ZERO_VIOLATIONS_PER_PREREGISTERED_CELL
+  evidence_route: LIVE_REEXECUTION_PRIMARY__REPLAY_SENSITIVITY_ONLY
+  benchmark_claim_ceiling: FROZEN_SWE_BENCH_VERIFIED_SCHEDULING_ONLY__NO_PRODUCTION_SLA_OR_GENERAL_AGENT_CAPABILITY_CLAIM
+
+sole_atomic_gate: READY_CALL_BOUNDED_BYPASS_16__PROGRESS_INCREMENTAL_FAIR_POLICY_CERTIFICATE
+
+objective:
+  - Freeze the complete ready-call action grammar covering session identity, successive calls, equal-ready ties, batch membership, KV state, dispatch, and the mapping to every frozen native vLLM scheduler/control surface.
+  - Freeze public online progress information, predictor target, repository-held-out partition, and a mechanical leakage audit that excludes sealed evaluator results, solution patches, held-out labels, and post-service outcomes.
+  - Specify one executable online policy that enforces bypass_i <= 16 for every legal queue state. Progress must change explicit policy state, transition, feasible set, or a proved guarantee; it may not be only a scalar priority or learned rank.
+  - Provide a finite proof or checker certificate for the hard cap and one clearly scoped monotonic, feasibility, competitive, regret, or other falsifiable guarantee tied to the frozen action.
+  - Provide at least one small same-object action-divergence witness against current vLLM FCFS/priority/custom scheduler, VTC, DLPM/D2LPM, Justitia, SAGA, SMetric, and NVIDIA Dynamo ThunderAgent. For each subtractor, state why the candidate is not a parameter rename, feature substitution, ordinary aging, routing, admission, pause/resume, or legal composition.
+  - Preserve the repaired live-reexecution contract. Clarify that deterministic means frozen pins, inputs, reset and protocol; future Stage A must use policy-order blocking or counterbalancing and replicated seeds.
+  - Preserve full-cost accounting and pre-register a finite H100 falsifier, without executing it.
+  - Produce a closing-review packet. Decide only REVISION_GATE_CLOSED__READY_FOR_INDEPENDENT_STAGE0_CLOSING or REVISION_GATE_NOT_CLOSED__RETURN_TO_STAGE0_STOP_SENTINEL. Do not issue PASS, STOP, Stage A, or Stage B yourself.
+
+stop_sentinel_if_gate_not_closed: BELOW_Q2_STOP__GENERIC_PRIORITY_OR_EXISTING_FAIR_LLM_APPLICATION_SCHEDULING
+
+allowed_actions:
+  - Read only the frozen repair and Stage0 review inputs listed above plus current official/primary small text needed to distinguish the named subtractors.
+  - Write static policy pseudocode, state machine, proof/checker specification, comparator matrix, divergence witnesses, and closing handoff under unique_write_directory.
+  - Persist small official text/source excerpts and provenance under resource_root.
+
+forbidden_actions:
+  - Change the frozen agent, model, dataset, evaluator, H100, deadline, admission set, non-preemptive call action, online information boundary, fairness cap, or primary live-evidence route.
+  - Run H100 jobs, agents, vLLM, containers, simulations, replay experiments, benchmarks, model inference, builds, or claim-bearing work.
+  - Download model weights, task/container images, large datasets, or install software.
+  - Treat generic scalar priority, learned ranking, ordinary aging, replay, or a field selector as the research contribution.
+  - Modify plan.md, registry.yaml, rules, templates, review directories, or any other assignment directory.
+
+resource_envelope:
+  official_routes_max: 12
+  accepted_persisted_bytes_max: 33554432
+  wall_time_max: 2h
+  cpu_time_max: 1h
+  system_install: false
+  global_environment_change: false
+  failure_consequence: RESOURCE_BLOCKED__NO_SCIENTIFIC_INFERENCE
+
+required_outputs:
+  - REVISION_REPORT.md
+  - PROGRESS_INCREMENTAL_POLICY_CERTIFICATE.yaml
+  - ACTION_GRAMMAR_AND_NATIVE_MAPPING.md
+  - LEAKAGE_AUDIT.md
+  - COMPARATOR_SEPARATION_MATRIX.md
+  - SAME_OBJECT_DIVERGENCE_WITNESS.md
+  - FULL_COST_AND_STAGEA_FALSIFIER.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256

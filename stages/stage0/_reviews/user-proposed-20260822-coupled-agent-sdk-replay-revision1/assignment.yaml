@@ -1,0 +1,106 @@
+schema_version: stage0-revision-assignment-v1
+assignment_id: STAGE0-P4R1-20260822-COUPLED-AGENT-SDK-REPLAY-REVISION1
+mode: REVISION_OWNER
+authority: USER_EXPLICIT_REPLACE_STOPPED_PATCHVALUE_WITH_NEW_TOPIC_20260822
+topic_id: COUPLED-AGENT-SDK-REPLAY-REV0
+scientific_revision_index: 1
+scientific_revision_limit: 1
+status_on_dispatch: ACTIVE
+
+upstream_primary:
+  directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-primary
+  handoff_sha256: 28D0E35FE0B2E9DF06FE0E5E15ED6EA97F68D56F829126F8179F6FBB426F73DA
+  decision: REVISE_ONCE
+  conditional_tier: TIER_B_Q2_VIABLE
+  atomic_gate: NATIVE_SDK_COUPLED_BRANCH_TRANSITION__NONPRODUCT_MARGINAL_CORRECTNESS_AND_CONSERVATIVE_FRONTIER_CERTIFICATE
+
+upstream_confirmation:
+  directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-confirmation
+  handoff_sha256: 752CAB59987E668D40F3F6A7770A6913DBAD767A5417710C12F0664379B6A6E0
+  decision: CONFIRM
+  manifest_sha256: 3F129532F40D281188E7CBBAF975EF32F6CF4DAA0F75BD40987B2A98F364F8A5
+
+frozen_rules:
+  role_stage0_sha256: BC58D2A365AFF6A0F82290CC3CC4E16177DBFDA69D1B28260084E9BE6B56E48C
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  revision_semantics: ONE_ATOMIC_STATIC_REPAIR_ONLY
+
+immutable_object:
+  software_agent_sdk_commit: ddac55697c5d15cf8a34495b5ed6d46c86db092a
+  qwen_revision: c03e6d358207e414f1eca0bb1891e29f1db0e242
+  swebench_verified_revision: c104f840cc67f8b6eec6f759ebc8b2693d585d4a
+  task_list_sha256: 32729224C6BA9EF3A2D47AD86FBB7E7993350D3C0B0A88D0F684A015A0EC240D
+  boundary_interventions_decoding_and_absorbing_terminal_semantics: unchanged
+
+single_revision_gate:
+  id: NATIVE_SDK_COUPLED_BRANCH_TRANSITION__NONPRODUCT_MARGINAL_CORRECTNESS_AND_CONSERVATIVE_FRONTIER_CERTIFICATE
+  conjuncts:
+    C1_native_transition_induction:
+      - define one complete frozen SDK transition from processed model distribution through action event, tool execution, observation event, workspace/process effects, context update and terminal state
+      - state an induction invariant showing both arms retain their correct native marginals at every comparable transition
+      - include native fork() and rerun_actions() in the current union
+    C2_isolation_catalog:
+      - enumerate deep-copied, shared, copy-on-branch, reset, forbidden-to-share and unobservable state
+      - include agent, events, agent_state, context, workspace/filesystem, processes, tools, tests, RNG, clocks/network and evaluator state
+      - treat non-idempotent tool replay as a first-class failure condition, not an implementation detail
+    C3_sampling_marginals:
+      - define shared-Gumbel coupling only after the exact processors, warpers and stopping controls
+      - prove categorical marginal equivalence for each arm under the frozen sampling route
+      - explicitly disclaim bitwise equivalence to native RNG execution
+    C4_split_fallback_and_uncomparable:
+      - specify keep-shared, split-noise, independent-fallback, abort-pair and uncomparable transitions
+      - prove fallback preserves marginal validity and prevents cross-arm/evaluator leakage
+    C5_nonproduct_frontier:
+      - state a target-specific guarantee that is not CAR plus token coupling plus generic paired mean
+      - include full two-branch inference, coupling, isolation/reset, failed/uncomparable pair and evaluator cost
+      - define a conservative simultaneous benefit frontier or sample-complexity/variance condition with explicit no-benefit region
+  failure_sentinels:
+    - DIRECT_CURRENT_UNION_ABSORPTION
+    - GENERIC_TOKEN_COUPLING_OR_PAIRED_STATISTICS_ONLY
+    - INVALID_CATEGORICAL_MARGINAL_OR_NATIVE_RNG_EQUIVALENCE_OVERCLAIM
+    - NONISOLATED_OR_NONIDEMPOTENT_TOOL_STATE_WITHOUT_CONSERVATIVE_FALLBACK
+    - OPEN_ENDED_ENGINEERING_PROGRAM_NOT_ONE_STATIC_CERTIFICATE
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-revision1
+  resource_root: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-revision1\resources
+  resource_inventory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-revision1\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+allowed_actions:
+  - Read the primary and confirmation packages plus the new-topic Discovery/pre-evidence packets.
+  - Open only decisive frozen SDK/Qwen sources and named public papers needed to construct the static certificate.
+  - Write the one static revision certificate and revised Stage0 packet under unique_write_directory.
+
+forbidden_actions:
+  - Change the topic object, estimand, intervention, model, dataset, tasks, boundary or terminal semantics.
+  - Run agents, models, rollouts, SWE-bench tasks, hidden tests, containers, builds, simulations or experiments.
+  - Download weights/images/large datasets, install software, enter StageA/B or create another revision.
+  - Modify upstream/shared files or design another replacement topic.
+
+resource_envelope:
+  decisive_routes_max: 12
+  accepted_persisted_bytes_total_max: 134217728
+  cpu_time_max: 1h
+  wall_time_max: 2h
+  system_install: false
+  global_environment_change: false
+  failure_consequence: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+
+required_outputs:
+  - REVISION_REPORT.md
+  - NATIVE_TRANSITION_AND_ISOLATION_CERTIFICATE.md
+  - MARGINAL_CORRECTNESS_AND_FALLBACK_PROOF.md
+  - NONPRODUCT_FRONTIER_CERTIFICATE.md
+  - CURRENT_UNION_DELTA.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+allowed_dispositions:
+  - REVISION_GATE_CLOSED__PASS_RECOMMENDED__PENDING_INDEPENDENT_STAGE0_CLOSING
+  - REVISION_GATE_NOT_CLOSED__RETURN_TO_STAGE0_STOP_SENTINEL
+  - BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+
+next_step:
+  rule: Mainline must route the completed revision to an independent closing reviewer. StageA/B remains unauthorized.

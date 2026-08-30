@@ -1,0 +1,146 @@
+schema: ppc-r7-executable-harness-fidelity-correction-addendum-v1
+generated_by: MAINLINE
+generated_at: 2026-08-26T04:58:00+08:00
+addendum_id: PPC-R7-A1-EXECUTABLE-HARNESS-CORRECTION
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R7-NATURAL-CLAIM-HARNESS-FIDELITY
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+status: ADDENDUM_ACK_PENDING
+base_context_sha256: FB5DF314F0E6C6C6B775120E8CAFA6FB38A9D87EA5D40EF5AC4C8BF6B9CA17F7
+base_bootstrap_ack_sha256: 4CD412301EF49C369E139EBB226A9A96809BE090D4569E666BCC011017BFC3B3
+base_start_sha256: FE65770EAB9D13C828E255FCC5FB49C39F1F478F7474B7587540C012E7CB867B
+rejected_handoff_sha256: 4211F9CE4F81B1A2C2CF417BF9CA6E03A2C2979CB5D5263D4AE0C5653759CAE6
+rejected_manifest_sha256: 419584E5A7AAB90D027B2BC75A3AA503F2DA586A64FDB7033A4900F6587C3D53
+mainline_rejection_sha256: 03A8AFD968007AA107687DE7CA704635C447317AEFAB7219ADA1E7CA5FA28A5A
+frozen_shared_snapshot:
+  plan_sha256: DED868C1BA61F355CE5E7C113F076F52AC5F9C6BA4362D7D7F7684D2201708E4
+  registry_sha256: EBA7702ABB5C2462D427CEAD2457B9D316008ADFC587914413F6B9B6D2A7B247
+
+classification:
+  type: ENGINEERING_CORRECTION_IN_PRECLAIM_CONTRACT
+  scientific_revision_consumed: false
+  exact_object_changed: false
+  mechanism_changed: false
+  comparator_changed: false
+  corpus_or_denominator_changed: false
+  metric_or_claim_changed: false
+  selected_or_reserve_tool_observation_so_far: 0
+  claim_observation_so_far: 0
+
+immutable_base_resources:
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r7/resources
+  files: 576
+  logical_bytes: 245126751
+  reparse_entries: 0
+  r6_input_files: 26
+  r2_toolchain_files: 133
+  source_copy_or_reacquisition_allowed: false
+  selected_or_reserve_corpus_modification_allowed: false
+
+first_action_after_start:
+  - WRITE_FIDELITY_CORRECTION_PRECOMMIT
+  - COPY_HANDOFF_YAML_TO_HANDOFF_PASS1_DECLARATIVE_ONLY_YAML_WITH_HASH_PRESERVED
+  - COPY_HASH_MANIFEST_TO_HASH_MANIFEST_PASS1_DECLARATIVE_ONLY_SHA256_WITH_HASH_PRESERVED
+
+required_executable_implementation:
+  root: resources/src/claim_harness
+  maximum_total_files_after_correction: 12
+  current_files: 2
+  existing_declarative_files_may_be_replaced: true
+  required_capabilities:
+    - RUNNABLE_NORMALIZED_PPC_TRACE_SCHEMA_WITH_LABELED_FUTURE_PORTS_AND_ROLE_COMPLETE_REGISTER_IDENTITIES
+    - RUNNABLE_PPC_TPD_RECURRENCE_WITH_EXPLICIT_STATE_TRANSITIONS_PARETO_PRUNING_BACKPOINTERS_AND_INTERFACE_CAP_EXCEEDED
+    - RUNNABLE_COMPLETE_16_COMPILE_32_LINK_BASELINE_COMMAND_GENERATOR
+    - RUNNABLE_FORM_FIXED_CURRENT_RA_AND_FORM_AWARE_FIXED_RA_ABLATION_GENERATORS
+    - RUNNABLE_MACHINEVERIFIER_RELOCATION_DISASSEMBLY_LLD_UNWIND_SEMANTICS_AND_ACTION_TRACE_CHECKERS
+    - RUNNABLE_FULL_COST_COLLECTOR_WITH_UNITS_PROCESS_BOUNDARIES_FAILURE_CAP_AND_FALLBACK_ACCOUNTING
+    - RUNNABLE_R8_PLAN_GENERATOR_EMITTING_EXACT_32_PROCESS_ROWS_WITHOUT_EXECUTING_THEM
+  forbidden_shortcuts:
+    - CONSTANT_TUPLE_OR_SCHEMA_ASSERT_ONLY
+    - DECLARATIVE_LABELS_WITHOUT_ENTRYPOINTS
+    - GENERIC_RA_ILP_CP_UNISON_OR_SCALAR_PREFIX_WEIGHTING
+    - R5_RUNNER_OUTPUT_AS_SOLE_R7_HARNESS_VALIDATION
+
+corrected_H5:
+  input: R5_CORRECTED_SYNTHETIC_WITNESS_ONLY
+  must_invoke_new_r7_harness_entrypoint: true
+  deterministic_replays: 2
+  additional_tool_command_records_max: 180
+  cumulative_tool_command_records_max: 328
+  previous_148_records_disposition: INVALID_FOR_H1_H2_H4_H5_H6_VALIDATION__RETAIN_AS_REUSED_R5_CONTROL
+  expected_new_outputs:
+    - resources/logs/correction/new_harness_execution_summary.json
+    - resources/logs/correction/new_harness_command_metrics.json
+    - resources/logs/correction/candidate_trace_replay1.json
+    - resources/logs/correction/candidate_trace_replay2.json
+    - resources/logs/correction/full_cost_collector_replay1.json
+    - resources/logs/correction/full_cost_collector_replay2.json
+  exact_replay_equality_required: true
+  automatic_retry: false
+
+corrected_H6:
+  output: resources/src/claim_harness/r8_processes.json
+  process_count: 32
+  exact_rows_required:
+    - process_id
+    - selected_row_ordinal
+    - exact_member
+    - exact_function
+    - exact_body_sha256
+    - exact_whole_file_sha256
+    - replay_id
+    - working_directory
+    - candidate_argv_and_outputs
+    - baseline_16_compile_32_link_cell_argv_and_outputs
+    - form_fixed_current_ra_argv_and_outputs
+    - form_aware_fixed_ra_argv_and_outputs
+    - checker_argv_and_outputs
+    - full_cost_output
+    - invalid_construction_stop
+  reserve_rows_must_be_absent: true
+  executable_in_correction: false
+
+allowed_actions_after_addendum_start:
+  - WRITE_FIDELITY_CORRECTION_PRECOMMIT_AND_PRESERVE_PASS1
+  - REPLACE_OR_ADD_ASSIGNMENT_LOCAL_CLAIM_HARNESS_FILES_WITHIN_TOTAL_12_FILE_CAP
+  - RUN_NEW_HARNESS_ONLY_ON_R5_SYNTHETIC_WITNESS_FOR_TWO_REPLAYS
+  - RECORD_AT_MOST_180_ADDITIONAL_SYNTHETIC_TOOL_COMMANDS_BEFORE_EXECUTION
+  - GENERATE_EXACT_R8_32_PROCESS_PLAN_WITHOUT_EXECUTION
+  - REWRITE_H1_H2_H4_H5_H6_AUDITS_GATE_REPRO_INVENTORY_RETENTION_CAPSULE_HANDOFF_AND_MANIFEST
+forbidden_actions:
+  - NETWORK
+  - NEW_COPY_OR_EXTRACTION
+  - MODIFY_R1_R2_R3_R4_R5_R6
+  - MODIFY_SELECTED_OR_RESERVE_CORPUS_BYTES_IDENTITIES_DENOMINATOR_ORDER_OR_ROLE
+  - ANY_SELECTED_OR_RESERVE_COMPILER_LINKER_VERIFIER_DISASSEMBLY_OR_RESULT_OBSERVATION
+  - CLAIM_RUN
+  - LLVM_OR_LLD_SOURCE_PATCH_OR_REBUILD
+  - BINARY_HARNESS_BUILD
+  - AUTOMATIC_RETRY_RESULT_BASED_EXCLUSION_BACKFILL_OR_COMMAND_CHANGE
+  - SCIENTIFIC_INFERENCE_REVISION_PIVOT_STATE_TRANSITION_CLEANUP_OR_STAGEB
+limits:
+  network_bytes_max: 0
+  resource_root_logical_bytes_max: 536870912
+  cpu_seconds_remaining_max: 14400
+  wall_seconds_remaining_max: 28800
+  max_parallel_processes: 2
+  maximum_total_claim_harness_files: 12
+  additional_synthetic_tool_command_records_max: 180
+  selected_or_reserve_tool_invocations_max: 0
+  claim_runs_max: 0
+  automatic_retry: false
+ack_requirement:
+  path: ADDENDUM_ACK.yaml
+  write_before_start: true
+  must_confirm:
+    - BASE_AND_ADDENDUM_HASHES
+    - CURRENT_PLAN_REGISTRY_HASHES
+    - EXISTING_RESOURCE_TREE_576_FILES_245126751_BYTES_0_REPARSE
+    - PASS1_DECLARATIVE_HARNESS_REJECTION
+    - CORRECTION_PERMISSIONS_AND_BUDGETS
+    - SELECTED_OR_RESERVE_TOOL_INVOCATIONS_ZERO
+    - CLAIM_RUNS_ZERO
+    - DIFFERENCES_OR_AMBIGUITIES_EMPTY
+success_route: EXECUTABLE_NATURAL_CLAIM_HARNESS_FIDELITY_PASS__WAIT_SEPARATE_R8_EXACT_CLAIM_ASSIGNMENT
+failure_route: FAIL_CLOSED_EXECUTABLE_HARNESS_FIDELITY__NO_SELECTED_CORPUS_OR_SCIENTIFIC_INFERENCE

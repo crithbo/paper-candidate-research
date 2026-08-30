@@ -1,0 +1,35 @@
+schema_version: phase-closeout-retention-v1
+assignment_id: STAGEA-L1-20260825-LLVM-RVV-R3-LONG-PATH-AWARE-EXACT-TOOLCHAIN
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+closeout_state: RESOURCE_GATE_HANDOFF_PENDING_MAINLINE_ACCEPTANCE
+scientific_state_effect: NONE
+current_resource_root_bytes: 4832388339
+post_close_retained_bytes_max: 2147483648
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+active_owner_or_process_count_at_closeout: 0
+keep:
+  - {path: resources/env/rvv-toolchain, bytes: 195813113, files: 102, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: exact downstream RISC-V toolchain with DLLs licenses and manifest}
+  - {path: resources/tmp, bytes: 42291, files: 9, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: deterministic extraction configure build package smoke and measurement scripts}
+  - {path: resources/logs, bytes: 300132, files: 26, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: raw extraction configure build package smoke and measurement records}
+exact_cleanup_candidates:
+  - {path: resources/downloads/llvm-commit-5bb2565693f062a9e99929db1814a7a076d4dc76.json, bytes: 14428, files: 1, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: MAINLINE_ACCEPTS_HANDOFF_AND_REVALIDATES_BUNDLE, recovery: same-topic r2 retained input or official source under new authorization}
+  - {path: resources/downloads/llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76.tar.gz, bytes: 280166923, files: 1, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: MAINLINE_ACCEPTS_HANDOFF_AND_REVALIDATES_BUNDLE, recovery: same-topic r2 retained input or official source under new authorization}
+  - {path: resources/downloads/llvm-mingw-20260616-ucrt-x86_64.zip, bytes: 187504083, files: 1, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: MAINLINE_ACCEPTS_HANDOFF_AND_REVALIDATES_BUNDLE, recovery: same-topic r2 retained input or official release under new authorization}
+  - {path: resources/downloads/cmake-4.4.2-py3-none-win_amd64.whl, bytes: 42325289, files: 1, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: MAINLINE_ACCEPTS_HANDOFF, recovery: same-topic r2 retained input or official PyPI under new authorization}
+  - {path: resources/downloads/ninja-1.13.0-py3-none-win_amd64.whl, bytes: 309975, files: 1, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: MAINLINE_ACCEPTS_HANDOFF, recovery: same-topic r2 retained input or official PyPI under new authorization}
+  - {path: resources/src/s, bytes: 2265353834, files: 181551, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: MAINLINE_ACCEPTS_HANDOFF_AND_BUNDLE_HASHES_PASS, recovery: long-path-aware extraction of exact retained archive in a new authorized assignment}
+  - {path: resources/build, bytes: 1019818791, files: 2329, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: MAINLINE_ACCEPTS_HANDOFF_AND_TOOL_BUNDLE, recovery: new authorized exact configure/build from pinned assets}
+  - {path: resources/env/t, bytes: 839345887, files: 13669, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: MAINLINE_ACCEPTS_HANDOFF_AND_TOOL_BUNDLE, recovery: re-extract three pinned bootstrap assets}
+  - {path: resources/cache, bytes: 1393593, files: 52, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: MAINLINE_ACCEPTS_HANDOFF_AND_ZERO_ACTIVE_PROCESS, recovery: deterministic regeneration}
+exact_cleanup_candidate_count: 9
+exact_cleanup_candidate_file_count: 197606
+exact_cleanup_candidate_bytes: 4636232803
+projected_post_close_retained_bytes: 196155536
+projected_budget_result: PASS
+downstream_inputs_accepted: false
+capsule_sealed: false
+cleanup_receipt_path: CLEANUP_RECEIPT.yaml
+cleanup_receipt_exists: false
+never_delete_automatically: [assignment root, resource root, canonical control files, resources/env/rvv-toolchain, resources/tmp, resources/logs]
+

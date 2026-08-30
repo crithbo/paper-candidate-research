@@ -1,0 +1,131 @@
+schema_version: discovery-backtest-packer-handoff-v8.8-r3
+assignment_id: BACKTEST-PACKER-20260810-CONSOLIDATED-V8.8-R3
+role: DISCOVERY_BACKTEST_PACKER
+status: COMPLETE_SEALED_DISPATCHABLE_PENDING_MAINLINE_ACCEPTANCE
+completion_state: IDLE_REUSABLE_AWAITING_MAINLINE
+output_root: stages/discovery/_method-backtests/CONSOLIDATED_DISCOVERY_STAGE0/V8.8-R3/packer
+write_boundary_compliance: PASS_ONLY_ASSIGNED_PACKER_DIRECTORY
+method_run_by_packer: false
+scoring_run_by_packer: false
+candidate_or_stage_execution_run: false
+executor_created_or_contacted: false
+auditor_created_or_contacted: false
+production_semantics_changed: false
+
+frozen_proposal_hashes:
+  r1_report: C418468339E248F05D13D78B987DC8603202EFF57EA7314E6A5E5C468E7BFD57
+  r1_proposal: 01779E730B0FFBEF25AAF635EF21CAD95B0BF2C846941B9ADA517C2E51A6AAC1
+  r1_handoff: ED364E7A4DBCDDC12FE825E349A75AD0B50D08BCCA7A34DE33446C0F6937E70C
+  r2_report: F578966D68901A5E95A723E63DC14F568DDB2F54ADAE09CF3EEAA4E6062C3FCF
+  r2_proposal: 6EF8795ADF0A8593B17CA2AD3B788E7A25F5E7DA2F413A465D491034E9C92EB5
+  r2_handoff: A19000903DDEC388CC91A2E2DD88798EA3A29793959BBAD89DC7DB40C5EF607F
+  r3_user_directive: 69E8EF141E0EA63D0B8D091558DDF04BA42129215F97DE6B83822825BBDE0D7B
+
+case_counts:
+  total: 18
+  sentinel: 2
+  structural_negative: 6
+  positive_shape: 6
+  resource_or_unimplemented: 4
+  cuda_or_gpu_related: 4
+  non_cuda: 14
+source_closure:
+  status: PASS_COMPLETE_PRIMARY_BYTES
+  artifacts: 55
+  bytes: 37681036
+  minimum_per_case: 3
+  maximum_per_case: 4
+  failed_or_partial_artifacts_admitted: 0
+  source_ledger: provenance/SOURCE_ACQUISITION_LEDGER.md
+
+executor_authorization:
+  allowed_read_paths:
+    - sealed_input_manifest.yaml
+    - sealed_method_contract.yaml
+    - sealed_cases/C01/**
+    - sealed_cases/C02/**
+    - sealed_cases/C03/**
+    - sealed_cases/C04/**
+    - sealed_cases/C05/**
+    - sealed_cases/C06/**
+    - sealed_cases/C07/**
+    - sealed_cases/C08/**
+    - sealed_cases/C09/**
+    - sealed_cases/C10/**
+    - sealed_cases/C11/**
+    - sealed_cases/C12/**
+    - sealed_cases/C13/**
+    - sealed_cases/C14/**
+    - sealed_cases/C15/**
+    - sealed_cases/C16/**
+    - sealed_cases/C17/**
+    - sealed_cases/C18/**
+  forbidden_read_paths:
+    - auditor_key/**
+    - provenance/**
+    - PACKER_REPORT.md
+    - handoff.yaml
+    - HASH_MANIFEST.sha256
+    - every path outside the assigned PACKER directory
+  external_search_allowed: false
+  candidate_experiment_or_stage_execution_allowed: false
+  hidden_case_classes_or_labels_available: false
+  executor_output_destination: TO_BE_ASSIGNED_BY_MAINLINE_OUTSIDE_PACKER_DIRECTORY
+
+auditor_authorization:
+  status: NOT_DISPATCHED
+  future_allowed_key_paths_after_executor_freeze:
+    - auditor_key/case_key.yaml
+    - auditor_key/acceptance_protocol.yaml
+    - auditor_key/shadow_wave_protocol.yaml
+  executor_output_required_before_key_release: true
+
+contamination:
+  status: PASS
+  target_id_scan: PASS
+  downstream_label_scan: PASS
+  post_cutoff_source_scan: PASS
+  raw_error_page_or_partial_byte_count: 0
+  report: provenance/CONTAMINATION_AUDIT.md
+
+shadow_waves:
+  protocol: auditor_key/shadow_wave_protocol.yaml
+  count_frozen: 2
+  run_in_this_assignment: false
+
+mechanical_validation:
+  yaml_documents_parsed: 24
+  cases: 18
+  source_artifacts: 55
+  executor_files: 74
+  executor_bytes: 37726016
+  embedded_hashes: PASS
+  path_boundary: PASS
+  pdf_magic: PASS
+  hidden_id_scan: PASS
+  validator: provenance/validate_pack.py
+
+key_payload_hashes:
+  sealed_input_manifest.yaml: 55968CC9ED6921FFF47ED824DDEBE489B490F238AD7E2AAE75E7BF4FBAC4FE25
+  sealed_method_contract.yaml: 1F894BEA39AE8104EB774702C7DD69195DDBEDBD5B29E104DE0D5F7B30857D7F
+  PACKER_REPORT.md: A954DE15CEC3AFB1E23E9EAFEE17B6485416FD7FE0A2FE682930A74BDB9792FB
+  auditor_key/case_key.yaml: DC1949187185841B88C05113BA9C2552EFD68727A88A08AF6C9CA95BBE9A35AE
+  auditor_key/acceptance_protocol.yaml: BA2B6B6E704356F09E089B2F5B7944A4980FBF2631CC32738487B27DBF6BED2B
+  auditor_key/shadow_wave_protocol.yaml: 1ACA692E230A1F7E72CA65F09C232E596FF7CB063959E796B68E6D40F25CBDC0
+  provenance/SOURCE_ACQUISITION_LEDGER.md: E55BC19EC1EA9486E92F9E080456204F1C2BDC260EEFC5AB93EEAF6ADAD87A08
+  provenance/CONTAMINATION_AUDIT.md: F96D5C1079736858C487052A582151CE7ADCC578BFFFDFBFD584C6A10602176C
+
+all_file_hashes:
+  canonical_manifest: HASH_MANIFEST.sha256
+  expected_entries: 85
+  expected_final_files_including_manifest: 86
+  canonical_relative_separator: /
+  manifest_hashes_itself: false
+  handoff_self_hash_location: HASH_MANIFEST.sha256
+  note: >-
+    HASH_MANIFEST.sha256 contains every file under this PACKER root except
+    itself, including this handoff. The handoff therefore references the
+    canonical inventory rather than creating a circular self/hash dependency.
+
+dispatch_condition: MAINLINE_MECHANICAL_ACCEPTANCE_REQUIRED
+next_action_by_this_role: NONE_WAIT_FOR_MAINLINE

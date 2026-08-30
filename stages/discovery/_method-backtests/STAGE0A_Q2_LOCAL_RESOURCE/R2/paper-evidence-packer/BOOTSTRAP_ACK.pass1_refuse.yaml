@@ -1,0 +1,70 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-27T13:27:00+08:00
+identity:
+  lane_id: BACKTEST-PACKER
+  lane_thread_id: 01a034d0-e1e2-7921-bb72-a675ff98d5b0
+  role_id: DISCOVERY_BACKTEST_PACKER
+  assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+  topic_id: STAGEA_PAPER_EVIDENCE_BACKTEST_R2
+  authoritative_project_root: E:/project/writing/reserch
+  actual_cwd: E:/project/writing/reserch
+  unique_write_directory: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer
+  resource_root: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer/resources
+
+read_order_completed:
+  - AGENTS.md
+  - plan.md
+  - stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer/ASSIGNMENT_CONTEXT.yaml
+  - rules/ROLE_DISCOVERY_BACKTEST.md
+  - stages/rule-audit/RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2/BACKTEST_ASSIGNMENT_SPEC.md
+  - C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md
+  - minimum_inputs
+  - full_registry_and_plan_dual_read
+
+frozen_hash_checks:
+  AGENTS: {expected: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75, actual: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75, match: true}
+  plan: {expected: 2934D15DF761FE6C57D30CC29417A01F6353B4CC68227DD5C35A0249B24DD5BB, actual: 2934D15DF761FE6C57D30CC29417A01F6353B4CC68227DD5C35A0249B24DD5BB, match: true}
+  registry: {expected: 041E0808501F80DA569F4F3D565180A902714ED8963DD98ED23E3C42A3CBE26F, actual: 041E0808501F80DA569F4F3D565180A902714ED8963DD98ED23E3C42A3CBE26F, match: true}
+  context: {expected: 5B0BE0AC91117024CBAA85F9D551A6703929D01B4D0C1C99C3D0BC711B78ED93, actual: 5B0BE0AC91117024CBAA85F9D551A6703929D01B4D0C1C99C3D0BC711B78ED93, match: true}
+  role_rule: {expected: 74056A6BF3F6A1ABBFF56A13BA27DCD9656B39DD6673D046935C312D39033C23, actual: 74056A6BF3F6A1ABBFF56A13BA27DCD9656B39DD6673D046935C312D39033C23, match: true}
+  r2_spec: {expected: 4DFB6C2F538E69F26BEC4B91D58200ABA895D173B29D62F0AA86C5BB01553658, actual: 4DFB6C2F538E69F26BEC4B91D58200ABA895D173B29D62F0AA86C5BB01553658, match: true}
+  academic_skill: {expected: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F, actual: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F, match: true}
+  assignment: {expected: 2D058490689345CA68C61054E2A9AABDD059D6426BA4722E368FCD05558C2080, actual: 2D058490689345CA68C61054E2A9AABDD059D6426BA4722E368FCD05558C2080, match: true}
+  cutover_acceptance: {expected: 16CC45BF067D84918C90D6EFAC4C7A5A9028C8D6D83233018A29883F5342790F, actual: 16CC45BF067D84918C90D6EFAC4C7A5A9028C8D6D83233018A29883F5342790F, match: true}
+
+permissions_and_prohibitions:
+  shared_file_writer: MAINLINE
+  branch_write_scope: ONLY_UNIQUE_WRITE_DIRECTORY
+  network_before_mainline_start: false
+  capsule_extraction_before_mainline_start: false
+  local_build_probe_experiment: NEVER_ALLOWED
+  scoring: false
+  production_candidate_registration: false
+  StageB: false
+  gold_reveal_to_gate: false
+  state_transition: false
+
+dual_read:
+  plan_contains_exact_R2_assignment_or_context_path: false
+  registry_contains_exact_R2_assignment_topic_or_context_path: false
+  plan_current_BACKTEST_PACKER_entry: COMPLETE_ACCEPTED__BLIND_ARM_STOPPED__NB1_ACTIVE
+  context_claim_source_plan_registry_consistent: true
+  result: MISMATCH
+
+action_ledger:
+  network_or_source_acquisition_started: false
+  capsule_written: false
+  local_build_probe_experiment_started: false
+  scoring_started: false
+  gold_comparison_or_reveal_started: false
+  resource_action_started: false
+  state_transition_started: false
+  prior_R1_ack_written: false
+
+differences_or_ambiguities:
+  - Context declares source_plan_registry_consistent=true, but current hash-pinned plan.md has no R2 BACKTEST-PACKER assignment or context-path entry.
+  - Context declares full_registry_comparison_result=REQUIRED_DUAL_READ, but current hash-pinned registry.yaml has no R2 assignment_id, topic_id, paper-evidence-packer path, or PAPER_EVIDENCE_BACKTEST record.
+
+decision: REFUSE
+refuse_reason: STRICT_DUAL_READ_CONTROL_STATE_MISMATCH__MAINLINE_MUST_FREEZE_CONSISTENT_PLAN_AND_REGISTRY_SNAPSHOTS_AND_REISSUE_CONTEXT
+next_action: WAIT_FOR_MAINLINE_REMEDIATION__NO_START

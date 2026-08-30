@@ -1,0 +1,102 @@
+schema_version: discovery-prebrief-source-and-collision-closure-v2
+assignment_id: SOURCE-CLOSURE-RESUME-BATCH03-ITEM02-SOURCE81-S2-RISCV-GP-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_AND_PRIMARY_COLLISION_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+batch_program: PENDING-RAW-BATCHED-RESUME-20260815
+batch_control: stages/discovery/raw-closure-batches/BATCH-20260815-03/CONTROL.yaml
+batch_order: 2
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+public_acquisition_authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+write_owner: ASSIGNED_LONG_LIVED_SOURCE_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source81/S2-bottleneck-transfer/closure-cq01-cq02
+parent_assignment: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE81-R40-ORDINARY-BREADTH-V1
+parent_assignment_sha256: BD968ABC8C29F56637F878B31D86FEB385822197040AEE4C1BDA83177136DB3B
+parent_handoff_sha256: 73EDE4B5216E991702BAD33F03B2B2D27D3A0BE1E93BEF6D162DA7A33ADB2B13
+parent_queue_sha256: 0BD0AAA64E3A534EC18F57659BCBF9C84EA4A5F2E9A74D72D2838D81C6752D47
+parent_question_card_sha256: 14FA066D1C5224887DFFCB31A55BABFD1C66A77AB24A904DF847EAA46BFFD584
+parent_anchor_sha256: 431DBB1E90DBE1BDA51B2ACD856A204D05BF9BEAB96DE0555FE71D2782B106BE
+parent_source_ledger_sha256: C0A1F83031C5F6DAAA8AB8502ADA934290B131679065901DD16EDA85CBA0A3E2
+parent_current_check_sha256: 3ABCFE76CC5FCB65F033426D483BF0EE4A2B093A58E0B21647B2ED62250BDA6D
+parent_rq_sha256: C534CBA48EF2D3A000FDC1C3C45A5FD95B66E6A491C594E61418B10CFCA0832A
+queue_items: [S81-CQ01, S81-CQ02]
+queue_status_at_freeze: BOTH_PENDING_UNEXECUTED__ATTEMPTS_0__NOT_EXHAUSTED
+claim_ceiling: SOURCE_AND_PRIMARY_COLLISION_CLOSURE_ONLY__NO_CLEAN_BRIEF_Q2_PASS_STOP_OR_STAGE_AUTHORITY
+exact_identity:
+  project: llvm/llvm-project
+  version: main_resolved_once_to_immutable_commit
+  family_signature: RISCV_GP_WINDOW_DATA_GROUP_LAYOUT__FIXED_MEDLOW_STATIC_ELF__STOCK_LLD_RELAX_GP
+  object: fixed RISC-V medlow position-dependent static ELF input-object set, ABI, values, symbols and observable executable semantics
+  endpoint: stock ELF acceptance and execution, one gp, standard relocation relaxation, unchanged initialized data and interfaces
+  candidate_action: choose one legal __global_pointer$ point and group-preserving data order or placement, then invoke stock LLD --relax-gp
+  full_cost: [object_preparation, linker_cpu_rss_temp, emitted_text_bytes, static_data_and_padding_bytes, relocation_and_loader_acceptance, gp_initialization, startup, relevant_runtime_accesses]
+deterministic_version_rule: resolve official llvm/llvm-project main once to one immutable commit at the first counted source call and pin all retained current-source loci to it
+allowed_official_source_routes:
+  - https://api.github.com/repos/llvm/llvm-project/commits/main
+  - https://raw.githubusercontent.com/llvm/llvm-project/<resolved_commit_sha>/lld/ELF/Arch/RISCV.cpp
+  - https://raw.githubusercontent.com/llvm/llvm-project/<resolved_commit_sha>/lld/ELF/Driver.cpp
+  - https://raw.githubusercontent.com/llvm/llvm-project/<resolved_commit_sha>/lld/ELF/ScriptParser.cpp
+  - https://raw.githubusercontent.com/llvm/llvm-project/<resolved_commit_sha>/lld/ELF/Options.td
+  - https://raw.githubusercontent.com/llvm/llvm-project/<resolved_commit_sha>/lld/test/ELF/riscv-relax-gp.s
+  - https://llvm.org/docs/RISCVUsage.html
+  - https://docs.riscv.org/reference/abi/riscv-elf-linker-relaxation.html
+license_and_provenance: {source_license: Apache-2.0 WITH LLVM-exception, provenance: official llvm/llvm-project repository, LLVM documentation and RISC-V International specification}
+bounded_primary_collision_search:
+  search_queries_in_order:
+    - 'site:dl.acm.org RISC-V "global pointer" data layout linker relaxation'
+    - 'site:ieeexplore.ieee.org RISC-V "global pointer" small data placement linker'
+    - 'site:arxiv.org RISC-V "global pointer" data layout relaxation linker'
+  max_search_queries: 3
+  max_primary_candidates_opened: 3
+  candidate_selection_rule: for each query, open at most the first primary paper whose title or abstract explicitly concerns current-ISA RISC-V global-pointer or GP-relative data placement/linker relaxation; skip duplicates and changed-ISA-only papers after recording relation
+  evidence_rule: search results are locators only; only the primary paper page or manuscript may support collision analysis
+  no_match_rule: bounded no-match remains unresolved and is not novelty or current-absence evidence
+fields_to_close:
+  - immutable LLVM commit and complete LLD GP-relax, linker-script, option and GP-symbol action union
+  - whether stock script/config actions can reproduce the proposed joint GP/data plan with the same endpoint and guarantee
+  - one source-pinned minimal stock-legal two-group or two-layout witness if the current test exposes it
+  - direct fixed-current-ISA same-object primary-paper collision, including the known changed-ISA preprint only as RELATED unless five-field identity holds
+  - a non-generic RISC-V-specific action and finite algorithmic guarantee, or a proof that the remainder is generic packing/knapsack/placement
+  - finite falsifier and full-cost reconciliation
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_PRIMARY_COLLISION_OR_GENERIC_LAYOUT_KERNEL__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+forbidden:
+  - decide clean brief, Q2, PASS, STOP, candidate, or stage state
+  - change ISA, ABI, one-gp rule, ELF/loader endpoint, object set, medlow/static constraints, or full-cost denominator
+  - clone, build, install, link, run, benchmark, acquire Zephyr, or make any claim-bearing observation
+  - general repository tree, archive, issue, pull request, mirror, broad literature review or substitute search query
+  - exceed three frozen searches or open more than three primary candidates
+  - substitute route after 404, empty response, rate limit or transport failure
+  - infer novelty, current absence, correctness, performance, or exhaustion from missing material
+  - read Batch1/2/Batch3 Item1 outputs, any other closure output, Source82+ outcome, rule-audit result, held queue, or terminal identity beyond the frozen parent files
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source81/S2-bottleneck-transfer/closure-cq01-cq02/resources
+  inventory: stages/discovery/round-20260815-adaptive-source81/S2-bottleneck-transfer/closure-cq01-cq02/RESOURCE_INVENTORY.yaml
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+resource_envelope:
+  max_acquisition_calls: 14
+  max_search_queries: 3
+  max_primary_candidates_opened: 3
+  max_success_response_bytes_each: 10485760
+  max_network_bytes: 50331648
+  max_persisted_bytes: 50331648
+  max_cpu_hours: 0.75
+  max_gpu_hours: 0
+  max_wall_seconds: 3600
+  pre_call_monotonic_attempt_counter: required
+  build_or_install_allowed: false
+  experiment_allowed: false
+rules:
+  discovery_skill_revision: RESEARCH_TOPIC_DISCOVERY_R1_R40_20260815
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+model_route: {model: gpt-5.6-terra, reasoning: high}
+required_outputs: [SOURCE_CLOSURE_REPORT.md, CURRENT_UPSTREAM_AUDIT.md, PRIMARY_COLLISION_AUDIT.md, RESOURCE_INVENTORY.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+notify_mainline_on_finish_or_blocker: true
+no_next_assignment_may_start: true

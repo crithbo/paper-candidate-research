@@ -1,0 +1,20 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-C4BDE6267B264BCB
+cutoff_date: 2023-12-01
+contribution_type: METHOD_ALGORITHM
+exact_object: online admission and eviction for a fixed cache API with bounded capacity
+natural_scenario: repeated objects with reuse intervals and changing request pressure
+problem: a baseline policy is said to lack coordinated admission and eviction under the same observed history
+atomic_action: use predicted reuse and object cost to jointly decide admission and victim selection
+mechanism: a shared priority score couples both decisions under the same information set
+information_condition: object size, last access, predicted reuse, miss cost, and current residents
+comparators: [current_joint_policy, recency_policy, frequency_policy]
+claim_endpoint: hit-value and latency at matched memory and metadata cost
+full_cost: [miss_latency, retained_bytes, metadata, decision_time, warmup]
+minimum_falsifier: the current joint policy already expresses the same action and score under the same information
+source_cards:
+  - {id: S01, year: 2023, role: current_implementation_with_joint_admission_and_victim_score}
+  - {id: S02, year: 2021, role: reuse_prediction_cache_policy}
+  - {id: S03, year: 2020, role: cost_aware_cache_policy}
+local_resource_envelope: STATIC_REVIEW_FIRST
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

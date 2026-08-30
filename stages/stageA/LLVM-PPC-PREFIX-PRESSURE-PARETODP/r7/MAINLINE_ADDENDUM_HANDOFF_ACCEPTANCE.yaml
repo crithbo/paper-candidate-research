@@ -1,0 +1,49 @@
+schema: mainline-preclaim-addendum-failure-acceptance-v1
+accepted_at: 2026-08-26T05:10:00+08:00
+accepted_by: MAINLINE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R7-NATURAL-CLAIM-HARNESS-FIDELITY
+addendum_id: PPC-R7-A1-EXECUTABLE-HARNESS-CORRECTION
+decision: ACCEPT_FAIL_CLOSED_H6_RESOURCE_ROOT_PATH_RESOLUTION__NO_SCIENTIFIC_INFERENCE
+canonical_hashes:
+  handoff_sha256: 6B650FEC970B836B011FCE42F07A5386E381A433ABE8C1B75B0BF85308CE6183
+  manifest_sha256: B43B2EF8C2F1C444CF1C0FAAD49EA63569692243E64F33EA400E83381F5B19F8
+validation:
+  manifest: PASS_42_OF_42
+  resource_files: 593
+  resource_logical_bytes: 245146033
+  selected_or_reserve_tool_invocations: 0
+  claim_runs: 0
+  network_science_state_cleanup: 0
+  retry_performed: false
+accepted_subgates:
+  H0: PASS
+  H1: PASS_EXECUTABLE
+  H2: PASS_RUNNABLE_GENERATORS
+  H3: PASS_STATIC_ONLY
+  H4: PASS_RUNNABLE_COLLECTOR
+  H5: PASS_NEW_HARNESS_TWO_REPLAYS_EXACT
+accepted_failure:
+  H6: FAIL_R8_PLAN_RESOURCE_ROOT_PATH_RESOLUTION
+  process_rows_generated: 0
+  exact_error: FileNotFoundError_resources_src_r6_input_logs_corpus_scan_json
+  source_file: resources/src/claim_harness/r8_plan.py
+  source_sha256: A7C2027EC8AE52990A407934E1A2B5C10056E46B00EE5F58263A02CE71939604
+  source_bytes: 1556
+  failing_expression: R=H.parents[2]
+  mechanical_cause: H_IS_CLAIM_HARNESS_DIRECTORY__H_PARENTS_2_IS_ASSIGNMENT_ROOT__RESOURCE_ROOT_IS_H_PARENTS_1
+finite_engineering_correction:
+  eligible: true
+  exact_substitution: 'R=H.parents[2] -> R=H.parents[1]'
+  occurrences: 1
+  expected_corrected_sha256: A26B4B680DF3413049D1D640BB0A507078AE44AE30E1E8504FB526F4E329AAF2
+  expected_bytes: 1556
+  all_other_bytes_unchanged: true
+  rerun_scope: PLAN_GENERATOR_ONCE_ONLY__NO_H1_H5_RERUN
+  new_selected_or_reserve_tool_invocation: false
+accepted_evidence_ceiling: EXECUTABLE_H1_H5_PRECLAIM_CONTROL_WITH_H6_PATH_BLOCKER__NO_SCIENTIFIC_INFERENCE
+r8_start_allowed: false
+claim_bearing_observation_count: 0
+scientific_revision_consumed: false
+scientific_state_effect: NONE
+next_action: FREEZE_R7_A2_EXACT_ONE_LINE_PATH_CORRECTION_AND_REACK

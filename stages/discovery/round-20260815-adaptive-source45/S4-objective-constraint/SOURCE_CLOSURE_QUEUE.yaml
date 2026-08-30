@@ -1,0 +1,29 @@
+assignment_id: DISCOVERY-S4-20260815-ADAPTIVE-SOURCE45-CANONICAL-BASELINE-AFTER-BRIDGE-V1
+queue_schema: SOURCE_CLOSURE_ACCOUNTABILITY_V1
+attempt_counter: 3
+items:
+  - id: SC45-01
+    exact_project_object_version: MLCommons_MLPerf_Inference_v5_x_official_rules_and_public_results
+    selection_rule: single_project__MLCommons_MLPerf_Inference__current_official_docs_and_result_portal
+    purpose: determine whether one fixed, public accelerator result carrier exposes a same-object quality-plus-full-cost ranking estimand rather than a metric restatement
+    precommitted_sources:
+      - role: CURRENT_UNION
+        url: https://docs.mlcommons.org/inference/
+        type: official_project_documentation
+      - role: ANCHOR
+        url: https://mlcommons.org/benchmarks/inference-datacenter/
+        type: official_project_result_portal
+      - role: CONTRARY
+        url: https://github.com/mlcommons/inference
+        type: official_project_source
+    state_before_call: PENDING_UNEXECUTED
+    final_state: OPEN_BOUNDED__TOOL_EMPTY_RESPONSE__NO_SCIENTIFIC_INFERENCE
+    attempts:
+      - {attempt: 1, source_role: CURRENT_UNION, url: https://docs.mlcommons.org/inference/, status: ATTEMPTED__TOOL_EMPTY_RESPONSE}
+      - {attempt: 2, source_role: ANCHOR, url: https://mlcommons.org/benchmarks/inference-datacenter/, status: ATTEMPTED__TOOL_EMPTY_RESPONSE}
+      - {attempt: 3, source_role: CONTRARY, url: https://github.com/mlcommons/inference, status: ATTEMPTED__TOOL_EMPTY_RESPONSE}
+reconciliation:
+  concrete_post_rq_gap_queue_coverage: 100_PERCENT__ONE_ITEM
+  attempt_counter_increment_before_call: true
+  exhausted_claim: false
+  note_zh: 三条预先冻结的官方路线均实际尝试但运行环境未返回可持久化页面内容；这属于开放有界的检索/工具边界，不构成当前缺口或科学负证据。

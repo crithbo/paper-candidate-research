@@ -1,0 +1,104 @@
+schema_version: coh-region-lifecycle-stagea-revision-contract-v1
+topic_id: COH-REGION-LIFECYCLE
+lane_id: CANDIDATE-EXECUTION-LANE-2
+assignment_id: STAGEA-L2-20260809-COH-REGION-LIFECYCLE-R1
+stage: STAGEA_REVISION1
+revision_consumed: true
+mode: PILOT
+write_directory: D:\project\writing\reserch\stages\stageA\COH-REGION-LIFECYCLE\revision1
+cross_assignment_contamination: false
+next_assignment_preread: false
+
+authority:
+  stagea_revision_authorized: true
+  stageb_authorized: false
+  pending_user_stageb_review: false
+  stageb_user_approval_id: null
+  gh200_b0_b3_execution_allowed: false
+  formal_large_scale_experiment_allowed: false
+
+frozen_inputs:
+  candidate_handoff:
+    path: ..\handoff.yaml
+    sha256: 42E2DB9DC82DAA1BDB07D687A1991939167F31F69713F2C8CC7828ECF44CAB31
+  candidate_report:
+    path: ..\STAGEA_REPORT.md
+    sha256: D6D813D4E5E26143D7924A4D644A8ED91D14001F04A1543D8FFFDF6213AC8424
+  candidate_user_packet:
+    path: ..\USER_REVIEW_PACKET.md
+    sha256: F400D3E34FB661754A783F593368E50BDD8284B5A59FE0C9663EE643787064DC
+  candidate_manifest:
+    path: ..\HASH_MANIFEST.sha256
+    sha256: 5A8322590B24D9B0C53A4F93A06E1E2895830722047202EEA16D8B863816E513
+    verified_entries: 17
+  gate_handoff:
+    path: ..\..\_reviews\gate-v8.2\COH-REGION-LIFECYCLE\handoff.yaml
+    sha256: 02324399A1DFBE7A51C41B886655AF3846B6B973E9FD8223F3FFDEFFAA91741C
+  gate_report:
+    path: ..\..\_reviews\gate-v8.2\COH-REGION-LIFECYCLE\GATE_REPORT.md
+    sha256: 8733C16290079D148BD6D64FFDD329EDE4A4334AA794808E2BB19A768E1E0B21
+  gate_manifest:
+    path: ..\..\_reviews\gate-v8.2\COH-REGION-LIFECYCLE\HASH_MANIFEST.sha256
+    sha256: 05D88467E190D438B2E0F8CFB661563198E7717CEC3902FBE7281150A818B119
+    verified_entries: 8
+
+input_freeze_result: PASS
+fail_closed_rule: any frozen-input hash mismatch forbids probe execution
+
+exact_object:
+  inherited_contract: ..\EXPERIMENT_CONTRACT.yaml
+  inherited_locked_inputs: ..\LOCKED_INPUTS.json
+  hardware_family: NVIDIA_GH200_GRACE_HOPPER
+  addressing_mode: ATS_NUMA
+  cuda_toolkit: 12.4.0
+  driver: R550.54.14
+  system_page_size: 64_KiB
+  programs:
+    - ALTIS_PATHFINDER_SIZE1
+    - ALTIS_BFS_65536
+  actions:
+    - B0_SYSTEM
+    - B1_UVM_DEMAND
+    - B2_UVM_PREFETCH
+    - B3_EXPLICIT
+
+atomic_revision_gate: SOURCE_BOUNDED_SAME_INFORMATION_SELECTOR_RESIDUAL
+research_question: >-
+  Under the unchanged program structures and analytical action-cost functions,
+  does the current candidate retain any strictly positive full-cost residual over
+  a deployable simple selector using exactly the same pre-phase information?
+
+same_information_selector:
+  information: region tuple plus the same coefficient tuple available to the candidate
+  action: independently evaluate B0 through B3 and choose deterministic minimum per region
+  tie_break: lexical action id
+  extraction_and_decision_cost: identical to the candidate planner cost
+  deployability_scope: finite four-action per-region rule; no future information
+
+coefficient_policy:
+  file: SOURCE_BOUNDED_DOMAIN.json
+  arbitrary_original_grid_for_platform_claims: forbidden
+  primary_source_measured_transfer_rates: retained as descriptive bounds only
+  unmeasured_allocation_fault_pte_overlap_planner_terms: unidentified
+  proof_domain: all finite nonnegative shared cost completions consistent with the frozen semantics
+  reason: selector/candidate identity is coefficient-independent; no hardware calibration is needed to decide absorption
+
+full_cost_boundary:
+  shared_action_costs: inherited unchanged from PROBE_SCRIPT.py
+  candidate_extra_cost: inherited planner_overhead_fraction times program bytes
+  selector_extra_cost: same extraction and decision cost as candidate
+  excluded_from_result_claim: elapsed time, speedup, energy, measured PTE/fault/migration/C2C
+
+decision_rules:
+  PASS_RECOMMENDED: strict positive candidate-only residual survives selector after full cost
+  STOP_RECOMMENDED: selector reproduces all candidate actions and costs with strict residual count zero
+  RESERVE_RECOMMENDED: only actual GH200 B0-B3 measurement can decide the proposition
+  positive_ceiling: PRELIMINARY_SUPPORT_OR_NOT_FALSIFIED
+
+expected_evidence_level: E1_ANALYTICAL_MODEL_AND_IDENTITY
+timeout_seconds_per_replay: 120
+estimated_storage_mib: 10
+estimated_cpu_minutes: 2
+licensed_resources: none
+exclusive_hardware: none
+

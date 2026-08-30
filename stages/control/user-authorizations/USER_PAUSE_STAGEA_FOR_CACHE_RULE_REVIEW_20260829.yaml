@@ -1,0 +1,13 @@
+schema: user-stagea-pause-authorization-v1
+authorization_id: USER_PAUSE_STAGEA_FOR_CACHE_RULE_REVIEW_20260829
+authorized_at: 2026-08-29T23:45:00+08:00
+user_utterance: 暂不继续stageA工作，我需要一次规则修改
+scope: [APX, PPC, RVV, CAUSECASE]
+effect:
+  apx_r11: USER_PAUSED_BEFORE_BOOTSTRAP_DISPATCH
+  ppc_r13: USER_PAUSED_BEFORE_BOOTSTRAP_DISPATCH
+  rvv_r6a: RETAIN_ENGINEERING_HOLD
+  causecase: RETAIN_LINUX_CHAMPSIM_RESOURCE_HOLD
+forbidden_while_paused: [bootstrap_dispatch, resource_action, tool_execution, control_execution, claim_execution, independent_stagea_gate, stageb]
+allowed_while_paused: [read_only_status_audit, rule_diagnosis, rule_change_proposal, discovery_or_new_topic_recommendation]
+

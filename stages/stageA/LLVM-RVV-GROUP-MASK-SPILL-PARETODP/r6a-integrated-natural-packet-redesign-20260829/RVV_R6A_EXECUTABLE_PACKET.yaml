@@ -1,0 +1,39 @@
+schema: rvv-r6a-executable-packet-v1
+assignment_id: STAGEA-L2-20260829-LLVM-RVV-R6A-INTEGRATED-NATURAL-PACKET-REDESIGN
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+status: STATIC_PACKET_ONLY_NOT_EXECUTED
+claim_visibility: NONE
+selected_manifest: {path: RVV_R6A_SELECTED_MANIFEST.yaml, entries: 4, result_independent: true}
+asset:
+  llc: {path: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/env/rvv-toolchain/bin/llc.exe, sha256: 65A9EAE8B026DF2328B3A75048959CBF8F9F9AC7F86E854C7DDAC8F86485C643}
+  python: {path: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, status: FROZEN_RUNTIME_PATH_FROM_ACCEPTED_R5D_RECEIPTS}
+  candidate_source: {path: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/src/split_closure/run_r5d.py, sha256: 13B12AF485A560F9F2397AA55F33B32D2BD8D6A3AF1DEEE2AE3D974A6E2773D0}
+natural_functions: [vcpop.m, mask_reg_alloc, zvlsseg_spill_0, zvlsseg_spill_1]
+candidate_rows: 4
+greedy_rows: 4
+assignment_local_natural_input_root: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/src/natural_inputs
+baseline_binding:
+  greedy:
+    status: BOUND
+    argv: [E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/env/rvv-toolchain/bin/llc.exe, -mtriple=riscv64, -mattr=+v, -run-pass=greedy, -verify-machineinstrs, E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/src/natural_inputs/selected-00.mir, -o, E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/build/control/greedy/replay-R1.mir]
+    cwd: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/build/control/greedy
+    timeout_seconds: 1800
+  current:
+    status: REQUIRED_BASELINE_SUPPORT_PROBE_BEFORE_CLAIM
+    reason: NO_FROZEN_NATIVE_CURRENT_RVV_COMMAND_YET
+  default:
+    status: REQUIRED_BASELINE_SUPPORT_PROBE_BEFORE_CLAIM
+    reason: NO_FROZEN_NATIVE_DEFAULT_RVV_COMMAND_YET
+  pbqp:
+    status: REQUIRED_BASELINE_SUPPORT_PROBE_BEFORE_CLAIM
+    reason: NO_FROZEN_NATIVE_PBQP_COMMAND_YET
+full_cost:
+  required_receipts: [compile_or_pass_execution, checker, transitive_split_closure, oracle, persisted_bytes]
+  units: {cpu_seconds: seconds, wall_seconds: seconds, peak_rss_bytes: bytes, input_bytes: bytes, output_bytes: bytes, spill_reload_count: count, quotient_state_count: count}
+  denominator: ALL_REQUIRED_BASELINES_RETAINED_UNTIL_SUPPORT_PROBE_OR_INDEPENDENT_ACCEPTED_UNSUPPORTED
+  relative_effect_visibility: HIDDEN
+transitive_split_legality_witness:
+  source_handoff: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/handoff.yaml
+  required_predicates: [parent_child_transitive_provenance, lmul_mask_interference, physreg_spill_reload, future_use_obligations, quotient_successors, backpointers, shared_cost_tensor]
+  status: REQUIRED_BEFORE_ANY_CLAIM
+forbidden: [archive_extract, resource_create_or_copy, tool_execution, control_row, claim_row, network, result_aware_change, shared_install, stageb]

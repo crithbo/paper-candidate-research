@@ -1,0 +1,17 @@
+# Candidate-grade deep review
+
+## D01 — `ONEAPI_SYCLBIN__DEVICE_IMAGE_LINK_GRAPH__FIXED_KERNEL_BUNDLE_SEMANTICS`
+
+**Pre-outcome D1 rationale.** This was the sole D1 admission: the artifact’s producer/consumer seam has a concrete same-object two-action witness before any result is considered. For an object-state bundle, the documented legal inputs are (a) SYCLBIN object plus SYCLBIN object and (b) SYCLBIN object plus a runtime-compiled object. Both target one per-device link graph and retain the kernel-bundle function contract. This is not an experiment claim.
+
+**Current-upstream reality check.** Intel’s current SYCLBIN design document identifies the current producer/consumer paths: `sycl-post-link` emits imported/exported-symbol property sets; `clang-linker-wrapper` packages/unpacks device binaries; the runtime parses SYCLBIN and hands `sycl_device_binary_struct` data to ProgramManager. The documented union resolves every import to exactly one export, rejects unresolved imports, duplicate exports and duplicate kernel definitions, and supports object+object, object+runtime-compiled, and input→compile paths. Relevant defaults/non-default entry points are explicitly recorded: default offload compilation uses the old driver model; `-fsyclbin` requires `--offload-new-driver`; `-fsycl-device-only` with `-fsyclbin` is unused; `--offload-rdc` aliases `-fgpu-rdc`.
+
+**Potential construction considered.** A target-specific multi-image constructor would need to choose image partitioning/link order/metadata layout while preserving exactly the same exported/imported-symbol, duplicate-rejection, kernel and device-image semantics. Its proposed N2 would be a certified link-graph construction minimizing package size and load/link work under those constraints.
+
+**Direct subtractor and six-dimensional absorption.** The current union already owns the same graph nodes, import/export information, all three input-state transitions, conflict legality, packaging and runtime parsing. Any construction based only on partition/link order is therefore graph/link scheduling or layout packing: it has no independent semantic state, information condition, target-specific action, or guarantee beyond the current linker graph. Its complexity/resource objective is the ordinary linker objective; quality is fixed by existing resolution/rejection; full cost is already located in current compilation/package/runtime stages; and any generalization would be a generic linker algorithm rather than a same-object SYCL ABI contribution.
+
+**Latest-collision check.** A bounded primary search found current Intel design documentation describing exactly this artifact and its runtime graph, and no primary paper/source evidence of an unabsorbed target-specific constructor. This is not an absence claim; the direct positive union is enough for disposition.
+
+**Disposition.** `DROP__CURRENT_SYCLBIN_LINK_GRAPH_UNION_ABSORBS__GENERIC_LINK_GRAPH_CONSTRUCTION_ONLY`.
+
+**Finite falsifier had it survived.** A StageA route would use small public separately compiled SYCL modules, compare the two documented configurations, and check `sycl::link` outcomes plus imports/exports, duplicate detection, kernel results, artifact bytes, compile/link CPU/RSS and load latency. One changed resolution/rejection or kernel result kills same-object fidelity. This route is recorded only for audit; no Stage0 brief is proposed.

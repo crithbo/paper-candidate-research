@@ -1,0 +1,47 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED
+  artifact_state: CAPSULE_SEALED
+  legacy_disposition: NOT_APPLICABLE
+  downstream_consumer: MAINLINE_DISCOVERY_ACCEPTANCE
+  post_close_retained_bytes_max: 67108864
+identity:
+  topic_id: SOURCE119-PORTFOLIO-S6
+  assignment_id: DISCOVERY-S6-20260830-SOURCE119-DIRECT-ALGORITHM-SOFTWARE
+  stage_or_mode: DISCOVERY
+  unique_write_directory: stages/discovery/round-20260830-strategy-source119/S6-direct-algorithm-software
+  resource_root: stages/discovery/round-20260830-strategy-source119/S6-direct-algorithm-software/resources
+  inventory_path: stages/discovery/round-20260830-strategy-source119/S6-direct-algorithm-software/RESOURCE_INVENTORY.yaml
+root_measurement: {logical_bytes: 0, measurement_method: RESOURCE_ROOT_ABSENT_NO_PROJECT_CONTROLLED_RESOURCES, measurement_complete: true}
+required_directories: {downloads: null, archives: null, src: null, build: null, env: null, cache: null, tmp: null, logs: null}
+redirect_preflight: {status: NOT_RUN_NO_RESOURCE_PRODUCING_COMMAND, process_local_only: true, system_or_user_environment_modified: false, tools: []}
+resource_envelope:
+  network_bytes_max: 67108864
+  stored_bytes_max: 134217728
+  cpu_hours_max: 2
+  gpu_hours_max: 0
+  attempts_max: 24
+  network_bytes_used: UNAVAILABLE_FROM_RUNTIME__NOT_ESTIMATED
+  stored_bytes_used: 0
+  attempts_used: 24
+entries: []
+shared_assets_consumed: []
+external_system_dependencies:
+  - {name: Codex web connector, classification: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED, persisted_project_asset: false}
+cleanup: {owner: MAINLINE, authorized_descendants: [], performed: false, deleted_entries: [], deleted_logical_bytes: 0}
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  required_directories_present: false
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  result: PASS_NO_RESOURCE_ACTION_RESOURCE_ROOT_ABSENT

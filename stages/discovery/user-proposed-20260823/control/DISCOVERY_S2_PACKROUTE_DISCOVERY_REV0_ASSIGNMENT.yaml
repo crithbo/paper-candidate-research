@@ -1,0 +1,152 @@
+schema_version: discovery-investigation-assignment-v1
+assignment_id: DISCOVERY-S2-20260823-PACKROUTE-DISCOVERY-REV0
+investigation_id: PACKROUTE-DISCOVERY-REV0
+topic_id_created: false
+title: PackRoute__QUANTIZED_MOE_BACKEND_MATERIALIZATION_CLOSURE
+role: DISCOVERY_S2_BOTTLENECK_TRANSFER
+status_on_dispatch: ACTIVE
+authority: USER_ATTACHMENT_REVISED_FREEZE_PACKROUTE_SEGMENTK_QISA_20260823
+
+input_proposal:
+  path: C:\Users\15383\.codex\attachments\c07d0046-9cdb-43ba-9692-177008f8bbcd\pasted-text.txt
+  sha256: C8A239523EE0C227F9F4114173494FF3FE2A3ED49ECAF0C60FB97EE9BC3C9CC3
+  trust: USER_APPROVED_INVESTIGATION_SCOPE__FACTUAL_CLAIMS_REQUIRE_INDEPENDENT_VERIFICATION
+
+current_mainline_facts:
+  qrefine: STAGE0_PASS_CONFIRMED__STAGEA_REBOOT_PENDING__DO_NOT_REPEAT_STAGE0
+  qnn: BLOCKED_USER_ACTION_REQUIRED__INTERFACE_RESOURCE_GAP__DO_NOT_DOWNGRADE_TO_LOCATOR_ONLY
+  qpack: TERMINAL_DISCOVERY_DROP__DO_NOT_REOPEN
+  qgroup: TERMINAL_DISCOVERY_DROP__DO_NOT_REOPEN
+  agent_causal_replay_family: CLOSED__NO_DERIVATION
+
+frozen_rules:
+  agents_sha256: 26DB9F4C2D43349A2BA5B741947561D4FED2FE5EC65327C02D273D3905F5A522
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  research_topic_discovery_skill_revision: RESEARCH_TOPIC_DISCOVERY_CURRENT_20260823
+  research_topic_discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  source_portfolio_sha256: FE3BC9503F70ED4BD729B338A7729BFA5CA3A3747312D63AF83D59B93FFE1F4D
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  topic_brief_template_sha256: F1EF88AFE26DB2949E86CD66187821E5331AA3081DF5C76D6D271530CAC87637
+  seed_pool_template_sha256: 31B6A89548313B51EFD0C7685ACF50EA56D6EC5C0B557BD9E8B920C7E2179470
+  rq_candidate_template_sha256: 0FF1E7FD811C3BCA84D15DA9713B7A27ED8EB9076C2939316AF43DA85168F5BF
+  question_card_template_sha256: D157B1B5D14C0DCEB3D238E85075777C3850C7E145ABD5EA8A3A111D3D022739
+  resource_inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  registry_identity_surface_sha256: 4667B7ECF6FD9CF604C0190E6A8C7B1DF360B32C470DD42EEAEFC02486AD009F
+
+method_modes:
+  discovery_quality_mode: OFF
+  discovery_claim_pack_mode: OFF
+  discovery_rq_frontend_mode: OFF
+  native_first_order_mode: ASSIGNMENT_LOCAL_ADVISORY_ONLY
+  model: EXISTING_LONG_LIVED_LANE_MODEL__NO_OVERRIDE
+  reasoning: HIGH
+
+source_cutoff: 2026-08-23T23:59:59+08:00
+scientific_ceiling: PRE_TOPIC_SOURCE_CLOSURE_ONLY__NO_RAW_STAGE0_OR_PERFORMANCE_CLAIM
+stage0_dispatch_allowed: false
+
+frozen_object_a_public_locator:
+  checkpoint: kyaky/Qwen3.6-35B-A3B-NVFP4
+  checkpoint_revision_to_verify: 5a7eae35485cfafadf088012cf9687474a64f40b
+  source_format_to_verify: compressed-tensors_NVFP4_W4A16_routed_experts
+  gpu: NVIDIA_RTX_5090_SM120_APPROX_31_36_GIB_VISIBLE
+  vllm_version: 0.25.1
+  vllm_revision: c71a583aa9f81400528e67e3d818f66b804e8340
+  flashinfer_version: 0.6.13
+  pytorch_cuda: 2.11.0+cu130__CUDA_13.0.2
+  backend_a: flashinfer_b12x
+  backend_b: marlin
+  scope: ROUTED_EXPERT_W4A16_PREPARATION_ONLY
+  evidence_ceiling: PUBLIC_PATH_LOCATOR__NOT_A_REPRODUCED_FAILURE
+
+frozen_object_b_tradeoff_witness:
+  checkpoint_and_stack: IDENTICAL_TO_OBJECT_A_UNLESS_AN_EXPLICIT_MAINLINE_REVISION_IS_REQUIRED
+  gpu_to_verify: NVIDIA_RTX_PRO_6000_BLACKWELL_SERVER_EDITION_96_GB
+  backends: [flashinfer_b12x, marlin]
+  purpose: SOURCE_SUPPORTED_FINITE_ROUTE_FOR_TWO_LEGAL_BACKENDS_AND_TRADEOFF_WITNESS
+  no_execution_in_this_assignment: true
+
+native_boundary:
+  vllm_symbols_to_verify: [RoutedExperts, FlashInferB12xExperts, process_weights_after_loading, choose_mp_linear_kernel]
+  flashinfer_symbols_to_verify: [B12xMoEWrapper, prepare_w4a16_packed_weights, _W4A16_WEIGHT_CACHE]
+  forbidden_object_expansion: EXTERNAL_TENSOR_MANAGER_OR_GENERIC_TENSOR_SERVICE
+
+primary_rq: >-
+  For the exact public W4A16 MoE checkpoint and native vLLM--FlashInfer seam,
+  does current source support at least two legal backend-specific prepared
+  representations whose persistent bytes, preparation peak, source-lifetime
+  requirement and steady-state latency create a non-dominated, globally
+  coupled backend/materialization decision not directly expressible by the
+  current TensorCast, MCAP or native loader union?
+
+shape_class_contract:
+  key: [matrix_role, K, N, E, group_size, source_format]
+  required_roles: [w13_gate_up, w2_down]
+  do_not_assume_decision_granularity: [whole_model, matrix_role, shape_class, layer]
+
+investigation_questions:
+  P0_public_path: Verify that the public checkpoint metadata and source path reach the same compressed-tensors W4A16 routed-expert B12x preparation and source/prepared ownership behavior.
+  P1_choice_set: Determine from current source and exact capability contracts whether B12x and Marlin have a finite same-object legality route for the decisive shape classes; execution remains later fidelity debt.
+  P2_dominance: Build a sourced field matrix and determine whether current evidence proves uniform dominance; lack of performance observations remains OPEN, not a scientific negative.
+  P3_global_coupling: Determine whether backend choice or preparation order is structurally coupled across shape classes, persistent objects, workspaces or memory budget, rather than a uniform backend choice or eager-release fix.
+  P4_current_union: Subtract TensorCast, MCAP and current loader/planner abstractions from the exact backend-specific decision.
+
+fastest_scientific_fatals:
+  - PUBLIC_CHECKPOINT_PROVEN_NOT_TO_ENTER_THE_FROZEN_NATIVE_PATH
+  - CURRENT_SOURCE_PROVES_NO_COMMON_LEGAL_TWO_BACKEND_CHOICE_SET
+  - CURRENT_EVIDENCE_PROVES_UNIFORM_BACKEND_DOMINANCE
+  - CURRENT_SOURCE_PROVES_SINGLE_CLASS_UNIFORM_OR_SEPARABLE_LOCAL_SELECTION
+  - TENSORCAST_MCAP_OR_CURRENT_NATIVE_UNION_DIRECTLY_EXPRESSES_THE_COMPLETE_DECISION_WITHOUT_NEW_ALGORITHM
+  - RESIDUAL_IS_ONLY_FREE_SOURCE_OR_SPLIT_PREPARE_AND_RUN_INTERFACE
+
+unresolved_not_fatal:
+  - PUBLIC_CHECKPOINT_NOT_EXECUTED_IN_THIS_ASSIGNMENT
+  - BACKEND_LATENCY_OR_PEAK_NOT_YET_MEASURED
+  - COST_MODEL_NOT_TRAINED
+  - PLANNER_NOT_IMPLEMENTED
+
+allowed_actions:
+  - Bounded read-only official source, documentation, issue and primary-paper lookup.
+  - Persist small assignment-local source excerpts and metadata under resource_root.
+  - Produce one pre-topic closure disposition without creating or dispatching a candidate.
+forbidden_actions:
+  - Download model weights, run vLLM, warmup, inference, GPU measurements, builds or containers.
+  - Implement ownership changes, planner or cost model.
+  - Treat missing experiments, hardware or positive results as scientific rejection.
+  - Create PACKROUTE-MOE-W4A16-REV0 or dispatch Stage0.
+  - Modify QRefine, QNN, QPack, QGroup or shared control files.
+
+resource_envelope:
+  network_or_source_calls_max: 24
+  accepted_persisted_bytes_total_max: 134217728
+  cpu_time_max: 1h
+  wall_time_max: 2h
+  system_install: false
+  global_environment_change: false
+  source_rule: OFFICIAL_FIRST_PARTY_OR_PRIMARY_PAPER_ONLY__NO_ACCESS_BYPASS
+  failure_consequence: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260823\packroute-discovery-rev0-closure1
+  resource_root: D:\project\writing\reserch\stages\discovery\user-proposed-20260823\packroute-discovery-rev0-closure1\resources
+  resource_inventory: D:\project\writing\reserch\stages\discovery\user-proposed-20260823\packroute-discovery-rev0-closure1\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+required_outputs:
+  - DIVERGENCE_SEED_POOL.md
+  - RQ_CANDIDATE.md
+  - P1_PUBLIC_REPRODUCTION_MAP.md
+  - P2_BACKEND_MATERIALIZATION_MATRIX.md
+  - P3_STATE_OWNERSHIP_GRAPH.md
+  - P4_DOMINANCE_AND_SEPARABILITY_CERTIFICATE.md
+  - P5_CURRENT_UNION_SUBTRACTION.md
+  - INVESTIGATION_REPORT.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+allowed_dispositions:
+  - CLOSED_TO_TYPED_RQ__MAINLINE_MAY_CREATE_NEW_TOPIC__NO_STAGE0
+  - EARLY_FATAL__DO_NOT_CREATE_TOPIC
+  - UNRESOLVED_BACKLOG__NO_SCIENTIFIC_INFERENCE
+  - BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE

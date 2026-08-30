@@ -1,0 +1,148 @@
+topic_id: "LLVM-RVV-GROUP-MASK-SPILL-PARETODP"
+lane_id: "CANDIDATE_EXECUTION_LANE_2"
+assignment_id: "STAGEA-L2-20260811-LLVM-RVV-GROUP-MASK-SPILL-PARETODP-INITIAL-V8.7"
+assignment_state: "IDLE_REUSABLE"
+lane_release_state: "IDLE_REUSABLE_AWAITING_MAINLINE"
+input_freeze_sha256: "EE8ECEDB26DDB36BE26CE572434AC14313967885330D007303F7D4D835D8FD2E"
+cross_assignment_contamination_declared: false
+source_stage: "Stage0"
+proposed_next_stage: "StageA_RESUME_FROM_BLOCKER"
+decision: "BLOCKED_USER_ACTION_REQUIRED"
+quality_tier: "TIER_B_Q2_VIABLE"
+quality_tier_disposition: "CARRIED_FROM_STAGE0__NOT_RESCORED"
+structural_paper_potential: "CONDITIONAL_CARRIED_FORWARD"
+evidence_acquisition_readiness: "BLOCKED_EXACT_LLVM_TOOLCHAIN"
+stage_semantics: "STAGEA_RISK_PILOT"
+opportunity_origins:
+  - "RVV_REGISTER_PRESSURE_AND_MASK_SPILL_ACTION_GAP"
+domain_tags:
+  - "LLVM"
+  - "RISC-V Vector"
+  - "register allocation"
+  - "compiler"
+paper_genealogy:
+  - "current LLVM RVV victim and whole-register spill behavior"
+  - "unlanded typed partial PR #105661"
+  - "target-specific exact Pareto construction with certified quotient"
+discovery_method_revision: "v8.7"
+discovery_backtest_reference: null
+fidelity_closure_plan_status: "RESOURCE_BLOCKED_FIDELITY_GAP"
+fidelity_closure_plan:
+  - "verify exact LLVM 5bb2565693f062a9e99929db1814a7a076d4dc76 toolchain"
+  - "execute MachineVerifier forced-pressure witness and exclude escapes"
+  - "replay whole and guarded typed VTYPE/VL/ABI/frame semantics"
+  - "prove tiny labeled-versus-quotient successor/frontier equality"
+  - "establish current-victim and equal-information strongest-baseline parity"
+current_upstream_reality_check:
+  applicable: true
+  upstream_commit_or_tag: "5bb2565693f062a9e99929db1814a7a076d4dc76"
+  checked_at: "2026-08-11"
+  official_current_documentation: []
+  source_symbols_or_paths:
+    - "RISCVTargetMachine.cpp@517e48faa104348f5ae22bed6001cfe8deb500a8"
+    - "RISCVRegisterInfo.td@9d43277bcdafef2ac3110f5e91424be6cad4f051"
+    - "RISCVRegisterInfo.cpp@f51f56cb10a46d8ac4092c910ccd4b460072ffe2"
+    - "RISCVInsertVSETVLI.cpp@feceefe1b8550c2191267342ea781d78223508de"
+    - "RISCVVMV0Elimination.cpp@d72d27c983ada7c0310915be4d71820e660bff92"
+  default_and_nondefault_flags_thresholds_configs: []
+  absence_claim_disposition: "RESOURCE_BLOCKED"
+  remaining_non_tuning_residual: "UNKNOWN__NO_STAGEA_EXECUTION"
+preclaim_contract_fidelity_gate_actual_status: "FAIL_CLOSED"
+exact_object: >-
+  Fixed post-isel LLVM RVV MachineIR on RISCV64/VLEN128 with liveness,
+  VTYPE/VL, ABI, frame and program semantics preserved.
+main_claim: >-
+  A certified dyadic quotient and joint exact Pareto construction may retain a
+  full-cost residual over the complete equal-information current/guarded/generic
+  baseline union on public natural traces.
+novelty_route: "N2"
+evidence_route: >-
+  Exact pinned MachineVerifier witness, semantic replay, tiny exhaustive equality,
+  baseline parity, then 10-20 public natural traces with full-cost double replay.
+mechanism_signature: "EXACT_ORBIT_CANONICAL_RVV_PARETO_DP"
+seed_distance: "TARGET_SPECIFIC_STATE_REDUCTION_PLUS_JOINT_EXACT_CONSTRUCTION"
+nearest_prior_facet_matrix: "Q1_COMPARATOR_MATRIX.md"
+q1_venue_family: "compiler and architecture journals"
+q1_calibration_status: "PARITY_CONDITIONAL__EXECUTABLE_GAP"
+q1_reference_set:
+  - "complete pinned current LLVM RVV"
+  - "current irrevocable victim plus guarded typed sequential transform"
+  - "identical-action labeled exact Pareto DP"
+  - "same-grammar exhaustive CP/ILP/Unison methodological subtractor"
+q1_comparator_matrix: "Q1_COMPARATOR_MATRIX.md"
+q1_evidence_gap:
+  - "no exact executable current-victim replay"
+  - "no typed legality or rejoin replay"
+  - "no quotient equality execution"
+  - "no natural full-cost observation"
+q2_viability_basis: "Stage0 conditional TIER_B_Q2_VIABLE; no StageA rescore"
+non_relaxable_quality_gates:
+  same_object: "PENDING_EXECUTABLE_FIDELITY"
+  latest_collision: "STATIC_STAGE0_PIN_ONLY__EXECUTABLE_CHECK_BLOCKED"
+  fair_strong_baseline: "NOT_RUN"
+  natural_input_and_evidence: "NOT_RUN"
+  full_cost: "NOT_RUN"
+  reproducibility: "RESOURCE_BLOCKED"
+  evidence_claim_honesty: "PASS__NO_SCIENTIFIC_INFERENCE"
+academic_value_score: null
+ai_executability_score: null
+ai_executability_class: "RESOURCE_BLOCKED"
+ai_core_fraction: null
+strongest_baseline:
+  - "current pinned LLVM RVV victim/whole-spill path"
+  - "equal-information irrevocable-victim plus guarded typed sequential path"
+  - "identical-action labeled exact Pareto DP"
+  - "same-grammar generic exact method"
+baseline_contract: "SAME_MACHINEIR_INFORMATION_ACTION_LEGALITY_BUDGET_AND_FULL_COST"
+same_function_contract: "FIXED_POST_ISEL_MACHINEIR_AND_PROGRAM_SEMANTICS"
+algorithmic_delta: "CERTIFIED_DYADIC_QUOTIENT_AND_JOINT_EXACT_PARETO_CONSTRUCTION"
+full_cost_ledger_scope: >-
+  planner CPU/wall/RSS, compiler cost, spill/reload and scalable frame costs,
+  code bytes/static instructions, vset/mask effects, verifier failures, fallback,
+  variance and double replay.
+generality_hypothesis: "UNKNOWN_UNTIL_PUBLIC_NATURAL_TRACE_PROBE"
+why_not_routine_tuning: >-
+  The frozen claim requires a new exact state quotient and joint action constructor,
+  not selection of an existing LLVM parameter.
+decisive_evidence: []
+orthogonal_validation: "NOT_RUN"
+unresolved_risks:
+  - "forced-pressure witness may have a split/rematerialization escape"
+  - "typed action may fail legality, semantics or rejoin"
+  - "quotient may mismatch an action, cost, VTYPE, ABI, frame or terminal role"
+  - "equal-information union may expose the same frontier"
+  - "natural states may reduce only to identity or full cost may erase residual"
+next_killer_gate: "PRE_CLAIM_F1_EXACT_LLVM_TOOLCHAIN_AND_CURRENT_ACTION_EXECUTION"
+mechanism_pivot_remaining: null
+reserve_reason: null
+blocker_status: "BLOCKED_USER_ACTION_REQUIRED"
+blocker_kind: "TOOLCHAIN_RESOURCE_UNAVAILABLE"
+claim_bearing_observation_obtained_before_failure: false
+scientific_revision_consumed: false
+resource_attempt_recorded: true
+user_blocker_packet: "USER_BLOCKER_PACKET.md"
+resume_contract_sha256: "EE8ECEDB26DDB36BE26CE572434AC14313967885330D007303F7D4D835D8FD2E"
+resume_directory: null
+evidence_ceiling: "RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE"
+stagea_probe_support: "NOT_APPLICABLE"
+pending_user_stageb_review: false
+stageb_user_approval_id: null
+stageb_authorized: false
+execution_authority: "NONE_AFTER_HANDOFF__MAINLINE_MUST_ASSIGN_RESUME"
+control_drift:
+  detected_after_assignment_entry: true
+  frozen_assignment_retained: true
+  shared_controls_modified_by_lane: false
+file_hashes:
+  COMMAND_LOG.md: "45002382379AD62297BBCF99B631CDFB4B7EF0E30CACB0B25C216EFA2AA1694B"
+  ENVIRONMENT.md: "296A738ABA61D5EA8ABD111F60A8BE70168703A6CB9AE56F3BBC99AC93832E22"
+  EXPERIMENT_CONTRACT.yaml: "EE8ECEDB26DDB36BE26CE572434AC14313967885330D007303F7D4D835D8FD2E"
+  FAILURE_RECORD.yaml: "66DE1C4EE4951816A54E6AC826CFAC48923260B4D3D139136502427D3380B978"
+  PRE_CLAIM_FIDELITY_GATE.md: "611DC4F1CBCAB2935A8282BEF3D025F96C0CB985AABFFA7C2B293631514C4B98"
+  Q1_COMPARATOR_MATRIX.md: "DE0325B1C7A3589EAE7D8E4DB29645C046DA894F62D47FB556DA9BD74FF10A38"
+  RESULTS.md: "74AAFE91B953A031A0361F53AF0D5262BAABDA321401037D8D783DAE1FA23F26"
+  SOURCE_MANIFEST.yaml: "6C2A04B6FAF97960B030A9B9BE201E9961C46E6C43C6A388377E44B414E312F6"
+  STAGEA_REPORT.md: "ADFB80852000273FAFA06F6A4D89E352B9812B81E69621250F7E0B355554B65C"
+  USER_BLOCKER_PACKET.md: "59A44BA8491C2223924766973DBB88C7C27BD382C2CF695F8C7930674A2EC37E"
+  USER_REVIEW_PACKET.md: "0172C04D8EEA2E9988739F3CB7C3DA49FA41BA2941DB93B88B8CABB8AEDDFD8D"
+hash_manifest_file: "HASH_MANIFEST.sha256"

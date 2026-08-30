@@ -1,0 +1,12 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-P1A4-NATIVE-CALL
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P1A3_JSON_OUTPUT_MISSING_BLOCKER.yaml, sha256: 37FDD028AB4B513E391405D952CC8A8C0231604A26675B314BBBACC72E4867A7}, {path: resources/src/probe/pgm_minimal_probe.cpp, sha256: 75B7E9ED580202B463AD98CF7B38863E5C69508C4F46EAC9EF5AA74131023F9D}]
+only_change: invoke_native_exe_through_explicit_PowerShell_call_operator_and_assert_output_file_json_after_each_cell
+native_invocation_form: '& $absoluteExe "$epsilon" "$absoluteJson"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; if (!(Test-Path -LiteralPath $absoluteJson)) { exit 67 }; Get-Content -Raw -LiteralPath $absoluteJson | ConvertFrom-Json | Out-Null'
+absolute_executable: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\PGM_INDEX\resources\build\pgm_minimal_probe.exe
+absolute_outputs: [E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\PGM_INDEX\resources\build\probe\epsilon-4.json, E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\PGM_INDEX\resources\build\probe\epsilon-16.json, E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\PGM_INDEX\resources\build\probe\epsilon-64.json, E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\PGM_INDEX\resources\build\probe\epsilon-256.json]
+fresh_command_budget: {compile: 1, run: 4, retry: 0}
+prohibitions: [harness_edit, input_or_epsilon_change, implicit_native_call, missing_output_tolerance, root_cwd, production_or_stageB_action]
+scientific_revision_consumed: false

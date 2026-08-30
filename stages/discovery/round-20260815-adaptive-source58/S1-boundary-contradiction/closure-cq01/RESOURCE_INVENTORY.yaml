@@ -1,0 +1,43 @@
+schema: RESOURCE_INVENTORY_V1
+assignment_id: SOURCE-CLOSURE-SOURCE58-S1-CQ01-WASMTIME-COMPONENT-POST-RETURN-V1
+resource_root: stages/discovery/round-20260815-adaptive-source58/S1-boundary-contradiction/closure-cq01/resources
+resource_localization_rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+status: ACQUISITION_CLOSED__SIX_CALL_CAP_REACHED
+limits:
+  max_acquisition_calls: 6
+  max_success_response_bytes_each: 8388608
+  max_persisted_bytes: 16777216
+process_local_redirects:
+  TEMP: resources/tmp
+  TMP: resources/tmp
+  TMPDIR: resources/tmp
+  XDG_CACHE_HOME: resources/cache
+artifacts:
+  - path: resources/downloads/01-wasmtime-main-commit.json
+    kind: official_github_api_default_branch_commit
+    response_bytes: 38673
+    sha256: 250BA26B0C0F4CDF77C21D70425D525756934DF1EE7973E3E23792E8CEBA624C
+    retained_commit: bc2f967927f9f0e839095a752bf554c4a09fdd13
+  - path: resources/downloads/02-wasmtime-pinned-tree.json
+    kind: official_github_api_recursive_tree
+    response_bytes: 2193590
+    sha256: D7A6E58A18310012398CA3CC41B20549BC76C96B56522C114727A8D8D516427F
+    response_truncated: false
+  - path: resources/downloads/03-component-func-options.rs
+    kind: pinned_raw_upstream_source
+    response_bytes: 20271
+    sha256: 1E2907501ED286F6ACA7B429ABC659D8924D88080B21513F7090FB02ACEA5439
+  - path: resources/downloads/04-component-func-typed.rs
+    kind: pinned_raw_upstream_source
+    response_bytes: 115453
+    sha256: 9B620B74D7619AF7A6803554D52C2ADB925C0D812067135625675E21621A0B59
+  - path: resources/downloads/06-component-func-host.rs
+    kind: pinned_raw_upstream_source
+    response_bytes: 30816
+    sha256: 980F47225B603F136CBE1DC9409C5B6D2CD88538A2B88D660FCC4B89BD5C29E4
+attempts:
+  successful_calls: 5
+  unsuccessful_calls: 1
+  total_calls: 6
+  persisted_response_bytes: 2398803
+  within_persisted_limit: true

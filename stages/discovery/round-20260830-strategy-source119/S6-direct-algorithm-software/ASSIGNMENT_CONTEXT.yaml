@@ -1,0 +1,10 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: DISCOVERY-S6-20260830-SOURCE119-DIRECT-ALGORITHM-SOFTWARE, topic_id: SOURCE119-PORTFOLIO-S6, lane_id: DISCOVERY_S6, role: DISCOVERY-S6-DIRECT-ALGORITHM-SOFTWARE, thread_id: 01a034d0-c500-7fa2-8ad7-242482746dc3}
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+shared_freeze: {path: stages/discovery/round-20260830-strategy-source119/control/SHARED_FREEZE.yaml, sha256: 99A4288831702CFF826CCB6A8A123E5D1AD5E50E82B84E8B0385DE7DB830915E}
+assignment: {path: stages/discovery/round-20260830-strategy-source119/control/DISCOVERY_S6_ASSIGNMENT.yaml, sha256: ACB00E918CB12A65D669637285A9536F229ED04AB314BA4EED50F0848E0746CF}
+boundaries: {unique_write_directory: stages/discovery/round-20260830-strategy-source119/S6-direct-algorithm-software, resource_root: stages/discovery/round-20260830-strategy-source119/S6-direct-algorithm-software/resources, network_after_start: true, build_experiment: false}
+required_bootstrap_read: [AGENTS.md, plan.md, related_registry_record, rules/ROLE_DISCOVERY.md, research-topic-discovery/SKILL.md, source-portfolios.md, shared_freeze, assignment]
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP
+

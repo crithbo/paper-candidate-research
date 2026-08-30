@@ -1,0 +1,34 @@
+schema: mainline-stagea-a1-start-v1
+assignment_id: STAGEA-L3-20260830-EXECUTORCH-QFALLBACK-RANK-VALIDITY-A0
+topic_id: SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY
+mode: A1_DECISIVE_PILOT
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+executable_implementation:
+  scientific_source_object: pytorch_executorch_commit_c27baa8031862fb7528bb87616d6793a032a1257
+  official_release_wheel: {version: 1.4.1, filename: executorch-1.4.1-cp312-cp312-win_amd64.whl, sha256: 5BBB6CF3D8DBDC9CAB6F0E3BB2E83618E26D776B7365845B284BB01FBA219AD5}
+  claim_ceiling: release_specific_canonical_Windows_XNNPACK_benchmark_only
+resource_acquisition:
+  remaining_network_processes: 2
+  process1: pip_download_exact_executorch_1_4_1_plus_resolved_binary_dependencies_and_transformers_huggingface_hub_safetensors_sentencepiece
+  process2: one_snapshot_download_HuggingFaceTB_SmolLM2_135M_revision_93efa2f097d58c2a74874c7e644dbc9b0cee75a2
+  freeze_before_claim: [all_filenames, versions, sha256, licenses, resolver_report, model_snapshot_file_manifest]
+  stored_bytes_max: 2147483648
+  network_bytes_max: 1073741824
+prefect_gate_before_effect_visibility:
+  required: [executorch_import_and_runtime_binding, portable_only_export, xnnpack_standard_export, xnnpack_extended_export_where_legal, same_source_edge_runtime_quality_contract, distinct_result_independent_fallback_topology, no_double_counting_feature_schema]
+  fail_closed_if: [fewer_than_2_legal_distinct_topologies, output_quality_fail, runtime_unavailable, target_leakage_or_double_counting]
+claim_panel:
+  model: HuggingFaceTB/SmolLM2-135M@93efa2f097d58c2a74874c7e644dbc9b0cee75a2
+  variants: [portable_only, xnnpack_standard, xnnpack_extended_if_legal]
+  input_panel: one_frozen_token_id_sequence_and_one_frozen_decode_step
+  warmup_repetitions: 3
+  measured_repetitions: 10
+  profiling_arms: [off_primary_truth, on_observability]
+  retries: 0
+  held_out_model_executed: false
+  positive_ceiling: PRELIMINARY_NON_FALSIFICATION_ONLY
+outputs_required: [topology_and_quality_gate, feature_ledger, profiling_on_off_raw, full_cost_receipt, rank_agreement_or_reversal_result, STAGEA_REPORT, handoff, targeted_manifest]
+frozen_unchanged: [quality_thresholds, feature_schema, full_cost_fields, smallest_model_selection, variant_selection_rule, no_proprietary_backend, claim_ceiling]
+forbidden: [result_aware_variant_backfill, retry, additional_network_process, held_out_refit, system_install, proprietary_backend, StageB, shared_write]
+current_cycle_usage_reset_confirmed: false
+stop: after_A1_handoff

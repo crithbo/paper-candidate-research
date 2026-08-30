@@ -1,0 +1,16 @@
+schema: nonblind-stagea-compatibility-start-failure-v1
+created_at: 2026-08-27T00:00:00+08:00
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX
+transport_assistance: {path: MAINLINE_TRANSPORT_ASSISTANCE.yaml, sha256: CBA7ADF92583F5F6CB0CD8C680D1D798487A624345C9FB8348F081E22D93B543}
+archive: {path: resources/archives/cmake-3.31.6-windows-x86_64.zip, sha256: D163CD3AB4959B0A53FA8988F2DDBD2E6C501658201E6A154386BAD9DBE4F836, bytes: 46473549}
+decision: FAIL_CLOSED__A2S3_PORTABLE_CMAKE_LAYOUT_INVALID__NO_RETRY
+A2S2: {command: Expand-Archive -LiteralPath resources/archives/cmake-3.31.6-windows-x86_64.zip -DestinationPath resources/env -Force, result: COMPLETED}
+A2S3:
+  command: resources/env/cmake-3.31.6-windows-x86_64/bin/cmake.exe --version
+  result: NONZERO
+  observed_version_text: cmake version 3.31.6
+  error: "Could not find CMAKE_ROOT; Modules directory not found in resources/env/cmake-3.31.6-windows-x86_64/share/cmake-3.31"
+  retry_or_layout_change_attempted: false
+subsequent_steps: {tar_version: false, parent_S2_through_S7: false, author_artifact_download: false, fidelity: false, probe: false}
+scientific_boundary: {scientific_inference: NONE, claim: false, production: false, stageB: false, gold_or_blind_input: false, cleanup: false}
+required_mainline_disposition: EXACT_ASSIGNMENT_LOCAL_PORTABLE_CMAKE_LAYOUT_CORRECTION_OR_FAIL_CLOSED_HANDOFF

@@ -1,0 +1,19 @@
+topic_id: IREE-GRAPHTUNE
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: Static IREE module interface-layout, fusion-boundary, and dispatch-tuning coordination under peak-live and compile budgets
+main_claim: Coordinated interface layouts expose module latency-memory-compile Pareto points not reachable by independent dispatch tuning plus fixed fusion.
+academic_value_score: 58
+ai_executability_score: 23
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.74
+strongest_baseline: IREE default specs, SHARK/individual-dispatch tuning, aggressive fusion, and fair combinations
+decisive_evidence: One public static module where independent tuned dispatches cannot recreate a coordinated point after materialization and peak-live allocation are charged.
+unresolved_risks: Existing IREE/SHARK code may already jointly search interface contracts; graph-level residual may be narrow.
+next_killer_gate: Audit tuner and allocation semantics, then enumerate a small legal layout/fusion set on one public module with a full end-to-end ledger.
+mechanism_pivot_remaining: 1
+reserve_reason: ''
+evidence_ceiling: Compiler/model-level on open CPU/RISC-V backend absent accelerator measurement.
+execution_authority: Discovery only; no formal experiment.
+file_hashes: {topic_brief.md: 4E578ED0B06BA53D2B903599A1191BE2B870D3AB106990E669CBB8A8F16AF1BF, source_log.md: 6814A7D8E8F9DA68C99A4EF0F37E54969C7BD8BCBBC1F0235F9D33915754F4CE}

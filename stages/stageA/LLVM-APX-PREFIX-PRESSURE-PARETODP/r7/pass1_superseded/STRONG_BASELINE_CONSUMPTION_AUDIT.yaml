@@ -1,0 +1,27 @@
+schema: strong-baseline-consumption-audit-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+obligation: P3_STRONG_BASELINE_CONSUMPTION_AND_DISTINCTNESS
+failure:
+  stage: P3_LLVM_CURRENT_COMPLETE_TINY_OUTPUT
+  classification: SOFT_ENGINEERING_BLOCKER__PRELAUNCH_WRAPPER_ARGUMENT_QUOTING
+  raw_log: resources/logs/commands/P3_wrapper_parse_failure.txt
+  raw_log_sha256: 38CD8D71DE2DACDBB567537AA38D4F4955141167FF8CE0F76D40F8A42873B273
+  child_process_started: false
+  child_executable: resources/env/apx-toolchain/bin/llc.exe
+  failure_token: '-mattr=+ndd,+egpr'
+  error: 'PowerShell ParserError: Missing argument in parameter list.'
+  command_changed_after_failure: false
+  retry_performed: false
+comparators:
+  LLVM_CURRENT_COMPLETE: {output_created: false, consumed_by_checker: false, consumed_by_full_cost: false, status: FAIL_PRELAUNCH}
+  LLVM_FINITE_TUNING_GRID: {output_created: false, consumed_by_checker: false, consumed_by_full_cost: false, status: NOT_RUN_ORDERED_STOP}
+  LABELED_PARETO_DP: {output_created: false, consumed_by_checker: false, status: NOT_RUN_ORDERED_STOP}
+  GENERIC_EXACT_TINY_SUBTRACTOR: {output_created: false, consumed_by_checker: false, status: NOT_RUN_ORDERED_STOP}
+  EXHAUSTIVE_MICRO_ORACLE: {output_created: false, consumed_by_checker: false, status: NOT_RUN_ORDERED_STOP}
+declared_but_unconsumed_strong_baseline_detected: true
+candidate_distinctness_observed: false
+result: FAIL_CLOSED_P3_STRONG_BASELINES_NOT_CONSUMED__NO_RETRY
+claim_bearing_observation: false
+scientific_inference: NONE
+

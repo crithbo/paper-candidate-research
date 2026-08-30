@@ -1,0 +1,56 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE73-R40-ORDINARY-BREADTH-V1
+web_retrieval_operations: 5
+acquisition: WEB_READ_ONLY__NO_PERSISTED_DOWNLOAD
+entries:
+  - id: SRC-01
+    role: CURRENT
+    family: S73-L01-AARCH64-MOPS-COPY-LOWERING
+    url: https://gcc.gnu.org/onlinedocs/gcc/AArch64-Options.html
+    version_or_date: current page accessed 2026-08-15
+    provenance: official GCC manual
+    decision_use: documents +mops/Armv8.8-A target feature and its memcpy/memmove/memset scope
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - id: SRC-02
+    role: CURRENT
+    family: S73-L02-OPENMP-TARGET-DATA-MAPPING
+    url: https://www.openmp.org/spec-html/5.2/openmpse83.html
+    version_or_date: OpenMP 5.2 current official HTML accessed 2026-08-15
+    provenance: official OpenMP specification
+    decision_use: documents map/depend/device/if/nowait action surface and target-task semantics
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - id: SRC-03
+    role: CURRENT
+    family: S73-L03-OPENJDK-APPCDS-ARCHIVE-CONSTRUCTION
+    url: https://docs.oracle.com/en/java/javase/25/docs/specs/man/java.html
+    version_or_date: JDK 25 current page accessed 2026-08-15
+    provenance: official Oracle JDK command specification
+    decision_use: documents static/dynamic/automatic archive creation and stock use/verification modes
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - id: SRC-04
+    role: CURRENT_SOURCE
+    family: S73-L03-OPENJDK-APPCDS-ARCHIVE-CONSTRUCTION
+    url: https://github.com/openjdk/jdk/tree/master/src/hotspot/share/cds
+    version_or_date: master directory observed 2026-08-15
+    provenance: first-party OpenJDK upstream mirror
+    decision_use: confirms current CDS construction/reader source surface, including archiveBuilder.cpp, dynamicArchive.cpp and filemap.cpp
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - id: SRC-05
+    role: CURRENT
+    family: S73-L04-LLVM-RISCV-ZICBOP-PREFETCH
+    url: https://llvm.org/docs/RISCVUsage.html
+    version_or_date: current page accessed 2026-08-15
+    provenance: official LLVM documentation
+    decision_use: documents current RISC-V target and supported Zicbop extension
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - id: SRC-06
+    role: CURRENT_SOURCE
+    family: S73-L04-LLVM-RISCV-ZICBOP-PREFETCH
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/lib/Target/RISCV/RISCVTargetMachine.cpp
+    version_or_date: main observed 2026-08-15
+    provenance: first-party LLVM upstream mirror
+    decision_use: current source locus for RISC-V loop-data-prefetch option; not used to claim a global absence
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+source_roles_unfilled:
+  - family: S73-L03-OPENJDK-APPCDS-ARCHIVE-CONSTRUCTION
+    role: CONTRARY_OR_DIRECT_PAPER
+    status: NOT_NEEDED_BEFORE_RAW__NO_NON_GENERIC_ACTION_SKELETON

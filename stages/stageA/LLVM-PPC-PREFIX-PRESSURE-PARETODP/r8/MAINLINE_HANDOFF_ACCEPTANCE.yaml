@@ -1,0 +1,54 @@
+schema: mainline-preclaim-input-identity-failure-acceptance-v1
+accepted_at: 2026-08-26T05:50:00+08:00
+accepted_by: MAINLINE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+decision: ACCEPT_FAIL_CLOSED_HASH_PINNED_INPUT_FUNCTION_IDENTITY_MISMATCH__NO_SCIENTIFIC_INFERENCE
+canonical_hashes:
+  handoff_sha256: 30F7C757412C4D16966D094EE2C8CADB29C7B10AC3E90CCF889C1F0516B52EEA
+  manifest_sha256: F87F362F9C4BEF2971B9D28ACCFB806C2989F26E5844219E0F5273FB1BD14C68
+  gate_sha256: 12555903AD4B0F9BCBDDE3E9A91645739A477698D238F10547A9B20E38D3B257
+  inventory_sha256: B2D4167FE3C6F1CF2D3EC7B5010E60A8559D5251B550BAE9BA232793115B2F09
+validation:
+  manifest: PASS_27_OF_27
+  resource_files: 160
+  resource_logical_bytes: 244208913
+  reparse_entries: 0
+  active_related_processes_by_executable_path: 0
+  implementation_files: 0
+  llvm_or_native_tool_invocations: 0
+  selected_or_reserve_tool_invocations: 0
+  claim_runs: 0
+accepted_gate:
+  J0: PASS_EXACT_R6_26_OF_26_AND_R2_133_OF_133
+  J1: FAIL_REQUIRED_IR_FUNCTION_ABSENT
+  J2_J6: NOT_STARTED
+accepted_failure:
+  input_ir_sha256: 1124F15D99EC0CF7F1688CD20E21416A17C1A075F46419FE95A9E35C262BD939
+  required_but_absent: ir_materialized_load
+  actual_functions: [ir_direct_load, ir_indexed_load, ir_fixed_offset_load, ir_sink, ir_pressure_control]
+  no_alias_rename_substitution_or_input_edit_performed: true
+mainline_contract_reconciliation:
+  ir_indexed_load_is_not_same_function_materialized_substitute: true
+  ir_indexed_load_native_form: PADDI_PLUS_LDX_INDEXED_ARRAY_ACCESS
+  accepted_materialized_counterpart_source: resources/src/r6_input/src/preclaim_harness/ppc_exact_witness.s
+  accepted_materialized_counterpart_source_sha256: 94343AB218377B6D3A7736F3E280299C6AB80A2751386BD0CC0441B3174F88C5
+  accepted_exact_symbols: [witness_direct, witness_materialized]
+  same_target_symbol: target_value
+  r5_native_validation: PASS_TWO_REPLAYS_PLD_VS_PADDI_PLUS_LD_TYPED_PCREL34
+  corrected_ir_required_function: ir_direct_load
+  input_bytes_changed: false
+  exact_object_mechanism_comparator_corpus_metric_or_claim_changed: false
+finite_contract_correction:
+  eligible: true
+  type: RESTORE_HASH_PINNED_R5_ACCEPTED_WITNESS_SYMBOL_IDENTITIES_AND_REMOVE_NONEXISTENT_MAINLINE_REQUIRED_NAME
+  same_assignment_addendum_allowed: true
+  J0_rerun_required: false
+  J1_J6_may_start_after_addendum_ack_and_start: true
+accepted_evidence_ceiling: STATIC_INPUT_IDENTITY_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+r9_claim_start_allowed: false
+claim_bearing_observation_count: 0
+scientific_revision_consumed: false
+scientific_state_effect: NONE
+lifecycle_disposition: RETAIN_R6_INPUT_AND_TOOLCHAIN_UNTIL_CORRECTED_SUCCESSOR_ACCEPTANCE__MAINLINE_ONLY_EMPTY_LEAF_CLEANUP_OPTIONAL
+next_action: FREEZE_HASH_PINNED_R8_INPUT_IDENTITY_CORRECTION_ADDENDUM_AND_REACK

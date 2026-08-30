@@ -1,0 +1,24 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE118-PROFILER-TELEMETRY-ATTRIBUTION-V1
+cutoff: '2026-08-24'
+sources:
+  - {source_id: S118-01, title_or_artifact: PyTorch profiler/Kineto, canonical_version: main viewed 2026-08-24, locator: https://github.com/pytorch/pytorch/blob/main/torch/csrc/profiler/README.md, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S118-02, title_or_artifact: Perfetto TrackEvent, canonical_version: current docs viewed 2026-08-24, locator: https://perfetto.dev/docs/instrumentation/track-events, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S118-03, title_or_artifact: OpenTelemetry GenAI spans, canonical_version: development spec viewed 2026-08-24, locator: https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-spans.md, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S118-04, title_or_artifact: vLLM metrics, canonical_version: main viewed 2026-08-24, locator: https://github.com/vllm-project/vllm/blob/main/docs/design/metrics.md, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+claims:
+  - claim_id: C118-01
+    text: Current PyTorch profiler explicitly separates CPU/GPU collection, correlation, trace export and profiler overhead minimization.
+    priority: HIGH
+    source_links: [{source_id: S118-01, relation: DIRECT, locator: profiler overview/hot-path/Kineto sections, evidence_status: DIRECT_OBSERVATION, conflict: no decision-changing residual identified, permitted_conclusion: generic observer-effect critique not raw}]
+  - claim_id: C118-02
+    text: Perfetto and OpenTelemetry already define event/span schema and correlation semantics, including GenAI logical operation/retry boundaries.
+    priority: HIGH
+    source_links: [{source_id: S118-02, relation: DIRECT, locator: TrackEvent instrumentation, evidence_status: DIRECT_OBSERVATION, conflict: no fixed workload decision, permitted_conclusion: schema alone is carrier}, {source_id: S118-03, relation: DIRECT, locator: GenAI spans inference semantics, evidence_status: DIRECT_OBSERVATION, conflict: development status, permitted_conclusion: generic telemetry interoperability not raw}]
+  - claim_id: C118-03
+    text: vLLM exposes queue, KV cache, prefix-cache and latency metrics for capacity/optimization decisions.
+    priority: HIGH
+    source_links: [{source_id: S118-04, relation: DIRECT, locator: metrics overview, evidence_status: DIRECT_OBSERVATION, conflict: no exact attribution reversal artifact, permitted_conclusion: generic vLLM attribution/dashboard not raw}]
+stopping: {high_impact_items_bounded: true, latest_and_current_union_checked: true, first_party_depth_sufficient: true, heterogeneous_independent_path_complete: true, contrary_search_complete: true, natural_or_canonical_carrier_frozen: false, full_cost_frozen: false, marginal_sources_no_longer_decision_changing: true, decisive_contradictions_resolved_or_bounded: true, disposition: NOT_ADMITTED_UNFROZEN}
+execution_readiness: {state: E0, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: NO_RAW_ADMISSION__NO_CLAIM

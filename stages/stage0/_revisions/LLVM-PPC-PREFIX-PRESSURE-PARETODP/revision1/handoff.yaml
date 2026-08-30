@@ -1,0 +1,48 @@
+schema_version: stage0-revision-handoff-v8.7
+assignment_id: STAGE0-P1-20260811-LLVM-PPC-PREFIX-PRESSURE-PARETODP-REVISION1-V8.7
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+role: PRIMARY_REVISION_OWNER
+status: COMPLETE_AWAITING_INDEPENDENT_CLOSING_REVIEW
+decision: RECOMMEND_STAGE0_PASS_FOR_CLOSING_REVIEW
+quality_tier: TIER_B_Q2_VIABLE__CONDITIONAL
+confidence: 0.66
+revision:
+  allowance: 1
+  consumed: 1
+  atomic_gate: PPCREL34_ELFV2__FUTURE_NATIVE_ACTION_PRESERVING_TRACE_PARETO_CERTIFICATE
+  outcome: GATE_BEARING_STATIC_CERTIFICATE_SUBMITTED
+scientific_contribution:
+  route: N2
+  method: PPC_TPD__DIRECT_VALUE_VS_ADDRESS__ELFV2_NATIVE_INTERFACE_DP
+  guarantee: EXACT_ON_DECLARED_INTERFACE_WIDTH__OR_CERTIFIED_CAP_FAILURE
+same_object_contract:
+  frozen: [Power10, ppc64le_Linux, ELFv2, medium_code_model, dso_local_or_hidden_binding, semantics_aliases, ABI_unwind, MC_LLD]
+  permitted: [direct_non_GOT_PCREL34, materialized_address_and_use, native_RA_coalescing_spill_frame_actions]
+  forbidden: [GOT_PLDpc_witness, ABI_or_binding_change, generic_RA_solver, arbitrary_register_permutation, scalar_tuning]
+current_union: [current_form_selection, greedy_or_PBQP_RA, coalescing_spill_frame, default_PPC_preemit, MC_typed_relocs, lld_PCREL34_and_GOT_relaxations, legal_finite_flag_grid]
+collision_status: SEARCH_BOUNDED_OPEN
+evidence_ceiling: STATIC_NATIVE_WITNESS_AND_BOUNDED_INTERFACE_CERTIFICATE__NO_COMPILER_OUTPUT_OR_RESULT
+stagea_authorized: false
+stageb_authorized: false
+closing_review_request: true
+preclaim_stagea_gate:
+  fidelity: [assembler, llvm_readobj_relocations, objdump_forms, lld, dwarf_unwind, semantic_oracle]
+  corpus: 10_to_50_public_LLVM_PPC_tests_or_TestSuite_functions
+  full_cost: [model_optimizer, compile_link_cpu_rss, text, relocations, spill_copy_frame, verification, runtime]
+  killer: [no_direct_non_GOT_pair, fidelity_failure, union_reproduction, cap_only_frontier, no_p50_p90_full_cost_pareto]
+failure_sentinel: BELOW_Q2_STOP__CURRENT_PCREL_ACTION_OR_GENERIC_RA_SOLVER_COLLAPSE
+frozen_controls:
+  agents_md: 66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063
+  plan_md: 0B31754476476D89D1427D0BA6293DC636FCD3C3CC67CC17AC3F959A7BFAB02F
+  registry_yaml: 8B7DCAD7255ECD9E1A266481DD96510403B1A94085A69921FBE737392684AA9F
+  role_stage0_review_md: 741EC3544797FF8A5BF337E1E3448B5F683823E5229F818F162834400581626E
+upstream:
+  primary_report_sha256: 4FB8598F5B09FCA1445F4FBF9D5154131B797AFE2BE300076D5483D24C63A9C8
+  primary_q1_sha256: 9167EF6CC42417165882656247260981857660043B5A444E4D2412A1203D51FD
+  primary_source_sha256: 7308D42D053FCF1B7D4F68DE5F54EDB99C0826B27733055AB72E2A43EAFE4A2E
+  primary_handoff_sha256: F6812E20D2ADC8DEF5A39D4920747C192A09FF6206C0262CED49C3A9D8A8884C
+  primary_manifest_sha256: 8C4AADAE70A6E832117EAD1BD1BC6406CE1CBBDDB656C982C52578D373C1D4B3
+  confirmation_report_sha256: 890A101D9989C1523DCF113F1A28025AAA6AA69377FCEC43B7463D9B0ED75835
+  confirmation_handoff_sha256: 6DC5454C828173E37728ACF9B904D2659F65513BBDDEA84F7444A60FA419CDA2
+  confirmation_manifest_sha256: E339D064C837FD1B340ACB3FA6060393DDE0E0DB2E6DC9D55B9C59F9F47280F9
+next_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

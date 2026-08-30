@@ -1,0 +1,23 @@
+schema: ppc-r9d-controller-run-precommit-v1
+created_at: 2026-08-26T09:31:00Z
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9D-COMMAND-COST-AND-R10-VALIDATOR-CLOSURE
+frozen_sources:
+  materializer_harness.py: C504250677F59E3B2EE2C054E51D160EE632D3E9E84688BA93C20C0236525C53
+  r10_plan.py: 188A38302710FFA076EB32DBB20638FB7A95B02C68A44A931B32E3218C3DAA54
+  r9d_controller.py: B8B159709DADF17A1F2716C2DD28E8490EC486E584BFA1FF6F0578BC72CB1259
+  r9d_r10_fixture.json: 6610908E0A9D071FC10FD21DF213D294CF8D289B0B020295AC7BBBC6BBC54CA6
+ordered_commands:
+  - {ordinal: 1, mode: audit-replay, input: resources/build/a1_control_replay_1, output: resources/build/r9d_audits/replay_1_command_cost.json, attempts_max: 1}
+  - {ordinal: 2, mode: audit-replay, input: resources/build/a1_control_replay_2, output: resources/build/r9d_audits/replay_2_command_cost.json, attempts_max: 1, prerequisite: COMMAND_1_PASS}
+  - {ordinal: 3, mode: negative-controls, input: resources/build/a1_control_replay_1, output: resources/build/r9d_audits/negative_controls.json, attempts_max: 1, prerequisite: COMMANDS_1_2_PASS}
+  - {ordinal: 4, mode: cross-replay, inputs: [resources/build/r9d_audits/replay_1_command_cost.json, resources/build/r9d_audits/replay_2_command_cost.json], output: resources/build/r9d_audits/cross_replay.json, attempts_max: 1, prerequisite: COMMAND_3_PASS}
+  - {ordinal: 5, mode: r10_plan_generate_and_validate, input: resources/src/natural_materializer/r9d_r10_fixture.json, outputs: [resources/build/r9d_r10_plan.json, resources/build/r9d_r10_validation.json], attempts_max: 1, prerequisite: COMMAND_4_PASS}
+candidate_controller_or_auditor_python_commands: 5
+candidate_controller_or_auditor_python_commands_max: 40
+compiler_linker_readobj_objdump_checker_commands: 0
+selected_or_natural_tool_invocations: 0
+claim_bearing_runs: 0
+automatic_retry: false
+first_failure_stops: true
+result_based_edit_or_exclusion: false
+scientific_inference: NONE

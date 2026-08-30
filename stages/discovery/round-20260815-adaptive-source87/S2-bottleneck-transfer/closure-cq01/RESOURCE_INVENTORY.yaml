@@ -1,0 +1,35 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+identity:
+  topic_id: GRAALVM_NATIVE_IMAGE_CLASS_INIT_IMAGE_HEAP
+  assignment_id: SOURCE-CLOSURE-SOURCE87-S2-CQ01-GRAALVM-CLASS-INIT-IMAGE-HEAP-V1
+  stage_or_mode: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+  run_id: S2-87-CQ01
+  unique_write_directory: stages/discovery/round-20260815-adaptive-source87/S2-bottleneck-transfer/closure-cq01
+  resource_root: stages/discovery/round-20260815-adaptive-source87/S2-bottleneck-transfer/closure-cq01/resources
+  inventory_path: stages/discovery/round-20260815-adaptive-source87/S2-bottleneck-transfer/closure-cq01/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T10:03:38+08:00
+  finalized_at: 2026-08-15T10:20:00+08:00
+root_measurement: {logical_bytes: 7771027, allocated_bytes: null, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true}
+required_directories: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+redirect_preflight:
+  status: PASS__PROCESS_LOCAL_REDIRECTS_VERIFIED_FOR_INVOKE_WEBREQUEST
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: powershell Invoke-WebRequest
+      process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+      explicit_output_root: resources/downloads
+      preflight_snapshot: resources/logs/resource-inventory/preflight-v1.yaml
+resource_envelope: {network_bytes_max: 50331648, stored_bytes_max: 16777216, cpu_hours_max: 0.25, gpu_hours_max: 0, wall_seconds_max: 1800, attempts_max: 6, network_bytes_used: 7766032, stored_bytes_used: 7771027, attempts_used: 6}
+entries:
+  - {relative_path: resources/downloads/01-graal-repository.json, class: OFFICIAL_API_REPOSITORY_RESPONSE, logical_bytes: 6028, source_uri: https://api.github.com/repos/oracle/graal, version_or_commit: master, sha256: 7C36BE8C20A1BB42722E8FE69C6F50830F15B82627F40B981F79E63F9C2B9914, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/downloads/02-graal-master-commit.json, class: OFFICIAL_API_PIN_RESPONSE, logical_bytes: 4370, source_uri: https://api.github.com/repos/oracle/graal/commits/master, version_or_commit: f3c130e4d5345b81968f0f9d94fedb87c7143b8c, sha256: 9673D05C85A27C20CAA770C29A8EA7EB231B49152F3F6F84A2B9384F459F6340, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/downloads/03-graal-pinned-tree.json, class: OFFICIAL_API_PINNED_TREE_RESPONSE, logical_bytes: 7622489, source_uri: https://api.github.com/repos/oracle/graal/git/trees/f3c130e4d5345b81968f0f9d94fedb87c7143b8c?recursive=1, version_or_commit: f3c130e4d5345b81968f0f9d94fedb87c7143b8c, sha256: ABE3B05CA50FAEDED638EF42C1F4FB6E4C314EE74A8F8B58666A7D4824D882C2, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/downloads/04-ClassInitializationSupport.java, class: CURRENT_SOURCE_LOCUS__CLASS_INIT_SAFETY_AND_CONTROL, logical_bytes: 35985, source_uri: https://raw.githubusercontent.com/oracle/graal/f3c130e4d5345b81968f0f9d94fedb87c7143b8c/substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/classinitialization/ClassInitializationSupport.java, version_or_commit: f3c130e4d5345b81968f0f9d94fedb87c7143b8c, sha256: 197D508D4F3F263594FB4BBD75DF971ADDE902616C98EAF3E369C22D20A9FC0F, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {relative_path: resources/downloads/05-NativeImageHeap.java, class: CURRENT_SOURCE_LOCUS__IMAGE_HEAP_CONSTRUCTION, logical_bytes: 59018, source_uri: https://raw.githubusercontent.com/oracle/graal/f3c130e4d5345b81968f0f9d94fedb87c7143b8c/substratevm/src/com.oracle.svm.hosted/src/com/oracle/svm/hosted/image/NativeImageHeap.java, version_or_commit: f3c130e4d5345b81968f0f9d94fedb87c7143b8c, sha256: B1373D023E516F544DE49C8FACF507D6E592EEBB6C7B59B1916EF033CC46FAE2, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {relative_path: resources/downloads/06-TestClassInitialization.java, class: CURRENT_SOURCE_LOCUS__FIXED_APP_CARRIER, logical_bytes: 38142, source_uri: https://raw.githubusercontent.com/oracle/graal/f3c130e4d5345b81968f0f9d94fedb87c7143b8c/substratevm/src/com.oracle.svm.test/src/com/oracle/svm/test/clinit/TestClassInitialization.java, version_or_commit: f3c130e4d5345b81968f0f9d94fedb87c7143b8c, sha256: A52CC41650BAE8C1AF77071DBBE30796EEC9F4454373E6DC48BE33C473239768, deletion_status: RETAIN_CLAIM_CRITICAL}
+shared_assets_consumed: []
+external_system_dependencies: []
+cleanup: {owner: MAINLINE, authorized_descendants: [], performed: false, deleted_entries: [], deleted_logical_bytes: 0, performed_at: null, recoverability: null}
+validation: {resource_root_exact_match: true, root_under_workspace: true, forbidden_root_check: true, reparse_traversal_check: true, required_directories_present: true, persisted_resources_inventoried: true, envelope_within_limit: true, claim_critical_content_hashes_present: true, result: FINAL_PASS__SIX_BOUNDED_OFFICIAL_CALLS_WITHIN_STORED_BYTE_CAP}

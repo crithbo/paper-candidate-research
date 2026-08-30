@@ -1,0 +1,62 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE26-EVIDENCE-CLOSURE-TRIAD-V1
+retrieval_date: '2026-08-14'
+budget_status: bounded_web_metadata_only__no_persisted_external_payload
+entries:
+  - locator: L01
+    source_role: ANCHOR
+    url_or_deterministic_rule: https://developer.arm.com/-/media/Arm%20Developer%20Community/PDF/Learn%20the%20Architecture/Armv8-A%20Instruction%20Set%20Architecture.pdf
+    selection_rule: precommitted official Arm architecture fallback after exact MOPS chapter was not returned by the bounded query
+    version_or_date: observed 2026-08-14; search result published 2025
+    license_or_provenance: Arm official developer publication
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: anchor_insufficient_for_version_pinned_MOPS_contract
+  - locator: L01
+    source_role: CURRENT_UNION
+    url_or_deterministic_rule: https://llvm.org/doxygen/AArch64SelectionDAGInfo_8cpp_source.html
+    selection_rule: precommitted current LLVM AArch64 lowering path
+    version_or_date: LLVM 23.0.0git, observed 2026-08-14
+    license_or_provenance: LLVM official Doxygen; Apache-2.0 WITH LLVM-exception source provenance
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: current_union_evidence__UseMOPS_default_true
+  - locator: L01
+    source_role: CONTRARY
+    url_or_deterministic_rule: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/%2B/a3569fac5360eb53ad0ce0e762d5bb616c7a56df
+    selection_rule: precommitted current-source fallback; commit explicitly adds default-true MOPS control and test
+    version_or_date: commit a3569fac5360eb53ad0ce0e762d5bb616c7a56df, 2026-01-06
+    license_or_provenance: upstream LLVM mirror/source history
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: contradicts_simple_missing-MOPS premise__does_not_prove_global_absence
+  - locator: L02
+    source_role: ANCHOR
+    url_or_deterministic_rule: https://docs.riscv.org/reference/isa/unpriv/zfa.html
+    selection_rule: precommitted ratified Zfa specification
+    version_or_date: Zfa 1.0, observed 2026-08-14
+    license_or_provenance: RISC-V International official ratified specification
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: semantic_anchor_closed
+  - locator: L02
+    source_role: CURRENT_UNION
+    url_or_deterministic_rule: https://github.com/llvm/llvm-project/blob/main/llvm/docs/RISCVUsage.rst
+    selection_rule: precommitted current LLVM target support documentation
+    version_or_date: main, observed 2026-08-14
+    license_or_provenance: upstream LLVM documentation/source; Apache-2.0 WITH LLVM-exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: current_union_evidence__Zfa_supported
+  - locator: L02
+    source_role: CONTRARY
+    url_or_deterministic_rule: https://github.com/llvm/llvm-project/blob/main/llvm/docs/RISCVUsage.rst
+    selection_rule: precommitted fallback contrary when no primary compiler paper is found in bounded search
+    version_or_date: main, observed 2026-08-14
+    license_or_provenance: upstream LLVM documentation/source; Apache-2.0 WITH LLVM-exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: contradicts_simple_unsupported-Zfa premise__does_not_prove_global_absence
+notes:
+  - Web runtime provided rendered metadata, not response byte counts or payload hashes; neither was estimated nor recorded as zero.
+  - No external payload was downloaded or persisted, so acquisition stayed within the assignment budget.
+

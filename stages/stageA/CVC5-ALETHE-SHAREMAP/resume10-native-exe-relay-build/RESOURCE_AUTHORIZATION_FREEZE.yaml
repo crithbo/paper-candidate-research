@@ -1,0 +1,53 @@
+schema: candidate-resource-native-exe-relay-build-freeze-v1
+topic_id: CVC5-ALETHE-SHAREMAP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+assignment_id: SAFE-RECOVERY-L1-20260816-CVC5-RESUME10-NATIVE-EXE-RELAY
+authorization_id: USER_AUTONOMOUS_SAFE_BLOCKER_RECOVERY_20260815
+created_at: 2026-08-16T01:29:54+08:00
+write_directory: D:/project/writing/reserch/stages/stageA/CVC5-ALETHE-SHAREMAP/resume10-native-exe-relay-build
+resource_root: D:/project/writing/reserch/stages/stageA/CVC5-ALETHE-SHAREMAP/resume10-native-exe-relay-build/resources
+control_freeze:
+  assignment_sha256: 1637F2F392F6910589CFCC44A3ADA2B33814E86E50682F59B36E53C6088C2929
+  relay_source_sha256: 230E34FCA66924F92F741DB44EE61D8058D22BD4F8C25DBE218156749DB24E40
+  AGENTS_md_sha256: 26DB9F4C2D43349A2BA5B741947561D4FED2FE5EC65327C02D273D3905F5A522
+  plan_md_sha256: 1EDB9B31BCCCE353FA80692FC3D292858B7E786365CC73FE63825BCF398022A6
+  registry_yaml_sha256: 06D45BA786A111B4D1636A5A138783B240F23DE1A098DE646BB9B81F6C72412D
+  candidate_owner_rule_sha256: A703F21B9F33EE341A942501948BC313FACC9D0BAB15F3EE943FC590B65BF519
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+input_freeze:
+  resume9_handoff_sha256: 8D1166C0C833A6404AF5BD7829C52EB5F6EA74471A0719DECE84550B73901872
+  resume9_manifest_sha256: 2F03B9C45B835DD153D9CCD3DFD56F0966689FFBCF74017C6011F20F2BCB9C73
+  resume9_manifest_validation: 20_OF_20_EXACT
+  resume9_blocker_sha256: 5FD56ECBCE5A3B61012AB339EAA49D89D669CCB696CACBCFAEE8A27759B5E48F
+  source_manifest_sha256: 79F052442AE3FF77838AEBA558A6493FBBF0A23CB94AD7DB280B031150B7D48F
+  cargo_lock_sha256: 0E9C953C2C1B184511E2DFDF19D4BB7C35A6BE55140BC1A3D77179411D7C7378
+tools:
+  cargo_sha256: E91B95ECB8306BB6CA109CAA3F04E178B49EB5AEEA1949CC9BEB032996838D2F
+  rustc_sha256: 0968EB36AB120BBEA43FD9A1D2811570EF900CF4CA7F6A48F122C182C717ED77
+  gcc_sha256: AB37C11763FDCB3BF6F809B5D033A31EBEB77F10BA5934C72FA37287EE56144F
+sequential_gates:
+  relay_compile:
+    max_attempts: 1
+    exact_command: gcc.exe -O2 -pedantic -fomit-frame-pointer -m64 native_tool_relay.c -o native_tool_relay.exe
+  relay_smoke:
+    max_attempts: 1
+    semantics: ONE_POSIX_SHELL_INVOCATION__RELAY_GCC_COMPILE_LINK__ONLY_ON_SUCCESS_RUN_EXE_ONCE
+    source_sha256: 9B8044C13CC843FE16795FD957E3EDE9DA9C5C12F3104E538396EA98230389B2
+  carcara_build:
+    max_attempts: 1
+    exact_command: cargo build --release --locked --offline -p carcara-cli
+    jobs_max: 2
+resource_envelope:
+  network_bytes_max: 0
+  new_persisted_bytes_max: 838860800
+  cpu_seconds_max: 900
+  wall_seconds_max: 1800
+  processors_max: 2
+kill_boundary:
+  any_gate_failure: STOP_EXECUTION_AND_PACKAGE
+  retry_or_variant: forbidden
+  source_lock_feature_test_modification: forbidden
+  claim_bearing_preclaim_science_stageb: forbidden
+claim_bearing: false
+scientific_revision_consumed: false
+stageb_authorized: false

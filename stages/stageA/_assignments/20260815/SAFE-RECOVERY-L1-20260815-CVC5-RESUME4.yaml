@@ -1,0 +1,26 @@
+schema: candidate-resource-recovery-assignment-v1
+assignment_id: SAFE-RECOVERY-L1-20260815-CVC5-RESUME4
+topic_id: CVC5-ALETHE-SHAREMAP
+task_id: 019fe4d8-a26f-7d92-98ee-36ae922b8637
+role_rule: rules/ROLE_CANDIDATE_OWNER.md
+control: stages/stageA/_assignments/20260815/AUTONOMOUS_SAFE_BLOCKER_RECOVERY_CONTROL.yaml
+read_only_inputs:
+  - stages/stageA/CVC5-ALETHE-SHAREMAP/resume3
+write_directory: stages/stageA/CVC5-ALETHE-SHAREMAP/resume4-safe-recovery
+frozen_object:
+  carcara_commit: 5d817d86bd18ea2a850a580d602f17f36959ee99
+  rust_version: 1.72.0
+objective: >-
+  Recover a process-local GCC-compatible Windows GNU link route for the unmodified frozen
+  Carcara source, preferably by reusing local assets or an official portable MSYS2/MinGW
+  package route; verify provenance, hashes and license, then run at most one new clean
+  unmodified --locked build and smoke if the route stays within the global safe limits.
+prohibited:
+  - SOURCE_OR_CARGO_LOCK_PATCH
+  - THIRD_BUILD_WITHIN_RESUME3
+  - SYSTEM_INSTALL_OR_GLOBAL_PATH_CHANGE
+  - WSL
+  - CLAIM_BEARING_CORPUS_BEFORE_RESOURCE_AND_PRECLAIM_PASS
+success_route: RESOURCE_PASS_THEN_EXISTING_FROZEN_PRECLAIM_GATE_ONLY
+failure_route: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+

@@ -1,0 +1,36 @@
+schema_version: assignment-resource-inventory-v1
+assignment_id: STAGE0-P4-20260822-COUPLED-AGENT-SDK-REPLAY-PRIMARY
+resource_root: stages/stage0/_reviews/user-proposed-20260822-coupled-agent-sdk-replay-primary/resources
+required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+localization_preflight:
+  status: PASS
+  process_local_redirects: [TEMP, TMP, TMPDIR, XDG_CACHE_HOME]
+  no_global_environment_change: true
+resource_envelope:
+  official_or_primary_routes_max: 40
+  persisted_bytes_max: 201326592
+  calls_used: 3
+  persisted_bytes: 172979
+entries:
+  - id: frozen-local-conversation
+    type: official-pinned-source
+    uri: https://raw.githubusercontent.com/OpenHands/software-agent-sdk/ddac55697c5d15cf8a34495b5ed6d46c86db092a/openhands-sdk/openhands/sdk/conversation/impl/local_conversation.py
+    local_path: resources/src/local_conversation_ddac556.py
+    bytes: 140021
+    sha256: 98D24C2E482E906807B6ADD26DF7D2044CDB9770A00683FBEE9C71315BBA42FF
+    retention: claim-critical
+  - id: frozen-conversation-state
+    type: official-pinned-source
+    uri: https://raw.githubusercontent.com/OpenHands/software-agent-sdk/ddac55697c5d15cf8a34495b5ed6d46c86db092a/openhands-sdk/openhands/sdk/conversation/state.py
+    local_path: resources/src/conversation_state_ddac556.py
+    bytes: 32295
+    sha256: AC4074B439A5F97D31CC4CDB0170992582DFA9BFC7E6C75B9690699CC3B3D615
+    retention: claim-critical
+  - id: frozen-qwen-config
+    type: official-pinned-model-metadata
+    uri: https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct/resolve/c03e6d358207e414f1eca0bb1891e29f1db0e242/config.json
+    local_path: resources/src/qwen_config_c03e6d.json
+    bytes: 663
+    sha256: C0242402AD6A13B331EA320FEEA8C7E3776FFB7A4EFF0757B9CD667E116D9A28
+    retention: claim-critical
+scientific_inference_from_resource_failure: prohibited

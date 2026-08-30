@@ -1,0 +1,17 @@
+schema: ppc-r11-same-object-evaluation-redesign-plan-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R11-SAME-OBJECT-EVALUATION-REDESIGN
+status: FROZEN_FOR_SEPARATE_PRECLAIM_IMPLEMENTATION_ASSIGNMENT
+future_matrix: {selected_natural_inputs: 16, exact_replays_per_input: 2, rows: 32}
+per_row_order:
+  - {step: 1, action: verify_hash_pinned_natural_input_and_same_function_witness, tool_run: false}
+  - {step: 2, action: run_existing_same_function_candidate_replay_once, metrics: 15}
+  - {step: 3, action: run_single_baseline_cost_collector_once, metrics: 56, configuration: exact_8x2}
+  - {step: 4, action: run_candidate_checker_consuming_candidate_and_graph_outputs}
+  - {step: 5, action: write_full_cost_ledger_consuming_exactly_71_unique_metrics}
+  - {step: 6, action: assert_all_denominator_and_legality_predicates_before_row_closeout}
+required_collector_interface:
+  input: [hash_pinned_natural_input, exact_harness, exact_tool_paths, row_output_root]
+  outputs: [baseline_cost_ledger.json, strong_baseline_dependency_graph.json, command_metrics.json]
+  rejection_conditions: [metric_count_not_56, bundle_count_not_16, graph_audit_not_all_pass, duplicate_or_missing_command_metric_id]
+forbidden_in_future_execution: [network, input_substitution, baseline_substitution, denominator_change, retry, result_based_exclusion, source_edit, stageb]
+execution_performed: false

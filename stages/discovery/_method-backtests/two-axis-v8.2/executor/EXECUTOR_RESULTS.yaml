@@ -1,0 +1,344 @@
+schema_version: discovery-two-axis-executor-results-v8.2
+role: DISCOVERY-BACKTEST-EXECUTOR
+method_revision: two-axis-v8.2
+status: FROZEN_AWAITING_AUDITOR
+input_verification:
+  sealed_input_manifest_sha256: 249EEEE1371293218575DBFE6BFECF07CD4B0F3655F49E4163AF8AA60F32900D
+  sealed_packets_sha256: FF85DD0DFF5E537CFD9010E1AD2443F77D15E9782F7F39EFD55BEC4BDE0E806F
+  auditor_key_read_or_searched: false
+  external_search_or_post_cutoff_use: false
+decision_vocabulary:
+  structural_continue: "A non-absorbed same-object N1/N2/N3 route is present conditional on the stated atomic gate."
+  evidence_finite_pending: "Evidence is not yet obtained, but the packet supplies a bounded reproducible theorem/prototype/trace route; this alone is not a structural stop."
+  abstain: "No non-absorbed contribution, same-object fairness, or finite evidence route is supplied."
+results:
+  - packet_id: L1-P01
+    residual_first_assessment: "Shared durable storage does not decide retry and straggler recovery while preserving user computation; a reusable execution abstraction is residual."
+    object_boundary: "Batch computations over reliable shared storage on a commodity cluster; retain user program semantics, failure model, and trace workload."
+    finite_baseline_register: [hand-authored parallel execution, fixed retry policy, speculative-copy/straggler policy]
+    evidence_route: "Prototype abstraction plus replayable public traces; cost retries, duplicate work, scheduler overhead, completion time, and recovery semantics."
+    claim_ceiling: "System semantics and measured runtime only."
+    atomic_killer_gate: "One abstraction preserves user computation while bounding retry/straggler cost against all listed controls."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N1_CONDITIONAL"
+    evidence_acquisition_risk_readiness: READY
+    brief_reason: "The recovery decision is not a mere parameter choice and has a finite natural-workload comparison."
+  - packet_id: L1-P02
+    residual_first_assessment: "Lineage can make reconstruction a first-class decision rather than unconditional recomputation, provided it changes the recovery action."
+    object_boundary: "Immutable distributed dataflow with task lineage; preserve output semantics and use replayable traces."
+    finite_baseline_register: [full recomputation, fixed checkpointing, scheduler-only recovery]
+    evidence_route: "Prototype and replayable traces comparing reconstruction, recomputation, and checkpoint cost under pinned failures."
+    claim_ceiling: "Prototype/runtime only."
+    atomic_killer_gate: "Lineage-driven reconstruction differs from and improves over the finite recomputation controls under equal semantics."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N1_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: FINITE_ROUTE_NOT_YET_ACQUIRED
+    brief_reason: "Missing production implementation limits readiness, not the structural recovery residual."
+  - packet_id: L1-P03
+    residual_first_assessment: "External consistency across replicated partitions leaves a cross-boundary commit-ordering decision not resolved by locality or replication alone."
+    object_boundary: "Multi-site replicated transactions; retain external-consistency semantics, partition model, and request mix."
+    finite_baseline_register: [locality-first commit, timestamp ordering, quorum/replication controls]
+    evidence_route: "Multi-site model or implementation with correctness checks and full latency/coordination cost."
+    claim_ceiling: "System-level correctness and latency."
+    atomic_killer_gate: "Commit ordering is explicit and distinguishable from timestamp and quorum controls."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N1_CONDITIONAL"
+    evidence_acquisition_risk_readiness: READY
+    brief_reason: "The packet states a semantic conflict and bounded same-object controls."
+  - packet_id: L1-N01
+    residual_first_assessment: "None: the proposed choices are already the enumerated policy union."
+    object_boundary: "Fixed consistency object, objective, simulator, and policy catalogue."
+    finite_baseline_register: [cache policy catalogue, replication policy catalogue, quorum policy catalogue, policy-union selector]
+    evidence_route: "Finite simulator can verify absorption; no positive route follows."
+    claim_ceiling: "None absent a nonabsorbed residual."
+    atomic_killer_gate: "Abstain if policy union spans proposed choices."
+    abstain_or_continue: ABSTAIN
+    structural_paper_potential: "ABSTAIN_BASELINE_SELECTOR_ABSORPTION"
+    evidence_acquisition_risk_readiness: READY_FOR_NEGATIVE_DECISION
+    brief_reason: "Selection among an existing union is not N1/N2/N3."
+  - packet_id: L1-N02
+    residual_first_assessment: "Timeout and buffer sweeps create no changed state, action, or guarantee."
+    object_boundary: "Fixed protocol and benchmark."
+    finite_baseline_register: [default protocol, parameter sweep, fixed-protocol controls]
+    evidence_route: "Measurement can document sensitivity only; no finite contribution route is defined."
+    claim_ceiling: "Measurement only."
+    atomic_killer_gate: "Abstain unless a new formal state/action is defined."
+    abstain_or_continue: ABSTAIN
+    structural_paper_potential: "ABSTAIN_ORDINARY_TUNING"
+    evidence_acquisition_risk_readiness: NOT_READY_NO_CONTRIBUTION_ROUTE
+    brief_reason: "A sweep is absorbed by ordinary tuning."
+  - packet_id: L2-P01
+    residual_first_assessment: "Optimizer/model-state placement and communication remain jointly undecided when movement, rather than compute, dominates training."
+    object_boundary: "Same model, optimizer semantics, training quality, hardware budget, and public workloads."
+    finite_baseline_register: [data_parallelism, model_parallelism, existing sharding, checkpointing, overlap]
+    evidence_route: "Costed public-workload runs measuring throughput, memory, communication, convergence, and implementation overhead."
+    claim_ceiling: "Software-system performance."
+    atomic_killer_gate: "A state partition is not reducible to existing parallel modes at equal training semantics."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: READY
+    brief_reason: "The bottleneck transfer creates a joint same-object decision and finite fair register."
+  - packet_id: L2-P02
+    residual_first_assessment: "Exact attention has an I/O decision residual against materialization and tiled schedules at realistic sequence lengths."
+    object_boundary: "Exact attention semantics, pinned numerical tolerance, GPU model, and comparable sequence lengths."
+    finite_baseline_register: [materialized attention, tiled attention, standard kernel implementations]
+    evidence_route: "Finite I/O analysis plus exact kernel and bounded numerical checks; measure memory traffic, runtime, and numerical error."
+    claim_ceiling: "Exact algorithm/kernel with bounded numerical claim."
+    atomic_killer_gate: "Derive an I/O residual against tiled and materialized controls."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: FINITE_ROUTE_NOT_YET_ACQUIRED
+    brief_reason: "Absent implementation and benchmark do not erase the explicit bounded analysis/kernel route."
+  - packet_id: L2-P03
+    residual_first_assessment: "Request state sharing and its scheduler decision are residual because per-request caches duplicate growing state."
+    object_boundary: "Autoregressive request semantics, model, cache semantics, memory capacity, and public request traces."
+    finite_baseline_register: [batching, per-request cache, cache eviction, existing serving scheduler]
+    evidence_route: "Trace replay with semantic checks and full memory, latency, throughput, and scheduling cost."
+    claim_ceiling: "Runtime throughput/latency."
+    atomic_killer_gate: "Shared-state decision preserves request semantics and beats the finite batching/cache controls."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N1_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: READY
+    brief_reason: "The representation/scheduling interaction has natural traces and bounded controls."
+  - packet_id: L2-N01
+    residual_first_assessment: "None: an input-informed selector already spans sharding, checkpoint, and overlap actions."
+    object_boundary: "Fixed training stack, inputs, and existing action family."
+    finite_baseline_register: [sharding configurations, checkpoint configurations, overlap configurations, finite selector]
+    evidence_route: "Finite comparison establishes absorption only."
+    claim_ceiling: "None."
+    atomic_killer_gate: "Abstain if finite selector absorbs all actions."
+    abstain_or_continue: ABSTAIN
+    structural_paper_potential: "ABSTAIN_BASELINE_SELECTOR_ABSORPTION"
+    evidence_acquisition_risk_readiness: READY_FOR_NEGATIVE_DECISION
+    brief_reason: "No new action or guarantee remains."
+  - packet_id: L2-N02
+    residual_first_assessment: "No admissible residual can be isolated before object and fairness are fixed."
+    object_boundary: "Undefined: model, precision, batch policy, and device differ."
+    finite_baseline_register: []
+    evidence_route: "No finite fair route until same-object conditions are defined."
+    claim_ceiling: "None until object is defined."
+    atomic_killer_gate: "Abstain because same-object fairness is undefined."
+    abstain_or_continue: ABSTAIN
+    structural_paper_potential: "ABSTAIN_UNDEFINED_OBJECT_OR_FAIRNESS"
+    evidence_acquisition_risk_readiness: NOT_READY_NO_FINITE_ROUTE
+    brief_reason: "Unmatched settings preclude a costed comparison."
+  - packet_id: L3-P01
+    residual_first_assessment: "Nested semantics plus repeated fields expose a representation and access decision beyond flat row/column layouts."
+    object_boundary: "Nested-record semantics and analytic query workload."
+    finite_baseline_register: [row store, flat column store, nested-data baseline]
+    evidence_route: "Natural query workloads comparing storage, decoding, execution, and semantic preservation."
+    claim_ceiling: "Storage/query execution."
+    atomic_killer_gate: "Representation retains nested semantics under fair row/column controls."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N1_N3_CONDITIONAL"
+    evidence_acquisition_risk_readiness: READY
+    brief_reason: "Natural structure and a new representation route are both specified."
+  - packet_id: L3-P02
+    residual_first_assessment: "Skewed degree and limited mutable state create a partition/schedule decision beyond block ordering."
+    object_boundary: "Specified graph algorithm semantics, public corpora, memory bound, and external-memory model."
+    finite_baseline_register: [finite block orders, standard partitioning, external-memory algorithm controls]
+    evidence_route: "Finite external-memory analysis and public-corpus prototype comparing I/O, work, and correctness."
+    claim_ceiling: "Algorithm/system."
+    atomic_killer_gate: "Partition schedule exploits stated structure beyond a finite block-order baseline."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N2_N3_CONDITIONAL"
+    evidence_acquisition_risk_readiness: FINITE_ROUTE_NOT_YET_ACQUIRED
+    brief_reason: "Incomplete evaluation is distinct from absence of the explicit finite route."
+  - packet_id: L3-P03
+    residual_first_assessment: "Sequential graph-update access under memory pressure leaves an execution/pass-scheduling residual."
+    object_boundary: "Streaming graph semantics, memory limit, public datasets, and update sequence."
+    finite_baseline_register: [standard stream processing, multi-pass graph processing, I/O-model controls]
+    evidence_route: "Reproduce passes and I/O with equal semantics; cost runtime, storage, and preprocessing."
+    claim_ceiling: "Out-of-core runtime."
+    atomic_killer_gate: "Fewer passes or I/O under same graph semantics."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N2_N3_CONDITIONAL"
+    evidence_acquisition_risk_readiness: READY
+    brief_reason: "Natural input and full-cost metrics are bounded."
+  - packet_id: L3-N01
+    residual_first_assessment: "None: renaming an adjacency list changes neither representation nor decision."
+    object_boundary: "Fixed graph representation and descriptive workload statistics."
+    finite_baseline_register: [standard adjacency list, descriptive-statistics control]
+    evidence_route: "No finite positive evidence route without N1/N2/N3."
+    claim_ceiling: "None."
+    atomic_killer_gate: "Abstain absent nontrivial novelty route."
+    abstain_or_continue: ABSTAIN
+    structural_paper_potential: "ABSTAIN_NO_NOVELTY_ROUTE"
+    evidence_acquisition_risk_readiness: NOT_READY_NO_CONTRIBUTION_ROUTE
+    brief_reason: "Neither a new mechanism nor stable exploitable law is supplied."
+  - packet_id: L3-N02
+    residual_first_assessment: "A possible residual cannot become paper-shaped without natural or theorem evidence."
+    object_boundary: "Synthetic generator only; natural workload and theorem object unspecified."
+    finite_baseline_register: [synthetic-generator control]
+    evidence_route: "No specified corpus, formal object, or bounded acquisition route."
+    claim_ceiling: "None without finite route."
+    atomic_killer_gate: "Abstain because neither natural nor theorem evidence route is finite."
+    abstain_or_continue: ABSTAIN
+    structural_paper_potential: "ABSTAIN_NO_FINITE_EVIDENCE_ROUTE"
+    evidence_acquisition_risk_readiness: NOT_READY_NO_FINITE_ROUTE
+    brief_reason: "Synthetic-only support cannot establish the required evidence route."
+  - packet_id: L4-P01
+    residual_first_assessment: "Always-writable operation makes a configurable availability/consistency contract and replication action residual."
+    object_boundary: "Partitioned service with explicit application contract, versioning, quorum, and failure model."
+    finite_baseline_register: [fixed strong consistency, fixed eventual consistency, fixed quorum/replication]
+    evidence_route: "Failure-injection prototype measures availability, contract compliance, staleness/conflict, latency, and operational cost."
+    claim_ceiling: "System availability/consistency tradeoff."
+    atomic_killer_gate: "Explicit contract differs from fixed-consistency baselines."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N1_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: FINITE_ROUTE_NOT_YET_ACQUIRED
+    brief_reason: "Production incompleteness limits evidence readiness, not the contract-level residual."
+  - packet_id: L4-P02
+    residual_first_assessment: "Bursty colocated services leave a cross-application allocation decision for the tail-latency/CPU frontier."
+    object_boundary: "Commodity server, workload trace, SLO, CPU budget, and colocated applications."
+    finite_baseline_register: [static allocation, kernel-bypass control, tail-latency scheduler, per-application allocation]
+    evidence_route: "Trace-driven server experiments cost CPU, reallocation overhead, tail latency, throughput, and SLO violations."
+    claim_ceiling: "Runtime scheduling."
+    atomic_killer_gate: "Reallocation retains SLOs while changing the cost frontier."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: READY
+    brief_reason: "A new joint allocation action and natural trace-based comparison exist."
+  - packet_id: L4-P03
+    residual_first_assessment: "Deadline/isolation goals leave admission and action-timing control residual beyond average-throughput serving."
+    object_boundary: "Pinned inference semantics, GPU runtime, per-request deadlines, isolation contract, and load."
+    finite_baseline_register: [throughput-first batching, deadline scheduler, fixed admission, existing serving runtime]
+    evidence_route: "GPU runtime experiment measures SLO frontier, latency, throughput, isolation, and scheduling overhead."
+    claim_ceiling: "Software/runtime only."
+    atomic_killer_gate: "Action timing and admission produce a nonabsorbed SLO frontier."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: READY
+    brief_reason: "The changed contract creates a measurable centralized-control residual."
+  - packet_id: L4-N01
+    residual_first_assessment: "None: retuned weights retain the identical objective, constraints, and actions."
+    object_boundary: "Fixed objective and evaluation."
+    finite_baseline_register: [original objective, weight sweep, fixed-action controls]
+    evidence_route: "Finite sweep can establish tuning absorption only."
+    claim_ceiling: "None."
+    atomic_killer_gate: "Abstain if no new decision or contract exists."
+    abstain_or_continue: ABSTAIN
+    structural_paper_potential: "ABSTAIN_ORDINARY_TUNING"
+    evidence_acquisition_risk_readiness: READY_FOR_NEGATIVE_DECISION
+    brief_reason: "Reweighting is not an objective/constraint shift."
+  - packet_id: L4-N02
+    residual_first_assessment: "No valid residual can be compared while SLO, arrivals, quality, and budgets are unspecified."
+    object_boundary: "Undefined service objective and cost budget."
+    finite_baseline_register: []
+    evidence_route: "No finite fair comparison route is stated."
+    claim_ceiling: "None."
+    atomic_killer_gate: "Abstain because fair comparison is undefined."
+    abstain_or_continue: ABSTAIN
+    structural_paper_potential: "ABSTAIN_UNDEFINED_OBJECT_OR_FAIRNESS"
+    evidence_acquisition_risk_readiness: NOT_READY_NO_FINITE_ROUTE
+    brief_reason: "An unpinned frontier has no scientific comparison object."
+  - packet_id: L5-P01
+    residual_first_assessment: "A bounded-memory rank summary can introduce a new approximation state/guarantee frontier beyond exact materialization."
+    object_boundary: "Streaming rank queries, error definition, memory budget, update model, and public traces."
+    finite_baseline_register: [exact materialization, known rank summaries, lower-bound reference]
+    evidence_route: "Finite theorem plus trace evaluation of error, memory, update/query time, and construction cost."
+    claim_ceiling: "Approximation/theory."
+    atomic_killer_gate: "New summary establishes a nontrivial error-space-time frontier."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N1_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: READY
+    brief_reason: "A formal guarantee and natural evidence path are both bounded."
+  - packet_id: L5-P02
+    residual_first_assessment: "A construction may alter the space/error/deletion tradeoff rather than simply retune a known filter."
+    object_boundary: "Approximate membership semantics, false-positive target, deletion model, and memory model."
+    finite_baseline_register: [Bloom filter, standard hashing construction, deletion-capable controls]
+    evidence_route: "Finite construction and false-positive proof plus prototype/workload comparison."
+    claim_ceiling: "Probabilistic data structure."
+    atomic_killer_gate: "Construction changes the finite space/error/deletion tradeoff."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N1_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: FINITE_ROUTE_NOT_YET_ACQUIRED
+    brief_reason: "Missing implementation is not a stop where proof and prototype route are finite."
+  - packet_id: L5-P03
+    residual_first_assessment: "Online approximation must choose accuracy/latency actions under changing data, yielding a frontier residual."
+    object_boundary: "Changing analytic data, quality metric, latency bound, and public trace workload."
+    finite_baseline_register: [sampling, index controls, offline approximation, fixed online policy]
+    evidence_route: "Trace-driven evaluation costs freshness, quality, latency, updates, memory, and preprocessing."
+    claim_ceiling: "Approximate system."
+    atomic_killer_gate: "Quality-latency frontier exceeds finite sampling/index controls."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: READY
+    brief_reason: "The decision is online and full-cost natural evaluation is specified."
+  - packet_id: L5-N01
+    residual_first_assessment: "None: an oracle selector over existing sketches absorbs the proposed action set."
+    object_boundary: "Fixed sketch family, query distribution, and oracle selector."
+    finite_baseline_register: [existing sketch catalogue, oracle selector]
+    evidence_route: "Finite action-set inclusion establishes abstention."
+    claim_ceiling: "None."
+    atomic_killer_gate: "Abstain if candidate action set is subset of control union."
+    abstain_or_continue: ABSTAIN
+    structural_paper_potential: "ABSTAIN_BASELINE_SELECTOR_ABSORPTION"
+    evidence_acquisition_risk_readiness: READY_FOR_NEGATIVE_DECISION
+    brief_reason: "A selector does not create a new data structure or guarantee."
+  - packet_id: L5-N02
+    residual_first_assessment: "A threshold on a known heuristic supplies no new state, action, guarantee, or complexity delta."
+    object_boundary: "Fixed online/approximation task and heuristic."
+    finite_baseline_register: [known heuristic, threshold sweep]
+    evidence_route: "No finite positive route absent an N1/N2/N3 contribution."
+    claim_ceiling: "None."
+    atomic_killer_gate: "Abstain absent N1/N2/N3."
+    abstain_or_continue: ABSTAIN
+    structural_paper_potential: "ABSTAIN_NO_NOVELTY_ROUTE"
+    evidence_acquisition_risk_readiness: NOT_READY_NO_CONTRIBUTION_ROUTE
+    brief_reason: "Parameter selection is ordinary tuning."
+  - packet_id: L6-P01
+    residual_first_assessment: "Equivalent pipeline schedules create a nontrivial algorithmic representation/search decision under locality and parallel-cost objectives."
+    object_boundary: "Exact pipeline semantics, target architecture, public compiler/workloads, and full compile/runtime cost."
+    finite_baseline_register: [loop optimization, fixed schedules, finite optimizing compiler controls]
+    evidence_route: "Reproducible compiler evaluation measuring semantic equivalence, search/compile time, runtime, memory, and tuning cost."
+    claim_ceiling: "Compiler/runtime."
+    atomic_killer_gate: "Schedule search is semantically exact and nontrivial versus finite optimizing controls."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: READY
+    brief_reason: "Equal-meaning schedules create a genuine algorithmic optimization space."
+  - packet_id: L6-P02
+    residual_first_assessment: "Symbolic equivalence plus cost-guided search can add a nonabsorbed compiler decision beyond expression enumeration."
+    object_boundary: "Compiler IR semantics, equivalence relation, cost model, and reproducible IR corpus."
+    finite_baseline_register: [existing superoptimizer, enumeration/search controls, conventional compiler optimization]
+    evidence_route: "Finite symbolic-equivalence validation, cost-model tests, and compiler-integration corpus evaluation."
+    claim_ceiling: "Compiler optimization."
+    atomic_killer_gate: "Candidate search adds a nonabsorbed equivalence/cost decision."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N1_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: FINITE_ROUTE_NOT_YET_ACQUIRED
+    brief_reason: "Scale evidence is pending but correctness and integration routes are bounded."
+  - packet_id: L6-P03
+    residual_first_assessment: "Cost-aware extraction from equivalent programs is an optimization decision, not merely rewrite enumeration."
+    object_boundary: "Pinned rewrite semantics, cost objective, public corpus, and optimizer budget."
+    finite_baseline_register: [greedy extraction, order-based extraction, existing extraction algorithms]
+    evidence_route: "Public rewrite corpus comparing objective value, extraction time, memory, and output semantics."
+    claim_ceiling: "Compiler/optimizer."
+    atomic_killer_gate: "Extraction improves the pinned cost objective beyond finite greedy/order controls."
+    abstain_or_continue: CONTINUE
+    structural_paper_potential: "CONTINUE_N2_CONDITIONAL"
+    evidence_acquisition_risk_readiness: READY
+    brief_reason: "The representation exposes a well-bounded optimization residual and evidence plan."
+  - packet_id: L6-N01
+    residual_first_assessment: "Changing one pass flag against a default is tuning, with no general algorithmic delta."
+    object_boundary: "Fixed compiler and optimizer configuration space."
+    finite_baseline_register: [default configuration, option sweep, current strong optimizing controls]
+    evidence_route: "Single-baseline speedup cannot support a finite fair positive route."
+    claim_ceiling: "None."
+    atomic_killer_gate: "Abstain absent general algorithmic delta and current strong baselines."
+    abstain_or_continue: ABSTAIN
+    structural_paper_potential: "ABSTAIN_ORDINARY_TUNING"
+    evidence_acquisition_risk_readiness: NOT_READY_NO_CONTRIBUTION_ROUTE
+    brief_reason: "A flag change does not establish N2 or fair baselines."
+  - packet_id: L6-N02
+    residual_first_assessment: "The vague mechanism lacks a defined theorem object and its only corpus is inaccessible, so no verifiable residual is recoverable."
+    object_boundary: "Undefined code-generation corpus, task semantics, and cost metric."
+    finite_baseline_register: []
+    evidence_route: "No public corpus, theorem object, or finite alternative acquisition route."
+    claim_ceiling: "None."
+    atomic_killer_gate: "Abstain because no finite evidence route is defined."
+    abstain_or_continue: ABSTAIN
+    structural_paper_potential: "ABSTAIN_NO_FINITE_EVIDENCE_ROUTE"
+    evidence_acquisition_risk_readiness: NOT_READY_NO_FINITE_ROUTE
+    brief_reason: "Potential cannot be separated from a non-existent verification route when the object itself is vague."

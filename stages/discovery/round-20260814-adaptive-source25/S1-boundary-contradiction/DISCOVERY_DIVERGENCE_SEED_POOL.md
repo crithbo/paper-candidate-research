@@ -1,0 +1,22 @@
+# Source25 divergence seed pool
+
+Assignment: `DISCOVERY-S1-20260814-ADAPTIVE-SOURCE25-DIVERGENCE-V1R1`  
+Mode: offline, non-evidentiary creative front-end; generated before external lookup.
+
+## Seed records
+
+| ID | Engine | Rotated perspective | Seed | Conclusion-first / noun-shell test | Cluster | Selection |
+|---|---|---|---|---|---|---|
+| S01 | PROBLEM_REFRAMING | compiler-backend engineer | Detached OpenMP tasks may expose a completion-event state that is committed by the runtime after compiler lowering has already chosen task-frame and continuation structure. Ask whether a fixed task graph admits a target-specific joint construction, rather than a new scheduling policy. | A possible endpoint is an algorithm over task-frame/event dependencies with fixed OpenMP completion semantics; this is not merely “optimize runtime.” | task/runtime state | selected locator L01 |
+| S02 | CONSTRAINT_MANIPULATION | maintainer | A Component Model producer may decide resource representation and post-return cleanup independently, while a consumer’s canonical ABI observes ownership and destruction timing. Freeze the same component/resource behavior before asking whether representation planning remains. | Endpoint would be a semantics-preserving component-artifact constructor; swapping “resource” for any noun would lose the canonical-ABI ownership constraint. | component ABI ownership | selected locator L02 |
+| S03 | JANUSIAN_TENSION | hardware architect | A Level Zero command list is both a reusable recording and an ordered device-visible submission object; immediate and regular lists make the tension explicit. Investigate a same-command-stream action that changes construction without changing event ordering. | Endpoint would require a non-generic command-state construction with stock event semantics, not “use a faster API.” | accelerator command state | selected locator L03 |
+| S04 | BISOCIATION_STRUCTURAL_TRANSFER | theorist | Treat RISC-V hypervisor guest-state entry/exit as a compiler-visible state commitment: a save strategy can affect legal restart/unwind paths although guest-visible execution is fixed. | A valid endpoint needs a fixed ABI/exception contract and finite emulator oracle; it is not a generic context-switch adjective. | ISA privilege state | selected locator L04 |
+| S05 | INVERSION | end user | Reverse the usual view of WebAssembly exception payloads: the consumer’s catch observation can constrain producer layout/cleanup even when the compiler treats it as an internal lowering choice. | A paper endpoint would need a concrete engine/ABI artifact and a non-generic construction; otherwise it collapses to compiler lowering. | language/runtime exception | backlog |
+| S06 | ABSTRACTION_LADDER | measurement reviewer | Versioned public compiler test outcomes might reveal stable divergence between source-level and object-level unwind contracts across targets. | This would be an N3 characterization only if a versioned natural corpus, independent validation, and a non-controller consequence are available; otherwise it is a test report. | conformance measurement | backlog |
+| S07 | ADJACENT_POSSIBLE | operator | A persistent GPU memory-pool allocation has host lifetime and stream-ordered visibility; the two perspectives may leave a same-allocation transition-cost residual. | This needs a concrete native action and full-cost denominator; “pool tuning” is rejected. | GPU allocation state | excluded: recent GPU memory-semantics coverage risk |
+| S08 | COMPOSE_DECOMPOSE_SIMPLIFY | compiler-backend engineer | Link-time relaxation can resolve late legality that was invisible during register allocation; search an underexplored target where a finite Pareto algorithm could couple them. | The endpoint must name a target-specific guarantee and a legal witness; generic RA/ILP is explicitly rejected. | late compiler legality | excluded: saturated prior target-RA seam family |
+
+## Clustering and coverage-constrained locator selection
+
+The eight seeds form six clusters. L01–L04 cover four distinct clusters and four distinct primary-source families (OpenMP runtime, Wasm component ABI, Level Zero runtime, RISC-V ISA/ABI). S05–S06 remain append-only backlog because their carrier/entry type is not yet frozen. S07–S08 are excluded before locator selection to avoid known recent GPU-memory and late-RA saturation. Selection is an evidence-ordering decision only: it supplies no novelty, absence, quality, or proposal claim.
+

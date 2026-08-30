@@ -1,0 +1,47 @@
+assignment_id: DISCOVERY-S6-20260814-ADAPTIVE-SOURCE14
+lane: S6_DIRECT_ALGORITHM_SOFTWARE
+method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+write_directory: stages/discovery/round-20260814-adaptive-source14/S6-direct-algorithm-software
+status: COMPLETE_ZERO_PROPOSALS
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+source_mix:
+  cpu_compiler_architecture_joint_algorithm: 2
+  gpu_npu_accelerator_compiler_architecture_joint_algorithm: 4
+  quota_interpretation: guidance_only
+funnel:
+  raw_unique_opportunity_families: 6
+  candidate_grade_deep_reviews: 2
+  proposed_stage0: 0
+  structural_drops: 5
+  not_admitted_unfrozen: 1
+deep_reviews:
+  - signature: LLVM_NVPTX_ADDRESS_PARAMETER_LOWERING__FIXED_IR_TRIPLE_CALLING_CONVENTION_ADDRESS_SPACES__PTX_SEMANTICS
+    exact_object: Fixed LLVM IR, NVPTX triple, calling convention, address-space semantics and emitted PTX behavior.
+    same_object_witness: Equivalent generic-space versus legally folded-forwarded target address-space sequence.
+    strongest_current_union: NVPTX GenericToNVVM, address folding, parameter forwarding, argument lowering, SelectionDAG and target lowering.
+    residual_test: Whole-module lowering choice is generic instruction-selection or pass-composition without frozen NVPTX-specific state and guarantee.
+    natural_route: Version-pinned LLVM GPU kernels and PTX verification.
+    full_cost: compile CPU-wall-RSS-temp; PTX bytes; host launch; register-local-shared memory constraints.
+    finite_killer: Same-IR same-PTX-semantics two-plan witness with NVPTX-specific guarantee irreducible to ISel or generic DP.
+    disposition: STRUCTURAL_DROP__GENERIC_INSTRUCTION_SELECTION_OR_PASS_COMPOSITION
+  - signature: ARM_ETHOSU_VELA_COMMANDSTREAM_SRAM_CONSTRUCTION__FIXED_QUANTIZED_GRAPH_SYSTEM_MEMORY_CONTRACT__TENSOR_SEMANTICS
+    exact_object: Fixed quantized TFLite-TOSA graph, Ethos-U configuration and output tensor semantics.
+    same_object_witness: Two legal tensor-placement/subgraph arrangements with different native command-stream or SRAM placement.
+    strongest_current_union: Accelerator config, system config, memory mode, time-memory strategy and stock planning.
+    residual_test: Current union plus generic packing or a strategy selector absorbs the candidate; no target-specific certified frontier frozen.
+    natural_route: Public versioned TFLite-TOSA models and stock output checker.
+    full_cost: compile CPU-wall-RSS-temp; command-stream bytes; host invocation; on-chip memory and latency.
+    finite_killer: Non-selector target-specific certified constructor under unchanged Vela system-memory contract.
+    disposition: STRUCTURAL_DROP__MEMORY_MODE_CONFIGURATION_OR_GENERIC_PACKING
+screen_notes:
+  - LLVM_R600_CLAUSE_CONSTRUCTION: STRUCTURAL_DROP__GENERIC_CLAUSE_VLIW_GROUPING
+  - LLVM_SPIRV_STRUCTURED_CONTROL_CONSTRUCTION: STRUCTURAL_DROP__GENERIC_STRUCTURED_LOWERING_OR_FORMAT_ACTION
+  - GCC_NVPTX_OPENACC_LOWERING_CONSTRUCTION: STRUCTURAL_DROP__PASS_COMPOSITION_OR_CONTROLLER
+  - LLVM_LOONGARCH_IMMEDIATE_MATERIALIZATION: NOT_ADMITTED_UNFROZEN__TARGET_SPECIFIC_GUARANTEE_NOT_CLOSED
+policy_compliance:
+  security_vulnerability_exploit_protocol_traffic_topics_excluded: true
+  no_experiment_build_install_or_large_download: true
+  no_stage0_a_b_or_shared_control_write: true
+  no_readiness_or_resource_based_scientific_drop: true
+next_step: Mainline may mechanically accept this bounded zero-proposal package; no further action requested.

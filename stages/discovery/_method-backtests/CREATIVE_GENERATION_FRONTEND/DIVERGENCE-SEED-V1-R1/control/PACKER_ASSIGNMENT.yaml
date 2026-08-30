@@ -1,0 +1,37 @@
+assignment_id: BACKTEST-PACKER-L1-20260814-DIVERGENCE-SEED-FRONTEND-V1-R1
+role: DISCOVERY_BACKTEST_PACKER_LANE
+task_id: 019fe4e9-9c1d-7ea2-b45d-356f1a9a9545
+write_directory: stages/discovery/_method-backtests/CREATIVE_GENERATION_FRONTEND/DIVERGENCE-SEED-V1-R1/packer
+master_contract: stages/discovery/_method-backtests/CREATIVE_GENERATION_FRONTEND/DIVERGENCE-SEED-V1-R1/control/MASTER_CONTRACT.yaml
+method_revision: DIVERGENCE_SEED_POOL_V1R1__EVIDENCE_GATED_QUESTION_CARD_V7R2
+selection_contract:
+  positive_count: 3
+  negative_control_count_minimum: 1
+  quality_targets: [TIER_A_Q1_POTENTIAL, TIER_B_Q2_VIABLE]
+  topic_scope: [compiler, runtime, system_architecture, GPU_NPU, measurement_benchmark, theory_formal, algorithm_data_structure]
+  excluded_scope: [network_security, vulnerability, attack_defense, exploit, protocol_security, malicious_traffic]
+  case_identity_must_be_new_to_executor_backtest_history: true
+  cutoff_materials_per_positive: 3_TO_8
+  stale_document_trap_required_if_applicable: true
+replacement_integrity:
+  old_root_read_allowed_only_for: [complete_primary_or_official_source_bytes, byte_hashes, transport_metadata, failed_blocker_handoff]
+  old_case_selection_or_unsealed_case_cards_reusable: false
+  final_case_selection_must_be_redone_under_v1r1: true
+  reused_bytes_must_be_rehashed_and_source_role_requalified: true
+  old_root_modification_allowed: false
+instructions:
+  - Prefer requalified complete primary/official bytes already frozen in the failed root; retrieve new public bytes only when required.
+  - Hide target title, abstract, method, result, post-cutoff material and all answer-bearing identities from EXECUTOR.
+  - Freeze cutoff, source roles, inclusion/exclusion, hashes and a separate auditor-only key.
+  - PACKER must not execute, score or simulate the proposed method.
+  - Keep validation targeted to mandatory packet/key/manifest integrity; do not recursively hash unrelated trees.
+resource_boundary:
+  additional_public_network_bytes_ceiling: 8000000
+  new_storage_bytes_ceiling: 50000000
+  cpu_hours_ceiling: 1
+  wall_hours_ceiling: 3
+  system_install: false
+  build_or_experiment: false
+completion:
+  notify_mainline_on_complete_blocker_or_contamination_risk: true
+  lane_state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

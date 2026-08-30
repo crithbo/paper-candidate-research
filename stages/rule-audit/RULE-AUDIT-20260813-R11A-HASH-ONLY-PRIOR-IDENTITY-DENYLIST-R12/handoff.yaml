@@ -1,0 +1,48 @@
+handoff_id: RULE-AUDIT-HANDOFF-20260813-R11A-HASH-ONLY-PRIOR-IDENTITY-DENYLIST-R12
+audit_id: RULE-AUDIT-20260813-R11A-HASH-ONLY-PRIOR-IDENTITY-DENYLIST-R12
+role: RULE_AUDIT_SENTRY
+status: USER_POLICY_DECISION_REQUIRED
+workspace_root: D:\project\writing\reserch
+write_directory: stages\rule-audit\RULE-AUDIT-20260813-R11A-HASH-ONLY-PRIOR-IDENTITY-DENYLIST-R12
+shared_files_modified: false
+packer_contacted: false
+method_or_stage_started: false
+external_service_contacted: false
+
+trigger:
+  checkpoint: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\index\IN_PROGRESS_CHECKPOINT_000_CUMULATIVE_008.yaml
+  checkpoint_sha256: B3C614BA87C8F8266DEA1CE2DC02517EAD263D5D7883C4E73D1C31D867BBC3C1
+  blocker: CONTROL_PLANE_IDENTITY_DENYLIST_MISSING
+  scientific_inference: NONE
+
+recommendation:
+  proposal_id: R11A-HASH-ONLY-PRIOR-IDENTITY-DENYLIST-V1
+  decision: USER_POLICY_DECISION_REQUIRED__ASSIGNMENT_LOCAL_CONTROL_ARTIFACT_RECOMMENDED
+  least_privilege_owner: MAINLINE_CONTROL_PLANE__DETERMINISTIC_NO_MODEL_HASH_CURATOR
+  fresh_user_approval_required: true
+  shared_rule_patch_required: false
+  scientific_backtest_required: false
+  mechanical_fixture_validation_required: true
+  packer_receives_private_prior_hash_set: false
+  resume_point_after_approval_and_validation: SAME_R11A_PHASE1_FROM_CHECKPOINT_008
+
+preserved:
+  canonical_mode: OFF
+  r11a_thresholds: UNCHANGED
+  blind_identity_outcome_separation: true
+  old_material_use: IDENTITY_HASH_DEDUP_AND_EXCLUSION_ONLY
+  phase2_or_downstream_dispatch_allowed_now: false
+  terminal_stop_revival_allowed: false
+
+deliverable_sha256:
+  audit_input_snapshot: E6B69FCDAEFDF6EA552B5B319DAD670FC3579CFE3ACD6CF2B2A8167052546D6B
+  hash_only_denylist_control_spec: 06E0305315AFE938C778529E5EB50F34DFBB285A42799C3D4E1F5E33B468E16B
+  rule_audit_report: F14BA670A68EFF227EE62A9A1C3C55420385E9D2B8237F9C6A27A93E152A915B
+  rule_change_proposal: 69AC8FB091C934E74F5F25B87B548262E34D70C2CA24FD6486D9CFBC1D769EE9
+
+mainline_action_now:
+  - REQUEST_EXACT_NARROW_USER_APPROVAL
+  - DO_NOT_CONTACT_PACKER_BEFORE_APPROVAL_AND_CONTROL_VALIDATION
+  - DO_NOT_APPLY_SHARED_RULE_PATCH
+
+lane_state_after_handoff: IDLE_REUSABLE_AWAITING_USER_DIALOGUE

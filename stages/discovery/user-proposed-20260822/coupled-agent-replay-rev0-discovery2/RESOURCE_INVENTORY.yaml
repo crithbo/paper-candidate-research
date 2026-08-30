@@ -1,0 +1,102 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: COUPLED-AGENT-REPLAY-REV0
+  assignment_id: DISCOVERY-S6-20260822-COUPLED-AGENT-REPLAY-DISCOVERY2
+  stage_or_mode: DISCOVERY__STATIC_REVIEW_ONLY
+  run_id: S6-COUPLED-AGENT-REPLAY-DISCOVERY2
+  unique_write_directory: stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-discovery2
+  resource_root: stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-discovery2/resources
+  inventory_path: stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-discovery2/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-22T00:00:00+08:00
+  finalized_at: 2026-08-22T00:00:00+08:00
+root_measurement:
+  logical_bytes: 629094
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools: [web_retrieval_connector]
+resource_envelope:
+  network_bytes_max: 134217728
+  stored_bytes_max: 134217728
+  cpu_hours_max: 1
+  gpu_hours_max: 0
+  wall_seconds_max: 7200
+  attempts_max: 24
+  network_bytes_used: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  stored_bytes_used: 629094
+  attempts_used: 9
+entries:
+  - path: resources/downloads/openhands-tree-2d8abc2.json
+    absolute_path: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-discovery2\resources\downloads\openhands-tree-2d8abc2.json
+    class: OFFICIAL_SOURCE_METADATA
+    source_uri: https://api.github.com/repos/OpenHands/OpenHands/git/trees/2d8abc2cd08afe0fe80ebaa31c8f31892e20a4fe?recursive=1
+    version_or_commit: 4bf8dd3aaf1217916b2ce8a6f9168fa7633a26f8
+    provenance: GitHub official API for OpenHands/OpenHands
+    logical_bytes: 610108
+    sha256: EAF7B7D9748F9815ED92E796DD7094A7BF5E089DE32644FC31831B3E36F6A3EF
+    hash_scope: CONTENT_SHA256
+    creating_run: S6-COUPLED-AGENT-REPLAY-DISCOVERY2
+    retention_reason: exact-object source-surface audit
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - path: resources/downloads/openhands-README.md
+    absolute_path: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-discovery2\resources\downloads\openhands-README.md
+    class: OFFICIAL_SOURCE_FILE
+    source_uri: https://raw.githubusercontent.com/OpenHands/OpenHands/4bf8dd3aaf1217916b2ce8a6f9168fa7633a26f8/README.md
+    version_or_commit: 4bf8dd3aaf1217916b2ce8a6f9168fa7633a26f8
+    provenance: GitHub official raw source
+    logical_bytes: 8928
+    sha256: F84D463D9AA794C9A6F7C28750E3389D7A22F932BEC4B724CB68660C7363F8FF
+    hash_scope: CONTENT_SHA256
+    creating_run: S6-COUPLED-AGENT-REPLAY-DISCOVERY2
+    retention_reason: decisive exact-object audit
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - path: resources/downloads/openhands-package.json
+    absolute_path: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-discovery2\resources\downloads\openhands-package.json
+    class: OFFICIAL_SOURCE_FILE
+    source_uri: https://raw.githubusercontent.com/OpenHands/OpenHands/4bf8dd3aaf1217916b2ce8a6f9168fa7633a26f8/package.json
+    version_or_commit: 4bf8dd3aaf1217916b2ce8a6f9168fa7633a26f8
+    provenance: GitHub official raw source
+    logical_bytes: 9499
+    sha256: E64137F92290EA9844E1F7835A0B0AE3C4A7859BD9D4E214892DD1873A24BB1F
+    hash_scope: CONTENT_SHA256
+    creating_run: S6-COUPLED-AGENT-REPLAY-DISCOVERY2
+    retention_reason: decisive exact-object audit
+    deletion_status: RETAIN_CLAIM_CRITICAL
+shared_assets_consumed: []
+external_system_dependencies:
+  - web_retrieval_connector__response_bytes_UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: LOCAL_ASSIGNMENT_RESOURCES__MAINLINE_DECIDES
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: PENDING_DIRECTORY_CREATION
+  required_directories_present: PENDING_DIRECTORY_CREATION
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: PASS__LOCALIZED_STATIC_SOURCE_AUDIT

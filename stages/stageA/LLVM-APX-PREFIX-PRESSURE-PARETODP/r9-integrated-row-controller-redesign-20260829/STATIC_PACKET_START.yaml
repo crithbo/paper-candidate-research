@@ -1,0 +1,11 @@
+schema: stagea-static-redesign-start-v1
+assignment_id: STAGEA-L1-20260829-LLVM-APX-R9-INTEGRATED-ROW-CONTROLLER-REDESIGN
+model_route: gpt-5.6-luna
+thinking: xhigh
+control_path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/control/REDESIGN_CONTRACT.yaml
+control_sha256: 5D86138BFC9EC063DB308AAAE4720D096C170BF8DA5AB2C30C7A837B43AD1464
+allowed_outputs: [APX_R9_EXECUTABLE_PACKET.yaml, APX_R9_COMMAND_DAG.json, APX_R9_CONTROLLER.py, APX_R9_STATIC_VALIDATION.yaml, EXACT_RESOURCE_COPY_MANIFEST.yaml]
+allowed_actions: [read_frozen_inputs, write_allowed_outputs, static_lint_max_3]
+required_hard_checks: [all_six_apx_tpd_files_bound, four_selected_inputs_immutable, literal_argv_cwd_env_timeout_stdout_stderr_outputs, real_process_cost_fields_no_placeholders, control_effects_hidden]
+forbidden_actions: [resource_create_or_copy, tool_execution, control_row, claim_row, network, result_aware_change, shared_write, shared_install, cleanup, stageb]
+stop_after: STATIC_OUTPUTS_SEALED__WAIT_MAINLINE

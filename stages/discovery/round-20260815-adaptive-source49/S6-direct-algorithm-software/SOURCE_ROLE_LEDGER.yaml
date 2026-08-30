@@ -1,0 +1,32 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE49-TYPED-ACTIONABLE-RESIDUAL-PORTFOLIO-V1
+sources:
+  - id: SRC01
+    role: CURRENT_UPSTREAM
+    title: LLVM current RISCVMakeCompressible producer
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/lib/Target/RISCV/RISCVMakeCompressible.cpp
+    version_or_date: "main observed 2026-08-15; source page identifies RISCVMakeCompressible.cpp on main"
+    selection_rule: "Official LLVM upstream; the pass is explicitly named RISC-V Make Compressible, runs only for opt-size functions with compressed instructions, analyzes compressible uses, emits a copy/base adjustment and updates operands to compressible forms."
+    disposition: CURRENT_ACTION_CHECK__NO_NEW_RAW
+  - id: SRC02
+    role: DIRECT_COLLISION
+    title: "Fried, Stemmer-Grabow and Wachter, Register Allocation for Compressed ISAs in LLVM, CC 2023"
+    url: https://pp.ipd.kit.edu/uploads/publikationen/fried23cc.pdf
+    version_or_date: "2023"
+    selection_rule: "Primary same-object paper; it explicitly jointly adapts allocation priority, physical-register choice, spilling and copy/compression weighting."
+    disposition: FROZEN_DIRECT_COLLISION__TERMINAL_CONTAINS
+  - id: SRC03
+    role: HISTORICAL_IDENTITY
+    title: Source246 S1 collision matrix and deep review
+    url: stages/discovery/round-20260811-v8.7-wave246/S1-boundary-contradiction/SOURCE_COLLISION_MATRIX.md
+    version_or_date: "frozen internal prior delivery"
+    selection_rule: "All-history identity evidence; not used as a substitute for the official source or primary paper."
+    disposition: EXACT_CURRENT_COLLISION_RECORDED
+  - id: SRC04
+    role: CONTRARY
+    title: RISC-V target usage guide
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/docs/RISCVUsage.rst
+    version_or_date: "main observed 2026-08-15"
+    selection_rule: "Official current documentation confirming the live RISC-V target surface; it does not assert a research gap."
+    disposition: CURRENT_REALITY_CONTEXT
+network_acquisition: []
+budget_status: NO_RESOURCE_ACTIONS

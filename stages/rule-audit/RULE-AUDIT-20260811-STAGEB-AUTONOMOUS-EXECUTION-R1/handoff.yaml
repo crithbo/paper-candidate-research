@@ -1,0 +1,139 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260811-STAGEB-AUTONOMOUS-EXECUTION-R1
+proposal_id: STAGEB-AUTONOMOUS-EXECUTION-PROTOCOL-R1
+completion_status: COMPLETE
+decision_label: PATCH_RECOMMENDED__USER_POLICY_APPROVED
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE_APPLICATION
+
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  audit_proposal_author: RULE_AUDIT_SENTRY
+  user_policy_approval_present: true
+  user_approval_text: 好的，先把这些规则写入文件。
+  user_approval_artifact: USER_APPROVAL_DIRECTIVE.md
+  user_approval_artifact_sha256: 2304E6C6977DE1C773963D5FFE0F15B2DA4A8F3711AC34448CF980CFDFAC086B
+  same_generic_approval_must_not_be_requested_again: true
+  topic_specific_stageb_approval_granted: false
+  formal_project_approval_granted: false
+
+write_boundary:
+  only_write_directory: stages/rule-audit/RULE-AUDIT-20260811-STAGEB-AUTONOMOUS-EXECUTION-R1
+  boundary_respected: true
+  shared_files_modified: false
+  candidate_files_modified: false
+  stageb_started: false
+  experiment_or_download_performed: false
+
+input_freeze:
+  AGENTS_md_sha256: B7122A5ACC5CF02A602988548E7464BF03362059293B083796BA1687D2CFAC73
+  plan_md_sha256: 76033107F2F52F9DCC8BD08E36D544BA5729F74E1BB15D587FED0A0EF71D8774
+  registry_yaml_sha256: 618DF01BAF9B799D8DE2C514D51FC9EBEFEB0A7469A8698B12999F6534F7DFD0
+  ROLE_RULE_AUDIT_md_sha256: 9D0064D8E448ECFD3761E7125E776074417F81EF7012C9C49967AB7FA7148C99
+
+target_old_hashes:
+  rules_ROLE_CANDIDATE_OWNER_md: 96601A060F56B44B95BCBCC4F234E3B107238D4C4655A535679DE88A8D3B3FDC
+  rules_ROLE_MAINLINE_md: 537DE9F75F1392D42149D6C2377069FACA43C3BDAA2A0B41AC0A2AA7ABCA92F2
+  rules_ROLE_STAGEB_INDEPENDENT_REVIEW_md: 2C0D7AE22E524C5EF967532F74D115B3DA5C14F5D32E5BA8D1D432F20B39F55B
+  templates_STAGEB_REPORT_md: DAC5B99E337783123D81CE65D9ABD6061FFED520D069EF8A4A3BD9F51F7B6A24
+  templates_USER_BLOCKER_PACKET_md: BA16FD03C6A7B28E0B0A8E861A3F17E465CD09E0A5717F0C850E0223483E7BFD
+  templates_STAGEB_EXECUTION_CONTRACT_yaml: ABSENT
+  rechecked_unchanged_after_draft: true
+
+approved_patch_scope:
+  - STAGEB_B0_TO_B6_ORDERED_EXECUTION_STATE_MACHINE
+  - TOPIC_SPECIFIC_AUTONOMOUS_RECOVERY_ENVELOPE
+  - ENGINEERING_CORRECTION_VS_SCIENTIFIC_REVISION
+  - INVALIDATED_RUN_EXCLUSION_AND_RERUN
+  - POSTCLAIM_PARTIAL_EVIDENCE_BLOCKER
+  - ONE_PARENT_LANE_THREE_DEPTH_ONE_SUBAGENTS_SINGLE_CANONICAL_WRITER
+  - STAGEB_TOP_LEVEL_WIP_ONE_BURST_TWO_ONLY_WHEN_APPROVED_AND_RESOURCE_INDEPENDENT
+  - INDEPENDENT_EXECUTION_PROVENANCE_AND_CLEAN_REPLAY_CHECK
+  - MACHINE_READABLE_STAGEB_EXECUTION_CONTRACT_TEMPLATE
+
+non_relaxable_gates:
+  q2_minimum_preserved: true
+  q1_priority_preserved: true
+  same_object_preserved: true
+  latest_collision_preserved: true
+  fair_current_strong_baseline_preserved: true
+  natural_input_and_evidence_preserved: true
+  full_cost_preserved: true
+  reproducibility_strengthened: true
+  claim_ceiling_strengthened: true
+  stop_non_revival_preserved: true
+  topic_specific_stageb_user_gate_preserved: true
+
+application:
+  implementation_owner: MAINLINE
+  exact_patch: DRAFT_PATCH.diff
+  exact_patch_sha256: EE302173DDE42184424BAABD62086122D3976067853EA71A801C7A5ED17FD29A
+  implementation_directive: MAINLINE_IMPLEMENTATION_DIRECTIVE.md
+  implementation_directive_sha256: 8C570BC3C9123A012A3BB420E551E2CCA76BAB834319062FA30F4FAFD6925A24
+  safe_assignment_boundary_required: true
+  current_active_assignments_keep_frozen_rules: true
+  future_stageb_assignments_use_new_rules_after_application: true
+  candidate_state_migration_required: false
+  historical_backtest_required: false
+  first_topic_specific_stageb_B0_B1_canary_required: true
+  no_stageb_canary_without_topic_specific_user_approval: true
+
+validation:
+  static_anchor_checks: 11/11_PASS
+  patch_begin_markers: 1
+  patch_end_markers: 1
+  new_template_preexisting: false
+  shared_target_hashes_unchanged_after_draft: true
+  validation_artifact: PATCH_VALIDATION.md
+  validation_artifact_sha256: 78C75CCA180BA04AEF6FBC44A0D8DC2CDD9B98678C52D81B90B8D42DF063321C
+
+ars_method:
+  skill: academic-research-suite
+  workflow: experiment-agent
+  reused_controls:
+    - PROCESS_ALIVE_TIMEOUT_AND_OUTPUT_MONITORING
+    - DETERMINISTIC_STOCHASTIC_ENVIRONMENT_SENSITIVE_CLASSIFICATION
+    - HASHED_REPRODUCIBILITY_REPLAY
+  project_specific_adaptation: >-
+    Per-command confirmation and no-retry defaults are replaced only inside a
+    topic-specific, user-approved, bounded Stage B execution and recovery
+    contract; every attempt remains logged and scope expansion still requires the user.
+
+current_example_boundary:
+  topic_id: S6-JS-PREFIXBOUND
+  current_state: PENDING_USER_STAGEB_REVIEW
+  stageb_user_approval_id: null
+  affected_by_rule_patch_only_if_later_topic_approval_is_granted: true
+  execution_authorized_now: false
+
+deliverables:
+  - file: USER_APPROVAL_DIRECTIVE.md
+    sha256: 2304E6C6977DE1C773963D5FFE0F15B2DA4A8F3711AC34448CF980CFDFAC086B
+  - file: STAGEB_AUTONOMOUS_EXECUTION_SPEC.md
+    sha256: 001EF006079275C404B0A480EBC1702806561258F5B334CFF3EA458601FAD374
+  - file: RULE_AUDIT_REPORT.md
+    sha256: 2E7F55BB90DCC28483556A26DAE5ECDDFA20087FD4100CCF29A21C18EE413084
+  - file: RULE_CHANGE_PROPOSAL.md
+    sha256: 75A20BE54ECED11B7675400C0F2CD9C39FAFBB2D7CA384DE9E2CA9F5E9C889CD
+  - file: DRAFT_PATCH.diff
+    sha256: EE302173DDE42184424BAABD62086122D3976067853EA71A801C7A5ED17FD29A
+  - file: MAINLINE_IMPLEMENTATION_DIRECTIVE.md
+    sha256: 8C570BC3C9123A012A3BB420E551E2CCA76BAB834319062FA30F4FAFD6925A24
+  - file: PATCH_VALIDATION.md
+    sha256: 78C75CCA180BA04AEF6FBC44A0D8DC2CDD9B98678C52D81B90B8D42DF063321C
+  - file: handoff.yaml
+    sha256: SELF_HASH_IN_MANIFEST
+
+manifest:
+  file: HASH_MANIFEST.sha256
+  strict_entries_expected: 8
+  self_hash_excluded: true
+
+mainline_actions_requested:
+  - VERIFY_AUDIT_MANIFEST
+  - VERIFY_TARGET_OLD_HASHES_AND_NO_ACTIVE_SHARED_WRITER
+  - APPLY_COMPLETE_DRAFT_PATCH_AT_SAFE_ASSIGNMENT_BOUNDARY
+  - RECORD_OLD_TO_NEW_HASHES_AND_USER_APPROVAL_PROVENANCE
+  - DO_NOT_START_ANY_TOPIC_STAGEB_WITHOUT_ITS_OWN_USER_APPROVAL
+  - RETURN_AUDIT_LANE_TO_IDLE_AFTER_ACCEPTANCE
+

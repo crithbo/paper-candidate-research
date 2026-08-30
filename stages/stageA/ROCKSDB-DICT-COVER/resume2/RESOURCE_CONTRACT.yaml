@@ -1,0 +1,81 @@
+schema_version: rocksdb-resource-stagea-resume2-r2bc-v1
+assignment_id: RESOURCE-STAGEA-L3-20260811-ROCKSDB-DICT-COVER-RESUME2-R2BC
+topic_id: ROCKSDB-DICT-COVER
+lane_id: CANDIDATE_EXECUTION_LANE_3
+authorization_ids:
+  - RESOURCE-UNBLOCK-SMALL-BATCH-20260811-R2B
+  - STAGEA-AUTO-RESUME-AFTER-RESOURCE-PASS-20260811-R2C
+unique_write_directory: D:\project\writing\reserch\stages\stageA\ROCKSDB-DICT-COVER\resume2
+old_stagea_root: D:\project\writing\reserch\stages\stageA\ROCKSDB-DICT-COVER
+old_stagea_access: READ_ONLY_EXCEPT_RESUME2
+stageb_authorized: false
+stageb_user_approval_id: null
+
+resource_phase:
+  claim_bearing: false
+  scientific_revision_consumption_allowed: false
+  official_route_clean_attempts_max_per_asset: 2
+  every_attempt_starts_at_byte_zero: true
+  range_or_partial_join: forbidden
+  mirror_or_corpus_substitution: forbidden
+  system_install_or_global_environment_change: forbidden
+  rocksdb_zstd_candidate_baseline_sst_execution_before_pass: forbidden
+  network_body_bytes_max: 1073741824
+  validation_required:
+    - HTTP_200
+    - CONTENT_LENGTH_PRESENT_AND_EQUALS_ACTUAL_BYTES
+    - SHA256_COMPUTED_OVER_COMPLETE_RESPONSE
+    - RETRIEVAL_TIMESTAMP_URL_HEADERS_AND_PROVENANCE
+    - LICENSE_OR_OFFICIAL_DATA_STATUS
+    - FULL_GZIP_STREAM_FOR_NVD
+    - FULL_JSON_PARSE
+    - FAMILY_SCHEMA
+    - UNMODIFIED_FROZEN_CONVERTER_READ_SMOKE
+  nvd_license_status: NIST_NVD_US_GOVERNMENT_DATA_WITH_ATTRIBUTION_RETAINED
+  nvd_license_url: https://nvd.nist.gov/general/FAQ-Sections/General-FAQs
+  pypi_license_status: PACKAGE_DECLARED_LICENSE_METADATA_RETAINED__REGISTRY_METADATA_ONLY
+  pypi_api_documentation: https://docs.pypi.org/api/json/
+  assets:
+    - {id: nvd-2019, family: NVD_JSON_2_0, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2019.json.gz", filename: nvd-2019.json.gz}
+    - {id: nvd-2020, family: NVD_JSON_2_0, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2020.json.gz", filename: nvd-2020.json.gz}
+    - {id: nvd-2021, family: NVD_JSON_2_0, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2021.json.gz", filename: nvd-2021.json.gz}
+    - {id: nvd-2022, family: NVD_JSON_2_0, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2022.json.gz", filename: nvd-2022.json.gz}
+    - {id: nvd-2023, family: NVD_JSON_2_0, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2023.json.gz", filename: nvd-2023.json.gz}
+    - {id: nvd-2024, family: NVD_JSON_2_0, url: "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2024.json.gz", filename: nvd-2024.json.gz}
+    - {id: pypi-boto3, family: PYPI_JSON_API, package: boto3, url: "https://pypi.org/pypi/boto3/json", filename: pypi-boto3.json}
+    - {id: pypi-botocore, family: PYPI_JSON_API, package: botocore, url: "https://pypi.org/pypi/botocore/json", filename: pypi-botocore.json}
+    - {id: pypi-django, family: PYPI_JSON_API, package: django, url: "https://pypi.org/pypi/django/json", filename: pypi-django.json}
+    - {id: pypi-pandas, family: PYPI_JSON_API, package: pandas, url: "https://pypi.org/pypi/pandas/json", filename: pypi-pandas.json}
+    - {id: pypi-numpy, family: PYPI_JSON_API, package: numpy, url: "https://pypi.org/pypi/numpy/json", filename: pypi-numpy.json}
+    - {id: pypi-scipy, family: PYPI_JSON_API, package: scipy, url: "https://pypi.org/pypi/scipy/json", filename: pypi-scipy.json}
+    - {id: pypi-tensorflow, family: PYPI_JSON_API, package: tensorflow, url: "https://pypi.org/pypi/tensorflow/json", filename: pypi-tensorflow.json}
+    - {id: pypi-torch, family: PYPI_JSON_API, package: torch, url: "https://pypi.org/pypi/torch/json", filename: pypi-torch.json}
+    - {id: pypi-matplotlib, family: PYPI_JSON_API, package: matplotlib, url: "https://pypi.org/pypi/matplotlib/json", filename: pypi-matplotlib.json}
+    - {id: pypi-scikit-learn, family: PYPI_JSON_API, package: scikit-learn, url: "https://pypi.org/pypi/scikit-learn/json", filename: pypi-scikit-learn.json}
+
+resource_pass:
+  required_assets: 16
+  all_asset_validations_pass: true
+  smoke_assets: 16
+  next_action_without_new_user_prompt: BUILD_AND_FREEZE_20_MANIFESTS_THEN_PRE_CLAIM_CONTRACT_FIDELITY_GATE
+
+resource_failure:
+  decision: BLOCKED_USER_ACTION_REQUIRED
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed: false
+  scientific_pass_stop_reserve_archive_inference: forbidden
+
+stagea_after_resource_pass:
+  inherited_contract: ..\EXPERIMENT_CONTRACT.yaml
+  exact_object: FIXED_SORTED_KV_MANIFEST_TO_ONE_PRODUCTION_EQUIVALENT_BOTTOMMOST_COMPACTION_STANDARD_DICTIONARY_COMPRESSED_ROCKSDB_BLOCKBASEDTABLE_SST
+  preclaim_gate_required: true
+  strongest_union: CURRENT_PLUS_PREFIX_PLUS_SEEDED_RESERVOIR_PLUS_STRATIFIED_PLUS_FINITE_GRID__INDIVIDUALLY_EXECUTABLE
+  equality: STOCK_READER_CHECKSUM_FULL_ORDERED_SCAN_POINT_AND_RANGE
+  summary_quantiles: [p50, p90]
+  positive_ceiling: PRELIMINARY_SUPPORT_ONLY
+
+resource_envelope:
+  topic_directory_bytes_max: 6442450944
+  cumulative_cpu_hours_max: 4
+  gpu: false
+  exclusive_device: false

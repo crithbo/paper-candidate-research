@@ -1,0 +1,32 @@
+assignment_id: DISCOVERY-S1-20260811-V8.7-WAVE307-PROTOCOL-COMMIT-RECOVERY-INVARIANT-MISMATCH-BREADTH
+lane: S1-boundary-contradiction
+status: COMPLETE_ZERO_PROPOSALS
+rules_revision: v8.7+R5-P0
+discovery_quality_mode: OFF
+funnel:
+  raw_screen_row_events: 6
+  unique_opportunity_families: 6
+  candidate_grade_deep_reviews: 3
+  stage0_briefs: 0
+  propose_stage0: 0
+  structural_drop: 3
+  not_admitted_unfrozen: 3
+deep_decisions:
+  - id: D01
+    object: SQLite WAL commit-checkpoint-reader-endmark semantics
+    decision: DROP
+    reason: current checkpoint/API union absorbs all legal state transitions; residual is controller policy
+  - id: D02
+    object: PostgreSQL two-phase prepared-state checkpoint handoff
+    decision: DROP
+    reason: only external terminal-transition timing remains, or recovery semantics change
+  - id: D03
+    object: LLVM ORCv2 materialization-resource-removal ownership seam
+    decision: DROP
+    reason: explicit ResourceTracker remove-transfer-failure union absorbs the witness
+unfrozen:
+  - etcd WAL-snapshot recovery
+  - Kafka transactional marker recovery
+  - Linux Btrfs transaction-root publication
+evidence_boundary: DISCOVERY_ONLY__NO_EXPERIMENT_BENCHMARK_DOWNLOAD_OR_CLAIM_BEARING_OBSERVATION
+next_state: IDLE_REUSABLE_AWAITING_MAINLINE

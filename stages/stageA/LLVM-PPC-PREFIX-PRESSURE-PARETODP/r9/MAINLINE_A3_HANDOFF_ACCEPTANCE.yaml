@@ -1,0 +1,50 @@
+schema: mainline-preclaim-handoff-acceptance-v1
+accepted_at: 2026-08-26T09:42:00+08:00
+accepted_by: MAINLINE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+lane_id: CANDIDATE_EXECUTION_LANE_2
+handoff_sha256: 8C452B1CB8A8BE30BCF71786A59E7C6B1EAD9197E497690E11BE2535AAA6E649
+manifest_sha256: 88E1FF1CD596AE59C6F8F4B4324E33C83D6E0CEA5BA5DB8175B7F04DDF467EC2
+manifest_validation: PASS_996_OF_996
+inventory_sha256: 3454302EE5682F9BB046AB4BA7ADA6F2A5E513CB0CD2C7A7156D68D72FA5520F
+retention_sha256: A89F43359CFDD3586B8CBDD63B452739B237CF6107610073A5CC1D0B5A005D82
+resume_capsule_sha256: DB07CB40879F995C6DF71C9C3ECB8BD5758FFEAA8A3B7653CA535D8E4DCA8AEE
+decision: ACCEPT_PRECLAIM_CONTROL_FIDELITY_PASS__AUTHORIZE_SEPARATE_R10_CLAIM_FREEZE
+accepted_gate:
+  K0_input_acceptance: PASS
+  K1_same_function_materializer: PASS_CONTROL_NON_CLAIM
+  K2_input_specific_PPC_TPD: PASS_CONTROL_NON_CLAIM
+  K3_candidate_output_consuming_checker: PASS_7_OF_7
+  K4_real_full_cost_dependency: PASS
+  K5_two_fresh_replays: PASS_EXACT_UNDER_FROZEN_STRUCTURED_CONTRACT
+  structured_auditor_controls: PASS_7_OF_7
+  retained_replay_audit: PASS_54_OF_54__ZERO_DIFFERENCES
+  K6_r10_plan: PASS_32_ROWS_GENERATED_VALIDATED_NOT_EXECUTED
+replay_evidence:
+  deterministic_payload_canonical_sha256: F716DA318ED27815AAE54CBDCF30BD07F0172152918A4A11261D2486593D72AE
+  deterministic_payload_file_sha256: 86D8D4DF7C92AE73C6CF2CBB58327F9CCABA0EC23AC78856A711696AC362A411
+  required_core_raw_exact: PASS_12_OF_12
+  auditor_source_sha256: FD5C3E257AA6E29036A53DCE4737BC6005FCE5FAC549469613AFFE81F2C32F17
+r10_plan:
+  path: resources/build/a3_r10_plan/r10_process_plan.json
+  file_sha256: 0D4B73BB594896D6B25793B3826BB4605561317CE3A92165C7BEF698AACA1DF5
+  canonical_sha256: A1E3D2BF3CD9C62D3F6F64A412080FF24831C3C7D143DD42CB4FCC1357925149
+  validation_sha256: B1D489B4C26A9C23D526AE79B0F7889E18B9418627766CEE78415D7C671C474A
+  rows: 32
+  denominator: EXACT_16_SELECTED
+  reserve_rows: 0
+  executed: false
+  future_resource_root_absent: true
+scientific_boundary:
+  evidence_ceiling: SAME_FUNCTION_INPUT_SPECIFIC_MATERIALIZER_FIDELITY_AND_R10_EXPANDED_PLAN_ONLY__NO_SELECTED_CORPUS_TOOL_OR_CLAIM_OBSERVATION
+  selected_or_reserve_tool_invocations: 0
+  claim_bearing_observations: 0
+  scientific_revision_consumed: false
+  scientific_state_effect: NONE
+  stage_transition_effect: NONE
+lifecycle:
+  exact_cleanup_candidates_accepted: [resources/cache, resources/tmp, resources/downloads, resources/archives]
+  cleanup_requires_fresh_containment_reparse_process_check: true
+  r10_inputs_retained_until_downstream_acceptance: [resources/src/r6_input, resources/env/ppc-toolchain, resources/src/natural_materializer, resources/src/replay_equality_auditor, resources/build/a3_retained_audit, resources/build/a3_r10_plan]
+next_action: MAINLINE_GC_EXACT_EPHEMERAL_LEAVES_AND_FREEZE_R10_EXACT_NATURAL_CLAIM_ASSIGNMENT

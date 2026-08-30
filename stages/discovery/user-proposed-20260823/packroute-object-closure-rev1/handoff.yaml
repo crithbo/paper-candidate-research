@@ -1,0 +1,33 @@
+schema_version: discovery-pre-topic-handoff-v1
+assignment_id: DISCOVERY-S2-20260823-PACKROUTE-OBJECT-CLOSURE-REV1
+investigation_id: PACKROUTE-OBJECT-CLOSURE-REV1
+topic_id_created: false
+role: DISCOVERY_S2_BOTTLENECK_TRANSFER
+write_directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260823\packroute-object-closure-rev1
+status: COMPLETE
+canonical_disposition: EARLY_FATAL__NATIVE_VERSION_CONSISTENT_OBJECT_DOES_NOT_EXIST
+summary_zh: >-
+  已在冻结 vLLM 0.25.1 commit 与 FlashInfer 0.6.13 对中完成原生对象闭合。
+  compressed-tensors W4A16 到 B12x W4A16 的量化模式与 source_format 传播只在两个
+  已关闭、未合并的 vLLM PR 中出现；冻结 FlashInfer tag 也未建立所需 B12x W4A16 表面。
+  因此对象本身不存在，不创建 Topic/raw/Stage0；没有从性能、内存、硬件或资源缺失推断。
+counts:
+  investigations: 1
+  topics_created: 0
+  raw_admitted: 0
+  stage0_proposed: 0
+  early_fatals: 1
+  unresolved_backlogs: 0
+  user_action_blockers: 0
+source_audit:
+  source_request_batches_used: 2
+  source_request_batches_max: 18
+  source_mode: OFFICIAL_GITHUB_METADATA_TREE_RAW_PR_ONLY
+  frozen_runtime: vLLM-v0.25.1__c71a583aa9f81400528e67e3d818f66b804e8340
+  frozen_backend: FlashInfer-v0.6.13
+  frozen_checkpoint: kyaky/Qwen3.6-35B-A3B-NVFP4@5a7eae35485cfafadf088012cf9687474a64f40b
+input_verification:
+  user_attachment_sha256: 211ACD9455C1210D78A8A3E458DF6242C98A314C8157FF310A30E79974E62DD0
+  allowed_upstream_handoff_sha256: 355CD97B60C51BBFCD086C8031B3B306C234EA5B4DA9108A86D3E987A70B8742
+required_mainline_action: NONE__DO_NOT_CREATE_TOPIC_OR_STAGE0
+lane_state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

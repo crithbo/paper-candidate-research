@@ -1,0 +1,31 @@
+schema: stagea-execution-readiness-ledger-v1
+mode: SHADOW
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+topic_formal_state_observed: STAGEA_WITH_EXECUTION_CONTRACT_HOLD
+historical_or_prospective: HISTORICAL_REPLAY
+internal_mode_at_cutoff: A0_EXECUTION_READINESS
+rounds:
+  historical_a0_rounds_lower_bound: 3
+  production_max: 3
+  budget_exhausted: true
+  new_assignment_would_reset_budget: false
+observations:
+  valid_decisive_stagea_observation: false
+  scientific_revision_consumed: false
+  unauthorized_preack_static_output_scientific_inference: NONE
+hypothetical_production_route:
+  action: A1_DECISIVE_PILOT_OR_EXECUTION_HOLD_AFTER_LAST_ALLOWED_A0_ROUND
+  forbidden: ANOTHER_AUTOMATIC_STATIC_SUCCESSOR
+  scientific_state_change: false
+  explicit_user_clean_packet_exception_preserved: true
+compatibility:
+  historical_scientific_decision_preserved: true
+  earlier_closeout_or_forced_A1: true
+evidence:
+  v2_disposition:
+    path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/MAINLINE_V2_PILOT_DISPOSITION.yaml
+    sha256: 5B547E2EB99D32E3A1F1ED7330F77375A77BC30500F9A7AFD9DD8D63EAACF773
+  r12_disposition:
+    path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/MAINLINE_CORRECTION3_FINAL_DISPOSITION.yaml
+    sha256: BC8EEFDA0EA2C0A0A954E4A62BAA4CB47097AD1B6461C38FF3A0A47A550EA3C2
+

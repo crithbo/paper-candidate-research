@@ -1,0 +1,121 @@
+schema_version: stage0-handoff-v8.7
+assignment_id: STAGE0-P1-20260811-V8-SNAPSHOT-CONSTRAINT-SCHEDULER-PRIMARY-V8.7
+topic_id: V8-SNAPSHOT-CONSTRAINT-SCHEDULER
+lane_id: STAGE0-BATCH-GATE-PRIMARY
+mode: PRIMARY
+decision: REVISE_ONCE
+quality_tier: TIER_B_Q2_VIABLE
+quality_tier_is_conditional: true
+confidence: 0.90
+confirmation_status: PENDING_CONFIRMATION
+stage_semantics: CONDITIONAL_PAPER_POTENTIAL_ONLY
+evidence_ceiling: CURRENT_SOURCE_AND_STATIC_DESIGN_REVIEW_ONLY
+novelty_route:
+  - N2
+structural_paper_potential: TIER_B_Q2_VIABLE_IF_ATOMIC_GATE_CLOSES
+current_evidence_readiness: MEDIUM_LOW_FINITE_STATIC_CLOSURE
+search_status: SEARCH_BOUNDED_OPEN
+direct_fatal_found: false
+current_upstream:
+  project: v8/v8
+  source_pin: c635f0d160b6e988b5ea5a907511a2929beb5d5e
+  cutoff_date: '2026-08-11'
+  checked_paths:
+    - src/snapshot/serializer.h
+    - src/snapshot/serializer.cc
+    - src/snapshot/serializer-deserializer.h
+    - src/snapshot/serializer-deserializer.cc
+    - src/snapshot/startup-serializer.cc
+    - src/snapshot/snapshot.cc
+    - src/snapshot/snapshot-compression.cc
+    - src/snapshot/mksnapshot.cc
+    - src/flags/flag-definitions.h
+    - docs/snapshot/architecture.md
+  current_source_result: >-
+    The checked current source implements fixed traversal/deferred-stack,
+    pending-forward-reference, back-reference and eight-hot-object machinery,
+    but exposes no complete configurable generic non-code heap-object scheduler.
+    A live remote HEAD query failed by schannel; no absence inference uses it.
+input_freeze:
+  agents_sha256: 66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063
+  registry_sha256: 253F93B7A0E39B9AEE80E5E42E728DA43EEC281CE2DCACE0A5EAE97F4A97D934
+  plan_sha256: F5C7D04DF32391E3FD958C106BBE41B9A8063F137E7D847230CC5027D295AD22
+  role_stage0_review_sha256: 741EC3544797FF8A5BF337E1E3448B5F683823E5229F818F162834400581626E
+  topic_brief_sha256: E5617B66A82A1AD9F0D6103C1EF55C1751FBF71697A282FE3AFD67B9D2D9379E
+  source_collision_matrix_sha256: DD63878A84213D9DB6318BDEDE8A7E0551054C3E7274CCF121718AE2B72FA39C
+  candidate_grade_deep_reviews_sha256: 8D5FB4AB9F8CA00D74231FFADF3A4664571BCA830BD6F4FB0403A0CD21212048
+  source_handoff_sha256: 814631EF014A9566EA15FCC8FF9FF204B3A0D0B8796BD14B9106355FF1B7802A
+  source_manifest_self_sha256: 9A2A422CB2347AC19AD6DCE754855B5BC2A665E46C3F95005BFF9EFB73962206
+  source_manifest_verification: 9/9_PASS
+shared_control_drift:
+  detected_after_review: true
+  reviewer_wrote_shared_controls: false
+  final_observed_registry_sha256: CB7395F1E3202C558BD7026DA95CDA2C8E45012A7990737CCBF91B43A74FCA4F
+  final_observed_plan_sha256: 90D59E8C7F7591042C7F9EBEB935D81653151C797C898A564B4E833AC7DC4EDB
+  disposition: SCIENTIFIC_DECISION_REMAINS_BOUND_TO_START_FREEZE__MAINLINE_MECHANICAL_RECONCILIATION_REQUIRED
+atomic_revision_gate:
+  id: V8_NATIVE_DEFERRAL_SCHEDULER__NON_GENERIC_STATE_AND_GUARANTEE_CERTIFICATE
+  proposition: >-
+    Under the pinned V8 same-object contract, the complete legal intentional-
+    deferral action grammar admits a finite target-specific sufficient state
+    and an exact/FPT or certified-Pareto scheduler over a declared additive
+    raw-byte/page objective, and one concrete typed native-legal R,A,B,C
+    construction selects a schedule not expressible by the stock/current
+    single-score action catalog while retaining existing bytecodes and reader
+    semantics.
+  required_closure:
+    - bind R,A,B,C to actual current V8 object types, slots, partition and map conditions
+    - enumerate native intentional-defer, selection, resolve, hot/backref and degeneration actions
+    - define sufficient state, transitions, objective, complexity and exact/FPT/certified guarantee
+    - map complete current flags/actions, single-score baselines, generic scheduling and CAHPs boundaries
+    - freeze stock-reader graph/alias/partition/JS fidelity and finite StageA killer
+  falsifiers:
+    - typed witness is not native legal
+    - action needs a new reader, bytecode, profile or changed graph
+    - state hides unbounded identity or history
+    - method is generic topological scheduling, scalar tuning, arbitrary beam or CP/ILP wrapper
+    - objective claims exact zlib size without compressor state
+    - complete current union reproduces every action and guarantee
+  failure_sentinel: BELOW_Q2_STOP__GENERIC_HEAP_ORDERING_OR_LOCAL_SCORE_WRAPPER
+  scientific_revision_budget_if_confirmed: 1
+key_findings:
+  - current V8 contains the native protocol needed for a reader-preserving action gap
+  - current checked flags do not provide a complete generic heap-object scheduler
+  - the Discovery four-object witness remains schematic rather than typed/native-legal
+  - the Discovery bounded scoring prose does not yet establish a nontrivial N2 algorithm or guarantee
+  - CGO 2025 and OOPSLA 2025 CAHPs absorb broad heap-snapshot ordering and startup-locality novelty
+  - those papers differ in VM, information, format and action grammar and are not direct same-object fatal collisions
+  - fixed zlib compressed size is global and must be measured rather than treated as an additive DP cost
+strong_baselines:
+  - pinned complete stock V8 snapshot serializer and reader
+  - complete finite current snapshot/mksnapshot/build flag union with fixed compression
+  - stable legal queue plus raw-byte-only, page-only and hot-recency-only policies
+  - Basso CGO 2025 and CAHPs OOPSLA 2025 as method and claim subtractors
+oracle_only:
+  - exhaustive legal scheduling for tiny typed witnesses
+score:
+  academic_value: 45
+  ai_executability_bonus: 27
+  total: 72
+  ai_class: AI_CORE_EXECUTABLE
+  estimated_ai_core_fraction: 0.88
+q1_q2_calibration:
+  q1_status: PARITY_NOT_PLAUSIBLE
+  q2_status: CONDITIONAL_ON_ATOMIC_GATE_AND_STAGEA_RESIDUAL
+stage0_repair_vector:
+  - OMITTED_GENERIC_KERNEL
+  - ATOMIC_ACTION_UNCLEAR
+  - Q2_SHAPE_GAP
+authorizations:
+  stageA: false
+  stageB: false
+  experiment: false
+  benchmark: false
+next_route: SAME_LONG_LIVED_UNINVOLVED_D_ROOT_CONFIRMATION_SENTRY
+deliverables:
+  - STAGE0_REPORT.md
+  - Q1_COMPARATOR_MATRIX.md
+  - SOURCE_AUDIT.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+lane_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE

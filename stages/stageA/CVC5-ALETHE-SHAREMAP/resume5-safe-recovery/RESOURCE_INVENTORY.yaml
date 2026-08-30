@@ -1,0 +1,139 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: CVC5-ALETHE-SHAREMAP
+  assignment_id: SAFE-RECOVERY-L1-20260816-CVC5-RESUME5-POSIX-CC
+  stage_or_mode: STAGEA_RESOURCE_RECOVERY_ONLY
+  run_id: resume5-posix-cc-20260816
+  unique_write_directory: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume5-safe-recovery
+  resource_root: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume5-safe-recovery\resources
+  inventory_path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume5-safe-recovery\RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-16T00:09:26.5835101+08:00
+  finalized_at: 2026-08-16T00:29:08.7315740+08:00
+root_measurement:
+  logical_bytes: 597260548
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS__ALL_WRITABLE_SURFACES_UNDER_RESOURCE_ROOT
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - cargo 1.72.0, read-only binary from resume3
+    - rustc 1.72.0, read-only binary from resume3
+    - gcc/g++/ar 16.2.0-3, read-only binaries from resume4
+    - sh/make/m4 from resume4 portable MSYS2
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 734003200
+  cpu_hours_max: 0.166667
+  gpu_hours_max: 0
+  wall_seconds_max: 1800
+  attempts_max: 1
+  network_bytes_used: 0
+  stored_bytes_used: 597260548
+  attempts_used: 1
+entries:
+  - id: carcara_release_archive
+    relative_path: resources/archives/carcara-1.1.0.zip
+    class: ARCHIVE__LOCAL_READ_ONLY_COPY
+    logical_bytes: 1698112
+    provenance: resume4 frozen official Carcara 1.1.0 archive
+    version_or_commit: 5d817d86bd18ea2a850a580d602f17f36959ee99
+    license: Apache-2.0
+    sha256: FCD42C4ED6501B690E3F363E980B2B1403A1A7C9DF262FECC0A4C831B8960F30
+    hash_scope: FILE_CONTENT
+    retention: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: carcara_source_tree
+    relative_path: resources/src/carcara-carcara-1.1.0
+    class: PINNED_SOURCE__LOCAL_READ_ONLY_COPY
+    logical_bytes: 2469505
+    file_count: 72
+    provenance: resume4 frozen extracted release source
+    version_or_commit: 5d817d86bd18ea2a850a580d602f17f36959ee99
+    license: Apache-2.0
+    content_manifest_sha256: 79F052442AE3FF77838AEBA558A6493FBBF0A23CB94AD7DB280B031150B7D48F
+    cargo_lock_sha256: 0E9C953C2C1B184511E2DFDF19D4BB7C35A6BE55140BC1A3D77179411D7C7378
+    hash_scope: 72_FILE_CONTENT_MANIFEST_FROM_FROZEN_UPSTREAM__72_OF_72_REVALIDATED
+    retention: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: locked_cargo_registry_cache
+    relative_path: resources/cache/cargo-home/registry
+    class: PACKAGE_CACHE__LOCAL_READ_ONLY_COPY
+    logical_bytes: 257457109
+    file_count: 8647
+    provenance: resume4 cargo fetch --locked cache; path and size equality revalidated
+    license: PER_LOCKED_DEPENDENCIES
+    hash_scope: PATH_SIZE_EQUALITY__CARGO_LOCK_AND_CRATE_CHECKSUMS_ENFORCED_BY_OFFLINE_LOCKED_BUILD
+    retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF
+  - id: failed_clean_release_target
+    relative_path: resources/build/carcara-target
+    class: BUILD_TREE__FAILED_SINGLE_ATTEMPT
+    logical_bytes: 334482281
+    file_count: 2588
+    creating_command: cargo build --release --locked --offline -p carcara-cli
+    build_attempt: 1_OF_1_CONSUMED
+    exit_code: 101
+    wall_seconds: 184.308
+    metadata_index: resources/logs/build-target-metadata-index.tsv
+    metadata_index_sha256: EAB73DB853C8C912E056168A5756A76ED97202D99E66E737E3BDFB69FE2A72A9
+    hash_scope: METADATA_INDEX_SHA256__NOT_CONTENT_INTEGRITY
+    retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF
+  - id: locked_cache_metadata_index
+    relative_path: resources/logs/cache-registry-metadata-index.tsv
+    class: METADATA_INDEX
+    sha256: D33C93CF431B997CE78A21B2DFD4BDA2A920C14BC411D6FA8C889135B998DF0C
+    hash_scope: FILE_CONTENT
+    retention: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: build_log
+    relative_path: resources/logs/carcara-clean-build.combined.log
+    class: COMMAND_LOG
+    sha256: 71DBC0354F6554BE3FCA3111CA10D7169F9DE0971E98A1C407BD36628A7AD720
+    hash_scope: FILE_CONTENT
+    retention: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: gmp_config_log
+    relative_path: resources/build/carcara-target/release/build/gmp-mpfr-sys-7107cdddf71b20a3/out/build/gmp-build/config.log
+    class: FAILURE_DIAGNOSTIC
+    logical_bytes: 10307
+    sha256: A7FE0A9A6723513034A5676A6E6EBA8E331FB92030B044D800B7AAB9808990B6
+    hash_scope: FILE_CONTENT
+    retention: RETAIN_REPRODUCIBILITY_DEPENDENCY
+shared_assets_consumed: []
+external_system_dependencies:
+  - id: resume4_portable_msys2_gcc
+    path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery\resources\env\msys64
+    mode: READ_ONLY_UPSTREAM_ASSIGNMENT_INPUT
+  - id: resume3_rust_1_72_gnu
+    path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume3\toolchain\rustup-home\toolchains\1.72.0-x86_64-pc-windows-gnu
+    mode: READ_ONLY_TRANSITIVE_FROZEN_INPUT
+cleanup:
+  owner: MAINLINE
+  authorized_descendants:
+    - resources/tmp
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: FINAL_VALID__WITHIN_STORAGE_NETWORK_WALL_AND_CONCURRENCY_ENVELOPES__BUILD_FAILED

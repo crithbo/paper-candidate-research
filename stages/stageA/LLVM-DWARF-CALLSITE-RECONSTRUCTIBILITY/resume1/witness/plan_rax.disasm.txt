@@ -1,0 +1,45 @@
+
+D:\project\writing\reserch\stages\stageA\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\resume1\witness\plan_rax.elf:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+0000000000201190 <foo>:
+  201190:      	cmpl	$0x2a, %edi
+  201193:      	sete	%al
+  201196:      	movzbl	%al, %eax
+  201199:      	movl	%eax, 0x1041(%rip)      # 0x2021e0 <result>
+  20119f:      	retq
+
+00000000002011a0 <_start>:
+  2011a0:      	movl	$0x13, %edi
+  2011a5:      	movl	$0x17, %esi
+  2011aa:      	xorl	%edx, %edx
+  2011ac:      	callq	0x2011d0 <baa>
+  2011b1:      	movl	0x1029(%rip), %edi      # 0x2021e0 <result>
+  2011b7:      	xorl	$0x1, %edi
+  2011ba:      	movl	$0xe7, %eax
+  2011bf:      	syscall
+  2011c1:      	ud2
+  2011c3:      	int3
+  2011c4:      	int3
+  2011c5:      	int3
+  2011c6:      	int3
+  2011c7:      	int3
+  2011c8:      	int3
+  2011c9:      	int3
+  2011ca:      	int3
+  2011cb:      	int3
+  2011cc:      	int3
+  2011cd:      	int3
+  2011ce:      	int3
+  2011cf:      	int3
+
+00000000002011d0 <baa>:
+  2011d0:      	pushq	%rax
+  2011d1:      	jmp	0x2011d3 <baa+0x3>
+  2011d3:      	movl	%edi, %eax
+  2011d5:      	addl	%esi, %eax
+  2011d7:      	movl	%eax, %edi
+  2011d9:      	callq	0x201190 <foo>
+  2011de:      	popq	%rax
+  2011df:      	retq

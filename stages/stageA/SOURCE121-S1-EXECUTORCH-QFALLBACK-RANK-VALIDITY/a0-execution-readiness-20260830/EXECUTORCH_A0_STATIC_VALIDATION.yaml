@@ -1,0 +1,28 @@
+schema: executorch-a0-static-validation-v1
+assignment_id: STAGEA-L3-20260830-EXECUTORCH-QFALLBACK-RANK-VALIDITY-A0
+inputs:
+  precommit: {path: A0_PRECOMMIT.yaml, sha256: 12432AD2040F78128C9D571AC34F32B63302C9AEDAD346919E6CD3F5ACCC9355}
+  metadata_freeze: {path: OFFICIAL_METADATA_FREEZE.yaml, sha256: 7A622EB24D0CC5CFAA470BCD2D61CFDAC46913800DA7ACECCA8F281A061ED1EE}
+  packet: {path: EXECUTORCH_A0_PACKET.json, sha256: C30CCC90F14EDCC8D4DD6E0B12E0285E2F2801AF40D56A95072612151A3C7E23}
+  control: {path: resources/logs/control/a0_schema_observability.json, sha256: CCA6D577E703F26D2E4D06D97C5D6D0C8F686031743A948D6521358709B46EA3}
+checks:
+  exact_commit: PASS_STAGE0_PINNED
+  exact_model_revisions: PASS_3_OF_3
+  licenses: PASS_APACHE_2_0_3_OF_3
+  topology_variants: PASS_3_OF_3
+  portable_only: PASS
+  quality_contract: PASS_STATIC_FREEZE
+  profiling_truth: PASS_PROFILING_OFF_PRIMARY
+  feature_nonoverlap: PASS
+  target_leakage_forbidden: PASS
+  full_cost_fields: PASS
+  control_schema: PASS
+  hidden_effect_fields_emitted: false
+  claim_panel_executed: false
+limitations:
+  - local curl and Invoke-WebRequest TLS transports failed; final official metadata used the read-only web connector
+  - exact connector network bytes unavailable and were not estimated
+  - model weights were not downloaded; A1 must acquire at exact revisions and content-hash every consumed file
+  - topology legality and output-quality have not been executed; they are A1 pre-effect gates
+result: PASS_A0_STATIC_READINESS__SEPARATE_A1_REQUIRED
+scientific_inference: NONE

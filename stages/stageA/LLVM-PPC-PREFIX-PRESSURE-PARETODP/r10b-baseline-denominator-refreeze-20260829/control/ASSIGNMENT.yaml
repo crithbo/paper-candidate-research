@@ -1,0 +1,14 @@
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10B-BASELINE-DENOMINATOR-REFREEZE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+role: CANDIDATE_OWNER
+mode: NATURAL_CLAIM_CONTRACT_REFREEZE
+user_authorization: USER_PPC_R10B_REFREEZE_THEN_ABANDON_ON_FAILURE_20260829
+purpose: Re-freeze the natural-claim baseline expansion and cost denominator from the existing harness, not from the invalid r10 row cardinality.
+allowed_actions: [read_frozen_r10_sources_and_evidence, write_r10b_contract_plan_validation_handoff]
+forbidden_actions: [network, resource_creation, tool_run, natural_run, claim_run, source_edit, stageb, shared_state_change]
+required_derivation:
+  - derive actual per-input baseline command cardinality, bundles and graph output from existing materializer_harness.py
+  - make candidate, baseline, checker and full-cost denominator explicit and non-duplicative
+  - preserve exact selected input set, same-function witness and frozen strong baseline configurations
+  - pre-register first-execution failure as terminal r10-route abandonment trigger
+on_contract_or_first_execution_failure: ABANDON_R10_ROUTE__RETURN_TO_STAGEA_SAME_OBJECT_EVALUATION_REDESIGN

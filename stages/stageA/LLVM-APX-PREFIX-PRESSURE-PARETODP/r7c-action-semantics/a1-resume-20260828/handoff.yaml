@@ -1,0 +1,35 @@
+schema: candidate-preclaim-handoff-v1
+assignment_id: STAGEA-L3-20260828-LLVM-APX-R7C-A1-C3-C7-TOKENIZATION-RESUME
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_3
+handoff_state: COMPLETE_AWAITING_MAINLINE_ACCEPTANCE
+decision: FAIL_CLOSED_APX_R7C_C4_INDEPENDENT_ORACLE_RUNTIME__NO_SCIENTIFIC_INFERENCE
+blocker_classification: SOFT_ENGINEERING_BLOCKER__FROZEN_ORACLE_MISSING_RE_IMPORT
+user_action_required: false
+evidence_ceiling: FAIL_CLOSED_ENGINEERING_BLOCKER__NO_SCIENTIFIC_INFERENCE
+exact_object: FIXED_LLVM_MACHINEIR_LIVENESS_X86_64_ABI_UNWIND_APX_TARGET_AND_PROGRAM_SEMANTICS
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+gate_summary:
+  C3_STRUCTURED_NATIVE_PARSER: PASS_EXIT0_JSON
+  C4_R6_FORMAL_CONTROL: PASS_EXIT0_JSON
+  C4_INDEPENDENT_ORACLE: FAIL_EXIT1_NAME_ERROR_RE_NOT_DEFINED
+  C4_TINY_PRECLAIM: NOT_RUN_FIRST_FAILURE
+  C5_CORPUS_ELIGIBILITY_AND_FREEZE: NOT_RUN_FIRST_FAILURE
+  C6_RESOLVED_R8_PLAN: NOT_RUN_FIRST_FAILURE
+  C7_RESEAL: NOT_RUN_FIRST_FAILURE
+failure_kernel: {raw: A1_FAILURE_RAW.txt, error: NAME_ERROR_RE_NOT_DEFINED, stage: C4_INDEPENDENT_ORACLE, retry: false, source_edit_after_failure: false}
+completed_control_evidence:
+  C3_native_parser: {path: resources/logs/control/r7c/native_baseline_parser_receipt.json, sha256: AED33AD73A19081152EF5C3B4420A095DFE77611A5B53DAADFA3EEA92BE97FB0}
+  C4_formal_control: {path: resources/logs/control/r7c/r6_formal_control.json, sha256: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966}
+failure_log: {path: resources/logs/commands/r7c/C4_INDEPENDENT_ORACLE.output.txt, sha256: 03211503F739B2C9D2E2D03FE66B81A59A2203E5FA06A9480B0BC2C998AB2868}
+selected_count: 0
+reserve_count: 0
+claim_bearing_observation_count: 0
+natural_performance_or_full_cost_claim_runs: 0
+network_bytes: 0
+scientific_revision_consumed: false
+owner_state_transition_performed: false
+owner_cleanup_performed: false
+stageb_authorized: false
+next_action: MAINLINE_ACCEPT_OR_RETURN__NO_OWNER_RETRY_SOURCE_EDIT_OR_CLEANUP
+scientific_inference: NONE

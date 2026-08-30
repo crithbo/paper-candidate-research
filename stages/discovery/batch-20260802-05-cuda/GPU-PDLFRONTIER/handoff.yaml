@@ -1,0 +1,19 @@
+topic_id: GPU-PDLFRONTIER
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: CUDA CC 9.0+ dependent producer/consumer pairs with compiler-selected PDL trigger and consumer preamble frontier
+main_claim: Legal readiness-frontier search yields safe PDL schedules beyond serialized, earliest-safe manual PDL, and feasible fusion under complete resource accounting.
+academic_value_score: 58
+ai_executability_score: 19
+ai_executability_class: AI_CORE_CONDITIONAL
+ai_core_fraction: 0.64
+strongest_baseline: Serialized kernels, manual earliest-safe PDL, and legal fused kernel with matched precision and workspace
+decisive_evidence: One natural operator pair where an interior legal frontier has verified output and survives timing/resource comparison against all three baselines.
+unresolved_risks: Existing CUDA/CUTLASS code may already use equivalent transformations; required Hopper-class hardware may be unavailable.
+next_killer_gate: Identify one public pair with a nonempty independent consumer preamble, enumerate legal frontiers, and test semantics plus resource deltas.
+mechanism_pivot_remaining: 1
+reserve_reason: Compatible CC 9.0+ hardware is required for performance evidence.
+evidence_ceiling: Legality/prototype-only without Hopper-class execution.
+execution_authority: Discovery only; no formal experiment.
+file_hashes: {topic_brief.md: A85AA1996C906AC5F53CDDE8292A39534B732353EBAFE8799CCCB90265710ADD, source_log.md: 7A0BC8C6B911163F440841E29E8765456357C75BEAFB32BE3108D9D5AA425E3B}

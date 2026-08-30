@@ -1,0 +1,57 @@
+schema_version: discovery-backtest-auditor-key-v2
+confidentiality: PACKER_AND_FUTURE_AUDITOR_ONLY
+executor_must_not_read: true
+opportunity_lens: O2_BOTTLENECK_TRANSFER
+anchors:
+  S2-POS-01:
+    hidden_target:
+      title: "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models"
+      venue: SC20
+      earliest_public_date: 2019-10-04
+      doi: 10.1109/SC41405.2020.00024
+      canonical_url: https://doi.org/10.1109/SC41405.2020.00024
+    expected_problem_shape:
+      - "As accelerators and parallelism scale model compute, replicated model-state memory becomes the binding resource."
+      - "Recover partitioning of optimizer/gradient/parameter state while preserving favorable communication granularity."
+    expected_decision_structure: "state class and partition degree versus memory, communication volume, compute granularity, model/pipeline parallel composition"
+    contribution_route: N1_NEW_MECHANISM
+    evidence_entry: "closed-form memory/communication accounting; multi-GPU measured scaling; model-size ceiling; end-to-end throughput; usability boundary"
+    claim_ceiling: "Measured distributed-software results only; no GPU silicon or architectural efficiency claim."
+  S2-POS-02:
+    hidden_target:
+      title: "Dark Silicon and the End of Multicore Scaling"
+      venue: ISCA 2011
+      publication_date: 2011-06-04
+      doi: 10.1145/2000064.2000108
+      canonical_url: https://research.cs.wisc.edu/vertical/wiki/index.php/Pubs2/B2hd-isca11darksilicon
+    expected_problem_shape:
+      - "Transistor availability ceases to be the primary scaling limit when voltage/power scaling weakens."
+      - "Recover a joint device/core/chip/workload projection of power-limited active silicon and achievable speedup."
+    expected_decision_structure: "technology node, device scaling, core type/count, active fraction, topology and parallel workload under fixed area/power"
+    contribution_route: N3_NEW_STRUCTURAL_INSIGHT_AND_EXPLOITATION
+    evidence_entry: "validated or sensitivity-tested projection model, multiple workloads and device-scaling scenarios, explicit upper-bound status"
+    claim_ceiling: "Analytical/projection evidence; not fabricated-hardware or measured-silicon evidence."
+  S2-POS-03:
+    hidden_target:
+      title: "Eyeriss v2: A Flexible Accelerator for Emerging Deep Neural Networks on Mobile Devices"
+      venue: IEEE JETCAS 9(2)
+      earliest_public_date: 2018-07-10
+      doi: 10.1109/JETCAS.2019.2910232
+      canonical_url: https://doi.org/10.1109/JETCAS.2019.2910232
+    expected_problem_shape:
+      - "Compact/sparse mobile networks transfer the limiter from dense-MAC reuse toward shape-dependent utilization, flexible data delivery, and compressed-domain handling."
+      - "Recover a reconfigurable interconnect/dataflow plus a systematic performance-limit analysis across layer types."
+    expected_decision_structure: "PE grouping and network hierarchy, multicast/unicast bandwidth, sparse encoding/decoding, layer mapping, utilization"
+    contribution_route: N1_NEW_ARCHITECTURAL_MECHANISM
+    evidence_entry: "bit/operation semantics; workload/layer matrix; utilization and traffic analysis; implementation-stage-labelled area/energy/throughput; comparison with the prior accelerator"
+    claim_ceiling: "Only the target paper's explicitly reported implementation stage may be credited; packet evidence alone supports architecture-level hypothesis, not silicon efficiency."
+  S2-NEG-01:
+    hidden_target: null
+    expected_result: ABSTAIN
+    reason: "A measurement framework without any changed regime cannot establish a transfer; naming another cache or roof is not a paper opportunity."
+cutoff_exclusions:
+  - "All hidden-target content and all later follow-on/retrospective materials."
+  - "Post-cutoff target artifacts, implementations, talks, reviews, and citations."
+hardware_claim_ceiling:
+  status: ENFORCED
+  rule: "Projection, analytical, cycle, synthesis, FPGA, and silicon evidence classes remain distinct; no class is promoted."

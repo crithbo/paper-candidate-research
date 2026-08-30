@@ -1,0 +1,58 @@
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+approval_id: R11A-R13B-BATCH01-RAW-CAP-RECOVERY-20260813-R14A
+status: FAILED_NOT_DISPATCHABLE__R14A_BATCH02_PREFLIGHT_SPECIFICATION_AMBIGUITY__NO_SCIENTIFIC_INFERENCE
+gate: PUBLIC_IDENTITY_PREFLIGHT__BEFORE_EXTERNAL_CALL
+controls_verified:
+  recovery_amendment_sha256: 3D83B438C228C64E2ACDD999C77C23F85DD85E9E9D6BC63675A7CDE703C05C65
+  aggregate_quarantine_ledger_sha256: 7108FBCEC8E268565315A30A765584496AD3836476A6F893E61C814D0C4A1953
+  batch02_request_plan_sha256: C4CD2AFBE675AF595B9E8DD1A35A13D5784F838035A20F059A9D515833A16C1E
+  batch02_request_reservation_sha256: 0BC4EBDE91B0B3B55BF4CD1B0E269D579D7410817D1128E65E6B86E34F0E9D2A
+  phase1_resume_gate_sha256: B56627E1F3272F1E7E64C24643BC7054ED49F5AF53B64C616DB3195ADC0EECA2
+  control_manifest_sha256: A1382A6ED09F21A0018607790414D74973C041195F81635CC1142DD4571BE4ED
+frozen_reservation:
+  batch_id: R13B-02
+  request_count: 2
+  slots_per_request: 12
+  total_reserved_slots: 24
+  raw_before: 44
+  raw_after_issued_requests: 68
+ambiguity:
+  - 'The request plan/reservation contain no provider endpoint or exact request URL for either reserved request.'
+  - 'They contain no deterministic public-seed-to-query or public-seed-to-raw-identity roster algorithm.'
+  - 'They contain no declared source ordering, pagination, or provider response field to define the required append-only return-order freeze.'
+why_not_infer:
+  - 'Choosing any search query, arXiv identifier list, provider page, ordering, or semantic field would be an unreserved PACKER decision, not execution of the frozen plan.'
+  - 'The R14A plan makes any ambiguity or unreserved request fail closed and requires provider order to be frozen before semantic filtering.'
+  - 'A public seed alone is not a complete deterministic selection specification.'
+actions_not_taken:
+  external_calls_issued: 0
+  reserved_requests_consumed: 0
+  provider_order_freezes_written: 0
+  candidate_identities_or_hashes_written: 0
+  commitment_written: false
+  private_intersection_started: false
+  source_qualification_started: false
+  batch01_content_or_identity_referenced: false
+preserved_state:
+  batch01_quarantine: PERMANENTLY_CHARGED__NO_REPLAY_REFERENCE_OR_RECONSTRUCTION
+  raw_used_before_batch02: 44
+  raw_remaining_before_batch02: 44
+  unique_used_before_batch02: 4
+  unique_remaining_before_batch02: 68
+  eligible_count: 2
+  canonical_mode: OFF
+  no_private_denylist_or_historical_plaintext_read: true
+  no_scientific_inference: true
+resource_ledger:
+  accepted_frozen_response_bytes_on_disk_actual: 3524441
+  new_r14a_network_bytes: 0
+  new_r14a_frozen_artifact_bytes: 0
+  network_bytes: NOT_DIRECTLY_OBSERVABLE__AT_LEAST_3626270_PRIOR_RESPONSE_BYTES
+  cpu_hours_cumulative_estimate: 0.23
+  wall_hours_cumulative_estimate: 0.79
+  external_resource_envelope_remaining: true
+minimum_user_action:
+  required: 'Mainline must provide an additive, immutable Batch02 request specification for exactly request ordinal 1 and 2: provider endpoint, exact URL or deterministic seed-to-query/roster transform, ordering/pagination rule, and response field that defines provider return order.'
+  required_boundary: 'It must explicitly preserve the 12+12 reservation, forbid Batch01 reference, state whether raw slots are still unconsumed because no external call issued, and keep the existing opaque commitment/private-intersection sequence.'
+  not_requested: [threshold_change, identity_guessing, source_qualification, Phase2, executor_or_auditor_run, scientific_reclassification]
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

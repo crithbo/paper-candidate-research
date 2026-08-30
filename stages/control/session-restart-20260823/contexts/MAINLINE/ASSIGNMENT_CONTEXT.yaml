@@ -1,0 +1,76 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+generated_at: 2026-08-23T18:10:36+08:00
+context_mode: DUAL_READ_SHADOW
+mainline_task_or_contact: 01a02e08-06de-7281-89ab-eb4965cccc92
+fail_closed_fallback: RETURN_TO_USER_COORDINATION_WITHOUT_ACTION
+thread_mapping: {new_thread_id: 01a02e08-06de-7281-89ab-eb4965cccc92, old_thread_id: 019fd152-f791-7311-891f-bfa69c344a9e}
+
+identity:
+  lane_id: MAINLINE-CONTROL
+  role_id: MAINLINE
+  assignment_id: SESSION-RESTART-CLOSEOUT-20260823
+  topic_id: PROJECT_CONTROL
+  stage_or_mode: CONTROL_PLANE_MIGRATION
+  status: CONTROL_ONLY__MIGRATION_CLOSEOUT
+  resume_point: CONTEXTS_AND_ACK_MIGRATION
+  next_action: VALIDATE_SELF_ACK_THEN_ACCEPT_OTHER_LANE_ACKS_ONLY
+  source_assignment_path: plan.md
+  source_assignment_sha256: BFC72BAB2492AB44330EC6091E4159944D750D437AC4FACE323BA2FFDC593A9C
+
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: MAINLINE
+  user_approval_ids: [FULL_SESSION_RESTART_MAPPING_20260823]
+  allowed_actions: [write_shared_control_and_contexts, validate_bootstrap_ack, report_archive_eligibility]
+  forbidden_actions: [start_science_queue, search, download, build, experiment, archive_threads]
+  forbidden_inputs: [unregistered_old_chat_memory_as_state]
+
+boundaries:
+  unique_write_directory: D:/project/writing/reserch/stages/control/session-restart-20260823/contexts/MAINLINE
+  resource_root: null
+  read_only_paths: [AGENTS.md, rules/ROLE_MAINLINE.md]
+  write_allowed_paths: [plan.md, registry.yaml, stages/control/session-restart-20260823]
+  network_allowed: false
+  experiment_allowed: false
+  state_transition_allowed: false
+
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 665A557A6C8AD8030F97B1767D06B500D658674681FFBF021A276C5B31DBC61B}
+  plan: {path: plan.md, sha256: BFC72BAB2492AB44330EC6091E4159944D750D437AC4FACE323BA2FFDC593A9C}
+  registry_snapshot: {path: registry.yaml, sha256: 7E0199903CF4C2105F2444A2E07F230437835A6A3CFABE228041FF7C978E7DA2}
+  role_rule: {path: rules/ROLE_MAINLINE.md, sha256: 665CE70FC4C7EACBAC199780FD20ACDA8D510B3E731136C4BEE33C7DF242C35B}
+  conditional_protocols: []
+  skills: []
+  templates:
+    - {path: templates/ASSIGNMENT_CONTEXT.yaml, sha256: 9F8C8EC2E0FCBF16FE1579E58282758F0D3FEBA9695D26CA0045D1F8CB24A715}
+    - {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+
+minimum_inputs: [AGENTS.md, plan.md, registry.yaml, rules/ROLE_MAINLINE.md]
+expected_outputs: [BOOTSTRAP_ACK.yaml, MIGRATION_CONTEXT_INDEX.yaml, migration_closeout_report]
+budget: {science_assignments: 0, network_bytes: 0, experiment_runs: 0}
+claim_ceiling: CONTROL_PLANE_ONLY
+evidence_ceiling: NO_SCIENTIFIC_INFERENCE
+scientific_revision: {allowed_total: 0, consumed: 0, remaining: 0, exceptional_revision_authorized: false}
+mechanism_pivot: {allowed: 0, consumed: 0, remaining: 0}
+identity_and_collision:
+  exact_identity_digest: SESSION_RESTART_MIGRATION_20260823
+  terminal_identity_digest: PRESERVE_ALL_REGISTERED_TERMINAL_STATES
+  current_collision_digest: NOT_APPLICABLE_CONTROL_ONLY
+  terminal_stop_non_revival_asserted: true
+user_and_blocker_state:
+  user_action_required: false
+  blocker_state: OTHER_LANE_ACKS_PENDING
+  blocker_packet_path: null
+  resource_policy_path: rules/RESOURCE_LOCALIZATION.md
+  resource_policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+stop_and_escalation_conditions: [any_science_or_resource_action_requested, any_mapping_or_hash_conflict]
+handoff_requirements: [report_context_paths_and_hashes, do_not_archive_coordination_thread, do_not_archive_any_thread]
+validation:
+  source_plan_registry_consistent: true
+  hashes_complete: true
+  paths_resolved_under_workspace: true
+  context_is_sufficient_for_cold_start: true
+  full_registry_comparison_result: PASS__CONTROL_SNAPSHOT_RECONCILED
+  result: PASS__READY_FOR_MAINLINE_SELF_ACK

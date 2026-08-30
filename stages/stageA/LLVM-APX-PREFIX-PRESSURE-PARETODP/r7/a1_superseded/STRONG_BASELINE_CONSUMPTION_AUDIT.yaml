@@ -1,0 +1,27 @@
+schema: strong-baseline-consumption-audit-v2
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM-A1
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+obligation: A12_A14_STRONG_BASELINE_CONSUMPTION_AND_DISTINCTNESS
+first_failure:
+  gate: A12_CURRENT_COMPLETE_WITH_CORRECTED_TRANSPORT
+  transport: PASS_TOKEN_FOR_TOKEN_QUOTED_ARRAY
+  child_exit: 0
+  actual_output_sha256: 4AA5C7074E53F774CE1EC2A685246932219377C4AEFC7F739200A3CF8011F8E6
+  expected_output_sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A
+  classification: SOFT_ENGINEERING_BLOCKER__FROZEN_ARGV_EXPECTED_HASH_PATH_SENSITIVE_MISMATCH
+  evidence: A12_QUOTED_ARGV_OUTPUT_AUDIT.yaml
+comparators:
+  LLVM_CURRENT_COMPLETE: {output_created: true, exact_hash_match: false, consumed_by_checker: false, consumed_by_full_cost: false, status: FAIL_CLOSED_A12}
+  LLVM_FINITE_TUNING_GRID: {output_created: false, consumed_by_checker: false, consumed_by_full_cost: false, status: NOT_RUN_ORDERED_STOP}
+  LABELED_PARETO_DP: {output_created: false, consumed_by_checker: false, status: NOT_RUN_ORDERED_STOP}
+  GENERIC_EXACT_TINY_SUBTRACTOR: {output_created: false, consumed_by_checker: false, status: NOT_RUN_ORDERED_STOP}
+  EXHAUSTIVE_MICRO_ORACLE: {output_created: false, consumed_by_checker: false, status: NOT_RUN_ORDERED_STOP}
+declared_but_unconsumed_strong_baseline_detected: true
+candidate_distinctness_observed: false
+child_argv_changed: false
+output_postprocessing: false
+retry_performed: false
+result: FAIL_CLOSED_A12_EXACT_OUTPUT_HASH_MISMATCH__A13_A14_NOT_RUN
+claim_bearing_observation: false
+scientific_inference: NONE
+

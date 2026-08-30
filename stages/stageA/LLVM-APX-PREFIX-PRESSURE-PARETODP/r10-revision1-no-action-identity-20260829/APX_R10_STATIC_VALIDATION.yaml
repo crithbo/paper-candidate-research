@@ -1,0 +1,53 @@
+schema: apx-r10-static-revision-validation-v1
+assignment_id: STAGEA-L2-20260829-LLVM-APX-R10-REVISION1-NO-ACTION-IDENTITY
+status: PASS_STATIC_REVISION_PACKET
+revision_kind: REVISE_ONCE
+revision_ordinal: 1_of_1
+source_inputs:
+  revision_contract: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/control/REVISION_CONTRACT.yaml, sha256: CB464720EEBCB75F194DB58E1A0301BD18379C722CAC4CCEC1931422A0D32DCA}
+  source_driver: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/apx_r8_row_driver.py, sha256: B042EC1F1C1EDF993DE57EE6C28A34F4766252941D6AB7BF1041E51819DA750E}
+  source_dag: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_COMMAND_DAG.json, sha256: 2D4351FD99101794A809122EB5A92521B74898FE117D2DB9859F0FB52C942EA7}
+outputs:
+  patched_driver: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_PATCHED_ROW_DRIVER.py, sha256: B4783E43EFB5A43C7212E8B64BFE554E3D430848396CDE04407AF163A1803133}
+  controller: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_CONTROLLER.py, sha256: 25F643B96CF17F031FB6BE1D4CBC6C4F5B8A96CBEE79381EDA937FBCD769A469}
+  dag: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_COMMAND_DAG.json, sha256: 9FA5EE23E85AAD9395C78547E81F5FBEDE8C5E642C37D05D95FB1075536240CC}
+  packet: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_EXECUTABLE_PACKET.yaml, sha256: CEFA8F1E7C00A1AC0230CB91E1FC3D90BC637CDA55C72B4A632ABA33768F3466}
+  copy_manifest: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/EXACT_INPUT_COPY_MANIFEST.yaml, sha256: 827DBBC107E5B67D066DBA73F567D00886F5DB48495CF7240FFDD0A7A55AABB5}
+selection: {selected_inputs: [S01, S02, S03, S04], replay_count: 2, row_count: 8, commands_per_row: 9, command_count: 72, result_based_exclusion: false, reserve_backfill: false}
+checks:
+  sole_patch_scope_prepare_only: true
+  no_action_identity_exact: true
+  no_action_record: {id: NO_APX_ACTION_IDENTITY, cost: [0, 0, 0], native_form: NO_APX_ACTION}
+  trace_booleans_present: [native_action_applicable, no_action_identity, failure_region_retained]
+  positive_action_rows_unchanged: true
+  empty_action_rows_result_pass: true
+  dag_rows_8: true
+  dag_commands_72: true
+  command_order_unchanged: true
+  dag_path_relocation_only: true
+  dag_driver_relocation_count: 72
+  dag_root_relocation_count: 897
+  placeholders_0: true
+  placeholder_count: 0
+  all_paths_r10_or_shared_asset: true
+  baselines_unchanged: true
+  denominator_unchanged: true
+  cost_units_unchanged: true
+  controller_exact_r9_copy: true
+  controller_assignment_root_derived_from_file_location: true
+  controller_compile: DEFERRED_UNTIL_INDEPENDENT_PRECLAIM
+  claim_ready: false
+  execution_performed: false
+  resource_action_started: false
+  tool_execution: false
+  control_row: false
+  claim_row: false
+  network: false
+  shared_write: false
+  cleanup: false
+  stageb: false
+scientific_revision_consumed: false
+scientific_inference: NONE
+static_lint_edits_used: 1
+static_lint_edits_max: 3
+stop_after: STATIC_REVISION_PACKET_SEALED__WAIT_MAINLINE_AND_INDEPENDENT_PRECLAIM_GATE

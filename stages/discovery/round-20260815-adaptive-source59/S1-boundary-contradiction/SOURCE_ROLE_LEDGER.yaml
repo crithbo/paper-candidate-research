@@ -1,0 +1,25 @@
+sources:
+  - id: SRC01_AMD64_PSABI_TLSDESC
+    role: ANCHOR
+    url: https://www.uclibc.org/docs/psABI-x86_64.pdf
+    version_or_date: AMD64 ABI Draft 0.99.7; observed 2026-08-15
+    provenance: publicly available ABI specification
+    finding: TLSDESC is a resolver-function/argument pair with a specified x86-64 resolver calling convention and relaxation annotation.
+  - id: SRC02_GLIBC_TLS_DESC_CHANGE
+    role: CURRENT_TEST_LOCATOR
+    url: https://sourceware.org/pipermail/glibc-cvs/2024q2/084765.html
+    version_or_date: upstream change record; observed 2026-08-15
+    provenance: official Sourceware glibc archive
+    finding: current test material names TLS descriptor access and `xdlclose` module-lifetime traces; not used as proof of a current absence.
+  - id: SRC03_GLIBC_DYNAMIC_LINKER_DOC
+    role: CONTRARY
+    url: https://sourceware.org/glibc/manual/2.40/html_node/Dynamic-Linker-Hardening.html
+    version_or_date: glibc manual 2.40; observed 2026-08-15
+    provenance: official glibc documentation
+    finding: dynamic loading affects TLS allocation/lifetime conditions.
+  - id: SRC04_GLIBC_SOURCE_ROUTE
+    role: CURRENT
+    url: https://sourceware.org/git/glibc.git
+    version_or_date: current Sourceware repository route, observed 2026-08-15
+    provenance: official upstream source route
+    finding: exact source project only; current resolver union not yet read.

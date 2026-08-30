@@ -1,0 +1,209 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE109-EXPLICIT-DENYLIST-ALTERNATE-RUNTIME-V1
+opportunity_family_id: null
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+cutoff: '2026-08-24'
+opportunity_family:
+  canonical_signature: null
+  relations: []
+queries:
+  - query_id: Q109-01
+    text: TensorRT-LLM current paged context FMHA FP8 attention plugin feature contract
+    purpose: current first-party support/action closure for TensorRT-LLM seeds
+    source_or_search_engine: NVIDIA TensorRT-LLM first-party source/documentation
+    executed_at: '2026-08-24'
+    filters: [public first-party]
+    read_depth: SOURCE
+    key_result_ids: [S109-01]
+    exclusions_with_reasons: [current feature support/configuration is explicit; no named implementation-only same-semantics residual found]
+    state_change: TensorRT-LLM plugin current contract identified
+  - query_id: Q109-02
+    text: ONNX Runtime GenAI current past present share buffer paged attention provider attention source
+    purpose: current semantic/carrier closure for ORT GenAI seeds
+    source_or_search_engine: ONNX Runtime and ORT GenAI first-party documentation/source
+    executed_at: '2026-08-24'
+    filters: [public first-party]
+    read_depth: SOURCE
+    key_result_ids: [S109-02, S109-03, S109-04, S109-05]
+    exclusions_with_reasons: []
+    state_change: cache ownership and paged native carrier/test surface identified
+  - query_id: Q109-03
+    text: ONNX Runtime GroupQueryAttention windowed KV cache multi token staging source and test
+    purpose: source-level contradiction closure for candidate staging action
+    source_or_search_engine: ONNX Runtime first-party source and public integration evidence
+    executed_at: '2026-08-24'
+    filters: [public first-party]
+    read_depth: SOURCE
+    key_result_ids: [S109-05, S109-06]
+    exclusions_with_reasons: [GQA staging locus lacks a same-object current GenAI paged-attention carrier; generic metadata/branch repair is not a paper action]
+    state_change: candidate rejected before raw for carrier/action collapse
+  - query_id: Q109-04
+    text: GroupQueryAttention optional KV shared cache issue current resolution
+    purpose: contrary current collision for ORT graph contract routes
+    source_or_search_engine: ONNX Runtime public issue tracker/source
+    executed_at: '2026-08-24'
+    filters: [issue only cannot form anchor]
+    read_depth: SECTIONS
+    key_result_ids: [S109-07]
+    exclusions_with_reasons: [closed issue with concrete operator support request; no independent research carrier/action]
+    state_change: issue-only route not admitted
+sources:
+  - source_id: S109-01
+    title_or_artifact: TensorRT-LLM GPT Attention documentation
+    canonical_version: main legacy documentation viewed 2026-08-24
+    locator: https://github.com/NVIDIA/TensorRT-LLM/blob/main/docs/source/legacy/advanced/gpt-attention.md
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [MHA/MQA/GQA, context FMHA, paged context FMHA, FP8 workflow, generation kernel]
+    repository_commit_config_or_dataset_hash: main documentation current view; exact locus legacy/advanced/gpt-attention.md
+  - source_id: S109-02
+    title_or_artifact: ONNX Runtime GenAI Generate API
+    canonical_version: current preview documentation viewed 2026-08-24
+    locator: https://onnxruntime.ai/docs/genai/
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [generator loop, KV cache management, sampling, provider execution]
+    repository_commit_config_or_dataset_hash: current documentation view 2026-08-24
+  - source_id: S109-03
+    title_or_artifact: ONNX Runtime GenAI config reference
+    canonical_version: current preview documentation viewed 2026-08-24
+    locator: https://onnxruntime.ai/docs/genai/reference/config.html
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [past_present_share_buffer, max_length KV allocation, provider options]
+    repository_commit_config_or_dataset_hash: current documentation view 2026-08-24
+  - source_id: S109-04
+    title_or_artifact: ORT GenAI paged-attention builder and integration test documentation
+    canonical_version: main branch viewed 2026-08-24
+    locator: https://github.com/microsoft/onnxruntime-genai/blob/main/test/python/integration/README.md
+    source_role: NATURAL_CARRIER
+    read_depth: SOURCE
+    normalized_variants: [Qwen2.5-0.5b paged CUDA artifact, PagedAttention nodes, engine dynamic batching, pinned identities]
+    repository_commit_config_or_dataset_hash: main branch current view; exact loci test/python/integration README and builder README
+  - source_id: S109-05
+    title_or_artifact: ONNX Runtime CUDA GroupQueryAttention source
+    canonical_version: main branch viewed 2026-08-24
+    locator: https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/contrib_ops/cuda/bert/group_query_attention.cc
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [windowed cache, staging cache, XQA eligibility, quantized KV, feature fallbacks]
+    repository_commit_config_or_dataset_hash: main branch current view; exact locus contrib_ops/cuda/bert/group_query_attention.cc
+  - source_id: S109-06
+    title_or_artifact: ORT GenAI paged-attention model builder
+    canonical_version: main branch viewed 2026-08-24
+    locator: https://github.com/microsoft/onnxruntime-genai/blob/main/src/python/py/models/README.md
+    source_role: NATURAL_CARRIER
+    read_depth: SOURCE
+    normalized_variants: [GroupQueryAttention replacement, PagedAttention, paged metadata, CUDA fp16/bf16]
+    repository_commit_config_or_dataset_hash: main branch current view; source locus src/python/py/models README
+  - source_id: S109-07
+    title_or_artifact: ONNX Runtime issue 28318
+    canonical_version: opened 2026-05-01; closed by 28242
+    locator: https://github.com/microsoft/onnxruntime/issues/28318
+    source_role: CONTRARY
+    read_depth: SECTIONS
+    normalized_variants: [shared KV, omitted K/V, GQA support, workaround]
+    repository_commit_config_or_dataset_hash: issue-only; not an admissible research anchor
+claims:
+  - claim_id: C109-01
+    text: Current TensorRT-LLM documentation explicitly specifies context/generation attention implementations and FP8 paged-context prerequisites; no source-visible implementation-only, same-semantics plugin exclusion was identified.
+    priority: HIGH
+    priority_rationale: bounds RQ-S109-01/02/03.
+    source_links:
+      - source_id: S109-01
+        relation: DIRECT
+        locator: context FMHA, FP8 paged context FMHA and generation phase sections
+        evidence_status: DIRECT_OBSERVATION
+        conflict: docs cannot prove every unimplemented configuration is semantic.
+        permitted_conclusion: no generic plugin eligibility/configuration action is raw-admissible without an exact uncovered locus.
+  - claim_id: C109-02
+    text: Current ORT GenAI exposes generator/cache configuration including past-present sharing, and its public native paged-attention route replaces GroupQueryAttention with PagedAttention plus explicit page metadata and a pinned real-model integration artifact.
+    priority: HIGH
+    priority_rationale: same-object public carrier gate for ORT GenAI RQs.
+    source_links:
+      - source_id: S109-02
+        relation: DIRECT
+        locator: Generate API overview
+        evidence_status: DIRECT_OBSERVATION
+        conflict: preview API may evolve.
+        permitted_conclusion: API-level cache claims require exact native carrier evidence.
+      - source_id: S109-03
+        relation: DIRECT
+        locator: Search past_present_share_buffer and max_length sections
+        evidence_status: DIRECT_OBSERVATION
+        conflict: none found
+        permitted_conclusion: generic cache ownership measurement is not a new action.
+      - source_id: S109-04
+        relation: DIRECT
+        locator: Paged-attention Engine test and pinned Qwen artifact
+        evidence_status: DIRECT_OBSERVATION
+        conflict: integration test excludes performance/scaling/long-lived behavior.
+        permitted_conclusion: this is the native public carrier, but it is PagedAttention rather than the GQA staging object.
+      - source_id: S109-06
+        relation: DIRECT
+        locator: use_paged_attention builder description
+        evidence_status: DIRECT_OBSERVATION
+        conflict: none found
+        permitted_conclusion: GQA is replaced in the current native paged route, so GQA-specific staging cannot inherit that carrier.
+  - claim_id: C109-03
+    text: Current GroupQueryAttention stages every multi-token windowed-cache step because its interface cannot distinguish prompt/chunk running state; this is a deliberate correctness choice, but a phase-metadata branch alone is an unadmitted interface repair and lacks a same-object native public carrier.
+    priority: HIGH
+    priority_rationale: exact action-survival gate for the only concrete source contradiction.
+    source_links:
+      - source_id: S109-05
+        relation: DIRECT
+        locator: windowed cache staging comment and implementation path
+        evidence_status: DIRECT_OBSERVATION
+        conflict: no source demonstrates the branch has a nontrivial performance/semantic paper residual.
+        permitted_conclusion: do not turn the source comment into a raw proposal without a same-object carrier, distinct algorithm and full-cost route.
+      - source_id: S109-04
+        relation: OPPOSE
+        locator: native paged Engine artifact uses PagedAttention
+        evidence_status: DIRECT_OBSERVATION
+        conflict: GQA and PagedAttention differ in exact object/interface.
+        permitted_conclusion: natural-carrier requirement fails for a GQA staging claim.
+  - claim_id: C109-04
+    text: A public closed shared-KV GQA issue contains a concrete operator-support request and workaround, so it is not a standalone replication-negative research package.
+    priority: MEDIUM
+    priority_rationale: bounds issue-derived ORT graph routes.
+    source_links:
+      - source_id: S109-07
+        relation: OPPOSE
+        locator: issue description, requested behavior and workaround
+        evidence_status: AUTHOR_CLAIM
+        conflict: issue result is not independent evidence.
+        permitted_conclusion: exclude single-issue repair framing from raw.
+direct_coverage:
+  target_source_or_union: current TensorRT-LLM documentation and current ORT/ORT GenAI public docs/source/tests in Q109-01..Q109-04
+  predicates:
+    same_object_function_protocol: UNKNOWN
+    same_scenario_workload: UNKNOWN
+    same_or_weaker_information: UNKNOWN
+    atomic_action_covered: UNKNOWN
+    same_or_stronger_legality_quality_guarantee: UNKNOWN
+    same_nonworse_full_cost: UNKNOWN
+    comparable_scale_platform_version_config: UNKNOWN
+    sufficient_read_or_reproduction_depth: UNKNOWN
+independent_prior_current_audit:
+  owner_or_lane: DISCOVERY_S1 bounded source closure; independent Stage0 audit not invoked
+  query_ids: [Q109-01, Q109-02, Q109-03, Q109-04]
+  completed: false
+stopping:
+  high_impact_items_bounded: true
+  latest_and_current_union_checked: true
+  first_party_depth_sufficient: true
+  heterogeneous_independent_path_complete: true
+  contrary_search_complete: true
+  natural_or_canonical_carrier_frozen: false
+  full_cost_frozen: false
+  marginal_sources_no_longer_decision_changing: true
+  decisive_contradictions_resolved_or_bounded: true
+  disposition: NOT_ADMITTED_UNFROZEN
+execution_readiness:
+  state: E0
+  e1_evidence: []
+  e2_authorization_id: ''
+  e2_allowlist: {}
+  e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0
+  scientific_inference_permitted: false
+claim_ceiling: NO_RAW_ADMISSION__NO_CLAIM

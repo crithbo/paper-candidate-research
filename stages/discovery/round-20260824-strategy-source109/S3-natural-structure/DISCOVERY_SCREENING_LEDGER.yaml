@@ -1,0 +1,19 @@
+schema_version: discovery-screening-ledger-v1
+assignment_id: DISCOVERY-S3-20260824-SOURCE109-EXPLICIT-DENYLIST-ALTERNATE-RUNTIME-V1
+lane_id: DISCOVERY_S3
+generated_at: 2026-08-24T05:32:00+08:00
+denylist_path: ../control/PREDECESSOR_IDENTITY_DENYLIST.yaml
+denylist_sha256: 1AC56E95A1859818EFB3E4DB853B1B4DF13D081F3AB7C780E381CA553A0FFB01
+per_seed_and_rq_check_recorded: true
+resource_actions: []
+funnel_counts: {seed_non_evidence: 4, valid_selected_locator: 2, protocol_exact_repeat: 1, pre_rq_nonadmission: 1, evidence_qualified_raw: 0, candidate_grade_deep_review: 0, clean_stage0_brief: 0}
+query_roles:
+  anchor: [https://github.com/ggml-org/llama.cpp]
+  current: [https://github.com/ggml-org/llama.cpp/wiki/Feature-matrix/27130d440e9dfc2eae5fd2067bff5bb9b33bc217]
+  contrary: [https://ipads.se.sjtu.edu.cn/_media/publications/song-sosp24.pdf, https://jiangs.utasites.cloud/pubs/papers/Yu24-TwinPilots.pdf]
+screen_rows:
+  - {rq_id: S3-109-RQ01, denylist_check: RELATED_ONLY, status: EXCLUDED_BEFORE_RAW, reason: CURRENT_STATIC_LAYER_PARTITION_AND_OFFLOAD_ROUTE_COVERS_ACTION}
+  - {rq_id: S3-109-RQ02, denylist_check: RELATED_ONLY, status: EXCLUDED_BEFORE_RAW, reason: CURRENT_N_GPU_LAYERS_AND_LAYER_OFFLOAD_MECHANISM_COVERS_ACTION}
+  - {seed_id: S3-109-03, denylist_check: EXACT_OR_CONTAINS, status: PROTOCOL_EXACT_REPEAT__NOT_VALID_SELECTED_LOCATOR, scientific_inference: NONE}
+  - {seed_id: S3-109-04, denylist_check: RELATED_ONLY, status: PRE_RQ_NONADMISSION, scientific_inference: NONE}
+final_disposition: ZERO_CLEAN_BRIEFS__NO_STAGE0_DISPATCH

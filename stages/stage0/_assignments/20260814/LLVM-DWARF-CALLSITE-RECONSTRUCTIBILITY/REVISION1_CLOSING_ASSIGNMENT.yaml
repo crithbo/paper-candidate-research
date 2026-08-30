@@ -1,0 +1,24 @@
+assignment_id: STAGE0-C2-20260814-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-REVISION1-CLOSING-V8.7
+mode: INDEPENDENT_REVISION1_CLOSING
+topic_id: LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_READY_TO_DISPATCH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source08-revision1-closing\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+revision_directory: stages\stage0\_revisions\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\revision1
+atomic_gate: SAME_MIR_TWO_PLAN_CLOBBER_WITNESS__TARGET_SPECIFIC_CALLSITE_FRONTIER
+revision_hashes:
+  report_sha256: 0D62FB5D6C9016E08840C7FBFEC75210FDD6BAF9AE7B74CCCB06FC71BEA2BA8A
+  action_audit_sha256: 3D0D7BBC76B72E85015EE2C0A71578750244740CF63B8419D1288C10A147F07F
+  claim_matrix_sha256: 573F58ED800E064AFBFDBB51EFCE9E79624F0F1D57929A69C31B34DA508CFB17
+  handoff_sha256: 8A764825650646B17FD63DB6FC109D97E9EF42DD535F90B53C607BDF83167B91
+  manifest_sha256: 761A34243F211E3F24B10F99B07AD72CD627C997B67C20B6E36B0214F5B17C93
+independent_attack_requirements:
+  - Reconstruct the non-entry bb.1 call-site witness and independently verify current DwarfDebug entry-value fallback cannot recover plan A.
+  - Verify plan A RAX computed-source loss and plan B RBX save/restore/CFI plus breg expression are both native-legal for the same MachineIR, ABI, executable behavior and DWARF observation contract.
+  - Reconstruct the current LiveDebugVariables, LiveDebugValues or InstrRef, register allocation and DwarfDebug union and test direct absorption.
+  - Attack the target-specific finite recurrence, future-preserving state equivalence, cost mapping and exact Pareto frontier; reject metadata-only or generic RA repackaging.
+  - PASS only if the entire atomic gate is sound; do not infer Stage A success.
+forbidden: [revision_execution, implementation, experiment, benchmark, build, stageA, stageB, shared_control_write]
+required_outputs: [CLOSING_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

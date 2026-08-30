@@ -1,0 +1,28 @@
+{
+  "schema": "stagea-executable-claim-command-dag-v1",
+  "pilot_assignment": "PILOT-PPC-20260829-EXECUTABLE-CLAIM-PACKET",
+  "topic_id": "LLVM-PPC-PREFIX-PRESSURE-PARETODP",
+  "execution_performed": false,
+  "nodes": [
+    {"id": "N00_ASSET_BIND", "kind": "STATIC_BIND", "inputs": ["ASSET-LLVM-PPC-F127B4C/ASSET_RECORD.yaml"], "outputs": ["asset_binding_status"], "forbidden_to_execute": true},
+    {"id": "N01_INPUT_BIND", "kind": "STATIC_BIND", "inputs": ["exact_16_input_manifest"], "outputs": ["input_hash_binding"], "status": "MISSING_ASSET_RECORD"},
+    {"id": "N02_CANDIDATE_REPLAY", "kind": "PLANNED_NATIVE_REPLAY", "depends_on": ["N00_ASSET_BIND", "N01_INPUT_BIND"], "command": "python.exe materializer_harness.py --mode claim_run --input <hash-pinned-input> --function <same-function> --method ppc_tpd --output-root <assignment-local-output> --replay <1-or-2> --defer-checker-full-cost --check", "outputs": ["candidate_trace.json", "candidate_result.json", "candidate_command_metrics.json"], "claim_visibility": "EXCLUDED_UNTIL_C0", "forbidden_to_execute_in_E1": true},
+    {"id": "N03_BASELINE_COST_COLLECTOR", "kind": "PLANNED_ASSIGNMENT_LOCAL_COLLECTOR", "depends_on": ["N00_ASSET_BIND", "N01_INPUT_BIND"], "command": "python.exe baseline_cost_collector.py --input <same-hash-pinned-input> --output-root <assignment-local-baseline-output>", "outputs": ["strong_baseline_dependency_graph.json", "command_metrics.json", "baseline_cost_ledger.json"], "required_cardinality": {"compile": 8, "link": 16, "inspection": 32, "metrics": 56, "bundles": 16}, "claim_visibility": "PRECLAIM_ONLY", "forbidden_to_execute_in_E1": true},
+    {"id": "N04_CHECKER", "kind": "PLANNED_OUTPUT_CONSUMING_CHECKER", "depends_on": ["N02_CANDIDATE_REPLAY", "N03_BASELINE_COST_COLLECTOR"], "outputs": ["native_checkers.json"], "forbidden_to_execute_in_E1": true},
+    {"id": "N05_FULL_COST_LEDGER", "kind": "PLANNED_FULL_COST_CONSUMER", "depends_on": ["N02_CANDIDATE_REPLAY", "N03_BASELINE_COST_COLLECTOR"], "outputs": ["full_cost_ledger.json"], "required_unique_metrics": 71, "forbidden_to_execute_in_E1": true},
+    {"id": "N06_ENGINEERING_STATUS", "kind": "STATIC_FIREWALL_STATUS", "depends_on": ["N00_ASSET_BIND", "N01_INPUT_BIND", "N02_CANDIDATE_REPLAY", "N03_BASELINE_COST_COLLECTOR", "N04_CHECKER", "N05_FULL_COST_LEDGER"], "outputs": ["ENGINEERING_STATUS.yaml"], "claim_visibility": "NONE"}
+  ],
+  "edges": [
+    {"from": "N00_ASSET_BIND", "to": "N02_CANDIDATE_REPLAY", "type": "asset_identity"},
+    {"from": "N01_INPUT_BIND", "to": "N02_CANDIDATE_REPLAY", "type": "exact_input_hash"},
+    {"from": "N01_INPUT_BIND", "to": "N03_BASELINE_COST_COLLECTOR", "type": "exact_input_hash"},
+    {"from": "N02_CANDIDATE_REPLAY", "to": "N04_CHECKER", "type": "candidate_outputs"},
+    {"from": "N03_BASELINE_COST_COLLECTOR", "to": "N04_CHECKER", "type": "baseline_graph_and_metrics"},
+    {"from": "N02_CANDIDATE_REPLAY", "to": "N05_FULL_COST_LEDGER", "type": "candidate_15_metrics"},
+    {"from": "N03_BASELINE_COST_COLLECTOR", "to": "N05_FULL_COST_LEDGER", "type": "baseline_56_metrics"}
+  ],
+  "topological_order": ["N00_ASSET_BIND", "N01_INPUT_BIND", "N02_CANDIDATE_REPLAY", "N03_BASELINE_COST_COLLECTOR", "N04_CHECKER", "N05_FULL_COST_LEDGER", "N06_ENGINEERING_STATUS"],
+  "e1_execution_count": 0,
+  "claim_execution_count": 0,
+  "natural_execution_count": 0
+}

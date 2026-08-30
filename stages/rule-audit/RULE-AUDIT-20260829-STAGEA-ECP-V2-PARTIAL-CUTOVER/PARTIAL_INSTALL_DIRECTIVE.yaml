@@ -1,0 +1,38 @@
+schema: stagea-ecp-v2-partial-cutover-directive-v1
+audit_id: RULE-AUDIT-20260829-STAGEA-ECP-V2-PARTIAL-CUTOVER
+authorization:
+  user_text: '好的，按这个建议继续写入，并且继续推进三题'
+  date: '2026-08-29'
+  status: USER_APPROVED
+
+install_now:
+  rules:
+    - shared_readonly_toolchain_asset_reuse
+    - risk_tiered_lightweight_integrity
+    - E0_E2_engineering_result_firewall
+    - StageA_milestone_dashboard
+  templates:
+    - STAGEA_ENGINEERING_STATUS.yaml
+    - STAGEA_LIGHTWEIGHT_MANIFEST.md
+  skill: NONE_UNTIL_V2_PILOT_ACCEPTED
+  AGENTS_core_policy_change: false
+
+remain_pilot_only:
+  proposal_id: STAGEA_EXECUTABLE_CLAIM_PACKET_V2
+  topics: [LLVM-APX-PREFIX-PRESSURE-PARETODP, LLVM-PPC-PREFIX-PRESSURE-PARETODP, LLVM-RVV-GROUP-MASK-SPILL-PARETODP]
+  new_phase: E0_5_BINDING_CLOSURE
+  production_cutover: forbidden_until_acceptance
+
+V1_result:
+  shared_assets_registered: 3
+  result_firewall_violations: 0
+  valid_natural_claim_topics: 0
+  acceptance_threshold_met: false
+  decisive_findings:
+    APX: E1_FALSE_PASS_CONTROL_ROW_SPEC_INCOMPLETE
+    PPC: ASSET_CONSUMER_DEPENDENCY_CLOSURE_INCOMPLETE
+    RVV: NATURAL_INPUT_BASELINE_ARGV_SCHEMA_BINDING_CLOSURE_MISSING
+
+shared_writer: MAINLINE_ONLY
+rule_audit_shared_files_modified: false
+StageB_authorized: false

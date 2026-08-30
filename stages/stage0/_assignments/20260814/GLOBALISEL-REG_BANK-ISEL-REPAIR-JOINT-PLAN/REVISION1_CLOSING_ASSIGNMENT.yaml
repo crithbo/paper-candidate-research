@@ -1,0 +1,26 @@
+assignment_id: STAGE0-C2-20260814-GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN-REVISION1-CLOSING-V8.7
+mode: INDEPENDENT_REVISION1_CLOSING
+topic_id: GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_READY_TO_DISPATCH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source01-revision1-closing\GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+revision_directory: stages\stage0\_revisions\GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN\revision1
+atomic_gate: PINNED_RBI_ACTION_CATALOG__NONLOCAL_BOUNDED_REGION_CERTIFICATE
+revision_hashes:
+  report_sha256: 3ED65E6E0C0B3F5757ABC707CFC6F4343B74BA1CAA23679F7DCE52F08598F5A7
+  action_audit_sha256: 3684C9A1F3C03536FD34DCBEAB4871D793B69B2D025626853A9B48AB1BA7A61E
+  handoff_sha256: E06044C75BF5FEDEDE892555BFAE87D5BAC55AB87364039D839F3A0095C13B1B
+  manifest_sha256: 2F19DED180AFECAF72E0DE830CDA1869EF04E4529C1A25E636D55405A556489A
+independent_attack_requirements:
+  - Verify the pinned LLVM commit, AArch64/AAPCS64/+neon action catalog and every legality/cost fact used by the witness.
+  - Recompute the two-load to OR to FPR-sink same-GMIR plans and declared cost 4 versus 9 without relying on revision conclusions.
+  - Attack whether current Greedy tie behavior and RepairingPlacement truly lack a native backtracking/composition that absorbs the FPR-first plan.
+  - Attack A64-RBI-FDP state/action bijection, exact frontier and stated FPT boundary on the frozen grammar.
+  - Confirm Stage0 PASS only if the static certificate is sound; otherwise issue scientific STOP or an allowed inconclusive policy hold with exact reason.
+  - Freeze StageA preclaim killer and evidence ceiling; do not execute it.
+forbidden: [revision_execution, implementation, experiment, benchmark, build, stageA, stageB, shared_control_write]
+required_outputs: [CLOSING_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

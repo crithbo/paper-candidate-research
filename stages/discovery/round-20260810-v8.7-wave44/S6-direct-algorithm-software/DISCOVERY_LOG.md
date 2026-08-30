@@ -1,0 +1,31 @@
+# Direct algorithm Discovery — S6 Wave44
+
+Assignment: `DISCOVERY-S6-20260810-V8.7-WAVE44-DIRECT-ALGORITHM`  
+Frozen cutoff: `2026-08-10`  
+Method: accepted Discovery v2/v8.1, v8.6 finite-fidelity admission and v8.7 current-upstream reality check. No blocked two-axis v8.2r2 method was used.
+
+## Scope
+
+Eleven independent CPU-oriented, open-source direct construction lineages were screened. They do not reuse this lane's Wave29–43 format/serialization, compression, SPIR-V, Brotli, JVM, HNSW, WebGraph, or previously registered active/terminal objects. No experiments, benchmarks, downloads, or downstream-stage directories were created.
+
+## Six-dimensional residual screen
+
+| # | Exact object and complete current action | Decision / information / complexity-resource | Quality-guarantee / full cost | Natural carrier / generalization / no-gain boundary | Result |
+|---|---|---|---|---|---|
+| 1 | Fixed key set to a minimal perfect hash function (PTHash) | Bucket/pilot construction sees the full key set; construction, temporary memory and query layout are inseparable. | Exact lookup for every key; charge build CPU/RAM, bits/key and lookup. | Public dictionary/URL/key corpora; no-gain if only `alpha`/partition/pilot configuration is selected. | `DROP_ROUTINE_PARAMETER_OR_KNOWN_MPH_CONSTRUCTION_FAMILY`: no complete residual beyond current MPH construction literature was named. |
+| 2 | Fixed integer sequence to a wavelet-tree/matrix index | Alphabet partition and bitvector layout use the complete sequence; rank/select support structures dominate construction cost. | Exact access/rank/select semantics; charge index bits, construction and query. | Natural text/integer columns; no-gain if different sampling/compression changes query guarantee. | `DROP_DIRECT_SUCCINCT_CONSTRUCTION_COLLISION`: standard wavelet construction action union leaves no named N2. |
+| 3 | Fixed string to suffix array (libsais) | Induced sorting is a complete linear-time construction; all characters are available. | Exact suffix ordering; charge time, workspace and output array. | Natural text/genomic strings; no-gain if one changes output to a sampled/approximate suffix order. | `DROP_DIRECT_ALGORITHM_ABSORPTION`: no new atomic construction beyond the current SA-IS family. |
+| 4 | Fixed multidimensional point/doc-value set to a Lucene BKD tree | Recursive partition and leaf packing are complete actions; use the full point set. | Exact point/range query semantics; charge sort/partition, bytes, build and query. | Natural search-index documents; no-gain if only leaf size/configuration varies. | `DROP_DIRECT_BKD_CONSTRUCTION_FAMILY_COLLISION`: no union-external partition rule was specified. |
+| 5 | Fixed SQLite table to its native B-tree pages | Page split/merge and cell placement must obey the SQLite file contract. | Exact reader/transaction semantics; charge page bytes, build/update CPU and lookup. | Natural relational tables; no-gain if an external reorder/load path changes transaction/update contract. | `DROP_NO_COMPLETE_SAME_CONTRACT_CONSTRUCTOR`: no finite action beyond existing B-tree construction was named. |
+| 6 | Fixed weighted graph to a k-way METIS partition | Multilevel coarsen/initial partition/refine uses the graph; resource/seed budget is integral. | Fixed balance/edge-cut contract; charge coarsening/refinement CPU/RAM and partition quality. | Public social/mesh/scientific graphs; no-gain if balance constraint changes. | `DROP_DIRECT_MULTILEVEL_PARTITIONING_COLLISION`: no distinct complete N2 beyond current multilevel construction. |
+| 7 | Fixed sparse symmetric pattern to an AMD elimination ordering | Approximate degree update is a full sparse-ordering action; sees the whole pattern. | Same permutation/elimination semantics; charge ordering, factor nonzeros and factorization cost. | SuiteSparse matrices; no-gain if factorization/backend changes. | `DROP_DIRECT_ORDERING_ALGORITHM_COLLISION`: residual not named beyond direct AMD/nested-dissection families. |
+| 8 | Fixed capacitated network to an exact min-cost flow | Cost-scaling/network-simplex action has complete constraints and all arcs/costs. | Exact primal/dual feasibility/optimality; charge solve time/RAM and certificate checks. | Public transportation/assignment networks; no-gain if approximate objective/feasibility is substituted. | `DROP_NO_NONTRIVIAL_SAME_GUARANTEE_N2`: unspecified decomposition would be an opaque solver wrapper. |
+| 9 | Fixed regular-expression set to a RE2 executable program/DFA state machinery | Parser/NFA/DFA compilation action has fixed regexp information and state/resource caps. | Exact RE2 match semantics; charge compile, state memory and matching. | Natural rule/pattern collections; no-gain if match semantics/feature set changes. | `DROP_CURRENT_COMPILER_ACTION_UNION`: no finite constructor outside existing NFA/DFA compilation and resource-policy union. |
+| 10 | Fixed pair of source files to GNU diff edit output | Current LCS/diff heuristics operate on full sequences; output/edit model is fixed. | Same edit semantics; charge time/memory and exact edit cost/format. | Natural repositories; no-gain if output format or edit objective changes. | `DROP_DIRECT_EDIT_DISTANCE_FAMILY_COLLISION`: no named nontrivial constructor beyond direct algorithm families. |
+| 11 | Fixed regex database to a Hyperscan compiled database | Multi-pattern compilation and layout are complete direct actions. | Same match language/streaming semantics; charge compilation, database bytes, scan throughput and memory. | Public signature/rule corpora; no-gain if mode/feature semantics change. | `DROP_NO_FROZEN_UNION_EXTERNAL_ACTION`: a possible global layout idea remains only a generic compiler/selector family. |
+
+## Outcome
+
+`COMPLETE_ZERO_PROPOSALS`.
+
+The outcome does not rely on missing implementation, benchmark result, hardware, resource, natural gain, or AI readiness. Every disposition is based on the absence of a **named complete atomic same-object residual** after accounting for direct current/published construction families, or on an unavoidable guarantee/contract change. Existing configuration space was not treated as automatic absorption: it is a required baseline union only.

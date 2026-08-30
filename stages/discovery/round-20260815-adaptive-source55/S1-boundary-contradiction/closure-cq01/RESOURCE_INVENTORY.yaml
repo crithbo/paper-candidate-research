@@ -1,0 +1,127 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: CQ01_MIPS_FCSR
+  assignment_id: SOURCE-CLOSURE-SOURCE55-S1-CQ01-MIPS-FCSR-V1
+  stage_or_mode: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+  run_id: mips-fcsr-source-closure-20260815-01
+  unique_write_directory: stages/discovery/round-20260815-adaptive-source55/S1-boundary-contradiction/closure-cq01
+  resource_root: stages/discovery/round-20260815-adaptive-source55/S1-boundary-contradiction/closure-cq01/resources
+  inventory_path: stages/discovery/round-20260815-adaptive-source55/S1-boundary-contradiction/closure-cq01/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T00:00:00+08:00
+  finalized_at: 2026-08-15T00:00:00+08:00
+root_measurement:
+  logical_bytes: 1064543
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: powershell Invoke-WebRequest
+      version: Windows PowerShell process-local environment
+      expected_writable_surfaces: [resources/downloads, resources/tmp, resources/logs]
+      redirects:
+        TEMP: resources/tmp
+        TMP: resources/tmp
+        TMPDIR: resources/tmp
+        XDG_CACHE_HOME: resources/cache
+        output_file: resources/downloads/<attempt>-<basename>
+      reliability_evidence: explicit process-local environment assignment and literal OutputFile under RESOURCE_ROOT
+      preflight_result: PASS
+resource_envelope:
+  network_bytes_max: 50331648
+  stored_bytes_max: 16777216
+  cpu_hours_max: null
+  gpu_hours_max: 0
+  wall_seconds_max: null
+  attempts_max: 6
+  network_bytes_used: 1060412
+  network_bytes_measurement_note: persisted response-body bytes; HTTP headers and transport overhead are not observable in this run
+  stored_bytes_used: 1060412
+  attempts_used: 6
+entries:
+  - path: resources/downloads/attempt-01-llvm-main-commit.json
+    class: OFFICIAL_API_RESPONSE
+    source_uri: https://api.github.com/repos/llvm/llvm-project/commits/main
+    version: fc145527a539be71d15fca3bc10618196e84f4cf
+    license: repository metadata; no separate license asserted
+    logical_bytes: 8789
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    hash: 840E6465FAAC907204E93CD3EE829BB859F2E5ECF3006BB685247BD8D1F6D5F0
+  - path: resources/downloads/attempt-02-mips-directory.json
+    class: OFFICIAL_API_RESPONSE
+    source_uri: https://api.github.com/repos/llvm/llvm-project/contents/llvm/lib/Target/Mips?ref=fc145527a539be71d15fca3bc10618196e84f4cf
+    version: fc145527a539be71d15fca3bc10618196e84f4cf
+    license: repository metadata; no separate license asserted
+    logical_bytes: 129475
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    hash: CB6AB2073542CC6AE1D6A725644A963AF08676C3A128FE94CA987F548799F024
+  - path: resources/downloads/attempt-03-MipsISelLowering.cpp
+    class: OFFICIAL_PINNED_SOURCE
+    source_uri: https://raw.githubusercontent.com/llvm/llvm-project/fc145527a539be71d15fca3bc10618196e84f4cf/llvm/lib/Target/Mips/MipsISelLowering.cpp
+    version: fc145527a539be71d15fca3bc10618196e84f4cf
+    license: Apache-2.0 WITH LLVM-exception
+    logical_bytes: 205143
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    hash: 2F6F5B22B4F9C4F2A58F14D7C45B60502788AADD695A446739468773518401AF
+  - path: resources/downloads/attempt-04-mips-tests-directory.json
+    class: OFFICIAL_API_RESPONSE
+    source_uri: https://api.github.com/repos/llvm/llvm-project/contents/llvm/test/CodeGen/Mips?ref=fc145527a539be71d15fca3bc10618196e84f4cf
+    version: fc145527a539be71d15fca3bc10618196e84f4cf
+    license: repository metadata; no separate license asserted
+    logical_bytes: 576010
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    hash: D40FF25947F90DE4A30A40F6190A7452D592B771ACD898C34C3B89E2779487EF
+  - path: resources/downloads/attempt-06-MipsInstrInfo.td
+    class: OFFICIAL_PINNED_SOURCE
+    source_uri: https://raw.githubusercontent.com/llvm/llvm-project/fc145527a539be71d15fca3bc10618196e84f4cf/llvm/lib/Target/Mips/MipsInstrInfo.td
+    version: fc145527a539be71d15fca3bc10618196e84f4cf
+    license: Apache-2.0 WITH LLVM-exception
+    logical_bytes: 140784
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    hash: D5F31F2825AC77448C31F7841DDA9C6F43AE90CE33672182DA317A92A26B37BC
+  - path: resources/downloads/attempt-05-2008-08-07-FPRound.ll
+    class: OFFICIAL_PINNED_TEST
+    source_uri: https://raw.githubusercontent.com/llvm/llvm-project/fc145527a539be71d15fca3bc10618196e84f4cf/llvm/test/CodeGen/Mips/2008-08-07-FPRound.ll
+    version: fc145527a539be71d15fca3bc10618196e84f4cf
+    license: Apache-2.0 WITH LLVM-exception
+    logical_bytes: 211
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    hash: 60508616BD846EF0793E2E9D7E04EDEEF593A944E562BBD1BB0471C60B1ED713
+shared_assets_consumed: []
+external_system_dependencies:
+  - dependency: Windows PowerShell and preinstalled TLS stack
+    classification: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: PASS__ACQUISITION_COMPLETE_WITHIN_FROZEN_ENVELOPE

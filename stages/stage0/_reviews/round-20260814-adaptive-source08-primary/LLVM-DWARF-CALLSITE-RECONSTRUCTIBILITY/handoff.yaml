@@ -1,0 +1,63 @@
+assignment_id: STAGE0-P1-20260814-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-PRIMARY-V8.7
+topic_id: LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+role: PRIMARY
+decision: REVISE_ONCE
+quality_tier: TIER_B_Q2_VIABLE
+confidence: 0.72
+stageA_authorized: false
+stageB_authorized: false
+confirmation_required: true
+revision_budget:
+  stage0_scientific: 1
+  consumed: false
+atomic_revision_gate:
+  id: SAME_MIR_TWO_PLAN_CLOBBER_WITNESS__TARGET_SPECIFIC_CALLSITE_FRONTIER
+  proposition: >-
+    For one pinned LLVM target/ABI/flags and fixed pre-RA clobber MachineIR,
+    give two complete native-legal allocation/spill/rematerialization/DWARF plans
+    with identical executable, ABI and unwind semantics but different valid
+    call-site-reconstruction/full-cost Pareto coordinates; define a finite
+    target-specific frontier whose recurrence preserves future native legality
+    and has an honest exact/FPT/certified guarantee outside generic RA tuning.
+  falsifier: >-
+    No native-legal two-plan divergence; any metadata-only divergence; a state
+    reducible to generic RA/CP/ILP; current full LLVM composition reproduces all
+    points under equal information and full cost; or DWARF/ABI/unwind invalidity.
+current_upstream:
+  llvm_main_commit: e72ba6cf366a3180cbf5a8690d9e50665880ab76
+  check_date: '2026-08-14'
+  status: narrowed_not_absence_claim
+structural_paper_potential: >-
+  Conditional Tier-B N2 potential remains if and only if the allocation-time
+  action frontier separates from LLVM's post-RA location propagation and
+  call-site emission.
+current_evidence_readiness: E1_STATIC_PREFLIGHT
+strongest_union:
+  - current target allocator/coalescing/spill/frame pipeline
+  - LiveDebugVariables and instruction-reference lifecycle
+  - LiveDebugValues VarLoc/InstrRef propagation
+  - DwarfDebug call-site parameter and entry-value emission
+  - same-MIR generic exact RA oracle (ceiling only)
+stageA_preclaim_contract_if_confirmed:
+  required_before_measurement:
+    - pin target/triple/ABI/optimization/debug and upstream commit
+    - materialize two-plan MIR/action catalog and enforce native legality
+    - verify executable, ABI/unwind, DWARF and call-site reconstructibility
+    - bind full-cost ledger and configuration grid
+  killer: >-
+    Stop if no native two-plan divergence exists, current composition dominates
+    every candidate point at matching full cost, or the target-specific frontier
+    collapses to ordinary register-allocation tuning.
+provenance:
+  source_package_verified:
+    brief: C620BF823B544CC166014498AD594B635E1C0D27C8A09486F905D139FC81C030
+    collision_matrix: FA59D6FD1A418B1789D88A012855735814957C5868F102F7566585AFDCFC0C8B
+    deep_review: C44FC7D9C0C3F3536CCC02DBF0C40E3537F08B7DBEFB3F3CBBA556AD0D6FA1FE
+    handoff: 41BBA4E930ACBF873A5B4548C80E8379BE4ED921D8772CD11F77A9E0131C223C
+    manifest: 3B07522D10261545A0A83499BAA31A9F49D31EB82D5E23AE357C818568E3F37C
+  control_provenance:
+    plan_sha256_observed: 47D3B72A96663A68EA1E6D8BC065812C25F5BFF284C04B1B42D3CE5EB5D17476
+    registry_sha256_observed: EC59CBD993E9ACC9323D93115AEF6310F9DD6D6E45D953B24C35211DC4DAE263
+    role_sha256_observed: 9BD18454A98DB3C97A57F715F853795D9442E7E80BE902F708570296CAD6EB15
+cross_assignment_contamination: none; queued x86 Stack Clash material not read
+lane_disposition: IDLE_REUSABLE_AWAITING_MAINLINE

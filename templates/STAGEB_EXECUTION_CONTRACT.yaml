@@ -1,0 +1,106 @@
+schema_version: stageb-execution-contract-v1
+topic_id: null
+assignment_id: null
+lane_id: null
+stageb_user_approval_id: null
+approval_timestamp: null
+unique_write_directory: null
+
+input_freeze:
+  AGENTS_sha256: null
+  plan_sha256: null
+  registry_sha256: null
+  role_sha256: null
+  stagea_gate_handoff_sha256: null
+  stagea_gate_manifest_sha256: null
+
+scientific_contract:
+  exact_object: null
+  same_function_and_guarantee: null
+  novelty_route: null
+  main_claims: []
+  secondary_claims: []
+  unsupported_do_not_claim: []
+  entry_evidence_ceiling: null
+  strongest_named_baselines: []
+  primary_natural_workload: null
+  orthogonal_validation: null
+  full_cost_dimensions: []
+  ordered_kill_gates: []
+  scientific_stop_conditions: []
+
+execution_contract:
+  stages:
+    - B0_CONTRACT_FREEZE
+    - B1_PRECLAIM_PREFLIGHT
+    - B2_CORE_IMPLEMENTATION
+    - B3_KILL_GATE_LADDER
+    - B4_PAPER_GRADE_EVIDENCE
+    - B5_INTERNAL_REPLAY
+    - B6_FREEZE_AND_HANDOFF
+  canonical_writer: null
+  subagent_scratch_assignments: []
+  claim_bearing_allowed_after: B1_PRECLAIM_PREFLIGHT_PASS
+  maximum_scientific_revision: 1
+  engineering_correction_requires_invalidation_and_rerun: true
+
+resource_envelope:
+  resource_policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  resource_policy_sha256: null
+  resource_root: null
+  resource_inventory_path: null
+  required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirect_map: {}
+  redirect_preflight_required: true
+  cleanup_owner: MAINLINE
+  network_bytes_max: null
+  workspace_bytes_max: null
+  cpu_hours_max: null
+  gpu_hours_max: null
+  device_exclusive_allowed: false
+  hard_timeout_seconds: null
+  allowed_sources_and_tools: []
+  system_install_allowed: false
+  global_environment_modification_allowed: false
+  paid_or_controlled_resource_allowed: false
+
+autonomous_recovery_envelope:
+  route_order: []
+  max_attempts_per_route: {}
+  official_mirror_hash_identity_required: true
+  approved_same_semantics_substitutes: []
+  allow_isolated_environment_rebuild: true
+  allow_clean_exact_commit_build: false
+  allow_smaller_non_claim_smoke: true
+  allow_object_or_guarantee_change: false
+  immutable_failure_directories_required: true
+  user_interrupt_only_after_routes_exhausted_or_scope_expansion: true
+
+run_and_replay:
+  mandatory_run_classes:
+    - SMOKE
+    - CONTROL_NON_CLAIM_BEARING
+    - CLAIM_BEARING
+    - INVALIDATED_NON_EVIDENCE
+    - REPLAY
+  determinism_class: null
+  stochastic_or_environment_tolerance: null
+  timing_metrics_comparable_across_environment: null
+  internal_replay_owner_must_not_author_component: true
+
+user_only_gates:
+  - PRIVATE_DATA_OR_SECRET
+  - LICENSE_OR_UNPUBLISHED_OWNERSHIP
+  - SYSTEM_OR_GLOBAL_ENVIRONMENT_CHANGE
+  - RESOURCE_ENVELOPE_EXPANSION
+  - EXCLUSIVE_DEVICE_OR_EDA
+  - PAID_OR_CONTROLLED_RESOURCE
+  - OBJECT_GUARANTEE_OR_MAIN_CLAIM_CHANGE
+  - EXTERNAL_COMMUNICATION
+  - FORMAL_PROJECT_ACTIVATION
+
+authorization_assertions:
+  generic_rule_approval_is_not_topic_stageb_approval: true
+  formal_project_or_submission_authorized: false
+  candidate_may_self_promote: false
+  independent_reviewer_may_fix_candidate: false

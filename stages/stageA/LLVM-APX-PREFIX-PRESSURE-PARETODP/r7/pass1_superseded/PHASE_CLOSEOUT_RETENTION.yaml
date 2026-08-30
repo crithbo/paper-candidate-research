@@ -1,0 +1,19 @@
+schema: phase-closeout-retention-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+artifact_lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+cleanup_owner: MAINLINE
+owner_cleanup_allowed: false
+scientific_state_effect: NONE
+keep_claim_critical: [resources/src/apx_tpd, resources/logs/control, resources/logs/commands/P3_wrapper_parse_failure.txt]
+keep_reproducibility_minimum: [resources/src/llvm_subset, resources/src/r6_harness, resources/logs/archive_members.txt, resources/logs/selective_source_manifest.sha256]
+mainline_cleanup_candidates_after_handoff:
+  - {path: resources/archives/llvm-project-a1194be1baefa99d20a09bd04b16056be0ab7225.tar.gz, files: 1, logical_bytes: 278674752, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, reacquire_route: resume2-e-root-self-contained-build exact archive, gate: R7_HANDOFF_ACCEPTED_AND_UPSTREAM_ARCHIVE_REVALIDATED}
+  - {path: resources/env/apx-toolchain, files: 97, logical_bytes: 321690391, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, reacquire_route: r3 accepted exact tool bundle, gate: R7_HANDOFF_ACCEPTED_AND_R3_TOOL_BUNDLE_REVALIDATED}
+current_retained_bytes: 812740033
+projected_postcleanup_retained_bytes: 212374890
+post_close_retained_bytes_max: 805306368
+budget_pass_after_proposed_cleanup: true
+cleanup_performed: false
+result: RETENTION_PROPOSED__WAIT_MAINLINE
+

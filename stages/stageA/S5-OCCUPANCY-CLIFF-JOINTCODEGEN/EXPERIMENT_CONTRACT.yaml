@@ -1,0 +1,117 @@
+contract_version: "1.0"
+candidate_id: "S5-OCCUPANCY-CLIFF-JOINTCODEGEN"
+stage: "A"
+frozen_at: "2026-08-09T12:12:18+08:00"
+authorization:
+  stagea_authorized: true
+  stageb_authorized: false
+  formal_large_scale_experiment_authorized: false
+
+research_object:
+  exact_object: "LLVM AMDGPU MachineScheduler/greedy-register-allocation occupancy-tier and register-pressure interaction"
+  upstream_repository: "https://github.com/llvm/llvm-project"
+  upstream_commit: "1f112d62e1fa2c4f1a04887abd72da1ed61cf791"
+  frozen_subtarget: "amdgpu11.00 (the target spelling in both source RUN lines)"
+  wave_mode: "not recovered by this static excerpt model"
+  optimization_level: "NOT_APPLICABLE_MIR_REPLAY; both sources start before machine-scheduler and stop after greedy RA"
+  stagea_probe_object: "virtual-register SSA DAG extracted from fixed public MIR excerpts"
+  excluded_objects:
+    - "NVIDIA RTX 4070 execution"
+    - "cross-target transfer claims"
+    - "end-to-end LLVM code generation"
+    - "GPU runtime or energy measurement"
+
+inputs:
+  - id: "llvm-regpressure-ilp-metric-spills-prefix"
+    path: "D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/inputs/schedule-regpressure-ilp-metric-spills.excerpt.mir"
+    sha256: "f02df218f4789e6376947470f7c23e41eef0730e6e7cac321ef4fc6d76f8be40"
+    provenance: "LLVM public regression MIR at frozen commit"
+    completeness: "partial rendered scheduling-region prefix through virtual register 77"
+    naturalness: "compiler regression artifact; not a natural-workload corpus"
+  - id: "llvm-regpressure-no-unclustered-regions"
+    path: "D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/inputs/schedule-regpressure-no-unclustered-regions.excerpt.mir"
+    sha256: "b9b0b29d83281415362a88d7b49e1dda2f58ce1db8e8ee0fd2394a7580dfef5a"
+    provenance: "complete 56-line LLVM public regression MIR at frozen commit"
+    completeness: "complete upstream source represented; probe consumes the machine body"
+    naturalness: "compiler regression artifact; not a natural-workload corpus"
+
+implementation:
+  runner: "D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/scripts/run_probe.py"
+  runner_sha256: "1c7fcceded53462d1a4a6bb6df46657f0fa312cb71b0e3fef8dcb88e8ed7b255"
+  validator: "D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/scripts/validate_replay.py"
+  validator_sha256: "2c59ef4cac45c45f0e3db651cb08ea05cef0fe3476deee6aee3ee1ae131c79e9"
+  python: "C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe"
+  python_version: "3.12.13"
+  external_python_packages: []
+
+methods:
+  baseline_current_named_but_unavailable:
+    name: "LLVM GCNSchedStrategy staged scheduling plus greedy register allocation"
+    status: "NOT_EXECUTABLE_LOCALLY_NO_LLC"
+  probe_baselines:
+    - "input_order_staged_proxy"
+    - "pressure_list_proxy"
+  candidate: "tier_frontier_candidate"
+  loose_upper_bound: "offline_beam_ceiling_8x"
+  fairness_limit: "All modeled methods share the same parsed DAG and metric evaluator, but only the two beam searches have explicit expansion budgets; this is not a fair replacement for an actual LLVM baseline comparison."
+
+normalized_model:
+  tier_caps:
+    tier_8: {SGPR: 12, VGPR: 4, AGPR: 4}
+    tier_4: {SGPR: 20, VGPR: 8, AGPR: 8}
+    tier_2: {SGPR: 32, VGPR: 16, AGPR: 16}
+    tier_1: {SGPR: 1000000000, VGPR: 1000000000, AGPR: 1000000000}
+  spill_caps: {SGPR: 24, VGPR: 12, AGPR: 12}
+  interpretation: "Synthetic normalized thresholds used only to search for cliff-shaped behavior; they are not AMD hardware limits."
+
+metrics:
+  primary:
+    - "modeled occupancy tier (higher is better)"
+    - "modeled spill units (lower is better)"
+  secondary:
+    - "dependency-latency cycle proxy (lower is better)"
+    - "peak modeled SGPR/VGPR/AGPR live units"
+  costs:
+    - "search expansions"
+    - "beam width"
+    - "measured host elapsed milliseconds"
+    - "budget exhaustion flag"
+  pass_shape: "Candidate is non-dominated against the input-order proxy on at least one case and matches the 8x ceiling tier on all parsed cases. This can only produce PRELIMINARY_SUPPORT."
+
+budgets:
+  candidate_expansions_per_case: 4096
+  candidate_beam_width: 8
+  ceiling_expansions_per_case: 32768
+  ceiling_beam_width: 64
+  shell_timeout_seconds_per_command: 30
+  hardware_exclusivity: "none"
+  download_budget: "zero after contract freeze"
+
+randomness:
+  stochastic: false
+  seed: null
+  tie_breaking: "lexicographic node index and complete-order tuple"
+  replay_rule: "Run the complete probe twice and require exact equality after removing elapsed_ms fields."
+
+commands:
+  run: "& 'C:\\Users\\15383\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe' 'D:\\project\\writing\\reserch\\stages\\stageA\\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\\scripts\\run_probe.py' --inputs 'D:\\project\\writing\\reserch\\stages\\stageA\\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\\inputs' --output 'D:\\project\\writing\\reserch\\stages\\stageA\\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\\results\\probe.json' --candidate-budget 4096 --ceiling-budget 32768"
+  validate: "& 'C:\\Users\\15383\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe' 'D:\\project\\writing\\reserch\\stages\\stageA\\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\\scripts\\validate_replay.py' --python 'C:\\Users\\15383\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe' --runner 'D:\\project\\writing\\reserch\\stages\\stageA\\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\\scripts\\run_probe.py' --inputs 'D:\\project\\writing\\reserch\\stages\\stageA\\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\\inputs' --work 'D:\\project\\writing\\reserch\\stages\\stageA\\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\\results\\replay'"
+
+stopping_conditions:
+  immediate_stop:
+    - "parser or deterministic replay fails"
+    - "candidate is strictly dominated by both modeled baselines on every case"
+    - "same-object input hashes differ from this contract"
+  revise_once_trigger:
+    - "actual LLVM GCNSchedStrategy plus greedy RA cannot be run"
+    - "no complete natural-workload-derived MIR corpus is available"
+    - "candidate ordering cannot be verified as legal MIR by llc"
+  stageb_boundary: "Never start Stage B; even a positive Stage A gate must stop at PENDING_USER_STAGEB_REVIEW."
+
+evidence_ceiling:
+  analytical: "allowed"
+  trace: "absent"
+  software: "static Python model over public MIR excerpts"
+  gpu: "absent; local GPU is NVIDIA, not the frozen AMDGPU object"
+  hardware: "absent"
+  maximum_claim: "NOT_FALSIFIED or PRELIMINARY_SUPPORT for a model-level mechanism only"

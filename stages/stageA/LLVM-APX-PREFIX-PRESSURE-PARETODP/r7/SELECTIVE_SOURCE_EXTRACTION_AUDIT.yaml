@@ -1,0 +1,41 @@
+schema: selective-source-extraction-audit-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+completed_at: 2026-08-26T12:54:36.1743690+08:00
+archive: {path: resources/archives/llvm-project-a1194be1baefa99d20a09bd04b16056be0ab7225.tar.gz, sha256: F90FFC22BF3B220B726C2E4D7953076520C4188ED4409213AFB9829B98254747, bytes: 278674752}
+archive_scan:
+  attempts_used: 1
+  attempts_max: 1
+  exit_code: 0
+  member_count: 197178
+  unsafe_member_count: 0
+  prefix: llvm-project-a1194be1baefa99d20a09bd04b16056be0ab7225
+  member_log: resources/logs/archive_members.txt
+  member_log_sha256: 19E3999ABEF14459FD6F7D502481A02FF404FF37A7D720790EF776B2D4B43983
+  stderr_bytes: 0
+selective_extraction:
+  attempts_used: 1
+  attempts_max: 1
+  exit_code: 0
+  strip_components: 1
+  destination: resources/src/llvm_subset
+  full_tree_extracted: false
+  extracted_files: 8049
+  extracted_directories: 67
+  extracted_logical_bytes: 190225817
+  reparse_entries: 0
+  stderr_bytes: 0
+  exact_prefixes:
+    - {path: llvm/lib/Target/X86, files: 211, logical_bytes: 11158451}
+    - {path: llvm/include/llvm/TargetParser, files: 27, logical_bytes: 242294}
+    - {path: llvm/include/llvm/CodeGen, files: 297, logical_bytes: 3634409}
+    - {path: llvm/utils/TableGen, files: 145, logical_bytes: 2856792}
+    - {path: llvm/test/CodeGen/X86, files: 5560, logical_bytes: 122697192}
+    - {path: llvm/test/MC/X86, files: 632, logical_bytes: 16648180}
+    - {path: llvm/test/tools/llvm-mca/X86, files: 1177, logical_bytes: 32988499}
+content_manifest: {path: resources/logs/selective_source_manifest.sha256, records: 8049, sha256: 35BC8012FDD3E4427F29D03C4B49A6F613B55D58EA56D53B2AFF78333C449B31}
+source_modify_flatten_rename_or_patch_performed: false
+network_bytes: 0
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_observations: 0
+result: PASS_ONE_SCAN_ONE_SELECTIVE_EXTRACTION_NO_FULL_TREE

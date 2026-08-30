@@ -1,0 +1,175 @@
+schema: ppc-r9-same-function-materializer-a2-handoff-v1
+created_at: 2026-08-26T08:58:20.0759555+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+addendum_id: PPC-R9-A2-REQUIRED-NEGATIVE-INVARIANT-CHECKER-CORRECTION
+decision: FAIL_CLOSED_SAME_FUNCTION_MATERIALIZER_FIDELITY__A26_REPLAY_EQUALITY_AUDITOR_CONSTRUCTION_FAILURE__NO_SELECTED_CORPUS_OR_SCIENTIFIC_INFERENCE
+evidence_ceiling: CONTROL_NON_CLAIM_TWO_REPLAYS_PASS_BUT_EQUALITY_AUDITOR_INVALID__NO_SCIENTIFIC_INFERENCE
+preclaim_gate_ready: false
+
+ordered_gate:
+  K0_INPUT_ACCEPTANCE: REUSED_PASS_NO_RECOPY
+  K1_CONTROL_MIR_PROBES: REUSED_PASS_2_OF_2_NO_RERUN
+  A20_PRESERVE_A1_CANONICAL: PASS_BYTE_EXACT
+  A21_EXACT_ONE_FILE_EDIT_AND_HASH_GATE: PASS_EXPECTED_SHA256_AND_BYTES
+  A22_STATIC_COMPILE_EDITED_FILE: PASS_ONE_ATTEMPT
+  A23_TRUTH_TABLE_CONTROLS: PASS_11_OF_11
+  A24_CORRECTED_K3_ON_RETAINED_A1_OUTPUTS: PASS_7_OF_7
+  A25_K4_ON_RETAINED_A1_OUTPUTS: PASS_DEPENDENCY_VALIDATION
+  A26_K5_TWO_FRESH_FULL_REPLAYS_UNDERLYING: PASS_17_OF_17_EACH
+  A26_EXACT_REPLAY_EQUALITY_AUDITOR: FAIL_CLOSED_CONSTRUCTION
+  A27_K6_R10_32_PROCESS_PLAN: NOT_STARTED_FIRST_FAILURE_STOP
+  A28_RESEAL_CANONICAL_HANDOFF: COMPLETE
+
+A1_preservation:
+  handoff: {path: handoff.pass2_k3_checker_boolean_fail.yaml, sha256: B90B61F54FBBEF18DAF0445FA78B7A56EEB1C7837252BC7431BDB089859916D3, byte_exact: true}
+  manifest: {path: HASH_MANIFEST.pass2_k3_checker_boolean_fail.sha256, sha256: 9B174B6B4AFD7929334ECB963145273FC52DCF0724B3EFAC7DB54A618597045C, byte_exact: true}
+  A1_raw_outputs_modified: false
+
+A2_source_correction:
+  edited_file_only: resources/src/natural_materializer/materializer_harness.py
+  edit_transactions: 1_OF_1
+  old: {bytes: 38323, sha256: A28B269C522A96B81AA79C7F907864BA2277C0E6ABCA1108BACA9010F4C01D80}
+  new: {bytes: 38739, sha256: 6234A3380940D87A2FCDBAA1D08DB3F4893A37901E3854CCD9222F3A035BDC0E}
+  corrected_contract: ALL_EIGHT_NAMED_POSITIVE_KEYS_PRESENT_AND_IS_TRUE__FIXED_SYNTHETIC_WITNESS_KEY_PRESENT_AND_IS_FALSE
+  immutable_other_sources:
+    common.py: EE19181CEA403725748E22E0F632ABA97639C81EAABEB0BC6DA16249520414D7
+    r10_plan.py: 0366CCC8D98D0489C604A31A56E29761C3EC9C2E3D8479C7909E99652697890C
+  edits_after_first_A2_tool: 0
+
+A22_static_compile:
+  status: PASS_ONE_ATTEMPT
+  explicit_cfile: {path: resources/cache/p/a2m.pyc, bytes: 44515, sha256: 083CA2550EF4DBD269B652D26315AB3694769261D5BF5A579CA539E95146222F}
+  implicit_source_pyc_files: 0
+  old_cache_modified: false
+
+A23_truth_table:
+  status: PASS_11_OF_11
+  summary: {path: resources/build/a2_truth_table/truth_table_summary.json, sha256: 01A7806D29C808E829AEEF6D43176B7DA2CB39C3FB65BECA5B111FE31E507E68}
+  positive_case: PASS_EXIT_0_AND_7_OF_7_CHECKS
+  required_negative_true: PASS_EXPECTED_EXIT_1_AND_IDENTITY_ONLY_FAIL
+  required_negative_missing: PASS_EXPECTED_EXIT_1_AND_IDENTITY_ONLY_FAIL
+  each_positive_false_one_at_a_time: PASS_EXPECTED_EXIT_1_8_OF_8_AND_IDENTITY_ONLY_FAIL
+  unexpected_results: 0
+
+A24_A25_retained_A1_outputs:
+  K3: {status: PASS_7_OF_7, path: resources/build/a2_retained/native_checkers.json, sha256: 2649B7A8B58172A816915999D097DD05E9E672C880B38E566146882B448AE2BA}
+  K4: {status: PASS_DEPENDENCY_VALIDATION, consumed_dependencies: 9, path: resources/build/a2_retained/full_cost.json, sha256: A0DA3D05A91E376A1A1DA6B02A98407F2EA1FB39806CFE24CA360A0F63A50912}
+  runtime_or_hardware_performance_claim: false
+
+A26_fresh_replays:
+  replay_1:
+    root: resources/build/a2_replay_1
+    files: 54
+    logical_bytes: 323999
+    commands: 17
+    completed: 17
+    native_checks: PASS_7_OF_7
+    full_cost_dependency: PASS
+    deterministic_payload_canonical_sha256: F716DA318ED27815AAE54CBDCF30BD07F0172152918A4A11261D2486593D72AE
+    deterministic_payload_file_sha256: 86D8D4DF7C92AE73C6CF2CBB58327F9CCABA0EC23AC78856A711696AC362A411
+    summary_sha256: 7EB192E9F6515E2ADFD717217F114894BDB1C68B81CE32C899F83738C39B5CC8
+  replay_2:
+    root: resources/build/a2_replay_2
+    files: 54
+    logical_bytes: 324003
+    commands: 17
+    completed: 17
+    native_checks: PASS_7_OF_7
+    full_cost_dependency: PASS
+    deterministic_payload_canonical_sha256: F716DA318ED27815AAE54CBDCF30BD07F0172152918A4A11261D2486593D72AE
+    deterministic_payload_file_sha256: 86D8D4DF7C92AE73C6CF2CBB58327F9CCABA0EC23AC78856A711696AC362A411
+    summary_sha256: 0D0005CF8C9F0C3C84DAC0ECF10A0E2B0A4A60B83840E3C7B8908EA007AD7F19
+  required_core_raw_files: 12
+  required_core_raw_byte_exact: true
+  relative_files_each: 54
+  byte_exact_files: 38
+  path_normalized_readobj_objdump_logs_equal: 6_OF_6
+  native_checker_core_equal: true
+  full_cost_deterministic_core_equal: true
+  replay_summary_core_equal_excluding_replay_id: true
+
+first_unexpected_result:
+  record: A2_A26_REPLAY_COMPARISON_FAILURE.yaml
+  record_sha256: 02B7592540620AF0585634364B70695B17D3EEEC81D4F6BF8494B51F8BEFFE68
+  gate: A26_EXACT_REPLAY_EQUALITY_AUDITOR
+  equality_auditor_exit_code: 1
+  raw_precommit_false_negative: JSON_ESCAPED_WINDOWS_PATHS_NOT_MATCHED_BY_UNESCAPED_ROOT_REPLACEMENT
+  command_17_dynamic_metadata_byte_differences:
+    input_bytes: [73081, 73083]
+    full_cost_output_bytes: [4103, 4101]
+  origin: SERIALIZED_TIMING_RSS_AND_PATH_DERIVED_DYNAMIC_METADATA_LENGTH
+  deterministic_payload_or_core_raw_difference: false
+  equality_auditor_corrected_or_rerun: false
+  replay_rerun: false
+  command_changed_after_failure: false
+  A27_started: false
+
+execution_summary:
+  input_copy_attempts_cumulative: 3
+  synthetic_tool_command_records_cumulative: 68
+  synthetic_tool_command_records_max: 300
+  selected_or_reserve_corpus_tool_invocations: 0
+  claim_bearing_runs: 0
+  claim_bearing_observations: 0
+  network_bytes: 0
+  automatic_retries: 0
+  resource_files: 446
+  resource_logical_bytes: 246438521
+  resource_directories_including_root: 208
+  resource_reparse_entries: 0
+  active_related_processes: 0
+  exact_assignment_cpu_seconds: UNAVAILABLE__NOT_ESTIMATED
+  exact_assignment_wall_seconds: UNAVAILABLE__NOT_ESTIMATED
+  measured_two_fresh_replays_cpu_seconds: 1.953125
+  measured_two_fresh_replays_wall_seconds: 3.2925425000285032
+  r10_plan_rows: 0
+  r10_plan_executed: false
+  cleanup_performed: false
+
+scientific_boundary:
+  control_non_claim_only: true
+  scientific_revision_consumed: false
+  mechanism_pivot_consumed: false
+  state_transition_performed: false
+  stageb_action_performed: false
+  scientific_inference: NONE
+
+canonical_hashes:
+  A2_addendum_sha256: 10D21BEE04D4FDBF07AA8D344DB3E64F0CC0072C8B42331557C482B483AE0CDD
+  A2_ack_sha256: 33D8F7D755D382B7255ABA331EF77A007CA7B5D90560DFA51A97A06FCD053EE3
+  A2_ack_acceptance_sha256: D1C7EF8BE0C409B7BF69F9F55DFD3D663DBB049F048ED2A11E342A6D205AA594
+  A2_start_sha256: 149A9558D814C45FA56625DDA11E98209B160758F496DA3B36D80854F7569093
+  A20_precommit_sha256: DB9F9F2B54740579FC42F8DE90B27AF67FCE8A7AD0661F36D986DF2FCB9C931C
+  A20_audit_sha256: 3DA029246CD08620265C1EA606C9FD72893D5EB1633C1600029B466222894479
+  A21_precommit_sha256: EF125D1359485F4BAEE2F1B38485C28A0BA9A33E1F84811DB1301CBD8F770079
+  A21_audit_sha256: C6A96979835E354057668B8F4BD61921E9072833608A16AE717C9CA6F1C8AD31
+  A22_precommit_sha256: DF3BD93DBFCDC6E28110D12E3AA7759EF6D01A64B19CA52AA0F6E776CE448C30
+  A22_audit_sha256: C04888998B85B7506468EEF23160979912FD74AF08F0EB3D2414DBCFC6C8A9E9
+  A23_precommit_sha256: 24F83D6943C74C7E79C0B8E085FD8C0F95A69EB8FCD9601C8896DBF44E8BE3D9
+  A23_audit_sha256: 953F5153165A7A8D5C7FC239406222519747E78B3A2FA32215E15CC2A2D31D81
+  A24_A25_precommit_sha256: 86FF19CE041327094583B5BF4D6C288B3C91F184477181FF71D809E6B9FF8ED3
+  A24_A25_audit_sha256: 1DCEEF5B05A172DDA27204991F3F709D0ADBA56368AACB56E2CF16D90E11AED0
+  A26_precommit_sha256: 4C8801666654D4CF7C60FFB9F95DA5B1925051FBFED65C68C5E51A4EB29444B1
+  A26_audit_sha256: B7550742E946591E7A6812104EF14A2D5ACFFF8F8D09EE012EE29D0890601F41
+  implementation_audit_sha256: 84D9B6EAB1559D6778BC3E8F4ED54550CA65A256A1E2C9DF2F93200EEC2E6C1D
+  same_function_materializer_audit_sha256: D22BFE0D77E61236A0B4FCBAB7BBFB055060AC1C82A4A29BCA6F919DE3EC4C18
+  input_specific_PPC_TPD_audit_sha256: 364B9071E2EE08BD2304855AD571597E258218DEC5DE3AC06AC51403400F1CB1
+  candidate_output_consumption_audit_sha256: 017FCAA8C1E04A9F21232B35B1C0C9DA51FA1BA7C886BA7B4CB5ADA8F8769EFD
+  real_full_cost_dependency_audit_sha256: 878FA269C81DB3800DEABD510F5EA9627EA2D6CC44EC3516601F7AE76D345764
+  synthetic_fidelity_smoke_sha256: 2754B0428F97C2B459B89F89EC2128186F480B99F6B3D23033A5D0266118D435
+  r10_precommit_sha256: 05CB21FD4D9DC02AF292836E03C52F490E4B110AE506DD97B04537C0030DE17E
+  reproducibility_report_sha256: 4F3B5B313ECBDE93351F1B90DF63EFDD323B5F1EDDE713C9817D7ACDBAC2BBAD
+  preclaim_gate_sha256: 99524751E03D11D0E1F95585303073DA08B9A513B18911E635CC8863BE8679D4
+  resource_inventory_sha256: 6CAD09FD6308C471537400C17789D54966664149E1CD6DAC9E2EAA247DB14680
+  retention_sha256: 67C6FE8A7E8038892B3ABBD6791340C1AB9BA6277CCBFA331E805BB26FC8A045
+  resume_capsule_sha256: 4E95385CA7D4E323069187A378A1AD6584FFF8AABAD2F1C89AE8760ADBABFA8D
+
+exact_cleanup_candidate_leaves: [resources/cache, resources/tmp, resources/downloads, resources/archives]
+owner_cleanup_allowed: false
+future_resume_requires_new_mainline_freeze: true
+scientific_revision_remains_unconsumed: true
+future_correction_requires_separate_mainline_and_independent_gate_disposition: true
+next_action: MAINLINE_ACCEPT_A2_FAIL_CLOSED_HANDOFF_AND_INDEPENDENTLY_DISPOSE_EQUALITY_AUDITOR_CONTRACT_WITHOUT_RERUNNING_EXISTING_RAW_REPLAYS

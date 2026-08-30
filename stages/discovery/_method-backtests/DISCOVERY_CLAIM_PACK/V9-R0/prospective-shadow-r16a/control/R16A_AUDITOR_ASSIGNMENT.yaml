@@ -1,0 +1,65 @@
+schema_version: discovery-v9-r16a-independent-auditor-assignment-v1
+assignment_id: DISCOVERY-AUDITOR-20260813-R16A-V9-PROSPECTIVE-SHADOW-SAMPLE24
+authorization_id: DISCOVERY-V9-PROSPECTIVE-SHADOW-20260813-R16A
+role: DISCOVERY_BACKTEST_AUDITOR
+owner_task_id: 019fe65a-07d2-7161-ba29-27ff00da26bc
+status: FROZEN_READY_FOR_DISPATCH
+method_under_review: DISCOVERY_CLAIM_PACK_V9_R0_SHADOW
+canonical_comparator: V8_7_AUTHORITATIVE
+input_ledger: stages/discovery/_method-backtests/DISCOVERY_CLAIM_PACK/V9-R0/prospective-shadow-r16a/control/R16A_SAMPLE24_LEDGER.yaml
+input_ledger_sha256: 91F25C2F88DB6A23B73EA9E8B0067A0A5F6CC5A9924D14DF9DE011E469235E25
+write_root: stages/discovery/_method-backtests/DISCOVERY_CLAIM_PACK/V9-R0/prospective-shadow-r16a/auditor
+required_reads:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules/ROLE_DISCOVERY_BACKTEST.md
+  - rules/DISCOVERY_CLAIM_PACK.md
+  - stages/discovery/_method-backtests/DISCOVERY_CLAIM_PACK/V9-R0/prospective-shadow-r16a/control/R16A_MASTER_ASSIGNMENT.yaml
+  - stages/discovery/_method-backtests/DISCOVERY_CLAIM_PACK/V9-R0/prospective-shadow-r16a/control/R16A_SAMPLE24_LEDGER.yaml
+independence:
+  participated_in_r16a_source_lanes: false
+  may_modify_input_packages: false
+  may_modify_shared_files: false
+  may_contact_source_lanes_for_decision_content: false
+audit_scope:
+  - SAMPLE_AND_DEDUP_INTEGRITY
+  - CANONICAL_BEFORE_SHADOW_ORDER
+  - CANONICAL_SHADOW_LEAKAGE
+  - TERMINAL_STOP_NONREVIVAL
+  - SOURCE_ACTION_CORRECTION
+  - DECISION_STABILITY
+  - CLEAN_BRIEF_PRECISION
+  - STAGE0_REPAIR_VECTOR_ACCOUNTING
+  - AUDIT_MODEL_AND_FILESYSTEM_COST
+  - CONTRIBUTION_OBJECT_AND_MECHANISM_DIVERSITY
+  - PROTOCOL_SUFFICIENCY_FOR_PRODUCTION
+required_disclosures:
+  - CLEAN_BRIEF_COUNT_IS_ZERO
+  - STAGE0_FEEDBACK_AND_REPAIR_VECTOR_COUNT_IS_ZERO
+  - MODEL_TOKEN_AND_MONETARY_COST_IS_UNOBSERVED
+  - ONLY_ONE_PROSPECTIVE_SHADOW_WAVE_EXISTS_UNDER_R16A
+verdict_enum:
+  - CALIBRATED_PASS
+  - NOT_CALIBRATED
+  - PILOT_NOT_CALIBRATED_INCONCLUSIVE
+  - CONTAMINATION_UNKNOWN
+hard_rules:
+  no_pass_from_decision_stability_alone: true
+  no_imputation_of_missing_stage0_or_cost_observations: true
+  protocol_two_prospective_wave_requirement_must_be_applied: true
+  zero_brief_denominator_must_not_be_reported_as_perfect_precision: true
+  any_leak_or_stop_revival_is_fail_closed: true
+  production_cutover_allowed_by_this_assignment: false
+  automatic_second_shadow_wave_allowed: false
+  new_sampling_allowed: false
+  stage0_stagea_stageb_allowed: false
+  external_communication_allowed: false
+deliverables:
+  - AUDIT_REPORT.md
+  - METRIC_LEDGER.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+mandatory_callback:
+  mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  notify_on_completion_or_blocker: true

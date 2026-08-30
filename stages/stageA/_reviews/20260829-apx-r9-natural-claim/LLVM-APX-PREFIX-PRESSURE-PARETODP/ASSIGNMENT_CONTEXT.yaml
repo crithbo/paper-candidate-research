@@ -1,0 +1,26 @@
+schema_version: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+assignment_id: STAGEA-GATE-20260829-APX-R9-NATURAL-CLAIM-FIRST-FAILURE
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+lane_id: STAGEA_GATE_REVIEW_LANE_1
+role: INDEPENDENT_STAGEA_REVIEW
+model_route: gpt-5.6-terra
+thinking: high
+unique_write_directory: stages/stageA/_reviews/20260829-apx-r9-natural-claim/LLVM-APX-PREFIX-PRESSURE-PARETODP
+resource_root: stages/stageA/_reviews/20260829-apx-r9-natural-claim/LLVM-APX-PREFIX-PRESSURE-PARETODP/resources
+current_state: BOOTSTRAP_PENDING__FORMAL_STAGEA_CLAIM_GATE
+user_authorization: USER_CONTINUOUS_STAGEA_ECP_AUTONOMY_20260829
+frozen_control:
+  agents: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: A7C599A078AD2C1DF54015C8B6CA718848A8440BB9BF46EC542251D72D363D2B}
+  registry: {path: registry.yaml, sha256: BCF91A2B74138D5FD3E6855C6E77890D2AB1833E7D810436AB0E10384F7F6161}
+  role_rule: {path: rules/ROLE_STAGEA_REVIEW.md, sha256: 3F625031306861248D817C36905E3D0AB0DCDB3B8B6B959673975BDB6128FF01}
+  academic_skill: {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  reviewer_workflow: {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/academic-paper-reviewer/WORKFLOW.md, sha256: 5469CDABFEB6FAC7CCBE88CAF1A85C55E9F46977F9DC3AEFC84EFF1CE93E1672}
+  assignment: {path: stages/stageA/_reviews/20260829-apx-r9-natural-claim/LLVM-APX-PREFIX-PRESSURE-PARETODP/control/ASSIGNMENT.yaml, sha256: DF8666A40F6B9C871FD333D096390360339AF3FE211B00B4E4EED544BB9E333D}
+minimum_inputs:
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_CLAIM_RESULT.yaml, sha256: F485BEBAFA1AFC3D984F02B21CF90FE73564B4A5C922291010C4913C6340D82E}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/handoff.yaml, sha256: DF3BD07055DD79DE44E6FA1CA731F774AB6F4EDEC88254C9CBE611229F697473}
+allowed_action: WRITE_BOOTSTRAP_ACK_ONLY
+forbidden_actions: [review_judgment_before_start, modify_owner_files, resource_copy, tool_replay, new_experiment, claim_run, network, shared_write, state_change, stageb]
+next_action: FULL_READ_AND_WRITE_BOOTSTRAP_ACK_THEN_WAIT

@@ -1,0 +1,217 @@
+schema: stage0a-gold-label-qualification-v1
+created_at: 2026-08-26T17:36:00+08:00
+assignment_id: BACKTEST-PACKER-20260826-STAGE0A-Q2-LOCAL-RESOURCE-R1
+visibility: PACKER_AND_FINAL_AUDITOR_ONLY
+source_ledger: resources/src/PACKER_PRIMARY_SOURCE_LEDGER.yaml
+qualification_rule: REAL_PEER_REVIEWED_Q2_OR_EQUIVALENT__PUBLICATION_ERA_QUALITY__HISTORICAL_CUTOFF__NO_DIRECT_ABSORPTION__VALID_CONTRIBUTION_CONTRACT__NATURAL_OR_CANONICAL_EVIDENCE__FAIR_BASELINES__FULL_COST__REPRODUCIBLE_ROUTE
+
+cases:
+  P01_HNSW:
+    gold_label: QUALIFIED_POSITIVE
+    target_identity: {doi: 10.1109/TPAMI.2018.2889473, venue: IEEE_TPAMI, issue_year: 2020, quality_basis: Q1}
+    historical_cutoff: 2016-03-28
+    exact_object: approximate nearest-neighbor search over fixed vector/metric datasets
+    atomic_action: organize proximity links into hierarchical layers and descend from sparse to dense layers before bounded local search
+    mechanism: logarithmic-scale navigation through a hierarchy of small-world proximity graphs
+    contribution_type: METHOD_ALGORITHM
+    comparator_set: [flat_navigable_small_world_graph, FLANN_tree_family, brute_force_recall_oracle]
+    natural_or_canonical_evidence_route: public ANN datasets with recall-versus-query-time and index construction measurements
+    full_cost: [index_build_time, index_memory, query_time_or_throughput, recall, parameter_search]
+    minimum_falsifier: no recall-time or memory advantage over flat graph/tree baselines at matched build budget
+    pre_cutoff_source_count: 3
+    historical_union_result: NO_SAME_OBJECT_DIRECT_ABSORPTION_FOUND_IN_FROZEN_SOURCES
+    reproducible_route: official hnswlib plus bounded public vectors
+  P02_ANN_BENCHMARKS:
+    gold_label: QUALIFIED_POSITIVE
+    target_identity: {doi: 10.1016/j.is.2019.02.006, venue: Information_Systems, issue_year: 2020, quality_basis: Q1_2019_2020}
+    historical_cutoff: 2018-07-16
+    exact_object: reproducible comparative evaluation of in-memory approximate nearest-neighbor implementations
+    atomic_action: normalize dataset, adapter, parameter sweep, resource use, recall metric, and Pareto reporting under one harness
+    mechanism: automated configuration and frontier construction suppresses cherry-picked single-point comparisons
+    contribution_type: BENCHMARK_DATASET
+    comparator_set: [per-paper_ad_hoc_benchmark, fixed_parameter_single_point_comparison]
+    natural_or_canonical_evidence_route: standard public high-dimensional datasets and multiple public implementations
+    full_cost: [installation, build_time, index_time, query_time, recall, memory, parameter_sweep, reproducibility]
+    minimum_falsifier: standardized harness changes no comparative conclusion and cannot reproduce included implementations
+    pre_cutoff_source_count: 4
+    historical_union_result: NO_EQUIVALENT_AUTOMATED_MULTI_IMPLEMENTATION_FRONTIER_HARNESS_FOUND_IN_FROZEN_SOURCES
+    reproducible_route: official runner with Docker-free local path for the bounded StageA route
+  P03_EGG:
+    gold_label: QUALIFIED_POSITIVE
+    target_identity: {doi: 10.1145/3434304, venue: POPL_2021, quality_basis: TOP_CONFERENCE_EQUIVALENT}
+    historical_cutoff: 2020-04-07
+    exact_object: reusable equality-saturation engine for program optimization and reasoning
+    atomic_action: maintain e-class analyses and rebuild congruence incrementally while applying extensible rewrites
+    mechanism: amortized invariant restoration separates rewrite application from canonicalization and enables composable analyses
+    contribution_type: COMPILER_TOOL
+    comparator_set: [prior_equality_saturation_engine, domain_specific_Herbie_style_engine, direct_term_rewriting]
+    natural_or_canonical_evidence_route: public symbolic math, propositional, and lambda-calculus workloads
+    full_cost: [runtime, memory, extraction_cost, rewrite_count, result_quality]
+    minimum_falsifier: invariant maintenance or extensibility does not improve scalability/engineering over prior engines
+    pre_cutoff_source_count: 3
+    historical_union_result: NO_REUSABLE_ENGINE_WITH_THE_FROZEN_INCREMENTAL_REBUILD_AND_ANALYSIS_CONTRACT_FOUND
+    reproducible_route: official Rust artifact and tests
+  P04_CVC5:
+    gold_label: QUALIFIED_POSITIVE
+    target_identity: {doi: 10.1007/978-3-030-99524-9_24, venue: TACAS_2022, quality_basis: TOP_CONFERENCE_OR_Q2_EQUIVALENT}
+    historical_cutoff: 2022-03-30
+    exact_object: industrial-strength SMT solving across SMT-LIB theories
+    atomic_action: integrate new architecture, theory engines, preprocessing, APIs, and proof/model support in a successor solver
+    mechanism: modular solver architecture plus theory-specific reasoning and portfolio-quality engineering advances over CVC4
+    contribution_type: COMPILER_TOOL
+    comparator_set: [CVC4_1_8, Z3, SMT_COMP_peers]
+    natural_or_canonical_evidence_route: complete SMT-LIB benchmark suites
+    full_cost: [solved_instances, wall_time, memory, feature_coverage, proof_and_model_support]
+    minimum_falsifier: no coverage/performance/feature improvement over CVC4 and current peer solver union
+    pre_cutoff_source_count: 4
+    historical_union_result: NO_PRE_TARGET_SOLVER_EXPRESSES_THE_COMPLETE_CVC5_SYSTEM_CONTRACT
+    reproducible_route: official source/releases and SMT-LIB
+  P05_CARCARA:
+    gold_label: QUALIFIED_POSITIVE
+    target_identity: {doi: 10.1007/978-3-031-30823-9_19, venue: TACAS_2023, quality_basis: TOP_CONFERENCE_OR_Q2_EQUIVALENT}
+    historical_cutoff: 2023-01-27
+    exact_object: independent checking and elaboration of Alethe SMT proofs
+    atomic_action: validate each proof rule and expand coarse-grained steps into fine-grained steps before downstream checking
+    mechanism: rule-specific independent checking plus offline elaboration closes usability and scalability gaps of the format
+    contribution_type: COMPILER_TOOL
+    comparator_set: [proof_assistant_reconstruction, LFSC_checker, no_standalone_checker]
+    natural_or_canonical_evidence_route: SMT-LIB problems with Alethe proofs emitted by veriT/cvc5
+    full_cost: [check_time, memory, accepted_or_rejected_steps, elaborated_size, downstream_checkability]
+    minimum_falsifier: independent checker misses invalid proofs or elaboration fails to improve downstream checkability at full cost
+    pre_cutoff_source_count: 4
+    historical_union_result: NO_PRE_TARGET_STANDALONE_ALETHE_CHECKER_AND_ELABORATOR_UNION_FOUND
+    reproducible_route: official Rust artifact, Alethe spec, bounded proof pairs
+  P06_SOURCE_COMPRESSION:
+    gold_label: QUALIFIED_POSITIVE
+    target_identity: {doi: 10.1016/j.jss.2025.112429, venue: Journal_of_Systems_and_Software, issue_year: 2025, quality_basis: Q1_AVAILABLE_PUBLICATION_ERA_WINDOW}
+    historical_cutoff: 2025-04-01
+    exact_object: large-scale versioned source-code blob collections from Software Heritage
+    atomic_action: permute/partition collections using content and context signals before compression, with backup and random-access modes
+    mechanism: collection-aware ordering exposes redundancy that per-file/general compressors leave latent
+    contribution_type: MEASUREMENT_CHARACTERIZATION
+    comparator_set: [general_purpose_compressors, content_only_ordering, context_only_ordering, unpermuted_collection]
+    natural_or_canonical_evidence_route: random and language-specific Software Heritage samples
+    full_cost: [compressed_bytes, compression_time, decompression_time, single_file_access_cost, metadata_and_index_bytes]
+    minimum_falsifier: collection-aware orderings do not improve size/time/access tradeoffs over strong compressors after metadata
+    pre_cutoff_source_count: 4
+    historical_union_result: NO_PRE_TARGET_STUDY_CLOSES_THE_SAME_COLLECTION_SCALE_MODE_AND_FULL_COST_CONTRACT
+    reproducible_route: official SWHIDs and GitHub artifact; local StageA route separately failed Windows resource preflight
+  P07_PGM_INDEX:
+    gold_label: QUALIFIED_POSITIVE
+    target_identity: {doi: 10.14778/3389133.3389135, venue: PVLDB_13_8, issue_year: 2020, quality_basis: Q1_2020_OR_TOP_DATABASE_EQUIVALENT}
+    historical_cutoff: 2019-10-17
+    exact_object: exact predecessor/range lookup over ordered keys with updates and bounded positional error
+    atomic_action: construct a minimum-segment piecewise linear approximation and recursively index segments
+    mechanism: optimal error-bounded segmentation converts distribution regularity into provable space/query bounds
+    contribution_type: METHOD_ALGORITHM
+    comparator_set: [B_tree, learned_index, FITing_tree, binary_search]
+    natural_or_canonical_evidence_route: public real sorted-key datasets plus canonical generated distributions
+    full_cost: [build_time, lookup_time, update_time, memory_bytes, worst_case_error_bound]
+    minimum_falsifier: no space/time benefit or guarantee preservation versus strong learned/tree baselines
+    pre_cutoff_source_count: 3
+    historical_union_result: NO_PRE_TARGET_INDEX_COMBINES_THE_FROZEN_OPTIMAL_SEGMENTATION_DYNAMIC_COMPRESSED_GUARANTEE
+    reproducible_route: official header-only artifact and public keys
+  P08_ALEX:
+    gold_label: QUALIFIED_POSITIVE
+    target_identity: {doi: 10.1145/3318464.3389711, venue: SIGMOD_2020, quality_basis: TOP_CONFERENCE_EQUIVALENT}
+    historical_cutoff: 2019-05-22
+    exact_object: in-memory updatable learned range index over numeric keys
+    atomic_action: adapt model/data nodes, gaps, and split/expand policy online as inserts change the key distribution
+    mechanism: workload-aware structural adaptation retains model-based lookup while controlling insertion shifts and outliers
+    contribution_type: METHOD_ALGORITHM
+    comparator_set: [B_plus_tree, original_read_only_learned_index, FITing_tree, adaptive_radix_tree]
+    natural_or_canonical_evidence_route: public real key distributions and mixed lookup/insert workloads
+    full_cost: [lookup_and_insert_throughput, memory, build_time, model_retraining_and_split_cost]
+    minimum_falsifier: no robust read-write advantage over trees/learned baselines after retraining and memory cost
+    pre_cutoff_source_count: 3
+    historical_union_result: NO_PRE_TARGET_INDEX_HAS_THE_SAME_ONLINE_ADAPTIVE_READ_WRITE_MECHANISM_CONTRACT
+    reproducible_route: official Microsoft artifact and included 1000-key sample
+  P09_PYTHIA:
+    gold_label: QUALIFIED_POSITIVE
+    target_identity: {doi: 10.1145/3466752.3480114, venue: MICRO_2021, quality_basis: TOP_CONFERENCE_EQUIVALENT}
+    historical_cutoff: 2021-09-24
+    exact_object: hardware data prefetching under varying workload and bandwidth state
+    atomic_action: select prefetch actions from multiple context features using online reinforcement and system-aware reward
+    mechanism: feedback-coupled learning internalizes usefulness, timeliness, pollution, and bandwidth effects
+    contribution_type: SYSTEM_ARCHITECTURE
+    comparator_set: [Best_Offset, Bingo, MLOP]
+    natural_or_canonical_evidence_route: standard CPU workloads in cycle-level simulation plus hardware cost analysis
+    full_cost: [speedup, coverage, accuracy, timeliness, bandwidth, cache_pollution, storage, area]
+    minimum_falsifier: no robust advantage over strong prefetchers across bandwidth regimes after area/storage
+    pre_cutoff_source_count: 3
+    historical_union_result: NO_PRE_TARGET_PREFETCHER_HAS_THE_SAME_MULTI_FEATURE_SYSTEM_AWARE_RL_ACTION_CONTRACT
+    reproducible_route: official artifact; intentionally routing-control only for local StageA
+  P10_BERTI:
+    gold_label: QUALIFIED_POSITIVE
+    target_identity: {doi: 10.1109/MICRO56248.2022.00072, venue: MICRO_2022, quality_basis: TOP_CONFERENCE_EQUIVALENT}
+    historical_cutoff: 2022-06-01
+    exact_object: L1 data prefetching using local delta relations and timeliness
+    atomic_action: learn local address deltas and gate prefetches by estimated timeliness near demand streams
+    mechanism: local-delta correlation reduces lateness and bandwidth waste relative to global/offset schemes
+    contribution_type: SYSTEM_ARCHITECTURE
+    comparator_set: [Best_Offset, Bingo, MLOP, Pythia]
+    natural_or_canonical_evidence_route: standard CPU traces and cycle-level simulation
+    full_cost: [speedup, accuracy, coverage, timeliness, bandwidth, cache_pollution, storage]
+    minimum_falsifier: no matched-budget improvement over strong local/global prefetch baselines
+    pre_cutoff_source_count: 4
+    historical_union_result: NO_PRE_TARGET_SCHEME_HAS_THE_FROZEN_LOCAL_DELTA_TIMELINESS_CONTRACT
+    reproducible_route: official artifact; routing-control only for local StageA
+  P11_BOLT:
+    gold_label: QUALIFIED_POSITIVE
+    target_identity: {doi: 10.1109/CGO.2019.8661201, venue: CGO_2019, quality_basis: TOP_CONFERENCE_EQUIVALENT}
+    historical_cutoff: 2018-07-18
+    exact_object: post-link optimization of large ELF binaries using execution profiles
+    atomic_action: recover binary control flow, reorder functions/blocks, and rewrite the linked executable using profile data
+    mechanism: post-link visibility captures effects unavailable to source/LTO layout while preserving semantics and metadata
+    contribution_type: COMPILER_TOOL
+    comparator_set: [compiler_PGO, AutoFDO, linker_layout, unoptimized_binary]
+    natural_or_canonical_evidence_route: large data-center binaries and public ELF workloads with hardware profiles
+    full_cost: [runtime, code_size, profile_collection, rewrite_time, build_deployment_cost, correctness]
+    minimum_falsifier: no end-to-end performance benefit over PGO/linker baselines after profile and rewrite costs
+    pre_cutoff_source_count: 3
+    historical_union_result: NO_PRE_TARGET_TOOL_HAS_THE_SAME_POST_LINK_PROFILE_GUIDED_BINARY_REWRITE_CONTRACT
+    reproducible_route: LLVM BOLT source; routing-control only on Windows
+  P12_MESS:
+    gold_label: QUALIFIED_POSITIVE
+    target_identity: {doi: 10.1109/MICRO61859.2024.00020, venue: MICRO_2024, quality_basis: TOP_CONFERENCE_EQUIVALENT}
+    historical_cutoff: 2024-05-16
+    exact_object: benchmarking, simulation, and application profiling of memory systems through bandwidth-latency behavior
+    atomic_action: generate traffic across load ratios, fit bandwidth-latency curves, align simulator and application profile points
+    mechanism: curve-based characterization exposes saturation and loaded-latency regimes hidden by peak-bandwidth/idle-latency scalar metrics
+    contribution_type: MEASUREMENT_CHARACTERIZATION
+    comparator_set: [STREAM, Intel_MLC, fixed_latency_simulator, protocol_level_DRAM_simulator]
+    natural_or_canonical_evidence_route: real CPU/GPU memory systems and canonical simulator configurations
+    full_cost: [bandwidth, loaded_latency, traffic_mix, counters, repetitions, profiler_overhead, simulator_error]
+    minimum_falsifier: curves add no decision-relevant information or fail to align real/simulated/profile observations
+    pre_cutoff_source_count: 4
+    historical_union_result: NO_PRE_TARGET_FRAMEWORK_UNIFIES_THE_FROZEN_THREE_EVIDENCE_SURFACES
+    reproducible_route: official artifact; routing-control only for local StageA
+
+alternates:
+  ALT01_WEBGRAPH_LLP:
+    gold_label: QUALIFIED_POSITIVE_ALTERNATE
+    target_identity: {author_copy: https://arxiv.org/abs/1011.5425, venue: WWW_2011, quality_basis: TOP_CONFERENCE_EQUIVALENT}
+    historical_cutoff: 2010-11-24
+    exact_object: lossless compression of natural web/social graphs through node ordering
+    atomic_action: run layered label propagation across resolutions and emit an order that groups structurally related nodes
+    mechanism: multiresolution community locality increases adjacency-list reference and gap compressibility without coordinates
+    contribution_type: METHOD_ALGORITHM
+    comparator_set: [lexicographic_order, breadth_first_order, prior_WebGraph_orderings]
+    natural_or_canonical_evidence_route: public WebGraph web and social networks
+    full_cost: [bits_per_link, ordering_time, memory, compression_time, random_access_cost]
+    minimum_falsifier: no compression improvement over strong graph orderings after ordering and access costs
+    pre_cutoff_source_count: 3
+    historical_union_result: NO_PRE_TARGET_ORDERING_HAS_THE_SAME_LAYERED_MULTIRESOLUTION_LABEL_PROPAGATION_CONTRACT
+    reproducible_route: official Java WebGraph implementation and public small graphs
+  ALT02_ALIVE2:
+    gold_label: NOT_EVALUATED_NOT_SELECTED
+
+summary:
+  proposed_positive_count: 12
+  qualified_positive_count: 12
+  qualified_alternate_count: 1
+  excluded_gold_invalid_count: 0
+  direct_absorption_found_count: 0
+  contribution_type_coverage: [METHOD_ALGORITHM, BENCHMARK_DATASET, COMPILER_TOOL, MEASUREMENT_CHARACTERIZATION, SYSTEM_ARCHITECTURE]
+  method_execution_or_case_scoring_performed: false
+  status: QUALIFIED_12_OF_12_FOR_BLIND_STAGE0_INPUT

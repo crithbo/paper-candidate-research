@@ -1,0 +1,137 @@
+schema_version: stagea-assignment-v1
+assignment_id: STAGEA-L1-20260821-QREFINE-TRITON-W4A16-INITIAL
+lane_id: CANDIDATE-EXECUTION-LANE-1
+authority: USER_EXPLICIT_CONTINUE_QREFINE_TO_NEXT_STAGE_20260821
+topic_id: QREFINE-TRITON-W4A16
+stage: STAGE_A
+status_on_dispatch: ACTIVE
+quality_floor: TIER_B_Q2_VIABLE
+stageb_authorized: false
+
+frozen_rules:
+  project_rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__research-topic-discovery-r1-r40-20260815
+  role_candidate_owner_sha256: A703F21B9F33EE341A942501948BC313FACC9D0BAB15F3EE943FC590B65BF519
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  stagea_report_template_sha256: DEF37897F8A64A0C7F0822FE629BBB2B78B91A787CE594165CC29B1F14CE15B1
+  q1_comparator_matrix_template_sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87
+
+frozen_inputs:
+  original_archive: C:\Users\15383\Downloads\stage0_freeze_pack_2026-08-21.zip
+  original_archive_sha256: 1F1696FBBF39C4C6810386E8472692EA1E434011B15D02E10F84A3C3F61E9B67
+  archive_prefix: stage0_freeze_pack_2026-08-21/qrefine/
+  discovery_brief: D:\project\writing\reserch\stages\discovery\user-proposed-20260821\qrefine-repair\TOPIC_BRIEF.md
+  discovery_brief_sha256: D38B94C74DA8FE74831B80DDBA179286D8C71F9644C3302BB457A6E9C68BA36B
+  discovery_handoff: D:\project\writing\reserch\stages\discovery\user-proposed-20260821\qrefine-repair\handoff.yaml
+  discovery_handoff_sha256: DDFA275A3FC6AB1D353608342B408A4AD112744CA5DFF273CFC766126BBA9191
+  primary_stage0_report: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-primary\QREFINE-TRITON-W4A16\STAGE0_REPORT.md
+  primary_stage0_report_sha256: 21BC10D788E1A1A650B4B03156BCC6E7FD8506FCC0B295305632C6E38FFAA603
+  primary_stage0_comparator_matrix: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-primary\QREFINE-TRITON-W4A16\Q1_COMPARATOR_MATRIX.md
+  primary_stage0_comparator_matrix_sha256: 50F750E4F404766FD9594FE56017DEF1579F25B74F9BD8B0498A159A3D878681
+  primary_stage0_handoff_sha256: A3598B456232DF226D5AB314CA1C1D5C27A12A72CCA1E0968D35490FA884D7E6
+  confirmation_report: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-confirmation\QREFINE-TRITON-W4A16\CONFIRMATION_REPORT.md
+  confirmation_report_sha256: FA3B06AD3085718731576835698C08BE7A2C789A442DF226EC8874802E815138
+  confirmation_handoff_sha256: FE9F30C66A0CE7EC7A3E33EF9EDC5DD7464B5D64202373F27AFA4DC54722D27A
+
+frozen_object:
+  operator_id: w4a16_decode_gemv_m1_g128_uint4b8_fp16
+  triton_repository: triton-lang/triton
+  triton_tag: v3.7.1
+  triton_commit: f797708c0626e5f9840ca5b0a98790e2c7cb09ad
+  llvm_commit: 1f126a6dea50d185c0781743a667390037ae88bd
+  anchor_repository: vllm-project/vllm
+  anchor_tag: v0.26.0
+  anchor_commit: 568afb3a13806beb53bb2e6bd518269357b237c0
+  targets: [sm89, gfx1100]
+  validation_boundary: LLVM_DIALECT_MLIR_AFTER_MAKE_LLIR_BEFORE_LLVM_TO_MODULE
+  relation: mixed_bitvector_ieee_trace_exact_v1
+  logical_subgroup_width: 32
+  excluded_paths: [tl_dot, tensor_cores, wmma, mfma, binary_level_verification]
+  claim_ceiling: FROZEN_OPERATOR_AND_PRE_LLVM_TO_MODULE_TARGET_LOCAL_TRANSLATION_VALIDATION_ONLY
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\stageA\QREFINE-TRITON-W4A16\initial
+  resource_root: D:\project\writing\reserch\stages\stageA\QREFINE-TRITON-W4A16\initial\resources
+  resource_inventory: D:\project\writing\reserch\stages\stageA\QREFINE-TRITON-W4A16\initial\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+preclaim_contract_fidelity_gate:
+  - Prove that observer-only capture and serialization at the frozen boundary do not change the MLIR module, pass pipeline, options, target attributes, or subsequent conversion. Require pre/post structural hash, operation inventory, round-trip audit, and a small identity witness.
+  - Freeze the exact solver implementation, version, binary hash, command line, rounding/IEEE support, timeout, and proof/counterexample replay route before any claim-bearing mutant result. Solver may be Z3 or cvc5, but only one primary identity may carry the claim.
+  - Map every frozen TCB operation to modeled, rejected, metadata-only, or semantic-critical-unsupported. Semantic-critical uninterpreted operations allowed: zero.
+  - Reproduce or authoritatively check the strongest native/current baselines: Triton verifier/tests, FpSan, pointer-safety verifier scope, Wang-style MLIR translation validation, and verified lifting of Triton operators. Controls that change the endpoint remain non-claim-bearing.
+  - Freeze all full-cost units and collection paths: capture, normalization, obligation construction, solver CPU/RSS/wall, proof bytes, compiler CPU/RSS/temp/output bytes, and any later legal-schedule performance witness.
+  - Do not start a claim-bearing mutant run until every predicate above passes. A preclaim resource/tool failure is a blocker, not a scientific STOP.
+
+stagea_objective:
+  - Materialize one exact small frozen operator instance for each target at the accepted boundary without changing the object.
+  - Build the restricted mixed bit-vector/IEEE operational interpreter and the smallest compositional obligation route for the fixed reduction tree.
+  - Execute exactly the 12 pre-registered mutant classes from probe_72h.md only after the fidelity gate passes; record accepted, rejected, unsupported, and smallest localized counterexample.
+  - Demonstrate finite row/tile-to-output composition on one small symbolic shape.
+  - Attempt one grammar-admitted non-scalar schedule per target only when an accessible matching target exists. Absence of either GPU is a resource blocker for the performance witness and cannot scientifically reject the validator.
+  - Update the collision and Q1/Q2 gap review and report an auditable AI core fraction.
+
+decisive_killers:
+  - fewer_than_10_of_12_mutants_rejected
+  - any_core_packing_or_index_mutant_not_localized
+  - any_semantic_critical_operation_neither_modeled_nor_rejected
+  - no_finite_composition_route
+  - grammar_admits_only_scalar_schedule
+  - current_system_proves_the_full_frozen_relation_on_both_targets_with_only_routine_adaptation
+
+allowed_actions:
+  - Read the frozen inputs and the Stage A owner rules/templates.
+  - Retrieve official/public exact source archives, source files, wheels, solver binaries, papers, and metadata inside resource_root within the envelope.
+  - Create an assignment-local isolated environment, build or run small source/solver tooling, capture frozen MLIR, run fidelity checks, the 12 mutants, and bounded CPU proof/counterexample work after the gate passes.
+  - Probe existing local hardware/toolchain read-only. Run a target performance witness only on an exact accessible sm89 or gfx1100 device and only after the fidelity gate passes.
+  - Stop early and package a precise resource blocker before exceeding any envelope or requiring system/global changes.
+
+forbidden_actions:
+  - Change operator, relation, targets, compiler commits, capture boundary, reduction tree, IEEE rules, schedule grammar, or claim ceiling.
+  - Use tl.dot, tensor cores, WMMA, MFMA, binary-level claims, disabled normal passes, custom compiler semantics, or grammar-external performance comparators.
+  - Modify system/user environment, registry, global PATH, shared project files, upstream reports, or other candidate directories.
+  - Use private artifacts, credentials, paid services, unofficial mirrors, driver installation, system package installation, or uncontrolled large downloads.
+  - Start Stage B, create projects/, or claim the paper result is established.
+
+resource_envelope:
+  official_or_primary_route_attempts_max: 24
+  network_response_bytes_max: 268435456
+  persisted_resource_bytes_max: 2147483648
+  cpu_time_max: 2h
+  wall_time_max: 4h
+  max_parallel_jobs: 4
+  system_install: false
+  global_environment_change: false
+  exclusive_or_paid_hardware: false
+  escalation_before:
+    - any_single_download_over_134217728_bytes
+    - total_network_over_268435456_bytes
+    - total_persisted_over_2147483648_bytes
+    - cpu_over_2h
+    - wall_over_4h
+    - driver_or_system_toolchain_change
+    - remote_or_exclusive_GPU_use
+  failure_consequence: BLOCKED_USER_ACTION_REQUIRED__RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE_BEFORE_FIRST_CLAIM_OBSERVATION
+
+required_outputs:
+  - STAGEA_REPORT.md
+  - PRE_CLAIM_CONTRACT_FIDELITY_GATE.yaml
+  - ENVIRONMENT_LOCK.yaml
+  - RUN_INDEX.yaml
+  - MUTANT_RESULTS.yaml
+  - OPERATION_INVENTORY.yaml
+  - CURRENT_COLLISION_AUDIT.md
+  - q1_calibration.md
+  - REPRODUCE.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+allowed_final_recommendations:
+  - PASS_RECOMMENDED
+  - BLOCKED_USER_ACTION_REQUIRED
+  - RESERVE_RECOMMENDED
+  - REVISE_ONCE
+  - STOP
+
+next_step:
+  rule: Candidate owner returns to mainline. Mainline must route any scientific decision to the independent Stage A gate; Stage B remains forbidden without later explicit user approval.

@@ -1,0 +1,155 @@
+topic_id: "LLVM-PPC-PREFIX-PRESSURE-PARETODP"
+lane_id: "CANDIDATE_EXECUTION_LANE_2"
+assignment_id: "STAGEA-L2-20260811-LLVM-PPC-PREFIX-PRESSURE-PARETODP-INITIAL-V8.7"
+assignment_state: "IDLE_REUSABLE"
+lane_state_after_handoff: "IDLE_REUSABLE_AWAITING_MAINLINE"
+input_freeze_sha256: "F36E8CD40E719A9CFEEFBB595EEE05A4FDEEDF490C0ABD6AF40C09D635895E82"
+cross_assignment_contamination_declared: false
+queue_prefetch_performed: false
+source_stage: "Stage0"
+proposed_next_stage: "StageA_RESUME_FROM_BLOCKER"
+decision: "BLOCKED_USER_ACTION_REQUIRED"
+quality_tier: "TIER_B_Q2_VIABLE"
+quality_tier_disposition: "CARRIED_FROM_STAGE0__NOT_RESCORED"
+structural_paper_potential: "CONDITIONAL_CARRIED_FORWARD"
+evidence_acquisition_readiness: "BLOCKED_EXACT_LLVM_PPC_TOOLCHAIN"
+stage_semantics: "STAGEA_RISK_PILOT"
+opportunity_origins:
+  - "PREFIXED_ADDRESS_FORM_AND_REGISTER_PRESSURE_INTERACTION"
+domain_tags: ["LLVM", "PowerPC", "compiler", "register allocation", "ELFv2"]
+paper_genealogy:
+  - "current LLVM PowerPC form selection, register allocation, MC and lld"
+  - "generic combinatorial register-allocation and scheduling"
+  - "target-specific exact bounded-interface Pareto construction"
+discovery_method_revision: "v8.7"
+discovery_backtest_reference: null
+fidelity_closure_plan_status: "RESOURCE_BLOCKED_FIDELITY_GAP"
+fidelity_closure_plan:
+  - "reproduce exact direct non-GOT PCREL34 PLDpc and PADDI+LD witness"
+  - "validate assembler, readobj, objdump, lld, DWARF/unwind and semantics"
+  - "replay complete equal-information current LLVM/lld union"
+  - "compare PPC-TPD with exhaustive legal native-trace oracle"
+  - "charge complete model-to-runtime full-cost ledger"
+current_upstream_reality_check:
+  applicable: true
+  upstream_commit_or_tag: "f127b4c19c63b0492fb924934e37e032c17ea35b"
+  checked_at: "2026-08-11"
+  official_current_documentation:
+    - "Power ISA v3.1"
+    - "LLVM generated PPC source documentation"
+    - "lld documentation"
+  source_symbols_or_paths:
+    - "llvm/lib/Target/PowerPC/PPCPreEmitPeephole.cpp"
+    - "llvm/lib/Target/PowerPC/MCTargetDesc/PPCMCCodeEmitter.cpp"
+    - "llvm/lib/Target/PowerPC/MCTargetDesc/PPCELFStreamer.cpp"
+    - "lld/ELF/Arch/PPC64.cpp"
+  default_and_nondefault_flags_thresholds_configs:
+    - "ppc-pcrel-linker-opt=true in strongest union"
+    - "ppc-late-peephole=true in strongest union"
+    - "legal disabled forms retained only as negative controls"
+  absence_claim_disposition: "RESOURCE_BLOCKED"
+  remaining_non_tuning_residual: "UNKNOWN__NO_STAGEA_EXECUTION"
+preclaim_contract_fidelity_gate_actual_status: "FAIL_CLOSED"
+exact_object: >-
+  Power10 ppc64le Linux ELFv2 medium-code-model pre-form MachineIR with
+  dso_local/hidden non-preemptible symbol, fixed semantics, aliases, call
+  clobbers, ABI, frame/unwind and linker input.
+main_claim: >-
+  PPC-TPD may construct a same-object full-cost Pareto point beyond the complete
+  current equal-information LLVM/lld union on public natural PPC functions.
+novelty_route: "N2"
+evidence_route: >-
+  Five-part exact native fidelity gate, then 10-20 public natural functions with
+  directional full-cost double replay.
+mechanism_signature: "PPC_TPD__DIRECT_VALUE_VS_ADDRESS__ELFV2_NATIVE_INTERFACE_DP"
+seed_distance: "TARGET_SPECIFIC_QUOTIENT_AND_JOINT_FORM_PRESSURE_OPTIMIZATION"
+nearest_prior_facet_matrix: "Q1_COMPARATOR_MATRIX.md"
+q1_venue_family: "compiler construction, programming languages and systems performance"
+q1_calibration_status: "PARITY_CONDITIONAL_WITH_EXECUTABLE_GAP"
+q1_reference_set:
+  - "Lozano et al., ACM TOPLAS 2019"
+  - "LLVM, CGO 2004"
+  - "Lozano and Schulte, ACM CSUR 2019"
+  - "Power ISA v3.1 and pinned LLVM PPC/lld source"
+q1_comparator_matrix: "Q1_COMPARATOR_MATRIX.md"
+q1_evidence_gap:
+  - "no exact direct-witness native output"
+  - "no complete current-union replay"
+  - "no PPC-TPD exhaustive oracle equality"
+  - "no natural full-cost result"
+q2_viability_basis: "Independent Stage0 conditional static certificate; no StageA rescore"
+non_relaxable_quality_gates:
+  same_object: "FROZEN__EXECUTABLE_FIDELITY_PENDING"
+  latest_collision: "SEARCH_BOUNDED_OPEN__NO_STAGEA_UPDATE"
+  fair_strong_baseline: "NAMED__NOT_RUN"
+  natural_input_and_evidence: "NOT_RUN"
+  full_cost: "FROZEN__NOT_MEASURED"
+  reproducibility: "RESOURCE_BLOCKED"
+  evidence_claim_honesty: "PASS__NO_SCIENTIFIC_INFERENCE"
+academic_value_score: null
+ai_executability_score: null
+ai_executability_class: "RESOURCE_BLOCKED"
+ai_core_fraction: null
+strongest_baseline:
+  - "complete pinned current LLVM/lld composition and finite legal grid"
+  - "form-fixed plus current RA ablation"
+  - "form-aware plus fixed current RA ablation"
+  - "generic CP/ILP/Unison audit subtractor"
+baseline_contract: "SAME_MACHINEIR_INFORMATION_NATIVE_ACTIONS_BUDGET_AND_FULL_COST"
+same_function_contract: "FIXED_PPC64LE_ELFV2_PROGRAM_OBJECT_RELOCATION_AND_ABI_SEMANTICS"
+algorithmic_delta: "PPC_SPECIFIC_FUTURE_ACTION_QUOTIENT_AND_EXACT_BOUNDED_INTERFACE_PARETO_DP"
+full_cost_ledger_scope: >-
+  model/optimizer, compile/link/verification/runtime CPU and RSS, text/object
+  bytes, typed relocations, spills/copies/frame and static uops including failures
+  and certified cap/fallback paths.
+generality_hypothesis: "UNKNOWN_UNTIL_10_TO_20_PUBLIC_NATURAL_FUNCTIONS"
+why_not_routine_tuning: >-
+  The frozen method claims a new exact target-specific quotient and joint
+  constructor, not selection of an existing LLVM flag or threshold.
+decisive_evidence: []
+orthogonal_validation: "NOT_RUN"
+unresolved_risks:
+  - "non-GOT direct witness may be illegal or semantically mismatched"
+  - "complete current union may reproduce the action or guarantee"
+  - "PPC-TPD merge may lose a future native action or cost"
+  - "natural interfaces may only cap/fallback"
+  - "p50/p90 full cost may have no residual"
+next_killer_gate: "F1_EXACT_COMMIT_DIRECT_NON_GOT_PCREL34_NATIVE_REPRODUCTION"
+mechanism_pivot_remaining: null
+reserve_reason: null
+blocker_status: "BLOCKED_USER_ACTION_REQUIRED"
+blocker_kind: "TOOLCHAIN"
+claim_bearing_observation_obtained_before_failure: false
+scientific_revision_consumed: false
+stage0_scientific_revision_consumed: true
+resource_attempt_recorded: true
+user_blocker_packet: "USER_BLOCKER_PACKET.md"
+resume_contract_sha256: "F36E8CD40E719A9CFEEFBB595EEE05A4FDEEDF490C0ABD6AF40C09D635895E82"
+resume_directory: null
+evidence_ceiling: "RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE"
+stagea_probe_support: "NOT_APPLICABLE"
+pending_user_stageb_review: false
+stageb_user_approval_id: null
+stageb_authorized: false
+execution_authority: "NONE_AFTER_HANDOFF__MAINLINE_MUST_ASSIGN_RESUME"
+control_drift:
+  matched_at_assignment_entry: true
+  detected_at_terminal_check: true
+  plan_observed_sha256: "38BBCA80B816879AF06494D2B826F19CB79063430E7F7B859E0F5871855D88F6"
+  registry_observed_sha256: "DDDA54F13B9A59949A5A65AD6F1E35D47C25C5203C55A2588555A5EA552B6761"
+  frozen_assignment_retained: true
+  new_shared_facts_imported: false
+  shared_controls_modified_by_lane: false
+file_hashes:
+  COMMAND_LOG.md: "CC46E08ED2D01A6C725A89791F128B1DDBE796833146E6F5B5889910A15A4853"
+  ENVIRONMENT.md: "0EE970EDD4630A9DE326612F28AF2A51D501117EABDE65C7EA047548CC774934"
+  EXPERIMENT_CONTRACT.yaml: "F36E8CD40E719A9CFEEFBB595EEE05A4FDEEDF490C0ABD6AF40C09D635895E82"
+  FAILURE_RECORD.yaml: "AC5690F18FFB6E30C68552E9A3F555A1A96282922F6433FCBDFAA194325D17D4"
+  PRE_CLAIM_FIDELITY_GATE.md: "6C753B510DB0CC49B48F3D8C5818D55286F97DD2EFB1E3086E780FFE6DECB0D0"
+  Q1_COMPARATOR_MATRIX.md: "022A33BAAF21288FA6EB315BB76543EFA26687EAB26DAD114B46A8BFE3C65D8B"
+  RESULTS.md: "9F80ADC7794F1D34FF37097BA5C88F442153FE88ACDCC62B73C0BF27190770C5"
+  SOURCE_MANIFEST.yaml: "4F3331C050827AAC93ED77885382DA9DCDB1426F9DE5C5E6F72E8421E2507374"
+  STAGEA_REPORT.md: "221F55BC81F310D0D328DCEC8C614B62DFF27497655F1424E61A0B9B022BA3C1"
+  USER_BLOCKER_PACKET.md: "5E43722A6015D5801B21C50CDEA9E0A892DA43B7C2FF63C73D1BDAE10F9F41FC"
+  USER_REVIEW_PACKET.md: "6B9BB276A12BC13C856144CE930B5EF75E77A8C1671C98633C596FB6A1ECA526"
+hash_manifest_file: "HASH_MANIFEST.sha256"

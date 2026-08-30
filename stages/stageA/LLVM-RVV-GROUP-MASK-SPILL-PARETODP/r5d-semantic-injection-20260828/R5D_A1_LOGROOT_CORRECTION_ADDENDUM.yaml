@@ -1,0 +1,26 @@
+schema: rvv-r5d-logroot-correction-addendum-v1
+created_at: 2026-08-28T09:50:00+08:00
+created_by: MAINLINE
+assignment_id: STAGEA-L1-20260828-LLVM-RVV-R5D-SPLIT-CLOSURE-SEMANTIC-INJECTION
+prior_handoff_path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/R5D_handoff.yaml
+prior_blocker_sha256: 451E474561E65B100078B9203AEEE3D481B8D5F9BDA58C9F4EBE16FFD696A651
+observed_failure: RUNNER_LOG_ROOT_ALREADY_EXISTS_FAIL_CLOSED
+exact_correction: ONE_LITERAL_LOG_ROOT_RENAME_IN_COPIED_RUNNER_ONLY
+source_path: resources/src/split_closure/run_r5d.py
+old_literal: LOGS = RESOURCES / "logs" / "r5c_a3"
+new_literal: LOGS = RESOURCES / "logs" / "r5d_a1"
+edit_transactions_max: 1
+source_edit_scope: COPIED_R5D_RUNNER_ONLY__R5C_SOURCE_UNCHANGED
+reused_inputs: {resource_copy: true, copied_files: 252, copied_bytes: 198532520, r5c_modified: false}
+exact_command:
+  cwd: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828
+  interpreter: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+  argv: [C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, -B, resources/src/split_closure/run_r5d.py]
+  attempts: 1
+  retry: false
+  output_log_root: resources/logs/r5d_a1
+  required_precondition: resources/logs/r5d_a1_absent
+allowed_actions_after_ack: [ONE_COPIED_RUNNER_EDIT, STATIC_COMPILE_NO_BYTECODE, ONE_RUNNER_LAUNCH, C3_C7_NONCLAIM_CONTROLS, HANDOFF_RESEAL]
+forbidden_actions: [R5C_MODIFICATION, SECOND_SOURCE_EDIT, SECOND_RUNNER_LAUNCH, NETWORK, NATURAL_RUN, SELECTED_RUN, CLAIM_RUN, SECOND_PIVOT, SCIENTIFIC_REVISION, STAGEB, CLEANUP]
+evidence_ceiling: PRECLAIM_ENGINEERING_FIDELITY_ONLY__NO_SCIENTIFIC_INFERENCE
+next_authority: MAINLINE

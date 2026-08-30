@@ -1,0 +1,41 @@
+schema: stagea-nonclaim-baseline-support-probe-start-v1
+assignment_id: STAGEA-L2-20260829-LLVM-RVV-R6A-INTEGRATED-NATURAL-PACKET-REDESIGN
+classification: CONTROL_NON_CLAIM_BEARING__INTERFACE_SUPPORT_ONLY
+model_route: gpt-5.6-luna
+thinking: xhigh
+resource_root: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources
+inventory_path: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/RESOURCE_INVENTORY.yaml
+resource_init:
+  create_standard_dirs_once: [downloads, archives, src, build, env, cache, tmp, logs]
+  network_bytes_max: 0
+  stored_bytes_max: 67108864
+  attempts_max: 6
+source_archive: {path: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r2/resources/downloads/llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76.tar.gz, bytes: 280166923, sha256: BC0E5CC6B7F4978242749E0FF666DDA851994EFFC178BD782C4799D7C2B52695}
+runtime: {path: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, bytes: 91648, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA}
+tool: {path: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/env/rvv-toolchain/bin/llc.exe, bytes: 78790144, sha256: 65A9EAE8B026DF2328B3A75048959CBF8F9F9AC7F86E854C7DDAC8F86485C643}
+extraction:
+  method: PYTHON_TARFILE_EXACT_MEMBER_BYTES
+  members:
+    - {member: llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76/llvm/test/CodeGen/RISCV/rvv/allone-masked-to-unmasked.mir, destination: resources/src/natural_inputs/selected-00.mir, sha256: 50761EF7C895D41E89EFAC48A6E6E5DE297689B1E99383B4E35010123DC519B1}
+    - {member: llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76/llvm/test/CodeGen/RISCV/rvv/mask-reg-alloc.mir, destination: resources/src/natural_inputs/selected-01.mir, sha256: 4694DA0F8052C1F03D616FD5187C028BDA05EC52C728E2EC3E5181F10D0C528B}
+    - {member: llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76/llvm/test/CodeGen/RISCV/rvv/zvlsseg-spill.mir, destination: resources/src/natural_inputs/selected-02.mir, sha256: 3F9E463228A1D73F7EBA7A8E623830C4C9204F9B5F8C90CC0CD5225D64B6CE9B}
+    - {member: llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76/llvm/test/CodeGen/RISCV/rvv/zvlsseg-spill.mir, destination: resources/src/natural_inputs/selected-03.mir, sha256: 3F9E463228A1D73F7EBA7A8E623830C4C9204F9B5F8C90CC0CD5225D64B6CE9B}
+probe_input: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/src/natural_inputs/selected-00.mir
+probe_commands:
+  - {id: CURRENT_FULL_PIPELINE_NO_RA_OVERRIDE, argv: [E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/env/rvv-toolchain/bin/llc.exe, -mtriple=riscv64, -mattr=+v, -verify-machineinstrs, E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/src/natural_inputs/selected-00.mir, -o, E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/build/support/current.mir]}
+  - {id: DEFAULT_FULL_PIPELINE_EXPLICIT_GREEDY, argv: [E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/env/rvv-toolchain/bin/llc.exe, -mtriple=riscv64, -mattr=+v, -regalloc=greedy, -verify-machineinstrs, E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/src/natural_inputs/selected-00.mir, -o, E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/build/support/default-greedy.mir]}
+  - {id: GREEDY_RUN_PASS, argv: [E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/env/rvv-toolchain/bin/llc.exe, -mtriple=riscv64, -mattr=+v, -run-pass=greedy, -verify-machineinstrs, E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/src/natural_inputs/selected-00.mir, -o, E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/build/support/greedy-run-pass.mir]}
+  - {id: PBQP_FULL_PIPELINE, argv: [E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/env/rvv-toolchain/bin/llc.exe, -mtriple=riscv64, -mattr=+v, -regalloc=pbqp, -verify-machineinstrs, E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/src/natural_inputs/selected-00.mir, -o, E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/build/support/pbqp-full.mir]}
+  - {id: PBQP_RUN_PASS, argv: [E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/env/rvv-toolchain/bin/llc.exe, -mtriple=riscv64, -mattr=+v, -run-pass=regallocpbqp, -verify-machineinstrs, E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/src/natural_inputs/selected-00.mir, -o, E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources/build/support/pbqp-run-pass.mir]}
+command_contract:
+  cwd: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources
+  timeout_seconds_each: 300
+  env: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONNOUSERSITE: '1'}
+  stdout_stderr: resources/logs/baseline-support/<command_id>.(stdout|stderr).bin
+  execute_all_five_even_after_native_nonzero: true
+  native_nonzero_is_support_observation_not_retry: true
+required_outputs: [BASELINE_SUPPORT_MATRIX.yaml, RESOURCE_INVENTORY.yaml]
+visible_fields: [command_id, argv, exit_code, timed_out, output_present, stdout_sha256, stderr_sha256, cpu_seconds, wall_seconds, peak_rss_bytes, support_status]
+hidden_fields: [instruction_counts, spill_reload_counts, candidate_effect, baseline_rank, relative_performance]
+forbidden_actions: [candidate_run, legality_or_full_cost_claim_run, natural_effect_observation, result_aware_command_change, retry, network, shared_write, cleanup, stageb]
+stop_after: SUPPORT_MATRIX_SEALED__WAIT_MAINLINE

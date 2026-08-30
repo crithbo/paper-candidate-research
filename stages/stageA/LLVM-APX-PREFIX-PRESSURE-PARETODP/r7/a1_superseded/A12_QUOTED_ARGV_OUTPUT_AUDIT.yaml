@@ -1,0 +1,41 @@
+schema: apx-r7-a12-quoted-argv-output-audit-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM-A1
+obligation: A12_CURRENT_COMPLETE_WITH_CORRECTED_TRANSPORT
+transport:
+  executable: resources/env/apx-toolchain/bin/llc.exe
+  argv_token_count_including_executable: 9
+  token_for_token_match_addendum: true
+  comma_bearing_mattr_one_array_element: true
+  invocation: POWERSHELL_CALL_OPERATOR_PLUS_ARGUMENT_ARRAY_SPLATTING
+  invoke_expression: false
+  command_string_reparse: false
+  child_argv_changed: false
+child_execution:
+  attempts_used: 1
+  attempts_max: 1
+  exit_code: 0
+  stdout_bytes: 0
+  stderr_bytes: 0
+  argv_record: resources/logs/commands/A12_current_argv.json
+  argv_record_sha256: 497A62B0D972A009C902944841105D7564901ECEA7060665B69C565A9BDD0853
+  exit_log_sha256: 9A271F2A916B0B6EE6CECB2426F0B3206EF074578BE55D9BC94F6F3FE3AB86AA
+output:
+  path: resources/logs/control/llvm_current_complete.mir
+  actual_sha256: 4AA5C7074E53F774CE1EC2A685246932219377C4AEFC7F739200A3CF8011F8E6
+  expected_sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A
+  actual_bytes: 2074
+  expected_bytes: 2024
+  exact_hash_match: false
+  postprocessing_performed: false
+diagnosis:
+  raw_log: resources/logs/commands/A12_output_hash_mismatch.txt
+  raw_log_sha256: 0E915C384983B7E6670085CF699F26E4AB845CA36603EBBA576DAC14DBA7052E
+  semantic_diff_scope: MODULE_ID_AND_SOURCE_FILENAME_PATH_TEXT_ONLY
+  actual_module_id: resources/src/r6_harness/apx_witness.mir
+  expected_module_id: apx_witness.mir
+  frozen_contract_conflict: EXACT_RELATIVE_INPUT_ARGV_PRODUCES_PATH_BEARING_MIR_WHILE_EXPECTED_HASH_WAS_FROM_BASENAME_INPUT_ARGV
+retry_performed: false
+A13_A14_A15_A16_started: false
+result: FAIL_CLOSED_EXIT0_BUT_FROZEN_EXACT_OUTPUT_HASH_MISMATCH
+scientific_inference: NONE
+

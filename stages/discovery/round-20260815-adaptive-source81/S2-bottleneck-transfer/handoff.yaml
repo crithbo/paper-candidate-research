@@ -1,0 +1,23 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE81-R40-ORDINARY-BREADTH-V1
+lane: S2-bottleneck-transfer
+status: COMPLETE_ZERO_PROPOSALS
+conclusion_zh: "本轮没有 Stage0 建议。BOLT 命中历史精确对象而未重开；RISC-V GP 窗口与数据组联合布局保留为一个同对象 raw，但当前提交钉死、完整 action union、直接同对象文献碰撞、静态两布局见证和目标特异保证尚未闭合，故诚实标为 NOT_ADMITTED_UNFROZEN。"
+counts:
+  seed_count: 6
+  selected_anchor_count: 1
+  historical_exact_exclusions: 1
+  raw_unique_family_count: 1
+  deep_count: 0
+  clean_brief_count: 0
+families:
+  - signature: LLVM_BOLT_PROFILE_GUIDED_BINARY_LAYOUT__FIXED_ELF_PROFILE__POSTLINK_LAYOUT
+    disposition: EXCLUDED_BEFORE_LOCATOR__HISTORICAL_EXACT_FAMILY_NO_EXTERNAL_DELTA
+  - signature: RISCV_GP_WINDOW_DATA_GROUP_LAYOUT__FIXED_MEDLOW_STATIC_ELF__STOCK_LLD_RELAX_GP
+    disposition: NOT_ADMITTED_UNFROZEN__FINITE_CURRENT_UNION_AND_GUARANTEE_CLOSURE_REQUIRED
+    structural_paper_potential: "Potential N2 only if a target-specific constrained GP/data-layout algorithm and guarantee survive direct-collision audit."
+    current_evidence_readiness: "Insufficient for brief; source/guarantee/collision debt is bounded in S81-CQ01/CQ02."
+identity_note: "No registry match is not a novelty conclusion; BOLT exact history was excluded, prior RVC register-allocation work was RELATED_ONLY."
+resource_status: NO_LOCAL_RESOURCE_ACTIONS
+next_step_zh: "本轮不续做 closure。若主线另行投递同一精确对象，可按 S81-CQ01/CQ02 的有限路线闭合；否则保持不准入。"
+manifest: HASH_MANIFEST.sha256
+lane_state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

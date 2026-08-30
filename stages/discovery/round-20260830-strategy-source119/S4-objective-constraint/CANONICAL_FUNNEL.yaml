@@ -1,0 +1,37 @@
+schema: discovery-canonical-funnel-v1
+assignment_id: DISCOVERY-S4-20260830-SOURCE119-OBJECTIVE-CONSTRAINT
+model_route: gpt-5.6-sol/high__temporary_user_command_override
+canonical_before_results: {seed_pool: DIVERGENCE_SEED_POOL.md, rq_candidates: RQ_CANDIDATES.md}
+source_actions: {search_or_open_calls_used: 8, maximum: 24, build_or_experiment: 0}
+families:
+  - id: S4-119-F01
+    rq: RQ01
+    anchor: ExecuTorch XNNPACK architecture/profiling documentation
+    disposition: LOCATOR_ONLY
+    reason: Delegate profiling is documented, but a versioned first-run/delegate-initialization estimand and same-model CPU-vs-accelerator cold-start denominator were not frozen.
+    scientific_inference: NONE
+  - id: S4-119-F02
+    rq: RQ02
+    anchor: ONNX Runtime Execution Providers documentation
+    disposition: LOCATOR_ONLY__CURRENT_PRIORITY_FALLBACK_PRESENT
+    reason: GetCapability partitioning and ordered EP fallback to CPU are current native mechanisms; the proposed tail/full-cost residual lacks a frozen workload, boundary metric, and non-generic action beyond selecting/provider-ordering and profiling.
+    scientific_inference: NONE
+  - id: S4-119-F03
+    rq: RQ03
+    anchor: llama.cpp tools/rpc README current master
+    disposition: DROP__CURRENT_ACTION_ABSORBED_OR_GENERIC_CONFIGURATION
+    reason: The current RPC backend already exposes local/remote devices, automatic memory-proportional placement, explicit tensor-split, TCP/RDMA selection, and local tensor cache. A new placement selector without a target-specific action is configuration/autotuning, not a viable N2 contribution.
+    direct_current_loci: [--rpc, --tensor-split, local-cache, TCP/RDMA negotiation]
+  - id: S4-119-F04
+    rq: RQ04
+    anchor: MLPerf Inference documentation v6.1/v6.0 surface
+    disposition: LOCATOR_ONLY
+    reason: Current scenarios and power/system reporting are canonical, but no same-object cold-start/session-state estimand or ranking-reversal threshold was frozen in the bounded source review.
+    scientific_inference: NONE
+backlog_seed_count: 4
+evidence_qualified_raw: 0
+candidate_grade_deep_reviews: 1
+clean_stage0_briefs: 0
+stage0_dispatch_effect: NONE
+result_aware_backfill: NOT_RUN
+bounded_statement: Failure to freeze an estimand within this assignment is not evidence that none exists.

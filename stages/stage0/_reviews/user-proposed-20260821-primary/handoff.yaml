@@ -1,0 +1,32 @@
+assignment_id: STAGE0-P1-20260821-USER-QREFINE-PATCHYIELD-PRIMARY
+mode: PRIMARY
+lane: STAGE0-BATCH-GATE
+assignment_sha256: 3C0AA65FE997FDBA4B1F07BBFD6DCD0643286F59D1E9990BE0C0AE71E33B30F3
+source_input_verification:
+  qrefine_handoff_sha256: DDFA275A3FC6AB1D353608342B408A4AD112744CA5DFF273CFC766126BBA9191
+  qrefine_manifest_sha256: CCC147D553DD60F0F5BADC2ABF2E6A93166C3D7220BFE74C79B9D6F0EC1B730E
+  patchyield_handoff_sha256: E08EA73212F809B0CFD9130523BFC077101439587254923981374854FD5A22B7
+  patchyield_manifest_sha256: C12C70EA1DAE715116C26DFB26A76BF0ED380A2919FDB17916B1CB3AECD136D7
+topic_decisions:
+  QREFINE-TRITON-W4A16:
+    decision: PASS_RECOMMENDED
+    quality_tier: TIER_B_Q2_VIABLE
+    confirmation_required: true
+    stageA_authorized: false
+    stageB_authorized: false
+    novelty_status: SEARCH_BOUNDED_OPEN__NO_DIRECT_FATAL_ESTABLISHED
+  PATCHYIELD-CALL:
+    decision: REVISE_ONCE
+    confirmation_required: true
+    stageA_authorized: false
+    stageB_authorized: false
+    sole_atomic_gate: READY_CALL_BOUNDED_BYPASS_16__PROGRESS_INCREMENTAL_FAIR_POLICY_CERTIFICATE
+    stop_sentinel: BELOW_Q2_STOP__GENERIC_PRIORITY_OR_EXISTING_FAIR_LLM_APPLICATION_SCHEDULING
+resource_localization:
+  resource_root: stages/stage0/_reviews/user-proposed-20260821-primary/resources
+  official_blobs_persisted: 4
+  persisted_bytes: 88437
+  claim_bearing_execution: false
+  provenance_note: first-precall-ledger-missing__positive-boundary-use-only
+return_lane_state: IDLE_REUSABLE
+mainline_action: route_each_decision_to_an_independent_confirmation_sentry_only

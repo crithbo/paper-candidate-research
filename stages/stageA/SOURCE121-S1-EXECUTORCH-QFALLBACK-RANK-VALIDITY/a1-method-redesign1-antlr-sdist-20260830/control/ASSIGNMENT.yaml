@@ -1,0 +1,26 @@
+schema: stagea-same-object-method-redesign-v1
+assignment_id: STAGEA-L3-20260830-EXECUTORCH-QFALLBACK-METHOD-REDESIGN1
+topic_id: SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY
+lane_id: CANDIDATE_EXECUTION_LANE_3
+mode: A1_DECISIVE_PILOT__SAME_OBJECT_METHOD_REDESIGN_1_OF_1
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+unique_write_directory: stages/stageA/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/a1-method-redesign1-antlr-sdist-20260830
+resource_root: stages/stageA/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/a1-method-redesign1-antlr-sdist-20260830/resources
+upstream:
+  a0_and_failed_a1_handoff: {path: stages/stageA/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/a0-execution-readiness-20260830/handoff.yaml, sha256: 9050864A95D343797D4788BFADD0881288BAE2971FCF97A10981BCA7EF8455AC}
+  manifest: {path: stages/stageA/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/a0-execution-readiness-20260830/HASH_MANIFEST.sha256, sha256: D1B78182844E5373BE34C7449F43F41F0F5E262E8A37E071A61F4C410A6ED5AE}
+same_object_invariants: {model: HuggingFaceTB/SmolLM2-135M@93efa2f097d58c2a74874c7e644dbc9b0cee75a2, variants: [portable_only, xnnpack_standard, xnnpack_extended_if_legal], quality_thresholds: unchanged, feature_schema: unchanged, full_cost_fields: unchanged, warmup: 3, measured_repetitions: 10, profiling_arms: [off, on], claim_ceiling: RELEASE_SPECIFIC_CANONICAL_WINDOWS_XNNPACK_BENCHMARK_ONLY}
+redesign_only:
+  cause: antlr4_python3_runtime_4_9_has_no_binary_wheel
+  exact_sdist: {filename: antlr4-python3-runtime-4.9.3.tar.gz, sha256: F224469B4168294902BB1EFA80A8BF7855F24C99AEF99CBEFC1BCD3CCE77881B}
+  acquisition_controller_processes: 1
+  controller_method: in_process_pip_internal_download_with_no_binary_only_for_antlr_then_direct_HuggingFace_revision_HTTP_download
+  remaining_network_process_budget_after: 0
+  local_install: no_index_assignment_local_only
+  system_install: forbidden
+redesign_consumption_point: first_network_call_by_acquisition_controller
+prefect_gate_before_claim: [all_package_and_model_files_hashed, executorch_import_and_runtime_binding, at_least_2_legal_distinct_topologies, same_source_edge_runtime_quality, no_double_counting_features]
+execution: {claim_controller_processes: 1, retries: 0, held_out_models: 0, refit: 0, backfill: 0}
+allowed: [bootstrap_ACK, one_acquisition_controller_process, local_no_index_install, topology_quality_gate, one_claim_controller, raw_full_cost_result_report_handoff_manifest]
+forbidden: [second_network_process, alternate_model_or_executorch_version, result_aware_variant_selection, retry, system_install, proprietary_backend, StageB, shared_write]
+

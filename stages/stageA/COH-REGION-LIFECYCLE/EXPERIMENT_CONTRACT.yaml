@@ -1,0 +1,185 @@
+schema_version: coh-region-lifecycle-stagea-contract-v1
+contract_id: COH-RL-A1-ATS-TRACE-20260809
+frozen_at: 2026-08-09T14:30:00+08:00
+stage: STAGEA
+stage_semantics: HIGHEST_RISK_PREMISE_PILOT_NOT_MAIN_CLAIM_COMPLETION
+execution_authority:
+  stagea_authorized: true
+  stageb_authorized: false
+  stageb_user_approval_id: null
+  only_write_directory: D:\project\writing\reserch\stages\stageA\COH-REGION-LIFECYCLE
+
+research_question: >-
+  On one publicly defined hardware-coherent GH200 ATS memory mode, do two
+  immutable-after-initialization natural CUDA programs expose a non-empty
+  region/lifecycle combination space that is not identical to any one of
+  system allocation, demand UVM, advised/prefetched UVM, or explicit-copy
+  policies after an explicit cold-path cost ledger is charged?
+risk_bearing_premise: >-
+  B0-B3 can be represented under one same-mode cost contract, and the
+  region-wise finite lifecycle action product contains mixed plans that are
+  not absorbed by any single uniform B0-B3 policy.
+
+exact_object:
+  hardware_family: NVIDIA GH200 Grace Hopper Superchip
+  required_interconnect: cache-coherent NVLink-C2C
+  addressing_mode: ATS
+  os_family: Linux aarch64
+  driver: NVIDIA Linux R550.54.14
+  cuda_toolkit: 12.4.0
+  mode_boundary: NUMA-style OS-visible CPU and GPU memory; CDMM is excluded
+  mandatory_runtime_checks:
+    - "nvidia-smi -q | grep -A1 'Addressing Mode' must report ATS"
+    - cudaDevAttrConcurrentManagedAccess == 1
+    - cudaDevAttrPageableMemoryAccess == 1
+    - cudaDevAttrPageableMemoryAccessUsesHostPageTables == 1
+    - cudaDevAttrDirectManagedMemAccessFromHost == 1
+    - cudaDevAttrHostNativeAtomicSupported == 1
+  page_policy:
+    system_page_size: 64_KiB
+    access_counter_migration: enabled_as_CUDA_12_4_default
+    autonuma: disabled
+  excluded_objects:
+    - PCIe RTX 4070 Laptop GPU
+    - HMM software-coherent mode
+    - CDMM non-NUMA mode introduced with CUDA 13.0-class drivers
+    - multi-GPU and oversubscribed execution
+
+public_sources:
+  - role: authoritative_mode_contract
+    url: https://docs.nvidia.com/cuda/archive/12.4.0/cuda-c-programming-guide/index.html#heterogeneous-memory-management
+    scope: ATS attributes and hardware-coherent full unified memory
+  - role: authoritative_driver_behavior
+    url: https://docs.nvidia.com/cuda/archive/12.4.0/cuda-toolkit-release-notes/index.html
+    scope: access-counter migration enabled by default on Grace Hopper
+  - role: authoritative_addressing_query
+    url: https://docs.nvidia.com/deploy/nvidia-smi/index.html#addressing-mode
+    scope: ATS addressing-mode meaning
+  - role: direct_measurement_anchor
+    url: https://arxiv.org/abs/2407.07850v1
+    scope: GH200 first touch, PTE initialization, migration, and six applications
+
+locked_programs:
+  repository: https://github.com/utcs-scea/altis
+  commit: 042e2926d1fe9a5ea5b3e2d659b75bf925b152cc
+  programs:
+    - id: ALTIS_PATHFINDER_SIZE1
+      source: src/cuda/level1/pathfinder/pathfinder.cu
+      source_git_blob_sha1: 2b90097be5dc424f56a76af5edbd6ab672029e0b
+      arguments: "--rows 8192 --cols 8192 --pyramidHeight 4 --instances 1 --passes 1"
+      immutable_regions: [wall_rows_1_to_8191]
+      mutable_regions: [ping_pong_frontier, final_row]
+      input_rule: deterministic_internal_generation_seed_7
+    - id: ALTIS_BFS_65536
+      source: src/cuda/level1/bfs/bfs.cu
+      source_git_blob_sha1: cee59c090f810ce3c485cdb3a611e5d1c692f9c4
+      input: data/bfs/bfs_65536
+      input_git_blob_sha1: 66b114a7caf3fb10eeaae56b3f9734f226e4c6e5
+      input_size_bytes: 3166677
+      input_shape: 65536_nodes_327765_edges_source_forced_to_0_by_program
+      immutable_regions: [graph_nodes, graph_edges]
+      mutable_regions: [frontier_masks, visited, cost, continuation_flag]
+
+same_function_contract:
+  output: byte-identical program output for the same frozen input and seed
+  precision: original integer semantics
+  kernel_algorithm: unchanged
+  synchronization: original host-visible synchronization points retained
+  permitted_changes:
+    - allocation representation per declared region
+    - exact-byte-equivalent initializer executor when explicitly legal
+    - pre-phase advice, prefetch, or explicit copy
+  forbidden_changes:
+    - graph, grid, seed, output, kernel, precision, or termination change
+    - physical page-size tuning outside the frozen 64_KiB object
+    - future information unavailable at the declared region-phase boundary
+
+baselines:
+  B0:
+    name: SYSTEM_FIRST_USE
+    representation: system_malloc
+    materialization: access_counter_migration_only
+  B1:
+    name: UVM_DEMAND
+    representation: cudaMallocManaged
+    materialization: demand_fault_and_migration
+  B2:
+    name: UVM_ADVICE_PREFETCH
+    representation: cudaMallocManaged
+    materialization: legal_per_region_advice_and_prefetch
+  B3:
+    name: EXPLICIT_COPY
+    representation: cudaMalloc_plus_host_storage
+    materialization: explicit_H2D_D2H
+  B4:
+    name: REGIONWISE_UNION_ORACLE
+    role: headroom_ceiling_only
+    deployable_baseline: false
+
+metrics:
+  primary:
+    - mixed_plan_exists_after_planner_cost
+    - residual_vs_best_single_B0_B3_policy
+    - absorption_rate_by_best_single_policy
+  mechanism:
+    - per_region_selected_action
+    - number_of_distinct_actions_per_plan
+    - action_switch_count_across_lifecycle
+  cost_units: normalized_copy_equivalent_byte_units
+  interpretation: analytical_sensitivity_only_not_time_or_speedup
+
+full_cost_ledger:
+  charged:
+    - allocation_and_deallocation_proxy
+    - CPU_initialization_when_required
+    - system_PTE_first_touch_proxy
+    - demand_migration_or_prefetch
+    - explicit_H2D_and_D2H
+    - remote_C2C_access
+    - advice_prefetch_metadata_and_sync_proxy
+    - CPU_GPU_phase_transition_proxy
+    - region_extraction_and_planner_overhead
+    - fallback_to_best_single_policy_when_mixed_plan_is_not_better
+  omitted_from_comparison_as_common:
+    - unchanged_kernel_compute
+  unavailable_until_GH200:
+    - measured_PTE_fault_replay_counts
+    - measured_NVLink_C2C_bytes
+    - measured_migration_bytes
+    - measured_wall_clock_and_energy
+
+randomness:
+  probe: deterministic_cartesian_grid
+  program_seed: 7
+  random_seed: null
+  repetitions: 2_identical_replays
+
+stopping_conditions:
+  STOP:
+    - no_positive_mixed_residual_in_either_locked_program_over_the_frozen_grid
+    - no_common_B0_B3_same_mode_cost_contract_can_be_written
+    - a_single_deployable_B0_B3_policy_matches_every_candidate_plan
+  REVISE_ONCE:
+    - result_depends_on_an_unfrozen_or_semantically_invalid_initializer
+    - only_one_locked_program_has_any_positive_mixed_residual
+  PASS_RECOMMENDED_ceiling:
+    - both_locked_programs_have_a_positive_mixed_residual_region
+    - counterexamples_and_absorption_regions_are_also_reported
+    - conclusion_is_limited_to_NOT_FALSIFIED_or_PRELIMINARY_SUPPORT
+
+commands:
+  working_directory: D:\project\writing\reserch\stages\stageA\COH-REGION-LIFECYCLE
+  python: C:\Users\15383\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe
+  run_1: "& 'C:\\Users\\15383\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe' '.\\PROBE_SCRIPT.py' --inputs '.\\LOCKED_INPUTS.json' --output '.\\results\\run1'"
+  run_2: "& 'C:\\Users\\15383\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe' '.\\PROBE_SCRIPT.py' --inputs '.\\LOCKED_INPUTS.json' --output '.\\results\\run2'"
+  validate: "Get-FileHash -Algorithm SHA256 '.\\results\\run1\\summary.json','.\\results\\run2\\summary.json','.\\results\\run1\\grid.csv','.\\results\\run2\\grid.csv'"
+  timeout_seconds_each: 120
+
+evidence_ceiling:
+  current: ANALYTICAL_TRACE_SOFTWARE_ONLY
+  supports: lifecycle_decision_space_nonempty_not_falsified
+  does_not_support:
+    - GH200_performance_improvement
+    - causal_PTE_or_migration_speedup
+    - hardware_or_silicon_efficiency
+    - MAIN_CLAIM_ESTABLISHED

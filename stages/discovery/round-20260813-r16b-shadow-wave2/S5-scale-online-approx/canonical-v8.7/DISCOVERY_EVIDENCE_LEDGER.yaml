@@ -1,0 +1,42 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S5-20260813-R16B-V9-PROSPECTIVE-SHADOW-WAVE2
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+mode_for_this_artifact: canonical-v8.7-off
+cutoff: '2026-08-13'
+families:
+  - id: S5-R16B-F01
+    signature: GTK4_ICON_THEME_CACHE_CONSTRUCTOR
+    source: https://docs.gtk.org/gtk4/gtk4-update-icon-cache.html
+    evidence: "GTK 4.23.1 command docs; cache target, stock use, and flags read."
+    current_union: "gtk4-update-icon-cache with force/ignore-theme-index/index-only/include-image-data/validate"
+    disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_ATOMIC_ACTION
+    full_cost: [directory-tree-walk, image-data-read, cache-write, bytes, startup-mmap-read]
+  - id: S5-R16B-F02
+    signature: GDK_PIXBUF_LOADERS_CACHE_CONSTRUCTOR
+    source: https://docs.gtk.org/gdk-pixbuf/struct.PixbufModule.html
+    evidence: "GdkPixbuf 2.44.6 docs; producer, default output, overrides, and runtime cache use read."
+    current_union: "gdk-pixbuf-query-loaders with GDK_PIXBUF_MODULEDIR and GDK_PIXBUF_MODULE_FILE"
+    disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_ATOMIC_ACTION
+    full_cost: [module-probing, signature-extraction, cache-write, runtime-parse, avoided-dlopen]
+  - id: S5-R16B-F03
+    signature: GIO_MODULES_CACHE_CONSTRUCTOR
+    source: https://docs.gtk.org/gio/type_func.IOModule.query.html
+    evidence: "GIO 2.89.0 docs; query function and gio-querymodules cache requirement read."
+    current_union: "gio-querymodules plus documented module-directory controls"
+    disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_ATOMIC_ACTION
+    full_cost: [module-probing, extension-discovery, cache-write, startup-load-avoidance]
+  - id: S5-R16B-F04
+    signature: XDG_DESKTOP_MIME_CACHE_CONSTRUCTOR
+    source: https://avolkov.pages.freedesktop.org/xdg-specs/desktop-entry-spec/0.9.5/ar01s07.html
+    evidence: "freedesktop Desktop Entry MIME-registration specification; native generator and no-priority boundary read."
+    current_union: update-desktop-database
+    disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_ATOMIC_ACTION
+    full_cost: [desktop-file-parse, mime-mapping, cache-write, runtime-file-read-avoidance]
+queries:
+  - {id: Q01, purpose: "pre-depth project/R16A exact-signature dedup", result: "no exact hits; mainline cross-lane adjudication pending"}
+  - {id: Q02, purpose: "official current GTK/GdkPixbuf/GIO producer and reader check", result: "native complete actions documented"}
+  - {id: Q03, purpose: "official desktop MIME producer and semantic-boundary check", result: "native producer documented; no priority guarantee added"}
+execution_readiness:
+  state: E1
+  e2_result: NOT_RUN_FORBIDDEN_BY_ASSIGNMENT
+claim_ceiling: "Only narrow current-native direct coverage; no performance, absence, or general ecosystem claim."

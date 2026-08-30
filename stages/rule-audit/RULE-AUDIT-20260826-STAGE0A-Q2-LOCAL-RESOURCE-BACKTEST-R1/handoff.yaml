@@ -1,0 +1,43 @@
+schema_version: RULE_AUDIT_HANDOFF_V1
+audit_id: RULE-AUDIT-20260826-STAGE0A-Q2-LOCAL-RESOURCE-BACKTEST-R1
+from_role: RULE_AUDIT_SENTRY
+to_role: MAINLINE
+status: READY_FOR_MAINLINE_FREEZE_AND_BACKTEST_DISPATCH
+date: '2026-08-26'
+write_directory: E:/project/writing/reserch/stages/rule-audit/RULE-AUDIT-20260826-STAGE0A-Q2-LOCAL-RESOURCE-BACKTEST-R1
+decision: BACKTEST_REQUIRED
+user_intent:
+  approved_to_advance: true
+  local_resource_priority: true
+  avoid_resource-blocked_stagea_denominator: true
+  executor_must_not_know_existing_success: true
+  executor_treats_case_as_ordinary_new_candidate: true
+shared_files_modified: false
+registry_modified: false
+scientific_or_resource_action_started: false
+deliverables:
+  - RULE_AUDIT_REPORT.md
+  - BACKTEST_PROTOCOL.md
+  - CASE_POOL.yaml
+  - SOURCE_LEDGER.md
+  - RULE_CHANGE_PROPOSAL.md
+  - HASH_MANIFEST.sha256
+requested_mainline_action:
+  - freeze an exact PACKER assignment with this directory hash-pinned
+  - assign distinct PACKER, EXECUTOR, and AUDITOR long-lived lanes
+  - require resource preflight before selecting the eight Stage A primary cases
+  - preserve blinded identities, historical cutoff, and negative controls
+  - disclose full case identity and gold label only to PACKER and final AUDITOR
+  - give Stage0 and StageA execution lanes ordinary neutral assignments with random ids
+  - do not mention backtest, published paper, Q2, control label, known success, or expected pass to execution lanes
+  - do not give author method implementations or author reproduction scripts to StageA owner or gate
+  - do not modify production rules until audited results identify a repeated defect
+forbidden_until_mainline_freeze:
+  - downloads
+  - builds
+  - experiments
+  - scientific_state_transitions
+  - shared_rule_or_template_edits
+  - registry_edits
+next_gate: MAINLINE_MECHANICAL_ACCEPTANCE_AND_ASSIGNMENT_FREEZE
+

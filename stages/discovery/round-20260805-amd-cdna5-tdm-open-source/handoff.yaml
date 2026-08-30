@@ -1,0 +1,37 @@
+handoff_schema: discovery-v8
+discovery_date: 2026-08-05
+scope: amd-cdna5-tdm-open-source
+decision: ZERO_PROPOSALS
+stage0_recommendation: false
+quality_result: BELOW_Q2_STOP
+write_scope_verified: stages/discovery/round-20260805-amd-cdna5-tdm-open-source
+official_fact_boundary:
+  cdna5_tdm: CONFIRMED_AMD_PRODUCT_ARCHITECTURE_FACT
+  gfx1250_mapping: CONFIRMED_LLVM_RDNA4_GFX12_5_ROUTE
+  gfx1250_equals_cdna5: NOT_ESTABLISHED_BY_INSPECTED_OFFICIAL_SOURCES
+  amd_tdm_equals_nvidia_tma: FALSE_TERMINOLOGY_AND_OBJECT_EQUIVALENCE
+collisions:
+  - id: triton-pr-8586
+    class: DIRECT_FATAL_FOR_GENERIC_TDM_WMMA_WARP_PIPELINE
+  - id: triton-pr-8947
+    class: DIRECT_FATAL_FOR_GENERIC_GFX1250_WARP_SPECIALIZATION
+  - id: triton-pr-9342
+    class: DIRECT_SUBTRACT_FOR_CLUSTER_MULTICAST_GEMM
+directions_examined: 6
+directions_proposed: 0
+artifacts:
+  - OFFICIAL_FACT_BOUNDARY.md
+  - SEARCH_LOG.md
+  - DIRECTION_MATRIX.md
+  - README.md
+  - handoff.yaml
+prohibited_next_actions_without_new_evidence:
+  - treat_gfx1250_as_cdna5
+  - call_amd_tdm_nvidia_tma
+  - propose_stage0_from_this_drop_set
+  - run_formal_gpu_experiments
+reconsideration_requirements:
+  - officially_mapped_same_object
+  - natural_workload_or_real_fault_as_appropriate
+  - non_colliding_mechanism_with_falsifier
+  - pinned_reproducible_full_cost_contract

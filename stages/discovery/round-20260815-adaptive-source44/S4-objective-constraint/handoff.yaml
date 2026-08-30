@@ -1,0 +1,50 @@
+assignment_id: DISCOVERY-S4-20260815-ADAPTIVE-SOURCE44-RAW-TO-STAGE0-OWNERSHIP-BRIDGE-V1
+lane: S4_OBJECTIVE_CONSTRAINT
+write_directory: stages/discovery/round-20260815-adaptive-source44/S4-objective-constraint
+frozen_inputs:
+  common_control_sha256: 5B3F5EAAD2C5D92745043A278B138EF90AFFE62E2F959CD8B01F08DC01B0FFA9
+  assignment_sha256: F9C288811006426D56F98D6E98BCB7979D0DABB6DC254B79714C2ACECA280B3D
+  role_discovery_sha256: 1A5E750718D589F0654B1867BC4ACC6B61BCE505E445CDD571FAA28A4B596C37
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+method:
+  canonical: V8_7_POTENTIAL_READINESS_SEPARATED
+  rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  model_route: gpt-5.6-terra__high
+  modes_off: [DISCOVERY_CLAIM_PACK, V9, SHADOW, SOL_PACKET]
+identity_preflight:
+  source43_open_bounded_identities_excluded_without_external_delta:
+    - SOURCE43_SWIFT_ASYNC_CONTEXT_FORWARDING
+    - SOURCE43_LLVM_BYREF_INVOKE
+    - SOURCE43_AMDGPU_GFX12_GLOBAL_LOAD_LDS
+  related_only_excluded: false
+funnel:
+  offline_divergence_seeds: 12
+  selected_frames: 3
+  rq_variants: 6
+  evidence_qualified_raw: 0
+  deep_reviews: 0
+  briefs: 0
+raw_to_stage0_ownership_bridge:
+  revision: RAW_TO_STAGE0_OWNERSHIP_BRIDGE_V1
+  routing_point_reached: false
+  telemetry:
+    new_raws: 0
+    discovery_field_missing: 0
+    known_fatal: 0
+    clean_brief_with_stage0_debt: 0
+    briefs: 0
+    later_independent_stage0_results: 0
+  conclusion_zh: 未有近raw/new raw，因此不允许把前端缺件转移为Stage0债务。
+closure_queue:
+  path: SOURCE_CLOSURE_QUEUE.yaml
+  concrete_items: 0
+  attempt_counter: 0
+  exhausted: false
+resources:
+  inventory: RESOURCE_INVENTORY.yaml
+  attempt_counter: 0
+  status: PASS__NO_RESOURCE_ACTION
+final_disposition: COMPLETE_ZERO_PROPOSALS
+summary_zh: 本轮形成3个同对象RQ方向和6个版本，但均未冻结单项目/版本自然或规范载体、完整estimand及可证伪边界，停留LOCATOR_ONLY__RQ_BACKLOG；无raw、无brief、无科学负推断。
+notify_mainline: required_on_completion
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

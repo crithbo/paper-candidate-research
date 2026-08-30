@@ -1,0 +1,24 @@
+schema_version: terminal-minimal-evidence-pack-plan-v1
+assignment_id: MAINLINE-TERMINAL-EVIDENCE-PACK-COMPACTION-20260824-W4
+pack_root: stages/control/terminal-evidence-pack-compaction-20260824-W4/evidence_pack
+copy_policy: EXACT_READ_ONLY_COPY__PRESERVE_RELATIVE_SEMANTIC_GROUPING
+topics:
+  ARROW:
+    copy: [INITIAL_ROOT_FILES, REVISION1_ROOT_FILES, INITIAL_AND_REVISION1_INDEPENDENT_GATE_DIRECTORIES]
+    keep_in_place: [initial/assets/natural, initial/artifacts, revision1/artifacts, initial/scripts, revision1/scripts]
+    delete_only: [initial/assets/vendor, initial/assets/downloads, initial/assets/source, revision1/assets]
+  LLVM_BITCODE:
+    copy: [RESUME1_ROOT_FILES, RESULTS_WITNESS, RESULTS_SCOPE_WITNESS, NATURAL_SUMMARY_FILES, INPUT_MANIFESTS, INDEPENDENT_GATE_DIRECTORY]
+    keep_in_place: [resume1/inputs/natural_corpus, resume1/results, resume1/scripts, inputs, results, scripts, src]
+    delete_only: [resume1/inputs/corpus]
+  LLVM_DWARF:
+    copy: [RESUME1_ROOT_FILES, RESUME1_WITNESS, RESUME2_ROOT_FILES, INDEPENDENT_GATE_DIRECTORY]
+    keep_in_place: [resume1/resources/blink-src, resume1/resources/musl-src, resume1/inputs, resume1/results, resume2/resources/logs, resume2/resources/src, resume2/root_reports]
+    delete_only: [SEVEN_RESUME1_RESOURCE_DOWNLOAD_FILES, resume2/resources/build, resume2/resources/cache, resume2/resources/tmp]
+  WEBGRAPH:
+    copy: [INITIAL_ROOT_FILES, REVISION1_ROOT_FILES, BOTH_INDEPENDENT_GATE_DIRECTORIES, MATCHED_AGGREGATES, CNR_AND_WIKI_PAIR00, CASE0043_INPUT_AND_OUTPUT_WITNESS, PRECLAIM_GATE_REPORTS]
+    keep_in_place: [inputs/natural, results/killer/natural, revision1/results/claim/matched/root_aggregates, revision1/results/claim/matched/pair00, all_root_reports_manifests]
+    delete_only: [inputs/structural, results/killer/structural, revision1/results/preclaim/structural, revision1/results/preclaim/natural, pair01_through_pair10_for_both_corpora]
+pack_validation: FOUR_TOPIC_TREE_DIGESTS_PLUS_TOTAL_COUNT_BYTES
+historical_manifest_semantics: ORIGINAL_MANIFESTS_REMAIN_PREDELETE_IDENTITY_RECORDS__AUTHORIZED_MISSING_ENTRIES_EXPLAINED_BY_WAVE4_LEDGER
+

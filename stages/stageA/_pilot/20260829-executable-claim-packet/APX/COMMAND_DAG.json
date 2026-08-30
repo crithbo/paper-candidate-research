@@ -1,0 +1,19 @@
+{
+  "schema": "stagea-command-dag-v1",
+  "assignment_id": "PILOT-APX-20260829-EXECUTABLE-CLAIM-PACKET",
+  "topic_id": "LLVM-APX-PREFIX-PRESSURE-PARETODP",
+  "execution_state": "STATIC_PACKET_ONLY",
+  "nodes": [
+    {"id":"E0_ASSET_BIND","class":"STATIC","depends":[],"argv":null,"claim_bearing":false},
+    {"id":"E1_PACKET_COMPILE","class":"STATIC","depends":["E0_ASSET_BIND"],"argv":null,"claim_bearing":false},
+    {"id":"E2_CONTROL","class":"CONTROL_NON_CLAIM_BEARING","depends":["E1_PACKET_COMPILE"],"argv":"deferred_until_mainline_start","claim_bearing":false},
+    {"id":"C0_FREEZE","class":"STATIC_FREEZE","depends":["E2_CONTROL"],"argv":"deferred_until_packet_acceptance","claim_bearing":false},
+    {"id":"C1_APX_PILOT_ROWS","class":"CLAIM_BEARING","depends":["C0_FREEZE"],"rows":["APX-R8-S01-R1","APX-R8-S01-R2","APX-R8-S02-R1","APX-R8-S02-R2"],"argv":"deferred_until_C0_and_MAINLINE_START","claim_bearing":true}
+  ],
+  "row_order_frozen_before_results": true,
+  "reserve_rows_frozen_before_results": true,
+  "retry": 0,
+  "network": 0,
+  "stageb": false,
+  "shared_state_change": false
+}

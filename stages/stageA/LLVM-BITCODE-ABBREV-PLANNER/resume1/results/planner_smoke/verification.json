@@ -1,0 +1,473 @@
+{
+  "B0_canonical_decoded_ir_sha256": "706fb2d085138b4c487c206baed034c3b75154c81dcf76b593eb5a09253bbd79",
+  "B0_trace_sha256": "a04637e56743bfd22bf9a80d86c63e4e44bcd3ee5067156f6adb09281cca14d5",
+  "all_arms_pass": true,
+  "arms": {
+    "B0": {
+      "arm_pass": true,
+      "bytes": 1736,
+      "canonical_decoded_ir_bytes": 510,
+      "canonical_decoded_ir_equal_B0": true,
+      "canonical_decoded_ir_sha256": "706fb2d085138b4c487c206baed034c3b75154c81dcf76b593eb5a09253bbd79",
+      "checks": {
+        "bcanalyzer": {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-bcanalyzer.exe",
+            "-disable-histogram",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B0.bc"
+          ],
+          "cpu_kernel_seconds": 0.015625,
+          "cpu_user_seconds": 0.0,
+          "peak_rss_bytes": 8491008,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "Summary of D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B0.bc:\n         Total size: 13888b/1736.00B/434W\n        Stream type: LLVM IR\n  # Toplevel Blocks: 3\n\nPer-block Summary:\n  Block ID #0 (BLOCKINFO_BLOCK):\n      Num Instances: 1\n         Total Size: 1152b/144.00B/36W\n    Percent of file: 8.2949%\n      Num SubBlocks: 0\n        Num Abbrevs: 26\n        Num Records: 3\n    Percent Abbrevs: 0.0000%\n\n  Block ID #8 (MODULE_BLOCK):\n      Num Instances: 1\n         Total Size: 800b/100.00B/25W\n    Percent of file: 5.7604%\n      Num SubBlocks: 7\n        Num Abbrevs: 2\n        Num Records: 5\n    Percent Abbrevs: 40.0000%\n\n  Block ID #11 (CONSTANTS_BLOCK):\n      Num Instances: 1\n         Total Size: 124b/15.50B/3W\n    Percent of file: 0.8929%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 3\n    Percent Abbrevs: 66.6667%\n\n  Block ID #12 (FUNCTION_BLOCK):\n      Num Instances: 1\n         Total Size: 338b/42.25B/10W\n    Percent of file: 2.4338%\n      Num SubBlocks: 2\n        Num Abbrevs: 0\n        Num Records: 9\n    Percent Abbrevs: 66.6667%\n\n  Block ID #13 (IDENTIFICATION_BLOCK_ID):\n      Num Instances: 1\n         Total Size: 214b/26.75B/6W\n    Percent of file: 1.5409%\n      Num SubBlocks: 0\n        Num Abbrevs: 2\n        Num Records: 2\n    Percent Abbrevs: 100.0000%\n\n  Block ID #14 (VALUE_SYMTAB):\n      Num Instances: 2\n         Total Size: 540b/67.50B/16W\n    Percent of file: 3.8882%\n       Average Size: 270.00/33.75B/8W\n  Tot/Avg SubBlocks: 0/0.000000e+00\n    Tot/Avg Abbrevs: 1/5.000000e-01\n    Tot/Avg Records: 10/5.000000e+00\n    Percent Abbrevs: 100.0000%\n\n  Block ID #17 (TYPE_BLOCK_ID):\n      Num Instances: 1\n         Total Size: 437b/54.62B/13W\n    Percent of file: 3.1466%\n      Num SubBlocks: 0\n        Num Abbrevs: 6\n        Num Records: 8\n    Percent Abbrevs: 25.0000%\n\n  Block ID #21 (OPERAND_BUNDLE_TAGS_BLOCK):\n      Num Instances: 1\n         Total Size: 1813b/226.62B/56W\n    Percent of file: 13.0544%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 12\n    Percent Abbrevs: 0.0000%\n\n  Block ID #22 (METADATA_KIND_BLOCK):\n      Num Instances: 1\n         Total Size: 7245b/905.62B/226W\n    Percent of file: 52.1673%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 47\n    Percent Abbrevs: 0.0000%\n\n  Block ID #23 (STRTAB_BLOCK):\n      Num Instances: 1\n         Total Size: 918b/114.75B/28W\n    Percent of file: 6.6100%\n      Num SubBlocks: 0\n        Num Abbrevs: 1\n        Num Records: 1\n    Percent Abbrevs: 100.0000%\n\n  Block ID #26:\n      Num Instances: 1\n         Total Size: 245b/30.62B/7W\n    Percent of file: 1.7641%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 2\n    Percent Abbrevs: 0.0000%\n\n",
+          "timed_out": false,
+          "wall_seconds": 0.044719699999859586
+        },
+        "llvm_dis": {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B0.bc",
+            "-o",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B0.verified.ll"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.015625,
+          "peak_rss_bytes": 9543680,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.048273399999970934
+        },
+        "opt_verify": {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\opt.exe",
+            "-passes=verify",
+            "-disable-output",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B0.bc"
+          ],
+          "cpu_kernel_seconds": 0.015625,
+          "cpu_user_seconds": 0.0,
+          "peak_rss_bytes": 16076800,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.04885280000007697
+        }
+      },
+      "path": "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B0.bc",
+      "read_first_wall_seconds": 0.04403849999994236,
+      "read_trials": [
+        {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B0.bc",
+            "-o",
+            "NUL"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.015625,
+          "peak_rss_bytes": 9379840,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.04403849999994236
+        },
+        {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B0.bc",
+            "-o",
+            "NUL"
+          ],
+          "cpu_kernel_seconds": 0.015625,
+          "cpu_user_seconds": 0.0,
+          "peak_rss_bytes": 9609216,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.04109130000006189
+        },
+        {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B0.bc",
+            "-o",
+            "NUL"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.0,
+          "peak_rss_bytes": 9584640,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.04440130000011777
+        }
+      ],
+      "read_warm_wall_seconds": [
+        0.04109130000006189,
+        0.04440130000011777
+      ],
+      "sha256": "3b8facdb17349e321355bf4153e3c0b5d9949629a31ac66e12d53922da62edd7",
+      "trace_equal_B0": true,
+      "trace_sha256": "a04637e56743bfd22bf9a80d86c63e4e44bcd3ee5067156f6adb09281cca14d5"
+    },
+    "B1": {
+      "arm_pass": true,
+      "bytes": 1728,
+      "canonical_decoded_ir_bytes": 510,
+      "canonical_decoded_ir_equal_B0": true,
+      "canonical_decoded_ir_sha256": "706fb2d085138b4c487c206baed034c3b75154c81dcf76b593eb5a09253bbd79",
+      "checks": {
+        "bcanalyzer": {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-bcanalyzer.exe",
+            "-disable-histogram",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B1.bc"
+          ],
+          "cpu_kernel_seconds": 0.015625,
+          "cpu_user_seconds": 0.015625,
+          "peak_rss_bytes": 8409088,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "Summary of D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B1.bc:\n         Total size: 13824b/1728.00B/432W\n        Stream type: LLVM IR\n  # Toplevel Blocks: 3\n\nPer-block Summary:\n  Block ID #0 (BLOCKINFO_BLOCK):\n      Num Instances: 1\n         Total Size: 1152b/144.00B/36W\n    Percent of file: 8.3333%\n      Num SubBlocks: 0\n        Num Abbrevs: 27\n        Num Records: 3\n    Percent Abbrevs: 0.0000%\n\n  Block ID #8 (MODULE_BLOCK):\n      Num Instances: 1\n         Total Size: 800b/100.00B/25W\n    Percent of file: 5.7870%\n      Num SubBlocks: 7\n        Num Abbrevs: 2\n        Num Records: 5\n    Percent Abbrevs: 40.0000%\n\n  Block ID #11 (CONSTANTS_BLOCK):\n      Num Instances: 1\n         Total Size: 124b/15.50B/3W\n    Percent of file: 0.8970%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 3\n    Percent Abbrevs: 66.6667%\n\n  Block ID #12 (FUNCTION_BLOCK):\n      Num Instances: 1\n         Total Size: 338b/42.25B/10W\n    Percent of file: 2.4450%\n      Num SubBlocks: 2\n        Num Abbrevs: 0\n        Num Records: 9\n    Percent Abbrevs: 66.6667%\n\n  Block ID #13 (IDENTIFICATION_BLOCK_ID):\n      Num Instances: 1\n         Total Size: 214b/26.75B/6W\n    Percent of file: 1.5480%\n      Num SubBlocks: 0\n        Num Abbrevs: 2\n        Num Records: 2\n    Percent Abbrevs: 100.0000%\n\n  Block ID #14 (VALUE_SYMTAB):\n      Num Instances: 2\n         Total Size: 476b/59.50B/14W\n    Percent of file: 3.4433%\n       Average Size: 238.00/29.75B/7W\n  Tot/Avg SubBlocks: 0/0.000000e+00\n    Tot/Avg Abbrevs: 0/0.000000e+00\n    Tot/Avg Records: 10/5.000000e+00\n    Percent Abbrevs: 100.0000%\n\n  Block ID #17 (TYPE_BLOCK_ID):\n      Num Instances: 1\n         Total Size: 437b/54.62B/13W\n    Percent of file: 3.1612%\n      Num SubBlocks: 0\n        Num Abbrevs: 6\n        Num Records: 8\n    Percent Abbrevs: 25.0000%\n\n  Block ID #21 (OPERAND_BUNDLE_TAGS_BLOCK):\n      Num Instances: 1\n         Total Size: 1813b/226.62B/56W\n    Percent of file: 13.1149%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 12\n    Percent Abbrevs: 0.0000%\n\n  Block ID #22 (METADATA_KIND_BLOCK):\n      Num Instances: 1\n         Total Size: 7245b/905.62B/226W\n    Percent of file: 52.4089%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 47\n    Percent Abbrevs: 0.0000%\n\n  Block ID #23 (STRTAB_BLOCK):\n      Num Instances: 1\n         Total Size: 918b/114.75B/28W\n    Percent of file: 6.6406%\n      Num SubBlocks: 0\n        Num Abbrevs: 1\n        Num Records: 1\n    Percent Abbrevs: 100.0000%\n\n  Block ID #26:\n      Num Instances: 1\n         Total Size: 245b/30.62B/7W\n    Percent of file: 1.7723%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 2\n    Percent Abbrevs: 0.0000%\n\n",
+          "timed_out": false,
+          "wall_seconds": 0.04369259999998576
+        },
+        "llvm_dis": {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B1.bc",
+            "-o",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B1.verified.ll"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.015625,
+          "peak_rss_bytes": 9478144,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.05022559999997611
+        },
+        "opt_verify": {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\opt.exe",
+            "-passes=verify",
+            "-disable-output",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B1.bc"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.03125,
+          "peak_rss_bytes": 16150528,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.052618100000017876
+        }
+      },
+      "path": "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B1.bc",
+      "read_first_wall_seconds": 0.045965300000034404,
+      "read_trials": [
+        {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B1.bc",
+            "-o",
+            "NUL"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.015625,
+          "peak_rss_bytes": 9547776,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.045965300000034404
+        },
+        {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B1.bc",
+            "-o",
+            "NUL"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.015625,
+          "peak_rss_bytes": 9588736,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.049332999999933236
+        },
+        {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B1.bc",
+            "-o",
+            "NUL"
+          ],
+          "cpu_kernel_seconds": 0.015625,
+          "cpu_user_seconds": 0.0,
+          "peak_rss_bytes": 9568256,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.04630249999991065
+        }
+      ],
+      "read_warm_wall_seconds": [
+        0.049332999999933236,
+        0.04630249999991065
+      ],
+      "sha256": "215d9514c7052a4d2c79b68f04e9c9fe4044b3996fa119f795d8a7b2ca20d613",
+      "trace_equal_B0": true,
+      "trace_sha256": "a04637e56743bfd22bf9a80d86c63e4e44bcd3ee5067156f6adb09281cca14d5"
+    },
+    "B2": {
+      "arm_pass": true,
+      "bytes": 1728,
+      "canonical_decoded_ir_bytes": 510,
+      "canonical_decoded_ir_equal_B0": true,
+      "canonical_decoded_ir_sha256": "706fb2d085138b4c487c206baed034c3b75154c81dcf76b593eb5a09253bbd79",
+      "checks": {
+        "bcanalyzer": {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-bcanalyzer.exe",
+            "-disable-histogram",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B2.bc"
+          ],
+          "cpu_kernel_seconds": 0.015625,
+          "cpu_user_seconds": 0.015625,
+          "peak_rss_bytes": 8433664,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "Summary of D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B2.bc:\n         Total size: 13824b/1728.00B/432W\n        Stream type: LLVM IR\n  # Toplevel Blocks: 3\n\nPer-block Summary:\n  Block ID #0 (BLOCKINFO_BLOCK):\n      Num Instances: 1\n         Total Size: 1152b/144.00B/36W\n    Percent of file: 8.3333%\n      Num SubBlocks: 0\n        Num Abbrevs: 27\n        Num Records: 3\n    Percent Abbrevs: 0.0000%\n\n  Block ID #8 (MODULE_BLOCK):\n      Num Instances: 1\n         Total Size: 800b/100.00B/25W\n    Percent of file: 5.7870%\n      Num SubBlocks: 7\n        Num Abbrevs: 2\n        Num Records: 5\n    Percent Abbrevs: 40.0000%\n\n  Block ID #11 (CONSTANTS_BLOCK):\n      Num Instances: 1\n         Total Size: 124b/15.50B/3W\n    Percent of file: 0.8970%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 3\n    Percent Abbrevs: 66.6667%\n\n  Block ID #12 (FUNCTION_BLOCK):\n      Num Instances: 1\n         Total Size: 338b/42.25B/10W\n    Percent of file: 2.4450%\n      Num SubBlocks: 2\n        Num Abbrevs: 0\n        Num Records: 9\n    Percent Abbrevs: 66.6667%\n\n  Block ID #13 (IDENTIFICATION_BLOCK_ID):\n      Num Instances: 1\n         Total Size: 214b/26.75B/6W\n    Percent of file: 1.5480%\n      Num SubBlocks: 0\n        Num Abbrevs: 2\n        Num Records: 2\n    Percent Abbrevs: 100.0000%\n\n  Block ID #14 (VALUE_SYMTAB):\n      Num Instances: 2\n         Total Size: 476b/59.50B/14W\n    Percent of file: 3.4433%\n       Average Size: 238.00/29.75B/7W\n  Tot/Avg SubBlocks: 0/0.000000e+00\n    Tot/Avg Abbrevs: 0/0.000000e+00\n    Tot/Avg Records: 10/5.000000e+00\n    Percent Abbrevs: 100.0000%\n\n  Block ID #17 (TYPE_BLOCK_ID):\n      Num Instances: 1\n         Total Size: 437b/54.62B/13W\n    Percent of file: 3.1612%\n      Num SubBlocks: 0\n        Num Abbrevs: 6\n        Num Records: 8\n    Percent Abbrevs: 25.0000%\n\n  Block ID #21 (OPERAND_BUNDLE_TAGS_BLOCK):\n      Num Instances: 1\n         Total Size: 1813b/226.62B/56W\n    Percent of file: 13.1149%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 12\n    Percent Abbrevs: 0.0000%\n\n  Block ID #22 (METADATA_KIND_BLOCK):\n      Num Instances: 1\n         Total Size: 7245b/905.62B/226W\n    Percent of file: 52.4089%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 47\n    Percent Abbrevs: 0.0000%\n\n  Block ID #23 (STRTAB_BLOCK):\n      Num Instances: 1\n         Total Size: 918b/114.75B/28W\n    Percent of file: 6.6406%\n      Num SubBlocks: 0\n        Num Abbrevs: 1\n        Num Records: 1\n    Percent Abbrevs: 100.0000%\n\n  Block ID #26:\n      Num Instances: 1\n         Total Size: 245b/30.62B/7W\n    Percent of file: 1.7723%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 2\n    Percent Abbrevs: 0.0000%\n\n",
+          "timed_out": false,
+          "wall_seconds": 0.049590800000032687
+        },
+        "llvm_dis": {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B2.bc",
+            "-o",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B2.verified.ll"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.015625,
+          "peak_rss_bytes": 9555968,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.049987600000122256
+        },
+        "opt_verify": {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\opt.exe",
+            "-passes=verify",
+            "-disable-output",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B2.bc"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.03125,
+          "peak_rss_bytes": 16093184,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.06078179999985878
+        }
+      },
+      "path": "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B2.bc",
+      "read_first_wall_seconds": 0.050090499999896565,
+      "read_trials": [
+        {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B2.bc",
+            "-o",
+            "NUL"
+          ],
+          "cpu_kernel_seconds": 0.03125,
+          "cpu_user_seconds": 0.0,
+          "peak_rss_bytes": 9527296,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.050090499999896565
+        },
+        {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B2.bc",
+            "-o",
+            "NUL"
+          ],
+          "cpu_kernel_seconds": 0.015625,
+          "cpu_user_seconds": 0.0,
+          "peak_rss_bytes": 9498624,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.04912430000013046
+        },
+        {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\B2.bc",
+            "-o",
+            "NUL"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.015625,
+          "peak_rss_bytes": 9601024,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.04269099999987702
+        }
+      ],
+      "read_warm_wall_seconds": [
+        0.04912430000013046,
+        0.04269099999987702
+      ],
+      "sha256": "215d9514c7052a4d2c79b68f04e9c9fe4044b3996fa119f795d8a7b2ca20d613",
+      "trace_equal_B0": true,
+      "trace_sha256": "a04637e56743bfd22bf9a80d86c63e4e44bcd3ee5067156f6adb09281cca14d5"
+    },
+    "WL": {
+      "arm_pass": true,
+      "bytes": 1728,
+      "canonical_decoded_ir_bytes": 510,
+      "canonical_decoded_ir_equal_B0": true,
+      "canonical_decoded_ir_sha256": "706fb2d085138b4c487c206baed034c3b75154c81dcf76b593eb5a09253bbd79",
+      "checks": {
+        "bcanalyzer": {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-bcanalyzer.exe",
+            "-disable-histogram",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\WL.bc"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.015625,
+          "peak_rss_bytes": 8450048,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "Summary of D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\WL.bc:\n         Total size: 13824b/1728.00B/432W\n        Stream type: LLVM IR\n  # Toplevel Blocks: 3\n\nPer-block Summary:\n  Block ID #0 (BLOCKINFO_BLOCK):\n      Num Instances: 1\n         Total Size: 1152b/144.00B/36W\n    Percent of file: 8.3333%\n      Num SubBlocks: 0\n        Num Abbrevs: 27\n        Num Records: 3\n    Percent Abbrevs: 0.0000%\n\n  Block ID #8 (MODULE_BLOCK):\n      Num Instances: 1\n         Total Size: 800b/100.00B/25W\n    Percent of file: 5.7870%\n      Num SubBlocks: 7\n        Num Abbrevs: 2\n        Num Records: 5\n    Percent Abbrevs: 40.0000%\n\n  Block ID #11 (CONSTANTS_BLOCK):\n      Num Instances: 1\n         Total Size: 124b/15.50B/3W\n    Percent of file: 0.8970%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 3\n    Percent Abbrevs: 66.6667%\n\n  Block ID #12 (FUNCTION_BLOCK):\n      Num Instances: 1\n         Total Size: 338b/42.25B/10W\n    Percent of file: 2.4450%\n      Num SubBlocks: 2\n        Num Abbrevs: 0\n        Num Records: 9\n    Percent Abbrevs: 66.6667%\n\n  Block ID #13 (IDENTIFICATION_BLOCK_ID):\n      Num Instances: 1\n         Total Size: 214b/26.75B/6W\n    Percent of file: 1.5480%\n      Num SubBlocks: 0\n        Num Abbrevs: 2\n        Num Records: 2\n    Percent Abbrevs: 100.0000%\n\n  Block ID #14 (VALUE_SYMTAB):\n      Num Instances: 2\n         Total Size: 476b/59.50B/14W\n    Percent of file: 3.4433%\n       Average Size: 238.00/29.75B/7W\n  Tot/Avg SubBlocks: 0/0.000000e+00\n    Tot/Avg Abbrevs: 0/0.000000e+00\n    Tot/Avg Records: 10/5.000000e+00\n    Percent Abbrevs: 100.0000%\n\n  Block ID #17 (TYPE_BLOCK_ID):\n      Num Instances: 1\n         Total Size: 437b/54.62B/13W\n    Percent of file: 3.1612%\n      Num SubBlocks: 0\n        Num Abbrevs: 6\n        Num Records: 8\n    Percent Abbrevs: 25.0000%\n\n  Block ID #21 (OPERAND_BUNDLE_TAGS_BLOCK):\n      Num Instances: 1\n         Total Size: 1813b/226.62B/56W\n    Percent of file: 13.1149%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 12\n    Percent Abbrevs: 0.0000%\n\n  Block ID #22 (METADATA_KIND_BLOCK):\n      Num Instances: 1\n         Total Size: 7245b/905.62B/226W\n    Percent of file: 52.4089%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 47\n    Percent Abbrevs: 0.0000%\n\n  Block ID #23 (STRTAB_BLOCK):\n      Num Instances: 1\n         Total Size: 918b/114.75B/28W\n    Percent of file: 6.6406%\n      Num SubBlocks: 0\n        Num Abbrevs: 1\n        Num Records: 1\n    Percent Abbrevs: 100.0000%\n\n  Block ID #26:\n      Num Instances: 1\n         Total Size: 245b/30.62B/7W\n    Percent of file: 1.7723%\n      Num SubBlocks: 0\n        Num Abbrevs: 0\n        Num Records: 2\n    Percent Abbrevs: 0.0000%\n\n",
+          "timed_out": false,
+          "wall_seconds": 0.057635200000049736
+        },
+        "llvm_dis": {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\WL.bc",
+            "-o",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\WL.verified.ll"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.03125,
+          "peak_rss_bytes": 9584640,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.04668139999989762
+        },
+        "opt_verify": {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\opt.exe",
+            "-passes=verify",
+            "-disable-output",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\WL.bc"
+          ],
+          "cpu_kernel_seconds": 0.03125,
+          "cpu_user_seconds": 0.0,
+          "peak_rss_bytes": 16121856,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.05831059999991339
+        }
+      },
+      "path": "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\WL.bc",
+      "read_first_wall_seconds": 0.04969840000012482,
+      "read_trials": [
+        {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\WL.bc",
+            "-o",
+            "NUL"
+          ],
+          "cpu_kernel_seconds": 0.015625,
+          "cpu_user_seconds": 0.0,
+          "peak_rss_bytes": 9560064,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.04969840000012482
+        },
+        {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\WL.bc",
+            "-o",
+            "NUL"
+          ],
+          "cpu_kernel_seconds": 0.0,
+          "cpu_user_seconds": 0.0,
+          "peak_rss_bytes": 9543680,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.04980370000021139
+        },
+        {
+          "command": [
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\tools\\native\\clang+llvm-22.1.8-x86_64-pc-windows-msvc\\bin\\llvm-dis.exe",
+            "D:\\project\\writing\\reserch\\stages\\stageA\\LLVM-BITCODE-ABBREV-PLANNER\\resume1\\results\\planner_smoke\\WL.bc",
+            "-o",
+            "NUL"
+          ],
+          "cpu_kernel_seconds": 0.03125,
+          "cpu_user_seconds": 0.0,
+          "peak_rss_bytes": 9519104,
+          "returncode": 0,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false,
+          "wall_seconds": 0.04296769999996286
+        }
+      ],
+      "read_warm_wall_seconds": [
+        0.04980370000021139,
+        0.04296769999996286
+      ],
+      "sha256": "215d9514c7052a4d2c79b68f04e9c9fe4044b3996fa119f795d8a7b2ca20d613",
+      "trace_equal_B0": true,
+      "trace_sha256": "a04637e56743bfd22bf9a80d86c63e4e44bcd3ee5067156f6adb09281cca14d5"
+    }
+  },
+  "canonical_ir_rule": "remove only filename-derived leading ModuleID line",
+  "codec": "ordinary raw LLVM bitcode; unmodified pinned LLVM reader",
+  "read_protocol": "first fresh process then repeated fresh processes; no OS cache flush, therefore operational first/warm labels only",
+  "read_repeats": 3,
+  "schema": "llvm-native-arm-verification-v1",
+  "stageb_authorized": false
+}

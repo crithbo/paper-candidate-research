@@ -1,0 +1,78 @@
+schema_version: resume-capsule-v1
+created_at: 2026-08-25T14:53:14+08:00
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-RESUME6-E-ROOT-PRECLAIM-FIDELITY
+topic_id: ROCKSDB-DICT-COVER
+stage: STAGEA_PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY
+capsule_state: PRECLAIM_FIDELITY_HANDOFF_READY__MAINLINE_ACCEPTANCE_PENDING
+
+decision: PASS__PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY
+claim_start_authorized: false
+evidence_ceiling: PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_inference: NONE
+scientific_revision_consumed: false
+stage_transition_by_owner: false
+
+canonical_inputs:
+  experiment_contract_sha256: 8B578D63EE6DC515DB60E6D5A7D29AECEE35EAFF816AF7D800888C9746CEDC70
+  upstream_resource_acceptance_sha256: 0AB3E88C0EBC3E8C3D82A5484F9D7904DC641C2F1749F9184E857E43A8675244
+  upstream_manifest_closure_sha256: 673B96BB41B667111061E9DAB888C4AAF1E3017A28D1196ADD0B546BB3F38EEE
+  downstream_manifest_acceptance_sha256: B72DB74C03782DAF792E8D32CC91C9CD41F7CFA302C2F67DA5063AC793F47F31
+  accepted_manifest_count: 20
+  accepted_manifest_bytes: 61951583
+
+gate_package:
+  environment_lock: {path: ENVIRONMENT_LOCK.yaml, sha256: 81CFE0E333C23D083296EC016F2CE98D7F796E79A693991010DEC9F9E8A67492}
+  operation_inventory: {path: OPERATION_INVENTORY.yaml, sha256: A4FCB9986AE01094A50293AA411577426AAD92A20AB5A510BDA470E6A94F6357}
+  preclaim_gate: {path: PRE_CLAIM_CONTRACT_FIDELITY_GATE.yaml, sha256: 7912054E173D29AB85A2EF094C5008897E2A6E4B83ADBC293CD030AD9E20DB34}
+  resource_inventory: {path: RESOURCE_INVENTORY.yaml, sha256: 910F9795FB41F48060ADF063C93E373421ADF36685EAEACA093A8D52D16391E8}
+  phase_closeout: {path: PHASE_CLOSEOUT_RETENTION.yaml, sha256: A4E6213C334B57A18A7C1813F63967FBA02223FCF48D3EF144C130696A9559F9}
+  control_matrix_summary: {path: resources/logs/control_matrix_summary.json, sha256: 66719333E215EE3F23946FCFADCC0402F5283965E375F0B87EF461B6FF9904D3}
+  replay_verification: {path: resources/logs/replay_verification.json, sha256: C3D58031711DC614D16820F2F483B4CB05196E883B703BB9FBF8620AF798713D}
+  full_cost_path_smoke: {path: resources/logs/full_cost_collection_path_smoke.json, sha256: 9AF9EBDFAA33022476F806C40BFA24F86F94E1F5FCEDB4562071D9AE41BAD18A}
+
+gate_closure:
+  F0: PASS
+  F1: PASS
+  F2: PASS_WITH_NATIVE_CURRENT_SEMANTIC_PRECISION_PIN
+  F3: PASS_CONTROL_NON_CLAIM_ONLY
+  F4: PASS_COLLECTION_PATH_ONLY
+  F5: PASS
+  control_runs: 28_OF_28
+  replay_pairs: 14_OF_14
+  frozen_runtime_smoke: PASS
+  natural_manifest_used: false
+  performance_comparison: false
+
+future_claim_resume:
+  next_gate: MAINLINE_ACCEPT_PRECLAIM_GATE_AND_FREEZE_SEPARATE_CLAIM_BEARING_ASSIGNMENT
+  retained_manifest_root: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/src/manifests
+  retained_source_root: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/src/rocksdb
+  frozen_binary_root: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/build/frozen
+  runtime_root: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/env/runtime
+  rebuild_archives_root: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/archives
+  native_current_precision_pin_required: true
+  natural_grid_or_claim_run_authorized_by_capsule: false
+
+lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  current_resource_bytes: 1411017177
+  post_close_retained_bytes_max: 1073741824
+  cleanup_candidate_count: 15
+  cleanup_candidate_bytes: 970511118
+  projected_retained_bytes: 440506059
+  cleanup_owner: MAINLINE
+  owner_cleanup_performed: false
+  cleanup_receipt_exists: false
+  mainline_must_verify: [HANDOFF_ACCEPTED, RETAINED_HASHES, LITERAL_CONTAINMENT, ZERO_REPARSE, ZERO_ACTIVE_PROCESS, POSTDELETE_ABSENCE, POSTCLOSE_BUDGET]
+
+explicitly_not_executed:
+  - NETWORK
+  - NATURAL_TWENTY_MANIFEST_GRID
+  - CANDIDATE_PERFORMANCE
+  - BASELINE_PERFORMANCE
+  - CLAIM_BEARING_OBSERVATION
+  - SCIENTIFIC_PASS_STOP_RESERVE
+  - STAGE_TRANSITION
+  - STAGE_B
+  - UPSTREAM_CLEANUP
+  - OWNER_CLEANUP

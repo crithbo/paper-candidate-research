@@ -1,0 +1,41 @@
+schema_version: discovery-v9-r16b-unified-cost-ledger-v1
+assignment_id: REQUIRED
+lane: REQUIRED
+model:
+  route: REQUIRED_IF_VISIBLE_ELSE_UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  reasoning_level: REQUIRED_IF_VISIBLE_ELSE_UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  input_tokens: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  output_tokens: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  cached_tokens: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  monetary_cost_usd: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+time:
+  started_at: REQUIRED_RFC3339
+  completed_at: REQUIRED_RFC3339
+  wall_seconds: REQUIRED_NONNEGATIVE_NUMBER
+  local_process_cpu_seconds: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+activity_counts:
+  model_turns: REQUIRED_NONNEGATIVE_INTEGER
+  tool_calls_total: REQUIRED_NONNEGATIVE_INTEGER
+  web_search_queries: REQUIRED_NONNEGATIVE_INTEGER
+  web_open_calls: REQUIRED_NONNEGATIVE_INTEGER
+  web_find_or_click_calls: REQUIRED_NONNEGATIVE_INTEGER
+  local_read_commands: REQUIRED_NONNEGATIVE_INTEGER
+  local_validation_commands: REQUIRED_NONNEGATIVE_INTEGER
+io:
+  network_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  output_file_count: REQUIRED_NONNEGATIVE_INTEGER
+  output_bytes: REQUIRED_NONNEGATIVE_INTEGER
+sampling:
+  raw_family_leads: REQUIRED_NONNEGATIVE_INTEGER
+  duplicate_or_relabel_exclusions: REQUIRED_NONNEGATIVE_INTEGER
+  accepted_unique_families: REQUIRED_NONNEGATIVE_INTEGER
+  candidate_grade_deep_reviews: REQUIRED_NONNEGATIVE_INTEGER
+  canonical_clean_briefs: REQUIRED_NONNEGATIVE_INTEGER
+  canonical_stage0_proposals: REQUIRED_NONNEGATIVE_INTEGER
+accounting_rules:
+  zeros_mean_observed_zero_only: true
+  unknown_values_use_exact_unobserved_sentinel: true
+  imputation_or_estimation_for_tokens_money_cpu_network: FORBIDDEN
+  model_cpu_must_not_be_inferred_from_wall_time: true
+  ledger_must_be_included_in_lane_root_manifest: true
+

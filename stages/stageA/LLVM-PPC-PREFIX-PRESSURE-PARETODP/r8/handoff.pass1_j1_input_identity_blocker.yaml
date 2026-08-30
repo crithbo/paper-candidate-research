@@ -1,0 +1,84 @@
+schema: ppc-r8-actual-harness-handoff-v1
+created_at: 2026-08-26T05:41:06.3926709+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+decision: FAIL_CLOSED_ACTUAL_NATURAL_HARNESS_FIDELITY__HASH_PINNED_INPUT_FUNCTION_IDENTITY_MISMATCH__NO_SCIENTIFIC_INFERENCE
+claim_ceiling: ACTUAL_NATURAL_HARNESS_FIDELITY_AND_R9_FULLY_EXPANDED_COMMAND_PRECOMMIT_ONLY__NO_SELECTED_CORPUS_TOOL_OR_CLAIM_OBSERVATION
+evidence_ceiling: INVALID_PRECLAIM_CONSTRUCTION__STATIC_INPUT_FUNCTION_IDENTITY_FAILURE__NO_SCIENTIFIC_INFERENCE
+ordered_gate:
+  J0: PASS_EXACT_R6_26_OF_26_AND_R2_133_OF_133
+  J1: FAIL_REQUIRED_IR_MATERIALIZED_LOAD_ABSENT_FROM_HASH_PINNED_PPC_UNION_INPUT
+  J2: NOT_STARTED
+  J3: NOT_STARTED
+  J4: NOT_STARTED
+  J5: NOT_STARTED
+  J6: NOT_STARTED
+first_failure:
+  path: resources/src/r6_input/src/preclaim_harness/ppc_union_input.ll
+  sha256: 1124F15D99EC0CF7F1688CD20E21416A17C1A075F46419FE95A9E35C262BD939
+  required_functions: [ir_direct_load, ir_materialized_load]
+  observed_defined_functions: [ir_direct_load, ir_indexed_load, ir_fixed_offset_load, ir_sink, ir_pressure_control]
+  missing_required_functions: [ir_materialized_load]
+  evidence_path: ACTUAL_CLI_AUDIT.yaml
+  owner_correction_allowed: false
+  why_no_workaround: ANY_ALIAS_RENAME_REPLACEMENT_INPUT_OR_FUNCTION_SUBSTITUTION_CHANGES_THE_FROZEN_INPUT_FUNCTION_CONTRACT
+execution_summary:
+  r6_copy_attempts: 1
+  r2_copy_attempts: 1
+  copy_retries: 0
+  implementation_files: 0
+  binary_builds: 0
+  actual_cli_invocations: 0
+  llvm_tool_invocations: 0
+  synthetic_tool_command_records: 0
+  synthetic_replays: 0
+  r9_plan_rows: 0
+  r9_plan_executed: false
+  selected_or_reserve_corpus_tool_invocations: 0
+  claim_bearing_runs: 0
+  claim_bearing_observations: 0
+  network_bytes: 0
+  resource_files: 160
+  resource_logical_bytes: 244208913
+  resource_reparse_entries: 0
+  exact_cpu_seconds_used: UNAVAILABLE__NOT_ESTIMATED
+  exact_wall_seconds_used: UNAVAILABLE__NOT_ESTIMATED
+  max_parallel_processes_observed: 1
+  automatic_retry: false
+  cleanup_performed: false
+scientific_boundary:
+  scientific_revision_consumed: false
+  mechanism_pivot_consumed: false
+  scientific_state_transition_performed: false
+  stageb_action_performed: false
+  scientific_inference: NONE
+r7_boundary:
+  rejection_record_read_as_negative_pattern_only: true
+  rejected_source_read_or_copied: false
+canonical_hashes:
+  same_topic_input_acceptance_sha256: 0A99A7E92E374425C5ABE8F6D8B8D78F03D205A66C31D2FB760BB18F5A644995
+  environment_lock_sha256: 183344E399B5292FFFCDC5434F159C46487CEDC31DFC88486B87F4CC1CD49F19
+  actual_cli_audit_sha256: 62A577B8A295948BCA0D1B30E5DEC5F75171CCF743669D788914F53D0BAD553A
+  input_driven_candidate_audit_sha256: 3CAE190715C3DF99A7425C14BA4BCC40AF531CC4920B3CE0BF50FCF4BDB5904C
+  expanded_union_ablation_audit_sha256: 8A175F72FFAEF6301FABC006C605F85E88712A74C2567B88AD1DE7FB27C4DDBF
+  native_checker_evidence_audit_sha256: 649ECDE459DC41B94A7D4BFBC11F5B0704ADBB11E906F79F1282166603B6B723
+  real_command_full_cost_audit_sha256: 5F3643F9C80A4F9BC1DBC8805AFEA416777F94CCFB77FD1D839D405F2F401EA1
+  synthetic_native_fidelity_smoke_sha256: 507C45D9652559F5061160B73BDC8C04A5603AC141598C022D62EC06E7E9F3CA
+  r9_expanded_command_precommit_sha256: 15F5064F083FFA8290290CFFEBB74615B004A44D6A0A6835ABCB7500B0685BC4
+  preclaim_gate_sha256: 12555903AD4B0F9BCBDDE3E9A91645739A477698D238F10547A9B20E38D3B257
+  reproducibility_report_sha256: 586A60C8040C488B84D8D909EE8DB6140E8E32AECC79E7431C9F9375786CAEBB
+  resource_inventory_sha256: B2D4167FE3C6F1CF2D3EC7B5010E60A8559D5251B550BAE9BA232793115B2F09
+  phase_closeout_retention_sha256: A64945E7B6F1FE8BC1AD98D2AECC6B1F8B36949DC7034100E53961E8417834E8
+  resume_capsule_sha256: 6CBCA1F33A6664499770796A6B18453543911DFF730219A24CDD7E4CF1A18FFF
+exact_cleanup_candidate_leaves:
+  - resources/downloads
+  - resources/archives
+  - resources/build
+  - resources/cache
+  - resources/tmp
+conditional_future_cleanup_candidate_leaves:
+  - resources/src/r6_input
+  - resources/env/ppc-toolchain
+owner_cleanup_allowed: false
+next_action: MAINLINE_ACCEPT_HANDOFF_AND_FREEZE_A_SEPARATE_HASH_PINNED_INPUT_OR_CONTRACT_CORRECTION_IF_AUTHORIZED

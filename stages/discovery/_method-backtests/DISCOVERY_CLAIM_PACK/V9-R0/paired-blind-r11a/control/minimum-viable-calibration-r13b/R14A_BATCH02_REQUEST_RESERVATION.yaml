@@ -1,0 +1,29 @@
+schema: R11A_R13B_PUBLIC_PREFLIGHT_REQUEST_RESERVATION_V1
+approval_id: R11A-R13B-BATCH01-RAW-CAP-RECOVERY-20260813-R14A
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+batch_id: R13B-02
+request_plan_sha256: C4CD2AFBE675AF595B9E8DD1A35A13D5784F838035A20F059A9D515833A16C1E
+public_seed: DISCOVERY-CLAIM-PACK-V9-R0-R11A-R13B-02-PUBLIC-PREFLIGHT-20260813
+normalization_profile: R11A-STABLE-FAMILY-IDENTITY-NORM-V1
+global_raw_remaining_before_reservation: 44
+original_batch_raw_cap: 24
+effective_batch_raw_cap: 24
+reservations:
+  - request_ordinal: 1
+    requested_raw_count: 12
+    authorization: RESERVED_BEFORE_EXTERNAL_CALL
+  - request_ordinal: 2
+    requested_raw_count: 12
+    authorization: RESERVED_BEFORE_EXTERNAL_CALL
+reserved_raw_total: 24
+global_raw_remaining_after_successful_issue_of_both_requests: 20
+unique_commitment_cap: 20
+mainline_count_gate:
+  twelve_plus_twelve_equals_twenty_four: PASS
+  reserved_total_lte_effective_batch_cap: PASS
+  reserved_total_lte_global_raw_remaining: PASS
+  third_request_forbidden: true
+provider_order_gate: FREEZE_EACH_RETURN_ORDER_APPEND_ONLY_BEFORE_ANY_SEMANTIC_FILTER
+quarantined_batch01_reference_or_replay: forbidden
+unused_or_unreturned_slots_restore_capacity: false
+scientific_inference: NONE

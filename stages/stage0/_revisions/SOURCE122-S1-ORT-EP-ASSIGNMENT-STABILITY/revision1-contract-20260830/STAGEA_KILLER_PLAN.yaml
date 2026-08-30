@@ -1,0 +1,54 @@
+schema: ort-stagea-killer-plan-v1
+assignment_id: STAGE0-REVISION1-20260830-ORT-EP-ASSIGNMENT-STABILITY
+topic_id: SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+current_assignment_execution_authorized: false
+
+future_probe_scope:
+  model_families: 2
+  justified_relation_families: 2
+  normalized_away_negative_controls_per_selected_relation_family: 1
+  optimizer_actions: [ORT_ENABLE_BASIC, ORT_ENABLE_EXTENDED, ORT_ENABLE_ALL]
+  exact_primary_stack: onnxruntime_gpu_1_26_0__CUDAExecutionProvider_then_CPUExecutionProvider
+  source_selected_action_reused_on_heldout_variants_without_retuning: true
+
+mandatory_controls:
+  - heldout_relation_variants
+  - paired_instrumentation_on_and_off_processes
+  - fresh_process_session_and_cache_state_accounting
+  - full_per_representation_BASIC_EXTENDED_ALL_oracle_grid
+  - output_only_differential_baseline
+  - raw_timing_baseline
+  - simple_structure_baseline
+  - native_assignment_info_baseline
+  - normalized_away_negative_control
+  - full_cost_and_failure_ledger
+
+preclaim_gates:
+  - exact_stack_and_provider_options_hash_frozen
+  - all_models_relations_actions_repetitions_controls_and_cell_ids_frozen
+  - L0_L1_L2_oracles_frozen_and_replayable
+  - semantic_region_zero_one_many_quotient_frozen
+  - all_cell_denominator_and_failure_penalty_frozen
+  - no_claim_bearing_run_before_PRE_CLAIM_CONTRACT_FIDELITY_GATE
+
+kill_if:
+  - no_surviving_assignment_change_after_L0_L1_L2_and_process_controls
+  - semantic_region_lineage_remains_ambiguous_or_unmatched_for_the_decisive_cells
+  - all_representation_changes_are_decision_neutral
+  - optimizer_level_flips_disappear_under_paired_instrumentation_or_fresh_process_controls
+  - assignment_features_do_not_beat_raw_timing_or_simple_structure_for_source_action_selection
+  - normalized_away_negative_control_produces_comparable_flips_or_regret
+  - heldout_regret_is_explained_by_session_cache_or_observer_effect
+  - residual_collapses_to_existing_profiler_mutation_or_generic_optimizer_testing
+  - any_positive_interpretation_requires_failed_cell_exclusion_or_per_representation_retuning
+
+positive_result_ceiling:
+  statement: preliminary_support_for_assignment_aware_optimizer_level_decision_validity_hypothesis
+  does_not_establish: [paper_main_claim, general_deployment_claim, cross_version_claim, private_QNN_claim, StageA_PASS_without_independent_gate]
+
+current_assignment_effect:
+  implementation: 0
+  experiment: 0
+  resource_action: 0
+  StageA_started: false
+

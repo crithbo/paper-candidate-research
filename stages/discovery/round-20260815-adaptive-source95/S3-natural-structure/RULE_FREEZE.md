@@ -1,0 +1,18 @@
+# Source95 S3 rule freeze
+
+- Assignment: `DISCOVERY-S3-20260815-ADAPTIVE-SOURCE95-R40-ORDINARY-BREADTH-V1`
+- Write boundary: `stages/discovery/round-20260815-adaptive-source95/S3-natural-structure`
+- Assignment SHA-256: `D793EC18D3F159EAB28FEED6070A30ADE19513E050459BD17B36E33577DB9AEE`
+- Common control SHA-256: `9EF66D1AD3F4BD2212DA966ED8FB36E9B687085FD56B894B0C9CD82085D65DA7`
+- Frozen route: `gpt-5.6-terra/high`; canonical v8.7/RQ Production. Claim-pack, V9, selective-depth, anchor-first and shadow are OFF.
+- Skill SHA-256: `FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2`.
+
+R78; JSC, OpenXLA, TVM, ONNX Runtime and GraalVM closure outputs; and all terminal/held queues were forbidden inputs. They were not read, reopened, seeded or used for backfill. Network-security was excluded. No resource action occurred; `RESOURCE_INVENTORY.yaml` is `NOT_APPLICABLE`.
+
+| Input | SHA-256 |
+|---|---|
+| `AGENTS.md` | `26DB9F4C2D43349A2BA5B741947561D4FED2FE5EC65327C02D273D3905F5A522` |
+| `plan.md` | `70382653327ED391260A0A597DD4C7DB71E02125EA799A32316E4139ABBA4CF7` |
+| `registry.yaml` | `4D348FB469F03EDFF29F873FD4AC61D22AC9514B2C416A47DD278D1A70467CBE` |
+| `rules/ROLE_DISCOVERY.md` | `3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252` |
+

@@ -1,0 +1,42 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE60-R40-ORDINARY-BREADTH-V1
+retrieval_date: 2026-08-15
+sources:
+  - source_id: S60_SRC01_GCC_OPTIMIZE_DOCS
+    role: CURRENT
+    locator: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
+    version_or_date: current official documentation retrieved 2026-08-15
+    observed: "Both -fshrink-wrap and -fshrink-wrap-separate are enabled at optimization levels; separate operation requires target support."
+    query_yield: current_fatal
+  - source_id: S60_SRC02_GCC_SHRINK_WRAP_SOURCE
+    role: CURRENT_AND_CONTRARY
+    locator: https://codebrowser.dev/gcc/gcc/shrink-wrap.cc.html
+    version_or_date: basepoints/gcc-16-1425-g0ede0508cc6, rendered 2025-06-11
+    observed: "Separate shrink wrap models callee-save components, uses dominator/post-dominator legality, compares placement cost against descendant placements, and retains required DWARF CFI on terminal paths."
+    query_yield: current_fatal
+  - source_id: S60_SRC03_GCC_SHRINK_WRAP_HEADER
+    role: CURRENT
+    locator: https://codebrowser.dev/gcc/gcc/shrink-wrap.h.html
+    version_or_date: basepoints/gcc-16-1425-g0ede0508cc6
+    observed: "Exports ordinary and separate shrink-wrap entry points and the target-support enable condition."
+    query_yield: current_fatal
+  - source_id: S60_SRC04_GHC_PMC_DESUGAR
+    role: CURRENT
+    locator: https://ghc.gitlab.haskell.org/ghc/doc/libraries/ghc-9.15-inplace/src/GHC.HsToCore.Pmc.Desugar.html
+    version_or_date: GHC 9.15-inplace rendered source retrieved 2026-08-15
+    observed: "The pattern-match checker desugars to guard-tree variants, invokes supporting Core analysis, and separately handles strictness/bang representation."
+    query_yield: anchorable_unresolved
+  - source_id: S60_SRC05_GHC_PATTERN_CHECK_DOCS
+    role: OFFICIAL_SEMANTICS
+    locator: https://downloads.haskell.org/ghc/latest/docs/users_guide/using-warnings.html
+    version_or_date: GHC 9.14.1 documentation retrieved 2026-08-15
+    observed: "The checker uses symbolic models; -fmax-pmcheck-models bounds model growth."
+    query_yield: anchorable_unresolved
+  - source_id: S60_SRC06_LOWER_YOUR_GUARDS
+    role: PRIMARY_ANCHOR
+    locator: https://dl.acm.org/doi/abs/10.1145/3408989
+    version_or_date: primary paper cited by current GHC source
+    observed: "Current source identifies the Lower Your Guards guard-tree method as its pattern-checking representation."
+    query_yield: exact_history
+limits:
+  - "No source file, paper, codebase, dataset, or artifact was downloaded or persisted."
+  - "No build, install, benchmark, experiment, or Stage0/A/B action was performed."

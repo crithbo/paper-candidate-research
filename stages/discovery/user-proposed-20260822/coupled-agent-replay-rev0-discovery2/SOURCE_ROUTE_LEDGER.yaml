@@ -1,0 +1,61 @@
+schema: bounded-source-route-ledger-v1
+assignment_id: DISCOVERY-S6-20260822-COUPLED-AGENT-REPLAY-DISCOVERY2
+official_or_primary_routes_max: 24
+attempts_used: 9
+attempts:
+  - attempt: 1
+    source_role: ANCHOR_CURRENT
+    route: arXiv primary paper, Causal Agent Replay
+    status: COMPLETED__PRIMARY_ABSTRACT_OPENED
+  - attempt: 2
+    source_role: CONTRARY
+    route: arXiv primary paper, Evaluation via Coupled Token Generation
+    status: COMPLETED__PRIMARY_ABSTRACT_OPENED
+  - attempt: 3
+    source_role: CONTRARY
+    route: arXiv primary paper, Counterfactual Token Generation
+    status: COMPLETED__PRIMARY_ABSTRACT_OPENED
+  - attempt: 4
+    source_role: CURRENT
+    route: official GitHub API tree at frozen OpenHands tree SHA
+    status: FAILED__WEB_CONNECTOR_INTERNAL_ERROR__NO_SCIENTIFIC_INFERENCE
+  - attempt: 5
+    source_role: ANCHOR_SEARCH
+    route: bounded primary-source search for CAR/CTG/Counterfactual Token Generation/OpenHands
+    status: COMPLETED__LOCATOR_RESULTS_ONLY
+  - attempt: 6
+    source_role: CURRENT
+    route: official GitHub API tree at frozen OpenHands tree SHA, process-local direct retrieval
+    status: FAILED__TLS_HANDSHAKE__NO_RESPONSE_PERSISTED
+    error: The SSL connection could not be established, see inner exception.
+  - attempt: 7
+    source_role: CURRENT
+    route: official GitHub API tree at frozen OpenHands tree SHA, approved process-local retry
+    status: SUCCEEDED__TREE_PERSISTED
+    output: resources/downloads/openhands-tree-2d8abc2.json
+    response_bytes: 610108
+    response_sha256: EAF7B7D9748F9815ED92E796DD7094A7BF5E089DE32644FC31831B3E36F6A3EF
+    tree_entries: 2390
+  - attempt: 8
+    source_role: CURRENT_EXACT_OBJECT
+    route: official raw README at frozen OpenHands commit
+    status: SUCCEEDED__SOURCE_PERSISTED
+    output: resources/downloads/openhands-README.md
+    response_bytes: 8928
+    response_sha256: F84D463D9AA794C9A6F7C28750E3389D7A22F932BEC4B724CB68660C7363F8FF
+  - attempt: 9
+    source_role: CURRENT_EXACT_OBJECT
+    route: official raw package manifest at frozen OpenHands commit
+    status: SUCCEEDED__SOURCE_PERSISTED
+    output: resources/downloads/openhands-package.json
+    response_bytes: 9499
+    response_sha256: E64137F92290EA9844E1F7835A0B0AE3C4A7859BD9D4E214892DD1873A24BB1F
+remaining_budget: 15
+stop_condition_reached:
+  condition: FROZEN_OPENHANDS_COMMIT_DOES_NOT_DEFINE_THE_REQUIRED_NATIVE_CODING_AGENT_POLICY_OR_BRANCH_STATE
+  disposition: STRUCTURAL_SAME_OBJECT_FAILURE
+  further_routes_run: false
+  scientific_inference: SAME_OBJECT_CONTRACT_CANNOT_BE_SATISFIED_WITHOUT_FORBIDDEN_OBJECT_CHANGE
+notes:
+  - No S5 scientific observation was accessed or used.
+  - Searches are locator support; they do not establish novelty or absence.

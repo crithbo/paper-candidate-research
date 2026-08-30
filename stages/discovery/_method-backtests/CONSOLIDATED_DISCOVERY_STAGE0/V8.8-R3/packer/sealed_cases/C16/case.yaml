@@ -1,0 +1,32 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C16
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-09T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [DATABASE_STORAGE, COMPRESSION, ALGORITHM_DATA_STRUCTURE, NON_CUDA]
+raw_opportunity: >-
+  A block-table writer collects samples and trains one dictionary for standard
+  compressed SST output. Examine a budgeted sample/fragment construction under
+  the unchanged reader, checksum and production lifecycle contract.
+runtime_event:
+  phase: PRECLAIM_NATURAL_INPUT_ACQUISITION
+  raw_observation: >-
+    An official HTTPS transfer for the frozen public corpus repeatedly failed
+    before complete bytes were received; no construction, reader replay or
+    claim-bearing measurement was executed.
+  claim_bearing_observation: false
+required_analysis:
+  - include current writer controls and COVER/FastCover in the fair union
+  - freeze production writer/reader parity and complete training/full-scan cost
+  - retain or unfreeze on scientific grounds independently of the transfer event
+  - classify the raw transfer event only as resource readiness
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C16/sources/S01_block_based_table_builder.cc, sha256: 8EC8EC7399A44F9EEDE23D8928C8D0990A16A1A89E1B03662C3CD8C88E2A2F03, bytes: 136401, url: "https://raw.githubusercontent.com/facebook/rocksdb/1dfa7297933df05237ac11376d6cb69d32591b1d/table/block_based/block_based_table_builder.cc", available_by: "2026-08-07", role: CURRENT_FIRST_PARTY_WRITER_ACTION}
+  - {source_id: S02, path: sealed_cases/C16/sources/S02_rocksdb-dictionary-compression.html, sha256: 0BB15096A43C07235D39C5D6D1F3017B55329D400C379DEC95386A7C02D9BF97, bytes: 37284, url: "https://rocksdb.org/blog/2021/05/31/dictionary-compression.html", available_by: "2021-05-31", role: FIRST_PARTY_DICTIONARY_CONTRACT}
+  - {source_id: S03, path: sealed_cases/C16/sources/S03_zdict.h, sha256: ABACADB94E3F79E591F4B1648E839B0160FBF4291211FD01BDBA1380269B245C, bytes: 26516, url: "https://raw.githubusercontent.com/facebook/zstd/82d322c4973d9e2968d94047a40892bc6d9a9bdf/lib/zdict.h", available_by: "2026-08-01", role: GENERIC_DICTIONARY_KERNEL_INTERFACE}
+exclusions:
+  - local candidate title, later blocker packets and any partial corpus bytes
+  - post-cutoff source/data changes
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL
+

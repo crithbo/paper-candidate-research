@@ -1,0 +1,18 @@
+schema: ppc-r7-fidelity-correction-precommit-v1
+recorded_before_actions: true
+preserve:
+  handoff_source_sha256: 4211F9CE4F81B1A2C2CF417BF9CA6E03A2C2979CB5D5263D4AE0C5653759CAE6
+  manifest_source_sha256: 419584E5A7AAB90D027B2BC75A3AA503F2DA586A64FDB7033A4900F6587C3D53
+implementation:
+  root: resources/src/claim_harness
+  maximum_total_files: 12
+  planned_files: [claim_harness.py, trace_schema.py, ppc_tpd.py, generators.py, checkers.py, full_cost.py, r8_plan.py, contract.json]
+commands:
+  - {id: A1, argv: [bundled_python, resources/src/claim_harness/claim_harness.py, --replay, '1'], selected_corpus_input: false}
+  - {id: A2, argv: [bundled_python, resources/src/claim_harness/claim_harness.py, --replay, '2'], selected_corpus_input: false}
+  - {id: A3, argv: [bundled_python, resources/src/claim_harness/r8_plan.py], execution: PLAN_GENERATION_ONLY}
+additional_command_records: 3
+cumulative_command_records: 151
+selected_or_reserve_tool_invocations: 0
+claim_runs: 0
+retry: false

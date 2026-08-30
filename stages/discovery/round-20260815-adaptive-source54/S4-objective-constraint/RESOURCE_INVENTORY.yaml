@@ -1,0 +1,20 @@
+assignment_id: DISCOVERY-S4-20260815-ADAPTIVE-SOURCE54-R40-ORDINARY-BREADTH-V1
+resource_root: stages/discovery/round-20260815-adaptive-source54/S4-objective-constraint/resources
+policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+attempt_counter: 2
+resource_actions:
+  - id: SC54-01-01
+    class: TRANSIENT_READ_ONLY_PRIMARY_WEB
+    role: ANCHOR
+    url: https://smt-comp.github.io/2025/
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    status: ATTEMPTED__TLS_CONNECTION_ESTABLISHMENT_FAILED
+  - id: SC54-01-02
+    class: TRANSIENT_READ_ONLY_PRIMARY_WEB
+    role: CURRENT
+    url: https://github.com/SMT-COMP/smt-comp.github.io
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    status: ATTEMPTED__TLS_CONNECTION_ESTABLISHMENT_FAILED
+reconciliation:
+  status: OPEN_BOUNDED__TRANSIENT_TLS_FAILURE__NO_PERSISTED_RESOURCE
+  note_zh: 两条预登记官方网页均在TLS连接建立前失败且未返回内容；不下载、复制、解压、构建、安装或实验。

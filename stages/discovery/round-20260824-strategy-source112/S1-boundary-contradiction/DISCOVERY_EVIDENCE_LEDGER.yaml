@@ -1,0 +1,24 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE112-VLA-MULTIMODAL-SPECULATIVE-V1
+cutoff: '2026-08-24'
+sources:
+  - {source_id: S112-01, title_or_artifact: SpecVLA, canonical_version: public repository/paper arXiv:2507.22424, locator: https://github.com/PineTreeWss/SpecVLA, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S112-02, title_or_artifact: SV-VLA, canonical_version: arXiv:2604.02965, locator: https://arxiv.org/abs/2604.02965, source_role: CONTRARY, read_depth: ABSTRACT}
+  - {source_id: S112-03, title_or_artifact: LeRobot pi0FAST documentation, canonical_version: main viewed 2026-08-24, locator: https://github.com/huggingface/lerobot/blob/main/docs/source/pi0fast.mdx, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S112-04, title_or_artifact: OpenVLA, canonical_version: public repository viewed 2026-08-24, locator: https://github.com/openvla/openvla, source_role: NATURAL_CARRIER, read_depth: SOURCE}
+claims:
+  - claim_id: C112-01
+    text: Spec-VLA already applies relaxed speculative acceptance to VLA action-token generation and exposes a quality-speed threshold on LIBERO.
+    priority: HIGH
+    source_links: [{source_id: S112-01, relation: DIRECT, locator: README abstract and LIBERO protocol, evidence_status: AUTHOR_CLAIM, conflict: robot/simulation evidence ceiling, permitted_conclusion: generic VLA speculative acceptance is not residual}]
+  - claim_id: C112-02
+    text: SV-VLA already covers closed-loop verification of planned action chunks against current observations, directly absorbing generic action-chunk verifier framing.
+    priority: HIGH
+    source_links: [{source_id: S112-02, relation: OPPOSE, locator: abstract, evidence_status: AUTHOR_CLAIM, conflict: no robot execution permitted here, permitted_conclusion: no generic verifier proposal is raw-admissible}]
+  - claim_id: C112-03
+    text: π0-FAST defines a public normalized action-chunk tokenization/decoding contract through DCT, quantization and BPE.
+    priority: HIGH
+    source_links: [{source_id: S112-03, relation: DIRECT, locator: tokenizer steps, evidence_status: DIRECT_OBSERVATION, conflict: no named mismatch found, permitted_conclusion: generic action-token equivalence checker is routine}]
+stopping: {high_impact_items_bounded: true, latest_and_current_union_checked: true, first_party_depth_sufficient: true, heterogeneous_independent_path_complete: true, contrary_search_complete: true, natural_or_canonical_carrier_frozen: false, full_cost_frozen: false, marginal_sources_no_longer_decision_changing: true, decisive_contradictions_resolved_or_bounded: true, disposition: NOT_ADMITTED_UNFROZEN}
+execution_readiness: {state: E0, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: NO_RAW_ADMISSION__NO_ROBOT_DEPLOYMENT_CLAIM

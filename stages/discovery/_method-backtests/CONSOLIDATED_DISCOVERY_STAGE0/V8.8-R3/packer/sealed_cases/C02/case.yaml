@@ -1,0 +1,26 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C02
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-09T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [APPROXIMATE_NEAREST_NEIGHBOR, GRAPH_INDEX, NON_CUDA]
+raw_opportunity: >-
+  Incremental proximity-graph insertion makes local pruning decisions. Examine
+  a batch, layerwise degree-capped edge-selection direction under unchanged
+  HNSW search, serialization, reachability and connectivity semantics. Search
+  the nearest same-object global builder and generic matching kernel first.
+required_analysis:
+  - cover native hnswlib, Faiss, global layer builders and generic matching
+  - reject broad batch/global novelty already represented by the union
+  - distinguish an integrated legal residual from matching plus ordinary repair
+  - keep model-level witnesses distinct from native or natural evidence
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C02/sources/S01_hnswalg.h, sha256: 483D3B3193969EF4C35239849B6385DD1086434A7BAE1D8181ACF287E46666FC, bytes: 56856, url: "https://raw.githubusercontent.com/nmslib/hnswlib/d9b3608c83d83b46c96e25088cb1d729b29dcfe9/hnswlib/hnswalg.h", available_by: "2026-03-28", role: NATIVE_FIRST_PARTY_ACTION}
+  - {source_id: S02, path: sealed_cases/C02/sources/S02_HNSW.cpp, sha256: FA60A36C81C264920CC22EAF29C2A2C23F824C96F2A8EEF2632DCF0449D9990A, bytes: 53604, url: "https://raw.githubusercontent.com/facebookresearch/faiss/02dbb4e42f49aa2ce57cd78977b0e47a11f7cb91/faiss/impl/HNSW.cpp", available_by: "2026-08-08", role: CURRENT_FIRST_PARTY_SIBLING_ACTION}
+  - {source_id: S03, path: sealed_cases/C02/sources/S03_fastkcna.pdf, sha256: D0704980858A39346826FD3DBE2CBF1BC164FDA7DD0CB3CD6481FBD7826DF65B, bytes: 1468321, url: "https://www.vldb.org/pvldb/vol18/p1825-liu.pdf", available_by: "2025-12-31", role: CLOSEST_SAME_OBJECT_GLOBAL_BUILDER}
+  - {source_id: S04, path: sealed_cases/C02/sources/S04_generic-bmatching.pdf, sha256: 53CAB0D6376031939A17CAD44D2B952C97E1C3FE1AEE6A69858C1FE57D67148B, bytes: 728884, url: "https://nicsefc.ee.tsinghua.edu.cn/nics_file/pdf/ffb3b2b1-990d-487b-b979-7c4fe6cd536f.pdf", available_by: "2020-12-31", role: GENERIC_B_MATCHING_KERNEL}
+exclusions:
+  - all local candidate/revision material and later adjudication
+  - all post-cutoff follow-on work
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL

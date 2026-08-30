@@ -1,0 +1,107 @@
+schema: stage0a-r3b-reviewer-exclusion-ledger-v1
+audit_id: RULE-AUDIT-20260827-STAGE0A-IDENTITY-BLIND-R3B-FRESH-POOL-R1
+frozen_at: '2026-08-27T17:28:00+08:00'
+status: PROPOSAL_ONLY__CONTROL_PLANE_IDENTITY_FIREWALL
+purpose: EXCLUDE_ALL_PRIOR_OR_REVIEWER_EXPOSED_IDENTITIES_BEFORE_R3B_FREEZE
+reviewer_delivery_performed_for_r3b: false
+
+exclusion_sources:
+  - R1_AND_R2_BACKTEST_IDENTITIES
+  - R3_ORIGINAL_FROZEN_24_POOL
+  - CURRENT_PROSPECTIVE_REVIEWER_EXPOSURES_FROM_R1_R2_AND_R3
+scope_statement: The exact union below is fail-closed. Aliases identify the same semantic paper identity and are also excluded.
+
+identity_groups:
+  R1_R2:
+    count: 13
+    identities:
+      - canonical: 'Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs'
+        aliases: [HNSW]
+      - canonical: 'Benchmarking Nearest Neighbors — Automated Reproducible Search for Algorithmic Evaluation'
+        aliases: [ANN-Benchmarks]
+      - canonical: 'egg: Fast and Extensible Equality Saturation'
+        aliases: [egg]
+      - canonical: 'cvc5: A Versatile and Industrial-Strength SMT Solver'
+        aliases: [cvc5]
+      - canonical: 'Carcara: An Efficient Proof Checker and Elaborator for SMT Proofs in the Alethe Format'
+        aliases: [Carcara]
+      - canonical: 'Layered Label Propagation: A Multiresolution Coordinate-Free Ordering for Compressing Social Networks'
+        aliases: [WebGraph, Layered Label Propagation]
+      - canonical: 'The PGM-index: A Fully-Dynamic Compressed Learned Index with Provable Worst-Case Bounds'
+        aliases: [PGM-index]
+      - canonical: 'ALEX: An Updatable Adaptive Learned Index'
+        aliases: [ALEX]
+      - canonical: 'Pythia: A Customizable Hardware Prefetching Framework Using Online Reinforcement Learning'
+        aliases: [Pythia]
+      - canonical: 'Berti: An Accurate Local-Delta Data Prefetcher'
+        aliases: [Berti]
+      - canonical: 'BOLT: A Practical Binary Optimizer for Data Centers and Beyond'
+        aliases: [BOLT]
+      - canonical: 'A Mess of Memory System Benchmarking, Simulation and Application Profiling'
+        aliases: []
+      - canonical: 'Alive2: Bounded Translation Validation for LLVM'
+        aliases: [Alive2]
+
+  R3_ORIGINAL_24:
+    count: 24
+    identities:
+      - canonical: 'LinnOS: Predictability on Unpredictable Flash Storage with a Light Neural Network'
+        aliases: [LinnOS]
+      - canonical: 'Generalized Sub-Query Fusion for Eliminating Redundant I/O from Big-Data Queries'
+        aliases: [RESIN, Generalized Sub-Query Fusion]
+      - canonical: 'AIFM: High-Performance, Application-Integrated Far Memory'
+        aliases: [AIFM]
+      - canonical: 'CacheLib: A High-Performance Caching Engine for Web-Scale Workloads'
+        aliases: [CacheLib]
+      - canonical: 'Theseus: an Experiment in Operating System Structure and State Management'
+        aliases: [Theseus]
+      - canonical: 'Performance-Optimal Read-Only Transactions'
+        aliases: []
+      - canonical: 'Formally Verified EVM Block-Optimizations'
+        aliases: []
+      - canonical: 'SPORES: Sum-Product Optimization via Relational Equality Saturation for Large Scale Linear Algebra'
+        aliases: [SPORES]
+      - canonical: 'Equality Saturation for Tensor Graph Superoptimization'
+        aliases: ['Tensat: Tensor Graph Superoptimization via Equality Saturation', Tensat]
+      - canonical: 'Diospyros: DNN Kernel Optimization Using Equality Saturation'
+        aliases: [Diospyros]
+      - canonical: 'Szalinski: Automatic Hierarchical Decomposition for Complex 3D Models'
+        aliases: [Szalinski]
+      - canonical: 'VeriSafeKV: Building a High-Performance Key-Value Store using Full-System Verification'
+        aliases: ['Storage Systems are Distributed Systems', VeriSafeKV]
+      - canonical: 'The MLPerf Training Benchmark'
+        aliases: [MLPerf Training]
+      - canonical: 'An Open-Source Benchmark Suite for Cloud and IoT Microservices'
+        aliases: ['DeathStarBench: A Benchmark Suite for Cloud Microservices', DeathStarBench]
+      - canonical: 'CloudSuite 3.0: Benchmarking Cloud Computing Applications'
+        aliases: [CloudSuite 3.0]
+      - canonical: 'DaCapo Chopin: A Benchmark Suite for Modern JVMs'
+        aliases: [DaCapo Chopin]
+      - canonical: 'MLPerf Tiny Benchmark'
+        aliases: [MLPerf Tiny]
+      - canonical: 'ServerlessBench: A Benchmark Suite for Serverless Computing'
+        aliases: [ServerlessBench]
+      - canonical: 'To Cross, or Not to Cross Pages for Prefetching?'
+        aliases: [MOKA]
+      - canonical: 'RecNMP: Accelerating Personalized Recommendation with Near-Memory Processing'
+        aliases: [RecNMP]
+      - canonical: 'TensorDIMM: A Practical Near-Memory Processing Architecture for Embeddings and Tensor Operations in Deep Learning'
+        aliases: [TensorDIMM]
+      - canonical: 'Buddy Compression: Enabling Larger Memory for Deep Learning and HPC Workloads on GPUs'
+        aliases: [Buddy Compression]
+      - canonical: 'MLOP: Multi-Lookahead Offset Prefetching'
+        aliases: [MLOP]
+      - canonical: 'Bingo Spatial Data Prefetcher'
+        aliases: [Bingo]
+
+fresh_pool_crosscheck:
+  proposed_r3b_identity_count: 24
+  exact_or_alias_overlap_count: 0
+  result: PASS
+  review_method: NORMALIZED_EXACT_TITLE_PLUS_LISTED_ALIAS_CHECK
+  semantic_duplicate_claim: NOT_ASSERTED_BEYOND_LISTED_ALIASES
+
+fail_closed_rule:
+  if_exact_alias_or_semantic_identity_overlap_found: REJECT_ROW_AND_STOP_FOR_NEW_MAINLINE_FREEZE
+  allow_result_aware_substitution: false
+  allow_old_r3_a3_patch: false

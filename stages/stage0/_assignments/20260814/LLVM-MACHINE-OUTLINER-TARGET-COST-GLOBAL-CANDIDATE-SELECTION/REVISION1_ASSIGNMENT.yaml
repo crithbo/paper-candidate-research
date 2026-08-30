@@ -1,0 +1,28 @@
+assignment_id: STAGE0-P1-20260814-LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION-REVISION1-V8.7
+mode: PRIMARY_REVISION1
+topic_id: LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_READY_TO_DISPATCH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_revisions\LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION\revision1
+scientific_revision_limit: 1
+scientific_revision_index: 1
+sole_gate: PINNED_MACHINEOUTLINER_GLOBAL_CANDIDATE_CATALOG__TARGET_COST_CONFLICT_COMPONENT_PARETO_CERTIFICATE
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source21-primary\LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION
+confirmation_directory: stages\stage0\_reviews\round-20260814-adaptive-source21-confirmation\LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION
+frozen_inputs:
+  primary_manifest_sha256: 1842EEE2F83E7F902D499CCF336ACE212DCF902686EFE7E0DF72F2727EB157A0
+  confirmation_manifest_sha256: AE4C9DCFF70F3D56204CC3E01ADAB462914775DF20D4627BF86D9DF864289B93
+  confirmation_review_sha256: B6774AD6F89491ED4620379E62D8676CD683AC11DAA57554F5D6F38A15636C34
+  confirmation_handoff_sha256: 31B34E5CEC122A844FB2C0F080A68B2A323293D08875367AAB724E1CBA9585D3
+mandatory_closure:
+  - Preserve LLVM 22.1.8 commit ca7933e47d3a3451d81e72ac174dcb5aa28b59d1 and pin one target, ABI, subtarget and outliner configuration.
+  - Enumerate the complete native candidate/action catalogue including local overlap pre-pruning, global CGData Read candidates, target frame/call/safety hooks and scalar greedy selection.
+  - Prove that the proposed conflict component is not irreversibly lost before selection, and give one same-MachineIR native-legal multi-candidate witness.
+  - Preserve object, call-frame, unwind, relocation, MachineInstr and future-native-action legality in a target-specific finite state.
+  - Provide an exact/FPT/certified Pareto recurrence with honest degeneration and no-gain boundaries; abstract conflict-graph/set-packing or generic ILP is a failure.
+  - Freeze but do not run a finite native-oracle, object/unwind/relocation and full-cost StageA killer.
+failure_sentinel: BELOW_Q2_STOP__CURRENT_MACHINE_OUTLINER_GLOBAL_SELECTION_ABSORPTION_OR_GENERIC_CONFLICT_GRAPH_PACKING
+forbidden: [new_topic, second_revision, global_discovery_claim, generic_packing_or_ILP, implementation, build, experiment, benchmark, download, stageA, stageB, shared_control_write]
+required_outputs: [REVISION_REPORT.md, CURRENT_ACTION_AND_FRONTIER_AUDIT.md, CLAIM_MATRIX.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {next_if_gate_closed: INDEPENDENT_REVISION1_CLOSING, notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

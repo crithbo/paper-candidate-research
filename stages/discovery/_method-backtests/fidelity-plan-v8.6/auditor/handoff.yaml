@@ -1,0 +1,38 @@
+schema_version: discovery-backtest-auditor-handoff-v1
+assignment_id: BACKTEST-AUDITOR-L1-20260809-FIDELITY-PLAN-V8.6
+role: DISCOVERY_BACKTEST_AUDITOR_LANE_1
+method_revision: fidelity-plan-v8.6
+inputs_verified:
+  packer_manifest_sha256: 26B8E768E528BBB106CC49CC8E26761C8E889F7B7F6AED53C2A88B1A5244B49B
+  packer_exact_file_set: 17/17
+  blinded_input_root_sha256: 739ECB8527A11AFA718406F7F5AD1C9B6D078DCAA312241961C47E25B5443BCF
+  executor_manifest_sha256: 9D9FE0A218A85BEAC490EC3B065BDFA50122D4E442B222292A7734209F815DA2
+  executor_exact_file_set: 3/3
+  executor_decisions_sha256: 7D7F040D2F82A4CDC439104E7D5E705C48AC110BC79A08FEAB4133B0451B2879
+  executor_handoff_sha256: 7179408C88CA9E61F5A5C4E060555565B5CB5B2452BD037D5BA7100A0D5348C6
+audit:
+  positive_cases: 6
+  negative_cases: 6
+  true_positive: 6
+  false_negative: 0
+  true_negative: 6
+  false_positive: 0
+  positive_gate: PASS__6_OF_6_PROPOSE_STAGE0__MIN_5
+  negative_gate: PASS__6_OF_6_DROP__REQUIRED_6
+  terminal_revival_gate: PASS__0
+  contamination_or_confusion: NONE_DETECTED
+  verdict: ACCEPT_FOR_PRODUCTION
+  calibration_status: CALIBRATED
+  wave12_production_allowed: true
+claim_ceiling: >-
+  Discovery admission calibration only; it creates no candidate evidence and
+  establishes no novelty, feasibility, correctness, performance, or Stage 0/A/B result.
+residual_risk: >-
+  Cutoff provenance is reproducibly linked to frozen local hashes but has no
+  independently supplied external archive timestamp; all standing gates remain mandatory.
+deliverables:
+  audit_report: AUDIT_REPORT.md
+  confusion_matrix: CONFUSION_MATRIX.yaml
+  hash_manifest: HASH_MANIFEST.sha256
+lane_completion_state: IDLE_REUSABLE_AWAITING_MAINLINE
+mainline_acceptance_required_before_reuse: true

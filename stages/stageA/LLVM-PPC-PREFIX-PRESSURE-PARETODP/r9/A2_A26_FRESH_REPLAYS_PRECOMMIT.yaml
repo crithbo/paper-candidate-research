@@ -1,0 +1,32 @@
+schema: ppc-r9-a2-a26-fresh-replays-precommit-v1
+created_at: 2026-08-26T08:53:10.1232107+08:00
+source_harness: {path: resources/src/natural_materializer/materializer_harness.py, sha256: 6234A3380940D87A2FCDBAA1D08DB3F4893A37901E3854CCD9222F3A035BDC0E}
+control_input: {path: resources/src/r6_input/src/preclaim_harness/ppc_union_input.ll, sha256: 1124F15D99EC0CF7F1688CD20E21416A17C1A075F46419FE95A9E35C262BD939, function: ir_pressure_control, selected_or_reserve_member: false}
+mode: fidelity_replay
+method: ppc_tpd
+replays:
+  - {replay: 1, output_root: resources/build/a2_replay_1, root_absent_before_run: true, expected_commands: 17}
+  - {replay: 2, output_root: resources/build/a2_replay_2, root_absent_before_run: true, expected_commands: 17}
+ordered: REPLAY_1_PASS_REQUIRED_BEFORE_REPLAY_2
+expected_each:
+  exit_code: 0
+  native_checkers: PASS_7_OF_7
+  full_cost_dependency_validation: PASS
+  command_records: 17
+  automatic_retry: false
+exact_equality_contract:
+  deterministic_payload_sha256_equal: true
+  direct_and_materialized_MIR_content_equal: true
+  baseline_and_candidate_object_content_equal: true
+  baseline_and_candidate_ELF_content_equal: true
+  candidate_trace_and_result_canonical_hash_equal: true
+  native_checker_statuses_equal: true
+  full_cost_structural_payload_equal: true
+  tool_stdout_and_stderr_content_equal_where_path_independent: true
+  timing_RSS_absolute_paths_and_replay_id_not_used_for_exact_equality: true
+timeout_seconds_per_nested_command: 300
+automatic_retry: false
+source_edit_allowed: false
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_runs: 0
+scientific_inference: NONE

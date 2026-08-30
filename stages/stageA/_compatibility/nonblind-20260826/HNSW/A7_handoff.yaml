@@ -1,0 +1,9 @@
+schema: nonblind-stagea-compatibility-a7-handoff-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A7-RUNTIME-DLL
+result: FAIL_CLOSED_RESOURCE_OR_ENGINEERING_BLOCKER
+summary: Exact assignment-local libc++.dll and libunwind.dll were copied once and hash-verified. The sole existing test_updates rerun no longer had the DLL load failure but exited 1 with `Cannot open config.txt`. No config/input was created, no rebuild or retry occurred, and no fidelity/probe/scientific inference started.
+dll_copy: PASS
+test_updates: {status: FAILED_FAIL_CLOSED, exit_code: 1, stderr: 'Cannot open config.txt'}
+retry_count: 0
+scientific_inference: NONE
+next_authority: MAINLINE

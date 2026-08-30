@@ -1,0 +1,21 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S4-20260824-SOURCE105-PUBLIC-NDP-ROTATION-V1
+topic_id: SOURCE105-PORTFOLIO-S4
+lane_id: DISCOVERY_S4
+lane_mode: S4_OBJECTIVE_CONSTRAINT
+thread_id: 01a02e08-1606-71b0-89d9-3fc204478b08
+common_contract: stages/discovery/round-20260824-strategy-source105/control/CONTROL.yaml
+common_contract_sha256: 07647BAFBC3042AB97D49B0F54B0CAEC4A3AFC14315E66232538660CEEDB4E8D
+write_directory: stages/discovery/round-20260824-strategy-source105/S4-objective-constraint
+resource_root: stages/discovery/round-20260824-strategy-source105/S4-objective-constraint/resources
+focus: CANONICAL_BENCHMARK_OR_COST_MODEL_VALIDITY_FOR_SINGLE_GPU_AND_OPEN_ACCELERATOR_MODELS
+anchor_portfolio: [MLPERF_OR_PUBLIC_LLM_BENCHMARK_SOURCE, TIMELOOP_ACCELERGY_PUBLIC_MODEL, PUBLIC_GPU_MEASUREMENT_METHOD]
+contribution_types_preferred: [BENCHMARK_DATASET, MEASUREMENT_CHARACTERIZATION]
+forbidden_exact_repeats: [GENERIC_GOODPUT_REPACKAGING, GPU_ONLY_ENERGY_AS_END_TO_END, DASHBOARD_WITHOUT_DECISION_THRESHOLD]
+model_route: {model: gpt-5.6-terra, reasoning: high}
+discovery_rq_frontend_mode: PRODUCTION
+discovery_claim_pack_mode: OFF
+discovery_quality_mode: OFF
+selective_depth: OFF
+next_action_before_start: WRITE_BOOTSTRAP_ACK_AND_WAIT_FOR_MAINLINE_ACCEPTANCE
+

@@ -1,0 +1,22 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: STAGE0-PRIMARY-20260830-SOURCE120-S1-VHLO-SEMANTIC-COMPAT, topic_id: SOURCE120-S1-VHLO-SEMANTIC-COMPAT, lane_id: STAGE0_PRIMARY, thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c, role: STAGE0_PRIMARY}
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+frozen_control:
+  agents: {path: AGENTS.md, sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655}
+  plan: {path: plan.md, sha256: 494CA29AC38E61EF26C7E8D014FCF52BFD5E292408F72613977308D753360EF6}
+  registry: {path: registry.yaml, sha256: 46D7B7EE760DC7FF40E04394DFA67D336E34F63887E8EE4BBB69BDEE4BC597C0}
+  role: {path: rules/ROLE_STAGE0_REVIEW.md, sha256: BC4A6D6D5DE5CEC3DD69A1F8556276F95B405E81773FFC7F4A860B5769CAF2FE}
+  academic_skill: {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  deep_research_workflow: {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/deep-research/WORKFLOW.md, sha256: 055E902187665C2437D0F41F35E2CC9C11FB5D62A736CF3ED23E44193BD4F029}
+minimum_inputs:
+  control: {path: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/control/ASSIGNMENT.yaml, sha256: 9DEFE3D2964078A5D8BE3387853EBA8AA8000B4B53C870B3A85ECB2ABA2C1940}
+  brief: {path: stages/discovery/round-20260830-strategy-source120/S1-boundary-contradiction/TOPIC_BRIEF_SOURCE120_S1_VHLO_SEMANTIC_COMPAT.md, sha256: 4FC97D89CA74105CF2543ED506CA0545DF0E8C2E4481833C5C4D4E2658D55C3B}
+  handoff: {path: stages/discovery/round-20260830-strategy-source120/S1-boundary-contradiction/handoff.yaml, sha256: 52F2460947DF7CAE1E989F3130A340AB9DE62AF185177AEC20337C49E9B84A62}
+  manifest: {path: stages/discovery/round-20260830-strategy-source120/S1-boundary-contradiction/HASH_MANIFEST.sha256, sha256: 5C1DDFC141E116253E224E58BECF4CE085A4D5B507CC7AE2D8196FD38A9C181E}
+unique_write_directory: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+resource_root: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/resources
+bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+forbidden: [network_before_start, judgment_before_start, candidate_implementation, stagea, stageb, shared_write]
+pause_signal: finish_current_primary_review_and_handoff_then_no_successor
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP

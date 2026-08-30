@@ -1,0 +1,60 @@
+schema: candidate-resource-diagnostic-freeze-v1
+topic_id: CVC5-ALETHE-SHAREMAP
+assignment_id: SAFE-DIAGNOSTIC-L1-20260816-CVC5-RESUME6-GMP-COMPILER-PROBE
+authorization_id: USER_AUTONOMOUS_SAFE_BLOCKER_RECOVERY_20260815
+lane_id: CANDIDATE_EXECUTION_LANE_1
+created_at: 2026-08-16T00:39:56.7913119+08:00
+write_directory: stages/stageA/CVC5-ALETHE-SHAREMAP/resume6-diagnostic
+resource_root: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume6-diagnostic\resources
+assignment_control_sha256: 86263EF696A4BA381EC49954347FDC6D5C1528269528CB1B001928C45DD3E439
+resource_policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+frozen_upstream:
+  resume5_directory: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume5-safe-recovery
+  resume5_handoff_sha256: 0905EAD5DE69FAD99AAA7201BFA1F8449A1F9701D85B0667F712578F2E0B8A79
+  resume5_manifest_sha256: 31CF128747C98CB1EA2A8D9A14876EA4582F8CC6D83CC26A2C2BC126C6D1AF2C
+  resume5_manifest_validation: 17_OF_17_EXACT
+  build_log_sha256: 71DBC0354F6554BE3FCA3111CA10D7169F9DE0971E98A1C407BD36628A7AD720
+  gmp_config_log_sha256: A7FE0A9A6723513034A5676A6E6EBA8E331FB92030B044D800B7AAB9808990B6
+resource_envelope:
+  network_bytes_max: 0
+  persisted_bytes_max: 67108864
+  cpu_seconds_max: 120
+  wall_seconds_max: 600
+  processors_max: 1
+  diagnostic_attempts_max: 1
+process_local_environment:
+  PATH_order:
+    - resume5 resources/build/carcara-target/release/deps (read-only)
+    - resume5 resources/build/carcara-target/release (read-only)
+    - resume3 Rust 1.72 x86_64-pc-windows-gnu sysroot lib (read-only transitive dependency)
+    - resume3 Rust 1.72 bin (read-only transitive dependency)
+    - resume4 portable MSYS2 mingw64/bin (read-only transitive dependency)
+    - resume4 portable MSYS2 usr/bin (read-only transitive dependency)
+    - C:\Windows\System32
+    - C:\Windows
+  CC: gcc
+  CXX: g++
+  AR: ar
+  MAKE: make
+  SHELL: sh
+  MSYSTEM: MINGW64
+  CHERE_INVOKING: 1
+  TEMP: resources/tmp
+  TMP: resources/tmp
+  TMPDIR: resources/tmp
+  HOME: resources/env/home
+diagnostic:
+  shell: resume4 portable MSYS2 usr/bin/sh.exe
+  working_directory: resources/build/carcara-target/release/build/gmp-mpfr-sys-7107cdddf71b20a3/out/build/gmp-build
+  source: conftest.c
+  source_body: 'int main () { return 0; }'
+  compile_command: gcc -O2 -pedantic -fomit-frame-pointer -m64 conftest.c -o conftest.exe
+  loader_action: execute ./conftest.exe once only if compile succeeds
+  diagnostic_variants: 1
+network_allowed: false
+build_allowed: false
+retry_allowed: false
+claim_bearing_allowed: false
+scientific_revision_consumed: false
+stageb_authorized: false
+

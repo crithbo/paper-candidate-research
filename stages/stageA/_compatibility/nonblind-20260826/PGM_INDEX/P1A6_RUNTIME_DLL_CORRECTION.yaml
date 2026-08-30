@@ -1,0 +1,15 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-P1A6-RUNTIME-DLL
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P1A5_CANONICAL_BLOCKER_HANDOFF.yaml, sha256: 468D3A9D49040FAD520A340AD8B7FF4CE2CDDA5EF6581163E5C8B92B873F636B}, {path: resources/src/probe/pgm_minimal_probe.cpp, retention: P1A1_EDITED_HARNESS__DO_NOT_MODIFY}]
+dependency_analysis: {probe_executable: resources/build/pgm_minimal_probe.exe, required_assignment_local_dlls: [libc++.dll, libunwind.dll], current_destination_dll_count: 0}
+only_change: copy_exact_existing_runtime_DLLs_from_PGM_own_LLVM_MinGW_bin_to_probe_executable_directory
+sources: [resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/libc++.dll, resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/libunwind.dll]
+destination: resources/build
+allowed_command_sequence:
+  - {id: P1A6S0, command: verify_source_DLL_hashes_and_destination_absence, stop_on_nonzero: true}
+  - {id: P1A6S1, command: copy_two_exact_DLLs_once, stop_on_nonzero: true}
+  - {id: P1A6S2, command: Start_Process_absolute_exe_four_cells_with_exit_and_JSON_assertions, stop_on_nonzero: true}
+prohibitions: [recompile, harness_edit, input_or_epsilon_change, alternate_runtime, system_DLL_install, global_PATH_change, root_cwd, production_or_stageB_action]
+scientific_revision_consumed: false

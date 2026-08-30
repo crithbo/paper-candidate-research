@@ -1,0 +1,13 @@
+schema_version: mainline-r3-explicit-reack-dispatch-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+action: FULL_ROUND2_REACK_REQUIRED
+authorized_write: BOOTSTRAP_ACK.yaml
+preserved_pass1: {path: BOOTSTRAP_ACK.pass1_start_failed.yaml, sha256: 3D79334661735A4C3408139DBBBCE83DB729F08EB4BEBA3D59CCB9FCF9DDE677}
+required_new_ack_fields:
+  context_sha256: 766A1A091F582C69C16399D4468FC4CEA31AA029BE161F3854BB02BCBD1665F3
+  plan_sha256: 70DD807FA6A95D379DC945E6E804832C79075A3AB0861229420B31045DBC4EB5
+  registry_sha256: 6B6B4D9A7EF7563FF5CD6BF947D7EA1D789A93A25059C9ADF2E88057778C0064
+  candidate_pool_sha256: 22CF0D0C9CC1C7DB1317DA085D323EDFBC1394C67E116B2FC1AD29A9F5E7D3AC
+  selection_input_addendum_sha256: 82DD462AF74FCB1014552BE1DEEA046C35CDE128567BC0FBF18AD5DFECBB192C
+acceptance_rule: canonical_ack_sha256_must_differ_from_pass1_and_contain_all_required_new_ack_fields_with_differences_empty
+forbidden_before_mainline_acceptance: [selection, network, source_acquisition, resource_creation, packet_creation, scoring, build, probe, experiment]

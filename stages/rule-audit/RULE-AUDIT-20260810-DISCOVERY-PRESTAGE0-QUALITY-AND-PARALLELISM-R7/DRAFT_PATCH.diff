@@ -1,0 +1,63 @@
+diff --git a/rules/ROLE_MAINLINE.md b/rules/ROLE_MAINLINE.md
+--- a/rules/ROLE_MAINLINE.md
++++ b/rules/ROLE_MAINLINE.md
+@@ 并发与在制品
++Discovery quality mode is assignment-frozen as `OFF / SHADOW / PRODUCTION`; default is `OFF`. `SHADOW` writes only noncanonical audit artifacts and cannot create or change a candidate decision. `PRODUCTION` is legal only after the registered independent backtest and two-wave shadow both pass.
++
++The two hot Discovery slots use `BREADTH` or `DEPTH_REDTEAM` modes without changing lane count. With no qualified depth backlog, run two orthogonal breadth assignments. With at least one qualified `DEEP_DIVE_REQUIRED` family, run one breadth and one depth-redteam assignment. When resource-ready StageA owner/gate work exists, contract Discovery to at most one slot; retain depth when a qualified backlog exists, otherwise breadth. R4 base seats, maintenance burst, per-stage maxima and third-lane eligibility remain unchanged.
++
++A depth backlog item requires a named unique opportunity family, an expressible exact object and preliminary atomic action, at least one unresolved current/generic/contrary/carrier source role, and no known direct fatal. Release the depth slot after a canonical brief or a supported `STRUCTURAL_DROP / NOT_ADMITTED_UNFROZEN / RESOURCE_BLOCKED` disposition.
+@@ 调度遥测
++Record `discovery_breadth_assignment_count`, `discovery_depth_redteam_assignment_count`, `failure_kernel_lookup_count`, `prebrief_adversarial_check_count`, and `stage0_repair_vector_counts` in addition to the existing funnel metrics. These fields are diagnostic and never quotas.
++
++`STAGE0_REPAIR_VECTOR` values are `OMITTED_CURRENT_SAME_OBJECT / OMITTED_FIRST_PARTY_FEATURE / OMITTED_GENERIC_KERNEL / ATOMIC_ACTION_UNCLEAR / NATURAL_CARRIER_GAP / FULL_COST_GAP / Q2_SHAPE_GAP / NO_MATERIAL_REPAIR`. More than one value may apply. Scientific STOP can still have `NO_MATERIAL_REPAIR`.
+
+diff --git a/rules/ROLE_DISCOVERY.md b/rules/ROLE_DISCOVERY.md
+--- a/rules/ROLE_DISCOVERY.md
++++ b/rules/ROLE_DISCOVERY.md
+@@ 三遍发现法
++When the frozen assignment enables R7 SHADOW or PRODUCTION for a candidate-grade deep review, perform a collision-first package before a canonical proposal:
++
++1. Freeze an atomic action signature: exact object, action, information, output/guarantee, cost boundary and proposed claim.
++2. Search the bounded axes `exact-object+action`, `same-output/guarantee`, first-party sibling/current source/CLI/default-and-nondefault flags, generic algorithm/formal kernel, and one backward/one forward genealogy hop.
++3. If an absorber is found, name the `DECISIVE_SUBTRACTOR` and compare object, action, information, guarantee, cost and claim facets. Action-space overlap alone is not algorithm absorption.
++4. If no absorber is found, record the reproducible boundary as `SEARCH_BOUNDED_OPEN`; never claim global novelty.
++5. Query registered failure kernels only as search expansion. Revalidate the present object, cutoff, source and guarantee; never inherit an old STOP or use unregistered cross-topic memory as evidence.
++6. Run a pre-brief adversarial check over exact-object/guarantee, current native union, generic kernel and natural-carrier observability. This check makes no Q2 verdict and requires neither implementation nor result.
++
++Possible pre-brief outcomes are `READY_FOR_CANONICAL_BRIEF / STRUCTURAL_DROP / NOT_ADMITTED_UNFROZEN / RESOURCE_BLOCKED / DEEP_DIVE_REQUIRED`. Missing implementation, result or resource cannot alone support `STRUCTURAL_DROP`.
+@@ AI 与资源
++For top-k depth scheduling only, rank families by source-grounded natural/formal headroom, object/action clarity, absorption risk, source-role completeness, finite StageA killer and AI core fraction. Ranking changes order, not the Q2 gate; valuable human-core topics remain eligible for reserve.
+
+diff --git a/rules/ROLE_STAGE0_REVIEW.md b/rules/ROLE_STAGE0_REVIEW.md
+--- a/rules/ROLE_STAGE0_REVIEW.md
++++ b/rules/ROLE_STAGE0_REVIEW.md
+@@ PRIMARY 必做
++After the independent scientific decision is formed, emit a non-decisional `STAGE0_REPAIR_VECTOR` describing whether Stage0 had to add a cutoff-available current same-object source, first-party feature, generic kernel, atomic-action correction, natural-carrier correction, full-cost correction or Q2-shape correction. Use `NO_MATERIAL_REPAIR` when none applies. The vector never changes PASS/RESERVE/REVISE/STOP and is returned to mainline for aggregate Discovery feedback.
+
+diff --git a/templates/TOPIC_BRIEF.md b/templates/TOPIC_BRIEF.md
+--- a/templates/TOPIC_BRIEF.md
++++ b/templates/TOPIC_BRIEF.md
+@@ Current collision classification
++### R7 collision-first deep review (required only when the frozen assignment enables R7)
++
++- Discovery quality mode: `SHADOW / PRODUCTION`
++- Atomic action signature:
++- Bounded query axes and exact queries:
++- Backward/forward chaining boundary:
++- Registered failure kernels consulted and why they are only query expansion:
++- Named decisive subtractor, if found:
++
++| Facet | Candidate | Decisive subtractor | Residual/disposition |
++|---|---|---|---|
++| Exact object | | | |
++| Atomic action | | | |
++| Information | | | |
++| Output/guarantee | | | |
++| Full-cost boundary | | | |
++| Main claim | | | |
++
++- Pre-brief adversarial outcome: `READY_FOR_CANONICAL_BRIEF / STRUCTURAL_DROP / NOT_ADMITTED_UNFROZEN / RESOURCE_BLOCKED / DEEP_DIVE_REQUIRED`
++- Evidence supporting structural rather than unfrozen/resource disposition:
++- Search-bounded-open statement and claim ceiling:
+

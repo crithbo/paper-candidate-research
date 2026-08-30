@@ -1,0 +1,62 @@
+schema: stage0a-double-blind-packer-contamination-reseal-addendum-v1
+created_at: 2026-08-26T18:31:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER_DOUBLE_BLIND_STAGE0_STAGEA_EVALUATION_20260826]
+assignment_id: BACKTEST-PACKER-20260826-STAGE0A-Q2-LOCAL-RESOURCE-R1-A1
+lane_id: BACKTEST_PACKER
+lane_thread_id: 01a034d0-e1e2-7921-bb72-a675ff98d5b0
+unique_write_directory: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer
+resource_root: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/resources
+
+pass1_freeze:
+  handoff_sha256: 61C45AC1C611E8109162237948E2A1C9D6BB1798F6D0EEF241E0405290FB870A
+  manifest_sha256: BBF70D14E551A7364A26AEBC3CB6DBB323D2F0A7FA25BE991E4C0F1BA3B28DE4
+  mainline_acceptance_sha256: B76A8C04E3F60A2E4D138D7A1B0593C7CE676DB1AB1ED13EC197CFEDB4737126
+  sealed_manifest_sha256: D8BE140E157945166629AF8771997F9143E1B06A735F63560CDB9703A9E5E0A9
+  preserve_all_pass1_files: true
+  preservation_paths: [handoff.pass1.yaml, HASH_MANIFEST.pass1.sha256, sealed_executor_input_pass1, auditor_key_pass1]
+
+contamination_event:
+  neutral_execution_directory: stages/stage0/_reviews/round-20260826-wave391/N7
+  ack_sha256: F2BA72EB3ECA8888FD851405B8915FB3CCD41F0C7384C9C1C8CA7D291FF66F3D
+  mainline_acceptance_sha256: 5AC0FBD2CF577FC99BBCFBC5BCC471349F292E0CD8E7E044F7BE3D657FFEA74F
+  contaminated_neutral_case_id: C-14F00B4F47004C29
+  contaminated_case_sha256: C11CA974BF260440E5AB48309B629DBAE92481AD6C8C684524FE50C207FBDDB6
+  cases_read_before_stop: 1
+  scientific_judgment_performed: false
+  denominator_disposition: EXCLUDE_AND_COUNT_CONTAMINATION
+  same_reviewer_reuse_allowed: false
+
+replacement_contract:
+  next_predeclared_alternate: ALT02_ALIVE2
+  replacement_order_may_change: false
+  qualification_and_static_resource_preflight_required_before_seal: true
+  replacement_allowed_only_if: [REAL_PEER_REVIEWED_Q2_OR_EQUIVALENT, HISTORICAL_CUTOFF_VALID, NO_DIRECT_ABSORPTION_AT_CUTOFF, NATURAL_OR_CANONICAL_EVIDENCE_ROUTE, FAIR_BASELINES, FULL_COST_NOT_DECISIVELY_OMITTED, REPRODUCIBLE_ROUTE, RESOURCE_ROUTE_CLASSIFIED]
+  failure_if_not_qualified: FAILED_NOT_DISPATCHABLE__NO_FURTHER_UNREGISTERED_SUBSTITUTE
+  new_neutral_case_id: RANDOM_FRESH_NONSEMANTIC
+  contaminated_case_must_not_appear_in_v2: true
+  other_15_cases_byte_exact: true
+
+v2_outputs:
+  sealed_executor_input: sealed_executor_input_v2
+  auditor_key: auditor_key_v2
+  manifest: HASH_MANIFEST.sha256
+  handoff: handoff.yaml
+  required_audits: [A1_CONTAMINATION_REPLACEMENT_LEDGER.yaml, A1_BLINDNESS_AND_CONTAMINATION_AUDIT.yaml, A1_RESOURCE_PREFLIGHT.yaml, RESOURCE_INVENTORY.yaml, PHASE_CLOSEOUT_RETENTION.yaml, RESUME_CAPSULE.yaml]
+  forbidden_token_scan_required: true
+  hidden_identity_scan_required: true
+  downstream_visible_subtree_only: sealed_executor_input_v2
+
+network_and_resources:
+  network_allowed_after_start: true
+  allowed_network: PRIMARY_PAPERS_OFFICIAL_VENUE_PAGES_AUTHOR_ARTIFACTS_OFFICIAL_REPOSITORIES_AND_RELEASE_METADATA_ONLY
+  additional_network_attempts_max: 51
+  per_source_attempts_max: 1
+  total_assignment_attempts_max: 120
+  total_assignment_network_bytes_max: 2147483648
+  resource_root_logical_bytes_max: 4294967296
+  build_install_extract_or_experiment_allowed: false
+
+forbidden_actions: [RUN_TESTED_METHOD_OR_SCORE, CHANGE_OTHER_15_CASES, USE_NON_PREDECLARED_SUBSTITUTE, REUSE_CONTAMINATED_REVIEWER, REVEAL_GOLD_TO_FUTURE_REVIEWER, BUILD_INSTALL_EXTRACT_EXPERIMENT, MODIFY_SHARED_FILES_OR_PRODUCTION_RULES, CREATE_CANDIDATE_OR_SCIENTIFIC_STATE, CLEANUP]
+success_route: V2_NEUTRAL_PACKET_READY_FOR_MAINLINE_ACCEPTANCE_AND_FRESH_REVIEWER_FREEZE
+failure_route: FAILED_NOT_DISPATCHABLE_WITH_EXACT_ALTERNATE_QUALIFICATION_OR_RESOURCE_BLOCKER

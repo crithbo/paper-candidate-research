@@ -1,0 +1,24 @@
+assignment_id: STAGE0-C2-20260814-X86-STACKCLASH-FRAME-PROBE-REGISTER-PARETO-FPT-CONFIRM-V8.7
+mode: SENTRY
+topic_id: X86-STACKCLASH-FRAME-PROBE-REGISTER-PARETO-FPT
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_READY_TO_DISPATCH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source08-confirmation\X86-STACKCLASH-FRAME-PROBE-REGISTER-PARETO-FPT
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source08-primary\X86-STACKCLASH-FRAME-PROBE-REGISTER-PARETO-FPT
+primary_decision: STOP_RECOMMENDED
+terminal_sentinel: BELOW_Q2_STOP__STATIC_X86_PROBE_DETERMINISM__CSR_SPILL_COMPOSITION__NO_NATIVE_SCRATCH_ACTION
+primary_hashes:
+  report_sha256: 4DBC0310790536CDCE9714554188E74AF787654FB30F9F059E9AF861A9E088CD
+  q1_sha256: F0305ABC4FA926803DCA97EBEC78E6F8CC8B74EAC108919F77ECC47B5C166048
+  source_sha256: 019E9735A81544041F4F992D31FD4212AB80CCA91D24E0FDB44D662C07FB8A96
+  handoff_sha256: 7CF522F1A8791BFED195568ECCCB1D53BC0FD8E9D3B70B5B709A84179D51C4CD
+  manifest_sha256: 3E604D90D3DDA23D680C3D06B806182917709F2AC38C128E9EEB92973CF695C7
+independent_attack_requirements:
+  - Recheck Greedy RA first-use CSR cost, PEI ordering, frame offsets, x86 static probe expansion and scratch-register liveness on the pinned target.
+  - Attempt to falsify the claimed determinism with one native same-ABI/same-unwind/same-guard two-plan witness; do not invent a dynamic-allocation or changed-security object.
+  - Decide whether any residual is more than generic scalar cost tuning, frame packing or ordinary register allocation.
+  - Confirm STOP or disagree with explicit current-source evidence; no revision or execution.
+forbidden: [revision_execution, implementation, experiment, benchmark, build, stageA, stageB, shared_control_write]
+required_outputs: [CONFIRMATION_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

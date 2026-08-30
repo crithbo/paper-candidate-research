@@ -1,0 +1,36 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE69-R40-ORDINARY-BREADTH-V1
+lane: S6_DIRECT_ALGORITHM_SOFTWARE
+write_directory: stages/discovery/round-20260815-adaptive-source69/S6-direct-algorithm-software
+control:
+  assignment_sha256: E4078F76B0C90176DAD630817B221DBE320C7BECB0AC9191EE6487C5D42C0AF0
+  common_control_sha256: E6E9362A9D81E01E17FE67136432106309EC4F3FD48C431FA15D6A9F1DCD6415
+  method: v8.7 canonical / RQ_REFINEMENT_STAGED_EVIDENCE_V1 PRODUCTION / ordinary R40
+  model_route: gpt-5.6-terra/high
+  disabled: [V9, claim-pack, shadow, selective-depth, anchor-first]
+funnel:
+  non_evidence_seeds: 8
+  rq_candidates: 1
+  selected_locators: 1
+  evidence_qualified_raw: 0
+  candidate_grade_deep_reviews: 0
+  clean_stage0_briefs: 0
+canonical_disposition:
+  signature: GO_PGO_INTERLEAVED_DEVIRTUALIZATION_INLINING__FIXED_GO_PROGRAM_CPU_PROFILE_BUILD_FLAGS__LANGUAGE_EQUIVALENT_DIRECT_AND_INDIRECT_CALL_SEMANTICS__PROFILE_GUIDED_INLINE_DEVIRTUALIZE_SELECTION
+  disposition: EXCLUDED_BEFORE_RAW__STRUCTURAL_DROP__CURRENT_COMPOSITION_PLUS_GENERIC_PROFILE_GUIDED_INLINE_DEVIRTUALIZE_KERNEL
+  reason: Current Go explicitly interleaves PGO devirtualization and inlining; primary profile-guided inline-expansion and guarded-devirtualization sources subtract the proposed non-generic constructor.
+  claim_ceiling: No absence, novelty, performance, implementation-readiness, resource, or AI-readiness inference.
+identity_and_scope:
+  bounded_five_field_preflight: NO_MATCH__NOT_NOVELTY
+  parallel_audit_r52: FORBIDDEN_INPUT_NOT_READ
+  terminal_and_held_queues: NOT_REOPENED
+  network_security_scope: EXCLUDED
+  full_cost: build/profile/compiler-RSS/code-size/runtime dimensions frozen but not measured
+resources:
+  status: NO_LOCALIZED_RESOURCE_ACTIONS
+  resource_inventory: RESOURCE_INVENTORY.yaml
+prohibitions_respected: [no_experiment, no_benchmark, no_build, no_install, no_stage0_a_b, no_shared_write, no_E_drive, no_backfill]
+deliverables:
+  canonical_manifest: HASH_MANIFEST.sha256
+  manifest_format: strict_sha256sum_relative_path_binary_marker
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+summary_zh: "Source69 仅将 Go PGO 去虚拟化与内联联合选择收敛为一条 RQ。当前 Go 已实现两动作交织，且一手反方表明余量退化为通用 profile-guided inline/devirtualize 核；因此 raw 前结构淘汰，零 brief。"

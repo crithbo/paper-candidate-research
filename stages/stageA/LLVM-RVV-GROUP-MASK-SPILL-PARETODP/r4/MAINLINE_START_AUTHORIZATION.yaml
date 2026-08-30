@@ -1,0 +1,26 @@
+schema: mainline-start-authorization-v1
+issued_at: 2026-08-26T00:16:35+08:00
+issued_by: MAINLINE
+decision: START_AUTHORIZED
+authorization_ids: [USER-PARALLEL-STAGEA-READY-CANDIDATES-20260825, USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825]
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+assignment_id: STAGEA-L2-20260826-LLVM-RVV-R4-PRECLAIM-F1-F5
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+context_sha256: 7A029CA73BA2A9D37164566C41DA64D6369B2E8B5FF242F27384BFAC2AAF0AFB
+bootstrap_ack_sha256: 9E77B0C464DD05CD5979BA403EE86111518F9206C94ACEEDA7D63ABC2BDC94EE
+bootstrap_acceptance: {disposition: ACCEPTED_READY, frozen_hashes: PASS_23_OF_23, r3_tool_manifest: PASS_101_OF_101, r2_assets: PASS_5_OF_5, differences_or_ambiguities: [], resource_root_absent: true, scientific_or_resource_action_started: false}
+allowed_after_start:
+  - create the eight r4 standard resource directories
+  - copy and hash-accept only the same-topic r3 tool bundle and the minimum needed r2 retained assets
+  - safe-extract only frozen required source loci or portable harness build tools within r4
+  - implement the complete assignment-local candidate and checkers under the frozen action grammar
+  - use at most one planned harness build and no automatic retry
+  - run F1 through F5 in order with two planned deterministic replays where specified
+  - finalize the canonical preclaim package and wait
+scientific_boundary: {claim_bearing_action_allowed: false, natural_trace_or_function_allowed: false, performance_or_full_cost_claim_allowed: false, scientific_revision_authorized: false, owner_state_transition_authority: false, stageb_authorized: false}
+attempt_limits: {harness_build: 1, automatic_retry: false, result_based_rerun_or_exclusion: false}
+budgets: {network_bytes_max: 0, stored_bytes_max: 4294967296, cpu_seconds_max: 14400, wall_seconds_max: 28800, max_parallel_processes: 2, gpu_hours_max: 0}
+failure_policy: {any_F1_F5_construct_or_fidelity_failure: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE, retry: forbidden}
+lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, cleanup_owner: MAINLINE, owner_cleanup_allowed: false, post_close_retained_bytes_max: 1073741824}
+next_action: COPY_MINIMUM_INPUTS__IMPLEMENT_AND_RUN_ORDERED_F1_F5__HANDOFF

@@ -1,0 +1,21 @@
+schema_version: "claim-evidence-v1"
+topic_id: "PARQUET-PAGE-COSEGMENT"
+claims:
+  - id: "C1_PRECLAIM_FIDELITY"
+    status: "SUPPORTED"
+    evidence: ["artifacts/preclaim/PRECLAIM_RESULT.json", "PRE_CLAIM_CONTRACT_FIDELITY_GATE.md"]
+  - id: "C2_COMPLETE_CURRENT_UNION"
+    status: "SUPPORTED_WITHIN_FROZEN_FINITE_FAMILY"
+    evidence: ["artifacts/aggregate.json", "artifacts/per_file_summary.tsv"]
+  - id: "C3_SAME_OBJECT_AND_DOUBLE_REPLAY"
+    status: "SUPPORTED"
+    evidence: ["artifacts/exact_hashes.tsv", "artifacts/aggregate.json"]
+  - id: "C4_CANDIDATE_FULL_COST_RESIDUAL"
+    status: "FALSIFIED_ON_FROZEN_STAGEA_OBJECTS"
+    evidence: ["artifacts/replay1_complete/probe_summary.json", "artifacts/replay2/probe_summary.json"]
+    observation: "40/40 budget fallbacks; 0/40 strict full-cost residual"
+  - id: "C5_GENERAL_PARQUET_IMPOSSIBILITY"
+    status: "PROHIBITED_BY_CLAIM_CEILING"
+decision: "STOP_RECOMMENDED__NARROW_FROZEN_MECHANISM"
+stageb_authorized: false
+

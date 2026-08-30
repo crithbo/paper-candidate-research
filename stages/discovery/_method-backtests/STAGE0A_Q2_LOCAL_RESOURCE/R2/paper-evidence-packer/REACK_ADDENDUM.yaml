@@ -1,0 +1,13 @@
+schema: backtest-packer-reack-addendum-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+purpose: ACK_MIGRATION_ONLY
+preserve_old_ack: {path: BOOTSTRAP_ACK.pass1_refuse.yaml, sha256: B221DEB281FA15FBE2032589EA558238DF2A2A23D4236FC8FD4A8E494EB29D27, reason: canonical_13_27_REFUSE_SUPERSEDED_EVIDENCE}
+canonical_ack_rule: write_new_BOOTSTRAP_ACK.yaml_only_after_full_reack
+frozen_snapshots:
+  plan: {path: plan.md, sha256: AC82F524A16BFBBE5708FEEE1426738A7FBEA57355A548F5696C5733B1707E3E}
+  registry: {path: registry.yaml, sha256: BA6FDE0EFFA267144540F86C7CDB4DC3100B55441BF5A79161D6E272454D6DA9}
+  context: {path: ASSIGNMENT_CONTEXT.yaml, sha256: 6673EDF11BB411FF48B350EAF0F6063329B0FA77EEFC6DAF0A217AC2062EF844}
+allowed_actions: [preserve_old_ack, reread_AGENTS_plan_context_role_spec_skill_minimum_inputs, write_new_canonical_BOOTSTRAP_ACK]
+forbidden_actions: [source_acquisition, capsule_generation, scoring, blind_or_nonblind_execution, network, build, experiment, gold_reveal]
+model_route: {model: gpt-5.6-terra, thinking: medium}
+next_action: FULL_REACK_ROUND2_ONLY

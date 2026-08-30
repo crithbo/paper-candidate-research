@@ -1,0 +1,12 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A10-TEST-TARGET
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A9_WINDOWS_MMAP_BUILD_BLOCKER.yaml, sha256: CF45A12D8AC5AE7BC7BD826D6D4B7249131145555A991A4303D88BB4BC0EFC62}, {path: resources/build/pgm-ninja-a9, retention: CONFIGURE_PASS__FULL_BUILD_FAILED_ON_POSIX_EXAMPLE}]
+source_analysis: {author_test_target: tests, author_ctest_name: test_all, POSIX_only_failure_target: example_mapped, source_edit: false}
+only_change: build_author_canonical_tests_target_only_in_existing_A9_configured_tree_then_run_matching_ctest
+allowed_command_sequence:
+  - {id: A10S0, command: portable_cmake --build resources/build/pgm-ninja-a9 --target tests --parallel 2, stop_on_nonzero: true}
+  - {id: A10S1, command: ctest --test-dir resources/build/pgm-ninja-a9 -R '^test_all$' --output-on-failure, stop_on_nonzero: true}
+prohibitions: [source_or_CMake_edit, build_all_or_example_mapped, reconfigure, redownload, reextract, alternate_toolchain, scientific_probe_before_fidelity]
+scientific_revision_consumed: false

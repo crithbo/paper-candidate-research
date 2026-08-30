@@ -1,0 +1,96 @@
+schema_version: stage0-assignment-v1
+assignment_id: STAGE0-P3-20260821-PATCHVALUE-COUNTERFACTUAL-PRIMARY
+mode: PRIMARY
+lane: STAGE0-BATCH-GATE
+authority: USER_EXPLICIT_NEW_PATCHVALUE_TOPIC_REPLACEMENT_SCREEN_20260821
+topic_id: PATCHVALUE-COUNTERFACTUAL-REV0
+status_on_dispatch: ACTIVE
+
+independence:
+  discovery_lane_must_not_review_its_own_topic: true
+  reviewer_must_reconstruct_object_estimand_and_collision: true
+  discovery_ready_label_is_not_binding: true
+  patchyield_status_or_evidence_inheritance: forbidden
+
+frozen_rules:
+  project_rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__research-topic-discovery-r1-r40-20260815
+  role_stage0_sha256: BC58D2A365AFF6A0F82290CC3CC4E16177DBFDA69D1B28260084E9BE6B56E48C
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  quality_target: Q2_MINIMUM_Q1_PRIORITY
+
+frozen_input:
+  upstream_directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260821\patchvalue-counterfactual-rev0
+  upstream_handoff: D:\project\writing\reserch\stages\discovery\user-proposed-20260821\patchvalue-counterfactual-rev0\handoff.yaml
+  upstream_handoff_sha256: 9E2F036FB6D061DB73568D6F2E7161A235169E622C5F90848FF95DE9B336BB55
+  upstream_manifest_sha256: 0BD6DE2423EC33096135FE16D84B1DC3DA4865C6CFBA331E368EA9A359289C24
+  new_topic: true
+  prior_topic_id: PATCHYIELD-CALL
+  prior_topic_state: BELOW_Q2_STOP__TERMINAL
+  permitted_relation_to_prior: IDENTITY_CONTEXT_ONLY__NO_STAGE_SCORE_OR_SCIENTIFIC_EVIDENCE_INHERITANCE
+
+required_checks:
+  - Independently verify that stop and continuation arms can be produced from one bit-identical serialized state with copy-isolated writable repository, agent history, tool outputs, prompt, RNG/decoder intervention and container state.
+  - Decide whether the precommitted randomized decoder-seed intervention identifies Delta_h(s), or whether hidden confounding, branch interference, post-treatment selection, censoring or non-replayable external tools make the estimand invalid.
+  - Verify that hidden evaluator outputs are offline labels only and cannot enter snapshot selection, features, allocation, stopping or branch execution.
+  - Independently audit the current union and strongest collisions: SWE-Router, FailFast-RestartSmart, agentic coding test-time scaling and rollout reuse, BAGEN, process reward/value modeling, MARS, SAGA, Cascade, FairBatching, and current official agent/serving controls.
+  - Determine whether a non-generic measurement contribution survives beyond terminal success classification, routing, restart, difficulty prediction, remaining-time prediction, generic bandits or ordinary budget allocation.
+  - Audit fair same-information baselines, repository-disjoint calibration, branch variance, difficulty-layer harm, full GPU/CPU/tool/clone/evaluator/predictor cost, and a finite Stage A preclaim gate.
+  - Score the measurement paper and optional allocation method separately. Stage0 PASS requires at least a credible Q2 paper shape without assuming positive experimental results.
+
+frozen_claim_ceiling:
+  primary: SAME_STATE_RANDOMIZED_CONTINUATION_EFFECT_ESTIMATION_ON_FIXED_AGENT_MODEL_DECODER_BENCHMARK
+  optional_secondary: FIXED_TOTAL_CALL_BUDGET_ALLOCATION_AFTER_COMMON_MINIMUM_BUDGET
+  not_claimed:
+    - production_agent_SLA
+    - general_agent_capability
+    - arbitrary_models_or_benchmarks
+    - inherited_patchyield_fairness_or_deadline_result
+    - current_positive_causal_or_system_result
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-patchvalue-primary
+  resource_root: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-patchvalue-primary\resources
+  resource_inventory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-patchvalue-primary\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+allowed_actions:
+  - Read only the accepted PatchValue upstream package and the Stage0 role/templates.
+  - Retrieve bounded official/current source, documentation, public papers and metadata needed for independent collision and identifiability review.
+  - Persist small source excerpts and metadata under resource_root.
+  - Write Stage0 review artifacts only inside unique_write_directory.
+
+forbidden_actions:
+  - Read QRefine or QNN materials, or reopen/review PatchYield as a candidate.
+  - Run agents, rollouts, branch experiments, hidden tests, H100/vLLM, simulators, benchmarks, builds or model inference.
+  - Download model weights, task/container images, large datasets, or install software.
+  - Modify Discovery outputs, plan.md, registry.yaml, rules, templates, or any other assignment directory.
+  - Treat missing implementation, hardware or positive result as a scientific rejection.
+
+resource_envelope:
+  official_or_primary_routes_max: 40
+  accepted_persisted_bytes_max: 201326592
+  cpu_time_max: 1h
+  wall_time_max: 2h
+  system_install: false
+  global_environment_change: false
+  failure_consequence: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+
+required_outputs:
+  - STAGE0_REPORT.md
+  - Q1_COMPARATOR_MATRIX.md
+  - CURRENT_SOURCE_AND_COLLISION_AUDIT.md
+  - IDENTIFIABILITY_AUDIT.md
+  - SOURCE_LOG.md
+  - HANDOFF.yaml
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+allowed_decisions:
+  - PASS_RECOMMENDED
+  - RESERVE_RECOMMENDED
+  - REVISE_ONCE
+  - STOP
+
+next_step:
+  rule: Mainline routes PASS, REVISE_ONCE, or boundary-sensitive STOP to the independent Stage0 confirmation sentry. No Stage A/B is authorized here.

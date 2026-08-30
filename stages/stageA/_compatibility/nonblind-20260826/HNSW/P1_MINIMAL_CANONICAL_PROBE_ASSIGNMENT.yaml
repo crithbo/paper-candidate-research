@@ -1,0 +1,18 @@
+schema: nonblind-stagea-minimal-canonical-probe-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-P1
+parent_fidelity_acceptance: F0_MAINLINE_FIDELITY_ACCEPTANCE.yaml
+mode: NONBLIND_STAGEA_COMPATIBILITY
+implementation_label: AUTHOR_ARTIFACT_CORE_PLUS_ASSIGNMENT_LOCAL_COMPATIBILITY_HARNESS
+unique_harness_path: resources/src/probe/hnsw_minimal_probe.cpp
+allowed_source_change: implement_exactly_one_harness_file_at_unique_harness_path
+inputs:
+  base_vectors: {seed: 20260827, count: 10000, dimension: 16, scalar: float32, normalization: F0_frozen}
+  queries: {seed: 20260828, count: 1000, oracle: exhaustive_squared_L2_float64_lowest_label_tiebreak}
+methods: [{M: 16, ef_construction: 200, ef_search: 50}, {M: 16, ef_construction: 200, ef_search: 100}, {M: 32, ef_construction: 200, ef_search: 100}]
+required_outputs: [per_method_construction_wall_seconds, index_bytes, full_query_wall_seconds, recall_at_1, delete_replace_witness, oracle_wall_seconds, parameter_cells, full_cost_json]
+baseline: exact_bruteforce_same_vectors_queries_and_live_labels
+commands_max: {compile: 1, run: 3, retry: 0}
+resource_limits: {stored_bytes_max: 1000000000, single_probe_wall_seconds_max: 21600}
+forbidden: [source_change_other_than_harness, author_source_edit, parameter_change, input_change, result_based_exclusion, production_registration, stageB, claim_above_preliminary_compatibility]
+evidence_ceiling: MINIMAL_CANONICAL_PROBE__NONBLIND_COMPATIBILITY_ONLY__NO_PRODUCTION_CANDIDATE_OR_STAGEB
+next_gate: INDEPENDENT_STAGEA_GATE_THEN_BACKTEST_AUDITOR_GOLD_COMPARISON

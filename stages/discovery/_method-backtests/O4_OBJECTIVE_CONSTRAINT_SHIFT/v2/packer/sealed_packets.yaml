@@ -1,0 +1,155 @@
+schema_version: discovery-backtest-sealed-packets-v2
+role: DISCOVERY-BACKTEST-PACKER
+opportunity_lens: O4_OBJECTIVE_OR_CONSTRAINT_SHIFT
+method_revision: v2
+sealed_at: 2026-08-03T15:40:00+08:00
+executor_rules:
+  - Use only this file and the assigned Discovery role; do not identify hidden targets.
+  - Recover the old and new objective/constraint, why old actions fail, the revised decision structure, contribution route, evidence route, and abstain decision.
+  - Do not relabel ordinary multi-objective tuning as a shift without a changed service contract, workload, or resource constraint.
+packets:
+  - packet_id: S4-POS-01
+    label: positive
+    cutoff_date: 2007-10-01
+    domain_tags: [DISTRIBUTED_SYSTEM, STORAGE_SYSTEM]
+    paper_inputs:
+      - source_id: P01-A
+        citation: "Terry et al. (1995), Managing Update Conflicts in Bayou, SOSP."
+        public_date: 1995-12-01
+        url: https://doi.org/10.1145/224056.224070
+        pre_cutoff_signal: "Disconnected and replicated operation motivates application-aware conflict detection and resolution."
+      - source_id: P01-B
+        citation: "Karger et al. (1997), Consistent Hashing and Random Trees, STOC."
+        public_date: 1997-05-01
+        url: https://doi.org/10.1145/258533.258660
+        pre_cutoff_signal: "Consistent hashing limits remapping when a distributed node set changes."
+      - source_id: P01-C
+        citation: "Stoica et al. (2001), Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications, SIGCOMM."
+        public_date: 2001-08-01
+        url: https://doi.org/10.1145/383059.383071
+        pre_cutoff_signal: "Decentralized key placement and routing scale under membership change."
+      - source_id: P01-D
+        citation: "Gilbert and Lynch (2002), Brewer's Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services, SIGACT News 33(2)."
+        public_date: 2002-06-01
+        url: https://doi.org/10.1145/564585.564601
+        pre_cutoff_signal: "Network partitions force a formal tradeoff between availability and atomic consistency."
+      - source_id: P01-E
+        citation: "Saito and Shapiro (2005), Optimistic Replication, ACM Computing Surveys 37(1)."
+        public_date: 2005-03-01
+        url: https://doi.org/10.1145/1057977.1057980
+        pre_cutoff_signal: "Optimistic replication catalogs divergence, reconciliation, and eventual consistency choices."
+    public_artifacts:
+      - source_id: P01-F
+        name: "CAP keynote record"
+        snapshot_rule: "Historical keynote/material dated before cutoff only."
+        url: https://www.cs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf
+    environment_at_cutoff:
+      - "Large always-on services face component failure, membership churn, partitions, and high-percentile latency objectives."
+      - "Strong consistency is not automatically the dominant objective for single-key application state; conflict semantics and per-operation durability must be explicit."
+      - "No hidden production-system name, architecture, operational result, or post-cutoff source is included."
+
+  - packet_id: S4-POS-02
+    label: positive
+    cutoff_date: 2017-12-31
+    domain_tags: [OPERATING_SYSTEM, DATACENTER_NETWORKING, SCHEDULING]
+    paper_inputs:
+      - source_id: P02-A
+        citation: "Dean and Barroso (2013), The Tail at Scale, CACM 56(2)."
+        public_date: 2013-02-01
+        url: https://doi.org/10.1145/2408776.2408794
+        pre_cutoff_signal: "Fan-out services make high-percentile latency, rather than mean service time, a primary contract."
+      - source_id: P02-B
+        citation: "Jeong et al. (2014), mTCP: A Highly Scalable User-level TCP Stack for Multicore Systems, NSDI."
+        public_date: 2014-04-01
+        url: https://www.usenix.org/conference/nsdi14/technical-sessions/presentation/jeong
+        pre_cutoff_signal: "Kernel bypass and user-level network stacks raise packet-processing throughput."
+      - source_id: P02-C
+        citation: "Belay et al. (2014), IX: A Protected Dataplane Operating System for High Throughput and Low Latency, OSDI."
+        public_date: 2014-10-01
+        url: https://www.usenix.org/conference/osdi14/technical-sessions/presentation/belay
+        pre_cutoff_signal: "A protected dataplane dedicates resources to predictable low-latency packet processing."
+      - source_id: P02-D
+        citation: "Peter and Anderson (2014), Arrakis: The Operating System Is the Control Plane, OSDI."
+        public_date: 2014-10-01
+        url: https://www.usenix.org/conference/osdi14/technical-sessions/presentation/peter
+        pre_cutoff_signal: "Direct application access to virtualized I/O reduces kernel overhead."
+      - source_id: P02-E
+        citation: "Prekas et al. (2017), ZygOS: Achieving Low Tail Latency for Microsecond-scale Networked Tasks, SOSP."
+        public_date: 2017-10-01
+        url: https://doi.org/10.1145/3132747.3132780
+        pre_cutoff_signal: "Work stealing and shared queues target tail latency at high load but retain dedicated polling resources."
+    public_artifacts:
+      - source_id: P02-F
+        name: DPDK
+        snapshot_rule: "Release and documentation available by cutoff."
+        url: https://www.dpdk.org/
+    environment_at_cutoff:
+      - "Microsecond-scale services need high request rates and low tail latency, yet bursty load makes peak provisioning waste CPU."
+      - "The shifted objective is joint tail-latency SLO and CPU efficiency under colocation, not maximum isolated throughput."
+      - "No hidden target scheduler, component name, reallocation period, or evaluation result is supplied."
+
+  - packet_id: S4-POS-03
+    label: positive
+    cutoff_date: 2020-06-02
+    domain_tags: [AI_SERVING, SCHEDULING, CUDA_GPU]
+    paper_inputs:
+      - source_id: P03-A
+        citation: "Crankshaw et al. (2017), Clipper: A Low-Latency Online Prediction Serving System, NSDI."
+        public_date: 2017-03-01
+        url: https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/crankshaw
+        pre_cutoff_signal: "Prediction serving introduces model selection, batching, caching, and latency objectives."
+      - source_id: P03-B
+        citation: "Olston et al. (2017), TensorFlow-Serving: Flexible, High-Performance ML Serving."
+        public_date: 2017-12-18
+        url: https://arxiv.org/abs/1712.06139
+        pre_cutoff_signal: "Serving infrastructure manages versioned models and online inference."
+      - source_id: P03-C
+        citation: "Xiao et al. (2018), Gandiva: Introspective Cluster Scheduling for Deep Learning, OSDI."
+        public_date: 2018-10-01
+        url: https://www.usenix.org/conference/osdi18/presentation/xiao
+        pre_cutoff_signal: "GPU cluster scheduling uses job feedback and packing to improve utilization and latency."
+      - source_id: P03-D
+        citation: "Shen et al. (2019), Nexus: A GPU Cluster Engine for Accelerating DNN-based Video Analysis, SOSP."
+        public_date: 2019-10-01
+        url: https://doi.org/10.1145/3341301.3359658
+        pre_cutoff_signal: "Multi-model GPU serving co-optimizes batching, scheduling, and SLO attainment."
+      - source_id: P03-E
+        citation: "Romero et al. (2019), INFaaS: A Model-less Inference Serving System."
+        public_date: 2019-05-31
+        url: https://arxiv.org/abs/1905.13348
+        pre_cutoff_signal: "Serving can choose model variants and hardware under latency/cost constraints."
+    public_artifacts:
+      - source_id: P03-F
+        name: Clipper
+        snapshot_rule: "Repository state no later than cutoff."
+        url: https://github.com/ucbrise/clipper
+    environment_at_cutoff:
+      - "Reactive batching and distributed worker choices improve common-case throughput but add execution variability and tail-risk."
+      - "The objective can shift from best-effort average performance toward per-request predictability and isolation across many resident models."
+      - "No hidden target name, deterministic observation, controller design, result, or post-cutoff source is included."
+
+  - packet_id: S4-NEG-01
+    label: negative_control
+    cutoff_date: 2018-12-31
+    domain_tags: [NUMERICAL_SOFTWARE, CPU]
+    paper_inputs:
+      - source_id: N01-A
+        citation: "Goto and van de Geijn (2008), Anatomy of High-Performance Matrix Multiplication, ACM TOMS 34(3)."
+        public_date: 2008-05-01
+        url: https://doi.org/10.1145/1356052.1356053
+        pre_cutoff_signal: "Dense GEMM has mature exact-semantics blocking strategies."
+      - source_id: N01-B
+        citation: "Whaley, Petitet, and Dongarra (2001), Automated Empirical Optimizations of Software and the ATLAS Project, Parallel Computing 27."
+        public_date: 2001-01-01
+        url: https://doi.org/10.1016/S0167-8191(00)00087-9
+        pre_cutoff_signal: "Empirical tuning already optimizes implementation parameters for fixed numerical objectives."
+      - source_id: N01-C
+        citation: "Williams, Waterman, and Patterson (2009), Roofline, CACM 52(4)."
+        public_date: 2009-04-01
+        url: https://doi.org/10.1145/1498765.1498785
+        pre_cutoff_signal: "Performance limits can be interpreted under a fixed throughput objective."
+    public_artifacts: []
+    environment_at_cutoff:
+      - "Control slice: offline exact dense matrix multiplication, unchanged error tolerance (bitwise-equivalent within the same BLAS contract), fixed throughput objective, fixed energy and memory constraints, and no new service-level or online requirement."
+      - "Only implementation parameters vary; the packet contains no objective or constraint shift."
+      - "Abstain rather than inventing a second objective."

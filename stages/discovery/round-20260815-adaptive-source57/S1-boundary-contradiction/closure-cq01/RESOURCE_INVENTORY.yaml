@@ -1,0 +1,127 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: CQ01_WASMTIME_THREADS
+  assignment_id: SOURCE-CLOSURE-SOURCE57-S1-CQ01-WASMTIME-THREADS-V1
+  stage_or_mode: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+  run_id: wasmtime-threads-source-closure-20260815-01
+  unique_write_directory: stages/discovery/round-20260815-adaptive-source57/S1-boundary-contradiction/closure-cq01
+  resource_root: stages/discovery/round-20260815-adaptive-source57/S1-boundary-contradiction/closure-cq01/resources
+  inventory_path: stages/discovery/round-20260815-adaptive-source57/S1-boundary-contradiction/closure-cq01/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T00:00:00+08:00
+  finalized_at: 2026-08-15T00:00:00+08:00
+root_measurement:
+  logical_bytes: 2532391
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: powershell Invoke-WebRequest
+      version: Windows PowerShell process-local environment
+      expected_writable_surfaces: [resources/downloads, resources/tmp, resources/logs]
+      redirects:
+        TEMP: resources/tmp
+        TMP: resources/tmp
+        TMPDIR: resources/tmp
+        XDG_CACHE_HOME: resources/cache
+        output_file: resources/downloads/<attempt>-<basename>
+      reliability_evidence: explicit process-local environment assignment and literal OutputFile under RESOURCE_ROOT
+      preflight_result: PASS
+resource_envelope:
+  network_bytes_max: 50331648
+  stored_bytes_max: 16777216
+  cpu_hours_max: null
+  gpu_hours_max: 0
+  wall_seconds_max: null
+  attempts_max: 6
+  network_bytes_used: 2528578
+  network_bytes_measurement_note: persisted response-body bytes; HTTP headers and transport overhead are not observable in this run
+  stored_bytes_used: 2528578
+  attempts_used: 6
+entries:
+  - path: resources/downloads/attempt-01-wasmtime-main-commit.json
+    class: OFFICIAL_API_RESPONSE
+    source_uri: https://api.github.com/repos/bytecodealliance/wasmtime/commits/main
+    version: bc2f967927f9f0e839095a752bf554c4a09fdd13
+    license: repository metadata; no separate license asserted
+    logical_bytes: 38673
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    hash: 250BA26B0C0F4CDF77C21D70425D525756934DF1EE7973E3E23792E8CEBA624C
+  - path: resources/downloads/attempt-02-wasmtime-tree-recursive.json
+    class: OFFICIAL_API_RESPONSE
+    source_uri: https://api.github.com/repos/bytecodealliance/wasmtime/git/trees/bc2f967927f9f0e839095a752bf554c4a09fdd13?recursive=1
+    version: bc2f967927f9f0e839095a752bf554c4a09fdd13
+    license: repository metadata; no separate license asserted
+    logical_bytes: 2193590
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    hash: D7A6E58A18310012398CA3CC41B20549BC76C96B56522C114727A8D8D516427F
+  - path: resources/downloads/attempt-03-parking_spot.rs
+    class: OFFICIAL_PINNED_SOURCE
+    source_uri: https://raw.githubusercontent.com/bytecodealliance/wasmtime/bc2f967927f9f0e839095a752bf554c4a09fdd13/crates/wasmtime/src/runtime/vm/parking_spot.rs
+    version: bc2f967927f9f0e839095a752bf554c4a09fdd13
+    license: Apache-2.0 WITH LLVM-exception
+    logical_bytes: 22129
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    hash: C6D17D4AB2E57E0493ECC1D8B5E4EA165A822B827A2BA863F1C2FDF9CC0458AB
+  - path: resources/downloads/attempt-04-libcalls.rs
+    class: OFFICIAL_PINNED_SOURCE
+    source_uri: https://raw.githubusercontent.com/bytecodealliance/wasmtime/bc2f967927f9f0e839095a752bf554c4a09fdd13/crates/wasmtime/src/runtime/vm/libcalls.rs
+    version: bc2f967927f9f0e839095a752bf554c4a09fdd13
+    license: Apache-2.0 WITH LLVM-exception
+    logical_bytes: 38847
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    hash: 3DCDCAF8CE7281A0498C794275FA5CD0ADC0E77F3891EA6B9FBC96CA2802F105
+  - path: resources/downloads/attempt-05-shared_memory.rs
+    class: OFFICIAL_PINNED_SOURCE
+    source_uri: https://raw.githubusercontent.com/bytecodealliance/wasmtime/bc2f967927f9f0e839095a752bf554c4a09fdd13/crates/wasmtime/src/runtime/vm/memory/shared_memory.rs
+    version: bc2f967927f9f0e839095a752bf554c4a09fdd13
+    license: Apache-2.0 WITH LLVM-exception
+    logical_bytes: 9585
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    hash: 8C489279E14A66E04DA315E8D21FA8405809184BED753EE6DA301E981F7F73F0
+  - path: resources/downloads/attempt-06-config.rs
+    class: OFFICIAL_PINNED_SOURCE
+    source_uri: https://raw.githubusercontent.com/bytecodealliance/wasmtime/bc2f967927f9f0e839095a752bf554c4a09fdd13/crates/wasmtime/src/config.rs
+    version: bc2f967927f9f0e839095a752bf554c4a09fdd13
+    license: Apache-2.0 WITH LLVM-exception
+    logical_bytes: 225754
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    hash: BF5674A17C07291C46CB5E0282A7E39FDDFCC856476D1465AC2F1F7CCB58D7F9
+shared_assets_consumed: []
+external_system_dependencies:
+  - dependency: Windows PowerShell and preinstalled TLS stack
+    classification: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: PASS__ACQUISITION_COMPLETE_WITHIN_FROZEN_ENVELOPE

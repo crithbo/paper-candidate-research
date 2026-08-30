@@ -1,0 +1,63 @@
+schema_version: candidate-preclaim-engineering-blocker-handoff-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R4-GLOBAL-MODIFIER-ORDER-CORRECTION
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+assignment_state: FROZEN_AWAITING_MAINLINE_BLOCKER_ACCEPTANCE
+decision: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE__NO_SAME_ASSIGNMENT_RETRY
+user_summary_cn:
+  outcome: r4 两处 global modifier 修正精确通过，但 fresh replay1 的 llc 在第一个 function modifier order 处再次 parse 失败
+  main_reason: 五处 define hidden dso_local 未包含在 r4 唯一两处 global 修正权限内；首个失败后已停止
+  next_step: MAINLINE 验收 blocker，并决定是否另冻一个包含五处 function modifier order 的 exact 新 assignment
+  user_action_required: false
+  scientific_negative_inference: false
+context_sha256: CAC7488E0DDBA6C217DF2678444076D0F10B550B51F96662E0BC40CC1C41B5EC
+bootstrap_ack_sha256: 1557F58D85807E13D84412DFE8D79088337802B1E9758CDEE267D0EE214C6373
+mainline_start_authorization_sha256: DCEB8C7D31BC751E4E4C1CAF4E0E1EBE19CA7071ECB9D78C56763BA30476815A
+exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+correction_gate:
+  r3_input_groups: PASS_5_OF_5
+  copied_files: 3774
+  copied_logical_bytes: 575046957
+  source_files_edited: 1/1
+  exact_global_substitutions: 2/2
+  corrected_sha256: 77A92601566F1CD5190B0FD5892EE62C295E00F64AC018BF5782B965DC268F3E
+  corrected_bytes: 2972
+  function_modifier_occurrences_preserved: 5
+  other_source_files_unchanged: 3618/3618
+preclaim_gate:
+  F1: PARTIAL_FRESH_REPLAY_1_ONLY__NOT_PASS
+  F2: PARTIAL_BLOCKED_BEFORE_MACHINEVERIFIER__NOT_PASS
+  F3: NOT_STARTED
+  F4: NOT_STARTED
+  F5: NOT_STARTED_PARTIAL_TELEMETRY_ONLY
+  first_failure_tag: replay1.llc.mir_emit
+  exact_error: "ppc_union_input.ll:6:15: error: expected type"
+  commands_started: 7
+  commands_successful: 6
+  commands_failed: 1
+  replay_1_started: true
+  replay_2_started: false
+  retry_count: 0
+resource_root: {files: 3793, directories_including_root: 204, logical_bytes: 575072633, stored_budget_bytes: 1073741824, within_budget: true, reparse_entries: 0, active_related_processes: 0}
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  artifact_state: BLOCKER_HANDOFF_FROZEN_WAITING_MAINLINE
+  cleanup_owner: MAINLINE
+  owner_cleanup_performed: false
+  projected_postclose_retained_bytes: 575072633
+  projected_postclose_budget_bytes: 805306368
+  projected_postclose_budget_pass: true
+claim_ceiling: PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY__NO_NATURAL_RUNTIME_OR_PERFORMANCE_CLAIM
+evidence_ceiling: PARTIAL_FRESH_PRECLAIM_CONTROL_AND_ENGINEERING_BLOCKER_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: false
+preclaim_control_action_started: true
+claim_bearing_or_natural_action_started: false
+candidate_baseline_natural_performance_full_cost_or_claim_run_started: false
+state_transition_performed: false
+stageb_action_performed: false
+owner_cleanup_performed: false
+forbidden_actions_respected: true
+network_bytes: 0
+next_owner: MAINLINE
+next_action: VERIFY_CANONICAL_BLOCKER_PACKAGE_AND_MANIFEST__ACCEPT_OR_REJECT__OPTIONALLY_FREEZE_NEW_EXACT_CORRECTION_ASSIGNMENT

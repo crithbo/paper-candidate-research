@@ -1,0 +1,168 @@
+schema: stagea-experiment-contract-v8.7
+topic_id: CVC5-ALETHE-SHAREMAP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+assignment_id: STAGEA-L1-20260809-CVC5-ALETHE-SHAREMAP-INITIAL-V8.7
+frozen_at: 2026-08-09T21:15:00+08:00
+write_directory: stages\stageA\CVC5-ALETHE-SHAREMAP
+cross_assignment_contamination: false
+
+authority:
+  stage: STAGEA
+  stagea_authorized: true
+  stageb_authorized: false
+  stageb_user_approval_id: null
+  formal_large_scale_experiment_authorized: false
+  existing_project_write_authorized: false
+
+input_freeze:
+  discovery_manifest_sha256: 24989909247799552B26B56645DA8559D346965A34B2C97F1AE5A86B6BC8F91C
+  discovery_entries_verified: 4
+  stage0_primary_manifest_sha256: 1D52D2F60866505AF0173C18FA234B3A41E4B04013B791F52849659BAFFB169B
+  stage0_primary_entries_verified: 4
+  stage0_confirmation_manifest_sha256: 92E6A48054B4F961C36A762247E6ADAC7A8EEF194E5AD676BF256789DB42C052
+  stage0_confirmation_entries_verified: 2
+  stage0_revision1_manifest_sha256: B0F6E65D405D764DA37BD37D18288AD8F5531E4E3E188FB2CDD62186B63E949C
+  stage0_revision1_entries_verified: 3
+  stage0_closing_manifest_sha256: 037ECD38719F1CFEF956C88B19437B071AD2F75C999F5C75FF5B1C5226C25BED
+  stage0_closing_entries_verified: 2
+
+resource_limits:
+  workspace_bytes_max: 4294967296
+  cpu_hours_max: 4
+  gpu_allowed: false
+  exclusive_device_allowed: false
+  public_cpu_and_open_source_only: true
+
+exact_object:
+  solver_release: cvc5-1.3.4
+  solver_full_commit: f3b21c4483d3b88dc63cb7cd3e5eb092eee5e341
+  proof_format: Alethe
+  checker_release: carcara-1.1.0
+  fixed_witness: test/regress/cli/regress0/proofs/qgu-fuzz-1-bool-sat.smt2
+  semantics: SAME_SMTLIB_INPUT__SAME_UNSAT_THEOREM__SAME_CVC5_PROOF_STEP_ORDER_PREMISES_RULES__SAME_FULLY_EXPANDED_TERM_ASTS__SAME_ALETHE_CARCARA_OBLIGATION
+
+current_upstream_reality_check:
+  frozen_commit_or_tag: f3b21c4483d3b88dc63cb7cd3e5eb092eee5e341
+  native_path:
+    - src/proof/alethe/alethe_printer.cpp
+    - src/proof/alethe/alethe_let_binding.cpp
+    - src/proof/let_binding.h
+  relevant_control: dag-thresh
+  sharing_disabled_value: 0
+  disposition: ORIGINAL_MISSING_NATIVE_SHARING_CLAIM_PERMANENTLY_CONTRADICTED
+  surviving_residual: SCOPE_FOREST_WEIGHTED_GLOBAL_SELECTION_OUTSIDE_BEHAVIORALLY_COMPLETE_UNIFORM_THRESHOLD_FAMILY
+
+preclaim_contract_fidelity_gate:
+  id: PRE_CLAIM_CONTRACT_FIDELITY_GATE
+  initial_status: PENDING
+  claim_bearing_corpus_run_allowed_before_pass: false
+  fixed_action:
+    id: NAME_P12__EXPAND_P10
+    selected_native_term: '@p_12'
+    rejected_native_term: '@p_10'
+  required_checks:
+    - RELEASE_MATCHED_SOURCE_ARCHIVE_BINARY_AND_BUILD_HASHES
+    - ACTUAL_NATIVE_COUNT_ORDER_REPLAY_ON_FIXED_PROOF
+    - ALL_BEHAVIORALLY_DISTINCT_NATIVE_DAG_THRESH_OUTPUTS_ENUMERATED_AND_HASHED
+    - A_STAR_ABSENT_FROM_NATIVE_FAMILY
+    - A_STAR_IMPLEMENTED_IN_SAME_PRINTER_SIDE_CONTRACT_NOT_TEXT_POSTPROCESSING
+    - EXACT_STEP_ORDER_PREMISE_RULE_AND_FULLY_EXPANDED_AST_EQUALITY
+    - CANDIDATE_AND_NATIVE_OUTPUTS_ACCEPTED_BY_PINNED_CARCARA
+    - GLOBAL_PROBLEM_AND_GUARANTEE_FROZEN
+    - COUPLING_WITNESS_OR_FAIL_CLOSED_NONDECOMPOSITION_TEST
+  fail_closed_if_any_check_missing: true
+
+native_family:
+  primary_baseline: PER_PROOF_BEHAVIORALLY_COMPLETE_CVC5_ALETHELETBINDING_DAG_THRESH_ENVELOPE
+  ablation: NATIVE_SHARING_DISABLED
+  enumeration_rule: ENUMERATE_ZERO_PLUS_ALL_INTEGER_BOUNDARIES_FROM_REALIZED_NATIVE_ELIGIBLE_TERM_COUNTS__SERIALIZE_EXPAND_HASH_AND_DEDUPLICATE
+  incomplete_hand_grid_allowed: false
+
+candidate:
+  id: SCOPE_FOREST_WEIGHTED_GLOBAL_SELECTION
+  permitted_action_only: SELECT_NATIVE_ELIGIBLE_NAMED_TERMS_AND_LEGAL_DECLARATION_SITES_BEFORE_ALETHE_EMISSION
+  variables:
+    - x_t_binary_select_eligible_term_t
+    - y_t_s_binary_declare_selected_term_t_at_legal_scope_site_s
+    - z_t_u_binary_selected_name_dependency_for_contained_term_u_in_t
+  constraints:
+    - EXACTLY_ONE_DECLARATION_SITE_FOR_EACH_SELECTED_TERM
+    - DECLARATION_DOMINATES_AND_PRECEDES_ALL_REFERENCES
+    - NO_BINDER_CLOSURE_OR_PROOF_SCOPE_CROSSING
+    - NAME_DEPENDENCY_ORDER_IS_ACYCLIC_AND_DEFINITION_BEFORE_USE
+    - FULL_EXPANSION_RECONSTRUCTS_EVERY_ORIGINAL_TERM_AST
+    - PROOF_STEP_ORDER_PREMISES_RULES_AND_THEOREM_UNCHANGED
+  objective: MINIMIZE_FULL_SERIALIZED_BYTES_PLUS_PREREGISTERED_CHECKER_COST_WEIGHT_AND_ALL_MEASURED_CONSTRUCTION_COST__NO_POSTHOC_WEIGHT_CHANGE
+  algorithm: EXACT_DYNAMIC_PROGRAM_OVER_SCOPE_FOREST_WITH_TERM_CONTAINMENT_DEPENDENCY_STATE_AND_AUDITABLE_OPTIMAL_VALUE_CERTIFICATE_FOR_BOUNDED_ACTIVE_FRONTIER_WIDTH
+  guarantee: EXACT_FOR_INSTANCES_WITH_ACTIVE_SCOPE_FRONTIER_WIDTH_AT_MOST_12__OTHERWISE_FAIL_OR_FALL_BACK_TO_NATIVE_AND_COUNT_AS_NO_CANDIDATE_WIN
+  prohibited_collapses:
+    - DAG_THRESH_TUNING
+    - NATIVE_OUTPUT_SELECTION
+    - INDEPENDENT_LOCAL_BYTE_RANKING
+    - EMITTER_PATCH_AS_CONTRIBUTION
+    - POSTPROCESSOR
+    - GENERIC_SOLVER_WRAPPER_WITHOUT_NEW_STRUCTURE_OR_GUARANTEE
+
+decomposition_gate:
+  test: COMPARE_GLOBAL_OPTIMUM_TO_SUM_OF_INDEPENDENT_SINGLE_TERM_NET_SAVINGS_AND_REQUIRE_A_STRICT_INTERACTION_WITNESS_WITH_DIFFERENT_JOINT_DECISION_OR_OBJECTIVE
+  interaction_sources:
+    - NESTED_NAMED_TERM_SERIALIZATION
+    - DECLARATION_SITE_AND_SCOPE_VISIBILITY
+    - NAME_DEPENDENCY_ORDER
+  fail_if_all_eligible_terms_are_INDEPENDENT_LOCAL_CHOICES: true
+
+corpus:
+  claim_instance_count: 60
+  source: PUBLIC_SMT_COMP_OR_SMT_LIB_UNSAT_SUPPORTED_BY_CVC5_1_3_4_ALETHE
+  exact_manifest: inputs\CORPUS_MANIFEST.sha256
+  freeze_time: BEFORE_FIRST_NATURAL_CLAIM_BEARING_RUN
+  inclusion_rule: FIRST_60_LEXICOGRAPHICALLY_BY_CANONICAL_PUBLIC_PATH_AFTER_HASHED_SUPPORT_AND_BASELINE_CARCARA_PREFLIGHT__NO_RESULT_BASED_REMOVAL
+  denominator: ALL_60_PREREGISTERED_INSTANCES
+  unsupported_timeout_or_failure: RETAIN_IN_DENOMINATOR_AND_REPORT_SEPARATELY
+
+full_cost_ledger:
+  dimensions:
+    - solver_and_proof_wall_ms
+    - solver_and_proof_peak_rss_bytes
+    - native_family_enumeration_wall_ms
+    - candidate_construction_wall_ms
+    - candidate_construction_peak_rss_bytes
+    - serialization_wall_ms
+    - proof_bytes
+    - disk_read_bytes
+    - disk_write_bytes
+    - carcara_wall_ms
+    - carcara_peak_rss_bytes
+    - failure_timeout_and_fallback_count
+  primary_frontier: ALL_DIMENSIONS_PARETO
+  reporting_quantiles:
+    - p50
+    - p90
+  common_solver_cost_may_be_reported_separately_but_not_omitted: true
+
+killer:
+  stop_if:
+    - FIXED_WITNESS_COUNT_ORDER_FAILS
+    - A_STAR_IS_NATIVE_EXPRESSIBLE
+    - EXACT_OR_CARCARA_FIDELITY_FAILS
+    - PROBLEM_DECOMPOSES_TO_INDEPENDENT_LOCAL_RANKING
+    - NO_NONTRIVIAL_ALGORITHM_OR_GUARANTEE_SURVIVES
+    - OUTSIDE_FAMILY_POSITIVE_ACTION_RATE_LT_0_10
+    - NO_P50_AND_P90_FULL_COST_NONDOMINATED_RESIDUAL
+    - CONSTRUCTION_COST_ABSORBS_BENEFIT
+  positive_ceiling: PRELIMINARY_SUPPORT
+  negative_scope: PINNED_CVC5_ALETHE_SCOPE_FOREST_MECHANISM_ONLY
+
+resource_failure_policy:
+  before_first_claim_bearing_observation: BLOCKED_USER_ACTION_REQUIRED
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed: false
+  stop_or_reserve_allowed: false
+
+reproducibility:
+  fixed_witness_runs: 2
+  claim_runs_per_variant: 2
+  deterministic_nonvolatile_fields_must_match: true
+  exact_hashes_required: true
+  command_log: COMMAND_LOG.md
+

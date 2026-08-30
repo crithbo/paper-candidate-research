@@ -1,0 +1,16 @@
+schema: apx-r12-a1-execution-binding-v1
+assignment_id: STAGEA-L1-20260830-LLVM-APX-R12-A0-PRODUCTION-RESUME
+denominator: {selected_inputs: 4, replays_each: 2, rows: 8, commands_per_row: 9, commands: 72, retry: 0, backfill: 0}
+inputs: [S01, S02, S03, S04]
+python: {path: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA}
+controller: {path: APX_R12_CONTROLLER.py, sha256: 25F643B96CF17F031FB6BE1D4CBC6C4F5B8A96CBEE79381EDA937FBCD769A469}
+dag: {path: APX_R12_COMMAND_DAG.json, sha256: 8D020F143BDDE2223B522C19E46AB0DB4BE902511F750C91051DE796A4DA6D4C}
+driver: {path: resources/src/apx_tpd/apx_r8_row_driver.py, sha256: 9A5CC1AA672AF671665BC79AABFFE45BE19DFA6020F812A88F894F2BA4CDA51C, source_sha256: B4783E43EFB5A43C7212E8B64BFE554E3D430848396CDE04407AF163A1803133}
+llc: {path: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a4-explicit-resource-copy-20260829/resources/env/apx-toolchain/bin/llc.exe, sha256: 856DA14A0CC34FBEFCA4FBB606FED5B88AABE6FC767A7E652CFD4EB4DFF5FA2E, access: read_only_in_place}
+exceptional_rule: {input_sha256: A44D49A47C34CCE86BB4952F42F6C557230A669BEC950DACDD856F9D133E0776, append_feature: +inline-asm-use-gpr32, modes: [prepare, llvm-current, llvm-tuning], non_S04_behavior_unchanged: true}
+argv: [C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, -B, APX_R12_CONTROLLER.py, --dag, APX_R12_COMMAND_DAG.json, --output, resources/logs/claim/controller]
+cwd: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r12-scope-budget-production-resume-20260830
+output: resources/logs/claim/controller
+timeout_policy: per_command_1800_seconds
+first_failure_stop: true
+result_aware_change: false

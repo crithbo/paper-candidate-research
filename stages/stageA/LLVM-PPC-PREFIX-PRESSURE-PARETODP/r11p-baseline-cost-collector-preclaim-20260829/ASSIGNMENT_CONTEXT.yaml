@@ -1,0 +1,27 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+mainline_task_or_contact: 01a034d0-af48-72a1-a311-7495db80d90f
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_ACTION
+identity: {lane_id: CANDIDATE_EXECUTION_LANE_2, role_id: CANDIDATE_OWNER, assignment_id: STAGEA-L2-20260829-LLVM-PPC-R11P-BASELINE-COST-COLLECTOR-PRECLAIM, topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP, stage_or_mode: PRECLAIM_IMPLEMENTATION, status: BOOTSTRAP_PENDING, resume_point: R11_REDESIGN_CONTRACT_ACCEPTED, next_action: BOOTSTRAP_ACK_ONLY}
+authority: {policy_authority: USER, shared_file_writer: MAINLINE, canonical_writer: CANDIDATE_L2, user_approval_ids: [USER_PPC_R10B_REFREEZE_THEN_ABANDON_ON_FAILURE_20260829], allowed_actions: [copy_hash_pinned_minimal_inputs, implement_one_assignment_local_collector, run_preclaim_control_only, write_validation_handoff_manifest], forbidden_actions: [network, natural_run, claim_run, input_or_baseline_change, denominator_change, retry, stageb, shared_state_change], forbidden_inputs: [r10_invalid_denominator]}
+boundaries: {unique_write_directory: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r11p-baseline-cost-collector-preclaim-20260829, resource_root: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r11p-baseline-cost-collector-preclaim-20260829/resources, read_only_paths: [stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r11-same-object-evaluation-redesign-20260829, stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r10-natural-claim-execution-20260829/resources], write_allowed_paths: [stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r11p-baseline-cost-collector-preclaim-20260829], network_allowed: false, experiment_allowed: true, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 6F27E5DF1D389D9CBBD079E831E52BDD746563F03B179D072073D8918D8E66B4}
+  registry_snapshot: {path: registry.yaml, sha256: 0CC76650D67FE32D12C86D5F80975649EECBE67261AFE039646ECC2D77D50E8D}
+  role_rule: {path: rules/ROLE_CANDIDATE_OWNER.md, sha256: 4373A320D7EF96FB5EB1683872FEC9CDCB9EA6D16ACDF893CA997C5FB2745A1A}
+  skills: [{path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+  templates: [{path: templates/STAGEA_REPORT.md, sha256: DF9AA27111D303600FD4C7F81DEB1FF52FFD6C308973D33B8A9EC59CA4542D7F}]
+minimum_inputs:
+  - {path: control/ASSIGNMENT.yaml, sha256: B2D551A98F8485E97FA7E5953273B23BAA1ACC7E040BB121D06263B19F775F85}
+  - {path: ../r11-same-object-evaluation-redesign-20260829/handoff.yaml, sha256: 9FDF6A10600D6A562612D1A489DE676E8EF013ABAA4A09F7742FF4C2101335FC}
+  - {path: ../r11-same-object-evaluation-redesign-20260829/R11_EVALUATION_REDESIGN_CONTRACT.yaml, sha256: E437120CA430AD8FF9AE9210C8EC60D9DDE1F70C99038D0859BA48791870BEF5}
+  - {path: EXACT_INPUT_COPY_MANIFEST.yaml, sha256: 0BDFB95EE0981CF6203AA02899E5ABF69AFA033AA358DDD0EFA0A6EFD732E0AE}
+expected_outputs: [BASELINE_COST_COLLECTOR_VALIDATION.yaml, PRE_CLAIM_FIDELITY_REPORT.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+budget: {network_bytes_max: 0, input_copy_attempts_max: 1, preclaim_collector_runs_max: 1, automatic_retries_max: 0}
+claim_ceiling: PRECLAIM_COLLECTOR_ONLY
+evidence_ceiling: NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+scientific_revision: {allowed_total: 0, consumed: 0, remaining: 0, exceptional_revision_authorized: false}
+mechanism_pivot: {allowed: false, consumed: 0, remaining: 0}
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: PASS}

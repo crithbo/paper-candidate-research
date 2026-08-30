@@ -1,0 +1,128 @@
+schema_version: ppc-r9-independent-deep-preclaim-gate-handoff-v1
+created_at: 2026-08-26T10:53:06+08:00
+assignment_id: STAGEA-GATE-20260826-LLVM-PPC-R9-DEEP-PRECLAIM-FIDELITY
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: STAGEA_GATE
+lane_thread_id: 01a034d0-d990-7d50-9d9f-a6d05a81bf11
+owner_assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+owner_lane_id: CANDIDATE_EXECUTION_LANE_2
+reviewer_owner_independence: PASS
+
+decision: CONFIRM_PRECLAIM_INVALID__NO_R10_CLAIM_START__BOUNDED_CORRECTION_ROUTE_EXISTS
+evidence_ceiling: STATIC_INDEPENDENT_PRECLAIM_FIDELITY_REVIEW_ONLY__NO_SCIENTIFIC_INFERENCE
+quality_tier: TIER_B_Q2_VIABLE_CARRIED_NOT_REEVALUATED
+confidence: HIGH_ON_STATIC_G1_G4__MODERATE_HIGH_ON_BOUNDED_ROUTE_FEASIBILITY
+
+control_freeze:
+  context_sha256: 43E3F6BB0AE0B5963F0CA64687F92F29EF7F1ACA7E3B69913CFDE14F7C22C819
+  control_sha256: D2229C31F4F2B8054BCD8A5FC1FDF6564E9E86238DE4ABB75188677DCC89CAEF
+  bootstrap_ack_sha256: 4A5AA282859A14F9444D625EE8F1787224A92BA008E1E01E0E7C4E72398CE932
+  bootstrap_acceptance_sha256: 4A9F3287BC3B1F6CB2AA4A74B8B0DB020A55D9F3D3AE0E82093ABEF54B5A8C6D
+  start_authorization_sha256: 5EEA1BE41D7259ED6111B8B08EBDC0ABBE9C2AD44B5CA019C650F22C749F1FB0
+  gate_precommit_sha256: D8486C3CA4833898719EB3FA02CA84330A9ACBD2A3BA12E6F6D5A87BBDB494EE
+
+frozen_inputs:
+  stage0_report_sha256: 4FB8598F5B09FCA1445F4FBF9D5154131B797AFE2BE300076D5483D24C63A9C8
+  q1_matrix_sha256: 9167EF6C825304B0C9B1287174AECB3E33D0DC49E1653433022F1693B48F51FD
+  stage0_closing_sha256: 42B0A547381AC29B1780EF51CFC2F2EAC13C7D2DD2B70097A17F83D454E0D167
+  stage0_claim_matrix_sha256: 7B5F12EF39C130773DE589B69C562681FED2E3C60CB6E4AE02CDAF05582D514F
+  stagea_contract_sha256: F36E8CD40E719A9CFEEFBB595EEE05A4FDEEDF490C0ABD6AF40C09D635895E82
+  owner_handoff_sha256: 8C452B1CB8A8BE30BCF71786A59E7C6B1EAD9197E497690E11BE2535AAA6E649
+  owner_manifest_sha256: 88E1FF1CD596AE59C6F8F4B4324E33C83D6E0CEA5BA5DB8175B7F04DDF467EC2
+  owner_preclaim_gate_sha256: CF39A74272A354EC33B6860CFC8B7F964AF94652DFA7B4B2746D5AE79BC8A0E5
+  materializer_harness_sha256: 6234A3380940D87A2FCDBAA1D08DB3F4893A37901E3854CCD9222F3A035BDC0E
+  r10_plan_generator_sha256: 0366CCC8D98D0489C604A31A56E29761C3EC9C2E3D8479C7909E99652697890C
+  r10_process_plan_sha256: 0D4B73BB594896D6B25793B3826BB4605561317CE3A92165C7BEF698AACA1DF5
+  r10_plan_validation_sha256: B1D489B4C26A9C23D526AE79B0F7889E18B9418627766CEE78415D7C671C474A
+  mainline_hypothesis_sha256: C7CC87BE5026E98F5C19EB8EEA8AC036DC5C596FBF3665F57F32B94ABC236A35
+
+mainline_hypothesis_independence:
+  treated_as_authoritative_verdict: false
+  independently_reproduced_findings: [G1, G2, G3]
+  independently_added_finding: DECLARED_BASELINE_COMPILE_EXPANSION_HAS_ONLY_ONE_GREEDY_DEFAULT_ON_CONFIGURATION
+  independently_different_or_extended_disposition: BOUNDED_SAME_OBJECT_PRECLAIM_CORRECTION_ROUTE_EXISTS
+
+gate_results:
+  G1_ATOMIC_ACTION_COMPLETENESS:
+    decision: FAIL
+    kernel: TWELVE_LOAD_CONTROL_COLLAPSED_TO_TWO_WHOLE_TRACE_STATES_WITH_NO_PER_ACTION_RECURRENCE_OR_RA_FEEDBACK
+  G2_CANDIDATE_DISTINCTNESS:
+    decision: FAIL
+    kernel: PPC_TPD_AND_FORM_AWARE_FIXED_RA_SHARE_IDENTICAL_ACTIVE_EQUALS_STATES_BRANCH
+  G3_STRONG_BASELINE_CONSUMPTION:
+    decision: FAIL
+    kernel: EXPANDED_OUTPUTS_HAVE_ZERO_CHECKER_OR_FULL_COST_EDGES_AND_CONFIGURATION_GRID_IS_INCOMPLETE
+  G4_CONTROL_EVIDENCE_CEILING:
+    decision: PASS_CONTROL_ONLY
+    kernel: SAME_FUNCTION_NATIVE_LEGALITY_AND_TWO_REPLAY_DETERMINISM_CREDIBLE_WITH_ZERO_SCIENCE
+  G5_CORRECTION_ROUTE:
+    decision: BOUNDED_ROUTE_EXISTS
+    route_id: PPC_R9C_PER_ACTION_TPD_AND_STRONG_BASELINE_DEPENDENCY_CLOSURE_V1
+
+independent_static_metrics:
+  control_loads: 12
+  visible_interface: 13
+  implemented_candidate_states: 2
+  implemented_candidate_state_ids: [D0, M0]
+  per_action_transition_recurrence: false
+  RA_coalescing_spill_frame_feedback_before_selection: false
+  plan_rows: 32
+  expanded_baseline_compile_outputs: 512
+  expanded_baseline_link_outputs: 1024
+  expanded_baseline_checker_edges: 0
+  expanded_baseline_full_cost_edges: 0
+  rows_with_orphaned_expanded_baselines: 32
+  unique_compile_configurations: 1
+  unique_link_relaxation_configurations: 2
+  PBQP_compile_variants: 0
+  pcrel_opt_false_variants: 0
+  late_peephole_false_variants: 0
+
+correction_route_summary:
+  same_object: true
+  mechanism_change: false
+  scientific_revision_consumption: false
+  visible_interface_cap: 16
+  required_repairs:
+    - INPUT_SPECIFIC_PER_ACTION_PPC_TPD_RECURRENCE_WITH_FUTURE_ACTION_STATE_AND_BACKPOINTERS
+    - DISTINCT_RA_SENSITIVE_PPC_TPD_VS_FIXED_RA_ABLATION
+    - EXACT_GREEDY_PBQP_X_PPC_FLAG_GRID_X_LINK_RELAX_CURRENT_UNION
+    - HASHED_BASELINE_BUNDLE_CONSUMED_BY_CHECKER_AND_FULL_COST
+    - FAIL_CLOSED_STATE_MERGE_METHOD_EQUALITY_CONFIG_OMISSION_ORPHAN_EDGE_AND_COST_MUTATION_CONTROLS
+  future_control_scope: CONTROL_NON_CLAIM_ONLY
+  future_natural_selected_claim_tools_before_gate: 0
+  future_r10_creation_before_gate: forbidden
+  execution_authorized_by_this_handoff: false
+
+current_scientific_boundary:
+  r10_directory_created: false
+  r10_claim_authorized: false
+  selected_or_reserve_tool_invocations: 0
+  claim_bearing_observations: 0
+  scientific_revision_consumed_in_stageA: false
+  scientific_state_transition: false
+  stageb_authorized: false
+
+lifecycle:
+  cleanup_receipt_sha256: 8F547694F9CE3D44F412C08788044F3AC17CF7F419EACC7AB5FE8B796C37790A
+  post_gc_inventory_sha256: A0C6D27E84FE272F47A8236E00647D6003C07000368C50E88DF38E1A3ABE801D
+  cleanup_actions_by_reviewer: 0
+  retained_deep_review_inputs: true
+
+canonical_outputs:
+  GATE_PRECOMMIT_sha256: D8486C3CA4833898719EB3FA02CA84330A9ACBD2A3BA12E6F6D5A87BBDB494EE
+  INDEPENDENT_PRECLAIM_FIDELITY_REVIEW_sha256: 1624F9DF25CC22B7DC3E87F7E4BA86F2FB185546E73E6F0AAB1737FC1C2A1A4E
+  CORRECTION_ROUTE_AUDIT_sha256: DD169D47F4910259C9C6C41E026D92794DBF6FCC9C150F49FF0C038A48509855
+
+compliance:
+  owner_shared_or_upstream_files_written: false
+  compiler_linker_materializer_auditor_natural_or_claim_runs: 0
+  resources_created_downloaded_copied_or_built: 0
+  cleanup_actions: 0
+  state_revision_or_stageb_actions: 0
+
+mainline_recommendation:
+  r10_claim_start: REJECT
+  optional_next_action: FREEZE_NEW_HASH_PINNED_PRECLAIM_ONLY_CORRECTION_ASSIGNMENT_FROM_CORRECTION_ROUTE_AUDIT
+  automatic_candidate_state_change: NONE
+next_owner: MAINLINE

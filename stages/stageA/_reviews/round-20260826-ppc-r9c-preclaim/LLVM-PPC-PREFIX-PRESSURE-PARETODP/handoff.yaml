@@ -1,0 +1,114 @@
+schema: independent-stagea-preclaim-gate-handoff-v1
+created_at: 2026-08-26T16:50:14+08:00
+created_by: STAGEA_GATE_REVIEW
+assignment_id: STAGEA-GATE-20260826-LLVM-PPC-R9C-PER-ACTION-PRECLAIM
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: STAGEA_GATE
+lane_thread_id: 01a034d0-d990-7d50-9d9f-a6d05a81bf11
+owner_lane_id: CANDIDATE_EXECUTION_LANE_2
+owner_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+reviewer_owner_independent: true
+
+authorization:
+  context_sha256: D5E20FF0A2BCE7BC938CD9E915158DE743D84D0CC2F690D1845569AEB3C67B28
+  bootstrap_ack_sha256: E331FE1D1415DDAABAC918F9E29E4BAB2648068787B902B925EEB8378FA39F0A
+  bootstrap_acceptance_sha256: AF9C921F88BEBE269042B440D490CEA366D572F6A17358C4534899387009D437
+  start_authorization_sha256: BDD2DAE5DA8A8E745F5E87E49B25CE110D9F68943A5853378CA228CAAF956450
+  gate_precommit_sha256: CD0684E448AE5D67BD70DB4048BD17537A8BB4221638A20782F5A3BF5C929741
+
+input_freeze:
+  owner_handoff_sha256: FDBC8EB59AA86D6309746CD6FDBE1C5075A16CA9E4934D683AF6E9090B236B57
+  owner_manifest_sha256: 378F4C3C655F5128A7F19839AC560981A7EC5F09B58688EFCD74FE6669F8C233
+  owner_mainline_acceptance_sha256: 2F9F23FDB9569595626D68A1A38092ED95264DE400C9305BD4416033D461A0E1
+  targeted_decisive_manifest_validation: PASS_333_OF_333
+  exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+  exact_target: POWER10_PPC64LE_LINUX_ELFV2_MEDIUM_CODE_MODEL
+
+decision: REJECT_PRECLAIM_FIDELITY__BOUNDED_ENGINEERING_CORRECTION_EXISTS
+decision_scope: PRECLAIM_CONTROL_FIDELITY_ONLY
+quality_tier: NOT_READJUDICATED__STAGE0_TIER_B_Q2_VIABLE_CONDITIONAL_CEILING_UNCHANGED
+evidence_ceiling: INDEPENDENT_PRECLAIM_CONTROL_FIDELITY_ONLY__NO_SELECTED_OR_SCIENTIFIC_INFERENCE
+owner_pass_adopted_as_scientific_state: false
+
+gate_matrix:
+  G0_IDENTITY: PASS
+  G1_ACTUAL_PER_ACTION_DP: PASS
+  G2_METHOD_DISTINCTNESS: PASS
+  G3_CURRENT_STRONG_BASELINE_UNION: PASS__WITH_REAL_NULL_ARMS
+  G4_DEPENDENCY_AND_FULL_COST: FAIL__COMMAND_COST_CONSUMER_EDGES_MISSING
+  G5_RAW_REPRODUCIBILITY: PASS
+  G6_NEXT_ROUTE: FAIL__FINITE_ROUTE_BUT_R10_VALIDATOR_AND_PROPAGATED_COMMAND_COST_DEPENDENCY_REQUIRE_ENGINEERING_CORRECTION
+
+preserved_positive_facts:
+  actual_per_action_DP: PASS_12_ACTIONS_8190_TRANSITIONS_4096_TERMINAL_STATES
+  parent_action_backpointer_closure: PASS_ZERO_UNRESOLVED
+  method_distinctness: PASS_8190_SIGNATURE_ROWS_DIFFERENT__8140_COST_ROWS_DIFFERENT
+  current_union_execution: PASS_8_COMPILE_16_LINK
+  baseline_output_families: TWO_REAL_OUTPUT_FAMILIES_WITH_OTHER_GRID_ARMS_NULL_ON_CONTROL
+  artifact_checker_edges: 16
+  artifact_full_cost_edges: 16
+  artifact_orphans: 0
+  negative_controls: PASS_11_OF_11_BOTH_REPLAYS
+  raw_replay_pairs: PASS_32_OF_32_BYTE_EXACT
+  deterministic_payloads: PASS_BYTE_EXACT
+  selected_or_reserve_tool_invocations: 0
+  claim_bearing_runs: 0
+  r10_directory_absent: true
+
+fatal_preclaim_findings:
+  - FULL_COST_CONSUMER_OMITS_56_CURRENT_UNION_COMMAND_METRICS_PER_REPLAY
+  - GRAPH_AUDIT_DOES_NOT_RESOLVE_COMMAND_METRIC_IDS_OR_TEST_COMMAND_COST_ORPHANS
+  - R10_VALIDATOR_REQUIRES_EXTERNAL_BASELINE_GRAPH_INPUT_TO_BE_A_CANDIDATE_OUTPUT
+  - R10_FULL_COST_ROUTE_DOES_NOT_YET_CONSUME_ALL_128_COMPILE_256_LINK_512_INSPECTION_COMMAND_COSTS_PER_PROCESS
+
+bounded_route:
+  route_id: PPC_R9D_COMMAND_COST_EDGE_AND_R10_VALIDATOR_CLOSURE_V1
+  blocker_class: SOFT_ENGINEERING_BLOCKER
+  same_id_route_exists: true
+  exact_object_preserved: true
+  primary_RQ_preserved: true
+  action_endpoint_and_guarantee_preserved: true
+  natural_denominator_preserved: true
+  strong_baseline_preserved: true
+  result_based_exclusion_allowed: false
+  required_atomic_bundle:
+    - MAP_EACH_BUNDLE_COMMAND_METRIC_ID_TO_CPU_WALL_RSS_STATUS_EXIT_FULL_COST_WITH_SHARED_COMPILE_NO_DOUBLE_COUNTING
+    - VALIDATE_BOTH_56_COMMAND_CONTROL_METRIC_SETS_AND_ZERO_COMMAND_COST_ORPHANS
+    - ADD_REMOVE_OR_MUTATE_COMMAND_COST_EDGE_EXPECTED_FAIL_CONTROL
+    - FIX_R10_VALIDATOR_INPUT_SET_AND_BASELINE_GRAPH_PRODUCER_PRECEDENCE
+    - REQUIRE_R10_FULL_COST_CONSUMPTION_OF_ALL_CURRENT_UNION_COMMAND_COSTS
+  existing_raw_and_metrics_reusable_after_hash_pin: true
+  compiler_linker_checker_natural_or_claim_execution_required_for_correction: false
+  correction_evidence_ceiling: PRECLAIM_ENGINEERING_FIDELITY_ONLY__NO_SCIENTIFIC_INFERENCE
+  user_action_required: false
+  mainline_may_freeze_autonomously_under_soft_blocker_rule: true
+
+revision_and_state:
+  scientific_revision_consumed_before_review: false
+  mechanism_pivot_consumed_before_review: false
+  scientific_revision_consumed_by_review: false
+  mechanism_pivot_consumed_by_review: false
+  state_transition_performed_by_review: false
+  r10_created_or_authorized: false
+  natural_or_claim_authorized: false
+  stageb_authorized: false
+
+resource_and_lifecycle:
+  review_resource_root: null
+  network_bytes: 0
+  resource_actions: 0
+  compiler_linker_checker_corpus_natural_or_claim_executions: 0
+  cleanup_actions: 0
+  owner_cleanup_performed: false
+  cleanup_owner: MAINLINE
+  cleanup_disposition: DEFER_UNTIL_REVIEW_ACCEPTANCE_AND_CORRECTION_DEPENDENCY_FREEZE
+
+canonical_outputs:
+  independent_review: {path: INDEPENDENT_PRECLAIM_FIDELITY_REVIEW.md, sha256: 2CFCADFC096E0D24A077D8E419EEAD00FE1CA772672B578AFFE599CF30AAE2C3}
+  per_action_dp_and_baseline_audit: {path: PER_ACTION_DP_AND_BASELINE_AUDIT.yaml, sha256: CC93863960101C018801DF53E9C96CCA31F56954345F04F345EA7705C675B0F7}
+  natural_route_audit: {path: NATURAL_ROUTE_AUDIT.yaml, sha256: 417C7B2844B581EDB3287F0BE8D810B329F67F46C0F27CDEBC5038DCA9E92801}
+  resource_and_lifecycle_audit: {path: RESOURCE_AND_LIFECYCLE_AUDIT.yaml, sha256: 18BC21E89C909100F37276FCF8DC9CAE2D79EC44C199942E46BCED695CD7CF27}
+  manifest_path: HASH_MANIFEST.sha256
+
+next_action: MAINLINE_MECHANICALLY_ACCEPT_REVIEW_AND_FREEZE_BOUNDED_COMMAND_COST_AND_R10_VALIDATOR_ENGINEERING_CORRECTION__NO_R10_OR_SELECTED_EXECUTION
+scientific_inference: NONE

@@ -1,0 +1,5 @@
+# Current upstream audit — TVM retry1
+
+Official commit proof pins `apache/tvm@27c2e019d0ce6182158020c7534dda4a3ce981ae`. Retained source establishes a bounded native union: Relax `FuseOps`, `StaticPlanBlockMemory`, `KillAfterLastUse`, VM code generation, and their pass/test/configuration surfaces. The selected tests are the ordinal-first eligible fusion test and transform source from the two prescribed listings.
+
+The fixed Relax/TensorIR IRModule to stock VMExecutable contract is preserved. The source confirms fusion and static lifetime planning are already native actions, so neither may be described as a missing interface. The bounded material does not provide one same-IR carrier with two complete stock-legal fusion-plus-lifetime plans, a TVM-specific action outside that composition, or a finite non-generic guarantee. Generic partition/packing/pass selection and a changed pipeline are invalid substitutes. Full cost must include fusion/codegen, static planning/kill actions, VM executable footprint, dispatch and unchanged semantics.

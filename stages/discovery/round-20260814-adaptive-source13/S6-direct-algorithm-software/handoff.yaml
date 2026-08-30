@@ -1,0 +1,48 @@
+assignment_id: DISCOVERY-S6-20260814-ADAPTIVE-SOURCE13
+lane: S6_DIRECT_ALGORITHM_SOFTWARE
+method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+write_directory: stages/discovery/round-20260814-adaptive-source13/S6-direct-algorithm-software
+status: COMPLETE_ZERO_PROPOSALS
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+source_mix:
+  cpu_compiler_architecture_joint_algorithm: 3
+  gpu_npu_accelerator_compiler_architecture_joint_algorithm: 3
+  quota_interpretation: guidance_only
+funnel:
+  raw_unique_opportunity_families: 6
+  candidate_grade_deep_reviews: 2
+  proposed_stage0: 0
+  structural_drops: 4
+  not_admitted_unfrozen: 1
+  excluded_repeated_active_family: 1
+deep_reviews:
+  - signature: LLVM_HEXAGON_VLIW_PACKET_CONSTRUCTION__FIXED_MACHINEIR_SUBTARGET_ABI__ISA_SEMANTICS
+    exact_object: Fixed Hexagon MachineIR, subtarget, ABI, dependence relation, and emitted ISA semantics.
+    same_object_witness: Two resource-legal packets for an independent ready pair competing for a constrained slot.
+    strongest_current_union: Hexagon DFA packetizer, target scheduling, global scheduler, packetization controls.
+    residual_test: Whole-region packet-pressure optimization is generic VLIW/resource-constrained scheduling without a new Hexagon-specific state or guarantee.
+    natural_route: LLVM Hexagon MIR tests plus versioned public DSP workload.
+    full_cost: compile CPU-wall-RSS-temp, code bytes, packet count, latency-throughput proxy.
+    finite_killer: A target-specific finite-state guarantee irreducible to resource-constrained scheduling.
+    disposition: STRUCTURAL_DROP__GENERIC_VLIW_SCHEDULING_KERNEL__NO_TARGET_SPECIFIC_GUARANTEE
+  - signature: IREE_LLVMGPU_LOWERING_LAYOUT_CONSTRUCTION__FIXED_MLIR_TENSOR_KERNEL_SEMANTICS__TARGET_LAYOUT_TILING
+    exact_object: Fixed MLIR module, tensor semantics, target constraints, and generated-kernel behavior.
+    same_object_witness: Two valid native tiling-distribution-layout plans with equal tensor output.
+    strongest_current_union: Upstream LLVMGPU lowering pipeline and configuration controls.
+    residual_test: Remaining construction is configuration search or generic layout packing; no target-specific exact-FPT-certified guarantee frozen.
+    natural_route: Version-pinned public MLIR/IREE modules.
+    full_cost: compile CPU-wall-RSS-temp, artifact bytes, host dispatch-launch cost, target resources.
+    finite_killer: Non-controller target-specific algorithm with guarantee under unchanged IR and kernel semantics.
+    disposition: STRUCTURAL_DROP__CONFIGURATION_OR_GENERIC_LAYOUT_KERNEL
+screen_notes:
+  - LLVM_RISCV_VSETVLI_STATE_PLACEMENT: NOT_ADMITTED_UNFROZEN__NO_SOURCE_CLOSED_TARGET_SPECIFIC_GUARANTEE
+  - LLVM_SYSTEMZ_DISPLACEMENT_FORM_CONSTRUCTION: STRUCTURAL_DROP__GENERIC_INSTRUCTION_SELECTION_COSTING
+  - OPENXLA_GPU_COLLECTIVE_CONSTRUCTION: STRUCTURAL_DROP__CONTROLLER_OR_SCHEDULE_FAMILY
+  - LLVM_AMDGPU_OCCUPANCY_REGISTER_ALLOCATION: EXCLUDED_REPEATED__ACTIVE_AMDGPU_OCCUPANCY_JOINT_CODEGEN_FAMILY
+policy_compliance:
+  network_security_and_exploit_topics_screened_out: true
+  no_experiment_build_install_or_large_download: true
+  no_stage0_a_b_or_shared_control_write: true
+  no_readiness_or_resource_based_scientific_drop: true
+next_step: Mainline may mechanically accept this bounded zero-proposal package. No clean Stage0 brief was produced.

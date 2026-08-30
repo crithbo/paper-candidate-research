@@ -1,0 +1,24 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE57-R40-ORDINARY-BREADTH-V1
+lookup_surface: registry.yaml plus bounded historical canonical handoffs/collision matrices
+results:
+  - seed: S57-01
+    signature: WASM_GC__CANONICAL_RECURSIVE_TYPE_RTT_CONSTRUCTION__STOCK_VALIDATION_INSTANTIATION
+    relation: NO_EXACT_MATCH_FOUND_WITHIN_BOUND
+    disposition: NO_MATCH__NOT_NOVELTY_EVIDENCE
+  - seed: S57-02
+    signature: SPIRV_MODULE__ID_TYPE_DECORATION_CONSTRUCTION__STOCK_SPIRV_VALIDATION
+    relation: EXACT
+    prior_locators:
+      - stages/discovery/round-20260810-v8.7-wave32/S6-direct-algorithm-software/SOURCE_COLLISION_MATRIX.md
+      - stages/discovery/round-20260810-v8.7-wave36/S6-direct-algorithm-software/SOURCE_COLLISION_MATRIX.md
+    disposition: EXCLUDE_EXACT_OR_TERMINAL
+    rationale: same fixed module, compact-ID/optimizer/validator action and validation endpoint.
+  - seed: S57-03
+    signature: VULKAN_PIPELINE_CACHE__CACHE_IMAGE_COMPATIBILITY_LOAD__STOCK_PIPELINE_BEHAVIOR
+    relation: EXACT
+    prior_locator: stages/discovery/round-20260814-adaptive-source18/S1-boundary-contradiction/SOURCE_COLLISION_MATRIX.md
+    disposition: EXCLUDE_EXACT_OR_TERMINAL
+    rationale: same implementation/driver-owned cache boundary and pipeline behavior endpoint.
+mechanical_rules:
+  related_only_does_not_exclude: true
+  no_match_is_not_novelty_or_absence_evidence: true

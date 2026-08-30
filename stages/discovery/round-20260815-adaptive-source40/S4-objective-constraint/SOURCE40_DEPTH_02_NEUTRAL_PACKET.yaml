@@ -1,0 +1,41 @@
+assignment_id: DISCOVERY-S4-20260815-ADAPTIVE-SOURCE40-CARRIER-COMMITMENT-CLOSURE
+packet_id: SOURCE40_DEPTH_02
+status: PACKET_READY_FOR_MAINLINE_DISPATCH
+neutral_rq: >-
+  For one fixed, versioned SPEC CPU 2017 public result submission artifact, does a predeclared
+  full-cost estimator (setup, compilation where applicable, execution, and reported energy/time)
+  change the validity boundary of a stated comparative ranking without changing the workload,
+  scoring semantics, or result artifact?
+contribution_type: MEASUREMENT_CHARACTERIZATION
+identity_commitment:
+  object: SPEC_CPU_2017__ONE_VERSIONED_PUBLIC_RESULT_SUBMISSION_ARTIFACT
+  endpoint: comparative_ranking_validity_boundary
+  action_or_estimand: predeclared_full_cost_estimator
+  carrier_rule: >-
+    First publicly accessible SPEC CPU 2017 result submission whose official result page exposes
+    a version/date and the declared benchmark/configuration fields; do not substitute a different suite.
+  identity_status: TENTATIVE_CARRIER_COMMITMENT__NOT_EVIDENCE_QUALIFIED_RAW
+deterministic_sources:
+  - role: anchor
+    url: https://www.spec.org/cpu2017/
+    selection_rule: official benchmark landing page
+  - role: carrier
+    url: https://www.spec.org/cpu2017/results/
+    selection_rule: first eligible official public result under carrier_rule
+  - role: contrary_or_semantics
+    url: https://www.spec.org/cpu2017/Docs/
+    selection_rule: official documentation for result and metric semantics
+closure_questions_max_three:
+  - Can an exact result artifact/version and its metric/configuration semantics be pinned?
+  - Is the strongest obvious official/current reporting boundary already a full-cost estimator for this endpoint?
+  - Does an official artifact/documentation route provide a finite falsifier preserving same-object semantics?
+minimum_falsifier: >-
+  A single pinned official result artifact for which the official documentation makes the proposed
+  denominator either undefined or equivalent to the existing reporting boundary.
+full_cost_boundary: setup_plus_build_if_declared_plus_execution_plus_reported_energy_time_plus_peak_memory_if_exposed
+forbidden_in_this_turn:
+  - targeted_source_closure
+  - outcome_or_collision_lookup
+  - raw_admission
+  - brief_generation
+  - novelty_or_Q2_claim

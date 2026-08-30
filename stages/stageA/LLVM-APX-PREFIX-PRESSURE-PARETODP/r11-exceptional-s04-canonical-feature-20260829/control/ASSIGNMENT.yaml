@@ -1,0 +1,31 @@
+schema: stagea-exceptional-revision-preclaim-contract-v1
+assignment_id: STAGEA-L1-20260829-LLVM-APX-R11-EXCEPTIONAL-S04-CANONICAL-FEATURE-PREFLIGHT
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+phase: BOOTSTRAP_THEN_STATIC_PRECLAIM_ONLY
+user_authorization_id: USER_APX_EXCEPTIONAL_S04_AND_PPC_CLEAN_PACKET_20260829
+exceptional_revision:
+  ordinal: 1_of_1
+  consumed_before_assignment: false
+  consumption_point: first_claim_bearing_process_using_exceptional_driver
+atomic_gate:
+  selected_id: S04
+  function_or_test_id: q
+  input_path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/resources/src/corpus/S04/asm-constraint.ll
+  input_sha256: A44D49A47C34CCE86BB4952F42F6C557230A669BEC950DACDD856F9D133E0776
+  upstream_positive_run_semantics: -mattr=+egpr,+inline-asm-use-gpr32
+allowed_static_change:
+  source_driver_sha256: B4783E43EFB5A43C7212E8B64BFE554E3D430848396CDE04407AF163A1803133
+  rule: only_when_input_sha256_equals_S04_append_+inline-asm-use-gpr32_to_mattr_for_prepare_current_and_tuning
+  all_non_S04_driver_bytes_and_behavior: unchanged
+  selected_inputs_replays_baselines_denominator_cost_schema_action_catalog_claim_endpoint_guarantee: unchanged
+required_static_outputs: [APX_R11_EXCEPTIONAL_DRIVER.py, APX_R11_COMMAND_DAG.json, APX_R11_EXECUTABLE_PACKET.yaml, APX_R11_STATIC_VALIDATION.yaml, EXACT_INPUT_COPY_MANIFEST.yaml]
+required_preclaim_checks:
+  - exact_S04_hash_guard_occurs_once
+  - canonical_feature_applies_to_prepare_current_and_tuning
+  - non_S04_argv_semantics_byte_equivalent
+  - rows_8_commands_72_unchanged
+  - no_result_visibility
+  - claim_ready_false
+forbidden_actions: [resource_copy, tool_execution, control_execution, claim_execution, network, retry, input_change, baseline_change, denominator_change, action_change, shared_write, cleanup, stageb]
+next_gate: INDEPENDENT_EXCEPTIONAL_REVISION_PRECLAIM_FIDELITY_GATE
+

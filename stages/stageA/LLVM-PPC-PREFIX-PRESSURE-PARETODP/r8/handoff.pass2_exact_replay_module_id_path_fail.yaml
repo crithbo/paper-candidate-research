@@ -1,0 +1,68 @@
+schema: ppc-r8-a2-handoff-v1
+created_at: 2026-08-26T06:34:38.7359933+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+addendum_id: PPC-R8-A2-ELF-SYMBOL-RANGE-PARSER-CORRECTION
+decision: FAIL_CLOSED_ACTUAL_NATURAL_HARNESS_FIDELITY__EXACT_REPLAY_MODULE_ID_PATH_MISMATCH__NO_SCIENTIFIC_INFERENCE
+evidence_ceiling: PRECLAIM_REAL_NATIVE_CONTROL_WITH_EXACT_REPLAY_PATH_METADATA_MISMATCH__NO_SCIENTIFIC_INFERENCE
+ordered_gate: {J0: REUSED_PASS_NO_RERUN, J1: PASS, J2: PASS, J3: PASS, J4: PASS, J5: FAIL_EXACT_BYTE_REPLAY, J6: NOT_STARTED}
+A2_patch:
+  file: resources/src/actual_claim_harness/trace_model.py
+  original_sha256: BDA3B305DFD8A17CC723BD62D72C901608EFA33DAD0F396E878F1F54CE0ACB2F
+  corrected_sha256: BDDCD0D45E925D4913A8F9A85FB197FEECB6454D87B17C0846603610412E86C1
+  source_edits: 1_OF_1
+  semantics: UNIQUE_ELF_FUNCTION_VALUE_PLUS_SIZE_HALF_OPEN_RANGE_AND_ENCODED_END_CHECK
+  opcode_based_padding_filter: false
+A1_pass1_preserved:
+  handoff: {path: handoff.pass1_function_boundary_parser_fail.yaml, sha256: 9CABD4E700438DE5183CE2FA595D690F2F58F97259D78748C9A901EB6C2B733A}
+  manifest: {path: HASH_MANIFEST.pass1_function_boundary_parser_fail.sha256, sha256: 122D85F7872C87BA997FA87719FC0FF6D59FBA60121BE3F3F06BDC956156164F}
+fresh_replays:
+  replay_1: {native_commands: 11, all_exit_zero: true, all_checkers_pass: true, deterministic_payload_file_sha256: 38DCD712595C7F51ACEE6266D6B249C221AC3E2CE38B87771E0B9794DC846638, verified_assembly_sha256: 033EAD59AD58D0B14D2FB6C1119F4D9AE8E5AD84872D1A58AA1C543469685DBC}
+  replay_2: {native_commands: 11, all_exit_zero: true, all_checkers_pass: true, deterministic_payload_file_sha256: F96B9A16AEA87539327B3E1D5C5DF23D1D7ED2E8B01BA4067D512420037ADEE2, verified_assembly_sha256: A4D775D089095C94AC17F216AF55D8FB6688546586AD72870C2320890228AB55}
+  equal_candidate_base_result_sha256: 6EA87DD5ED1DFEC4F34F2EE23B0BA9500D7718ED9695BF14D43BF8BDD85992F9
+  equal_trace_sha256: 390F7E670641E95479809EAD51582827435ED39A3CF2E864B96CAC1C127F3930
+J5_failure:
+  differing_artifact: machineverified.s
+  only_differing_line: 2
+  replay_1: "ModuleID contains .../actual_harness_a2/replay_1/artifacts/input.mir"
+  replay_2: "ModuleID contains .../actual_harness_a2/replay_2/artifacts/input.mir"
+  semantic_opcode_checker_or_candidate_difference: false
+  exact_byte_gate_relaxed_or_normalized: false
+execution_summary:
+  new_native_command_records: 22
+  new_native_successes: 22
+  additional_record_limit: 24
+  cumulative_records_including_A1: 34
+  cumulative_record_limit: 36
+  automatic_retries: 0
+  selected_or_reserve_corpus_tool_invocations: 0
+  claim_bearing_runs: 0
+  network_bytes: 0
+  resource_files: 327
+  resource_logical_bytes: 245928016
+  resource_reparse_entries: 0
+  active_related_processes: 0
+  A2_native_cpu_seconds_sum: 0.515625
+  A2_native_wall_seconds_sum: 1.36384639996686
+  A2_peak_rss_bytes_max: 23535616
+  r9_plan_rows: 0
+  r9_plan_executed: false
+  cleanup_performed: false
+scientific_boundary: {claim_bearing_observations: 0, scientific_revision_consumed: false, mechanism_pivot_consumed: false, state_transition_performed: false, stageb_action_performed: false, scientific_inference: NONE}
+canonical_hashes:
+  environment_lock_sha256: 4D996250DC06EE398076527E7E9BFB4E69A7E5CD5AB1C2D184F53E527E83CC53
+  actual_cli_audit_sha256: 59B1D2427DDA02D06F4B0AE37F5F5E949A8B336BCB23A5DCC125457F0D717A5F
+  input_driven_candidate_audit_sha256: 3FEBE0855078947800D24AE3E6333052521279DD46D633EB6D0052EE0C0F7D6B
+  expanded_union_ablation_audit_sha256: ABA3EEEF43F6D556A44B99F42C12F67FEBC7F1AB4D10256A04DC7A8D912365EB
+  native_checker_evidence_audit_sha256: AB7A90E9BE6E084DB8717BDB2D23D91C26E070862106929B115DB522B9A9053C
+  real_command_full_cost_audit_sha256: ED832A1C650B40524139B4AA1040A56DCC3A552674E339265DD006D982CA6CB9
+  synthetic_native_fidelity_smoke_sha256: 6598099EC83CD1FCC060D9D71183ED5F96A6042C8FE28E193FFBBF3D3464F0AA
+  r9_expanded_command_precommit_sha256: 2507CC49BB603D38F621B53E172C6E663C9CA41B8F73D5510081E388C8ABFA06
+  preclaim_gate_sha256: C2B8EA0BDD26DEC8A87BBC8E5EDE959D05C9E93D6608E978C8DC55DFAB421DA0
+  reproducibility_report_sha256: 536C3B2CBB5DA5385C395BED939FEA25EEC6F5D0790C7EFD36B42FA047325CD3
+  resource_inventory_sha256: 0159A9394DF179B34D4E260DAE3413A2F419775F6028BDBB5A8966877AF3A8BE
+  retention_sha256: 0FD0FCF330BE942F2212A4529F322EB34083647E2605D9BA1D6A510E920BBAA5
+  resume_capsule_sha256: 26CA8FFD558ADEB7361F3A88DA81CF5B1F2FCE72A5A3B712149490F5951DA6A4
+exact_cleanup_candidate_leaves: [resources/cache, resources/tmp, resources/downloads, resources/archives]
+owner_cleanup_allowed: false
+future_correction_requires_new_mainline_freeze: true
+next_action: MAINLINE_ACCEPT_HANDOFF_AND_DECIDE_EXACT_REPLAY_PATH_METADATA_CORRECTION

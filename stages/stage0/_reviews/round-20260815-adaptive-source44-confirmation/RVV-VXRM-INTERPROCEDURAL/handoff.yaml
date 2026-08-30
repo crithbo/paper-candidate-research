@@ -1,0 +1,25 @@
+assignment_id: STAGE0-C2-20260815-RVV-VXRM-INTERPROCEDURAL-CONFIRM-V8.7
+topic_id: RVV-VXRM-INTERPROCEDURAL
+mode: SENTRY_CONFIRMATION
+decision: CONFIRM_REVISE_ONCE
+confirmed_atomic_gate: SAME_RVV_INTERNAL_CALL_DAG_TWO_NATIVE_PLAN__CALL_AWARE_VXRM_TRANSFER_FRONTIER_CERTIFICATE
+independent_findings:
+  llvm_pin: 10b4fa5b79eb9d27b4928ad82afa3847762bc72f
+  current_union: >-
+    RISCVInsertWriteVXRM is a MachineFunction-local forward/backward VXRM-write
+    placement pass and sets state Unknown at calls, inline asm and direct VXRM modification.
+  psabi_boundary: >-
+    vxrm/vxsat are unspecified on entry and not preserved across calls; the revision
+    may use a private fixed-internal-DAG fact only, never an ABI-preservation claim.
+  generic_attack: >-
+    Four-state interprocedural dataflow alone is generic and fails; only a complete
+    native action/path and target-specific certified frontier can close the gate.
+required_revision_outcome_if_gate_fails: BELOW_Q2_STOP__NO_NON_GENERIC_CALL_EDGE_VXRM_FRONTIER_RESIDUAL
+search_status: SEARCH_BOUNDED_OPEN
+intrinsic_source_locator: HTTP_404__NO_ABSENCE_INFERENCE
+stage0_pass_authorized: false
+stageA_authorized: false
+stageB_authorized: false
+next_owner: PRIMARY_REVISION1_OWNER
+revision_count_authorized: 1
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

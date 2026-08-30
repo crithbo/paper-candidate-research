@@ -1,0 +1,42 @@
+assignment_id: DISCOVERY-S5-20260814-ADAPTIVE-SOURCE27-ORIGIN-GROUNDED-V1
+lane: S5_SCALE_ONLINE_APPROX
+method: v8.7-canonical
+discovery_claim_pack_mode: OFF
+status: COMPLETE_ZERO_PROPOSALS__EXECUTION_TELEMETRY_LIMITED__NO_SCIENTIFIC_INFERENCE
+write_directory: stages/discovery/round-20260814-adaptive-source27/S5-scale-online-approx
+frozen_inputs:
+  control_sha256: EB344D07BDF99A8CCA08135C378C95AE398DE8A7DBFC49FAFD8631173382FE51
+  source_capsules_sha256: CDA7DD7602F667D9AC4271621FB5499DE332D78CE2A913875AC023800A43BE7B
+capsules_used:
+  - S5_HERDTOOLS7_ARCH_MEMORY_MODEL_LITMUS
+  - S5_RISCV_SAIL_FORMAL_SPEC
+funnel:
+  source_origin_capsules: 2
+  offline_seeds_non_scientific: 8
+  selected_exact_locators: 3
+  excluded_before_raw: 0
+  public_evidence_unclosed: 0
+  execution_telemetry_limited: 3
+  fresh_raw: 0
+  c0: 0
+  d1: 0
+  deep: 0
+  clean_brief: 0
+  propose_stage0: 0
+locator_dispositions:
+  - signature: HERDTOOLS7_FIXED_CAT_INCREMENTAL_RELATION_REANALYSIS
+    disposition: LOCATOR_ONLY__EXECUTION_TELEMETRY_LIMITED__NO_SCIENTIFIC_INFERENCE
+  - signature: HERDTOOLS7_VERSIONED_LITMUS_RELATION_OUTCOME_LAW
+    disposition: LOCATOR_ONLY__EXECUTION_TELEMETRY_LIMITED__NO_SCIENTIFIC_INFERENCE
+  - signature: RISCV_SAIL_FIXED_CONFIGURATION_PARTIAL_STATE_TRANSITION
+    disposition: LOCATOR_ONLY__EXECUTION_TELEMETRY_LIMITED__NO_SCIENTIFIC_INFERENCE
+blocker:
+  exact_error_1: HTTP_401_TOKEN_EXPIRED from official-search runtime before source response
+  exact_error_2: SCHANNEL_SEC_E_NO_CREDENTIALS from official raw-source fallback before response/file creation
+  executed: offline seeds, capsule routing, one bounded search attempt, one bounded official-raw fallback
+  not_executed: source download, build, install, experiment, E2, Stage0/A/B
+  minimum_user_action: restore browsing/search authentication token or Windows TLS credentials
+  acceptable_alternative: a mainline-frozen resume assignment with exact official source bytes/commit and one exact carrier supplied in its unique directory
+  scientific_inference: NONE
+mainline_action: Record resource/telemetry limitation; do not infer absence, absorption, or candidate quality. Pause after Source27 as user instructed.
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

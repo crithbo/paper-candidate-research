@@ -1,0 +1,68 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE27-ORIGIN-GROUNDED-V1
+retrieval_date: '2026-08-14'
+external_payload_persisted: false
+entries:
+  - capsule: S1_OPENMP60_OFFLOAD_SEMANTIC_BOUNDARY
+    locator: L01
+    source_role: ANCHOR
+    url_or_deterministic_rule: https://www.openmp.org/specifications/
+    selection_rule: frozen OpenMP 6.0 November 2024 plus official errata route
+    version_or_date: OpenMP 6.0; official page observed 2026-08-14
+    license_or_provenance: OpenMP ARB official specification provenance
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_APPLICABLE__NO_PAYLOAD_PERSISTED
+    disposition: confirms_versioned_spec_anchor
+  - capsule: S1_OPENMP60_OFFLOAD_SEMANTIC_BOUNDARY
+    locator: L01
+    source_role: CURRENT_UNION
+    url_or_deterministic_rule: https://clang.llvm.org/docs/OffloadingDesign.html
+    selection_rule: frozen current Clang producer plus libomptarget target-plugin route
+    version_or_date: Clang 24.0.0git documentation observed 2026-08-14
+    license_or_provenance: LLVM official documentation; upstream source provenance Apache-2.0 WITH LLVM-exception
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_APPLICABLE__NO_PAYLOAD_PERSISTED
+    disposition: current producer-runtime union visible
+  - capsule: S1_OPENMP60_OFFLOAD_SEMANTIC_BOUNDARY
+    locator: L01
+    source_role: CONTRARY
+    url_or_deterministic_rule: https://clang.llvm.org/docs/OpenMPSupport.html
+    selection_rule: frozen official current support/flag documentation as strongest contrary to a missing-runtime premise
+    version_or_date: Clang 24.0.0git documentation observed 2026-08-14
+    license_or_provenance: LLVM official documentation
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_APPLICABLE__NO_PAYLOAD_PERSISTED
+    disposition: target/offload and current data-sharing modes/flags already exposed
+  - capsule: S1_RISCV_PSABI_1_1_CURRENT_CALL_BOUNDARY
+    locator: L02
+    source_role: ANCHOR
+    url_or_deterministic_rule: https://riscv-non-isa.github.io/riscv-elf-psabi-doc/
+    selection_rule: frozen official psABI 1.1 prerelease route
+    version_or_date: version 1.1, July 01 2026 pre-release
+    license_or_provenance: RISC-V International official psABI; CC-BY 4.0
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_APPLICABLE__NO_PAYLOAD_PERSISTED
+    disposition: call/unwind/register contract anchored
+  - capsule: S1_RISCV_PSABI_1_1_CURRENT_CALL_BOUNDARY
+    locator: L02
+    source_role: CURRENT_UNION
+    url_or_deterministic_rule: https://riscv-non-isa.github.io/riscv-elf-psabi-doc/
+    selection_rule: psABI itself is current consumer contract; compiler/linker source was planned but not needed after decisive generic-kernel exclusion
+    version_or_date: version 1.1, July 01 2026 pre-release
+    license_or_provenance: RISC-V International official psABI; CC-BY 4.0
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_APPLICABLE__NO_PAYLOAD_PERSISTED
+    disposition: fixes preservation and unspecified-state boundaries
+  - capsule: S1_RISCV_PSABI_1_1_CURRENT_CALL_BOUNDARY
+    locator: L02
+    source_role: CONTRARY
+    url_or_deterministic_rule: https://riscv-non-isa.github.io/riscv-elf-psabi-doc/
+    selection_rule: decisive same-object formal contrary: alleged action must restore callee-saved state and preserve specified ABI observables
+    version_or_date: version 1.1, July 01 2026 pre-release
+    license_or_provenance: RISC-V International official psABI; CC-BY 4.0
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_APPLICABLE__NO_PAYLOAD_PERSISTED
+    disposition: no concrete action beyond generic frame/save/relocation optimisation survives
+notes:
+  - L02 is structurally excluded by a decisive formal contract before a second current-source fetch; no claim of implementation absence is made.
+  - The web runtime exposes rendered result metadata but no response-byte telemetry or payload hashes; values are not imputed.
+

@@ -1,0 +1,68 @@
+schema: resource-inventory-v1
+assignment_id: STAGE0-P1-20260821-USER-QREFINE-PATCHYIELD-PRIMARY
+resource_root: stages/stage0/_reviews/user-proposed-20260821-primary/resources
+localization_preflight:
+  status: PASS_WITH_RECORDED_PRELEDGER_DEFECT
+  process_local_redirects: [TEMP, TMP, TMPDIR, XDG_CACHE_HOME]
+  redirected_under_resource_root: true
+  no_global_environment_change: true
+  note: >-
+    The first 23,857-byte official Triton blob was saved under the resource root
+    before the monotonic ledger was persisted. It is fully hashed and its URI/pin
+    are recorded below; no subsequent resource call occurs without a pre-call
+    ledger entry. This provenance defect is disclosed and does not support an
+    absence inference.
+required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+network_budget:
+  per_topic_primary_routes_max: 32
+  combined_persisted_bytes_max: 268435456
+  calls_used: 4
+  persisted_bytes: 88437
+entries:
+  - path: resources/src/triton_nvidia_compiler_f797708.py
+    class: pinned-official-source
+    source_uri: https://raw.githubusercontent.com/triton-lang/triton/f797708c0626e5f9840ca5b0a98790e2c7cb09ad/third_party/nvidia/backend/compiler.py
+    version_or_commit: f797708c0626e5f9840ca5b0a98790e2c7cb09ad
+    logical_bytes: 23857
+    sha256: D012F2A7E705592E590630A0DF58099CEEB9EF71517C561FC81644C0C9399658
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    evidence_role: capture-boundary-verification
+  - path: resources/src/triton_amd_compiler_f797708.py
+    class: pinned-official-source
+    source_uri: https://raw.githubusercontent.com/triton-lang/triton/f797708c0626e5f9840ca5b0a98790e2c7cb09ad/third_party/amd/backend/compiler.py
+    version_or_commit: f797708c0626e5f9840ca5b0a98790e2c7cb09ad
+    logical_bytes: 24190
+    sha256: 8DF3EF9DEDBEF00AA444EC0CB547412A8297F4393065F093668BB7626B5865F4
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    evidence_role: capture-boundary-verification
+  - path: resources/src/triton_nvidia_compiler_current.py
+    class: current-official-source
+    source_uri: https://raw.githubusercontent.com/triton-lang/triton/main/third_party/nvidia/backend/compiler.py
+    version_or_commit: main__retrieved_2026-08-21
+    logical_bytes: 28088
+    sha256: C55ADF3396DCE96A9982B45C6B64702FE64B392C2197FD35E325F5FA3C080786
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    evidence_role: current-upstream-reality-check
+  - path: resources/src/vllm_scheduler_config_current.py
+    class: current-official-source
+    source_uri: https://raw.githubusercontent.com/vllm-project/vllm/main/vllm/config/scheduler.py
+    version_or_commit: main__retrieved_2026-08-21
+    logical_bytes: 12302
+    sha256: 3CF5D41A5D662AB0EADA6F3128E2538ABC0A250D6AEF82ACAB7DF7DD84E498BC
+    deletion_status: RETAIN_CLAIM_CRITICAL
+    evidence_role: current-upstream-union
+root_measurement:
+  logical_bytes: 90110
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: PASS_WITH_RECORDED_PRELEDGER_DEFECT
+scientific_inference_from_resource_failure: prohibited

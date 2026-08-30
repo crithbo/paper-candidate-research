@@ -1,0 +1,101 @@
+schema: cvc5-carcara-clean-recovery-r3c1-v1
+topic_id: CVC5-ALETHE-SHAREMAP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+assignment_id: RESOURCE-STAGEA-L1-20260811-CVC5-ALETHE-SHAREMAP-RESUME3-R3C1
+authorization_ids:
+  - CVC5-CARCARA-CLEAN-RECOVERY-20260811-R3C1
+  - RESOURCE-BASELINE-BOOTSTRAP-REUSE-20260811-R3A
+  - USER-DIRECTED-RESERVE-FALLBACK-20260811-R3H
+frozen_at: 2026-08-11
+frozen_at_precision: DATE_ONLY__EXACT_WALL_CLOCK_NOT_RETAINED
+unique_write_directory: stages\stageA\CVC5-ALETHE-SHAREMAP\resume3
+old_directories_read_only: true
+cross_assignment_contamination: false
+queue_prefetch: false
+
+control_freeze:
+  AGENTS.md: B7122A5ACC5CF02A602988548E7464BF03362059293B083796BA1687D2CFAC73
+  plan.md: 9E27DA1DF73D16088D672D33762B78C047AF753C3F0BF1AAB5041C045E8C1C3B
+  registry.yaml: BAB980E7A7BF8D1E283196C5BD73A16D49641FC623AE90DFF1BF7E35151D4AA8
+  ROLE_CANDIDATE_OWNER.md: 96601A060F56B44B95BCBCC4F234E3B107238D4C4655A535679DE88A8D3B3FDC
+  entry_verification: ALL_MATCHED_AT_ASSIGNMENT_ENTRY
+  post_entry_role_drift:
+    detected: true
+    observed_sha256: AAF37485E3F0C9EE575B34F4717F08C7E4E082062B92FA70DD43C56856C99BD6
+    disposition: RECORD_ONLY__FROZEN_ENTRY_ROLE_RETAINED__NO_NEW_RULE_IMPORTED
+
+input_freeze:
+  resume1_resource_report_sha256: 1BE66F2376B1E5D77C6FE8DB81E59450584BC8E5B955B6112809800CFE49F474
+  resume1_source_manifest_sha256: 0F1928473F7980780F7C51327A4EEF6C492A7669B2E0EDBCEA3618C5A2286949
+  resume1_carcara_source_archive_sha256: FCD42C4ED6501B690E3F363E980B2B1403A1A7C9DF262FECC0A4C831B8960F30
+  resume2_handoff_sha256: 328E8554773697C4CB0E677A6C17B130267D97099666469003498125528C8469
+  resume2_manifest_sha256: A75DCA035F1817F474B63F79D73A88EFADB0E8F47E9F2E468C2ADA97D3F71F71
+
+resource_contract:
+  project: ufmg-smite/carcara
+  version: carcara-1.1.0
+  exact_commit: 5d817d86bd18ea2a850a580d602f17f36959ee99
+  source_archive_mode: COPY_VERIFIED_IMMUTABLE_RESUME1_ARCHIVE
+  source_archive_sha256: FCD42C4ED6501B690E3F363E980B2B1403A1A7C9DF262FECC0A4C831B8960F30
+  source_license: Apache-2.0
+  source_patch_allowed: false
+  cargo_lock_patch_allowed: false
+  gmp_mpfr_patch_allowed: false
+  test_patch_or_bypass_allowed: false
+  required_rust: 1.72.0
+  rust_host: x86_64-pc-windows-gnu
+  rust_distribution: official static.rust-lang.org
+  rustup_init_url: https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-gnu/rustup-init.exe
+  rustup_init_sha256_url: https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-gnu/rustup-init.exe.sha256
+
+r3a_read_only_bootstrap:
+  msys2_root: stages\stageA\CVC5-ALETHE-SHAREMAP\resume1\toolchain\msys64
+  msys2_bash_sha256: 6A5C557C031F8683A796240B89C14E47DEB5F3337AE8D34C43B675F392B6E885
+  msys2_clang_sha256: 0054204BC07618CBC06442813B648F396A001B5965C06A3A7D11CDBB29327EA3
+  registered_clang_sha256: A8B7A614EEADD9105F814BE3701A7F312CDA4CEA51751B75B408C16100C94E85
+  registered_cmake_sha256: DE9A9266F8065AAAC2BC0ED0A12D1114FBFCB6945FED8F1BA897291786C32BA6
+  registered_ninja_sha256: 9EE2FC6BC8C0ACD1DE6E6DCADF009C0598E6336646B87CFB5ED2918604B81597
+  use_policy: ABSOLUTE_PATH_OR_PROCESS_LOCAL_PATH_ONLY__NO_GLOBAL_MUTATION
+
+ordered_gate:
+  phase_1:
+    name: SOURCE_HASH_PROVENANCE_LICENSE_UNMODIFIED_SMOKE
+    required:
+      - EXACT_SOURCE_ARCHIVE_HASH_AND_COMMIT_PROVENANCE
+      - APACHE_2_0_LICENSE
+      - RUSTC_AND_CARGO_EXACT_1_72_0
+      - ONE_UNMODIFIED_LOCKED_CLEAN_BUILD
+      - CARCARA_VERSION_HELP_AND_STOCK_CHECKER_SMOKE
+  phase_2:
+    name: FROZEN_STAGEA_PRECLAIM_AND_BOUNDED_PROBE
+    allowed_only_if_phase_1_pass: true
+    claim_bearing_allowed_only_after_preclaim_pass: true
+
+build_budget:
+  clean_build_1_allowed: true
+  clean_build_2_allowed_only_after_purely_mechanical_correction: true
+  max_storage_bytes: 8589934592
+  max_cpu_hours: 6
+  gpu_allowed: false
+  exclusive_device_allowed: false
+
+kill_boundary:
+  - STOP_ON_SOURCE_OR_CHECKSUM_OR_LICENSE_MISMATCH
+  - STOP_ON_WRITE_OUTSIDE_RESUME3
+  - STOP_ON_SOURCE_CARGO_LOCK_GMP_MPFR_OR_TEST_MODIFICATION
+  - STOP_ON_SYSTEM_OR_GLOBAL_ENVIRONMENT_MUTATION
+  - STOP_ON_WSL_VM_OR_SYSTEM_INSTALL
+  - STOP_AFTER_AUTHORIZED_BUILD_ROUTES_EXHAUSTED
+  - DO_NOT_RUN_CANDIDATE_OR_NATURAL_CORPUS_BEFORE_RESOURCE_AND_PRECLAIM_PASS
+
+failure_policy:
+  decision: BLOCKED_USER_ACTION_REQUIRED__ROUTES_EXHAUSTED__R3H_RECOMMENDED
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed: false
+  scientific_stop_allowed: false
+  registry_write_allowed: false
+
+stageb: false
+claim_bearing: false
+scientific_revision_consumed: false
+system_or_global_modification_expected: false

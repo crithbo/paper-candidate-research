@@ -1,0 +1,31 @@
+topic_id: GPU-TMAPHASE
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: "已 lower 的 CUDA/CuTe/Triton TMA-mbarrier 多阶段协议；验证 phase、arrival/transaction credit、participant mask 与 buffer-slot epoch 一致性"
+main_claim: "在声明子集内，phase-indexed credit abstraction 可静态证明协议安全或生成因果切片，并覆盖公平组合基线未以同等保证和成本覆盖的多类可达错误"
+academic_value_score: 56
+ai_executability_score: 24
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.76
+strongest_baseline:
+  - "NVIDIA Compute Sanitizer racecheck/synccheck/deadlock reporting"
+  - "GPUVerify + GPURepair"
+  - "GPUMC"
+  - "Tawa safe asynchronous references/lowering"
+decisive_evidence:
+  - "15-30 个公开自然 kernels 与至少 6 类规范导出 mutation 的冻结 corpus"
+  - "A/B 机制的 soundness 边界、错误类别、误报、状态规模和因果切片"
+  - "公平组合 baseline capability/result matrix"
+unresolved_risks:
+  - "Tawa 或基线组合可能已覆盖同等对象和保证"
+  - "任意 lower 后协议的关联状态可能爆炸"
+  - "无 GPU 时动态交叉验证 ceiling 较低"
+next_killer_gate: "72 小时内在 8-12 个自然 kernel 上完成事件抽取和 Mechanism A 最小原型；若 A 关联丢失则保持对象/指标不变 pivot 到 bounded event model；若两者均无新错误类别则停止"
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: "Discovery：官方规范、公开源码与 CPU 静态/模型检查证据；无 GPU、无性能或真实缺陷 prevalence 结论"
+execution_authority: "AI 可在本目录/后续授权题目目录使用公开源码和 CPU 工具；GPU、正式项目写入及升级需主线/用户授权"
+file_hashes:
+  topic_brief.md: fa00e3410bc0d480bb9498633546c9c35baeaa6f72ead0c62da454f94d588d65
+  source_log.md: 729f7d76bcc58c5e00350a026ecabcbf0d098a2a7103791d42988b1007174424

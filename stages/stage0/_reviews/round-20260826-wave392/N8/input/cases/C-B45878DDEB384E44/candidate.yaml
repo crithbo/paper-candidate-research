@@ -1,0 +1,20 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-B45878DDEB384E44
+cutoff_date: 2023-09-01
+contribution_type: SYSTEM_ARCHITECTURE
+exact_object: lifecycle selection for coherence regions under fixed region metadata and transition actions
+natural_scenario: region-granular coherence with phase changes and finite directory capacity
+problem: a baseline selector is said to make poor activate, retain, and retire decisions
+atomic_action: rank regions from reuse, invalidation pressure, occupancy, and age, then choose among existing lifecycle transitions
+mechanism: one composite score selects an unchanged transition under the baseline information set
+information_condition: reuse, invalidations, occupancy, age, and existing transition set
+comparators: [current_region_selector, threshold_selector, oracle_over_existing_actions]
+claim_endpoint: traffic and latency at matched metadata and directory capacity
+full_cost: [traffic, latency, metadata, directory_occupancy, decision_time]
+minimum_falsifier: the comparator can implement the same selector using identical information and actions
+source_cards:
+  - {id: S01, year: 2023, role: current_selector_with_same_features_and_actions}
+  - {id: S02, year: 2021, role: region_lifecycle_policy}
+  - {id: S03, year: 2020, role: oracle_selector_over_fixed_actions}
+local_resource_envelope: STATIC_REVIEW_FIRST
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

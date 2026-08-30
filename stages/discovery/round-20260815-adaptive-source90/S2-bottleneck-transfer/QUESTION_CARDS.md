@@ -1,0 +1,3 @@
+# QC-S2-90-01
+
+Same object: fixed module/ABI/target/lifetime behavior. Whole action: jointly choose legal ownership forwarding/ARC boundaries and object access/layout placement. Valid N2 needs target-specific certified Pareto/FPT/exact/approximation; generic packing, flags, controller and changed lifetime/ABI fail. Stock SIL ARC/lowering union gets same information. Falsifier: same joint action already stock or witness changes ABI/lifetime. Carrier/oracle: pinned upstream SIL test and stock ABI/behavior. Full cost: compiler CPU/RSS/temp, binary bytes, ARC traffic, allocation/cache/runtime. Closure: one commit, named sources, two-plan witness, collision search. Status: `EVIDENCE_QUALIFIED_RAW__NOT_READY_FOR_C0__PENDING_UNEXECUTED_SOURCE_CLOSURE`.

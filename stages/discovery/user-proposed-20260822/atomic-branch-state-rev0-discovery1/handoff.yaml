@@ -1,0 +1,74 @@
+schema_version: discovery-handoff-v1
+assignment_id: DISCOVERY-S6-20260822-ATOMIC-BRANCH-STATE-REV0
+topic_id: ATOMIC-BRANCH-STATE-REV0
+lane: S6_DIRECT_ALGORITHM_SOFTWARE
+frozen_assignment_sha256: 2207BAF1AB3B91137441BE0B14E84FFBFE6A1062908F4B4C24595A109F06B14A
+unique_write_directory: D:\\project\\writing\\reserch\\stages\\discovery\\user-proposed-20260822\\atomic-branch-state-rev0-discovery1
+method:
+  research_topic_discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  modes: { discovery_quality: OFF, claim_pack: OFF, rq_frontend: OFF }
+identity_provenance:
+  assignment_registry_surface_sha256: B881A9831355008AA7388225225630628222D9462AC10466B317A2C047FC14FB
+  observed_registry_surface_sha256: A3B7D0AA9D69D06A251A626E5B88F2C708EC93E9E3DDE2EF15415E82F1AE89AC
+  post_freeze_drift: RECORDED__NOT_USED_AS_SCIENTIFIC_INPUT
+  stopped_topic_inheritance: FORBIDDEN_AND_NOT_USED
+funnel_counts:
+  divergence_seeds_non_evidence: 4
+  selected_rq: 1
+  selected_locator: 1
+  evidence_qualified_raw: 0
+  c0: 0
+  d1: 0
+  deep_review: 0
+  clean_stage0_brief: 0
+disposition:
+  code: DROP__GENERIC_CROSS_LAYER_TRANSACTION_COMPOSITION_AND_NATIVE_OBJECT_UNCLOSABLE
+  authorized_class: DROP
+  scientific_basis:
+    - The frozen OpenHands SDK anchor exposes composable LLM/agent/conversation/tool/workspace APIs but no native joint ownership of model KV and sandbox process/filesystem C/R state.
+    - Therefore no same-object native two-action witness can contain the required all-plane commit/abort/restore action.
+    - Adding external owners leaves a durable epoch prepare/commit record as the only specific linearization point; that is generic multi-resource transaction/checkpoint composition, which the assignment explicitly excludes.
+    - Shepherd, Crab, Atomix and transaction-local KV restore supply the relevant specialised branch, sandbox, tool-transaction and KV-rollback planes; their combination is not itself a target-specific residual.
+  not_used_as_basis:
+    - missing implementation
+    - missing positive result
+    - resource availability
+    - stopped-topic status
+    - exhaustive absence claim
+decisive_sources:
+  - role: AGENT_ANCHOR_CURRENT
+    uri: https://github.com/OpenHands/software-agent-sdk
+    version: ddac55697c5d15cf8a34495b5ed6d46c86db092a__assignment_frozen
+  - role: BRANCH_REPLAY_SUBTRACTOR
+    uri: https://github.com/shepherd-agents/shepherd
+    version: current_page_accessed_2026-08-22
+  - role: SANDBOX_CR_SUBTRACTOR
+    uri: https://arxiv.org/abs/2604.28138
+    version: v1_2026-04-30
+  - role: TOOL_TRANSACTION_SUBTRACTOR
+    uri: https://arxiv.org/abs/2602.14849
+    version: v2_2026-05-29
+  - role: KV_ROLLBACK_SUBTRACTOR
+    uri: https://arxiv.org/abs/2608.15939
+    version: v1_2026-08-16
+  - role: KV_RUNTIME_CURRENT
+    uri: https://docs.vllm.ai/en/stable/design/prefix_caching/
+    version: current_page_accessed_2026-08-22
+bounded_telemetry:
+  official_frozen_commit_web_fetch: CACHE_MISS__NOT_A_SCIENTIFIC_INFERENCE
+  web_source_actions: 5
+  persisted_network_resources: 0
+  experiments_builds_fault_injection: 0
+resource_inventory: RESOURCE_INVENTORY.yaml
+canonical_files:
+  - DIVERGENCE_SEED_POOL.md
+  - RQ_CANDIDATE.md
+  - QUESTION_CARD.md
+  - CURRENT_UPSTREAM_AND_COLLISION_AUDIT.md
+  - TOPIC_BRIEF.md
+  - RESOURCE_INVENTORY.yaml
+next_action: NONE__DO_NOT_REOPEN_THIS_OBJECT_UNDER_THIS_ASSIGNMENT
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+

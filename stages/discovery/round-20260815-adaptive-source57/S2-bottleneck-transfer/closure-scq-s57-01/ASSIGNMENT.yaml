@@ -1,0 +1,53 @@
+assignment_id: SOURCE-CLOSURE-SOURCE57-S2-SCQ-S57-01-WASMTIME-GC-V45-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+write_owner: ASSIGNED_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source57/S2-bottleneck-transfer/closure-scq-s57-01
+parent_assignment: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE57-R40-ORDINARY-BREADTH-V1
+parent_handoff_sha256: A5B1274CE0A974D6C7FC9881998EB239BEDC661F2BB81A38964A31FC03CBD598
+queue_item: SCQ-S57-01
+queue_status_at_freeze: OPEN_BOUNDED__ATTEMPTS_1__NOT_EXHAUSTED
+exact_project: bytecodealliance/wasmtime
+exact_version: v45.0.0
+deterministic_version_rule: resolve official tag v45.0.0 to one commit SHA before reading target content and pin every retained source to that SHA
+exact_object: fixed WebAssembly GC module validation and recursive-type canonicalization plus stock Wasmtime v45.0.0 translation/instantiation behavior
+exact_source_scope:
+  - crates/environ/**
+  - crates/wasmtime/src/runtime/**
+  - crates/cranelift/**
+official_anchor:
+  url: https://webassembly.github.io/gc/core/
+  role: frozen_external_semantic_anchor_only
+primary_routes:
+  - https://api.github.com/repos/bytecodealliance/wasmtime/commits/v45.0.0
+  - https://api.github.com/repos/bytecodealliance/wasmtime/git/trees/<resolved_commit_sha>?recursive=1
+  - https://raw.githubusercontent.com/bytecodealliance/wasmtime/<resolved_commit_sha>/<deterministically_selected_gc_canonical_type_source_or_test_path>
+route_selection_rule: after tag pin, select only files in exact_source_scope reached from GC validation/type-translation/instantiation entrypoints or whose path/content has rec-group, canonical type, RTT, subtype, gc type, or type registry relevance; record zero matches without absence inference
+required_outputs:
+  - pinned current Wasmtime recursive-type or RTT canonicalization action/config/default-nondefault union
+  - strongest engine-table/configuration or generic-interning objection
+  - one fixed in-tree or official public module/test carrier and stock validate/instantiate oracle if present
+  - whether a stable atomic union-external action with same type semantics can be frozen
+  - finite cost-estimand/falsifier route and remaining named debt
+allowed_dispositions:
+  - CLOSED_TO_EVIDENCE_QUALIFIED_RAW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_GENERIC_TABLE_POLICY__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide clean_brief_Q2_PASS_STOP_or_stage_state
+  - change Wasm_GC_type_semantics_engine_version_stock_reader_or_full_cost_endpoint
+  - run experiment_build_install_or_claim_bearing_observation
+  - search outside exact project/source scope except frozen official anchor
+  - treat 404_zero_match_transport_failure_or_missing_tool_as_absence
+  - revive terminal identity_or_use_Source58_or_Source59_outcomes
+resource_localization:
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  resource_root: stages/discovery/round-20260815-adaptive-source57/S2-bottleneck-transfer/closure-scq-s57-01/resources
+  inventory: stages/discovery/round-20260815-adaptive-source57/S2-bottleneck-transfer/closure-scq-s57-01/RESOURCE_INVENTORY.yaml
+  max_acquisition_calls: 6
+  max_success_response_bytes_each: 8388608
+  max_persisted_bytes: 16777216
+  pre_call_monotonic_attempt_counter: required
+  eight_standard_subdirectories: required
+model_route: {model: gpt-5.6-terra, reasoning: high}
+notify_mainline_on_finish_or_blocker: true

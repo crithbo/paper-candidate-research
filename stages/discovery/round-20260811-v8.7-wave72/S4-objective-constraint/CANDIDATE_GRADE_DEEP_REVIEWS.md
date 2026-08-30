@@ -1,0 +1,17 @@
+# Candidate-grade deep reviews
+
+## PILOT-RECOVERY-DRYRUN — `DROP_DIRECT_ABSORPTION`
+
+PILOT's exact object is a production distributed-system recovery action with unchanged recovery semantics and the primary quality constraint of avoiding irreversible/cascading failure. Its declared novelty is already a complete action: in-situ dry-run execution with an analysis framework and runtime library. The strongest same-information union includes that construction and conventional applied recovery, charged for shadow execution, dependency effects, recovery duration, safety, and overhead. A hypothetical robust Pareto extension has no atomic divergence beyond selecting which recovery action to pilot, a controller. A finite killer would use 20–50 recovery scenarios and require the new action to produce the same audited side-effect semantics while not being expressible as pilot execution; no action is frozen. The drop is direct absorption, not missing artifact/result/readiness.
+
+## AMBULANCE-BFT-RACING — `DROP_DIRECT_ABSORPTION`
+
+The fixed object is BFT state-machine replication with the original safety/liveness guarantee. The hard tension—slow-leader recovery versus common-case latency and throughput—is exactly the source's construction target. Ambulance's racing protocol is therefore part of the strongest union alongside hedging and cooperative asynchronous protocols under identical replica/failure information. The complete denominator contains normal and slow-path messages, quorum work, latency distribution, throughput, leader-change/recovery cost, and correctness. Weighting those measures differently is not N2. A finite killer would replay 20–50 fault schedules and reject an action simulable by racing/hedging choices; no separate representation, protocol action, or guarantee is named. Direct absorption.
+
+## TRAINMOVER-INTERRUPTION — `DROP_DIRECT_ABSORPTION`
+
+The fixed function is an interrupted distributed training run with equivalent model/training semantics. TrainMover already jointly constructs delta communication-group setup, communication-free sandbox warmup and a role-independent standby, explicitly trading recovery downtime against elastic standby resources without memory overhead. The fair union uses the same interruption signal and role state; full cost includes all standby/elastic machines, setup, synchronization, downtime, wasted GPU time and convergence quality. A purported multi-objective recovery score only ranks existing actions. A finite killer would compare 20–50 fixed interruption schedules with identical budget and require a union-external recovery protocol; none is specified. Direct absorption only.
+
+## MWAIT-SCHED-TAIL — `DROP_DIRECT_ABSORPTION`
+
+The same object is guest `mwait` idle behavior with correct guest execution and predictable host multiplexing. The official source's complete mechanism combines deterministic timer emulation, fine-grained idle classification and a scalable multi-address proxy. Its primary quality is exact idle semantics; the Pareto denominator includes P99, pCPU steal, VM exits, migration, capacity/oversubscription and CPU. Reweighting idle classifications or selecting a threshold is tuning, while a different guest-idle contract would change the object. A finite killer would replay nine fixed workload traces and compare all components under identical guest/hypervisor information; there is no frozen union-external atomic action. Direct absorption.

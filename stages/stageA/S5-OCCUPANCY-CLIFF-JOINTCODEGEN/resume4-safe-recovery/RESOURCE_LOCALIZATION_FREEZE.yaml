@@ -1,0 +1,53 @@
+schema: assignment-resource-localization-freeze-v1
+assignment_id: SAFE-RECOVERY-L2-20260815-S5-GFX11-MIR-RESUME4
+topic_id: S5-OCCUPANCY-CLIFF-JOINTCODEGEN
+authorization_id: USER_AUTONOMOUS_SAFE_BLOCKER_RECOVERY_20260815
+created_at: 2026-08-15T00:00:00+08:00
+policy:
+  path: D:/project/writing/reserch/rules/RESOURCE_LOCALIZATION.md
+  sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+unique_write_directory: D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume4-safe-recovery
+resource_root: D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume4-safe-recovery/resources
+canonical_inventory: D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume4-safe-recovery/RESOURCE_INVENTORY.yaml
+standard_subdirectories:
+  - downloads
+  - archives
+  - src
+  - build
+  - env
+  - cache
+  - tmp
+  - logs
+envelope:
+  max_single_download_bytes: 268435456
+  max_cumulative_download_bytes: 536870912
+  max_new_persisted_bytes: 2147483648
+  max_cpu_seconds: 3600
+  max_wall_seconds: 7200
+  max_parallel_heavy_processes: 1
+redirect_map:
+  TEMP: resources/tmp
+  TMP: resources/tmp
+  TMPDIR: resources/tmp
+  XDG_CACHE_HOME: resources/cache/xdg
+  CLANG_MODULE_CACHE_PATH: resources/cache/clang-modules
+  logs: resources/logs
+  command_outputs: resources/build
+redirect_scope: PROCESS_ONLY
+redirect_preflight_status: PASS_FOR_DECLARED_ROUTE
+unredirectable_writable_surfaces: []
+external_read_only_inputs:
+  - D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume3-r3d/verified/tools
+  - D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume3-r3d/natural
+cleanup:
+  owner: MAINLINE
+  recursive_cleanup_authorized: false
+  retention: RETAIN_UNTIL_MAINLINE_ACCEPTANCE
+forbidden:
+  - SYSTEM_INSTALL
+  - GLOBAL_ENVIRONMENT_MUTATION
+  - SOURCE_PATCH
+  - PRIOR_EVIDENCE_OVERWRITE
+  - CLAIM_BEARING_RUN_BEFORE_PRECLAIM_PASS
+  - STAGE_B
+

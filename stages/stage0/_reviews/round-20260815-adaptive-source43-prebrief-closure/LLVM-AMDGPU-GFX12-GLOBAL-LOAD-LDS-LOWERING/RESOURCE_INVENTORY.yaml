@@ -1,0 +1,117 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: LLVM-AMDGPU-GFX12-GLOBAL-LOAD-LDS-LOWERING
+  assignment_id: STAGE0-P1-20260815-LLVM-AMDGPU-GFX12-GLOBAL-LOAD-LDS-LOWERING-PREBRIEF-CLOSURE-V8.7
+  stage_or_mode: PREBRIEF_SOURCE_CLOSURE
+  run_id: amdgpu-gfx12-prebrief-source-closure-20260815
+  unique_write_directory: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source43-prebrief-closure\LLVM-AMDGPU-GFX12-GLOBAL-LOAD-LDS-LOWERING
+  resource_root: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source43-prebrief-closure\LLVM-AMDGPU-GFX12-GLOBAL-LOAD-LDS-LOWERING\resources
+  inventory_path: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source43-prebrief-closure\LLVM-AMDGPU-GFX12-GLOBAL-LOAD-LDS-LOWERING\RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T00:00:00+08:00
+  finalized_at: null
+root_measurement:
+  logical_bytes: 0
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: false
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: powershell
+      version: 7.6.4
+      writable_surfaces: [Invoke-WebRequest-OutFile, TEMP, TMP, TMPDIR, XDG_CACHE_HOME]
+      redirects: [resources/downloads, resources/tmp, resources/cache]
+      evidence: resources/logs/redirect-preflight.md
+resource_envelope:
+  network_bytes_max: 33554432
+  stored_bytes_max: 67108864
+  cpu_hours_max: null
+  gpu_hours_max: 0
+  wall_seconds_max: null
+  attempts_max: 6
+  network_bytes_used: 2156253
+  stored_bytes_used: 2156253
+  attempts_used: 6
+entries:
+  - relative_path: resources/downloads/llvm-main-commit.json
+    class: OFFICIAL_CURRENT_COMMIT_METADATA
+    logical_bytes: 9208
+    source_uri: https://api.github.com/repos/llvm/llvm-project/commits/main
+    version_or_commit: 08e48243b19ded3f9423913c1e0b274a3472358a
+    sha256: FC8BC9007E7349B83F39DD223F0D4367A8D536F5140A6E35EB8D6B42CD40316F
+    hash_scope: CONTENT_SHA256
+    retention: RETAIN_CLAIM_CRITICAL
+    evidence_role: frozen_current_default_branch_pin
+  - relative_path: resources/downloads/llvm-amdgpu-test-index.json
+    class: OFFICIAL_CURRENT_DIRECTORY_INDEX
+    logical_bytes: 998606
+    source_uri: https://api.github.com/repos/llvm/llvm-project/contents/llvm/test/CodeGen/AMDGPU?ref=main
+    version_or_commit: 08e48243b19ded3f9423913c1e0b274a3472358a
+    sha256: 1815C8655AE0F5A0E4E7A1DD3128D41C9EF0D591117B1D9D6DC9CB6E45E7D594
+    hash_scope: CONTENT_SHA256
+    retention: RETAIN_CLAIM_CRITICAL
+    evidence_role: in_tree_test_carrier_locator
+  - relative_path: resources/downloads/llvm-amdgpu-source-index.json
+    class: OFFICIAL_CURRENT_DIRECTORY_INDEX
+    logical_bytes: 295925
+    source_uri: https://api.github.com/repos/llvm/llvm-project/contents/llvm/lib/Target/AMDGPU?ref=main
+    version_or_commit: 08e48243b19ded3f9423913c1e0b274a3472358a
+    sha256: D8BA1CE5BBD2964F09415156E26020C9D4C5EB518E67E5C24A2260FA0E04C6E2
+    hash_scope: CONTENT_SHA256
+    retention: RETAIN_CLAIM_CRITICAL
+    evidence_role: current_action_union_locator
+  - relative_path: resources/downloads/AMDGPUInstrInfo.td
+    class: OFFICIAL_CURRENT_SOURCE_BLOB
+    logical_bytes: 21443
+    source_uri: https://raw.githubusercontent.com/llvm/llvm-project/main/llvm/lib/Target/AMDGPU/AMDGPUInstrInfo.td
+    version_or_commit: 08e48243b19ded3f9423913c1e0b274a3472358a
+    sha256: E14ABA953604E0F3037745D352B727CB0BF38C1751ABEF78F85BD0A8ACFE9ADB
+    hash_scope: CONTENT_SHA256
+    retention: RETAIN_CLAIM_CRITICAL
+    evidence_role: target_instruction_table_boundary
+  - relative_path: resources/downloads/SIISelLowering.cpp
+    class: OFFICIAL_CURRENT_SOURCE_BLOB
+    logical_bytes: 831071
+    source_uri: https://raw.githubusercontent.com/llvm/llvm-project/main/llvm/lib/Target/AMDGPU/SIISelLowering.cpp
+    version_or_commit: 08e48243b19ded3f9423913c1e0b274a3472358a
+    sha256: D00DB9A75B5FFD0D443BDB443B4089C03598BB197C02751329BD6C7E430D351A
+    hash_scope: CONTENT_SHA256
+    retention: RETAIN_CLAIM_CRITICAL
+    evidence_role: exact_intrinsic_lowering_locus
+shared_assets_consumed: []
+external_system_dependencies:
+  - executable: powershell
+    status: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: PASS__6_OF_6_BOUNDED_ACQUISITION_ATTEMPTS

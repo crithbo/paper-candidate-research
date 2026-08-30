@@ -1,0 +1,30 @@
+assignment_id: DISCOVERY-S1-20260811-V8.7-WAVE218-ARM-SVE-PCS-CALLSTATE-JOINTCODEGEN-DEPTH
+lane: S1-boundary-contradiction
+status: COMPLETE_ZERO_PROPOSALS
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+rule_revision: v8.7+R5-P0
+discovery_quality_mode: OFF
+frozen_control_hashes:
+  plan_sha256: 8F5D28A6DEF89374670D8F3195B6422A742B2F15CB5D1F485527BA19B031942C
+  registry_sha256: 8FE2036D9D6DC07274F0EDAE7333B4868444197341DF059ADF8F16675CA0630B
+  role_discovery_sha256: FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3
+evidence_cutoff: '2026-08-11'
+object: AArch64 SVE PCS public call-state preservation
+funnel:
+  raw_screen_row_events: 1
+  unique_opportunity_families: 1
+  candidate_grade_deep_reviews: 1
+  propose_stage0: 0
+  structural_drop: 1
+  not_admitted_unfrozen: 0
+briefs: []
+outcome:
+  status: DROP
+  code: DROP__CURRENT_UNION_ABSORBS_OR_ABI_CHANGES
+  reason: Full SVE PCS preservation is a public ABI constraint; legal elimination/placement is already represented by current IPA and backend actions.
+  non_inferences:
+    - no claim about implementation availability
+    - no claim about SVE hardware availability
+    - no performance result
+next_action: Await mainline assignment; do not create Stage0/A/B from this package.
+write_boundary: stages/discovery/round-20260811-v8.7-wave218/S1-boundary-contradiction

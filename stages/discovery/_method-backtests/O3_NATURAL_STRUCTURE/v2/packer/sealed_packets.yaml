@@ -1,0 +1,155 @@
+schema_version: discovery-backtest-sealed-packets-v2
+role: DISCOVERY-BACKTEST-PACKER
+opportunity_lens: O3_NATURAL_STRUCTURE
+method_revision: v2
+sealed_at: 2026-08-03T15:40:00+08:00
+executor_rules:
+  - Use only this file and the assigned Discovery role; do not identify hidden targets.
+  - Recover the naturally occurring structure, its stability and measurement route, the exploitation decision structure, baselines, boundaries, and abstain decision.
+  - Do not manufacture structure from a hand-picked example or confuse compression/sparsity existence with an exploitable mechanism.
+packets:
+  - packet_id: S3-POS-01
+    label: positive
+    cutoff_date: 2015-01-21
+    domain_tags: [CUDA_GPU, GRAPH_ANALYTICS, COMPILER_RUNTIME_SYSTEM]
+    paper_inputs:
+      - source_id: P01-A
+        citation: "Malewicz et al. (2010), Pregel: A System for Large-Scale Graph Processing, SIGMOD."
+        public_date: 2010-06-01
+        url: https://doi.org/10.1145/1807167.1807184
+        pre_cutoff_signal: "Vertex-centric bulk-synchronous processing provides a general graph-programming abstraction."
+      - source_id: P01-B
+        citation: "Merrill, Garland, and Grimshaw (2012), Scalable GPU Graph Traversal, PPoPP."
+        public_date: 2012-02-01
+        url: https://doi.org/10.1145/2145816.2145832
+        pre_cutoff_signal: "GPU BFS performance depends on frontier size, duplicate handling, and irregular work distribution."
+      - source_id: P01-C
+        citation: "Zhong and He (2014), Medusa: Simplified Graph Processing on GPUs, IEEE TPDS 25(6)."
+        public_date: 2013-05-01
+        url: https://doi.org/10.1109/TPDS.2013.111
+        pre_cutoff_signal: "GPU graph frameworks seek programmability while mapping irregular graph work to parallel hardware."
+      - source_id: P01-D
+        citation: "Shun and Blelloch (2013), Ligra: A Lightweight Graph Processing Framework for Shared Memory, PPoPP."
+        public_date: 2013-02-01
+        url: https://doi.org/10.1145/2442516.2442530
+        pre_cutoff_signal: "Frontier density can select between sparse and dense traversal modes."
+      - source_id: P01-E
+        citation: "Gonzalez et al. (2012), PowerGraph: Distributed Graph-Parallel Computation on Natural Graphs, OSDI."
+        public_date: 2012-10-01
+        url: https://www.usenix.org/conference/osdi12/technical-sessions/presentation/gonzalez
+        pre_cutoff_signal: "Natural power-law graphs create skew and replication choices not captured by uniform graph models."
+    public_artifacts:
+      - source_id: P01-F
+        name: "Merrill GPU BFS public code lineage"
+        snapshot_rule: "Only code publicly dated by cutoff."
+        url: https://github.com/owensgroup
+    environment_at_cutoff:
+      - "Natural graphs expose changing active frontiers, degree skew, irregular memory access, and algorithm-specific advance/filter behavior."
+      - "A reusable contribution must span multiple primitives and graphs, not hard-wire one BFS instance."
+      - "No hidden target framework name, API, optimization set, benchmark number, or later release is supplied."
+
+  - packet_id: S3-POS-02
+    label: positive
+    cutoff_date: 2017-05-22
+    domain_tags: [NPU_AI_ACCELERATOR, SPARSE_DNN, HARDWARE_MODELING]
+    paper_inputs:
+      - source_id: P02-A
+        citation: "Han, Mao, and Dally (2016), Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding, ICLR."
+        public_date: 2015-10-01
+        url: https://arxiv.org/abs/1510.00149
+        pre_cutoff_signal: "Trained networks can contain substantial weight sparsity after pruning."
+      - source_id: P02-B
+        citation: "Han et al. (2016), EIE: Efficient Inference Engine on Compressed Deep Neural Network, ISCA."
+        public_date: 2016-06-01
+        url: https://doi.org/10.1109/ISCA.2016.30
+        pre_cutoff_signal: "Compressed sparse weights can be consumed directly by a specialized inference engine."
+      - source_id: P02-C
+        citation: "Albericio et al. (2016), Cnvlutin: Ineffectual-Neuron-Free Deep Neural Network Computing, ISCA."
+        public_date: 2016-06-01
+        url: https://doi.org/10.1109/ISCA.2016.11
+        pre_cutoff_signal: "Activation zeros arising during inference can be skipped, but delivery and balance matter."
+      - source_id: P02-D
+        citation: "Chen et al. (2016), Eyeriss: An Energy-Efficient Reconfigurable Accelerator for Deep Convolutional Neural Networks, ISCA."
+        public_date: 2016-06-01
+        url: https://doi.org/10.1109/ISCA.2016.40
+        pre_cutoff_signal: "Dense CNN dataflows exploit reuse and avoid high-cost data movement."
+      - source_id: P02-E
+        citation: "Zhang et al. (2016), Cambricon-X: An Accelerator for Sparse Neural Networks, MICRO."
+        public_date: 2016-10-01
+        url: https://doi.org/10.1109/MICRO.2016.7783723
+        pre_cutoff_signal: "Sparse weights require indexing and scheduling structures that can offset saved multiplications."
+    public_artifacts:
+      - source_id: P02-F
+        name: "Deep Compression reference material"
+        snapshot_rule: "Only repository/model material publicly dated by cutoff."
+        url: https://github.com/songhan/Deep-Compression-AlexNet
+    environment_at_cutoff:
+      - "Both trained weights and ReLU activations can be zero, but their sparsity patterns are independently irregular."
+      - "A complete mechanism must price compressed storage, operand matching, load balance, accumulation, and metadata."
+      - "No hidden target dataflow, accumulator organization, model result, or post-cutoff target artifact is supplied."
+
+  - packet_id: S3-POS-03
+    label: positive
+    cutoff_date: 2019-08-28
+    domain_tags: [ALGORITHM_DATA_STRUCTURE, STORAGE_SYSTEM, APPROXIMATE_SEARCH]
+    paper_inputs:
+      - source_id: P03-A
+        citation: "Jégou, Douze, and Schmid (2011), Product Quantization for Nearest Neighbor Search, IEEE TPAMI 33(1)."
+        public_date: 2010-03-19
+        url: https://doi.org/10.1109/TPAMI.2010.57
+        pre_cutoff_signal: "Compressed vector representations trade recall and distance accuracy for memory density."
+      - source_id: P03-B
+        citation: "Malkov and Yashunin (2018), Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs, IEEE TPAMI."
+        public_date: 2016-03-14
+        url: https://doi.org/10.1109/TPAMI.2018.2889473
+        pre_cutoff_signal: "Navigable graph structure supports high-recall approximate search in memory."
+      - source_id: P03-C
+        citation: "Johnson, Douze, and Jégou (2019), Billion-Scale Similarity Search with GPUs, IEEE Big Data."
+        public_date: 2017-02-28
+        url: https://arxiv.org/abs/1702.08734
+        pre_cutoff_signal: "Vector compression and accelerator search scale to billion-point collections but rely on accelerator memory and transfer choices."
+      - source_id: P03-D
+        citation: "Fu et al. (2019), Fast Approximate Nearest Neighbor Search with the Navigating Spreading-out Graph, PVLDB 12(5)."
+        public_date: 2018-12-01
+        url: https://doi.org/10.14778/3303753.3303754
+        pre_cutoff_signal: "Graph pruning and navigation structure materially affect recall/latency and memory."
+      - source_id: P03-E
+        citation: "Aumüller, Bernhardsson, and Faithfull (2020 preprint lineage available earlier), ANN-Benchmarks: A Benchmarking Tool for Approximate Nearest Neighbor Algorithms."
+        public_date: 2018-06-15
+        url: https://arxiv.org/abs/1807.05614
+        pre_cutoff_signal: "A common benchmark exposes recall-versus-query-time tradeoffs across diverse ANN families."
+    public_artifacts:
+      - source_id: P03-F
+        name: ANN-Benchmarks
+        snapshot_rule: "Repository state at or before cutoff."
+        url: https://github.com/erikbern/ann-benchmarks
+    environment_at_cutoff:
+      - "Graph ANN methods exploit navigability while billion-scale collections exceed ordinary DRAM budgets; SSDs offer capacity but random-access latency."
+      - "A credible opportunity must jointly preserve graph search quality and structure accesses for the storage hierarchy, including build and memory costs."
+      - "No hidden target graph, system name, code, result, or post-cutoff source is supplied."
+
+  - packet_id: S3-NEG-01
+    label: negative_control
+    cutoff_date: 2016-12-31
+    domain_tags: [ALGORITHM_DATA_STRUCTURE, HASHING]
+    paper_inputs:
+      - source_id: N01-A
+        citation: "Carter and Wegman (1979), Universal Classes of Hash Functions, Journal of Computer and System Sciences 18(2)."
+        public_date: 1979-04-01
+        url: https://doi.org/10.1016/0022-0000(79)90044-8
+        pre_cutoff_signal: "Universal hashing handles keys without assuming exploitable input regularity."
+      - source_id: N01-B
+        citation: "Dietzfelbinger et al. (1994), Dynamic Perfect Hashing: Upper and Lower Bounds, SIAM Journal on Computing 23(4)."
+        public_date: 1994-08-01
+        url: https://doi.org/10.1137/S0097539791194094
+        pre_cutoff_signal: "Exact dictionary operations have strong randomized baselines."
+      - source_id: N01-C
+        citation: "Lemire and Kaser (2016), Faster 64-bit Universal Hashing Using Carry-Less Multiplications, Journal of Cryptographic Engineering 6."
+        public_date: 2015-08-26
+        url: https://doi.org/10.1007/s13389-015-0110-5
+        pre_cutoff_signal: "Strong software baselines already exploit word-level hashing primitives."
+    public_artifacts: []
+    environment_at_cutoff:
+      - "Control slice: independent uniformly random 64-bit keys, exact membership, no repetition, prefix, order, locality, sparsity, hierarchy, low rank, temporal correlation, or skew established by the packet."
+      - "The lens is natural structure; generic randomized-dictionary optimization belongs elsewhere unless new structure is measured."
+      - "Abstain rather than claiming structure from finite-sample coincidence."

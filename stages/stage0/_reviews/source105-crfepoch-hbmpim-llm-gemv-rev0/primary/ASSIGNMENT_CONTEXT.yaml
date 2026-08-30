@@ -1,0 +1,82 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+generated_at: 2026-08-24T03:51:00+08:00
+context_mode: DUAL_READ_SHADOW
+mainline_task_or_contact: 01a02e08-06de-7281-89ab-eb4965cccc92
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_ACTION
+identity:
+  lane_id: STAGE0_PRIMARY
+  role_id: STAGE0-BATCH-GATE
+  assignment_id: STAGE0-PRIMARY-20260824-CRFEPOCH-HBMPIM-LLM-GEMV-REV0
+  topic_id: CRFEPOCH-HBMPIM-LLM-GEMV-REV0
+  stage_or_mode: STAGE0_PRIMARY
+  status: BOOTSTRAP_ACK_PENDING
+  resume_point: NEW_STAGE0_PRIMARY_COLD_START
+  next_action: WRITE_BOOTSTRAP_ACK_AND_WAIT_FOR_MAINLINE_ACCEPTANCE
+  source_assignment_path: stages/stage0/_reviews/source105-crfepoch-hbmpim-llm-gemv-rev0/primary/ASSIGNMENT.yaml
+  source_assignment_sha256: F671798721A1CE74DA5A03341F6B9E5A4F897C4F30B1097E1076A8069DC1C0EF
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: STAGE0_PRIMARY
+  user_approval_ids: [USER_CONTINUOUS_LLM_VLA_PIPELINE_UNTIL_USAGE_RESET_20260824, USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814, USER_ASSIGNMENT_RESOURCE_LOCALIZATION_20260814]
+  allowed_actions: [READ_HASH_PINNED_DISCOVERY_INPUTS, INDEPENDENT_PUBLIC_SEARCH_AND_SOURCE_VERIFICATION, BOUNDED_PUBLIC_ACQUISITION_AFTER_RESOURCE_PREFLIGHT, STATIC_CURRENT_SOURCE_INSPECTION, Q1_Q2_SHAPE_CALIBRATION, WRITE_STAGE0_REPORT_MATRIX_LEDGER_HANDOFF_MANIFEST]
+  forbidden_actions: [START_BEFORE_MAINLINE_ACK_ACCEPTANCE, MODIFY_DISCOVERY_OR_SHARED_FILES, IMPLEMENT_CANDIDATE, BUILD_OR_RUN_PIM_SIMULATOR, RUN_CLAIM_BEARING_EXPERIMENT, CREATE_OR_RUN_STAGEA_STAGEB_FORMAL_PROJECT, USE_DISCOVERY_NOVELTY_OR_TIER_AS_INDEPENDENT_VERDICT, READ_UNREGISTERED_DISCOVERY_OR_RULE_AUDIT_MEMORY, SYSTEM_INSTALL_OR_GLOBAL_ENVIRONMENT_MUTATION]
+  forbidden_inputs: [SOURCE105_LANE_CHAT_MEMORY, A3_RULE_AUDIT_OUTPUT, GROUP_REPOSITORY, PRIVATE_OR_CREDENTIAL_GATED_MATERIAL, UNREGISTERED_CROSS_TOPIC_OUTPUT]
+boundaries:
+  unique_write_directory: D:/project/writing/reserch/stages/stage0/_reviews/source105-crfepoch-hbmpim-llm-gemv-rev0/primary
+  resource_root: D:/project/writing/reserch/stages/stage0/_reviews/source105-crfepoch-hbmpim-llm-gemv-rev0/primary/resources
+  read_only_paths:
+    - AGENTS.md
+    - plan.md
+    - registry.yaml
+    - rules/ROLE_STAGE0_REVIEW.md
+    - rules/RESOURCE_LOCALIZATION.md
+    - stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/TOPIC_BRIEF_CRFEPOCH_HBMPIM_LLM_GEMV_REV0.md
+    - stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/DISCOVERY_QUESTION_CARDS.md
+    - stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/RAW_SCREENING_LEDGER.md
+    - stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/handoff.yaml
+    - stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/RESOURCE_INVENTORY.yaml
+    - stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/resources/src/UniNDP
+  write_allowed_paths: [D:/project/writing/reserch/stages/stage0/_reviews/source105-crfepoch-hbmpim-llm-gemv-rev0/primary]
+  network_allowed: true
+  experiment_allowed: false
+  state_transition_allowed: false
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 77B8B100DB219BEDC77A593737C55CD6AAADAA6A544A8D2ED0DB388314BD1AF8}
+  plan: {path: plan.md, sha256: 845AF67BECA106A1F973632AE53DCAE93C8C9C53C9A086F211DA6264257FEF68}
+  registry_snapshot: {path: registry.yaml, sha256: 53464125D8A64DBA7F1A5F761D66B5EF0F6ABC3A9A9C00FE74BBE5342D5FC788}
+  role_rule: {path: rules/ROLE_STAGE0_REVIEW.md, sha256: 0466BEF1085CC8F72B40ACD814DA0DE23171993C6A224A2EB22AD8ED2D10F2B6}
+  conditional_protocols:
+    - {path: rules/RESOURCE_LOCALIZATION.md, sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4, mode: PRODUCTION}
+  skills:
+    - {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+    - {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/deep-research/WORKFLOW.md, sha256: 055E902187665C2437D0F41F35E2CC9C11FB5D62A736CF3ED23E44193BD4F029}
+    - {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/academic-paper-reviewer/WORKFLOW.md, sha256: 5469CDABFEB6FAC7CCBE88CAF1A85C55E9F46977F9DC3AEFC84EFF1CE93E1672}
+    - {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/academic-paper/references/hardware_design_papers.md, sha256: 905C303795D55A749F704F3490172A3C0193D7CD281FC90244DC24D01044ED98}
+    - {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/academic-paper/references/npu_ndp_architecture_papers.md, sha256: C45108FEB61726F700B7C965BF363E3287215C92A94E1C1D6B79944B602F005C}
+  templates:
+    - {path: templates/STAGE0_REPORT.md, sha256: 2C72A46D7385A4DFE0D0981E4BDF4AB2A3BF6F19674BC94B14A1596386A2B809}
+    - {path: templates/Q1_COMPARATOR_MATRIX.md, sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87}
+    - {path: templates/RESOURCE_INVENTORY.yaml, sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63}
+    - {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+minimum_inputs:
+  - {path: stages/stage0/_reviews/source105-crfepoch-hbmpim-llm-gemv-rev0/primary/ASSIGNMENT.yaml, sha256: F671798721A1CE74DA5A03341F6B9E5A4F897C4F30B1097E1076A8069DC1C0EF}
+  - {path: stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/TOPIC_BRIEF_CRFEPOCH_HBMPIM_LLM_GEMV_REV0.md, sha256: 5B8ED00CBEE43D3EF67EC1B328B0B17D286A6FFFABBB92314E8630B983FB9640}
+  - {path: stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/DISCOVERY_QUESTION_CARDS.md, sha256: 8F2C3C1A1C32F7438136A398E23F611658B3C43D1DEF25A477C560584C5166D3}
+  - {path: stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/RAW_SCREENING_LEDGER.md, sha256: 8FF26EC495A451059F3744501483D6363DAF1BF00ABCFDB9E1A7A4C02F4609C1}
+  - {path: stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/handoff.yaml, sha256: DE2225D80E5729DEF1F2862ED528B85C636AA4E97D5AFC06ED159E8D444B0980}
+  - {path: stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/RESOURCE_INVENTORY.yaml, sha256: 2132C30746EA80EE5B90C64B177FCA456E8844D4D00A6C3A42096F8127F39D0B}
+  - {path: stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/resources/src/UniNDP, tree_manifest_sha256: C35BDADA6F57B8B819D52DE254607BC8635FB43B5F8238B1A827716976863BEA, commit: c8b21684358441d29fc81fa0866d07cec20582ed}
+expected_outputs: [STAGE0_REPORT.md, Q1_COMPARATOR_MATRIX.md, CURRENT_COLLISION_LEDGER.md, RESOURCE_INVENTORY.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+budget: {model: gpt-5.6-terra, reasoning: high, network_bytes_max: 314572800, stored_bytes_max: 536870912, cpu_hours_max: 2, gpu_hours_max: 0, wall_seconds_max: 14400, attempts_max: 36}
+claim_ceiling: STAGE0_CONDITIONAL_PAPER_POTENTIAL_DECISION_ONLY__NO_MAIN_RESULT
+evidence_ceiling: PUBLIC_SOURCE_FULLTEXT_STATIC_INSPECTION_AND_Q1_Q2_CALIBRATION__NO_CLAIM_BEARING_EXPERIMENT
+scientific_revision: {allowed_total: 1, consumed: 0, remaining: 1, exceptional_revision_authorized: false}
+mechanism_pivot: {allowed: true, consumed: 0, remaining: 1}
+identity_and_collision: {exact_identity_digest: CRFEPOCH_HBMPIM_LLM_GEMV_REV0_FROZEN, terminal_identity_digest: REGISTRY_SNAPSHOT, current_collision_digest: MUST_BE_INDEPENDENTLY_REBUILT, terminal_stop_non_revival_asserted: true}
+user_and_blocker_state: {user_action_required: false, blocker_state: null, blocker_packet_path: null, resource_policy_path: rules/RESOURCE_LOCALIZATION.md, resource_policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+stage0_atomic_repair_trace: {mode: SHADOW, effect_on_decision: NONE, production_or_mandatory_behavior: false}
+stop_and_escalation_conditions: [HASH_PATH_ROLE_OR_OBJECT_MISMATCH, DISCOVERY_INPUT_DRIFT, RESOURCE_PREFLIGHT_FAILURE, PRIVATE_LICENSE_SYSTEM_INSTALL_BUILD_OR_EXPERIMENT_REQUIRED, OWNER_OR_REVIEWER_CONFLICT, IDENTITY_OR_COLLISION_AMBIGUITY]
+handoff_requirements: [INDEPENDENT_STAGE0_DECISION, Q1_Q2_MATRIX, CURRENT_COLLISION_LEDGER, DISCOVERY_REPAIR_VECTOR, NO_DISCOVERY_VERDICT_INHERITANCE, CANONICAL_HANDOFF_MANIFEST]
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_IN_BOOTSTRAP_ACK, result: READY_FOR_LANE_BOOTSTRAP_ACK}

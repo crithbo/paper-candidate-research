@@ -1,0 +1,61 @@
+assignment_id: STAGE0-P1-20260814-RVV-LMUL-REGISTER-ALLOCATION-VSETVLI-PARETO-PREBRIEF-CLOSURE-V8.7
+run_id: preflight-20260814-01
+policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+resource_root: D:\project\writing\reserch\stages\stage0\_reviews\round-20260814-adaptive-source32-prebrief-closure\RVV-LMUL-REGISTER-ALLOCATION-VSETVLI-PARETO\resources
+required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+logical_size_bytes: 133221
+measurement_method: recursive_logical_file_length_under_resource_root_including_retained_responses_and_metadata
+resource_entries:
+  - relative_path: downloads/llvm-main-commit.json
+    class: immutable_official_current_commit_metadata
+    logical_bytes: 10482
+    source_uri: https://api.github.com/repos/llvm/llvm-project/commits/main
+    version_or_commit: 72edcedcdf0a8de68338e9b42f4effd1f21e9725
+    license: LLVM_Apache_2_0_with_LLVM_exception__upstream_repository_metadata
+    sha256: 8C660DF871481547FE763050B5C11AAD31B2A59321344BA05B045D55DE5D7492
+    creating_run: acquire-current-source-20260814-01
+    retention_reason: current_upstream_pin
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: downloads/RISCVInsertVSETVLI.cpp
+    class: immutable_official_source_blob
+    logical_bytes: 45408
+    source_uri: https://raw.githubusercontent.com/llvm/llvm-project/72edcedcdf0a8de68338e9b42f4effd1f21e9725/llvm/lib/Target/RISCV/RISCVInsertVSETVLI.cpp
+    version_or_commit: 72edcedcdf0a8de68338e9b42f4effd1f21e9725
+    license: LLVM_Apache_2_0_with_LLVM_exception
+    sha256: 5EBC9690C63A59D0A216F7340696206D28E510D2B58DE7353B835777BB98AC8C
+    creating_run: acquire-current-source-20260814-01
+    retention_reason: current_vsetvli_union_audit
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: downloads/RISCVRegisterInfo.cpp
+    class: immutable_official_source_blob
+    logical_bytes: 48921
+    source_uri: https://raw.githubusercontent.com/llvm/llvm-project/72edcedcdf0a8de68338e9b42f4effd1f21e9725/llvm/lib/Target/RISCV/RISCVRegisterInfo.cpp
+    version_or_commit: 72edcedcdf0a8de68338e9b42f4effd1f21e9725
+    license: LLVM_Apache_2_0_with_LLVM_exception
+    sha256: DE669556F3E5773E7BE48190ED56C26ED33B52F365B735C07F6F87ABF8E96EF5
+    creating_run: acquire-current-source-20260814-01
+    retention_reason: current_group_spill_and_vset_interaction_audit
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: downloads/RISCVTargetMachine.cpp
+    class: immutable_official_source_blob
+    logical_bytes: 26307
+    source_uri: https://raw.githubusercontent.com/llvm/llvm-project/72edcedcdf0a8de68338e9b42f4effd1f21e9725/llvm/lib/Target/RISCV/RISCVTargetMachine.cpp
+    version_or_commit: 72edcedcdf0a8de68338e9b42f4effd1f21e9725
+    license: LLVM_Apache_2_0_with_LLVM_exception
+    sha256: E248815BF3AA066B8C10F9101C3D9574BA97B7C212B130B14765CB23FD16B297
+    creating_run: acquire-current-source-20260814-01
+    retention_reason: current_pipeline_union_audit
+    deletion_status: RETAIN_CLAIM_CRITICAL
+external_system_dependencies:
+  - executable: powershell
+    location: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED
+    role: process_local_preflight_only
+redirect_preflight:
+  status: PASS_FOR_POWERSHELL_INVOKE_WEBREQUEST_ONLY
+  record: resources/logs/REDIRECT_PREFLIGHT__preflight-20260814-01.md
+inventory_snapshot: resources/logs/resource-inventory/acquire-current-source-20260814-01-complete.yaml
+cleanup_owner: MAINLINE
+lane_cleanup_authorized: false
+deletion_status: BLOCKED_BY_ACTIVE_PROCESS_OR_ASSIGNMENT

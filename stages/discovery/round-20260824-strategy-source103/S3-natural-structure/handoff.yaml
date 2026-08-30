@@ -1,0 +1,72 @@
+schema_version: discovery-handoff-v1
+assignment_id: DISCOVERY-S3-20260824-SOURCE103-LLM-VLA-STRATEGY-V1
+topic_id: SOURCE103-PORTFOLIO-S3
+lane_id: DISCOVERY_S3
+lane_mode: S3_NATURAL_STRUCTURE
+status: COMPLETE_ZERO_CLEAN_BRIEFS
+canonical_disposition: ZERO_CLEAN_BRIEFS__NO_STAGE0_DISPATCH
+completed_at: 2026-08-24T02:48:00+08:00
+
+frozen_inputs:
+  context: ASSIGNMENT_CONTEXT.yaml
+  context_sha256: B2371E2F4D088E3953BED67344908002AC3723BD744087D485799C5D19045687
+  start_authorization: MAINLINE_START_AUTHORIZATION.yaml
+  start_authorization_sha256: A642BA6E24D1B17B2F46D10F97E8305DEF3D633201E828553284DEABB3677D55
+  control: ../control/CONTROL.yaml
+  control_sha256: 99521CA4E743F87A5B6FA0FA492DBBE4B7F70709E5512813E016699E9AA1EA2C
+  assignment: ../control/DISCOVERY_S3_ASSIGNMENT.yaml
+  assignment_sha256: D5D530FDE191E8DA3ACE64098298079B6E06837673CBC766A60908FC6EE89267
+
+funnel:
+  non_evidence_seed: 10
+  selected_rq_candidate: 4
+  selected_locator: 4
+  evidence_qualified_raw: 0
+  candidate_grade_deep_review: 0
+  clean_stage0_brief: 0
+  stage0_dispatch: false
+
+result_summary:
+  - RQ01 prefix-topology metadata/layout remains `LOCATOR_ONLY`: the inspected public TraceLab release provides timing and cache-prefix accounting but did not establish a public replayable token-level carrier for a frozen vLLM-specific atomic action. It is a non-candidate bounded backlog, not a scientific STOP.
+  - RQ02 ownership/reclamation was excluded before raw: vLLM current BlockPool and SGLang RadixCache already provide the generic lifecycle, reference-count, caching, eviction, and copy-on-write-compatible action family; no non-generic residual was frozen.
+  - RQ03 shape-sequence compilation/memory-plan was excluded before raw: vLLM current dynamic-shape compilation, compile ranges/sizes, and CUDA-graph capture/replay plus recent LAPS/Foundry work absorb the unfrozen capture/cache-selection action.
+  - RQ04 prefix-cache benchmark validity was excluded before raw: TraceLab already releases coding-agent prefix-cache/idle-gap trace analyses and replay tooling, while UniCache already studies structural reuse and task-dependent timing; no new decision-changing endpoint was frozen.
+
+search_boundary:
+  source_policy: PUBLIC_FIRST_PARTY_OR_VERIFIABLE_OPEN_ACADEMIC_SOURCES_ONLY
+  source_roles_completed: [ANCHOR, CURRENT, CONTRARY, ESCAPE]
+  primary_current_sources:
+    - https://github.com/vllm-project/vllm/blob/main/vllm/v1/core/block_pool.py
+    - https://github.com/vllm-project/vllm/blob/main/vllm/config/compilation.py
+    - https://github.com/vllm-project/vllm/blob/main/docs/design/torch_compile.md
+    - https://github.com/vllm-project/vllm/blob/main/docs/design/cuda_graphs.md
+    - https://sgl-project-sglang-93.mintlify.app/concepts/radix-attention
+  natural_carrier_and_contrary_sources:
+    - https://arxiv.org/abs/2606.30560
+    - https://github.com/uw-syfi/TraceLab
+    - https://tracelab.cs.washington.edu/exp/prefix_cache/cache_hit_ratio/
+    - https://jxing.me/pdf/unicache-sigmetrics26.pdf
+    - https://arxiv.org/abs/2312.07104
+    - https://arxiv.org/abs/2601.11589
+    - https://arxiv.org/abs/2604.06664
+  bounded_open_statement: No global novelty or absence is claimed. The only retained open item is the explicit RQ01 carrier/action gap recorded in the screening ledger.
+
+resource_and_scope:
+  group_repository_access: FORBIDDEN__NOT_READ
+  resource_actions: NONE
+  resource_inventory: NOT_CREATED__NO_DOWNLOAD_COPY_EXTRACT_ENVIRONMENT_BUILD_CACHE_OR_TEMP_RESOURCE_ACTION
+  system_install: false
+  build_or_candidate_experiment: false
+  claim_bearing_observation: false
+  evidence_ceiling_respected: PUBLIC_DOCUMENT_SOURCE_STATIC_REPOSITORY_AND_NON_CLAIM_BEARING_PREFLIGHT_ONLY
+
+bounded_debt:
+  - rq_id: S3-103-RQ01
+    status: LOCATOR_ONLY
+    reason: PUBLIC_TOKEN_LEVEL_NATURAL_REPLAY_CARRIER_AND_VLLM_SPECIFIC_NON_GENERIC_ACTION_NOT_FROZEN
+    reentry_condition: NEW_MAINLINE_FROZEN_ASSIGNMENT_WITH_EXACT_PUBLIC_CARRIER_AND_SAME_OBJECT_ACTION
+    scientific_inference: NONE
+
+mainline_notification_reason: FINAL_HANDOFF
+next_action: MAINLINE_MECHANICAL_ACCEPTANCE_THEN_LANE_IDLES_OR_RECEIVES_NEW_ASSIGNMENT
+canonical_manifest: HASH_MANIFEST.sha256

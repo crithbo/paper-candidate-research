@@ -1,0 +1,109 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: USER-PHASE-CLOSEOUT-STORAGE-LIFECYCLE-V1-20260824
+  artifact_state: ARTIFACT_OPEN
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: null
+  downstream_consumer: MAINLINE
+  post_close_retained_bytes_max: null
+  phase_closeout_retention_path: null
+  capsule_path: null
+  cleanup_receipt_path: null
+identity:
+  topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+  assignment_id: STAGEA-L3-20260829-LLVM-APX-R7C-A4-EXPLICIT-RESOURCE-COPY
+  stage_or_mode: STAGEA_PRECLAIM_ENGINEERING_CORRECTION
+  run_id: APX-R7C-A4-20260829
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a4-explicit-resource-copy-20260829
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a4-explicit-resource-copy-20260829/resources
+  inventory_path: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a4-explicit-resource-copy-20260829/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-29T00:36:44+08:00
+  finalized_at: null
+root_measurement:
+  logical_bytes: 512191060
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS_PROCESS_LOCAL_ONLY
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools: [ROBOCOPY]
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: null
+  cpu_hours_max: null
+  gpu_hours_max: 0
+  wall_seconds_max: null
+  attempts_max: 1
+  network_bytes_used: 0
+  stored_bytes_used: 512191060
+  attempts_used: 1
+entries:
+  - path: resources/
+    bytes: 512191060
+    file_count: 8191
+    reparse_count: 0
+    hash_scope: A2_SOURCE_TREE_REPRODUCED_BY_ABSOLUTE_ROBOCOPY
+    creating_run: APX-R7C-A4-20260829
+    claim_critical: false
+    reproducibility_minimum: true
+    consumer: A4_STATIC_COMPILE_AND_C4_C7_CONTROLS
+    provenance: read-only copy from A2 resource root
+    license: inherited_from_A2_INPUTS
+    reacquirable: true
+    recovery_command: ROBOCOPY /E /COPY:DAT /DCOPY:DAT /R:0 /W:0 /256 (single authorized attempt already consumed)
+    retention_class: RESUME_CRITICAL
+    delete_after_gate: false
+    receipt_reference: copy.log
+shared_assets_consumed: []
+external_system_dependencies: [bundled_python_runtime]
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  allowed_automatic_retention_classes: []
+  closeout_plan_accepted: false
+  downstream_inputs_accepted: false
+  capsule_sealed: false
+  active_owner_or_process_count: 0
+  predelete_target_count: 0
+  predelete_file_count: 0
+  predelete_logical_bytes: 0
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: COPY_SOURCE_A2_RETAINED
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: false
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: true
+  deterministic_recovery_routes_complete: true
+  closeout_budget_or_exception_pass: false
+  cleanup_receipt_valid: false
+  result: COPY_PASS_STATIC_COMPILE_PASS_C4_C6_PASS

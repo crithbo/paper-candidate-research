@@ -1,0 +1,34 @@
+schema: candidate-stagea-a1-handoff-v1
+assignment_id: STAGEA-L3-20260830-EXECUTORCH-QFALLBACK-RANK-VALIDITY-A0
+topic_id: SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY
+lane_id: CANDIDATE_EXECUTION_LANE_3
+handoff_state: COMPLETE_AWAITING_MAINLINE_ACCEPTANCE
+scientific_verdict: NOT_EVALUATED__ZERO_CLAIM_OBSERVATIONS
+operational_disposition: EXECUTION_CONTRACT_HOLD__A1_RESOURCE_RESOLUTION_FAILED__NO_SCIENTIFIC_INFERENCE
+quality_tier: TIER_B_Q2_VIABLE_INHERITED_NOT_READJUDICATED
+claim_ceiling: RELEASE_SPECIFIC_CANONICAL_WINDOWS_XNNPACK_BENCHMARK_ONLY
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+failure_kernel:
+  stage: A1_RESOURCE_ACQUISITION_PROCESS1
+  error: PIP_RESOLUTION_IMPOSSIBLE__ANTLR4_PYTHON3_RUNTIME_4_9_BINARY_UNAVAILABLE
+  raw: A1_RESOURCE_FAILURE_RAW.txt
+  log: resources/logs/a1/process1-pip-download.log
+  log_sha256: D52596328A4074FF108AFCA029E0B59A1DE84C14181C421024215971906445FC
+  retry: false
+resource_acquisition:
+  expected_wheel: {filename: executorch-1.4.1-cp312-cp312-win_amd64.whl, sha256: 5BBB6CF3D8DBDC9CAB6F0E3BB2E83618E26D776B7365845B284BB01FBA219AD5}
+  downloaded_wheel_files: 0
+  network_processes_used: 1
+  network_processes_max: 2
+  model_snapshot_process_started: false
+pre_effect_gate: {runtime_import: NOT_RUN, legal_distinct_topologies: NOT_OBSERVED, same_quality: NOT_RUN, no_double_counting_schema: RETAINED_STATIC_PASS, result: FAIL_CLOSED}
+claim_execution: {variants: 0, profiling_arms: 0, warmups: 0, measured_repetitions: 0, retries: 0, held_out: 0, refit: 0, backfill: 0}
+hidden_effects: {rank_agreement: NOT_COMPUTED, rank_reversal: NOT_COMPUTED, held_out_gain: NOT_COMPUTED, observer_effect_direction: NOT_COMPUTED, candidate_direction: NOT_COMPUTED}
+resource_summary: {root_files: 192, root_bytes: 18470664, downloaded_payload_files: 0, pip_cache_files: 189, pip_cache_bytes: 5014257, exact_network_bytes: UNAVAILABLE_NOT_ESTIMATED}
+scientific_revision_consumed: false
+scientific_stop: false
+current_cycle_usage_reset_confirmed: false
+stageb_authorized: false
+owner_cleanup_performed: false
+next_action: MAINLINE_ACCEPT_HOLD_OR_ISSUE_NEW_EXPLICIT_ROUTE__NO_OWNER_RETRY
+scientific_inference: NONE

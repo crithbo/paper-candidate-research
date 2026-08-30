@@ -1,0 +1,63 @@
+schema: stagea-candidate-handoff-v1
+assignment_id: STAGEA-L3-20260814-RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP-INITIAL-V8.7
+topic_id: RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_3
+owner_disposition: BLOCKED_USER_ACTION_REQUIRED
+preclaim_gate: FAIL_CLOSED__RESOURCE_BLOCKED
+claim_bearing_observation_count: 0
+scientific_inference: none
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+quality_tier: TIER_B_Q2_VIABLE__UPSTREAM_CONDITIONAL_NOT_READJUDICATED
+scientific_revision_consumed: false
+stageb_authorized: false
+stageb_user_approval_id: null
+
+provenance_closure:
+  short_locator: ba5bccf
+  full_commit: ba5bccfe01368f76e74d6ff4c35f1330e155b4ba
+  signature: valid
+  decisive_blobs_pinned: 13
+  local_blob_parity: 11_of_13
+  metadata_pin: OFFICIAL_METADATA_PIN.yaml
+
+blocker:
+  kind: EXACT_NATIVE_TOOLCHAIN_AND_TWO_SOURCE_BLOBS
+  exact_missing:
+    - LLVM_ba5bccfe01368f76e74d6ff4c35f1330e155b4ba_RISCV_enabled_toolchain
+    - RISCVInstrInfoZc_td_blob_f802748a5a1dc9c79577896eed4351796ce6ed8f
+    - RISCVTargetMachine_cpp_blob_e5ebd2a071d05e147b6bc24cb5e9378bbffabd97
+  nonexact_assets_used_for_claims: false
+  packet: USER_BLOCKER_PACKET.md
+  minimum_action: DISPATCH_NEW_RESUME1_WITH_PORTABLE_EXACT_TOOLCHAIN_AND_TWO_EXACT_BLOBS_OR_EXPLICIT_BOUNDED_ACQUISITION
+  resume_directory: stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1
+
+integrity:
+  frozen_upstream_hashes_match: 8_of_8
+  assignment_contract_sha256: 4E4CAEFE58CA335772C5DD80137F354543348BAFA8259BBEFA77D32ABFC90A51
+  registry_disposition: POST_DISPATCH_SHARED_CONTROL_DRIFT__SEMANTIC_ASSIGNMENT_FIELDS_MATCH
+  canonical_manifest: HASH_MANIFEST.sha256
+
+execution:
+  successful_official_metadata_requests: 9
+  successful_json_body_bytes: 111029
+  source_blob_content_requests: 0
+  archive_downloads: 0
+  source_builds: 0
+  installations: 0
+  global_environment_changes: 0
+  witness_replays: 0
+  candidate_runs: 0
+  comparator_runs: 0
+  natural_corpus_runs: 0
+  stageb_runs: 0
+  exact_cpu_rss_accounting: unavailable_for_diagnostic_commands__not_estimated
+
+mainline_notification:
+  required_events: [BLOCKED, PRECLAIM_GATE_FAIL, COMPLETE]
+  notification_status: INCLUDED_IN_HANDOFF_AND_SENT_TO_SOURCE_THREAD
+  requested_mainline_state: BLOCKED_USER_ACTION_REQUIRED
+  owner_does_not_modify_shared_state: true
+
+lane_state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE
+queue_preread: false
+

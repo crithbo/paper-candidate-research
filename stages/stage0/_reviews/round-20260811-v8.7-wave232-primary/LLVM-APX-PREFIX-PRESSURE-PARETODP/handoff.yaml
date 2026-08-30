@@ -1,0 +1,85 @@
+schema_version: "stage0-primary-handoff-v8.7"
+assignment_id: "STAGE0-P1-20260811-LLVM-APX-PREFIX-PRESSURE-PARETODP-PRIMARY-V8.7"
+topic_id: "LLVM-APX-PREFIX-PRESSURE-PARETODP"
+mode: "PRIMARY"
+lane_id: "STAGE0-BATCH-GATE"
+decision: "REVISE_ONCE"
+decision_pending_confirmation: true
+quality_tier: "TIER_B_Q2_VIABLE"
+quality_tier_semantics: "conditional_structural_paper_potential_not_stage0_pass"
+confidence: 0.91
+evidence_ceiling: "E0-H_STATIC_CURRENT_SOURCE_AND_METHOD_AUDIT"
+novelty_route: "N2"
+structural_paper_potential: "credible_Q2_if_sound_target_specific_quotient_and_guarantee_close"
+current_evidence_readiness: "FINITE_ALGORITHMIC_SPECIFICATION_GAP"
+ai_executability_class: "AI_CORE_EXECUTABLE"
+ai_core_fraction: 0.78
+academic_score_70: 45
+ai_bonus_30: 25
+total_score_100: 70
+search_status: "SEARCH_BOUNDED_OPEN"
+direct_fatal_collision: false
+resource_blocker: false
+stageA_authorized: false
+stageB_authorized: false
+experiment_authorized: false
+scientific_revision_recommended: true
+scientific_revision_consumed_by_primary: false
+revision_budget_after_confirmation_if_accepted: "one_and_only_one"
+atomic_revision_gate:
+  id: "SOUND_APX_TRACE_QUOTIENT_CERTIFICATE"
+  proposition: >-
+    Under one pinned MachineIR/APX/ABI trace contract, define a future-action-
+    and cost-preserving equivalence relation, finite transitions and corrected
+    complexity/guarantee, plus one minimal native action-divergence witness
+    admitted by that same grammar.
+  required_current_source_correction: >-
+    Freeze EFLAGS live after the ADD, source live after the ADD and no EGPR;
+    audit the current ADD-NDD-to-LEA path, redundant-NDD compression,
+    relocation suppression, fixed/alias registers and ABI/CFI boundary.
+  pass_condition: >-
+    The quotient is auditable as a bisimulation over all legal future actions
+    and declared costs, has a corrected non-generic parameterized guarantee,
+    and the corrected witness separates the complete current pipeline without
+    changing semantics, target, ABI or unwind.
+  fail_condition: >-
+    The mechanism remains arbitrary within-bank permutation, generic ILP/CP,
+    scalar tuning, postprocessing, or relies on an EFLAGS-dead witness already
+    converted to LEA.
+  fail_sentinel: "BELOW_Q2_STOP__UNSOUND_REGISTER_SYMMETRY_OR_GENERIC_SOLVER_COLLAPSE"
+current_upstream:
+  discovery_short_pin: "de8cb59"
+  llvm_full_commit: "a1194be1baefa99d20a09bd04b16056be0ab7225"
+  checked_at: "2026-08-11"
+  decisive_file: "llvm/lib/Target/X86/X86CompressEVEX.cpp"
+  decisive_blob_sha: "be02c6375c0b50e872b2a96fbff4a0d380ab6a58"
+  decisive_finding: "nonredundant_ADD_NDD_to_LEA_if_no_EGPR_and_EFLAGS_dead"
+strong_baselines:
+  - "LLVM-CURRENT-COMPLETE"
+  - "LLVM-SCALAR-TUNING-GRID"
+  - "UNISON-SAME-TRACE"
+  - "EXACT-ENUMERATOR-ORACLE_ONLY"
+stage0_repair_vector:
+  - "OMITTED_FIRST_PARTY_FEATURE"
+  - "ATOMIC_ACTION_UNCLEAR"
+  - "FULL_COST_GAP"
+  - "Q2_SHAPE_GAP"
+input_freeze:
+  registry_sha256: "18178EEA8EE1615A9481854AC65B37344BF9144DE4E932B20FF0D6FEDE904393"
+  plan_sha256: "4DBAA0282278FFAAB61116185E1E2E3E818FA94B688D2A0D966379976B7C54F6"
+  discovery_manifest_sha256: "8B32C1C90DD5BC918EA62E606443A3F230F2576D42841569402EE2AEF3B8125B"
+  discovery_manifest_entries_verified: "8/8"
+post_review_control_drift:
+  detected: true
+  lane_modified_shared_control: false
+  registry_observed_sha256: "5396B336DADB3F026382933E6ABCDF539344E2757393885D279E3AF510E86EB2"
+  plan_observed_sha256: "712F12542ACCEE7F93884EAE8ED65811D6A1AA5C1638A84ABD2E3A69DA21D0F5"
+  disposition: "assignment_kept_original_frozen_control_hashes"
+output_files:
+  - "STAGE0_REPORT.md"
+  - "Q1_COMPARATOR_MATRIX.md"
+  - "SOURCE_AUDIT.md"
+  - "handoff.yaml"
+  - "HASH_MANIFEST.sha256"
+next_route: "LONG_TERM_D_ROOT_CONFIRMATION_SENTRY"
+lane_after_handoff: "IDLE_REUSABLE_AWAITING_MAINLINE"

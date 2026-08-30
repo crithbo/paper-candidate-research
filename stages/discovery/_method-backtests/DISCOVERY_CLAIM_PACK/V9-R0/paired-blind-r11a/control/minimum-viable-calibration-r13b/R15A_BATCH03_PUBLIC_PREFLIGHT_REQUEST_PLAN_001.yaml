@@ -1,0 +1,79 @@
+{
+  "schema": "R11A_R13B_BATCH03_PUBLIC_PREFLIGHT_REQUEST_PLAN_V1",
+  "approval_id": "R11A-R13B-BATCH02-PARTIAL-PREFLIGHT-RECOVERY-20260813-R15A",
+  "assignment_id": "BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX",
+  "batch_id": "R13B-03",
+  "plan_ordinal": 1,
+  "reason": "CLOSE_PRECALL_LITERAL_QUERY_PUBLIC_SEED_AND_REQUEST_PLAN_ANCHORS_WITHOUT_LIVE_PROBE",
+  "anchors": {
+    "r15a_transport_gate_sha256": "7F0207C719853F3442872C1C366859DDAF00C8C3395468D8E8FAB377471162D9",
+    "literal_query_ambiguity_blocker_sha256": "B1C64739472E49A322A05CD0BF3D2075D183E258B84AB0825D75A71F5C0239DD"
+  },
+  "pre_plan_accounting": {
+    "batch03_calls_issued": 0,
+    "batch03_raw_slots_consumed": 0,
+    "raw_used": 56,
+    "raw_remaining": 32,
+    "unique_used": 4,
+    "unique_remaining": 68,
+    "eligible": 2
+  },
+  "provider": {
+    "name": "OpenAlex",
+    "endpoint": "https://api.openalex.org/works",
+    "method": "GET",
+    "authentication": "NONE",
+    "pagination": "NONE",
+    "retry": "NONE"
+  },
+  "seed_to_query_catalog": {
+    "public_seed": "DISCOVERY-CLAIM-PACK-V9-R0-R11A-R13B-03-OPENALEX-PREFLIGHT-20260813",
+    "algorithm": "FIXED_LITERAL_QUERY_CATALOG_V1__SEED_IS_DOMAIN_SEPARATOR__NO_RANDOM_OR_SEMANTIC_EXPANSION",
+    "catalog_order": "REQUEST_ORDINAL_ASCENDING",
+    "result_aware_change": "forbidden"
+  },
+  "requests": [
+    {
+      "request_ordinal": 1,
+      "reserved_raw_slots": 12,
+      "literal_query": "compiler systems optimization algorithm artifact evaluation 2024",
+      "parameter_map": {
+        "search": "compiler systems optimization algorithm artifact evaluation 2024",
+        "per-page": "12",
+        "select": "id,title,doi,primary_location,publication_year"
+      },
+      "sort": "OMITTED__PROVIDER_DEFAULT_SEARCH_RELEVANCE",
+      "provider_row_order": "RESPONSE_JSON_RESULTS_ARRAY_ORDER_AS_RECEIVED",
+      "raw_response_filename": "R13B03_REQUEST01_RAW_RESPONSE.json",
+      "ordered_row_freeze_filename": "R13B03_REQUEST01_ORDERED_ROWS.yaml"
+    },
+    {
+      "request_ordinal": 2,
+      "reserved_raw_slots": 12,
+      "literal_query": "formal verification measurement benchmark reproducibility artifact 2024",
+      "parameter_map": {
+        "search": "formal verification measurement benchmark reproducibility artifact 2024",
+        "per-page": "12",
+        "select": "id,title,doi,primary_location,publication_year"
+      },
+      "sort": "OMITTED__PROVIDER_DEFAULT_SEARCH_RELEVANCE",
+      "provider_row_order": "RESPONSE_JSON_RESULTS_ARRAY_ORDER_AS_RECEIVED",
+      "raw_response_filename": "R13B03_REQUEST02_RAW_RESPONSE.json",
+      "ordered_row_freeze_filename": "R13B03_REQUEST02_ORDERED_ROWS.yaml"
+    }
+  ],
+  "mandatory_pre_call": {
+    "append_only_request_reservation_and_exact_URL_hash": true,
+    "public_seed_and_this_plan_sha256_frozen": true,
+    "global_remaining_and_12_slot_count_verified_by_mainline_contract": true,
+    "request2_may_follow_request1_only_if_request1_transport_and_order_freeze_pass": true
+  },
+  "mandatory_post_call": {
+    "raw_response_bytes_and_hash_before_parse_or_model_read": true,
+    "ordered_rows_before_semantic_filter": true,
+    "local_normalization_and_cross_batch_dedup_after_both_valid_freezes": true,
+    "immutable_opaque_commitment_then_stop_before_private_intersection": true
+  },
+  "prohibitions": ["QUERY_REWORDING", "QUERY_SUBSTITUTION", "PAGINATION", "RETRY", "REPLACEMENT", "RESULT_AWARE_CHANGE", "BATCH01_OR_BATCH02_REFERENCE", "SOURCE_QUALIFICATION_BEFORE_PRIVATE_INTERSECTION", "PHASE2_OR_DOWNSTREAM"],
+  "scientific_inference": "NONE"
+}

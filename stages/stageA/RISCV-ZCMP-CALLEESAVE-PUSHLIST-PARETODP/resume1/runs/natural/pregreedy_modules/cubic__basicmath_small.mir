@@ -1,0 +1,1101 @@
+--- |
+  ; ModuleID = 'D:\project\writing\reserch\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\runs\natural\modules\cubic__basicmath_small.ll'
+  source_filename = "D:\\project\\writing\\reserch\\stages\\stageA\\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\\resume1\\resources\\corpus\\embench\\src\\cubic\\basicmath_small.c"
+  target datalayout = "e-m:e-p:32:32-i64:64-n32-S128"
+  target triple = "riscv32-unknown-unknown-elf"
+  
+  @_MergedGlobals = private global <{ i32, i32, double, [3 x double] }> zeroinitializer, align 8, !guid !0
+  
+  @soln_cnt0 = internal alias i32, ptr @_MergedGlobals
+  @soln_cnt1 = internal alias i32, getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 1)
+  @res1 = internal alias double, getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 2)
+  @res0 = internal alias [3 x double], getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 3)
+  
+  ; Function Attrs: nounwind
+  define dso_local range(i32 0, 2) i32 @verify_benchmark(i32 noundef %0) local_unnamed_addr #0 {
+    %2 = load i32, ptr @_MergedGlobals, align 4, !tbaa !7
+    %3 = icmp eq i32 %2, 3
+    br i1 %3, label %4, label %28
+  
+  4:                                                ; preds = %1
+    %5 = load double, ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 3), align 8, !tbaa !11
+    %6 = fsub double 2.000000e+00, %5
+    %7 = tail call double @fabs(double noundef %6) #6
+    %8 = fcmp olt double %7, 1.000000e-13
+    br i1 %8, label %9, label %28
+  
+  9:                                                ; preds = %4
+    %10 = load double, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 8), align 8, !tbaa !11
+    %11 = fsub double 6.000000e+00, %10
+    %12 = tail call double @fabs(double noundef %11) #6
+    %13 = fcmp olt double %12, 1.000000e-13
+    br i1 %13, label %14, label %28
+  
+  14:                                               ; preds = %9
+    %15 = load double, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 16), align 8, !tbaa !11
+    %16 = fsub double 2.500000e+00, %15
+    %17 = tail call double @fabs(double noundef %16) #6
+    %18 = fcmp olt double %17, 1.000000e-13
+    %19 = load i32, ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 1), align 4
+    %20 = icmp eq i32 %19, 1
+    %21 = select i1 %18, i1 %20, i1 false
+    br i1 %21, label %22, label %28
+  
+  22:                                               ; preds = %14
+    %23 = load double, ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 2), align 8, !tbaa !11
+    %24 = fsub double 2.500000e+00, %23
+    %25 = tail call double @fabs(double noundef %24) #6
+    %26 = fcmp olt double %25, 1.000000e-13
+    %27 = zext i1 %26 to i32
+    br label %28
+  
+  28:                                               ; preds = %22, %14, %9, %4, %1
+    %29 = phi i32 [ %27, %22 ], [ 0, %14 ], [ 0, %9 ], [ 0, %4 ], [ 0, %1 ]
+    ret i32 %29
+  }
+  
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+  declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+  
+  declare dso_local double @fabs(double noundef) local_unnamed_addr #2
+  
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+  declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
+  
+  ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
+  define dso_local void @initialise_benchmark() local_unnamed_addr #3 {
+    ret void
+  }
+  
+  ; Function Attrs: nounwind
+  define dso_local void @warm_caches(i32 noundef %0) local_unnamed_addr #0 {
+    tail call fastcc void @benchmark_body(i32 noundef %0) #7
+    ret void
+  }
+  
+  ; Function Attrs: nounwind
+  define internal fastcc void @benchmark_body(i32 noundef %0) unnamed_addr #0 {
+    %2 = alloca i32, align 4
+    %3 = alloca [48 x double], align 8
+    %4 = icmp sgt i32 %0, 0
+    br i1 %4, label %.preheader, label %11
+  
+  .preheader:                                       ; preds = %1
+    br label %5
+  
+  5:                                                ; preds = %.preheader, %5
+    %lsr.iv = phi i32 [ %0, %.preheader ], [ %lsr.iv.next, %5 ]
+    call void @llvm.lifetime.start.p0(ptr nonnull %2) #8
+    call void @llvm.lifetime.start.p0(ptr nonnull %3) #8
+    call void @llvm.memset.p0.i32(ptr noundef nonnull align 8 dereferenceable(384) %3, i8 0, i32 384, i1 false)
+    call void @SolveCubic(double noundef 1.000000e+00, double noundef -1.050000e+01, double noundef 3.200000e+01, double noundef -3.000000e+01, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    %6 = load i32, ptr %2, align 4, !tbaa !7
+    store i32 %6, ptr @_MergedGlobals, align 4, !tbaa !7
+    %7 = call ptr @memcpy(ptr noundef nonnull getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 3), ptr noundef nonnull %3, i32 noundef 24) #6
+    call void @SolveCubic(double noundef 1.000000e+00, double noundef -4.500000e+00, double noundef 1.700000e+01, double noundef -3.000000e+01, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    %8 = load i32, ptr %2, align 4, !tbaa !7
+    store i32 %8, ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 1), align 4, !tbaa !7
+    %9 = load double, ptr %3, align 8, !tbaa !11
+    store double %9, ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 2), align 8, !tbaa !11
+    call void @SolveCubic(double noundef 1.000000e+00, double noundef -3.500000e+00, double noundef 2.200000e+01, double noundef -3.100000e+01, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 1.000000e+00, double noundef -1.370000e+01, double noundef 1.000000e+00, double noundef -3.500000e+01, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 1.000000e+00, double noundef 1.000000e+01, double noundef 5.000000e+00, double noundef -1.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 1.000000e+00, double noundef 1.000000e+01, double noundef 5.000000e+00, double noundef -2.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 1.000000e+00, double noundef 1.000000e+01, double noundef 5.500000e+00, double noundef -1.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 1.000000e+00, double noundef 1.000000e+01, double noundef 5.500000e+00, double noundef -2.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 1.000000e+00, double noundef 9.000000e+00, double noundef 5.000000e+00, double noundef -1.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 1.000000e+00, double noundef 9.000000e+00, double noundef 5.000000e+00, double noundef -2.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 1.000000e+00, double noundef 9.000000e+00, double noundef 5.500000e+00, double noundef -1.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 1.000000e+00, double noundef 9.000000e+00, double noundef 5.500000e+00, double noundef -2.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 2.000000e+00, double noundef 1.000000e+01, double noundef 5.000000e+00, double noundef -1.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 2.000000e+00, double noundef 1.000000e+01, double noundef 5.000000e+00, double noundef -2.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 2.000000e+00, double noundef 1.000000e+01, double noundef 5.500000e+00, double noundef -1.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 2.000000e+00, double noundef 1.000000e+01, double noundef 5.500000e+00, double noundef -2.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 2.000000e+00, double noundef 9.000000e+00, double noundef 5.000000e+00, double noundef -1.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 2.000000e+00, double noundef 9.000000e+00, double noundef 5.000000e+00, double noundef -2.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 2.000000e+00, double noundef 9.000000e+00, double noundef 5.500000e+00, double noundef -1.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @SolveCubic(double noundef 2.000000e+00, double noundef 9.000000e+00, double noundef 5.500000e+00, double noundef -2.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+    call void @llvm.lifetime.end.p0(ptr nonnull %3) #8
+    call void @llvm.lifetime.end.p0(ptr nonnull %2) #8
+    %lsr.iv.next = add i32 %lsr.iv, -1
+    %10 = icmp eq i32 %lsr.iv.next, 0
+    br i1 %10, label %11, label %5, !llvm.loop !13
+  
+  11:                                               ; preds = %5, %1
+    ret void
+  }
+  
+  ; Function Attrs: noinline nounwind
+  define dso_local noundef i32 @benchmark() local_unnamed_addr #4 {
+    tail call fastcc void @benchmark_body(i32 noundef 10) #7
+    ret i32 0
+  }
+  
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: write)
+  declare void @llvm.memset.p0.i32(ptr writeonly captures(none), i8, i32, i1 immarg) #5
+  
+  declare dso_local void @SolveCubic(double noundef, double noundef, double noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+  
+  declare dso_local ptr @memcpy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+  
+  attributes #0 = { nounwind "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) "target-features"="+m,+a,+c,+zcmp" }
+  attributes #2 = { "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #4 = { noinline nounwind "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: write) "target-features"="+m,+a,+c,+zcmp" }
+  attributes #6 = { nobuiltin nounwind "no-builtins" }
+  attributes #7 = { nobuiltin "no-builtins" }
+  attributes #8 = { nounwind }
+  
+  !llvm.module.flags = !{!1, !2, !3, !5}
+  !llvm.ident = !{!6}
+  !llvm.errno.tbaa = !{!7}
+  
+  !0 = !{i64 -9189221119150543974}
+  !1 = !{i32 1, !"wchar_size", i32 4}
+  !2 = !{i32 1, !"target-abi", !"ilp32"}
+  !3 = !{i32 6, !"riscv-isa", !4}
+  !4 = !{!"rv32i2p1_m2p0_a2p1_c2p0_zmmul1p0_zaamo1p0_zalrsc1p0_zca1p0_zcmp1p0"}
+  !5 = !{i32 8, !"SmallDataLimit", i32 0}
+  !6 = !{!"clang version 22.1.8 (https://github.com/llvm/llvm-project.git ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"}
+  !7 = !{!8, !8, i64 0}
+  !8 = !{!"int", !9, i64 0}
+  !9 = !{!"omnipotent char", !10, i64 0}
+  !10 = !{!"Simple C/C++ TBAA"}
+  !11 = !{!12, !12, i64 0}
+  !12 = !{!"double", !9, i64 0}
+  !13 = distinct !{!13, !14}
+  !14 = !{!"llvm.loop.mustprogress"}
+...
+---
+name:            verify_benchmark
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 18, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 19, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 20, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 21, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 23, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 24, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 25, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 26, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 27, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 28, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 29, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 30, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 31, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 32, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 33, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 34, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 35, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 36, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 37, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 38, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 39, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 40, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 41, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 42, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 43, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 44, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 45, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 46, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 47, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 48, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 49, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 50, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 51, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 52, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 53, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 54, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 55, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 56, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 57, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 58, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 59, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 60, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 61, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 62, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 63, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 64, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 65, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 66, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 67, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 68, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 69, class: gpr, preferred-register: '', flags: [  ] }
+liveins:         []
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    successors: %bb.2(0x40000000), %bb.1(0x40000000)
+  
+    %4:gpr = LUI target-flags(riscv-hi) @_MergedGlobals
+    %5:gpr = LW %4, target-flags(riscv-lo) @_MergedGlobals :: (dereferenceable load (s32) from @_MergedGlobals, align 8, !tbaa !7)
+    %7:gpr = ADDI $x0, 3
+    BEQ %5, %7, %bb.2
+  
+  bb.1:
+    successors: %bb.9(0x80000000)
+  
+    %69:gpr = COPY $x0
+    PseudoBR %bb.9
+  
+  bb.2 (%ir-block.4):
+    successors: %bb.4(0x40000000), %bb.3(0x40000000)
+  
+    %9:gpr = PseudoMovAddr target-flags(riscv-hi) @_MergedGlobals, target-flags(riscv-lo) @_MergedGlobals
+    %10:gpr = LW %9, 16 :: (load (s32) from `ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 3)`, align 8, !tbaa !11)
+    %11:gpr = LW %9, 20 :: (load (s32) from `ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 3)` + 4, basealign 8, !tbaa !11)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x11 = LUI 262144
+    $x10 = COPY $x0
+    $x12 = COPY %10
+    $x13 = COPY %11
+    PseudoCALL target-flags(riscv-call) &__subdf3, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit killed $x12, implicit killed $x13, implicit-def $x2, implicit-def $x10, implicit-def $x11
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %14:gpr = COPY $x10
+    %15:gpr = COPY killed $x11
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY %14
+    $x11 = COPY %15
+    PseudoCALL target-flags(riscv-call) @fabs, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit-def $x2, implicit-def $x10, implicit-def $x11
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %16:gpr = COPY $x10
+    %17:gpr = COPY killed $x11
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    %18:gpr = LUI 427159
+    %20:gpr = LUI 250818
+    %19:gpr = ADDI %18, 1666
+    %21:gpr = ADDI %20, 1474
+    $x10 = COPY %16
+    $x11 = COPY %17
+    $x12 = COPY %19
+    $x13 = COPY %21
+    PseudoCALL target-flags(riscv-call) &__ltdf2, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit killed $x12, implicit killed $x13, implicit-def $x2, implicit-def $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %22:gpr = COPY $x10
+    BLT %22, $x0, %bb.4
+  
+  bb.3:
+    successors: %bb.9(0x80000000)
+  
+    %69:gpr = COPY $x0
+    PseudoBR %bb.9
+  
+  bb.4 (%ir-block.9):
+    successors: %bb.6(0x40000000), %bb.5(0x40000000)
+  
+    %25:gpr = LW %9, 24 :: (load (s32) from `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 8)`, align 8, !tbaa !11)
+    %26:gpr = LW %9, 28 :: (load (s32) from `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 8)` + 4, basealign 8, !tbaa !11)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x11 = LUI 262528
+    $x10 = COPY $x0
+    $x12 = COPY %25
+    $x13 = COPY %26
+    PseudoCALL target-flags(riscv-call) &__subdf3, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit killed $x12, implicit killed $x13, implicit-def $x2, implicit-def $x10, implicit-def $x11
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %29:gpr = COPY $x10
+    %30:gpr = COPY killed $x11
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY %29
+    $x11 = COPY %30
+    PseudoCALL target-flags(riscv-call) @fabs, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit-def $x2, implicit-def $x10, implicit-def $x11
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %31:gpr = COPY $x10
+    %32:gpr = COPY killed $x11
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY %31
+    $x11 = COPY %32
+    $x12 = COPY %19
+    $x13 = COPY %21
+    PseudoCALL target-flags(riscv-call) &__ltdf2, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit killed $x12, implicit killed $x13, implicit-def $x2, implicit-def $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %37:gpr = COPY $x10
+    BLT %37, $x0, %bb.6
+  
+  bb.5:
+    successors: %bb.9(0x80000000)
+  
+    %69:gpr = COPY $x0
+    PseudoBR %bb.9
+  
+  bb.6 (%ir-block.14):
+    successors: %bb.7(0x60000000), %bb.10(0x20000000)
+  
+    %41:gpr = LW %9, 32 :: (load (s32) from `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 16)`, align 8, !tbaa !11)
+    %42:gpr = LW %9, 36 :: (load (s32) from `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 16)` + 4, basealign 8, !tbaa !11)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x11 = LUI 262208
+    $x10 = COPY $x0
+    $x12 = COPY %41
+    $x13 = COPY %42
+    PseudoCALL target-flags(riscv-call) &__subdf3, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit killed $x12, implicit killed $x13, implicit-def $x2, implicit-def $x10, implicit-def $x11
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %45:gpr = COPY $x10
+    %46:gpr = COPY killed $x11
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY %45
+    $x11 = COPY %46
+    PseudoCALL target-flags(riscv-call) @fabs, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit-def $x2, implicit-def $x10, implicit-def $x11
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %47:gpr = COPY $x10
+    %48:gpr = COPY killed $x11
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    %49:gpr = LUI 427159
+    %51:gpr = LUI 250818
+    %50:gpr = ADDI %49, 1666
+    %52:gpr = ADDI %51, 1474
+    $x10 = COPY %47
+    $x11 = COPY %48
+    $x12 = COPY %50
+    $x13 = COPY %52
+    PseudoCALL target-flags(riscv-call) &__ltdf2, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit killed $x12, implicit killed $x13, implicit-def $x2, implicit-def $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %53:gpr = COPY $x10
+    %69:gpr = COPY $x0
+    BLT %53, $x0, %bb.7
+  
+  bb.10:
+    successors: %bb.9(0x80000000)
+  
+    PseudoBR %bb.9
+  
+  bb.7 (%ir-block.14):
+    successors: %bb.8(0x55555555), %bb.9(0x2aaaaaab)
+  
+    %39:gpr = LW %9, 4 :: (dereferenceable load (s32) from `ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 1)`)
+    %54:gpr = ADDI $x0, 1
+    BNE %39, %54, %bb.9
+    PseudoBR %bb.8
+  
+  bb.8 (%ir-block.22):
+    successors: %bb.9(0x80000000)
+  
+    %56:gpr = LW %9, 8 :: (load (s32) from `ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 2)`, align 8, !tbaa !11)
+    %57:gpr = LW %9, 12 :: (load (s32) from `ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 2)` + 4, basealign 8, !tbaa !11)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x11 = LUI 262208
+    $x10 = COPY $x0
+    $x12 = COPY %56
+    $x13 = COPY %57
+    PseudoCALL target-flags(riscv-call) &__subdf3, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit killed $x12, implicit killed $x13, implicit-def $x2, implicit-def $x10, implicit-def $x11
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %60:gpr = COPY $x10
+    %61:gpr = COPY killed $x11
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY %60
+    $x11 = COPY %61
+    PseudoCALL target-flags(riscv-call) @fabs, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit-def $x2, implicit-def $x10, implicit-def $x11
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %62:gpr = COPY $x10
+    %63:gpr = COPY killed $x11
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    %64:gpr = LUI 427159
+    %66:gpr = LUI 250818
+    %65:gpr = ADDI %64, 1666
+    %67:gpr = ADDI %66, 1474
+    $x10 = COPY %62
+    $x11 = COPY %63
+    $x12 = COPY %65
+    $x13 = COPY %67
+    PseudoCALL target-flags(riscv-call) &__ltdf2, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit killed $x12, implicit killed $x13, implicit-def $x2, implicit-def $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %68:gpr = COPY $x10
+    %69:gpr = SRLI %68, 31
+  
+  bb.9 (%ir-block.28):
+    $x10 = COPY %69
+    PseudoRET implicit $x10
+...
+---
+name:            initialise_benchmark
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:       []
+liveins:         []
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.0):
+    PseudoRET
+...
+---
+name:            warm_caches
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%0' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     true
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    liveins: $x10
+  
+    %0:gpr = COPY $x10
+    $x10 = COPY %0
+    PseudoTAIL target-flags(riscv-call) @benchmark_body, csr_ilp32_lp64, implicit $x2, implicit $x10
+...
+---
+name:            benchmark_body
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 18, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 19, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 20, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 21, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 23, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 24, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 25, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 26, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 27, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 28, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 29, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 30, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 31, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 32, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 33, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 34, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 35, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 36, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 37, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 38, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 39, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 40, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 41, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 42, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 43, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 44, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 45, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 46, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 47, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 48, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 49, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 50, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 51, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 52, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 53, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 54, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 55, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 56, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 57, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 58, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%2' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    8
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 8
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  392
+fixedStack:      []
+stack:
+  - { id: 0, name: '', type: default, offset: 0, size: 4, alignment: 4, 
+      stack-id: default, callee-saved-register: '', callee-saved-restored: true, 
+      local-offset: -4, debug-info-variable: '', debug-info-expression: '', 
+      debug-info-location: '' }
+  - { id: 1, name: '', type: default, offset: 0, size: 384, alignment: 8, 
+      stack-id: default, callee-saved-register: '', callee-saved-restored: true, 
+      local-offset: -392, debug-info-variable: '', debug-info-expression: '', 
+      debug-info-location: '' }
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    successors: %bb.1(0x50000000), %bb.3(0x30000000)
+    liveins: $x10
+  
+    %58:gpr = COPY $x10
+    BGE $x0, %58, %bb.3
+    PseudoBR %bb.1
+  
+  bb.1..preheader:
+    successors: %bb.2(0x80000000)
+  
+    %4:gpr = ADDI %stack.1, 0
+    %15:gpr = PseudoMovAddr target-flags(riscv-hi) @_MergedGlobals, target-flags(riscv-lo) @_MergedGlobals
+    %9:gpr = ADDI %stack.0, 0
+    %16:gpr = nuw ADDI %15, 16
+    %30:gpr = LUI 419430
+    %32:gpr = LUI 787126
+    %31:gpr = ADDI %30, 1638
+    %33:gpr = ADDI %32, 1638
+  
+  bb.2 (%ir-block.5):
+    successors: %bb.3(0x04000000), %bb.2(0x7c000000)
+  
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = ADDI %stack.1, 0
+    $x12 = ADDI $x0, 384
+    $x11 = COPY $x0
+    PseudoCALL target-flags(riscv-call) &memset, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit-def $x2, implicit-def dead $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 261888
+    $x13 = LUI 787024
+    $x15 = LUI 263168
+    $x17 = LUI 787424
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    %14:gpr = LW %stack.0, 0 :: (dereferenceable load (s32) from %ir.2, !tbaa !7)
+    SW %14, %15, 0 :: (store (s32) into @_MergedGlobals, align 8, !tbaa !7)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x11 = ADDI %stack.1, 0
+    $x12 = ADDI $x0, 24
+    $x10 = COPY %16
+    PseudoCALL target-flags(riscv-call) @memcpy, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit-def $x2, implicit-def dead $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 261888
+    $x13 = LUI 786720
+    $x15 = LUI 262928
+    $x17 = LUI 787424
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    %22:gpr = LW %stack.0, 0 :: (dereferenceable load (s32) from %ir.2, !tbaa !7)
+    %23:gpr = LW %stack.1, 0 :: (load (s32) from %ir.3, align 8, !tbaa !11)
+    %24:gpr = LW %stack.1, 4 :: (load (s32) from %ir.3 + 4, basealign 8, !tbaa !11)
+    SW %22, %15, 4 :: (store (s32) into `ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 1)`, !tbaa !7)
+    SW %23, %15, 8 :: (store (s32) into `ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 2)`, align 8, !tbaa !11)
+    SW %24, %15, 12 :: (store (s32) into `ptr getelementptr inbounds (<{ i32, i32, double, [3 x double] }>, ptr @_MergedGlobals, i32 0, i32 2)` + 4, basealign 8, !tbaa !11)
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 261888
+    $x13 = LUI 786624
+    $x15 = LUI 263008
+    $x17 = LUI 787440
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 261888
+    $x15 = LUI 261888
+    $x17 = LUI 787480
+    $x12 = COPY %31
+    $x13 = COPY %33
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 261888
+    $x13 = LUI 262720
+    $x15 = LUI 262464
+    $x17 = LUI 786176
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 261888
+    $x13 = LUI 262720
+    $x15 = LUI 262464
+    $x17 = LUI 786432
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 261888
+    $x13 = LUI 262720
+    $x15 = LUI 262496
+    $x17 = LUI 786176
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 261888
+    $x13 = LUI 262720
+    $x15 = LUI 262496
+    $x17 = LUI 786432
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 261888
+    $x13 = LUI 262688
+    $x15 = LUI 262464
+    $x17 = LUI 786176
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 261888
+    $x13 = LUI 262688
+    $x15 = LUI 262464
+    $x17 = LUI 786432
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 261888
+    $x13 = LUI 262688
+    $x15 = LUI 262496
+    $x17 = LUI 786176
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 261888
+    $x13 = LUI 262688
+    $x15 = LUI 262496
+    $x17 = LUI 786432
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 262144
+    $x13 = LUI 262720
+    $x15 = LUI 262464
+    $x17 = LUI 786176
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 262144
+    $x13 = LUI 262720
+    $x15 = LUI 262464
+    $x17 = LUI 786432
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 262144
+    $x13 = LUI 262720
+    $x15 = LUI 262496
+    $x17 = LUI 786176
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 262144
+    $x13 = LUI 262720
+    $x15 = LUI 262496
+    $x17 = LUI 786432
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 262144
+    $x13 = LUI 262688
+    $x15 = LUI 262464
+    $x17 = LUI 786176
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 262144
+    $x13 = LUI 262688
+    $x15 = LUI 262464
+    $x17 = LUI 786432
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 262144
+    $x13 = LUI 262688
+    $x15 = LUI 262496
+    $x17 = LUI 786176
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    ADJCALLSTACKDOWN 8, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    $x12 = COPY $x0
+    $x14 = COPY $x0
+    $x16 = COPY $x0
+    $x11 = LUI 262144
+    $x13 = LUI 262688
+    $x15 = LUI 262496
+    $x17 = LUI 786432
+    SW %9, $x2, 0 :: (store (s32) into stack)
+    SW %4, $x2, 4 :: (store (s32) into stack + 4)
+    PseudoCALL target-flags(riscv-call) @SolveCubic, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit $x13, implicit $x14, implicit killed $x15, implicit $x16, implicit killed $x17, implicit-def $x2
+    ADJCALLSTACKUP 8, 0, implicit-def dead $x2, implicit $x2
+    %58:gpr = ADDI %58, -1
+    BNE %58, $x0, %bb.2
+    PseudoBR %bb.3
+  
+  bb.3 (%ir-block.11):
+    PseudoRET
+...
+---
+name:            benchmark
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+liveins:         []
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.0):
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = ADDI $x0, 10
+    PseudoCALL target-flags(riscv-call) @benchmark_body, csr_ilp32_lp64, implicit-def dead $x1, implicit killed $x10, implicit-def $x2
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    PseudoRET implicit killed $x10
+...

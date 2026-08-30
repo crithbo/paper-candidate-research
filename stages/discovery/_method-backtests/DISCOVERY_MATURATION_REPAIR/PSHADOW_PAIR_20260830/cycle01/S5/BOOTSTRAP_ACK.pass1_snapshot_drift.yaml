@@ -1,0 +1,69 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-30T00:50:35.2774345+08:00
+assignment_id: DMR-V1-PSHADOW-CYCLE-01-S5
+pair_freeze_id: DMR-V1-PSHADOW-PAIR-20260830
+cycle_id: DMR-V1-PSHADOW-CYCLE-01
+lane_id: DISCOVERY_S5_SCALE_ONLINE_APPROX
+role_id: DISCOVERY
+assignment_context_path: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/cycle01/S5/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: 0C27971FF4A06F4929C9F8E5C6932F78EBBE3EE30C8A718A2D39B581F542FA22
+model_route: {model: gpt-5.6-terra, thinking: medium}
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  assignment_context_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: true
+  related_registry_record_consistent: true
+
+frozen_hash_ack:
+  AGENTS: {expected: 260BC8FA9108CF50E4B5E84B3346FB58C79E0B3C1CB07A8D0A760B8BA43EE4AB, actual: 9813407301BE295CB15B6030CAB5F225A91E3297729CF482393868066ACF825B, match: false}
+  plan: {expected: 08A2366859C328EC3D34711734EA4057A72C9D18A2DCB5972613A84584A2AD69, actual: 2BB432B796928EFD4CFDB1CE880C8EDE9CE85F35CC3CFD0F1896007E760630E6, match: false}
+  registry: {expected: BFC242CFD962112958A5909F1AE8620FC91E638EF182120D3ACEA74555B350D8, actual: 87C1E65B67B7C110DE7A54894B48BE8D8AB38060180C79DF3A5EF93462C64E83, match: false}
+  role_rule: {expected: B13A18085D54D4D57F40D4833A0555F14505242C45043940E6C316D120AEBEE8, actual: B13A18085D54D4D57F40D4833A0555F14505242C45043940E6C316D120AEBEE8, match: true}
+  skill: {expected: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2, actual: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2, match: true}
+  source_portfolio: {expected: FE3BC9503F70ED4BD729B338A7729BFA5CA3A3747312D63AF83D59B93FFE1F4D, actual: FE3BC9503F70ED4BD729B338A7729BFA5CA3A3747312D63AF83D59B93FFE1F4D, match: true}
+  seed_template: {expected: 31B6A89548313B51EFD0C7685ACF50EA56D6EC5C0B557BD9E8B920C7E2179470, actual: 31B6A89548313B51EFD0C7685ACF50EA56D6EC5C0B557BD9E8B920C7E2179470, match: true}
+  rq_template: {expected: 0FF1E7FD811C3BCA84D15DA9713B7A27ED8EB9076C2939316AF43DA85168F5BF, actual: 0FF1E7FD811C3BCA84D15DA9713B7A27ED8EB9076C2939316AF43DA85168F5BF, match: true}
+  question_card_template: {expected: D157B1B5D14C0DCEB3D238E85075777C3850C7E145ABD5EA8A3A111D3D022739, actual: D157B1B5D14C0DCEB3D238E85075777C3850C7E145ABD5EA8A3A111D3D022739, match: true}
+  brief_template: {expected: F1EF88AFE26DB2949E86CD66187821E5331AA3081DF5C76D6D271530CAC87637, actual: F1EF88AFE26DB2949E86CD66187821E5331AA3081DF5C76D6D271530CAC87637, match: true}
+  minimum_inputs_all_match: true
+
+mode_and_boundary_ack:
+  context_mode: DUAL_READ_SHADOW
+  discovery_claim_pack_mode: OFF
+  discovery_quality_mode: OFF
+  discovery_rq_frontend_mode: PRODUCTION
+  bounded_debt_closure_shadow_test: true
+  canonical_search_or_open_calls_max: 6
+  nomination_max: 1
+  repair_execution_max: 0
+  resource_root: null
+  resource_root_absent: true
+  unique_write_directory: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/cycle01/S5
+  allowed_actions: [read_frozen_inputs, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+  forbidden_actions_understood: [search, network, canonical_seed, canonical_rq, canonical_card, canonical_brief, shadow_nomination, repair_execution, candidate_download, build, experiment, stage0_dispatch_effect, stagea, stageb, shared_write]
+
+execution_ack:
+  preaction: false
+  scientific_or_resource_action_started: false
+  canonical_action_started: false
+  shadow_nomination_started: false
+  repair_execution_started: false
+  search_or_network_started: false
+  resource_action_started: false
+  stage0_stagea_stageb_started: false
+  next_action: RETURN_TO_MAINLINE_WITHOUT_ACTION
+
+differences_or_ambiguities:
+  - AGENTS.md SHA256 drifted from the frozen context snapshot.
+  - plan.md SHA256 drifted from the frozen context snapshot.
+  - registry.yaml SHA256 drifted from the frozen context snapshot; the related S5 record still matches the frozen lane/thread/write-directory mapping.
+ack_disposition: REFUSE_MISSING_OR_CONFLICTING_CONTEXT
+start_authorized_by_mainline: false
+start_authorization_timestamp: null
+

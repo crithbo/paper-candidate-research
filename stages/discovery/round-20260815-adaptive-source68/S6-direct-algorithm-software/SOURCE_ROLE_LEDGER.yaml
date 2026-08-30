@@ -1,0 +1,28 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE68-R40-ORDINARY-BREADTH-V1
+sources:
+  - role: CURRENT_UPSTREAM
+    title: Go compiler optimization wiki
+    url: https://go.dev/wiki/CompilerOptimizations
+    version_or_date: current page read 2026-08-15
+    decision_use: establishes global escape analysis across function/package boundaries and diagnostic entry point
+  - role: CURRENT_SOURCE
+    title: Go escape analysis implementation
+    url: https://go.dev/src/cmd/compile/internal/escape/escape.go
+    version_or_date: current upstream page read 2026-08-15
+    decision_use: documents static data-flow and directed weighted location graph action model
+  - role: CURRENT_DOCS
+    title: Go compiler README and GC guide
+    urls:
+      - https://github.com/golang/go/blob/master/src/cmd/compile/README.md
+      - https://go.dev/doc/gc-guide
+    version_or_date: current pages read 2026-08-15
+    decision_use: confirms compiler-pass context and nondefault diagnostic flag
+  - role: PRIMARY_CONTRARY_GENERIC_KERNEL
+    title: Escape Analysis for Java
+    authors: Jong-Deok Choi, Manish Gupta, Mauricio Serrano, Vugranam C. Sreedhar and Sam Midkiff
+    url: https://research.ibm.com/publications/escape-analysis-for-java
+    version_or_date: 1999
+    decision_use: connection-graph interprocedural summaries and data-flow escape classification directly subtract the proposed non-generic mechanism
+source_action_notes:
+  current_reality_check: Docs, current source, and diagnostic/nondefault entry points were read. This is sufficient to identify the current mechanism, not an absence proof.
+  acquisition: no files downloaded; no build, installation, experiment, or benchmark executed

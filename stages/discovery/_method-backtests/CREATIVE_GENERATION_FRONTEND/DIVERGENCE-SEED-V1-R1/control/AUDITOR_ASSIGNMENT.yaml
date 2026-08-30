@@ -1,0 +1,55 @@
+assignment_id: BACKTEST-AUDITOR-L1-20260814-DIVERGENCE-SEED-FRONTEND-V1-R1
+role: DISCOVERY_BACKTEST_AUDITOR_LANE
+task_id: 019fe65a-07d2-7161-ba29-27ff00da26bc
+method_revision: DIVERGENCE_SEED_POOL_V1R1__EVIDENCE_GATED_QUESTION_CARD_V7R2
+write_directory: stages\discovery\_method-backtests\CREATIVE_GENERATION_FRONTEND\DIVERGENCE-SEED-V1-R1\auditor
+write_policy: ADDITIVE_ONLY__NO_PACKER_EXECUTOR_OR_SHARED_FILE_WRITE
+serial_gate:
+  packer_status: ACCEPTED
+  packer_sealed_input_manifest_sha256: F1B9A85AD1C3A454226BFB345C0A6E11FF36474A992AA5A8A0F0526F45902548
+  executor_status: ACCEPTED
+  executor_handoff_sha256: A8D31167950B4A8F9C2CEC021DAC84E38F9C6425ACA05CB8AE95208FC44A006D
+  executor_method_output_sha256: 4290BEB243969A04B5D9F582DCB62015249092F4D1D918138788767823FD12D5
+allowed_reads:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules\ROLE_DISCOVERY_BACKTEST.md
+  - stages\discovery\_method-backtests\CREATIVE_GENERATION_FRONTEND\DIVERGENCE-SEED-V1-R1\control\MASTER_CONTRACT.yaml
+  - stages\discovery\_method-backtests\CREATIVE_GENERATION_FRONTEND\DIVERGENCE-SEED-V1-R1\packer\AUDITOR_KEY.yaml
+  - stages\discovery\_method-backtests\CREATIVE_GENERATION_FRONTEND\DIVERGENCE-SEED-V1-R1\packer\SOURCE_LEDGER.yaml
+  - stages\discovery\_method-backtests\CREATIVE_GENERATION_FRONTEND\DIVERGENCE-SEED-V1-R1\packer\CONTAMINATION_AUDIT.md
+  - stages\discovery\_method-backtests\CREATIVE_GENERATION_FRONTEND\DIVERGENCE-SEED-V1-R1\packer\sealed_input_manifest.yaml
+  - stages\discovery\_method-backtests\CREATIVE_GENERATION_FRONTEND\DIVERGENCE-SEED-V1-R1\executor
+audit_obligations:
+  - VERIFY_ROLE_AND_BLIND_SEPARATION
+  - MAP_OPAQUE_CASES_TO_AUDITOR_KEY_ONLY_AFTER_EXECUTION_IS_FROZEN
+  - COUNT_POSITIVE_PROBLEM_SHAPES_RECOVERED
+  - VERIFY_NEGATIVE_CONTROL_NOT_FORCED_INTO_A_BRIEF
+  - REJECT_GENERIC_NOUN_SWAP_OR_PURE_LIMITATION_RESTATEMENT_AS_RECOVERY
+  - VERIFY_SEED_LOCATOR_QUESTION_CARD_ACCOUNTING
+  - ASSESS_DECISIVE_LEAKAGE_OR_TARGET_MEMORIZATION_RISK
+  - STATE_LIMITATIONS_OF_FOUR_CASE_HISTORICAL_CALIBRATION
+pass_conditions:
+  positive_problem_shapes_recovered_minimum: 2
+  negative_controls_force_packaged_as_brief_maximum: 0
+  decisive_leakage_allowed: false
+  pure_limitation_restatement_allowed: false
+  seed_to_locator_accounting_required: true
+  generic_shells_counted_as_recovery_allowed: false
+allowed_decisions:
+  - CALIBRATED
+  - NOT_CALIBRATED
+  - CONTAMINATION_UNKNOWN
+activation_authority:
+  source25_only_if: CALIBRATED
+  automatic_production_or_v9: false
+  scientific_gate_change: false
+required_outputs:
+  - AUDIT_REPORT.md
+  - CALIBRATION_DECISION.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+network_search_install_build_experiment_allowed: false
+stage0_stagea_stageb_candidate_action_allowed: false
+return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

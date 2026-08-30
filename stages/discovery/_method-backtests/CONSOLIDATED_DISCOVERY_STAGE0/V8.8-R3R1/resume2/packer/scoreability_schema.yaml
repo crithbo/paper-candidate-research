@@ -1,0 +1,27 @@
+schema_version: blinded_calibration_schema
+visible_required_fields:
+  disposition: 'One canonical ordered-table result.'
+  proposed_brief: 'Boolean; whether an executor proposes a bounded Stage0 brief.'
+  candidate_grade_deep_review: 'Boolean; whether a candidate-level collision/deep review is warranted.'
+  proposal_grade: 'Boolean; stronger Stage0 proposal-grade assessment, not a synonym for proposed_brief.'
+  disposition_basis: 'Canonical basis enum.'
+  minimum_set_assessment: 'For each of nearest_same_object, first_party_family, generic_kernel, strongest_deployed_union: source_ids, mechanism_or_action_summary, collision_effect, evidence_pointer.'
+  structural_proof: 'type plus evidence, or NONE/null.'
+  failed_candidate_gates: 'Candidate defects only.'
+  method_hard_gate_bypasses: 'Method violations only.'
+hidden_predicate_to_visible_field:
+  ordered_disposition: disposition
+  proposed_package_decision: proposed_brief
+  deep_review_decision: candidate_grade_deep_review
+  proposal_grade_decision: proposal_grade
+  reason_category: disposition_basis
+  semantic_minimum_set_recall: minimum_set_assessment
+  structural_validity: structural_proof
+  candidate_defect_separation: failed_candidate_gates
+  method_violation_separation: method_hard_gate_bypasses
+  full_fidelity_certificate_for_proposals: proposed_brief plus case certificate fields
+fairness_assertions:
+  - 'No hidden predicate requires an exact identity, URL, result, or token not requested by this schema.'
+  - 'Semantic minimum-set recall is assessed from a nonempty mechanism/action summary and collision effect, not source ID alone.'
+  - 'An unmapped hidden predicate is FAILED_NOT_DISPATCHABLE.'
+pre_dispatch_scoreability: PASS

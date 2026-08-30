@@ -1,0 +1,64 @@
+schema: ort-ep-assignment-stability-a0-handoff-v1
+assignment_id: STAGEA-L2-20260830-ORT-EP-ASSIGNMENT-STABILITY-A0
+topic_id: SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+lane_id: CANDIDATE_EXECUTION_LANE_2
+decision: A0_RESOURCE_BLOCKED__CUDA_PROVIDER_NOT_INSTANTIATED
+evidence_ceiling: RESOURCE_AND_INVALID_CONTROL_CONSTRUCTION_ONLY__NO_SCIENTIFIC_INFERENCE
+bootstrap:
+  ack_sha256: 0DEBE4C0925453C30B935550E960020AAC1D75C98201FD4D3555CB6A02F57F5C
+  acceptance_sha256: 4024763E9E1C2B318F6BFB7A118F40D5AAF2DB10EE9E9DD0A4D78BF96153F4C1
+  start_sha256: 146B3B4F128F84B3AAC22943B1C44E00E4E297BC8008F9E7F26D5AD6D9E11D20
+artifact_and_models:
+  ORT: {version: 1.26.0, wheel_sha256: 5F49C44689894650990E4C8A857D2EDAFC276FBD79BBA57CEB224BD18D25D491}
+  provider_options_sha256: 294CBC38103D581CDFFDB2E603C510030A54F417C2AAFAF60E869C1814186532
+  model_1: {id: ONNX_MODEL_ZOO_MNIST_8, family: handwritten_digit_classification, sha256: 2F06E72DE813A8635C9BC0397AC447A601BDBFA7DF4BEBC278723B958831C9BF}
+  model_2: {id: ONNX_MODEL_ZOO_SQUEEZENET1_0_12, family: image_classification_CNN, sha256: DEC81A8684617770B3CF13FADC1D92565D1D453D23935FC6388B792D99C992BD}
+packet:
+  positive_relation_families: [inverse_Transpose_or_Reshape_identity, Split_then_Concat_reconstruction]
+  normalized_away_negative_controls: [NEG_IDENTITY_TRANSPOSE, NEG_SINGLETON_SPLIT_CONCAT]
+  source_representation: SOURCE_ORIGINAL
+  heldout_relation_instances: 8
+  optimizer_actions: [ORT_ENABLE_BASIC, ORT_ENABLE_EXTENDED, ORT_ENABLE_ALL]
+  repetition_count_R: 3
+  failure_penalty_seconds: 3600.0
+  process_control_arms: [INSTRUMENTATION_ON, INSTRUMENTATION_OFF]
+  cell_count: 144
+  cell_ids_sha256: 12CBDCE09593ED29A20EE06BAE6401E99A8446F15C5A218545B02913756C6A78
+  numeric_tolerances: {float_rtol: 0.0001, float_atol: 0.00001, integer_exact: true, nan_positions_equal: true, inf_sign_exact: true, signed_zero_equal: true}
+  semantic_region_quotient: BOUND_ZERO_ONE_MANY_WITH_EXPLICIT_FAILURE_OUTCOMES
+  native_assignment_evidence: BOUND_TO_ORT_PROVIDER_SESSION_OPTIMIZED_MODEL_AND_PROFILE_SURFACES
+  baselines: [OUTPUT_ONLY_DIFFERENTIAL, RAW_TIMING, SIMPLE_STRUCTURE, NATIVE_ASSIGNMENT_INFO, FULL_PER_REPRESENTATION_OPTIMIZER_GRID, VERSION_COMPATIBLE_MOBIUS_QNN_LINEAGE]
+  full_cost_fields: 11
+  packet_path: resources/build/packet/ORT_A0_PACKET.json
+  all_cell_ids_path: resources/build/packet/ALL_CELL_IDS.json
+nonclaim_control:
+  attempt: 1_of_1
+  process_exit_code: 0
+  model_run_calls: 0
+  raw_script_wiring_complete: true
+  raw_script_verdict_invalidated: true
+  actual_session_providers_for_both_models: [CPUExecutionProvider]
+  required_provider_order: [CUDAExecutionProvider, CPUExecutionProvider]
+  canonical_status: FAIL_CLOSED_CUDA_PROVIDER_NOT_INSTANTIATED
+  missing_dependency: cublasLt64_12.dll
+  control_status: {path: A0_CONTROL_STATUS.yaml, sha256: 057B8D0E36BFBB996068AB617A83C68A2540E14CFA93CC35689AEA408607D149}
+readiness:
+  executable_packet_ready: false
+  control_row_pass: false
+  ledger: {path: STAGEA_EXECUTION_READINESS_LEDGER.yaml, sha256: 1F92782BDDE79B46028304239D44EEA6DBA36251BCEA1326625AA3F663B8555F}
+  inventory: {path: RESOURCE_INVENTORY.yaml, sha256: 40A9C64714557CFD98F7892A809073C6F521CEFD47B269D01CFE57F3BA051323}
+resource_summary: {files: 433, logical_bytes: 840454452, reparse_points: 0, active_related_processes: 0, network_attempts_used: 3, cleanup_performed: false}
+firewall:
+  claim_cells_executed: 0
+  heldout_regret_direction_read: false
+  optimizer_action_winner_read: false
+  assignment_change_rate_read: false
+  candidate_vs_baseline_full_cost_read: false
+  positive_or_negative_scientific_direction_read: false
+  scientific_revision_consumed: false
+  scientific_inference: NONE
+  StageB: false
+  shared_write: false
+lifecycle: {retention_path: PHASE_CLOSEOUT_RETENTION.yaml, resume_capsule_path: RESUME_CAPSULE.yaml, manifest_path: TARGETED_MANIFEST.yaml}
+current_cycle_usage_reset_confirmed: false
+next_action: WAIT_MAINLINE_RESOURCE_OR_POLICY_DISPOSITION__NO_SUCCESSOR

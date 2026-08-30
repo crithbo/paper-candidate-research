@@ -1,0 +1,27 @@
+assignment_id: DISCOVERY-S4-20260809-V8.4-WAVE1
+lane: S4-objective-constraint
+method:
+  used: DISCOVERY_METHOD_V2_V8.1_ACCEPTED_CALIBRATED
+  not_used: TWO_AXIS_V8.2R2_TLS_BLOCKED
+cutoff_date: '2026-08-09'
+output:
+  propose_stage0: []
+  grounded_briefs: []
+  result: ZERO_PROPOSALS_AFTER_THREE_PASS_CONVERGENCE
+reason:
+  - The only concrete Pareto lead was compressed time-series ingestion with out-of-order writes.
+  - Chunk sizing is an existing trade-off, not a new action.
+  - Patch/overlay and compaction variants collide with existing O3/D-file and MCC mechanisms or are prohibited controllers/wrappers.
+  - No distinct N1/N2/N3 route survived same-object and full-cost requirements.
+evidence:
+  search_log: SEARCH_LOG.md
+  collision_matrix: SOURCE_COLLISION_MATRIX.md
+  zero_proposal_report: ZERO_PROPOSAL_REPORT.md
+integrity:
+  no_stage0_created: true
+  no_stage_a_or_b_created: true
+  no_registry_or_mainline_files_modified: true
+  no_revival_of_terminal_o4_dyncache_pgm: true
+  primary_or_official_sources_only_for_retained_evidence: true
+lane_state_after_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE
+mainline_action: NONE_REQUIRED

@@ -1,0 +1,51 @@
+schema_version: assignment-resource-inventory-v1
+identity:
+  topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+  assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10-NATURAL-CLAIM-EXECUTION
+  stage_or_mode: STAGE_A_NATURAL_CLAIM_EXECUTION
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r10-natural-claim-execution-20260829
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r10-natural-claim-execution-20260829/resources
+  inventory_path: RESOURCE_INVENTORY.yaml
+  finalized_at: 2026-08-29
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  artifact_state: FROZEN_AWAITING_MAINLINE
+  closeout_event: STAGEA_HANDOFF
+  downstream_consumer: INDEPENDENT_STAGEA_GATE
+  post_close_retained_bytes_max: 2147483648
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: RESUME_CAPSULE.yaml
+root_measurement:
+  logical_bytes: 127698561
+  measurement_method: EXACT_FILE_LIST_AND_SHA256_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+resource_envelope:
+  network_bytes_used: 0
+  stored_bytes_used: 127698561
+  attempts_used: 1
+entries:
+  - path_scope: resources/**
+    exact_file_manifest: EXECUTION_INPUT_COPY_MANIFEST.yaml
+    expected_file_count: 340
+    expected_logical_bytes: 127698561
+    provenance: r9d-command-cost-preclaim/resources exact local copy
+    retention_class: RETAINED_FOR_MAINLINE_HANDOFF
+    claim_critical: true
+    reparse_count: 0
+validation:
+  source_files: 340
+  destination_files: 340
+  missing: 0
+  hash_mismatch: 0
+  reparse_traversal_check: true
+  result: PASS
+cleanup:
+  owner: MAINLINE
+  performed: false
+  authorized_descendants: []

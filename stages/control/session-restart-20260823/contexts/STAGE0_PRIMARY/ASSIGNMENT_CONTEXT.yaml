@@ -1,0 +1,30 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+generated_at: 2026-08-23T18:10:36+08:00
+context_mode: DUAL_READ_SHADOW
+mainline_task_or_contact: 01a02e08-06de-7281-89ab-eb4965cccc92
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_ACTION
+thread_mapping: {new_thread_id: 01a02e0b-b609-7202-bda9-a2e8b08794b6, old_thread_id: 019fbc13-54f3-7412-9cdd-abf95493af42}
+identity: {lane_id: STAGE0-PRIMARY, role_id: STAGE0_PRIMARY, assignment_id: IDLE-REUSABLE-RESTART-20260823, topic_id: null, stage_or_mode: IDLE_REVIEW, status: IDLE_REUSABLE, resume_point: WAIT_FOR_FROZEN_HANDOFF, next_action: WRITE_BOOTSTRAP_ACK_THEN_WAIT_WITHOUT_PREREAD, source_assignment_path: null, source_assignment_sha256: null}
+authority: {policy_authority: USER, shared_file_writer: MAINLINE, canonical_writer: null, user_approval_ids: [], allowed_actions: [read_context, write_bootstrap_ack], forbidden_actions: [review_topic, search, pre_read_candidate, start_stage0, change_state], forbidden_inputs: [any_unassigned_topic_material, old_chat_unregistered_judgments]}
+boundaries: {unique_write_directory: 'D:/project/writing/reserch/stages/control/session-restart-20260823/contexts/STAGE0_PRIMARY', resource_root: null, read_only_paths: [AGENTS.md, plan.md, registry.yaml, rules/ROLE_STAGE0_REVIEW.md], write_allowed_paths: [stages/control/session-restart-20260823/contexts/STAGE0_PRIMARY/BOOTSTRAP_ACK.yaml], network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 665A557A6C8AD8030F97B1767D06B500D658674681FFBF021A276C5B31DBC61B}
+  plan: {path: plan.md, sha256: BFC72BAB2492AB44330EC6091E4159944D750D437AC4FACE323BA2FFDC593A9C}
+  registry_snapshot: {path: registry.yaml, sha256: 7E0199903CF4C2105F2444A2E07F230437835A6A3CFABE228041FF7C978E7DA2}
+  role_rule: {path: rules/ROLE_STAGE0_REVIEW.md, sha256: B8ACDC6B43B5C1400B46A9287B95AA225BA833BF25F9969EFBC1C1717AF7AD75}
+  conditional_protocols: []
+  skills: [{name: academic-research-suite, path: 'C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md', sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F, mode: IDLE_NO_REVIEW}]
+  templates: [{path: templates/STAGE0_REPORT.md, sha256: 321DB6FEF1838EAA4759F3662C27721F2131441DAB8EBF5E58DFCF9DD3004CE7}, {path: templates/Q1_COMPARATOR_MATRIX.md, sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87}, {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}]
+minimum_inputs: []
+expected_outputs: [BOOTSTRAP_ACK.yaml]
+budget: {reviews: 0}
+claim_ceiling: NO_REVIEW_ASSIGNMENT
+evidence_ceiling: NO_SCIENTIFIC_INFERENCE
+scientific_revision: {allowed_total: null, consumed: null, remaining: null, exceptional_revision_authorized: false}
+mechanism_pivot: {allowed: null, consumed: null, remaining: null}
+identity_and_collision: {exact_identity_digest: IDLE_STAGE0_PRIMARY, terminal_identity_digest: PRESERVE_TERMINAL_REGISTRY, current_collision_digest: null, terminal_stop_non_revival_asserted: true}
+user_and_blocker_state: {user_action_required: false, blocker_state: NO_HANDOFF, blocker_packet_path: null, resource_policy_path: rules/RESOURCE_LOCALIZATION.md, resource_policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+stop_and_escalation_conditions: [any_topic_material_before_assignment]
+handoff_requirements: [ack_only, wait_for_mainline_handoff]
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: PASS__IDLE_NO_QUEUE, result: PASS__ACK_REQUIRED}

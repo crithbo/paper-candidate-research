@@ -1,0 +1,84 @@
+assignment_id: DISCOVERY-S3-20260815-ADAPTIVE-SOURCE91-R40-ORDINARY-BREADTH-V1
+generation_completed_before_evidence_lookup: true
+network_security_exclusion: PASS
+seed_ceiling: 12
+seed_count: 6
+selected_locator_count: 2
+primary_rq_count: 2
+seeds:
+  - id: S3-91-SEED-01
+    engine: JANUSIAN_TENSION
+    perspective: COMPILER_OR_BACKEND_ENGINEER
+    sketch: "版本化边缘模型既有重复的图骨架，又有动态 shape 上界；若同一可执行语义下的 live-range frontier 可预测，离线 arena constructor 可能不同于按单图贪心。"
+    anchor_candidate: "ExecuTorch memory-planning documentation 1.3"
+    disposition: SELECTED_LOCATOR
+  - id: S3-91-SEED-02
+    engine: NEGATION_OR_INVERSION
+    perspective: MAINTAINER
+    sketch: "相邻二进制的 profile 会陈旧；反问不是重采样或单次重排，而是版本间变化结构是否能支持保持二进制语义的 recourse-aware layout constructor。"
+    anchor_candidate: "LLVM BOLT current README and llvm-profdata order documentation"
+    disposition: SELECTED_LOCATOR
+  - id: S3-91-SEED-03
+    engine: CONSTRAINT_MANIPULATION
+    perspective: HARDWARE_ARCHITECT
+    sketch: "把 SRAM/DRAM placement 从预设 memory mode 改为由跨模型 release 的可检验 phase law 驱动；只有同一 NPU execution semantics 下的完整离线 placement 才可继续。"
+    anchor_candidate: "official version-pinned embedded-NPU model corpus"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-91-SEED-04
+    engine: ABSTRACTION_LADDER
+    perspective: MEASUREMENT_REVIEWER
+    sketch: "从版本化 compiler input corpus 的局部 shape/稀疏模式上升到可证伪的 cost-model regime law；结论必须改变固定目标的离线 code-generation decision，而非在线 selector。"
+    anchor_candidate: "version-pinned public compiler-input corpus"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-91-SEED-05
+    engine: BISOCIATION_STRUCTURAL_TRANSFER
+    perspective: THEORIST
+    sketch: "将重复版本变更中的 bounded edit frontier 映射为 exact/FPT 的 offline representation constructor；必须保持 stock reader 与逻辑对象不变。"
+    anchor_candidate: "public release-series native representation with verifier"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-91-SEED-06
+    engine: COMPOSE_DECOMPOSE_SIMPLIFY
+    perspective: OPERATOR
+    sketch: "将多阶段模型/程序的重复子图与生命周期分开，检查只有联合 constructor 才能改善 full cost 的情形；外部 cache、控制器和普通 packing 不可作为答案。"
+    anchor_candidate: "immutable public multi-stage inference artifact series"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+clusters:
+  - id: C1_STATIC_EXECUTION_MEMORY
+    seed_ids: [S3-91-SEED-01, S3-91-SEED-03, S3-91-SEED-06]
+    representative: S3-91-SEED-01
+    material_difference: "S3-91-SEED-01 has an exact current official anchor; the other two do not."
+  - id: C2_VERSION_RECOURSE_LAYOUT
+    seed_ids: [S3-91-SEED-02, S3-91-SEED-05]
+    representative: S3-91-SEED-02
+  - id: C3_COMPILER_REGIME_MEASUREMENT
+    seed_ids: [S3-91-SEED-04]
+    representative: S3-91-SEED-04
+rq_candidates:
+  - id: S3-91-RQ01
+    seed: S3-91-SEED-01
+    exact_anchor: "ExecuTorch 1.3 Memory Planning documentation; checked 2026-08-15"
+    object_and_guarantee: "one fixed ExecuTorch program's tensor-value semantics and static execution semantics; any candidate must retain the stock runtime result."
+    primary_rq: "On a version-pinned public edge-model carrier, do repeatable live-range/shape regimes create a target-specific offline memory-plan constructor with a falsifiable arena-memory consequence beyond the stock greedy plan?"
+    contribution_hypothesis: N3_PLUS_N2
+    primary_route: "https://docs.pytorch.org/executorch/stable/compiler-memory-planning.html"
+    fallback_transport_only: "https://docs.pytorch.org/executorch/stable/using-executorch-export.html"
+    pre_evidence_null: "The apparent structure is an artifact of model choice or ordinary interval packing, and the stock configurable planner already represents the useful action."
+    registry_identity_preflight: "RELATED_ONLY_DO_NOT_EXCLUDE: registry contains an earlier Source14 note mentioning ExecuTorch, but the five-field current RQ identity is not established by that note. No novelty inference follows."
+    closure_result: LOCATOR_ONLY__NATURAL_CARRIER_AND_NON_GENERIC_DISCRIMINATOR_UNFROZEN
+  - id: S3-91-RQ02
+    seed: S3-91-SEED-02
+    exact_anchor: "LLVM current BOLT README on main and LLVM llvm-profdata ORDER documentation; checked 2026-08-15"
+    object_and_guarantee: "a fixed ELF binary with profile-derived layout, preserving executable semantics and the stock binary compatibility requirements."
+    primary_rq: "Do adjacent official release binaries and a fixed representative workload admit a recourse-aware whole-layout construction whose semantic-preserving delta/performance trade-off is not already expressed by stock BOLT and LLVM ordering tools?"
+    contribution_hypothesis: N2_OR_N3
+    primary_route: "https://github.com/llvm/llvm-project/blob/main/bolt/README.md"
+    fallback_transport_only: "https://llvm.org/docs/CommandGuide/llvm-profdata.html"
+    pre_evidence_null: "Stock BOLT stale-profile support and llvm-profdata temporal ordering already express the frozen profile-transfer/layout action."
+    registry_identity_preflight: "NO_MATCH_FOR_EXACT_BOLT_LABEL; this is not novelty evidence."
+    closure_result: EARLY_FATAL_DIRECT_CURRENT_SUBTRACT
+portfolio_advisory:
+  engines_used: 6
+  perspectives_used: 6
+  coverage: PASS
+  note_zh: "种子在任何外部检索前一次性生成；未因检索结论补位。四条无 exact public anchor 的路线保留为非证据 backlog，未计入 raw。"
+

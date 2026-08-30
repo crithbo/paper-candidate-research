@@ -1,0 +1,25 @@
+sources:
+  - id: SRC01_OPENMP_TASK_52
+    role: ANCHOR
+    url: https://www.openmp.org/spec-html/5.2/openmpse73.html
+    version_or_date: OpenMP 5.2 Git rev 95b2e3a44; observed 2026-08-15
+    provenance: official OpenMP specification
+    finding: a detachable task completes only after structured-block execution and allow-completion event fulfillment.
+  - id: SRC02_OPENMP_FULFILL_EVENT
+    role: ANCHOR_SEMANTICS
+    url: https://www.openmp.org/spec-html/5.1/openmpsu187.html
+    version_or_date: official OpenMP specification page observed 2026-08-15
+    provenance: official OpenMP specification
+    finding: fulfill destroys the event; early and late fulfill have defined callback states.
+  - id: SRC03_LIBOMP_TASKING_CURRENT
+    role: CURRENT
+    url: https://openmp.llvm.org/doxygen/kmp__tasking_8cpp_source.html
+    version_or_date: current LLVM OpenMP documentation observed 2026-08-15
+    provenance: LLVM libomp generated current source documentation
+    finding: detached-task paths switch state and `__kmp_fulfill_event` may free task data after fulfillment.
+  - id: SRC04_LIBOMP_EARLY_LATE_TEST
+    role: CONTRARY
+    url: https://openmp.llvm.org/doxygen/runtime_2test_2ompt_2tasks_2task__late__fulfill_8c_source.html
+    version_or_date: current LLVM OpenMP test documentation observed 2026-08-15
+    provenance: LLVM libomp test source
+    finding: current test suite exercises late fulfill; companion tasking tests exercise detached event APIs.

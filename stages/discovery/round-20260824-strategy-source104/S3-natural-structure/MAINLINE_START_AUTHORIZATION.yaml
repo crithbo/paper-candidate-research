@@ -1,0 +1,18 @@
+schema_version: mainline-start-authorization-v1
+issued_by: MAINLINE
+issued_at: 2026-08-24T03:16:00+08:00
+lane_id: DISCOVERY_S3
+assignment_id: DISCOVERY-S3-20260824-SOURCE104-PUBLIC-CARRIER-DIVERSIFIED-V1
+decision: ACCEPT_BOOTSTRAP_ACK__START_AUTHORIZED
+assignment_context: {path: ASSIGNMENT_CONTEXT.yaml, sha256: AE0C6E8920D86E96052127AF48E66C7460CB099CBDF480A7E4BA285EEB30611B}
+bootstrap_ack: {path: BOOTSTRAP_ACK.yaml, sha256: D94F0AC0EC459AF29F54B9FA6FEA8B2A16CCC47E78B2469226C3FC6CF8C815E3, disposition: READY}
+accepted_ack_preconditions: {differences_or_ambiguities: [], scientific_or_resource_action_started: false, start_authorized_by_mainline_at_ack_time: false}
+post_ack_control_transition:
+  plan: {path: plan.md, sha256: 3CD58966C626393441166CF784FD4A5EC55B6EDAEFDFB7FB7878507D00F257F5}
+  registry: {path: registry.yaml, sha256: F85BF773170AF47DFDE318969CC5830861CE13F1E52004A37625A3AE4492BF95}
+  expected_difference: BOOTSTRAP_ACK_PENDING_TO_ACTIVE_START_AUTHORIZED_ONLY
+authorized_next_action: EXECUTE_FROZEN_SOURCE104_DISCOVERY_ASSIGNMENT
+source104_rule_audit_isolation: RULE_AUDIT_OUTPUT_FORBIDDEN_TO_SOURCE104__SOURCE104_RESULTS_FORBIDDEN_TO_AUDIT
+usage_reset_signal: USAGE_RESET_CONFIRMED__STOP_AFTER_CURRENT_DISCOVERY_WAVE__NO_SUCCESSOR_DISPATCH
+state_transition_authority: MAINLINE_ONLY
+

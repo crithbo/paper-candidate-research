@@ -1,0 +1,41 @@
+schema_version: storage-cleanup-execution-log-v1
+assignment_id: MAINLINE-STORAGE-CLEANUP-20260824-D1-WAVE3-BLOCKED-TOPIC-COMPACTION
+executed_by: MAINLINE
+executed_at: 2026-08-24T18:18:00+08:00
+attempts:
+  - attempt: 1
+    disposition: ABORTED_BEFORE_ANY_DELETE
+    reason: POWERSHELL_TOPIC_ROOT_ARRAY_CONSTRUCTION_CAUSED_FALSE_OUT_OF_SCOPE_ASSERTION
+    files_or_directories_deleted: 0
+    scientific_or_resource_action_started: false
+  - attempt: 2
+    disposition: COMPLETE
+    command_semantics: REMOVE_ITEM_RECURSE_FORCE_LITERAL_PATH_ONLY
+    exact_target_count: 39
+    deleted_file_count: 356723
+    logical_reclaimed_bytes: 13754691459
+predelete_gates:
+  exact_targets_present: PASS_39_OF_39
+  literal_under_two_topic_roots: PASS_39_OF_39
+  target_root_reparse_points: 0
+  descendant_reparse_points: 0
+  related_active_processes: 0
+  preservation_paths_present: PASS_7_OF_7
+postdelete_validation:
+  target_absence: PASS_39_OF_39
+  preserved_key_file_hashes: PASS_13_OF_13
+  preserved_key_directories: PASS_6_OF_6
+  topic_roots_present: PASS_2_OF_2
+  cvc5_postdelete: {files: 9144, bytes: 278669711}
+  occupancy_postdelete: {files: 2258, bytes: 587665218}
+  stages_postdelete_before_wave3_report_finalization: {files: 101269, bytes: 6237862789}
+  stageA_postdelete_before_wave3_report_finalization: {files: 87577, bytes: 6005738254}
+  disk_d_free_bytes: 340644884480
+  disk_d_free_gib: 317.250
+state_effect:
+  candidate_or_scientific_states_changed: false
+  blockers_resolved_or_resumed: false
+  builds_experiments_downloads_or_queue_started: false
+  stagea_claim_bearing_work_started: false
+recoverability: PROJECT_LOCAL_UNDELETE_UNAVAILABLE__REACQUIRE_OR_REBUILD_DELETED_LEAVES_FROM_PRESERVED_IDENTITIES_INVENTORIES_LOGS_AND_CURRENT_RECOVERY_ENTRIES
+

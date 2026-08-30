@@ -1,0 +1,104 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: CVC5-ALETHE-SHAREMAP
+  assignment_id: SAFE-RECOVERY-L1-20260816-CVC5-RESUME10-NATIVE-EXE-RELAY
+  stage_or_mode: STAGEA_RESOURCE_RECOVERY_ONLY
+  run_id: resume10-native-exe-relay-1
+  unique_write_directory: D:/project/writing/reserch/stages/stageA/CVC5-ALETHE-SHAREMAP/resume10-native-exe-relay-build
+  resource_root: D:/project/writing/reserch/stages/stageA/CVC5-ALETHE-SHAREMAP/resume10-native-exe-relay-build/resources
+  inventory_path: D:/project/writing/reserch/stages/stageA/CVC5-ALETHE-SHAREMAP/resume10-native-exe-relay-build/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-16T01:29:54+08:00
+  finalized_at: 2026-08-16T01:32:57+08:00
+root_measurement:
+  logical_bytes: 6476
+  pre_final_snapshot_logical_bytes: 2513
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+  measurement_scope: FINAL_RESOURCE_ROOT_WITH_IMMUTABLE_INVENTORY_SNAPSHOT
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: READY_FOR_RELAY_COMPILE
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - frozen native GCC 16.2.0-3
+    - frozen MSYS2 sh and native runtime
+    - frozen Rust/Cargo 1.72.0 if sequential gates reach build
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 838860800
+  cpu_hours_max: 0.25
+  gpu_hours_max: 0
+  wall_seconds_max: 1800
+  attempts_max: 3_SEQUENTIAL_DIFFERENT_GATES
+  network_bytes_used: 0
+  stored_bytes_used: 6476
+  attempts_used: 1_RELAY_COMPILE_ONLY
+entries:
+  - id: frozen_relay_source_copy
+    relative_path: resources/src/relay/native_tool_relay.c
+    sha256: 230E34FCA66924F92F741DB44EE61D8058D22BD4F8C25DBE218156749DB24E40
+    provenance: EXACT_COPY_OF_CONTROL_FROZEN_SOURCE
+    status: CREATED_AND_HASH_VALIDATED
+  - id: frozen_trivial_smoke_source
+    relative_path: resources/build/relay-smoke/conftest.c
+    sha256: 9B8044C13CC843FE16795FD957E3EDE9DA9C5C12F3104E538396EA98230389B2
+    provenance: EXACT_FROZEN_RESUME8_TRIVIAL_SOURCE
+    status: CREATED_AND_HASH_VALIDATED
+  - id: relay_compile_stdout
+    relative_path: resources/logs/relay-compile.stdout.log
+    logical_bytes: 0
+    sha256: E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855
+    status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: relay_compile_stderr
+    relative_path: resources/logs/relay-compile.stderr.log
+    logical_bytes: 837
+    sha256: 2CEF4CBE803615E28218B0869CF38E1B3D883DC89D1AA98ADF48F7073E0B064F
+    status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: relay_compile_status
+    relative_path: resources/logs/relay-compile-status.json
+    logical_bytes: 411
+    sha256: F05F22AA8EBE8FB258B8826B6899975CB8C4D47FE79D5A31815623B574A0FB7B
+    status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: final_inventory_snapshot
+    relative_path: resources/logs/resource-inventory/relay-compile-final.yaml
+    logical_bytes: 3963
+    sha256: DC7E2A3BBD7C2B402A2F649585CE1AADE8FCD0EB66EDC590EFEC97499190E840
+    status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+shared_assets_consumed: []
+external_system_dependencies:
+  - id: frozen_resume4_msys2_native_tools
+    mode: READ_ONLY_UPSTREAM_ASSIGNMENT_INPUT
+  - id: frozen_rust_1_72_gnu
+    mode: READ_ONLY_UPSTREAM_ASSIGNMENT_INPUT_IF_BUILD_GATE_REACHED
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: [resources/tmp]
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: PASS_ZERO_REPARSE_POINTS_PRE_RELAY_COMPILE
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: FINAL_VALID_RESOURCE_PACKAGE__RELAY_COMPILE_FAILED__DOWNSTREAM_GATES_NOT_ENTERED

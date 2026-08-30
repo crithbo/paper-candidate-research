@@ -1,0 +1,170 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: FBAA79B8F347EE7BD309F1A6B5557490758153DA9FF246CBBA0AE487C42F6734
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: USER-PHASE-CLOSEOUT-STORAGE-LIFECYCLE-V1-20260824
+  artifact_state: ARTIFACT_CLOSED_PENDING_MAINLINE_HANDOFF_ACCEPTANCE
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: C6_CANONICAL_RESEAL
+  downstream_consumer: SAME_INDEPENDENT_STAGEA_GATE
+  post_close_retained_bytes_max: 805306368
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: RESUME_CAPSULE.yaml
+  cleanup_receipt_path: null
+identity:
+  topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+  assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9D-COMMAND-COST-PRECLAIM
+  stage_or_mode: STAGEA_PRECLAIM_ENGINEERING_FIDELITY
+  run_id: PPC_R9D_COMMAND_COST_EDGE_AND_R10_VALIDATOR_CLOSURE_V1
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim/resources
+  inventory_path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-26T09:08:32Z
+  finalized_at: 2026-08-26T09:37:00Z
+root_measurement:
+  logical_bytes: 127698561
+  allocated_bytes: null
+  files: 340
+  directories_including_root: 37
+  reparse_entries: 0
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS
+  path: RESOURCE_REDIRECT_PREFLIGHT.yaml
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools: [PYTHONPYCACHEPREFIX, PYTHONDONTWRITEBYTECODE, TEMP, TMP]
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 805306368
+  cpu_hours_max: 2
+  gpu_hours_max: 0
+  wall_seconds_max: 14400
+  attempts_max: null
+  network_bytes_used: 0
+  stored_bytes_used: 127698561
+  attempts_used:
+    copy_attempts: 10
+    static_compile_commands: 1
+    controller_or_generator_python_commands: 5
+    compiler_linker_readobj_objdump_checker_commands: 0
+    automatic_retries: 0
+entries:
+  - path: resources/src/r9c_top_level
+    files: 7
+    logical_bytes: 7140
+    provenance: FROZEN_R9C_OWNER_TOP_LEVEL_AUDITS
+    retention_class: REPRODUCIBILITY_MINIMUM_RETAIN
+    claim_critical: false
+    downstream_consumer: SAME_INDEPENDENT_STAGEA_GATE
+    exact_leaf_hashes: HASH_MANIFEST.sha256
+  - path: resources/src/natural_materializer
+    files: 6
+    logical_bytes: 132739
+    provenance: FROZEN_R9C_SOURCE_PLUS_BOUNDED_R9D_CORRECTION
+    retention_class: REPRODUCIBILITY_MINIMUM_RETAIN
+    claim_critical: false
+    downstream_consumer: SAME_INDEPENDENT_STAGEA_GATE
+    exact_leaf_hashes: HASH_MANIFEST.sha256
+  - path: resources/build/a1_control_replay_1
+    files: 159
+    logical_bytes: 30672884
+    provenance: BYTE_EXACT_FROZEN_R9C_REPLAY_COPY
+    source_tree_sha256: 0EE5A1FE053165158BA3D2880C383BB6CB746A6AD71F8E875F2D87BCBBE99C6D
+    retention_class: REPRODUCIBILITY_MINIMUM_RETAIN
+    claim_critical: false
+    downstream_consumer: SAME_INDEPENDENT_STAGEA_GATE
+    exact_leaf_hashes: HASH_MANIFEST.sha256
+  - path: resources/build/a1_control_replay_2
+    files: 159
+    logical_bytes: 30672890
+    provenance: BYTE_EXACT_FROZEN_R9C_REPLAY_COPY
+    source_tree_sha256: 064AC64E04B2BDC1991A9FC9383133A69498D9E3689A80C4361A048B198B2A22
+    retention_class: REPRODUCIBILITY_MINIMUM_RETAIN
+    claim_critical: false
+    downstream_consumer: SAME_INDEPENDENT_STAGEA_GATE
+    exact_leaf_hashes: HASH_MANIFEST.sha256
+  - path: resources/build/r9d_audits
+    files: 4
+    logical_bytes: 154252
+    provenance: R9D_CONTROL_ONLY_AUDITOR_OUTPUTS
+    retention_class: REPRODUCIBILITY_MINIMUM_RETAIN
+    claim_critical: false
+    downstream_consumer: SAME_INDEPENDENT_STAGEA_GATE
+    exact_leaf_hashes: HASH_MANIFEST.sha256
+  - path: resources/build/r9d_r10_plan.json
+    files: 1
+    logical_bytes: 65922662
+    sha256: 2ECFD29D11B8BC5C3DD0572BCF78A319E6F1DF8D2AEEC49A670FAC89BDF91DB3
+    provenance: STRUCTURAL_PLAN_GENERATED_NOT_EXECUTED
+    retention_class: REPRODUCIBILITY_MINIMUM_RETAIN
+    claim_critical: false
+    downstream_consumer: SAME_INDEPENDENT_STAGEA_GATE
+  - path: resources/build/r9d_r10_validation.json
+    files: 1
+    logical_bytes: 467
+    sha256: A3FC72946D6C36D9589AC33B0F3C67F0B9B288AD0689E4E253E7030D222C8FDD
+    provenance: STRUCTURAL_VALIDATION_NOT_EXECUTED
+    retention_class: REPRODUCIBILITY_MINIMUM_RETAIN
+    claim_critical: false
+    downstream_consumer: SAME_INDEPENDENT_STAGEA_GATE
+  - path: resources/cache
+    files: 3
+    logical_bytes: 135527
+    provenance: EXPLICIT_STATIC_COMPILE_PYCACHE
+    reacquirable: true
+    recovery_command: RECOMPILE_FROZEN_SOURCES_TO_EXPLICIT_CFILES_UNDER_SEPARATE_AUTHORIZATION
+    retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF
+    claim_critical: false
+    downstream_consumer: NONE
+shared_assets_consumed: []
+external_system_dependencies:
+  - PREINSTALLED_BUNDLED_PYTHON_FOR_STATIC_COMPILE_AND_CONTROL_AUDIT_ONLY
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: [resources/downloads, resources/archives, resources/cache, resources/tmp]
+  allowed_automatic_retention_classes: [REACQUIRABLE_DELETE_AFTER_HANDOFF]
+  closeout_plan_accepted: false
+  downstream_inputs_accepted: false
+  capsule_sealed: true
+  active_owner_or_process_count: 0
+  predelete_target_count: 4
+  predelete_file_count: 3
+  predelete_logical_bytes: 135527
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: CACHE_REGENERABLE_FROM_FROZEN_SOURCES_AFTER_SEPARATE_AUTHORIZATION
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: NOT_APPLICABLE_NO_CLAIM_CRITICAL_CONTENT
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: true
+  deterministic_recovery_routes_complete: true
+  closeout_budget_or_exception_pass: true
+  cleanup_receipt_valid: NOT_APPLICABLE_OWNER_CLEANUP_FORBIDDEN
+  result: PASS_CLOSEOUT_PROPOSAL__NO_OWNER_CLEANUP

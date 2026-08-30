@@ -1,0 +1,86 @@
+schema: ppc-r9d-command-cost-edge-audit-v1
+created_at: 2026-08-26T09:35:00Z
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9D-COMMAND-COST-PRECLAIM
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+scope: RETAINED_R9C_CONTROL_RAW_AND_METRICS_ONLY
+result: PASS
+evidence_ceiling: PRECLAIM_ENGINEERING_FIDELITY_ONLY__NO_SELECTED_OR_SCIENTIFIC_INFERENCE
+
+accounting_contract:
+  current_union_command_metric_ids_per_replay: 56
+  compile_ids_per_replay: 8
+  link_ids_per_replay: 16
+  readobj_ids_per_replay: 16
+  objdump_ids_per_replay: 16
+  shared_compile_accounting: DEDUPLICATE_BY_EXACT_COMMAND_METRIC_ID_ACROSS_TWO_LINK_ARMS
+  shared_compile_unique_counted_once_per_replay: 8
+  shared_compile_bundle_references_per_replay: 16
+  required_fields: [cpu_seconds, wall_seconds, peak_rss_bytes, status, exit_code, full_cost]
+  edge_identity: EXACT_COMMAND_METRIC_ID
+  tolerance_or_exclusion_added: false
+
+replay_1:
+  audit_path: resources/build/r9d_audits/replay_1_command_cost.json
+  audit_sha256: AA6AFC579462BE01F8F7E93FABA660CF68E10CC5E8D7B37362373060B1CAB0D0
+  metrics_path: resources/build/a1_control_replay_1/logs/command_metrics.json
+  metrics_sha256: F95B5ABEAB9B9386998EC118D3ABE8498682E49E9CE39E899B43D76714C0B830
+  metrics_rows_total: 59
+  baseline_metric_ids: 56
+  referenced_metric_ids: 56
+  unknown_metric_ids: 0
+  orphan_metric_ids: 0
+  bundle_edge_failures: 0
+  unique_command_metric_ids_costed: 56
+  shared_compile_ids_counted_once: 8
+  shared_compile_bundle_references: 16
+  status_completed: 56
+  exit_code_zero: 56
+  aggregate_unique_command_cost:
+    cpu_seconds_sum: 2.09375
+    wall_seconds_sum: 4.910944799999925
+    peak_rss_bytes_max: 24887296
+  command_cost_rows_sha256: 36301AB44271320E215EEB45198562E0034439190A825E3A217304079640EBCE
+  closure_sha256: 6A4415C155C2F28D5F805C918BA13E8430B43A8DBA7D2E889604EDD9440D4D91
+  result: PASS
+
+replay_2:
+  audit_path: resources/build/r9d_audits/replay_2_command_cost.json
+  audit_sha256: 66A980689FF6AF7763A91A71D67310E2C68BBB9F5EAD9AB13A277A9FAB103509
+  metrics_path: resources/build/a1_control_replay_2/logs/command_metrics.json
+  metrics_sha256: 522650E4A2D855B0099FC7F725CA9B88B93393F8C16CD05F80F3D725BC57C96E
+  metrics_rows_total: 59
+  baseline_metric_ids: 56
+  referenced_metric_ids: 56
+  unknown_metric_ids: 0
+  orphan_metric_ids: 0
+  bundle_edge_failures: 0
+  unique_command_metric_ids_costed: 56
+  shared_compile_ids_counted_once: 8
+  shared_compile_bundle_references: 16
+  status_completed: 56
+  exit_code_zero: 56
+  aggregate_unique_command_cost:
+    cpu_seconds_sum: 2.28125
+    wall_seconds_sum: 4.380197100001169
+    peak_rss_bytes_max: 24887296
+  command_cost_rows_sha256: 7BCF6A809DC7CBA0FCA37B712F06B9006C44D3D72DBE68B868AA530E48D95188
+  closure_sha256: 4716A86944C5C357DE3115649F28A31C5C6002C7F286837BB3A344C0BB568CA5
+  result: PASS
+
+cross_replay:
+  audit_path: resources/build/r9d_audits/cross_replay.json
+  audit_sha256: A69713556661301759AE685CA155CA23EAADE793D260584F544B37D06203254F
+  both_positive_audits_pass: true
+  both_shared_compile_counted_once: true
+  both_zero_command_cost_orphans: true
+  exact_edge_reference_counts_equal: true
+  exact_metric_id_sets_equal: true
+  status_exit_phase_timeout_semantics_equal: true
+  result: PASS
+
+execution_boundary:
+  compiler_linker_readobj_objdump_checker_commands: 0
+  selected_or_natural_tool_invocations: 0
+  claim_bearing_runs: 0
+  automatic_retries: 0
+  scientific_inference: NONE

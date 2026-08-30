@@ -1,0 +1,19 @@
+assignment_id: DISCOVERY-S3-20260815-ADAPTIVE-SOURCE92-R40-ORDINARY-BREADTH-V1
+queue_policy: "A post-RQ queue requires one exact project/object/version and an attempt before EXHAUSTED."
+items: []
+completed_frontend_checks:
+  - id: S3-92-RQ01-CQ01
+    source: "https://iree.dev/guides/deployment-configurations/bare-metal/"
+    source_role: ANCHOR_AND_CURRENT
+    attempt_counter: 1
+    current_reality: "The official guide exposes `--iree-stream-partitioning-favor=min-peak-memory`, explicitly stating the memory-versus-concurrency trade-off."
+    contrary: "A claim that merely uses that pre-existing flag is ordinary configuration/selector behavior, not a union-external whole action."
+    disposition: EARLY_FATAL__CONFIG_ONLY_GENERIC_SHELL
+    ceiling: "This does not exclude other IREE objects, different guarantees, or a future source-supported non-config constructor."
+queue_summary:
+  pending_unexecuted: 0
+  unresolved_backlog: 0
+  exhausted: 0
+  blocked: 0
+  resource_actions: 0
+

@@ -1,0 +1,39 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE85-R40-ORDINARY-BREADTH-V1
+lane: S1-boundary-contradiction
+write_root: stages/discovery/round-20260815-adaptive-source85/S1-boundary-contradiction
+canonical_method: v8.7
+rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1/PRODUCTION
+discovery_modes:
+  v9: OFF
+  claim_pack: OFF
+  selective_depth: OFF
+  anchor_first: OFF
+  shadow: OFF
+funnel:
+  divergence_seeds: 6
+  exact_public_anchors: 1
+  primary_rqs: 1
+  screened_rows: 1
+  evidence_qualified_raw: 0
+  candidate_grade_deep_reviews: 0
+  clean_stage0_briefs: 0
+  proposed_stage0: 0
+  complete_zero_proposals: true
+families:
+  - signature: POSTGRESQL_NOTIFY__TRANSACTION_COMMIT_DELIVERY_VISIBILITY__FIXED_LISTENER_ORDER_ENDPOINT__POSTGRESQL_ASYNC_FULL_COST
+    canonical_disposition: EXCLUDED_BEFORE_RAW__COMMIT_DELIVERY_BOUNDARY_IS_OBSERVABLE_OR_GENERIC_NOTIFICATION_DISPATCH
+    reason: >-
+      Current PostgreSQL semantics bind publication to sender commit, listener transaction completion,
+      duplicate folding, and documented order. Altering those changes the fixed endpoint; preserving them
+      leaves generic dispatch/batching rather than a target-specific N1/N2.
+    same_object: true
+    current_upstream_check: official current docs plus current async.c source locus checked
+    claim_ceiling: NO_PAPER_CLAIM__STRUCTURAL_SCREEN_ONLY
+source_closure_queue:
+  status: EMPTY_NOT_EXHAUSTED
+  attempts: 0
+resources:
+  actions_performed: false
+  scientific_inference_from_resources: false
+held_and_forbidden_isolation: true
+next_action: IDLE_REUSABLE_AWAITING_MAINLINE

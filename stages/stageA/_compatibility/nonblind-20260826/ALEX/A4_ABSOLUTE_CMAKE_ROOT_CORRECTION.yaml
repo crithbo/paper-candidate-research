@@ -1,0 +1,13 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-ALEX-A4-CMAKE-ROOT
+parent_assignment: NONBLIND-STAGEA-20260826-ALEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: PORTABLE_CMAKE_ROOT_BLOCKER.yaml, sha256: D72960AFAA6A9D6282FFD8DECC9A4649F3269218540190FDD7122252CD358256}]
+module_sentinel: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\ALEX\resources\env\cmake-3.31.6-windows-x86_64\share\cmake-3.31\Modules\CMake.cmake
+only_change: set_CMAKE_ROOT_process_local_to_absolute_parent_of_verified_module_sentinel
+process_local_CMAKE_ROOT: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\ALEX\resources\env\cmake-3.31.6-windows-x86_64\share\cmake-3.31
+allowed_command_sequence:
+  - {id: A4S0, command: '& <portable_cmake> --version with process-local absolute CMAKE_ROOT', stop_on_nonzero: true}
+  - {id: A4S1, command: resume_author_preclaim_configure_build_once_with_same_process_local_CMAKE_ROOT, stop_on_nonzero: true}
+prohibitions: [redownload, reextract, CMAKE_ROOT_system_or_user_write, alternate_CMake, source_edit, fidelity_or_probe_before_preclaim]
+scientific_revision_consumed: false

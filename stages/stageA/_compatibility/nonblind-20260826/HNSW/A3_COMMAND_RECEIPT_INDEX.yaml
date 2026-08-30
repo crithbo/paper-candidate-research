@@ -1,0 +1,13 @@
+schema: nonblind-stagea-command-receipt-index-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW
+mode: NONBLIND_STAGEA_COMPATIBILITY
+pre_assistance_evidence: A3_COMMAND_RECEIPT_INDEX.pass1_owner_curl_blocker.yaml
+assisted_resume_records:
+  - {id: ASSISTANCE_VERIFY, status: PASS, source: MAINLINE_TRANSPORT_ASSISTANCE.yaml, archive_sha256: D163CD3AB4959B0A53FA8988F2DDBD2E6C501658201E6A154386BAD9DBE4F836}
+  - {id: A3S1_LOCAL_EXTRACT, status: PASS, command: "Expand-Archive -LiteralPath resources/archives/cmake-3.31.6-windows-x86_64.zip -DestinationPath resources/env -Force"}
+  - {id: A3S2_PORTABLE_CMAKE_VERSION, status: PASS, command: "resources/env/cmake-3.31.6-windows-x86_64/bin/cmake.exe --version", version: 3.31.6}
+  - {id: A3S3_TAR_VERSION, status: PASS, command: tar --version, version: bsdtar_3.8.4}
+  - {id: PARENT_S2_CODELOAD_DOWNLOAD, status: FAILED_FAIL_CLOSED, command: "Invoke-WebRequest -UseBasicParsing -MaximumRedirection 0 -Uri https://codeload.github.com/nmslib/hnswlib/tar.gz/d9b3608c83d83b46c96e25088cb1d729b29dcfe9 -OutFile resources/archives/hnswlib-d9b3608c83d83b46c96e25088cb1d729b29dcfe9.tar.gz", error_class: AUTHENTICATION_OR_TRANSPORT_FAILURE, download_attempt: 1, redirects_followed: 0, archive_persisted: false, stderr_path: resources/logs/A3S5_parent_codeload.stderr.txt}
+  - {id: PARENT_S3_THROUGH_S7, status: NOT_STARTED}
+retry_count: 0
+scientific_inference: NONE

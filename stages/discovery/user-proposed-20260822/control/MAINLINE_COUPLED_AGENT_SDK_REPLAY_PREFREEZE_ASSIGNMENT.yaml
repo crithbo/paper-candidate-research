@@ -1,0 +1,67 @@
+schema_version: mainline-pre-evidence-freeze-assignment-v1
+assignment_id: MAINLINE-20260822-COUPLED-AGENT-SDK-REPLAY-PREFREEZE1
+topic_id: COUPLED-AGENT-SDK-REPLAY-REV0
+authority: USER_EXPLICIT_REPLACE_STOPPED_PATCHVALUE_WITH_NEW_TOPIC_20260822
+mode: NEW_TOPIC_AFTER_STRUCTURAL_SAME_OBJECT_FAILURE__NO_INHERITANCE
+
+terminal_or_dropped_topics_not_reopened:
+  - PATCHYIELD-CALL
+  - PATCHVALUE-COUNTERFACTUAL-REV0
+  - COUPLED-AGENT-REPLAY-REV0
+
+selection_rules_frozen_before_request:
+  agent:
+    project: OpenHands Software Agent SDK
+    official_repository: https://github.com/OpenHands/software-agent-sdk
+    immutable_selector: Resolve refs/heads/main exactly once from the official GitHub API and record commit SHA and tree SHA.
+    reason_for_new_object: This repository is the official source of truth for agents, tools and workspaces; the dropped Canvas object did not contain the frozen policy/state.
+    no_fallback_repository_or_branch: true
+  model:
+    repository_id: Qwen/Qwen2.5-Coder-7B-Instruct
+    revision: c03e6d358207e414f1eca0bb1891e29f1db0e242
+    reuse_rule: retain the previously pre-evidence-frozen model identity without change
+  benchmark:
+    dataset_id: princeton-nlp/SWE-bench_Verified
+    revision: c104f840cc67f8b6eec6f759ebc8b2693d585d4a
+    fixed_task_count: 16
+    task_list_sha256: 32729224C6BA9EF3A2D47AD86FBB7E7993350D3C0B0A88D0F684A015A0EC240D
+    reuse_rule: retain the previously pre-evidence-frozen ordered task list without change
+  state_boundary:
+    definition: Immediately after the first native SDK tool action has completed and its observation event is incorporated into the conversation state, before the next model call.
+  interventions:
+    I0: Continue with the frozen native OpenHands SDK policy and context unchanged.
+    I1: "Before finishing, run the repository's relevant tests, inspect every failure, and revise the patch when a failure is attributable to the patch. Do not use hidden evaluator information."
+  decoding: {temperature: 0.6, top_p: 0.95, top_k: 0, max_new_tokens_per_model_call: 4096}
+  native_terminal_semantics: absorbing
+
+exact_routes:
+  ref: https://api.github.com/repos/OpenHands/software-agent-sdk/git/ref/heads/main
+  commit_template: https://api.github.com/repos/OpenHands/software-agent-sdk/git/commits/{resolved_commit_sha}
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-sdk-replay-rev0-prefreeze1-mainline
+  resource_root: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-sdk-replay-rev0-prefreeze1-mainline\resources
+  resource_inventory: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-sdk-replay-rev0-prefreeze1-mainline\RESOURCE_INVENTORY.yaml
+
+resource_envelope:
+  official_calls_max: 3
+  accepted_persisted_bytes_max: 1048576
+  cpu_time_max: 10m
+  wall_time_max: 30m
+  system_install: false
+  global_environment_change: false
+
+allowed_actions:
+  - Resolve and persist only the two exact official GitHub metadata responses.
+  - Copy the already frozen 16-task canonical list into the new topic packet without changing its bytes.
+  - Seal object identity and resource inventory.
+
+forbidden_actions:
+  - Read or search collision, novelty, CAR, coupled generation, replay or comparator material.
+  - Change the model, dataset, tasks, intervention, boundary, decoding or terminal semantics.
+  - Download source archives, weights, containers or task images; run agents, models, benchmarks or experiments; install software.
+  - Make any scientific, quality, collision or Stage0 decision.
+
+allowed_dispositions:
+  - PRE_EVIDENCE_EXACT_OBJECT_FREEZE_SEALED
+  - RESOURCE_BLOCKED_IDENTITY_FREEZE__NO_SCIENTIFIC_INFERENCE

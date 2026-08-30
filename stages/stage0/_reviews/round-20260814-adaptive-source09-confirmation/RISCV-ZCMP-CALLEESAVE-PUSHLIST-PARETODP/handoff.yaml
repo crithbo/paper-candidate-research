@@ -1,0 +1,27 @@
+assignment_id: STAGE0-C2-20260814-RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP-CONFIRM-V8.7
+topic_id: RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+role: INDEPENDENT_CONFIRMATION_SENTRY
+primary_decision: REVISE_ONCE
+decision: CONFIRM_REVISE_ONCE
+quality_tier_if_gate_closes: TIER_B_Q2_VIABLE
+confidence: 0.84
+evidence_ceiling: E1_STATIC_PREFLIGHT__SEARCH_BOUNDED_OPEN
+sole_scientific_revision_gate: PINNED_RV32_ZCMP_SAME_MACHINEFUNCTION_TWO_PLAN_WITNESS__TARGET_SPECIFIC_BOUNDED_FRONTIER_CERTIFICATE
+scientific_revision_executed_by_this_assignment: false
+primary_input_integrity: 4_OF_4_PASS
+primary_manifest_sha256: 0577F16B03DBD92AEB7B51CD88089D293D8656C1680F81A3181C1023A236D2E9
+independent_findings:
+  - Current FrameLowering is a mandatory strong-union component: it owns fixed CSR order, pushability, CM_PUSH/CM_POP, stack/frame realization and CFI, in addition to the late PushPop POPRET rewrite.
+  - Current source reviewed does not establish allocation-time joint coloring/list/frame Pareto optimization or a target-specific exact/FPT guarantee.
+  - The single gate remains finite and same-object, but must supply a commit-pinned two-plan native witness and complete union enumeration before a PASS is possible.
+revision_requirements:
+  - Pin the reachable LLVM grammar and every relevant feature/ABI/RA/frame control.
+  - Give exact two-plan RV32 native colors, prefix lists, legal stack adjustments, spills, frame/CFI and same behavior/ABI/unwind proof.
+  - Enumerate the complete FrameLowering, RA, save/restore, PushPop and expansion union under equal information.
+  - Establish target-specific future-action/cost preserving bounded state plus honest exact/FPT/certified frontier and no-gain boundary.
+  - Freeze tiny native oracle and natural full-cost Stage A killer only; do not claim results.
+failure_sentinel: BELOW_Q2_STOP__CURRENT_ZCMP_UNION_ABSORPTION_OR_GENERIC_RA
+stagea_authorized: false
+stageb_authorized: false
+mainline_notification_required: true
+lane_state_after_mainline_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE

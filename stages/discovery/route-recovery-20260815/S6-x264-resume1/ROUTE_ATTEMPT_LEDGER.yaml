@@ -1,0 +1,59 @@
+schema: route-recovery-attempt-ledger-v1
+assignment_id: SAFE-ROUTE-RECOVERY-S6-20260815-X264-RESUME1-OFFICIAL-API
+attempts_max: 5
+attempts_used: 2
+attempts:
+  - attempt: 1
+    status: FAILED__TLS_HANDSHAKE__NO_RESPONSE_PERSISTED
+    source_role: OFFICIAL_COMMIT_METADATA
+    url: https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/commits/master
+    output: resources/downloads/commit-master.json
+    pre_call_recorded: true
+    no_robots_or_anubis_bypass: true
+    observed_error: The SSL connection could not be established, see inner exception.
+    scientific_inference: NONE__TRANSPORT_FAILURE_ONLY
+  - attempt: 2
+    status: SUCCEEDED__OFFICIAL_RESPONSE_PERSISTED
+    source_role: OFFICIAL_COMMIT_METADATA__PROCESS_LOCAL_NETWORK_RETRY
+    url: https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/commits/master
+    output: resources/downloads/commit-master.json
+    pre_call_recorded: true
+    no_robots_or_anubis_bypass: true
+    resolved_commit_sha: 0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee
+    response_bytes: 1234
+    response_sha256: 946D6D9C24CB1F2320EA8BC8703BDDC7F63BD21444D5E5DE8D6707F95BBE0347
+  - attempt: 3
+    status: SUCCEEDED__OFFICIAL_RESPONSE_PERSISTED
+    source_role: OFFICIAL_RAW_FILE__CORE_LOOKAHEAD_IMPLEMENTATION
+    path: encoder/lookahead.c
+    url: https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/files/encoder%2Flookahead.c/raw?ref=0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee
+    output: resources/downloads/encoder-lookahead.c
+    pre_call_recorded: true
+    response_bytes: 9813
+    response_sha256: 7714EB93B66CD4EB8FC016ABD967BED33524083CBFDA8F4282476F2C9A9AFAA3
+  - attempt: 4
+    status: SUCCEEDED__OFFICIAL_RESPONSE_PERSISTED
+    source_role: OFFICIAL_RAW_FILE__CORE_SLICETYPE_IMPLEMENTATION
+    path: encoder/slicetype.c
+    url: https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/files/encoder%2Fslicetype.c/raw?ref=0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee
+    output: resources/downloads/encoder-slicetype.c
+    pre_call_recorded: true
+    response_bytes: 84137
+    response_sha256: 4B2F72BCD582B347338FBBDB3E9BC056987924B9CF390D772038B64E4D667ACC
+  - attempt: 5
+    status: SUCCEEDED__OFFICIAL_RESPONSE_PERSISTED
+    source_role: OFFICIAL_RAW_FILE__PUBLIC_PARAMETER_SURFACE
+    path: x264.h
+    url: https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/files/x264.h/raw?ref=0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee
+    output: resources/downloads/x264.h
+    pre_call_recorded: true
+    response_bytes: 49134
+    response_sha256: D1AE732DC908AB97BC55DA5B8EB6D8C2CB610951A91FE7B0C7C21607FF0A8F85
+budget_exhausted_unattempted_route:
+  path: encoder/slicetype.h
+  reason: attempt_1 TLS transport failure consumed one of the frozen five attempts; core implementation and public parameter loci take precedence.
+  scientific_inference: NONE__ROUTE_LIMIT_ONLY
+remaining_frozen_routes:
+  - source_role: OFFICIAL_RAW_FILE
+    path: encoder/slicetype.h
+claim_authority: NONE__ROUTE_AND_CURRENT_UNION_CLOSURE_ONLY

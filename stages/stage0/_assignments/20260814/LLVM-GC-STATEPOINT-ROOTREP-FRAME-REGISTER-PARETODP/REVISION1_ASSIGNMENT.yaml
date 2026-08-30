@@ -1,0 +1,25 @@
+assignment_id: STAGE0-P1-20260814-LLVM-GC-STATEPOINT-ROOTREP-FRAME-REGISTER-PARETODP-REVISION1-V8.7
+mode: REVISION1_OF_1
+topic_id: LLVM-GC-STATEPOINT-ROOTREP-FRAME-REGISTER-PARETODP
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_READY_TO_DISPATCH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_revisions\LLVM-GC-STATEPOINT-ROOTREP-FRAME-REGISTER-PARETODP\revision1
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source10-primary\LLVM-GC-STATEPOINT-ROOTREP-FRAME-REGISTER-PARETODP
+confirmation_directory: stages\stage0\_reviews\round-20260814-adaptive-source10-confirmation\LLVM-GC-STATEPOINT-ROOTREP-FRAME-REGISTER-PARETODP
+quality_floor: TIER_B_Q2_VIABLE
+atomic_gate: SAME_STOCK_COLLECTOR_TWO_PLAN_ACCEPTANCE__ROOT_UPDATE_PRESERVING_BOUNDED_FRONTIER_CERTIFICATE
+frozen_primary_hashes: {report: F1DBFB16416FFBE5549358AD02607AB6107ADF5A0BF914A600F06E257C819D8D, q1: 9D590500D36AFE694CBAB7062B1ADDF18CA299EECE004D7E7D0716AAE4C989C1, source: CF732F243043CCC99BBA855A7AA1D01A6267D1F4DE569786E0FB31F065A66271, handoff: 056E505E10542899071648A03AA3FBCA107483EA987D8C57CC276C487F36FF40, manifest: B15B993827E0B3E8AFD6E250923642ACC8161B4DF3F7CF8C045F666E58D5094A}
+frozen_confirmation_hashes: {review: 524360CDA60577C016A834627BEE6319235C920608B1D26AF34ABA5D8A9A226F, handoff: 8A4BD36DB60B78436D4B8E4CB0685013186BCFD17B10CDFCCB3EFFCB109BAA59, manifest: 1F4EBEB758E0758F6122F4A2F39D1FE858AE79746B19D3669A1FB4F7955007E1}
+required_revision:
+  - Pin one concrete existing collector/runtime and exact stackmap reader version plus decisive LLVM/runtime source blobs; LLVM statepoint-example alone is not a collector.
+  - Freeze one function, target, root set and runtime convention with two complete plans: relocate-based and explicit alloca-root with explicit store/fill.
+  - Prove the same reader accepts both plans and preserves logical root-id, base-id, order, update visibility and post-use semantics; byte-identical StackMap layout is neither required nor sufficient.
+  - The alloca-root must be one from which the pinned collector can derive its base without changing the collector contract.
+  - Reconstruct the full current union and give a target-specific finite exact/FPT/certified frontier with full frame/register/stackmap/runtime cost; generic RA, frame packing or ILP is not a contribution.
+  - Include a finite StageA fidelity killer and a claim-by-claim delta from Discovery, PRIMARY and confirmation.
+failure_sentinel: BELOW_Q2_STOP__NO_SINGLE_STOCK_COLLECTOR_TWO_PLAN_ACCEPTANCE_OR_GENERIC_ROOT_FRAME_PACKAGING
+evidence_ceiling: E1_STATIC_NATIVE_ACTION_READER_ACCEPTANCE_AND_FRONTIER_CERTIFICATE_ONLY
+forbidden: [custom_reader, collector_swap_between_plans, changed_runtime_contract, implementation, experiment, benchmark, build, install, stageA, stageB, second_revision, shared_control_write]
+required_outputs: [STAGE0_REPORT.md, ACTION_GUARANTEE_AUDIT.md, CLAIM_EVIDENCE_MATRIX.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, route_only_to_independent_closing_if_pass_recommended: true, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

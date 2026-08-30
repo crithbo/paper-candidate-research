@@ -1,0 +1,24 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+identity: {lane_id: BACKTEST-PACKER, lane_thread_id: 01a034d0-e1e2-7921-bb72-a675ff98d5b0, role_id: DISCOVERY_BACKTEST_PACKER, assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-REPLAY-R1, topic_id: CURRENT_8_NONBLIND_STAGEA_CASES, stage_or_mode: PAPER_EVIDENCE_REPLAY, status: BOOTSTRAP_ACK_PENDING, resume_point: CUTOVER_ACCEPTED__NO_LOCAL_REPLAY, next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY}
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: BACKTEST-PACKER
+  user_approval_ids: [USER_STAGEA_USE_PAPER_RESULTS_INSTEAD_OF_FULL_LOCAL_REDO_20260827]
+  allowed_actions: [after_mainline_start: paper_appendix_AE_metadata_acquisition_and_capsule_extraction]
+  forbidden_actions: [local_build_probe_experiment, case_replacement, scoring, production_candidate_registration, StageB, gold_comparison_before_gate_immutable]
+boundaries: {unique_write_directory: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/paper-evidence-packer, resource_root: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/paper-evidence-packer/resources, write_allowed_paths: [E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/paper-evidence-packer], network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 2934D15DF761FE6C57D30CC29417A01F6353B4CC68227DD5C35A0249B24DD5BB}
+  registry_snapshot: {path: registry.yaml, sha256: 041E0808501F80DA569F4F3D565180A902714ED8963DD98ED23E3C42A3CBE26F}
+  role_rule: {path: rules/ROLE_DISCOVERY_BACKTEST.md, sha256: 74056A6BF3F6A1ABBFF56A13BA27DCD9656B39DD6673D046935C312D39033C23}
+  conditional_protocols: [{path: stages/rule-audit/RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-REPLAY-R1/STAGEA_PAPER_EVIDENCE_REPLAY_PROTOCOL.md, sha256: FE250BAAF666FD3A85C916662C3610A431D8A127DA7612A3AA156F7825AA95AB}]
+  skills: [{path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+minimum_inputs:
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/paper-evidence-packer/ASSIGNMENT.yaml, sha256: 236597C00CB43094F11FDDF8BB4CF000376D205BC3C49B5E4289C3EA2DF51183}
+  - {path: stages/rule-audit/RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-REPLAY-R1/MAINLINE_CUTOVER_ACCEPTANCE.yaml, sha256: F22F347B03D46CCAA9E714D1180A589C52E27FCBE01AA8542AD7F344F0132AEA}
+evidence_ceiling: PAPER_REPORTED_OR_AUTHOR_ARTIFACT_REPORTED__NO_PROJECT_REPRODUCTION_CLAIM
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: VALIDATED}

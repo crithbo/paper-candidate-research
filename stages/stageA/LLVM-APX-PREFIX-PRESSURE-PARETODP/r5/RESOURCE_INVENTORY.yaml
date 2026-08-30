@@ -1,0 +1,61 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  artifact_state: GC_COMPLETE__PRECLAIM_FAILURE_CAPSULE_RETAINED
+  closeout_event: APX_R5_PRECLAIM_HANDOFF_ACCEPTED
+  downstream_consumer: APX_R6_CHECKER_PORTABILITY_CORRECTION
+  post_close_retained_bytes_max: 536870912
+  cleanup_owner: MAINLINE
+identity:
+  topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+  assignment_id: STAGEA-L3-20260826-LLVM-APX-R5-F2-STOP-AFTER-CORRECTION
+  stage_or_mode: STAGEA_PRECLAIM_ENGINEERING_CORRECTION
+  run_id: F2_LLC_PAIR_PASS__VALUE_EFLAGS_CHECKER_FAIL_CLOSED
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r5
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r5/resources
+  inventory_path: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r5/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-26T00:16:35+08:00
+  finalized_at: 2026-08-26T00:25:08.5095719+08:00
+root_measurement: {logical_bytes: 321710432, file_count: 106, directory_count: 14, longest_path_characters: 204, reparse_entries: 0, measurement_method: POST_GC_LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true}
+required_directories: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+redirect_preflight: {status: PASS_PROCESS_LOCAL_ONLY, system_or_user_environment_modified: false, TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONNOUSERSITE: '1'}
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 2147483648
+  cpu_seconds_max: 7200
+  wall_seconds_max: 14400
+  max_parallel_processes: 2
+  harness_build_attempts_max: 0
+  gpu_hours_max: 0
+  network_bytes_used: 0
+  stored_bytes_used: 321710432
+  harness_build_attempts_used: 0
+  gpu_hours_used: 0
+  exact_cpu_and_wall: UNAVAILABLE__NOT_ESTIMATED
+entries:
+  - {id: EXACT_SOURCE_INPUT_COPIES, path: resources/archives, logical_bytes: 278682926, file_count: 2, hashes: [F90FFC22BF3B220B726C2E4D7953076520C4188ED4409213AFB9829B98254747, 21813151E583064407035F9194C4E85A91ACC41776456803F2B85D8076415E6F], claim_critical: false, reproducibility_minimum: false, retention_class: TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY, delete_after_gate: MAINLINE_ACCEPTS_HANDOFF_AND_R4_SOURCE_INPUTS_REMAIN_VALID}
+  - {id: EXACT_APX_TOOL_BUNDLE, path: resources/env/apx-toolchain, logical_bytes: 321690391, file_count: 97, manifest_sha256: 0BE2C3F60A6F42886F7951D2887D1A3D936B0E1A26E0C6B9B0B89D421944FB91, claim_critical: false, reproducibility_minimum: true, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: HARNESS_WITNESS_AND_CORRECTED_MIR, path: resources/src/harness, logical_bytes: 15004, file_count: 4, hashes: [523522869EED8CF3A6093360CDD0E1753C21CD5FD6CA8CD5B86313E65999B3CD, 4E26F556BAEAA981D2EFCF80DFCD4B0D46655D9780F81496D60B8BF1402ED243, 4A195725C28A2BC9F5AFD9C2B59C4F68540599C9526C7BD337E419A4AE74BDD0, FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A], claim_critical: true, reproducibility_minimum: true, retention_class: KEEP_CAPSULE_CLAIM_CRITICAL, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: REPLAY_AND_FAILURE_LOGS, path: resources/logs, logical_bytes: 5037, file_count: 5, key_hashes: [FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A, 7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6, 3C958CD027E885E042585CDF3027BC598AE680676DE9F2CAE0BA66156133C683], claim_critical: true, reproducibility_minimum: true, retention_class: KEEP_CAPSULE_CLAIM_CRITICAL, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: EMPTY_STANDARD_ROOTS, paths: [resources/downloads, resources/build, resources/cache, resources/tmp], logical_bytes: 0, file_count: 0, claim_critical: false, reproducibility_minimum: false, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, delete_after_gate: MAINLINE_ONLY}
+cleanup:
+  owner: MAINLINE
+  owner_cleanup_allowed: false
+  performed: true
+  proposed_exact_target: resources/archives
+  proposed_delete_files: 2
+  proposed_delete_logical_bytes: 278682926
+  projected_postcleanup_retained_bytes: 321710432
+  post_close_budget_pass_after_proposed_cleanup: true
+  active_owner_or_process_count: 0
+  deleted_entries: [resources/archives]
+  deleted_file_count: 2
+  deleted_logical_bytes: 278682926
+  postdelete_file_count: 106
+  postdelete_logical_bytes: 321710432
+  cleanup_receipt_sha256: 1B98693117250005B1DBAD036952762CF2A7C44362C14459ED73046AAC5BED47
+  performed_at: 2026-08-26T01:05:00+08:00
+validation: {resource_root_exact_match: true, root_under_workspace: true, forbidden_root_check: true, reparse_traversal_check: true, required_directories_present: POSTCLOSEOUT_ARCHIVE_COPY_GC, persisted_resources_inventoried: true, envelope_within_limit: true, lifecycle_mode_and_hash_match: true, all_persisted_entries_classified: true, claim_bearing_observation_started: false, cleanup_receipt_valid: true, result: GC_COMPLETE__PRECLAIM_FAILURE_CAPSULE_RETAINED__NO_SCIENTIFIC_INFERENCE}

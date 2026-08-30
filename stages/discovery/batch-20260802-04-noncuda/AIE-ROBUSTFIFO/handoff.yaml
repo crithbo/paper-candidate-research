@@ -1,0 +1,19 @@
+topic_id: AIE-ROBUSTFIFO
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: MLIR-AIE ObjectFIFO graph-wide depth, placement, and phase-credit selection under bounded burst and tile-SRAM constraints
+main_claim: Cut-coupled robust reservations can expose latency-SRAM Pareto points beyond independent FIFO sizing under identical lock and DMA accounting.
+academic_value_score: 57
+ai_executability_score: 22
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.71
+strongest_baseline: MLIR-AIE default lowering, uniform/max-burst depths, static SDF minimization, and fair legal combinations
+decisive_evidence: One public AIE graph where correlated bounded slack lowers peak SRAM without throughput violation and the baseline cannot reproduce the point.
+unresolved_risks: Robust-SDF literature or existing AIE lowering may already express the same correlated constraint; natural burst envelopes may not correlate.
+next_killer_gate: Extract an ObjectFIFO graph and compare robust cut allocation with identical-depth/SDF baselines under an explicit lock-DMA ledger.
+mechanism_pivot_remaining: 1
+reserve_reason: ''
+evidence_ceiling: Compiler/emulation level until hardware calibration is performed.
+execution_authority: Discovery only; no formal experiment.
+file_hashes: {topic_brief.md: DCA66FE934C81F68EFC99A71EC5A2D6FD86F095794C6D8EDC70A43F95A6B365A, source_log.md: 6277073A8AADE3965F6C07BB95BBB0CC7264B339E8AD8D19168937C678B109D3}

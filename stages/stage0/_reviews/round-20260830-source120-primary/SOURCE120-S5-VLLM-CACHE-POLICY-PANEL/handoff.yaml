@@ -1,0 +1,81 @@
+schema: handoff-transport-envelope-v2
+topic_id: SOURCE120-S5-VLLM-CACHE-POLICY-PANEL
+assignment_id: STAGE0-PRIMARY-20260830-SOURCE120-S5-VLLM-CACHE-POLICY-PANEL
+lane_id: STAGE0_PRIMARY
+role_id: STAGE0_PRIMARY
+source_stage: STAGE0
+assignment_state: FROZEN_AWAITING_MAINLINE
+input_freeze_sha256: 45248E21AF9B4D121E5A8FC98FE1F052446B5DCDCD9C6FABE60A861F7C66C3E1
+cross_assignment_contamination_declared: false
+
+user_summary_cn:
+  outcome: 'PRIMARY 建议 STOP，质量档 BELOW_Q2_STOP。当前 policy API 真实，但候选的 workload/carrier rank-stability 主张已被 ATC25、UniCache 和近期 vLLM ARC 工作实质吸收。'
+  main_reason: '没有单篇 exact CPU-offload DIRECT_FATAL；但 current strongest union 已覆盖 ShareGPT/Mooncake trace 边界、LRU/ARC/OPT 多策略 panel、跨 workload/capacity 排名变化和更强真实 trace，剩余只有新 API/介质复现。'
+  next_step: 'MAINLINE 机械验收并登记 STOP；不得创建 Stage A、不得以同一 ID 修订或复活。'
+  user_action_required: false
+  user_action: null
+
+decision:
+  scientific_verdict: STOP
+  operational_disposition: NONE
+  quality_tier: BELOW_Q2_STOP
+  confidence: 0.89
+  proposed_novelty_route: N3
+  retained_novelty_route: NONE_AFTER_CURRENT_UNION_SUBTRACTION
+  direct_fatal: false
+  collision_state: CURRENT_STRONGEST_UNION_SUBTRACTS_TO_NO_Q2_RESIDUAL
+  evidence_ceiling: STATIC_CURRENT_SOURCE_AND_PUBLIC_COLLISION_REVIEW__NO_CANDIDATE_RESULT
+  claim_bearing_observation_obtained: false
+  scientific_revision_consumed: false
+  repair_vector: [OMITTED_CURRENT_SAME_OBJECT, OMITTED_FIRST_PARTY_FEATURE, NATURAL_CARRIER_GAP, Q2_SHAPE_GAP]
+
+current_source_freeze:
+  vllm_visible_main_commit: 4fc943b8676e07cfb6be1b7c54cb4f9fba99033e
+  policy_reality: BUILTIN_LRU_ARC_PLUS_OUT_OF_TREE_CUSTOM_CONFIRMED
+  exact_key_semantics: OFFLOADKEY_EQUALS_BLOCK_HASH_PLUS_KV_GROUP_INDEX
+  carrier_semantics:
+    prefix_repetition: SYNTHETIC_CONTENT_AND_TIMING_UNLESS_EXPLICIT_REPLAY
+    sharegpt: REAL_CONVERSATION_CONTENT_WITHOUT_NATIVE_ARRIVAL_TIMES
+    mooncake_guidellm: TIMESTAMPS_AND_PREFIX_HASH_TOPOLOGY_WITH_SYNTHETIC_TOKEN_RECONSTRUCTION
+
+strongest_subtractors:
+  - KVCACHE_CACHE_IN_THE_WILD_USENIX_ATC_2025
+  - UNICACHE_POMACS_SIGMETRICS_2026
+  - RECENCY_FREQUENCY_ADAPTIVE_KV_CACHING_2026
+  - MOONCAKE_FAST_2025
+  - CLASSICAL_ARC_FAST_2003
+
+stagea_killer:
+  authorized: false
+  structural_result: ALREADY_FAILS_DISTINGUISHING_ENDPOINT_GATE
+  reason: 'A native-offload panel can reproduce the established workload-dependent ranking result but cannot repair the missing Q2 scientific residual.'
+  positive_ceiling_if_run_elsewhere: ENGINEERING_REPLICATION_ONLY
+
+execution_accounting:
+  model: gpt-5.6-sol
+  thinking: high
+  search_or_open_connector_calls_used: 12
+  search_or_open_connector_calls_max: 32
+  exact_network_bytes_available: false
+  build_or_experiment_count: 0
+  resource_download_or_persistent_resource_action_count: 0
+  candidate_implementation_count: 0
+  stagea_stageb_actions: 0
+  shared_writes: 0
+  usage_reset_soft_pause: FINISH_CURRENT_PRIMARY_THEN_NO_SUCCESSOR
+
+artifact_pointers:
+  canonical_report: {path: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S5-VLLM-CACHE-POLICY-PANEL/STAGE0_REPORT.md, sha256: 5795C4ED79B0CBCAE0CF529899506F0B7FC651FAA868D555350FBDD811AA2122}
+  q1_q2_calibration: {path: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S5-VLLM-CACHE-POLICY-PANEL/Q1_COMPARATOR_MATRIX.md, sha256: 47BFAC2664AF9AC9B6CE6814E77566098D715C83C815A820EAB1655954FB004E}
+  independent_review: {path: null, sha256: null}
+  resource_inventory: {path: null, sha256: null}
+  lifecycle_or_retention: {path: null, sha256: null}
+
+next_gate:
+  proposed_stage_or_gate: MAINLINE_TERMINAL_ACCEPTANCE
+  exact_action: 'Mechanically accept STOP and preserve terminal identity; no SENTRY PASS route or Stage A.'
+  authority_required: MAINLINE
+  stageb_user_approval_id: null
+
+pause_after_handoff: true
+successor_permitted: false

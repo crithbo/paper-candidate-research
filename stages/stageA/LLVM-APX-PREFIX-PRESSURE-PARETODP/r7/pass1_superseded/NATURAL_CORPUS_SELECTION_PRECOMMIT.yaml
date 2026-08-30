@@ -1,0 +1,25 @@
+schema: natural-corpus-selection-precommit-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+written_before_first_control_result: true
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+source: PUBLIC_PINNED_LLVM_X86_IN_TREE_TESTS_FROM_EXACT_ARCHIVE
+source_root: resources/src/llvm_subset
+selector: resources/src/apx_tpd/apx_tpd.py
+selector_sha256: 5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086
+allowed_roots: [llvm/test/CodeGen/X86, llvm/test/MC/X86, llvm/test/tools/llvm-mca/X86]
+allowed_extensions: [.ll, .mir, .s]
+eligibility_static_only:
+  - X86_64_CODEGEN_OR_MC_INPUT_WITH_STATIC_FUNCTION_OR_BOUNDED_TRACE_IDENTITY
+  - NON_CHECK_LINE_CONTAINS_APX_EGPR_NDD_REX2_EVEX_OR_NF_ACTION_LOCUS
+  - SAME_X86_64_APX_ABI_AND_TARGET_FEATURE_CONTRACT
+  - NO_EXPECTED_RESULT_CANDIDATE_OUTPUT_OR_TINY_CONTROL_RESULT_USED_FOR_SELECTION
+deterministic_order: SHA256_TOPIC_COMMIT_MEMBER_FUNCTION_THEN_LEXICOGRAPHIC
+selected_count: 16
+reserve_count: 4
+reserve_backfill_allowed_only_for_PRETOOL_STATIC_INVALID_IDENTITY: true
+reserve_backfill_after_any_LLVM_CANDIDATE_OR_BASELINE_TOOL: false
+selected_or_reserve_LLVM_candidate_or_baseline_tool_invocations_max: 0
+automatic_retry: false
+result_based_edit_exclusion_or_backfill: false
+

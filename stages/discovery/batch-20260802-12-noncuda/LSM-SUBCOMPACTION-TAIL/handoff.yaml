@@ -1,0 +1,19 @@
+topic_id: LSM-SUBCOMPACTION-TAIL
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: RocksDB selected-compaction key-range subpartitions
+main_claim: overlap-tombstone boundary certificate reduces p99 interference at fixed WA
+academic_value_score: 56
+ai_executability_score: 27
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.84
+strongest_baseline: stock, equal-byte, equal-key, fixed-count sweep, offline optimum
+decisive_evidence: matched input/count tail gain that survives WA cap
+unresolved_risks: interference repeatability and direct collision
+next_killer_gate: 30 natural compactions under two distributions
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: EXECUTABLE_STORAGE_ENGINE
+execution_authority: discovery_only_no_stage0_or_experiment
+file_hashes: {topic_brief.md: 42300a1abd11a2cbbfe42bda0a9932b747461f07b6e2fc659b9ce8b9b1fbbb40, source_log.md: aae203948083bea23ad9b3b0f7d5a392ff9fa3c1d49d1a3270e224e187afc615}

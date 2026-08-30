@@ -1,0 +1,20 @@
+schema: mlperf-rank-validity-a1-receipt-fidelity-audit-v1
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-A0
+static_compile: {attempts: 1, exit_code: 0, retry: 0, runner_sha256: 106AF7A114F1E5E24E4B3EA79FDB0A77E01EA6A52718778E9C7B171EC229430A}
+claim_process: {attempts: 1, exit_code: 0, retries: 0, network: 0, source_hashes_match: true}
+raw_outputs:
+  claim_result: {path: resources/logs/a1/claim_result.json, sha256: DA1E95F75BA355979B65A18425E9541A6FD68FDCB9D9CCD064559EE338940747}
+  pair_missingness: {path: resources/logs/a1/pair_missingness_ledger.json, sha256: FB6AE6F440DBE5D8B5AF08700C7316833AD8CF4BFD92E83C3E043837E5AF9A06}
+  formula_rank: {path: resources/logs/a1/formula_rank_summary.json, sha256: 9B6390A31BF87FB93873A08FA4C65AFF8CBCA78CD4D10655D1A2784C4D095A0E}
+  process_receipt: {path: resources/logs/a1/process_receipt.json, sha256: 5A2C47F0584D12D731EA89D7806AC5016E1DCD9A68BEADDA39952653C9F17325}
+observed_boundary:
+  v5.1: {input_rows: 1448, edge_rows_before_pairing: 862, eligible_pairs: 0, unit_mismatch: 571, inferred_without_measured: 266, measured_without_inferred: 25}
+  v6.0: {input_rows: 520, edge_rows_before_pairing: 55, eligible_pairs: 0, unit_mismatch: 34, inferred_without_measured: 12, measured_without_inferred: 9}
+fidelity_failures:
+  - {id: UNIT_NORMALIZATION_DIAGNOSTIC_NOT_CLOSED, fact: 571_of_862_v5.1_and_34_of_55_v6.0_edge_rows_rejected_as_unit_mismatch, missing_evidence: rejected_raw_unit_tokens_not_emitted, consequence: cannot_distinguish_true_source_incompatibility_from_parser_alias_defect}
+  - {id: REQUIRED_PEAK_RSS_MISSING, fact: process_receipt_peak_rss_bytes_null, consequence: required_full_cost_process_receipt_incomplete}
+raw_runner_decision: FALSIFIER_TRIGGERED__NO_EXACT_ELIGIBLE_PAIRS
+canonical_evidence_disposition: INVALIDATED_NON_EVIDENCE__CONSTRUCTION_AND_FULL_COST_RECEIPT_NOT_CLOSED
+scientific_inference: NONE
+retry_or_patch_allowed: false
+next_gate: INDEPENDENT_STAGEA_GATE_AND_MAINLINE_DISPOSITION

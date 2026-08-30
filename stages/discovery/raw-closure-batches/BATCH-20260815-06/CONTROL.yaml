@@ -1,0 +1,65 @@
+schema_version: pending-raw-batched-resume-v1
+batch_program_id: PENDING-RAW-BATCHED-RESUME-20260815
+batch_id: BATCH-20260815-06
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+public_acquisition_authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+scheduling:
+  mode: SERIAL_WITHIN_BATCH
+  active_assignment_limit: 1
+  status: COMPLETE__TWO_UNRESOLVED__ZERO_BLOCKERS
+  ordered_items:
+    - order: 1
+      queue_id: S2-84-CQ01-RETRY1
+      family: OPENXLA_BUFFER_ASSIGNMENT_COMMAND_GROUP_JOINT_CONSTRUCTOR
+      state: COMPLETE_ACCEPTED__UNRESOLVED_BACKLOG
+      task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+      dispatch_turn_id: 01a0052d-6976-73b3-918f-fb1bcfbf001d
+      assignment: stages/discovery/round-20260815-adaptive-source84/S2-bottleneck-transfer/closure-cq01-retry1/ASSIGNMENT.yaml
+      assignment_sha256: 0678C60677433656A229686D34156603D903DDC3BBFC5955C41AA6CB225F88C5
+    - order: 2
+      queue_id: S2-85-CQ01-RETRY1
+      family: TVM_RELAX_FUSION_LIFETIME_JOINT_CONSTRUCTOR
+      state: COMPLETE_ACCEPTED__UNRESOLVED_BACKLOG
+      task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+      dispatch_turn_id: 01a00537-22c4-7963-9272-aa3258916cde
+      assignment: stages/discovery/round-20260815-adaptive-source85/S2-bottleneck-transfer/closure-cq01-retry1/ASSIGNMENT.yaml
+      assignment_sha256: 84F3E44E8C2F41A832AF0E61B1AC81D83BC687A7FEB897FDD9266528F488D047
+item1_result:
+  disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+  immutable_pin: 3527e1e6a5a82770e4ad8c8a2d9c64dd30ec91f6
+  calls_used: 11
+  persisted_bytes: 1532131
+  report_sha256: 6874C2E2B3B8690DCD0FEE9CBC1BE93F0F6C461360EC6ADFCC4FB2AFB68EB275
+  handoff_sha256: BAC2300CD9A011E8128A0EB0AD67C6BD2EA3E62861ABC5BCF4F7B164F18AEE13
+  manifest_sha256: 3FEA67C8C013C4FE633F40AFFF60479688421C94C4B07EF32EC07CE702B71124
+  closure_basis: stock buffer assignment scheduling command-buffer conversion and test surface are closed, but same-HLO two plans and target-specific union-external guarantee remain unclosed
+  scientific_or_stage_authority: false
+item2_result:
+  disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+  immutable_pin: 27c2e019d0ce6182158020c7534dda4a3ce981ae
+  calls_used: 11
+  persisted_bytes: 542553
+  report_sha256: 84544DB45E9BB462C69E70F00EE7F902AD44139412654454DAB211399077F440
+  handoff_sha256: 9D747C71CC9E20371A4049FE25334C0071639DAB25F62041502B22948EA8EBF3
+  manifest_sha256: E826E240F50CBC7381FB21A879666323FE7F6C7966E36CB10387299E6FA8F2D6
+  closure_basis: FuseOps static memory kill-after-last-use and VM codegen union is closed, but same-IR two plans and a TVM-specific union-external guarantee remain unclosed
+  scientific_or_stage_authority: false
+batch_summary:
+  processed: 2
+  unresolved_backlog: 2
+  structural_fatal: 0
+  resource_blocker: 0
+  clean_brief_or_stage_authority: 0
+  remaining_unprocessed_raw: 4
+priority_basis: OpenXLA first because prior closure froze a thunk-level carrier but not same-HLO two plans; TVM follows only after mainline acceptance and remains isolated meanwhile
+previous_batch:
+  control: stages/discovery/raw-closure-batches/BATCH-20260815-05/CONTROL.yaml
+  outcome: COMPLETE__TWO_UNRESOLVED__ZERO_BLOCKERS
+remaining_unprocessed_raw_at_batch_start: 6
+rules:
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+permissions:
+  additional_user_permission_required: false
+  private_sources_system_install_hardware_budget_expansion_claim_experiment_or_stage_transition: forbidden_without_new_authority

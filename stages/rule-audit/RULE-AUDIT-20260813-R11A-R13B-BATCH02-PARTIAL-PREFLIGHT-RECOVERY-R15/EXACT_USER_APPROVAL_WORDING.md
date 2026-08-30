@@ -1,0 +1,11 @@
+# Exact user approval wording
+
+> 批准 `R11A-R13B-BATCH02-PARTIAL-PREFLIGHT-RECOVERY-20260813-R15A`：将 R13B-02 已实际发出的 Request1 的 12 个 raw slots 全部永久计入 `total_raw_ceiling=88`，并将该次无法观察 provider return order 的合并响应作为无身份、无内容的整事务 aggregate quarantine；禁止重放、重建、引用、推断 query/row 边界、挑选、commit、private intersection、source qualification 或用于后续选择。Request2 未发出，额外 raw 消耗为 0，但其原 12-slot reservation 永久作废，不得在 Batch02 中补发、替换、拆分或复用。将原 Batch02 关闭为 `INVALID_PARTIAL_PREFLIGHT__NO_COMMITMENT__NO_SCIENTIFIC_INFERENCE`。
+>
+> 计数冻结为 `raw_used=56`、`raw_remaining=32`、`unique_used=4`、`unique_remaining=68`、`eligible=2`。关闭 Batch02 不转移其未用容量；只可转到原 `R13B-03`，不得创建 replacement/fifth batch。Batch03/04 原 raw caps `24/12` 和 unique caps `20/8` 不变，每批有效 raw cap 仍为 `min(该批原 cap, 调用前 global raw remaining)`；若 Batch03 消耗 24，Batch04 最多只能消耗 8。当前 `2+32=34` 仅说明 blind core 24 及 30 在算术上仍可能达到，不保证实际 yield；36 已不再算术可达，不得因此扩容或改门。
+>
+> 主线仅可 append-only 冻结 R15A recovery amendment、Request1 aggregate quarantine ledger、Batch02 closure/Batch03 pending gate 和 manifest，并更新主线拥有的 plan/registry bookkeeping。Batch03 在以下 structured-transport gate 机械通过前保持 `NOT_DISPATCHABLE`：每次调用仅一个预冻结 literal query；调用前冻结 provider/endpoint、query/hash、排序、row limit、parser/version/hash 与 slot reservation；调用合同必须明确返回机器可观察的 ordered row collection；原始 response bytes 必须在解析、筛选或模型读取前 append-only 冻结并哈希；每行按 request ordinal 与 provider row ordinal 机械映射并包含稳定 locator/provider id、title、URL。仅把多 query 拆成单 query 不能证明 row schema，返回 prose/combined/unknown 结构的现有 web route 不通过此门。
+>
+> Crossref、OpenAlex、arXiv 或其他 endpoint 不因本批准而自动获准。只有主线能在不发出试探检索的前提下机械证明某 route 已属于既有 Phase1 public-source authority、不是新 service/install/download 权限，并冻结精确 endpoint/schema/order/parser 合同后，才可形成 Batch03 dispatch gate；存在任何权限或 schema 歧义时必须再次向用户请求具体授权。任何实际 capability probe 或请求都必须先占用获批 raw reservation，不得视为免费。
+>
+> 本批准不提高 total/per-batch raw 或 unique cap、网络/storage/CPU/wall 预算，不修改 24→30→36、六 strata、贡献类型、来源资格、盲隔离、科学/统计/Q2 门、PACKER→EXECUTOR→AUDITOR 独立性、两波 shadow、`DISCOVERY_CLAIM_PACK_MODE=OFF` 或 production 权限；不授权 Phase2、Executor、Auditor、shadow、Discovery、Stage0/A/B/E2、实验、下载、自动化、新外部服务或 production。任一计数、顺序、schema、权限、隔离、碰撞或泄漏不明均 fail closed；回滚不得恢复已经消耗的 raw slots。若余下容量不能闭合至少 24 个合格 blind families，按原规则 `FAILED_NOT_DISPATCHABLE__BLIND_CORE_UNCLOSED__NO_SCIENTIFIC_INFERENCE` 结束。

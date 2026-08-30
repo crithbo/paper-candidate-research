@@ -1,0 +1,126 @@
+schema: ppc-r9-same-function-materializer-a1-handoff-v1
+created_at: 2026-08-26T08:22:18.6721734+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+decision: FAIL_CLOSED_SAME_FUNCTION_MATERIALIZER_FIDELITY__K3_FROZEN_NATIVE_CHECKER_BOOLEAN_AGGREGATION_CONTRACT_FAILURE__NO_SELECTED_CORPUS_OR_SCIENTIFIC_INFERENCE
+evidence_ceiling: CONTROL_NON_CLAIM_IR_PRESSURE_CONTROL_ENGINEERING_EVIDENCE_ONLY__INVALID_CLAIM_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+preclaim_gate_ready: false
+ordered_gate:
+  K0_INPUT_ACCEPTANCE: REUSED_PASS_EXACT_R6_R2_R8_NO_RECOPY
+  A1_EXPLICIT_SHORT_CFILE_STATIC_COMPILE: PASS_ONE_CONTROLLER_ONE_ATTEMPT
+  K1_SAME_FUNCTION_MIR_MATERIALIZER: PASS_CONTROL_NON_CLAIM_THROUGH_MACHINEVERIFIER_OBJECT_AND_LINK
+  K2_INPUT_SPECIFIC_PPC_TPD: PASS_CONTROL_NON_CLAIM_EXACT_FRONTIER
+  K3_NATIVE_CHECKERS_CONSUME_CANDIDATE_OUTPUTS: FAIL_CLOSED_AT_COMMAND_16_FROZEN_BOOLEAN_AGGREGATION_CONTRACT
+  K4_REAL_FULL_COST_CONSUMES_CANDIDATE_AND_BASELINE_METRICS: NOT_STARTED_FIRST_FAILURE_STOP
+  K5_TWO_FRESH_EXACT_REPLAYS: NOT_STARTED_FIRST_FAILURE_STOP
+  K6_R10_FULLY_EXPANDED_32_PROCESS_PLAN: NOT_STARTED_FIRST_FAILURE_STOP
+base_reuse:
+  K0_input_copy_attempts_cumulative: 3
+  K0_r6: {files: 26, logical_bytes: 134206, per_file_equal: true}
+  K0_r2: {files: 133, logical_bytes: 244073942, manifest_entries: 132, failures: 0}
+  K0_r8: {files: 5, logical_bytes: 62799, hash_failures: 0}
+  K1_control_MIR_probes: {count: 2, rerun_under_A1: false, shared_sha256: 5E5BC7869492171AAACB5C8A3C197912D2703CB7F98F3916735B60EB8B821DEB}
+  pass1_preserved:
+    handoff: {path: handoff.pass1_k1_static_syntax_path_fail.yaml, sha256: ADD445EF7F3709483F7BF8E699916AD21DCC9A712BC847A54841287D431B14B4, byte_exact: true}
+    manifest: {path: HASH_MANIFEST.pass1_k1_static_syntax_path_fail.sha256, sha256: 253D17F1BD57310DADE808750A68AEF30389E11951493A72A7FFE9866A97E516, byte_exact: true}
+A1_static_compile:
+  status: PASS_ONE_CONTROLLER_ONE_ATTEMPT
+  explicit_cfiles:
+    resources/cache/p/c.pyc: {bytes: 12104, sha256: F127AAE2C281ADAE480A28583223A0B8FD7213AD2A9CE9647F73262D2BB8CA8B}
+    resources/cache/p/m.pyc: {bytes: 44391, sha256: B4C972DDCE23DCA2B58DCDB5CED149F4216DF14A3D7AC0CE6BF767A2CD576033}
+    resources/cache/p/r.pyc: {bytes: 14838, sha256: D5F249C96FD90244E7C57E0462626314748E3B6F1B30934B8377C2475527513C}
+  implicit_source_pyc_files: 0
+  old_partial_cache_modified: false
+  automatic_retry: false
+immutable_implementation:
+  root: resources/src/natural_materializer
+  files: 3
+  source_hashes_before_and_after_equal: true
+  source_hashes:
+    common.py: EE19181CEA403725748E22E0F632ABA97639C81EAABEB0BC6DA16249520414D7
+    materializer_harness.py: A28B269C522A96B81AA79C7F907864BA2277C0E6ABCA1108BACA9010F4C01D80
+    r10_plan.py: 0366CCC8D98D0489C604A31A56E29761C3EC9C2E3D8479C7909E99652697890C
+K1_K3_control_execution:
+  controller_attempts: 1
+  expected_nested_commands: 17
+  completed_nested_commands: 15
+  failed_nested_commands: 1
+  not_started_nested_commands: 1
+  automatic_retry: false
+  command_or_redirect_changed_after_failure: false
+  control_object: {input: resources/src/r6_input/src/preclaim_harness/ppc_union_input.ll, function: ir_pressure_control, selected_or_reserve_member: false}
+  materialized_mir: {path: resources/build/a1_gate/artifacts/materialized.mir, sha256: 5BE899B33F82E343CB8F7C94C88FFED6BEBE4BF5F0B76C83642A672A358E2E4E}
+  candidate_object: {path: resources/build/a1_gate/artifacts/candidate.o, sha256: DA6417380F2898627E95DA0D09485915D20BD17B1385930BD12F2DF9A1054CDC}
+  candidate_elf: {path: resources/build/a1_gate/artifacts/candidate.elf, sha256: CFF7EDB20F8B8D9EEE808AE081EBE5B949926628B103C2C2ED008D7DDE0B27D0}
+  candidate_trace: {path: resources/build/a1_gate/candidate_trace.json, sha256: 86F608ED50B8FB078BC58AE917CAC136A8B204C2C5E27F7FD82EA986C39D1D74, status: MATERIALIZED}
+  candidate_result: {path: resources/build/a1_gate/candidate_result.json, sha256: 96840FDE2E21D4A2BF561CB52CD289D081DA97D6C83CB74A182C9B55CDB4DA82, status: EXACT_FRONTIER, states: 2}
+  native_checker: {path: resources/build/a1_gate/native_checkers.json, sha256: DDB782036926F659C9F0959ED574B3A6A08C0FF48B93C59D555D747E25E7398E, checks_total: 7, checks_passed: 6, checks_failed: 1}
+  command_metrics: {path: resources/build/a1_gate/logs/command_metrics.json, sha256: 9F0AB35179BF53431DC3820A1AFB95CDF746AB580B8A385170D428751019517E, nested_cpu_seconds: 1.0, nested_wall_seconds: 2.1790568999713287, peak_rss_bytes: 26001408}
+first_failure:
+  record: A1_K3_NATIVE_CHECKER_FAILURE.yaml
+  record_sha256: D71B6AAF92838FC39F12B7E2EB1072B28F4D03A30EC5C8DA9C7038EA6FB6C930
+  command_id: 16_candidate_output_consuming_native_check
+  exit_code: 1
+  timed_out: false
+  failing_check: same_function_and_load_identity
+  frozen_source: resources/src/natural_materializer/materializer_harness.py
+  frozen_source_sha256: A28B269C522A96B81AA79C7F907864BA2277C0E6ABCA1108BACA9010F4C01D80
+  failure_surface: REQUIRED_FALSE_NO_SYNTHETIC_WITNESS_INDICATOR_AGGREGATED_BY_ALL_BOOL_AS_IF_TRUE_WERE_REQUIRED
+  observed_required_negative_value: {fixed_synthetic_assembly_witness_used: false}
+  all_other_identity_observations_passed: true
+  correction_or_exclusion_performed: false
+execution_summary:
+  input_copy_attempts_cumulative: 3
+  synthetic_tool_command_records_cumulative: 20
+  synthetic_tool_command_records_max: 300
+  selected_or_reserve_corpus_tool_invocations: 0
+  claim_bearing_runs: 0
+  claim_bearing_observations: 0
+  network_bytes: 0
+  automatic_retries: 0
+  resource_files: 268
+  resource_logical_bytes: 245560106
+  resource_directories_including_root: 187
+  resource_reparse_entries: 0
+  active_related_processes: 0
+  exact_assignment_cpu_seconds: UNAVAILABLE__NOT_ESTIMATED
+  exact_assignment_wall_seconds: UNAVAILABLE__NOT_ESTIMATED
+  measured_A1_nested_cpu_seconds: 1.0
+  measured_A1_nested_wall_seconds: 2.1790568999713287
+  r10_plan_rows: 0
+  r10_plan_executed: false
+  cleanup_performed: false
+scientific_boundary:
+  control_non_claim_only: true
+  scientific_revision_consumed: false
+  mechanism_pivot_consumed: false
+  state_transition_performed: false
+  stageb_action_performed: false
+  scientific_inference: NONE
+canonical_hashes:
+  addendum_sha256: 933AA047FE29FC6F0C985C134A02C7873E8C373DB710AEBE46FF6E3BD9B1461B
+  A1_ack_sha256: E8107A132A6006A55DD3D70ED0B6B5402544051453B513C7959CDB92E7B2BD23
+  A1_ack_acceptance_sha256: 88BE948E9E58DE198672CF0A81EDBF1202339E47920FEE0D19B2101BADAD336A
+  A1_start_sha256: 123070968FADE640FAEE04EAE6FC684B6C7F45DABBE48F271C7A370B245D9F5C
+  A1_pass1_preservation_audit_sha256: 446DCCE0904682D6EB252DE4F6C9450CB05F92507F26401C7F3090469629E124
+  A1_static_compile_precommit_sha256: E85159096D8362F9889BF138CF06DE040EF0D3E69E7E2B1B9F62C14A4ABC18F0
+  A1_static_compile_audit_sha256: F1D5827675B901BE466B7FAA5D99BC16E5F6B6599D8ACAD20D718FBC014FAAA1
+  A1_K1_K4_run_precommit_sha256: BC92C8FFAB0743A5D2A5A15BEE0E1CEB70EEE6AFF3418B02F28B6B367C335C9D
+  implementation_audit_sha256: 1C12AB7051DD5AFDB43837B85C8304BBA17B5F951B9E4DF10D5B29EB3E2E2363
+  same_function_materializer_audit_sha256: F705C81B46085D0ED463B8537C4B593656882E603670C158BCA1ECD41BE08CC8
+  input_specific_PPC_TPD_audit_sha256: 5B668581061CCEF50DD31974414C572BF0449111C7786DCAB0B005E603B7DCFD
+  candidate_output_consumption_audit_sha256: B9143FC9D247CF4616D5EDB91646296FDF81381F27D86B8E514E950C94A93493
+  real_full_cost_dependency_audit_sha256: 86F6256F6ED9F9E86D06623BF797BB3FD9421EE780BB33FE6B2434ACE4608372
+  preclaim_gate_sha256: A5DBABAB876593ED2BAEAC37E1A51A2324AC4A0267AB525B05E96863FD0CE035
+  reproducibility_report_sha256: FF3FC09DFA712551D50FF15BE67B6DB8FD884108EE5273C1E20901B7098B0125
+  resource_inventory_sha256: C7C85A2B14AF2679201D979516980C2D01A1FF523AE819A20B1DBD571F327FC1
+  retention_sha256: C2691DAD6E72CECA106092A11ABDE3425FD5805DC76568A103D50DF7B7EB73DE
+  resume_capsule_sha256: 6C971AB38969710755722CEC1D2559EB67ABA02E82F39D99B83F4E03FBFDAC35
+exact_cleanup_candidate_leaves: [resources/cache, resources/tmp, resources/downloads, resources/archives]
+owner_cleanup_allowed: false
+future_resume_requires_new_mainline_freeze: true
+future_scientific_revision_requires_separate_mainline_and_independent_gate_disposition: true
+scientific_revision_remains_unconsumed: true
+next_action: MAINLINE_ACCEPT_A1_FAIL_CLOSED_HANDOFF_AND_INDEPENDENTLY_DISPOSE_BOUNDED_NATIVE_CHECKER_CONTRACT_CORRECTION

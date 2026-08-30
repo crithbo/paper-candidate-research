@@ -1,0 +1,25 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE55-R40-ORDINARY-BREADTH-V1
+lookup_surface: registry.yaml plus bounded historical canonical S1--S6 handoffs/collision matrices
+results:
+  - seed: S55-01
+    signature: WASM_COMPONENT_CANONICAL_ABI__LIFT_LOWER_ALLOCATION_COPY_ADAPTER__COMPONENT_VALUES_AND_TRAPS
+    relation: EXACT
+    prior_locators:
+      - stages/discovery/round-20260810-v8.7-wave35/S1-boundary-contradiction/SOURCE_COLLISION_MATRIX.md
+      - stages/discovery/round-20260810-v8.7-wave30/S1-boundary-contradiction/SOURCE_COLLISION_MATRIX.md
+    disposition: EXCLUDE_EXACT_OR_TERMINAL
+    rationale: same canonical lift/lower, memory/realloc/post-return and same component-value/trap boundary; no external evidence delta.
+  - seed: S55-02
+    signature: ELF_DT_RELR__DYNAMIC_RELOCATION_PACKING_DECODE__STOCK_DYNAMIC_LOADER_RELOCATION_RESULT
+    relation: EXACT
+    prior_locator: stages/discovery/round-20260811-v8.7-wave166/S6-direct-algorithm-software/handoff.yaml
+    disposition: EXCLUDE_EXACT_OR_TERMINAL
+    rationale: same standard RELR encoding and stock dynamic-loader relocation endpoint; Wave166 records structural native-encoding absorption.
+  - seed: S55-03
+    signature: LLVM_ORC_JITLINK__LINKGRAPH_GOT_PLT_STUB_LAYOUT__RUNTIME_SYMBOL_RESOLUTION
+    relation: RELATED_ONLY
+    prior_locator: stages/discovery/round-20260811-v8.7-wave307/S1-boundary-contradiction/SOURCE_COLLISION_MATRIX.md
+    rationale: prior ORC resource-tracker state-machine action differs from LinkGraph stub/layout construction; related does not exclude.
+mechanical_rules:
+  related_only_does_not_exclude: true
+  no_match_is_not_novelty_or_absence_evidence: true

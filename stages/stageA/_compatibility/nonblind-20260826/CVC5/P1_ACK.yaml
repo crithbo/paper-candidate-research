@@ -1,0 +1,11 @@
+schema: nonblind-stagea-minimal-canonical-probe-ack-v1
+assignment_id: NONBLIND-STAGEA-20260826-CVC5-P1
+assignment: {path: P1_MINIMAL_CANONICAL_PROBE_ASSIGNMENT.yaml, sha256: 53FC85CAA11C251F42A6D9C2012D1C68736C027C0725CBD129CD2404FF1369B5}
+f0_acceptance: {path: F0_MAINLINE_FIDELITY_ACCEPTANCE.yaml, sha256: C2D0ACB68AAE25857D52806C06115A3925C80A6F431ABD47480ADFFEFE4E91CE, decision: PRECLAIM_CONTRACT_FIDELITY_GATE_ACCEPTED}
+fixture: {path: resources/src/probe/cvc5_qf_lia_unsat.smt2, exists_before_start: false, semantics: QF_LIA_contradiction_UNSAT}
+command: cvc5_1_3_4__lang_smt2__one_run
+required_outputs: [exit_code, stdout_UNSAT, wall_seconds, peak_rss, fixture_sha256, options]
+budget: {run: 1, retry: 0, wall_seconds: 30, memory_bytes: 536870912}
+scientific_or_resource_action_started_since_P1_authorization: false
+differences_or_ambiguities: []
+ack_disposition: READY

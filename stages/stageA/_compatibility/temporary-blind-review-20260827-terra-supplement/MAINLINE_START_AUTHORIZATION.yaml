@@ -1,0 +1,10 @@
+schema_version: mainline-temporary-blind-stagea-supplement-start-v1
+assignment_id: TEMP-STAGEA-BLIND-REVIEW-20260827-TERRA-SUPPLEMENT
+bootstrap_acceptance_sha256: D7BF515983028DF7B6B9DE54E88079AF37F27AAF80A15399D3BF7A4EB2854C9C
+start_authorized: true
+model_route: {model: gpt-5.6-terra, thinking: high}
+allowed_action: REASSESS_ANONYMIZED_STAGEA_COMPATIBILITY_WITH_EVIDENCE_SUPPLEMENT
+required_output: BLIND_STAGEA_ONLY_COMPATIBILITY_DECISION.yaml
+forbidden: [all_project_controls, prior_chats, prior_case_directories, identity, paper_identity, external_sources, network, gold_label, expected_disposition, Stage0_judgment, collision_adjustment, production_candidate_registration, StageB]
+metrics: {blind_only: true, no_nonblind_merge: true, no_unbiased_recall_claim: true, no_threshold_75_claim: true}
+contamination_rule: IDENTITY_RECOGNITION_STOPS_REVIEW_WITHOUT_SCIENTIFIC_JUDGMENT

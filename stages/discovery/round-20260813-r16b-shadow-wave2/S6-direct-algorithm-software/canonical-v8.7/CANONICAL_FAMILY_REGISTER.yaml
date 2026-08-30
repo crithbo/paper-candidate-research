@@ -1,0 +1,33 @@
+assignment_id: DISCOVERY-S6-20260813-R16B-V9-PROSPECTIVE-SHADOW-WAVE2
+track: canonical_v8_7
+sealed_before_shadow: true
+accepted_unique_families: 4
+families:
+  - id: S6-R16B-TESSERACT-DAWG
+    signature: TESSERACT_WORDLIST_TO_DAWG_DICTIONARY_CONSTRUCTION__FIXED_UNICHARSET_WORDSET_AND_OCR_DICTIONARY_SEMANTICS__STOCK_DAWG2WORDLIST_ORACLE__BUILD_LOOKUP_BYTES_RSS_COST
+    disposition: NOT_ADMITTED_UNFROZEN
+    exact_object: fixed_unicharset_wordset_and_recovered_wordlist_semantics
+    current_union: wordlist2dawg_dawg2wordlist_and_documented_dictionary_component_paths__SOURCE_CLOSURE_PENDING
+    full_cost: build_lookup_cpu_rss_temp_bytes_latency
+  - id: S6-R16B-HARFBUZZ-SUBSET
+    signature: HARFBUZZ_OPENTYPE_GLYPH_LAYOUT_SUBSET_CLOSURE_CONSTRUCTION__FIXED_FONT_TEXT_AND_SHAPING_SEMANTICS__STOCK_HB_SHAPE_ORACLE__SUBSET_SHAPE_BYTES_RSS_COST
+    disposition: STRUCTURAL_DROP
+    exact_object: fixed_font_text_and_hb_shape_semantics
+    direct_absorption: native_layout_glyph_closure_is_an_explicit_default_subset_action
+    full_cost: subset_shape_cpu_rss_temp_bytes_latency
+  - id: S6-R16B-SUNDIALS-JACOBIAN
+    signature: SUNDIALS_SPARSE_JACOBIAN_PATTERN_AND_PRECONDITIONER_CONSTRUCTION__FIXED_ODE_MODEL_TOLERANCE_AND_SOLUTION_SEMANTICS__STOCK_RESIDUAL_ORACLE__ANALYSIS_SOLVE_MEMORY_COST
+    disposition: NOT_ADMITTED_UNFROZEN
+    exact_object: fixed_model_tolerance_and_solution_acceptance
+    current_union: sparse_pattern_and_preconditioner_source_config_union__SOURCE_CLOSURE_PENDING
+    full_cost: analysis_setup_solve_cpu_rss_memory
+  - id: S6-R16B-GECODE-EXTENSIONAL
+    signature: GECODE_EXTENSIONAL_DFA_TUPLESET_PROPAGATOR_CONSTRUCTION__FIXED_CONSTRAINT_AND_DOMAIN_CONSISTENCY_SEMANTICS__STOCK_GECODE_ORACLE__COMPILE_PROPAGATE_MEMORY_COST
+    disposition: STRUCTURAL_DROP
+    exact_object: fixed_extensional_constraint_and_domain_consistency
+    direct_absorption: documented_DFA_TupleSet_compact_and_layered_graph_propagator_union
+    full_cost: constructor_compile_propagate_cpu_rss_memory
+dedup:
+  r16a: PASS__NO_SIGNATURE_MATCH
+  registry_history: PASS__NO_SIGNATURE_MATCH
+  active_lane_scope: PASS__NO_EXACT_SIGNATURE_MATCH_OBSERVED_AT_SNAPSHOT

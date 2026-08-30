@@ -1,0 +1,30 @@
+schema: actual-dp-implementation-freeze-v1
+frozen_at: 2026-08-26T13:01:30.7681409+08:00
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM
+root: resources/src/apx_tpd
+maximum_files: 20
+frozen_files: 3
+files:
+  - {path: resources/src/apx_tpd/apx_tpd.py, bytes: 30406, sha256: 5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086, role: CATALOG_COMPILER_PER_ACTION_DP_LABELED_GENERIC_ORACLE_CORPUS_FREEZE_AND_R8_PLAN}
+  - {path: resources/src/apx_tpd/catalog_contract.json, bytes: 6097, sha256: BC129B73FC7FABC488C3B4A52C41737EFBE398000542AC2CDCD382E5337CC6CA, role: COMPLETE_ENOUGH_ACTUAL_NATIVE_MACRO_ACTION_CONTRACT}
+  - {path: resources/src/apx_tpd/tiny_trace.json, bytes: 1799, sha256: AD7F2DBE3F19DFFCD1EB0C3B4FDF80DCDDA7DCC71BACC769FCF40AF022F57910, role: W_MAX4_PER_BOUNDARY_TINY_CONTROL}
+algorithm_requirements:
+  per_action_recurrence: true
+  reconstruction_backpointers: true
+  state_fields: [boundary, sigma, spills, saved, frame, cfi, flags, relocation, egpr, destination_mode, callee_scratch, abi, obligations]
+  future_suffix_action_and_cost_rows: true
+  full_register_family_transposition_certificate: true
+  candidate_orbit_dp: true
+  labeled_dp: true
+  generic_exact_product_subtractor: true
+  independent_recursive_micro_oracle: true
+  current_LLVM_and_tuning_output_consumption: true
+prohibited_proxy_checks: [TWO_GLOBAL_STATES_ONLY, D0_ALL_DIRECT_M0_ALL_MATERIALIZED, CLOSED_FORM_WITHOUT_PER_ACTION_TRANSITIONS, REGISTER_NAME_SORTING_CERTIFICATE]
+external_runtimes:
+  python: {path: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA, disposition: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED}
+  pwsh: {path: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe, sha256: DB6DD81183FE57D22E03B911EC9A30A2FD7C40542E97743615355A6FB44F458F, disposition: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED}
+  llc: {path: resources/env/apx-toolchain/bin/llc.exe, sha256: 856DA14A0CC34FBEFCA4FBB606FED5B88AABE6FC767A7E652CFD4EB4DFF5FA2E, disposition: ASSIGNMENT_LOCAL_EXACT_TOOLCHAIN}
+implementation_edit_after_freeze_allowed: false
+automatic_retry: false
+first_tool_started: false
+result: FROZEN_BEFORE_FIRST_CONTROL_TOOL

@@ -1,0 +1,20 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+identity: {lane_id: STAGE0-PRIMARY, lane_thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c, role_id: STAGE0_PRIMARY, assignment_id: STAGE0-PRIMARY-20260827-NONBLIND-R3, topic_id: STAGE0A_IDENTITY_BLIND_EVIDENCE_BACKTEST_R3, stage_or_mode: NONBLIND_STAGE0_NONCOLLISION_FALLBACK, status: BOOTSTRAP_ACK_PENDING, resume_point: BLIND_PHASE_CONTAMINATED, next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY}
+authority: {policy_authority: USER, shared_file_writer: MAINLINE, canonical_writer: STAGE0_PRIMARY, allowed_actions: [after_start_nonblind_noncollision_review_only], forbidden_actions: [gold_label_read, expected_disposition_read, auditor_gold_key_read, network_search, external_lookup, collision_adjustment, StageA, production_candidate_registration, StageB, blind_metric_merge, unbiased_recall_claim, threshold_75_claim]}
+boundaries: {unique_write_directory: E:/project/writing/reserch/stages/stage0/_compatibility/nonblind-r3/primary, write_allowed_paths: [E:/project/writing/reserch/stages/stage0/_compatibility/nonblind-r3/primary], network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: D53974351D724738C9C5634BB53EC42D9CCC71877FEFF20C3CBD0D21DEAE7749}
+  registry_snapshot: {path: registry.yaml, sha256: 34FB1B3FCF54E28BF8F212120F95AC0B3E592EB56B0714301A083E7928A31524}
+  role_rule: {path: rules/ROLE_STAGE0_REVIEW.md, sha256: 71D2E972A7C46812C49E78693AC24E00752D653C42AD0F6664DAD731DE82623C}
+  skills: [{path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+  templates: [{path: templates/STAGE0_REPORT.md, sha256: 2C72A46D7385A4DFE0D0981E4BDF4AB2A3BF6F19674BC94B14A1596386A2B809}]
+minimum_inputs:
+  - {path: stages/stage0/_compatibility/nonblind-r3/primary/ASSIGNMENT.yaml, sha256: 3DEABC5F131161308D3CE0DE95D9479DBB15EE1C0DB78EDD82FDBD2322A8B63C}
+  - {path: stages/stage0/_compatibility/nonblind-r3/primary/NONBLIND_IDENTITY_CONTEXT.yaml, sha256: A5847D2794A1FFDB261E33362731D0AECA00AFB891086D2DFC9F8A685151C1F6}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/STAGE0_NEUTRAL_PACKET.yaml, sha256: E4E2CA1CF7B98D9FBB79E88F8C5BC08EA92F9C6166B0FF3B8296D8EA34E90C09}
+  - {path: stages/stage0/_compatibility/identity-blind-r3/BLIND_PHASE_DISPOSITION.yaml, sha256: C3864137483EE3B9D4F83FE237B32CAC3E1F53F2A3F7F5390D15793FD653BF74}
+nonblind_metric_boundary: {blind_metrics_merged: false, unbiased_recall_claim: false, threshold_75_claim: false}
+validation: {hashes_complete: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: VALIDATED}

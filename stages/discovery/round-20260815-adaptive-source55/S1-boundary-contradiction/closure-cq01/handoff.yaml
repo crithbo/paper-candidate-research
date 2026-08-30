@@ -1,0 +1,37 @@
+assignment_id: SOURCE-CLOSURE-SOURCE55-S1-CQ01-MIPS-FCSR-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+queue_item: CQ01
+write_directory: stages/discovery/round-20260815-adaptive-source55/S1-boundary-contradiction/closure-cq01
+disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+state_authority: NONE__RETURN_TO_MAINLINE_ONLY
+project_pin:
+  project: llvm/llvm-project
+  default_branch: main
+  resolved_commit: fc145527a539be71d15fca3bc10618196e84f4cf
+resource_envelope:
+  acquisition_attempts_used: 6
+  acquisition_attempts_cap: 6
+  persisted_response_bytes: 1060412
+  persisted_bytes_cap: 16777216
+  localization: PASS
+finding_summary:
+  - MipsTargetLowering identifies FCR31 as a rounding-control register at the pinned commit.
+  - The selected in-tree rounding test is canonical but does not provide an explicit FCSR-write/call placement witness.
+  - The current FCSR instruction/builtin/call-clobber/default-nondefault union remains incomplete at the frozen source-call cap.
+remaining_named_debt:
+  - pinned FCSR instruction/builtin action vocabulary
+  - pinned MIPS call-lowering and call-preservation semantics
+  - explicit hard-float FCSR write/call two-action same-object witness
+  - finite semantic/ABI oracle for that witness
+forbidden_inferences_preserved:
+  - no raw, brief, tier, Q2, PASS, STOP, or stage-state decision
+  - no absence inference from unread paths, cap exhaustion, transport, 404, or zero match
+  - no Source56 material read
+canonical_files:
+  report: SOURCE_CLOSURE_REPORT.md
+  current_upstream_audit: CURRENT_UPSTREAM_AUDIT.md
+  resource_inventory: RESOURCE_INVENTORY.yaml
+  attempt_ledger: resources/logs/acquisition-attempt-ledger.yaml
+  manifest: HASH_MANIFEST.sha256
+next_action: Mainline may retain CQ01 in backlog or issue a new bounded same-object closure assignment; this assignment authorizes no further acquisition.
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

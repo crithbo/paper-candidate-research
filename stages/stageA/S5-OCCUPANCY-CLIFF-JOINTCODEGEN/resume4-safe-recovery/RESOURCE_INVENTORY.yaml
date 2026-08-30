@@ -1,0 +1,82 @@
+schema: assignment-resource-inventory-v1
+assignment_id: SAFE-RECOVERY-L2-20260815-S5-GFX11-MIR-RESUME4
+topic_id: S5-OCCUPANCY-CLIFF-JOINTCODEGEN
+unique_write_directory: D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume4-safe-recovery
+resource_root: D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume4-safe-recovery/resources
+policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+status: CLOSED_READY_FOR_MAINLINE_ACCEPTANCE
+created_at: 2026-08-15T23:24:00+08:00
+updated_at: 2026-08-15T23:41:08+08:00
+budget:
+  max_single_download_bytes: 268435456
+  max_cumulative_download_bytes: 536870912
+  max_new_persisted_bytes: 2147483648
+  max_cpu_seconds: 3600
+  max_wall_seconds: 7200
+usage:
+  largest_single_download_bytes: 3698422
+  downloaded_bytes: 9466511
+  resource_root_logical_bytes_pre_snapshot: 31191051
+  resource_root_logical_bytes_final: 31191482
+  measured_cpu_seconds: null
+  measured_wall_seconds: null
+  measurement_note: RUNNER_DID_NOT_EXPOSE_EXACT_AGGREGATE__NOT_ESTIMATED
+  gpu_or_exclusive_device: none
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  temp: resources/tmp
+  cache: resources/cache
+  logs: resources/logs
+  unredirectable_writable_surfaces: []
+resources:
+  - id: alpine_minirootfs_3_24_1
+    path: resources/downloads/alpine-minirootfs-3.24.1-x86_64.tar.gz
+    bytes: 3698422
+    sha256: 41F73E3CF5FA919B8AA5CA6B30DC48F0DA2720776D7423E2A7748211456FE081
+    status: VERIFIED_DIAGNOSTIC_ONLY
+  - id: alpine_apkindex_v3_24
+    path: resources/downloads/alpine-v3.24-main-x86_64-APKINDEX.tar.gz
+    bytes: 528228
+    sha256: 8084FCAACA28A22D4606E5F3F5DE73600396F3032459303A49941D9D7165B734
+    status: VERIFIED
+  - id: musl_dev_1_2_6_r2
+    path: resources/downloads/musl-dev-1.2.6-r2.apk
+    bytes: 3421233
+    sha256: 6831E8B9E4821DAE2C9121F0641F81E543F4AC27C03144C4876980EE84E6988F
+    status: VERIFIED_AND_EXTRACTED_HEADERS
+  - id: libcxx_dev_22_1_3_r0
+    path: resources/downloads/libc++-dev-22.1.3-r0.apk
+    bytes: 1818523
+    sha256: 0D41363E1FBCC8E7472BD7DE7EDC69C8808B42B5523A85D074E09D29D385CC80
+    status: VERIFIED_AND_EXTRACTED_HEADERS
+  - id: portable_alpine_header_sysroot
+    path: resources/env/alpine-musl-sysroot
+    status: ACTIVE_PROCESS_LOCAL_DEPENDENCY
+  - id: natural_ir_set
+    path: resources/build/natural-ir
+    files: 4
+    status: VERIFIED
+  - id: natural_mir_set
+    path: resources/build/natural-mir
+    files: 8
+    status: VERIFIED_8_OF_8
+  - id: natural_mir_replay2
+    path: resources/build/replay2
+    files: 8
+    status: HASH_MATCH_8_OF_8
+external_read_only_inputs:
+  - id: resume3_exact_tools
+    path: D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume3-r3d/verified/tools
+    mutation_allowed: false
+    verification: TARGETED_HASH_RECHECK_MATCH_4_OF_4
+  - id: resume3_official_natural_sources_and_accepted_ir
+    path: D:/project/writing/reserch/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume3-r3d/natural
+    mutation_allowed: false
+    verification: ACCEPTED_IMMUTABLE_INPUT_PLUS_SELECTED_SOURCE_HASHES
+external_system_managed_caches: []
+cleanup:
+  owner: MAINLINE
+  status: NOT_REQUESTED
+  recursive_cleanup_authorized: false

@@ -1,0 +1,39 @@
+schema_version: 1
+contract_kind: RESUME_CONTINUITY_EXTENSION__NO_MECHANISM_OR_WORKLOAD_CHANGE
+assignment_id: STAGEA-L1-20260811-PARQUET-PAGE-COSEGMENT-RESUME1-V8.7
+topic_id: PARQUET-PAGE-COSEGMENT
+parent_contract_sha256: 843E55559486640B79D86A9E184429E9B191D0F2640FF9597C57FC8BECF5BD2E
+parent_checkpoint_sha256: C3DA106D6AB8482394B7CDFBDC33ED9BE192AF47A5AB89745F18D424E6424F72
+frozen_object_action_baseline_workload_metrics: IDENTICAL_TO_PARENT_CONTRACT
+old_root_mode: READ_ONLY
+resume_write_root: D:/project/writing/reserch/stages/stageA/PARQUET-PAGE-COSEGMENT/resume1
+replay1:
+  old_results_read_only: green_tripdata_2024-01_through_2024-05
+  resume_results: green_tripdata_2024-06_through_2025-08
+  partial_oracle_rule: revalidate all 15 old 2024-06 boundary oracles before copying them into resume output; never overwrite old files
+replay2:
+  independence: fresh output tree and freshly generated complete 20-file boundary/comparator/candidate artifacts
+  corpus: same frozen 20 source hashes
+aggregation:
+  replay1_result_sources: 5 old immutable plus 15 resume1
+  stable_projection_replay: exact match required for all non-timing fields and output Parquet SHA-256
+  volatile_fields: planning/write/query wall and CPU times and peak RSS only
+  useful_action_gate: parent threshold 0.10
+  p50_gate: parent threshold at least 12 of 20 files with improvement at least 0.10
+  p90_gate: candidate per-file p90 must not exceed strongest union for all 20
+  size_gate: candidate/union whole-file ratio at most 1.05 for all 20
+  pareto_dimensions: [whole_file_bytes, heldout_p50_wall_ns, heldout_p90_wall_ns, conservative_full_cost_wall_ns]
+  conservative_full_cost:
+    union: union_write_wall_ns plus all measured union query wall ns
+    candidate: entire shared_or_candidate planning_wall_ns plus candidate_write_wall_ns plus all measured candidate query wall ns
+    note: conservatively charges all recorded grid generation/selection/planning to candidate and none to union; warmups are excluded from both because the frozen old results do not time them
+resource_ceiling:
+  workspace_bytes_lt: 4294967296
+  cpu_hours_lt: 4
+  public_cpu_only: true
+  gpu: false
+  exclusive_device: false
+  network_bytes: 0
+stageb_authorized: false
+stageb_user_approval_id: null
+scientific_revision_consumed: false

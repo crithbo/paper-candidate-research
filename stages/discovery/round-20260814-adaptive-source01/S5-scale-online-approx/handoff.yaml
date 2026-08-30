@@ -1,0 +1,36 @@
+assignment_id: DISCOVERY-S5-20260814-ADAPTIVE-SOURCE01
+lane: S5_SCALE_ONLINE_APPROX
+rules_revision: v8.7-authoritative__adaptive-source-zero-yield-audit-20260814
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_quality_mode: OFF
+discovery_claim_pack_mode: OFF
+cutoff: '2026-08-14'
+result: COMPLETE_ZERO_PROPOSALS
+diagnostic_screen:
+  screened_families: 5
+  deep_reviewed_families: 3
+  merged_or_out_of_scope: [LLVM_IR_OUTLINER_MERGED_WITH_MACHINE_OUTLINER, GHC_RECOMPILATION_CHECKER_POLICY_ONLY]
+  cross_project_repeat_exclusions: [THINLTO, OPENJDK_CDS, ANDROID_BINARY_OUTLINING, GENERIC_BUILD_CACHE_CONTROLLERS]
+families:
+  - signature: LLVM_MACHINE_OUTLINER__FIXED_TARGET_MACHINE_PROGRAM_ABI__LEGAL_SEQUENCE_TO_OUTLINED_FUNCTION_CALL_CONSTRUCTION__COMPILE_SIZE_CALL_COST
+    disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_FROZEN_ACTION
+    structural_paper_potential: BELOW_Q2_FOR_FROZEN_ACTION
+    current_evidence_readiness: E1_STATIC_PREFLIGHT
+  - signature: RUSTC_INCREMENTAL_DEPGRAPH__FIXED_CRATE_OUTPUT_SEMANTICS__DEPGRAPH_WORKPRODUCT_SESSION_TRANSITION__HASH_IO_CPU_RSS_FALLBACK_COST
+    disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_FROZEN_ACTION
+    structural_paper_potential: BELOW_Q2_FOR_FROZEN_ACTION
+    current_evidence_readiness: E1_STATIC_PREFLIGHT
+  - signature: LINUX_EBPF_VERIFIER_STATE_PRUNING__FIXED_VERIFIER_ACCEPTANCE_SEMANTICS__SAFE_CACHED_STATE_REDUCTION_ACTION__STATE_CPU_RSS_COST
+    disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_FROZEN_ACTION
+    structural_paper_potential: BELOW_Q2_FOR_FROZEN_ACTION
+    current_evidence_readiness: E1_STATIC_PREFLIGHT
+propose_stage0: []
+briefs_created: []
+claim_ceiling: CURRENT_UNION_DIRECT_ABSORPTION_ONLY__NO_ABSENCE_OR_GLOBAL_NOVELTY_CLAIM
+prohibited_work_not_run: [V9_output, experiment, E2, benchmark, build, installation, large_download, Stage0_A_B, automation, external_communication]
+handoff_files:
+  discovery_log: DISCOVERY_LOG.md
+  collision_matrix: SOURCE_COLLISION_MATRIX.md
+  manifest: HASH_MANIFEST.sha256
+next_step: A subsequent assignment may reopen only a distinct target-specific state/action with a formal guarantee and minimal legal divergence witness.
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

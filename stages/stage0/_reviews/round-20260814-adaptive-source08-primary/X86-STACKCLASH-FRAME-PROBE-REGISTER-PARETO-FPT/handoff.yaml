@@ -1,0 +1,44 @@
+assignment_id: STAGE0-P1-20260814-X86-STACKCLASH-FRAME-PROBE-REGISTER-PARETO-FPT-PRIMARY-V8.7
+topic_id: X86-STACKCLASH-FRAME-PROBE-REGISTER-PARETO-FPT
+role: PRIMARY
+decision: STOP_RECOMMENDED
+quality_tier: BELOW_Q2_STOP
+confidence: 0.88
+stageA_authorized: false
+stageB_authorized: false
+confirmation_required: false
+same_id_revision_allowed: false
+terminal_sentinel: BELOW_Q2_STOP__STATIC_X86_PROBE_DETERMINISM__CSR_SPILL_COMPOSITION__NO_NATIVE_SCRATCH_ACTION
+scientific_basis:
+  structural_paper_potential: failed
+  current_evidence_readiness: E1_STATIC_PREFLIGHT
+  resource_failure: false
+  direct_current_union_findings:
+    - RegAllocGreedy already evaluates first CSR prologue/epilogue cost against spill cost.
+    - PrologEpilogInserter finalizes CSR/frame layout before prologue insertion.
+    - X86 static probe expansion is a deterministic function of offset, alignment and probe size.
+    - Prologue scratch is not a body-live allocation alternative in the fixed SysV contract.
+  residual_classification: generic_scalar_cost_tuning_or_frame_packing
+frozen_scope:
+  target: x86_64-unknown-linux-gnu SysV
+  llvm_main_commit: e72ba6cf366a3180cbf5a8690d9e50665880ab76
+  safety: page_by_page_stack_clash_probe_invariant
+  excluded_rescues:
+    - changed ABI/unwind/guard semantics
+    - dynamic allocation object
+    - new probe transition/ISA action
+    - generic RA_or_ILP_or_frame_packing wrapper
+future_new_id_condition: >-
+  A successor must freeze a distinct security/codegen object and name a genuine
+  native state transition not reducible to post-frame static probe expansion or
+  ordinary CSR/spill cost tuning; it must preserve a same-object safety/ABI
+  contract and pass independent current-union review.
+provenance:
+  source_package_verified:
+    brief: 98E3D06CC5E553F784F5CE538FEFB573FEB9C7CF6394FEC3911DD4B871551733
+    collision_matrix: 1112A5339682BB204903595B81CC9A5F6628683867E1375F2F92B31E23F9E116
+    discovery_log: 483F898C602AAC574A67FB8BF3DE47E10798125ABC9969229A9DAA223880688D
+    handoff: FBBC556491622EFD960DDB2C6E557C0A0692168C75CEEAFACEC047DBCEB012D9
+    manifest: 369D88DDB6BF7E7E7059151DBFA086BE652D24ED093F8A1578DEF505B9407E0B
+cross_assignment_contamination: none; queued Zcmp material not read
+lane_disposition: IDLE_REUSABLE_AWAITING_MAINLINE

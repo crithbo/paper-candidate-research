@@ -1,0 +1,141 @@
+schema_version: rocksdict-resource-stagea-resume3-r3b-v1
+assignment_id: RESOURCE-STAGEA-L3-20260811-ROCKSDB-DICT-COVER-RESUME3-R3B
+topic_id: ROCKSDB-DICT-COVER
+lane_id: CANDIDATE_EXECUTION_LANE_3
+authorization_id: ROCKSDB-NVD-OFFICIAL-API-RECOVERY-20260811-R3B
+unique_write_directory: D:\project\writing\reserch\stages\stageA\ROCKSDB-DICT-COVER\resume3
+old_topic_root_access: READ_ONLY_EXCEPT_RESUME3
+stageb_authorized: false
+stageb_user_approval_id: null
+
+frozen_controls:
+  AGENTS_sha256: B7122A5ACC5CF02A602988548E7464BF03362059293B083796BA1687D2CFAC73
+  plan_sha256: CEC5C562711CED5FC909DDA8A2D7E179EE6C57A9055E4957FF473CC6FE37D051
+  registry_sha256: C17A8543F00E6DCF741E529E84D548BBA0F2A2FCC363E65CF23E575A07CDB71E
+  ROLE_CANDIDATE_OWNER_sha256: 96601A060F56B44B95BCBCC4F234E3B107238D4C4655A535679DE88A8D3B3FDC
+  old_experiment_contract_sha256: 8B578D63EE6DC515DB60E6D5A7D29AECEE35EAFF816AF7D800888C9746CEDC70
+  resume2_report_sha256: CA0629341FADBB629410F01DB1A0DA88D1A527BCB71A4ECA7D6297E7E9F77970
+  resume2_blocker_sha256: D11844D888897C34F8998E5E4FCD59A5D66CE64AA8A6A5D2E2AC7479A25555BD
+  resume2_handoff_sha256: ECF5998F9DFDE852686931F373385F2FE5E74CE146262F4812F48EF11E80AF4F
+  resume2_manifest_sha256: 36241926697EB5B4D46B34CE184D1576B3DFB5D7A49C035673BE0078340D8152
+  old_converter_sha256: E93D8D7A7AB47B2A65751064F5114FCD9E919813F2A7F810123FDCAF7FD7E244
+
+scientific_boundary:
+  resource_phase_claim_bearing: false
+  claim_experiments_before_resource_and_preclaim_pass: forbidden
+  forbidden_before_pass: [ROCKSDB, ZSTD_TRAINER, CANDIDATE, BASELINE, SST]
+  scientific_revision_consumption_before_first_accepted_claim_observation: false
+  resource_failure_evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  resource_failure_scientific_disposition: BLOCKED_USER_ACTION_REQUIRED
+  stop_reserve_archive_from_resource_failure: forbidden
+
+official_documentation:
+  nvd_start_here: https://nvd.nist.gov/developers/start-here
+  nvd_cve_api: https://nvd.nist.gov/developers/vulnerabilities
+  nvd_api_workflows: https://nvd.nist.gov/developers/api-workflows
+  pypi_json_api: https://docs.pypi.org/api/json/
+  documentation_checked_utc_date: 2026-08-11
+  nvd_public_rate_limit: 5_REQUESTS_PER_ROLLING_30_SECONDS
+  nvd_sleep_seconds_between_requests: 6.2
+  nvd_results_per_page: 2000
+  nvd_max_date_window: 120_CONSECUTIVE_DAYS
+  nvd_date_window_used: HALF_OPEN_120_DAY_PARTITIONS_EXPRESSED_AS_INCLUSIVE_MILLISECOND_ENDPOINTS
+
+official_route_attempts:
+  total_max: 4
+  interpretation: HIGH_LEVEL_FROZEN_ROUTE_ATTEMPTS__PAGINATION_REQUESTS_WITHIN_ONE_API_ROUTE_ARE_NOT_RETRIES
+  routes:
+    - id: ROUTE_1_NVD_API2
+      trigger: ALWAYS_FIRST
+      endpoint: https://services.nvd.nist.gov/rest/json/cves/2.0/
+      action: PARITY_2019_2022_ANNUAL_FEEDS_THEN_ACQUIRE_2023_2024
+      retry_inside_route: false
+      resume_only_from_hash_validated_completed_pages_after_process_interruption: true
+    - id: ROUTE_2_NVD_STABLE_ETAG_RANGE
+      trigger: ROUTE_1_PARITY_OR_COMPLETE_TRANSFER_OBSTRUCTED
+      endpoints:
+        - https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2023.json.gz
+        - https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2024.json.gz
+      action: CURL_HTTP_RANGE_RECONSTRUCTION_WITH_IF_MATCH_AND_STABLE_ETAG
+      retry_inside_route: false
+    - id: ROUTE_3_PYPI_PROJECT_JSON
+      trigger: NVD_2023_2024_CLOSED
+      action: TEN_EXACT_FROZEN_PROJECT_LEVEL_OFFICIAL_JSON_ENDPOINTS
+      retry_inside_route: false
+    - id: ROUTE_4_NVD_ALTERNATE_OFFICIAL_TRANSFER
+      trigger: ROUTE_2_MECHANICAL_TRANSFER_FAILURE_ONLY
+      action: BITS_OR_CURL_ALTERNATE_EXACT_OFFICIAL_ANNUAL_FEED_UNDER_SAME_STABLE_ETAG
+      status_at_freeze: RESERVED_NOT_STARTED
+  mirrors: forbidden
+  corpus_substitution: forbidden
+
+nvd_api_parity:
+  reference_assets:
+    - {year: 2019, path: ..\resume2\inputs\raw\nvd-2019.json.gz, bytes: 10171125, sha256: 7106AD65484B53C0E400F59DFF7A350CF7A63BBB11BD8FFD37EE3435D68953E6}
+    - {year: 2020, path: ..\resume2\inputs\raw\nvd-2020.json.gz, bytes: 13960211, sha256: 645B6399945F08FEA8693456056BEA8F1837BC973D41176014FCF99F6283C047}
+    - {year: 2021, path: ..\resume2\inputs\raw\nvd-2021.json.gz, bytes: 16852651, sha256: E3600406245A4626E5BEFEDA3F6E7BFCB7806F1B8BE7BF62895D55B5395AC595}
+    - {year: 2022, path: ..\resume2\inputs\raw\nvd-2022.json.gz, bytes: 18333784, sha256: D9568EB4A189076CE06D020C27908EDD76E3C4A40F048297D8A175AB8E826AD6}
+  exact_checks:
+    - CVE_ID_SET_EQUALITY
+    - CANONICAL_CVE_JSON_PER_ID_EQUALITY
+    - SET_DIGEST_EQUALITY
+    - CONTENT_DIGEST_EQUALITY
+  parity_required_before_api_2023_2024: true
+  parity_failure_is_resource_route_obstruction_not_scientific_evidence: true
+
+pypi_assets:
+  endpoint_semantics: PROJECT_LEVEL_JSON_RESPONSE_FROZEN_BY_RETRIEVAL_BYTES_SHA256_TIMESTAMP_AND_HEADERS
+  routes:
+    - {id: pypi-boto3, package: boto3, url: "https://pypi.org/pypi/boto3/json"}
+    - {id: pypi-botocore, package: botocore, url: "https://pypi.org/pypi/botocore/json"}
+    - {id: pypi-django, package: django, url: "https://pypi.org/pypi/django/json"}
+    - {id: pypi-pandas, package: pandas, url: "https://pypi.org/pypi/pandas/json"}
+    - {id: pypi-numpy, package: numpy, url: "https://pypi.org/pypi/numpy/json"}
+    - {id: pypi-scipy, package: scipy, url: "https://pypi.org/pypi/scipy/json"}
+    - {id: pypi-tensorflow, package: tensorflow, url: "https://pypi.org/pypi/tensorflow/json"}
+    - {id: pypi-torch, package: torch, url: "https://pypi.org/pypi/torch/json"}
+    - {id: pypi-matplotlib, package: matplotlib, url: "https://pypi.org/pypi/matplotlib/json"}
+    - {id: pypi-scikit-learn, package: scikit-learn, url: "https://pypi.org/pypi/scikit-learn/json"}
+  required_schema: [info_object, releases_object, urls_array, info_name_matches_package, info_version_nonempty]
+  license_disposition: PACKAGE_DECLARED_LICENSE_METADATA_RETAINED__REGISTRY_METADATA_ONLY
+
+resource_validation:
+  required:
+    - OFFICIAL_URL_AND_HTTPS
+    - HTTP_SUCCESS
+    - CONTENT_LENGTH_EQUALS_ACTUAL_BYTES_WHEN_PRESENT
+    - COMPLETE_HTTP_BODY_WITH_VALID_JSON_ENVELOPE_WHEN_CHUNKED
+    - SHA256_OVER_EXACT_RESPONSE_BYTES
+    - RETRIEVAL_UTC_AND_RESPONSE_HEADERS
+    - FULL_GZIP_STREAM_FOR_ANNUAL_FEED_FALLBACK
+    - ALL_ENTRY_FAMILY_SCHEMA
+    - LICENSE_OR_OFFICIAL_DATA_STATUS
+    - UNMODIFIED_FROZEN_CONVERTER_READ_SMOKE
+  nvd_notice: THIS_PRODUCT_USES_DATA_FROM_THE_NVD_API_BUT_IS_NOT_ENDORSED_OR_CERTIFIED_BY_THE_NVD
+  nvd_status: NIST_PUBLIC_DOMAIN_DATA_WITH_SOURCE_ATTRIBUTION_RETAINED
+
+resource_pass:
+  required_nvd_years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  required_pypi_packages: [boto3, botocore, django, pandas, numpy, scipy, tensorflow, torch, matplotlib, scikit-learn]
+  required_manifests: 20
+  required_families: 2
+  next_action_without_new_user_prompt: PRE_CLAIM_CONTRACT_FIDELITY_GATE_THEN_FROZEN_STAGEA_IF_PASS
+
+stagea_after_resource_pass:
+  inherited_contract: ..\EXPERIMENT_CONTRACT.yaml
+  exact_object: FIXED_SORTED_KV_MANIFEST_TO_ONE_PRODUCTION_EQUIVALENT_BOTTOMMOST_COMPACTION_STANDARD_DICTIONARY_COMPRESSED_ROCKSDB_BLOCKBASEDTABLE_SST
+  preclaim_gate_required: true
+  strongest_union: CURRENT_PLUS_PREFIX_PLUS_SEEDED_RESERVOIR_PLUS_STRATIFIED_PLUS_FINITE_GRID__INDIVIDUALLY_EXECUTABLE
+  equality: STOCK_READER_CHECKSUM_FULL_ORDERED_SCAN_POINT_AND_RANGE
+  summary_quantiles: [p50, p90]
+  positive_ceiling: PRELIMINARY_SUPPORT_ONLY
+
+resource_envelope:
+  topic_directory_bytes_max: 6442450944
+  cumulative_cpu_hours_max: 4
+  gpu: false
+  exclusive_device: false
+  system_install: forbidden
+  global_environment_change: forbidden
+  automation: forbidden
+  stageb: forbidden

@@ -1,0 +1,46 @@
+assignment_id: DISCOVERY-S2-20260811-V8.7-WAVE320-VERIFIED-DATA-MOVEMENT-BOTTLENECK-BREADTH
+lane: S2-bottleneck-transfer
+status: IDLE_REUSABLE_AWAITING_MAINLINE
+completion: COMPLETE_ZERO_PROPOSALS
+authoritative_method: v8.7+R5-P0
+discovery_quality_mode: OFF
+cutoff_date: '2026-08-11'
+write_boundary: stages/discovery/round-20260811-v8.7-wave320/S2-bottleneck-transfer
+rule_freeze:
+  plan.md: 8A3AE8F81754D4C91B4FDA9324814A118DD729262BDE1353C4FD0B30CB11537D
+  registry.yaml: B74A21132B0DB7021959BABD5A28249D3B22A09B076ABC3119EFB36947D2347B
+  rules/ROLE_DISCOVERY.md: FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3
+funnel:
+  raw_row_events: 6
+  repeat_rescreens: 0
+  unique_opportunity_families: 6
+  candidate_grade_deep_reviews: 3
+  grounded_briefs: 0
+deep_reviews:
+  - family: OCI_VERIFIED_LAYER_MATERIALIZATION
+    decision: NOT_ADMITTED_UNFROZEN
+    reason: Digest/manifest/unpack contract leaves no frozen same-object non-generic joint action.
+  - family: APK_SIGNED_INSTALL_MATERIALIZATION
+    decision: NOT_ADMITTED_UNFROZEN
+    reason: Whole-file signature contract absorbs layout changes unless object/signature/verifier changes.
+  - family: WASM_VALIDATED_INSTANTIATION
+    decision: NOT_ADMITTED_UNFROZEN
+    reason: Fixed binary validity/semantics; remaining actions are cache/stream scheduling or changed module.
+common_fidelity_closure:
+  natural_carrier: Version-pinned OCI images, AOSP APK fixtures or Wasm test modules; 20-50 bounded cases.
+  stock_oracle: Digest/unpack, APK verifier/install, or Wasm validation/execution equivalence.
+  full_cost: Build/copy/materialization/verification CPU-RSS-temp-bytes plus cold-warm load/instantiate.
+  killer_within_72h: Fail if object/guarantee/verifier changes or only generic packing/cache/scheduling/flags/wrapper remains.
+non_reasons:
+  - missing implementation
+  - missing positive result
+  - data/resource availability
+  - AI readiness
+direct_absorption_claimed: false
+terminal_stop: false
+manifest: HASH_MANIFEST.sha256
+artifacts:
+  - DISCOVERY_LOG.md
+  - SOURCE_COLLISION_MATRIX.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256

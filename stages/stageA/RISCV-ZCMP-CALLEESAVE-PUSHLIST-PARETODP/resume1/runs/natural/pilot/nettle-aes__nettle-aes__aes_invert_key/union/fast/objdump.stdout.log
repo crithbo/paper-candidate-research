@@ -1,0 +1,22 @@
+﻿
+D:\project\writing\reserch\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\runs\natural\pilot\nettle-aes__nettle-aes__aes_invert_key\union\fast\linked.o:	file format elf32-littleriscv
+
+Disassembly of section .text:
+
+00000000 <aes_invert_key>:
+       0:      	cm.push	{ra}, -32
+       2:      	mv	a2, a1
+       4:      	sw	a2, 0x8(sp)
+       6:      	mv	a1, a0
+       8:      	sw	a1, 0xc(sp)
+       a:      	lw	a0, 0x0(a2)
+       c:      	addi	a1, a1, 0x4
+       e:      	addi	a2, a2, 0x4
+      10:      	auipc	ra, 0x0
+      14:      	jalr	ra <aes_invert_key+0x10>
+      18:      	lw	a0, 0x8(sp)
+      1a:      	lw	a1, 0xc(sp)
+      1c:      	lw	a0, 0x0(a0)
+      1e:      	sw	a0, 0x0(a1)
+      20:      	cm.popret	{ra}, 32
+

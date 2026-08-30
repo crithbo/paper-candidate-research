@@ -1,0 +1,18 @@
+method: all_history_five_field_identity_preflight
+scope: Source63 selected RQs only
+results:
+  - signature: QEMU_DIRTY_BITMAP__FIXED_QCOW2_NODE_BITMAP__PERSIST_MIGRATE_MERGE__STOCK_QMP_BACKUP_ENDPOINT
+    five_fields: [object: qcow2 node plus bitmap, action: bitmap persistence/merge transition, endpoint: stock QMP backup/migration, semantics: fixed logical disk and dirty-region meaning, carrier: QEMU official bitmap semantics]
+    registry_history_search: NO_MATCH__NOT_NOVELTY_EVIDENCE
+    disposition: RELATED_ONLY__PROCEED_TO_CURRENT_UNION_CHECK
+  - signature: QEMU_VFIO__FIXED_VM_DEVICE__DMA_DIRTY_LOG_STATE_SYNC__STOCK_MIGRATION_ENDPOINT
+    five_fields: [object: VM plus VFIO device, action: DMA dirty-log state construction/sync, endpoint: stock migration/recovery, semantics: fixed device-visible state, carrier: QEMU VFIO migration semantics]
+    registry_history_search: NO_MATCH__NOT_NOVELTY_EVIDENCE
+    disposition: RELATED_ONLY__PROCEED_TO_CURRENT_UNION_CHECK
+  - signature: QEMU_MIGRATION__FIXED_VM_STATE__DIRTY_STREAM_STATE_CONSTRUCTION__STOCK_QMP_DESTINATION
+    five_fields: [object: VM state, action: dirty-stream/state construction, endpoint: stock QMP destination, semantics: fixed destination-equivalent VM state, carrier: QEMU migration semantics]
+    registry_history_search: NO_MATCH__NOT_NOVELTY_EVIDENCE
+    disposition: RELATED_ONLY__PROCEED_TO_CURRENT_UNION_CHECK
+notes:
+  - No exact/terminal containment certificate was found in the bounded registry term search.
+  - This preflight does not assert novelty and does not override the current-union exclusions below.

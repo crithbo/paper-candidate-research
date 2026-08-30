@@ -1,0 +1,146 @@
+{
+  "action_counts": {
+    "cutoff-main-a1194be1": {
+      "BACKPATCH": 2,
+      "BLOCKINFO_ABBREV_DEFINE": 27,
+      "BLOCK_ENTER": 21,
+      "LOCAL_ABBREV_DEFINE": 47,
+      "RECORD_EMIT": 117,
+      "RECORD_WITH_BLOB": 1,
+      "RECORD_WITH_EXPLICIT_ABBREV": 1
+    },
+    "release-22.1.8": {
+      "BACKPATCH": 2,
+      "BLOCKINFO_ABBREV_DEFINE": 26,
+      "BLOCK_ENTER": 21,
+      "LOCAL_ABBREV_DEFINE": 47,
+      "RECORD_EMIT": 115,
+      "RECORD_WITH_BLOB": 1,
+      "RECORD_WITH_EXPLICIT_ABBREV": 1
+    }
+  },
+  "callsite_rows": 429,
+  "flags": [
+    {
+      "default": "25",
+      "flag": "bitcode-mdindex-threshold",
+      "line": 93,
+      "path": "llvm/lib/Bitcode/Writer/BitcodeWriter.cpp",
+      "source_window": "static cl::opt<unsigned> IndexThreshold(\"bitcode-mdindex-threshold\", cl::Hidden, cl::init(25), cl::desc(\"Number of metadatas above which we emit an index \" \"to enable lazy-loading\")); static cl::opt<uint32_t> FlushThreshold( \"bitcode-flush-threshold\", cl::Hidden, cl::init(512), cl::desc(\"The threshold (unit M) for flushing LLVM bitcode.\"));  static cl::opt<bool> WriteRelBFToSummary( \"write-relbf-to-summary\", cl::Hidden, cl::init(false), cl::desc(\"Write relative block frequency to function summary \"));  // Since we only use the context information in the memprof summary records in // the LTO backends to do assertion checking, save time and space by only",
+      "variable": "IndexThreshold",
+      "version": "release-22.1.8"
+    },
+    {
+      "default": "512",
+      "flag": "bitcode-flush-threshold",
+      "line": 97,
+      "path": "llvm/lib/Bitcode/Writer/BitcodeWriter.cpp",
+      "source_window": "static cl::opt<uint32_t> FlushThreshold( \"bitcode-flush-threshold\", cl::Hidden, cl::init(512), cl::desc(\"The threshold (unit M) for flushing LLVM bitcode.\"));  static cl::opt<bool> WriteRelBFToSummary( \"write-relbf-to-summary\", cl::Hidden, cl::init(false), cl::desc(\"Write relative block frequency to function summary \"));  // Since we only use the context information in the memprof summary records in // the LTO backends to do assertion checking, save time and space by only // serializing the context for non-NDEBUG builds. // TODO: Currently this controls writing context of the allocation info records, // which are larger and more expensive, but we should do this for the callsite // records as well.",
+      "variable": "FlushThreshold",
+      "version": "release-22.1.8"
+    },
+    {
+      "default": "false",
+      "flag": "write-relbf-to-summary",
+      "line": 101,
+      "path": "llvm/lib/Bitcode/Writer/BitcodeWriter.cpp",
+      "source_window": "static cl::opt<bool> WriteRelBFToSummary( \"write-relbf-to-summary\", cl::Hidden, cl::init(false), cl::desc(\"Write relative block frequency to function summary \"));  // Since we only use the context information in the memprof summary records in // the LTO backends to do assertion checking, save time and space by only // serializing the context for non-NDEBUG builds. // TODO: Currently this controls writing context of the allocation info records, // which are larger and more expensive, but we should do this for the callsite // records as well. // FIXME: Convert to a const once this has undergone more sigificant testing. static cl::opt<bool> CombinedIndexMemProfContext(\"combined-index-memprof-context\", cl::Hidden, #ifdef NDEBUG",
+      "variable": "WriteRelBFToSummary",
+      "version": "release-22.1.8"
+    },
+    {
+      "default": "false",
+      "flag": "combined-index-memprof-context",
+      "line": 112,
+      "path": "llvm/lib/Bitcode/Writer/BitcodeWriter.cpp",
+      "source_window": "static cl::opt<bool> CombinedIndexMemProfContext(\"combined-index-memprof-context\", cl::Hidden, #ifdef NDEBUG cl::init(false), #else cl::init(true), #endif cl::desc(\"\"));  static cl::opt<bool> PreserveBitcodeUseListOrder( \"preserve-bc-uselistorder\", cl::Hidden, cl::init(true), cl::desc(\"Preserve use-list order when writing LLVM bitcode.\"));  namespace llvm {",
+      "variable": "CombinedIndexMemProfContext",
+      "version": "release-22.1.8"
+    },
+    {
+      "default": "true",
+      "flag": "preserve-bc-uselistorder",
+      "line": 121,
+      "path": "llvm/lib/Bitcode/Writer/BitcodeWriter.cpp",
+      "source_window": "static cl::opt<bool> PreserveBitcodeUseListOrder( \"preserve-bc-uselistorder\", cl::Hidden, cl::init(true), cl::desc(\"Preserve use-list order when writing LLVM bitcode.\"));  namespace llvm { extern FunctionSummary::ForceSummaryHotnessType ForceSummaryEdgesCold; }  namespace {  /// These are manifest constants used by the bitcode writer. They do not need to /// be kept in sync with the reader, but need to be consistent within this file. enum { // VALUE_SYMTAB_BLOCK abbrev id's.",
+      "variable": "PreserveBitcodeUseListOrder",
+      "version": "release-22.1.8"
+    },
+    {
+      "default": "25",
+      "flag": "bitcode-mdindex-threshold",
+      "line": 93,
+      "path": "llvm/lib/Bitcode/Writer/BitcodeWriter.cpp",
+      "source_window": "static cl::opt<unsigned> IndexThreshold(\"bitcode-mdindex-threshold\", cl::Hidden, cl::init(25), cl::desc(\"Number of metadatas above which we emit an index \" \"to enable lazy-loading\")); static cl::opt<uint32_t> FlushThreshold( \"bitcode-flush-threshold\", cl::Hidden, cl::init(512), cl::desc(\"The threshold (unit M) for flushing LLVM bitcode.\"));  // Since we only use the context information in the memprof summary records in // the LTO backends to do assertion checking, save time and space by only // serializing the context for non-NDEBUG builds. // TODO: Currently this controls writing context of the allocation info records, // which are larger and more expensive, but we should do this for the callsite // records as well.",
+      "variable": "IndexThreshold",
+      "version": "cutoff-main-a1194be1"
+    },
+    {
+      "default": "512",
+      "flag": "bitcode-flush-threshold",
+      "line": 97,
+      "path": "llvm/lib/Bitcode/Writer/BitcodeWriter.cpp",
+      "source_window": "static cl::opt<uint32_t> FlushThreshold( \"bitcode-flush-threshold\", cl::Hidden, cl::init(512), cl::desc(\"The threshold (unit M) for flushing LLVM bitcode.\"));  // Since we only use the context information in the memprof summary records in // the LTO backends to do assertion checking, save time and space by only // serializing the context for non-NDEBUG builds. // TODO: Currently this controls writing context of the allocation info records, // which are larger and more expensive, but we should do this for the callsite // records as well. // FIXME: Convert to a const once this has undergone more sigificant testing. static cl::opt<bool> CombinedIndexMemProfContext(\"combined-index-memprof-context\", cl::Hidden, #ifdef NDEBUG",
+      "variable": "FlushThreshold",
+      "version": "cutoff-main-a1194be1"
+    },
+    {
+      "default": "false",
+      "flag": "combined-index-memprof-context",
+      "line": 108,
+      "path": "llvm/lib/Bitcode/Writer/BitcodeWriter.cpp",
+      "source_window": "static cl::opt<bool> CombinedIndexMemProfContext(\"combined-index-memprof-context\", cl::Hidden, #ifdef NDEBUG cl::init(false), #else cl::init(true), #endif cl::desc(\"\"));  static cl::opt<bool> PreserveBitcodeUseListOrder( \"preserve-bc-uselistorder\", cl::Hidden, cl::init(true), cl::desc(\"Preserve use-list order when writing LLVM bitcode.\"));  namespace llvm {",
+      "variable": "CombinedIndexMemProfContext",
+      "version": "cutoff-main-a1194be1"
+    },
+    {
+      "default": "true",
+      "flag": "preserve-bc-uselistorder",
+      "line": 117,
+      "path": "llvm/lib/Bitcode/Writer/BitcodeWriter.cpp",
+      "source_window": "static cl::opt<bool> PreserveBitcodeUseListOrder( \"preserve-bc-uselistorder\", cl::Hidden, cl::init(true), cl::desc(\"Preserve use-list order when writing LLVM bitcode.\"));  namespace llvm { extern FunctionSummary::ForceSummaryHotnessType ForceSummaryEdgesCold; }  namespace {  /// These are manifest constants used by the bitcode writer. They do not need to /// be kept in sync with the reader, but need to be consistent within this file. enum { // VALUE_SYMTAB_BLOCK abbrev id's.",
+      "variable": "PreserveBitcodeUseListOrder",
+      "version": "cutoff-main-a1194be1"
+    }
+  ],
+  "schema": "llvm-b0-source-action-inventory-v1",
+  "scope": "mechanical callsite inventory; scientific classification is in B0_CURRENT_NATIVE_AUDIT.md",
+  "sources": [
+    {
+      "bytes": 237937,
+      "path": "llvm/lib/Bitcode/Writer/BitcodeWriter.cpp",
+      "sha256": "4744b41558ca8654c2242114578c17197165d753e6965b4b6bcbe8423084e074",
+      "version": "release-22.1.8"
+    },
+    {
+      "bytes": 25804,
+      "path": "llvm/include/llvm/Bitstream/BitstreamWriter.h",
+      "sha256": "00a40c6e81c2f84c897ec69e60c438b503e17b2baf8aea302011e80d011c03dd",
+      "version": "release-22.1.8"
+    },
+    {
+      "bytes": 7860,
+      "path": "llvm/include/llvm/Bitcode/BitcodeWriter.h",
+      "sha256": "48ee9bbf6dd8afbd38e076a0ce282fe0d1dc7c6a8b597de66af02077c01efa5f",
+      "version": "release-22.1.8"
+    },
+    {
+      "bytes": 241385,
+      "path": "llvm/lib/Bitcode/Writer/BitcodeWriter.cpp",
+      "sha256": "15f6fa36a3d9e988461305cebdf881e863c4595567ee1844bfbb29f55ced644a",
+      "version": "cutoff-main-a1194be1"
+    },
+    {
+      "bytes": 25804,
+      "path": "llvm/include/llvm/Bitstream/BitstreamWriter.h",
+      "sha256": "00a40c6e81c2f84c897ec69e60c438b503e17b2baf8aea302011e80d011c03dd",
+      "version": "cutoff-main-a1194be1"
+    },
+    {
+      "bytes": 7860,
+      "path": "llvm/include/llvm/Bitcode/BitcodeWriter.h",
+      "sha256": "48ee9bbf6dd8afbd38e076a0ce282fe0d1dc7c6a8b597de66af02077c01efa5f",
+      "version": "cutoff-main-a1194be1"
+    }
+  ]
+}

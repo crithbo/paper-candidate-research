@@ -1,0 +1,33 @@
+schema: nb1-rule-only-compatibility-assignment-v1
+created_at: 2026-08-26T20:02:00+08:00
+created_by: MAINLINE
+authorization_id: USER_LUNA_XHIGH_AND_BLIND_FALLBACK_20260826
+assignment_id: STAGE0-NB1-20260826-RULE-COMPATIBILITY
+lane_id: STAGE0_SENTRY
+lane_thread_id: 01a034d0-cda0-74b3-a099-b4b711d9d8a8
+model_route: {model: gpt-5.6-terra, thinking: high}
+unique_write_directory: E:/project/writing/reserch/stages/stage0/_reviews/round-20260826-nb1-rule-compatibility/NB1
+input_directory: input
+identity_input: NB1_IDENTITY_AND_CUTOFF.yaml
+phase: NB1_RULE_ONLY_DECISION
+
+task:
+  evaluate_each_case_under_current_stage0_and_stagea_text: true
+  identity_visibility: HISTORICAL_IDENTITY_AND_CUTOFF_ALLOWED
+  expected_disposition_visibility: false
+  auditor_key_visibility: false
+  per_case_frozen_fields: [EXACT_OBJECT, SAME_OBJECT, CURRENT_COLLISION, ATOMIC_ACTION, MECHANISM, INFORMATION_CONDITION, COMPARATORS, NATURAL_OR_CANONICAL_EVIDENCE, FULL_COST, MINIMUM_FALSIFIER, REPRODUCIBILITY, RESOURCE_ROUTE, RULE_ONLY_DECISION, REASON]
+  allowed_decisions: [SURVIVE_STAGE0, STAGE0_REVISE_ONCE, STOP, RESOURCE_ROUTE, HUMAN_RESEARCH_RESERVE]
+  output_per_case: [NB1_CASE_DECISION.md]
+  batch_outputs: [NB1_RULE_ONLY_DECISIONS.yaml, NB1_HANDOFF_INDEX.yaml, HASH_MANIFEST.sha256]
+
+ordering:
+  freeze_all_NB1_decisions_before_any_gold_comparison: true
+  no_expected_route_or_gold_label_in_NB1: true
+  NB2_only_after_NB1_hash_acceptance: true
+  blind_and_nonblind_metrics_never_merge: true
+  nonblind_unbiased_recall_or_75_claim_forbidden: true
+
+permissions: {write_scope: ONLY_UNIQUE_DIRECTORY, read_plan_registry_rules_and_identity_input: true, read_auditor_key: false, read_expected_disposition: false, network: false, resource_download_build_or_experiment: false, candidate_registration: false, formal_state_transition: false, cleanup: false}
+forbidden_actions: [READ_AUDITOR_KEY_OR_EXPECTED_ROUTE, REWRITE_NB1_DECISIONS_AFTER_GOLD_REVEAL, MODIFY_INPUTS, MODIFY_SHARED_FILES, RUN_STAGEA_STAGEB_OR_EXPERIMENT, MERGE_BLIND_AND_NONBLIND_METRICS, CLAIM_UNBIASED_RECALL_OR_75, CLEANUP]
+next_action: WRITE_NB1_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_START

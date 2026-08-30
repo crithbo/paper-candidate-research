@@ -1,0 +1,29 @@
+assignment_id: STAGE0-C2-20260814-ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION-CONFIRM-V8.7
+mode: SENTRY
+topic_id: ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_READY_TO_DISPATCH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source30-confirmation\ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source30-primary\ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION
+primary_decision: REVISE_ONCE
+primary_quality_tier: TIER_B_Q2_VIABLE_CONDITIONAL
+primary_atomic_gate: NATIVE_TWO_BLOCK_MVE_PLAN_DIVERGENCE__FUTURE_PRESERVING_VPT_VCTP_FRONTIER_CERTIFICATE
+primary_hashes:
+  report_sha256: F933AFA95161EEF0408CD95E7213F701FAC39221C98623DE8A1F743FEA8ECB7D
+  q1_sha256: F453378E133DE135A41847B351E722EE92BC20620A2D30661F9707802B6C154B
+  source_sha256: 25487A0F597F945FB841F86EA937187C1740CC0AD2D7DBFE622FE9882A745F8C
+  handoff_sha256: B452C905C4B8EBF0C6226AFD809B47DFAEEE3905527D8C045073FDF3A5CE88FE
+  manifest_sha256: D0EA3979033115B1383138D38E634FB58BD0EB934F8D2A11ABB6F57F4D1444DE
+independent_attack_requirements:
+  - Recheck pinned LLVM 81ac5c7c26efb70ffaffb91b26053437093ee085 and the complete current vectorizer, MVE tail-predication, VPT/VCTP repair, low-overhead-loop and fallback action union with all controls.
+  - Verify the exact scope and meaning of the single-basic-block restriction; do not turn a source restriction into global absence.
+  - Decide whether one public two-block same-function object can support two complete stock-native-legal plans preserving active lanes, branches, exceptions, ABI, VPT/VCTP and loop-range semantics.
+  - Attack whether a future-action-preserving finite state and recurrence are genuinely MVE-specific rather than generic CFG scheduling, loop restructuring or Pareto packaging.
+  - Recheck strongest primary same-object collision and whether the sole gate is atomic and finite.
+  - Confirm REVISE_ONCE, confirm STOP, or disagree with explicit evidence; do not execute revision or StageA/B.
+forbidden: [revision_execution, implementation, experiment, benchmark, build, stageA, stageB, shared_control_write, v9_output]
+required_outputs: [CONFIRMATION_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

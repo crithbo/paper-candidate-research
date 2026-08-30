@@ -1,0 +1,77 @@
+schema: R11A_R13B_BATCH02_PREFLIGHT_SPECIFICATION_SUPPLEMENT_V1
+approval_id: R11A-R13B-BATCH01-RAW-CAP-RECOVERY-20260813-R14A
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+batch_id: R13B-02
+supplement_ordinal: 1
+reason: COMPLETE_PROVIDER_QUERY_ORDER_AND_RETURN_FIELDS_WITHOUT_MODIFYING_FROZEN_12_PLUS_12_RESERVATION
+base_request_plan_sha256: C4CD2AFBE675AF595B9E8DD1A35A13D5784F838035A20F059A9D515833A16C1E
+base_request_reservation_sha256: 0BC4EBDE91B0B3B55BF4CD1B0E269D579D7410817D1128E65E6B86E34F0E9D2A
+ambiguity_blocker_sha256: 11237B7FE20C3288AACD768358C1D45E71E5B4D43ACCFEC69C840C750C033992
+raw_slots_consumed_before_supplement: 0
+raw_used_before_batch02: 44
+raw_remaining_before_batch02: 44
+provider:
+  tool: web.search_query
+  endpoint_class: EXISTING_CODEX_PUBLIC_WEB_SEARCH_ROUTE
+  new_external_service: false
+  response_length: long
+  pagination: NONE
+  recency_filter: NONE
+seed_to_query_transform:
+  public_seed: DISCOVERY-CLAIM-PACK-V9-R0-R11A-R13B-02-PUBLIC-PREFLIGHT-20260813
+  algorithm: FIXED_LITERAL_QUERY_CATALOG_V1__SEED_IS_DOMAIN_SEPARATOR__NO_RANDOM_OR_SEMANTIC_EXPANSION
+  catalog_order: REQUEST_ORDINAL_THEN_QUERY_ORDINAL_ASCENDING
+requests:
+  - request_ordinal: 1
+    reserved_raw_slots: 12
+    tool_call_shape: ONE_SEARCH_QUERY_CALL_WITH_THREE_QUERY_OBJECTS
+    queries:
+      - query_ordinal: 1
+        q: 'compiler optimization whole-program layout register allocation formal algorithm artifact 2024'
+        domains: [llvm.org, dl.acm.org]
+      - query_ordinal: 2
+        q: 'storage index compression construction algorithm artifact 2024'
+        domains: [vldb.org, usenix.org]
+      - query_ordinal: 3
+        q: 'formal verification certificate proof preprocessing algorithm artifact 2024'
+        domains: [satisfiability.org, arxiv.org]
+  - request_ordinal: 2
+    reserved_raw_slots: 12
+    tool_call_shape: ONE_SEARCH_QUERY_CALL_WITH_THREE_QUERY_OBJECTS
+    queries:
+      - query_ordinal: 1
+        q: 'systems measurement benchmark reproducibility artifact 2024'
+        domains: [usenix.org, acm.org]
+      - query_ordinal: 2
+        q: 'database query execution data layout optimization artifact 2024'
+        domains: [vldb.org, duckdb.org]
+      - query_ordinal: 3
+        q: 'compiler runtime code generation optimization artifact 2024'
+        domains: [llvm.org, openjdk.org]
+return_order_and_slot_mapping:
+  provider_group_order: QUERY_OBJECT_ORDER_AS_SUBMITTED
+  within_query_order: PROVIDER_RETURN_ORDER_AS_RECEIVED
+  rows_taken_per_query: 4
+  raw_slot_order: REQUEST_ORDINAL_THEN_QUERY_ORDINAL_THEN_PROVIDER_ROW_ORDINAL
+  fewer_than_four_rows: MISSING_SLOTS_STILL_CONSUMED__NO_PAGINATION_OR_REPLACEMENT
+  more_than_four_rows: IGNORE_AFTER_ROW_4__NOT_CONSUMED_OR_USED
+  duplicate_rows: RETAIN_IN_RAW_ORDER_FREEZE__DEDUPE_ONLY_AFTER_FREEZE
+  required_freeze_fields: [request_ordinal, query_ordinal, provider_row_ordinal, ref_id, title, url]
+  snippet_or_preview_as_evidence: forbidden
+freeze_and_stop:
+  append_only_order_freeze_before_any_semantic_filter: required
+  local_normalization_and_cross_batch_dedup_after_both_freezes: allowed
+  opaque_commitment_and_manifest_after_dedup: allowed
+  mainline_must_not_read_new_identity_plaintext: true
+  handoff_must_report_only_counts_paths_and_hashes: true
+  stop_before_private_intersection: required
+prohibitions:
+  batch01_reference_replay_or_reconstruction: forbidden
+  query_substitution_or_rewording: forbidden
+  domain_substitution: forbidden
+  pagination_or_retry: forbidden
+  third_request: forbidden
+  result_aware_query_change: forbidden
+  source_qualification_before_private_intersection: forbidden
+  phase2_or_downstream: forbidden
+scientific_inference: NONE

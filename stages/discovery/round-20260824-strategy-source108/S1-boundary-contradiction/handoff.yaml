@@ -1,0 +1,177 @@
+topic_id: SOURCE108-PORTFOLIO-S1
+user_summary_cn:
+  outcome: "本轮 exact public artifact 与 replication/measurement 路线完成闭合，未形成可送 Stage 0 的题目。"
+  main_reason: "FlashInfer 当前 API/测试已覆盖 paged-KV 的碎片页、因果/窗口、ragged 累积、LSE 与 FP8 reference 验证，且 FlashInfer-Bench 已有真实 trace 的 correctness/performance 框架。llama.cpp 的量化 FlashAttention 现象是已知 build option 默认值与 warning/default 修复问题，不能由单一 issue 提升为论文。"
+  next_step: "MAINLINE 机械验收后将 S1 置回 IDLE_REUSABLE；不预读 successor。"
+  user_action_required: false
+  user_action: null
+lane_id: DISCOVERY_S1
+assignment_id: DISCOVERY-S1-20260824-SOURCE108-ARTIFACT-REPLICATION-MEASUREMENT-V1
+assignment_state: FROZEN_AWAITING_MAINLINE
+input_freeze_sha256: 92C9760B29653B510CBBA4157A7C58E0D0B80FE1DE4C4A4A6DCD05EFF63F5C7E
+cross_assignment_contamination_declared: false
+source_stage: DISCOVERY
+proposed_next_stage: null
+decision: COMPLETE_ZERO_PROPOSALS__NO_EVIDENCE_QUALIFIED_RAW
+quality_tier: BELOW_Q2_STOP
+structural_paper_potential: NO_ADMISSIBLE_FAMILY
+evidence_acquisition_readiness: NOT_REQUIRED
+stage_semantics: STAGE0_POTENTIAL_SCREEN
+opportunity_origins: [SOURCE108_PUBLIC_ARTIFACT_REPLICATION_MEASUREMENT_ROTATION_V1]
+domain_tags: [FLASHINFER, PAGED_KV_CACHE, ATTENTION, FP8_KV, LLAMA_CPP, REPLICATION_NEGATIVE, BENCHMARK_VALIDITY]
+paper_genealogy:
+  - source: FLASHINFER_0_6_18_AND_CURRENT_TESTS
+    relation: CURRENT_ARTIFACT_SEMANTIC_AND_REFERENCE_VALIDATION_BASELINE
+  - source: FLASHINFER_BENCH_ARXIV_2601_00227
+    relation: CURRENT_REAL_TRACE_CORRECTNESS_PERFORMANCE_BENCHMARK
+discovery_method_revision: RESEARCH_TOPIC_DISCOVERY_R1_R40_20260815
+discovery_claim_pack_mode: OFF
+discovery_claim_pack_protocol_sha256: null
+opportunity_family_id: null
+opportunity_family_signature: null
+opportunity_family_relations: []
+contribution_type: null
+contribution_type_contract_verdict: NO_RAW_ADMISSION
+discovery_local_coordinates:
+  academic_maturity: A0
+  collision: C0
+  evidence: D0
+  execution_readiness: E0
+discovery_evidence_ledger: DISCOVERY_EVIDENCE_LEDGER.yaml
+independent_prior_current_audit:
+  owner_or_lane: DISCOVERY_S1
+  scope: bounded current/contrary closure; independent Stage0 audit not invoked
+  completed: false
+direct_coverage_eight_predicates:
+  same_object_function_protocol: UNFROZEN
+  same_scenario_workload: UNFROZEN
+  same_or_weaker_information: UNFROZEN
+  atomic_action_covered: UNFROZEN
+  same_or_stronger_legality_quality_guarantee: UNFROZEN
+  same_nonworse_full_cost: UNFROZEN
+  comparable_scale_platform_version_config: UNFROZEN
+  sufficient_read_or_reproduction_depth: NOT_APPLICABLE_NO_RAW
+decision_ready_stopping_check: PASS__NO_RAW_ADMISSION
+nonterminal_reopen_triggers:
+  - future assignment freezes a distinct exact artifact claim, a named uncovered semantic/estimator/action locus, native carrier, contrary source and finite full-cost route
+discovery_backtest_reference: null
+fidelity_closure_plan_status: STRUCTURALLY_UNCLOSABLE
+fidelity_closure_plan: no eligible raw package exists to transfer a Stage0/StageA plan
+current_upstream_reality_check:
+  applicable: true
+  upstream_commit_or_tag: FlashInfer 0.6.18 documentation and main-source views; llama.cpp master source view, all accessed 2026-08-24; no source acquired because no raw admitted
+  checked_at: '2026-08-24'
+  official_current_documentation:
+    - https://docs.flashinfer.ai/api/attention.html
+    - https://github.com/flashinfer-ai/flashinfer/blob/main/tests/attention/test_attention_sink.py
+    - https://github.com/flashinfer-ai/flashinfer/blob/main/tests/attention/test_hopper_fp8_attention.py
+    - https://github.com/ggml-org/llama.cpp/blob/master/ggml/CMakeLists.txt
+  source_symbols_or_paths:
+    - FlashInfer attention API plan/run and window/LSE contract
+    - tests/attention/test_attention_sink.py fragmented page and reference test
+    - tests/attention/test_hopper_fp8_attention.py FP8 paged KV reference MSE test
+    - flashinfer/decode.py plan-not-model-logic and BatchDecode wrapper lifecycle
+    - llama.cpp ggml/CMakeLists.txt GGML_CUDA_FA_ALL_QUANTS default OFF
+  default_and_nondefault_flags_thresholds_configs:
+    - FlashInfer plan/run causal/window and backend contract
+    - FlashInfer FP8 data/scales test mode
+    - llama.cpp GGML_CUDA_FA_ALL_QUANTS default OFF
+  absence_claim_disposition: NARROWED
+  remaining_non_tuning_residual: none evidenced across a frozen public artifact claim/action/carrier; do not infer global absence
+preclaim_contract_fidelity_gate_actual_status: NOT_YET_APPLICABLE_IN_DISCOVERY
+exact_object: null
+main_claim: null
+novelty_route: null
+evidence_route: null
+mechanism_signature: null
+seed_distance: null
+nearest_prior_facet_matrix: generic artifact semantic tests and real-trace benchmark already current; build warning/config repair is routine
+q1_venue_family: null
+q1_calibration_status: NOT_APPLICABLE_NO_RAW
+q1_reference_set: []
+q1_comparator_matrix: null
+q1_evidence_gap: [distinct exact artifact claim, non-routine atomic action/estimand, native carrier, finite full-cost decision route]
+q2_viability_basis: null
+non_relaxable_quality_gates:
+  same_object: FAIL_NO_FROZEN_CARRIER_AND_ACTION
+  latest_collision: PASS_AS_BOUNDED_CURRENT_AND_CONTRARY_CHECK
+  fair_strong_baseline: FAIL_NO_NON_GENERIC_DELTA
+  natural_input_and_evidence: FAIL_NO_FROZEN_NATIVE_OR_CANONICAL_CARRIER
+  full_cost: FAIL_NO_ADMISSIBLE_ACTION
+  reproducibility: NOT_APPLICABLE_NO_RAW
+  evidence_claim_honesty: PASS__ABSTENTION
+academic_value_score: null
+ai_executability_score: null
+ai_executability_class: null
+ai_core_fraction: null
+strongest_baseline: [FlashInfer current semantic/reference tests, FlashInfer-Bench, current llama.cpp build capability matrix]
+baseline_contract: no candidate survived to freeze a fair comparator
+same_function_contract: null
+algorithmic_delta: null
+full_cost_ledger_scope: null
+generality_hypothesis: null
+why_not_routine_tuning: no non-routine action survived; source checks showed generic test/benchmark coverage or a build-warning repair
+decisive_evidence: [RAW_GATE_DECISION.md]
+orthogonal_validation: first-party API/tests/source plus primary FlashInfer-Bench and public contrary research/issue sources
+unresolved_risks: [do not generalize bounded artifact-route abstention to all attention/KV work]
+next_killer_gate: null
+mechanism_pivot_remaining: null
+reserve_reason: null
+blocker_status: null
+blocker_kind: null
+claim_bearing_observation_obtained_before_failure: false
+scientific_revision_consumed: false
+atomic_repair_trace:
+  mode: OFF
+  repair_id: null
+  trace_sha256: null
+  cohort_id: null
+  cutoff: null
+  repair_participant_task_ids: []
+  independent_closer_exclusion_set: []
+  item_status_counts: {}
+  legacy_or_unobservable_disposition: NOT_APPLICABLE_MODE_OFF
+conversion_telemetry_link:
+  cohort_record_path: null
+  maturity: null
+  censoring: null
+  full_cost_status: null
+  p0_decision_effect: NONE
+resource_attempt_recorded: false
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  unique_write_directory: D:/project/writing/reserch/stages/discovery/round-20260824-strategy-source108/S1-boundary-contradiction
+  resource_root: D:/project/writing/reserch/stages/discovery/round-20260824-strategy-source108/S1-boundary-contradiction/resources
+  resource_inventory_path: RESOURCE_INVENTORY.yaml
+  resource_inventory_sha256: 71AD3B39170853F06878F6EA8FB12284525DFA65DE779127E42072DFC1B5BE9E
+  root_logical_bytes: 0
+  persisted_resource_bytes: 0
+  redirect_preflight_status: NOT_RUN_REQUIRED_BEFORE_FIRST_RESOURCE_ACTION
+  external_system_caches_used: [EXTERNAL_SYSTEM_MANAGED__CODEX_BROWSER_OR_WEB_CONNECTOR]
+  shared_assets_consumed: []
+  cleanup_owner: MAINLINE
+  cleanup_status: NOT_REQUESTED
+user_blocker_packet: null
+resume_contract_sha256: null
+resume_directory: null
+evidence_ceiling: NO_RAW_ADMISSION__NO_SCIENTIFIC_CLAIM
+e1_static_preflight: null
+e2_engineering_smoke:
+  status: NOT_RUN_NOT_REQUIRED_FOR_STAGE0
+  authorization_id: null
+  allowlist: null
+  scientific_inference_permitted: false
+stagea_probe_support: NOT_APPLICABLE
+pending_user_stageb_review: false
+stageb_user_approval_id: null
+execution_authority: MAINLINE_ACCEPTED_BOOTSTRAP_ACK_7C68FB8211F519559BD4BBE034A42846F76FAFA2C7382B0D5F03BAD1ACD00677
+file_hashes:
+  ASSIGNMENT_CONTEXT.yaml: 92C9760B29653B510CBBA4157A7C58E0D0B80FE1DE4C4A4A6DCD05EFF63F5C7E
+  BOOTSTRAP_ACK.yaml: 7C68FB8211F519559BD4BBE034A42846F76FAFA2C7382B0D5F03BAD1ACD00677
+  DIVERGENCE_SEED_POOL.md: BDB6FBA7362DA20B5A26DE57B333CF790378D0447E4F3170363087C046B9F00B
+  RQ_CANDIDATES.md: FD0116859484089131B6E46EA31B15A507CA302A85A1C45F6AE755B5FCBB480F
+  DISCOVERY_EVIDENCE_LEDGER.yaml: 421B52AE5FFCF2B0307F68B44E3C03E645A118653A861923330A45C692D5BF63
+  RAW_GATE_DECISION.md: 1C6BBE6618CC9B38A6E1E986FDEDDE004AB81C732137F4D7D4C10F8701C8599A
+  RESOURCE_INVENTORY.yaml: 71AD3B39170853F06878F6EA8FB12284525DFA65DE779127E42072DFC1B5BE9E
+hash_manifest_file: HASH_MANIFEST.sha256

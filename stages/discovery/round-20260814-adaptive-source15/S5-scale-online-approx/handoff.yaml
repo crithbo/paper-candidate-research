@@ -1,0 +1,37 @@
+assignment_id: DISCOVERY-S5-20260814-ADAPTIVE-SOURCE15
+lane: S5_SCALE_ONLINE_APPROX
+method: V8_7_CANONICAL
+discovery_claim_pack_mode: OFF
+write_directory: stages/discovery/round-20260814-adaptive-source15/S5-scale-online-approx
+completed_at: '2026-08-14T00:00:00+08:00'
+result: COMPLETE_ZERO_PROPOSALS
+summary_zh: >-
+  Source15 围绕硬件语义边界、stock oracle 和同对象双计划做了六条筛查。RISC-V Zcmp、
+  AArch64 SVE/SME、x86 APX、DWARF 与 AMDGPU 均与 active/hold/blocked 的既有精确
+  合同直接重合；NVPTX/CUDA async-copy 仅剩当前 primitive union 内的调度/配置动作。
+  因此没有新 brief 或 Stage0 建议。
+counts:
+  scoped_families: 6
+  deep_reviews: 2
+  propose_stage0: 0
+canonical_dispositions:
+  - signature: RISCV_ZCMP__CALLEE_SAVE_PUSHLIST__FIXED_MACHINEIR_ABI_ISA_CONSTRUCTION
+    disposition: EXCLUDED_ACTIVE_IDENTITY
+  - signature: AARCH64_SVE_SME__ZA_STATE_ABI__FIXED_LLVM_IR_TO_NATIVE_CONSTRUCTION
+    disposition: EXCLUDED_ACTIVE_OR_HOLD_IDENTITY
+  - signature: LLVM_X86_APX__EGPR_REX2_EVEX_ABI_FRAME_CONSTRUCTION
+    disposition: EXCLUDED_ACTIVE_OR_HOLD_IDENTITY
+  - signature: LLVM_DWARF__CALLSITE_RECONSTRUCTIBILITY__DEBUG_SEMANTIC_CONSTRUCTION
+    disposition: EXCLUDED_ACTIVE_IDENTITY
+  - signature: LLVM_AMDGPU__OCCUPANCY_RESOURCE_CODEGEN__FIXED_MIR_SEMANTICS
+    disposition: EXCLUDED_ACTIVE_OR_BLOCKED_IDENTITY
+  - signature: NVPTX_CUDA__ASYNC_COPY_TMA__FIXED_KERNEL_SEMANTIC_MAPPING
+    disposition: DROP_CURRENT_UNION_ABSORPTION
+excluded_scope:
+  network_security_protocol_attack_vulnerability_exploit_reproduction: true
+scientific_boundary:
+  no_resource_or_readiness_negative_inference: true
+  no_execution_performed: true
+  no_stage0_created: true
+next_step_for_mainline: NO_STAGE0_ACTION
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,9 @@
+schema: independent-stagea-claim-review-start-v1
+assignment_id: STAGEA-GATE-20260829-APX-R9-NATURAL-CLAIM-FIRST-FAILURE
+model_route: gpt-5.6-terra
+thinking: high
+allowed_outputs: [INDEPENDENT_REVIEW_REPORT.md, handoff.yaml, HASH_MANIFEST.sha256]
+required_decision: [PASS_RECOMMENDED, REVISE_ONCE, STOP, INCONCLUSIVE_POLICY_HOLD, RESERVE_RECOMMENDED]
+required_findings: [S02_zero_action_semantics, S01_replay_evidence_ceiling, incomplete_denominator_effect, correction_vs_revision_classification, Q2_viability, exact_next_gate]
+forbidden_actions: [modify_owner_files, resource_copy, tool_replay, new_experiment, new_claim_run, network, shared_write, state_change, stageb]
+stop_after: IMMUTABLE_FORMAL_STAGEA_GATE_HANDOFF

@@ -1,0 +1,21 @@
+schema_version: r3-stagea-anonymized-packet-v1
+packet_visibility: STAGEA_REVIEWER_ONLY_AFTER_COLLISION_ADJUSTED_STAGE0_SURVIVAL
+identity_blind: true
+forbidden_to_reviewer: [identity, title, authors, venue, DOI, locator, gold_label, expected_disposition, network_search, identity_guessing]
+case_ids: [R3P01, R3P02, R3P03, R3P04, R3P05, R3P06, R3P07, R3P08, R3P09, R3P10, R3P11, R3P12]
+evidence_reference_policy: ANONYMIZED_E01_TO_E12_ONLY
+claim_contracts:
+  - {case_id: R3P01, claim_class: runtime_latency_predictability, unit: latency_and_inference_overhead, comparator: anonymized_prior_policy, denominator: per_request}
+  - {case_id: R3P02, claim_class: execution_cost_reduction, unit: query_runtime_and_IO, comparator: anonymized_optimizer, denominator: benchmark_query_suite}
+  - {case_id: R3P03, claim_class: formal_consistency_performance_tradeoff, unit: communication_and_metadata_properties, comparator: anonymized_consistency_design, denominator: transaction_operation}
+  - {case_id: R3P04, claim_class: semantic_validation, unit: accepted_equivalence, comparator: anonymized_validation_baseline, denominator: optimized_block}
+  - {case_id: R3P05, claim_class: compile_runtime_tradeoff, unit: optimization_and_execution_time, comparator: anonymized_compiler, denominator: algorithm_workload}
+  - {case_id: R3P06, claim_class: tensor_graph_optimization, unit: search_time_and_runtime, comparator: anonymized_graph_optimizer, denominator: inference_graph}
+  - {case_id: R3P07, claim_class: benchmark_validity, unit: accuracy_latency_energy, comparator: anonymized_measurement_contract, denominator: benchmark_submission}
+  - {case_id: R3P08, claim_class: benchmark_representativeness, unit: workload_coverage, comparator: anonymized_microservice_suite, denominator: end_to_end_service}
+  - {case_id: R3P09, claim_class: fair_training_benchmarking, unit: time_to_solution, comparator: anonymized_training_system, denominator: quality_target}
+  - {case_id: R3P10, claim_class: prefetch_performance, unit: geomean_performance, comparator: anonymized_prefetcher, denominator: workload_mix}
+  - {case_id: R3P11, claim_class: near_memory_performance, unit: bandwidth_and_latency, comparator: anonymized_memory_system, denominator: embedding_tensor_operation}
+  - {case_id: R3P12, claim_class: effective_memory_capacity, unit: capacity_and_slowdown, comparator: anonymized_gpu_memory_baseline, denominator: workload}
+required_output: IDENTITY_BLIND_STAGEA_COMPATIBILITY_DECISION
+reviewer_judgment_precreated: false

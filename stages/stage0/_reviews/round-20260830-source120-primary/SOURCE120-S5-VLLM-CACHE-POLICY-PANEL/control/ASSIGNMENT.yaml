@@ -1,0 +1,21 @@
+schema: stage0-primary-assignment-v1
+assignment_id: STAGE0-PRIMARY-20260830-SOURCE120-S5-VLLM-CACHE-POLICY-PANEL
+topic_id: SOURCE120-S5-VLLM-CACHE-POLICY-PANEL
+mode: PRIMARY
+lane_id: STAGE0_PRIMARY
+thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+unique_write_directory: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S5-VLLM-CACHE-POLICY-PANEL
+resource_root: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S5-VLLM-CACHE-POLICY-PANEL/resources
+source_inputs:
+  brief: {path: stages/discovery/round-20260830-strategy-source120/S5-scale-online-approx/TOPIC_BRIEF_SOURCE120-S5-VLLM-CACHE-POLICY-PANEL.md, sha256: C1A59D4519D933044771E0455344D9A88373664C442FC3983087A72742ED2DB8}
+  handoff: {path: stages/discovery/round-20260830-strategy-source120/S5-scale-online-approx/handoff.yaml, sha256: 4FC3F70235838E065C1F18974384B05E084B3FF348EC5C7DBD1D295D5EB17E25}
+  manifest: {path: stages/discovery/round-20260830-strategy-source120/S5-scale-online-approx/HASH_MANIFEST.sha256, sha256: C816932DB7C6895FA02166C225DB7031DA198DA87B687E48768DF84D44AE98EE}
+exact_object: current_vLLM_CPU_or_tiered_KV_offload_CachePolicy_evaluation
+claim_ceiling: BENCHMARK_VALIDITY_AND_POLICY_RANK_STABILITY_ONLY
+stage0_atomic_repair_trace_mode: SHADOW
+budget: {search_or_open_calls_max: 32, network_bytes_max: 67108864, stored_bytes_max: 134217728, build_or_experiment: 0}
+required: [current_vLLM_LRU_ARC_custom_policy_reality, carrier_timing_and_exact_KV_semantics, direct_collision, strongest_comparators, q1_q2_shape, stagea_killer]
+forbidden: [pre_read_before_prior_PRIMARY_handoff, candidate_implementation, stagea, stageb, shared_write]
+pause_signal: finish_current_primary_review_and_handoff_then_no_successor
+

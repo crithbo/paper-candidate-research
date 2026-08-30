@@ -1,0 +1,96 @@
+*** ADVISORY DRAFT ONLY — MAINLINE MUST RECOMPUTE ALL HASH PLACEHOLDERS ***
+*** This file was not applied by RULE-AUDIT-SENTRY. ***
+
+*** Begin Patch
+*** Add File: stages/discovery/_method-backtests/DISCOVERY_CLAIM_PACK/V9-R0/paired-blind-r11a/control/minimum-viable-calibration-r13b/R13B_POLICY_ALIGNMENT_AMENDMENT.yaml
++schema: R11A_MINIMUM_VIABLE_CALIBRATION_R13B_AMENDMENT_V1
++approval_id: R11A-MINIMUM-VIABLE-CALIBRATION-20260813-R13B
++approval_status: USER_APPROVED
++base_assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
++checkpoint_011_sha256: BC280D6E3D9D86841A1B889E308129DED101EF3FEDC4FD5072018E7DEE83A43B
++blocker_012_sha256: 87F5CCE193AA49B8D6586354FFAAF4BE784B103AA2466CBFDB66DBE3BF0A129B
++r13b_audit_manifest_sha256: PENDING_MAINLINE_VERIFIED_R13B_MANIFEST_SHA256
++supersedes:
++  old_r13_manifest_sha256: 892996FB695776CE47277C51A28CB3C5EB4FB58CAF614544E5D8157804C4F933
++  old_r13_status: SUPERSEDED_NOT_APPROVED
++  r13a_may_be_requested_or_used: false
++open_development:
++  historical_cases: 28
++  role: OPEN_DEVELOPMENT_REGRESSION_ONLY
++  blind_weight: 0
++blind_evaluation:
++  initial_exact: 24
++  initial_per_stratum_exact: 4
++  trigger_only_tranches: [6, 6]
++  tranche_per_stratum: 1
++  maximum: 36
++  maximum_per_stratum: 6
++  minimum_contribution_types: 5
++  maximum_single_contribution_fraction: 0.30
++rolling_commitments:
++  total_raw_ceiling_including_existing: 88
++  total_unique_ceiling_including_existing: 72
++  new_unique_batch_caps: [20, 20, 20, 8]
++  new_raw_batch_caps: [24, 24, 24, 12]
++  maximum_new_batches: 4
++  fifth_or_replacement_batch: forbidden
++selection:
++  public_seed: DISCOVERY-CLAIM-PACK-V9-R0-R11A-R13B-MVC-SEAL-20260813
++  core_rank_per_stratum: 1_TO_4
++  reserve_1_rank_per_stratum: 5
++  reserve_2_rank_per_stratum: 6
++  all_core_and_available_reserve_frozen_before_first_executor: true
++auditor_expansion:
++  trigger_owner: INDEPENDENT_AUDITOR
++  allowlisted: [COVERAGE_TRIGGER, UNCERTAINTY_TRIGGER, DECISION_DISCORDANCE_TRIGGER, OVERALL_INCONCLUSIVE_TRIGGER]
++  answer_or_score_improvement_trigger: forbidden
++  packer_reentry_after_first_executor: forbidden
++preserved:
++  scientific_gates: unchanged
++  statistical_endpoints_and_boundaries: unchanged
++  independent_packer_executor_auditor: true
++  prospective_noncanonical_shadow_waves: 2
++  canonical_mode: OFF
++  production_cutover_authorized: false
++resume:
++  same_assignment_and_index_directory: true
++  checkpoint_or_blocker_overwrite: forbidden
++  additive_filenames_only: true
+
+*** Add File: stages/discovery/_method-backtests/DISCOVERY_CLAIM_PACK/V9-R0/paired-blind-r11a/control/minimum-viable-calibration-r13b/R13B_SUPERSESSION_RECORD.yaml
++schema: R11A_R13B_SUPERSESSION_RECORD_V1
++superseded_audit_id: RULE-AUDIT-20260813-R11A-PHASE1-IDENTITY-CAPACITY-R13
++superseded_manifest_sha256: 892996FB695776CE47277C51A28CB3C5EB4FB58CAF614544E5D8157804C4F933
++superseded_proposed_approval_id: R11A-BOUNDED-OPAQUE-IDENTITY-CAPACITY-20260813-R13A
++status: SUPERSEDED_NOT_APPROVED
++replacement_approval_id: R11A-MINIMUM-VIABLE-CALIBRATION-20260813-R13B
++old_directory_mutated: false
+
+*** Update File: registry.yaml
+@@ r11a_discovery_claim_pack_two_phase_packer
++  r13_identity_capacity_audit:
++    audit_id: RULE-AUDIT-20260813-R11A-PHASE1-IDENTITY-CAPACITY-R13
++    manifest_sha256: 892996FB695776CE47277C51A28CB3C5EB4FB58CAF614544E5D8157804C4F933
++    status: SUPERSEDED_NOT_APPROVED
++    r13a_authorization_requested_or_granted: false
++  r13b_minimum_viable_calibration:
++    approval_id: R11A-MINIMUM-VIABLE-CALIBRATION-20260813-R13B
++    approval_status: USER_APPROVED
++    implementation_status: MAINLINE_IMPLEMENTATION_AUTHORIZED
++    audit_manifest_sha256: PENDING_MAINLINE_VERIFIED_R13B_MANIFEST_SHA256
++    open_development_historical_cases: 28
++    open_development_blind_weight: 0
++    blind_initial_exact: 24
++    blind_expansion_schedule: [30, 36]
++    unique_commitment_ceiling: 72
++    raw_lead_ceiling: 88
++    canonical_mode: OFF
++    phase2_executor_auditor_dispatch_allowed_now: false
++    resume_anchor: CHECKPOINT_011_AND_BLOCKER_012
+
+*** Update File: plan.md
+@@ R11A current control action
+-Request approval for the superseded R13A 128-commitment plan.
++Implement user-approved R13B as an additive assignment-local amendment; mark R13A SUPERSEDED_NOT_APPROVED; preserve OFF and all downstream gates.
+*** End Patch
+

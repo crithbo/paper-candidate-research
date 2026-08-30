@@ -1,0 +1,55 @@
+schema: ppc-r12-executable-claim-packet-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R12-INTEGRATED-COST-LEDGER-REDESIGN
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+status: STATIC_PACKET_ONLY_NOT_EXECUTED
+claim_visibility: NONE
+identity_preserved: [exact_object, same_function_witness, strongest_baseline_grid, natural_input_selection, full_cost_denominator]
+natural_inputs:
+  manifest: {path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/EXACT16_INPUT_MANIFEST.yaml, sha256: D278BD508A192186115D337048C44E7DACC7B259ADE1FB114EEE6067378F3F7D, entries: 16, result_independent: true}
+  re_selection: forbidden
+assignment_local_runner_sources:
+  - {source: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/resources/engineering_raw/runner/materializer_harness.py, source_sha256: 3DDA6A7574D9FC0F0222213BDC3EAF6D3D361A528592052DDFCDF911BE7207B9, destination: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/runner/materializer_harness.py}
+  - {source: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/resources/engineering_raw/runner/common.py, source_sha256: EE19181CEA403725748E22E0F632ABA97639C81EAABEB0BC6DA16249520414D7, destination: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/runner/common.py}
+  - {source: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/resources/engineering_raw/baseline_cost_collector.py, source_sha256: FDC83841B6EB167A20FBEAC019C45AC8D9F35FC53DDD9CF43F0F9E7EF4C848EC, destination: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/runner/baseline_cost_collector.py}
+baseline:
+  single_collector: true
+  collector_source: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/runner/baseline_cost_collector.py, sha256: FDC83841B6EB167A20FBEAC019C45AC8D9F35FC53DDD9CF43F0F9E7EF4C848EC}
+  metrics: 56
+  bundles: 16
+candidate:
+  metrics: 15
+  same_function: true
+full_cost:
+  producer_source: PPC_R12_FULL_COST_LEDGER_PRODUCER.py
+  unique_metric_denominator: 71
+  bundle_denominator: 16
+  required_units: [cpu_seconds, wall_seconds, peak_rss_bytes, input_bytes, artifact_bytes, typed_relocations, static_uops]
+  result_independent: true
+control_row:
+  function: bar
+  input_path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/inputs/selected-00.ll
+  input_sha256: 8EDC7E74BA204C27683406E246B7F9B27DC6F8422C09F106544F48BA38AD9010
+  candidate_and_baseline_outputs: COMMAND_DAG.json
+  full_cost_argv: [C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/PPC_R12_FULL_COST_LEDGER_PRODUCER.py, --candidate-metrics, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/candidate_command_metrics.json, --baseline-metrics, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/baseline/logs/command_metrics.json, --baseline-ledger, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/baseline/baseline_cost_ledger.json, --baseline-graph, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/baseline/strong_baseline_dependency_graph.json, --input, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/inputs/selected-00.ll, --row-id, control-00, --output, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/full_cost/full_cost_ledger.json]
+native_checker:
+  id: N03_NATIVE_CHECKER
+  depends_on: [N01_CANDIDATE_REPLAY, N02_BASELINE_COLLECTOR]
+  argv: [C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/runner/materializer_harness.py, --mode, native_check, --function, bar, --candidate-trace, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/candidate_trace.json, --transformed-mir, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/artifacts/materialized.mir, --candidate-object, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/artifacts/candidate.o, --candidate-readobj, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/logs/09_candidate_readobj.stdout.txt, --candidate-objdump, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/logs/10_candidate_objdump.stdout.txt, --candidate-linked, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/artifacts/candidate.elf, --candidate-linked-readobj, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/logs/13_candidate_linked_readobj.stdout.txt, --candidate-command-metrics, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/candidate_command_metrics.json, --candidate-result, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/candidate_result.json, --baseline-dependency-graph, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/baseline/strong_baseline_dependency_graph.json, --output, E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/checker/native_checkers.json]
+  output: resources/build/control/checker/native_checkers.json
+  verification_overhead_receipt_required: true
+  metric_denominator_inclusion: EXCLUDED_FROM_71_METRIC_DENOMINATOR
+  full_cost_consumption: REQUIRED
+firewall:
+  visible_fields: [exit_code, required_outputs_present, schema_valid, missing_metric_ids, missing_paths, version_or_hash_drift, timeout]
+  hidden_fields: [candidate_performance, baseline_performance, speedup, pareto_result, relative_rank]
+  natural_claim_rows: 0
+  execution_in_this_assignment: false
+forbidden: [resource_create_or_copy, tool_execution, control_execution, claim_execution, network, retry, input_change, baseline_change, denominator_change, stageb, shared_install]
+correction2:
+  old_v2_executable_source_refs: 0
+  original_r6_runtime_input_refs: 0
+  candidate_runner: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/runner/materializer_harness.py
+  baseline_collector: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/runner/baseline_cost_collector.py
+  full_cost_input: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/inputs/selected-00.ll
+  full_cost_argv_packet_dag_byte_identical: true
+  semantics_unchanged: true

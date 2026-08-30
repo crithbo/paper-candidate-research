@@ -1,0 +1,24 @@
+schema: torchdynamo-a0-artifact-source-freeze-v1
+assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-GUARD-COVER-CACHE-A0
+artifact:
+  distribution: torch
+  version: 2.13.0+cpu
+  git_commit: cf30153c4c131c8164ee7798e5022d810682e2cb
+  wheel: {path: resources/downloads/torch-2.13.0-cp312-cp312-win_amd64.whl, bytes: 122057313, sha256: 024C6CC0C1B085F2F91F20A3DC27B0471D021C31CE84B81BE3AFDC39F791FD9D}
+source_pinned_hooks:
+  - {path: resources/env/t/torch/_C/_dynamo/eval_frame.pyi, sha256: 0703832548E341110DC2C31193DC634E1A45DEBE4A348AF18EFF68C7754E6CEB, symbols: [_ExtraState.invalidate, reset_code]}
+  - {path: resources/env/t/torch/include/torch/csrc/dynamo/extra_state.h, sha256: 3F478B3EAD9678019709AED70CF8C5B58614E58F3ED5966D899314CFF6B109E3, symbols: [ExtraState.invalidate, ExtraState.move_to_front, ExtraState.move_to_back]}
+  - {path: resources/env/t/torch/include/torch/csrc/dynamo/cache_entry.h, sha256: C15D2E3809C9B67405CD4DCE56CF08C173CEC6DF05C699ACF8523DC31D669CB9, symbols: [CacheEntry.invalidate]}
+  - {path: resources/env/t/torch/_dynamo/guards.py, sha256: 26C168F330FFA91F8DE431B421F2AB9F17583715C57A86E603D3E6BE45653C3B, symbols: [CheckFunctionManager.invalidate, get_and_maybe_log_recompilation_reasons]}
+  - {path: resources/env/t/torch/_dynamo/cache_size.py, sha256: F2127C186B17F5A43FFA2501B802F558DFDDE59FA26FBF56853CEC0A4010532C, symbols: [compute_cache_size, exceeds_recompile_limit]}
+  - {path: resources/env/t/torch/_dynamo/config.py, sha256: A98E99D2DF53D9018D53A996155EAC079A7821DB6484B778FFE75EC733D9A46B, symbols: [recompile_limit, accumulated_recompile_limit]}
+workload_family_sources:
+  - {family: public_torch_nn_MLP, path: resources/env/t/torch/nn/modules/linear.py, sha256: 5559B5AA67C9BAA896ECBBA6FF8ABD71ABAA77AD23CFDF283C5BA6001C4DBF1F}
+  - {family: public_torch_nn_Conv2d, path: resources/env/t/torch/nn/modules/conv.py, sha256: 363A760459463D10D1C329A75B8EC10B8191725664AC5506ABF6915B3D580213}
+  - {family: public_torch_nn_activation, path: resources/env/t/torch/nn/modules/activation.py, sha256: 5DFCA6C85E4B84A4B950ABDBA92507737BCFAEDBA3C655E97FEF2CF70870A678}
+  - {family: activation_checkpoint_recompute, path: resources/env/t/torch/utils/checkpoint.py, sha256: 54990D1F6D9ACE19EF80725A670FDE1F306C150CB7A206F44D3D0CBBF81E3D6F}
+logical_retirement_hook: ExtraState.invalidate_one_CacheEntry_with_deleted_guard_manager
+physical_reclamation_hook: NONE__SEPARATE_OPTIONAL_ACTION_REQUIRES_REFERENCE_GRAPH_AND_SOLE_OWNER_PROOF
+claim_execution: false
+scientific_inference: NONE
+

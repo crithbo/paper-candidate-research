@@ -1,0 +1,147 @@
+schema_version: o4-pdec-stagea-revision-contract-v1
+topic_id: O4-DYNCACHE-PGM
+stage: STAGEA_REVISION_1_OF_1
+atomic_gate: LEAF_LOCAL_NONVACUITY_AND_BTREE_ABSORPTION_GATE
+contract_status: FROZEN_BEFORE_REVISION_EXECUTION
+frozen_at: 2026-08-09T12:36:30+08:00
+authority:
+  revision_authorized: true
+  revision_budget_after_this_run: 0
+  stageb_authorized: false
+  stageb_user_approval_id: null
+  allowed_write_root: D:\project\writing\reserch\stages\stageA\O4-DYNCACHE-PGM\revision1
+input_identity:
+  independent_gate_handoff_sha256: eeec69952ecb3c2bbf58e4c4e1611d7f80585ffa4b1ef63dc99da962fe988779
+  first_round_contract_sha256: e1df8bfa3401cce3a9a33ec47d65d243a0900c7dda2c9566aab1b7bfa622c953
+  first_round_manifest_status_before_revision: 17_OF_17_MATCH
+
+unchanged_object:
+  structure: single-machine in-memory exact ordered-index leaf microkernel
+  key: fixed-width lexicographic pair (uint32 Hilbert-cell, uint64 type-qualified OSM-element-id)
+  predecessor: strict predecessor, max key strictly less than q
+  range: exact closed range reporting in sorted order with output-sensitive leaf-chain traversal
+  update_information: full sorted contents of the affected leaf plus the operation and key
+  learned_semantics: a model may narrow local search but may never approximate the returned answer
+  epsilon_rank: 1
+  page_capacity_keys: 4
+  page_payload_bytes: 256
+  affine_metadata_bytes_per_page: 24
+  atomic_publication: complete old page image remains visible until complete replacement images publish
+  scope_limit: leaf-local only; no global directory, fence propagation, deferred multi-update credit, concurrency, or performance benchmark
+
+same_action_repertoire:
+  - keep one post-update page when capacity permits
+  - replace one old page with one or more contiguous copy-on-write pages
+  - choose any contiguous partition whose pages respect capacity
+  - store or recompute the endpoint affine hint from the same leaf keys
+  - use exact full-leaf fallback when an uncertified hint is retained
+
+mechanisms:
+  PLAIN_COW_BTREE_LEAF:
+    persistent_metadata: none beyond ordinary leaf contents
+    default_policy: keep one page until capacity overflow; then minimum-page balanced contiguous split
+    query: exact binary search over the full selected leaf
+  BTREE_LEAF_WITH_AFFINE_HINT:
+    persistent_metadata: same 24-byte endpoint affine summary available to PDEC
+    default_policy: capacity-only COW split; use hint when certified and exact full-leaf fallback otherwise
+    absorption_frontier_policy: may take any same-repertoire split, including certificate-triggered early split, when asked to inherit a PDEC guarantee
+    query: exact hint window plus exact fallback if needed
+  PDEC:
+    persistent_metadata: 24-byte endpoint affine certificate
+    policy: minimum-page balanced contiguous split whenever capacity or epsilon certificate would be violated
+    query: exact certified hint window without fallback
+
+local_full_cost_vector:
+  update_fields:
+    - logical_route_page_touches
+    - old_leaf_reads
+    - new_leaf_writes
+    - page_payload_bytes_written
+    - affine_metadata_bytes_written
+    - certificate_key_evaluations
+    - rebuilt_key_slots
+    - auxiliary_page_images
+    - peak_auxiliary_bytes
+  state_fields:
+    - committed_leaf_pages
+    - committed_payload_bytes
+    - committed_affine_metadata_bytes
+  query_fields:
+    - model_evaluations
+    - candidate_key_slots
+    - exact_key_comparisons
+    - full_leaf_fallbacks
+    - leaf_pages_scanned_for_range
+  no_weighted_composite_score: true
+  fairness_rule: residual must survive vector comparison; an unreported metadata, fallback, split, or page cost invalidates it
+
+predeclared_pdec_specific_guarantees_and_metrics:
+  G1_CERTIFIED_NO_FALLBACK:
+    statement: every committed page has endpoint-affine stored-key rank residual at most epsilon and local predecessor/range start never invokes full-leaf fallback
+    useful_nonvacuity_requirement: yields a strict candidate-slot or comparison bound below the capacity-4 full-leaf bound on every frozen query
+  G2_LOCAL_CAPS:
+    statement: at most 4 charged logical page touches, 2 auxiliary pages, and 5 rebuilt key slots per effective update
+    residual_requirement: at least one cap must be unavailable to both controls under the same COW action repertoire and full cost vector
+  M1_FULLY_PRICED_FRONTIER:
+    statement: at least one reachable or natural case places PDEC on a guarantee/cost point not reproduced or dominated by either control
+    comparison: exact vector plus guarantee flags; no average-only or weighted-score win counts
+
+absorption_test:
+  affine_control_frontier: >-
+    For every PDEC transition and query guarantee, ask whether BTREE_LEAF_WITH_AFFINE_HINT can
+    take the identical contiguous COW partition using the identical stored summary and produce the
+    identical guarantee and full cost vector. This guarantee-preserving best response is part of the
+    control, not a third research mechanism.
+  pdec_unique_case_definition: >-
+    A reachable or natural case where PDEC's state/transition/guarantee/cost vector is not contained
+    in the affine control frontier and is not inherited by PLAIN_COW_BTREE_LEAF.
+  label_or_default_policy_difference_does_not_count: true
+
+inputs:
+  exhaustive:
+    key_universe: integers 0 through 7 embedded into the unchanged ordered key
+    initial_state: empty
+    reachability: breadth-first closure of joint mechanism states under every insert and delete
+    queries: predecessor -1 through 8 and every closed range over 0 through 7 at every reachable joint state
+  natural:
+    source: unchanged OpenStreetMap minute replication diff sequence 7235045
+    path: ..\inputs\007-235-045.osc.gz
+    sha256: 4b09084d3f08676f152203d38ea340649c8eb34a6daf89d185baebf433ca3fe5
+    replay_order: XML document order
+    mapping_and_observed_window_semantics: identical to first round
+
+decision_rules:
+  PASS_RECOMMENDED_only_if:
+    - exact semantics and cost accounting have zero failures
+    - at least one pdec_unique_case_definition witness is reproduced in exhaustive or natural input
+    - the witness supplies G1, G2, or M1 without an unpriced cost
+    - original plus two independent deterministic replays match byte-for-byte
+  STOP_RECOMMENDED_if:
+    - the affine control frontier contains every PDEC transition and guarantee with the same cost vector
+    - no bounded same-object PDEC-specific residual witness exists
+  evidence_positive_ceiling: PRELIMINARY_SUPPORT
+  forbidden_claim: MAIN_CLAIM_ESTABLISHED
+  no_second_revision: true
+
+negative_regions_to_report:
+  - cases where certificate-triggered early splits increase page count or written bytes over plain COW
+  - cases where the capacity-4 certified candidate window is not strictly smaller than a full leaf
+  - natural stream regions with no effective delete evidence
+  - any default-policy difference that the affine control best response absorbs
+
+randomness:
+  used: false
+  deterministic_order: lexicographic joint states, operations, keys, and queries
+
+commands:
+  python_executable: C:\Users\15383\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe
+  exhaustive: >-
+    & 'C:\Users\15383\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' revision_probe.py --mode exhaustive --output results\exhaustive.json
+  natural: >-
+    & 'C:\Users\15383\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' revision_probe.py --mode natural --input ..\inputs\007-235-045.osc.gz --output results\natural.json
+  replay_a: >-
+    & 'C:\Users\15383\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' revision_probe.py --mode exhaustive --output replay_a\exhaustive.json; & 'C:\Users\15383\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' revision_probe.py --mode natural --input ..\inputs\007-235-045.osc.gz --output replay_a\natural.json
+  replay_b: >-
+    & 'C:\Users\15383\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' revision_probe.py --mode exhaustive --output replay_b\exhaustive.json; & 'C:\Users\15383\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' revision_probe.py --mode natural --input ..\inputs\007-235-045.osc.gz --output replay_b\natural.json
+  validate: >-
+    & 'C:\Users\15383\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' validate_revision.py --original results --replay-a replay_a --replay-b replay_b --output results\validation.json

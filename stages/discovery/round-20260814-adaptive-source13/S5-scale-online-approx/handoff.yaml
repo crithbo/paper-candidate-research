@@ -1,0 +1,41 @@
+assignment_id: DISCOVERY-S5-20260814-ADAPTIVE-SOURCE13
+lane: S5_SCALE_ONLINE_APPROX
+method: V8_7_CANONICAL
+discovery_claim_pack_mode: OFF
+write_directory: stages/discovery/round-20260814-adaptive-source13/S5-scale-online-approx
+completed_at: '2026-08-14T00:00:00+08:00'
+result: COMPLETE_ZERO_PROPOSALS
+summary_zh: >-
+  Source13 按编译器、体系结构和 GPU/NPU 题源指导完成六个家族筛查、两个深审。
+  OpenVINO NPU 的候选动作落入当前编译器/配置联合；CIRCT 未能冻结同一时序语义下的
+  stock 等价检查器；CUTLASS 和 OpenXLA 分别由当前布局联合或配置控制吸收。Zcmp 和
+  SME/ZA 与 active/hold 身份重合，未重开。没有 clean brief 或 Stage0 建议。
+counts:
+  scoped_families: 6
+  deep_reviews: 2
+  propose_stage0: 0
+  clean_briefs: 0
+excluded_scope:
+  network_security: true
+  vulnerabilities_exploits_reproduction: true
+  protocol_or_traffic_security: true
+canonical_dispositions:
+  - signature: OPENVINO_INTEL_NPU__OV_MODEL_TO_COMPILED_GRAPH__COMPATIBLE_TARGET_PLAN_CONSTRUCTION__COMPILE_LOAD_EXECUTE_COST
+    disposition: DROP_CONTROLLER_OR_CURRENT_UNION
+  - signature: CIRCT_HANDSHAKE__FRONTEND_IR_TO_VERILOG__LATENCY_RESOURCE_CONSTRUCTION__HDL_CHECK_COST
+    disposition: NOT_ADMITTED_UNFROZEN__NO_FIXED_SEMANTIC_CHECKER
+  - signature: CUTLASS_CUTE__FIXED_GEMM_SEMANTICS__LAYOUT_TILING_CONSTRUCTION__COMPILE_RESOURCE_COST
+    disposition: DROP_CURRENT_UNION_ABSORPTION
+  - signature: OPENXLA_GPU__HLO_TO_GPU_EXECUTABLE__BUFFER_SCHEDULE_CONSTRUCTION__COMPILE_MEMORY_COST
+    disposition: DROP_PRE_RAW__CONFIG_CONTROLLER_AND_NO_FIXED_CHECKER
+  - signature: RISCV_ZCMP__CALLEE_SAVE_PUSHLIST__FRAME_CONSTRUCTION
+    disposition: EXCLUDED_ACTIVE_IDENTITY
+  - signature: AARCH64_SME_ZA__STATE_LOWERING_CONSTRUCTION
+    disposition: EXCLUDED_ACTIVE_OR_HOLD_IDENTITY
+scientific_boundary:
+  no_current_absence_claim: true
+  no_resource_or_readiness_negative_inference: true
+  no_execution_performed: true
+  no_stage0_created: true
+next_step_for_mainline: NO_STAGE0_ACTION
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

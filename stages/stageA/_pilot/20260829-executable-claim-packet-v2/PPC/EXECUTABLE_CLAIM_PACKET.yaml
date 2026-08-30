@@ -1,0 +1,36 @@
+schema: executable-claim-packet-v2
+pilot_assignment: PILOT-V2-PPC-E0_5-BINDING-CLOSURE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+packet_status: E1_STATIC_COMPILED_NOT_EXECUTED
+claim_visibility: NONE
+scientific_invariants_unchanged: true
+exact_object: PPC same-function MIR prefix-pressure materialization
+same_function_witness:
+  required_before_control: true
+  witness_semantics: actual_selected_fixture_function_and_native_MachineVerifier_path
+natural_input_manifest:
+  path: EXACT16_INPUT_MANIFEST.yaml
+  sha256: D278BD508A192186115D337048C44E7DACC7B259ADE1FB114EEE6067378F3F7D
+  entries: 16
+  selection_is_result_independent: true
+  re_selection_allowed: false
+asset_dependencies:
+  llc: {path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain/bin/llc.exe, sha256: 706EACEC5579CE3B1FD09AA57B0CCB0442B9B9182C4938081F033CC2A076A7CB}
+  ld_lld: {path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain/bin/ld.lld.exe, sha256: DA0B35A697D3354E276377EA21925BE9FBE4E1C237F4800FA75ED93751B0259C}
+  llvm_readobj: {path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain/bin/llvm-readobj.exe, sha256: 485FAC4BC5B262BCB980D35DD912C3D3D24D5EB7F57B45D7DFCAE85078947A94}
+  llvm_objdump: {path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain/bin/llvm-objdump.exe, sha256: AD4B570AC01C0E30A69012740DC9E04322100C12D5D12343F7B051BED315FFCE}
+  python: {path: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA}
+  harness: {path: E:/project/writing/reserch/stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/resources/engineering_raw/runner/materializer_harness.py, sha256: 3DDA6A7574D9FC0F0222213BDC3EAF6D3D361A528592052DDFCDF911BE7207B9}
+metric_contract:
+  candidate_replay_metrics: 15
+  baseline_collector_metrics: 56
+  full_cost_denominator: 71
+  orphan_max: 0
+  double_count_max: 0
+  producer_consumer_binding: COMMAND_DAG.json
+engineering_firewall:
+  visible_fields: [exit_code, required_outputs_present, schema_valid, missing_paths, version_or_hash_drift, timeout]
+  hidden_fields: [candidate_performance, baseline_performance, speedup, Pareto_result, relative_rank]
+  e0_e1_execution: false
+  shared_installation: false
+forbidden: [resource_copy, tool_execution, control_row, claim_row, network, stageb, result_aware_change]

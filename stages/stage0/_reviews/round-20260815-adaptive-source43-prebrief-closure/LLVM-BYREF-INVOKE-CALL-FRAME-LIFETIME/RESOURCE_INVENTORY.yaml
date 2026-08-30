@@ -1,0 +1,41 @@
+schema_version: assignment-resource-inventory-v1
+assignment_id: STAGE0-P1-20260815-LLVM-BYREF-INVOKE-CALL-FRAME-LIFETIME-PREBRIEF-CLOSURE-V8.7
+topic_id: LLVM-BYREF-INVOKE-CALL-FRAME-LIFETIME
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+resource_root: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source43-prebrief-closure\LLVM-BYREF-INVOKE-CALL-FRAME-LIFETIME\resources
+required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+redirect_preflight:
+  status: READY_BEFORE_ACQUISITION
+  process_local_variables: [TEMP, TMP, TMPDIR, XDG_CACHE_HOME]
+resource_envelope:
+  response_bytes_max: 33554432
+  storage_bytes_max: 67108864
+  attempts_max: 6
+  attempts_used: 6
+entries:
+  - url: https://api.github.com/repos/llvm/llvm-project/commits/main
+    local_path: resources/downloads/llvm-main-commit.json
+    status: OK
+    bytes: 10401
+  - url: https://raw.githubusercontent.com/llvm/llvm-project/main/llvm/docs/LangRef.rst
+    local_path: resources/downloads/LangRef.rst
+    status: HTTP_404__NO_ABSENCE_INFERENCE
+    bytes: 0
+  - url: https://raw.githubusercontent.com/llvm/llvm-project/main/llvm/include/llvm/IR/Attributes.td
+    local_path: resources/downloads/Attributes.td
+    status: OK
+    bytes: 19878
+  - url: https://raw.githubusercontent.com/llvm/llvm-project/main/llvm/lib/IR/Verifier.cpp
+    local_path: resources/downloads/Verifier.cpp
+    status: OK
+    bytes: 324299
+  - url: https://raw.githubusercontent.com/llvm/llvm-project/main/llvm/lib/CodeGen/StackColoring.cpp
+    local_path: resources/downloads/StackColoring.cpp
+    status: OK
+    bytes: 52244
+  - url: https://raw.githubusercontent.com/llvm/llvm-project/main/llvm/test/Verifier/byref.ll
+    local_path: resources/downloads/byref.ll
+    status: OK
+    bytes: 2860

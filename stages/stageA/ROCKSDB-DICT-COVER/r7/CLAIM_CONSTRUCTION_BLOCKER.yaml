@@ -1,0 +1,66 @@
+schema: claim-construction-blocker-v1
+created_at: 2026-08-25T17:38:55.3218994+08:00
+topic_id: ROCKSDB-DICT-COVER
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-R7-NATURAL-CLAIM-PILOT
+lane_id: CANDIDATE_EXECUTION_LANE_2
+decision: FAIL_CLOSED_INVALID_CLAIM_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+failure_stage: AFTER_EXACT_INPUT_ACCEPTANCE_BEFORE_RUN_MATRIX_EXECUTION_OR_QUIESCENCE_GATE
+claim_bearing_observation: false
+scientific_revision_consumed: false
+mechanism_pivot_used: false
+scientific_state_transition_by_owner: false
+
+required_construction:
+  exact_object: ONE_PRODUCTION_EQUIVALENT_BOTTOMMOST_COMPACTION_STANDARD_BLOCKBASEDTABLE_SST_PER_FROZEN_SORTED_KV_MANIFEST
+  manifest_format: KVMAN1_little_endian_length_prefixed_sorted_unique_KV
+  natural_manifests: 20
+  methods: 7
+  grid_cells: 2
+  deterministic_replays: 2
+  expected_fresh_processes: 560
+
+frozen_harness_evidence:
+  source_path: resources/src/harness/rocksdict_preclaim_harness.cc
+  source_sha256: 3155101C727F6FF76AA262C1C7E0663B77E6CDF18832DA7C3F3B3EC59D39D0D2
+  executable_path: resources/build/frozen/rocksdict_preclaim_harness.exe
+  executable_sha256: 22A57C80065AC0883AA62678DB7BAD7546BDC08A51064EBDA9721DE991DC34D4
+  interface_loci:
+    args_struct: lines_28_35__NO_MANIFEST_PATH_OR_INPUT_PATH
+    parse_args: lines_143_169__EXACTLY_SIX_NAME_VALUE_ARGUMENTS_NONE_FOR_MANIFEST
+    input_construction: lines_172_203_and_line_289__FIXED_MAKEWITNESS_SYNTHETIC_1024_RECORDS
+    output_classification: lines_478_490__CONTROL_NON_CLAIM_BEARING_AND_NATURAL_MANIFEST_USED_FALSE_AND_CLAIM_BEARING_FALSE
+  executable_accepts_natural_manifest: false
+  executable_can_emit_claim_bearing_result: false
+  executable_can_realize_frozen_560_process_matrix: false
+
+contract_conflict:
+  frozen_assignment_requires: RUN_FROZEN_560_PROCESS_NATURAL_MATRIX_AFTER_QUIESCENCE_GATE
+  frozen_assignment_forbids: [SOURCE_OR_CONTRACT_CHANGE, SCIENTIFIC_REVISION, MECHANISM_PIVOT]
+  available_frozen_executable_only_realizes: SYNTHETIC_PRECLAIM_CONTROL
+  consequence: ANY_RUN_WITH_THIS_EXECUTABLE_WOULD_REPEAT_CONTROL_AND_CANNOT_SUPPORT_OR_FALSIFY_THE_NATURAL_CLAIM
+
+actions_completed:
+  start_authorization_verified: true
+  eight_standard_resource_directories_created: true
+  exact_same_topic_input_trees_accepted: 3_OF_3
+  copied_files: 3014
+  copied_bytes: 171167311
+  network_bytes: 0
+
+actions_not_started:
+  quiescence_gate: NOT_REQUIRED_UNTIL_FIRST_CLAIM_PROCESS__NO_VALID_CLAIM_PROCESS_AVAILABLE
+  run_matrix_execution: false
+  claim_processes_started: 0
+  claim_observations: 0
+  automatic_retry: false
+  result_based_rerun_or_exclusion: false
+  cleanup: false
+  stageb: false
+
+minimum_mainline_action_to_resume:
+  option_1: ISSUE_HASH_PINNED_ASSIGNMENT_ADDENDUM_AUTHORIZING_A_NATURAL_KVMAN1_CLAIM_HARNESS_IMPLEMENTATION_AND_ASSIGNMENT_LOCAL_BUILD_WITH_EXACT_INPUT_OUTPUT_METRIC_AND_REPLAY_SEMANTICS
+  option_2: ACCEPT_CANONICAL_FAIL_CLOSED_HANDOFF_WITHOUT_SCIENTIFIC_INFERENCE
+  prohibited_without_new_authority: MODIFY_COPIED_FROZEN_SOURCE_OR_BUILD_A_NEW_CLAIM_HARNESS
+
+evidence_ceiling: INVALID_CLAIM_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+next_action: WAIT_FOR_MAINLINE_DISPOSITION

@@ -1,0 +1,3 @@
+# Source81 S4 Divergence Seed Pool
+
+Before evidence lookup, six non-evidence O4 sketches considered: compilation-resource ranking, accelerator energy/tail attribution, stock-reader artifact costs, producer/checker resource constraints, recovery deadline regimes, and database construction/read-tail cost. R64 and all listed terminal/held identities were not read, seeded, or used; network-security excluded. None freezes an exact public project/artifact/specification plus version/date and immutable same-object contract; every sketch is `SEED_ONLY__NO_EXACT_PUBLIC_ANCHOR` and R40 blocks RQ/locator/closure. No DROP, novelty, absence, or exhaustion claim follows.

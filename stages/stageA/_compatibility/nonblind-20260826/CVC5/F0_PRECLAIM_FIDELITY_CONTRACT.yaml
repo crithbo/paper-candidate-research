@@ -1,0 +1,16 @@
+schema: nonblind-stagea-fidelity-contract-v1
+assignment_id: NONBLIND-STAGEA-20260826-CVC5-F0
+mode: NONBLIND_STAGEA_COMPATIBILITY
+evidence_ceiling: PRECLAIM_CONTRACT_FIDELITY_ONLY__NO_NATURAL_OR_SCIENTIFIC_CLAIM
+frozen_object: SMT_solver_over_bounded_public_or_canonical_QF_SMTLIB_fixtures
+author_artifact_evidence: MAINLINE_PRECLAIM_ACCEPTANCE.yaml
+required_before_probe:
+  - exact_QF_SMTLIB_fixture_identity_and_expected_sat_unsat_semantics
+  - solver_version_language_and_option_vector
+  - same_fixture_comparator_oracle_definition
+  - timeout_memory_wall_and_result_denominator
+  - full_cost_schema_parse_solve_wall_memory_and_option_search
+  - legality_witness_expected_status_matches_fixture_semantics
+forbidden_until_fidelity_accepted: [SMTLIB_probe, performance_claim, scientific_inference, production_state_change, stageB]
+allowed_owner_output: F0_FIDELITY_CONTRACT_REPORT.yaml
+next_gate: MAINLINE_ACCEPTED_PRECLAIM_CONTRACT_FIDELITY_GATE

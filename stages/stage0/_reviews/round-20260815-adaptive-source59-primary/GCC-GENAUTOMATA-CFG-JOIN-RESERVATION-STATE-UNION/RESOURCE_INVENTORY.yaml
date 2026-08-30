@@ -1,0 +1,75 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: GCC-GENAUTOMATA-CFG-JOIN-RESERVATION-STATE-UNION
+  assignment_id: STAGE0-P1-20260815-GCC-GENAUTOMATA-CFG-JOIN-RESERVATION-STATE-UNION-PRIMARY-V8.7
+  stage_or_mode: STAGE0_PRIMARY_E1_STATIC
+  run_id: 019feaf7-dba0-7752-a840-db1fea688d69
+  unique_write_directory: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source59-primary\GCC-GENAUTOMATA-CFG-JOIN-RESERVATION-STATE-UNION
+  resource_root: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source59-primary\GCC-GENAUTOMATA-CFG-JOIN-RESERVATION-STATE-UNION\resources
+  inventory_path: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source59-primary\GCC-GENAUTOMATA-CFG-JOIN-RESERVATION-STATE-UNION\RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T00:00:00+08:00
+  finalized_at: 2026-08-15T00:00:00+08:00
+root_measurement:
+  logical_bytes: 0
+  allocated_bytes: 0
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources\downloads
+  archives: resources\archives
+  src: resources\src
+  build: resources\build
+  env: resources\env
+  cache: resources\cache
+  tmp: resources\tmp
+  logs: resources\logs
+redirect_preflight:
+  status: NOT_REQUIRED_NO_PERSISTING_RESOURCE_ACTION
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - tool: git-ls-remote
+      persistence: none
+    - tool: read-only-http-retrieval
+      persistence: none
+resource_envelope:
+  network_bytes_max: 50331648
+  stored_bytes_max: 100663296
+  cpu_hours_max: null
+  gpu_hours_max: 0
+  wall_seconds_max: null
+  attempts_max: 10
+  network_bytes_used: null
+  stored_bytes_used: 0
+  attempts_used: 10
+entries: []
+shared_assets_consumed: []
+external_system_dependencies:
+  - name: official GCC git metadata endpoint
+    locator: https://gcc.gnu.org/git/gcc.git
+    persisted: false
+  - name: exact-commit gcc-mirror source transport
+    locator: https://github.com/gcc-mirror/gcc
+    persisted: false
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: NOT_APPLICABLE_EMPTY_RESOURCE_ROOT
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: PASS_EMPTY_LOCAL_RESOURCE_SET

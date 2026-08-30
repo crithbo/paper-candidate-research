@@ -1,0 +1,24 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260813-R16B-V9-PROSPECTIVE-SHADOW-WAVE2
+opportunity_family_id: R16B-S1-FOUR-FAMILY-SNAPSHOT
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+cutoff: 2026-08-13
+opportunity_family:
+  canonical_signature: FOUR_INDEPENDENT_SIGNATURES_LISTED_IN_NEUTRAL_SNAPSHOT
+  relations: []
+queries:
+  - {query_id: Q01, text: "Itanium C++ ABI cxa_guard acquire release abort", purpose: F01 official recovery contract, source_or_search_engine: itanium-cxx-abi.github.io, executed_at: 2026-08-13, filters: [official], read_depth: SECTIONS, key_result_ids: [S01], exclusions_with_reasons: [no-execution], state_change: snapshot}
+  - {query_id: Q02, text: "std call_once exception retry returning synchronization", purpose: F02 standard contract, source_or_search_engine: cppreference/standard route, executed_at: 2026-08-13, filters: [primary-or-authoritative], read_depth: SECTIONS, key_result_ids: [S02], exclusions_with_reasons: [no-execution], state_change: snapshot}
+  - {query_id: Q03, text: "Python 3.15 lazy imports mode proxy failure first use", purpose: F03 official current docs/defaults, source_or_search_engine: docs.python.org, executed_at: 2026-08-13, filters: [official], read_depth: SECTIONS, key_result_ids: [S03], exclusions_with_reasons: [no-execution], state_change: snapshot}
+  - {query_id: Q04, text: "Linux firmware fallback loading data ready sysfs current documentation", purpose: F04 current source/config route, source_or_search_engine: docs.kernel.org, executed_at: 2026-08-13, filters: [official], read_depth: SECTIONS, key_result_ids: [S04], exclusions_with_reasons: [no-execution], state_change: snapshot}
+sources:
+  - {source_id: S01, title_or_artifact: Itanium C++ ABI one-time construction API, canonical_version: current web spec, locator: https://itanium-cxx-abi.github.io/cxx-abi/abi.html, source_role: CURRENT_FIRST_PARTY, read_depth: SECTIONS, normalized_variants: [], repository_commit_config_or_dataset_hash: ABI-web-snapshot}
+  - {source_id: S02, title_or_artifact: std::call_once, canonical_version: current reference, locator: https://en.cppreference.com/cpp/thread/call_once, source_role: CURRENT_FIRST_PARTY, read_depth: SECTIONS, normalized_variants: [], repository_commit_config_or_dataset_hash: standard-reference-route}
+  - {source_id: S03, title_or_artifact: Python 3.15 lazy imports, canonical_version: 3.15.0b4, locator: https://docs.python.org/3.15/whatsnew/3.15.html, source_role: CURRENT_FIRST_PARTY, read_depth: SECTIONS, normalized_variants: [], repository_commit_config_or_dataset_hash: CPython-main-doc-route}
+  - {source_id: S04, title_or_artifact: Linux Firmware API fallback mechanisms, canonical_version: current docs, locator: https://docs.kernel.org/next/driver-api/firmware/fallback-mechanisms.html, source_role: CURRENT_FIRST_PARTY, read_depth: SECTIONS, normalized_variants: [], repository_commit_config_or_dataset_hash: Linux-master-doc-route}
+claims: []
+direct_coverage: {target_source_or_union: neutral only, predicates: {same_object_function_protocol: UNKNOWN, same_scenario_workload: UNKNOWN, same_or_weaker_information: UNKNOWN, atomic_action_covered: UNKNOWN, same_or_stronger_legality_quality_guarantee: UNKNOWN, same_nonworse_full_cost: UNKNOWN, comparable_scale_platform_version_config: UNKNOWN, sufficient_read_or_reproduction_depth: UNKNOWN}}
+independent_prior_current_audit: {owner_or_lane: S1, query_ids: [Q01, Q02, Q03, Q04], completed: false}
+stopping: {high_impact_items_bounded: false, latest_and_current_union_checked: false, first_party_depth_sufficient: false, heterogeneous_independent_path_complete: false, contrary_search_complete: false, natural_or_canonical_carrier_frozen: false, full_cost_frozen: false, marginal_sources_no_longer_decision_changing: false, decisive_contradictions_resolved_or_bounded: false, disposition: SEARCH_BOUNDED_OPEN}
+execution_readiness: {state: E1, e1_evidence: [read-only-source-snapshot], e2_authorization_id: "", e2_allowlist: {}, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: Neutral facts only.

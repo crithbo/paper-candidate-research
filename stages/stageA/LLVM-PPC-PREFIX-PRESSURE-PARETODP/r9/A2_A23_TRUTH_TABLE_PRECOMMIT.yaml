@@ -1,0 +1,37 @@
+schema: ppc-r9-a2-a23-truth-table-precommit-v1
+created_at: 2026-08-26T08:49:15.0254887+08:00
+output_root: resources/build/a2_truth_table
+output_root_absent_before_run: true
+source_harness: {path: resources/src/natural_materializer/materializer_harness.py, sha256: 6234A3380940D87A2FCDBAA1D08DB3F4893A37901E3854CCD9222F3A035BDC0E}
+retained_A1_trace: {path: resources/build/a1_gate/candidate_trace.json, sha256: 86F608ED50B8FB078BC58AE917CAC136A8B204C2C5E27F7FD82EA986C39D1D74}
+retained_A1_inputs:
+  transformed_mir: resources/build/a1_gate/artifacts/materialized.mir
+  candidate_object: resources/build/a1_gate/artifacts/candidate.o
+  candidate_readobj: resources/build/a1_gate/logs/09_candidate_readobj.stdout.txt
+  candidate_objdump: resources/build/a1_gate/logs/10_candidate_objdump.stdout.txt
+  candidate_linked: resources/build/a1_gate/artifacts/candidate.elf
+  candidate_linked_readobj: resources/build/a1_gate/logs/13_candidate_linked_readobj.stdout.txt
+  candidate_command_metrics: resources/build/a1_gate/candidate_command_metrics.json
+  candidate_result: resources/build/a1_gate/candidate_result.json
+cases:
+  - {id: 00_valid, mutation: NONE, expected_exit: 0}
+  - {id: 01_required_negative_true, mutation: fixed_synthetic_assembly_witness_used=true, expected_exit: NONZERO}
+  - {id: 02_required_negative_missing, mutation: DELETE_fixed_synthetic_assembly_witness_used, expected_exit: NONZERO}
+  - {id: 03_positive_false_same_function, mutation: same_function=false, expected_exit: NONZERO}
+  - {id: 04_positive_false_same_load_destinations, mutation: same_load_destinations=false, expected_exit: NONZERO}
+  - {id: 05_positive_false_same_load_symbols_and_offsets, mutation: same_load_symbols_and_offsets=false, expected_exit: NONZERO}
+  - {id: 06_positive_false_cfg_labels_equal, mutation: cfg_labels_equal=false, expected_exit: NONZERO}
+  - {id: 07_positive_false_call_lines_equal, mutation: call_lines_equal=false, expected_exit: NONZERO}
+  - {id: 08_positive_false_return_lines_equal, mutation: return_lines_equal=false, expected_exit: NONZERO}
+  - {id: 09_positive_false_source_function_count_unchanged, mutation: source_function_count_unchanged=false, expected_exit: NONZERO}
+  - {id: 10_positive_false_candidate_generated_from_actual_function_mir, mutation: candidate_generated_from_actual_function_mir=false, expected_exit: NONZERO}
+case_count: 11
+separate_case_directories: true
+record_command_before_each_case: true
+case_timeout_seconds: 300
+unexpected_result_policy: STOP_NO_RETRY_NO_CASE_CHANGE
+automatic_retry: false
+source_edit_allowed: false
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_runs: 0
+scientific_inference: NONE

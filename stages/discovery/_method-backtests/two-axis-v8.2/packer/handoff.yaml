@@ -1,0 +1,27 @@
+schema_version: discovery-two-axis-packer-handoff-v8.2
+role: DISCOVERY-BACKTEST-PACKER
+project_root: D:\project\writing\reserch
+method_revision: two-axis-v8.2
+status: PACKER_COMPLETE_AWAITING_MAINLINE_ACCEPTANCE
+scope: "six historical opportunity lenses; calibration only; no candidates, experiments, production discovery, or state transition"
+counts: {lenses: 6, packets: 30, positives: 18, evidence_ready_positives: 12, evidence_incomplete_but_finite_route_positives: 6, negative_controls: 12}
+files:
+  sealed_input_manifest: {path: ../sealed_input_manifest.yaml, sha256: 249EEEE1371293218575DBFE6BFECF07CD4B0F3655F49E4163AF8AA60F32900D}
+  sealed_packets: {path: sealed_packets.yaml, sha256: FF85DD0DFF5E537CFD9010E1AD2443F77D15E9782F7F39EFD55BEC4BDE0E806F, access: EXECUTOR_VISIBLE}
+  auditor_key: {path: auditor_key.yaml, sha256: C7FC104DA1ACB92BB9F6BC80DE837DD558D50FC107E5AD054C2470DE61C62014, access: FUTURE_AUDITOR_ONLY}
+freeze:
+  cutoff: packet_specific_frozen_dates_in_manifest
+  source_provenance: canonical_target_source_urls_in_auditor_key_only
+  source_hash_boundary: "Source contents must be retrieved and byte-hashed by future auditor before unsealing; executor receives no target locator."
+  target_key: auditor_key_only
+  contamination_scan: {target_title_abstract_method_results_in_executor_packets: false, post_cutoff_target_material: false, target_url_doi_in_executor_packets: false, answer_scaffold: false}
+checks:
+  packet_cardinality_per_lens: PASS_3_POSITIVE_2_NEGATIVE
+  positive_strata_per_lens: PASS_EVIDENCE_READY_AND_FINITE_ROUTE
+  negative_mode_coverage: PASS
+  target_deidentification: PASS
+  executor_two_axis_contract: PASS
+  method_executed: false
+  scoring_performed: false
+  yaml_parse: NOT_RUN_NO_YAML_RUNTIME_AVAILABLE
+next_action: "Mainline mechanically verifies hashes and scope. Only after acceptance may mainline create an independent EXECUTOR; executor must receive sealed_input_manifest and sealed_packets, never auditor_key."

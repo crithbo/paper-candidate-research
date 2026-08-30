@@ -1,0 +1,27 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: STAGEA-GATE-20260830-APX-R12-FINAL, topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP, lane_id: STAGEA_GATE_REVIEW_LANE_1, thread_id: 01a034d0-d990-7d50-9d9f-a6d05a81bf11, role: STAGEA_GATE_REVIEW}
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+frozen_control:
+  agents: {path: AGENTS.md, sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655}
+  plan: {path: plan.md, sha256: 93AF7DF14BBBB8CC64BE2F81ED23091E642CAB15AB2BFD0104C9BD6D2E6E7DF0}
+  registry: {path: registry.yaml, sha256: A949314D8861989AD97B63745FFE1E2AC69077D045A515EF7E5B6EFC25D4365D}
+  role: {path: rules/ROLE_STAGEA_REVIEW.md, sha256: 0CD06AB9B85AAA80753FA203B38253C1B8D6DE2652AE6D1C197131A1372BE22B}
+  academic_skill: {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  reviewer_workflow: {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/academic-paper-reviewer/WORKFLOW.md, sha256: 5469CDABFEB6FAC7CCBE88CAF1A85C55E9F46977F9DC3AEFC84EFF1CE93E1672}
+  hardware_reference: {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/academic-paper/references/hardware_design_papers.md, sha256: 905C303795D55A749F704F3490172A3C0193D7CD281FC90244DC24D01044ED98}
+  review_template: {path: templates/INDEPENDENT_REVIEW_REPORT.md, sha256: 506D2ED0C9708356C5C3302739F41075765A48D1E115841B337428978FA64249}
+minimum_inputs:
+  control: {path: stages/stageA/_reviews/20260830-apx-r12-final/LLVM-APX-PREFIX-PRESSURE-PARETODP/control/ASSIGNMENT.yaml, sha256: 0ACAE52097EDCDB7D286EA47D3E7DC2D861B443F1BBF4AAEAFA7C086275A964C}
+  stage0_closing: {path: stages/stage0/_reviews/round-20260811-v8.7-wave232-revision1-closing/LLVM-APX-PREFIX-PRESSURE-PARETODP/handoff.yaml, sha256: 9416EBAC3BA0AADB9254ABDCD85AC5D5D5031E16CD85A3BE639F5CDBAB4076BA}
+  q1_matrix: {path: stages/stage0/_reviews/round-20260811-v8.7-wave232-primary/LLVM-APX-PREFIX-PRESSURE-PARETODP/Q1_COMPARATOR_MATRIX.md, sha256: 9D37863C4C7E5034FB359EAE5E517B8D6A8CC07B77C1F9D16F7B3491BA15C2BA}
+  owner_handoff: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r12-scope-budget-production-resume-20260830/handoff.yaml, sha256: 12C77C727617937202DDFBE90D8452D778D01555227058411FE66089984ADB91}
+  owner_report: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r12-scope-budget-production-resume-20260830/STAGEA_REPORT.md, sha256: C3C4439BEE3B3985A3AC8EC4DBCC18A6BE33C99295DA43AB2DF406E1D02FB011}
+  owner_result: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r12-scope-budget-production-resume-20260830/A1_CLAIM_RESULT.yaml, sha256: AB9DA7044C27FBED5198179E00DC562A2BE19D9F4C15BDCF4AEA733B15EA6C7A}
+  owner_manifest: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r12-scope-budget-production-resume-20260830/HASH_MANIFEST.sha256, sha256: 34ADC933AE1BA45A2AB7876CB658ED0408E3FA3B3B2C22CB55756D5042B84552}
+unique_write_directory: stages/stageA/_reviews/20260830-apx-r12-final/LLVM-APX-PREFIX-PRESSURE-PARETODP
+resource_root: null
+bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+forbidden: [network, new_experiment, owner_file_edit, second_revision, stageb, shared_write]
+pause_signal: finish_current_gate_and_handoff_then_no_successor
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP

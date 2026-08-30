@@ -1,0 +1,20 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE65-R40-ORDINARY-BREADTH-V1
+lane: S1_BOUNDARY_CONTRADICTION
+write_directory: stages/discovery/round-20260815-adaptive-source65/S1-boundary-contradiction
+result: COMPLETE_ZERO_PROPOSALS
+rule_freeze: RULE_FREEZE.md
+forbidden_inputs: R48_AUDIT__GCC_GENAUTOMATA_STOP__SOURCE55_58_59_63_HELD_QUEUES__NOT_READ
+method: {canonical: v8.7, rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION, claim_pack: OFF, v9: OFF, selective_depth: OFF, model: gpt-5.6-terra/high}
+funnel: {non_evidence_seeds: 4, selected_anchors: 1, rq_candidates: 1, ordinary_closures: 1, raw: 0, deep: 0, clean_briefs: 0}
+identity_preflight: NO_MATCH__NO_NOVELTY_INFERENCE
+screened_locator:
+  signature: LINUX_RSEQ_V2__START_POSTCOMMIT_ABORT__FIXED_PERCPU_UPDATE_AND_RESTART_GUARANTEE__LINUX_RSEQ_ABI__BYTES_CPU_RSS_ABORT_RATE_LATENCY
+  disposition: EXCLUDED_BEFORE_RAW__EARLY_FATAL_SAME_OBJECT_FAILURE_OR_GENERIC_REGION_PLACEMENT
+  rationale: Introducing rseq changes a non-rseq program's concurrency guarantee; holding rseq ABI/action fixed leaves generic compiler region/layout selection, not a target-specific N2.
+  evidence: [https://docs.kernel.org/userspace-api/rseq.html, https://codebrowser.dev/linux/linux/kernel/rseq.c.html, https://codebrowser.dev/linux/linux/tools/testing/selftests/rseq/rseq-abi.h.html]
+scientific_inference_boundary: Structural same-object/generic-kernel exclusion only; no negative inference from missing implementation, results, resources, hardware or AI readiness.
+source_closure_queue: EMPTY_NOT_EXHAUSTED
+proposal: NONE
+resource_inventory: RESOURCE_INVENTORY.yaml
+manifest: HASH_MANIFEST.sha256
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

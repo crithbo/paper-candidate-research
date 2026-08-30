@@ -1,0 +1,62 @@
+schema: llvm-exact-build-provenance-v1
+assignment_id: RESOURCE-STAGEA-L3-20260814-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-RESUME1
+source:
+  official_commit_api: https://api.github.com/repos/llvm/llvm-project/commits/e72ba6cf366a3180cbf5a8690d9e50665880ab76
+  commit: e72ba6cf366a3180cbf5a8690d9e50665880ab76
+  tree: d9b82c63986369de83ca79d0c94fdc9cdfb2e260
+  parent: 389da87c52f1db63440f376621f5daee2fabaaf3
+  archive_url: https://github.com/llvm/llvm-project/archive/e72ba6cf366a3180cbf5a8690d9e50665880ab76.tar.gz
+  archive_bytes: 280594592
+  archive_sha256: 643B7011C512E3204C88F836F4E2A9913C20F03D1BEA5421B60EACB7B527814C
+  license: Apache-2.0-WITH-LLVM-exception
+  decisive_blob_parity: 7_of_7
+  decisive_blobs:
+    LICENSE.TXT: 8D85C1057D742E597985C7D4E6320B015A9139385CFF4CBAE06FFC0EBE89AFEE
+    llvm/CMakeLists.txt: A528D6F631706C4A19168F6EC790506530AEDEDA31F0FF2E896B45DDC1705E9C
+    clang/CMakeLists.txt: D08C020BA5C71E3C570A4D955C5EF826E33AAA029FE81CA1470FB0DB88E2800F
+    llvm/lib/CodeGen/AsmPrinter/DwarfDebug.cpp: 0CE7A207AD47A4CB4F26E10896C07DA8DABB5FBF082AA8B6855EE445E7DA0F8D
+    llvm/lib/CodeGen/LiveDebugValues/LiveDebugValues.cpp: 506BE6B4CBA4C5817AD2E4B7BFCC599F764328B408C63874048BEDAB8CD078BB
+    llvm/lib/Target/X86/X86RegisterInfo.cpp: EC035BD740DD4C42EF4E94D74AD72AE191FEAA474E7AD70D55EF0491BDF0AE9D
+    llvm/lib/Target/X86/X86FrameLowering.cpp: 5C8B38AEBA262FA89436C528E13462EC67FA65D5DB603CDAD08CFEB7F7CB4F46
+bootstrap:
+  reuse_kind: HASHED_LOCAL_OPEN_SOURCE_BUILD_RESOURCE_ONLY__NO_SCIENTIFIC_FACT_REUSE
+  cmake_version: 4.4.2
+  cmake_sha256: 414AD2A5DCABBB2A49BA1514E6651523865AE306B73A0E769F18E14CAB1570E8
+  ninja_version: 1.13.2
+  ninja_sha256: E52A7AD9538D9618C67A0BD777964E2EEC8A30F68B810A2F6ADCE1F2DAF847B8
+  clang_version: 22.1.8_ca7933e47d3a3451d81e72ac174dcb5aa28b59d1
+  clang_sha256: A8B7A614EEADD9105F814BE3701A7F312CDA4CEA51751B75B408C16100C94E85
+  runtime_copied_into_resume1:
+    libc++_sha256: 952B41B1370DDB5E7299CC9FCEFCE2AD8C2021409948B057EC4D903C03760B6C
+    libunwind_sha256: 8D9F60801F50C0A6CB7BEB7FD2E121F98BF39EBE40E6C7E07A8A39FCCB817C03
+configuration:
+  generator: Ninja
+  build_type: Release
+  assertions: true
+  enabled_projects: clang
+  targets_to_build: X86
+  tests: false
+  optional_dependencies: zlib_zstd_libxml2_terminfo_libedit_z3_curl_disabled
+  cmake_cache_sha256: 72DAA46EBB46B90A250C021C9EAD769495E29A183112234D5748A8882EE8560F
+  build_ninja_sha256: A25B782E4E59BF83CB3ABDF22DABA88DCFCDD99EE3127BABE0EDCDE888381717
+build:
+  targets: [llc, clang, llvm-dwarfdump, llvm-objdump, llvm-readobj, opt]
+  jobs: 2
+  final_exit_code: 0
+  final_wall_seconds: 2284.686
+  exact_process_tree_cpu_seconds: unavailable__not_estimated
+  conservative_budget_upper_bound: LESS_THAN_2_CPU_HOURS_FOR_ALL_BUILD_ATTEMPTS
+  scientific_source_patches: 0
+  global_environment_changes: 0
+tools:
+  llc.exe: {bytes: 78334976, sha256: 7773641C1F4731DADE399D20E1D705E0B7185520244CB2FB5B46D20F497F5844}
+  clang.exe: {bytes: 137137152, sha256: DFA452A3F854F6FC3AD1D88CE236CD412E3C99DDF74992BB89DCC9748BFA2FE1}
+  llvm-dwarfdump.exe: {bytes: 12083200, sha256: 1A7956E7C9870F9ED3DB98FEDC38EA4106EDF70E260F206535061E568E0D53C0}
+  llvm-objdump.exe: {bytes: 15281664, sha256: F7405DCADA3500824BB1A7EEC79FC9213B7E05726A0967E20BC404758E1D1858}
+  llvm-readobj.exe: {bytes: 10809344, sha256: 8D0DA05FBCD44924AB54946CBE7DE6D5A106ED7887F86EF63B35B9FB4D3E1800}
+  opt.exe: {bytes: 78092800, sha256: 7562204A37688ACF41C367E81EF41DC889A2B32489ED1D1A73362CD1B9540D33}
+tool_identity:
+  version: 24.0.0git
+  build: Optimized_with_assertions
+  registered_targets: [x86, x86-64]
+  exact_commit_binding: official_commit_metadata_plus_archive_sha256_plus_decisive_blob_parity_plus_unmodified_build

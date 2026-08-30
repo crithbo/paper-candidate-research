@@ -1,0 +1,42 @@
+assignment_id: STAGE0-C2-20260815-RVV-VXRM-INTERPROCEDURAL-CONFIRM-V8.7
+mode: SENTRY
+topic_id: RVV-VXRM-INTERPROCEDURAL
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_READY_TO_DISPATCH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260815-adaptive-source44-confirmation\RVV-VXRM-INTERPROCEDURAL
+primary_directory: stages\stage0\_reviews\round-20260815-adaptive-source44-primary\RVV-VXRM-INTERPROCEDURAL
+primary_decision: REVISE_ONCE
+primary_quality_tier: TIER_B_Q2_VIABLE_CONDITIONAL
+primary_atomic_gate: SAME_RVV_INTERNAL_CALL_DAG_TWO_NATIVE_PLAN__CALL_AWARE_VXRM_TRANSFER_FRONTIER_CERTIFICATE
+required_common_resource_rule: rules\RESOURCE_LOCALIZATION.md
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  unique_write_directory: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source44-confirmation\RVV-VXRM-INTERPROCEDURAL
+  resource_root: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source44-confirmation\RVV-VXRM-INTERPROCEDURAL\resources
+  inventory_path: D:\project\writing\reserch\stages\stage0\_reviews\round-20260815-adaptive-source44-confirmation\RVV-VXRM-INTERPROCEDURAL\RESOURCE_INVENTORY.yaml
+  required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirect_required: [TEMP, TMP, TMPDIR, every_tool_specific_configurable_cache_or_temp]
+  redirect_preflight: REQUIRED_BEFORE_RESOURCE_PRODUCING_ACTION
+  inventory_snapshot_directory: resources\logs\resource-inventory
+  cleanup_owner: MAINLINE
+  lane_cleanup_authorized: false
+primary_hashes:
+  report_sha256: 34CB0CA1BA349975504BD83E6722BBC633FA03D2C6F425D26CD7EFA9DD5135F0
+  q1_sha256: 7CA5176E45E16B1E1982F9D149B6157FD6E1A9C4A60EDB83141F69C1C2A3D143
+  source_sha256: C08BE29209DCB057512A31DA440A39D8E00B2B398536B7761DEFDD9EC9B68241
+  handoff_sha256: 913E21440F0CC31B47619485DF7C3B8A2975D962C3FB17568C6316F47E81BC63
+  manifest_sha256: BFF2D83CF85A06E3FDBB8198F37D1E33EB36ED910F3F4E8BF5C515C253F59C19
+independent_attack_requirements:
+  - Recheck pinned LLVM 10b4fa5b79eb9d27b4928ad82afa3847762bc72f and the complete-enough RISCVInsertWriteVXRM, intrinsic expansion, call-lowering, VSETVLI, interprocedural and default/non-default action union.
+  - Independently verify psABI and RVV intrinsic semantics, especially whether a fixed internal callee exit VXRM may be compiler-known even though callers cannot assume preservation across arbitrary calls.
+  - Decide whether one fixed same IR/ABI/VLEN/no-explicit-vcsr-observation internal call DAG can have two complete stock-native-legal plans and a union-external full-cost point without changing numeric, call, unwind or code-object semantics.
+  - Attack whether the four-state transfer/quotient and recurrence are RVV/LLVM-specific and future-native-action/legality/full-cost preserving rather than generic interprocedural dataflow, CSR-write scheduling, cost tuning or finite-state DP packaging.
+  - Recheck strongest primary same-object collision and whether the sole gate is atomic, finite and suitable for one static revision.
+  - Confirm REVISE_ONCE, confirm STOP, or disagree with explicit source-based evidence; do not execute a revision or Stage A.
+forbidden: [revision_execution, implementation, experiment, benchmark, build, stageA, stageB, shared_control_write, v9_output, network_security_topic]
+required_outputs: [CONFIRMATION_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256, RESOURCE_INVENTORY.yaml]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

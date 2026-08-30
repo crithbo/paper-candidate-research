@@ -1,0 +1,19 @@
+schema: mlperf-rank-validity-a0-network-attempt-ledger-v1
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-A0
+silent_retry: false
+attempts:
+  - {id: N01, purpose: v5.1_results_commit_metadata, url: https://api.github.com/repos/mlcommons/inference_results_v5.1/commits/main, max_attempts: 1, status: FAILED_CURL_SCHANNEL_NO_RESPONSE}
+  - {id: N02, purpose: v6.0_results_commit_metadata, url: https://api.github.com/repos/mlcommons/inference_results_v6.0/commits/main, max_attempts: 1, status: PASS}
+  - {id: N03, purpose: v5.1_rules_commit_metadata, url: https://api.github.com/repos/mlcommons/inference/commits/v5.1.1, max_attempts: 1, status: PASS}
+  - {id: N04, purpose: v6.0_rules_commit_metadata, url: https://api.github.com/repos/mlcommons/inference/commits/v6.0.0pre, max_attempts: 1, status: PASS}
+  - {id: N05, purpose: v5.1_summary, url_template: https://raw.githubusercontent.com/mlcommons/inference_results_v5.1/<commit>/summary_results.json, max_attempts: 1, status: PASS}
+  - {id: N06, purpose: v6.0_summary, url_template: https://raw.githubusercontent.com/mlcommons/inference_results_v6.0/<commit>/summary_results.json, max_attempts: 1, status: PASS}
+  - {id: N07, purpose: v5.1_rules, url_template: https://raw.githubusercontent.com/mlcommons/inference/<commit>/inference_rules.adoc, max_attempts: 1, status: FAILED_HTTP_404_NO_RESPONSE}
+  - {id: N08, purpose: v6.0_rules, url_template: https://raw.githubusercontent.com/mlcommons/inference/<commit>/inference_rules.adoc, max_attempts: 1, status: NOT_STARTED__SUPERSEDED_BY_BATCH2_POLICY_REPOSITORY_ROUTE}
+correction_replay:
+  - {id: N01C1, replaces_failed: N01, transport: bundled_python_urllib_no_redirect, same_url: true, max_attempts: 1, status: PASS, engineering_correction_batch: 1}
+  - {id: N07C2A, replaces_failed: N07, purpose: resolve_v5.1_policy_commit_by_release_timestamp, max_attempts: 1, status: PASS, engineering_correction_batch: 2}
+  - {id: N08C2A, purpose: resolve_v6.0_policy_commit_by_release_timestamp, max_attempts: 1, status: PASS, engineering_correction_batch: 2}
+  - {id: N07C2B, purpose: v5.1_time_pinned_policy_rules, max_attempts: 1, status: PASS, engineering_correction_batch: 2}
+  - {id: N08C2B, purpose: v6.0_time_pinned_policy_rules, max_attempts: 1, status: PASS, engineering_correction_batch: 2}
+summary: {attempts_used: 12, attempts_max: 16, successful_responses: 10, failed_no_response: 2, downloaded_bytes: 3257195, silent_retry: false}

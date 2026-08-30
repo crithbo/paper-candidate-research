@@ -1,0 +1,52 @@
+schema_version: consolidated-discovery-stage0-acceptance-v8.8-r3
+visibility: AUDITOR_ONLY
+executor_must_not_read: true
+case_counts:
+  total: 18
+  sentinel: 2
+  structural_negative: 6
+  positive_shape: 6
+  resource_or_unimplemented: 4
+thresholds:
+  sentinel_minimum_set_recall: 2/2
+  sentinel_broad_claim_leakage: 0/2
+  structural_negatives_not_packaged: 6/6
+  positive_candidate_grade_deep_review_minimum: 5/6
+  positive_proposal_grade_or_explicit_nonstructural_unfrozen_minimum: 4/6
+  resource_controls_not_structural_failure_minimum: 3/4
+  every_proposal_full_atomic_certificate: true
+  every_stage0_replay_model_native_boundary_correct: true
+  terminal_revival: 0
+  hard_gate_violation: 0
+classification_rules:
+  sentinel_recalled: >-
+    All case-key required minimum-set source IDs are explicitly used, the named
+    decisive current subtractor is reported, and the broad claim is not packaged.
+  structural_negative_not_packaged: >-
+    proposed_v8_8.proposed_brief is false and disposition is STRUCTURAL_DROP or
+    NOT_ADMITTED_UNFROZEN for the keyed structural reason.
+  candidate_grade_deep_review: >-
+    The output defines the exact object and same-object baseline union, performs
+    current-collision subtraction, states a nontrivial residual, and either
+    supplies all atomic-certificate fields or identifies one bounded
+    nonstructural field for deep review.
+  proposal_grade: >-
+    Every O/I/A_b/A_c/P/W_m/C/F_n field is non-null, hard gates are preserved,
+    and W_m is labelled model-only with F_n deferred to Stage A.
+  resource_not_structural_failure: >-
+    No STRUCTURAL_DROP or STOP is inferred solely from the supplied runtime
+    event, invalid control, missing implementation, pause or unavailable asset.
+  terminal_revival: >-
+    Any output that packages C06-C08, or packages the broad forbidden identity
+    of C01/C02 as a renamed proposal, counts as one revival.
+  hard_gate_violation: >-
+    Any changed object/guarantee, omitted mandatory current subtractor, unfair
+    baseline, synthetic-only evidence plan, incomplete full cost, provenance
+    failure, claim-ceiling breach or Stage-B authorization bypass.
+audit_output_required:
+  - per_case_control_and_proposed_dispositions
+  - threshold_numerators_and_denominators
+  - every_failed_case_with_exact_rule
+  - contamination_and_external_material_audit
+  - PASS_OR_FAIL_WITH_NO_PRODUCTION_STATE_CHANGE
+

@@ -1,0 +1,76 @@
+schema: torchdynamo-guard-cover-cache-a0-handoff-v1
+assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-GUARD-COVER-CACHE-A0
+topic_id: TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+lane_id: CANDIDATE_EXECUTION_LANE_2
+decision: A0_READY__WAIT_SEPARATE_PRECLAIM_FIDELITY_AND_A1_START
+evidence_ceiling: EXECUTION_READINESS_ONLY__NO_SCIENTIFIC_INFERENCE
+bootstrap:
+  ack_sha256: 6DDD05B7E39F65F16F70EDE5284CDA89B2B259285427688167E77F3504BC344A
+  acceptance_sha256: 1D74B15B8AE9D705F1905CED2BD2F87F36CC68861575CC0C1649222FA7FCEBEB
+  start_sha256: 45B9333A8F1B3DBC87D7290F5054025287153B98B769849343B885C504C17E00
+artifact:
+  version: 2.13.0+cpu
+  commit: cf30153c4c131c8164ee7798e5022d810682e2cb
+  wheel_sha256: 024C6CC0C1B085F2F91F20A3DC27B0471D021C31CE84B81BE3AFDC39F791FD9D
+  source_freeze: {path: PYTORCH_ARTIFACT_SOURCE_FREEZE.yaml, sha256: 7D374AEAE32CE409D393EC56AE322A6A3A4575680BB82E07892943A7B433A886}
+hook:
+  logical_retirement: ExtraState.invalidate_one_CacheEntry_with_deleted_guard_manager
+  source_hashes_frozen: 6
+  native_presence: {ExtraState.invalidate: true, reset_code: true}
+  physical_reclamation: SEPARATE_OPTIONAL_ACTION_REQUIRING_COMPLETE_REFERENCE_GRAPH_AND_SOLE_OWNER_PROOF
+solver:
+  version: SymPy_1_14_0
+  options: {use_lra_theory: true, all_models: false}
+  timeout_seconds: 2
+  implication_orientation: B_IMPLIES_A_MEANS_A_COVERS_B
+  certificates_replayed: 2_of_2_UNSAT
+packet:
+  models: 2
+  workload_families: 2
+  frames: 2
+  signatures_per_frame: 7
+  stream_strata: [FULLY_STATIC_NEGATIVE, CERTIFIED_OVERLAP_POSITIVE, FULLY_DYNAMIC_OR_DISJOINT_NEGATIVE, GENERALIZED_KERNEL_NO_SLOWDOWN_NEGATIVE, OWNERSHIP_UNKNOWN_OR_SHARED_ARTIFACT_NEGATIVE, ACTIVATION_CHECKPOINT_RECOMPUTE_NEGATIVE]
+  policies: 16
+  cache_temperatures: [COLD, WARM]
+  process_control_arms: [POLICY_HOOK_ON, POLICY_HOOK_OFF]
+  cell_count: 1792
+  cell_ids_sha256: 636BABDB0722ACD31F5B5295927DF07C08B0EFCCAC5CE80BC6A74657FA731175
+  non_shape_quotient_fields: 9
+  compatibility_oracle_fields: 16
+  ownership_layers: 7
+  native_baselines: 15
+  full_cost_fields: 10
+nonclaim_control:
+  attempt: 1_of_1
+  process_exit_code: 0
+  schema_control_pass: true
+  torch_compile_calls: 0
+  claim_stream_cells_executed: 0
+  effect_fields_read: false
+  status: {path: A0_CONTROL_STATUS.yaml, sha256: 828E7004B112B028CEC43D36109A18824D2BAD7F5DAFEF85D4D791DEE9D76CBC}
+engineering:
+  correction_batches_used: 1_of_2
+  artifact_or_version_change: false
+  network_retry: false
+readiness:
+  executable_packet_ready: true
+  control_row_pass: true
+  legality_equivalence_witness_pending_preclaim_gate: true
+  exact_claim_argv_pending_A1_freeze: true
+  ledger: {path: STAGEA_EXECUTION_READINESS_LEDGER.yaml, sha256: F22E0921AFE5E4B4242E96C58B0F5251945605D80574E239298419351226DC60}
+  inventory: {path: RESOURCE_INVENTORY.yaml, sha256: E4928D6CC26C78E00F6902BA9592B4E805838D13EC618CBD309E99D3117D0FE9}
+resource_summary: {files: 13911, logical_bytes: 757934291, reparse_points: 0, active_related_processes: 0, network_attempts_used: 3, cleanup_performed: false}
+firewall:
+  claim_stream_cells_executed: 0
+  cache_hit_or_miss_effect_read: false
+  compile_or_runtime_direction_read: false
+  physical_bytes_reclaimed_read: false
+  candidate_vs_native_or_offline_oracle_read: false
+  positive_or_negative_scientific_direction_read: false
+  scientific_revision_consumed: false
+  scientific_inference: NONE
+  StageB: false
+  shared_write: false
+lifecycle: {retention_path: PHASE_CLOSEOUT_RETENTION.yaml, resume_capsule_path: RESUME_CAPSULE.yaml, manifest_path: TARGETED_MANIFEST.yaml}
+current_cycle_usage_reset_confirmed: false
+next_action: WAIT_MAINLINE_ACCEPTANCE__NO_SUCCESSOR

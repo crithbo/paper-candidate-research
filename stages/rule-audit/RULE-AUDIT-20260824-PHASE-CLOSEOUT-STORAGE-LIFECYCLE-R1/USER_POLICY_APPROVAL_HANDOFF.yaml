@@ -1,0 +1,121 @@
+schema_version: user-policy-approval-handoff-v1
+approval_id: USER-PHASE-CLOSEOUT-STORAGE-LIFECYCLE-V1-20260824
+approved_at: 2026-08-24T19:37:17+08:00
+policy_authority: USER
+shared_file_writer: MAINLINE
+proposal_author: RULE_AUDIT_SENTRY
+
+approval_text:
+  verbatim: "好的，按这个建议继续"
+  encoding_for_hash: UTF-8_NO_BOM
+  byte_length: 30
+  sha256: E7DCCC0AFF32EAE50D0D007FE518BBD9075C541F7F08A778D5E39FCB7BDB5524
+
+approved_package:
+  proposal_id: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  audit_directory: stages/rule-audit/RULE-AUDIT-20260824-PHASE-CLOSEOUT-STORAGE-LIFECYCLE-R1
+  report_sha256: D1904442DEDDABE26514C9F358039F9B79214F2D0481CA79E127BF854B17466E
+  proposal_sha256: F9E54BF7F599C4088BD1789FA0637CE7B7F9A2003A47E86B3CECC6AC6AE48F0E
+  policy_draft_sha256: 49116E076652012FE03DC8EBD32E49BD6EAFC56FAC49D7CB42CAAB394C52DAA6
+  validation_plan_sha256: 25BC941967764343E52A3BB3A3ADEB0C28CE8F9A609CAB68BF5BA9712CA43332
+  package_manifest_sha256: 6F59707E619137E611AB0326C77BB92C7D754A1B73019DB1BC9C632F0D47F710
+
+approval_disposition: USER_APPROVED__IMPLEMENTATION_AND_CONDITIONAL_PRODUCTION_CUTOVER
+mainline_generic_reapproval_required: false
+
+authorized_shared_implementation:
+  - CREATE_RULES_ARTIFACT_LIFECYCLE_MD
+  - PATCH_MINIMAL_REFERENCES_IN_AGENTS_RESOURCE_LOCALIZATION_ROLE_MAINLINE_AND_STAGE_ROLES
+  - PATCH_RESOURCE_INVENTORY_AND_HANDOFF_TEMPLATES
+  - CREATE_PHASE_CLOSEOUT_RETENTION_TERMINAL_EVIDENCE_CAPSULE_AND_CLEANUP_RECEIPT_TEMPLATES
+  - INSTALL_ARTIFACT_LIFECYCLE_MODE_WITH_OFF_DRY_RUN_PRODUCTION_STATES
+  - RUN_SEPARATE_NONDESTRUCTIVE_DRY_RUN_VALIDATION_ASSIGNMENTS
+  - CUTOVER_PRODUCTION_NEW_ASSIGNMENTS_ONLY_IF_ALL_VALIDATION_ACCEPTANCE_CRITERIA_PASS
+
+approved_automatic_deletion_classes_for_future_assignments:
+  - EPHEMERAL_DELETE_BEFORE_CLOSEOUT
+  - REACQUIRABLE_DELETE_AFTER_HANDOFF
+  - TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY
+  - SAFE_TO_DELETE_NOW
+  - SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF
+
+automatic_deletion_preconditions:
+  inventory_classified: true
+  exact_leaf_path_resolved_under_frozen_resource_root: true
+  topic_stage_workspace_and_shared_asset_roots_forbidden: true
+  no_glob_unresolved_variable_or_reparse_traversal: true
+  no_active_process_or_lane_owner: true
+  claim_critical_files_extracted_and_content_hashed: true
+  downstream_inputs_accepted_before_source_copy_deletion: true
+  deterministic_reacquire_or_rebuild_contract_present_when_required: true
+  cleanup_receipt_and_postdelete_validation_required: true
+
+never_automatic_delete_classes:
+  - KEEP_CAPSULE_CLAIM_CRITICAL
+  - KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM
+  - RESUME_CRITICAL_UNTIL_UNBLOCKED
+  - SHARED_ASSET_REFERENCE_ONLY
+  - RETENTION_EXCEPTION_USER_APPROVAL_REQUIRED
+  - UNCLASSIFIED_OR_AMBIGUOUS
+
+approved_terminal_semantics:
+  stop_retention: MINIMAL_TERMINAL_EVIDENCE_CAPSULE__NOT_REPORT_ONLY
+  future_archive_location: stages/<terminal_stage>/_terminal/<topic_id>/<terminal_event_id>/
+  original_topic_root_policy: KEEP_ARCHIVE_POINTER_AND_APPROVED_IN_PLACE_EXCEPTIONS_ONLY
+  stop_scientific_state_unchanged: true
+  terminal_identity_nonrevival_unchanged: true
+
+approved_default_post_close_budgets:
+  discovery_capsule_max_bytes: 67108864
+  stage0_stop_or_transition_capsule_max_bytes: 134217728
+  stageA_stop_terminal_capsule_max_bytes: 536870912
+  stageA_pass_pending_stageB_max_bytes: 2147483648
+  stageB_or_formal_project: ASSIGNMENT_SPECIFIC
+  budget_semantics: MANAGEMENT_CEILING__NEVER_OVERRIDES_CLAIM_CRITICAL_RETENTION
+  exceedance: RETENTION_EXCEPTION_REQUIRED
+
+approved_gc_scheduling:
+  scientific_lane_release_may_precede_gc: true
+  gc_sla_control_cycles: 1
+  gc_backlog_must_be_visible_in_plan: true
+  new_resource_producing_work_on_same_overbudget_assignment_blocked_until_gc_or_exception: true
+  cleanup_failure_state: STORAGE_GC_BLOCKED__NO_SCIENTIFIC_INFERENCE
+  cleanup_failure_consumes_scientific_revision: false
+
+rollout_gate:
+  scientific_backtest_required: false
+  destructive_dry_run_required: true
+  dry_run_minimum_case_classes:
+    - DISCOVERY_ZERO_OUTPUT
+    - STAGE0_STOP
+    - STAGEA_STOP
+    - STAGEA_PASS_PENDING_STAGEB
+    - BLOCKED_OR_RESERVE
+  production_cutover_condition: ALL_VALIDATION_ACCEPTANCE_CRITERIA_PASS_AND_MAINLINE_RECORDS_EXPLICIT_CUTOVER
+  initial_production_scope: NEW_ASSIGNMENTS_ONLY
+
+not_authorized:
+  - IMMEDIATE_DELETION_BY_THIS_APPROVAL_HANDOFF
+  - AUTOMATIC_LEGACY_DIRECTORY_MIGRATION_OR_CLEANUP
+  - DELETE_TOPIC_STAGE_WORKSPACE_OR_SHARED_ASSET_ROOT
+  - DELETE_CLAIM_CRITICAL_REPRODUCIBILITY_MINIMUM_OR_RESUME_CRITICAL_CONTENT
+  - MODIFY_SCIENTIFIC_ADMISSION_PASS_REVISE_HOLD_RESERVE_STOP_OR_STAGEB_POLICY
+  - RELAX_Q2_Q1_SAME_OBJECT_COLLISION_BASELINE_NATURAL_FULL_COST_REPRODUCIBILITY_OR_CLAIM_CEILING
+
+legacy_policy:
+  grandfathered: true
+  separate_inventory_required: true
+  exact_target_and_user_approval_required: true
+
+branch_action:
+  shared_files_modified: false
+  cleanup_executed: false
+  mainline_task_dispatched: false
+  handoff_purpose: REPORT_USER_APPROVAL_AND_SCOPE_FOR_SINGLE_WRITER_IMPLEMENTATION
+
+mainline_next_gate:
+  - MECHANICALLY_VERIFY_APPROVAL_TEXT_HASH_AND_APPROVED_PACKAGE_HASHES
+  - APPLY_SHARED_SCHEMA_AND_RULE_CHANGES_AT_SAFE_BOUNDARY_IN_NONDESTRUCTIVE_MODE
+  - RUN_AND_ACCEPT_DRY_RUN_VALIDATION
+  - CUTOVER_ONLY_AFTER_ALL_ACCEPTANCE_CRITERIA_PASS
+

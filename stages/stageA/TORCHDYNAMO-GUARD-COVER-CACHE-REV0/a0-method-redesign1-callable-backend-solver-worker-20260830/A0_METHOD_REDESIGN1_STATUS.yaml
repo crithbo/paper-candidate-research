@@ -1,0 +1,26 @@
+schema: torchdynamo-a0-method-redesign1-status-v1
+assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-A0-METHOD-REDESIGN1
+topic_id: TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+status: EXECUTION_CONTRACT_HOLD
+control: {attempt: 1_of_1, process_exit_code: 1, retry: 0, final_status_emitted_by_runner: false}
+method_redesign: {consumed: 1_of_1, second_redesign_allowed: false, correction_batches_consumed: 2_of_2, correction_batches_remaining: 0}
+solver_redesign:
+  ready_handshake: PASS
+  worker_pid: 23412
+  worker_exit_code: 0
+  certificate_deadline_seconds: 2
+  certificates: 2_of_2_CERTIFIED
+  solve_elapsed_ms: [152.4412, 3.0263]
+  explicit_all_models_false: true
+  digest_recomputed_and_matched: 2_of_2
+  receipt: {path: resources/build/control/integrated/solver/SOLVER_RECEIPT.json, sha256: 3057B93AC09992A4AADCC505F3960B198E2AE4A48459B3DE3414C4D5FE9D556E}
+first_failure:
+  class: CALLABLE_BACKEND_PRECALL_INTERNAL_REPRO_IMPORT_REQUIRES_FORBIDDEN_MISSING_FILELOCK
+  location: torch._dynamo.eval_frame.get_compiler_fn_to_repro.after_dynamo_to_debug_utils_to_testing_to_functorch_to_inductor
+  exception: ModuleNotFoundError_No_module_named_filelock
+  callable_backend_invoked: false
+  native_cache_entries_created: 0
+  stderr: {path: resources/logs/control/integrated.stderr.txt, sha256: E3622538B634445C4FF42408A106A56C0576A000B427CBB802C593109493AD4F}
+partial_outputs: {case_manifest_cells: 1792, case_manifest_sha256: B14799D30811DC9951F74750F80D10E895430FC7D20E13808DA73E8B281F4209, command_dag_emitted: false}
+firewall: {network: 0, dependency_install: 0, claim_cells_executed: 0, effect_fields_visible: false, scientific_inference: NONE, scientific_revision_consumed: false, StageB: false, shared_write: false}
+next_action: FINAL_HOLD_WAIT_MAINLINE__NO_PATCH_RETRY_SECOND_REDESIGN_OR_SUCCESSOR

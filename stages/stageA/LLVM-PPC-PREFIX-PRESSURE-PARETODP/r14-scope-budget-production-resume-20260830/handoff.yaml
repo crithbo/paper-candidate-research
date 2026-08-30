@@ -1,0 +1,53 @@
+schema: stagea-a0-production-handoff-v1
+assignment_id: STAGEA-L2-20260830-LLVM-PPC-R14-A0-PRODUCTION-RESUME
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+decision: EXECUTION_CONTRACT_HOLD__A0_CONTROL_INTERFACE_CAP_EXCEEDED
+evidence_ceiling: INVALID_NONCLAIM_CONTROL_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+bootstrap:
+  ack_sha256: 9A4A4B289C10E308F1D16DCF8053BF39D1253385B60B4EAD501426BC66278546
+  acceptance_sha256: A70F73AB4EFAB84A3E5A4E6FEF6DC3565AE2192DBD4A03CA18D067B39C0CE94C
+  start_sha256: 7170C5D981F4F0BD8E01DAF131D2AEB289F261ABB5CE91E533344114B7379303
+resource_copy:
+  attempt: 1_of_1
+  files: 19
+  bytes: 179179
+  source_manifest_sha256: 3C40C107A7D312CB74623C13F9018F38C4E411AB537A39E54019ED43C3381A4A
+  receipt: {path: RESOURCE_COPY_RECEIPT.yaml, sha256: B905F9AE1AED2F6D68EDB10667439E90961BF8D16020D124BA1543F104CC7CA1}
+a0_control:
+  node: N01_CANDIDATE_REPLAY
+  attempt: 1_of_1
+  fresh_output_root_absent_before_start: true
+  process_exit_code: 1
+  timeout: false
+  commands_completed: 2
+  first_failure_command: 02_candidate_materialize_same_function
+  first_failure_class: INTERFACE_CAP_EXCEEDED
+  required_candidate_command_metrics_present: false
+  retry_performed: false
+  engineering_correction_started: false
+  status: {path: A0_CONTROL_STATUS.yaml, sha256: 31A0791BCC227CE21E976228C1CF6B2C8B91E63DC7C033D45200FEA00C61EA73}
+readiness:
+  executable_packet_ready: true
+  control_row_pass: false
+  a0_initial_round_used: true
+  a0_execution_rounds_used: 1
+  engineering_correction_batches_used: 0
+  ledger: {path: STAGEA_EXECUTION_READINESS_LEDGER.yaml, sha256: 78B447B6AC6740CC465DD87DC766F39F950896471D5039F7FF0C5ED377402E1A}
+firewall:
+  relative_candidate_baseline_effects_read: false
+  result_visibility: NONE
+  valid_claim_rows_observed: 0
+  decisive_stagea_observation: false
+  scientific_revision_consumed: false
+  scientific_inference: NONE
+  claim_execution: false
+  stageb: false
+  shared_write: false
+lifecycle:
+  cleanup_performed: false
+  retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  resume_capsule_path: RESUME_CAPSULE.yaml
+targeted_manifest_path: TARGETED_MANIFEST.yaml
+next_action: WAIT_MAINLINE_DISPOSITION__NO_AUTOMATIC_SUCCESSOR_OR_RETRY

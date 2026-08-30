@@ -1,0 +1,109 @@
+schema_version: "stagea-independent-gate-handoff-v8.7"
+lane_id: "STAGEA-GATE-REVIEW-LANE-1"
+assignment_id: "STAGEA-G1-20260811-PARQUET-PAGE-COSEGMENT-EXCEPTIONAL-R3G-CLOSING"
+topic_id: "PARQUET-PAGE-COSEGMENT"
+owner_assignment_id: "STAGEA-L1-20260811-PARQUET-PAGE-COSEGMENT-EXCEPTIONAL-FIDELITY-R3G"
+review_type: "EXCEPTIONAL_R3G_CLOSING"
+role: "INDEPENDENT_STAGEA_GATE_REVIEW"
+
+decision:
+  code: "CONFIRM_STOP"
+  role_normalized_code: "STOP"
+  confidence: 0.97
+  quality_tier: "BELOW_Q2_STOP"
+  evidence_ceiling: "STAGEA_CORRECTED_FAIR_20_OBJECT_DOUBLE_REPLAY_NEGATIVE__FROZEN_MECHANISM_ONLY"
+  scientific_basis: "SAME_OBJECT_COMPLETE_FINITE_BASELINE_AND_40_OF_40_CANDIDATE_BUDGET_FALLBACKS"
+  resource_failure_basis: false
+  blocker: null
+  exceptional_revision_consumed: true
+  additional_revision_authorized: false
+
+stop_kernel:
+  natural_objects: 20
+  replays: 2
+  result_records: 40
+  catalog_points_per_record: 106
+  catalog_materializations: 4240
+  latin_trace_rows_checked: 4400
+  latin_formula_mismatches: 0
+  arm_first_balance_each_file: "55_UNION__55_CANDIDATE"
+  semantic_equivalence: "40/40"
+  candidate_budget_fallbacks: "40/40"
+  replay_non_timing_equal: "20/20"
+  p50_ge_10pct: "0/20__0/20"
+  p90_nonworse: "8/20__11/20"
+  strict_full_wall_residual: "0/20__0/20"
+  median_full_wall_ratio: "6.7568297801__6.7330471630"
+  full_wall_ratio_range_all_40: "5.9975117232__7.5564025755"
+  candidate_specific_deployed_actions: 0
+
+full_cost_disposition:
+  frozen_full_wall_arithmetic: "PASS_40_OF_40"
+  shared_wall_and_verification_split: "PASS_50_50"
+  candidate_only_and_baseline_only_allocation: "PASS"
+  median_baseline_selection_wall_seconds: 16.11043345
+  median_candidate_planning_wall_seconds: 120.14178445
+  median_baseline_selection_cpu_seconds: 53.609375
+  median_candidate_planning_cpu_seconds: 119.1953125
+  multidimensional_pareto_impossibility_claim: false
+  caveat: "STRICT_RESIDUAL_IS_FROZEN_FULL_WALL_SENTINEL__STOP_ALSO_INDEPENDENTLY_TRIGGERED_BY_NO_CANDIDATE_ACTION_AND_P50_P90_FAILURE"
+
+scope_boundary:
+  mechanism: "GLOBAL_BUDGETED_WORKLOAD_CONDITIONED_COSEGMENT__FROZEN_R3G"
+  corpus: "20_NYC_TLC_GREEN_TAXI_MONTHLY_PARQUET_OBJECTS__2024_01_TO_2025_08"
+  workload: "FROZEN_TRAIN_AND_HELDOUT_SQL_COUNT_SUM_AVG"
+  comparator: "SOURCE_PLUS_15_BOUNDARY_CELLS_CROSSED_WITH_7_REPRESENTATIONS__106_EXECUTABLE_POINTS"
+  selection_budget_seconds_per_file: 120
+  general_parquet_impossibility_claim: false
+  other_workload_claim: false
+  alternate_mechanism_claim: false
+  production_generalization_claim: false
+
+integrity:
+  owner_manifest_entries_verified: 157
+  owner_manifest_entries_total: 157
+  owner_manifest_bytes_covered: 113959634
+  owner_manifest_verification: "PASS"
+  owner_unlisted_nonmanifest_files: 0
+  owner_missing_listed_files: 0
+  independent_recomputation_errors: 0
+  preclaim_gate_before_first_corrected_natural_command: true
+  object_drift_detected: false
+  baseline_unfairness_capable_of_reversing_decision: false
+  cross_assignment_contamination: false
+
+frozen_control_sha256:
+  AGENTS.md: "B7122A5ACC5CF02A602988548E7464BF03362059293B083796BA1687D2CFAC73"
+  plan.md: "9E27DA1DF73D16088D672D33762B78C047AF753C3F0BF1AAB5041C045E8C1C3B"
+  registry.yaml: "BAB980E7A7BF8D1E283196C5BD73A16D49641FC623AE90DFF1BF7E35151D4AA8"
+  ROLE_STAGEA_REVIEW.md: "6E8ACBF78ED30491AF0D8052D34E90B4CBE45DF0B3016F50F9BDC5FAC26A763C"
+
+owner_input_sha256:
+  HASH_MANIFEST.sha256: "111B6ECE23BD5C50A1D69DE68164A6732383A0ABD49995486FA60353AF6E231E"
+  STAGEA_REPORT.md: "325496240FCDA7C6F3B6D7AC8ED76E8716FBF134D39D084BF483FE14DD0902C6"
+  RESULTS.md: "F4F842F9E37B958E6FD588AFFB58930102D0673B7A8509B81C40C5A1EE2D2E56"
+  handoff.yaml: "82E5E6337511CC8332D9D8C24466328B917615070D6D6D06E5115E167793EC44"
+  frozen_implementation: "38E7BC74352BFD235709BD383E087BF5CEDF978DE2017BBC65BD9764A083EFF6"
+
+review_output_sha256:
+  INDEPENDENT_REVIEW_REPORT.md: "BA7F92792669AE2B880B84B0BA4A8FB6222278D34E60EA5756C50F460521ED15"
+  USER_REVIEW_PACKET.md: "3E98B2C66C27D3F13253AB3FB9F425E3612B6829B84C5C892FA56AF76D1BC561"
+
+authorization:
+  stageb: false
+  stageb_started: false
+  stageb_user_approval_id: null
+  pending_user_stageb_review: false
+  formal_project_creation: false
+  automation: false
+  system_installation: false
+  global_environment_modification: false
+  external_submission: false
+  new_claim_bearing_experiment_run_by_reviewer: false
+  owner_files_modified: false
+  shared_control_files_modified: false
+  external_volume_reference_used: false
+
+terminal_state:
+  assignment_complete: true
+  lane_state: "IDLE_REUSABLE_AWAITING_MAINLINE"

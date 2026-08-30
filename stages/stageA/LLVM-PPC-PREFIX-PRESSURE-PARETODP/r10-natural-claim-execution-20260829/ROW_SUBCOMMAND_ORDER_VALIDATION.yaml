@@ -1,0 +1,42 @@
+schema: ppc-r10-row-subcommand-order-validation-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10-NATURAL-CLAIM-EXECUTION
+sources:
+  order_plan: ROW_SUBCOMMAND_ORDER_PLAN.yaml
+  relocated_plan: {path: RELOCATED_R10_EXECUTION_PLAN.json, sha256: C3087A086E4EE4EF5E5B6E14D15B04F38EF0D94E9397A3AC7E456CB668AE70E2}
+coverage:
+  rows: 32
+  candidate_commands: 32
+  ablation_commands: 64
+  baseline_compile_commands: 4096
+  baseline_link_commands: 8192
+  baseline_inspect_commands: 16384
+  declared_baseline_graph_producers: 32
+  checker_commands: 32
+  full_cost_commands: 32
+  referenced_units: 28864
+  frozen_command_cost_units: 28672
+  per_row_cost_units: 896
+  field_array_index_coverage: exact_once_per_row
+producer_consumer_validation:
+  candidate_to_checker_and_full_cost: PASS_DECLARED_OUTPUT_PATHS
+  compile_to_link: PASS_FROZEN_ARGV_DEPENDENCY
+  link_to_inspect: PASS_FROZEN_ARGV_DEPENDENCY
+  compile_link_inspect_to_graph_declaration: PASS_DECLARED_INPUT_SET
+  checker_to_full_cost_independence: PASS_NO_CHECKER_OUTPUT_REQUIRED_BY_FULL_COST
+  checker_requires_graph: true
+  full_cost_requires_graph: true
+  checker_and_full_cost_consume_only_declared_preceding_outputs: true
+unclosed_dependency:
+  kind: BASELINE_GRAPH_PRODUCER_HAS_NO_EXECUTABLE_COMMAND
+  rows_affected: 32
+  source_field: baseline_graph_producer[0]
+  evidence:
+    producer_kind: DECLARED_BASELINE_GRAPH_PRODUCER
+    execution_performed: false
+    argv_present: false
+    declared_output: baseline/dependency_graph.json
+    consumers: [checker[0], full_cost[0]]
+  consequence: "The graph path is declared but cannot be produced by any frozen executable subcommand. Checker and full_cost must not start."
+  scientific_inference: NONE
+result: FAIL_CLOSED__UNRESOLVED_EXECUTION_PRODUCER
+resource_or_tool_action_started: false

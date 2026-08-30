@@ -1,0 +1,28 @@
+schema_version: stagea-pre-observation-contract-amendment-v1
+amendment_id: S4-SLO-PAGEPACK-PREOBS-DIMENSIONAL-001
+frozen_at: '2026-08-09T17:18:00+08:00'
+assignment_id: STAGEA-L1-20260809-S4-SLO-PAGEPACK-INITIAL
+parent_contract: EXPERIMENT_CONTRACT.yaml
+parent_contract_sha256: 16D52CFF36AEBD7B44742EED21BB9A0D059D08ACBE3F1A3DACDE2C8F7EA0AB23
+claim_bearing_observation_before_amendment: false
+scientific_revision_consumed: false
+mechanism_changed: false
+object_workload_epoch_selection_changed: false
+baseline_changed: false
+reason: >-
+  The frozen contract specified incremental costs in integer work units and a
+  5% cap over op_count, but omitted the base-work conversion for a GET/SET.
+  Schema validation showed that treating one base operation as one work unit
+  would make the registered common one-unit-per-record trace charge exceed the
+  cap by construction, independently of every layout and mechanism. This is a
+  dimensional specification defect detected before solver or comparator execution.
+binding_clarification:
+  base_work_per_trace_operation_unit: 100
+  fixed_slowdown_cap_work: ceil(0.05 * evaluation_epoch_total_op_count * 100)
+  common_trace_handling_work_per_record: 1
+  remote_or_slow_page_work_per_access: 4
+  all_other_parent_contract_fields: unchanged
+interpretation: >-
+  One trace operation is normalized to 100 base work units; the 5% cap therefore
+  permits five incremental work units per operation. This remains an abstract
+  trace-level ledger and is not a hardware-cycle or end-to-end latency claim.

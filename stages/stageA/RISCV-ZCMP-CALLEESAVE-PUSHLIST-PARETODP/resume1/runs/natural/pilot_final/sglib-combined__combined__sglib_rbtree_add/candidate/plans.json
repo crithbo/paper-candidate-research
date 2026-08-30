@@ -1,0 +1,55 @@
+{
+  "schema": "zcmp-frontier-plans-v1",
+  "input": "D:\\project\\writing\\reserch\\stages\\stageA\\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\\resume1\\runs\\natural\\single_function\\sglib-combined__combined__sglib_rbtree_add.mir",
+  "interface_values": [
+    "%0"
+  ],
+  "interface_width": 1,
+  "legal_plan_count": 2,
+  "abstract_pareto_count": 1,
+  "plans": [
+    {
+      "assignment": [
+        [
+          "%0",
+          "$x8"
+        ]
+      ],
+      "csr_count": 1,
+      "rlist": "{ra,s0}",
+      "frame_bytes": 16,
+      "spill_values": [],
+      "static_spill_bytes": 0,
+      "dynamic_spill_ops": 0,
+      "cfi": [
+        "CFA=sp+16",
+        "ra@-8",
+        "s0@-4"
+      ],
+      "mir": "plan_0000.mir",
+      "abstract_pareto": true
+    },
+    {
+      "assignment": [
+        [
+          "%0",
+          "spill"
+        ]
+      ],
+      "csr_count": 0,
+      "rlist": "{ra}",
+      "frame_bytes": 32,
+      "spill_values": [
+        "%0"
+      ],
+      "static_spill_bytes": 8,
+      "dynamic_spill_ops": 2,
+      "cfi": [
+        "CFA=sp+32",
+        "ra@-4"
+      ],
+      "mir": "plan_0001.mir",
+      "abstract_pareto": false
+    }
+  ]
+}

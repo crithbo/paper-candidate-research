@@ -1,0 +1,13 @@
+family_id: S6-R16A-OPENJDK_C2_IR_CONSTRUCTION
+snapshot_date: 2026-08-13
+canonical_signature: fixed_java_bytecode_profile_target_and_jvm_semantics__c2_ideal_graph_transform_and_schedule_construction__stock_jvm_behavior_oracle__compile_cpu_rss_codecache_bytes_runtime_cost
+source_snapshot:
+  - source: https://github.com/openjdk/jdk
+    role: official_current_upstream
+    fact: OpenJDK contains the HotSpot C2 compiler source; it is the required current transform/pass/config reality-check anchor.
+  - source: https://openjdk.org/groups/hotspot/
+    role: official_project_documentation
+    fact: HotSpot is OpenJDK's virtual machine implementation.
+neutral_action_question: Can a bounded, target-specific C2 IR transform-and-schedule constructor provide a guarantee beyond current pass composition while preserving JVM semantics?
+bounded_unknowns: [complete pass/config union, legal two-graph witness, direct same-object collision]
+exclusion_check: no exact signature match found in R16A available control snapshot

@@ -1,0 +1,106 @@
+schema_version: 'RULE_AUDIT_METRICS_V1'
+audit_id: 'RULE-AUDIT-20260814-SOURCE19-20-CONSECUTIVE-ZERO-YIELD-R23'
+evidence_mode: 'READ_ONLY_REGISTERED_ARTIFACT_AUDIT'
+claim_ceiling: 'PROCESS_DIAGNOSIS_AND_ASSIGNMENT_LOCAL_PROPOSAL_ONLY'
+
+reported_funnel:
+  source19:
+    profile: 'CROSS_DOMAIN_PROBLEM_EVIDENCE_ROTATION_V3'
+    locator_events: 36
+    reported_fresh_raw: 30
+    preoutcome_D1: 1
+    deep_reviews: 1
+    clean_stage0_briefs: 0
+    not_admitted_unfrozen: 13
+    known_repeat_active_historical_or_contained_locator_rows_minimum: 11
+  source20:
+    profile: 'RECENT_LIMITATION_PLUS_CURRENT_SOURCE_V4'
+    locator_events: 38
+    reported_fresh_raw: 30
+    preoutcome_D1: 0
+    deep_reviews: 0
+    clean_stage0_briefs: 0
+    not_admitted_unfrozen: 11
+    known_repeat_active_historical_or_contained_locator_rows_minimum: 11
+    direct_paper_collision_or_paper_owned_constructor_minimum: 8
+  combined:
+    locator_events: 74
+    reported_fresh_raw: 60
+    preoutcome_D1: 1
+    deep_reviews: 1
+    clean_stage0_briefs: 0
+    reported_raw_to_D1_fraction: 0.0167
+    D1_to_deep_fraction: 1.0
+    deep_to_brief_fraction: 0.0
+    not_admitted_unfrozen: 24
+    known_exclusion_locator_rows_minimum: 22
+    known_exclusion_locator_fraction_minimum: 0.2973
+
+metric_caveat:
+  severity: 'MATERIAL_DENOMINATOR_INCONSISTENCY'
+  finding: 'Several lanes report excluded, active, historical or contained rows inside raw_count or fresh_raw even though the control says identity filtering precedes raw admission.'
+  examples:
+    - 'Source19 S3 reports fresh_raw=6 while three rows are explicitly EXCLUDED.'
+    - 'Source19 S5 reports raw_count=6 while three rows are active or historical identities.'
+    - 'Source19 S6 reports fresh_raw=3 but its disposition list contains more than three structural or fresh-looking rows.'
+    - 'Source20 S5 and S6 similarly mix located, excluded and fresh units.'
+  implication: 'Reported raw count is usable only as an upper-bound funnel denominator; the actual fresh unique denominator is lower.'
+
+loss_diagnosis:
+  primary_bottleneck: 'PRE_D1_SOURCE_CLOSURE'
+  contributing_factors:
+    - 'recent paper limitations frequently own the exact proposed constructor'
+    - 'mature current unions leave selectors, configuration or generic solver actions'
+    - 'unfrozen near-misses receive no bounded source-repair pass before capacity expires'
+    - 'some assignments require two complete legal plans or complete outputs before D1'
+    - 'contribution type is sometimes fixed too early, such as treating a benchmark corpus only as an invalid natural carrier'
+    - 'identity and dormancy filters are not consistently reflected in funnel counting'
+  evidence_against_lowering_scientific_gates: 'Structural drops are mostly supported by direct current union, exact paper collision, changed object, selector or generic-action evidence.'
+  scarcity_scope: 'LOCAL_TO_MATURE_TOOL_SURFACES_AND_RECENT_PAPER_OWNED_CONSTRUCTORS__NOT_GLOBAL_TOPIC_SCARCITY'
+
+positive_comparator_pattern:
+  source17_brief: 'VERILATOR-SEMANTIC-BOUNDED-RECOURSE-MTASK'
+  source18_brief: 'QEMU-TCG-BOUNDED-RECOURSE-CODE-CACHE'
+  shared_pattern:
+    - 'affirmative source-documented cliff or limitation'
+    - 'current union contains useful partial primitives but not the proposed complete transition'
+    - 'target-specific invariant and stock semantic oracle'
+    - 'natural versioned carrier and small legality witness'
+  downstream_status: 'BOTH_STAGE0_PRIMARY_REVISE_ONCE__NOT_YET_CONFIRMED_PASS'
+  caution: 'This pattern is promising for Discovery yield but has not yet demonstrated Stage0 or StageA acceptance.'
+
+recommended_pilot:
+  profile_id: 'AFFIRMATIVE_CLIFF_PARTIAL_PRIMITIVE_RESIDUAL_V5'
+  scope: 'ONE_PROSPECTIVE_SIX_LANE_ASSIGNMENT_ONLY'
+  discovery_claim_pack_mode: 'OFF'
+  lane_count: 6
+  total_locator_ceiling: 48
+  per_lane_locator_ceiling: 8
+  total_fresh_raw_ceiling: 24
+  per_lane_fresh_raw_ceiling: 4
+  total_C0_source_closure_ceiling: 12
+  per_lane_C0_source_closure_ceiling: 2
+  decisive_source_artifact_ceiling_per_C0: 5
+  total_deep_ceiling: 12
+  deep_ceiling_by_lane: {S1: 2, S2: 2, S3: 1, S4: 3, S5: 2, S6: 2}
+  no_outcome_aware_backfill: true
+  no_proposal_quota: true
+  zero_brief_is_legal: true
+
+mechanical_acceptance:
+  locator_excluded_fresh_raw_units_separate: true
+  known_repeat_active_hold_stop_or_dormant_in_fresh_raw: 0
+  C0_selected_before_source_closure_outcome: true
+  C0_attempts_per_family_facet_maximum: 1
+  deep_requires_source_closed_D1: true
+  complete_implementation_or_result_required_before_D1: false
+  full_scientific_gates_preserved: true
+  v9_mode: 'OFF'
+  network_security_topics_allowed: false
+  automatic_second_cycle: false
+
+decision: 'PATCH_RECOMMENDED__ASSIGNMENT_LOCAL_NEXT_BOUNDARY'
+fresh_generic_user_approval_required: false
+historical_backtest_required_for_one_source_allocation_pilot: false
+prospective_pilot_and_stage0_feedback_required_before_permanent_shared_patch: true
+lane_return_state: 'IDLE_REUSABLE_AWAITING_USER_DIALOGUE'

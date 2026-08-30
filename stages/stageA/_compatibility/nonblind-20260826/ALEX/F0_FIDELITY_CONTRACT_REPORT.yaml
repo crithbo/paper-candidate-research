@@ -1,0 +1,30 @@
+schema: preclaim-contract-fidelity-report-v1
+assignment_id: NONBLIND-STAGEA-20260826-ALEX-F0
+contract_sha256: CB0B5E8B194E8BD94BD5EB973538D26E0F234023B4B3C479F810688AEA08DA3D
+evidence_ceiling: PRECLAIM_CONTRACT_FIDELITY_ONLY__NO_NATURAL_OR_SCIENTIFIC_CLAIM
+execution_performed: false
+deterministic_input:
+  pairs: 1000000 unique sorted uint64 keys from SplitMix64(seed=0x2026082701010001), values equal original generation ordinal; deduplicate and continue generator until cardinality reached
+  queries: 100000 present ranks floor(i*999999/99999) plus 100000 absent keys from SplitMix64(seed=0x2026082701020001) rejected if present
+  semantics: find returns exact key/value for present keys; lower_bound insertion rank for absent keys
+comparator:
+  implementation: exact sorted_vector_lower_bound over same key/value pairs
+  equality_requirement: ALEX find/lower-bound behavior must match comparator key presence, value, and insertion rank
+alex_budget:
+  configuration: default author Alex<uint64,uint64> bulk_load, no post-result configuration selection
+  construction_budget: one bulk-load over frozen pairs; future update witness separate and not counted as configuration tuning
+  query_budget: each frozen 200000-query mixed batch once
+denominators:
+  lookup_latency: elapsed query time / 200000, present and absent separate
+  space: index bytes plus key/value storage bytes
+  error: key/value/rank disagreements / 200000; accepted future fidelity requires zero
+  construction: bulk-load elapsed and peak RSS
+  parameter_search: zero; no configuration sweep authorized
+full_cost: {compile: compiler/version/duration/RSS, bulkload: elapsed/RSS/bytes, insert_erase: elapsed/RSS/per-operation, query: elapsed/count/checksum, memory: peak_RSS/index_bytes/key_value_bytes, excluded: []}
+legality_witness:
+  initial_pairs: [[3,30],[8,80],[15,150],[22,220]]
+  operations: [bulk_load, 'insert(12,120)', 'erase(8)', 'insert(15,151)_must_follow_author_duplicate_semantics', 'range_find[10,22]']
+  required_checks: [sorted_key_invariant, find_value_or_absence, lower_bound_rank, duplicate_behavior_recorded, range_boundary_inclusion, comparator_match]
+  status: NOT_RUN__CONTRACT_ONLY
+forbidden_until_mainline_fidelity_acceptance: [natural_probe, performance_claim, scientific_inference, production_state_change, stageB]
+owner_disposition: CONTRACT_COMPLETE__WAIT_FOR_MAINLINE_ACCEPTED_PRECLAIM_CONTRACT_FIDELITY_GATE

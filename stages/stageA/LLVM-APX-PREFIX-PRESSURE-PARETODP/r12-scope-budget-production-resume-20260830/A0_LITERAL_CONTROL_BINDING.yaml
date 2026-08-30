@@ -1,0 +1,17 @@
+schema: apx-r12-a0-literal-control-binding-v1
+assignment_id: STAGEA-L1-20260830-LLVM-APX-R12-A0-PRODUCTION-RESUME
+row_id: APX-R12-S04-CONTROL1
+class: CONTROL_NON_CLAIM_BEARING
+input: {path: resources/src/corpus/S04/asm-constraint.ll, sha256: A44D49A47C34CCE86BB4952F42F6C557230A669BEC950DACDD856F9D133E0776}
+tool: {mode: EXECUTE_IN_PLACE_READ_ONLY, path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a4-explicit-resource-copy-20260829/resources/env/apx-toolchain/bin/llc.exe, sha256: 856DA14A0CC34FBEFCA4FBB606FED5B88AABE6FC767A7E652CFD4EB4DFF5FA2E}
+argv: [llc.exe, -mtriple=x86_64, -mattr=+egpr,+inline-asm-use-gpr32, -stop-after=x86-compress-evex, -verify-machineinstrs, resources/src/corpus/S04/asm-constraint.ll, -o, resources/engineering_raw/APX-R12-S04-CONTROL1/output.mir]
+cwd: resources
+env: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp}
+stdout: resources/engineering_raw/APX-R12-S04-CONTROL1/stdout.txt
+stderr: resources/engineering_raw/APX-R12-S04-CONTROL1/stderr.txt
+exit_record: resources/engineering_status/APX-R12-S04-CONTROL1.yaml
+timeout_seconds: 300
+output_schema: {required: [output.mir, stdout.txt, stderr.txt, exit_record], mir_minimum: [nonempty, contains_name_or_body_marker]}
+relative_effect_visibility: false
+scientific_denominator_included: false
+exceptional_revision_consumed: false

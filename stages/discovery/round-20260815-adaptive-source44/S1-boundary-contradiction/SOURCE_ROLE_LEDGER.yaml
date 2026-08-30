@@ -1,0 +1,41 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE44-RAW-TO-STAGE0-OWNERSHIP-BRIDGE-V1
+retrieval_date: 2026-08-15
+entries:
+  - id: SRC01
+    role: ANCHOR_AND_ABI_CONTRACT
+    title: RISC-V ABIs Specification, version 1.1 (2026-07-01 pre-release)
+    url: https://riscv-non-isa.github.io/riscv-elf-psabi-doc/
+    provenance: official_riscv_psabi
+    decisive_facets: [vector_calling_convention, vxrm_not_preserved, vxsat_not_preserved, vector_cc_variant]
+    observation: vxrm and vxsat are unspecified on entry and are not preserved across calls under both standard and vector calling conventions.
+  - id: SRC02
+    role: CURRENT_INTRINSIC_SEMANTICS_AND_RESIDUAL_ANCHOR
+    title: RISC-V Vector C Intrinsic Specification
+    url: https://github.com/riscv-non-isa/riscv-rvv-intrinsic-doc/blob/main/doc/rvv-intrinsic-spec.adoc
+    provenance: official_riscv_nonisa_repository
+    decisive_facets: [vxrm_constant_argument, fixed_point_intrinsics, redundant_vxrm_write_statement, vxsat_scope]
+    observation: fixed-point intrinsic vxrm arguments are constant integer expressions; the document explicitly identifies reducing redundant vxrm writes as compiler/system-specific and does not expose vxsat manipulation through that interface.
+  - id: SRC03
+    role: CURRENT_LLVM_BACKEND_UNION_LOCUS
+    title: LLVM RISC-V Vector Extension documentation
+    url: https://llvm.org/docs/RISCV/RISCVVectorExtension.html
+    provenance: official_llvm_documentation
+    decisive_facets: [rvv_ir, selectiondag_lowering, register_allocation, RISCVInsertVSETVLI]
+    observation: current LLVM documents a composed RVV lowering pipeline with instruction selection, RA and VSETVLI insertion.
+  - id: SRC04
+    role: CURRENT_LLVM_SOURCE_LOCUS
+    title: RISCVRegisterInfo.cpp current Doxygen source
+    url: https://llvm.org/docs/doxygen/RISCVRegisterInfo_8cpp_source.html
+    provenance: official_llvm_doxygen
+    decisive_facets: [VXRM_reserved, VXSAT_reserved]
+    observation: current backend source reserves VXRM and VXSAT as physical state registers, rather than treating them as allocatable vector values.
+  - id: SRC05
+    role: DIRECT_HISTORICAL_SUBTRACTOR
+    title: Source02 glibc IFUNC resolver timing record
+    url: local:stages/discovery/round-20260814-adaptive-source02/S1-boundary-contradiction/SOURCE_COLLISION_MATRIX.md
+    provenance: frozen_project_history
+    decisive_facets: [ifunc_resolver_timing, lazy_nonlazy_configuration]
+    observation: the fixed IFUNC timing/form family is terminally contained and cannot be reintroduced as RQ02.
+notes:
+  - No source is interpreted as a novelty or literature-absence proof.
+  - The current LLVM union is preliminary. Exhaustive default/non-default composition is explicitly transferred to Stage0.

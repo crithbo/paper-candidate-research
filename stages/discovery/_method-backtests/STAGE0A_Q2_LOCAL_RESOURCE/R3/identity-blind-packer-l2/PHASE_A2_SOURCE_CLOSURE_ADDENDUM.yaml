@@ -1,0 +1,14 @@
+schema_version: r3-packer-l2-phase-a2-uniform-source-closure-v1
+assignment_id: BACKTEST-PACKER-L2-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+parent_phase_a: {ledger_sha256: 584D07D8654E556EA3BF10CFAFDF4D622C0D6D471C3317E701313D1D1FF0F6C5, handoff_sha256: 38B47BD269B77477B514DE8B659FB31F0D4C2971500E4F7D67FC99950E3ED399}
+failed_ordinals_in_frozen_order: [7, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+uniform_sequence:
+  search: {query_template: '"<exact title>" <venue> <year>', authoritative_domain_priority: [publisher_or_venue_official, arxiv.org, dl.acm.org, ieeexplore.ieee.org, proceedings.mlsys.org, usenix.org, openreview.net, author_institutional_page], attempts_per_failed_row: 1}
+  open: {target: first_exact_title_year_venue_match_by_priority, attempts_per_failed_row: 1, no_match: NOT_ATTEMPTED_NO_MATCH}
+  retries_or_backfill: 0
+  log_path_template: resources/logs/preflight_a2/<ordinal>.yaml
+  log_fields: [ordinal, exact_title_query, priority_domain_selected, returned_url, normalized_title_year_venue_match, public_fulltext_or_evidence_route, HTTP_or_tool_status, failure_reason]
+merged_output: {path: CANDIDATE_PREFLIGHT_MERGED_LEDGER.yaml, preserve_phase_a_ledger: true, total_rows: 24}
+limits: {additional_search_calls_max: 16, additional_open_calls_max: 16, additional_total_calls_max: 32, phase_a_plus_a2_total_calls_max: 68, stored_bytes_max: 67108864}
+phase_B_selection: forbidden_until_mainline_accepts_merged_ledger
+forbidden: [unfrozen_candidate_or_domain, result_aware_replacement, evidence_extraction, packet_creation, scoring, gold_expected_label_access, code_artifact_binary_download, build, probe, experiment, production_candidate_registration, StageB]

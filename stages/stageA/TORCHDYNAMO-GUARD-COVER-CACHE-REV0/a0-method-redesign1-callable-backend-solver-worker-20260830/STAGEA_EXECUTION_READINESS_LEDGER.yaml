@@ -1,0 +1,19 @@
+schema: stagea-execution-readiness-ledger-v1
+assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-A0-METHOD-REDESIGN1
+stagea_scope_budget_mode: PRODUCTION
+a0_budget: {initial_round: consumed, engineering_corrections: 2_of_2_consumed, method_redesign: 1_of_1_consumed, ordinary_successors_remaining: 0}
+static_implementation: {source_files: 10, ast_validation: PASS_ONCE, object_or_denominator_change: false}
+control: {attempts: 1_of_1, exit_code: 1, retry: 0, effect_hidden: true, claim_cells: 0}
+closed_components:
+  persistent_READY_solver_worker: PASS
+  hard_2s_per_certificate_deadline: PASS
+  all_models_false: PASS
+  certificate_digest_recompute: PASS
+  exact_1792_case_manifest: PASS
+unclosed_components:
+  callable_backend_native_entry_witness: FAIL_BEFORE_BACKEND_CALLBACK
+  quotient_oracle_legality_witness: NOT_STARTED_AFTER_FIRST_FAILURE
+  baseline_full_cost_DAG: NOT_EMITTED_AFTER_FIRST_FAILURE
+decision: EXECUTION_CONTRACT_HOLD__A0_BUDGET_EXHAUSTED
+scientific_inference: NONE
+next_action: WAIT_MAINLINE_FINAL_DISPOSITION

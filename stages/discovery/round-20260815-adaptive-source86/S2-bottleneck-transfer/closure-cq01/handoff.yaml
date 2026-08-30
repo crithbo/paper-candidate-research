@@ -1,0 +1,52 @@
+schema_version: discovery-source-closure-handoff-v1
+assignment_id: SOURCE-CLOSURE-SOURCE86-S2-CQ01-ONNXRUNTIME-PARTITION-MEMORY-PATTERN-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+topic_id: ONNXRUNTIME_EP_PARTITION_MEMORY_PATTERN
+disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+authority_boundary:
+  no_clean_brief_decision: true
+  no_Q2_or_candidate_grade_decision: true
+  no_PASS_or_STOP_decision: true
+  no_stage_state_authority: true
+immutable_source_pin:
+  project: microsoft/onnxruntime
+  commit: c5300b71ec44aee30ba0d18190f29372568a8e07
+  commit_receipt: resources/downloads/01-ort-main-commit.json
+current_union_closed_within_bounded_loci:
+  ep_partition:
+    - capability query and provider partitioning
+    - layered/tentative assignment and reset
+    - preferred-layout two-pass re-query
+    - resource accounting of surviving partition nodes
+  memory_pattern:
+    - fixed-shape allocation/free trace
+    - shape-keyed pattern cache
+    - disabled when same-device multi-stream order is not fixed
+  arena:
+    - BFC growth, allocation, split/free/coalesce actions
+carrier:
+  locus: onnxruntime/test/internal_testing_ep/internal_testing_partitioning_tests.cc
+  named_in_tree_model: testdata/ep_partitioning_test_1.onnx
+  status: LOCUS_ONLY__MODEL_BYTES_AND_REPLAY_NOT_RETAINED
+unclosed_debt:
+  - two complete stock-legal partition-plus-allocation plans for one fixed session
+  - explicit union-external ORT-specific joint action
+  - finite target/provider-specific algorithmic or formal guarantee
+  - direct-current-collision result after the action is defined
+  - generic-partition/packing/controller comparison after the action is defined
+  - full fixed-carrier source artifact and replay oracle
+resource_accounting:
+  calls_used: 6
+  calls_max: 6
+  persisted_bytes: 3607422
+  persisted_bytes_max: 16777216
+  inventory: RESOURCE_INVENTORY.yaml
+  ledger: resources/logs/acquisition-attempt-ledger.yaml
+next_owner_action: >-
+  Keep the item as bounded unresolved closure debt. A future explicitly frozen
+  route must pin a complete carrier and two whole-session plans before making
+  any candidate-grade or collision judgment; it may not infer absence from this
+  capped inspection.
+notifications:
+  mainline_required: true
+  lane_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

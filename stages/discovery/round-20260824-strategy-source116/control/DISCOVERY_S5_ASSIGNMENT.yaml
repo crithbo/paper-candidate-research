@@ -1,0 +1,18 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S5-20260824-SOURCE116-MERGED-PATCH-LINEAGE-RESIDUAL-V1
+topic_id: SOURCE116-PORTFOLIO-S5
+lane_id: DISCOVERY_S5
+lane_mode: S5_SCALE_ONLINE_APPROX
+thread_id: 01a02e0a-e6cf-7051-adc8-514d53e55549
+common_contract: stages/discovery/round-20260824-strategy-source116/control/CONTROL.yaml
+common_contract_sha256: 221DCFF82FB449F0080590CE0B2BB66657006BC071DA89A5B089630E525B20D4
+write_directory: stages/discovery/round-20260824-strategy-source116/S5-scale-online-approx
+resource_root: stages/discovery/round-20260824-strategy-source116/S5-scale-online-approx/resources
+focus: SCALE_ONLINE_THRESHOLD_OR_ROBUSTNESS_RESIDUAL_AFTER_PATCH
+anchor_portfolio: [VLLM_SGLANG_LLAMA_CPP_ONLINE_SCALE_PATCH_TEST_LINEAGE]
+mandatory_current_reality_check: MERGED_PATCH_PARENT_CURRENT_SOURCE_TEST_FLAGS
+forbidden_inputs: [GROUP_REPOSITORY, CRFEPOCH_STAGE0, SOURCE116_RULE_AUDIT_RESULTS]
+model_route: {model: gpt-5.6-terra, reasoning: high}
+modes: {rq_frontend: PRODUCTION, claim_pack: OFF, quality: OFF, selective_depth: OFF}
+next_action_before_start: WRITE_BOOTSTRAP_ACK_AND_WAIT
+

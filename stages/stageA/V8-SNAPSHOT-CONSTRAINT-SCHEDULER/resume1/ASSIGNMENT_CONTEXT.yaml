@@ -1,0 +1,111 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+generated_at: 2026-08-23T18:10:36+08:00
+context_mode: DUAL_READ_SHADOW
+mainline_task_or_contact: 01a02e08-06de-7281-89ab-eb4965cccc92
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_ACTION
+thread_mapping: {new_thread_id: 01a02e0e-45b3-76b3-9257-07a736fae7d8, old_thread_id: 019fe603-a460-71d0-9631-2a0665780ce5}
+
+identity:
+  lane_id: CANDIDATE-EXECUTION-LANE-3
+  role_id: CANDIDATE_OWNER
+  assignment_id: STAGEA-L3-20260823-V8-SNAPSHOT-CONSTRAINT-SCHEDULER-RESUME1-THROTTLED-WIN64
+  topic_id: V8-SNAPSHOT-CONSTRAINT-SCHEDULER
+  stage_or_mode: STAGE_A_RESUME_FROM_BLOCKER
+  status: BLOCKED_USER_ACTION_REQUIRED__THROTTLED_RESOURCE_APPROVED__WINDOWS_CXX_SDK_REQUIRED
+  resume_point: TOOLCHAIN_AND_RESOURCE_PREFLIGHT_BEFORE_ANY_BODY_DOWNLOAD
+  next_action: WRITE_A_NEW_BOOTSTRAP_ACK_THEN_WAIT_FOR_WINDOWS_CXX_SDK_OR_NEW_EXACT_INSTALL_AUTHORIZATION
+  source_assignment_path: stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/resume1/NEXT_RESOURCE_REQUEST.yaml
+  source_assignment_sha256: 5CB0DDA09802BFBBE2613809ED8B25FF9566F4DBF7A818C2306B55BB6FB4DA27
+
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: null
+  user_approval_ids: [USER_V8_THROTTLED_STAGEA_RESOURCE_ENVELOPE_20260823]
+  allowed_actions: [read_context, write_new_bootstrap_ack]
+  forbidden_actions:
+    - system installation or global environment change
+    - source download or build before toolchain input and new START_AUTHORIZED
+    - more than eight logical processors
+    - normal-or-higher build priority
+    - simultaneous heavy QRefine compilation
+    - claim-bearing run before PRE_CLAIM_CONTRACT_FIDELITY_GATE
+    - Stage B or formal project work
+  forbidden_inputs: [other_candidate_results, unofficial_mirrors, private_or_credentialed_material]
+
+boundaries:
+  unique_write_directory: D:/project/writing/reserch/stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/resume1
+  resource_root: D:/project/writing/reserch/stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/resume1/resources
+  read_only_paths:
+    - stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/initial
+    - stages/stageA/_resource-preflight/V8-20260811-R3F1
+    - stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/resume1/BOOTSTRAP_ACK.yaml
+  write_allowed_paths:
+    - stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/resume1/restart-20260823/BOOTSTRAP_ACK.yaml
+  network_allowed: false
+  experiment_allowed: false
+  state_transition_allowed: false
+
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 665A557A6C8AD8030F97B1767D06B500D658674681FFBF021A276C5B31DBC61B}
+  plan: {path: plan.md, sha256: BFC72BAB2492AB44330EC6091E4159944D750D437AC4FACE323BA2FFDC593A9C}
+  registry_snapshot: {path: registry.yaml, sha256: 7E0199903CF4C2105F2444A2E07F230437835A6A3CFABE228041FF7C978E7DA2}
+  role_rule: {path: rules/ROLE_CANDIDATE_OWNER.md, sha256: 0486BBDA5D35526268B82474DCCC9BF376F45724C6EF9E2B7435F18670CD75A4}
+  conditional_protocols:
+    - {path: rules/RESOURCE_LOCALIZATION.md, sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+  skills:
+    - {name: academic-research-suite, path: 'C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md', sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F, mode: BLOCKED_NO_EXECUTION}
+  templates:
+    - {path: templates/STAGEA_REPORT.md, sha256: DEF37897F8A64A0C7F0822FE629BBB2B78B91A787CE594165CC29B1F14CE15B1}
+    - {path: templates/RESOURCE_INVENTORY.yaml, sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63}
+    - {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+
+minimum_inputs:
+  - {path: stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/initial/EXPERIMENT_CONTRACT.yaml, sha256: A07956038B803B35BC2066D5E6B05E3D153B2171A273F522768F837D4B514BB6}
+  - {path: stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/initial/handoff.yaml, sha256: 89C167AE153D83916329510465D409C9CE148B53D78C151012EFA158B0F0F9AB}
+  - {path: stages/stageA/_resource-preflight/V8-20260811-R3F1/NEXT_RESOURCE_REQUEST.yaml, sha256: 33CB3554B20C3FCD98E5CB5EA8B510FFA50E7688CC78127D0BBEB66A80CE857A}
+  - {path: stages/stageA/_resource-preflight/V8-20260811-R3F1/handoff.yaml, sha256: 93B0A1F70CA29A73C7A8BB0667DE45F51E48D23A368150266095202F4A348FEA}
+
+expected_outputs: [restart-20260823/BOOTSTRAP_ACK.yaml]
+budget:
+  network_gib_max_after_future_start_authorized: 35
+  workspace_high_water_gib_max: 120
+  cpu_hours_max_after_future_start_authorized: 24
+  wall_hours_max_after_future_start_authorized: 12
+  logical_processors_max: 8
+  process_priority: BELOW_NORMAL
+  available_memory_pause_floor_gib: 12
+  d_drive_free_stop_floor_gib: 150
+
+claim_ceiling: UNCHANGED_STAGEA_STATIC_AND_NATIVE_REGENERATION_ROUTE
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_revision: {allowed_total: 1, consumed: 0, remaining: 1, exceptional_revision_authorized: false}
+mechanism_pivot: {allowed: 0, consumed: 0, remaining: 0}
+identity_and_collision:
+  exact_identity_digest: V8_COMMIT_C635F0D160B6E988B5EA5A907511A2929BEB5D5E__WINDOWS_X64_NATIVE
+  terminal_identity_digest: null
+  current_collision_digest: SEARCH_BOUNDED_OPEN_UNCHANGED
+  terminal_stop_non_revival_asserted: true
+user_and_blocker_state:
+  user_action_required: true
+  blocker_state: WINDOWS_CXX_SDK_AND_BUILD_TOOLS_ABSENT
+  blocker_packet_path: stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/resume1/USER_BLOCKER_PACKET.md
+  resource_policy_path: rules/RESOURCE_LOCALIZATION.md
+  resource_policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+stop_and_escalation_conditions:
+  - any system installation is required
+  - any resource ceiling or memory/disk floor is reached
+  - exact commit, DEPS, tool provenance or GN args cannot be frozen
+  - claim-bearing execution would precede the fidelity gate
+  - old refused BOOTSTRAP_ACK is presented as accepted
+handoff_requirements:
+  - preserve preflight-only evidence ceiling on resource failure
+  - create a new ACK against this complete context; do not patch or reuse the refusal ACK
+validation:
+  source_plan_registry_consistent: true
+  hashes_complete: true
+  paths_resolved_under_workspace: true
+  context_is_sufficient_for_cold_start: true
+  full_registry_comparison_result: PASS__TOPIC_RECORD_USER_GATE_AND_NEW_LANE_MAPPING_MATCH
+  result: PASS__COMPLETE_CONTEXT_REGENERATED__NEW_ACK_REQUIRED

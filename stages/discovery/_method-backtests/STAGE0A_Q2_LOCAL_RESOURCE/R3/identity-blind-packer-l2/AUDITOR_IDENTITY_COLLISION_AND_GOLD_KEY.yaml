@@ -1,0 +1,22 @@
+schema_version: r3-auditor-identity-collision-gold-key-v1
+packet_visibility: AUDITOR_ONLY
+forbidden_to_packer_after_seal: [reviewer_output, auditor_judgment, gold_comparison_result]
+identity_map:
+  R3P01: {ordinal: 1, title: 'LinnOS: Predictability on Unpredictable Flash Storage with a Light Neural Network', venue_year: OSDI_2020, locator: https://www.usenix.org/conference/osdi20/presentation/hao, gold_label: POSITIVE}
+  R3P02: {ordinal: 6, title: 'Performance-Optimal Read-Only Transactions', venue_year: OSDI_2020, locator: https://www.usenix.org/conference/osdi20/presentation/lu, gold_label: POSITIVE}
+  R3P03: {ordinal: 2, title: 'Generalized Sub-Query Fusion for Eliminating Redundant I/O from Big-Data Queries', venue_year: OSDI_2020, locator: https://www.usenix.org/conference/osdi20/presentation/sarthi, gold_label: POSITIVE}
+  R3P04: {ordinal: 7, title: 'Formally Verified EVM Block-Optimizations', venue_year: CAV_2023, locator: https://link.springer.com/chapter/10.1007/978-3-031-37709-9_9, gold_label: POSITIVE}
+  R3P05: {ordinal: 8, title: 'SPORES: Sum-Product Optimization via Relational Equality Saturation for Large Scale Linear Algebra', venue_year: PVLDB_2020, locator: https://www.vldb.org/pvldb/vol13/p1919-wang.pdf, gold_label: POSITIVE}
+  R3P06: {ordinal: 9, title: 'Equality Saturation for Tensor Graph Superoptimization', venue_year: MLSys_2021, locator: https://proceedings.mlsys.org/paper_files/paper/2021/file/cc427d934a7f6c0663e5923f49eba531-Paper.pdf, gold_label: POSITIVE}
+  R3P07: {ordinal: 17, title: 'MLPerf Tiny Benchmark', venue_year: NeurIPS_Datasets_and_Benchmarks_2021, locator: https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/da4fb5c6e93e74d3df8527599fa62642-Abstract-round1.html, gold_label: POSITIVE}
+  R3P08: {ordinal: 14, title: 'An Open-Source Benchmark Suite for Cloud and IoT Microservices', venue_year: ASPLOS_2019, locator: https://arxiv.org/abs/1905.11055, gold_label: POSITIVE}
+  R3P09: {ordinal: 13, title: 'The MLPerf Training Benchmark', venue_year: MLSys_2020, locator: https://proceedings.mlsys.org/paper_files/paper/2020/hash/411e39b117e885341f25efb8912945f7-Abstract.html, gold_label: POSITIVE}
+  R3P10: {ordinal: 19, title: 'To Cross, or Not to Cross Pages for Prefetching?', venue_year: HPCA_2025, locator: https://ease-lab.github.io/ease_website/pubs/CROSS_HPCA25.pdf, gold_label: POSITIVE}
+  R3P11: {ordinal: 22, title: 'Buddy Compression: Enabling Larger Memory for Deep Learning and HPC Workloads on GPUs', venue_year: ISCA_2019, locator: https://arxiv.org/abs/1903.02596, gold_label: POSITIVE}
+  R3P12: {ordinal: 21, title: 'TensorDIMM: A Practical Near-Memory Processing Architecture for Embeddings and Tensor Operations in Deep Learning', venue_year: MICRO_2019, locator: https://arxiv.org/abs/1908.03072, gold_label: POSITIVE}
+negative_expected_labels:
+  R3N01: NONPASS__SAME_OBJECT_DIRECT_ABSORPTION
+  R3N02: NONPASS__PROXY_CHANGE_OBJECT
+  R3N03: NONPASS__WEAK_COMPARATOR_OR_NONCANONICAL
+  R3N04: NONPASS__FULL_COST_OMITTED
+collision_adjustment_required_before_stagea_release: true

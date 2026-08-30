@@ -1,0 +1,51 @@
+schema: discovery_wave_handoff_v8_4
+assignment_id: DISCOVERY-S3-20260809-V8.4-WAVE2
+lane: DISCOVERY-S3-NATURAL-STRUCTURE
+opportunity_lens: O3_NATURAL_STRUCTURE
+completed_at: "2026-08-09T16:40:56+08:00"
+
+method:
+  allowed: "production discovery method v2/v8.1"
+  o3_backtest_status: CALIBRATED
+  backtest_handoff: "stages/discovery/_method-backtests/O3_NATURAL_STRUCTURE/v2/handoff.yaml"
+  explicitly_not_used: "two-axis v8.2r2 (TLS-blocked)"
+
+result:
+  status: COMPLETE_ZERO_PROPOSALS__IDLE_REUSABLE_AWAITING_MAINLINE
+  candidate_brief_count: 0
+  propose_stage0_count: 0
+  tier_a_count: 0
+  tier_b_count: 0
+  stage0_created: false
+  stagea_created: false
+  stageb_created: false
+  experiment_started: false
+
+screening:
+  - scout: GRAPH_TRAVERSAL_TOPOLOGY_LOCALITY
+    disposition: DIRECT_FATAL
+    collision: "LAC / PVLDB 2025"
+  - scout: VECTOR_QUERY_TEMPORAL_SEMANTIC_LOCALITY
+    disposition: DIRECT_FATAL
+    collision: "QVCache / 2026"
+  - scout: DYNAMIC_PARAMETRIC_PLAN_CACHE
+    disposition: DIRECT_FATAL
+    collision: "APQO / PACMMOD 2025"
+  - scout: PROFILED_RUNTIME_INVARIANT_SPECIALIZATION
+    disposition: DIRECT_FATAL
+    collision: "RIFS / CC 2026"
+
+authority_and_scope:
+  only_write_directory: "stages/discovery/round-20260809-v8.4-wave2/S3-natural-structure/"
+  shared_state_modified: false
+  terminal_topic_revived: false
+  resource_blocker: null
+  file_conflict: null
+
+outputs:
+  discovery_log: DISCOVERY_LOG.md
+  source_collision_matrix: SOURCE_COLLISION_MATRIX.md
+  handoff: handoff.yaml
+  manifest: MANIFEST.sha256
+
+mainline_action: "Accept zero-proposal delivery, clear assignment, and return lane to IDLE_REUSABLE_AWAITING_MAINLINE."

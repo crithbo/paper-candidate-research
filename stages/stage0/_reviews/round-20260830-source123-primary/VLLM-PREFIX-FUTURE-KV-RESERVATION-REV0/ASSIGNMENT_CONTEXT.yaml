@@ -1,0 +1,23 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: STAGE0-PRIMARY-20260830-VLLM-PREFIX-FUTURE-KV-RESERVATION, topic_id: VLLM-PREFIX-FUTURE-KV-RESERVATION-REV0, lane_id: STAGE0_PRIMARY, thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c, role: STAGE0_PRIMARY}
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+frozen_control:
+  agents: {path: AGENTS.md, sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655}
+  plan: {path: plan.md, sha256: DAB1D1511C6DBFB82676F8FA184851038A0C14715F76646726674F04441F1CF2}
+  registry: {path: registry.yaml, sha256: 2E9698888AA643049DFDDC7194DDEC8CB55772BAAB62D88927FC496F9D61E421}
+  role: {path: rules/ROLE_STAGE0_REVIEW.md, sha256: BC4A6D6D5DE5CEC3DD69A1F8556276F95B405E81773FFC7F4A860B5769CAF2FE}
+  academic_skill: {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  deep_research_workflow: {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/deep-research/WORKFLOW.md, sha256: 055E902187665C2437D0F41F35E2CC9C11FB5D62A736CF3ED23E44193BD4F029}
+minimum_inputs:
+  control: {path: stages/stage0/_reviews/round-20260830-source123-primary/VLLM-PREFIX-FUTURE-KV-RESERVATION-REV0/control/ASSIGNMENT.yaml, sha256: D6C18E62908DE86564C1E815D970AD8751B48F81949BBBC71693FEE5DB8E23D2}
+  brief: {path: stages/discovery/round-20260830-strategy-source123/S5-scale-online-approx/TOPIC_BRIEF.md, sha256: 10D928CD6322BC82B7BC575704D22C39523E0FEA897C8C858BFD509ADC7B64AC}
+  handoff: {path: stages/discovery/round-20260830-strategy-source123/S5-scale-online-approx/handoff.yaml, sha256: A30D7739FD779442F1E8F2D20BD7F6FE154B68D42AF1FD7EE84A68DDAEA15F36}
+  manifest: {path: stages/discovery/round-20260830-strategy-source123/S5-scale-online-approx/HASH_MANIFEST.sha256, sha256: 6006B383D9AC9768D0B28F8EAABDC78A1EF561BA103DFE4434A881A344CC1BE3}
+unique_write_directory: stages/stage0/_reviews/round-20260830-source123-primary/VLLM-PREFIX-FUTURE-KV-RESERVATION-REV0
+resource_root: stages/stage0/_reviews/round-20260830-source123-primary/VLLM-PREFIX-FUTURE-KV-RESERVATION-REV0/resources
+bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+forbidden: [search_before_start, judgment_before_start, candidate_implementation, StageA, StageB, shared_write]
+current_cycle_usage_reset_confirmed: false
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP
+

@@ -1,0 +1,72 @@
+schema_version: discovery-handoff-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE105-PUBLIC-NDP-ROTATION-V1
+topic_id: SOURCE105-PORTFOLIO-S1
+lane_id: DISCOVERY_S1
+role: DISCOVERY-S1-BOUNDARY-CONTRADICTION
+context_mode: DUAL_READ_SHADOW
+start_authorization_sha256: 6719FBBA0409E067834A7AD2574DA38E2D7BC0C2B3E95A0C8C8BE9058D959B87
+bootstrap_ack_sha256: D5ACB1197B1C40DFACB8B5E07FA62BEA764424B4A0AD6DD74A62DC29D3DE97E9
+disposition: COMPLETE_WITH_ONE_PROPOSE_STAGE0__CRFEPOCH_HBMPIM_LLM_GEMV_REV0
+quality_tier: TIER_B_Q2_VIABLE__CONDITIONAL_STAGE0_REBUILD_REQUIRED
+stage0_recommendation: PROPOSE_STAGE0
+state_transition_authority: MAINLINE_ONLY
+
+funnel:
+  offline_seed: 8
+  frozen_primary_rq: 8
+  evidence_qualified_raw: 1
+  c0: 1
+  d1: 1
+  deep_review: 1
+  clean_stage0_brief: 1
+  source_closure_queue_open: 0
+  excluded_before_raw: 5
+  locator_only: 1
+
+proposed_topic:
+  topic_id: CRFEPOCH-HBMPIM-LLM-GEMV-REV0
+  brief_path: TOPIC_BRIEF_CRFEPOCH_HBMPIM_LLM_GEMV_REV0.md
+  brief_sha256: 5B8ED00CBEE43D3EF67EC1B328B0B17D286A6FFFABBB92314E8630B983FB9640
+  contribution_type: COMPILER_TOOL
+  contribution_route: N2
+  carrier: CANONICAL_BENCHMARK_ONLY__PUBLIC_LLAMA2_MVM_SHAPES_ON_PIMSIMULATOR_HBM2_PIM
+  claim_ceiling: NO_MAIN_RESULT_OR_IMPLEMENTED_HARDWARE_CLAIM
+  atomic_action: CRF_RESIDENT_EPOCH_PARTITION_AND_MODE_BOUNDARY_SCHEDULING
+  semantic_contract: STOCK_PIMSIMULATOR_CRF_PC_MODE_GEMV_RESULT_AND_COMMAND_LEGALITY
+  strongest_baselines: [PIMSimulator_executeGemv_stock, UniNDP_HBM_PIM, DCC_ISCA2026, no_reuse_schedule]
+  decisive_stage0_questions:
+    - Does DCC current source already encode finite CRF-program residency, mode transitions, and command-PC state for the same PIMSimulator action?
+    - Do public Llama2 MVM sequences contain enough same-template adjacent GEMV opportunities under the 32-entry CRF bound?
+    - Can a small static witness preserve stock result/PC/mode trace while charging all program/mode/barrier/data-movement cost?
+
+canonical_artifacts:
+  seed_pool: {path: DISCOVERY_DIVERGENCE_SEED_POOL.md, sha256: 9F15D873163358A3AD731C9819E5AA9A7616BA7CC160C7FFCB925B608C317E5F}
+  rq_candidates: {path: RQ_CANDIDATES.md, sha256: 7A91318B2E23F9508BD2AB51EC24FDAF52D524F5940D78B45D7144CB84A50901}
+  question_cards: {path: DISCOVERY_QUESTION_CARDS.md, sha256: 8F2C3C1A1C32F7438136A398E23F611658B3C43D1DEF25A477C560584C5166D3}
+  topic_brief: {path: TOPIC_BRIEF_CRFEPOCH_HBMPIM_LLM_GEMV_REV0.md, sha256: 5B8ED00CBEE43D3EF67EC1B328B0B17D286A6FFFABBB92314E8630B983FB9640}
+  screening_ledger: {path: RAW_SCREENING_LEDGER.md, sha256: 8FF26EC495A451059F3744501483D6363DAF1BF00ABCFDB9E1A7A4C02F4609C1}
+  resource_inventory: {path: RESOURCE_INVENTORY.yaml, sha256: 2132C30746EA80EE5B90C64B177FCA456E8844D4D00A6C3A42096F8127F39D0B}
+  manifest: HASH_MANIFEST.sha256
+
+current_collision_and_nonrevival:
+  direct_fatal_found: false
+  search_status: SEARCH_BOUNDED_OPEN
+  named_subtractors: [UniNDP_HPCA2025, DCC_ISCA2026, stock_PIMSimulator, Ramulator2]
+  terminal_non_revival_enforced: true
+  source105_a3_audit_read: false
+  group_repository_read: false
+
+resources:
+  public_source_snapshot: UniNDP
+  source_commit: c8b21684358441d29fc81fa0866d07cec20582ed
+  source_license: MIT
+  resource_producing_action_started: true
+  redirect_preflight: PASS__GIT_OPENSSL_TRANSPORT_FALLBACK_SUCCEEDED
+  build_or_experiment_started: false
+  scientific_inference_from_resource_failure: false
+
+next_action: MAINLINE_MECHANICAL_ACCEPTANCE_THEN_INDEPENDENT_STAGE0_PRIMARY_ASSIGNMENT
+user_action_required: false
+plain_chinese_summary: >-
+  本轮公开 PIM artifact 轮换筛出一个条件性 Stage 0 brief：PIMSimulator 的 stock GEMV 具有明确的 CRF 容量、命令触发 PC、mode 与 barrier 语义，UniNDP 当前 HBM-PIM 编译器则以 instruction/status model 和 LLM MVM shape 为基础。
+  候选不宣称任何性能结果；Stage 0 必须先重建 DCC/UniNDP 的覆盖关系，并验证 CRF-residency epoch 是否有真实可复用的 Llama2 template。其余七项停在 current union、generic wrapper 或未冻结 action 边界。

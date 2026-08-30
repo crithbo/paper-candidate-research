@@ -1,0 +1,75 @@
+schema: llvm-dwarf-current-union-grid-v1
+assignment_id: RESOURCE-STAGEA-L3-20260814-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-RESUME1
+llvm_commit: e72ba6cf366a3180cbf5a8690d9e50665880ab76
+target: x86_64-unknown-linux-gnu
+input:
+  path: inputs/current_union_smoke.bc
+  sha256: 4A6DEA799796B99708F6D1BDF44730947756F93432FAC5BE6303D9D1DA6675D4
+  derived_candidate_prera_path: witness/current_union_prera.mir
+  derived_candidate_prera_sha256: D778A6C0054B38A3FAD9F8F90DA687C92A6CC7CBD1515253C14F96EEEB023436
+  call_block: non_entry_bb1
+  eligible_parameters: 1
+fixed_output_contract:
+  writer: exact_commit_llc_and_lld
+  reader: exact_commit_llvm_dwarfdump_and_llvm_readobj
+  format: native_ELF64_DWARF5
+  behavior_runner_sha256: D8D5E09AA71EAD72D30FAA92167C79F0B8F107FC3624432942F27CD9738B9F69
+  same_semantic_value_CFG_call_regmask: true
+current_union:
+  allocator_variants:
+    - {regalloc: greedy, reverse_local_assignment: false, regclass_priority_trumps_globalness: false}
+    - {regalloc: greedy, reverse_local_assignment: false, regclass_priority_trumps_globalness: true}
+    - {regalloc: greedy, reverse_local_assignment: true, regclass_priority_trumps_globalness: false}
+    - {regalloc: greedy, reverse_local_assignment: true, regclass_priority_trumps_globalness: true}
+    - {regalloc: basic}
+    - {regalloc: fast}
+    - {regalloc: pbqp, coalescing: false}
+    - {regalloc: pbqp, coalescing: true}
+  csr_cost_scale_percent: [0, 100]
+  csr_first_time_cost: [0, 100]
+  debug_location_mode: [explicit_InstrRef, explicit_VarLoc]
+  debug_entry_values: [false, true]
+  shrink_wrap: [false, true]
+  stress_regalloc_limit: [default, 2]
+  split_spill_mode: [default, size, speed]
+  spill_copy_elimination: [false, true]
+  arm_count: 3072
+  common_flags:
+    - -O2
+    - -emit-call-site-info
+    - -debugger-tune=lldb
+    - -dwarf-version=5
+    - -verify-machineinstrs
+    - -filetype=obj
+  excluded_as_trace_or_contract_change:
+    - tailcallopt
+    - basic_block_reordering_or_sectioning
+    - fast_instruction_selection
+    - arbitrary_register_reservation
+    - altered_calling_convention
+    - alternative_target_or_DWARF_grammar
+candidate:
+  name: TARGET_SPECIFIC_BOUNDED_CALL_CUT_PARETO_DP
+  input_path: witness/current_union_prera.mir
+  bridge_record: witness/candidate_hint_record.json
+  bridge_record_sha256: 467AB2F7AB9360A0AB6BFCDAA5257DEBBCF5272D5CA2F940061F783D7456F9EF
+  action: DP_SELECTED_NATIVE_COPY_PERCENT2_TO_EBX_TO_EDI_WITH_NATIVE_PEI_CSR_CFI
+  post_emission_patch: false
+  provenance_note: derived_from_the_same_frozen_bitcode_then_one_recorded_native_pre_emission_action
+ceiling:
+  scope: tiny_instance_only
+  method: exhaustive_enumeration_of_same_native_action_catalog
+full_cost:
+  quality: reconstructed_parameters_per_identical_eligible_parameter
+  bytes: [object, linked_ELF, text_section, all_debug_sections, eh_frame]
+  native_actions: [csr_save_restore, copies, spills, frame_and_CFI]
+  construction: [process_CPU_seconds, wall_seconds, peak_RSS_bytes]
+  verification: [MachineVerifier, DWARF_verify, unwind_reader, behavior]
+  runtime: fixed_warm_behavior_repetitions
+  fallback: failed_arm_count_and_cost
+decision_killers:
+  - candidate_native_legality_or_behavior_failure
+  - any_current_union_arm_matches_or_dominates_candidate_reconstructibility_and_full_cost
+  - no_natural_eligible_residual
+  - candidate_full_cost_dominates_benefit
+stageb_authorized: false

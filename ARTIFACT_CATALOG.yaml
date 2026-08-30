@@ -1,0 +1,43 @@
+schema: research-artifact-catalog-v1
+catalog_mode: EXTERNAL_BYTES__GIT_METADATA_ONLY
+canonical_repository_branch: main
+resource_bytes_in_git: forbidden
+git_lfs_default: OFF
+external_store:
+  status: NOT_YET_SELECTED
+  allowed_kinds: [local_archive, NAS, object_store, hash_pinned_manual_transfer]
+  required_identity: [artifact_id, sha256, logical_bytes, provenance, license, reacquire_route]
+tracked_evidence:
+  - canonical reports and decisions
+  - handoffs and targeted manifests
+  - RESOURCE_INVENTORY and lifecycle receipts outside resource roots
+  - minimum claim-critical source or fixtures promoted out of resources
+  - terminal evidence capsules
+excluded_legacy_classes:
+  - assignment-local resources directories
+  - downloads and archives
+  - isolated Python or compiler environments
+  - build outputs and caches
+  - LLVM toolchains, wheels, DLLs and executable binaries
+  - copied third-party source, tools, assets and verified vendor trees
+promotion_rule:
+  source_location: assignment resources
+  tracked_destination: repro/<topic_id>/
+  required_record: source_path_source_sha256_destination_path_destination_sha256
+  mainline_acceptance_required: true
+entries:
+  - artifact_id: ARROW-NYC-TAXI-2025-01
+    path: stages/stageA/ARROW-IPC-STREAM-JOINT-DICTIONARY-EVOLUTION/initial/assets/natural/yellow_tripdata_2025-01.parquet
+    logical_bytes: 59158238
+    sha256: 9AF277E4C0D3F9DEB30644DA822981E1E7DF6AF58313170FD3AA8A474485488A
+    storage: LOCAL_EXTERNAL_TO_GIT
+  - artifact_id: ARROW-NYC-TAXI-2025-02
+    path: stages/stageA/ARROW-IPC-STREAM-JOINT-DICTIONARY-EVOLUTION/initial/assets/natural/yellow_tripdata_2025-02.parquet
+    logical_bytes: 60343086
+    sha256: 037CBA555A73663F3A51A2C27816E40E3FEB364769942BDF122B9DA31E377BD3
+    storage: LOCAL_EXTERNAL_TO_GIT
+  - artifact_id: PPC-R10-RELOCATED-EXECUTION-PLAN
+    path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r10-natural-claim-execution-20260829/RELOCATED_R10_EXECUTION_PLAN.json
+    logical_bytes: 71568071
+    sha256: C3087A086E4EE4EF5E5B6E14D15B04F38EF0D94E9397A3AC7E456CB668AE70E2
+    storage: LOCAL_EXTERNAL_TO_GIT

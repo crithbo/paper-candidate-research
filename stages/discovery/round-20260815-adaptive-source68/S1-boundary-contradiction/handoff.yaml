@@ -1,0 +1,20 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE68-R40-ORDINARY-BREADTH-V1
+lane: S1_BOUNDARY_CONTRADICTION
+write_directory: stages/discovery/round-20260815-adaptive-source68/S1-boundary-contradiction
+result: COMPLETE_ZERO_PROPOSALS
+rule_freeze: RULE_FREEZE.md
+forbidden_inputs: R51_AUDIT__GCC_GENAUTOMATA_STOP__SOURCE55_58_59_63_HELD_QUEUES__NOT_READ
+method: {canonical: v8.7, rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION, claim_pack: OFF, v9: OFF, selective_depth: OFF, model: gpt-5.6-terra/high}
+funnel: {non_evidence_seeds: 4, selected_anchors: 1, rq_candidates: 1, ordinary_closures: 1, raw: 0, deep: 0, clean_briefs: 0}
+identity_preflight: NO_MATCH__NO_NOVELTY_INFERENCE
+screened_locator:
+  signature: LINUX_FUTEX_WAITV__ORDERED_WAIT_VECTOR_WAKE_INDEX__FIXED_VALUE_TIMEOUT_SIGNAL_SEMANTICS__CURRENT_MULTIWAIT_UNION__CPU_RSS_LOCK_SETUP_UNQUEUE_LATENCY
+  disposition: EXCLUDED_BEFORE_RAW__EARLY_FATAL_CURRENT_MULTIWAIT_UNION_OR_CHANGED_ENDPOINT
+  rationale: Vector reordering/selecting changes returned-index endpoint. With fixed vector semantics, current source already covers complete setup/enqueue/unqueue/retry; residual timing is generic scheduling.
+  evidence: [https://www.kernel.org/doc/html/v6.6/userspace-api/futex2.html, https://github.com/torvalds/linux/blob/master/kernel/futex/waitwake.c]
+scientific_inference_boundary: Structural endpoint/current-union exclusion; no negative inference from implementation, result, resource, hardware or AI readiness.
+source_closure_queue: EMPTY_NOT_EXHAUSTED
+proposal: NONE
+resource_inventory: RESOURCE_INVENTORY.yaml
+manifest: HASH_MANIFEST.sha256
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

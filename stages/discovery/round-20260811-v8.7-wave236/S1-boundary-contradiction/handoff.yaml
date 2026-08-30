@@ -1,0 +1,31 @@
+assignment_id: DISCOVERY-S1-20260811-V8.7-WAVE236-LLVM-RVV-LMUL-RA-SPILL-JOINT-PARETO-DEPTH
+lane: S1-boundary-contradiction
+status: PROPOSE_STAGE0
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+rule_revision: v8.7+R5-P0
+discovery_quality_mode: OFF
+frozen_control_hashes:
+  plan_sha256: 4DBAA0282278FFAAB61116185E1E2E3E818FA94B688D2A0D966379976B7C54F6
+  registry_sha256: 18178EEA8EE1615A9481854AC65B37344BF9144DE4E932B20FF0D6FEDE904393
+briefs:
+  - id: S1-W236-RVV-GMSP
+    status: PROPOSE_STAGE0
+    contribution: N2
+    structural_paper_potential: TIER_B_Q2_VIABLE
+    current_evidence_readiness: READY_TO_CLOSE_IN_STAGEA
+    exact_object: Same LLVM RVV bounded trace with fixed MachineIR/liveness/ABI/VLEN/target semantics.
+    direct_subtractor: Current vector-first RA plus RISCVInsertVSETVLI and local partial spill work.
+    finite_stagea_killer: Validate action table and require a strict Pareto point on 10-20 public RVV traces.
+    stop_conditions:
+      - selected action fails RVV legality/vtype/ABI oracle
+      - all GMSP frontier points equal complete current LLVM on declared full-cost vector
+      - direct collision proves identical state/guarantee
+funnel:
+  raw_screen_row_events: 1
+  unique_opportunity_families: 1
+  candidate_grade_deep_reviews: 1
+  propose_stage0: 1
+  structural_drop: 0
+  not_admitted_unfrozen: 0
+next_action: Mainline may independently review; this lane may not create Stage0/A/B.
+write_boundary: stages/discovery/round-20260811-v8.7-wave236/S1-boundary-contradiction

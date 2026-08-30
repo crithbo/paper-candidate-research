@@ -1,0 +1,54 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-23T18:45:02+08:00
+lane_id: RULE-AUDIT-SENTRY
+role_id: RULE_AUDIT_SENTRY
+assignment_id: IDLE-REUSABLE-RESTART-20260823
+topic_id: null
+assignment_context_path: D:/project/writing/reserch/stages/control/session-restart-20260823/contexts/RULE_AUDIT/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: 31331A0202E395BFF862D7F86D2B3000154AFD10A07E23274C1365535CDBCBD9
+old_chat_memory_required: false
+
+frozen_hash_ack:
+  AGENTS_sha256: 665A557A6C8AD8030F97B1767D06B500D658674681FFBF021A276C5B31DBC61B
+  plan_sha256: BFC72BAB2492AB44330EC6091E4159944D750D437AC4FACE323BA2FFDC593A9C
+  registry_snapshot_sha256: 7E0199903CF4C2105F2444A2E07F230437835A6A3CFABE228041FF7C978E7DA2
+  role_rule_sha256: 0B6788481571968C0FF8946BA725BDF41689095809DE8238B072C8ED6E6FADC6
+  skill_hashes:
+    - {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, context_expected_sha256: null, actual_sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F, result: REFUSE_UNPINNED_MANDATORY_SKILL}
+  template_hashes:
+    - {path: templates/RULE_AUDIT_REPORT.md, sha256: D3417652D622529C0E5C163E6856425191D21E0246DF568F7FE1A9CE68540376}
+    - {path: templates/RULE_CHANGE_PROPOSAL.md, sha256: D9173DA82C04F1DBD93CF61229C9CD22D8FF4D9F12271EF7D1EF99BDA4E5430E}
+    - {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+  source_assignment_sha256: null
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  role_rule_complete: true
+  required_skills_complete: false
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: true
+
+boundary_ack:
+  unique_write_directory_exact: D:/project/writing/reserch/stages/control/session-restart-20260823/contexts/RULE_AUDIT
+  resource_root_exact: null
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: NONE
+  contamination_detected: false
+
+execution_ack:
+  current_status: IDLE_REUSABLE
+  resume_point: WAIT_FOR_ASSIGNMENT
+  next_action: RETURN_TO_MAINLINE_WITHOUT_ACTION
+  user_gate_or_blocker: MAINLINE_REISSUE_REQUIRED__PIN_ACADEMIC_RESEARCH_SUITE_SKILL_HASH
+  scientific_or_resource_action_started: false
+
+differences_or_ambiguities:
+  - "MANDATORY_SKILL_UNPINNED: AGENTS.md requires proposal-only + academic-research-suite for RULE_AUDIT_SENTRY, but frozen_control.skills is empty."
+  - "CONTEXT_VALIDATION_CONTRADICTION: validation.hashes_complete is true although the mandatory skill path and SHA256 are not frozen."
+ack_disposition: REFUSE_MISSING_OR_CONFLICTING_CONTEXT
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

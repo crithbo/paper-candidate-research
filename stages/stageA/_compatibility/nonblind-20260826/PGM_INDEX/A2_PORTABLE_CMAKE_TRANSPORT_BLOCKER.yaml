@@ -1,0 +1,40 @@
+schema: nonblind-stagea-compatibility-start-failure-v1
+created_at: 2026-08-26T13:14:00Z
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A2-CMAKE
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+A2_correction: {path: A2_PORTABLE_CMAKE_CORRECTION.yaml, sha256: 07DC915EF886A827B05AA3ED22E9798309740B3CD45501AF306B21F0D7C7F43D}
+A2_acceptance: {path: A2_MAINLINE_ACCEPTANCE.yaml, sha256: 6523FF50A128A14CA359E5E945B95D1B411016D8913EC7C5DD7E9F25C2978925}
+decision: FAIL_CLOSED__A2S0_OFFICIAL_GITHUB_TRANSPORT_AUTHENTICATION_FAILURE__NO_RETRY
+failure_class: EXTERNAL_TRANSPORT_OR_AUTHENTICATION_BLOCKER
+A2S0:
+  command: Invoke-WebRequest -UseBasicParsing -MaximumRedirection 1 -Uri https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-windows-x86_64.zip -OutFile resources/archives/cmake-3.31.6-windows-x86_64.zip
+  official_source: github.com/Kitware/CMake/releases
+  redirects_allowed: 1
+  result: AUTHENTICATION_FAILED
+  error: "Authentication failed, see inner exception."
+  download_attempts: 1
+  retry_attempted: false
+  redirect_bypass_attempted: false
+  alternate_tool_or_artifact_attempted: false
+A2S1_through_A2S5:
+  started: false
+parent_S2_through_S7:
+  started: false
+resource_state:
+  portable_cmake_archive_exists: false
+  portable_cmake_archive_bytes: 0
+  resource_files: 0
+  resource_logical_bytes: 0
+  reparse_entries: 0
+  cleanup_actions: 0
+scientific_boundary:
+  author_artifact_preclaim_fidelity_started: false
+  natural_or_canonical_probe_started: false
+  claim_bearing_observation: false
+  scientific_inference: NONE
+  scientific_revision_consumed: false
+  production_candidate_registration: false
+  production_state_transition: false
+  stageB: false
+  gold_or_blind_input_read: false
+required_mainline_disposition: NEW_EXACT_TRANSPORT_AUTHORIZATION_OR_EXTERNAL_BLOCKER_DISPOSITION

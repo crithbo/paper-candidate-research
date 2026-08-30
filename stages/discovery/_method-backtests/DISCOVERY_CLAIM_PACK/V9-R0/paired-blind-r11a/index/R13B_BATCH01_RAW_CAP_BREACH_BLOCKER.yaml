@@ -1,0 +1,50 @@
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+approval_id: R11A-MINIMUM-VIABLE-CALIBRATION-20260813-R13B
+status: FAILED_NOT_DISPATCHABLE__R13B_BATCH01_RAW_CAP_BREACH__NO_SCIENTIFIC_INFERENCE
+gate: PUBLIC_IDENTITY_PREFLIGHT__BEFORE_COMMITMENT
+control_reference:
+  path: control/minimum-viable-calibration-r13b/R13B_ROLLING_COMMITMENT_CONTROL.yaml
+  sha256: 2861E3D439BFCDDA8D9AB615D112FB9929C34F91C1D8B1BBCFBF082092A4D176
+  batch_id: R13B-01
+  raw_lead_cap: 24
+  unique_commitment_cap: 20
+mechanical_finding:
+  raw_public_locator_preflight_requests: 40
+  raw_lead_cap: 24
+  overage: 16
+  first_preflight_request_count: 20
+  second_preflight_request_count: 20
+  first_response_returned_valid_persistent_locator_count: 10
+  second_response_returned_valid_persistent_locator_count: 10
+  commitment_written: false
+  source_qualification_started: false
+  candidate_identity_hashes_written: false
+  primary_or_target_artifacts_written: false
+  external_metadata_responses_persisted: false
+why_fail_closed:
+  - 'The control defines raw leads as a bounded pre-commit resource and explicitly forbids cap transfer or replacement.'
+  - 'The second public locator preflight should not have been issued after the first 20 raw leads without first preserving the remaining raw capacity.'
+  - 'Retrospectively treating the non-returned locators as non-consuming would alter the frozen cap semantics and is forbidden.'
+preserved_state:
+  resume_anchor_checkpoint_011_sha256: BC280D6E3D9D86841A1B889E308129DED101EF3FEDC4FD5072018E7DEE83A43B
+  prior_blocker_012: SUPERSEDED_BY_USER_APPROVED_R13B_POLICY__ORIGINAL_BYTES_PRESERVED
+  existing_eligible_admitted: [f6c1, q7m2]
+  existing_eligible_count: 2
+  canonical_mode: OFF
+  no_private_denylist_or_historical_plaintext_read: true
+  no_executor_auditor_or_phase2_activity: true
+  no_scientific_inference: true
+resource_ledger:
+  prior_frozen_artifact_bytes: 3524441
+  new_frozen_artifact_bytes: 0
+  public_metadata_transport_response_bytes_not_persisted: 45639
+  accepted_frozen_response_bytes_on_disk_actual: 3524441
+  network_bytes: NOT_DIRECTLY_OBSERVABLE__AT_LEAST_3626270_ACCEPTED_AND_PRECHECK_RESPONSE_BYTES
+  cpu_hours_cumulative_estimate: 0.22
+  wall_hours_cumulative_estimate: 0.76
+  external_resource_envelope_remaining: true
+minimum_user_action:
+  required: 'Provide a new explicit policy disposition for the mechanically breached R13B-01 raw cap: either terminate this calibration attempt, or authorize a new amendment that states whether and how a replacement/invalidated batch may be handled.'
+  constraints: 'The existing R13B control itself forbids cap transfer or replacement; PACKER cannot self-reset the raw counter, select a subset retrospectively, or create a commitment under the breached batch.'
+  not_requested: [threshold_change, source_qualification, Phase2, executor_or_auditor_run, scientific_reclassification]
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

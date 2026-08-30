@@ -1,0 +1,117 @@
+schema_version: discovery-prefreeze-assignment-v1
+assignment_id: DISCOVERY-S3-20260822-COUPLED-AGENT-REPLAY-PREFREEZE1
+lane: DISCOVERY-S3-NATURAL-STRUCTURE
+authority: USER_EXPLICIT_REPLACE_STOPPED_PATCHVALUE_WITH_NEW_TOPIC_20260822
+topic_id: COUPLED-AGENT-REPLAY-REV0
+mode: CLEAN_PRE_EVIDENCE_IDENTITY_FREEZE_ONLY
+status_on_dispatch: ACTIVE
+
+instruction_boundary:
+  purpose: Seal the exact public object before any collision or novelty material is read.
+  do_not_read:
+    - the user proposal attachment
+    - the prior S5 packet except the blocker code quoted below
+    - CAR papers or artifacts
+    - Coupled Token Generation papers or artifacts
+    - Counterfactual Token Generation papers or artifacts
+    - any agent replay collision paper or search result
+    - any PATCHYIELD or PATCHVALUE evidence packet
+  known_blocker_code_only: PRE_EVIDENCE_EXACT_OBJECT_FREEZE_NOT_SEALED
+  scientific_inference_allowed: false
+
+frozen_rules:
+  agents_sha256: 26DB9F4C2D43349A2BA5B741947561D4FED2FE5EC65327C02D273D3905F5A522
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  research_topic_discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+
+selection_rules_frozen_before_any_request:
+  agent:
+    project: OpenHands
+    official_repository: https://github.com/OpenHands/OpenHands
+    immutable_selector: Resolve refs/heads/main exactly once from the official GitHub API and record the returned commit SHA and tree SHA.
+    no_fallback_project_or_branch: true
+  model:
+    repository_id: Qwen/Qwen2.5-Coder-7B-Instruct
+    official_metadata_route: https://huggingface.co/api/models/Qwen/Qwen2.5-Coder-7B-Instruct
+    immutable_selector: Resolve the repository main revision exactly once and record the returned commit SHA, license metadata, tokenizer revision and public sampling/logit interface metadata.
+    no_fallback_model: true
+    weight_download_forbidden: true
+  benchmark:
+    dataset_id: princeton-nlp/SWE-bench_Verified
+    official_metadata_route: https://huggingface.co/api/datasets/princeton-nlp/SWE-bench_Verified
+    immutable_selector: Resolve the dataset main revision exactly once, retrieve only the official test instance metadata required to enumerate instance_id, sort instance_id in ascending Unicode code-point order, and select the first 16 without replacement or filtering.
+    required_freeze: exact dataset revision plus ordered 16-instance list plus SHA256 of canonical UTF-8 newline-delimited instance_id list
+    no_outcome_or_availability_filter: true
+  state_boundary:
+    definition: Immediately after the first native OpenHands tool action has completed and its observation has been incorporated into agent state, before the next model call.
+    tasks_without_boundary: Retain in the task list and mark the branch pair structurally unexecutable; do not replace the task.
+  interventions:
+    I0: Continue with the frozen native OpenHands policy and context unchanged.
+    I1: Append the exact policy instruction below to the next decision context and then continue with otherwise identical frozen native semantics.
+    I1_exact_utf8_text: "Before finishing, run the repository's relevant tests, inspect every failure, and revise the patch when a failure is attributable to the patch. Do not use hidden evaluator information."
+    required_freeze: UTF-8 byte length and SHA256 of I0 and I1 canonical text
+  decoding:
+    temperature: 0.6
+    top_p: 0.95
+    top_k: 0
+    max_new_tokens_per_model_call: 4096
+    native_terminal_semantics: absorbing
+    sampling_randomness_requirement: public token probability or logit access sufficient for a future coupling implementation
+  evaluator:
+    role: SWE-bench Verified stock patch evaluator in a future deterministic isolated environment
+    online_visibility: forbidden
+    execution_in_this_assignment: forbidden
+
+phase_order:
+  - PHASE0_READ_ONLY_RULE_AND_ASSIGNMENT_HASH_CHECK
+  - PHASE1_CREATE_RESOURCE_ROOT_AND_PROCESS_LOCAL_REDIRECTION_PREFLIGHT
+  - PHASE2_RESOLVE_AGENT_MODEL_DATASET_IDENTITIES_ONLY
+  - PHASE3_ENUMERATE_AND_HASH_THE_FIXED_16_TASK_LIST
+  - PHASE4_SEAL_PRE_EVIDENCE_OBJECT_FREEZE_AND_MANIFEST
+  - STOP_AND_RETURN_TO_MAINLINE
+  fail_closed_rule: If any exact identity or ordered task list cannot be frozen within the listed routes, return RESOURCE_BLOCKED_IDENTITY_FREEZE with no substitute, collision search or scientific inference.
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze1
+  resource_root: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze1\resources
+  resource_inventory: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze1\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+allowed_actions:
+  - Read AGENTS.md, plan.md, registry.yaml, rules/ROLE_DISCOVERY.md, the research-topic-discovery skill, rules/RESOURCE_LOCALIZATION.md, templates/RESOURCE_INVENTORY.yaml and this assignment.
+  - Make only the three frozen official identity/metadata retrievals and the minimum official dataset metadata retrieval needed to enumerate instance_id.
+  - Persist only metadata, task IDs, hashes, logs and the canonical pre-evidence freeze under the unique write directory.
+
+forbidden_actions:
+  - Read the proposal attachment or any prior topic/discovery/stage review evidence other than the quoted blocker code.
+  - Search for or read collision, novelty, CAR, coupled-generation, replay, baseline or contrary evidence.
+  - Change the agent, model, dataset, subset-selection rule, state boundary, intervention text, decoding configuration or evaluator after any request.
+  - Download model weights, repository source archives, containers, task images or large dataset payloads.
+  - Run an agent, model, SWE-bench task, hidden evaluator, container, build, simulation or experiment.
+  - Install software or modify system/global configuration.
+  - Modify plan.md, registry.yaml, rules, templates or any other assignment directory.
+
+resource_envelope:
+  official_identity_or_metadata_calls_max: 8
+  accepted_persisted_bytes_max: 67108864
+  cpu_time_max: 30m
+  wall_time_max: 1h
+  system_install: false
+  global_environment_change: false
+  failure_consequence: RESOURCE_BLOCKED_IDENTITY_FREEZE__NO_SCIENTIFIC_INFERENCE
+
+required_outputs:
+  - PRE_EVIDENCE_OBJECT_FREEZE.yaml
+  - IDENTITY_PROVENANCE.md
+  - FIXED_TASK_LIST.txt
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+allowed_dispositions:
+  - PRE_EVIDENCE_EXACT_OBJECT_FREEZE_SEALED
+  - RESOURCE_BLOCKED_IDENTITY_FREEZE__NO_SCIENTIFIC_INFERENCE
+
+next_step:
+  rule: Mainline may create a separate collision-review assignment only after verifying the canonical pre-evidence freeze. This assignment has no authority to perform Discovery scientific screening or propose Stage0.

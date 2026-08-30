@@ -1,0 +1,26 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C06
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-09T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [CUDA_GPU, GPU_VERIFICATION, ASYNC_MEMORY]
+raw_opportunity: >-
+  Hopper-class asynchronous tensor transfers coordinate descriptors, barriers,
+  phases and transaction completion. Examine whether a static or post-lowering
+  protocol analysis can expose a nontrivial contribution beyond current native
+  semantics and ordinary source/schema checks.
+required_analysis:
+  - preserve exact PTX/native phase, alias, path and proxy-order semantics
+  - inventory compiler/library encodings and existing validation facilities
+  - reject regex/register-count screening as a complete protocol algorithm
+  - do not infer hardware behavior beyond documentation and source evidence
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C06/sources/S01_cuda-programming-guide.html, sha256: B176AD74B8A634DA6EB824F34EE7BFA02F7D7103E4A3A5DE5197BB7640B16BDF, bytes: 3921458, url: "https://docs.nvidia.com/cuda/archive/13.0.0/cuda-c-programming-guide/index.html", available_by: "2025-12-31", role: VENDOR_NATIVE_SEMANTICS}
+  - {source_id: S02, path: sealed_cases/C06/sources/S02_copy_sm90_tma.hpp, sha256: 78D928E2551E698A46FE7F282792613CC9CA6DC679A00A8914E918DE618B19E7, bytes: 57107, url: "https://raw.githubusercontent.com/NVIDIA/cutlass/dcf215af68a2d08d305076c152a06f201728cd53/include/cute/arch/copy_sm90_tma.hpp", available_by: "2026-08-06", role: FIRST_PARTY_LIBRARY_ACTION}
+  - {source_id: S03, path: sealed_cases/C06/sources/S03_cutlass-hopper-gemm.cu, sha256: 77150D35275F6B59816A86FA2BFB5CA40C848A0BB60785DDE7F43FFC0402BB3B, bytes: 19320, url: "https://raw.githubusercontent.com/NVIDIA/cutlass/dcf215af68a2d08d305076c152a06f201728cd53/examples/48_hopper_warp_specialized_gemm/48_hopper_warp_specialized_gemm.cu", available_by: "2026-08-06", role: NATURAL_FIRST_PARTY_USAGE}
+exclusions:
+  - terminal candidate name, prior checker proposal and every later review result
+  - unexecuted hardware claims or post-cutoff tool behavior
+claim_ceiling: SOURCE_AND_MODEL_ONLY__NO_GPU_EXECUTION_OR_HARDWARE_RESULT
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL

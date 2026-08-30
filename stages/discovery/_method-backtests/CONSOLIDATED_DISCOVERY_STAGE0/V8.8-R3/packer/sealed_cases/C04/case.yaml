@@ -1,0 +1,26 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C04
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-09T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [DISTRIBUTED_STORAGE, STREAMING_SYSTEM, NON_CUDA]
+raw_opportunity: >-
+  Tiered log storage moves immutable segments between local and remote media
+  while serving the same consumer offsets and isolation semantics. Explore a
+  coupled fetch-hydration, shared in-flight lease and post-lease residency
+  transition, without confusing cache residency with retention availability.
+required_analysis:
+  - inventory all current remote-log, fetch, cache and retention actions
+  - freeze one legal transition with unchanged partition/offset semantics
+  - charge remote bytes, local disk, broker CPU, tail latency and availability
+  - do not package a lifecycle wrapper or an action lacking a finite witness
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C04/sources/S01_kafka-4.1-docs.html, sha256: 0B5382D06F5FCD353EBF05A21B940362457F914ABCA1A6D82220CDD16408DDE9, bytes: 19985, url: "https://kafka.apache.org/41/documentation.html", available_by: "2025-12-31", role: VERSIONED_DEPLOYMENT_DOCUMENTATION}
+  - {source_id: S02, path: sealed_cases/C04/sources/S02_RemoteLogManager.java, sha256: 85D7695CA62BAD5AADED87407D63A80AD5A3264F821E7A43B81F9A55BCC189E4, bytes: 138367, url: "https://raw.githubusercontent.com/apache/kafka/2225a16c7e2658b4db207c89c477693373a52073/storage/src/main/java/org/apache/kafka/server/log/remote/storage/RemoteLogManager.java", available_by: "2026-08-07", role: CURRENT_UPSTREAM_SOURCE}
+  - {source_id: S03, path: sealed_cases/C04/sources/S03_kip-405.html, sha256: 6B53B81B65CAC069A8E7F3D7D223D423F9B1B0D3711E1D0C64D28B35BAAC4ECC, bytes: 294835, url: "https://cwiki.apache.org/confluence/display/KAFKA/KIP-405%3A+Kafka+Tiered+Storage", available_by: "2022-12-31", role: FIRST_PARTY_DESIGN_CONTRACT}
+exclusions:
+  - local Discovery disposition and all later candidate material
+  - post-cutoff source/configuration changes
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL
+

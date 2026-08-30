@@ -1,0 +1,40 @@
+schema_version: discovery-source-closure-handoff-v1
+assignment_id: SOURCE-CLOSURE-SOURCE89-S2-CQ01-RUSTC-COROUTINE-LIVE-SET-STATE-LAYOUT-V1
+queue_item: S2-89-CQ01
+mode: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+authority_statement: "No clean-brief, Q2, candidate, PASS, STOP, or stage-state decision was made."
+immutable_pin:
+  project: rust-lang/rust
+  branch: main
+  commit: 68c677ac3f013d2e587f47e198c92e551716191e
+  resolved_at: 2026-08-15T10:40:00+08:00
+resource_result:
+  attempt_count: 6
+  attempt_limit: 6
+  persisted_response_bytes: 108802
+  persisted_bytes_limit: 16777216
+  status: PASS_WITH_FROZEN_PATH_TELEMETRY
+  telemetry:
+    - "404: compiler/rustc_mir_transform/src/coroutine.rs"
+    - "404: compiler/rustc_middle/src/mir/coroutine.rs"
+    - "404: tests/ui/coroutine/state.rs"
+  interpretation: "The fixed routes were not substituted.  HTTP 404 is not treated as implementation absence."
+retained_current_locus:
+  path: compiler/rustc_mir_transform/src/coroutine/by_move_body.rs
+  sha256: 9f1fa5651e00f69df5cc89163d1ccb73d0066123d45106aec8df74cd37068477
+  observation: "Stock by-move coroutine-body construction and capture remapping is a concrete subtractor for a detached by-move emitter."
+closure_status:
+  stock_union_saved_local_liveness_borrow_state_layout: INCOMPLETE
+  fixed_in_tree_carrier_and_two_complete_plans: INCOMPLETE
+  union_external_action_and_finite_guarantee: NOT_FREEZABLE_FROM_BOUNDED_RETAINED_LOCI
+  direct_collision: SEARCH_BOUNDED_OPEN
+  generic_layout_objection: UNRESOLVED
+next_authorized_need: "A new bounded assignment must re-freeze direct official current loci for coroutine transform, MIR layout and a carrier before candidate-grade review can be considered."
+canonical_files:
+  - SOURCE_CLOSURE_REPORT.md
+  - SOURCE_AUDIT.md
+  - RESOURCE_INVENTORY.yaml
+  - resources/logs/acquisition-attempt-ledger.yaml
+  - HASH_MANIFEST.sha256
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

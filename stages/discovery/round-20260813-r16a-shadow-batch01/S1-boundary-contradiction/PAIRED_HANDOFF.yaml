@@ -1,0 +1,59 @@
+assignment_id: DISCOVERY-S1-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+lane: S1_BOUNDARY_CONTRADICTION
+mode: SHADOW
+canonical_method: V8_7_AUTHORITATIVE
+shadow_method: DISCOVERY_CLAIM_PACK_V9_R0
+unique_family_count: 4
+snapshot:
+  directory: neutral-source-snapshot
+  manifest_sha256: 16835C860CD9991E52070B1E35962FEC7BDF773A8AD4D5FA54581CA57AE126EF
+canonical:
+  directory: canonical-v8.7
+  status: COMPLETE_ZERO_PROPOSALS
+  manifest_sha256: 1C95762FDA63B37D9628F91948AB47823994D0F5C4C949ACE6838CAF32B18E80
+  frozen_before_shadow: true
+shadow:
+  directory: shadow-v9
+  noncanonical: true
+  manifest_sha256: 80D9FE1D6ABFE8823E9C9BD589EB14D1E043E058802D16BE75F7EE7CCBDC2E7F
+  canonical_leakage: NO_CANONICAL_SHADOW_LEAKAGE_OBSERVED
+families:
+  - id: S1-R16A-F01
+    signature: CPYTHON_IMPORT__PREEXEC_SYSMODULES_PUBLICATION__FAILURE_REMOVAL__FIXED_MODULE_TRACE__IMPORT_SEMANTICS__LOADER_UNION__CPU_RSS_LATENCY
+    canonical_disposition: DROP
+    shadow_disposition: SHADOW_DROP
+    source_action_correction: "V9 explicitly maps preinsert/execute/remove-on-failure to direct coverage; no decision change."
+    cost: "import latency, module RSS, lock/wait, rollback"
+    stability: STABLE
+    cross_lane_duplicate: false
+  - id: S1-R16A-F02
+    signature: GLIBC_DLOPEN__GLOBAL_SCOPE_RESERVE_UPDATE__CONSTRUCTOR_BOUNDARY__FIXED_DSO_GRAPH__ELF_SEMANTICS__LOADER_UNION__CPU_RSS_RELOC
+    canonical_disposition: DROP
+    shadow_disposition: SHADOW_DROP
+    source_action_correction: "V9 records reserve-before-constructor/update-after-constructor and recursion accounting; no decision change."
+    cost: "loader CPU/RSS, relocation, scope growth, DSO lifetime"
+    stability: STABLE
+    cross_lane_duplicate: false
+  - id: S1-R16A-F03
+    signature: RUST_ONCE__POISON_FORCE_RECOVERY__FIXED_INIT_GRAPH__HAPPENS_BEFORE__STD_UNION__CPU_RSS_BLOCKING
+    canonical_disposition: DROP
+    shadow_disposition: SHADOW_DROP
+    source_action_correction: "V9 distinguishes state guarantee from user closure selection; no mechanism remains."
+    cost: "blocking/wakeup CPU, state bytes, initialization latency"
+    stability: STABLE
+    cross_lane_duplicate: false
+  - id: S1-R16A-F04
+    signature: POSIX_ROBUST_MUTEX__OWNER_DEATH_EOWNERDEAD__CONSISTENT_OR_ENOTRECOVERABLE__FIXED_SHARED_STATE__POSIX_GUARANTEE__LIBC_UNION__CPU_RSS_BLOCKING
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: SHADOW_NOT_ADMITTED_UNFROZEN
+    source_action_correction: "V9 identifies application invariant/natural carrier/comparator as missing facets; no decision change."
+    cost: "lock/recovery latency, wait CPU, shared-state validation/rebuild"
+    stability: STABLE
+    cross_lane_duplicate: false
+leakage_check:
+  canonical_created_before_shadow: true
+  shadow_text_in_canonical: false
+  shadow_changed_canonical: false
+  shadow_entered_stage0: false
+  result: PASS
+completion: IDLE_REUSABLE_AWAITING_MAINLINE

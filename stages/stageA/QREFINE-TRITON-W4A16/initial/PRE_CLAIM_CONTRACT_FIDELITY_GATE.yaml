@@ -1,0 +1,39 @@
+schema_version: qrefine-preclaim-gate-v1
+topic_id: QREFINE-TRITON-W4A16
+assignment_id: STAGEA-L1-20260821-QREFINE-TRITON-W4A16-INITIAL
+status: FAIL_CLOSED_RESOURCE_BLOCKED
+gate_passed: false
+claim_bearing_run_allowed: false
+first_claim_bearing_observation_obtained: false
+blocking_predicate: observer_capture_identity
+predicates:
+  observer_capture_identity:
+    status: BLOCKED_NOT_EXECUTED
+    static_findings:
+      - "NVIDIA make_llir calls pm.run at compiler.py:383 before llvm.to_module at :409."
+      - "AMD make_llir calls pm.run at compiler.py:342 before llvm.to_module at :365."
+      - "cmake/llvm-hash.txt exactly contains 1f126a6dea50d185c0781743a667390037ae88bd."
+    missing: [executable_triton_3_7_1, pre_post_structural_hash, both_target_operation_inventories, round_trip_audit, small_identity_witness]
+  solver_identity_and_replay:
+    status: NOT_STARTED_UPSTREAM_GATE_BLOCKED
+    primary_solver: null
+  complete_tcb_operation_inventory:
+    status: NOT_STARTED_NO_CAPTURED_MODULE
+    semantic_critical_unsupported_count: null
+    permitted_max: 0
+  strongest_current_baseline_alignment:
+    status: STATIC_SCOPE_AUDIT_ONLY_NOT_EXECUTED
+    baselines: [Triton_native_verifier_and_tests, FpSan, pointer_safety_verifier_scope, Wang_style_MLIR_translation_validation, verified_lifting_of_Triton_operators]
+  full_cost_units_and_collection_paths:
+    status: PREREGISTERED_NOT_MEASURED
+    dimensions: [capture, normalization, obligation_construction, solver, compiler, legal_schedule_performance_witness]
+    units: [cpu_seconds, wall_seconds, peak_rss_bytes, temporary_bytes, output_bytes, proof_bytes, counterexample_bytes]
+  small_identity_witness:
+    status: NOT_RUN_UPSTREAM_GATE_BLOCKED
+mutant_run_count: 0
+mutant_classes_total: 12
+mutant_classes_not_run: 12
+scientific_revision_consumed: false
+stageb_authorized: false
+failure_class: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+resume_precondition: "Provide or authorize an exact executable Triton v3.7.1 environment at commit f797708c0626e5f9840ca5b0a98790e2c7cb09ad with LLVM 1f126a6dea50d185c0781743a667390037ae88bd, both NVIDIA and AMD make_llir paths, and observer-capable capture; resume in a new immutable directory."

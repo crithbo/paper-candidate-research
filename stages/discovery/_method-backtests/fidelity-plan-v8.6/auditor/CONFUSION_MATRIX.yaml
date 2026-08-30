@@ -1,0 +1,44 @@
+schema_version: discovery-backtest-auditor-confusion-matrix-v1
+assignment_id: BACKTEST-AUDITOR-L1-20260809-FIDELITY-PLAN-V8.6
+role: DISCOVERY_BACKTEST_AUDITOR_LANE_1
+method_revision: fidelity-plan-v8.6
+scope: DISCOVERY_ADMISSION_CALIBRATION_ONLY__NOT_CANDIDATE_EVIDENCE
+expected_positive: 6
+expected_negative: 6
+actual:
+  PROPOSE_STAGE0: 6
+  DROP: 6
+matrix:
+  true_positive: 6
+  false_negative: 0
+  true_negative: 6
+  false_positive: 0
+case_results:
+  case-q7m2: TP
+  case-h4v9: TP
+  case-b8k1: TP
+  case-t3c6: TP
+  case-n5r8: TP
+  case-z1p4: TP
+  case-f6d0: TN
+  case-w2j7: TN
+  case-a9x3: TN
+  case-m0s5: TN
+  case-r8e1: TN
+  case-y4u6: TN
+acceptance:
+  positive_minimum_propose_stage0: 5
+  observed_positive_propose_stage0: 6
+  positive_gate: PASS
+  negative_required_drop: 6
+  observed_negative_drop: 6
+  negative_gate: PASS
+  terminal_revival_allowed: 0
+  observed_terminal_revival: 0
+  terminal_revival_gate: PASS
+  contamination_or_confusion: NONE_DETECTED
+  fail_closed_triggered: false
+verdict: ACCEPT_FOR_PRODUCTION
+calibration_status: CALIBRATED
+wave12_production_allowed: true
+lane_completion_state: IDLE_REUSABLE_AWAITING_MAINLINE

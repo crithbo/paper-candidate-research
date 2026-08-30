@@ -1,0 +1,25 @@
+audit_id: RULE-AUDIT-20260815-SOURCE63-64-CONSECUTIVE-ZERO-BRIEF-R48
+role: RULE-AUDIT-SENTRY
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+decision: NO_CHANGE
+recommendation: RETAIN_ORDINARY_R40__KEEP_FIXED_LANGUAGE_SEMANTICS_AS_STRUCTURAL_EARLY_CLOSE__NO_SUCCESSOR_MICRO_RULE
+contract: {path: stages/rule-audit/_assignments/RULE_AUDIT_SOURCE63_64_ZERO_BRIEF_R48.yaml, sha256: 73591ACA00B6E711A24FEBB7AD82CE73F4852B8E90EC3B380B38C6BA7D87EE99}
+scope: {included: [Source63_canonical_handoffs_and_queues, Source64_canonical_handoffs_and_queues, current_shared_rules], excluded: [Source65_all_files_and_outcomes, external_retrieval, queue_execution]}
+findings:
+  source63: {raw: 0, clean_brief: 0}
+  source64: {raw: 0, clean_brief: 0, fixed_language_semantics_early_close: true}
+  new_attributable_rule_evidence: false
+  rule_defect_observed: false
+authorization: {user_policy_approval_required: false, backtest_required: false, shared_files_modified: false, source65_read: false, no_queue_or_external_action_authorized: true}
+mainline_action:
+  - Continue ordinary R40 at a future safe boundary.
+  - Retain fixed-language-semantics as an exact-object early-close rationale only.
+  - Do not add a successor micro-rule from R48.
+resource_localization: {inventory: RESOURCE_INVENTORY.yaml, resource_actions: 0, validation: PASS__EMPTY_ROOT_NO_RESOURCE_ACTION}
+validation:
+  required_files_present: PASS
+  manifest_replay: PASS_5_OF_5
+  key_counts: {source63_raw: 0, source63_clean_brief: 0, source64_raw: 0, source64_clean_brief: 0}
+  source65_read: false
+  external_actions: 0
+  shared_write: false

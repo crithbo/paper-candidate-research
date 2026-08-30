@@ -1,0 +1,33 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260810-DISCOVERY-YIELD-R1
+assignment_status: COMPLETE_PROPOSAL_READY
+decision: BACKTEST_REQUIRED
+user_approval_status: NOT_YET_APPROVED
+backtest_required: true
+shared_files_modified: false
+shared_control_write_allowed: false
+candidate_or_experiment_started: false
+terminal_topics_reopened: false
+write_directory: D:\project\writing\reserch\stages\rule-audit\RULE-AUDIT-20260810-DISCOVERY-YIELD-R1
+evidence_snapshot:
+  registry_updated_at: "2026-08-10T15:40:00+08:00"
+  registry_sha256: C9B0AB858DD7604811264EB9C516C6D77E53BCC43964A00CEDA2FB2073C37B7A
+  trigger_wave29_wave30_raw_opportunities: 44
+  trigger_proposals: 0
+deliverables:
+  report:
+    path: RULE_AUDIT_REPORT.md
+    sha256: C418468339E248F05D13D78B987DC8603202EFF57EA7314E6A5E5C468E7BFD57
+  proposal:
+    path: RULE_CHANGE_PROPOSAL.md
+    sha256: 01779E730B0FFBEF25AAF635EF21CAD95B0BF2C846941B9ADA517C2E51A6AAC1
+mainline_action: >-
+  Await explicit user approval before creating any sealed historical backtest or
+  shadow logging assignment. Production rule changes require a second user review
+  after the backtest meets the acceptance thresholds.
+affected_shared_files_if_later_approved:
+  - rules/ROLE_DISCOVERY.md
+  - rules/ROLE_MAINLINE.md
+  - templates/TOPIC_BRIEF.md
+  - templates/STAGE0_REPORT.md
+lane_return: IDLE_REUSABLE_AWAITING_USER_OR_MAINLINE

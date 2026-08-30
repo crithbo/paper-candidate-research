@@ -1,0 +1,38 @@
+schema: nonblind-stagea-fidelity-contract-report-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-F0
+contract: {path: F0_PRECLAIM_FIDELITY_CONTRACT.yaml, sha256: 35F5721A80EEEF3BDD312C1EF7B71F17B864ED45FE71EDFC199D9D0266A4FC98}
+evidence_ceiling: PRECLAIM_CONTRACT_FIDELITY_ONLY__NO_NATURAL_OR_SCIENTIFIC_CLAIM
+deterministic_vectors:
+  seed: 20260827
+  dimension: 16
+  base_count: 10000
+  query_count: 1000
+  distribution: iid_uniform_real_closed_open_minus1_plus1
+  normalization: L2_normalize_each_nonzero_vector; regenerate_zero_vector_with_next_PRNG_draw
+  scalar_type: float32
+  identity: base_label_equals_generation_index_0_through_9999
+queries_and_oracle:
+  query_generation: independent_stream_seed_20260828_same_dimension_distribution_normalization
+  distance: squared_L2_float64_accumulation
+  oracle: exhaustive_scan_all_live_labels_with_min_distance_then_lowest_label_tiebreak
+  recall_denominator: query_count
+  recall_at: 1
+parameters_and_budget:
+  HNSW_grid: [{M: 16, ef_construction: 200, ef_search: 50}, {M: 16, ef_construction: 200, ef_search: 100}, {M: 32, ef_construction: 200, ef_search: 100}]
+  construction_budget: exactly_one_build_per_grid_cell_on_identical_base_vectors
+  query_budget: exactly_one_full_query_set_pass_per_grid_cell_per_comparator
+comparators:
+  author_artifact_HNSW: frozen_current_author_artifact_configuration
+  exact_bruteforce: exhaustive_live_set_oracle
+  parity: same_vectors_queries_live_labels_distance_recall_denominator_and_recorded_parameter_search_budget
+full_cost:
+  units: {construction_time: wall_seconds, index_bytes: bytes, query_time: wall_seconds_for_full_query_set, recall: fraction, parameter_search: attempted_grid_cells}
+  included: [vector_generation, normalization, construction, index_storage, query_execution, delete_replace_operations, oracle_scan, parameter_search]
+  excluded: []
+delete_replace_legality_witness:
+  setup: insert_labels_0_through_9999_then_markDelete_label_17_then_replace_deleted_label_17_with_deterministic_replacement_vector
+  legality: replacement_uses_exactly_deleted_label_17_and_no_duplicate_live_label
+  equivalence: live_label_set_and_bruteforce_oracle_update_from_old_vector_17_to_replacement_vector
+  required_checks: [count_live_labels_10000, label_17_query_matches_replacement_oracle, no_deleted_old_vector_retrievable]
+execution_status: {natural_probe: false, performance_comparison: false, scientific_inference: false, production_state_change: false, stageB: false}
+next_gate: MAINLINE_ACCEPTED_PRECLAIM_CONTRACT_FIDELITY_GATE

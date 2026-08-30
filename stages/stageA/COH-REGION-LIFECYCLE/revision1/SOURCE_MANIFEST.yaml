@@ -1,0 +1,41 @@
+schema_version: coh-region-lifecycle-revision-source-manifest-v1
+topic_id: COH-REGION-LIFECYCLE
+sources:
+  - id: CANDIDATE_LOCKED_INPUTS
+    path: ..\LOCKED_INPUTS.json
+    sha256: 0F3549333DFC6529327395019AF1CAE55C8F73E1D0CD12AD16AFE3595089B217
+    mode: shared_read_only
+    role: frozen program structures and original diagnostic grid
+  - id: CANDIDATE_PROBE
+    path: ..\PROBE_SCRIPT.py
+    sha256: DAC5A244AF56ED5022D3CFCA7007217DCCB640145F8D4A570019CF83C3547A99
+    mode: shared_read_only
+    role: inherited action-cost equations
+  - id: CUDA_12_4_RELEASE_NOTES
+    url: https://docs.nvidia.com/cuda/archive/12.4.0/cuda-toolkit-release-notes/index.html
+    publisher: NVIDIA
+    source_class: authoritative_primary
+    verified_on: 2026-08-09
+    role: CUDA 12.4 and R550.54.14 tuple; access-counter migration default
+  - id: NVIDIA_GH200_PRODUCT_PAGE
+    url: https://www.nvidia.com/en-us/data-center/grace-hopper-superchip/
+    publisher: NVIDIA
+    source_class: authoritative_primary
+    verified_on: 2026-08-09
+    role: coherent NVLink-C2C object and 900 GB/s aggregate interface specification
+  - id: SCHIEFFER_ICPP_2024_AUTHOR_PREPRINT
+    url: https://arxiv.org/html/2407.07850v1
+    authors: Gabin Schieffer et al.
+    source_class: author_primary_measurement
+    verified_on: 2026-08-09
+    role: measured GH200 memory/interconnect rates, page semantics, workload-specific behavior
+  - id: GATE_SOURCE_VERIFICATION
+    path: ..\..\_reviews\gate-v8.2\COH-REGION-LIFECYCLE\SOURCE_VERIFICATION.md
+    sha256: 56EEDFE79DD882EB9996B6A549DF0AE97003BA708A8D40672E36CF2BCDE27D26
+    mode: shared_read_only
+    role: frozen source audit and TPP DOI correction
+licenses:
+  local_candidate_artifacts: project_internal
+  external_documents: referenced_not_copied
+external_uploads: none
+

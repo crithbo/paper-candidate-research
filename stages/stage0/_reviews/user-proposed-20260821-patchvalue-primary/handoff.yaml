@@ -1,0 +1,58 @@
+schema_version: stage0-handoff-v1
+assignment_id: STAGE0-P3-20260821-PATCHVALUE-COUNTERFACTUAL-PRIMARY
+topic_id: PATCHVALUE-COUNTERFACTUAL-REV0
+role: PRIMARY
+decision: REVISE_ONCE
+decision_confidence: 0.66
+tier_if_gate_closes: TIER_B_Q2_VIABLE
+structural_paper_potential: CONDITIONAL_TIER_B
+current_evidence_readiness: E1_STATIC_PREFLIGHT
+stage_a_authorized: false
+stage_b_authorized: false
+prior_topic_evidence_inherited: false
+upstream:
+  handoff_sha256: 9E2F036FB6D061DB73568D6F2E7161A235169E622C5F90848FF95DE9B336BB55
+  manifest_sha256: 0BD6DE2423EC33096135FE16D84B1DC3DA4865C6CFBA331E368EA9A359289C24
+scientific_basis:
+  primary_contribution: SAME_STATE_RANDOMIZED_CONTINUATION_EFFECT_ESTIMATION_ON_FIXED_AGENT_MODEL_DECODER_BENCHMARK
+  strongest_subtractor: CAUSAL_AGENT_REPLAY
+  direct_fatal_found: false
+  search_status: SEARCH_BOUNDED_OPEN
+  why_not_pass: >-
+    The exact clone/isolation schema and a non-attribution separation from causal
+    action replay have not yet been closed. These are central to the estimand,
+    rather than evidence readiness alone.
+single_revision_gate:
+  id: FROZEN_SAME_STATE_BRANCH_FIDELITY__NONATTRIBUTION_CONTINUATION_VALUE_CERTIFICATE
+  falsifiable_proposition: >-
+    A pinned same-state branch protocol completely isolates every mutable input and
+    identifies a future-compute continuation effect that is formally distinct from
+    causal attribution of historical agent actions.
+  required_evidence:
+    - complete_hashed_clone_schema_and_reset_transcript
+    - prefix_equal_isolated_branch_witness_with_precommitted_seed_schedule
+    - offline_only_evaluator_nonleakage_audit
+    - CAR_facet_matrix_and_nontrivial_estimator_or_identification_guarantee
+    - finite_stageA_preclaim_fidelity_falsifier_and_full_cost_ledger
+  failure_sentinel: STOP__CAUSAL_REPLAY_RELABEL_OR_NONIDENTIFIED_BRANCH_EFFECT
+resource_status:
+  outcome: PASS_STATIC_SOURCE_PREFLIGHT
+  official_calls_used: 2
+  persisted_bytes: 31331
+  claim_bearing_execution: false
+next_action:
+  route: INDEPENDENT_STAGE0_CONFIRMATION
+  instruction: >-
+    Confirmation must independently attack CAR equivalence and the complete
+    snapshot/cloning contract. It may not authorize Stage A/B.
+canonical_files:
+  report: STAGE0_REPORT.md
+  q1_comparator: Q1_COMPARATOR_MATRIX.md
+  collision_audit: CURRENT_SOURCE_AND_COLLISION_AUDIT.md
+  identifiability_audit: IDENTIFIABILITY_AUDIT.md
+  source_log: SOURCE_LOG.md
+  resource_inventory: RESOURCE_INVENTORY.yaml
+  manifest: HASH_MANIFEST.sha256
+windows_case_note: >-
+  `HANDOFF.yaml` and `handoff.yaml` name the same case-insensitive filesystem
+  object on this workspace; the canonical object is `handoff.yaml`.

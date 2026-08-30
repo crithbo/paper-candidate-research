@@ -1,0 +1,21 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+identity: {lane_id: STAGEA-GATE, lane_thread_id: 01a034d0-d990-7d50-9d9f-a6d05a81bf11, role_id: STAGEA_GATE_REVIEW, assignment_id: NONBLIND-STAGEA-GATE-20260827-PAPER-EVIDENCE-R2, topic_id: STAGEA_PAPER_EVIDENCE_BACKTEST_R2, stage_or_mode: PAPER_EVIDENCE_GATE, status: BOOTSTRAP_ACK_PENDING, resume_point: LOCATOR1_PACKET_ACCEPTED_BLIND_UNAVAILABLE, next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY}
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: STAGEA-GATE
+  allowed_actions: [paper_only_and_paper_plus_local_supplement_read_only_gate_after_start]
+  forbidden_actions: [new_experiment, new_probe, resource_creation, network, production_candidate_registration, StageB, auditor_gold_key_read, expected_label_read]
+boundaries: {unique_write_directory: E:/project/writing/reserch/stages/stageA/_reviews/paper-evidence-r2, resource_root: E:/project/writing/reserch/stages/stageA/_reviews/paper-evidence-r2/resources, write_allowed_paths: [E:/project/writing/reserch/stages/stageA/_reviews/paper-evidence-r2], network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 31E5216CD9AC58B282111B0856DC71A5FBE70F38710C802F105A9E256E9B69B0}
+  registry_snapshot: {path: registry.yaml, sha256: A904E18B74C08D6D86AD408C0695320A320D0252E3569BD22F899BAFF49A9234}
+  role_rule: {path: rules/ROLE_STAGEA_REVIEW.md, sha256: 3F625031306861248D817C36905E3D0AB0DCDB3B8B6B959673975BDB6128FF01}
+  skills: [{path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+  templates: [{path: templates/INDEPENDENT_REVIEW_REPORT.md, sha256: 248B94097ECA6B39072A5056BA4EE3ABB47F1D30960621792403D0A43FA8B01C}]
+minimum_inputs: [{path: stages/stageA/_reviews/paper-evidence-r2/ASSIGNMENT.yaml, sha256: 699BF9BC42BDCDDE13917634C0ECF8FAD91594747803062CD6B872AD20E39A26}]
+evidence_ceiling: PAPER_REPORTED_OR_AUTHOR_ARTIFACT_REPORTED__NO_PROJECT_REPRODUCTION_CLAIM
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: VALIDATED}

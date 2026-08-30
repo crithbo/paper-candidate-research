@@ -1,0 +1,66 @@
+schema_version: independent-stagea-lifecycle-acceptance-v1
+created_at: 2026-08-26T00:10:18+08:00
+assignment_id: STAGEA-GATE-20260825-ROCKSDB-R7-INVALID-CONSTRUCTION-REVISION-ELIGIBILITY
+topic_id: ROCKSDB-DICT-COVER
+decision: ACCEPT_EXACT_RETENTION_AND_DEFERRED_CLEANUP_PROPOSAL__NO_CLEANUP_EXECUTED
+cleanup_owner: MAINLINE
+reviewer_cleanup_authority: false
+cleanup_executed_by_reviewer: false
+
+frozen_inputs:
+  resource_inventory_sha256: 1E1F8E3B638DD59025D6993D0D4364ADBAE16F2B06F9240BED6DA14493201538
+  phase_closeout_retention_sha256: 7A70DD23E8A095AA626EB50099ACD0857703866A0C850FAFA0E5B735F26002D4
+  resume_capsule_sha256: B308B62997716E2EA07949212A8E56DCA8443E5851890292A506489D85E46734
+  owner_manifest_sha256: 159CC99191A8A4E19A6E83A342CF71635B1B74A7169D7242E8F609186A66CD38
+
+mandatory_raw_validation:
+  path: resources/build/claim-runs
+  files: 5452
+  logical_bytes: 331806359
+  reparse_entries: 0
+  claim_run_directories: 344
+  result_json_files: 344
+  executed_result_hashes_match_matrix: 344_OF_344
+  failure_pair_retained_and_hash_match: true
+  disposition: RETAIN_UNTIL_MAINLINE_POLICY_AND_ANY_FUTURE_USER_DISPOSITION
+
+mandatory_reproducibility_minimum:
+  - {path: resources/src/claim_harness, status: RETAIN}
+  - {path: resources/build/frozen, status: RETAIN}
+  - {path: resources/build/claim-harness/rocksdict_claim_harness.exe, sha256: 41CBC5D3E5CF79DCC314076A0B2AABC8E8C3506D4DA6816869C7A12087B5DB42, status: RETAIN}
+  - {path: resources/env/runtime/libc++.dll, sha256: 952B41B1370DDB5E7299CC9FCEFCE2AD8C2021409948B057EC4D903C03760B6C, status: RETAIN}
+  - {path: resources/env/runtime/libunwind.dll, sha256: 8D9F60801F50C0A6CB7BEB7FD2E121F98BF39EBE40E6C7E07A8A39FCCB817C03, status: RETAIN}
+  - {path: resources/logs/claim-runner-summary.json, sha256: E30E8468A29F5379BEA123AA57CFB0E25FEEB02CEE4B30826A5DE88A7C7C2FA1, status: RETAIN}
+  - {path: PHASE_CLOSEOUT_RETENTION.yaml, status: RETAIN}
+  - {path: RESUME_CAPSULE.yaml, status: RETAIN}
+  - {path: HASH_MANIFEST.sha256, status: RETAIN}
+
+cleanup_candidate_validation:
+  exact_leaf_count: 15
+  matched_files_bytes_and_zero_reparse: 15_OF_15
+  candidate_files: 18382
+  candidate_logical_bytes: 1129045478
+  current_active_claim_harness_processes: 0
+  proposed_classes:
+    REACQUIRABLE_DELETE_AFTER_HANDOFF: 9
+    TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY: 3
+    EPHEMERAL_DELETE_BEFORE_CLOSEOUT: 3
+  scope_excludes_raw_source_frozen_binary_runtime_and_control_files: true
+
+post_cleanup_projection:
+  retained_logical_bytes: 515241582
+  retained_bytes_max: 1610612736
+  budget_pass: true
+
+future_cleanup_conditions:
+  - MAINLINE_ACCEPTS_CANONICAL_GATE_HANDOFF
+  - EXACT_LITERAL_LEAVES_RECHECK_FILES_BYTES_AND_CONTAINMENT
+  - ZERO_REPARSE_AND_ZERO_ACTIVE_RELATED_PROCESS
+  - MANDATORY_RAW_AND_REPRODUCIBILITY_HASHES_RECHECK
+  - MAINLINE_WRITES_CLEANUP_RECEIPT
+  - NO_TOPIC_ASSIGNMENT_RESOURCE_OR_UNCLASSIFIED_ROOT_DELETION
+
+scientific_separation:
+  lifecycle_decision_changes_scientific_state: false
+  lifecycle_decision_consumes_revision: false
+  cleanup_failure_may_not_create_scientific_stop_or_reserve: true

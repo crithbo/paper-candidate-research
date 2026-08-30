@@ -1,0 +1,14 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A8-FRESH-NINJA-BUILD
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A7_NINJA_GENERATOR_CACHE_BLOCKER.yaml, sha256: 5349638107299F46D5A94FDDDED245A6E131450BA7CF5A9B7EEBF75B34B6D544}, {path: resources/build/pgm, retention: FAILED_NMAKE_CACHE__DO_NOT_MODIFY}]
+only_change: use_fresh_resources_build_pgm_ninja_a8_directory_with_explicit_Ninja_clang_compilers
+fresh_build_directory: resources/build/pgm-ninja-a8
+allowed_command_sequence:
+  - {id: A8S0, command: fresh_directory_must_be_absent_then_create_once, stop_on_nonzero: true}
+  - {id: A8S1, command: portable_cmake -G Ninja -S <existing_source> -B resources/build/pgm-ninja-a8 -DCMAKE_C_COMPILER=<portable_clang> -DCMAKE_CXX_COMPILER=<portable_clangxx> -DCMAKE_MAKE_PROGRAM=<portable_ninja> -DBUILD_PGM_TUNER=OFF -DBUILD_PGM_BENCHMARK=OFF -DBUILD_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Release, stop_on_nonzero: true}
+  - {id: A8S2, command: portable_cmake --build resources/build/pgm-ninja-a8 --parallel 2, stop_on_nonzero: true}
+  - {id: A8S3, command: ctest --test-dir resources/build/pgm-ninja-a8 --output-on-failure, stop_on_nonzero: true}
+prohibitions: [delete_or_modify_resources_build_pgm, NMake_generator, redownload, reextract, alternate_toolchain, system_or_global_mutation, scientific_probe_before_fidelity]
+scientific_revision_consumed: false

@@ -1,0 +1,11 @@
+schema: phase-closeout-retention-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A3-RECOVERY
+result: BLOCKER_RETENTION_FROZEN
+retain:
+  - {path: A2_handoff.yaml, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: PREDECESSOR_TRANSPORT_BLOCKER}
+  - {path: A2_HASH_MANIFEST.sha256, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: PREDECESSOR_MANIFEST}
+  - {path: resources/logs/A3S0_cmake_curl.stderr.txt, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: SOLE_A3_CURL_ATTEMPT_FAILURE}
+cleanup_candidates: []
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+scientific_inference: NONE

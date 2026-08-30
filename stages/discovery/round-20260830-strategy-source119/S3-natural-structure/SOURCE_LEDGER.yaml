@@ -1,0 +1,22 @@
+schema: discovery-source-ledger-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE119-NATURAL-STRUCTURE
+search_or_open_calls_used: 4
+search_or_open_calls_max: 24
+network_bytes_observed: null
+network_bytes_note: 本次运行环境没有提供精确统计，未作估算。
+sources:
+  - {id: SRC01, role: ANCHOR, locator: https://github.com/sierra-research/tau2-bench, depth: README, supports: canonical multi-turn tool-agent-user tasks with domain policy and tools}
+  - {id: SRC02, role: CURRENT, locator: https://www.swebench.com/SWE-bench/api/harness/, depth: DOCS, supports: canonical SWE-bench harness}
+  - {id: SRC03, role: CURRENT, locator: https://github.com/SWE-bench/SWE-bench/blob/main/docs/guides/docker_setup.md, depth: DOCS, supports: three image layers and explicit none/base/env cache levels}
+  - {id: SRC04, role: ANCHOR, locator: https://www.openhands.dev/blog/analyzing-and-improving-openhands-index, depth: FULL_PAGE, supports: complete evaluation traces are public}
+  - {id: SRC05, role: ANCHOR, locator: https://github.com/ServiceNow/BrowserGym, depth: README_SOURCE, supports: canonical web-agent tasks and released traces}
+  - {id: SRC06, role: CURRENT, locator: https://github.com/ServiceNow/BrowserGym/blob/main/browsergym/core/src/browsergym/core/observation.py, depth: SOURCE, supports: full DOM snapshot and full AXTree extraction}
+  - {id: SRC07, role: ANCHOR, locator: https://gorilla.cs.berkeley.edu/leaderboard, depth: OFFICIAL_PAGE, supports: BFCL V4 multi-turn memory and agentic evaluation surface}
+  - {id: SRC08, role: ANCHOR, locator: https://droid-dataset.github.io/, depth: OFFICIAL_DOCS, supports: 76k natural trajectories with images actions proprioception and language annotations}
+  - {id: SRC09, role: CURRENT, locator: https://github.com/droid-dataset/droid_policy_learning, depth: README, supports: official policy learning and small canonical example dataset}
+  - {id: SRC10, role: CURRENT, locator: https://github.com/huggingface/lerobot/blob/main/docs/source/lerobot-dataset-v3.mdx, depth: DOCS_SOURCE, supports: temporal windows episode metadata modality storage and streaming}
+  - {id: SRC11, role: CONTRARY, locator: https://arxiv.org/abs/2502.02175, depth: ABSTRACT, supports: VLA-Cache adaptive visual token caching across frames}
+  - {id: SRC12, role: CONTRARY, locator: https://arxiv.org/abs/2505.21200, depth: ABSTRACT, supports: FlashVLA token compression and action reuse}
+  - {id: SRC13, role: CONTRARY, locator: https://arxiv.org/abs/2602.00686, depth: ABSTRACT, supports: task-aware adaptive visual token caching}
+  - {id: SRC14, role: CONTRARY, locator: https://longbench2.github.io/, depth: OFFICIAL_PAGE, supports: task-distribution confounding across context-length subsets}
+source_boundary: official repositories/docs/pages plus primary-paper abstracts; no downloads builds or experiments

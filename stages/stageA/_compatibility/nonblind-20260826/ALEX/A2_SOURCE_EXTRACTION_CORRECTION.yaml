@@ -1,0 +1,13 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-ALEX-A2-SOURCE-EXTRACT
+parent_assignment: NONBLIND-STAGEA-20260826-ALEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: SOURCE_EXTRACTION_MISSING_BLOCKER.yaml, sha256: A9DD40C51D50BD4C1D0B810F66D5E026818E605F803FEF33E447B3B8E842D13A}, {path: resources/archives/ALEX-4370da6aa8b509fdc9b0d2c49faa0624b0078589.tar.gz, sha256: BCACF96FF41E3C92BD779105D1A8762DE99411941C5C205F65016799976F0057}]
+only_change: create_resources_src_once_and_extract_existing_frozen_ALEX_archive_once
+allowed_command_sequence:
+  - {id: A2S0, command: create_literal_resources_src_if_absent, stop_on_nonzero: true}
+  - {id: A2S1, command: tar_extract_existing_ALEX_archive_to_resources_src, stop_on_nonzero: true}
+  - {id: A2S2, command: verify_extracted_source_root_and_CMakeLists, stop_on_nonzero: true}
+  - {id: A2S3, command: resume_author_preclaim_configure_build_once_with_existing_absolute_tools, stop_on_nonzero: true}
+prohibitions: [redownload, alternate_source, source_edit, system_or_global_mutation, fidelity_or_probe_before_preclaim]
+scientific_revision_consumed: false

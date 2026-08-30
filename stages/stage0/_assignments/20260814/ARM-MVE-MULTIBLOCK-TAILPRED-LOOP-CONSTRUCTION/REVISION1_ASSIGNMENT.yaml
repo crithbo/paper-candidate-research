@@ -1,0 +1,56 @@
+assignment_id: STAGE0-P1-20260814-ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION-REVISION1-V8.7
+mode: PRIMARY_REVISION1
+topic_id: ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_QUEUED_AFTER_PPC_MMA_PRIMARY
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_revisions\ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION\revision1
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+quality_floor: TIER_B_Q2_VIABLE
+scientific_revision_limit: 1
+scientific_revision_index: 1
+sole_gate: NATIVE_TWO_BLOCK_MVE_PLAN_DIVERGENCE__FUTURE_PRESERVING_VPT_VCTP_FRONTIER_CERTIFICATE
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source30-primary\ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION
+confirmation_directory: stages\stage0\_reviews\round-20260814-adaptive-source30-confirmation\ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION
+frozen_inputs:
+  primary_manifest_sha256: D0EA3979033115B1383138D38E634FB58BD0EB934F8D2A11ABB6F57F4D1444DE
+  confirmation_manifest_sha256: 6C44EA460872552B2003D5437CE89E0F502335F004A4EE3B274015F94F412C75
+  confirmation_review_sha256: 0ABF95FE6FE691AB1BB3825040C080C6DB3E7A5F2247D6828B7ADB0505A485C9
+  confirmation_handoff_sha256: FFA53B9F7E746E4FB1725122AFDB566FCA46194E0BD5B8D26F7FE1E82B7F09DD
+  llvm_commit: 81ac5c7c26efb70ffaffb91b26053437093ee085
+frozen_object:
+  target: Armv8_1_M_MVE_plus_LOB
+  function_class: one_pinned_public_two_basic_block_same_function_MVE_MachineFunction
+  semantics: fixed_vector_result_active_lane_branch_exception_ABI_VPT_VCTP_loop_range_live_out_and_object
+  fair_union:
+    - current_LLVM_vectorizer__MVETailPredication__ARMLowOverheadLoops_composition
+    - current_tail_predication_default_and_nondefault_mode_envelope
+    - current_VCTP_reaching_definition_VPT_VPST_mask_repair_and_validation
+    - current_DLSTP_WLSTP_LETP_selection_with_ordinary_or_revert_fallback
+mandatory_static_closure:
+  - Pin one public in-tree two-basic-block same-function LLVM IR or MIR witness and the complete native action catalogue at the frozen commit.
+  - Give two complete stock-native-legal plans on that exact function, preserving vector results, active lanes, branches, exceptions, ABI, VPT/VCTP, loop range, live-outs and object semantics.
+  - Trace both plans through current legality, VCTP conversion, VPT/VPR repair, low-overhead-loop selection and fallback, and exhibit an independently enumerable union-external full-cost Pareto point.
+  - Define an MVE-specific future-native-action, legality and full-cost-preserving finite state plus exact, FPT or certified recurrence with explicit parameter cap, degeneration and no-gain boundary.
+  - Build a static oracle table comparing every witness action/path against all frozen current-union points; component claims already supplied by current LLVM are excluded.
+  - Freeze a finite Stage A fidelity, native-semantics and full-cost killer, but do not execute it.
+rejected_substitutes:
+  - removing_the_single_block_check_only
+  - tail_predication_flag_or_force_mode
+  - VPT_VCTP_repair_or_ordinary_fallback_component_claim
+  - changed_active_lane_branch_exception_ABI_or_object_semantics
+  - generic_CFG_scheduling_loop_restructuring_ILP_or_Pareto_packaging
+failure_sentinel: BELOW_Q2_STOP__SINGLE_BLOCK_BOUNDARY_WITHOUT_NATIVE_TWO_PLAN_OR_TARGET_SPECIFIC_FRONTIER
+public_source_acquisition:
+  authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+  allowed: official_read_only_source_blob_and_public_in_tree_witness_retrieval_for_the_pinned_commit
+  response_bytes_max: 33554432
+  storage_bytes_max: 67108864
+  attempts_max: 6
+  no_system_install_or_global_environment_change: true
+forbidden: [new_topic, changed_object, second_revision, candidate_implementation, build, claim_bearing_experiment, benchmark, stageA, stageB, shared_control_write, v9_output, network_security_topic]
+required_outputs: [REVISION_REPORT.md, CURRENT_ACTION_AND_FRONTIER_AUDIT.md, CLAIM_MATRIX.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  next_if_gate_closed: INDEPENDENT_REVISION1_CLOSING
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

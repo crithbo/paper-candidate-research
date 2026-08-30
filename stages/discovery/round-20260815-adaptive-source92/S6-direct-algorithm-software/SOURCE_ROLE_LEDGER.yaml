@@ -1,0 +1,27 @@
+schema_version: source-role-ledger-v1
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE92-R40-ORDINARY-BREADTH-V1
+source_actions:
+  - role: ANCHOR_CURRENT
+    seed: S92-01
+    url: https://github.com/WebAssembly/binaryen
+    selection_rule: Official Binaryen repository; documents current Relooper/ReReloop as an optimization path.
+    outcome: CURRENT_ROUTE_SUPPORTS_GENERIC_KERNEL_SCREEN
+  - role: ANCHOR_CURRENT
+    seed: S92-02
+    url: https://github.com/redis/redis
+    selection_rule: Official Redis source repository for current dictionary/rehash route.
+    outcome: CONTROLLER_OR_GENERIC_ONLINE_HASHING_SCREEN
+  - role: ANCHOR_CURRENT
+    seed: S92-03
+    url: https://github.com/facebook/zstd
+    selection_rule: Official reference implementation repository.
+    outcome: GENERIC_COMPRESSION_KERNEL_SCREEN
+  - role: SPEC_CURRENT
+    seed: S92-03
+    url: https://github.com/facebook/zstd/blob/dev/doc/zstd_compression_format.md
+    selection_rule: Official Zstd frame/block format source.
+    outcome: SAME_DECODER_CONTRACT_ANCHORED
+boundary: Bounded official-source reading only. No result asserts a current absence, novelty, or universal negative.
+roles_not_needed_after_pre_raw_failure:
+  - CONTRARY
+  - ESCAPE

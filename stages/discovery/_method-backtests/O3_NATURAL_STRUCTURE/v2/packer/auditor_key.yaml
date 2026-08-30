@@ -1,0 +1,54 @@
+schema_version: discovery-backtest-auditor-key-v2
+confidentiality: PACKER_AND_FUTURE_AUDITOR_ONLY
+executor_must_not_read: true
+opportunity_lens: O3_NATURAL_STRUCTURE
+anchors:
+  S3-POS-01:
+    hidden_target:
+      title: "Gunrock: A High-Performance Graph Processing Library on the GPU"
+      venue: PPoPP 2016
+      earliest_public_date: 2015-01-22
+      doi: 10.1145/2851141.2851145
+      canonical_url: https://escholarship.org/uc/item/6xz7z9k0
+    expected_problem_shape:
+      - "Across graph algorithms the active vertex/edge frontier is a stable natural object whose size and degree distribution change over time."
+      - "Recover a frontier-centric GPU abstraction with reusable advance/filter/compute operations and data-dependent load balancing."
+    expected_decision_structure: "frontier representation/density, push-pull or traversal mode, load balancing, duplicate handling, operator fusion"
+    contribution_route: N1_NEW_ABSTRACTION_OR_MECHANISM
+    evidence_entry: "multiple primitives and real graphs; strong hardwired/framework baselines; programmability; GPU traffic and load-balance ablations"
+  S3-POS-02:
+    hidden_target:
+      title: "SCNN: An Accelerator for Compressed-sparse Convolutional Neural Networks"
+      venue: ISCA 2017
+      earliest_public_date: 2017-05-23
+      doi: 10.1145/3079856.3080254
+      canonical_url: https://research.nvidia.com/publication/2017-06_scnn-accelerator-compressed-sparse-convolutional-neural-networks
+    expected_problem_shape:
+      - "Natural zero-valued weights and activations should be kept compressed through compute rather than decoded into a dense dataflow."
+      - "Recover joint sparse operand delivery and accumulation, not only zero gating."
+    expected_decision_structure: "compressed encoding, Cartesian nonzero pairing, PE distribution, accumulator organization, reuse and load balance"
+    contribution_route: N1_NEW_ARCHITECTURAL_MECHANISM
+    evidence_entry: "sparsity/workload matrix; cycle model; synthesis-stage-labelled area/energy; dense and single-sparsity baselines; metadata and imbalance sensitivity"
+    claim_ceiling: "Cycle-level/analytical model plus the explicitly reported synthesis evidence; no FPGA or silicon measurement claim."
+  S3-POS-03:
+    hidden_target:
+      title: "DiskANN: Fast Accurate Billion-point Nearest Neighbor Search on a Single Node"
+      venue: NeurIPS 2019
+      earliest_public_date: 2019-08-29
+      canonical_url: https://proceedings.neurips.cc/paper/2019/hash/09853c7fb1d3f8ee67a61b6bf4a7f8e6-Abstract.html
+    expected_problem_shape:
+      - "Navigable graph locality can be reshaped so a billion-point index places a compact working set in DRAM and graph/vector data on SSD."
+      - "Recover a graph construction/search and storage-layout co-design under recall, latency, density, and build-cost constraints."
+    expected_decision_structure: "graph degree/pruning, beam width, cache placement, SSD access batching/layout, vector compression"
+    contribution_route: N2_NEW_ALGORITHM_OR_DATA_STRUCTURE
+    evidence_entry: "recall-QPS-latency curves; billion-scale data; same-memory baselines; build time; DRAM/SSD ledger; in-memory ablation"
+  S3-NEG-01:
+    hidden_target: null
+    expected_result: ABSTAIN
+    reason: "The packet explicitly removes measurable natural regularity and supplies strong exact randomized baselines; a finite random sample does not justify a structure-exploiting contribution."
+cutoff_exclusions:
+  - "All hidden-target title, method, result, artifact, reviews, and follow-on work."
+  - "Cross-packet hidden targets are not used as visible precursors."
+hardware_claim_ceiling:
+  status: ENFORCED
+  rule: "Sparse-accelerator input evidence supports a mechanism hypothesis; implementation claims stop at the target paper's labelled cycle/synthesis evidence."

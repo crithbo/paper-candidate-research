@@ -1,0 +1,26 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C11
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-09T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [FORMAL_VERIFICATION, GRAPH_SERIALIZATION, EXACT_ALGORITHM, NON_CUDA]
+raw_opportunity: >-
+  AIGER assigns literals under topological constraints and delta-encodes AND
+  inputs. Examine whether choosing a legal topological schedule exposes a
+  nontrivial exact or approximation problem under identical circuit semantics
+  and the native writer/reader contract.
+required_analysis:
+  - freeze the format legality constraints and first-party writer action
+  - provide a model-level legal divergence witness if proposing deep review
+  - specify a finite native writer/reader falsifier without claiming it ran
+  - keep model certificate, native realization and natural gain separate
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C11/sources/S01_aiger-format.pdf, sha256: C988B8A0AC8DAED981262DDBDD64E91480866D9743D9E953CD5CB23506AF6FFF, bytes: 182273, url: "https://fmv.jku.at/papers/Biere-FMV-TR-07-1.pdf", available_by: "2007-12-31", role: FORMAT_AUTHORITY}
+  - {source_id: S02, path: sealed_cases/C11/sources/S02_aiger-home.html, sha256: 3DEB0DC7F841E69678F17C6259139FFCD9978DBB8B869F7722902E9A5DB6488E, bytes: 15211, url: "https://fmv.jku.at/aiger/", available_by: "2026-08-09", role: FIRST_PARTY_FORMAT_AND_ARTIFACT_ROUTE}
+  - {source_id: S03, path: sealed_cases/C11/sources/S03_yosys-aiger.cc, sha256: F506C1058AFF2F4E5F3E78FFB0C3C4DA662BD074CDF5CC2F001A7DDEA7811A10, bytes: 28885, url: "https://raw.githubusercontent.com/YosysHQ/yosys/0f2bcb94b7dc8310a52abf6eef3a7e1a9f09b552/backends/aiger/aiger.cc", available_by: "2026-08-07", role: CURRENT_FIRST_PARTY_WRITER_ACTION}
+exclusions:
+  - local candidate title, schedule construction and Stage-0 result
+  - all native outputs, experiments and later corrections
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL
+

@@ -1,0 +1,79 @@
+assignment_id: DISCOVERY-V9-PROSPECTIVE-SHADOW-20260813-R16A
+approval_id: DISCOVERY-V9-PROSPECTIVE-SHADOW-20260813-R16A
+approved_at: 2026-08-13T19:35:00+08:00
+owner: MAINLINE_CONTROL
+status: FROZEN_READY_FOR_SIX_LANE_DISPATCH
+purpose: PROSPECTIVE_NONCANONICAL_METHOD_SHADOW
+historical_backtest_disposition:
+  r11a_phase1_status: FAILED_NOT_DISPATCHABLE__BLIND_CORE_UNCLOSED__NO_SCIENTIFIC_INFERENCE
+  r11a_final_manifest_sha256: FE814E40C17300937ABA2C551E2A1F42A59E12359CC34BAD644DF4D7E1672DEE
+  accepted_and_sealed: true
+  expansion_repack_or_supplement_allowed: false
+mode_contract:
+  global_canonical_mode: OFF
+  assignment_discovery_claim_pack_mode: SHADOW
+  discovery_quality_mode: OFF
+  canonical_method: V8_7_AUTHORITATIVE
+  shadow_method: DISCOVERY_CLAIM_PACK_V9_R0
+  shadow_can_change_canonical_decision: false
+  shadow_can_change_candidate_or_registry_state: false
+  shadow_can_change_stage0_decision: false
+sample_contract:
+  unit: UNIQUE_OPPORTUNITY_FAMILY
+  target_unique_family_count: 24
+  lane_count: 6
+  target_count_per_lane: 4
+  proposal_quota: NONE
+  stop_new_sampling_at_target: true
+  cross_lane_duplicate_not_counted: true
+  duplicate_resolution: LOWER_NUMBERED_SOURCE_LANE_RETAINS__MAINLINE_REASSIGNS_ONLY_THE_MISSING_UNIQUE_SLOT
+  replacement_scope: DUPLICATE_ONLY__NEVER_FOR_OUTCOME_OR_PROPOSAL_YIELD
+execution_order:
+  - FREEZE_NEUTRAL_SOURCE_SNAPSHOT_AND_FAMILY_SIGNATURE
+  - COMPLETE_AND_HASH_V8_7_CANONICAL_OUTPUT
+  - COMPLETE_V9_SHADOW_FROM_THE_SAME_FROZEN_SOURCE_SNAPSHOT
+  - WRITE_PAIRED_HANDOFF_AND_STRICT_MANIFEST
+  - NOTIFY_MAINLINE_ON_COMPLETION_OR_BLOCKER
+canonical_routing:
+  clean_brief_may_enter_independent_stage0: true
+  shadow_material_may_enter_stage0_packet: false
+  stage0_thread_is_independent_from_source_lane: true
+  stage0_repair_vector_required_for_r16a_briefs: true
+audit_after_sample:
+  independent_auditor_required: true
+  auditor_dispatch_condition: 24_UNIQUE_FAMILIES_MECHANICALLY_ACCEPTED
+  final_verdict_waits_for_stage0_feedback_on_all_R16A_CANONICAL_BRIEFS: true
+  metrics:
+    - STAGE0_REPAIR_VECTOR
+    - SOURCE_ACTION_CORRECTION
+    - CLEAN_BRIEF_PRECISION
+    - AUDIT_AND_MODEL_COST
+    - CANONICAL_SHADOW_LEAKAGE
+    - DECISION_STABILITY_UNDER_PERTURBATION
+  production_cutover_allowed_without_independent_pass: false
+resource_boundary_per_lane:
+  public_literature_official_docs_and_current_source_reading: ALLOWED
+  network_bytes_max: 134217728
+  frozen_storage_bytes_max: 201326592
+  single_artifact_bytes_max: 26214400
+  cpu_hours_max: 4
+  wall_hours_max: 24
+  system_install: FORBIDDEN
+  global_environment_mutation: FORBIDDEN
+  large_download: FORBIDDEN
+  experiment_or_benchmark: FORBIDDEN
+  e2_smoke: FORBIDDEN
+  automation: FORBIDDEN
+  external_communication: FORBIDDEN
+  stageb: FORBIDDEN
+  stop_revival: FORBIDDEN
+frozen_inputs:
+  agents_sha256: 84FB3A35189C22EFFD426D49B71E2848CA29ED76D971A1B387DCD99A2DA1BF35
+  role_mainline_sha256: 96BFE824CDB15F638CF6320CC344D35578323E84CE576F1E703ED886EBBB85A5
+  role_discovery_sha256: 3A9E44B0DA74C4EEE71F18B482E69ADCB4FB5A41C0E8CAEF24FF786F8D9BF145
+  discovery_claim_pack_sha256: 6DDCF4CE3CC76900FB6AAEF5876ED0D3E824489F3894F4C092C481176F256DA9
+  topic_brief_template_sha256: 950CF22BB565849897370DFDAE582477EC9E2E777F8F989F69D9B7053C4A0927
+  evidence_ledger_template_sha256: E6FB0DD43147E677E38DFFF4EAE2B8FB63ED79D74EAC3C08A9142A391F63E9E9
+  registry_pre_activation_sha256: 6436396A10509FA22226DCBB8CC999A055BC4AD381521F355C6B98EFA04E5769
+  plan_pre_activation_sha256: 94E9A3B02F49D724D87B6664F35808744A3B5C18261ED6BDCB5F344AD8E5A6F9
+

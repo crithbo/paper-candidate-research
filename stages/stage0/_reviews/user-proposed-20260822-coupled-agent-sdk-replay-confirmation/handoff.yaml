@@ -1,0 +1,51 @@
+schema_version: stage0-handoff-v1
+assignment_id: STAGE0-C4-20260822-COUPLED-AGENT-SDK-REPLAY-CONFIRMATION
+topic_id: COUPLED-AGENT-SDK-REPLAY-REV0
+lane: STAGE0-CONFIRMATION-SENTRY-D
+role: INDEPENDENT_STAGE0_CONFIRMATION
+status: COMPLETE
+decision: CONFIRM
+confirmed_primary_decision: REVISE_ONCE
+quality_if_gate_closes: TIER_B_Q2_VIABLE
+confidence: 0.78
+evidence_ceiling: E1_STATIC_CONFIRMATION__NO_IMPLEMENTATION_NO_ROLLOUT_NO_POSITIVE_RESULT
+atomic_gate: NATIVE_SDK_COUPLED_BRANCH_TRANSITION__NONPRODUCT_MARGINAL_CORRECTNESS_AND_CONSERVATIVE_FRONTIER_CERTIFICATE
+revision_executed: false
+revision_consumed: false
+stage_a_started: false
+stage_b_started: false
+independence:
+  participated_in_discovery: false
+  participated_in_primary: false
+  prior_scientific_reviews_used: false
+  decisive_sources_rechecked_independently: true
+material_correction:
+  code: CURRENT_NATIVE_RERUN_ACTIONS_MUST_BE_IN_CATALOG
+  finding: >-
+    Frozen LocalConversation exposes rerun_actions in addition to fork. Its
+    first-party contract warns that tool operations are commonly non-idempotent
+    and state-dependent, so it is a strong replay baseline but not complete
+    two-arm isolation or direct absorption.
+gate_closure_requirements:
+  - Complete current native action/state catalog including fork, branch/persistence, rerun_actions, direct tools, terminals, plugins/clients/processes, hooks/security/secrets and external mutable state.
+  - A keep-shared/split/stop-and-independent-fallback transition relation with a predeclared immutable equivalence predicate and no cross-arm leakage.
+  - Transformers-4.44/Qwen processed-distribution parity and an induction proving each arm's marginal across token, tool, workspace, terminal and fallback transitions.
+  - A target-specific nonproduct SDK-state recurrence/certificate beyond generic Gumbel coupling, paired statistics and restart bookkeeping.
+  - Conservative no-gain/full-cost frontier and a finite exhaustive oracle with explicit falsifiers.
+failure_sentinel: STOP__GENERIC_TOKEN_COUPLING_OR_NONISOLATED_SDK_BRANCH
+failure_branches:
+  - DIRECT_ABSORPTION_BY_CURRENT_SDK_CAR_AND_TOKEN_COUPLING_UNION
+  - MARGINAL_INVALID_OR_NONISOLATED_RETAINED_PAIR
+  - GENERIC_PRODUCT_ONLY_NO_SDK_SPECIFIC_FRONTIER
+search_status: SEARCH_BOUNDED_OPEN
+user_action_required: false
+authorized_next_action: >-
+  MAINLINE may assign the already frozen sole static revision gate to the
+  authorized owner. This sentry must not execute it and grants no Stage A/B.
+deliverables:
+  confirmation_report: CONFIRMATION_REPORT.md
+  source_log: SOURCE_LOG.md
+  resource_inventory: RESOURCE_INVENTORY.yaml
+  manifest: HASH_MANIFEST.sha256
+unique_write_directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-confirmation
+lane_return_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,34 @@
+schema: portable-toolchain-freeze-v1
+assignment_id: STAGEA-L1-20260810-WEBGRAPH-REFERENCE-FOREST-INITIAL-V8.7
+frozen_at: 2026-08-10T19:18:00+08:00
+installation_scope: LOCAL_DIRECTORY_ONLY
+system_install: false
+global_path_registry_service_mutation: false
+base:
+  project: MSYS2
+  release: 2026-03-22
+  official_asset: msys2-base-x86_64-20260322.sfx.exe
+  url: https://github.com/msys2/msys2-installer/releases/download/2026-03-22/msys2-base-x86_64-20260322.sfx.exe
+  checksum_url: https://github.com/msys2/msys2-installer/releases/download/2026-03-22/msys2-base-x86_64-20260322.sfx.exe.sha256
+  extraction_root: toolchain\msys64
+target_environment: CLANG64
+target_packages_before_signed_repository_resolution:
+  - mingw-w64-clang-x86_64-rust
+  - mingw-w64-clang-x86_64-clang
+  - mingw-w64-clang-x86_64-cmake
+  - mingw-w64-clang-x86_64-ninja
+  - make
+version_policy: QUERY_SIGNED_REPOSITORY_AFTER_LOCAL_BASE_SYNC__FREEZE_EXACT_VERSIONS_BEFORE_TARGET_PACKAGE_DOWNLOAD
+resolved_from_signed_repository_at: 2026-08-10T19:27:00+08:00
+exact_target_versions:
+  mingw-w64-clang-x86_64-rust: 1.97.0-1
+  mingw-w64-clang-x86_64-clang: 22.1.8-2
+  mingw-w64-clang-x86_64-cmake: 4.4.2-1
+  mingw-w64-clang-x86_64-ninja: 1.13.2-1
+  make: 4.4.1-3
+package_policy: SIGNATURE_AND_INTEGRITY_CHECK_REQUIRED__CACHE_AND_INSTALL_ROOT_INSIDE_TOPIC
+build_boundary:
+  cargo_home: toolchain\cargo-home
+  cargo_target_dir: build\cargo-target
+  process_local_path_only: true
+  candidate_or_natural_run_before_fidelity_pass: false

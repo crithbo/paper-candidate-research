@@ -1,0 +1,36 @@
+schema: rule-audit-luna-xhigh-blind-fallback-handoff-v1
+audit_id: RULE-AUDIT-20260826-LUNA-XHIGH-BLIND-FALLBACK-R1
+created_at: '2026-08-26'
+from_role: RULE_AUDIT_SENTRY
+to_role: MAINLINE
+status: READY_FOR_SAFE_BOUNDARY_APPLICATION
+user_authorizations:
+  luna_all_routes_xhigh: true
+  nonblind_fallback_if_repeated_identity_recognition: true
+shared_files_modified: false
+model_amendment:
+  every_luna_route: gpt-5.6-luna/xhigh
+  terra_xhigh_default_allowed: false
+  sol_xhigh_default_allowed: false
+  max_default_allowed: false
+blind_status:
+  independent_reviewers_attempted: 1
+  contamination_events: 1
+  scientific_decisions: 0
+  v2_ready: true
+  fresh_v2_reviewer_attempted: false
+blind_next_action: ONE_FRESH_REVIEWER_V2_ATTEMPT
+fallback_trigger: SECOND_INDEPENDENT_REVIEWER_CONTAMINATION_OR_ANY_V2_LEAK
+fallback_mode: NONBLIND_RULE_COMPATIBILITY_AUDIT
+metric_separation:
+  merge_blind_and_nonblind_rates: false
+  nonblind_may_claim_unbiased_recall: false
+requested_mainline_actions:
+  - update all Luna routes in rules registry and plan to xhigh
+  - preserve Terra and Sol xhigh prohibition and global max prohibition
+  - mechanically accept PACKER v2 if hashes and boundaries pass
+  - dispatch exactly one fresh blind Stage0 reviewer
+  - on second contamination stop blind arm and freeze NB1 then NB2 nonblind audit
+  - preserve double-blind auditor key until the selected reveal gate
+next_gate: MAINLINE_ACCEPTANCE_AND_SAFE_DISPATCH
+

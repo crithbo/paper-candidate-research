@@ -1,0 +1,1365 @@
+{
+  "schema_version": "corrected-trace-profiled-stagea-summary-v1",
+  "models": 24,
+  "arms": 192,
+  "eligible_outputs": 192,
+  "all_outputs_same_object": true,
+  "splits": {
+    "train": {
+      "models": 11,
+      "bytes_delta_pct": {
+        "p50": 2.0,
+        "p90": 3.8461538461538463
+      },
+      "trace_warm_delta_pct": {
+        "p50": 0.8064516129032216,
+        "p90": 5.114899925871011
+      },
+      "trace_cold_delta_pct": {
+        "p50": 1.0694399434345816,
+        "p90": 2.197802197802198
+      },
+      "candidate_frontier_models": 6,
+      "candidate_fallback_models": 0
+    },
+    "heldout": {
+      "models": 13,
+      "bytes_delta_pct": {
+        "p50": 1.3761467889908257,
+        "p90": 1.936582251542882
+      },
+      "trace_warm_delta_pct": {
+        "p50": 0.7959479015918917,
+        "p90": 4.024972378713299
+      },
+      "trace_cold_delta_pct": {
+        "p50": 0.9252772913018097,
+        "p90": 1.9128828368632487
+      },
+      "candidate_frontier_models": 9,
+      "candidate_fallback_models": 2
+    },
+    "all": {
+      "models": 24,
+      "bytes_delta_pct": {
+        "p50": 1.5173285821024196,
+        "p90": 3.5168224299065414
+      },
+      "trace_warm_delta_pct": {
+        "p50": 0.8043928378155767,
+        "p90": 4.786780383795305
+      },
+      "trace_cold_delta_pct": {
+        "p50": 0.9498414228583104,
+        "p90": 2.122396792138329
+      },
+      "candidate_frontier_models": 15,
+      "candidate_fallback_models": 2
+    }
+  },
+  "useful_residual_action": {
+    "numerator": 0,
+    "denominator": 1146,
+    "fraction": 0.0,
+    "threshold": 0.1,
+    "pass": false,
+    "train": {
+      "numerator": 0,
+      "denominator": 383
+    },
+    "heldout": {
+      "numerator": 0,
+      "denominator": 763
+    }
+  },
+  "mechanism": {
+    "candidate_expanded_transitions": 153197,
+    "candidate_distinct_raw_merges": 700,
+    "strict_merge_models": 23,
+    "plan_equality_models_by_comparator_arm": {
+      "generated_pack_default": 0,
+      "stable_legal_topo": 2,
+      "stable_dedup_off": 2,
+      "stable_size_matched_capacity": 2,
+      "hot_first_ready": 0,
+      "local_field_order": 0,
+      "generic_bounded_beam": 11
+    }
+  },
+  "aggregate_heldout_executable_frontiers": {
+    "p50": {
+      "vectors": [
+        {
+          "arm": "generated_pack_default",
+          "bytes": 2032.0,
+          "reader_trace_warm_ns": 28.44,
+          "reader_trace_cold_ns": 68824.0,
+          "end_to_end_construction_wall_us": 81.365,
+          "end_to_end_construction_cpu_us": 0.0,
+          "reader_trace_warm_cpu_ns": 0.0,
+          "reader_trace_cold_cpu_ns": 60000.0,
+          "process_peak_rss": 13877248.0,
+          "total_temp_bytes": 2304.0,
+          "fallback": 0.0
+        },
+        {
+          "arm": "stable_legal_topo",
+          "bytes": 2048.0,
+          "reader_trace_warm_ns": 28.24,
+          "reader_trace_cold_ns": 69028.0,
+          "end_to_end_construction_wall_us": 181.869,
+          "end_to_end_construction_cpu_us": 0.0,
+          "reader_trace_warm_cpu_ns": 0.0,
+          "reader_trace_cold_cpu_ns": 60000.0,
+          "process_peak_rss": 13934592.0,
+          "total_temp_bytes": 2704.0,
+          "fallback": 0.0
+        },
+        {
+          "arm": "stable_dedup_off",
+          "bytes": 2144.0,
+          "reader_trace_warm_ns": 28.14,
+          "reader_trace_cold_ns": 68850.0,
+          "end_to_end_construction_wall_us": 175.671,
+          "end_to_end_construction_cpu_us": 0.0,
+          "reader_trace_warm_cpu_ns": 0.0,
+          "reader_trace_cold_cpu_ns": 80000.0,
+          "process_peak_rss": 13934592.0,
+          "total_temp_bytes": 2704.0,
+          "fallback": 0.0
+        },
+        {
+          "arm": "stable_size_matched_capacity",
+          "bytes": 2048.0,
+          "reader_trace_warm_ns": 28.18,
+          "reader_trace_cold_ns": 68990.0,
+          "end_to_end_construction_wall_us": 173.456,
+          "end_to_end_construction_cpu_us": 0.0,
+          "reader_trace_warm_cpu_ns": 0.0,
+          "reader_trace_cold_cpu_ns": 60000.0,
+          "process_peak_rss": 13934592.0,
+          "total_temp_bytes": 3448.0,
+          "fallback": 0.0
+        },
+        {
+          "arm": "hot_first_ready",
+          "bytes": 2048.0,
+          "reader_trace_warm_ns": 28.2,
+          "reader_trace_cold_ns": 68652.0,
+          "end_to_end_construction_wall_us": 183.927,
+          "end_to_end_construction_cpu_us": 0.0,
+          "reader_trace_warm_cpu_ns": 0.0,
+          "reader_trace_cold_cpu_ns": 60000.0,
+          "process_peak_rss": 13934592.0,
+          "total_temp_bytes": 2704.0,
+          "fallback": 0.0
+        },
+        {
+          "arm": "local_field_order",
+          "bytes": 2048.0,
+          "reader_trace_warm_ns": 28.28,
+          "reader_trace_cold_ns": 68706.0,
+          "end_to_end_construction_wall_us": 170.69,
+          "end_to_end_construction_cpu_us": 33.333,
+          "reader_trace_warm_cpu_ns": 0.0,
+          "reader_trace_cold_cpu_ns": 60000.0,
+          "process_peak_rss": 13934592.0,
+          "total_temp_bytes": 2704.0,
+          "fallback": 0.0
+        },
+        {
+          "arm": "generic_bounded_beam",
+          "bytes": 2064.0,
+          "reader_trace_warm_ns": 28.28,
+          "reader_trace_cold_ns": 68772.0,
+          "end_to_end_construction_wall_us": 17950.402,
+          "end_to_end_construction_cpu_us": 18005.0,
+          "reader_trace_warm_cpu_ns": 0.0,
+          "reader_trace_cold_cpu_ns": 80000.0,
+          "process_peak_rss": 13934592.0,
+          "total_temp_bytes": 16640.0,
+          "fallback": 0.0
+        },
+        {
+          "arm": "fb_rcfdp_bounded",
+          "bytes": 2064.0,
+          "reader_trace_warm_ns": 28.22,
+          "reader_trace_cold_ns": 68486.0,
+          "end_to_end_construction_wall_us": 41448.723,
+          "end_to_end_construction_cpu_us": 41000.0,
+          "reader_trace_warm_cpu_ns": 0.0,
+          "reader_trace_cold_cpu_ns": 60000.0,
+          "process_peak_rss": 13934592.0,
+          "total_temp_bytes": 16192.0,
+          "fallback": 0.0
+        }
+      ],
+      "frontier_arms": [
+        "fb_rcfdp_bounded",
+        "generated_pack_default",
+        "hot_first_ready",
+        "local_field_order",
+        "stable_dedup_off",
+        "stable_legal_topo",
+        "stable_size_matched_capacity"
+      ]
+    },
+    "p90": {
+      "vectors": [
+        {
+          "arm": "generated_pack_default",
+          "bytes": 3244.8,
+          "reader_trace_warm_ns": 29.496000000000002,
+          "reader_trace_cold_ns": 69739.2,
+          "end_to_end_construction_wall_us": 127.02360000000003,
+          "end_to_end_construction_cpu_us": 0.0,
+          "reader_trace_warm_cpu_ns": 0.0,
+          "reader_trace_cold_cpu_ns": 80000.0,
+          "process_peak_rss": 14529331.2,
+          "total_temp_bytes": 3768.0,
+          "fallback": 0.0
+        },
+        {
+          "arm": "stable_legal_topo",
+          "bytes": 3254.4000000000005,
+          "reader_trace_warm_ns": 33.52400000000001,
+          "reader_trace_cold_ns": 70725.2,
+          "end_to_end_construction_wall_us": 271.29440000000005,
+          "end_to_end_construction_cpu_us": 33.333,
+          "reader_trace_warm_cpu_ns": 160.00000000000014,
+          "reader_trace_cold_cpu_ns": 80000.0,
+          "process_peak_rss": 14586675.200000001,
+          "total_temp_bytes": 4408.0,
+          "fallback": 0.0
+        },
+        {
+          "arm": "stable_dedup_off",
+          "bytes": 3523.2,
+          "reader_trace_warm_ns": 28.956,
+          "reader_trace_cold_ns": 69446.0,
+          "end_to_end_construction_wall_us": 259.4742,
+          "end_to_end_construction_cpu_us": 806.6666000000007,
+          "reader_trace_warm_cpu_ns": 200.0,
+          "reader_trace_cold_cpu_ns": 80000.0,
+          "process_peak_rss": 14460518.399999999,
+          "total_temp_bytes": 4408.0,
+          "fallback": 0.0
+        },
+        {
+          "arm": "stable_size_matched_capacity",
+          "bytes": 3254.4000000000005,
+          "reader_trace_warm_ns": 28.836,
+          "reader_trace_cold_ns": 69940.0,
+          "end_to_end_construction_wall_us": 257.73260000000005,
+          "end_to_end_construction_cpu_us": 26.66640000000002,
+          "reader_trace_warm_cpu_ns": 0.0,
+          "reader_trace_cold_cpu_ns": 80000.0,
+          "process_peak_rss": 14499840.0,
+          "total_temp_bytes": 5518.4,
+          "fallback": 0.0
+        },
+        {
+          "arm": "hot_first_ready",
+          "bytes": 3251.2000000000003,
+          "reader_trace_warm_ns": 28.648000000000003,
+          "reader_trace_cold_ns": 69502.0,
+          "end_to_end_construction_wall_us": 275.35400000000004,
+          "end_to_end_construction_cpu_us": 33.333,
+          "reader_trace_warm_cpu_ns": 160.00000000000014,
+          "reader_trace_cold_cpu_ns": 80000.0,
+          "process_peak_rss": 14499840.0,
+          "total_temp_bytes": 4408.0,
+          "fallback": 0.0
+        },
+        {
+          "arm": "local_field_order",
+          "bytes": 3238.4,
+          "reader_trace_warm_ns": 28.548000000000002,
+          "reader_trace_cold_ns": 69868.8,
+          "end_to_end_construction_wall_us": 247.685,
+          "end_to_end_construction_cpu_us": 33.333,
+          "reader_trace_warm_cpu_ns": 200.0,
+          "reader_trace_cold_cpu_ns": 80000.0,
+          "process_peak_rss": 14503116.8,
+          "total_temp_bytes": 4408.0,
+          "fallback": 0.0
+        },
+        {
+          "arm": "generic_bounded_beam",
+          "bytes": 3254.4000000000005,
+          "reader_trace_warm_ns": 28.748,
+          "reader_trace_cold_ns": 69345.6,
+          "end_to_end_construction_wall_us": 32700.878200000006,
+          "end_to_end_construction_cpu_us": 32233.333000000006,
+          "reader_trace_warm_cpu_ns": 160.00000000000014,
+          "reader_trace_cold_cpu_ns": 80000.0,
+          "process_peak_rss": 14503116.8,
+          "total_temp_bytes": 34385.600000000006,
+          "fallback": 0.8000000000000007
+        },
+        {
+          "arm": "fb_rcfdp_bounded",
+          "bytes": 3254.4000000000005,
+          "reader_trace_warm_ns": 29.096,
+          "reader_trace_cold_ns": 69712.0,
+          "end_to_end_construction_wall_us": 101592.25640000006,
+          "end_to_end_construction_cpu_us": 101226.66640000003,
+          "reader_trace_warm_cpu_ns": 0.0,
+          "reader_trace_cold_cpu_ns": 80000.0,
+          "process_peak_rss": 14503116.8,
+          "total_temp_bytes": 33956.8,
+          "fallback": 0.8000000000000007
+        }
+      ],
+      "frontier_arms": [
+        "fb_rcfdp_bounded",
+        "generated_pack_default",
+        "generic_bounded_beam",
+        "hot_first_ready",
+        "local_field_order",
+        "stable_dedup_off",
+        "stable_size_matched_capacity"
+      ]
+    }
+  },
+  "candidate_on_heldout_p50_frontier": true,
+  "candidate_on_heldout_p90_frontier": true,
+  "heldout_primary_residual_metrics_at_both_p50_p90": [],
+  "qualifying_full_cost_nondominated_at_required_heldout_p50_p90": false,
+  "killers": [
+    "USEFUL_RESIDUAL_ACTION_FRACTION_BELOW_10_PERCENT",
+    "NO_HELDOUT_P50_AND_P90_RAW_BYTE_OR_PROFILE_TRACE_ACCESS_RESIDUAL"
+  ],
+  "owner_recommendation": "STOP_RECOMMENDED__OWNER_NONFINAL",
+  "quality_tier": "BELOW_Q2_STOP",
+  "evidence_ceiling": "CORRECTED_TRACE_PROFILED_SAME_OBJECT_24_MODEL_STAGEA_NEGATIVE__OWNER_NONFINAL",
+  "pareto_metrics": [
+    "bytes",
+    "reader_trace_warm_ns",
+    "reader_trace_cold_ns",
+    "end_to_end_construction_wall_us",
+    "end_to_end_construction_cpu_us",
+    "reader_trace_warm_cpu_ns",
+    "reader_trace_cold_cpu_ns",
+    "process_peak_rss",
+    "total_temp_bytes",
+    "fallback"
+  ],
+  "pareto_semantics": "whole executable arm vectors only; coordinate-wise union used solely for paired scalar primary residuals",
+  "arm_summaries": {
+    "train": {
+      "generated_pack_default": {
+        "bytes": {
+          "p50": 816.0,
+          "p90": 1000.0
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.24,
+          "p90": 28.74
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69758.0,
+          "p90": 70472.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 57.668,
+          "p90": 64.253
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13385728.0,
+          "p90": 13434880.0
+        },
+        "total_temp_bytes": {
+          "p50": 1024.0,
+          "p90": 1536.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "stable_legal_topo": {
+        "bytes": {
+          "p50": 832.0,
+          "p90": 1016.0
+        },
+        "reader_trace_warm_ns": {
+          "p50": 27.98,
+          "p90": 28.5
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69494.0,
+          "p90": 70584.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 140.867,
+          "p90": 166.512
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13443072.0,
+          "p90": 13484032.0
+        },
+        "total_temp_bytes": {
+          "p50": 1328.0,
+          "p90": 1864.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "stable_dedup_off": {
+        "bytes": {
+          "p50": 880.0,
+          "p90": 1064.0
+        },
+        "reader_trace_warm_ns": {
+          "p50": 27.84,
+          "p90": 28.72
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69906.0,
+          "p90": 70466.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 137.019,
+          "p90": 149.135
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 200.0,
+          "p90": 200.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13443072.0,
+          "p90": 13484032.0
+        },
+        "total_temp_bytes": {
+          "p50": 1328.0,
+          "p90": 1864.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "stable_size_matched_capacity": {
+        "bytes": {
+          "p50": 832.0,
+          "p90": 1016.0
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.36,
+          "p90": 29.3
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69674.0,
+          "p90": 70468.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 137.7,
+          "p90": 165.164
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 33.333
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 80000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13443072.0,
+          "p90": 13492224.0
+        },
+        "total_temp_bytes": {
+          "p50": 1528.0,
+          "p90": 1840.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "hot_first_ready": {
+        "bytes": {
+          "p50": 832.0,
+          "p90": 1016.0
+        },
+        "reader_trace_warm_ns": {
+          "p50": 27.82,
+          "p90": 28.2
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69182.0,
+          "p90": 70068.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 139.139,
+          "p90": 165.348
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 5.0
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 80000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13410304.0,
+          "p90": 13492224.0
+        },
+        "total_temp_bytes": {
+          "p50": 1328.0,
+          "p90": 1864.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "local_field_order": {
+        "bytes": {
+          "p50": 816.0,
+          "p90": 1000.0
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.36,
+          "p90": 28.56
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69074.0,
+          "p90": 70338.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 132.938,
+          "p90": 162.725
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 33.333
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13410304.0,
+          "p90": 13492224.0
+        },
+        "total_temp_bytes": {
+          "p50": 1328.0,
+          "p90": 1864.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "generic_bounded_beam": {
+        "bytes": {
+          "p50": 832.0,
+          "p90": 1008.0
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.32,
+          "p90": 29.1
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69506.0,
+          "p90": 70328.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 6620.477,
+          "p90": 8157.151
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 7000.0,
+          "p90": 8005.0
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 80000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13410304.0,
+          "p90": 13496320.0
+        },
+        "total_temp_bytes": {
+          "p50": 11904.0,
+          "p90": 14016.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "fb_rcfdp_bounded": {
+        "bytes": {
+          "p50": 832.0,
+          "p90": 1008.0
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.22,
+          "p90": 28.52
+        },
+        "reader_trace_cold_ns": {
+          "p50": 68944.0,
+          "p90": 70644.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 16630.202,
+          "p90": 19880.366
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 16000.0,
+          "p90": 20000.0
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 200.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13410304.0,
+          "p90": 13496320.0
+        },
+        "total_temp_bytes": {
+          "p50": 11392.0,
+          "p90": 13568.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      }
+    },
+    "heldout": {
+      "generated_pack_default": {
+        "bytes": {
+          "p50": 2032.0,
+          "p90": 3244.8
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.44,
+          "p90": 29.496000000000002
+        },
+        "reader_trace_cold_ns": {
+          "p50": 68824.0,
+          "p90": 69739.2
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 81.365,
+          "p90": 127.02360000000003
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13877248.0,
+          "p90": 14529331.2
+        },
+        "total_temp_bytes": {
+          "p50": 2304.0,
+          "p90": 3768.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "stable_legal_topo": {
+        "bytes": {
+          "p50": 2048.0,
+          "p90": 3254.4000000000005
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.24,
+          "p90": 33.52400000000001
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69028.0,
+          "p90": 70725.2
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 181.869,
+          "p90": 271.29440000000005
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 33.333
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 160.00000000000014
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13934592.0,
+          "p90": 14586675.200000001
+        },
+        "total_temp_bytes": {
+          "p50": 2704.0,
+          "p90": 4408.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "stable_dedup_off": {
+        "bytes": {
+          "p50": 2144.0,
+          "p90": 3523.2
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.14,
+          "p90": 28.956
+        },
+        "reader_trace_cold_ns": {
+          "p50": 68850.0,
+          "p90": 69446.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 175.671,
+          "p90": 259.4742
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 806.6666000000007
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 200.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 80000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13934592.0,
+          "p90": 14460518.399999999
+        },
+        "total_temp_bytes": {
+          "p50": 2704.0,
+          "p90": 4408.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "stable_size_matched_capacity": {
+        "bytes": {
+          "p50": 2048.0,
+          "p90": 3254.4000000000005
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.18,
+          "p90": 28.836
+        },
+        "reader_trace_cold_ns": {
+          "p50": 68990.0,
+          "p90": 69940.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 173.456,
+          "p90": 257.73260000000005
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 26.66640000000002
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13934592.0,
+          "p90": 14499840.0
+        },
+        "total_temp_bytes": {
+          "p50": 3448.0,
+          "p90": 5518.4
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "hot_first_ready": {
+        "bytes": {
+          "p50": 2048.0,
+          "p90": 3251.2000000000003
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.2,
+          "p90": 28.648000000000003
+        },
+        "reader_trace_cold_ns": {
+          "p50": 68652.0,
+          "p90": 69502.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 183.927,
+          "p90": 275.35400000000004
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 33.333
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 160.00000000000014
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13934592.0,
+          "p90": 14499840.0
+        },
+        "total_temp_bytes": {
+          "p50": 2704.0,
+          "p90": 4408.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "local_field_order": {
+        "bytes": {
+          "p50": 2048.0,
+          "p90": 3238.4
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.28,
+          "p90": 28.548000000000002
+        },
+        "reader_trace_cold_ns": {
+          "p50": 68706.0,
+          "p90": 69868.8
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 170.69,
+          "p90": 247.685
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 33.333,
+          "p90": 33.333
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 200.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13934592.0,
+          "p90": 14503116.8
+        },
+        "total_temp_bytes": {
+          "p50": 2704.0,
+          "p90": 4408.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "generic_bounded_beam": {
+        "bytes": {
+          "p50": 2064.0,
+          "p90": 3254.4000000000005
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.28,
+          "p90": 28.748
+        },
+        "reader_trace_cold_ns": {
+          "p50": 68772.0,
+          "p90": 69345.6
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 17950.402,
+          "p90": 32700.878200000006
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 18005.0,
+          "p90": 32233.333000000006
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 160.00000000000014
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 80000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13934592.0,
+          "p90": 14503116.8
+        },
+        "total_temp_bytes": {
+          "p50": 16640.0,
+          "p90": 34385.600000000006
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.8000000000000007
+        }
+      },
+      "fb_rcfdp_bounded": {
+        "bytes": {
+          "p50": 2064.0,
+          "p90": 3254.4000000000005
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.22,
+          "p90": 29.096
+        },
+        "reader_trace_cold_ns": {
+          "p50": 68486.0,
+          "p90": 69712.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 41448.723,
+          "p90": 101592.25640000006
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 41000.0,
+          "p90": 101226.66640000003
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13934592.0,
+          "p90": 14503116.8
+        },
+        "total_temp_bytes": {
+          "p50": 16192.0,
+          "p90": 33956.8
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.8000000000000007
+        }
+      }
+    },
+    "all": {
+      "generated_pack_default": {
+        "bytes": {
+          "p50": 1068.0,
+          "p90": 3073.5999999999995
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.4,
+          "p90": 28.902
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69249.0,
+          "p90": 70421.0
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 70.1285,
+          "p90": 95.2482
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13494272.0,
+          "p90": 14222540.8
+        },
+        "total_temp_bytes": {
+          "p50": 1536.0,
+          "p90": 3472.8
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "stable_legal_topo": {
+        "bytes": {
+          "p50": 1084.0,
+          "p90": 3067.1999999999994
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.229999999999997,
+          "p90": 32.104
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69364.0,
+          "p90": 70798.2
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 167.76850000000002,
+          "p90": 212.89249999999998
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 33.333
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 139.99999999999986
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13572096.0,
+          "p90": 14283571.2
+        },
+        "total_temp_bytes": {
+          "p50": 1864.0,
+          "p90": 4268.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "stable_dedup_off": {
+        "bytes": {
+          "p50": 1164.0,
+          "p90": 3286.3999999999996
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.130000000000003,
+          "p90": 28.915999999999997
+        },
+        "reader_trace_cold_ns": {
+          "p50": 68859.0,
+          "p90": 70365.20000000001
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 164.4125,
+          "p90": 226.68169999999998
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 709.9998999999993
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 200.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13572096.0,
+          "p90": 14291763.200000001
+        },
+        "total_temp_bytes": {
+          "p50": 1864.0,
+          "p90": 4268.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "stable_size_matched_capacity": {
+        "bytes": {
+          "p50": 1084.0,
+          "p90": 3067.1999999999994
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.22,
+          "p90": 29.222
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69074.0,
+          "p90": 70337.4
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 158.6605,
+          "p90": 211.2939
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 33.333
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 80000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13565952.0,
+          "p90": 14291763.200000001
+        },
+        "total_temp_bytes": {
+          "p50": 1968.0,
+          "p90": 5213.6
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "hot_first_ready": {
+        "bytes": {
+          "p50": 1084.0,
+          "p90": 3055.9999999999995
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.14,
+          "p90": 28.642000000000003
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69062.0,
+          "p90": 69775.4
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 164.467,
+          "p90": 213.97349999999997
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 33.333
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 0.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13576192.0,
+          "p90": 14291763.200000001
+        },
+        "total_temp_bytes": {
+          "p50": 1864.0,
+          "p90": 4268.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "local_field_order": {
+        "bytes": {
+          "p50": 1068.0,
+          "p90": 3051.2
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.29,
+          "p90": 28.56
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69045.0,
+          "p90": 70238.8
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 157.04950000000002,
+          "p90": 201.9665
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 0.0,
+          "p90": 33.333
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 200.0
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13576192.0,
+          "p90": 14291763.200000001
+        },
+        "total_temp_bytes": {
+          "p50": 1864.0,
+          "p90": 4268.0
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "generic_bounded_beam": {
+        "bytes": {
+          "p50": 1080.0,
+          "p90": 3067.1999999999994
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.28,
+          "p90": 29.004
+        },
+        "reader_trace_cold_ns": {
+          "p50": 69076.0,
+          "p90": 70195.2
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 8664.7975,
+          "p90": 24573.280899999998
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 9500.0,
+          "p90": 24123.333099999996
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 139.99999999999986
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 80000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13578240.0,
+          "p90": 14291763.200000001
+        },
+        "total_temp_bytes": {
+          "p50": 13312.0,
+          "p90": 26986.4
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      },
+      "fb_rcfdp_bounded": {
+        "bytes": {
+          "p50": 1080.0,
+          "p90": 3067.1999999999994
+        },
+        "reader_trace_warm_ns": {
+          "p50": 28.22,
+          "p90": 29.064
+        },
+        "reader_trace_cold_ns": {
+          "p50": 68778.0,
+          "p90": 70253.2
+        },
+        "end_to_end_construction_wall_us": {
+          "p50": 21421.341,
+          "p90": 51717.139899999995
+        },
+        "end_to_end_construction_cpu_us": {
+          "p50": 21002.5,
+          "p90": 51600.0
+        },
+        "reader_trace_warm_cpu_ns": {
+          "p50": 0.0,
+          "p90": 139.99999999999986
+        },
+        "reader_trace_cold_cpu_ns": {
+          "p50": 60000.0,
+          "p90": 80000.0
+        },
+        "process_peak_rss": {
+          "p50": 13570048.0,
+          "p90": 14273331.200000001
+        },
+        "total_temp_bytes": {
+          "p50": 12928.0,
+          "p90": 26506.4
+        },
+        "fallback": {
+          "p50": 0.0,
+          "p90": 0.0
+        }
+      }
+    }
+  }
+}

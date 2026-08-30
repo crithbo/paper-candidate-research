@@ -1,0 +1,212 @@
+{
+  "schema": "zcmp-natural-pilot-analysis-v1",
+  "source_results_sha256": "C35E3AAAB005AB8D4A2B5DC64E7A647FCA673315FDA0E14D50529FEFA2943E73",
+  "canonical_eligibility_sha256": "7F8EDA91D673C7E1D83F9834D094715F6D9D93739473087040F463CC8ABEE4E9",
+  "canonical_eligible_set_matches_single_function_replay": true,
+  "quantile_method": "nearest_rank; p50=ceil(0.50*n), p90=ceil(0.90*n)",
+  "same_information": true,
+  "native_pipeline": {
+    "candidate_pass": 11,
+    "candidate_total": 11,
+    "current_union_pass": 72,
+    "current_union_total": 72
+  },
+  "denominator": {
+    "canonical_modules": 23,
+    "canonical_functions_screened": 273,
+    "initial_eligible_functions": 5,
+    "eligible_after_exact_single_function_replay": 4,
+    "excluded_before_candidate_vs_union_outcome": [
+      {
+        "function": "freeecc",
+        "status": "EXCLUDED_RESULT_INDEPENDENTLY_AFTER_EXACT_SINGLE_FUNCTION_REPLAY",
+        "reason_tail": "ValueError: no scalar virtual register is live across the call"
+      }
+    ]
+  },
+  "action_coverage": {
+    "candidate_native_action_count": 11,
+    "raw_distinct_actions_outside_union_by_assembly_hash": 8,
+    "raw_distinct_action_fraction": 0.7272727272727273,
+    "useful_residual_function_count": 0,
+    "useful_residual_function_fraction": 0.0,
+    "registered_minimum_fraction": 0.1,
+    "registered_minimum_met": false,
+    "important_distinction": "raw action distinctness is not useful residual without strict code-size or frame primary benefit"
+  },
+  "paired_summary_candidate_minus_union": {
+    "function_text_bytes": {
+      "p50": 0,
+      "p90": 0
+    },
+    "frame_bytes": {
+      "p50": 0,
+      "p90": 0
+    },
+    "full_construction_cpu_seconds": {
+      "p50": 0.15625,
+      "p90": 0.21875
+    },
+    "full_construction_wall_seconds": {
+      "p50": 0.17662099999999997,
+      "p90": 0.25507269999999993
+    }
+  },
+  "functions": [
+    {
+      "module": "nettle-aes__nettle-aes",
+      "function": "aes_invert_key",
+      "interface_width": 2,
+      "candidate_plan_count": 5,
+      "current_union_arm_count": 18,
+      "raw_candidate_actions_outside_union_by_assembly_hash": 5,
+      "candidate_best": {
+        "name": "plan_0000",
+        "function_text_bytes": 28,
+        "frame_bytes": 16,
+        "cpu_seconds": 0.265625,
+        "wall_seconds": 0.5721867999999999,
+        "peak_working_set_bytes": 18804736,
+        "assembly_sha256": "9EC02AF194F1DEB048E64F8CDD4449A1F78095C8B4B8AFE0AF86EB8470A792D7",
+        "push": "{ra, s0-s1}, -16",
+        "popret": "{ra, s0-s1}, 16"
+      },
+      "current_union_best": {
+        "name": "greedy_first_cost_1",
+        "function_text_bytes": 28,
+        "frame_bytes": 16,
+        "cpu_seconds": 0.109375,
+        "wall_seconds": 0.35072529999999996,
+        "peak_working_set_bytes": 22208512,
+        "assembly_sha256": "FE604B03F6C866A24111A059274F5B3B4AE9340DCD6016C6182C6C426B0F1D40",
+        "push": "{ra, s0-s1}, -16",
+        "popret": "{ra, s0-s1}, 16"
+      },
+      "paired_delta_candidate_minus_union": {
+        "function_text_bytes": 0,
+        "frame_bytes": 0,
+        "full_construction_cpu_seconds": 0.15625,
+        "full_construction_wall_seconds": 0.22146149999999992
+      },
+      "strict_primary_benefit": false,
+      "useful_residual": false
+    },
+    {
+      "module": "nettle-sha256__nettle-sha256",
+      "function": "sha256_init",
+      "interface_width": 1,
+      "candidate_plan_count": 2,
+      "current_union_arm_count": 18,
+      "raw_candidate_actions_outside_union_by_assembly_hash": 1,
+      "candidate_best": {
+        "name": "plan_0000",
+        "function_text_bytes": 38,
+        "frame_bytes": 16,
+        "cpu_seconds": 0.328125,
+        "wall_seconds": 0.5574939999999999,
+        "peak_working_set_bytes": 18767872,
+        "assembly_sha256": "CE78BAE8BF9040D595B09757B89CDEC908F2E55158C6DF898137590F7044AD3B",
+        "push": "{ra, s0}, -16",
+        "popret": "{ra, s0}, 16"
+      },
+      "current_union_best": {
+        "name": "greedy_first_cost_1",
+        "function_text_bytes": 38,
+        "frame_bytes": 16,
+        "cpu_seconds": 0.109375,
+        "wall_seconds": 0.38087299999999996,
+        "peak_working_set_bytes": 17633280,
+        "assembly_sha256": "CE78BAE8BF9040D595B09757B89CDEC908F2E55158C6DF898137590F7044AD3B",
+        "push": "{ra, s0}, -16",
+        "popret": "{ra, s0}, 16"
+      },
+      "paired_delta_candidate_minus_union": {
+        "function_text_bytes": 0,
+        "frame_bytes": 0,
+        "full_construction_cpu_seconds": 0.21875,
+        "full_construction_wall_seconds": 0.17662099999999997
+      },
+      "strict_primary_benefit": false,
+      "useful_residual": false
+    },
+    {
+      "module": "sglib-combined__combined",
+      "function": "sglib_rbtree_add",
+      "interface_width": 1,
+      "candidate_plan_count": 2,
+      "current_union_arm_count": 18,
+      "raw_candidate_actions_outside_union_by_assembly_hash": 1,
+      "candidate_best": {
+        "name": "plan_0000",
+        "function_text_bytes": 28,
+        "frame_bytes": 16,
+        "cpu_seconds": 0.25,
+        "wall_seconds": 0.5576363,
+        "peak_working_set_bytes": 17510400,
+        "assembly_sha256": "D23C9DF5028977ED878AE7964A6A027EF42124658F747FA417C91D14B1DEEFB9",
+        "push": "{ra, s0}, -16",
+        "popret": "{ra, s0}, 16"
+      },
+      "current_union_best": {
+        "name": "greedy_shrink_off",
+        "function_text_bytes": 28,
+        "frame_bytes": 16,
+        "cpu_seconds": 0.09375,
+        "wall_seconds": 0.38843740000000004,
+        "peak_working_set_bytes": 17465344,
+        "assembly_sha256": "D23C9DF5028977ED878AE7964A6A027EF42124658F747FA417C91D14B1DEEFB9",
+        "push": "{ra, s0}, -16",
+        "popret": "{ra, s0}, 16"
+      },
+      "paired_delta_candidate_minus_union": {
+        "function_text_bytes": 0,
+        "frame_bytes": 0,
+        "full_construction_cpu_seconds": 0.15625,
+        "full_construction_wall_seconds": 0.16919889999999993
+      },
+      "strict_primary_benefit": false,
+      "useful_residual": false
+    },
+    {
+      "module": "sglib-combined__combined",
+      "function": "sglib_rbtree_it_next",
+      "interface_width": 1,
+      "candidate_plan_count": 2,
+      "current_union_arm_count": 18,
+      "raw_candidate_actions_outside_union_by_assembly_hash": 1,
+      "candidate_best": {
+        "name": "plan_0000",
+        "function_text_bytes": 16,
+        "frame_bytes": 16,
+        "cpu_seconds": 0.328125,
+        "wall_seconds": 0.6054968999999999,
+        "peak_working_set_bytes": 17559552,
+        "assembly_sha256": "76ADE60C1AE38C210C6D26193576290C15BAD7BF021A3F5D65CAD6B22A0B4DE3",
+        "push": "{ra, s0}, -16",
+        "popret": "{ra, s0}, 16"
+      },
+      "current_union_best": {
+        "name": "greedy_no_hints_no_cost",
+        "function_text_bytes": 16,
+        "frame_bytes": 16,
+        "cpu_seconds": 0.109375,
+        "wall_seconds": 0.35042419999999996,
+        "peak_working_set_bytes": 20992000,
+        "assembly_sha256": "76ADE60C1AE38C210C6D26193576290C15BAD7BF021A3F5D65CAD6B22A0B4DE3",
+        "push": "{ra, s0}, -16",
+        "popret": "{ra, s0}, 16"
+      },
+      "paired_delta_candidate_minus_union": {
+        "function_text_bytes": 0,
+        "frame_bytes": 0,
+        "full_construction_cpu_seconds": 0.21875,
+        "full_construction_wall_seconds": 0.25507269999999993
+      },
+      "strict_primary_benefit": false,
+      "useful_residual": false
+    }
+  ],
+  "owner_scientific_recommendation": "STOP",
+  "reason": "0/4 useful natural residuals; candidate best primary points are matched by the complete executable current union and add planner cost",
+  "evidence_ceiling": "BOUNDED_STAGEA_SCIENTIFIC_NEGATIVE__OWNER_RECOMMENDATION__INDEPENDENT_GATE_REQUIRED"
+}

@@ -1,0 +1,25 @@
+audit_id: RULE-AUDIT-20260815-SOURCE62-63-CONSECUTIVE-ZERO-BRIEF-R47
+role: RULE-AUDIT-SENTRY
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+decision: NO_CHANGE
+recommendation: RETAIN_ORDINARY_R40__SINGLE_PROJECT_CLOSURE_QUEUE_SEPARATION__NO_SUCCESSOR_MICRO_RULE
+contract: {path: stages/rule-audit/_assignments/RULE_AUDIT_SOURCE62_63_ZERO_BRIEF_R47.yaml, sha256: 03912FF0A1BFC4E396D87668EC6B0E414051BF8520501424445133EAD029B397}
+scope: {included: [Source62_canonical_handoffs_and_queues, Source63_canonical_handoffs_and_queues, current_shared_rules], excluded: [Source64_all_files_and_outcomes, external_retrieval, queue_execution]}
+findings:
+  source62: {raw: 0, clean_brief: 0}
+  source63: {raw: 0, clean_brief: 0, ocaml_single_project_queue: UNRESOLVED_BACKLOG__MECHANICAL_UNAVAILABILITY}
+  new_attributable_rule_evidence: false
+  rule_defect_observed: false
+authorization: {user_policy_approval_required: false, backtest_required: false, shared_files_modified: false, source64_read: false, no_queue_or_external_action_authorized: true}
+mainline_action:
+  - Continue ordinary R40 only at a future safe boundary.
+  - Retain OCaml closure queue under its separately frozen owner and resume boundary.
+  - Do not add a successor micro-rule from R47.
+resource_localization: {inventory: RESOURCE_INVENTORY.yaml, resource_actions: 0, validation: PASS__EMPTY_ROOT_NO_RESOURCE_ACTION}
+validation:
+  required_files_present: PASS
+  manifest_replay: PASS_5_OF_5
+  key_counts: {source62_raw: 0, source62_clean_brief: 0, source63_raw: 0, source63_clean_brief: 0}
+  source64_read: false
+  external_actions: 0
+  shared_write: false

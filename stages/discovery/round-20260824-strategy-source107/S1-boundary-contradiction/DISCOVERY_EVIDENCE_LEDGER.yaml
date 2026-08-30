@@ -1,0 +1,231 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE107-SINGLE-GPU-LLM-SOFTWARE-V1
+opportunity_family_id: null
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+cutoff: '2026-08-24'
+opportunity_family:
+  canonical_signature: null
+  relations: []
+queries:
+  - query_id: Q107-01
+    text: torch.compile current dynamic shapes guards recompilation eager fallback
+    purpose: current first-party source closure for the compiler-side boundary
+    source_or_search_engine: PyTorch first-party documentation and source
+    executed_at: '2026-08-24'
+    filters: [current public first-party]
+    read_depth: SOURCE
+    key_result_ids: [S107-01, S107-02, S107-03]
+    exclusions_with_reasons: []
+    state_change: current dynamic-shape control and diagnostics identified
+  - query_id: Q107-02
+    text: TorchAO current int4 dynamic quantization packing torch.compile source
+    purpose: identify exact low-bit operator configuration and current dispatch/lowering surface
+    source_or_search_engine: TorchAO first-party documentation and source
+    executed_at: '2026-08-24'
+    filters: [current public first-party]
+    read_depth: SOURCE
+    key_result_ids: [S107-04, S107-05, S107-06]
+    exclusions_with_reasons: []
+    state_change: configurations and supported packing/granularity surface identified
+  - query_id: Q107-03
+    text: torch.compile CUDA graph dynamic shapes capture current behavior
+    purpose: current collision closure for capture-island formulation
+    source_or_search_engine: PyTorch first-party documentation and source
+    executed_at: '2026-08-24'
+    filters: [current public first-party]
+    read_depth: SOURCE
+    key_result_ids: [S107-07]
+    exclusions_with_reasons: []
+    state_change: dynamic CUDA graph rerecord/skip/padding behavior identified
+  - query_id: Q107-04
+    text: Triton current ragged mask tail matmul low-bit dynamic shape and TorchAO compile issue
+    purpose: contrary/generic-kernel and specific-gap search
+    source_or_search_engine: public first-party source plus issue tracker
+    executed_at: '2026-08-24'
+    filters: [public only, issue not admitted as sole anchor]
+    read_depth: SOURCE
+    key_result_ids: [S107-08, S107-09]
+    exclusions_with_reasons: [single unreduced issue cannot be a paper anchor or source of a new same-object claim]
+    state_change: generic masked-tail capability and isolated issue-only failures recorded
+sources:
+  - source_id: S107-01
+    title_or_artifact: torch.compile API documentation
+    canonical_version: PyTorch 2.13 documentation viewed 2026-08-24
+    locator: https://docs.pytorch.org/docs/stable/generated/torch.compile
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [dynamic shape tracing, guard failure, recompile limit, eager fallback, Inductor, CUDA graph modes]
+    repository_commit_config_or_dataset_hash: documentation current view; no resource acquired
+  - source_id: S107-02
+    title_or_artifact: Dynamic Shapes Core Concepts and Troubleshooting
+    canonical_version: PyTorch documentation current/stable views 2026-08-24
+    locator: https://docs.pytorch.org/docs/main/user_guide/torch_compiler/torch.compiler_dynamic_shapes.html
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [automatic dynamic, user annotations, guards, dynamic sources, overspecialization diagnostics]
+    repository_commit_config_or_dataset_hash: documentation current view; no resource acquired
+  - source_id: S107-03
+    title_or_artifact: pytorch/pytorch torch/_dynamo/config.py
+    canonical_version: main branch viewed 2026-08-24
+    locator: https://github.com/pytorch/pytorch/blob/main/torch/_dynamo/config.py
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [automatic_dynamic_shapes, recompile_limit, dynamic-output capture controls]
+    repository_commit_config_or_dataset_hash: main branch current view; no resource acquired
+  - source_id: S107-04
+    title_or_artifact: torchao Quantized Inference
+    canonical_version: torchao 0.17 documentation, 2026-03-25
+    locator: https://docs.pytorch.org/ao/stable/workflows/inference.html
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [int4 weight-only, dynamic activation int4, group sizes, public Llama example reference]
+    repository_commit_config_or_dataset_hash: documentation version 0.17
+  - source_id: S107-05
+    title_or_artifact: pytorch/ao current quant_api
+    canonical_version: main branch viewed 2026-08-24
+    locator: https://github.com/pytorch/ao/blob/main/torchao/quantization/quant_api.py
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [Int4WeightOnlyConfig, group-size choices, packing format, recommended Inductor config]
+    repository_commit_config_or_dataset_hash: main branch current view; no resource acquired
+  - source_id: S107-06
+    title_or_artifact: pytorch/ao repository overview
+    canonical_version: main branch viewed 2026-08-24
+    locator: https://github.com/pytorch/ao
+    source_role: NATURAL_CARRIER
+    read_depth: SOURCE
+    normalized_variants: [torch.compile across most HuggingFace models, int4 examples]
+    repository_commit_config_or_dataset_hash: main branch current view; no resource acquired
+  - source_id: S107-07
+    title_or_artifact: CUDAGraph Trees
+    canonical_version: PyTorch 2.13 documentation updated 2026-02-21
+    locator: https://docs.pytorch.org/docs/stable/user_guide/torch_compiler/torch.compiler_cudagraph_trees.html
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [dynamic shape rerecording, skip dynamic graphs, padding guidance, memory cost]
+    repository_commit_config_or_dataset_hash: documentation current view; no resource acquired
+  - source_id: S107-08
+    title_or_artifact: triton-lang/triton current matmul and masked-tail examples
+    canonical_version: main branch viewed 2026-08-24
+    locator: https://github.com/triton-lang/triton/blob/main/python/triton_kernels/triton_kernels/matmul.py
+    source_role: GENERIC_KERNEL
+    read_depth: SOURCE
+    normalized_variants: [ragged dimensions, runtime shape inputs, masks]
+    repository_commit_config_or_dataset_hash: main branch current view; no resource acquired
+  - source_id: S107-09
+    title_or_artifact: TorchAO float8+torch.compile issue 4438
+    canonical_version: issue opened 2026-05-25
+    locator: https://github.com/pytorch/ao/issues/4438
+    source_role: CONTRARY
+    read_depth: SECTIONS
+    normalized_variants: [missing Meta/fake registration, float8 MSLK, issue-only]
+    repository_commit_config_or_dataset_hash: issue-only; not an admissible anchor
+claims:
+  - claim_id: C107-01
+    text: Current torch.compile already provides automatic and user-directed dynamic-shape mechanisms, guard/recompile diagnostics, dynamic-source controls and eager fallback after its cache/recompile boundary.
+    priority: HIGH
+    priority_rationale: determines whether a proposed dynamic-shape guard treatment is merely a configuration/diagnostic wrapper.
+    source_links:
+      - source_id: S107-01
+        relation: DIRECT
+        locator: dynamic, recompile_limit, fullgraph and options sections
+        evidence_status: DIRECT_OBSERVATION
+        conflict: none found
+        permitted_conclusion: no generic dynamic-shape/guard management action is a residual without a named exact source-level low-bit exception.
+      - source_id: S107-02
+        relation: DIRECT
+        locator: automatic dynamic and guards sections
+        evidence_status: DIRECT_OBSERVATION
+        conflict: none found
+        permitted_conclusion: overspecialization is diagnosable but documentation does not by itself establish a novel low-bit action.
+      - source_id: S107-03
+        relation: DIRECT
+        locator: automatic_dynamic_shapes and recompile configuration
+        evidence_status: DIRECT_OBSERVATION
+        conflict: none found
+        permitted_conclusion: a generic recompile/mark-dynamic policy is current implementation behavior.
+  - claim_id: C107-02
+    text: Current TorchAO exposes low-bit configuration, group-size and packing-format choices and is documented as composing with torch.compile across most HuggingFace models.
+    priority: HIGH
+    priority_rationale: bounds the proposed low-bit layout-certificate, configuration and fallback ideas.
+    source_links:
+      - source_id: S107-04
+        relation: DIRECT
+        locator: int4/float8 inference workflow table
+        evidence_status: DIRECT_OBSERVATION
+        conflict: exact dynamic-shape fallback locus not established.
+        permitted_conclusion: configurations are not evidence of a new compiler action.
+      - source_id: S107-05
+        relation: DIRECT
+        locator: Int4WeightOnlyConfig source
+        evidence_status: DIRECT_OBSERVATION
+        conflict: no named code-generation-only low-bit fallback was found.
+        permitted_conclusion: a new packing format or dispatch metadata path would be high-risk repeat/generic work.
+      - source_id: S107-06
+        relation: DIRECT
+        locator: repository overview
+        evidence_status: AUTHOR_CLAIM
+        conflict: “most” models is not an exact LLM carrier/guarantee.
+        permitted_conclusion: it supplies broad compatibility context only, not raw admission.
+  - claim_id: C107-03
+    text: Current CUDAGraph Trees already describes dynamic-shape rerecording, dynamic-graph skip and shape padding; a bare captured-island or capture partition formulation is consequently current/generic unless a separately evidenced low-bit semantic boundary remains.
+    priority: HIGH
+    priority_rationale: RQ-S107-04 current collision check.
+    source_links:
+      - source_id: S107-07
+        relation: DIRECT
+        locator: Dynamic Shape Support section
+        evidence_status: DIRECT_OBSERVATION
+        conflict: no exact low-bit exception established.
+        permitted_conclusion: no capture-island raw package is admitted.
+  - claim_id: C107-04
+    text: Triton current kernels support runtime-shape/ragged handling and masking patterns; meanwhile the only searched TorchAO compile failure was an issue-level missing Meta registration rather than a public native LLM carrier plus non-generic action.
+    priority: MEDIUM
+    priority_rationale: rejects tail decomposition and single-issue repair as evidence-qualified raw.
+    source_links:
+      - source_id: S107-08
+        relation: OPPOSE
+        locator: matmul ragged-dimension path and masked-tail kernel patterns
+        evidence_status: DIRECT_OBSERVATION
+        conflict: generic Triton source does not prove exact tinygemm coverage.
+        permitted_conclusion: it prevents treating masking alone as a novel action.
+      - source_id: S107-09
+        relation: OPPOSE
+        locator: issue description
+        evidence_status: AUTHOR_CLAIM
+        conflict: single unreduced issue, float8/MSLK rather than the frozen exact object.
+        permitted_conclusion: excluded as single-issue replay; no raw admission.
+direct_coverage:
+  target_source_or_union: current torch.compile, TorchAO and Triton public union sampled in Q107-01..Q107-04
+  predicates:
+    same_object_function_protocol: UNKNOWN
+    same_scenario_workload: UNKNOWN
+    same_or_weaker_information: UNKNOWN
+    atomic_action_covered: UNKNOWN
+    same_or_stronger_legality_quality_guarantee: UNKNOWN
+    same_nonworse_full_cost: UNKNOWN
+    comparable_scale_platform_version_config: UNKNOWN
+    sufficient_read_or_reproduction_depth: UNKNOWN
+independent_prior_current_audit:
+  owner_or_lane: DISCOVERY_S1 bounded source closure; independent Stage0 audit not invoked
+  query_ids: [Q107-01, Q107-02, Q107-03, Q107-04]
+  completed: false
+stopping:
+  high_impact_items_bounded: true
+  latest_and_current_union_checked: true
+  first_party_depth_sufficient: true
+  heterogeneous_independent_path_complete: true
+  contrary_search_complete: true
+  natural_or_canonical_carrier_frozen: false
+  full_cost_frozen: false
+  marginal_sources_no_longer_decision_changing: true
+  decisive_contradictions_resolved_or_bounded: true
+  disposition: NOT_ADMITTED_UNFROZEN
+execution_readiness:
+  state: E0
+  e1_evidence: []
+  e2_authorization_id: ''
+  e2_allowlist: {}
+  e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0
+  scientific_inference_permitted: false
+claim_ceiling: NO_RAW_ADMISSION__NO_CLAIM

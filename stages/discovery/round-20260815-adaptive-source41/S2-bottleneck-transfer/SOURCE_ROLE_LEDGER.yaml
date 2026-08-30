@@ -1,0 +1,22 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE41-TERRA-HIGH-RQ-BASELINE
+network_calls: 3
+sources:
+  - id: SRC-01
+    role: ANCHOR_AND_CURRENT_UNION
+    url: https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/bufferreg.html
+    publisher: NVIDIA
+    version_or_date: current documentation accessed 2026-08-15
+    evidence: registration, window, VMM allocation, and relevant enable/disable configuration are native exposed actions.
+  - id: SRC-02
+    role: ANCHOR_AND_CURRENT_UNION
+    url: https://docs.nvidia.com/cuda/cuda-programming-guide/04-special-topics/cuda-graphs.html
+    publisher: NVIDIA
+    version_or_date: current documentation accessed 2026-08-15
+    evidence: device graph launch requires supported instantiated/uploaded graphs and supplies native launch modes.
+  - id: SRC-03
+    role: CONTRARY
+    url: https://www.openmp.org/spec-html/5.2/openmpse94.html
+    publisher: OpenMP Architecture Review Board
+    version_or_date: OpenMP 5.2
+    evidence: nowait changes synchronization/task generation semantics; it is not a new target-specific whole constructor.
+integrity_note: Official primary documentation only. No downloads, resource-producing actions, builds, or experiments occurred.

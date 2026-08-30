@@ -1,0 +1,16 @@
+# Source and collision matrix — S3 wave 3
+
+| ID | Natural corpus / first-party carrier | Frozen object and proposed exploit | Closest current mechanism | Collision / gate outcome | Decision |
+|---|---|---|---|---|---|
+| W3-NET-01 | [FastFlow public-dataset evaluation](https://doi.org/10.1145/3727115) | Early packet time series → class-specific bandwidth/queue action | [Söze (OSDI 2025)](https://www.usenix.org/conference/osdi25/presentation/wang-weitao): per-flow weighted bandwidth allocation from switch telemetry | Same operating object once converted to allocation.  Any remaining policy is an online controller; no non-trivial same-object structural mechanism remained. | `DROP__DIRECT_COLLISION_AND_CONTROLLER_SCOPE` |
+| W3-STO-01 | [Alibaba EBS cache dataset](https://github.com/cacheMon/cache_dataset) | Stable I/O hotness/transformability → coding and placement choice | [HALO (2026)](https://doi.org/10.1016/j.future.2026.108562): hotness-aware coding and transformation-efficient placement | Same natural structure and action family.  Replacing the prediction model is ordinary tuning; compaction variants are forbidden terminal-line revival. | `DROP__DIRECT_COLLISION_AND_TERMINAL_LINE_GUARD` |
+| W3-DB-01 | Update-delta workload used in the [EDBT 2026 paper](https://www.cs.uic.edu/~bglavic/dbgroup/assets/pdfpubls/LG26.pdf) | Sparse, overlapping deltas → provenance-sketch incremental maintenance | In-memory Incremental Maintenance of Provenance Sketches (EDBT 2026) | Same algorithmic object, same sparse-delta mechanism, and a direct workload comparison.  No natural public corpus was found that supports a distinct frozen mechanism. | `DROP__DIRECT_COLLISION` |
+| W3-GRAPH-01 | Temporal graph application event streams, as framed in [AM-tree](https://arxiv.org/abs/2504.04619) | Event-order structure → specialized incremental-MST data structure | AM-tree (2025) | Direct same-object data-structure collision with both practical and theoretical claims.  Merely recharacterizing arrival order is descriptive N3. | `DROP__DIRECT_COLLISION` |
+| W3-RUNTIME-01 | [Alibaba GenTD26](https://github.com/alibaba/clusterdata) and [Azure traces](https://github.com/Azure/AzurePublicDataset) | Cross-layer recurring resource envelope → advance reservation/placement | Production allocator and scheduler lineage documented by corpus providers; no frozen, non-controller mechanism isolated | Carrier is strong and reproducible, but the action is a resource-management controller.  No N1/N2/N3 contribution independent of online control was found. | `DROP__MECHANISM_SCOPE_FAILURE` |
+
+## Audit notes
+
+- The matrix uses same-object comparison.  It does not compare performance across different workloads, datasets, or system layers.
+- All named papers were checked after the raw-stage search; none of the raw `SEARCH_BOUNDED_OPEN` labels is used as a novelty conclusion here.
+- No row is converted into a brief because it fails before the required package can honestly freeze N1/N2/N3, a fair strongest baseline, full-cost evaluation, and a finite Stage-A killer.
+- The broad corpus availability in the two official trace repositories is positive evidence only for carrier availability.  It cannot rescue a route with a direct competing mechanism.

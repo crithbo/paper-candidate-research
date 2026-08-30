@@ -1,0 +1,25 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260815-SOURCE87-88-ZERO-BRIEF-R72
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+disposition: NO_CHANGE
+recommendation: RETAIN_ORDINARY_R40__NO_SUCCESSOR_MICRO_RULE__KEEP_PENDING_RAW_CLOSURES_AND_ASSIGNMENT_LOCAL_PACKAGING_SEPARATE_FROM_CLEAN_BRIEF
+assignment: {path: stages/rule-audit/_assignments/RULE_AUDIT_SOURCE87_88_ZERO_BRIEF_R72.yaml, sha256: E668C57B05BB7185AFD02CD20D3151CD02D4846A6451CF114C8FC43331BC1B7F}
+scope: {included: [Source87, Source88], forbidden_input: Source89, source89_read: false, source89_contacted: false, source89_modified: false, queue_execution: false, retrieval_download_experiment_automation: false, shared_files_modified: false}
+canonical_inputs: {source87_control_sha256: 24D069090BB2761288A4B0FF328F96974DAC48C2258F20062613C9EFF7BE9B42, source88_control_sha256: A78A695D4042FBEC17248B049BDCB3F01D491C4666ED2E65CC75B0680B62463E}
+funnel:
+  source87: {evidence_qualified_raw: 1, clean_stage0_brief: 0}
+  source88: {evidence_qualified_raw: 1, clean_stage0_brief: 0}
+separation:
+  S2-87-CQ01: {status: PENDING_UNEXECUTED, attempt_count: 0, source89_evidence: false}
+  S2-88-CQ01: {status: PENDING_UNEXECUTED, attempt_count: 0, source89_evidence: false}
+  source88_s4: {disposition: ASSIGNMENT_LOCAL_MECHANICAL_PACKAGING_ONLY, scientific_fields_changed: false, raw: 0, clean_stage0_brief: 0, resource_actions: 0}
+findings: {new_attributable_rule_defect: false, ordinary_r40_supported: true, successor_micro_rule_justified: false}
+authorization: {user_policy_decision_required: false, mainline_shared_patch_required: false, backtest_required: false}
+validation:
+  required_files: PASS
+  assignment_hash: PASS
+  counts: PASS__SOURCE87_RAW_1_BRIEF_0__SOURCE88_RAW_1_BRIEF_0
+  forbidden_input: PASS__SOURCE89_NOT_READ
+  prohibited_actions: PASS
+  resource_localization: PASS__EMPTY_ROOT
+  manifest_replay: PASS__FIVE_CANONICAL_ARTIFACTS

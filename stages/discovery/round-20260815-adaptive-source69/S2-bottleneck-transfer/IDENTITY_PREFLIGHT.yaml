@@ -1,0 +1,31 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE69-R40-ORDINARY-BREADTH-V1
+method: ALL_HISTORY_FIVE_FIELD_IDENTITY_PREFLIGHT
+result: EXACT_HISTORICAL_IDENTITIES_FOUND
+families:
+  - signature: CAPNPROTO__FIXED_SCHEMA_LOGICAL_MESSAGE_TREE__SEGMENT_POINTER_LAYOUT__STOCK_READER
+    history_match:
+      kind: EXACT_OBJECT_ACTION_ENDPOINT
+      evidence:
+        - history.md:1309
+        - stages/discovery/round-20260811-v8.7-wave226/S5-scale-online-approx/handoff.yaml
+        - stages/discovery/round-20260811-v8.7-wave70/S2-bottleneck-transfer/SOURCE_COLLISION_MATRIX.md
+    disposition: EXCLUDED_REPEATED__HISTORICAL_CAPNPROTO_LAYOUT
+    note: Same format, fixed reader endpoint and segment/layout action; not a merely related format family.
+  - signature: PROTOBUF__FIXED_SCHEMA_MESSAGE_VALUES__ARENA_WIRE_CONSTRUCTION__STOCK_PARSER_REFLECTION
+    history_match:
+      kind: EXACT_OBJECT_ACTION_ENDPOINT
+      evidence:
+        - stages/discovery/round-20260811-v8.7-wave60/S2-bottleneck-transfer/DISCOVERY_LOG.md
+        - stages/discovery/round-20260811-v8.7-wave206/S2-bottleneck-transfer/DISCOVERY_LOG.md
+    disposition: EXCLUDED_REPEATED__HISTORICAL_PROTOBUF_ARENA_WIRE
+    note: Same wire-compatible message and stock parser endpoint; arena/lifetime action was already screened.
+  - signature: AVRO_OCF__FIXED_SCHEMA_RECORD_SEQUENCE__BLOCK_SCHEMA_SYNC_CONSTRUCTION__STOCK_READER
+    history_match:
+      kind: EXACT_OBJECT_ACTION_ENDPOINT
+      evidence:
+        - stages/discovery/round-20260811-v8.7-wave152/S6-direct-algorithm-software/handoff.yaml
+        - stages/discovery/round-20260811-v8.7-wave215/S5-scale-online-approx/DISCOVERY_LOG.md
+    disposition: EXCLUDED_REPEATED__HISTORICAL_AVRO_OCF
+    note: Same object-container/reader endpoint and block/schema/sync construction action.
+five_field_rule: Related-only records would not exclude; these records have same object, action, endpoint, carrier class and prior disposition evidence.
+no_match_is_not_novelty: true

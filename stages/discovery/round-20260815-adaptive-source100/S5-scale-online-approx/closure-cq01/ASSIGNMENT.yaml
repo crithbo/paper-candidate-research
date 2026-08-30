@@ -1,0 +1,88 @@
+schema_version: discovery-prebrief-source-closure-v2
+assignment_id: SOURCE-CLOSURE-RESUME-BATCH02-ITEM02-SOURCE100-S5-PHP-OPCACHE-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+batch_program: PENDING-RAW-BATCHED-RESUME-20260815
+batch_control: stages/discovery/raw-closure-batches/BATCH-20260815-02/CONTROL.yaml
+batch_order: 2
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+public_acquisition_authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+write_owner: ASSIGNED_LONG_LIVED_SOURCE_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source100/S5-scale-online-approx/closure-cq01
+parent_assignment: DISCOVERY-S5-20260815-ADAPTIVE-SOURCE100-R40-ORDINARY-BREADTH-V1
+parent_handoff_sha256: 90FE73CF684408E90E69CEAEA80C31797CC8DF73F211AFD9CFCE8170841FFA89
+parent_queue_sha256: 5FAE40DF57D0128FAB74A49CCF14D5159C610393F36A612606040A1F86705308
+parent_question_card_sha256: 702AB7D544D1EC383149B908C0CC56DF563B8D648CAD8F9F845E3E5FCD31BF26
+queue_item: S5-100-CQ01
+queue_status_at_freeze: PENDING_UNEXECUTED__ATTEMPTS_0__NOT_EXHAUSTED
+claim_ceiling: SOURCE_CLOSURE_ONLY__NO_CLEAN_BRIEF_Q2_PASS_STOP_OR_STAGE_AUTHORITY
+exact_identity:
+  project: php/php-src
+  version: PHP-8.4.0
+  family_signature: PHP_OPCACHE_EXACT_MEMORY_FILE_CACHE__JOINT_VERSIONED_INVALIDATION_RECOURSE
+  object: fixed PHP execution and stock OPcache memory/file-cache acceptance semantics under one fixed script update
+  endpoint: unchanged request result, cache validity/visibility, cross-process behavior, fallback and restart semantics
+  full_cost: [bytecode_correctness, memory_and_file_cache_bytes, stale_residency, lock_restart_work, update_latency, request_cost, validation_cost, cpu_rss_temp, cross_process_semantics]
+deterministic_version_rule: resolve official tag PHP-8.4.0 to one immutable php/php-src commit at the first counted call and pin every retained source to that commit
+allowed_official_routes:
+  - https://api.github.com/repos/php/php-src/commits/PHP-8.4.0
+  - https://api.github.com/repos/php/php-src/contents/ext/opcache?ref=<resolved_commit_sha>
+  - https://api.github.com/repos/php/php-src/contents/ext/opcache/tests?ref=<resolved_commit_sha>
+  - https://www.php.net/manual/en/opcache.configuration.php
+license_and_provenance: {source_license: PHP-3.01, provenance: official php/php-src repository and official PHP manual only}
+deterministic_source_selection:
+  directory: ext/opcache
+  explicit_priority_allowlist: [ZendAccelerator.c, zend_accelerator_module.c, zend_accelerator_util_funcs.c, zend_file_cache.c, zend_shared_alloc.c]
+  rule: use pinned download_url entries in allowlist order within remaining call budget; absent names are recorded without absence inference
+deterministic_test_selection:
+  directory: ext/opcache/tests
+  filename_tokens_in_priority_order: [file_cache, invalidate, reset]
+  rule: choose the lexicographically first direct file containing the first token with any match, then use only its pinned download_url for one call
+fields_to_close:
+  - complete in-memory cache, file-cache, invalidate, reset/restart, timestamp and consistency action union
+  - exact cross-tier validity, visibility, persistence and reclamation ownership boundaries
+  - one fixed stock-legal script-update acceptance/fallback witness and two plans if exposed
+  - whether a union-external PHP-native cross-tier generation/reclamation action and finite guarantee can be frozen
+  - strongest direct current collision and generic cache_generation_or_reclamation_controller objection
+  - finite falsifier and full-cost reconciliation
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_CHANGED_CACHE_ENDPOINT_OR_GENERIC_CACHE_CONTROLLER__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide clean brief, Q2, PASS, STOP, candidate, or stage state
+  - change exact release, script update, execution/cache endpoint, or full-cost denominator
+  - build PHP, run PHP, populate caches, benchmark, install, or execute claim-bearing observation
+  - general repository tree, clone, archive, issue, pull request, paper, mirror or web search
+  - substitute route after 404, empty listing, rate limit or transport failure
+  - infer current absence, novelty, correctness, performance, or exhaustion from missing material
+  - read Batch1 or Batch2 Item1 outputs, any other raw closure output, Source101+ outcome, rule-audit result, held queue, or terminal identity beyond frozen parent files
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source100/S5-scale-online-approx/closure-cq01/resources
+  inventory: stages/discovery/round-20260815-adaptive-source100/S5-scale-online-approx/closure-cq01/RESOURCE_INVENTORY.yaml
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+resource_envelope:
+  max_acquisition_calls: 10
+  max_success_response_bytes_each: 10485760
+  max_network_bytes: 33554432
+  max_persisted_bytes: 33554432
+  max_cpu_hours: 0.5
+  max_gpu_hours: 0
+  max_wall_seconds: 2700
+  pre_call_monotonic_attempt_counter: required
+  build_or_install_allowed: false
+  experiment_allowed: false
+rules:
+  discovery_skill_revision: RESEARCH_TOPIC_DISCOVERY_R1_R40_20260815
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+model_route: {model: gpt-5.6-terra, reasoning: high}
+required_outputs: [SOURCE_CLOSURE_REPORT.md, CURRENT_UPSTREAM_AUDIT.md, RESOURCE_INVENTORY.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+notify_mainline_on_finish_or_blocker: true
+no_next_assignment_may_start: true
+

@@ -1,0 +1,42 @@
+assignment_id: DISCOVERY-S2-20260814-ADAPTIVE-SOURCE34-RQ-PRODUCTION-BASELINE
+lane: S2_BOTTLENECK_TRANSFER
+write_directory: stages/discovery/round-20260814-adaptive-source34/S2-bottleneck-transfer
+method:
+  canonical: V8_7_POTENTIAL_READINESS_SEPARATED
+  rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  claim_pack: OFF
+  v9: OFF
+status: COMPLETE_ZERO_PROPOSALS
+summary_zh: >-
+  三条已冻结 RQ 均在官方 current-union 反方核验中止于 raw 前：CUDA Graph
+  的内存生命周期、Level Zero command-list form 与 XLA collective lowering 分别
+  已由当前原生图/列表/编译器配置动作表达，未冻结 target-specific whole action 或保证。
+funnel:
+  seed_non_evidence: 6
+  rq_selected: 3
+  rq_backlog: 3
+  question_cards: 3
+  evidence_qualified_raw: 0
+  c0_d1_deep: 0
+  clean_stage0_briefs: 0
+dispositions:
+  EXCLUDED_BEFORE_RAW__CURRENT_UNION_OR_SCHEDULER_ONLY: 1
+  EXCLUDED_BEFORE_RAW__CURRENT_UNION_CONFIGURATION_COMPOSITION: 2
+  RQ_BACKLOG__UNFROZEN: 3
+non_product_coupling_check:
+  mode: OFF__NOT_APPLIED
+  behavior_change: NONE
+dedup:
+  source25_through_33_exact_identity_reused: false
+  cooled_identities_reused: false
+  note: SystemZ/RVV/NVPTX-tcgen05 and all active/hold/STOP identities were excluded.
+resource_boundary:
+  resource_producing_run: false
+  resource_inventory_required: false
+  resources_root_used: false
+next_action: >-
+  Mainline may mechanically accept the zero-brief canonical package. Reopen only
+  with an external evidence delta that names a distinct same-object target-specific
+  action and bounded guarantee, not a configuration or scheduler policy.
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+manifest: HASH_MANIFEST.sha256

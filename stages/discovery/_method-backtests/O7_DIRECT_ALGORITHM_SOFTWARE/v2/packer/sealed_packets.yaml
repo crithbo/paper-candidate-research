@@ -1,0 +1,145 @@
+schema_version: discovery-backtest-sealed-packets-v2
+role: DISCOVERY-BACKTEST-PACKER
+opportunity_lens: O7_DIRECT_ALGORITHM_OR_SOFTWARE_ADVANCE
+method_revision: v2
+sealed_at: 2026-08-03T15:40:00+08:00
+executor_rules:
+  - Use only this file and the assigned Discovery role; do not identify hidden targets.
+  - Recover a same-function algorithm/software advance, nontrivial decision structure, strong baseline, full cost ledger, contribution route, evidence route, and abstain decision.
+  - Ordinary tuning, renaming, parameter substitution, or weak-baseline speedup is not a paper contribution.
+packets:
+  - packet_id: S6-POS-01
+    label: positive
+    cutoff_date: 2012-12-31
+    domain_tags: [COMPILER, DSL, HETEROGENEOUS_CODEGEN]
+    paper_inputs:
+      - source_id: P01-A
+        citation: "Whaley, Petitet, and Dongarra (2001), Automated Empirical Optimizations of Software and the ATLAS Project, Parallel Computing 27."
+        public_date: 2001-01-01
+        url: https://doi.org/10.1016/S0167-8191(00)00087-9
+        pre_cutoff_signal: "Search over implementation parameters can produce architecture-tuned numerical kernels."
+      - source_id: P01-B
+        citation: "Thies et al. (2002), StreamIt: A Language for Streaming Applications, CC."
+        public_date: 2002-04-01
+        url: https://doi.org/10.1007/3-540-45937-5_14
+        pre_cutoff_signal: "A stream DSL exposes pipeline structure to compiler transformations."
+      - source_id: P01-C
+        citation: "Püschel et al. (2005), SPIRAL: Code Generation for DSP Transforms, Proceedings of the IEEE 93(2)."
+        public_date: 2005-02-01
+        url: https://doi.org/10.1109/JPROC.2004.840306
+        pre_cutoff_signal: "Declarative transform identities plus search generate high-performance implementations."
+      - source_id: P01-D
+        citation: "Fatahalian et al. (2006), Sequoia: Programming the Memory Hierarchy, SC."
+        public_date: 2006-11-01
+        url: https://doi.org/10.1145/1188455.1188543
+        pre_cutoff_signal: "Explicit hierarchical decomposition separates algorithm structure from machine memory levels."
+      - source_id: P01-E
+        citation: "Catanzaro, Garland, and Keutzer (2011), Copperhead: Compiling an Embedded Data Parallel Language, PPoPP."
+        public_date: 2011-02-01
+        url: https://doi.org/10.1145/1941553.1941562
+        pre_cutoff_signal: "Embedded data-parallel programs can compile to GPUs while retaining a high-level functional surface."
+    public_artifacts:
+      - source_id: P01-F
+        name: ATLAS
+        snapshot_rule: "Source release available no later than cutoff."
+        url: https://sourceforge.net/projects/math-atlas/
+    environment_at_cutoff:
+      - "Image pipelines combine stencils, reductions, global stages, producer-consumer locality, parallelism, and recomputation tradeoffs."
+      - "A credible direct advance should separate what is computed from how it is scheduled so one algorithm can map across CPU/GPU architectures."
+      - "No hidden target language, schedule representation, compiler, benchmark, or later artifact is supplied."
+
+  - packet_id: S6-POS-02
+    label: positive
+    cutoff_date: 2020-06-10
+    domain_tags: [COMPILER, HETEROGENEOUS_CODEGEN, AI_ACCELERATOR]
+    paper_inputs:
+      - source_id: P02-A
+        citation: "Chen et al. (2018), TVM: An Automated End-to-End Optimizing Compiler for Deep Learning, OSDI."
+        public_date: 2018-10-01
+        url: https://www.usenix.org/conference/osdi18/presentation/chen
+        pre_cutoff_signal: "Tensor-expression schedules and learned cost models automate operator tuning across hardware."
+      - source_id: P02-B
+        citation: "Vasilache et al. (2018), Tensor Comprehensions: Framework-Agnostic High-Performance Machine Learning Abstractions."
+        public_date: 2018-02-13
+        url: https://arxiv.org/abs/1802.04730
+        pre_cutoff_signal: "Polyhedral compilation and autotuning search tensor implementations."
+      - source_id: P02-C
+        citation: "Zheng et al. (2018), Learning to Optimize Tensor Programs, NeurIPS Workshop lineage."
+        public_date: 2018-05-29
+        url: https://arxiv.org/abs/1805.08166
+        pre_cutoff_signal: "Learned cost models can prioritize schedules but inherit the expressiveness of the schedule space."
+      - source_id: P02-D
+        citation: "Zheng et al. (2019), FlexTensor: An Automatic Schedule Exploration and Optimization Framework for Tensor Computation on Heterogeneous System, ASPLOS workshop/preprint."
+        public_date: 2019-02-14
+        url: https://arxiv.org/abs/1902.04497
+        pre_cutoff_signal: "Broader scheduling templates improve heterogeneous tensor optimization but enlarge search."
+      - source_id: P02-E
+        citation: "Adams et al. (2019), Learning to Optimize Halide with Tree Search and Random Programs, ACM TOG 38(4)."
+        public_date: 2019-07-01
+        url: https://doi.org/10.1145/3306346.3322967
+        pre_cutoff_signal: "Hierarchical program features and tree search support learned autoscheduling across pipelines."
+    public_artifacts:
+      - source_id: P02-F
+        name: Apache TVM
+        snapshot_rule: "Repository state no later than cutoff."
+        url: https://github.com/apache/tvm
+    environment_at_cutoff:
+      - "Vendor libraries cover common operators; template-based search spaces miss implementations outside their predefined transformations."
+      - "Expanding the space naively worsens search cost, so representation, sketch generation, cost modeling, and multi-task budget allocation must be co-designed."
+      - "No hidden target name, hierarchical representation, search algorithm, task scheduler, or result is supplied."
+
+  - packet_id: S6-POS-03
+    label: positive
+    cutoff_date: 2016-12-31
+    domain_tags: [PIM_NDP_MEMORY_SYSTEM, DRAM, COMPUTER_ARCHITECTURE]
+    paper_inputs:
+      - source_id: P03-A
+        citation: "Seshadri et al. (2013), RowClone: Fast and Energy-Efficient In-DRAM Bulk Data Copy and Initialization, MICRO."
+        public_date: 2013-12-01
+        url: https://doi.org/10.1145/2540708.2540725
+        pre_cutoff_signal: "Existing DRAM row operations can accelerate bulk copy/initialization without moving data over the memory channel."
+      - source_id: P03-B
+        citation: "Li et al. (2016), Pinatubo: A Processing-in-Memory Architecture for Bulk Bitwise Operations in Emerging Non-Volatile Memories, DAC."
+        public_date: 2016-06-01
+        url: https://doi.org/10.1145/2897937.2898064
+        pre_cutoff_signal: "Bulk bitwise operations benefit from computation near memory, but the proposal assumes an emerging NVM substrate."
+      - source_id: P03-C
+        citation: "Seshadri et al. (2016), Buddy RAM: Improving the Performance and Efficiency of Bulk Bitwise Operations Using DRAM, ISCA."
+        public_date: 2016-06-01
+        url: https://doi.org/10.1109/ISCA.2016.22
+        pre_cutoff_signal: "DRAM support for bulk bitwise operations can reduce channel traffic, with explicit command and organization changes."
+    public_artifacts:
+      - source_id: P03-D
+        name: Ramulator
+        snapshot_rule: "Repository and DRAM model state no later than cutoff."
+        url: https://github.com/CMU-SAFARI/ramulator
+    environment_at_cutoff:
+      - "Bulk bitwise operations over large vectors are bandwidth-bound when operands travel to CPU/GPU logic."
+      - "A direct advance should determine whether commodity DRAM cell/sense-amplifier behavior can realize a complete Boolean basis with minimal changes and safe command sequencing."
+      - "All timing, variation, area, and application claims must remain at the evidence class actually demonstrated; no hidden target circuit or result is supplied."
+
+  - packet_id: S6-NEG-01
+    label: negative_control
+    cutoff_date: 2010-12-31
+    domain_tags: [ALGORITHM_DATA_STRUCTURE, CACHE_POLICY]
+    paper_inputs:
+      - source_id: N01-A
+        citation: "Mattson et al. (1970), Evaluation Techniques for Storage Hierarchies, IBM Systems Journal 9(2)."
+        public_date: 1970-06-01
+        url: https://doi.org/10.1147/sj.92.0078
+        pre_cutoff_signal: "Stack algorithms and miss-ratio analysis establish the behavior of LRU-like policies."
+      - source_id: N01-B
+        citation: "Jiang and Zhang (2002), LIRS: An Efficient Low Inter-reference Recency Set Replacement Policy, SIGMETRICS."
+        public_date: 2002-06-01
+        url: https://doi.org/10.1145/511334.511340
+        pre_cutoff_signal: "A nontrivial replacement policy changes the state representation and action rule."
+      - source_id: N01-C
+        citation: "Megiddo and Modha (2003), ARC: A Self-Tuning, Low Overhead Replacement Cache, FAST."
+        public_date: 2003-03-01
+        url: https://www.usenix.org/legacy/events/fast03/tech/megiddo.html
+        pre_cutoff_signal: "Adaptive replacement exposes meaningful competition between recency and frequency."
+    public_artifacts: []
+    environment_at_cutoff:
+      - "Control proposal: rename conventional LRU, keep identical stack state and eviction action, and alter only the cache-capacity parameter already supplied to every baseline."
+      - "No new algorithm, representation, objective, complexity result, or workload-dependent action is present."
+      - "Abstain; a parameter choice or renamed baseline is not O7."

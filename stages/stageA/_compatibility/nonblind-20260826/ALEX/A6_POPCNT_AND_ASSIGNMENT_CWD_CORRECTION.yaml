@@ -1,0 +1,16 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-ALEX-A6-POPCNT
+parent_assignment: NONBLIND-STAGEA-20260826-ALEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A5_POPCNT_AND_CONTAINMENT_BLOCKER.yaml, sha256: 7CE0D48B7756F4D06FE3EB4681A9523ECD10DC4C29B0D06A3D7815A19F4D8D1C}, {path: MAINLINE_CONTAINMENT_RECEIPT.yaml, required: true}]
+only_change: add_explicit_mpopcnt_target_feature_and_use_assignment_local_absolute_output_without_project_root_cwd
+compiler: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\ALEX\resources\env\llvm-mingw-20260616-ucrt-x86_64\bin\clang++.exe
+source: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\ALEX\resources\src\ALEX-4370da6aa8b509fdc9b0d2c49faa0624b0078589\src\examples\main.cpp
+output: E:\project\writing\reserch\stages\stageA\_compatibility\nonblind-20260826\ALEX\resources\build\alex_author_example.exe
+compile_flags: [-std=c++14, -O2, -mpopcnt]
+allowed_command_sequence:
+  - {id: A6S0, command: create_literal_assignment_resources_build_if_absent, stop_on_nonzero: true}
+  - {id: A6S1, command: absolute_clangxx_compile_author_main_once_with_mpopcnt_and_absolute_output_no_project_root_cwd, stop_on_nonzero: true}
+  - {id: A6S2, command: run_existing_author_example_once, stop_on_nonzero: true}
+prohibitions: [project_root_workdir, author_source_edit, CMake_edit, alternate_compiler, redownload, system_or_global_mutation, fidelity_or_probe_before_preclaim]
+scientific_revision_consumed: false

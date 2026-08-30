@@ -1,0 +1,42 @@
+schema: ppc-r9-assignment-local-implementation-audit-v1
+recorded_at: 2026-08-26T07:58:00.9343177+08:00
+implementation_root: resources/src/natural_materializer
+implementation_files: 3
+implementation_files_max: 20
+implementation_files_total_after_A3: 4
+files:
+  - {path: resources/src/natural_materializer/common.py, bytes: 7766, lines: 224, sha256: EE19181CEA403725748E22E0F632ABA97639C81EAABEB0BC6DA16249520414D7}
+  - {path: resources/src/natural_materializer/materializer_harness.py, bytes: 38739, lines: 809, sha256: 6234A3380940D87A2FCDBAA1D08DB3F4893A37901E3854CCD9222F3A035BDC0E}
+  - {path: resources/src/natural_materializer/r10_plan.py, bytes: 13662, lines: 334, sha256: 0366CCC8D98D0489C604A31A56E29761C3EC9C2E3D8479C7909E99652697890C}
+actuality_contract:
+  actual_MIR_parser: true
+  same_function_direct_load_extraction: true
+  PADDI8pc_base_plus_LD_materialization: true
+  CFG_call_return_and_load_identity_checks: true
+  interface_cap_fail_closed: true
+  input_specific_PPC_TPD_backpointers: true
+  method_branches: [ppc_tpd, current_union, form_fixed_current_ra, form_aware_fixed_ra]
+  native_checker_consumes: [transformed_mir, candidate_object, candidate_trace, candidate_command_metrics, candidate_result]
+  full_cost_consumes: [candidate_command_metrics, baseline_command_metrics, candidate_result]
+  r10_checker_and_full_cost_argv_explicit_dependencies: true
+  fixed_synthetic_witness_candidate_alternative_used: false
+binary_build_performed: false
+execution_status: A3_STRUCTURED_REPLAY_EQUALITY_AUDITOR_AND_UNEXECUTED_R10_PLAN_PASS
+source_modifications_after_A1_start: 1_EXACT_A2_AUTHORIZED_TRANSACTION
+source_hashes_match_A2_freeze: true
+static_compile: {A1_status: PASS, A2_status: PASS_ONE_ATTEMPT, implicit_source_pyc_files: 0, A2_audit: A2_A22_STATIC_COMPILE_AUDIT.yaml}
+materializer_controller: {A2_fresh_replays: 2, nested_commands_completed: 34, nested_failures: 0, automatic_retry: false}
+truth_table: {status: PASS_11_OF_11, audit: A2_A23_TRUTH_TABLE_AUDIT.yaml}
+equality_auditor:
+  A2_status: FAIL_CLOSED_CONSTRUCTION
+  A3_status: PASS_STRUCTURED_AFTER_PARSE
+  source: {path: resources/src/replay_equality_auditor/structured_replay_auditor.py, bytes: 30553, sha256: FD5C3E257AA6E29036A53DCE4737BC6005FCE5FAC549469613AFFE81F2C32F17}
+  implementation_files: 1_OF_2_MAX
+  static_compile: PASS_ONE_ATTEMPT
+  validation_controls: PASS_7_OF_7
+  retained_audit: {status: PASS, differences: 0}
+r10_plan: {status: PASS_32_ROWS_GENERATED_VALIDATED_NOT_EXECUTED, canonical_sha256: A1E3D2BF3CD9C62D3F6F64A412080FF24831C3C7D143DD42CB4FCC1357925149}
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_runs: 0
+network_bytes: 0
+scientific_inference: NONE

@@ -1,0 +1,107 @@
+assignment_id: DISCOVERY-S5-20260814-ADAPTIVE-SOURCE26-EVIDENCE-CLOSURE-TRIAD-V1
+retrieval_policy:
+  attempts_per_locator_max: 2
+  successful_response_cap_bytes_per_attempt: 8388608
+  persisted_cap_bytes_per_locator: 16777216
+  lane_response_cap_bytes: 67108864
+  lane_persisted_cap_bytes: 134217728
+  execution: web_readonly_plus_failed_small_official_raw_fetch
+  no_build_install_experiment_e2: true
+runtime_observability:
+  web_response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  web_content_sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  persisted_download_bytes: 0
+  failed_raw_fetch_reason: TLS_CREDENTIAL_UNAVAILABLE_BEFORE_RESPONSE_OR_FILE_WRITE
+locators:
+  - card_id: QC26-01
+    signature: BINARYEN_INCREMENTAL_WASM_STRUCTURING_REGION_STABILITY
+    precommit:
+      exact_object_hypothesis: WebAssembly module control-flow structuring after an edit under validation semantics.
+      counterfactual: Bound rewrites to changed regions while preserving valid stock-consumable WebAssembly behavior.
+      route_order: [official_Binaryen_repository, official_WebAssembly_validation_spec]
+    sources:
+      - url_or_deterministic_rule: https://github.com/WebAssembly/binaryen
+        selection_rule: official upstream README/current repository page; first precommitted route
+        source_role: [ANCHOR, CURRENT_UNION]
+        version_or_date: main observed 2026-08-14
+        license_or_provenance: official WebAssembly/Binaryen upstream; Apache-2.0 stated by repository
+        response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        disposition: ACQUIRED_WEB_READONLY__CURRENT_UNION_ADVERSE
+      - url_or_deterministic_rule: https://webassembly.github.io/spec/core/valid/index.html
+        selection_rule: official validation specification; second precommitted route
+        source_role: [CONTRARY]
+        version_or_date: WebAssembly 3.0 validation page, 2026-08-12; accessed 2026-08-14
+        license_or_provenance: official WebAssembly Community Group specification
+        response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        disposition: ACQUIRED_WEB_READONLY__VALIDITY_ONLY_NOT_SEMANTIC_RECOVERY_ORACLE
+  - card_id: QC26-02
+    signature: YOSYS_FIXED_LIBRARY_INCREMENTAL_TECHMAP_RECOVERY
+    precommit:
+      exact_object_hypothesis: fixed-cell-library Yosys technology map after a local RTL delta with logic-equivalence preservation.
+      counterfactual: Bound changed mapping cones without weakening stock equivalence semantics.
+      route_order: [official_Yosys_repository, official_EQY_repository]
+    sources:
+      - url_or_deterministic_rule: https://github.com/YosysHQ/yosys
+        selection_rule: official upstream README/current repository page; first precommitted route
+        source_role: [ANCHOR, CURRENT_UNION]
+        version_or_date: main observed 2026-08-14
+        license_or_provenance: official YosysHQ upstream; ISC license stated by repository
+        response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        disposition: ACQUIRED_WEB_READONLY__SCRIPTED_PASS_UNION
+      - url_or_deterministic_rule: https://github.com/YosysHQ/eqy
+        selection_rule: official YosysHQ equivalence-checking front-end; second precommitted route
+        source_role: [CONTRARY]
+        version_or_date: main observed 2026-08-14
+        license_or_provenance: official YosysHQ upstream; repository permission notice
+        response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        disposition: ACQUIRED_WEB_READONLY__STOCK_EQUIVALENCE_SUBTRACTOR
+  - card_id: QC26-03
+    signature: IREE_BITEXACT_LAYOUT_BOUNDED_STATE_TRANSFER
+    precommit:
+      exact_object_hypothesis: named IREE target backend layout/dispatch state under bit-exact output and changed memory budget.
+      counterfactual: Preserve bit-exact execution while bounding state movement as the memory budget changes.
+      route_order: [official_IREE_repository, official_IREE_tests_or_release_notes]
+    sources:
+      - url_or_deterministic_rule: https://github.com/iree-org/iree
+        selection_rule: official upstream README/current repository page; first precommitted route
+        source_role: [ANCHOR, CURRENT_UNION, CONTRARY]
+        version_or_date: main observed 2026-08-14; latest release reported as v3.11.0 on 2026-03-19
+        license_or_provenance: official IREE upstream; Apache-2.0 with LLVM Exceptions stated by repository
+        response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        disposition: ACQUIRED_WEB_READONLY__RETARGETABLE_MLIR_GENERIC_ORIGIN
+      - url_or_deterministic_rule: https://raw.githubusercontent.com/iree-org/iree/main/compiler/src/iree/compiler/Codegen/LLVMGPU/Passes.h
+        selection_rule: precommitted small official source fallback, maximum 1 MiB
+        source_role: [CURRENT_UNION]
+        version_or_date: main requested 2026-08-14
+        license_or_provenance: official IREE upstream raw source
+        response_bytes: 0
+        sha256: NOT_CREATED__TLS_CREDENTIAL_UNAVAILABLE
+        disposition: FAILED_BEFORE_RESPONSE__NO_SCIENTIFIC_INFERENCE
+  - card_id: QC26-04
+    signature: PROTOBUF_DESCRIPTOR_SET_COMPATIBLE_BOUNDED_RECOURSE_UPDATE
+    precommit:
+      exact_object_hypothesis: a Protobuf descriptor-set/schema graph update preserving fixed language runtime and stock reader acceptance.
+      counterfactual: Update compatible descriptor-table state with bounded rewrites without changing wire/runtime semantics.
+      route_order: [official_Protobuf_repository, official_cross_version_runtime_guarantee]
+    sources:
+      - url_or_deterministic_rule: https://github.com/protocolbuffers/protobuf
+        selection_rule: official upstream repository/current main page; first precommitted route
+        source_role: [ANCHOR, CURRENT_UNION]
+        version_or_date: main observed 2026-08-14
+        license_or_provenance: official Protocol Buffers upstream; repository source and release provenance
+        response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        disposition: ACQUIRED_WEB_READONLY__REQUIRES_RELEASE_PIN_NOT_MAIN
+      - url_or_deterministic_rule: https://protobuf.dev/support/cross-version-runtime-guarantee/
+        selection_rule: official compatibility document; second precommitted route
+        source_role: [CONTRARY]
+        version_or_date: accessed 2026-08-14
+        license_or_provenance: official protobuf.dev documentation
+        response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+        disposition: ACQUIRED_WEB_READONLY__VERSION_SKEW_CONTRACT_CONSTRAINS_OBJECT

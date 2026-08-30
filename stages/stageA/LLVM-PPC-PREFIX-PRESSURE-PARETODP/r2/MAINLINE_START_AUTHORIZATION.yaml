@@ -1,0 +1,33 @@
+schema: mainline-start-authorization-v1
+issued_at: 2026-08-26T00:58:00+08:00
+issued_by: MAINLINE
+decision: START_AUTHORIZED
+authorization_ids: [USER-NO-WSL-TOPIC-LOCALIZED-RESOURCE-RECOVERY-20260825, USER-BLOCKER-AUTONOMOUS-OPEN-SOURCE-ACQUISITION-20260814, USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825]
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R2-OFFICIAL-REDIRECT-COMPATIBLE-EXACT-TOOLCHAIN
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+context_sha256: 066EFDF482150A63956C204AAADB905E4F9FCCED663547EB6B03076A702E577C
+bootstrap_ack_sha256: 221E03C2BE28B6955A07B764FA4BCF16C08E3E3E63E3A976D47C5AC903CD785B
+pass1_superseded_ack_sha256: B6FF0EF4A702AA182DE0B355688362A244FB668C2CE78609DB1510E986E0C21C
+bootstrap_acceptance: {disposition: ACCEPTED_READY, frozen_hashes: PASS_23_OF_23, stale_plan_backlog_absent: true, differences_or_ambiguities: [], resource_root_absent: true, scientific_or_resource_action_started: false}
+allowed_after_start:
+  - create the eight r2 standard resource directories
+  - copy and hash-accept only the two frozen r1 same-topic inputs
+  - download exactly the three frozen remaining official assets once each
+  - for LLVM-MinGW only, follow at most one HTTPS redirect from github.com to release-assets.githubusercontent.com in the same request chain
+  - never persist or log the signed redirect query; record only sanitized scheme/host/path/status
+  - require exact final bytes and SHA-256 for all three assets
+  - repeat the nonpersisting long-path preflight, safe-member check and one source/tool extraction
+  - configure once and run one clean Ninja build at -j2 for PowerPC plus lld
+  - package seven required tools, DLLs, notices and provenance
+  - run only the frozen nonclaim version/target/MIR/MC/object/readobj/objdump/lld smokes
+  - finalize the canonical resource-gate package and wait
+attempt_limits: {remaining_asset_attempts_each: 1, total_network_attempts: 3, redirects_total: 1, source_extraction: 1, tool_extraction: 1, configure: 1, clean_build: 1, build_jobs: 2, automatic_retry: false}
+redirect_boundary: {exact_host_chain: [github.com, release-assets.githubusercontent.com], https_only: true, no_userinfo: true, signed_query_logging: forbidden, final_status: 200, other_host_or_second_redirect: forbidden, llvm_mingw_bytes: 187504083, llvm_mingw_sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35}
+long_path_boundary: {api: PROCESS_LOCAL_WIN32_EXTENDED_LENGTH_PREFIX, logical_paths: [resources/src/s, resources/env/t, resources/build], persistent_prefix_subst_junction_symlink_reparse_flatten_rename: forbidden, actual_path_gate_exclusive: 240}
+scientific_boundary: {claim_bearing_action_allowed: false, PPC_F1_F5_or_direct_witness_allowed: false, natural_performance_or_full_cost_allowed: false, scientific_revision_authorized: false, owner_state_transition_authority: false, stageb_authorized: false}
+budgets: {network_bytes_max: 268435456, max_single_response_bytes: 209715200, stored_bytes_max: 15032385536, cpu_seconds_max: 36000, wall_seconds_max: 36000, max_parallel_build_jobs: 2, gpu_hours_max: 0}
+failure_policy: {unexpected_redirect_asset_path_or_resource_failure: BLOCKED_USER_ACTION_REQUIRED__RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE, automatic_retry: forbidden}
+lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, cleanup_owner: MAINLINE, owner_cleanup_allowed: false, post_close_retained_bytes_max: 2147483648}
+next_action: COPY_ACCEPT_R1_INPUTS__DOWNLOAD_THREE_ASSETS_WITH_ONE_BOUNDED_REDIRECT__EXTRACT_BUILD_PACKAGE_SMOKE__HANDOFF

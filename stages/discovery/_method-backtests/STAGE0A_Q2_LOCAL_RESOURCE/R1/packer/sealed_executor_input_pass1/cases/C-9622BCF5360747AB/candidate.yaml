@@ -1,0 +1,20 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-9622BCF5360747AB
+cutoff_date: 2016-03-28
+contribution_type: METHOD_ALGORITHM
+exact_object: approximate nearest-neighbor lookup over fixed vector or metric datasets
+natural_scenario: in-memory high-dimensional search with a matched index-build budget
+problem: flat proximity graphs or tree ensembles trade search hops, memory, and recall poorly as scale grows
+atomic_action: construct nested proximity layers and descend from sparse layers before bounded dense-layer search
+mechanism: scale-separated navigation reduces long-range exploration while retaining local graph refinement
+information_condition: stored vectors, metric evaluations, graph adjacency, and fixed construction/search parameters
+comparators: [flat_proximity_graph, randomized_tree_ensemble, exhaustive_search_oracle]
+claim_endpoint: recall-time-memory frontier at matched construction budget
+full_cost: [construction_time, index_bytes, query_time, recall, parameter_search]
+minimum_falsifier: no frontier improvement over the strongest graph or tree comparator
+source_cards:
+  - {id: S01, year: 2014, role: flat_small_world_graph_search}
+  - {id: S02, year: 2009, role: automatically_tuned_randomized_tree_search}
+  - {id: S03, year: 2015, role: generic_nonmetric_search_and_evaluation_library}
+local_resource_envelope: WINDOWS_NATIVE_CPU__GENERATED_OR_SMALL_PUBLIC_VECTORS__NO_DAEMON
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

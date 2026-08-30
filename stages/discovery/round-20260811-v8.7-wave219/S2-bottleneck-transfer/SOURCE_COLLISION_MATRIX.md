@@ -1,0 +1,11 @@
+# Source and collision matrix — Wave219 eBPF depth red-team
+
+| Required facet | Current first-party evidence | Consequence for candidate | Closure status |
+|---|---|---|---|
+| Verifier state exploration/pruning | [Linux verifier docs](https://www.kernel.org/doc/html/latest/bpf/verifier.html): `regsafe()`/state containment, stack/register and liveness-aware pruning | A proposal must target an observable codegen-induced state-path difference, not merely rename verifier pruning/tune it. | Semantics frozen; source tuple and action gap not closed. |
+| Native verifier oracle and natural test route | [Linux BPF selftests](https://github.com/torvalds/linux/blob/master/tools/testing/selftests/bpf/test_verifier.c) contains accept/reject/log/instruction expectations | It can serve as native oracle after pinning; it does not by itself prove a natural same-program two-kernel trace. | Natural carrier unfrozen. |
+| CO-RE loader action | [libbpf lifecycle](https://docs.kernel.org/bpf/libbpf/libbpf_overview.html), [relocations](https://docs.kernel.org/next/bpf/llvm_reloc.html), [BTF](https://docs.kernel.org/bpf/btf.html) | BTF and relocation changes are already part of the strongest producer+loader union; changing them cannot be silently treated as a novel compiler action. | Current union broad; no direct absorption of an as-yet unnamed joint algorithm asserted. |
+| Compiler-side joint action | Clang/LLVM BPF backend and flags must be source-pinned together with Linux/libbpf before a negative absence claim | Branch/CFG, facts, init, inlining/loops and relocation must be constructed jointly from same high-level program; manual source rewrite and opaque superoptimization are forbidden. | No minimal legal divergence witness. |
+| Full cost/guarantee | stock `BPF_PROG_LOAD`, hook and map observations | Must include compiler, relocation/load/verifier, runtime, code size, bytes, CPU/RSS/temp, and acceptance across both kernel versions. | Finite plan only; no result claimed. |
+
+**Collision verdict:** no direct current-paper or implementation absorption is asserted, because no complete candidate action exists to compare. Conversely, no gap is asserted from missing interface/source retrieval. The correct state is `NOT_ADMITTED_UNFROZEN` rather than DROP.

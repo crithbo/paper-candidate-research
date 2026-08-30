@@ -1,0 +1,119 @@
+schema: R11A_R13B_BATCH01_RAW_CAP_RECOVERY_PROPOSAL_V1
+audit_id: RULE-AUDIT-20260813-R11A-R13B-BATCH01-RAW-CAP-RECOVERY-R14
+proposal_id: R11A-R13B-BATCH01-RAW-CAP-RECOVERY-PROPOSAL-20260813-R14
+proposed_approval_id: R11A-R13B-BATCH01-RAW-CAP-RECOVERY-20260813-R14A
+status: USER_POLICY_DECISION_REQUIRED
+shared_files_modified: false
+implementation_owner_if_approved: MAINLINE_ONLY
+base:
+  assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+  checkpoint_011_sha256: BC280D6E3D9D86841A1B889E308129DED101EF3FEDC4FD5072018E7DEE83A43B
+  breach_blocker_sha256: 01C22B29C05051925A9D508FD216F087679EE8D3B12760B2CE6C68B5CC1A6EB5
+  r13b_audit_manifest_sha256: 185027D0FD75EB554C0EF7B0E72095F8FA7CAD7B788175C9DF2EFB46F5D36E79
+  r13b_implementation_manifest_sha256: 7586075114C2A766E4D4A2C919876A91BB51B830D705B29E99C221BA8AD2CBD1
+assessment:
+  option_a: REJECT__FIRST24_IDENTITY_CHRONOLOGY_NOT_MECHANICALLY_PROVABLE
+  option_b: RECOMMEND__BOUNDED_ASSIGNMENT_LOCAL_RECOVERY
+  option_c: SAFE_FALLBACK__NOT_PROPORTIONATE_WHILE_B_REMAINS_REACHABLE
+option_a_failure_evidence:
+  request_counts: [20, 20]
+  valid_persistent_locator_counts: [10, 10]
+  response_rows_persisted: false
+  identity_hashes_persisted: false
+  row_level_chronology_persisted: false
+  forbidden_repairs:
+    - REPLAY
+    - MODEL_RECOLLECTION
+    - CONTENT_AWARE_POSTSELECTION
+    - INVENTED_ROW_ORDER
+recommended_disposition:
+  recovery_option: B
+  batch01_status: INVALID_RAW_CAP_BREACH__NO_COMMITMENT__NO_SCIENTIFIC_INFERENCE
+  failed_transactions_quarantined_whole: true
+  quarantine_granularity: TRANSACTION_AGGREGATE_ONLY__NO_IDENTITY_RECONSTRUCTION
+  raw_attempts_permanently_charged: 40
+  unique_commitments_added: 0
+  source_qualification_from_failed_transactions: forbidden
+  private_intersection_from_failed_transactions: forbidden
+  replay_or_reconstruction: forbidden
+counters_after_disposition:
+  total_raw_ceiling: 88
+  existing_raw_before_breach: 4
+  breach_raw_charged: 40
+  raw_used: 44
+  raw_remaining: 44
+  total_unique_ceiling: 72
+  unique_used: 4
+  unique_remaining: 68
+  existing_eligible_pool: 2
+  arithmetic_eligible_upper_bound_after_future_raw: 46
+remaining_batch_contract:
+  resume_batch: R13B-02
+  replacement_batch: forbidden
+  fifth_batch: forbidden
+  batches:
+    - batch_id: R13B-02
+      original_raw_cap: 24
+      original_unique_cap: 20
+    - batch_id: R13B-03
+      original_raw_cap: 24
+      original_unique_cap: 20
+    - batch_id: R13B-04
+      original_raw_cap: 12
+      original_unique_cap: 8
+  effective_raw_cap_formula: MIN_ORIGINAL_BATCH_RAW_CAP_AND_GLOBAL_RAW_REMAINING_AT_RESERVATION
+  unused_capacity_may_raise_later_original_cap: false
+future_preflight_gate:
+  request_reservation_before_external_call: required
+  reservation_fields:
+    - batch_id
+    - request_ordinal
+    - requested_raw_count
+    - global_raw_remaining_before_call
+    - public_seed
+    - normalization_profile_version
+    - request_plan_sha256
+  mainline_count_gate_before_call: required
+  provider_order_frozen_before_semantic_filtering: required
+  deterministic_normalization_then_dedup_then_commitment: required
+  batch_checkpoint_and_mainline_gate: required
+preserved:
+  blind_schedule: EXACT_24_THEN_TRIGGER_ONLY_BALANCED_30_THEN_36
+  six_strata: unchanged
+  contribution_type_contract: unchanged
+  source_qualification: unchanged
+  scientific_and_statistical_gates: unchanged
+  budgets: unchanged
+  packer_executor_auditor_independence: unchanged
+  prospective_shadow_waves: 2
+  canonical_mode: OFF
+  production_authorized: false
+validation:
+  yaml_parse: required
+  exact_hashes: required
+  additive_files_only: required
+  blocker_and_checkpoint_overwrite: forbidden
+  private_or_identity_fields_in_quarantine_ledger: forbidden
+  raw_arithmetic: 4_PLUS_40_EQUALS_44__88_MINUS_44_EQUALS_44
+  unique_arithmetic: 4_PLUS_0_EQUALS_4__72_MINUS_4_EQUALS_68
+  any_ambiguity: FAIL_CLOSED
+rollback:
+  before_resume: REVOKE_RESUME_GATE_AND_REMAIN_BLOCKED
+  after_any_new_raw_activity: PRESERVE_BYTES_AND_COUNTERS__RETURN_FOR_NEW_USER_DECISION
+  consumed_capacity_restoration: forbidden
+not_authorized:
+  - PACKER_CONTACT_OR_RUN_BY_RULE_AUDIT
+  - PHASE2
+  - EXECUTOR
+  - AUDITOR
+  - SHADOW
+  - DISCOVERY
+  - STAGE0
+  - STAGEA
+  - STAGEB
+  - E2
+  - EXPERIMENT
+  - DOWNLOAD
+  - AUTOMATION
+  - EXTERNAL_SERVICE
+  - PRODUCTION

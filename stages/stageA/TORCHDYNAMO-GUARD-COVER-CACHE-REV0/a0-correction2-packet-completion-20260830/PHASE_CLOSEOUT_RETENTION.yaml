@@ -1,0 +1,14 @@
+schema: phase-closeout-retention-v1
+assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-A0-CORRECTION2
+closeout_reason: FINAL_A0_CORRECTION_NONCLAIM_CONTROL_FIRST_FAILURE
+decision: RETAIN_BLOCKER_EVIDENCE_AND_IMPLEMENTATION_PENDING_MAINLINE
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+retain: [resources/src/runtime, resources/build/control/integrated/solver/SOLVER_RECEIPT.json, resources/logs/control/integrated.stderr.txt, RESOURCE_INVENTORY.yaml, STAGEA_EXECUTION_READINESS_LEDGER.yaml, RESUME_CAPSULE.yaml, handoff.yaml, TARGETED_MANIFEST.yaml]
+exact_cleanup_candidate_leaves_after_accepted_handoff:
+  - {path: resources/build/control/integrated/cases/CASE_MANIFEST.json, bytes: 860917, sha256: B14799D30811DC9951F74750F80D10E895430FC7D20E13808DA73E8B281F4209}
+  - {path: resources/build/control/integrated/solver/certificate-0.input.json, bytes: 544, sha256: 24498B6B1D5E523C29566616AC9C59B58E8B1EBCBA42798CC5A44A00E0B93676}
+  - {path: resources/build/control/integrated/solver/certificate-1.input.json, bytes: 549, sha256: F9A93863B5F117F15708569BA24EA7DCA745C43C1CC1AF37F6403A375487C608}
+  - {path: resources/logs/control/integrated.stdout.txt, bytes: 0, sha256: E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855}
+cleanup_preconditions: [MAINLINE_ACCEPTED_HANDOFF, CAPSULE_ACCEPTED, ZERO_REPARSE, ZERO_ACTIVE_RELATED_PROCESS, EXACT_LEAF_HASH_MATCH]
+scientific_inference: NONE

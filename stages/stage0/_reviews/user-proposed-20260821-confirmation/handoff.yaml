@@ -1,0 +1,33 @@
+schema_version: stage0-confirmation-batch-handoff-v1
+assignment_id: STAGE0-C1-20260821-USER-QREFINE-PATCHYIELD-CONFIRMATION
+mode: SENTRY
+lane: STAGE0-CONFIRMATION-SENTRY-D
+assignment_sha256: C34F5F38302F18457F3349D968D17A929FA8D20D023D3E062EF4ABBD37757F62
+primary_input_verification:
+  handoff_sha256: 9BBF5390E1A21E4526AF1C92358DAE506A3C70A3CCB9821935E609B7CDB0406E
+  manifest_sha256: F69B61E6D218C5D90D68F86C5B04BD8D7067225E27CCE768451019AADCE3CADB
+  manifest_entries_verified: 14
+  manifest_failures: 0
+topic_decisions:
+  QREFINE-TRITON-W4A16:
+    decision: CONFIRM
+    confirmed_primary_decision: PASS_RECOMMENDED
+    confirmed_quality_tier: TIER_B_Q2_VIABLE
+    provenance: PASS_WITH_DISCLOSED_MECHANICAL_LEDGER_DEFECT
+    stageA_authorized: false
+    stageB_authorized: false
+  PATCHYIELD-CALL:
+    decision: CONFIRM
+    confirmed_primary_decision: REVISE_ONCE
+    confirmed_atomic_gate: READY_CALL_BOUNDED_BYPASS_16__PROGRESS_INCREMENTAL_FAIR_POLICY_CERTIFICATE
+    confirmed_stop_sentinel: BELOW_Q2_STOP__GENERIC_PRIORITY_OR_EXISTING_FAIR_LLM_APPLICATION_SCHEDULING
+    revision_executed_here: false
+    stageA_authorized: false
+    stageB_authorized: false
+excluded_topic_read: false
+shared_files_modified: false
+claim_bearing_execution: false
+mainline_action:
+  - ACCEPT_QREFINE_CONFIRMATION_AND_APPLY_MAINLINE_STAGE0_STATE_TRANSITION
+  - ROUTE_PATCHYIELD_ONLY_TO_FROZEN_REVISION1_OWNER_IF_MAINLINE_ACCEPTS_CONFIRMATION
+return_lane_state: IDLE_REUSABLE

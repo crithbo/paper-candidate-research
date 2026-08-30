@@ -1,0 +1,26 @@
+assignment_id: DISCOVERY-S1-20260821-USER-QNN-SIX-INTERFACE-CHECKS
+topic_id: QNN-KV-HANDOFF-CLOSURE
+mode: LOCATOR_AND_INTERFACE_CLOSURE_ONLY
+write_directory: stages/discovery/user-proposed-20260821/qnn-six-checks
+input_archive:
+  sha256: 1F1696FBBF39C4C6810386E8472692EA1E434011B15D02E10F84A3C3F61E9B67
+  allowed_prefix: stage0_freeze_pack_2026-08-21/qnn/
+branch:
+  selected: D_interface_or_resource_blocked
+  scientific_disposition: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+counts:
+  required_checks: 6
+  checks_completed_with_interface_evidence: 0
+  checks_blocked_by_missing_access: 6
+  branch_decision_applications: 1
+  stage0_briefs_created: 0
+resource_status: PASS__NO_PERSISTED_RESOURCE_ACTION
+summary_zh: >-
+  输入包哈希和 qnn 前缀已核验，但当前环境没有可访问的支持设备、QNN/QAIRT 运行时、上下文二进制作业或张量描述符。
+  六项核查均被同一可操作接口/资源缺口阻断，按冻结分支表一次性选择 Branch D；这不构成科学否定，也没有创建 Stage 0。
+minimum_user_action: >-
+  提供一个已可访问的官方支持设备或既有 512/4096 context-binary 作业，连同设备/固件/HTP、实际运行时版本、
+  二进制和 W4A16 哈希，以及只读 descriptor/binding/stock-switch trace 接口；随后由主线冻结独立恢复工作单。
+next_state: IDLE_REUSABLE
+canonical_manifest: HASH_MANIFEST.sha256
+

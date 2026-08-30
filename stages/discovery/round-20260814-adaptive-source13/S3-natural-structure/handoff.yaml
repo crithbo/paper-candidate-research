@@ -1,0 +1,34 @@
+assignment_id: DISCOVERY-S3-20260814-ADAPTIVE-SOURCE13
+lane: S3_NATURAL_STRUCTURE
+write_directory: stages/discovery/round-20260814-adaptive-source13/S3-natural-structure
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+completion_state: COMPLETE_ZERO_PROPOSALS
+return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+summary_zh: >-
+  本轮按指导比例筛查4条编译器/体系结构和2条GPU/NPU自然workload路线，并完全排除网络安全、漏洞、攻击和exploit方向。
+  TensorRT-LLM的离线映射与OpenVINO的GPU/NPU性能映射均已被当前配置/优化器union覆盖；其余四条未闭合current action union。
+  因此零提案，不以未测规律、未实现或资源限制作为负面证据。
+counts:
+  raw_screen_row_events: 6
+  unique_opportunity_families: 6
+  compiler_architecture_families: 4
+  gpu_npu_families: 2
+  candidate_grade_deep_reviews: 2
+  stage0_briefs: 0
+  propose_stage0: 0
+excluded_safety_scope:
+  - network_security
+  - protocol_attack
+  - vulnerability_reproduction
+  - exploit_development
+  - malicious_traffic
+  - anti_replay
+  - intrusion_detection
+deep_decisions:
+  - signature: TENSORRT_LLM__VERSIONED_MODEL_RELEASE_PANEL__TOPOLOGY_SHAPE_RANK_LAW__OFFLINE_TACTIC_PARALLELISM_MAPPING
+    disposition: STRUCTURAL_DROP__CURRENT_UNION_ABSORPTION
+  - signature: OPENVINO_GPU_NPU__VERSIONED_MODEL_PANEL__SHAPE_TO_PERFORMANCE_REGIME_LAW__OFFLINE_COMPILATION_MAPPING
+    disposition: STRUCTURAL_DROP__CURRENT_UNION_ABSORPTION
+manifest: HASH_MANIFEST.sha256
+canonical_files: [DISCOVERY_LOG.md, SOURCE_COLLISION_MATRIX.md, handoff.yaml]

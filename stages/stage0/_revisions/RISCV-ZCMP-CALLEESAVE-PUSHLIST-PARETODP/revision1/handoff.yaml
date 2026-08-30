@@ -1,0 +1,52 @@
+assignment_id: STAGE0-P1-20260814-RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP-REVISION1-V8.7
+topic_id: RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+role: PRIMARY_REVISION1
+sole_gate: PINNED_RV32_ZCMP_SAME_MACHINEFUNCTION_TWO_PLAN_WITNESS__TARGET_SPECIFIC_BOUNDED_FRONTIER_CERTIFICATE
+revision_budget:
+  scientific_limit: 1
+  scientific_index: 1
+  consumed: true
+decision: RECOMMEND_STAGE0_PASS_FOR_CLOSING_REVIEW
+quality_tier: TIER_B_Q2_VIABLE
+confidence: 0.75
+evidence_ceiling: E1_STATIC_PREFLIGHT__NATIVE_GRAMMAR_CERTIFICATE_ONLY
+stageA_authorized: false
+stageB_authorized: false
+next_required_review: INDEPENDENT_REVISION1_CLOSING
+static_gate:
+  status: CLOSED_FOR_DECLARED_BOUNDED_CLASS
+  llvm_web_commit_locator: ba5bccf
+  target: riscv32-unknown-elf_rv32imac_zcmp_ilp32
+  witness:
+    plan_p: CSR_s0_s1__rlist_ra_s0_s1__stack16__no_extra_spill
+    plan_s: CSR_s0__rlist_ra_s0__stack32__one_native_cross_call_spill
+    same_behavior_abi_unwind: true
+    coordinate_difference: frame16_vs32_and_0_vs8_spill_bytes
+  guarantee: exact_FPT_frontier_for_fixed_native_bounded_call_interface_width_w
+  no_gain_boundary: current_union_covers_all_points_or_no_pushable_prefix_or_generic_state
+strongest_union:
+  - current_GPR_RA_and_spill_paths
+  - FrameLowering_fixed_CSR_order_isPushable_CM_PUSH_CM_POP_frame_CFI_libcall
+  - late_PushPop_POPRET_rewrite
+  - pseudo_expansion_assembler_linker_psABI_unwind
+  - generic_exact_oracle_ceiling_only
+stageA_preclaim_if_closing_confirms:
+  required:
+    - retain_full_llvm_commit_and_blob_hashes
+    - materialize_verify_both_native_plans
+    - enumerate_complete_current_union
+    - validate_bijection_cost_and_natural_denominator
+  killer: >-
+    Stop if either plan is illegal, CFI/unwind changes, current union covers all
+    points, state degenerates to generic RA/frame packing, or no full-cost residual remains.
+claim_ceiling: >-
+  Static bounded-native-grammar certificate only; no emitted object, empirical
+  improvement, natural prevalence, runtime gain or general allocation theorem.
+failure_sentinel: BELOW_Q2_STOP__GENERIC_REGISTER_ALLOCATION_FRAME_PACKING_OR_CURRENT_ZCMP_UNION_ABSORPTION
+frozen_input_integrity:
+  primary_manifest: 0577F16B03DBD92AEB7B51CD88089D293D8656C1680F81A3181C1023A236D2E9
+  confirmation_manifest: 013C72505C4E54CD4B011858387E4A4BD36EE510A69538CA845E3EF1BE96083C
+  confirmation_review: 7A0629081AE4ED21E383CF6E43DC93EC0BF6B347A99C01931576CA3697A8EA16
+  confirmation_handoff: A5D8D7AC65A91DF7E423547E7D8950FBF46C56EC65EF87E5007234B353ABD435
+cross_assignment_contamination: none
+lane_disposition: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,50 @@
+assignment_id: SOURCE-CLOSURE-SOURCE55-S1-CQ01-MIPS-FCSR-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+write_owner: ASSIGNED_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source55/S1-boundary-contradiction/closure-cq01
+parent_assignment: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE55-R40-ORDINARY-BREADTH-V1
+parent_handoff_sha256: 7594771C3A23F774EA95E9E4BA1C9C158CE7F886DAF7EEE173636838F0A27524
+queue_item: CQ01
+queue_status_at_freeze: PENDING_UNEXECUTED__ATTEMPTS_0__NOT_EXHAUSTED
+exact_project: llvm/llvm-project
+deterministic_version_rule: resolve the official default-branch commit SHA before reading target content and pin every retained source to that SHA
+exact_source_scope:
+  - llvm/lib/Target/Mips/**
+  - llvm/test/CodeGen/Mips/**
+official_anchor:
+  url: https://gcc.gnu.org/onlinedocs/gcc/Other-MIPS-Built-in-Functions.html
+  role: frozen_external_semantic_anchor_only
+primary_routes:
+  - https://api.github.com/repos/llvm/llvm-project/commits/main
+  - https://api.github.com/repos/llvm/llvm-project/git/trees/<resolved_commit_sha>?recursive=1
+  - https://raw.githubusercontent.com/llvm/llvm-project/<resolved_commit_sha>/<deterministically_selected_Mips_source_or_test_path>
+route_selection_rule: after commit pin, select only files in exact_source_scope whose path or content has FCSR, cfc1, ctc1, rounding-mode, FP-control, call-clobber, or MIPS control-register relevance; record zero matches without absence inference
+required_outputs:
+  - pinned current MIPS FCSR action/config/default-nondefault union
+  - strongest current-union or generic-state-management objection
+  - one fixed in-tree or official public natural/canonical carrier if present
+  - whether a native legal two-action same-object witness can be frozen
+  - finite oracle/falsifier route and remaining named debt
+allowed_dispositions:
+  - CLOSED_TO_EVIDENCE_QUALIFIED_RAW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_GENERIC_KERNEL__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide clean_brief_Q2_PASS_STOP_or_stage_state
+  - change object_target_ABI_guarantee_or_full_cost_endpoint
+  - run experiment_build_install_or_claim_bearing_observation
+  - search outside exact project/source scope except frozen official anchor
+  - treat 404_zero_match_transport_failure_or_missing_tool_as_absence
+  - revive terminal identity_or_use_Source56_outcomes
+resource_localization:
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  resource_root: stages/discovery/round-20260815-adaptive-source55/S1-boundary-contradiction/closure-cq01/resources
+  inventory: stages/discovery/round-20260815-adaptive-source55/S1-boundary-contradiction/closure-cq01/RESOURCE_INVENTORY.yaml
+  max_acquisition_calls: 6
+  max_success_response_bytes_each: 8388608
+  max_persisted_bytes: 16777216
+  pre_call_monotonic_attempt_counter: required
+  eight_standard_subdirectories: required
+model_route: {model: gpt-5.6-terra, reasoning: high}
+notify_mainline_on_finish_or_blocker: true

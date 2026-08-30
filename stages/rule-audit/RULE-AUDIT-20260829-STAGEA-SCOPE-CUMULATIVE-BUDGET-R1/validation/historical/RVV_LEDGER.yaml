@@ -1,0 +1,29 @@
+schema: stagea-execution-readiness-ledger-v1
+mode: SHADOW
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+topic_formal_state_observed: STAGEA_WITH_EXECUTION_CONTRACT_HOLD
+historical_or_prospective: HISTORICAL_REPLAY
+internal_mode_at_cutoff: A0_EXECUTION_READINESS
+rounds:
+  historical_a0_rounds_lower_bound: 3
+  production_max: 3
+  budget_exhausted: true
+observed_readiness_transition:
+  r5d_preclaim_fidelity: PASS
+  required_next_action_under_production: A1_DECISIVE_PILOT_OR_BLOCKER
+  later_static_successor_allowed_under_production: false
+observations:
+  valid_decisive_stagea_observation: false
+  scientific_revision_consumed: false
+hypothetical_production_route:
+  action: A1_DECISIVE_PILOT_OR_EXECUTION_CONTRACT_HOLD
+  scientific_state_change: false
+compatibility:
+  historical_scientific_decision_preserved: true
+  avoids_r6a_static_successor_chain: true
+evidence:
+  registry_snapshot:
+    path: registry.yaml
+    sha256: E1040F7257D3CBCB080FDCDA58E4991F072B2B114B567D0C10D099680BFB1BA3
+  registered_r6a_state: EXECUTION_CONTRACT_HOLD__STATIC_BUDGET_EXHAUSTED__NO_SCIENTIFIC_INFERENCE
+

@@ -1,0 +1,104 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S5-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+mode_for_this_artifact: canonical-v8.7-off
+cutoff: '2026-08-13'
+scope: replacement-01; four pre-deduplicated opportunity families
+queries:
+  - query_id: Q001
+    text: "nix-store --optimise official current manual auto-optimise-store"
+    purpose: current native action and configuration reality check
+    source_or_search_engine: nix.dev official documentation
+    executed_at: '2026-08-13'
+    filters: [first-party, current-documentation]
+    read_depth: SECTIONS
+    key_result_ids: [S001]
+    exclusions_with_reasons: ["No absence claim: native action is documented."]
+    state_change: R01 direct current-action coverage
+  - query_id: Q002
+    text: "helm repo index official command --merge --url"
+    purpose: current complete constructor union and flags
+    source_or_search_engine: helm.sh official documentation
+    executed_at: '2026-08-13'
+    filters: [first-party, version-3.21.1]
+    read_depth: SECTIONS
+    key_result_ids: [S002]
+    exclusions_with_reasons: ["No gap inferred from undocumented alternatives."]
+    state_change: R02 direct current-action coverage
+  - query_id: Q003
+    text: "Distribution registry garbage collection official mark sweep dry-run delete-untagged"
+    purpose: current action/configuration and safety semantics
+    source_or_search_engine: distribution.github.io official documentation
+    executed_at: '2026-08-13'
+    filters: [first-party]
+    read_depth: SECTIONS
+    key_result_ids: [S003]
+    exclusions_with_reasons: ["Stop-the-world condition is part of the frozen information model."]
+    state_change: R03 direct current-action coverage
+  - query_id: Q004
+    text: "PyPA Simple Repository API HTML JSON normalized names current specification"
+    purpose: freeze same-object API contract; test whether a current constructor union is evidenced
+    source_or_search_engine: packaging.python.org official specification
+    executed_at: '2026-08-13'
+    filters: [first-party, current-specification]
+    read_depth: SECTIONS
+    key_result_ids: [S004]
+    exclusions_with_reasons: ["Specification is not treated as an implementation-absence proof."]
+    state_change: R04 remains unfrozen
+sources:
+  - source_id: S001
+    title_or_artifact: nix-store --optimise — Nix 2.32.9 Reference Manual
+    canonical_version: '2.32.9'
+    locator: https://nix.dev/manual/nix/2.32/command-ref/nix-store/optimise.html
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SECTIONS
+    normalized_variants: [nix-store-optimise, auto-optimise-store]
+    repository_commit_config_or_dataset_hash: "documented default for auto-optimise-store: false"
+  - source_id: S002
+    title_or_artifact: helm repo index — Helm documentation
+    canonical_version: '3.21.1'
+    locator: https://helm.sh/docs/v3/helm/helm_repo_index/
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SECTIONS
+    normalized_variants: [helm-repo-index, merge, url]
+    repository_commit_config_or_dataset_hash: "documentation generated 2026-06-12; accessed 2026-08-13"
+  - source_id: S003
+    title_or_artifact: Garbage collection — CNCF Distribution documentation
+    canonical_version: current-web-snapshot
+    locator: https://distribution.github.io/distribution/about/garbage-collection/
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SECTIONS
+    normalized_variants: [registry-garbage-collect, dry-run, delete-untagged]
+    repository_commit_config_or_dataset_hash: "accessed 2026-08-13"
+  - source_id: S004
+    title_or_artifact: Simple Repository API — Python Packaging User Guide
+    canonical_version: current-web-snapshot
+    locator: https://packaging.python.org/en/latest/specifications/simple-repository-api/
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SECTIONS
+    normalized_variants: [html, json, normalized-name]
+    repository_commit_config_or_dataset_hash: "accessed 2026-08-13"
+families:
+  - opportunity_family_id: R16A-S5-R01
+    canonical_signature: "Nix valid store paths; global identical-file hard-link coalescing; same paths; scan/hash/link/I-O/disk"
+    disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_ATOMIC_ACTION
+    claim_ceiling: "Current-action absorption only; no broader performance claim."
+  - opportunity_family_id: R16A-S5-R02
+    canonical_signature: "Helm packaged chart directory plus index.yaml; construct/merge stock-readable index; archive parse/read/write/bytes"
+    disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_ATOMIC_ACTION
+    claim_ceiling: "Current-action absorption only; no claim about arbitrary repository services."
+  - opportunity_family_id: R16A-S5-R03
+    canonical_signature: "OCI registry manifest/blob graph; mark-sweep unreachable blobs under complete read-only state; scan/mark/delete/availability cost"
+    disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_ATOMIC_ACTION
+    claim_ceiling: "Current native stop-the-world coverage; no online-GC residual is claimed."
+  - opportunity_family_id: R16A-S5-R04
+    canonical_signature: "Simple API metadata; valid HTML/JSON response construction with same client contract; metadata/serialization/bytes/parse cost"
+    disposition: NOT_ADMITTED_UNFROZEN__CURRENT_CONSTRUCTOR_UNION_AND_WITNESS_UNCLOSED
+    claim_ceiling: "No current-absence conclusion and no proposal."
+execution_readiness:
+  state: E1
+  e1_evidence: [read-only documentation/specification checks only]
+  e2_authorization_id: ''
+  e2_allowlist: {}
+  e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0
+  scientific_inference_permitted: false

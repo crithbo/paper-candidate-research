@@ -1,0 +1,116 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  artifact_state: GC_COMPLETE
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: PRECLAIM_GATE_HANDOFF_ACCEPTED
+  downstream_consumer: FUTURE_CLAIM_BEARING_STAGEA_ASSIGNMENT_ONLY_AFTER_SEPARATE_MAINLINE_START
+  post_close_retained_bytes_max: 1073741824
+  phase_closeout_retention_path: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/RESUME_CAPSULE.yaml
+  cleanup_receipt_path: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/CLEANUP_RECEIPT.yaml
+identity:
+  topic_id: ROCKSDB-DICT-COVER
+  assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-RESUME6-E-ROOT-PRECLAIM-FIDELITY
+  stage_or_mode: STAGEA_PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY
+  run_id: PRECLAIM_FIDELITY_FINAL
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity
+  resource_root: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources
+  inventory_path: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-25T13:45:45+08:00
+  finalized_at: 2026-08-25T14:53:14+08:00
+root_measurement: {logical_bytes: 440506059, file_count: 3383, allocated_bytes: null, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true, reparse_count: 0}
+required_directories:
+  downloads: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/downloads
+  archives: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/archives
+  src: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/src
+  build: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/build
+  env: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/env
+  cache: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/cache
+  tmp: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/tmp
+  logs: E:/project/writing/reserch/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/logs
+redirect_preflight:
+  status: PASS_PROCESS_LOCAL_REDIRECTS_AND_PATH_BOUNDARY
+  process_local_only: true
+  system_or_user_environment_modified: false
+  resource_root_reparse_count: 0
+  tools: [BUNDLED_WORKSPACE_PYTHON_3_12_13, LLVM_MINGW_CLANG_22_1_8, CMAKE_4_4_2, NINJA_1_13_2]
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 4294967296
+  cpu_hours_max: 4
+  gpu_hours_max: 0
+  wall_seconds_max: 28800
+  attempts_max: 0
+  network_bytes_used: 0
+  stored_bytes_used: 1411017177
+  attempts_used: 0
+  exact_total_assignment_cpu_seconds: null
+  exact_total_assignment_wall_seconds: null
+  telemetry_note: exact_unified_CPU_and_wall_were_not_provided_and_are_not_estimated
+resource_tree_index:
+  path: resources/logs/resource_tree_index.tsv
+  sha256: 6C14187F490EBC565C1A1896054BCF7ED1B9A2F54382AB10F8E5A37118F3DB7C
+  indexed_file_count_excluding_index_and_summary: 22216
+  indexed_logical_bytes_excluding_index_and_summary: 1407833273
+  summary_path: resources/logs/resource_tree_summary.json
+  summary_sha256: 89A1562B505E7D20BEE664DD4CA7C41389B38633E20D3229C662C3028A1640C9
+entries:
+  - {id: PINNED_REBUILD_ARCHIVES, kind: DIRECTORY_CONTENT_TREE, path: resources/archives, file_count: 5, logical_bytes: 261676661, tree_sha256: C9FA3139274445C7D456B8264FCDD5727CA8778926FE7D846D24CE8093B0188C, reproducibility_minimum: true, downstream_consumers: [FUTURE_CLAIM_BEARING_STAGEA_ASSIGNMENT], retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: SOURCE_HARNESS_AND_ACCEPTED_MANIFESTS, kind: DIRECTORY_CONTENT_TREE, path: resources/src, file_count: 3009, logical_bytes: 120924595, tree_sha256: BB422A956D525172FEEE0D4D608F081213632B29296825E90DA64791F7A2498C, reproducibility_minimum: true, downstream_consumers: [FUTURE_CLAIM_BEARING_STAGEA_ASSIGNMENT], accepted_manifest_count: 20, accepted_manifest_bytes: 61951583, accepted_manifest_tree_sha256: 0651E00BCAFDCFC931388768BD2F029C81C8766125EAF9932DC5DEDED9ACF487, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: ASSIGNMENT_RUNTIME, kind: DIRECTORY_CONTENT_TREE, path: resources/env/runtime, file_count: 2, logical_bytes: 2299392, tree_sha256: 6DC336C15FD5F13AE2E95531A294A4A87946259C4ED07ED38762C64FB8F21A23, reproducibility_minimum: true, downstream_consumers: [FUTURE_CLAIM_BEARING_STAGEA_ASSIGNMENT], retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: EXTRACTED_LLVM_MINGW, kind: DIRECTORY_CONTENT_TREE, path: resources/env/llvm-mingw-20260616-ucrt-x86_64, file_count: 9483, logical_bytes: 740825211, tree_sha256: 03C9CE69E4014D9EBF2858D7BE84188002086B5CA86B5E4DEFD5E93D4FCDC915, reproducibility_minimum: false, reacquirable: true, recovery_command: extract_retained_pinned_llvm_archive, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF_AND_ZERO_ACTIVE_PROCESS}
+  - {id: EXTRACTED_CMAKE, kind: DIRECTORY_CONTENT_TREE, path: resources/env/cmake-4.4.2-windows-x86_64, file_count: 8819, logical_bytes: 143269940, tree_sha256: 48E212F267997BF06B6F1780FD2305E17ECB3D92C1FC8F64165FF23D2F271EA5, reproducibility_minimum: false, reacquirable: true, recovery_command: extract_retained_pinned_cmake_archive, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF_AND_ZERO_ACTIVE_PROCESS}
+  - {id: EXTRACTED_NINJA, kind: DIRECTORY_CONTENT_TREE, path: resources/env/ninja-1.13.2, file_count: 1, logical_bytes: 603648, tree_sha256: 18BE58BA30F1D214D2E2F07E32797C889262A6266A195DC6596C074F7E29D9DF, reproducibility_minimum: false, reacquirable: true, recovery_command: extract_retained_pinned_ninja_archive, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF_AND_ZERO_ACTIVE_PROCESS}
+  - {id: ZSTD_BUILD_PREFIX_COPY, kind: DIRECTORY_CONTENT_TREE, path: resources/env/zstd-prefix, file_count: 4, logical_bytes: 1077646, tree_sha256: DCC2538CCB1D3DEBC183B83CF71A91DED9624A18DCEDC9F5DA759DB20884A37C, reproducibility_minimum: false, reacquirable: true, recovery_command: rebuild_or_copy_from_retained_exact_source_and_library, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF_AND_ZERO_ACTIVE_PROCESS}
+  - {id: FROZEN_BINARY_PACKAGE, kind: DIRECTORY_CONTENT_TREE, path: resources/build/frozen, file_count: 3, logical_bytes: 47943324, tree_sha256: 6BED3634B5D5194F6CAEAAC0DB54F42F2F83035F1BEEB8465A1ABC727AA7B6D5, reproducibility_minimum: true, downstream_consumers: [FUTURE_CLAIM_BEARING_STAGEA_ASSIGNMENT], retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: CANONICAL_CONTROL_MATRIX, kind: DIRECTORY_CONTENT_TREE, path: resources/build/control_runs_final7, file_count: 332, logical_bytes: 4157961, tree_sha256: CC9BDD7FF40469EF39D319935FF49A8A488F904C9F8591343A07DD7832D915AC, reproducibility_minimum: true, downstream_consumers: [PRECLAIM_GATE_AUDIT], retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: FROZEN_RUNTIME_SMOKE, kind: DIRECTORY_CONTENT_TREE, path: resources/build/frozen_runtime_smoke, file_count: 12, logical_bytes: 147464, tree_sha256: 30AF86A8800220B6F453DD87D1CEA5987527E091EADB473A84C1B76E591B42C7, reproducibility_minimum: true, downstream_consumers: [PRECLAIM_GATE_AUDIT], retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: FULL_COST_PATH_SMOKE, kind: DIRECTORY_CONTENT_TREE, path: resources/build/full_cost_path_smoke, file_count: 14, logical_bytes: 147511, tree_sha256: 0086B8799B27859BB9A6080C84BD726BB473E775A2584039C55AFD2FB989C3C3, reproducibility_minimum: true, downstream_consumers: [PRECLAIM_GATE_AUDIT], retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: FAILED_CONFIGURE, kind: DIRECTORY_CONTENT_TREE, path: resources/build/rocksdb-preclaim, file_count: 4, logical_bytes: 8362, tree_sha256: 50FE1E6280252B751E70A641428D5721504298E61A9A7416A60F6EA1F4DF6A4F, reproducibility_minimum: false, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF}
+  - {id: CANONICAL_BUILD_TREE_DUPLICATED_TO_FROZEN, kind: DIRECTORY_CONTENT_TREE, path: resources/build/rocksdb-preclaim-r1, file_count: 391, logical_bytes: 82917375, tree_sha256: EE843B45BCA15BCE5A6E13CE4150C329E53DA1734DE832B5C27CA76FBE36FA45, reproducibility_minimum: false, reacquirable: true, recovery_command: rebuild_from_retained_archives_and_patched_source, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF_AND_FROZEN_HASH_RECHECK}
+  - {id: INVALIDATED_ENGINEERING_RUNS, kind: MULTI_DIRECTORY_SET, paths: [resources/build/control_runs, resources/build/control_runs_valid, resources/build/control_runs_final, resources/build/control_runs_final2, resources/build/control_runs_final3, resources/build/control_runs_final4, resources/build/control_runs_final5, resources/build/control_runs_final6], file_count: 132, logical_bytes: 1808896, reproducibility_minimum: false, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF_AND_INVALIDATION_LEDGER_RETAINED}
+  - {id: RESOURCE_LOGS_AND_TREE_INDEX, kind: DIRECTORY_CONTENT_TREE, path: resources/logs, file_count: 6, logical_bytes: 3209151, tree_sha256: 48BD28B4FBFE7B5E576B878929ECF85FD294C8AFB30B179F1294BEFEC2A8D9D1, reproducibility_minimum: true, downstream_consumers: [PRECLAIM_GATE_AUDIT], retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: REDIRECT_PREFLIGHT_MARKER, kind: TEMP_PREFLIGHT, path: resources/tmp/redirect-preflight-fe8a20j7.tmp, file_count: 1, logical_bytes: 40, sha256: 8EFA414D328091B7D5004D3CD6CA76BED99D7D6E5440BA88C20F21307407F32F, reproducibility_minimum: false, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF}
+shared_assets_consumed: []
+external_system_dependencies: [WINDOWS_KERNEL32_RPCRT4_SHLWAPI_AND_UCRT_SYSTEM_MANAGED, BUNDLED_WORKSPACE_PYTHON_FOR_CONTROL_AGGREGATION_ONLY]
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY]
+  closeout_plan_accepted: true
+  downstream_inputs_accepted: true
+  capsule_sealed: true
+  active_owner_or_process_count: 0
+  predelete_target_count: 15
+  predelete_file_count: 18835
+  predelete_logical_bytes: 970511118
+  projected_postdelete_file_count: 3383
+  projected_postdelete_logical_bytes: 440506059
+  performed: true
+  deleted_entries: SAME_AS_PHASE_CLOSEOUT_RETENTION_EXACT_LEAVES_15_OF_15
+  deleted_logical_bytes: 970511118
+  performed_at: 2026-08-25T15:07:53+08:00
+  recoverability: retained_pinned_archives_patched_source_frozen_binary_and_control_evidence
+  cleanup_receipt_sha256: DD1E312CB6E96DB3E44F22E7C501396958268AE912D3B35AAD5F9DEE56FBB118
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: true
+  deterministic_recovery_routes_complete: true
+  closeout_budget_or_exception_pass: true
+  cleanup_receipt_valid: true
+  result: GC_COMPLETE__PRECLAIM_FIDELITY_PASS__NO_CLAIM_START__NO_SCIENTIFIC_INFERENCE

@@ -1,0 +1,10 @@
+schema: assignment-local-resource-authorization-v1
+assignment_id: NONBLIND-STAGEA-20260826-ALEX
+authority: USER_ASSIGNMENT_LOCAL_TOOL_DOWNLOAD_ONLY__NO_SYSTEM_ENVIRONMENT_MUTATION
+author_source: {repository: microsoft/ALEX, commit: 4370da6aa8b509fdc9b0d2c49faa0624b0078589, url: https://codeload.github.com/microsoft/ALEX/tar.gz/4370da6aa8b509fdc9b0d2c49faa0624b0078589, archive: resources/archives/ALEX-4370da6aa8b509fdc9b0d2c49faa0624b0078589.tar.gz}
+tools:
+  - {url: https://github.com/mstorsjo/llvm-mingw/releases/download/20260616/llvm-mingw-20260616-ucrt-x86_64.zip, archive: resources/archives/llvm-mingw-20260616-ucrt-x86_64.zip, sha256: b9b68a4d276e16fa25802aaba458e4638f64b3884c290aaccdc2d87083b6ca35}
+  - {url: https://github.com/ninja-build/ninja/releases/download/v1.13.2/ninja-win.zip, archive: resources/archives/ninja-win-v1.13.2.zip, sha256: 07fc8261b42b20e71d1720b39068c2e14ffcee6396b76fb7a795fb460b78dc65}
+attempts_max_per_asset: 1
+post_transfer: owner_hash_verify_extract_and_author_artifact_preclaim_only
+prohibitions: [system_install, global_environment_change, alternate_source, source_edit, scientific_probe_before_fidelity]

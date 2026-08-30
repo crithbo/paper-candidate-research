@@ -1,0 +1,142 @@
+topic_id: ARROW-IPC-STREAM-JOINT-DICTIONARY-EVOLUTION
+lane_id: STAGE0-CONFIRMATION-SENTRY-D
+mode: SENTRY
+assignment_id: STAGE0-C2-20260811-ARROW-IPC-STREAM-JOINT-DICTIONARY-EVOLUTION-CONFIRM-V8.7
+assignment_state: IDLE_REUSABLE_AWAITING_MAINLINE
+source_stage: STAGE0_PRIMARY
+proposed_next_stage: STAGE0_REVISION1_IF_MAINLINE_DISPATCHES
+decision: CONFIRM_REVISE_ONCE
+sentry_verdict: CONFIRM
+primary_decision_reviewed: REVISE_ONCE
+quality_tier_if_gate_closes: TIER_B_Q2_VIABLE
+quality_tier_if_gate_fails: BELOW_Q2_STOP
+structural_paper_potential: CONDITIONAL_TIER_B_Q2_VIABLE
+confidence: 0.93
+stage_semantics: STAGE0_POTENTIAL_SCREEN
+evidence_ceiling: STAGE0_FIRST_PARTY_CURRENT_SOURCE_AND_STATIC_PROPOSITION_AUDIT__NO_CANDIDATE_RESULT
+cross_assignment_contamination_declared: false
+input_freeze:
+  primary_report_sha256: EA9DFCDD0C36534C4C5BC236266D124AD4048D887BC629E83576D36916B20D5F
+  primary_q1_sha256: 7741806F77F7CDDE69DDC71BBD4084D99BC0CC668883B7D186E6AD866461BC0E
+  primary_source_audit_sha256: 59CA94A6119DA5EFC39443AFF4534F4120EA2F8B07A4E81C63FCD057D915A6A1
+  primary_handoff_sha256: AF35BDB838EA898FE410FE71D87F2DB2711F62A1A25BDBFA7E780B319C3807E5
+  primary_manifest_self_sha256: 6DDDBE932E186C6B3EF23A7D3D533B55A7B9AEEA502C03899BBDB57C4E52C60E
+  primary_manifest_entries_verified: 4
+  discovery_manifest_self_sha256: 31EB791E2F8560CEC270B961124808706150A5151235E60409CD274C135C136D
+  discovery_manifest_entries_verified: 8
+rules_freeze:
+  agents_sha256: 66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063
+  role_stage0_review_sha256: 741EC3544797FF8A5BF337E1E3448B5F683823E5229F818F162834400581626E
+current_upstream_reality_check:
+  applicable: true
+  checked_at: 2026-08-11
+  repository: apache/arrow
+  upstream_commit_or_tag: 42694575d0219f6a3a78b1f344bb071a60df6a4e
+  official_current_documentation:
+    - https://arrow.apache.org/docs/format/Columnar.html
+    - https://arrow.apache.org/docs/cpp/api/ipc.html
+  source_symbols_or_paths:
+    - cpp/src/arrow/ipc/writer.cc::IpcFormatWriter::WriteRecordBatch
+    - cpp/src/arrow/ipc/writer.cc::IpcFormatWriter::WriteDictionaries
+    - cpp/src/arrow/ipc/writer.cc::RecordBatchWriter::WriteTable
+    - cpp/src/arrow/ipc/dictionary.cc::CollectDictionaries
+    - cpp/src/arrow/ipc/dictionary.cc::DictionaryMemo
+    - cpp/src/arrow/ipc/reader.cc::RecordBatchStreamReader
+    - cpp/src/arrow/ipc/options.h::IpcWriteOptions
+  source_blob_sha256_like_git_ids:
+    writer_cc: 263689a648d08b6a37ab5bde2e717e2f2a9a5e9f
+    writer_h: aefb59f3136e4c98419799eb31faf9700fc6efd2
+    dictionary_cc: bb5539f2b4bb6137cbd4cbfda43db6204dff234d
+    reader_cc: 47ea70e43faca6218de4094c9d3ed75d916b48d0
+    options_h: 254a4693866e9be5c2b4b0a8d77392ad70c235b2
+  default_and_nondefault_flags_thresholds_configs:
+    - metadata_v5
+    - alignment_8
+    - legacy_framing_false
+    - body_compression_none_primary
+    - emit_dictionary_deltas_false_and_true_matched_arms
+    - unify_dictionaries_ignored_for_streams
+    - arbitrary_direct_record_batches
+    - write_table_max_chunksize_grid_is_not_action_complete
+    - nested_outer_delta_excluded
+  absence_claim_disposition: CONTRADICTED_AT_ACTION_LAYER
+  current_action_absorption: CALLER_DEFINED_BATCH_CUTS_AND_PHYSICAL_DICTIONARY_ARRAYS_ALREADY_EXPRESS_OLD_WITNESS
+  remaining_non_tuning_residual: CONDITIONAL_ARROW_SPECIFIC_COMPUTATIONAL_OR_FORMAL_GUARANTEE_ONLY
+exact_object: FIXED_FLAT_DICTIONARY_SCHEMA_AND_ORDERED_LOGICAL_ROWS_TO_STANDARD_ARROW_IPC_STREAM_WITH_PINNED_CPP_STOCK_READER_DECODED_VALUE_EQUIVALENCE
+same_function_contract: >-
+  Preserve schema including metadata, field and index types, ordered flags, field order,
+  row order, decoded values, and nulls. Record-batch cuts and physical dictionary arrays
+  are actions. Freeze record-batch custom metadata absent or identical, metadata V5,
+  8-byte alignment, non-legacy framing, no body compression, threading, and reader.
+old_witness:
+  format_legality: PASS_CONCEPTUAL_SOURCE_GROUNDED
+  union_externality: FAIL_CURRENT_WRITER_CAN_EMIT_BOTH_CALLER_SUPPLIED_HISTORIES
+  allowed_inference: LEGAL_MULTIPLE_NATIVE_HISTORIES_EXIST_ONLY
+novelty_route: N2
+atomic_revision_gate:
+  id: NATIVE_INPUT_ACTION_COMPLETE__NONPRODUCT_ARROW_DICTIONARY_LATTICE_CERTIFICATE
+  scientific_revision_permitted: true
+  scientific_revision_consumed: false
+  unique_revision_index: 1_of_1
+  proposition: >-
+    On the complete native caller-controlled batch and dictionary action family,
+    define one Arrow-specific dominance, factorization, parameterized, approximation,
+    or certified-frontier property with a provable computational or guarantee residual
+    over explicit Cartesian-product segmentation, while emitting only stock-writer-
+    realizable inputs and preserving the frozen stock-reader object and full cost.
+  nonproduct_semantics: PROVABLE_STATE_COMPLEXITY_OR_GUARANTEE_RESIDUAL__NOT_UNREPRESENTABILITY_BY_EXACT_PRODUCT_ORACLE
+  required_static_clauses:
+    - FINITE_NATIVE_ACTION_UNIVERSE_AND_PLAN_TO_WRITE_RECORD_BATCH_MAPPING
+    - CURRENT_LOCAL__INDEPENDENT_OPTIMAL_SHARED_CUT_MERGE__EXACT_PRODUCT_COMPARATOR_SEMANTICS
+    - CHECKABLE_ARROW_SPECIFIC_EQUIVALENCE_DOMINANCE_OR_FACTORIZATION_RELATION
+    - NONTRIVIAL_EXACT_FPT_APPROXIMATION_OR_FRONTIER_GUARANTEE_WITH_COMPLEXITY
+    - TWO_PART_LEGAL_SMALL_CERTIFICATE_DISTINGUISHING_INDEPENDENT_MERGE_AND_PRUNING_PRODUCT_STATE
+    - FINITE_EXACT_ENUMERATION_STOCK_READER_FULL_COST_FALSIFIER
+    - COMPLETE_CONSTRUCTION_PLANNING_SERIALIZATION_READER_AND_FALLBACK_LEDGER
+  implementation_required_at_revision: false
+  positive_result_required_at_revision: false
+  completed_proof_required_at_revision: false
+  acceptance: ALL_SEVEN_STATIC_CLAUSES_DEFINED_AND_MUTUALLY_CONSISTENT
+  failure_sentinel: BELOW_Q2_STOP__CURRENT_INPUT_CONTROL_OR_GENERIC_PRODUCT_SEGMENTATION
+degeneration_disposition:
+  current_local_policy: FAILS_GATE
+  independent_per_field_plus_optimal_shared_cut_merge: FAILS_UNLESS_STRICTLY_SEPARATED_BY_CERTIFICATE
+  ordinary_cartesian_product_dp_or_ilp: BASELINE_CEILING__RELABELING_FAILS
+  input_preparation_or_emitter_engineering: FAILS_WITHOUT_INDEPENDENT_ALGORITHM_OR_GUARANTEE
+latest_collision_status: SEARCH_BOUNDED_OPEN__NO_DIRECT_FATAL_FOUND
+transport_failure_used_as_absence_evidence: false
+q1_calibration_status: PARITY_NOT_PLAUSIBLE
+q2_viability_basis: >-
+  Conditional focused data-format and algorithm paper only if the revision supplies
+  an Arrow-specific same-object computational or formal residual, followed later by
+  stock-reader fidelity, exact small-instance, official natural-carrier, and full-cost evidence.
+natural_carrier: NYC_TLC_YELLOW_TAXI_2025_JAN_FEB_OFFICIAL_RECORDS
+full_cost_ledger_scope: >-
+  dictionary construction and index remapping, candidate planning, temporary and peak
+  memory, message metadata padding and bodies, writer and reader CPU and wall time,
+  time to first complete batch, total decode latency, equality digest, and fallback.
+fidelity_closure_plan_status: READY_TO_CLOSE_IN_STAGEA_ONLY_AFTER_REVISION_ACCEPTANCE
+preclaim_contract_fidelity_gate_actual_status: PENDING_STAGEA_PREFLIGHT
+next_killer_gate: >-
+  First close the seven-clause static revision. If accepted, enumerate the complete
+  native and exact-product action family on the revised small certificate and require
+  unmodified stock-reader decoded-row equality before any natural claim-bearing run.
+academic_value_score: 40
+ai_executability_score: 27
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.85
+unresolved_risks:
+  - FLAT_FIELD_STATE_SPACE_MAY_FACTORIZE_ONLY_AS_GENERIC_PRODUCT_SEGMENTATION
+  - NO_ARROW_SPECIFIC_DOMINANCE_OR_COMPLEXITY_CERTIFICATE_YET
+  - INDEPENDENT_SHARED_CUT_MERGE_MAY_ABSORB_THE_PRACTICAL_RESIDUAL
+  - NATURAL_ASYNCHRONOUS_DICTIONARY_DRIFT_AND_FULL_COST_GAIN_UNMEASURED
+resource_blocker: null
+stagea_authorized: false
+stageb_authorized: false
+formal_experiment_allowed: false
+pending_user_stageb_review: false
+execution_authority: STAGE0_CONFIRMATION_ONLY__NO_IMPLEMENTATION_OR_EXPERIMENT
+lane_state_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE
+file_hashes:
+  CONFIRMATION_REVIEW.md: 1CBE9A8E31F2843EE3E44EF77365B73E7E3053EB5CB9B11F8C76CCE3061E8874
+hash_manifest_file: HASH_MANIFEST.sha256

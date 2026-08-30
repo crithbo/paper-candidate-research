@@ -1,0 +1,28 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE72-R40-ORDINARY-BREADTH-V1
+network_search_calls: 2
+sources:
+  - rq: RQ-S72-02
+    roles: [ANCHOR, CURRENT, CONTRARY]
+    url: https://docs.nvidia.com/deeplearning/tensorrt/latest/inference-library/capabilities.html
+    version_or_date: TensorRT_latest__checked_2026-08-15
+    provenance: official_NVIDIA_documentation
+    finding: Builder creates a serialized engine plan after tactic selection, operation reordering/fusion and schedule optimization; BuilderConfig controls precision, memory/runtime tradeoff and kernel choices.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - rq: RQ-S72-02
+    roles: [CURRENT, CONTRARY]
+    url: https://docs.nvidia.com/deeplearning/tensorrt/latest/inference-library/python-api-docs.html
+    version_or_date: TensorRT_latest__checked_2026-08-15
+    provenance: official_NVIDIA_documentation
+    finding: Current runtime exposes in-memory plan deserialization and IStreamReaderV2 chunked/weight-streaming load; these are stock reader actions.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - rq: RQ-S72-03
+    roles: [ANCHOR, CURRENT, CONTRARY]
+    url: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
+    version_or_date: current_GCC_manual__checked_2026-08-15
+    provenance: official_GCC_documentation
+    finding: Current GCC exposes LTO bytecode merging, `-flto-partition` algorithms (default `balanced`), incremental cache, compression and linker-plugin pathways.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+yield: {anchorable: 3, exact_history: 2, current_union_or_generic_kernel: 1, raw_eligible: 0}

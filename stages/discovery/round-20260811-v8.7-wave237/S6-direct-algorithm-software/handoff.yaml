@@ -1,0 +1,25 @@
+assignment_id: DISCOVERY-S6-20260811-V8.7-WAVE237-BOLT-MULTISCALE-LAYOUT-RELAXATION-JOINT-N2-CLOSURE
+lane: S6-direct-algorithm-software
+rules_revision: v8.7+R5-P0
+discovery_quality_mode: OFF
+frozen_control_hashes:
+  plan: 1B4FC46940E5BEEED56B26E7B1C8824548A76EABA241666643F49154B6D1DD2A
+  registry: 2EE7061CEE10775092495D0DE06FCB54E171CE63370ECFAA5F5C88B5B0B6584F
+  role_discovery: FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3
+final_disposition: COMPLETE_ZERO_PROPOSALS
+deep_reviews: 1
+grounded_briefs: 0
+candidate_status:
+  - id: F1_BOLT_MULTISCALE_LAYOUT_RELAXATION
+    disposition: NOT_ADMITTED_UNFROZEN
+    reason: >-
+      Current BOLT already combines block/function reordering and splitting, while LLVM
+      owns relaxation/trampoline mechanisms. The current commit/flag/target composition
+      and direct collision subtraction remain incomplete, so no distinct multiscale N2
+      guarantee is frozen.
+fidelity_closure_if_reopened:
+  - Pin one LLVM commit and enumerate BOLT reorder/split/alignment/relaxation options and pass order.
+  - Close BOLT, ext-tsp, Codestitcher, compiler, and linker direct subtractors.
+  - State a non-generic joint guarantee under complete rewrite and execution costs.
+prohibited_actions_performed: []
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

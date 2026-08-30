@@ -1,0 +1,66 @@
+assignment_id: STAGE0-P1-20260814-RVV-LMUL-REGISTER-ALLOCATION-VSETVLI-PARETO-PREBRIEF-CLOSURE-V8.7
+mode: PREBRIEF_SOURCE_CLOSURE
+topic_id: RVV-LMUL-REGISTER-ALLOCATION-VSETVLI-PARETO
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_QUEUED_AFTER_SYSTEMZ_PREBRIEF_CLOSURE
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source32-prebrief-closure\RVV-LMUL-REGISTER-ALLOCATION-VSETVLI-PARETO
+required_common_resource_rule: rules\RESOURCE_LOCALIZATION.md
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  unique_write_directory: D:\project\writing\reserch\stages\stage0\_reviews\round-20260814-adaptive-source32-prebrief-closure\RVV-LMUL-REGISTER-ALLOCATION-VSETVLI-PARETO
+  resource_root: D:\project\writing\reserch\stages\stage0\_reviews\round-20260814-adaptive-source32-prebrief-closure\RVV-LMUL-REGISTER-ALLOCATION-VSETVLI-PARETO\resources
+  inventory_path: D:\project\writing\reserch\stages\stage0\_reviews\round-20260814-adaptive-source32-prebrief-closure\RVV-LMUL-REGISTER-ALLOCATION-VSETVLI-PARETO\RESOURCE_INVENTORY.yaml
+  required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirect_required: [TEMP, TMP, TMPDIR, every_tool_specific_configurable_cache_or_temp]
+  redirect_preflight: REQUIRED_BEFORE_RESOURCE_PRODUCING_ACTION
+  inventory_snapshot_directory: resources\logs\resource-inventory
+  cleanup_owner: MAINLINE
+  lane_cleanup_authorized: false
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_rq_frontend_mode: PRODUCTION
+discovery_claim_pack_mode: OFF
+v9_output: false
+network_security_topic: false
+quality_floor_if_promoted: TIER_B_Q2_VIABLE
+purpose: INDEPENDENTLY_CLOSE_OR_FALSIFY_NON_PRODUCT_COUPLING_BEFORE_CLEAN_BRIEF
+upstream_directory: stages\discovery\round-20260814-adaptive-source32\S2-bottleneck-transfer
+frozen_inputs:
+  question_cards_sha256: A90C0BA2EF130B173FB581BEC61080E8BC41D066DDAC0E035631E034F25E9BE2
+  non_product_note_sha256: 6EB5F854F5A4EDEB82B51A6FCABB5350E183DECA18CDBE49BAB7E44B6F8D3088
+  source_role_ledger_sha256: 8043C0B627FA3AABF5589382A3AAD0B1047E75A92CB83C542F7A169A671AE200
+  collision_matrix_sha256: E2956BE311D1EC79C74FD4DF3D9E19741C93CDB69581A21C8DB72B88E6DE1F8F
+  discovery_handoff_sha256: 276CF9D40E9F86F875786FECF78BED1AD2C2D0FF79DA069D7AE466B8F1B0A455
+  discovery_manifest_sha256: 93C8A0455C1C61DA29E142416286C900C4A958061246301FE70438B98A7AD173
+frozen_object:
+  object: ONE_PUBLIC_FIXED_RVV_IR_OR_MACHINEFUNCTION__FIXED_TARGET_ABI_VECTOR_SEMANTICS
+  proposed_joint_action: LMUL_GROUP_REGISTER_ALLOCATION_AND_VSETVLI_STATE_PLACEMENT
+  strongest_sequential_composition: CURRENT_RVV_REGISTER_ALLOCATION_THEN_RISCVINSERTVSETVLI_DATAFLOW_MINIMIZATION
+  proposed_shared_endogenous_state: LMUL_REGISTER_GROUP_MASK_V0_SEW_POLICY_AND_AVL_VTYPE_STATE
+bounded_questions:
+  - Pin current LLVM commit, RVV target/features, exact pipeline mode and current union across vector pseudo formation, register classes/group alignment, RA/spill/rematerialization, RISCVInsertVSETVLI and relevant scheduling/config entry points.
+  - Find or falsify one public fixed-semantics RVV IR/MIR witness with two complete native-legal same-function plans whose LMUL group assignment changes required vtype/VL transitions while preserving ABI, vector results and object semantics.
+  - Test whether the shared state yields a target-specific non-product action/guarantee beyond ordinary RA plus current post-RA vsetvli dataflow, including a state-erasure and product-factorization attack.
+  - Perform bounded current-union and direct same-object collision review only far enough to decide clean-brief attackability; SEARCH_BOUNDED_OPEN is allowed.
+decision_space:
+  - CLEAN_BRIEF_READY__ROUTE_FULL_STAGE0_PRIMARY
+  - STRUCTURAL_DROP__GENERIC_PRODUCT_OR_CURRENT_UNION_ABSORPTION
+  - NOT_ADMITTED_UNFROZEN__BOUNDED_SOURCE_OR_WITNESS_CLOSURE_INCOMPLETE
+no_overreach:
+  - This is not a full Stage0 PASS review and cannot authorize StageA/B.
+  - Do not require implementation, build, experiment, performance result or exhaustive literature proof.
+  - Do not change target, ABI, object, vector semantics, contribution route or exact family.
+  - If source closure remains finite but incomplete, return NOT_ADMITTED_UNFROZEN rather than STOP.
+public_source_acquisition:
+  authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+  allowed: official_read_only_source_blob_documentation_and_public_regression_retrieval
+  response_bytes_max: 33554432
+  storage_bytes_max: 67108864
+  attempts_max: 6
+  no_system_install_or_global_environment_change: true
+forbidden: [new_topic, candidate_implementation, build, claim_bearing_experiment, benchmark, stageA, stageB, shared_control_write, v9_output, network_security_topic]
+required_outputs: [SOURCE_CLOSURE_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

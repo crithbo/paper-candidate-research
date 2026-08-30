@@ -1,0 +1,21 @@
+schema: ppc-r10-natural-claim-contract-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10-NATURAL-CLAIM-CONTRACT-FREEZE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+mode: CONTRACT_FREEZE_ONLY
+execution_performed: false
+evidence_ceiling: CONTRACT_FREEZE_ONLY__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+upstream_preclaim:
+  owner_handoff: {path: ../r9d-command-cost-preclaim/handoff.yaml, sha256: D356DE4F27FAD4174CB4C3049C78BBE84C1E56126FF0B069BCF1268185F3944B}
+  independent_gate: {path: ../../_reviews/nonblind-20260828-ppc-r9d-preclaim/LLVM-PPC-PREFIX-PRESSURE-PARETODP/INDEPENDENT_PRECLAIM_GATE_REPORT.yaml, sha256: 5095DEF681C778C1CECA9D5E5FC192E28BCFEC4EA61B4B05BFC8CD8138FB9984}
+  frozen_32_row_plan: {path: ../r9d-command-cost-preclaim/resources/build/r9d_r10_plan.json, sha256: 2ECFD29D11B8BC5C3DD0572BCF78A319E6F1DF8D2AEEC49A670FAC89BDF91DB3, rows: 32, execution_performed: false}
+exact_process_contract:
+  process_rows: 32
+  row_identity: EXACTLY_THE_32_FULLY_EXPANDED_ROWS_IN_frozen_32_row_plan
+  candidate_and_baseline_commands: EXACTLY_AS_FROZEN_IN_UPSTREAM_PLAN__NO_SUBSTITUTION
+  natural_input_paths_and_hashes: EXACTLY_AS_FROZEN_IN_UPSTREAM_PLAN_AND_ACCEPTED_R9D_INPUTS
+  per_process_command_costs: {compile: 128, link: 256, inspection: 512, total: 896}
+  baseline_graph: PRODUCER_OUTPUT_PRECEDES_CHECKER_AND_FULL_COST
+full_cost_denominator: {candidate: compile_link_inspection_checker_full_cost, baseline: compile_link_inspection_checker_full_cost, shared_compile_accounting: exact_metric_id_dedup_across_two_link_arms, omitted_dimensions: []}
+legality_witness: {required: true, source: accepted_r9d_preclaim_witness, predicate: same_function_materialization_and_exact_checker_equivalence_before_any_natural_claim}
+stop_conditions: [any_missing_or_drifted_natural_input_hash, any_command_row_not_exact, any_cost_metric_unconsumed, legality_witness_failure, baseline_or_candidate_semantic_mismatch, resource_or_tool_boundary_violation]
+forbidden_until_separate_execution_authorization: [network, resource_creation, tool_run, selected_or_reserve_run, natural_run, claim_run, scientific_inference, production_state_change, stageB]

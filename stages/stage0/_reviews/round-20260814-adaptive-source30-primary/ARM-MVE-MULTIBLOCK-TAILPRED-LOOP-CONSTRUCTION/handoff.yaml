@@ -1,0 +1,35 @@
+assignment_id: STAGE0-P1-20260814-ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION-PRIMARY-V8.7
+topic_id: ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION
+role: PRIMARY
+decision_recommendation: REVISE_ONCE
+quality_tier: TIER_B_Q2_VIABLE
+confirmation_required: true
+stageA_authorized: false
+stageB_authorized: false
+evidence_ceiling: E1_STATIC_STAGE0_ONLY__NO_IMPLEMENTATION_NO_RESULT_CLAIM
+revision:
+  available: 1
+  consumed: false
+  sole_atomic_gate: NATIVE_TWO_BLOCK_MVE_PLAN_DIVERGENCE__FUTURE_PRESERVING_VPT_VCTP_FRONTIER_CERTIFICATE
+  required_closure:
+    - Pin one public two-basic-block LLVM IR/MIR witness and Armv8.1-M MVE+LOB target contract.
+    - Give two complete native-legal same-function plans, with exact vector-result, active-lane, branch, exception, ABI, VPT/VCTP, loop-range and live-out predicates.
+    - Enumerate the current action envelope and prove at least one candidate action is union-external rather than a tail-predication flag, VPT repair, ordinary LOB lowering or fallback.
+    - Define a finite MVE-specific sufficient state preserving all future native actions, legality and declared full cost; state an exact, FPT or certified Pareto recurrence with honest complexity.
+    - Freeze a finite Stage A preclaim fidelity checker and kill condition.
+  fail_sentinel: BELOW_Q2_STOP__SINGLE_BLOCK_BOUNDARY_WITHOUT_NATIVE_TWO_PLAN_OR_TARGET_SPECIFIC_FRONTIER
+current_upstream:
+  llvm_commit: 81ac5c7c26efb70ffaffb91b26053437093ee085
+  decisive_fact: ARMLowOverheadLoops::IsTailPredicationLegal requires ML.getNumBlocks()==1.
+  direct_absorptions:
+    - VPT/VPST conversion and mask recomputation
+    - VCTP equivalence checking and tail-predicate legality checks
+    - DLSTP/WLSTP/LETP versus ordinary/revert fallback selection
+strong_baselines:
+  - CURRENT_LLVM_VECTORIZER__MVETAILPREDICATION__ARMLOWOVERHEADLOOPS_COMPOSITION
+  - CURRENT_TAIL_PREDICATION_CONFIGURATION_ENVELOPE
+  - CURRENT_NATIVE_VCTP_VPT_LOW_OVERHEAD_FALLBACK
+claim_ceiling: Conditional static paper potential only. No code generation, semantic equivalence, runtime, compile-time, code-size or energy result was produced.
+resource_status: NO_BLOCKER
+mainline_action: Route to an independent confirmation reviewer; do not authorize Stage A/B.
+lane_state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

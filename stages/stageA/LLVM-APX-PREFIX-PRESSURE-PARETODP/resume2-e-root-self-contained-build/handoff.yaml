@@ -1,0 +1,59 @@
+schema_version: candidate-resource-gate-handoff-v2
+assignment_id: STAGEA-L1-20260825-LLVM-APX-RESUME2-E-ROOT-SELF-CONTAINED-BUILD
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+decision: BLOCKED_USER_ACTION_REQUIRED
+blocker_kind: FILESYSTEM_PATH_CAPABILITY__EXFAT_WINDOWS_LONG_PATH
+user_summary_cn:
+  outcome: 官方资源和 exact 配置均闭合，但唯一 build 因 exFAT 长路径失败
+  main_reason: Ninja 无法创建 266 字符对象目录，required APX tools 未生成
+  next_step: 用户批准新短路径 resume 与一次新 build，或提供 exact-commit 预构建工具包
+  scientific_negative_inference: false
+source_assignment_sha256: FCF62E2E75A9084F019C6609739A589BA65A0D77441B443E1F6336A17DB722A9
+context_sha256: 0D7DBD7FF44105D5BD39A3CC57892350FD37B310D9FE66A09EFD33F823CD7A7B
+bootstrap_ack_sha256: ABEB5743A7A2E2FB3371B4D4E65CBCA702B31B7E26833C41F2092BA0BDB18CCA
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+resource_gate:
+  official_assets_passed: 5/5
+  network_attempts: 6/6
+  network_bytes: 508822273
+  configure: PASS_AFTER_SINGLE_ALLOWED_CORRECTED_RECONFIGURE
+  clean_build: FAILED_1_OF_1
+  build_progress: 2407/3156
+  build_wall_seconds: 1355.388
+  required_tools_ready: false
+  non_claim_smokes_run: 0
+resource_root:
+  bytes: 4703991763
+  files: 197428
+  stored_budget_bytes: 8589934592
+  within_budget: true
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  owner_cleanup_performed: false
+  cleanup_owner: MAINLINE
+  exact_cleanup_candidate_bytes: 3335520563
+  projected_post_close_retained_bytes: 1368471200
+  projected_post_close_budget_pass: true
+claim_ceiling: RESOURCE_GATE_ONLY__NO_APX_NATURAL_OR_PERFORMANCE_CLAIM
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: false
+mechanism_pivot_consumed: false
+claim_bearing_or_natural_action_started: false
+stage_transition_authorized: false
+stageb_authorized: false
+forbidden_actions_respected: true
+canonical_outputs:
+  - RESOURCE_GATE_REPORT.md
+  - BUILD_PROVENANCE.yaml
+  - ENVIRONMENT_LOCK.yaml
+  - COMMAND_LOG.md
+  - USER_BLOCKER_PACKET.md
+  - RESOURCE_INVENTORY.yaml
+  - PHASE_CLOSEOUT_RETENTION.yaml
+  - RESUME_CAPSULE.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+next_owner: MAINLINE
+next_action: ACCEPT_BLOCKER_HANDOFF__REQUEST_USER_DECISION__OPTIONAL_MAINLINE_GC

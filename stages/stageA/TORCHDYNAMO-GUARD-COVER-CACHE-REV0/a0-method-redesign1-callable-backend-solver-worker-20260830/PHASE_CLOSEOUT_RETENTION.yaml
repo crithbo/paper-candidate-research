@@ -1,0 +1,11 @@
+schema: phase-closeout-retention-v1
+assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-A0-METHOD-REDESIGN1
+closeout_reason: FINAL_METHOD_REDESIGN1_FIRST_CONTROL_FAILURE
+cleanup_owner: MAINLINE
+cleanup_performed: false
+retain: [resources/src/runtime, resources/build/control/integrated/solver, resources/logs/control/integrated.stderr.txt, A0_METHOD_REDESIGN1_STATUS.yaml, STAGEA_EXECUTION_READINESS_LEDGER.yaml, RESOURCE_INVENTORY.yaml, RESUME_CAPSULE.yaml, handoff.yaml, TARGETED_MANIFEST.yaml]
+exact_cleanup_candidate_leaves_after_accepted_handoff:
+  - {path: resources/build/control/integrated/cases/CASE_MANIFEST.json, bytes: 860917, sha256: B14799D30811DC9951F74750F80D10E895430FC7D20E13808DA73E8B281F4209}
+  - {path: resources/logs/control/integrated.stdout.txt, bytes: 0, sha256: E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855}
+cleanup_preconditions: [MAINLINE_ACCEPTED_HANDOFF, CAPSULE_ACCEPTED, ZERO_REPARSE, ZERO_ACTIVE_PROCESS, EXACT_HASH_MATCH]
+scientific_inference: NONE

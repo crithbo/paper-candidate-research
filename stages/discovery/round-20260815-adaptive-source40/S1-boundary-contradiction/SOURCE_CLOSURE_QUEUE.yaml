@@ -1,0 +1,36 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE40-CARRIER-COMMITMENT-CLOSURE
+max_locators: 2
+max_routes_per_locator: 3
+queue:
+  - signature: AARCH64_FPMR__FIXED_FP8_CALL_SEMANTICS__CALL_BOUNDARY_STATE_PRESERVATION
+    trigger: RQ_COMPLETE_AND_MISSING_SPECIFIC_PUBLIC_CARRIER_VERSION_CURRENT_LOCUS_OR_FINITE_ORACLE_ROUTE
+    closure_questions:
+      - EXACT_CARRIER_VERSION_OR_CURRENT_LOCUS
+      - STRONGEST_OBVIOUS_GENERIC_OR_CURRENT_ACTION_ADVERSARY
+      - FINITE_ORACLE_OR_FALSIFIER_ROUTE
+    deterministic_routes:
+      - official Arm ABI/ACLE documentation
+      - current LLVM upstream source/documentation
+      - official assembler/disassembler or ABI test oracle
+  - signature: CUDA_THREAD_BLOCK_CLUSTER__FIXED_KERNEL_RESULT__CLUSTER_BARRIER_COMMITMENT
+    trigger: RQ_COMPLETE_AND_MISSING_SPECIFIC_CURRENT_LOCUS_OR_FINITE_ORACLE_ROUTE
+    closure_questions:
+      - EXACT_CARRIER_VERSION_OR_CURRENT_LOCUS
+      - STRONGEST_OBVIOUS_GENERIC_OR_CURRENT_ACTION_ADVERSARY
+      - FINITE_ORACLE_OR_FALSIFIER_ROUTE
+    deterministic_routes:
+      - current NVIDIA CUDA Programming Guide
+      - CUDA Runtime API/current official samples
+      - compiler/runtime legality oracle
+status: CLOSED_BOUNDED
+results:
+  - signature: AARCH64_FPMR__FIXED_FP8_CALL_SEMANTICS__CALL_BOUNDARY_STATE_PRESERVATION
+    disposition: EXCLUDED_BEFORE_RAW__TERMINAL_IDENTITY_OR_DIRECT_CURRENT_COLLISION
+    reconciliation: IDENTITY_RECONCILIATION.md
+    carrier: ARM-software/abi-aa aapcs64 main, 2025Q4, dated 2026-01-23
+    current_locus: LLVM AArch64 upstream feature/source surface remains a bounded downstream-union debt; no absence claim made
+    finite_oracle: AAPCS64 ABI conformance plus compiler assembly/unwind inspection in Stage0
+  - signature: CUDA_THREAD_BLOCK_CLUSTER__FIXED_KERNEL_RESULT__CLUSTER_BARRIER_COMMITMENT
+    disposition: LOCATOR_ONLY
+    carrier: NVIDIA CUDA Programming Guide cluster-group semantics and official CUDA samples repository
+    reason: proposed barrier/cluster choice remains configuration or scheduling shaped

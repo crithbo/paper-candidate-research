@@ -1,0 +1,66 @@
+schema_version: discovery-source-closure-retry-v1
+assignment_id: SOURCE-CLOSURE-RESUME-BATCH08-ITEM02-SOURCE93-S2-POSTGRESQL-RETRY1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_COLLISION_AND_CARRIER_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+write_owner: ASSIGNED_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source93/S2-bottleneck-transfer/closure-cq01-retry1
+queue_item: S2-93-CQ01-RETRY1
+retry_of: stages/discovery/round-20260815-adaptive-source93/S2-bottleneck-transfer/closure-cq01
+exact_project: postgres/postgres
+immutable_commit: 7e6e294e4e451c55c52caa1ff68df9858912d066
+commit_policy: REUSE_EXACTLY__NO_BRANCH_REFRESH_OR_SUBSTITUTE_COMMIT
+exact_object: one fixed PostgreSQL schema, SQL query and input relation executed under fixed JIT settings with unchanged SQL result, errors, tuple semantics, provider and full-cost endpoint
+frozen_family: POSTGRESQL__FIXED_SCHEMA_QUERY__EXPRESSION_TUPLE_DEFORM_JIT_JOINT_CONSTRUCTOR__COMPILE_EXECUTION_FULL_COST
+retry_goal:
+  - repair the prior frozen SQL carrier path using one official recursive tree at the immutable commit and a deterministic selection rule
+  - close current expression JIT, tuple deform JIT, LLVM provider/context, settings and fallback action union
+  - freeze one fixed stock SQL carrier and two complete stock-legal expression-plus-deform plans if source exposes them
+  - freeze a PostgreSQL-specific union-external joint action and finite guarantee or return exact structural/unresolved reason
+official_source_routes:
+  - https://api.github.com/repos/postgres/postgres/git/commits/7e6e294e4e451c55c52caa1ff68df9858912d066
+  - https://api.github.com/repos/postgres/postgres/git/trees/7e6e294e4e451c55c52caa1ff68df9858912d066?recursive=1
+  - https://raw.githubusercontent.com/postgres/postgres/7e6e294e4e451c55c52caa1ff68df9858912d066/src/backend/jit/llvm/llvmjit_expr.c
+  - https://raw.githubusercontent.com/postgres/postgres/7e6e294e4e451c55c52caa1ff68df9858912d066/src/backend/jit/llvm/llvmjit_deform.c
+  - https://raw.githubusercontent.com/postgres/postgres/7e6e294e4e451c55c52caa1ff68df9858912d066/src/backend/jit/llvm/llvmjit.c
+selection_rule: from the complete frozen tree choose the lexicographically first blob under src/test whose lowercase path contains jit and ends in .sql; if none, choose the lexicographically first .sql under src/test/modules whose parent path contains jit or llvm; retain exactly that raw file as the carrier, record zero-match as telemetry, and do not substitute another selection rule
+additional_source_selection: from the same tree choose at most one additional blob under src/backend/jit whose lowercase basename is jit.c or contains provider, choose lexicographically first, and retain its raw content
+frozen_primary_searches:
+  - 'PostgreSQL expression JIT tuple deform joint optimization'
+  - 'PostgreSQL LLVM JIT tuple deform expression compilation'
+primary_selection_rule: open at most two primary research papers whose title or abstract explicitly names PostgreSQL and jointly addresses expression JIT with tuple deform/data-layout compilation; otherwise record SEARCH_BOUNDED_OPEN without absence inference
+required_outputs:
+  - immutable commit proof, complete tree status, selected SQL carrier hash and retained source loci
+  - complete bounded current action/configuration/fallback union
+  - fixed query carrier and two complete stock-legal plans, or exact bounded reason unclosed
+  - union-external PostgreSQL-specific action, information boundary, non-generic discriminator and finite guarantee verdict
+  - direct collision and generic IR/layout/controller objection
+  - full-cost dimensions and finite falsifier route
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_GENERIC_IR_LAYOUT_CONTROLLER__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+authority_boundary: {clean_brief: false, q2_or_candidate_grade: false, pass_stop_or_stage_state: false}
+forbidden:
+  - read Batch8 Ruby output, Batch7 outputs, other closure outputs, later Discovery, rule audit, terminal or held queues
+  - change fixed schema/query/input/result/errors/tuple/provider/JIT/full-cost endpoint/project or commit
+  - clone, archive download, build, install, compile, run, test, benchmark or claim-bearing observation
+  - use unofficial sources, substitute routes, unbounded search, or infer absence/novelty from 404, zero match, transport or tool failure
+resource_localization:
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source93/S2-bottleneck-transfer/closure-cq01-retry1/resources
+  inventory: stages/discovery/round-20260815-adaptive-source93/S2-bottleneck-transfer/closure-cq01-retry1/RESOURCE_INVENTORY.yaml
+  max_official_calls: 15
+  max_success_response_bytes_each: 8388608
+  max_network_bytes: 50331648
+  max_persisted_bytes: 50331648
+  max_wall_seconds: 3600
+  max_frozen_searches: 2
+  max_primary_papers_opened: 2
+  pre_call_monotonic_attempt_counter: required
+  eight_standard_subdirectories: required
+rules:
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+notify_mainline_on_finish_or_blocker: true

@@ -1,0 +1,34 @@
+schema: R11A_R13B_PUBLIC_PREFLIGHT_REQUEST_PLAN_V1
+approval_id: R11A-R13B-BATCH01-RAW-CAP-RECOVERY-20260813-R14A
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+batch_id: R13B-02
+public_seed: DISCOVERY-CLAIM-PACK-V9-R0-R11A-R13B-02-PUBLIC-PREFLIGHT-20260813
+normalization_profile: R11A-STABLE-FAMILY-IDENTITY-NORM-V1
+global_raw_remaining_before_batch: 44
+original_batch_raw_cap: 24
+effective_batch_raw_cap: 24
+unique_commitment_cap: 20
+requests:
+  - request_ordinal: 1
+    requested_raw_count: 12
+    provider_order_freeze_before_semantic_filtering: required
+  - request_ordinal: 2
+    requested_raw_count: 12
+    provider_order_freeze_before_semantic_filtering: required
+planned_raw_total: 24
+third_request: forbidden
+raw_accounting: REQUESTED_SLOTS_ARE_CONSUMED_EVEN_IF_FEWER_RESULTS_RETURN_OR_RESULTS_ARE_NOT_PERSISTED
+scope:
+  public_identity_preflight_only: true
+  allowed_source_route: EXISTING_R11A_PHASE1_PUBLIC_SOURCE_ROUTE_ONLY
+  historical_identity_or_private_denylist_access_by_packer: forbidden
+  semantic_filtering_before_provider_order_freeze: forbidden
+  commitment_before_both_order_freezes: forbidden
+  source_qualification_before_mainline_private_intersection: forbidden
+  new_download_or_external_service_authority: false
+failure:
+  any_unreserved_request: FAIL_CLOSED
+  request_total_above_24: FAIL_CLOSED
+  missing_order_freeze: FAIL_CLOSED
+  replay_or_reference_to_quarantined_batch01: FAIL_CLOSED
+  scientific_inference: NONE

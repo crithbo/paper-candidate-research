@@ -1,0 +1,23 @@
+schema: independent-stagea-preclaim-review-assignment-v1
+assignment_id: STAGEA-GATE-20260829-APX-R9-CONTROL-AND-FULL-COST-FIDELITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+review_scope: PRE_CLAIM_CONTRACT_FIDELITY_ONLY__NO_FORMAL_STAGEA_PASS
+questions:
+  - Does the static packet cover the frozen APX action and all four named baselines without proxy substitution?
+  - Does the one-row control prove executable producer-consumer, schema and native-arm separation with no missing path?
+  - Does the outer ledger measure all nine command costs including CPU, wall, peak RSS, input/output/persisted bytes while ignoring driver placeholders?
+  - Is the frozen four-selected-times-two natural packet ready for claim visibility, or is one bounded correction still required?
+minimum_inputs:
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_EXECUTABLE_PACKET.yaml, sha256: E4DFAC313496C124CE1305CD718C39A12AB96811D9E8194703B99F1DC4E41B76}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_COMMAND_DAG.json, sha256: 2D4351FD99101794A809122EB5A92521B74898FE117D2DB9859F0FB52C942EA7}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_CONTROLLER.py, sha256: 25F643B96CF17F031FB6BE1D4CBC6C4F5B8A96CBEE79381EDA937FBCD769A469}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_STATIC_VALIDATION.yaml, sha256: 49A97FF6A572D8595F1526DAB79087A6D935F47BF7711F7EC4B74EA09516D88A}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_CONTROL_RUNNER.py, sha256: 411F9071FC84E3E340102C2D6CA5BFD25E7F9DE1ED6498C9BD121A1EF8B93951}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/control/APX-R8-S01-R1/CONTROL_STATUS.json, sha256: 4CFE4D2DE305E7DE8431D082B952990570775C900E613F615FAA42976BC29736}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/control/APX-R8-S01-R1/outer_full_cost_ledger.json, sha256: 15FA62CD6A184DA88C48F8337ADB349B241287C2C6DEFED4DF59998410B4C347}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/rows/APX-R8-S01-R1/checked.json, sha256: 149930CB5EF541392F912360678EB27B37DC5509959EBC57D889E6D6B9DC4F0A}
+engineering_facts: {commands: 9, exits_zero: 9, required_outputs_present: true, schema_valid: true, missing_paths: 0, first_failure: null, claim_observations: 0}
+effect_firewall: reviewer_may_read_fidelity_booleans_but_must_not_report_frontier_values_or_relative_effect
+allowed_actions: [read_only_review, targeted_hash_check, write_bootstrap_ack_then_after_start_report_handoff_manifest]
+forbidden_actions: [modify_owner_files, resource_copy, tool_replay, new_experiment, claim_run, report_control_effect_values, network, shared_write, state_change, stageb]
+scientific_ceiling: PRECLAIM_FIDELITY_ONLY__NO_SCIENTIFIC_INFERENCE

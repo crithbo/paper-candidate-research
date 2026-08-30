@@ -1,0 +1,17 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S4-20260824-SOURCE112-VLA-MULTIMODAL-SPECULATIVE-V1
+topic_id: SOURCE112-PORTFOLIO-S4
+lane_id: DISCOVERY_S4
+lane_mode: S4_OBJECTIVE_CONSTRAINT
+thread_id: 01a02e08-1606-71b0-89d9-3fc204478b08
+common_contract: stages/discovery/round-20260824-strategy-source112/control/CONTROL.yaml
+common_contract_sha256: 63C7D9850C2599EFA8616723C6363295687E6261683AE9E51103365B2392F293
+write_directory: stages/discovery/round-20260824-strategy-source112/S4-objective-constraint
+resource_root: stages/discovery/round-20260824-strategy-source112/S4-objective-constraint/resources
+focus: LIBERO_OPEN_X_EXACT_BENCHMARK_RANKING_VALIDITY
+anchor_portfolio: [LIBERO_OPEN_X_VERSIONED_RESULTS]
+mandatory_pre_rq_check: READ_ALL_PREDECESSOR_DENYLIST_FILES_AND_SOURCE111_ADDENDUM
+forbidden_inputs: [GROUP_REPOSITORY, CRFEPOCH_STAGE0, RULE_AUDIT_A6_OUTPUTS]
+model_route: {model: gpt-5.6-terra, reasoning: high}
+modes: {rq_frontend: PRODUCTION, claim_pack: OFF, quality: OFF, selective_depth: OFF}
+next_action_before_start: WRITE_BOOTSTRAP_ACK_AND_WAIT

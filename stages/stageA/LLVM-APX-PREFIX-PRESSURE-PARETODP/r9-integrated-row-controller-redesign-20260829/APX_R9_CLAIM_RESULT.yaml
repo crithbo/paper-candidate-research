@@ -1,0 +1,55 @@
+schema: apx-r9-natural-claim-result-v1
+assignment_id: STAGEA-L2-20260829-LLVM-APX-R9-NATURAL-CLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+classification: CLAIM_BEARING_RUN__FAIL_CLOSED__RAW_RETAINED
+preclaim_fidelity_gate:
+  decision: ACCEPT_PRECLAIM_FIDELITY__CLAIM_PACKET_READY__NO_SCIENTIFIC_INFERENCE
+  report_path: stages/stageA/_reviews/20260829-apx-r9-preclaim-fidelity/LLVM-APX-PREFIX-PRESSURE-PARETODP/INDEPENDENT_REVIEW_REPORT.md
+  report_sha256: C10A32BFDA007AA5EC47C8CF1A8B4C182E199659B8B051E46DF6C46BAF58DC5F
+control_preservation:
+  manifest_path: CONTROL_ROW_SNAPSHOT_MANIFEST.yaml
+  manifest_sha256: 611ED92D634E6FDB5F77C86B9695DDFD0BF8B975718D5275F9BCB3DE38986DC8
+  copied_files: 30
+  copied_bytes: 278243
+  overwrite: false
+frozen_denominator:
+  selected_inputs: 4
+  replays_each: 2
+  rows_expected: 8
+  commands_per_row: 9
+  commands_expected: 72
+  result_based_exclusion: false
+  reserve_backfill: false
+execution:
+  attempts_used: 1
+  retries_used: 0
+  commands_started: 19
+  complete_rows: 2
+  partial_rows: 1
+  not_started_rows: 5
+  first_failure:
+    row_id: APX-R8-S02-R1
+    selected_id: S02
+    function_or_test_id: neg8r
+    command_id: prepare_same_object_trace
+    exit_code: 2
+    timeout: false
+    action_options_count: 0
+    same_program_semantics_and_abi: true
+    classification: FROZEN_NATURAL_ROW_ACTION_COVERAGE_FAILURE
+raw_evidence:
+  controller_ledger: {path: resources/logs/claim/controller/outer_full_cost_ledger.json, sha256: 2D07D2A2442CCCD070270FE2E99F4C3E88181BFA56570A925BF413A9CAB8BEC9}
+  first_failure: {path: resources/logs/claim/controller/first_failure.json, sha256: 7E17FDE5ECF4BD86C96090E5F36AB064FECBDDEBF903EBA928222ECE3922600B}
+  completed_row_1: {path: resources/logs/rows/APX-R8-S01-R1, tree_sha256: 181579B4DC616000BDB138FEF821986DBBEAE585EA90E302C195F4AEB700E14C, files: 30, bytes: 278243}
+  completed_row_2: {path: resources/logs/rows/APX-R8-S01-R2, tree_sha256: 711ADDEE02DBB0FCCAC989C8A35E3F91BEA35A28EAFFFB5A5DE130A7BC204259, files: 30, bytes: 278243}
+  failed_row: {path: resources/logs/rows/APX-R8-S02-R1, tree_sha256: A092DC1B6A4CB4F9CA94B0A5A20CA5FC8D14831EB22E907C3430287DF3A51B33, files: 4, bytes: 36964}
+claim_interpretation:
+  directional_or_relative_effect: WITHHELD__INCOMPLETE_FROZEN_DENOMINATOR
+  candidate_baseline_aggregation: FORBIDDEN
+  scientific_revision_consumed: false
+  stagea_pass_supported: false
+  scientific_stop_supported: false
+  evidence_ceiling: INCOMPLETE_FROZEN_DENOMINATOR__NO_DIRECTIONAL_CLAIM
+  independent_stagea_gate_required: true
+  stageb_authorized: false
+scientific_inference: NONE_BEYOND_FROZEN_ROW_ACTION_COVERAGE_OBSERVATION

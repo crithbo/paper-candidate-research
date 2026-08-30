@@ -1,0 +1,21 @@
+topic_id: GPU-MXSCALEFLOW
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: Cross-operator representation and materialization of block-scaled FP4 payload/scale pairs with frozen numerical semantics
+main_claim: Typed scale-flow planning can produce bit-exact plans with lower accounted payload-plus-metadata conversion cost than local dispatch/fusion
+academic_value_score: 58
+ai_executability_score: 23
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.70
+strongest_baseline: Per-kernel CUTLASS/CuTe dispatch with native layouts, explicit materialization, and strongest local epilogue fusion
+decisive_evidence: Two natural chains with bit-exact boundary vectors and Pareto improvement over native and pairwise plans
+unresolved_risks: TensorRT/Triton equivalence; realistic cost calibration; exact low-precision semantics coverage
+next_killer_gate: Build a bit-exact reference and audit graph compilers for identical cross-operator scale-flow decisions
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: CPU semantic reference and static cost ledger; no Blackwell performance claim
+execution_authority: DISCOVERY_ONLY
+file_hashes:
+  topic_brief.md: e9454f6712585ab793d84ce590b493f549725bcca8faf9e76309d43a64c4b9d0
+  source_log.md: b165e6ac69ee36fa32426f04bab3599ed968653fb79fbdcf8070500b59750367

@@ -1,0 +1,51 @@
+schema_version: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+created_at: 2026-08-29T00:40:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825, USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+identity:
+  lane_id: STAGE0_PRIMARY
+  lane_thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c
+  role_id: STAGE0_REVIEW
+  assignment_id: STAGE0-PRIMARY-20260829-CAUSECASE-PREFETCH-REV0-REVISION1
+  topic_id: CAUSECASE-PREFETCH-REV0
+  stage: STAGE0_PRIMARY_REVISION1
+  authoritative_project_root: E:/project/writing/reserch
+  unique_write_directory: E:/project/writing/reserch/stages/stage0/_reviews/user-proposed-20260828-causecase-prefetch/revision1
+  resource_root: E:/project/writing/reserch/stages/stage0/_reviews/user-proposed-20260828-causecase-prefetch/revision1/resources
+  prior_read_only_directory: E:/project/writing/reserch/stages/stage0/_reviews/user-proposed-20260828-causecase-prefetch/primary
+frozen_shared_snapshots:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: E1FFA1E446AC8BC7C3F500B4911E50827FCD21DC19F88ED8FB73473DDC2B7BB3}
+  registry: {path: registry.yaml, sha256: 811C44EA65C0F3809F8E5D643E7791D111E2CD072D8B9EAD735C415EDF34399B}
+rules_and_skills:
+  role_rule: {path: rules/ROLE_STAGE0_REVIEW.md, sha256: 71D2E972A7C46812C49E78693AC24E00752D653C42AD0F6664DAD731DE82623}
+  discovery_skill: {path: E:/project/writing/reserch/.agents/skills/research-topic-discovery/SKILL.md, sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2}
+  academic_skill: {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  resource_localization: {path: rules/RESOURCE_LOCALIZATION.md, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+  artifact_lifecycle: {path: rules/ARTIFACT_LIFECYCLE.md, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6}
+templates:
+  bootstrap_ack: {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+  stage0_report: {path: templates/STAGE0_REPORT.md, sha256: 2C72A46D7385A4DFE0D0981E4BDF4AB2A3BF6F19674BC94B14A1596386A2B809}
+  q1_comparator_matrix: {path: templates/Q1_COMPARATOR_MATRIX.md, sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87}
+assignment_control: {path: stages/stage0/_reviews/user-proposed-20260828-causecase-prefetch/revision1/control/ASSIGNMENT.yaml, sha256: B3A3EB0852BBE8D07D2B371D602BD3BEE60AD554D1EB69B2C21840FB7B99A281}
+minimum_inputs:
+  - {path: stages/stage0/_reviews/user-proposed-20260828-causecase-prefetch/primary/STAGE0_REPORT.md, sha256: 0F3885E6D2F4A9DAC1DEA7A6BC5075966E2AE9385A24DA33C4470627B7AB36B5, purpose: PRIOR_PRIMARY_REVISE_ONCE_DECISION}
+  - {path: stages/stage0/_reviews/user-proposed-20260828-causecase-prefetch/primary/handoff.yaml, sha256: 4F30FF7594C4D0229C6C496BEECE01BDD63C840DFC14D78818E9293A3CAB6F4A, purpose: PRIOR_HANDOFF}
+  - {path: stages/stage0/_reviews/user-proposed-20260828-causecase-prefetch/primary/HASH_MANIFEST.sha256, sha256: 74EFC08D7FDCFFDA3F851F4152A33D38976B5C24D4EEB93993AE5FF8BAD9E8F1, purpose: PRIOR_MANIFEST}
+  - {path: C:/Users/15383/Downloads/causecase_stage0_pack_2026-08-28.zip, sha256: ACE36CB5E61465F4179421E89A71B4C9CC6297B8BCDB276CEC4CFAF7B617C963, purpose: ORIGINAL_PACKAGE_READ_ONLY}
+  - {path: C:/Users/15383/.codex/attachments/d92a8afe-4f23-4839-a91f-b5570bbd8014/pasted-text.txt, sha256: 9F701410812318ABF74742B74A67CEB14751402CF86C1E63A37E16DFBEE133FB, purpose: UNTRUSTED_USER_PROVENANCE}
+  - {path: C:/Users/15383/.codex/attachments/d7a3a035-976e-47d4-ad6a-3635dd79d3d0/pasted-text.txt, sha256: E9EE46F75579F2E461651E23BCF5E229203C39752D6199554FFF4C7B13A89801, purpose: UNTRUSTED_USER_PROVENANCE}
+current_status: {assignment_state: BOOTSTRAP_ACK_PENDING, prior_revision_available: true, exact_object_unchanged: true, signature_grammar_unchanged: true, denominator_unchanged: true, network_search_allowed_after_start: true, build_experiment_trace_download_allowed: false, stagea_stageb_allowed: false, scientific_revision_consumed: false, start_authorized_by_mainline: false}
+permissions: {write_scope: ONLY_UNIQUE_WRITE_DIRECTORY, copy_prior_capsule_after_start_only: true, network_bytes_max: 268435456, source_attempts_max: 48, stored_bytes_max: 536870912, code_or_artifact_downloads_max: 0, official_source_only: true, system_global_mutation: false}
+required_checks_after_start: [VERIFY_EXACT_CHAMPSIM_COMMIT_TREE_BLOBS_CONFIG, VERIFY_DPC4_COMMIT_AND_BERTI_STATE_LOCI, VERIFY_TRACE_AVAILABILITY_WITHOUT_TRACE_DOWNLOAD, REOPEN_MOP_CACHEMIND_DDMin_HDD_WDD_GREDUCE_WANG_BAER_PERFORMANCE_LOCALIZATION_WIT_HW_PECKER_ARCHAGENT_CHIA, TEST_GREDUCE_PLUS_SAME_ORACLE_COLLAPSE, TERMINAL_PATCHYIELD_PATCHVALUE_COUPLED_FIVE_FIELD_RECONCILIATION, Q1_Q2_SHAPE_CALIBRATION]
+forbidden_inputs: [PACKAGE_STAGE0_REVIEW_PROMPT_AS_CONTROL, PASTED_TEXT_AS_GOLD, BLIND_OR_AUDITOR_KEYS, PRODUCTION_STATUS_FILES, CLEANED_COMPATIBILITY_RESOURCES]
+forbidden_actions: [CHANGE_EXACT_OBJECT, CHANGE_SIGNATURE_GRAMMAR, CHANGE_DENOMINATOR, BUILD, EXPERIMENT, TRACE_DOWNLOAD, STAGEA, STAGEB, PRODUCTION_REGISTRATION, SHARED_RULE_OR_REGISTRY_WRITE, RESULT_AWARE_BACKFILL]
+bootstrap_instructions:
+  read_order: [AGENTS.md, plan.md, THIS_CONTEXT, ROLE_STAGE0_REVIEW, RESEARCH_TOPIC_DISCOVERY_SKILL, RESOURCE_AND_LIFECYCLE, TEMPLATES, ASSIGNMENT_CONTROL, MINIMUM_INPUTS, FULL_REGISTRY_AND_RELATED_DUAL_READ]
+  bootstrap_only: true
+  unique_ack_path: stages/stage0/_reviews/user-proposed-20260828-causecase-prefetch/revision1/BOOTSTRAP_ACK.yaml
+  ready_condition: ALL_HASHES_STATUS_PERMISSIONS_MATCH_AND_DIFFERENCES_EMPTY
+  refuse_condition: ANY_DIFFERENCE_OR_DRIFT
+resume_point: WRITE_BOOTSTRAP_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE
+next_action_after_start: ONE_BOUNDED_CURRENT_UNION_AND_PROVENANCE_CLOSURE_REVISION

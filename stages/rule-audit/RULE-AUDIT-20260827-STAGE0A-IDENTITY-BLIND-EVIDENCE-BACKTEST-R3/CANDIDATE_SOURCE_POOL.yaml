@@ -1,0 +1,63 @@
+schema: stage0a-identity-blind-r3-candidate-source-pool-v1
+frozen_at: '2026-08-27'
+status: CANDIDATE_POOL_ONLY__PACKER_MUST_VERIFY_ELIGIBILITY
+selection_preimage: exact ordered list below
+selection_rule:
+  - remove excluded identities and any candidate failing Q2-or-equivalent, public-evidence, historical-cutoff, or hard-gate preflight
+  - within each contribution stratum order LOW before MEDIUM before HIGH identity risk
+  - within equal risk order by uppercase SHA256 of normalized_identity_key
+  - take first three qualified identities per stratum
+  - no result-aware replacement; use next item in the same frozen ordering only
+normalized_identity_key: lowercase_ascii(title)|year|venue
+tie_rule: lexical normalized_identity_key
+
+reviewer_contact_exclusions:
+  - Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs
+  - Benchmarking Nearest Neighbors — Automated Reproducible Search for Algorithmic Evaluation
+  - egg — Fast and Extensible Equality Saturation
+  - cvc5 — A Versatile and Industrial-Strength SMT Solver
+  - Carcara — An Efficient Proof Checker and Elaborator for SMT Proofs in the Alethe Format
+  - Layered Label Propagation — A Multiresolution Coordinate-Free Ordering for Compressing Social Networks
+  - The PGM-index — A Fully-Dynamic Compressed Learned Index with Provable Worst-Case Bounds
+  - ALEX — An Updatable Adaptive Learned Index
+  - Pythia — A Customizable Hardware Prefetching Framework Using Online Reinforcement Learning
+  - Berti — An Accurate Local-Delta Data Prefetcher
+  - BOLT — A Practical Binary Optimizer for Data Centers and Beyond
+  - A Mess of Memory System Benchmarking, Simulation and Application Profiling
+  - Alive2 — Bounded Translation Validation for LLVM
+
+candidates:
+  METHOD_SYSTEM:
+    - {title: 'LinnOS: Predictability on Unpredictable Flash Storage with a Light Neural Network', year: 2020, venue: OSDI, identity_risk: LOW, source: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+    - {title: 'Generalized Sub-Query Fusion for Eliminating Redundant I/O from Big-Data Queries', year: 2020, venue: OSDI, identity_risk: LOW, source: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+    - {title: 'AIFM: High-Performance, Application-Integrated Far Memory', year: 2020, venue: OSDI, identity_risk: MEDIUM, source: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+    - {title: 'CacheLib: A High-Performance Caching Engine for Web-Scale Workloads', year: 2020, venue: OSDI, identity_risk: MEDIUM, source: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+    - {title: 'Theseus: an Experiment in Operating System Structure and State Management', year: 2020, venue: OSDI, identity_risk: MEDIUM, source: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+    - {title: 'Performance-Optimal Read-Only Transactions', year: 2020, venue: OSDI, identity_risk: LOW, source: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+  COMPILER_FORMAL:
+    - {title: 'Formally Verified EVM Block-Optimizations', year: 2023, venue: CAV, identity_risk: LOW, source: 'https://zenodo.org/records/7277737'}
+    - {title: 'SPORES: Sum-Product Optimization via Relational Equality Saturation for Large Scale Linear Algebra', year: 2020, venue: PVLDB, identity_risk: LOW, source: 'https://www.vldb.org/pvldb/vol13.html'}
+    - {title: 'Tensat: Tensor Graph Superoptimization via Equality Saturation', year: 2021, venue: MLSys, identity_risk: MEDIUM, source: 'https://proceedings.mlsys.org/paper_files/paper/2021'}
+    - {title: 'Diospyros: DNN Kernel Optimization Using Equality Saturation', year: 2021, venue: ASPLOS, identity_risk: LOW, source: 'https://dl.acm.org/doi/proceedings/10.1145/3445814'}
+    - {title: 'Szalinski: Automatic Hierarchical Decomposition for Complex 3D Models', year: 2020, venue: PLDI, identity_risk: LOW, source: 'https://dl.acm.org/doi/proceedings/10.1145/3385412'}
+    - {title: 'VeriSafeKV: Building a High-Performance Key-Value Store using Full-System Verification', year: 2020, venue: OSDI, identity_risk: LOW, source: 'https://www.usenix.org/conference/osdi20/technical-sessions'}
+  MEASUREMENT_BENCHMARK:
+    - {title: 'The MLPerf Training Benchmark', year: 2020, venue: MLSys, identity_risk: HIGH, source: 'https://proceedings.mlsys.org/paper_files/paper/2020/file/411e39b117e885341f25efb8912945f7-Paper.pdf'}
+    - {title: 'DeathStarBench: A Benchmark Suite for Cloud Microservices', year: 2019, venue: ASPLOS, identity_risk: HIGH, source: 'https://dl.acm.org/doi/proceedings/10.1145/3293882'}
+    - {title: 'CloudSuite 3.0: Benchmarking Cloud Computing Applications', year: 2019, venue: ASPLOS, identity_risk: MEDIUM, source: 'https://dl.acm.org/doi/proceedings/10.1145/3293882'}
+    - {title: 'DaCapo Chopin: A Benchmark Suite for Modern JVMs', year: 2020, venue: OOPSLA, identity_risk: LOW, source: 'https://dl.acm.org/doi/proceedings/10.1145/3426428'}
+    - {title: 'MLPerf Tiny Benchmark', year: 2021, venue: NeurIPS_Datasets_and_Benchmarks, identity_risk: MEDIUM, source: 'https://proceedings.neurips.cc/paper/2021'}
+    - {title: 'ServerlessBench: A Benchmark Suite for Serverless Computing', year: 2020, venue: SoCC, identity_risk: LOW, source: 'https://dl.acm.org/doi/proceedings/10.1145/3419111'}
+  HARDWARE_MEMORY:
+    - {title: 'To Cross, or Not to Cross Pages for Prefetching?', year: 2025, venue: HPCA, identity_risk: LOW, source: 'https://ieeexplore.ieee.org/document/10946723'}
+    - {title: 'RecNMP: Accelerating Personalized Recommendation with Near-Memory Processing', year: 2020, venue: ISCA, identity_risk: LOW, source: 'https://dl.acm.org/doi/proceedings/10.1109/ISCA45697.2020'}
+    - {title: 'TensorDIMM: A Practical Near-Memory Processing Architecture for Embeddings and Tensor Operations in Deep Learning', year: 2019, venue: MICRO, identity_risk: LOW, source: 'https://dl.acm.org/doi/proceedings/10.1145/3352460'}
+    - {title: 'Buddy Compression: Enabling Larger Memory for Deep Learning and HPC Workloads on GPUs', year: 2019, venue: ISCA, identity_risk: LOW, source: 'https://dl.acm.org/doi/proceedings/10.1145/3307650'}
+    - {title: 'MLOP: Multi-Lookahead Offset Prefetching', year: 2020, venue: ISCA, identity_risk: MEDIUM, source: 'https://dl.acm.org/doi/proceedings/10.1109/ISCA45697.2020'}
+    - {title: 'Bingo Spatial Data Prefetcher', year: 2019, venue: HPCA, identity_risk: HIGH, source: 'https://ieeexplore.ieee.org/xpl/conhome/8662085/proceeding'}
+
+qualification_failures:
+  disposition: EXCLUDE_BEFORE_PACKET_AND_USE_NEXT_FROZEN_SAME_STRATUM
+  count_and_reason_must_be_reported: true
+  allowed_reasons: [identity_excluded, venue_or_quartile_not_qualified, public_evidence_unavailable, historical_direct_absorption, same_object_or_full_cost_route_invalid, duplicate_identity]
+

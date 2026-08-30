@@ -1,0 +1,124 @@
+schema: candidate-owner-handoff-v1
+created_at: 2026-08-26T05:34:00Z
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9C-PER-ACTION-TPD-BASELINE-CLOSURE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+role: CANDIDATE_OWNER
+context_sha256: 75D309F63851188F2A50C3969024051C60AA4D1A588E3D9145B398AF36213C90
+bootstrap_ack_sha256: 772A9746CD3A54B3CAD6F527C2E8B1EDE0615F2CB87CB989CF40C1A86A8AF55E
+bootstrap_acceptance_sha256: 30A1298B67978C9C7D4293CE85CB677DB19D1AFC5609FF143B777787AE8EED6A
+start_authorization_sha256: 753D7B7D9EF9361F3DFA1A065F0F6BDAAD6336D18B954BC6A027B44629F7C0D6
+control_sha256: D5A92CDB24468AF3BA6F6FB06090FD4984E5F3F1C5958802031E6C3FF28FEF4A
+
+decision: FAIL_CLOSED_PPC_R9C_PRECLAIM__NO_SELECTED_OR_SCIENTIFIC_INFERENCE
+first_failed_gate: C6_TWO_DETERMINISTIC_CONTROL_REPLAYS
+failure_kind: SOFT_ENGINEERING_FIDELITY_CONSTRUCTION
+failure_signature: RAW_READOBJ_OBJDUMP_TEXT_EMBEDS_REPLAY_SPECIFIC_ABSOLUTE_INPUT_PATH
+evidence_ceiling: INVALID_CONTROL_REPLAY_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+preclaim_ready: false
+resource_inputs_ready: true
+
+gate_results:
+  C0_INPUT_ACCEPTANCE: PASS_3_OF_3_EXACT_ONCE_EACH
+  C1_EXACT_SOURCE_CORRECTION_AND_STATIC_FREEZE: PASS_TWO_FILES_ONE_FIXTURE_STATIC_COMPILE_ONCE
+  C2_PER_ACTION_RECURRENCE_AND_BACKPOINTER_CONTROLS: PASS_CONTROL_ONLY
+  C3_METHOD_DISTINCTNESS: PASS_CONTROL_ONLY
+  C4_EIGHT_BY_TWO_CURRENT_UNION_AND_DEPENDENCY_GRAPH: PASS_BOTH_REPLAYS
+  C5_NEGATIVE_CONTROLS: PASS_11_OF_11_BOTH_REPLAYS
+  C6_TWO_DETERMINISTIC_CONTROL_REPLAYS: FAIL_RAW_EXACT
+  C7_NEW_PRECLAIM_HANDOFF: PASS_CANONICAL_FAILURE_PACKAGE
+
+decisive_observation:
+  replay_1_deterministic_payload_sha256: 92653B69FB0F3E5D4CB6F5143D3C355ECFF2195A65FBA56F43304C5FC52C10C7
+  replay_2_deterministic_payload_sha256: 29256E706F44684B2B53266FF0A68278BBEE29578B42E8523027568D316B4835
+  object_hashes_equal: PASS_16_OF_16
+  link_hashes_equal: PASS_16_OF_16
+  cost_and_relocation_payloads_equal: PASS_16_OF_16
+  per_action_and_method_results_equal: true
+  raw_readobj_objdump_text_mismatches: 32
+  in_memory_replay_root_normalized_mismatches: 0
+  normalization_used_for_gate: false
+  comparison_process_launched: false
+  reason_comparison_not_launched: FIRST_FAILURE_STOP_AFTER_KNOWN_RAW_PAYLOAD_MISMATCH
+
+implementation_freeze:
+  materializer_harness_sha256: 8A083AD3D7B31764BFD016D2AB8DEB9F703484219757E444D5E9BBC25EF927B4
+  r10_plan_sha256: 13CBE0D3EDAAE8A573526B3BF97A67D590640FCE05A783BE041728CCCED8281C
+  r9c_control_fixtures_sha256: 2753A3A171F614F89D38BEFDB61397916E5DF2EF2854DC35A78D738D7B5A6CA4
+  existing_file_edit_transactions_used: 2
+  existing_file_edit_transactions_max: 2
+  new_fixture_files_used: 1
+  new_fixture_files_max: 2
+  source_edits_after_first_tool: 0
+
+execution_accounting:
+  exact_input_copy_attempts: 3
+  static_compile_attempts: 1
+  control_replays: 2
+  control_tool_command_records: 118
+  control_tool_command_records_max: 500
+  automatic_retries: 0
+  selected_or_reserve_corpus_tool_invocations: 0
+  claim_bearing_runs: 0
+  network_bytes: 0
+  measured_subprocess_cpu_seconds: 4.28125
+  measured_subprocess_wall_seconds: 8.38830240000334
+  controller_python_cpu_seconds: NOT_AVAILABLE_FROM_RUNNER
+  assignment_wall_seconds: NOT_CANONICALLY_RECORDED
+  max_parallel_processes_observed: 1
+
+scientific_boundary:
+  r10_directory_created: false
+  natural_or_selected_tool_observation: false
+  claim_bearing_observation: false
+  scientific_revision_consumed: false
+  scientific_state_changed: false
+  stage_transition_proposed_by_owner: false
+  stageb_authorized: false
+  owner_cleanup_actions: 0
+
+canonical_outputs:
+  SAME_TOPIC_INPUT_ACCEPTANCE_sha256: C9F59B02D27EA731B767C5488FD0C2D80B22161CC59ADFCDF7B21385953D1EE2
+  SOURCE_CORRECTION_PRECOMMIT_sha256: 95F55858AC1286BE3B5E57FCAA42581DBA615115783FAF8A2F417B039B4C6FB8
+  SOURCE_CORRECTION_AUDIT_sha256: 1768873D5C7DBFD57C89E1BD642CD33A3E328A749B93E9B704D216D1BCFF17CE
+  PER_ACTION_DP_LEDGER_sha256: D31072D9EC79F20BBCA657A5338D677C95FC12126902E847FE429AF3459A227F
+  METHOD_DISTINCTNESS_AUDIT_sha256: 72603B4EAF6FDDF56177CE36682976D21276C64E2632EB6A5C10C053CE663F9D
+  STRONG_BASELINE_DEPENDENCY_GRAPH_sha256: E729FC48980D3F87EBE292423A55B4B5ED97925C943C557DD036E0C1EF423685
+  NEGATIVE_CONTROL_RESULTS_sha256: 94C88358FBC935DD07F7AA1F7A0F46DD9DD30ED076C1AFA9063183F47FF029CA
+  FULL_COST_CONSUMER_AUDIT_sha256: 44D02A1896724144B597E24F86654B064AC3AE75EF56F421F1DE4B5CFA00F486
+  CONTROL_REPLAY_AUDIT_sha256: B9F3CECFE3856047B633A283D7E5937FA9A8E826E9FC5D07FD04BA360C2CC2AF
+  PRE_CLAIM_PER_ACTION_TPD_GATE_sha256: AC03235618F129E3D1B6E8E3CDE8B1FE5DDC7EB695715A01265C644DC8F65B12
+  REPRODUCIBILITY_REPORT_sha256: ECC25FD0B91C9876DBCB735289DFC6B223D62F5023844CD680A42FB9CBEFDE5E
+  RESOURCE_INVENTORY_sha256: E8BAA49D3C1D7B4873320C69B514763E0FF6C4BA6C1CBE2C2E1BCAFC5E9BE06F
+  PHASE_CLOSEOUT_RETENTION_sha256: 691324E7B6517FECA1A7FCE1442C8C26560E04AFC29E0C6D72849D534D1D971E
+  RESUME_CAPSULE_sha256: B2DDE194493A8D9F75A0963172374BD013E5A47BD8BE9516051E3C457008452C
+
+resource_inventory:
+  files: 483
+  logical_bytes: 305797209
+  reparse_entries: 0
+  active_exact_tool_processes: 0
+  active_bundled_python_processes: 0
+  budget_pass: true
+
+lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  cleanup_owner: MAINLINE
+  owner_cleanup_allowed: false
+  exact_cleanup_candidate_leaves:
+    - resources/downloads
+    - resources/archives
+    - resources/cache
+    - resources/tmp
+  cleanup_candidate_count: 4
+  evidence_roots_retained: [resources/build/control_replay_1, resources/build/control_replay_2]
+
+resume_route:
+  hard_external_or_user_gate: false
+  required_disposition: SEPARATE_MAINLINE_FROZEN_COMPATIBILITY_CORRECTION_OR_INDEPENDENT_GATE_DISPOSITION
+  current_assignment_retry_or_edit_allowed: false
+  r10_or_claim_start_allowed: false
+
+manifest_path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/HASH_MANIFEST.sha256
+manifest_generated_after_handoff: true

@@ -1,0 +1,27 @@
+assignment_id: STAGE0-C2-20260814-AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP-CONFIRM-V8.7
+mode: SENTRY
+topic_id: AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_READY_TO_DISPATCH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source06-confirmation\AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source06-primary\AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP
+primary_decision: REVISE_ONCE
+primary_atomic_gate: SAME_REPORT_TWO_PLAN__LIVE_TAG_RETAG_ASSIGNMENT_FRONTIER_CERTIFICATE
+primary_hashes:
+  report_sha256: 33FDD966F04FC4C543537E9D53660303A16165778FAF15C5247CCAD5CA28B3FC
+  q1_sha256: 27AE29B3AE73112823BFE405D689B756EE3C301FA6C656303D06E755087A04BF
+  source_sha256: A69C96BC692D2206ECCE8C820694A13B4C6E69CBFFFB791637653FB5DA22D3CA
+  handoff_sha256: BEAB9D2486936D44CDA6CC89D7C31F99BDA30308F26D1047AD2360C907FBA1D4
+  manifest_sha256: 1AF7A07297AF488D6CFE99B03E2107EF3F6235FDF7305F1DB7F480EA950D9449
+independent_attack_requirements:
+  - Recheck current LLVM and Clang AArch64 HWASan stack-tag lowering, base-tag and ReTag actions, alloca layout, lifetime tag and untag, ABI, unwind and downstream register-allocation union.
+  - Decide whether two native-legal same-function plans can preserve the same stock HWASan report or no-report contract while differing in live tagged-pointer pressure and a union-external joint action.
+  - Attack the target-specific bounded state, future-action and full-cost preservation, exact/FPT or certified-frontier claim, strongest current comparator and direct collision.
+  - Verify a finite Stage A preclaim falsifier, but do not run it.
+  - Confirm REVISE_ONCE, confirm STOP, or disagree with explicit source-based evidence; do not execute a revision.
+forbidden: [revision_execution, implementation, experiment, benchmark, build, stageA, stageB, shared_control_write]
+required_outputs: [CONFIRMATION_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

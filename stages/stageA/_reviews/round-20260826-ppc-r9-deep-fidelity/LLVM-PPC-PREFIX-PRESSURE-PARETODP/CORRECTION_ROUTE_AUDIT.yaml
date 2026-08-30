@@ -1,0 +1,162 @@
+schema_version: ppc-r9-independent-correction-route-audit-v1
+created_at: 2026-08-26T10:50:47+08:00
+assignment_id: STAGEA-GATE-20260826-LLVM-PPC-R9-DEEP-PRECLAIM-FIDELITY
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+precommit_sha256: D8486C3CA4833898719EB3FA02CA84330A9ACBD2A3BA12E6F6D5A87BBDB494EE
+decision: CONFIRM_PRECLAIM_INVALID__NO_R10_CLAIM_START__BOUNDED_CORRECTION_ROUTE_EXISTS
+evidence_ceiling: STATIC_INDEPENDENT_PRECLAIM_FIDELITY_REVIEW_ONLY__NO_SCIENTIFIC_INFERENCE
+
+independent_gate_results:
+  G1_ATOMIC_ACTION_COMPLETENESS: FAIL
+  G2_CANDIDATE_DISTINCTNESS: FAIL
+  G3_STRONG_BASELINE_CONSUMPTION: FAIL
+  G4_CONTROL_EVIDENCE_CEILING: PASS_CONTROL_ONLY__CANNOT_COMPENSATE_G1_G3
+  G5_CORRECTION_ROUTE: PASS_BOUNDED_SAME_OBJECT_PRECLAIM_ROUTE_EXISTS
+
+decisive_static_evidence:
+  materializer_harness_sha256: 6234A3380940D87A2FCDBAA1D08DB3F4893A37901E3854CCD9222F3A035BDC0E
+  r10_plan_generator_sha256: 0366CCC8D98D0489C604A31A56E29761C3EC9C2E3D8479C7909E99652697890C
+  r10_process_plan_sha256: 0D4B73BB594896D6B25793B3826BB4605561317CE3A92165C7BEF698AACA1DF5
+  r10_plan_validation_sha256: B1D489B4C26A9C23D526AE79B0F7889E18B9418627766CEE78415D7C671C474A
+  frozen_contract_sha256: F36E8CD40E719A9CFEEFBB595EEE05A4FDEEDF490C0ABD6AF40C09D635895E82
+  owner_handoff_sha256: 8C452B1CB8A8BE30BCF71786A59E7C6B1EAD9197E497690E11BE2535AAA6E649
+
+G1_audit:
+  observed_control_loads: 12
+  observed_visible_interface: 13
+  emitted_state_count: 2
+  emitted_state_ids: [D0, M0]
+  per_load_or_per_action_choices_implemented: false
+  transition_recurrence_implemented: false
+  future_action_signature_merge_implemented: false
+  backpointers_are_transition_chain: false
+  selection_cost_fields: [text_bytes_pre_ra, static_uops_pre_ra, temporary_gprs, typed_relocations, live_across_call_values]
+  RA_coalescing_spill_frame_feedback_in_selection: false
+  RA_pressure_observed_only_post_selection_in_full_cost: true
+
+G2_audit:
+  source_branch: 'elif method in {ppc_tpd, form_aware_fixed_ra}: active = states'
+  distinct_state_space: false
+  distinct_transition_rule: false
+  difference_by_construction: METHOD_LABEL_ONLY
+  candidate_algorithmic_residual_over_ablation: absent
+
+G3_audit:
+  plan_rows: 32
+  expanded_baseline_compile_outputs: 512
+  expanded_baseline_link_outputs: 1024
+  baseline_to_checker_input_or_argv_edges: 0
+  baseline_to_full_cost_input_or_argv_edges: 0
+  rows_with_all_expanded_baseline_outputs_orphaned: 32
+  rows_using_internal_focus_direct_materialized_baseline: 32
+  unique_compile_configuration_variants: 1
+  unique_link_relaxation_variants: 2
+  compile_grid_observed: GREEDY_RA__PCREL_OPT_ON__LATE_PEEPHOLE_ON_ONLY
+  PBQP_variants: 0
+  pcrel_opt_false_variants: 0
+  late_peephole_false_variants: 0
+  validator_false_positive: CHECKER_AND_FULL_COST_INPUTS_ARE_ONLY_TESTED_AS_SUBSETS_OF_CANDIDATE_OUTPUTS__EXPANDED_BASELINE_CONSUMPTION_NOT_TESTED
+
+bounded_route:
+  route_id: PPC_R9C_PER_ACTION_TPD_AND_STRONG_BASELINE_DEPENDENCY_CLOSURE_V1
+  route_type: PRECLAIM_ENGINEERING_FIDELITY_CORRECTION__NO_SCIENTIFIC_REVISION
+  same_object_preserved:
+    exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+    target: POWER10_PPC64LE_LINUX_ELFV2_MEDIUM_CODE_MODEL
+    witness: DSO_LOCAL_OR_HIDDEN_NON_GOT_DIRECT_PLDPC_VS_PADDI8PC_PLUS_LD
+    ABI_CFG_MEMORY_ALIAS_CALL_FRAME_UNWIND_AND_LINKER_SEMANTICS: unchanged
+    frozen_atomic_action_and_cost_vector: unchanged
+  source_scope:
+    modify_existing_files_max: 2
+    permitted_existing_files:
+      - resources/src/natural_materializer/materializer_harness.py
+      - resources/src/natural_materializer/r10_plan.py
+    new_schema_or_control_fixture_files_max: 2
+    upstream_LLVM_or_owner_prior_artifact_edits: forbidden
+  component_C1_per_action_PPC_TPD:
+    input: SAME_FUNCTION_MIR_TRACE_AND_TYPED_DIRECT_LOAD_ACTIONS
+    visible_interface_cap: 16
+    decision_order: INPUT_LOAD_ORDINAL
+    transitions_per_action: [KEEP_DIRECT_PLDPC, MATERIALIZE_OR_REUSE_PADDI8PC_BASE_THEN_LD]
+    state_signature_required:
+      - action_ordinal
+      - direct_value_live_ports
+      - materialized_base_live_ports_AND_symbol_reuse
+      - call_crossing_AND_ELFV2_register_role_signature
+      - interference_AND_coalescing_obligations
+      - spill_reload_AND_frame_unwind_obligations_OR_EXACT_AUDITABLE_SURROGATE
+      - typed_relocation_AND_link_status
+      - exact_Pareto_cost_vector
+    recurrence_required: INITIALIZE__TRANSITION_EACH_ACTION__MERGE_ONLY_FUTURE_ACTION_EQUIVALENT_SIGNATURES__PARETO_PRUNE__TERMINATE_OR_INTERFACE_CAP_EXCEEDED
+    backpointer_required: PARENT_STATE_ID_PLUS_ACTION_ORDINAL_PLUS_ACTION_KIND
+    physical_register_identity_enumeration: forbidden
+    heuristic_frontier_truncation: forbidden
+  component_C2_distinct_ablation:
+    ppc_tpd: RA_AND_SPILL_FRAME_SENSITIVE_TRANSITIONS_OR_VALIDATED_SURROGATE
+    form_aware_fixed_ra: SAME_FORM_CHOICES_WITH_RA_COALESCING_SPILL_FRAME_TERMS_FROZEN_TO_CURRENT_RA
+    required_negative_control: FORCE_BOTH_METHODS_TO_IDENTICAL_BRANCH__GATE_MUST_FAIL
+    required_positive_control: AT_LEAST_ONE_FIXED_TINY_TRACE_HAS_DIFFERENT_STATE_OR_TRANSITION_LEDGER
+  component_C3_strong_baseline_graph:
+    same_object_current_union_compile_grid:
+      register_allocators: [greedy, pbqp]
+      ppc_pcrel_linker_opt: [true, false]
+      ppc_late_peephole: [true, false]
+    lld_relaxation: [on, off]
+    expected_compile_configurations_per_focus_input: 8
+    expected_link_outputs_per_focus_input: 16
+    required_bundle: HASHED_BASELINE_BUNDLE_WITH_COMMAND_METRICS_OBJECT_LINK_READOBJ_OBJDUMP_AND_CONFIG_ID
+    checker_must_consume: ALL_BASELINE_BUNDLE_OUTPUTS_AND_CONFIG_IDENTITIES
+    full_cost_must_consume: ALL_BASELINE_PROCESS_COSTS_ARTIFACT_COSTS_RELOCATIONS_SPILL_COPY_FRAME_AND_LINK_VARIANTS
+    validator_must_enforce:
+      - ZERO_ORPHAN_BASELINE_OUTPUTS
+      - EXACT_CONFIG_GRID_COVERAGE
+      - EVERY_BASELINE_OUTPUT_HAS_CHECKER_OR_FULL_COST_CONSUMER_EDGE
+      - INTERNAL_DIRECT_MATERIALIZED_CONTROL_NOT_SUBSTITUTED_FOR_CURRENT_UNION
+    GCC_BINUTILS_ROLE: DEPLOYMENT_SUBTRACTOR_ONLY__NOT_SAME_MACHINEIR_BASELINE
+  component_C4_preclaim_controls:
+    natural_selected_or_claim_tools: 0
+    fixed_control_input: ir_pressure_control
+    required_truth_tables:
+      - ONE_LOAD_TWO_ACTION_TRANSITIONS
+      - TWO_LOAD_SAME_SYMBOL_BASE_REUSE_AND_FOUR_FORM_ASSIGNMENTS
+      - CALL_CROSSING_ROLE_PRESSURE_AND_SPILL_FRAME_SURROGATE
+      - FUTURE_ACTION_EQUIVALENT_STATE_MERGE
+      - FUTURE_ACTION_DISTINGUISHABLE_STATE_NONMERGE
+      - INTERFACE_CAP_EXCEEDED_FAIL_CLOSED
+      - PPC_TPD_VS_FORM_AWARE_FIXED_RA_DISTINCTNESS
+      - REMOVE_ONE_BASELINE_DEPENDENCY_EDGE_EXPECTED_FAIL
+      - OMIT_ONE_GRID_CONFIGURATION_EXPECTED_FAIL
+      - MUTATE_ONE_COST_OR_RELOCATION_FIELD_EXPECTED_FAIL
+    deterministic_replays: 2
+    compiler_linker_runs_if_future_MAINLINE_authorizes: CONTROL_NON_CLAIM_ONLY
+  component_C5_gate_and_budget:
+    first_failure_stop: true
+    automatic_retry: false
+    r10_directory_creation_before_independent_acceptance: forbidden
+    natural_or_claim_run_before_independent_acceptance: forbidden
+    scientific_revision_consumption: false
+    claim_bearing_observations: 0
+    required_outputs:
+      - PER_ACTION_DP_STATE_TRANSITION_AND_BACKPOINTER_LEDGER
+      - METHOD_DISTINCTNESS_AUDIT
+      - STRONG_BASELINE_BUNDLE_AND_DEPENDENCY_GRAPH
+      - NEGATIVE_CONTROL_RESULTS
+      - FULL_COST_SCHEMA_AND_CONSUMER_AUDIT
+      - NEW_HASH_PINNED_PRECLAIM_HANDOFF
+
+route_boundedness:
+  finite: true
+  reason: VISIBLE_INTERFACE_CAP_16_AND_FINITE_TWO_ACTION_NATIVE_GRAMMAR_WITH_EXACT_EIGHT_COMPILE_CONFIG_AND_TWO_LINK_VARIANTS
+  mechanism_change: false
+  object_change: false
+  baseline_weakening: false
+  unbounded_RA_reimplementation: false
+  remaining_risk: HIGH_IMPLEMENTATION_COMPLEXITY_BUT_FINITE_AND_FALSIFIABLE
+
+authorization_effect:
+  this_review_authorizes_execution: false
+  r10_claim_start: forbidden
+  scientific_state_change: false
+  stageA_scientific_revision_consumed: false
+  next_authority: MAINLINE_NEW_HASH_PINNED_PRECLAIM_CORRECTION_ASSIGNMENT_IF_ACCEPTED
+

@@ -1,0 +1,202 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  artifact_state: ARTIFACT_OPEN
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: PACKER_A1_RESEAL_HANDOFF
+  downstream_consumer: [BACKTEST_EXECUTOR, BACKTEST_AUDITOR]
+  post_close_retained_bytes_max: 4294967296
+  phase_closeout_retention_path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/RESUME_CAPSULE.yaml
+  cleanup_receipt_path: null
+identity:
+  topic_id: null
+  assignment_id: BACKTEST-PACKER-20260826-STAGE0A-Q2-LOCAL-RESOURCE-R1-A1
+  stage_or_mode: BACKTEST_PACKER
+  run_id: PACKER-A1-RESEAL-CLOSEOUT-20260826T193000+0800
+  unique_write_directory: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer
+  resource_root: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/resources
+  inventory_path: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-26T17:07:32+08:00
+  finalized_at: 2026-08-26T19:30:00+08:00
+root_measurement:
+  logical_bytes: 27828
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  evidence_path: resources/logs/RESOURCE_ACTION_PREFLIGHT.yaml
+  tools: [curl.exe_8.21.0, Codex_web_system_managed, powershell_5.1.26100.9168]
+resource_envelope:
+  network_bytes_max: 2147483648
+  stored_bytes_max: 4294967296
+  cpu_hours_max: null
+  gpu_hours_max: 0
+  wall_seconds_max: null
+  attempts_max: 120
+  network_bytes_used: UNAVAILABLE_SYSTEM_TOOL_TELEMETRY__NOT_ESTIMATED
+  persisted_network_response_bytes: 0
+  stored_bytes_used: 27828
+  attempts_used: 84
+entries:
+  - path: resources/logs/RESOURCE_ACTION_PREFLIGHT.yaml
+    absolute_path: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/resources/logs/RESOURCE_ACTION_PREFLIGHT.yaml
+    logical_bytes: 2585
+    hash_scope: CONTENT_SHA256
+    sha256: D9F84668ECD09D5549AAA84AFD2A9FF1932690608F29A93A14853F461A56A39F
+    creating_run: PACKER-PREFLIGHT-INIT-20260826T170732+0800
+    claim_critical: false
+    reproducibility_minimum: true
+    downstream_consumers: [MAINLINE, BACKTEST_AUDITOR]
+    provenance: assignment_control_and_local_preflight
+    license: NOT_APPLICABLE
+    reacquirable: false
+    recovery_command: null
+    retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM
+    delete_after_gate: NEVER_AUTOMATIC
+  - path: resources/logs/GITHUB_API_STATIC_PREFLIGHT_ATTEMPT.yaml
+    absolute_path: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/resources/logs/GITHUB_API_STATIC_PREFLIGHT_ATTEMPT.yaml
+    logical_bytes: 1084
+    hash_scope: CONTENT_SHA256
+    sha256: 4FF3F269520F2D435D26186F9E965EE101A5EEFAD163E301395A087D2A0E2F73
+    creating_run: GITHUB-API-STATIC-PREFLIGHT-20260826-R1
+    claim_critical: false
+    reproducibility_minimum: true
+    downstream_consumers: [MAINLINE, BACKTEST_AUDITOR]
+    provenance: curl_attempt_log
+    license: NOT_APPLICABLE
+    reacquirable: false
+    recovery_command: null
+    retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM
+    delete_after_gate: NEVER_AUTOMATIC
+  - path: resources/logs/resource-inventory/PACKER-PREFLIGHT-INIT-20260826T170732+0800.yaml
+    absolute_path: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/resources/logs/resource-inventory/PACKER-PREFLIGHT-INIT-20260826T170732+0800.yaml
+    logical_bytes: 854
+    hash_scope: CONTENT_SHA256
+    sha256: 115E4622A8C30DA08ED4B1935DD5855E32A6FE771FC7AF196479E74ED5A16839
+    creating_run: PACKER-PREFLIGHT-INIT-20260826T170732+0800
+    claim_critical: false
+    reproducibility_minimum: true
+    downstream_consumers: [MAINLINE]
+    provenance: initial_inventory_snapshot
+    license: NOT_APPLICABLE
+    reacquirable: false
+    recovery_command: null
+    retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM
+    delete_after_gate: NEVER_AUTOMATIC
+  - path: resources/src/PACKER_PRIMARY_SOURCE_LEDGER.yaml
+    absolute_path: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/resources/src/PACKER_PRIMARY_SOURCE_LEDGER.yaml
+    logical_bytes: 13060
+    hash_scope: CONTENT_SHA256
+    sha256: 26F72C6707E6544C149C137B2D441D33AA26ECAA710E9124B1CC913D1FF0EFE1
+    creating_run: PACKER-PRIMARY-SOURCE-VERIFICATION-20260826-R1
+    claim_critical: true
+    reproducibility_minimum: true
+    downstream_consumers: [BACKTEST_AUDITOR]
+    provenance: primary_and_authoritative_web_sources_with_derived_fact_cards
+    license: MIXED_SOURCE_METADATA__NO_RAW_FULLTEXT_PERSISTED
+    reacquirable: true
+    recovery_command: repeat_frozen_source_URLs_subject_to_transport_availability
+    retention_class: KEEP_CAPSULE_CLAIM_CRITICAL
+    delete_after_gate: NEVER_AUTOMATIC
+  - path: resources/logs/resource-inventory/PACKER-SOURCE-CLOSEOUT-20260826T180100+0800.yaml
+    absolute_path: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/resources/logs/resource-inventory/PACKER-SOURCE-CLOSEOUT-20260826T180100+0800.yaml
+    logical_bytes: 1699
+    hash_scope: CONTENT_SHA256
+    sha256: 6E69FF9BB3DD13942B72E8D62E3A0096F3FC2C8322943E5A56254999A2E35E19
+    creating_run: PACKER-SOURCE-CLOSEOUT-20260826T180100+0800
+    claim_critical: false
+    reproducibility_minimum: true
+    downstream_consumers: [MAINLINE]
+    provenance: final_resource_inventory_snapshot
+    license: NOT_APPLICABLE
+    reacquirable: false
+    recovery_command: null
+    retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM
+    delete_after_gate: NEVER_AUTOMATIC
+  - path: resources/src/A1_ALT02_SOURCE_LEDGER.yaml
+    absolute_path: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/resources/src/A1_ALT02_SOURCE_LEDGER.yaml
+    logical_bytes: 7282
+    hash_scope: CONTENT_SHA256
+    sha256: 390D9E8C235989E9275AC9EB5296D3A75B565193869C2D5F61B35D1717258822
+    creating_run: PACKER-A1-ALT02-QUALIFICATION-20260826-R1
+    claim_critical: true
+    reproducibility_minimum: true
+    downstream_consumers: [MAINLINE, BACKTEST_AUDITOR]
+    provenance: primary_and_official_web_sources_with_derived_fact_cards
+    license: MIXED_SOURCE_METADATA__NO_RAW_FULLTEXT_PERSISTED
+    reacquirable: true
+    recovery_command: repeat_frozen_source_URLs_subject_to_transport_availability
+    retention_class: KEEP_CAPSULE_CLAIM_CRITICAL
+    delete_after_gate: NEVER_AUTOMATIC
+  - path: resources/logs/resource-inventory/PACKER-A1-RESEAL-CLOSEOUT-20260826T193000+0800.yaml
+    absolute_path: E:/project/writing/reserch/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/resources/logs/resource-inventory/PACKER-A1-RESEAL-CLOSEOUT-20260826T193000+0800.yaml
+    logical_bytes: 1264
+    hash_scope: CONTENT_SHA256
+    sha256: 7B70B355D391AC7BCE07A03BFBA1A1E89F9763C601555DA0B18A71CAFD6CC6C9
+    creating_run: PACKER-A1-RESEAL-CLOSEOUT-20260826T193000+0800
+    claim_critical: false
+    reproducibility_minimum: true
+    downstream_consumers: [MAINLINE]
+    provenance: a1_final_resource_inventory_snapshot
+    license: NOT_APPLICABLE
+    reacquirable: false
+    recovery_command: null
+    retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM
+    delete_after_gate: NEVER_AUTOMATIC
+shared_assets_consumed: []
+external_system_dependencies:
+  - {name: Codex_web_transport_cache, status: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED}
+  - {name: Windows_Schannel, status: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED}
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY]
+  closeout_plan_accepted: false
+  downstream_inputs_accepted: false
+  capsule_sealed: false
+  active_owner_or_process_count: null
+  predelete_target_count: 0
+  predelete_file_count: 0
+  predelete_logical_bytes: 0
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: false
+  deterministic_recovery_routes_complete: true
+  closeout_budget_or_exception_pass: true
+  cleanup_receipt_valid: false
+  result: PASS_FINALIZED_PENDING_HANDOFF

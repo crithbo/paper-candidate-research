@@ -1,0 +1,35 @@
+schema: DIVERGENCE_SEED_V1R1_AUDITOR_KEY_V1
+assignment_id: BACKTEST-PACKER-L1-20260814-DIVERGENCE-SEED-FRONTEND-V1-R1
+visibility: AUDITOR_ONLY__DO_NOT_EXPOSE_TO_EXECUTOR
+positive_cases:
+  CASE-A:
+    target_title: FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning
+    target_locator: https://arxiv.org/abs/2307.08691
+    target_quality: TIER_A_Q1_POTENTIAL
+    expected_shape: same-semantics accelerator-memory-aware work partitioning with explicit occupancy and communication accounting
+    required_recovery: distinct problem, strongest predecessor, exact cost boundary, finite source-or-witness route
+  CASE-B:
+    target_title: DeepSpeed-MoE: Advancing Mixture-of-Experts Inference and Training to Power Next-Generation AI Scale
+    target_locator: https://arxiv.org/abs/2201.05596
+    target_quality: TIER_A_Q1_POTENTIAL
+    expected_shape: sparse-model systems route preserving workload/quality while closing distributed memory and latency costs
+    required_recovery: same-workload bottleneck, non-wrapper action, full-cost comparator, finite evidence route
+  CASE-C:
+    target_title: TensorIR: An Abstraction for Automatic Tensorized Program Optimization
+    target_locator: https://arxiv.org/abs/2207.04296
+    target_quality: TIER_A_Q1_POTENTIAL
+    expected_shape: compiler abstraction residual after portable-stack subtraction, with carrier and semantic boundary explicit
+    required_recovery: exact object, abstraction/action distinction, current-union subtraction, finite closure
+negative_controls:
+  CASE-D:
+    expected_disposition: DROP_OR_ABSTAIN__DIRECT_NATIVE_COVERAGE
+    basis: Official release metadata and same-cutoff implementation expose the apparent action directly; a wrapper or selector would not establish a residual.
+target_metadata_paths:
+  CASE-A: AUDITOR_KEY/arxiv_metadata/2307.08691.html
+  CASE-B: AUDITOR_KEY/arxiv_metadata/2201.05596.html
+  CASE-C: AUDITOR_KEY/arxiv_metadata/2207.04296.html
+source_metadata_paths: AUDITOR_KEY/source_metadata/
+quality_and_identity_exclusion:
+  executor_history_check: PACKER_SELECTED_NEW_TARGET_IDENTITIES__NO_OLD_CASE_CARD_OR_SEMANTIC_SELECTION_REUSED
+  excluded_scope_check: PASS__NO_NETWORK_SECURITY_TOPIC
+  target_identity_leakage_allowed: false

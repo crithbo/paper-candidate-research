@@ -1,0 +1,94 @@
+schema_version: "discovery-source-startup-v1"
+task_id: "DISCOVERY-S6-DIRECT-ALGORITHM-SOFTWARE"
+source_slot: "S6"
+opportunity_class: "O7_DIRECT_ALGORITHM_OR_SOFTWARE"
+round: "round-20260803-v8"
+completed_at: "2026-08-03"
+timezone: "Asia/Shanghai"
+
+status: "COMPLETE_PRODUCTION_DISCOVERY_AWAITING_MAINLINE_STAGE0_ROUTING"
+notification_reason: "BATCH_COMPLETE"
+production_eligible: true
+grounded_brief_count: 2
+propose_stage0_count: 2
+stage_directories_created: 0
+raw_opportunity_count: 4
+
+ownership:
+  sole_write_directory: "stages/discovery/round-20260803-v8/S6-direct-algorithm-software/"
+  writes_outside_directory: false
+  mainline_files_modified: false
+
+startup_gate:
+  discovery_method: "v2"
+  independent_historical_backtest_required: true
+  accepted_s6_backtest_found: true
+  state: "CALIBRATED"
+  consequence: "PRODUCTION_DISCOVERY_ALLOWED_NOT_STAGE0_AUTHORIZATION"
+  review_path: "stages/discovery/_method-backtests/O7_DIRECT_ALGORITHM_SOFTWARE/v2/backtest_review.md"
+  review_sha256: "3FF43BB1E7F342805D7F3DF293B6C90E55872B4C6A7B23D03920B16ACED271DC"
+
+deliverables:
+  - "STARTUP.md"
+  - "RAW_OPPORTUNITIES.md"
+  - "SEARCH_LOG.md"
+  - "PROGRESS.md"
+  - "S6-EGRAPH-LIVEEXTRACT.md"
+  - "S6-JS-PREFIXBOUND.md"
+  - "handoff.yaml"
+
+raw_opportunities:
+  - raw_id: "RAW-S6-01"
+    short_title: "Latency-throughput Pareto synthesis for heterogeneous AllGather"
+    primary_domain: "GPU_COLLECTIVES"
+    innovation_route: "N2"
+    collision_state: "SEARCH_BOUNDED_OPEN_HIGH_RISK"
+    disposition: "DROP_AFTER_CURRENT_COLLISION"
+  - raw_id: "RAW-S6-02"
+    short_title: "Peak-live-memory-constrained shared e-graph DAG extraction"
+    primary_domain: "COMPILERS"
+    innovation_route: "N2"
+    collision_state: "SEARCH_BOUNDED_OPEN_MEDIUM_HIGH_RISK"
+    disposition: "PROPOSE_STAGE0"
+  - raw_id: "RAW-S6-03"
+    short_title: "Global reconvergence-conflict solving for placement-aware resynthesis"
+    primary_domain: "EDA"
+    innovation_route: "N2"
+    collision_state: "SEARCH_BOUNDED_OPEN_HIGH_RISK"
+    disposition: "DROP_INSUFFICIENT_GROUNDED_RESIDUAL"
+  - raw_id: "RAW-S6-04"
+    short_title: "State algebra or admissible search for exact join-and-sort planning"
+    primary_domain: "DATABASE_OPTIMIZATION"
+    innovation_route: "N2"
+    collision_state: "SEARCH_BOUNDED_OPEN_MEDIUM_HIGH_RISK"
+    disposition: "PROPOSE_STAGE0"
+
+rejected_scouts:
+  - topic: "Dynamic graph ANN localized update and repair"
+    reason: "Near-direct 2025-2026 competition already covers lightweight topology, in-place updates, localized repair, bounded search, MST repair, and versioned-edge invalidation."
+    disposition: "NOT_RETAINED_NO_RENAME_REVIVAL"
+
+compliance:
+  same_function_and_quality_explicit: true
+  nontrivial_algorithm_delta_explicit: true
+  full_cost_ledger_explicit: true
+  generalization_conditions_explicit: true
+  no_gain_regions_explicit: true
+  named_competing_mechanisms_explicit: true
+  ordinary_tuning_excluded: true
+  wrapper_checker_controller_excluded: true
+  weak_baseline_only_claims_excluded: true
+  universal_union_excluded: true
+  self_promotion_performed: false
+
+resume_requirements:
+  - "Mainline accepts the independent historical backtest for discovery method v2."
+  - "Mainline explicitly restores production Discovery for S6."
+  - "Re-run genealogy, competing-mechanism, and current collision searches at the new cutoff date."
+  - "Reconstruct selected items as grounded briefs; do not rename these raw entries into production briefs."
+
+mainline_request:
+  action: "ROUTE_TWO_SUGGESTED_BRIEFS_TO_INDEPENDENT_STAGE0_OR_REJECT"
+  resource_request: null
+  ownership_blocker: null
+  file_conflict: null

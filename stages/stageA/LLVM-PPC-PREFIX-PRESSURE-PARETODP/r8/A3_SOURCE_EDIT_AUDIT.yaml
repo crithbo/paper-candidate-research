@@ -1,0 +1,36 @@
+schema: ppc-r8-a3-source-edit-audit-v1
+recorded_at: 2026-08-26T06:57:08.831+08:00
+authorization_sha256: 2E4E69B0B9C9C9D598F2261284C9DA53134C8593CCA1669653523E372FDA5974
+source_file: resources/src/actual_claim_harness/actual_claim_harness.py
+before:
+  sha256: 6593C28CFF8021D85A3B95721FBCC4125B93F301DF6DA414BCD69DEEC14B343B
+  bytes: 21921
+after:
+  sha256: B4155CD20EDE6E2F994B69E61B6FC796D70848E4902E1FC1FCAEAA000673A2FE
+  bytes: 21929
+authorized_logical_change:
+  context: MachineVerifier_command_02_argv_only
+  old_argument: absolute_Path_variable_mir
+  new_argument: relative_literal_input.mir
+  authorized_context_occurrences_after: 1
+  old_context_occurrences_after: 0
+  logical_source_edit_locations: 1
+edit_transaction_note:
+  apply_patch_calls: 2
+  first_call_collateral_effect: SIX_CONTEXT_LINES_LOST_FOUR_LEADING_SPACES
+  second_call_action: RESTORE_ONLY_THE_SIX_COLLATERAL_CONTEXT_INDENTATIONS_BEFORE_ANY_TOOL_RUN
+  semantic_changes_beyond_authorized_argument: 0
+  final_bytes_match_frozen_expected: true
+  final_sha256_match_frozen_expected: true
+unchanged_implementation:
+  trace_model.py: BDDCD0D45E925D4913A8F9A85FB197FEECB6454D87B17C0846603610412E86C1
+  common.py: AE3D836E262DCE667926786688FCAC311CA2C200A08C396CF317BD578C035743
+  r9_plan.py: 01737905323150571777F3AF0BB9BA68BAA6726B89A4A8FC7D109A1472D99F9B
+  run_j1_j6.py: 0369B8E7A9862735D48CE76BC672B8CA55C6E5BCD1B2B81112C5A37BCE4D03AD
+unchanged_inputs:
+  ppc_union_input.ll: 1124F15D99EC0CF7F1688CD20E21416A17C1A075F46419FE95A9E35C262BD939
+  ppc_exact_witness.s: 94343AB218377B6D3A7736F3E280299C6AB80A2751386BD0CC0441B3174F88C5
+  corpus_scan.json: F44B605A5713A0D083B18E3458B685EF005D753DF9AACFD8F7F3E008265CCC74
+tool_or_claim_action_started_before_exact_hash_acceptance: false
+automatic_retry: false
+disposition: EXACT_FROZEN_TARGET_ACCEPTED_FOR_FRESH_REPLAYS

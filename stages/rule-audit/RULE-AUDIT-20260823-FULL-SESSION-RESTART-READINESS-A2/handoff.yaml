@@ -1,0 +1,71 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260823-FULL-SESSION-RESTART-READINESS-A2
+proposal_id: SESSION_RESTART_BOOTSTRAP_AND_STAGEB_CONTRACT_ALIGNMENT_V1
+status: COMPLETE_PROPOSAL_ONLY__MAINLINE_IMPLEMENTATION_RECOMMENDED
+decision: PATCH_RECOMMENDED
+requested_by: USER
+user_policy_approval_already_present: true
+user_policy_basis: USER_EXPLICIT_AGENTS_MAIN_ENTRY_PLAN_CURRENT_STATE_ROLE_RULE_ROUTING_AND_FULL_SESSION_RESTART_READINESS_20260823
+user_policy_decision_required: false
+shared_files_modified: false
+scientific_states_modified: false
+discovery_or_stage_execution_started: false
+backtest_required:
+  p0_text_routing_and_template_alignment: false
+  p1_assignment_context_slice_cutover: true__COLD_START_SHADOW_ONLY
+write_directory: D:\project\writing\reserch\stages\rule-audit\RULE-AUDIT-20260823-FULL-SESSION-RESTART-READINESS-A2
+finding: >-
+  The scientific role system is substantially complete, but full-session cold-start
+  recovery is not yet closed because current lane assignment state is not presented
+  as a short authoritative context, Stage B hardware skill artifacts drift from the
+  canonical role contract, and formal-project owner/reviewer routing is incomplete.
+recommendation: >-
+  Mainline should implement the P0 bootstrap table, lane dashboard, restart handshake,
+  Stage B contract alignment and formal-project routing before reopening all tasks;
+  registry-slice startup must remain shadow/fallback-capable until cold-start tests pass.
+affected_shared_files:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml__CONTROL_RECORD_ONLY_NO_SCIENTIFIC_STATE_MIGRATION
+  - rules/ROLE_MAINLINE.md
+  - rules/ROLE_CANDIDATE_OWNER.md
+  - rules/ROLE_PAPER_PROJECT.md
+  - templates/ASSIGNMENT_CONTEXT.yaml__NEW
+  - templates/BOOTSTRAP_ACK.yaml__NEW
+  - templates/STAGEB_WORK_BREAKDOWN.yaml__NEW
+  - templates/ENVIRONMENT_LOCK.yaml__NEW
+  - templates/AUTONOMOUS_RECOVERY_LEDGER.yaml__NEW
+  - templates/RUN_INDEX.yaml__NEW
+  - .agents/skills/hardware-stageb-runner/SKILL.md
+  - .agents/skills/hardware-stageb-runner/references/evidence-and-escalation.md
+  - .agents/skills/hardware-stageb-runner/assets/
+  - .agents/skills/hardware-stageb-runner/scripts/init_stageb_task.py
+preserved_invariants:
+  q2_minimum: true
+  q1_priority: true
+  same_object: true
+  latest_collision: true
+  fair_current_strong_baseline: true
+  natural_or_canonical_evidence: true
+  full_cost: true
+  reproducibility: true
+  claim_ceiling: true
+  stop_non_revival: true
+  topic_specific_stageb_user_gate: true
+  formal_project_and_submission_user_gates: true
+mainline_implementation_order:
+  - P0_AGENTS_STARTUP_TABLE_AND_RESTART_PROTOCOL
+  - P0_PLAN_CURRENT_LANE_DASHBOARD
+  - P0_STAGEB_SKILL_TEMPLATE_INITIALIZER_ALIGNMENT
+  - P0_FORMAL_PROJECT_LANE_MODE_STATE_ALIGNMENT
+  - P1_COLD_START_CONTEXT_SHADOW
+  - ARCHIVE_OLD_TASK_ONLY_AFTER_NEW_BOOTSTRAP_ACK_ACCEPTED
+canonical_files:
+  AUDIT_INPUT_SNAPSHOT.md: AC93E3CD7FF126AB037455BF2F9B92C30476D367C4CAC133C356FAD39AD46E4C
+  RESTART_READINESS_MATRIX.md: 82BECBAA1F22E4891265F15B13834D945E911B2DFD3F71D5DCF3E311753AC671
+  RULE_AUDIT_REPORT.md: 1D0A68CB6364B4D34B1A938457A01910C0B92D90B8CF085D53FBF8EAEAE5D08E
+  RULE_CHANGE_PROPOSAL.md: DA99D3F16BAEA9E61661EC4379B09E63F1243471F4B7E08D44BCCB24FBF8DB76
+  MAINLINE_IMPLEMENTATION_DIRECTIVE.md: D506825C48E008BBED876C21FEE740624F8DF70ACCA3AC79B601DA2A191D90A1
+next_owner: MAINLINE_CONTROL
+next_action: IMPLEMENT_P0_AT_SAFE_CONTROL_BOUNDARY_THEN_RUN_P1_COLD_START_SHADOW
+rule_audit_next_state: IDLE_REUSABLE_AWAITING_USER_DIALOGUE

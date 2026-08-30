@@ -1,0 +1,168 @@
+schema_version: git-pack-forest-stagea-contract-v1
+topic_id: GIT-PACK-FOREST
+lane_id: CANDIDATE-EXECUTION-LANE-3
+assignment_id: STAGEA-L3-20260809-GIT-PACK-FOREST-INITIAL
+write_root: D:\\project\\writing\\reserch\\stages\\stageA\\GIT-PACK-FOREST
+cross_assignment_contamination: NONE__NO_OTHER_CANDIDATE_MATERIAL_READ
+stage: STAGEA
+stage_semantics: REAL_BOUNDED_HIGHEST_RISK_PILOT
+positive_ceiling: PRELIMINARY_SUPPORT_OR_NOT_FALSIFIED_ONLY
+stageb_user_approval_id: null
+stageb_authorized: false
+
+input_freeze:
+  discovery_manifest_sha256: 736638AED4B1C05137301A03C0D6FEF0FFA50E08CE7B11CA60AA5ADBC9980C12
+  primary_manifest_sha256: 5BE1D727E9904794272B7593475841A1DB645B6D836F82036766F45ECA59214A
+  confirmation_manifest_sha256: 712E5D2ADF5813C6B1E92D98100699892D7ECEA40264495F5B0BA2F9EC4D29B4
+  confirmation_handoff_sha256: CB038C2BD9C533D703AFBBB9F8383809DF1FD0FD29EE8B6556D4248013EE4E2F
+
+resource_budget:
+  maximum_workspace_bytes: 4294967296
+  maximum_cpu_seconds: 14400
+  maximum_candidate_objects_per_repository: 64
+  maximum_reachable_objects_per_repository: 1200
+  maximum_canonical_bytes_per_repository: 33554432
+  timeout_seconds_per_pack_run: 300
+  exclusive_hardware: false
+
+toolchain:
+  git_release: 2.55.0.windows.1
+  official_release_url: https://github.com/git-for-windows/git/releases/tag/v2.55.0.windows.1
+  asset_url: https://github.com/git-for-windows/git/releases/download/v2.55.0.windows.1/MinGit-2.55.0-64-bit.zip
+  asset_bytes: 38830800
+  asset_sha256: 31497E7968196332263459EE319D2524E3EBC5786AB895E2ABAD34FFDD4F4EBF
+  network_backend: openssl
+  repository_hash_algorithm: sha1
+  pack_version: 2
+  delta_codec: git_v2_55_0_diff_delta_semantic_port__byte_exact_against_native_git
+  delta_source_commit: e9019fcafe0040228b8631c30f97ae1adb61bcdc
+  delta_source_sha256: A7318C006CDED6394DAB8DA932C4BFCAACB8CD44BAEF61F96B790199E8768F9A
+  representation_compression: frozen_git_zlib1_dll_1_3_2_level_6_for_all_methods
+  representation_compressor_sha256: 93E9243A44C29200EEACAF9658EFE2558581770E4B11CA4B500E18E424A6E3B5
+  native_delta_parity_artifact: results/GIT_NATIVE_CODEC_PARITY.json
+
+exact_object:
+  input: ONE_PINNED_PUBLIC_NATURAL_REPOSITORY_COMMIT_REACHABLE_CANONICAL_OBJECT_MANIFEST
+  output: ONE_SELF_CONTAINED_NONTHIN_UNFILTERED_GIT_PACK_PLUS_INDEX
+  invariant: HASH_ALGORITHM_CODEC_OBJECT_SET_CONTENT_FORMAT_THIN_AND_FILTER_STATE_UNCHANGED
+  mandatory_checks:
+    - git_index_pack_verify_strict
+    - git_fsck_strict
+    - per_object_type_size_and_canonical_sha256_equality
+  disallowed:
+    - thin_pack
+    - filter_or_promisor_omission
+    - external_base
+    - object_or_content_change
+    - codec_or_format_change
+    - cross_repository_collection
+
+corpus:
+  repository_count: 20
+  source_file: inputs/repositories.json
+  strata:
+    - SOURCE_HEAVY
+    - RENAMED_OR_VENDORED
+    - LOW_SIMILARITY_CONTROL
+  commit_selection: >-
+    From the natural default-branch first-parent history, select the latest
+    preregistered milestone in HEAD,64,32,16,8,1 whose complete reachable closure
+    has at most 1200 objects and 32 MiB canonical bytes. This is feasibility
+    trimming by object/byte counts before candidate outcomes; the chosen commit's
+    complete reachability semantics are not altered.
+  licenses: FREEZE_DETECTED_ROOT_LICENSE_PATH_CONTENT_SHA256_AND_CLASSIFIER
+
+baseline_union:
+  interpretation: EVERY_APPLICABLE_INDIVIDUALLY_REALIZABLE_CONFIGURATION__NO_FICTIONAL_SUPER_UNION
+  configurations:
+    - git_default_reuse
+    - git_default_no_reuse
+    - git_window_20_depth_50_memory_64m
+    - git_window_40_depth_50_memory_64m
+    - git_window_80_depth_50_memory_64m
+    - git_name_hash_v1
+    - git_name_hash_v2
+    - git_path_walk_name_hash_v1
+    - git_path_walk_name_hash_v2
+    - git_delta_islands_single_compatible_ref
+  deterministic_simple_constructors:
+    - full_object_only
+    - best_prior_edge_in_type_path_size_order
+  classical_comparator: EDMONDS_MAXIMUM_WEIGHT_BRANCHING_PLUS_DEPTH_REPAIR_PLUS_BASE_BEFORE_CHILD_GIT_FAMILY_ORDER
+  tiny_exact: CEILING_ONLY__AT_MOST_6_CANDIDATE_OBJECTS
+  subtractor_only_when_contract_changes:
+    - JSS2025_PPC
+    - MinHash
+    - clustered_generic_delta_graph
+
+candidate:
+  novelty_route: N2
+  name: JOINT_LOCALITY_BOUNDED_DEPTH_FOREST_ORDER
+  candidate_edges: capped_type_preserving_exact_block_overlap_graph_with_actual_git_delta_byte_costs
+  coupled_constructor: >-
+    Iteratively choose forest parents under the current legal order and update a
+    base-before-child order under a locality byte-distance penalty; forest choices
+    change when the layout changes and the layout objective uses the selected
+    forest. It is not a post-hoc traversal of a fixed branching.
+  maximum_depth: 8
+  edge_cap_per_target: 6
+  deterministic_fallback: full_object_root
+  atomic_action_mapping:
+    candidate_edge_enumeration: scripts/run_pilot.py::build_candidate_graph
+    native_delta_cost: scripts/git_pack_lib.py::make_git_2_55_delta
+    global_bounded_depth_forest: scripts/run_pilot.py::joint_constructor
+    locality_aware_legal_order: scripts/run_pilot.py::joint_constructor
+    self_contained_pack_writer: scripts/git_pack_lib.py::custom_pack_bytes
+    strict_checker_and_identity: scripts/run_pilot.py::validate_pack
+
+pre_claim_contract_fidelity_gate:
+  required_status: PASS_BEFORE_CLAIM_BEARING_RUN
+  parity_minimum: BYTE_EXACT_NATIVE_GIT_DELTA_AND_ZLIB_STREAM_ON_NATURAL_EDGES
+  small_witness: results/PRECLAIM_WITNESS_NATIVE_CODEC.json
+  non_claim_control: results/initial/SUMMARY.json
+  full_cost_instrumentation_controls:
+    - results/native-initial/SUMMARY.json
+    - results/native-replay/SUMMARY.json
+  claim_runs:
+    - results/codec-final-initial/SUMMARY.json
+    - results/codec-final-replay/SUMMARY.json
+  additional_non_claim_controls:
+    - results/claim-initial/SUMMARY.json
+    - results/claim-replay/SUMMARY.json
+    - results/final-initial/SUMMARY.json
+    - results/final-replay/SUMMARY.json
+
+residual_gate:
+  denominator: CANDIDATE_SELECTED_USEFUL_DELTA_EDGES
+  outside_rule: >-
+    An edge is outside only if it is neither observed in any union pack nor
+    covered by a conservative superset of the preregistered normal/name/path
+    window actions. Conservative coverage overestimates Git actions.
+  minimum_outside_fraction: 0.10
+
+full_cost:
+  metrics:
+    - pack_plus_index_bytes
+    - end_to_end_construction_wall_and_child_cpu_seconds
+    - peak_working_set_bytes
+    - graph_precompute_and_optimization_cost
+    - strict_verification_wall_and_child_cpu_seconds
+    - temporary_and_failure_bytes
+    - fixed_process_cold_and_same_process_warm_random_object_access
+    - deterministic_reconstruction_span_bytes
+    - fallback_count
+  primary_benefit_rule: >-
+    Candidate must have an actual pack-size or access benefit within the
+    preregistered budgets; mathematical nondominance caused only by added cost is invalid.
+
+stop_conditions:
+  - residual_coverage_below_0_10
+  - any_self_containment_object_equality_index_pack_strict_or_fsck_strict_failure
+  - no_effective_union_residual_at_both_p50_and_p90
+  - graph_or_optimization_cost_consumes_primary_benefit
+  - candidate_collapses_to_branching_plus_existing_order_external_reorder_parameter_tuning_or_controller
+
+resource_failure_policy:
+  before_first_claim_bearing_observation: BLOCKED_USER_ACTION_REQUIRED
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed: false

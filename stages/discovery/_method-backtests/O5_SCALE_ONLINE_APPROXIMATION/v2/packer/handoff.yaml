@@ -1,0 +1,22 @@
+schema_version: discovery-backtest-packer-handoff-v2
+role: DISCOVERY-BACKTEST-PACKER
+delegated_from_thread: 019fadc8-afb2-7cc3-85c7-fee56974b612
+source_session_id: DISCOVERY-S5-SCALE-ONLINE-APPROX
+opportunity_lens: O5_SCALE_ONLINE_OR_APPROXIMATION
+method_revision: v2
+status: PACKER_COMPLETE_AWAITING_MAINLINE_ACCEPTANCE
+counts: {positive: 3, negative_control: 1}
+files:
+  sealed_input_manifest: {path: ../sealed_input_manifest.yaml, sha256: 7897C3E6B5965A31741541C2F3FF7A39805581E5D75B6E6AF6A2760D7145FAD5}
+  sealed_packets: {path: sealed_packets.yaml, sha256: 09D2FA3ACADD563951DAB381642B8C089D83B9EA54A5ED7E8C4A164143DE67F4}
+  auditor_key: {path: auditor_key.yaml, sha256: 1719712B4B3AD1639AF1CC41DBEA8C8CFC516524B77131E5A450F47438D3CFB7, access: FUTURE_AUDITOR_ONLY}
+checks:
+  yaml_parse: PASS
+  positive_papers_between_3_and_8: PASS
+  all_visible_paper_dates_at_or_before_cutoff: PASS
+  hidden_target_title_cross_packet_scan: PASS
+  source_url_head_check: PASS
+  hardware_claim_ceiling: PASS
+  method_executed: false
+  scoring_performed: false
+next_action: "Mainline mechanically verifies hashes, then independently creates executor/auditor roles if desired."

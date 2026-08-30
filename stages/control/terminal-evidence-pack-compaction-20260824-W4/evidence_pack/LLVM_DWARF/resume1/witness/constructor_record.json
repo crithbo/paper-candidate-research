@@ -1,0 +1,33 @@
+{
+  "schema": "tiny-bounded-call-cut-constructor-v1",
+  "official_template": "src/llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76/llvm/test/DebugInfo/MIR/X86/debug-call-site-param.mir",
+  "official_template_sha256": "E891F334C73F34E9B3138BEB9A131E88DA4915FDAE1453EC2B6132D15D0394A5",
+  "contract_sha256": "504ACFE7A5A78035D89BF432A410F5E3E2B10AA88A8A2287600664227814E1E0",
+  "complete_action_count": 2,
+  "emitted": {
+    "A_CALLER_SAVED_RAX": {
+      "path": "witness/plan_rax.mir",
+      "sha256": "E90F7B94AC97117650BD64848DAB6F03E98B1B9F502ABAE46A631CA6E3804A6A",
+      "state": {
+        "location": "RAX",
+        "alias_and_clobber": "csr_64_call_cut",
+        "frame_cfi": "alignment_only",
+        "source_class": "computed_caller_saved_unrecognized",
+        "entry_value_eligible": false,
+        "expected_reconstructible": false
+      }
+    },
+    "B_CALLEE_SAVED_RBX": {
+      "path": "witness/plan_rbx.mir",
+      "sha256": "2903927B083EAD74D45229AC79BC9E96E00AD0948D9EF0245C569303CA1426CC",
+      "state": {
+        "location": "RBX",
+        "alias_and_clobber": "csr_64_call_cut",
+        "frame_cfi": "saved_CSR",
+        "source_class": "callee_saved_direct",
+        "entry_value_eligible": false,
+        "expected_reconstructible": true
+      }
+    }
+  }
+}

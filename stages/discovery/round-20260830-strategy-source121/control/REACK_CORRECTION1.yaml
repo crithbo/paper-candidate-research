@@ -1,0 +1,7 @@
+schema: discovery-reack-correction-v1
+round_id: SOURCE121
+reason: missing_topic_id_template_hashes_and_rq_frontend_revision_cutover
+scope: [S1, S2, S3, S4, S5, S6]
+required_actions: [preserve_existing_BOOTSTRAP_ACK_as_BOOTSTRAP_ACK.pre_correction.yaml, read_SHARED_FREEZE_CORRECTION1_and_LANE_IDENTITY_ADDENDUM, write_new_canonical_BOOTSTRAP_ACK]
+forbidden: [scientific_or_resource_action, network, source_lookup, raw_or_brief, shared_write]
+acceptance: canonical_ACK_must_bind_corrected_freeze_topic_id_templates_revision_auditor_handoff_and_cutover_with_no_differences

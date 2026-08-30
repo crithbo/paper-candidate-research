@@ -1,0 +1,19 @@
+topic_id: GPU-GREENBUDGET
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: Single-process CUDA Green Context SM/workqueue partitioning for two request classes with epoch, partition, and admission decisions
+main_claim: A legal request-class-aware partition controller improves tail-throughput Pareto tradeoffs beyond no split, static Green Context partitions, and MPS caps after full capacity costs.
+academic_value_score: 56
+ai_executability_score: 19
+ai_executability_class: AI_CORE_CONDITIONAL
+ai_core_fraction: 0.63
+strongest_baseline: No split, exhaustive legal static Green Context split, and MPS active-thread-percentage cap at matched throughput
+decisive_evidence: One frozen two-class trace where the controller point survives idle-reservation, transition, interference, and deadline accounting against the best static split.
+unresolved_risks: Dynamic transition protocol may be too costly or unsupported; concurrency is not guaranteed; equivalent scheduler work may exist.
+next_killer_gate: Audit actual context lifecycle/transition semantics, enumerate legal static partitions, and replay a burst trace with CUPTI provisioned-resource evidence.
+mechanism_pivot_remaining: 1
+reserve_reason: Compatible CUDA Green Context support is required for decisive platform evidence.
+evidence_ceiling: Controller simulation/source evidence without compatible CUDA runtime and GPU.
+execution_authority: Discovery only; no formal experiment.
+file_hashes: {topic_brief.md: 7F67845D5586F959C18D1C56815525CDA12CB17580AAC4C8A66AE3E5CA64C199, source_log.md: 025D0469D1A4084D6FF9CF59DEF0FABC07516AF713E36D464A0A3B5B07D12516}

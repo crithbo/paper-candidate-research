@@ -1,0 +1,67 @@
+schema_version: stage0-revision-closing-confirmation-handoff-v1
+assignment_id: STAGE0-C2-20260821-PATCHYIELD-REVISION1-CLOSING-CONFIRMATION
+topic_id: PATCHYIELD-CALL
+mode: SENTRY_REVISION_CLOSING_CONFIRMATION
+decision: CONFIRM_STOP
+quality_tier: BELOW_Q2_STOP
+revision_consumed: true
+primary_closing_decision_binding: false
+confirmation_result: CONFIRMED_WITH_MATERIAL_ARITHMETIC_CORRECTION
+provenance:
+  assignment_sha256: 3342C1F7E865B88179A4862B182C71C4DB4B302B38B7DFDAB47D8AAA61326FA8
+  role_stage0_sha256: BC58D2A365AFF6A0F82290CC3CC4E16177DBFDA69D1B28260084E9BE6B56E48C
+  revision_handoff_sha256: DAF7EEE0FB7F65B2BF2597AB970C08AC2A046B4CAF2A076DF63B21F1A5BE81D3
+  revision_manifest_sha256: 4B53017ADF32BBCA8BC1FE255508FDED6D995F1B7F8ACEF22C63F6680A250ACD
+  revision_manifest_validation: PASS_17_OF_17
+  primary_closing_handoff_sha256: 736E839A748EA30BFBEC396C082EBD1B8926CCC27986249998803DA9F4198520
+  primary_closing_manifest_sha256: A1ED2DC8B969E81C44335EFCA0927F494E54D622F247DBB2D957AD1C3A5D8DEE
+  primary_closing_manifest_validation: PASS_4_OF_4
+  provenance_failure: false
+legal_state:
+  distinct_admitted_simultaneously_ready_calls: 25
+  batch_capacity: 8
+  ready_set_cardinality_bound_in_frozen_grammar: none
+  state_is_legal: true
+counting_proof:
+  minimum_batches: 4
+  submitted_universal_lower_bound_24: false
+  submitted_24_scope: valid_for_full_prefix_trace_8_8_8_1_only
+  counterexample_to_universal_24: batch_sizes_1_8_8_8
+  tight_policy_independent_lower_bound: 17
+  derivation: max_bypass_at_least_25_minus_final_batch_size_at_least_25_minus_8
+  fairness_cap: 16
+  contradiction: '17 > 16'
+  all_legal_state_guarantee_feasible: false
+scientific_basis:
+  kind: SAME_OBJECT_FORMAL_FEASIBILITY_FAILURE
+  sole_revision_gate_closed: false
+  non_generic_progress_incremental_residual_survives: false
+  generic_priority_or_fair_scheduling_is_not_q2_residual: true
+forbidden_change_audit:
+  admission_or_queue_bound: required_to_escape_or_ineffective
+  action_or_bypass_semantics: required_to_escape
+  batch_capacity: required_to_escape
+  pause_preemption_or_routing: required_to_escape
+  active_subset_fairness: required_to_escape
+resource_and_execution:
+  network_attempts: 0
+  downloads: 0
+  persisted_external_bytes: 0
+  experiments_or_builds: false
+  stageA_authorized: false
+  stageB_authorized: false
+  resource_absence_used_for_decision: false
+evidence_ceiling: STATIC_SAME_OBJECT_CONTRACT_INFEASIBILITY__CORRECTED_TIGHT_LOWER_BOUND_17
+packaging_note: >-
+  HANDOFF.yaml and handoff.yaml resolve to one case-insensitive Windows path;
+  lowercase handoff.yaml is canonical and appears once in the manifest.
+mainline_action: >-
+  Apply the terminal STOP recommendation using the corrected universal lower
+  bound 17; do not repeat 24 as a policy-independent bound.
+canonical_outputs:
+  - CONFIRMATION_REPORT.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+return_lane_state: IDLE_REUSABLE
+

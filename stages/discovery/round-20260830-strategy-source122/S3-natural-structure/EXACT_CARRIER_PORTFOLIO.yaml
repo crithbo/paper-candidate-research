@@ -1,0 +1,23 @@
+schema: exact-public-carrier-portfolio-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE122
+topic_id: SOURCE122-PORTFOLIO-S3
+start_authority: {path: stages/discovery/round-20260830-strategy-source122/control/MAINLINE_BOOTSTRAP_ACCEPTANCE_AND_START.yaml, sha256: 5FED1D6A0DE5C5826134FD7BC0DFAC9D7F95E10FEA345C29C222CD6368A98569}
+portfolio_scope: public VLA or robot episode streams with exact observation-action structure for compiler/runtime partition or speculative execution
+explicit_exclusion: LEROBOT_AOI_SLO_CONTROLLER_FAMILY
+frozen_before_first_source_call: true
+frozen_before_primary_rq_source_closure: true
+carriers:
+  - {id: C01, name: DROID, locator: https://github.com/droid-dataset/droid, tentative_fields: [multi_camera_observation, robot_state, action, timestamp, language_instruction, episode], kind: NATURAL}
+  - {id: C02, name: RH20T, locator: https://rh20t.github.io/, tentative_fields: [camera_timestamp, robot_timestamp, force_torque, action, task, episode], kind: NATURAL}
+  - {id: C03, name: Open_X_Embodiment, locator: https://github.com/google-deepmind/open_x_embodiment, tentative_fields: [RLDS_episode, observation, action, task_string, embodiment, step_flags], kind: NATURAL}
+  - {id: C04, name: BridgeData_V2, locator: https://rail-berkeley.github.io/bridgedata/, tentative_fields: [trajectory, image_observation, action, language, environment], kind: NATURAL}
+  - {id: C05, name: ManiSkill_trajectory_datasets, locator: https://maniskill.readthedocs.io/en/latest/user_guide/datasets/demos.html, tentative_fields: [actions, observations, env_states, success, fail, terminated, truncated], kind: CANONICAL_FORMAL_ORACLE}
+  - {id: C06, name: RLBench, locator: https://github.com/stepjam/RLBench, tentative_fields: [demonstration, waypoint, observation, action, task, simulator_state], kind: CANONICAL_BENCHMARK_ONLY}
+  - {id: C07, name: LIBERO, locator: https://github.com/Lifelong-Robot-Learning/LIBERO, tentative_fields: [demonstration, image, proprioception, action, language, task_definition], kind: CANONICAL_BENCHMARK_ONLY}
+  - {id: C08, name: RoboCasa_LeRobot_format_datasets, locator: https://github.com/robocasa/robocasa/blob/main/docs/datasets/using_datasets.md, tentative_fields: [episode_index, frame_index, timestamp, observation_state, action, multi_camera_video, mujoco_state], kind: CANONICAL_BENCHMARK_ONLY}
+  - {id: C09, name: robomimic_datasets, locator: https://robomimic.github.io/docs/datasets/overview.html, tentative_fields: [demonstration, action, observation, simulator_state, dataset_type, version], kind: CANONICAL_BENCHMARK_ONLY}
+  - {id: C10, name: ACT_action_chunking, locator: https://github.com/tonyzhaozh/act, tentative_fields: [observation, action_chunk, temporal_ensemble, control_step, episode], kind: IMPLEMENTATION_CARRIER_ONLY}
+carrier_count: 10
+scientific_denominator_effect: NONE_UNTIL_EVIDENCE_QUALIFIED_RAW_GATE
+result_aware_backfill_forbidden: true
+

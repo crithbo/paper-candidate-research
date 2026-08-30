@@ -1,0 +1,87 @@
+schema: torchdynamo-restricted-quotient-compatibility-v1
+assignment_id: STAGE0-REVISION1-20260830-TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+topic_id: TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+
+compile_unit_identity:
+  unit: Dynamo_guarded_compile_unit
+  fixed_scope: one_PyTorch_2_13_code_object_frame_and_one_isolate_bucket
+  entry_components: [guard_manager, transformed_code, backend, backend_options, downstream_cache_context]
+
+exact_equal_non_shape_quotient:
+  rule: entries_are_shape_comparable_only_when_every_listed_non_shape_dimension_is_exact_equal
+  dimensions:
+    - code_object_and_isolate_bucket
+    - backend_and_backend_options
+    - dtype_device_layout_rank_and_aliasing_contract
+    - Python_type_object_identity_global_and_module_state
+    - mutation_and_Python_side_effect_contract
+    - output_pytree_dtype_shape_alias_and_autograd_signature
+    - activation_checkpoint_saved_tensor_and_recompute_identity
+    - graph_break_resume_and_eager_fallback_behavior
+    - downstream_FxGraph_AOTAutograd_Triton_CUDAGraph_cache_key_context
+  any_unknown_or_non_equal_dimension: INCOMPARABLE
+  arbitrary_non_shape_guard_implication: forbidden
+  unsafe_guard_filtering: forbidden
+
+shape_region_relation:
+  admitted_predicates: ShapeEnv_generated_shape_predicates_with_frozen_symbol_source_mapping
+  proof_engine: solver_certificate_required
+  cover_orientation: entry_A_covers_entry_B_iff_for_all_inputs_B_shape_guard_implies_A_shape_guard
+  additional_requirement: A_and_B_are_in_the_same_exact_non_shape_quotient_and_pass_compatibility_oracle
+  proof_record_required:
+    - normalized_shape_predicates
+    - symbol_source_map
+    - implication_direction
+    - solver_result
+    - solver_version_and_options
+    - proof_or_checkable_certificate
+    - timeout_budget
+  unknown_timeout_unsupported_or_noncheckable: INCOMPARABLE
+  sampled_truth_table_alone_is_not_a_proof: true
+
+compatibility_oracle:
+  purpose: prove_compile_unit_interchangeability_not_merely_guard_overlap
+  mandatory_dimensions:
+    outputs:
+      - pytree_structure
+      - value_and_numeric_policy
+      - dtype_shape_stride_where_observable
+    aliasing_and_mutation:
+      - input_output_alias_sets
+      - in_place_tensor_mutations
+      - Python_container_and_object_mutations
+    Python_and_runtime_state:
+      - Python_side_effect_order
+      - global_and_module_state_reads_writes
+      - backend_and_compile_options
+      - graph_break_resume_points
+      - eager_fallback_behavior
+    autograd_and_recomputation:
+      - requires_grad_and_autograd_output_signature
+      - saved_tensor_count_order_shape_dtype_and_aliasing
+      - activation_checkpoint_forward_recompute_entry_identity_or_equivalent_saved_tensor_signature
+      - backward_observable_behavior_when_training_scope_is_retained
+    downstream_context:
+      - FxGraphCache_guard_context
+      - AOTAutograd_partition_and_wrapper_context
+      - Triton_or_native_code_identity_context
+      - CUDAGraph_capture_pool_and_static_input_context_when_enabled
+  mismatch_in_any_dimension: INCOMPATIBLE
+  unknown_or_unobservable_dimension: INCOMPARABLE
+  compatible_status_requires_all_mandatory_dimensions: true
+
+logical_retirement_eligibility:
+  requires:
+    - solver_certified_shape_cover
+    - exact_equal_non_shape_quotient
+    - compatibility_oracle_COMPATIBLE
+    - full_cost_dominance_under_frozen_past_only_policy
+    - no_active_recompute_or_entry_pin_dependency
+  does_not_authorize_physical_reclamation: true
+
+preclaim_closure:
+  exact_source_pinned_hook_required: true
+  minimum_positive_witness: one_nontrivial_certified_overlap_pair
+  minimum_negative_witness: one_recompute_or_saved_tensor_incompatibility_pair
+  proxy_only_simulation_can_support_science: false
+

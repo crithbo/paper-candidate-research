@@ -1,0 +1,30 @@
+schema: ppc-r9-resource-redirect-preflight-v1
+recorded_at: 2026-08-26T07:40:04.7562347+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+start_authorization_sha256: FB02E47E11B79B3FB7421ED95C9DE29C09D4DB9959E1C2C591B6D95FFF685219
+resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources
+resource_root_initial_state: ABSENT
+policy: {mode: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, cleanup_owner: MAINLINE, owner_cleanup_allowed: false}
+required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+copy_preflight:
+  executable: Windows_PowerShell_Copy-Item
+  expected_writable_surfaces: [resources/src/r6_input, resources/env/ppc-toolchain, resources/src/r8_synthetic_base]
+  temporary_or_cache_surface_used: false
+  destination_containment: PASS_EXACT_R9_RESOURCE_ROOT_DESCENDANTS
+  source_mutation_or_delete: false
+future_process_local_redirects:
+  TEMP: resources/tmp
+  TMP: resources/tmp
+  TMPDIR: resources/tmp
+  PYTHONPYCACHEPREFIX: resources/cache/pycache
+  PIP_CACHE_DIR: resources/cache/pip
+  XDG_CACHE_HOME: resources/cache/xdg
+  CLANG_MODULE_CACHE_PATH: resources/cache/clang-modules
+  PYTHONNOUSERSITE: '1'
+  CCACHE_DISABLE: '1'
+system_or_user_environment_or_registry_modified: false
+network_allowed: false
+reparse_creation_allowed: false
+status: PASS_BEFORE_FIRST_RESOURCE_ACTION
+

@@ -1,0 +1,20 @@
+schema: phase-closeout-retention-v1
+assignment_id: STAGEA-L3-20260825-LLVM-APX-R4-PRECLAIM-FIDELITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+closeout_event: APX_PRECLAIM_FAIL_CLOSED_HANDOFF_ACCEPTED_BY_MAINLINE
+artifact_lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+cleanup_owner: MAINLINE
+owner_cleanup_allowed: false
+scientific_state_effect: NONE
+retention:
+  keep_claim_critical: [resources/src/harness, resources/logs/f0/llvm_mc_capability.txt, resources/logs/replay1/llc_machineverifier.txt]
+  keep_reproducibility_minimum: [resources/env/apx-toolchain, resources/archives/llvm-project-a1194be1baefa99d20a09bd04b16056be0ab7225.tar.gz, resources/archives/llvm-commit-a1194be1baefa99d20a09bd04b16056be0ab7225.json]
+  mainline_cleanup_candidates_after_handoff: [resources/src/llvm, resources/downloads, resources/build, resources/cache, resources/tmp]
+projected_retained_bytes_without_cleanup: 613551030
+post_close_retained_bytes_max: 1073741824
+budget_pass_without_cleanup: true
+downstream_consumer: MAINLINE_FAILURE_REVIEW_OR_FUTURE_NEW_EXACT_ASSIGNMENT
+downstream_inputs_accepted: false
+capsule_sealed: false
+cleanup_performed: false
+result: RETENTION_PROPOSED__WAIT_MAINLINE

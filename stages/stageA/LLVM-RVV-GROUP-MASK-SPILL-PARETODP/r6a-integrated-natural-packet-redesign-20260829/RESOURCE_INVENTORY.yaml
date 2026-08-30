@@ -1,0 +1,26 @@
+schema_version: assignment-resource-inventory-v1
+identity:
+  topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+  assignment_id: STAGEA-L2-20260829-LLVM-RVV-R6A-INTEGRATED-NATURAL-PACKET-REDESIGN
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6a-integrated-natural-packet-redesign-20260829/resources
+  inventory_path: RESOURCE_INVENTORY.yaml
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_path: rules/ARTIFACT_LIFECYCLE.md, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, cleanup_owner: MAINLINE}
+root_measurement: {logical_bytes: 41186, file_count: 16, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, reparse_entries: 0, measurement_complete: true}
+required_directories: {downloads: true, archives: true, src: true, build: true, env: true, cache: true, tmp: true, logs: true}
+provenance:
+  source_archive: {path: E:/project/writing/reserch/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r2/resources/downloads/llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76.tar.gz, bytes: 280166923, sha256: BC0E5CC6B7F4978242749E0FF666DDA851994EFFC178BD782C4799D7C2B52695}
+entries:
+  - {path: resources/src/natural_inputs/selected-00.mir, bytes: 701, sha256: 50761EF7C895D41E89EFAC48A6E6E5DE297689B1E99383B4E35010123DC519B1, claim_critical: true, retention_class: RESUME_CRITICAL}
+  - {path: resources/src/natural_inputs/selected-01.mir, bytes: 1646, sha256: 4694DA0F8052C1F03D616FD5187C028BDA05EC52C728E2EC3E5181F10D0C528B, claim_critical: true, retention_class: RESUME_CRITICAL}
+  - {path: resources/src/natural_inputs/selected-02.mir, bytes: 6425, sha256: 3F9E463228A1D73F7EBA7A8E623830C4C9204F9B5F8C90CC0CD5225D64B6CE9B, claim_critical: true, retention_class: RESUME_CRITICAL}
+  - {path: resources/src/natural_inputs/selected-03.mir, bytes: 6425, sha256: 3F9E463228A1D73F7EBA7A8E623830C4C9204F9B5F8C90CC0CD5225D64B6CE9B, claim_critical: true, retention_class: RESUME_CRITICAL}
+support_probe_outputs:
+  - {path: resources/build/support/greedy-run-pass.mir, bytes: 2234, sha256: 042F46405574397401DC85F00084601C5E36BA804D9522322815766278D51975, claim_critical: false, retention_class: AUXILIARY}
+  - {path: resources/logs/support/baseline_support_metrics.json, bytes: 9887, sha256: 6D8B31265621C279FDC13873BF183143183B9066E0EA7D1AF838583E85C7AA24, claim_critical: false, retention_class: RESUME_CRITICAL}
+  - {path: resources/logs/support/*, files: 11, retention_class: AUXILIARY}
+resource_envelope: {network_bytes_max: 0, stored_bytes_max: 67108864, attempts_max: 6, network_bytes_used: 0, stored_bytes_used: 41186, attempts_used: 1}
+redirect_preflight: {status: PASS_NOT_REQUIRED, process_local_only: true, system_or_user_environment_modified: false}
+cleanup: {owner: MAINLINE, performed: false, predelete_file_count: 16, predelete_logical_bytes: 41186}
+validation: {resource_root_exact_match: true, root_under_workspace: true, required_directories_present: true, reparse_traversal_check: true, persisted_resources_inventoried: true, envelope_within_limit: true, all_persisted_entries_classified: true, result: PASS}

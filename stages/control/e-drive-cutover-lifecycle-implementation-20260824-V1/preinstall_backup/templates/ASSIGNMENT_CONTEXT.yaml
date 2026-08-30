@@ -1,0 +1,81 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+generated_at: null
+context_mode: DUAL_READ_SHADOW # DUAL_READ_SHADOW | PRODUCTION_SLICE
+mainline_task_or_contact: null
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_ACTION
+
+identity:
+  lane_id: null
+  role_id: null
+  assignment_id: null
+  topic_id: null
+  stage_or_mode: null
+  status: null
+  resume_point: null
+  next_action: null
+  source_assignment_path: null
+  source_assignment_sha256: null
+
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: null
+  user_approval_ids: []
+  allowed_actions: []
+  forbidden_actions: []
+  forbidden_inputs: []
+
+boundaries:
+  unique_write_directory: null
+  resource_root: null
+  read_only_paths: []
+  write_allowed_paths: []
+  network_allowed: false
+  experiment_allowed: false
+  state_transition_allowed: false
+
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: null}
+  plan: {path: plan.md, sha256: null}
+  registry_snapshot: {path: registry.yaml, sha256: null}
+  role_rule: {path: null, sha256: null}
+  conditional_protocols: []
+  skills: []
+  templates: []
+
+minimum_inputs: []
+expected_outputs: []
+budget: {}
+claim_ceiling: null
+evidence_ceiling: null
+scientific_revision:
+  allowed_total: null
+  consumed: null
+  remaining: null
+  exceptional_revision_authorized: false
+mechanism_pivot:
+  allowed: null
+  consumed: null
+  remaining: null
+identity_and_collision:
+  exact_identity_digest: null
+  terminal_identity_digest: null
+  current_collision_digest: null
+  terminal_stop_non_revival_asserted: false
+user_and_blocker_state:
+  user_action_required: false
+  blocker_state: null
+  blocker_packet_path: null
+  resource_policy_path: rules/RESOURCE_LOCALIZATION.md
+  resource_policy_sha256: null
+stop_and_escalation_conditions: []
+handoff_requirements: []
+
+validation:
+  source_plan_registry_consistent: false
+  hashes_complete: false
+  paths_resolved_under_workspace: false
+  context_is_sufficient_for_cold_start: false
+  full_registry_comparison_result: NOT_RUN
+  result: NOT_VALIDATED

@@ -1,0 +1,28 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260815-DISCOVERY-SKILL-CONSOLIDATION-R40
+status: COMPLETE_PENDING_MAINLINE_IMPLEMENTATION
+decision: MAINLINE_IMPLEMENTATION_AUTHORIZED
+discovery_paused: true
+paused_boundary: SOURCE51_COMPLETE__SOURCE52_UNDISPATCHED_ZERO_SCIENTIFIC_WORK
+shared_files_modified_by_audit: false
+draft_skill: draft/.agents/skills/research-topic-discovery
+recommendation: INSTALL_CONSOLIDATED_SKILL_AND_APPLY_SHARED_PATCH_THEN_RESUME_FRESH_ASSIGNMENT
+models:
+  breadth: gpt-5.6-terra/high
+  selective_depth: gpt-5.6-sol/high
+  selective_depth_global_cap_per_six_lane_cycle: 2
+hard_gates_changed: false
+lane_capacity_changed: false
+retrieval_or_resource_budget_changed: false
+v9_mode: OFF_UNCHANGED
+network_security: EXCLUDED_UNCHANGED
+user_approval:
+  status: APPROVED_IN_CURRENT_USER_INSTRUCTION
+  repeat_generic_approval_required: false
+next_owner: MAINLINE
+next_actions:
+  - apply shared files as single writer
+  - validate skill and stale-rule removal
+  - supersede unstarted Source52 snapshot
+  - freeze a fresh six-lane recovery assignment with new hashes
+  - resume Discovery only after validation

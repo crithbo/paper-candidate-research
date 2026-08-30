@@ -1,0 +1,32 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE80-R40-ORDINARY-BREADTH-V1
+lane: S1_BOUNDARY_CONTRADICTION
+write_directory: stages/discovery/round-20260815-adaptive-source80/S1-boundary-contradiction
+canonical_mode: v8.7
+rq_frontend_mode: RQ_REFINEMENT_STAGED_EVIDENCE_V1/PRODUCTION
+claim_pack_mode: OFF
+v9_mode: OFF
+disposition: COMPLETE_ZERO_PROPOSALS
+funnel:
+  divergence_seeds: 6
+  selected_exact_anchors: 1
+  primary_rqs: 1
+  screen_signatures: 1
+  evidence_qualified_raw: 0
+  candidate_grade_deep_reviews: 0
+  clean_stage0_briefs: 0
+families:
+  - signature: JNI_PRIMITIVE_ARRAY_CRITICAL__ACQUIRE_RELEASE_GC_PERMISSION_WINDOW__FIXED_JAVA_NATIVE_RESULT_AND_JNI_LEGALITY__HOTSPOT_JNI_FULL_COST
+    history_relation: NO_MATCH__NOT_NOVELTY_PROOF
+    canonical_disposition: EXCLUDED_BEFORE_RAW__FIXED_CRITICAL_REGION_CONTRACT_OR_GENERIC_LIFETIME_SCHEDULING
+    exact_object: Java SE JNI primitive-array critical access and matching release
+    same_object_endpoint: fixed Java/native result plus JNI legality and VM progress/GC safety
+    current_strongest_union: Java SE 26 critical API/design plus current OpenJDK pin-or-GCLocker acquire/release paths and noncritical alternatives
+    natural_carrier: JNI numerical/bulk primitive-array native methods
+    full_cost: pin/GC-lock duration, copy bytes, native CPU, JNI overhead, retained pressure, end-to-end call time
+    structural_reason: changed release timing changes critical-region legality/data availability/VM progress; unchanged placement is generic lifetime scheduling
+    finite_killer: source-pinned native trace with either post-release use or in-region prohibited call, otherwise current pairing
+source_closure_queue: EMPTY_NOT_EXHAUSTED
+resource_actions_performed: false
+scientific_negative_inference_from_resources: false
+next_step: No Stage0. A future assignment would need a distinct same-object, non-generic action and endpoint rather than release placement.
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

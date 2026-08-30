@@ -1,0 +1,11 @@
+schema: user-authorized-transport-retry-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A4-RECOVERY
+authority: USER-RETRY-TRANSPORT-RECOVERY-20260826
+preflight: {command: curl.exe --head --fail --max-redirs 0 https://cmake.org/files/v3.31/cmake-3.31.6-windows-x86_64.zip, observed: HTTP_200, content_length: 46473549}
+preserve: [{path: A3_CURL_TRANSPORT_BLOCKER.yaml, sha256: 21D32D935AD5E84FB591FBA121A6E77DCF29893E5D7FB2C941A220CF34FECE30}]
+only_change: one_fresh_curl_transport_attempt_for_same_official_cmake_archive_after_recovered_preflight
+archive: {url: https://cmake.org/files/v3.31/cmake-3.31.6-windows-x86_64.zip, path: resources/archives/cmake-3.31.6-windows-x86_64.zip, sha256: d163cd3ab4959b0a53fa8988f2ddbd2e6c501658201e6a154386bad9dbe4f836}
+command: curl.exe --fail --silent --show-error --max-redirs 0 --output <archive_path> <official_url>
+attempts_max: 1
+then: SHA256_validate_then_resume_A2S2_through_parent_S7_once
+stop_conditions: [any_failure_fail_closed_no_further_retry, checksum_mismatch]

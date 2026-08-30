@@ -1,0 +1,25 @@
+assignment_id: DISCOVERY-S6-20260811-V8.7-WAVE227-EROFS-TAILPACK-CLUSTER-PLANNER-DEPTH
+lane: S6-direct-algorithm-software
+rules_revision: v8.7+R5-P0
+discovery_quality_mode: OFF
+frozen_control_hashes:
+  plan: D41BC012DDC0ADAADEB3F86A045E3B85EA9A4C960C25DB3DEE90C8DFB75B689A
+  registry: 1EC198936AFEF8667BC6E008752F4F404744D922D2A2C6E71812BCE833A8349A
+  role_discovery: FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3
+final_disposition: COMPLETE_ZERO_PROPOSALS
+deep_reviews: 1
+grounded_briefs: 0
+candidate_status:
+  - id: F1_EROFS_TAILPACK_CLUSTER_JOINT_PLANNER
+    disposition: NOT_ADMITTED_UNFROZEN
+    reason: >-
+      A native fragment representation witness is legal, but the documented mkfs feature
+      union already contains fragments, tail packing, clusters, dedupe, and order controls.
+      Current source/config action-union and direct same-object collision are not closed,
+      so no nontrivial global residual or guarantee is established.
+fidelity_closure_if_reopened:
+  - Pin current erofs-utils and Linux kernel revisions and enumerate all relevant source paths, defaults, and flags.
+  - Close primary same-object global-layout collision.
+  - Freeze a native global guarantee over bytes and access/decompression costs beyond feature composition.
+prohibited_actions_performed: []
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,41 @@
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+checkpoint_status: BLOCKED_USER_ACTION_REQUIRED__CONTROL_PLANE_IDENTITY_DENYLIST
+checkpoint_ordinal: 0
+cumulative_from: IN_PROGRESS_CHECKPOINT_000_CUMULATIVE_007.yaml
+eligible_families: 0
+field_only_denylist_search:
+  authorized_surfaces:
+    - 'stages/discovery/_method-backtests/CONSOLIDATED_DISCOVERY_STAGE0/V8.8-R3R1/** PACKER/control provenance'
+    - 'stages/discovery/_method-backtests/DISCOVERY_CLAIM_PACK/V9-R0/paired-blind-r10/** PACKER/control provenance'
+  field_patterns:
+    - stable_family_identity_hash
+    - stable_identity_hash
+    - identity_hash
+    - family_identity
+  result: 'No comparable pre-existing stable-family identity-hash values were found.'
+  r10_text_matches: 'Only non-hash prose describing its unresolved identity/cutoff coverage was returned; it was not used as a hash source.'
+  protected_content_not_read_or_copied:
+    - prior_case_semantics
+    - target_identities
+    - outcomes
+    - answers
+    - method_labels
+consequence:
+  exclusion_status_for_all_pending_families: UNVERIFIABLE
+  eligibility_promotion: forbidden
+  reason: 'The contract requires V8.8/R10 exclusion proof. A field absence cannot be converted into PASS, and deriving a new denylist from protected semantic content is prohibited.'
+minimum_user_or_mainline_action:
+  - 'Provide or authorize creation by the control-plane owner of a hash-only prior V8.8/R10 stable-family identity denylist, with algorithm/version and source-manifest SHA-256.'
+  - 'The denylist must contain no target names, outcomes, case answers, or method labels and may be read only for equality/exclusion checks.'
+  - 'After provision, resume this same assignment and re-evaluate pending families without changing any pre-existing evidence bytes or thresholds.'
+q7m2_n4x8: 'Unchanged; no retries beyond recorded per-URL limits.'
+f6c1_l2r9: 'Target and pre-target evidence retained; promotion held only because required exclusion and remaining auditor-private structure facets cannot be closed.'
+resource_ledger:
+  accepted_frozen_response_bytes_on_disk_actual: 3463429
+  network_bytes: NOT_DIRECTLY_OBSERVABLE__AT_LEAST_3519619_ACCEPTED_RESPONSE_BYTES__DUPLICATE_REQUESTS_AND_REJECTED_SHORT_READS_LOGGED
+  temporary_plus_sealed_bytes_artifact_lower_bound: 3463429
+  cpu_hours_cumulative_estimate: 0.12
+  wall_hours_cumulative_estimate: 0.43
+  resource_envelope_remaining: true
+forced_gate_status: 'No resource exhaustion or scientific conclusion. Continuation requires a missing control-plane artifact; do not silently hold or fabricate hashes.'
+no_scientific_inference: true

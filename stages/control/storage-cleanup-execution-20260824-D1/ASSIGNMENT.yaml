@@ -1,0 +1,22 @@
+schema_version: storage-cleanup-execution-assignment-v1
+assignment_id: MAINLINE-STORAGE-CLEANUP-20260824-D1-WAVE1-BUILD-LEAVES
+generated_by: MAINLINE
+generated_at: 2026-08-24T12:50:00+08:00
+workspace_root: D:/project/writing/reserch
+authority:
+  user_approval_text: "批准精确 leaf target、预计回收量、恢复方式及证据保留包"
+  source_inventory: stages/rule-audit/RULE-AUDIT-20260824-STORAGE-CLEANUP-INVENTORY-D1/CLEANUP_INVENTORY.yaml
+  source_inventory_sha256: 38D7691F717C4F193453D2868853B684BF9B7A43C7A9D8E5B080BCBC50E97939
+scope: DELETE_ONLY_FOUR_UNAMBIGUOUS_REBUILDABLE_BUILD_LEAVES
+explicit_targets:
+  - {path: D:/project/writing/reserch/stages/stageA/RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP/resume1/b, expected_bytes: 1616913835, expected_files: 2645, kind: BUILD_TREE}
+  - {path: D:/project/writing/reserch/stages/stageA/LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY/resume1/build, expected_bytes: 2678702281, expected_files: 4238, kind: BUILD_TREE}
+  - {path: D:/project/writing/reserch/stages/stageA/WEBGRAPH-REFERENCE-FOREST/build, expected_bytes: 2092765095, expected_files: 4668, kind: CARGO_TARGET_TREES}
+  - {path: D:/project/writing/reserch/stages/stageA/WEBGRAPH-REFERENCE-FOREST/revision1/build, expected_bytes: 695840351, expected_files: 1551, kind: REVISION_BUILD_TREE}
+expected_reclaim_bytes: 7084221562
+forbidden_targets: [WORKSPACE_ROOT, STAGES_ROOT, TOPIC_ROOT, BLOCKED, RESERVE, PENDING_GATE, SOURCE_CHECKOUT, DOWNLOADS, TOOLCHAIN, ASSETS, DEDUP_CANDIDATES]
+preconditions: [EXACT_LITERAL_PATH, UNDER_WORKSPACE, EXPECTED_LEAF_NAME, SIZE_AND_FILE_COUNT_MATCH, ZERO_REPARSE_POINT, ZERO_ACTIVE_HEAVY_PROCESS, EVIDENCE_PACKAGE_HASHED]
+cleanup_method: POWERSHELL_REMOVE_ITEM_LITERALPATH_RECURSE_FORCE_ONE_TARGET_AT_A_TIME
+recoverability: REBUILD_FROM_PRESERVED_PROVENANCE_SOURCE_TOOLCHAIN_CONTRACT_AND_HISTORICAL_MANIFEST
+scientific_or_candidate_state_change_allowed: false
+

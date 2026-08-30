@@ -1,0 +1,231 @@
+schema: R11A_MINIMUM_VIABLE_CALIBRATION_R13B_V1
+audit_id: RULE-AUDIT-20260813-R11A-MINIMUM-VIABLE-CALIBRATION-R13B
+approval:
+  approval_id: R11A-MINIMUM-VIABLE-CALIBRATION-20260813-R13B
+  status: USER_APPROVED
+  mainline_implementation_authorized: true
+  additional_generic_approval_required: false
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE_ONLY
+  audit_lane_role: PROPOSAL_AND_IMPLEMENTATION_DIRECTIVE_ONLY
+  packer_contact_by_audit_lane: forbidden
+supersession:
+  old_audit_id: RULE-AUDIT-20260813-R11A-PHASE1-IDENTITY-CAPACITY-R13
+  old_manifest_sha256: 892996FB695776CE47277C51A28CB3C5EB4FB58CAF614544E5D8157804C4F933
+  old_proposed_authorization_id: R11A-BOUNDED-OPAQUE-IDENTITY-CAPACITY-20260813-R13A
+  status: SUPERSEDED_NOT_APPROVED
+  old_128_unique_plan_may_be_requested_or_used: false
+base_assignment:
+  assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+  checkpoint_011_sha256: BC280D6E3D9D86841A1B889E308129DED101EF3FEDC4FD5072018E7DEE83A43B
+  blocker_012_sha256: 87F5CCE193AA49B8D6586354FFAAF4BE784B103AA2466CBFDB66DBE3BF0A129B
+  same_assignment_resume: true
+  same_index_write_directory: true
+  overwrite_existing_files: false
+canonical_mode:
+  during_phase1_phase2_executor_auditor_and_shadows: OFF
+  production_cutover_authorized_by_r13b: false
+open_development:
+  historical_case_count: 28
+  classification: OPEN_DEVELOPMENT_REGRESSION_ONLY
+  blind_weight: 0
+  allowed_uses:
+    - FORMAT_AND_SCHEMA_CHECK
+    - DETERMINISTIC_REGRESSION_CHECK
+    - ERROR_TYPE_AND_ABSTENTION_TAXONOMY
+    - PRE_BLIND_IMPLEMENTATION_DEBUG_WITH_POST_DEBUG_METHOD_SEAL
+  forbidden_uses:
+    - BLIND_ACCURACY_OR_CALIBRATION
+    - BLIND_NUMERATOR_OR_DENOMINATOR
+    - BLIND_FAMILY_SELECTION_OR_WEIGHTING
+    - POST_BLIND_THRESHOLD_OR_METHOD_TUNING
+    - PROSPECTIVE_EVIDENCE_CLAIM
+  blind_identity_artifact_outcome_overlap_allowed: false
+  open_dev_manifest_root_separate: true
+  blind_packer_or_auditor_access_to_open_dev_identity_or_outcome: forbidden
+blind_pool:
+  initial_evaluation_eligible_count: 24
+  initial_minimum_and_target_are_exact: true
+  strata_count: 6
+  initial_per_stratum: 4
+  initial_contribution_types_minimum: 5
+  single_contribution_type_fraction_maximum: 0.30
+  single_contribution_type_integer_cap_at_24: 7
+  expansion_tranches:
+    - ordinal: 1
+      added_families: 6
+      added_per_stratum: 1
+      cumulative_evaluation_count: 30
+      single_contribution_type_integer_cap: 9
+    - ordinal: 2
+      added_families: 6
+      added_per_stratum: 1
+      cumulative_evaluation_count: 36
+      single_contribution_type_integer_cap: 10
+  maximum_evaluation_eligible_count: 36
+  maximum_per_stratum: 6
+  partial_or_unbalanced_tranche_reveal: forbidden
+  new_blind_cases_used_as_development: 0
+  all_core_and_available_reserve_frozen_before_first_executor: true
+existing_checkpoint_011_eligible:
+  current_count: 2
+  grandfathered: false
+  admission_requires_all:
+    - COMMITMENT_PRECEDES_R12A_INTERSECTION
+    - R12A_PRIOR_NONMATCH_PASS
+    - COMPLETE_FROZEN_SOURCE_QUALIFICATION
+    - OPEN_DEV_AND_PRIOR_BLIND_EXCLUSION
+    - NO_EXECUTOR_AUDITOR_OR_DEVELOPMENT_OUTCOME_EXPOSURE
+    - DETERMINISTIC_STRATUM_AND_CONTRIBUTION_SELECTION
+  failure_scientific_inference: NONE
+rolling_identity_commitment:
+  normalization_profile: R11A-STABLE-FAMILY-IDENTITY-NORM-V1
+  hash_algorithm: SHA-256
+  total_raw_lead_ceiling_including_existing_four: 88
+  total_unique_commitment_ceiling_including_existing_four: 72
+  current_raw_and_unique_count: 4
+  maximum_new_batches: 4
+  fifth_or_replacement_batch: forbidden
+  unused_capacity_transfer: forbidden
+  post_executor_commitment: forbidden
+  batches:
+    - batch_id: R13B-01
+      raw_lead_cap: 24
+      unique_commitment_cap: 20
+      cumulative_raw_cap: 28
+      cumulative_unique_cap: 24
+    - batch_id: R13B-02
+      raw_lead_cap: 24
+      unique_commitment_cap: 20
+      cumulative_raw_cap: 52
+      cumulative_unique_cap: 44
+    - batch_id: R13B-03
+      raw_lead_cap: 24
+      unique_commitment_cap: 20
+      cumulative_raw_cap: 76
+      cumulative_unique_cap: 64
+    - batch_id: R13B-04
+      raw_lead_cap: 12
+      unique_commitment_cap: 8
+      cumulative_raw_cap: 88
+      cumulative_unique_cap: 72
+  handling:
+    within_or_cross_batch_duplicate: REJECT_PRECOMMIT__CONSUME_RAW_ONLY
+    unhashable_or_ambiguous: REJECT_PRECOMMIT__CONSUME_RAW_ONLY
+    prior_identity_match: EXCLUDE_POST_INTERSECTION__CONSUME_UNIQUE__NO_SOURCE_QUALIFICATION
+    source_contract_unclosed: NOT_ELIGIBLE__CONSUME_UNIQUE__NO_SCIENTIFIC_INFERENCE
+    collision_distinct_preimages_same_digest: HASH_COLLISION_FATAL
+  mandatory_order:
+    - PUBLIC_IDENTITY_PREFLIGHT
+    - LOCAL_NORMALIZATION_AND_CROSS_BATCH_DEDUP
+    - IMMUTABLE_OPAQUE_COMMITMENT_AND_MANIFEST
+    - MAINLINE_PRIVATE_R12A_DENYLIST_INTERSECTION
+    - RESTRICTED_PACKER_VISIBLE_MATCH_RESULT
+    - FULL_SOURCE_QUALIFICATION_FOR_NONMATCH_ONLY
+    - PACKER_CHECKPOINT
+    - MAINLINE_MECHANICAL_BATCH_GATE
+  stop_when:
+    - SOURCE_QUALIFIED_BLIND_POOL_REACHES_36
+    - RAW_OR_UNIQUE_CAP_EXHAUSTED
+    - RESOURCE_ENVELOPE_EXHAUSTED
+  phase1_failure_below_24: FAILED_NOT_DISPATCHABLE__BLIND_CORE_UNCLOSED__NO_SCIENTIFIC_INFERENCE
+  qualified_24_to_35: SEAL_24_CORE_PLUS_ONLY_COMPLETE_BALANCED_RESERVE_TRANCHES
+private_intersection:
+  owner: MAINLINE_CONTROL_PLANE__DETERMINISTIC_NO_MODEL_HASH_INTERSECTION
+  private_denylist: EXISTING_R12A_IMMUTABLE_INPUT
+  private_denylist_or_historical_plaintext_to_model_lane: forbidden
+  commitment_must_precede_intersection: true
+  packer_visible_fields_allowlist:
+    - schema
+    - approval_id
+    - batch_id
+    - hash_algorithm
+    - normalization_profile_and_hash
+    - existing_private_root_sha256
+    - unlabeled_source_manifest_sha256
+    - candidate_commitment_sha256
+    - candidate_count
+    - matched_and_unmatched_counts
+    - packer_owned_opaque_id_hash_and_match_boolean
+    - decision
+  historical_entry_level_hash_or_mapping_visible: false
+selection:
+  public_seed: DISCOVERY-CLAIM-PACK-V9-R0-R11A-R13B-MVC-SEAL-20260813
+  rank_input: SHA256_STABLE_FAMILY_IDENTITY_HASH_PLUS_PUBLIC_SEED_PLUS_ACCEPTED_PHASE1_MANIFEST_SHA256
+  per_stratum_rank_1_to_4: INITIAL_CORE
+  per_stratum_rank_5: RESERVE_TRANCHE_1
+  per_stratum_rank_6: RESERVE_TRANCHE_2
+  manual_answer_aware_swap: forbidden
+  contribution_constraints_apply_at_every_reveal: true
+auditor_trigger:
+  owner: INDEPENDENT_AUDITOR
+  mainline_validation_before_reveal: required
+  trigger_checks_at_cumulative_n: [24, 30]
+  hard_stop_precedence:
+    - CONTAMINATION_UNKNOWN
+    - IDENTITY_OR_ANSWER_LEAK
+    - TERMINAL_STOP_REVIVAL
+    - E2_TO_ACADEMIC_EVIDENCE_LEAK
+    - INVALID_PAIRING_OR_FROZEN_HARD_GATE_FAILURE
+  allowlisted_triggers:
+    COVERAGE_TRIGGER: ANY_STRATUM_SCORABLE_COUNT_BELOW_ITS_SCHEDULED_COUNT_AFTER_INDEPENDENT_AUDIT
+    UNCERTAINTY_TRIGGER: ANY_FROZEN_CONFIRMATORY_ENDPOINT_IS_INCONCLUSIVE_INTERVAL_CROSSES_BOUNDARY
+    DECISION_DISCORDANCE_TRIGGER: HARD_GATES_PASS_AND_CONFIRMATORY_CLASSES_INCLUDE_AT_LEAST_ONE_PASS_AND_AT_LEAST_ONE_FAIL_NOT_SHOWN_OR_INCONCLUSIVE
+    OVERALL_INCONCLUSIVE_TRIGGER: FROZEN_AGGREGATION_RETURNS_PILOT_NOT_CALIBRATED_INCONCLUSIVE_WITH_ALLOWLISTED_NON_HARD_FAILURE_REASON
+  forbidden_triggers:
+    - TARGET_OR_ANSWER_CONTENT
+    - FAVORABLE_OR_UNFAVORABLE_DIRECTION_ALONE
+    - DESIRE_TO_IMPROVE_SCORE_OR_RESCUE_FAIL
+    - POST_HOC_THRESHOLD_OR_ENDPOINT_CHANGE
+    - DISCRETIONARY_CONFIDENCE_REQUEST
+  no_trigger_at_24: SEAL_AND_SCORE_EXACTLY_24
+  valid_trigger_at_24: RELEASE_PRESEALED_BALANCED_TRANCHE_1_TO_30
+  valid_trigger_at_30: RELEASE_PRESEALED_BALANCED_TRANCHE_2_TO_36
+  trigger_without_complete_presealed_tranche: PILOT_NOT_CALIBRATED_INCONCLUSIVE__PRESEALED_RESERVE_UNAVAILABLE
+  expansion_beyond_36: forbidden
+  packer_reentry_after_first_executor: forbidden
+execution_sequence:
+  roles_independent: true
+  order:
+    - PACKER_FREEZES_CORE_RESERVE_AND_KEYS
+    - MAINLINE_ACCEPTS_PACKER
+    - EXECUTOR_RUNS_INITIAL_24
+    - AUDITOR_EVALUATES_AND_EMITS_FINAL_OR_TRIGGER_RECORD
+    - MAINLINE_MAY_RELEASE_PRESEALED_TRANCHE
+    - EXECUTOR_RUNS_ONLY_NEW_RELEASED_TRANCHE
+    - AUDITOR_REEVALUATES_CUMULATIVE_DATA
+  auditor_calibrated_pass_required_for_shadows: true
+  prospective_noncanonical_shadow_waves_required: 2
+  both_shadows_must_pass: true
+  production_cutover_requires_separate_mainline_safe_boundary: true
+scientific_invariants:
+  q1_q2: unchanged
+  same_object: unchanged
+  latest_collision: unchanged
+  fair_current_strong_baseline: unchanged
+  natural_input_and_evidence: unchanged
+  full_cost: unchanged
+  reproducibility: unchanged
+  claim_ceiling: unchanged
+  evidence_honesty: unchanged
+  terminal_stop_non_revival: unchanged
+  stageb_and_formal_user_gate: unchanged
+resource_authority:
+  original_r11a_envelope_increased: false
+  new_download_or_network_authority: false
+  e2_experiment_install_automation_external_service: forbidden
+resume:
+  prerequisite: MAINLINE_FREEZES_AND_VALIDATES_ALL_R13B_CONTROL_ARTIFACTS
+  blocker_012_status_annotation: SUPERSEDED_BY_USER_APPROVED_R13B_POLICY__ORIGINAL_BYTES_PRESERVED
+  checkpoint_011_overwrite: forbidden
+  blocker_012_overwrite: forbidden
+  resume_same_phase1_assignment_and_directory: true
+  additive_filenames_only: true
+rollback:
+  defective_r13b_artifacts: REVOKED_NOT_INPUT__PRESERVE_BYTES
+  restore_anchor: CHECKPOINT_011_AND_BLOCKER_012
+  r13a_fallback: forbidden
+  capacity_expansion_beyond_r13b: forbidden_without_new_user_policy
+  scientific_inference: NONE
+

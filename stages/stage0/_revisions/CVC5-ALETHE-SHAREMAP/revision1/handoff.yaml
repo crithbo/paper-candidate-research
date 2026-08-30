@@ -1,0 +1,131 @@
+schema: stage0-revision-handoff-v8.7
+assignment_id: STAGE0-P1-20260809-CVC5-ALETHE-SHAREMAP-REVISION1-V8.7
+candidate_id: CVC5-ALETHE-SHAREMAP
+role: STAGE0_BATCH_GATE_PRIMARY
+mode: STAGE0_REVISION1
+cutoff_date: 2026-08-09
+
+decision:
+  recommendation: RECOMMEND_STAGE0_PASS_FOR_CLOSING_REVIEW
+  structural_paper_potential: TIER_B_Q2_VIABLE
+  structural_potential_is_conditional: true
+  current_evidence_readiness: STATIC_ACTION_SPACE_CERTIFICATE__PRECLAIM_NATIVE_COUNT_AND_CHECKER_REPLAY_PENDING
+  confidence: 0.82
+  atomic_gate: CURRENT_NATIVE_LETIFIER_RESIDUAL__BEHAVIORALLY_COMPLETE_THRESHOLD_FAMILY
+  atomic_gate_result: CLOSED_FOR_STAGE0_POTENTIAL_SCREEN__PENDING_INDEPENDENT_CLOSING_CONFIRMATION
+  blocker: NONE
+  stage_a_authorized: false
+  stage_b_authorized: false
+  experiments_authorized: false
+  implementation_authorized: false
+
+reality_check:
+  stale_claim_removed: CURRENT_CVC5_LACKS_NATIVE_ALETHE_SHARING
+  current_native_baseline:
+    - cvc5_1_3_4_AletheProofPrinter
+    - AletheLetBinding
+    - behaviorally_complete_dag_thresh_family_per_fixed_proof
+    - sharing_disabled_ablation
+  direct_current_residual_collision_found: false
+  absence_label: SEARCH_BOUNDED_OPEN
+
+atomic_certificate:
+  fixed_input: test/regress/cli/regress0/proofs/qgu-fuzz-1-bool-sat.smt2
+  fixed_output_contract: cvc5_1_3_4_Alethe_v0_1_Carcara_1_1_0
+  long_lower_count_term:
+    documented_name: '@p_12'
+    expanded_term: '(= (not (ite d c false)) (not d))'
+    documented_occurrences: 2
+  short_higher_count_term:
+    documented_name: '@p_10'
+    expanded_term: '(not b)'
+    documented_occurrences: 3
+  outside_family_action: NAME_P12_TERM__EXPAND_P10_TERM
+  separation: LOWER_COUNT_SELECTED_WHILE_HIGHER_COUNT_REJECTED_IS_NOT_EXPRESSIBLE_BY_NESTED_THRESHOLD_CHAIN
+  exact_expansion_preserved_by_construction: true
+  native_counter_and_checker_replay_executed: false
+  native_counter_and_checker_replay_required_before_claim: true
+
+permitted_mechanism:
+  id: SCOPE_FOREST_WEIGHTED_SELECTION
+  required_character: GLOBAL_SCOPE_FEASIBLE_SELECTION_WITH_FORMAL_OR_AUDITABLE_ALGORITHMIC_GUARANTEE
+  prohibited_collapses:
+    - dag_thresh_tuning
+    - native_output_selection
+    - emitter_patch
+    - postprocessor
+    - independent_local_byte_ranking
+    - changed_theorem_or_rules
+    - changed_format_or_checker
+
+preclaim_fidelity_gate:
+  required:
+    - release_matched_full_source_and_build_hashes
+    - actual_native_count_replay_on_fixed_proof
+    - complete_distinct_threshold_output_enumeration
+    - exact_expanded_AST_hash_equality
+    - Carcara_acceptance_for_native_and_candidate_outputs
+  fail_closed: true
+  claim_bearing_observation_before_closure_allowed: false
+
+finite_stagea_killer:
+  corpus: 60_public_supported_SMT_COMP_or_SMT_LIB_UNSAT_instances
+  primary_baseline: per_proof_complete_native_threshold_envelope
+  full_cost:
+    - solver_and_proof_time
+    - candidate_construction_time
+    - native_family_enumeration_time
+    - serialization_time
+    - proof_bytes_and_disk
+    - Carcara_parse_check_time_and_peak_RSS
+    - failures_timeouts_and_fallback
+  stop_if:
+    - fixed_witness_is_native_expressible_or_count_order_fails
+    - exact_expansion_or_checker_fidelity_fails
+    - outside_family_positive_action_occurs_in_less_than_10_percent_of_eligible_proofs
+    - mechanism_collapses_to_prohibited_engineering_or_local_heuristic
+    - no_nontrivial_algorithmic_or_formal_guarantee
+    - no_p50_p90_full_cost_Pareto_residual_against_complete_native_envelope
+    - construction_overhead_consumes_benefit
+
+claim_ceiling:
+  permitted_now: >-
+    A same-proof legal named-term selection outside the source-defined nested
+    native threshold family has been identified statically on the official
+    cvc5 example; this supports only a conditional Tier-B global-selection
+    hypothesis pending release-matched counter, expansion, checker, algorithm,
+    and natural full-cost validation.
+  prohibited_now:
+    - current_cvc5_lacks_native_Alethe_sharing
+    - natural_size_or_checker_improvement_established
+    - general_algorithm_or_theorem_established
+    - Stage_A_or_Stage_B_authorized
+
+input_integrity:
+  discovery_manifest_sha256: 24989909247799552B26B56645DA8559D346965A34B2C97F1AE5A86B6BC8F91C
+  discovery_files_verified: 4
+  discovery_files_total: 4
+  primary_manifest_sha256: 1D52D2F60866505AF0173C18FA234B3A41E4B04013B791F52849659BAFFB169B
+  primary_files_verified: 4
+  primary_files_total: 4
+  confirmation_manifest_sha256: 92E6A48054B4F961C36A762247E6ADAC7A8EEF194E5AD676BF256789DB42C052
+  confirmation_files_verified: 2
+  confirmation_files_total: 2
+  provenance_conflict: false
+
+revision_budget:
+  revision_number: 1
+  revision_limit: 1
+  substantive_revision_package_completed: true
+  further_same_id_revision_available: false
+  formal_state_transition_owner: MAINLINE
+
+deliverables:
+  - REVISION_REPORT.md
+  - CURRENT_NATIVE_FAMILY_ACTION_SPACE_AUDIT.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+next_role: SAME_LONG_LIVED_STAGE0_CONFIRMATION_SENTRY
+next_action: CLOSING_REVIEW_ONLY
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

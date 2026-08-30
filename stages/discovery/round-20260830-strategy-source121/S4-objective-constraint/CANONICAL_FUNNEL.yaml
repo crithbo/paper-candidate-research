@@ -1,0 +1,24 @@
+schema: discovery-canonical-funnel-v1
+assignment_id: DISCOVERY-S4-20260830-SOURCE121
+exact_carriers: 8
+selected_rq: 3
+evidence_qualified_raw: 0
+candidate_grade_deep_reviews: 2
+clean_stage0_briefs: 0
+dispositions:
+  C01: DROP__CHANGED_OBJECT__MLPERF_POWER_DEFINES_PERFORMANCE_PHASE_ONLY
+  C02: RESOURCE_BOUNDARY__ENERGY_HARDWARE_AND_NO_NEW_SAME_OBJECT_ENDPOINT
+  C03: LOCATOR_ONLY__CURRENT_MOBILE_INIT_METRIC_CORPUS_UNFROZEN
+  C04: LOCATOR_ONLY__BENCHMARK_MODEL_WARMUP_AND_INIT_CONTRACT_NOT_VERSION_FROZEN
+  C05: DIRECT_SUBTRACT__EXECUTORCH_INSPECTOR_ALREADY_EXPOSES_INIT_LOAD_EVENTS__OFFICIAL_THERMAL_CHARACTERIZATION_EXISTS
+  C06: LOCATOR_ONLY__EP_SLO_ATTRIBUTION_ENDPOINT_UNFROZEN
+  C07: LOCATOR_ONLY__IREE_FULL_COST_CARRIER_UNFROZEN
+  C08: GENERIC_FORMAL_SCHEDULING_RISK__NO_TARGET_SPECIFIC_DECISION_ENDPOINT
+direct_or_strong_subtractors:
+  - MLPerf Power rules and paper define performance-phase energy and timed-window alignment.
+  - ExecuTorch Inspector exposes Method::init, Program::load_method and execute events; official PyTorch edge labs report warmup/thermal latency drift.
+  - llvm-mca already models resource buffers, dependencies and oldest-first issue from a target scheduling model.
+result_aware_backfill: NOT_RUN
+build_or_experiment: NOT_RUN
+stage0_dispatch_effect: NONE
+bounded_statement: Missing exact corpus/endpoint is not evidence that no future opportunity exists.

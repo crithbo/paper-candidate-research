@@ -1,0 +1,201 @@
+{
+  "schema": "llvm-dwarf-stagea-directional-full-cost-v1",
+  "denominator": 30,
+  "dispositions": {
+    "accepted_static_equivalence_gain": 1,
+    "native_baseline_roundtrip_or_writer_failure": 11,
+    "mapper_or_fidelity_inapplicable": 1,
+    "executable_no_gain": 17
+  },
+  "reconstructibility": {
+    "all_30_failure_retained": {
+      "n": 30,
+      "p50": 0.0,
+      "p90_nearest_rank": 0,
+      "min": 0,
+      "max": 1
+    },
+    "executable_pairs_only": {
+      "n": 18,
+      "p50": 0.0,
+      "p90_nearest_rank": 0,
+      "min": 0,
+      "max": 1
+    },
+    "accepted_fraction_all_30": 0.03333333333333333,
+    "accepted_fraction_executable_18": 0.05555555555555555
+  },
+  "paired_executable_coordinates": {
+    "object_bytes": {
+      "n": 18,
+      "p50": 0.0,
+      "p90_nearest_rank": 16,
+      "min": 0,
+      "max": 48
+    },
+    "text_bytes": {
+      "n": 18,
+      "p50": 0.0,
+      "p90_nearest_rank": 8,
+      "min": -1,
+      "max": 32
+    },
+    "debug_payload_bytes": {
+      "n": 18,
+      "p50": 0.0,
+      "p90_nearest_rank": 16,
+      "min": 0,
+      "max": 17
+    },
+    "debug_relocation_bytes": {
+      "n": 18,
+      "p50": 0.0,
+      "p90_nearest_rank": 0,
+      "min": 0,
+      "max": 0
+    },
+    "eh_frame_bytes": {
+      "n": 18,
+      "p50": 0.0,
+      "p90_nearest_rank": 0,
+      "min": 0,
+      "max": 0
+    }
+  },
+  "writer_delta": {
+    "wall_seconds": {
+      "n": 18,
+      "p50": 0.0001388000000588363,
+      "p90_nearest_rank": 0.004506199999013916,
+      "min": -0.00418790000185254,
+      "max": 0.00996569999915664
+    },
+    "cpu_seconds": {
+      "n": 18,
+      "p50": 0.0,
+      "p90_nearest_rank": 0.03125,
+      "min": -0.046875,
+      "max": 0.03125
+    },
+    "peak_rss_bytes": {
+      "n": 18,
+      "p50": 0.0,
+      "p90_nearest_rank": 73728,
+      "min": -86016,
+      "max": 114688
+    }
+  },
+  "reader_delta": {
+    "wall_seconds": {
+      "n": 18,
+      "p50": -0.002394649998677778,
+      "p90_nearest_rank": 0.011628600004769396,
+      "min": -0.012816599999496248,
+      "max": 0.028489700005593477
+    },
+    "cpu_seconds": {
+      "n": 18,
+      "p50": -0.0078125,
+      "p90_nearest_rank": 0.046875,
+      "min": -0.03125,
+      "max": 0.0625
+    },
+    "peak_rss_bytes": {
+      "n": 18,
+      "p50": -2048.0,
+      "p90_nearest_rank": 8192,
+      "min": -16384,
+      "max": 16384
+    }
+  },
+  "planner": {
+    "wall_seconds": {
+      "n": 30,
+      "p50": 0.0008018000007723458,
+      "p90_nearest_rank": 0.0037985999988450203,
+      "min": 0.00040689999877940863,
+      "max": 0.00456800000029034
+    },
+    "cpu_seconds": {
+      "n": 30,
+      "p50": 0.0,
+      "p90_nearest_rank": 0.0,
+      "min": 0.0,
+      "max": 0.015625
+    }
+  },
+  "successful_site": {
+    "index": 2,
+    "function": "__do_fini",
+    "paired_delta": {
+      "reconstructible_parameters": 1,
+      "breg3_call_values": 1,
+      "object_bytes": 16,
+      "text_bytes": 0,
+      "debug_payload_bytes": 16,
+      "debug_relocation_bytes": 0,
+      "eh_frame_bytes": 0
+    },
+    "baseline_object": "D6C1B72A8710E17150AEFA528821778F2B5B9E6EA3E88741CA74923AA6787ACC",
+    "candidate_object": "D22F56036792FBCC1089A22A674BD37E1CB92917135CEE8F494F63CC9AFE4672",
+    "baseline_writer": {
+      "exit": 0,
+      "wall_seconds": 0.05350499999985914,
+      "cpu_seconds": 0.03125,
+      "peak_rss_bytes": 25571328
+    },
+    "candidate_writer": {
+      "exit": 0,
+      "wall_seconds": 0.054543700000067474,
+      "cpu_seconds": 0.03125,
+      "peak_rss_bytes": 25546752
+    },
+    "candidate_verifier": {
+      "exit": 0,
+      "wall_seconds": 0.04638360000171815,
+      "cpu_seconds": 0.03125,
+      "peak_rss_bytes": 22368256
+    },
+    "baseline_reader": {
+      "cpu_seconds": 0.09375,
+      "wall_seconds": 0.11709760000303504,
+      "peak_rss_bytes": 11169792
+    },
+    "candidate_reader": {
+      "cpu_seconds": 0.09375,
+      "wall_seconds": 0.11899360000097658,
+      "peak_rss_bytes": 11165696
+    },
+    "behavior": {
+      "static_native_copy_equivalence_and_CSR_restore": "PASS",
+      "executed_natural_function_replay": "PASS__3_WARMUPS_AND_30_REPEATS_PER_ARM__ALL_EXIT_ZERO__NO_STDOUT_OR_STDERR",
+      "replay_control_change": "LINKAGE_ONLY_INTERNAL_TO_GLOBAL_FOR_EXTERNAL_HARNESS__IDENTICAL_IN_BOTH_ARMS",
+      "baseline_blink_wall_seconds": {
+        "n": 30,
+        "p50": 1.2124718000013672,
+        "p90_nearest_rank": 1.2696422999979404
+      },
+      "candidate_blink_wall_seconds": {
+        "n": 30,
+        "p50": 1.3478652499998134,
+        "p90_nearest_rank": 1.5063340999986394
+      },
+      "latency_claim": "CONTROL_ONLY_BLINK_WALL_TIME__NOT_NATIVE_CYCLES"
+    }
+  },
+  "observed_experiment_process_totals": {
+    "cpu_seconds_sum": 8.328125,
+    "wall_seconds_sum_nonoverlap_child_and_planner": 10.919263100004173,
+    "note": "Exact process CPU/RSS are captured per invoked child; OS/app overhead outside these processes is unobserved and not estimated."
+  },
+  "runtime": "SITE02_EXECUTED_BEHAVIOR_PASS__BLINK_WALL_LATENCY_CONTROL_ONLY__NATIVE_CYCLES_UNOBSERVED_DO_NOT_IMPUTE",
+  "killer_audit": {
+    "p50_has_gain": false,
+    "p90_has_gain": false,
+    "natural_nontrivial_boundary": "FAIL__ONE_OF_30_ONLY_AND_ZERO_P50_P90",
+    "candidate_fidelity_on_denominator": "PARTIAL__18_EXECUTABLE_11_NATIVE_MIR_ROUNDTRIP_FAILURES_1_FROZEN_MAPPING_MISMATCH",
+    "positive_stagea_recommendation_supported": false
+  },
+  "scientific_revision_consumed": false,
+  "stageb_authorized": false
+}

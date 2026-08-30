@@ -1,0 +1,31 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE57-R40-ORDINARY-BREADTH-V1
+retrieval_date: 2026-08-15
+sources:
+  - role: CURRENT_OFFICIAL_COMMAND
+    url: https://llvm.org/docs/CommandGuide/tblgen.html
+    version_or_date: LLVM 23.0.0git documentation retrieved 2026-08-15
+    decisive_content: "-gen-global-isel generates GlobalISel; -optimize-match-table generates an optimized match table."
+    provenance: official LLVM documentation
+  - role: CURRENT_OFFICIAL_READER
+    url: https://llvm.org/doxygen/classllvm_1_1GIMatchTableExecutor.html
+    version_or_date: LLVM documentation retrieved 2026-08-15
+    decisive_content: "Executor matches and applies MIR patterns; match table is encoded as bytes."
+    provenance: official LLVM documentation
+  - role: CURRENT_OFFICIAL_SEMANTICS
+    url: https://llvm.org/docs/GlobalISel/MIRPatterns.html
+    version_or_date: LLVM 24.0.0git documentation retrieved 2026-08-15
+    decisive_content: "Documents typed predicates, match/apply rules and fixed behavior of generated patterns."
+    provenance: official LLVM documentation
+  - role: CURRENT_SOURCE_AND_TEST_LOCUS
+    url: https://reviews.llvm.org/D44700
+    version_or_date: upstream review/test record retrieved 2026-08-15
+    decisive_content: "Tests `-optimize-match-table` true/false and states optimized tables can reorder predicates while rule order remains unchanged; default is optimized."
+    provenance: primary LLVM upstream review/test artifact
+  - role: DIRECT_SUBTRACTOR
+    url: https://db.in.tum.de/~drescher/paper-isel-syn.pdf
+    version_or_date: primary paper retrieved 2026-08-15
+    decisive_content: "Synthesizing Instruction Selection Back-Ends from reusable target descriptions directly occupies broad instruction-selection constructor space."
+    provenance: primary research paper
+bounded_status: CLOSED_FOR_RAW_GATE
+absence_claim: NONE
+note: "No source file, paper PDF, or artifact was downloaded; no experiment was run."

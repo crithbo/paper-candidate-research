@@ -1,0 +1,27 @@
+schema: ppc-r9d-command-cost-negative-control-results-v1
+created_at: 2026-08-26T09:35:00Z
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9D-COMMAND-COST-PRECLAIM
+result: PASS_3_OF_3_EXPECTED_FAIL
+raw_path: resources/build/r9d_audits/negative_controls.json
+raw_sha256: C3F3B6DC71A841E9C4C6B84FDAA31061CCF3C29CA9FEAFECC9064B7BFEE7F75E
+payload_sha256: C8BF5F926CB49AD913EE23F2BFA2CD0F98F3EE2E68B3EFE0148309CD8FEEF019
+controls:
+  REMOVE_ONE_COMMAND_COST_EDGE:
+    expected: FAIL_CLOSED
+    observed: PASS_EXPECTED_FAIL
+    observed_failures: [bundle_command_metric_edge_shape, shared_compile_reference_count_not_two]
+  ADD_ONE_UNKNOWN_METRIC_ID_EDGE:
+    expected: FAIL_CLOSED
+    observed: PASS_EXPECTED_FAIL
+    observed_failures: [unknown_command_metric_ids, nonbaseline_metric_referenced_by_baseline_bundle, bundle_command_metric_edge_shape, shared_compile_reference_count_not_two]
+  MUTATE_ONE_EXIT_STATUS_OR_COST_VALUE:
+    expected: FAIL_CLOSED
+    observed: PASS_EXPECTED_FAIL
+    mutated_cost_validation_all_pass: false
+    failed_check: command_cost_rows_exact
+new_tolerance_or_exclusion: false
+compiler_linker_readobj_objdump_checker_commands: 0
+selected_or_natural_tool_invocations: 0
+claim_bearing_runs: 0
+scientific_inference: NONE
+evidence_ceiling: PRECLAIM_ENGINEERING_FIDELITY_ONLY__NO_SELECTED_OR_SCIENTIFIC_INFERENCE

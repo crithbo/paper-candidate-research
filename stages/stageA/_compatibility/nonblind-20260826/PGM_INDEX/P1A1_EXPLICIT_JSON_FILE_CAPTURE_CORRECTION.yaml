@@ -1,0 +1,14 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-P1A1-JSON-CAPTURE
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P1_OUTPUT_CAPTURE_BLOCKER.yaml, sha256: 6E62E8706ED26DED700DB6CF21959871578A5D41483F9D929B20AB3338E763AA}, {path: resources/src/probe/pgm_minimal_probe.cpp, sha256: 1C715DD8E3E6A2BA62201C394883E0C1D4360C437E6A08D4E0073291BE80D5EC}]
+only_source_edit:
+  file: resources/src/probe/pgm_minimal_probe.cpp
+  scope: accept_one_output_file_path_argument_and_write_existing_JSON_payload_to_that_file_instead_of_stdout
+  semantic_invariants: [same_keys_queries_epsilons_lower_bound_algorithm_metrics_cost_fields_and_exit_conditions]
+  occurrence_limit: one_harness_edit
+fresh_command_budget: {compile: 1, run: 4, retry: 0}
+run_outputs: [resources/build/probe/epsilon-4.json, resources/build/probe/epsilon-16.json, resources/build/probe/epsilon-64.json, resources/build/probe/epsilon-256.json]
+prohibitions: [other_harness_edit, input_or_parameter_change, stdout_only_capture, result_exclusion, production_or_stageB_action]
+scientific_revision_consumed: false

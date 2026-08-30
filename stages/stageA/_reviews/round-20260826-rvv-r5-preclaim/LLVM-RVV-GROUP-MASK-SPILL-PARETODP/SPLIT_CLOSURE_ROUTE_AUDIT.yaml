@@ -1,0 +1,146 @@
+schema_version: rvv-r5-independent-split-closure-route-audit-v1
+created_at: 2026-08-26T15:29:54+08:00
+assignment_id: STAGEA-GATE-20260826-LLVM-RVV-R5-SPLIT-CLOSURE-PRECLAIM
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+precommit_sha256: EF538B588891A1705BB4D4896022409F736E580FD998D82886147E51C491DDB1
+decision: REJECT_PRECLAIM_FIDELITY__BOUNDED_ENGINEERING_CORRECTION_EXISTS
+soft_blocker_class: SOFT_ENGINEERING_BLOCKER
+evidence_ceiling: INDEPENDENT_PRECLAIM_CONTROL_FIDELITY_ONLY__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+
+gate_results:
+  G0_IDENTITY_AND_PIVOT_BOUNDARY: PASS
+  G1_SPLIT_PROVENANCE_COMPLETENESS: FAIL
+  G2_NO_SPLIT_ESCAPE_LOWERING: PASS_REQUIRED_FIVE_CONTROLS_ONLY
+  G3_NATIVE_REPLAY_FIDELITY: PROVENANCE_FAIL
+  G4_F3_F5_AND_QUOTIENT: FAIL
+  G5_NEXT_ROUTE: BOUNDED_ENGINEERING_CORRECTION_EXISTS
+
+G0_evidence:
+  exact_commit: 5bb2565693f062a9e99929db1814a7a076d4dc76
+  witness_R1_sha256: 52F7303BBD8CF4A16C888FC6BD36C630D3EBE2D6A27C31D90530D442E4CC4044
+  witness_R2_sha256: 52F7303BBD8CF4A16C888FC6BD36C630D3EBE2D6A27C31D90530D442E4CC4044
+  same_object_witness_and_gate_changed: false
+  mechanism_pivot: SPLIT_PROVENANCE_CLOSED_QUOTIENT_STATE
+  mechanism_pivot_budget: 1_OF_1_STAGEA
+  mechanism_pivot_consumed: true
+  stageA_scientific_revision_consumed: false
+  second_pivot_or_revision_authorized: false
+
+G1_findings:
+  checker_sha256: BCD8EA3581F401E4ACEA07EF64D2556E31826D3764E3C10D2B6A3D6B256A84E4
+  immediate_split_edges_detected: true
+  frozen_expected_parents: ['%4', '%11']
+  frozen_expected_children: {'%4': ['%14', '%15'], '%11': ['%12', '%13']}
+  parent_set_hardcoded_in_source: true
+  recursive_transitive_ancestry_computation: false
+  complete_future_action_and_cost_successor_relation_computed: false
+  liveness_or_interference_derived_from_live_intervals: false
+  interference_field_is_assigned_physreg_list_only: true
+  quotient_successor_equal_formula: UNIQUE_SERIALIZED_STATE_COUNT_EQUALS_LABELED_COUNT
+  quotient_successor_relation_compared: false
+  split_provenance_consumed_by_actual_quotient_DP: false
+  disposition: REPORT_ONLY_IMMEDIATE_SPLIT_SUMMARY__NOT_FROZEN_SPLIT_CLOSED_QUOTIENT_STATE
+
+G2_findings:
+  required_negative_controls: [missing_child, unknown_parent, cross_class, missing_spill, missing_reload_future_use]
+  required_controls_passed: 5_OF_5
+  checker_additional_fail_closed_paths_present: [missing_physreg, mask_not_live, parent_set_mismatch]
+  MachineVerifier_requirement_lowered_in_command_precommit: false
+  limitations_not_promoted_to_pass:
+    - NO_MULTILEVEL_DESCENDANT_CONTROL
+    - NO_SAME_WRONG_LMUL_CLASS_CONTROL
+    - NO_SPLIT_CLOSURE_TO_F4_F5_DEPENDENCY_CONTROL
+
+G3_findings:
+  replay_files_present: 2
+  replay_hashes_equal: true
+  fresh_replay_audit_claims_llc_machineverifier_runs: 2
+  command_precommit_contains_exact_llc_verify_argv: true
+  independent_command_exit_receipts_present: false
+  canonical_reproducibility_report_sha256: 77CC8659B06B43FDD3E0F76EC44E78069C4BB4DFECCFECED9AD95CD4F1DA5F05
+  canonical_reproducibility_report_records:
+    command_records_started: 1
+    exit_code: 1
+    fresh_llc_commands_started: 0
+  conflict_with_fresh_replay_audit: true
+  disposition: CANNOT_INDEPENDENTLY_CONFIRM_FRESH_LLC_MACHINEVERIFIER_EXECUTION
+
+G4_findings:
+  split_closure_result_sha256: F5A11857B07764B47FB1C2D6666E81E8F185BDDB1CE20CF16B77EEC0DCEC968B
+  original_harness_sha256: 58E228D77D21DA5783446C1F2CF3AF6B8A0281FB6E2F00B47274F2C0FD4F49C3
+  F3_accepts_split_closure_input: false
+  F4_accepts_split_closure_input: false
+  F5_accepts_split_closure_input: false
+  command_precommit_R5_R7_depend_on_split_closure_output: false
+  F4_grammar_contains_split_parent_child_LMUL_mask_spill_reload_obligations: false
+  F5_baselines_consume_split_closed_action_grammar: false
+  F4_F5_are_parallel_unchanged_controls: true
+  F5_candidate_equals_labeled_exact_DP: true
+  F5_candidate_equals_generic_exact_subtractor: true
+  disposition: ORIGINAL_QUOTIENT_AND_BASELINE_CONTROLS_NOT_REVALIDATED_AFTER_CONSUMED_SPLIT_PIVOT
+
+bounded_correction_route:
+  route_id: RVV_R5C_SPLIT_GRAPH_TO_QUOTIENT_DEPENDENCY_AND_REPLAY_RECEIPT_CLOSURE_V1
+  classification: ENGINEERING_CORRECTION_IN_CONTRACT
+  consumes_second_pivot: false
+  consumes_scientific_revision: false
+  same_object_action_baselines_gate: unchanged
+  source_scope:
+    existing_files_max: 2
+    permitted_existing_files:
+      - resources/src/split_closure/split_closure.py
+      - resources/src/harness/rvv_preclaim.py
+    new_wrapper_or_schema_files_max: 1
+    witness_upstream_LLVM_or_action_grammar_edits: forbidden
+  correction_C1_generic_transitive_closure:
+    requirements:
+      - DISCOVER_ALL_SPLIT_FROM_EDGES_WITHOUT_HARDCODED_PARENT_SET
+      - COMPUTE_ROOT_TO_DESCENDANT_TRANSITIVE_ANCESTRY_FOR_EVERY_FRACTIONAL_VECTOR
+      - DERIVE_CLASS_LMUL_MASK_LIVENESS_LIVE_INTERVAL_INTERFERENCE_PHYSREG_SPILL_RELOAD_STACK_FUTURE_USE_AND_BACKPOINTERS_FROM_RAW_MIR
+      - FAIL_ON_CYCLE_UNKNOWN_PARENT_UNKNOWN_LMUL_MISSING_MASK_MISSING_PHYSREG_OR_UNCLOSED_DESCENDANT
+      - EMIT_STABLE_SPLIT_PROVENANCE_SCHEMA_AND_DEPENDENCY_HASH
+  correction_C2_quotient_dependency:
+    requirements:
+      - F4_AND_F5_ACCEPT_SPLIT_CLOSURE_PATH_AND_EXPECTED_HASH
+      - LABELED_AND_QUOTIENT_STATE_KEYS_INCLUDE_SPLIT_PROVENANCE_OBLIGATIONS
+      - SUCCESSOR_RELATION_AND_COST_TENSOR_INCLUDE_EVERY_CHILD_ACTION
+      - MERGE_ONLY_IF_SPLIT_CLOSED_FUTURE_ACTION_LEGALITY_AND_COST_SUCCESSORS_MATCH
+      - BACKPOINTER_REPLAY_RECONSTRUCTS_PARENT_TO_CHILD_SPILL_RELOAD_AND_FUTURE_USE
+      - F5_CANDIDATE_AND_ALL_B1_B4_SUBTRACTORS_USE_IDENTICAL_SPLIT_CLOSED_GRAMMAR
+  correction_C3_provenance_receipt:
+    requirements:
+      - TWO_FRESH_LLC_VERIFY_MACHINEINSTRS_COMMANDS_FROM_FROZEN_WITNESS
+      - EXACT_ARGV_CWD_INPUT_HASH_OUTPUT_HASH_EXIT_CODE_STDOUT_STDERR_AND_TIMING_RECEIPTS
+      - FIRST_FAILURE_STOPS_AND_NO_RETRY
+      - CANONICAL_REPRODUCIBILITY_REPORT_REGENERATED_AFTER_ALL_COMMANDS
+      - MANIFEST_INCLUDES_RVV_PRECLAIM_SOURCE_AND_ALL_RECEIPTS
+  correction_C4_negative_controls:
+    required:
+      - MULTILEVEL_GRANDCHILD_TRANSITIVE_CLOSURE
+      - SAME_WRONG_LMUL_CLASS
+      - MASK_LIVENESS_REMOVAL
+      - PHYSREG_OR_BACKPOINTER_REMOVAL
+      - F4_MISSING_OR_STALE_SPLIT_CLOSURE_HASH
+      - F5_BASELINE_GRAMMAR_OMITS_ONE_SPLIT_CHILD_ACTION
+      - EXISTING_FIVE_NEGATIVE_CONTROLS
+  correction_C5_execution_boundary:
+    fixed_control_witness_only: true
+    deterministic_replays: 2
+    natural_or_selected_tool_invocations: 0
+    claim_bearing_observations: 0
+    state_transition: false
+    r6_or_natural_assignment_before_independent_acceptance: forbidden
+
+route_boundedness:
+  finite: true
+  mechanism_definition_changed: false
+  exact_object_changed: false
+  strong_baseline_weakened: false
+  reason: FIXES_CHECKER_DEPENDENCY_AND_PROVENANCE_RECEIPT_TO_IMPLEMENT_THE_ALREADY_CONSUMED_PIVOT_CONTRACT
+  hard_external_or_user_gate: false
+
+authorization_effect:
+  this_review_authorizes_execution: false
+  natural_or_claim_start: forbidden
+  next_authority: MAINLINE_MAY_FREEZE_NEW_HASH_PINNED_ENGINEERING_CORRECTION_ASSIGNMENT
+

@@ -1,0 +1,89 @@
+schema: r3-stagea-only-identity-blind-calibration-proposed-contract-v1
+proposal_id: R3_STAGEA_ONLY_IDENTITY_BLIND_CALIBRATION_P1
+status: PROPOSAL_ONLY__MAINLINE_FREEZE_REQUIRED
+user_authorization_basis: USER_EXPLICIT_REQUEST__R3_CONTINUE_WITH_STAGEA_ONLY_BLIND_SCHEME_20260827
+purpose: MEASURE_STAGEA_EVIDENCE_GATE_COMPATIBILITY_WITHOUT_STAGE0_SURVIVOR_CONDITIONING
+claim_ceiling: CALIBRATION_ONLY__NOT_COMPLETE_STAGE0__NOT_PRODUCTION_GATE__NOT_STAGEB
+
+population:
+  positives: 12
+  negatives: 4
+  positive_source:
+    path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/STAGEA_ANONYMIZED_PACKET.yaml
+    sha256: BA621A4D5006EDDBD8574FCD3521FEECD301E42C8C25E770A87275A142F4F294
+  evidence_manifest:
+    path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/PACKER_EVIDENCE_CAPSULE_MANIFEST.yaml
+    sha256: E6CBB4919A7E2D8BB3E80AA450D7037C42884AF6FECEF82551C82A86096DA798
+  selection_rule: USE_ALL_FROZEN_R3_12_POSITIVES__NO_STAGE0_SURVIVOR_FILTER__NO_REPLACEMENT
+  controls: FOUR_PRE_REGISTERED_STAGEA_SPECIFIC_DEFECT_CONTRACTS__AUDITOR_HOLDS_EXPECTED_LABELS
+  required_control_defects:
+    - MISSING_OR_NONDECISIVE_CLAIM_EVIDENCE
+    - UNFAIR_OR_SEMANTICALLY_MISMATCHED_COMPARATOR
+    - OMITTED_DECISIVE_FULL_COST_DENOMINATOR
+    - UNVERIFIABLE_LEGALITY_EQUIVALENCE_OR_WITNESS_PATH
+  forbidden_control_defects:
+    - Stage0_current_collision_or_same_object_absorption_as_the_sole_defect
+    - proxy_object_change_as_the_sole_defect
+
+packer_contract:
+  required_role: BACKTEST_PACKER
+  allowed_inputs: [frozen_r3_stagea_packet, frozen_r3_evidence_capsules, pre_registered_stagea_control_contracts]
+  forbidden_inputs: [auditor_gold_expected_labels, reviewer_outputs, Stage0_survival_or_collision_outputs]
+  output: FRESH_STAGEA_ONLY_16_CASE_ANONYMIZED_PACKET
+  fresh_case_ids: required_random_neutral_ids
+  required_redactions: [title, authors, venue, DOI, repository, artifact_name, unique_searchable_phrase, final_publication_outcome, external_locator]
+  evidence_locator_form: INTERNAL_ANONYMIZED_REFERENCE_ONLY
+  network: false
+  code_artifact_binary_download: false
+  build_probe_experiment: false
+  result_aware_replacement: forbidden
+
+blind_reviewer_contract:
+  required_role: NEW_UNEXPOSED_STAGEA_BLIND_REVIEWER
+  reviewer_exposure_attestation_required:
+    - no R1_R2_R3 case identity exposure
+    - no R3 packet, gold key, expected label, collision, or prior reviewer-output exposure
+    - no pre-existing assignment context that carries R3 identity
+  allowed_inputs: [blind_reviewer_operation_card, fresh_stagea_only_16_case_anonymized_packet]
+  forbidden_inputs: [AGENTS_md, plan_md, registry_yaml, history_md, prior_case_directories, paper_identity, author, venue, DOI, URL, locator, auditor_key, gold_label, expected_disposition]
+  forbidden_actions: [network_search, external_lookup, duplicate_check, identity_guessing, Stage0_judgment, collision_adjustment, production_candidate_registration, StageB]
+  required_output: BLIND_STAGEA_ONLY_COMPATIBILITY_DECISION
+  required_judgment_dimensions: [claim_contract_fidelity, evidence_adequacy, comparator_fairness, natural_or_canonical_workload, full_cost, legality_equivalence_or_witness]
+  bootstrap_exception: MAINLINE_MUST_PROVIDE_BLIND_ONLY_OPERATION_CARD_AND_MECHANICALLY_ATTEST_SHARED_CONTROL_HASHES_OUT_OF_BAND
+  fail_closed_if_shared_control_text_is_injected: true
+
+contamination_protocol:
+  detection: IDENTIFY_ANY_CASE_IDENTITY
+  first_event: VOID_ALL_OUTPUTS_FROM_THAT_REVIEWER__STOP_REVIEWER
+  second_event_by_a_separate_fresh_reviewer: BLIND_ARM_STOPPED__RETURN_TO_NONBLIND_STAGEA_COMPATIBILITY
+  after_any_event: NO_CASE_REPLACEMENT__NO_METRIC_MERGE
+  primary_measurement_if_clean: ONE_FULL_16_CASE_REVIEWER_DECISION
+
+auditor_contract:
+  required_role: INDEPENDENT_BACKTEST_AUDITOR
+  timing: ONLY_AFTER_BLIND_REVIEW_OUTPUT_IS_IMMUTABLY_SEALED
+  permitted_inputs: [auditor_only_identity_and_gold_key, immutable_blind_reviewer_output]
+  required_outputs: [gold_comparison, blind_stagea_evidence_survival, stagea_negative_specificity, identity_contamination_rate, source_evidence_missing_count]
+  prohibited_inference: [complete_stage0_survival, collision_adjusted_stage0_survival, production_gate_quality, unbiased_stage0_recall]
+
+metrics:
+  primary: blind_stagea_evidence_survival
+  secondary: [stagea_negative_specificity, identity_contamination_rate, false_pass_count, source_evidence_missing_count]
+  explicitly_not_reportable: [blind_stage0_noncollision_survival, collision_adjusted_stage0_survival, complete_stage0_pass_rate, combined_blind_nonblind_rate]
+
+state_and_resource_boundary:
+  shared_state_transition: forbidden
+  production_candidate_registration: forbidden
+  StageB: forbidden
+  experiments_or_local_reproduction: forbidden
+  resource_creation: forbidden_except_assignment_local_text_packets_and_logs
+  immutable_source_artifacts: true
+  old_R3_blind_phase: REMAINS_TERMINAL__NOT_REOPENED
+  current_R3_nonblind_fallback: REMAINS_INDEPENDENT__NOT_CANCELLED_OR_REINTERPRETED
+
+start_gates:
+  - MAINLINE accepts this proposal and freezes a distinct assignment ID and unique write directory
+  - Mainline attests a reviewer with no listed exposure; absence of a suitable reviewer is BLIND_UNAVAILABLE
+  - Packer seals the fresh 16-case packet and auditor-only key before reviewer dispatch
+  - Mainline verifies no plan/registry/history path appears in reviewer inputs
+  - Reviewer bootstrap acknowledgement confirms all forbidden inputs/actions remain unread

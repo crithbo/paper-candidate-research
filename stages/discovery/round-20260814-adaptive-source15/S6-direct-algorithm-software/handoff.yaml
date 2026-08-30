@@ -1,0 +1,46 @@
+assignment_id: DISCOVERY-S6-20260814-ADAPTIVE-SOURCE15
+lane: S6_DIRECT_ALGORITHM_SOFTWARE
+method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+write_directory: stages/discovery/round-20260814-adaptive-source15/S6-direct-algorithm-software
+status: COMPLETE_ZERO_PROPOSALS
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+source_mix:
+  cpu_compiler_architecture_joint_algorithm: 2
+  gpu_npu_native_semantic_joint_algorithm: 4
+  quota_interpretation: guidance_only
+funnel:
+  raw_unique_opportunity_families: 6
+  candidate_grade_deep_reviews: 2
+  proposed_stage0: 0
+  structural_drops: 4
+  not_admitted_unfrozen: 2
+deep_reviews:
+  - signature: LLVM_AMDGPU_ATOMIC_AGGREGATION_FENCE__FIXED_KERNEL_ATOMIC_ORDER_SCOPE_MEMORY_SEMANTICS__NATIVE_WAVE_ACTION
+    exact_object: Fixed AMDGPU kernel, atomic values/order/scope, local-global memory semantics and observable result.
+    same_object_witness: All-lane versus native-eligible elected-lane atomic issuance when atomic result/order is unchanged.
+    strongest_current_union: AMDGPUAtomicOptimizer, fence lowering, memory scopes, local-global synchronization annotations.
+    residual_test: Remaining grouping is current atomic optimization, generic aggregation, or changes memory-order/scope contract.
+    natural_route: Version-pinned HIP-LLVM kernel panel with output and semantic oracle.
+    full_cost: compile CPU-wall-RSS-temp; code bytes; atomic count; host launch; local-global synchronization cost.
+    finite_killer: Same-order/same-scope pair with target-specific guarantee irreducible to current atomic pass or generic aggregation.
+    disposition: STRUCTURAL_DROP__CURRENT_ATOMIC_OPTIMIZER_OR_CHANGED_MEMORY_CONTRACT
+  - signature: LLVM_NVPTX_MBARRIER_PHASE_TRANSACTION_CONSTRUCTION__FIXED_KERNEL_PHASE_ARRIVAL_TX_SEMANTICS__NATIVE_SYNCHRONIZATION
+    exact_object: Fixed NVPTX kernel, barrier address, phase, arrival/expected and transaction counts, and output.
+    two_plan_test: Moving arrival-expect-complete-or-wait changes atomic phase conditions unless equivalence is proven.
+    strongest_current_union: Official mbarrier intrinsics/state machine and stock NVPTX lowering.
+    natural_route: Version-pinned CUDA-NVPTX cooperative kernel panel.
+    full_cost: compile CPU-wall-RSS-temp; PTX bytes; barrier-tx counts; host launch; synchronization latency.
+    finite_killer: Two plans preserving all phase conditions and output with target-specific non-scheduling guarantee.
+    disposition: NOT_ADMITTED_UNFROZEN__NO_COMPLETE_SAME_CONTRACT_TWO_PLAN_WITNESS
+screen_notes:
+  - LLVM_SPIRV_SUBGROUP_MEMORY_MODEL_CONSTRUCTION: STRUCTURAL_DROP__FIXED_MODEL_OR_GENERIC_LOWERING
+  - LLVM_AMDGPU_SOFTWARE_LDS_LOWERING: STRUCTURAL_DROP__EXISTING_PASS_OR_CHANGED_RESOURCE_CONTRACT
+  - LLVM_R600_CLAUSE_CONTROL_FLOW_CONSTRUCTION: STRUCTURAL_DROP__GENERIC_CLAUSE_VLIW_GROUPING
+  - LLVM_RISCV_FENCE_FIELD_CONSTRUCTION: NOT_ADMITTED_UNFROZEN__NO_TARGET_SPECIFIC_JOINT_GUARANTEE
+policy_compliance:
+  security_vulnerability_exploit_protocol_traffic_topics_excluded: true
+  no_experiment_build_install_or_large_download: true
+  no_stage0_a_b_or_shared_control_write: true
+  no_readiness_or_resource_based_scientific_drop: true
+next_step: Mainline may mechanically accept this bounded zero-proposal package; no further action requested.

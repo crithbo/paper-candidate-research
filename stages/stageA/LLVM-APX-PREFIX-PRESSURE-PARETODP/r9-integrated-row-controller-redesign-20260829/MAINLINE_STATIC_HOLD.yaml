@@ -1,0 +1,18 @@
+schema: mainline-stagea-static-redesign-hold-v1
+assignment_id: STAGEA-L1-20260829-LLVM-APX-R9-INTEGRATED-ROW-CONTROLLER-REDESIGN
+decision: EXECUTION_CONTRACT_HOLD__STATIC_CORRECTION2_INCOMPLETE
+accepted_facts:
+  selected_rows: [S01, S02, S03, S04]
+  replays_per_row: 2
+  copied_input_manifest_frozen: true
+remaining_defects:
+  - COMMAND_TABLE contains mode names rather than complete argv arrays
+  - controller execute entrypoint is still a deliberate exception and has no subprocess or metric implementation
+  - validation incorrectly calls the packet executable
+static_lint_edits_consumed: 2_of_3
+static_lint_edits_remaining: 1
+resource_or_tool_action: false
+scientific_inference: NONE
+scientific_stop: false
+lane_effect: RELEASE_L1_FOR_RVV
+resume_condition: REASSIGN_TO_AN_EXISTING_IDLE_CANDIDATE_LANE_WITH_CORRECTION3_CONTRACT

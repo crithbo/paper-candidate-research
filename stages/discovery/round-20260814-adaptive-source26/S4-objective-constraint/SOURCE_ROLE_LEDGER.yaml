@@ -1,0 +1,64 @@
+assignment_id: DISCOVERY-S4-20260814-ADAPTIVE-SOURCE26-EVIDENCE-CLOSURE-TRIAD-V1
+retrieval_budget:
+  attempts_per_locator_max: 2
+  successful_response_bytes_per_attempt_max: 8388608
+  persisted_bytes_per_locator_max: 16777216
+  successful_response_bytes_per_lane_max: 67108864
+  storage_bytes_per_lane_max: 134217728
+records:
+  - locator: L26-01
+    source_role: ANCHOR_AND_CURRENT_UNION_AND_CONTRARY
+    url_or_deterministic_rule: https://mlcommons.org/benchmarks/training-hpc/
+    selection_rule: precommitted official MLCommons HPC suite page; one bounded attempt
+    version_or_date: accessed 2026-08-14; page states retired January 2025
+    license_or_provenance: MLCommons official benchmark page
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: STRUCTURAL_DROP__RETIRED_SUITE_NOT_CURRENT_TARGET
+    note: >-
+      The bounded browser retrieval established retirement and retained-dashboard status. A local
+      read-only retrieval reached the page but the runtime hash API failed before byte/hash capture;
+      it was not retried because the precommitted attempt budget is respected.
+  - locator: L26-02
+    source_role: ANCHOR_AND_CURRENT_UNION
+    url_or_deterministic_rule: https://mlcommons.org/benchmarks/mlperf-automotive/
+    selection_rule: precommitted current official suite/results page; one bounded attempt
+    version_or_date: MLPerf Automotive v0.5; accessed 2026-08-14
+    license_or_provenance: MLCommons official benchmark page
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: CURRENT_SEMANTICS_CLOSED__RESOURCE_PANEL_UNCLOSED
+    note: local page retrieval hash capture failed after retrieval; no retry.
+  - locator: L26-02
+    source_role: CONTRARY
+    url_or_deterministic_rule: https://docs.mlcommons.org/mlperf_automotive/index_gh/
+    selection_rule: precommitted official version/reproduction documentation fallback
+    version_or_date: v0.5 branch `v0.5abtf`; accessed 2026-08-14
+    license_or_provenance: MLCommons official documentation
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: CONTRARY_CONTEXT__NATIVE_REPRODUCTION_BRANCH_EXISTS
+    note: native documentation pins a reproduction branch but does not close a joint energy/RSS result panel.
+  - locator: L26-03
+    source_role: CURRENT_UNION_AND_CONTRARY
+    url_or_deterministic_rule: https://docs.mlcommons.org/inference/index_gh/
+    selection_rule: precommitted official version/power documentation; one bounded attempt
+    version_or_date: v5.1 submission deadline 2025-08-01; accessed 2026-08-14
+    license_or_provenance: MLCommons official documentation
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: PUBLIC_EVIDENCE_UNCLOSED__POWER_TOOL_SPECIAL_ACCESS
+    note: documentation identifies v5.1 and says power submissions use SPEC PTD 1.11.1 with special access.
+  - locator: L26-03
+    source_role: ANCHOR
+    url_or_deterministic_rule: https://mlcommons.org/2025/09/mlperf-inference-v5-1-results/
+    selection_rule: precommitted official v5.1 result release fallback
+    version_or_date: published 2025-09-09; accessed 2026-08-14
+    license_or_provenance: MLCommons official release
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: ANCHOR_CONFIRMED__FULL_PANEL_UNCLOSED
+    note: release confirms v5.1 workloads and two power submissions, not a complete pinned joint panel.
+ledger_note: >-
+  Records are appended after retrieval. A failed route is recorded as a bounded source result,
+  never as a global absence claim. No source bytes are persisted unless a small official response is used.

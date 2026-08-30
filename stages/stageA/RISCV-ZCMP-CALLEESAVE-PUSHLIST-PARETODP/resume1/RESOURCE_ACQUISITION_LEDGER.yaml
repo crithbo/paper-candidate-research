@@ -1,0 +1,75 @@
+schema: stagea-resource-acquisition-ledger-v1
+assignment_id: RESOURCE-STAGEA-L3-20260814-RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP-RESUME1
+status: PASS
+exact_commit: ba5bccfe01368f76e74d6ff4c35f1330e155b4ba
+assets:
+  - name: RISCVInstrInfoZc.td
+    url: https://raw.githubusercontent.com/llvm/llvm-project/ba5bccfe01368f76e74d6ff4c35f1330e155b4ba/llvm/lib/Target/RISCV/RISCVInstrInfoZc.td
+    bytes: 12495
+    sha256: 7F92267125E1D6D8633EF2457CE8B97B47B5BFCA529B1097450EF75DC9114ACF
+    git_blob_sha1: f802748a5a1dc9c79577896eed4351796ce6ed8f
+    license: Apache-2.0-WITH-LLVM-exception
+    attempts: 1
+  - name: RISCVTargetMachine.cpp
+    url: https://raw.githubusercontent.com/llvm/llvm-project/ba5bccfe01368f76e74d6ff4c35f1330e155b4ba/llvm/lib/Target/RISCV/RISCVTargetMachine.cpp
+    bytes: 26261
+    sha256: D797524144B7C2DFB7F0E617346043EA213AAE096F0E23253DF11A8BB74565D4
+    git_blob_sha1: e5ebd2a071d05e147b6bc24cb5e9378bbffabd97
+    license: Apache-2.0-WITH-LLVM-exception
+    attempts: 1
+  - name: llvm-project-exact-source
+    url: https://github.com/llvm/llvm-project/archive/ba5bccfe01368f76e74d6ff4c35f1330e155b4ba.tar.gz
+    bytes: 280445089
+    sha256: 935971AA08E67E6F97BEC82207B444E2D92CAD78C8D9BE10F99DECD060E72472
+    license: Apache-2.0-WITH-LLVM-exception
+    provenance: exact_commit_archive_plus_13_of_13_decisive_git_blob_checks
+  - name: llvm-mingw-bootstrap
+    url: https://github.com/mstorsjo/llvm-mingw/releases/download/20260616/llvm-mingw-20260616-ucrt-x86_64.zip
+    bytes: 187504083
+    sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35
+    digest_source: official_GitHub_release_asset_digest
+    license: distribution_license_manifest_retained
+  - name: cmake-bootstrap
+    url: https://github.com/Kitware/CMake/releases/download/v4.4.2/cmake-4.4.2-windows-x86_64.zip
+    bytes: 54405968
+    sha256: E8139D85B3813BC38833142AE1940472E9A587E9B5D2718AC1804C60F4E57A64
+    digest_source: official_GitHub_release_asset_digest
+    license: BSD-3-Clause
+  - name: ninja-bootstrap
+    url: https://github.com/ninja-build/ninja/releases/download/v1.13.2/ninja-win.zip
+    bytes: 291570
+    sha256: 07FC8261B42B20E71D1720B39068C2E14FFCEE6396B76FB7A795FB460B78DC65
+    digest_source: official_GitHub_release_asset_digest
+    license: Apache-2.0
+route_attempts:
+  portable_exact_toolchain:
+    result: NO_ACCEPTABLE_ARBITRARY_COMMIT_ASSET
+    official_actions_runs_checked: 159
+    scientific_inference: none
+  isolated_source_build:
+    configure_attempt_0_missing_libc_subtree: retained_engineering_failure
+    build_attempt_1: PASS
+    clean_build_attempts_consumed: 1
+build:
+  source_patch: false
+  projects: [lld]
+  targets: [RISCV, X86]
+  type: Release
+  assertions: true
+  jobs: 2
+  wall_seconds: 1360.1583998
+  conservative_cpu_upper_bound_seconds: 2720.3167996
+  peak_observed_working_set_bytes: 3471986688
+  peak_observed_private_bytes: 3570847744
+  instrumentation_note: build_metrics.exit_code_is_null_but_ninja_2160_of_2160_and_followup_no_work_exit_zero
+resource_budget:
+  response_bytes_max: 3221225472
+  storage_bytes_max: 37580963840
+  cpu_seconds_max: 64800
+  observed_resume1_bytes_approx: 6741425911
+  build_cpu_upper_bound_seconds: 2720.3167996
+  within_budget: true
+system_install: false
+global_environment_change: false
+stageb: false
+

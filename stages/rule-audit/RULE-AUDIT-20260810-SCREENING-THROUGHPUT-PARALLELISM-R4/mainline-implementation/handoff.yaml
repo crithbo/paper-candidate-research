@@ -1,0 +1,51 @@
+schema: r4-mainline-implementation-handoff-v1
+audit_id: RULE-AUDIT-20260810-SCREENING-THROUGHPUT-PARALLELISM-R4
+proposal_id: ADAPTIVE-WIP-FAST-HANDOFF-BURST-R4
+decision: AUTHORITATIVE_CUTOVER_COMPLETE
+user_approval_present: true
+user_approval_directive_sha256: 9ACEC6454E7F3DF88BC5E1FDA5C557F587D01D191853A8424569BCF314635ABB
+pilot:
+  cycles_completed: 2
+  result: PASS
+  ready_science_serviced_next_control_cycle: true
+  duplicate_work: 0
+  shared_write_conflict: 0
+  rule_revision_drift: 0
+  independent_review_preserved: true
+  new_task_created: false
+  decisive_stagea_observation: 0
+authoritative_policy:
+  base_active_seats: 4
+  maintenance_coexistence_burst: 1
+  per_stage_maximum: 4
+  production_discovery_expansion_before_v8_8_pass: false
+  hot_discovery_rotation: S1_TO_S6_WITH_TWO_SLOTS
+  candidate_gate_lane2_minimum_ready_assignments: 2
+  same_packet_backtest_serial: true
+files:
+  rules_role_mainline:
+    old_sha256: 00BE2F4A4F9089B29D5A832A87D9FAE742FE45771F49E7800E04FD9C4D79D326
+    new_sha256: 079DAD36654A7D03DFCAEB96DD79DBE279037C7A4DC8175D9ED3A7F7987D076E
+  shadow_role_mainline:
+    old_sha256: 24C0C213E082D86167382597696A6B0777DC89FB6CB848969F65426FF7CF05CB
+    new_sha256: 21B613CCA3D74B6BA8B3E7FADF1FE7390676971A930C17F8450873CCA01B0A60
+  shadow_control_plane_schema:
+    old_sha256: F05EC489BE5A14D0CB780C4105B5038287D4838D343684D77D846F02B9683F16
+    new_sha256: 2A11DE0E18267A37B62046CC65BA5B34B17E9A4D3A1EB2B499BC5A80B0D07BF6
+  registry:
+    old_sha256: C0D0A44B4CE5A8EC9F49F8509BBCF52844FBCFCBFCB8CA98E44CB7EB7536E8DB
+    new_sha256: F4B87C52275760D4BB30963BDD92A9F249B4C378998E8E95B53EA6AC2DAC82CD
+  plan:
+    old_sha256: A3BB13D0A91F8FC3DC1F4928C64CFCE6B7311B3CF225CF8109F4A730867183AB
+    new_sha256: 94870BD776C7B5251692DB9EC0B4CB5BCCD359BDCAF8DDB93B546E8BEAB3B122
+  history:
+    old_sha256: AA644FC7B0E34EEE2E9CF98C90F12D61A580CC01AC5596B1438ADDEAF5D16C7F
+    new_sha256: B33B345058DBC6A802BC60A489E36E8902AF535C326CEA04AC2D7DF03FE255A3
+  telemetry_sha256: 1055E662D8AA8C3F20AC878DD13610DB2FF94F600D6012A6C6B8B1984353E841
+  pilot_report_sha256: 7835CBE817661439ACB0F1205C2D72B6D7ECF2DDAB27029D23981376F9D380F2
+rollback:
+  action: SET_MAINTENANCE_COEXISTENCE_BURST_TO_ZERO
+  topic_or_assignment_state_rollback_required: false
+next_audit_authorized_after_this_handoff: SCREENING_YIELD_AND_INITIAL_TOPIC_QUALITY_WITH_LITERATURE_STRATEGY
+stageb_authorized: false
+formal_project_authorized: false

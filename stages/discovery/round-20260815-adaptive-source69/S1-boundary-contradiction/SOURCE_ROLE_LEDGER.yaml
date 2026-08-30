@@ -1,0 +1,49 @@
+cycle: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE69-R40-ORDINARY-BREADTH-V1
+retrieval_date: '2026-08-15'
+resource_actions: NONE
+sources:
+  - id: SRC01
+    role: ANCHOR
+    title: 'JEP 444: Virtual Threads'
+    url: https://openjdk.org/jeps/444
+    publisher: OpenJDK
+    version_or_date: 'JDK 21; page updated 2025-10-30'
+    provenance: official_specification
+    selection_rule: exact_public_anchor_for_S69-01
+    decision_relevance: defines M:N mounting/unmounting, historical pinning boundary, carrier semantics, and scheduler configuration.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC02
+    role: CONTRARY
+    title: 'JEP 491: Synchronize Virtual Threads without Pinning'
+    url: https://openjdk.org/jeps/491
+    publisher: OpenJDK
+    version_or_date: 'JDK 24 feature; search snapshot 2026-08-15'
+    provenance: official_specification
+    selection_rule: strongest_same_object_current_mechanism_collision
+    decision_relevance: direct contrary mechanism for synchronized-region pinning.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC03
+    role: CURRENT
+    title: 'OpenJDK HotSpot ObjectMonitor current source'
+    url: https://github.com/openjdk/jdk/blob/master/src/hotspot/share/runtime/objectMonitor.cpp
+    publisher: OpenJDK
+    version_or_date: 'master page snapshot accessed 2026-08-15'
+    provenance: official_upstream_source_mirror
+    selection_rule: current_runtime_locus_for_virtual_monitor_transition
+    decision_relevance: shows virtual-thread detection and continuation preemption in monitor enter path.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC04
+    role: CURRENT_DOCUMENTATION
+    title: 'Oracle Virtual Threads guide'
+    url: https://docs.oracle.com/en/java/javase/22/core/virtual-threads.html
+    publisher: Oracle
+    version_or_date: 'Java SE 22, current page snapshot accessed 2026-08-15'
+    provenance: official_documentation
+    selection_rule: official_deployment_documentation_for_pinning_and_diagnostics
+    decision_relevance: records historical synchronized pinning and prescribed application-level ReentrantLock migration, which changes the fixed monitor object.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+source_role_outcome: CURRENT_DIRECT_ABSORPTION_FOUND

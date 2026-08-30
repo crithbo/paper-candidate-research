@@ -1,0 +1,12 @@
+schema: mainline-start-v1
+assignment_id: DMR-V1-PSHADOW-PAIR-AUDITOR-20260830
+bootstrap_acceptance: MAINLINE_BOOTSTRAP_ACCEPTANCE.yaml
+authorized_read:
+  - frozen minimum inputs in ASSIGNMENT_CONTEXT.yaml
+  - cycle01/S1..S6 canonical outputs, SHADOW_NOMINATION, handoff and manifest
+  - cycle02/S1..S6 canonical outputs, SHADOW_NOMINATION, handoff and manifest
+authorized_write: [backtest_review.md, handoff.yaml, HASH_MANIFEST.sha256]
+required_decision: [MERGE_INTO_EXISTING_DISCOVERY_OWNER, CONTINUE_SHADOW_WITH_NARROWER_HYPOTHESIS, RETIRE_METHOD]
+required_calibration_verdict: [CALIBRATED, NOT_CALIBRATED, CONTAMINATION_UNKNOWN]
+forbidden: [network, download, build, experiment, candidate_or_queue_state_change, stage0_dispatch, shared_rule_write, stagea, stageb]
+stop: after_handoff

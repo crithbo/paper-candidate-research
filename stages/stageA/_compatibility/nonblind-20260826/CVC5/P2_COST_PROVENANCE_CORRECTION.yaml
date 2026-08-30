@@ -1,0 +1,14 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-CVC5-P2-COST-PROVENANCE
+parent_assignment: NONBLIND-STAGEA-20260826-CVC5-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P1_handoff.yaml, sha256: 655A2C2C813AA605E5586F298AC280986A97CA988D9B33F78A47A478305DD4A3}, {path: resources/src/probe/cvc5_qf_lia_unsat.smt2, sha256: 367BECBE09A556D5661F1B0C6A8FE053CCAD066CD47D0FC48977D15D618CBE72}]
+unchanged: [fixture_content, QF_LIA_UNSAT_semantics, cvc5_version_options, resource_limits]
+required_outputs: [cvc5_executable_SHA256, cvc5_version_text, fixture_materialization_wall_seconds, parse_wall_seconds_from_stats, solve_wall_seconds_from_stats, combined_wall_seconds, peak_RSS, option_vector_and_search_cost, stdout_UNSAT]
+allowed_command_sequence:
+  - {id: P2S0, command: record_existing_fixture_hash_binary_hash_and_version, stop_on_nonzero: true}
+  - {id: P2S1, command: materialize_identical_fixture_to_new_measured_copy_once_and_measure_wall, stop_on_nonzero: true}
+  - {id: P2S2, command: run_cvc5_once_with_lang_smt2_stats_on_measured_fixture_and_capture_stats_stdout_stderr, stop_on_nonzero: true}
+  - {id: P2S3, command: parse_stats_into_cost_receipt_and_assert_UNSAT, stop_on_nonzero: true}
+prohibitions: [fixture_semantic_change, option_change, retry, network, system_or_global_mutation, production_or_stageB_action]
+scientific_revision_consumed: false

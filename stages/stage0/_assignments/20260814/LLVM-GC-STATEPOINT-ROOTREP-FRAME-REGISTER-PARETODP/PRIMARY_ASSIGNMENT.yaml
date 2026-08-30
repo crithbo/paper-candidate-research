@@ -1,0 +1,24 @@
+assignment_id: STAGE0-P1-20260814-LLVM-GC-STATEPOINT-ROOTREP-FRAME-REGISTER-PARETODP-PRIMARY-V8.7
+mode: PRIMARY
+topic_id: LLVM-GC-STATEPOINT-ROOTREP-FRAME-REGISTER-PARETODP
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_QUEUED_AFTER_RUST_CGU
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source10-primary\LLVM-GC-STATEPOINT-ROOTREP-FRAME-REGISTER-PARETODP
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+quality_floor: TIER_B_Q2_VIABLE
+source_package: stages\discovery\round-20260814-adaptive-source10\S2-bottleneck-transfer
+input_hashes:
+  brief_sha256: AB059B8342474CFB5C094529D28D77D9C62EB338F3684087FAE36ED8938477F6
+  source_collision_matrix_sha256: E0AF7A8DC1FFFAC7AACF4732539BF306C8F62609E7ABA559AE154750270DA89A
+  discovery_log_sha256: AAB58AB5F6AC55691C9749B898D0425EEBD02B653BA51E094B89F2F610E40212
+  discovery_handoff_sha256: 5CF2302D4C3B2237D980168AB5BF5837B267BE82F08A3738E5A61E8BE2BDC631
+  discovery_manifest_sha256: 269D3D27F3177EAEBA9CE3AB6662E8CFE01C512A7C0BAC591BFF577AF1384095
+independent_attack_requirements:
+  - Pin current LLVM statepoint/RewriteStatepointsForGC/stackmap/RA/frame union and one stock collector/runtime convention.
+  - Prove the same collector accepts two complete plans preserving root identity, order, update and stackmap-reader semantics while differing in relocate register versus explicit alloca-root/frame/spill realization.
+  - Attack target-specific bounded state and exact/FPT/Pareto guarantee versus ordinary RA/frame placement, GC lowering options or changed collector contract.
+  - Audit strongest collision, natural statepoint corpus, compile/frame/stackmap/spill/runtime full cost and finite Stage A killer.
+forbidden: [implementation, experiment, benchmark, build, stageA, stageB, shared_control_write]
+required_outputs: [STAGE0_REPORT.md, Q1_COMPARATOR_MATRIX.md, SOURCE_AUDIT.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

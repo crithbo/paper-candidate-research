@@ -1,0 +1,44 @@
+schema: assignment-context-v1
+assignment_id: TEMP-MAINLINE-20260829-STAGEA-SCOPE-BUDGET-R1
+role_id: MAINLINE
+role_mode: TEMPORARY_BOUNDED_SHARED_WRITER
+thread_id: 01a034d0-b495-7d02-9b36-d43b6f33de96
+authorization_id: USER_TEMP_MAINLINE_STAGEA_SCOPE_BUDGET_20260829
+project_root: E:\project\writing\reserch
+cwd_required: E:\project\writing\reserch
+audit_source: stages/rule-audit/RULE-AUDIT-20260829-STAGEA-SCOPE-CUMULATIVE-BUDGET-R1
+unique_control_directory: stages/control/temp-mainline-stagea-scope-budget-20260829
+validation_directory: stages/rule-audit/RULE-AUDIT-20260829-STAGEA-SCOPE-CUMULATIVE-BUDGET-R1/validation
+initial_mode: SHADOW
+production_cutover_allowed_only_if:
+  - historical_replay_accepts
+  - two_prospective_shadow_ledgers_accept_or_honestly_hold
+  - no_existing_scientific_decision_changes
+  - shared_file_snapshot_unchanged_before_each_patch
+frozen_shared_snapshot:
+  AGENTS.md: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75
+  plan.md: A6BC2C32D55ADB9FF4B4E4CF59DDEDD6CEF45B0ECF42DB2BF77D491277AD7907
+  registry.yaml: E1040F7257D3CBCB080FDCDA58E4991F072B2B114B567D0C10D099680BFB1BA3
+  rules/ROLE_MAINLINE.md: 91EF03AC878B6E93476D8A913B14F59EFAA4ADABF20D0C2ED6465D808B18370A
+  rules/ROLE_CANDIDATE_OWNER.md: F7FD7DDEDFE1874E7F742122348819C0E2F36C7CCD5BBE4E30362ED94CE6FC2D
+  rules/ROLE_STAGEA_REVIEW.md: 3F625031306861248D817C36905E3D0AB0DCDB3B8B6B959673975BDB6128FF01
+  rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74
+  templates/STAGEA_REPORT.md: DF9AA27111D303600FD4C7F81DEB1FF52FFD6C308973D33B8A9EC59CA4542D7F
+allowed_actions:
+  - targeted_shared_rule_and_template_patch
+  - read_only_historical_replay
+  - shadow_ledger_generation
+  - targeted_plan_registry_history_record_after_acceptance
+forbidden_actions:
+  - candidate_tool_run
+  - claim_run
+  - download
+  - build
+  - queue_dispatch_outside_shadow_validation
+  - stage_transition_before_validation
+  - stageb
+  - formal_project
+  - recursive_full_tree_hash
+  - overwrite_concurrent_shared_change
+scientific_or_resource_action_started: false
+

@@ -1,0 +1,79 @@
+schema: r4-shadow-scheduling-telemetry-v1
+proposal_id: ADAPTIVE-WIP-FAST-HANDOFF-BURST-R4
+user_approval_directive_sha256: 9ACEC6454E7F3DF88BC5E1FDA5C557F587D01D191853A8424569BCF314635ABB
+mode: TWO_CYCLE_SHADOW_PILOT
+base_active_seats: 4
+maintenance_coexistence_burst: 1
+per_stage_maximum: 4
+new_task_created: false
+shared_writer_count: 1
+cycles:
+  - cycle_id: R4-PILOT-CYCLE-1-AIGER-HANDOFF
+    trigger: COMPLETED_SCIENTIFIC_GATE_HANDOFF_WHILE_MAINTENANCE_AND_BACKTEST_ACTIVE
+    maintenance_or_backtest_active: true
+    ready_queue_count: 1
+    ready_assignment: STAGEA-L1-20260810-AIGER-DELTA-SCHEDULE-INITIAL-R3P0
+    upstream_gate: CONFIRM_STAGE0_PASS
+    resource_ready: true
+    existing_idle_long_lived_lane: CANDIDATE_EXECUTION_LANE_1
+    frozen_rule_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility
+    frozen_input_hashes: true
+    unique_write_directory: stages\stageA\AIGER-DELTA-SCHEDULE\initial
+    active_lane_count_before: 2
+    burst_eligible: true
+    burst_capacity_actually_needed_above_base_four: false
+    action: MECHANICALLY_ACCEPT_CONFIRMATION_AND_DISPATCH_EXISTING_LANE
+    active_lane_count_after: 3
+    completed_handoff_wait_cycles: 1
+    handoff_rework: 0
+    duplicate_work: 0
+    shared_write_conflict: 0
+    rule_revision_drift: 0
+    independent_review_merged_or_skipped: false
+    decisive_stagea_observation: 0
+    user_attention_events: 0
+    model_task_dispatches: 1
+    clean_stage0_pass_packages_serviced: 1
+  - cycle_id: R4-PILOT-CYCLE-2-EMPTY-READY-QUEUE
+    trigger: NEXT_MAINLINE_SCHEDULING_CONTROL_CYCLE
+    maintenance_or_backtest_active: true
+    ready_queue_count: 0
+    ready_assignment: null
+    active_lane_count_before: 3
+    burst_eligible: false
+    burst_deactivation_reason: READY_QUEUE_EMPTY
+    action: NO_ADDITIONAL_SCIENTIFIC_OR_DISCOVERY_DISPATCH
+    active_lane_count_after: 3
+    completed_handoff_wait_cycles: 0
+    handoff_rework: 0
+    duplicate_work: 0
+    shared_write_conflict: 0
+    rule_revision_drift: 0
+    independent_review_merged_or_skipped: false
+    decisive_stagea_observation: 0
+    user_attention_events: 0
+    model_task_dispatches: 0
+    clean_stage0_pass_packages_serviced: 0
+negative_controls:
+  blocked_resource_topic_activates_burst: false
+  unapproved_stageb_activates_burst: false
+  same_packet_backtest_parallel_roles_activates_burst: false
+  no_ready_queue_activates_burst: false
+  duplicate_assignment_allowed: false
+cost_reporting:
+  user_cost: ZERO_ADDITIONAL_USER_ACTIONS_FOR_AIGER_ROUTING
+  model_cost: ONE_EXISTING_LANE_DISPATCH__NO_NEW_TASK
+  cost_per_new_clean_stage0_brief: NOT_APPLICABLE__PILOT_SERVICED_EXISTING_CONFIRMED_PACKAGE
+  cost_per_decisive_stagea_observation: NOT_YET_MEASURABLE__AIGER_STAGEA_ACTIVE
+acceptance:
+  ready_science_serviced_within_next_control_cycle: true
+  duplicate_work_zero: true
+  shared_write_conflict_zero: true
+  rule_revision_drift_zero: true
+  independent_review_preserved: true
+  idle_burst_not_kept_alive: true
+  result: PASS_FOR_AUTHORITATIVE_SCHEDULING_CUTOVER
+rollback:
+  action: SET_MAINTENANCE_COEXISTENCE_BURST_TO_ZERO
+  candidate_state_rollback_required: false
+

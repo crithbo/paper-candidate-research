@@ -1,0 +1,24 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+identity:
+  topic_id: MECHANICAL_FIXTURE
+  assignment_id: RESOURCE-LOCALIZATION-NO-NETWORK-FIXTURE-001
+  stage_or_mode: MAINLINE_MECHANICAL_VALIDATION
+  run_id: run-001
+  unique_write_directory: D:\project\writing\reserch\stages\rule-audit\_mechanical-fixtures\assignment-resource-localization-v1\fixture-assignment
+  resource_root: D:\project\writing\reserch\stages\rule-audit\_mechanical-fixtures\assignment-resource-localization-v1\fixture-assignment\resources
+  inventory_path: D:\project\writing\reserch\stages\rule-audit\_mechanical-fixtures\assignment-resource-localization-v1\fixture-assignment\RESOURCE_INVENTORY.yaml
+root_measurement: {logical_bytes: 0, allocated_bytes: null, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true}
+required_directories: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - {tool: POWERSHELL_FIXTURE_ONLY, executable: powershell, version: current, expected_write_surfaces: [TEMP, TMP, TMPDIR], redirect_environment: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp}, redirect_flags: [], evidence: PROCESS_SCOPE_ONLY_NO_CHILD_RESOURCE_ACTION, status: PASS}
+resource_envelope: {network_bytes_max: 0, stored_bytes_max: 1048576, cpu_hours_max: 0.01, gpu_hours_max: 0, wall_seconds_max: 60, attempts_max: 1, network_bytes_used: 0, stored_bytes_used: 0, attempts_used: 1}
+entries: []
+shared_assets_consumed: []
+external_system_dependencies: []
+cleanup: {owner: MAINLINE, authorized_descendants: [], performed: false, deleted_entries: [], deleted_logical_bytes: 0, performed_at: null, recoverability: NOT_APPLICABLE}
+validation: {resource_root_exact_match: true, root_under_workspace: true, forbidden_root_check: true, reparse_traversal_check: true, required_directories_present: true, persisted_resources_inventoried: true, envelope_within_limit: true, claim_critical_content_hashes_present: true, result: PASS}

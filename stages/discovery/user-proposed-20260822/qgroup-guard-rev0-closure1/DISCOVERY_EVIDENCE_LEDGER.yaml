@@ -1,0 +1,40 @@
+assignment_id: DISCOVERY-S6-20260822-QGROUP-GUARD-CLOSURE1
+topic_id: QGROUP-GUARD-REV0
+claim_bearing_experiments: NOT_RUN__FORBIDDEN_BY_ASSIGNMENT
+entries:
+  - id: E1
+    role: CURRENT_UPSTREAM_RELEASE
+    source_type: official_release
+    url: https://github.com/vllm-project/vllm/releases/tag/v0.26.0
+    frozen_locator: v0.26.0__568afb3
+    supports: exact upstream tag and W4A16 release context
+  - id: E2
+    role: CURRENT_UPSTREAM_PRODUCER_AND_ACTION_UNION
+    source_type: official_tagged_source
+    url: https://github.com/vllm-project/vllm/blob/v0.26.0/vllm/model_executor/kernels/linear/mixed_precision/triton_w4a16.py
+    supports: BLOCK_K guard, one-group metadata index, admission constraints, loader/repack path
+  - id: E3
+    role: CURRENT_UPSTREAM_FORMAT_PRODUCER
+    source_type: official_tagged_source
+    url: https://github.com/vllm-project/vllm/blob/v0.26.0/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_wNa16.py
+    supports: group-size, packed weight, scale, zero-point and backend-selection union
+  - id: E4
+    role: SEMANTIC_SUBTRACTOR
+    source_type: official_documentation
+    url: https://mlir.llvm.org/docs/Dialects/QuantDialect/
+    supports: blockwise per-element metadata semantics
+  - id: E5
+    role: METHODOLOGICAL_ADJACENT
+    source_type: primary_paper
+    url: https://arxiv.org/abs/2608.12629
+    supports: typed schedule verification/cost adjacency only
+  - id: E6
+    role: LOCATOR_ONLY_CONTRARY
+    source_type: official_issue
+    url: https://github.com/vllm-project/vllm/issues/47159
+    supports: current W4A16 shape failures are not automatically this exact residual
+    not_used_for: novelty, absence, direct collision, scientific disposition
+decision_basis:
+  - E2 directly prevents the candidate illegal cross-group one-metadata-row tile.
+  - E2 and E3 retain the same grouped-W4A16 object and output semantics.
+search_ceiling: CURRENT_SOURCE_DIRECT_FATAL__NO_ABSENCE_CLAIM

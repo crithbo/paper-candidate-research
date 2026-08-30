@@ -1,0 +1,41 @@
+assignment_id: DISCOVERY-S6-20260811-V8.7-WAVE130-SQLITE-BTREE-PAGE-ASSIGNMENT-REDTEAM
+lane: S6-direct-algorithm-software
+rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__r7-p0-repair-vector-dormant-off__discovery-six-lanes-direct-20260811__p1-shadow-not-authoritative
+discovery_quality_mode: OFF
+mode: DEPTH_REDTEAM
+frozen_cutoff: 2026-08-11
+current_upstream_pin:
+  repository: https://github.com/sqlite/sqlite
+  branch: master
+  displayed_head: e0725b0
+  displayed_head_date: 2026-08-08
+  inspected_path: src/btree.c
+result: COMPLETE_ZERO_PROPOSALS
+funnel:
+  raw: 1
+  repeat: 0
+  unique: 1
+  candidate_grade_deep_reviews: 1
+  grounded_briefs: 0
+decision:
+  family: SQLITE-BTREE-GLOBAL-PAGE-ASSIGNMENT
+  status: STRUCTURAL_DROP
+  reason: >-
+    The complete bounded cell-to-page action is directly expressed by current
+    balance_nonroot plus allocation/free-list actions. Wider assignment is
+    autovacuum/VACUUM relocation with paid global cost, changes fixed update
+    semantics, or reduces to generic packing.
+  non_drop_reasons_checked: [missing_implementation, missing_results, resources, ai_readiness]
+  natural_route: public real SQLite application database plus released SQL write trace, to be frozen only if a residual survives
+  native_oracle: PRAGMA integrity_check plus deterministic SQL query-result digest
+  full_cost: database_journal_or_wal_bytes__build_write_read_cpu__peak_rss__page_writes__post_build_read_cost
+  finite_killer: source-map the two legal three-leaf distributions to balance_nonroot/allocation/free-list paths; reject if both map or if alternative needs vacuum/rewrite/reorder
+outputs:
+  - RULE_FREEZE.md
+  - RAW_SCREEN_ROW_EVENTS.md
+  - UNIQUE_OPPORTUNITY_FAMILIES.md
+  - CANDIDATE_GRADE_DEEP_REVIEWS.md
+  - SOURCE_COLLISION_MATRIX.md
+  - DISCOVERY_LOG.md
+  - HASH_MANIFEST.sha256
+lane_state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

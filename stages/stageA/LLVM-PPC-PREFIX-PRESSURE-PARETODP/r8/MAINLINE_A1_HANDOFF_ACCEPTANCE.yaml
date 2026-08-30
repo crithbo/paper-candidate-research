@@ -1,0 +1,57 @@
+schema: mainline-preclaim-parser-failure-acceptance-v1
+accepted_at: 2026-08-26T06:20:00+08:00
+accepted_by: MAINLINE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+addendum_id: PPC-R8-A1-HASH-PINNED-WITNESS-IDENTITY-CORRECTION
+decision: ACCEPT_FAIL_CLOSED_FUNCTION_BOUNDARY_PARSER_INCLUDED_ALIGNMENT_NOP__NO_SCIENTIFIC_INFERENCE
+canonical_hashes:
+  handoff_sha256: 9CABD4E700438DE5183CE2FA595D690F2F58F97259D78748C9A901EB6C2B733A
+  manifest_sha256: 122D85F7872C87BA997FA87719FC0FF6D59FBA60121BE3F3F06BDC956156164F
+  gate_sha256: D3FECB2EC1F0EC917F975CCC56922DFB4783CC9A79BBA563D659F0F0348B0688
+  inventory_sha256: 2B0F7BB8BA93FE29DBE14C26FCBA113ABF27DEA57CBB622E73802CAE6FC21B7E
+validation:
+  manifest: PASS_53_OF_53
+  resource_files: 251
+  resource_logical_bytes: 245603214
+  reparse_entries: 0
+  active_related_processes: 0
+  successful_native_tool_commands: 11
+  failed_native_tool_commands: 0
+  controller_failures: 1
+  retries: 0
+  selected_or_reserve_tool_invocations: 0
+  claim_runs: 0
+accepted_progress:
+  J0: REUSED_PASS_WITHOUT_RERUN
+  input_identity: PASS_IR_DIRECT_AND_EXACT_ASSEMBLY_WITNESS_SYMBOLS
+  actual_cli: PASS_ARGUMENT_AND_IDENTITY_ENTRY
+  real_native_artifacts: PASS_11_COMMANDS_EXIT_ZERO
+accepted_failure:
+  stage: J1_INPUT_DRIVEN_FUNCTION_BOUNDARY_PARSE
+  parser_source: resources/src/actual_claim_harness/trace_model.py
+  parser_source_sha256: BDA3B305DFD8A17CC723BD62D72C901608EFA33DAD0F396E878F1F54CE0ACB2F
+  witness_readobj_sha256: 6778B4F4E17B6A661E89DFD0F15CF74BB25E39069E76D498C55722A23EC3C0A3
+  witness_objdump_sha256: 7C92E636734223DF6194C4EC2430145AAF1079853C89343DF17BBB57AABD5838
+  direct_symbol: {value: 0x0, size_bytes: 12, valid_interval: '[0x0,0xC)', valid_opcodes: [pld, blr], excluded_alignment_opcode: {address: 0xC, opcode: nop}}
+  materialized_symbol: {value: 0x10, size_bytes: 16, valid_interval: '[0x10,0x20)', valid_opcodes: [paddi, ld, blr]}
+  defect: OBJDUMP_NEXT_SYMBOL_BOUNDARY_INCLUDES_ALIGNMENT_PADDING_BEFORE_NEXT_SYMBOL
+finite_engineering_correction:
+  eligible: true
+  exact_file_scope: resources/src/actual_claim_harness/trace_model.py
+  original_sha256: BDA3B305DFD8A17CC723BD62D72C901608EFA33DAD0F396E878F1F54CE0ACB2F
+  semantic_patch: PARSE_ELF_FUNCTION_SYMBOL_VALUE_AND_SIZE_FROM_READOBJ__KEEP_ONLY_INSTRUCTIONS_WITH_ADDRESS_IN_VALUE_LE_ADDRESS_LT_VALUE_PLUS_SIZE
+  fail_closed_conditions: [MISSING_SYMBOL, NON_FUNCTION_SYMBOL, ZERO_SIZE, DUPLICATE_SYMBOL, OVERFLOW, NO_INSTRUCTIONS_IN_RANGE, INSTRUCTION_CROSSES_SYMBOL_END]
+  opcode_based_padding_deletion_forbidden: true
+  other_harness_source_change_forbidden: true
+  old_replay_1_invalidated: true
+  corrected_fresh_replays_required: 2
+  J0_rerun_forbidden: true
+  new_selected_or_reserve_tool_invocations_allowed: 0
+accepted_evidence_ceiling: REAL_NATIVE_ARTIFACTS_AND_DECISIVE_PARSER_CONSTRUCTION_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+r9_claim_start_allowed: false
+claim_bearing_observation_count: 0
+scientific_revision_consumed: false
+scientific_state_effect: NONE
+lifecycle_disposition: RETAIN_RAW_AND_IMPLEMENTATION__EMPTY_AND_CACHE_LEAVES_MAINLINE_ONLY_AFTER_SUCCESSOR_OR_CLOSEOUT_GATE
+next_action: FREEZE_R8_A2_SYMBOL_RANGE_PARSER_CORRECTION_ADDENDUM_AND_REACK

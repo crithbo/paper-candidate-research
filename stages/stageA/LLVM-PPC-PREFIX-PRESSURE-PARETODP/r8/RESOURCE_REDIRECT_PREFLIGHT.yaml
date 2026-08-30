@@ -1,0 +1,33 @@
+schema: ppc-r8-resource-redirect-preflight-v1
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources
+status: PASS_BEFORE_RESOURCE_ACTION
+required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+network_allowed: false
+process_local_only: true
+system_or_user_environment_modified: false
+reparse_or_out_of_root_write_allowed: false
+redirect_map:
+  TEMP: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/tmp
+  TMP: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/tmp
+  TMPDIR: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/tmp
+  PYTHONPYCACHEPREFIX: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/cache/pycache
+  PYTHONNOUSERSITE: '1'
+  PIP_CACHE_DIR: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/cache/pip
+  XDG_CACHE_HOME: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/cache/xdg
+  CLANG_MODULE_CACHE_PATH: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/cache/clang-modules
+  CCACHE_DISABLE: '1'
+tools:
+  - name: PowerShell Copy-Item
+    executable: C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe
+    writable_surfaces: [EXACT_DESTINATION_TREE_ONLY]
+    redirect_reliability: PASS_LITERAL_PATH_NO_NETWORK_NO_TEMP_OUTPUT_REQUIRED
+  - name: bundled_workspace_python
+    executable: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+    writable_surfaces: [EXPLICIT_OUTPUT_ROOT, PYTHON_BYTECODE_CACHE, TEMP]
+    redirect_reliability: PASS_PROCESS_LOCAL_ENV_AND_EXPLICIT_OUTPUTS
+  - name: copied_llvm_tools
+    executable_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/env/ppc-toolchain/bin
+    writable_surfaces: [EXPLICIT_OUTPUT_FILES, TEMP]
+    redirect_reliability: PASS_PROCESS_LOCAL_ENV_AND_EXPLICIT_OUTPUTS
+

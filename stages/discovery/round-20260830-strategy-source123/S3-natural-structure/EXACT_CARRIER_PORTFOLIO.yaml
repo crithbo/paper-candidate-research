@@ -1,0 +1,23 @@
+schema: exact-public-carrier-portfolio-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE123
+topic_id: SOURCE123-PORTFOLIO-S3
+start_authority: {path: stages/discovery/round-20260830-strategy-source123/control/MAINLINE_BOOTSTRAP_ACCEPTANCE_AND_START.yaml, sha256: 7144D0665E6765669793EBBF1E769F80665F957CDE5AF751491CEE3D4BC3C52A}
+portfolio_scope: public low-bit kernel or packing layouts with exact bit semantics and natural block sparsity or grouping structure
+explicit_exclusions: [EXECUTORCH_FALLBACK_RANK_FAMILY, SIMPLE_PARAMETER_TUNING]
+frozen_before_first_source_call: true
+frozen_before_primary_rq_source_closure: true
+carriers:
+  - {id: C01, name: torchao_AffineQuantizedTensor_TensorCoreTiledLayout, locator: https://github.com/pytorch/ao/tree/main/torchao/dtypes, tentative_fields: [int4_packed_weight, scale, zero_point, group_size, inner_k_tiles, layout], kind: IMPLEMENTATION_CARRIER_ONLY}
+  - {id: C02, name: torchao_MarlinSparseLayout, locator: https://github.com/pytorch/ao, tentative_fields: [int4_weight, two_of_four_sparsity, sparse_metadata, group_scale, packed_layout], kind: IMPLEMENTATION_CARRIER_ONLY}
+  - {id: C03, name: Triton_block_scaled_matmul, locator: https://github.com/triton-lang/triton/blob/main/python/tutorials/10-block-scaled-matmul.py, tentative_fields: [mxfp4, mxfp8, block_scale, scale_layout, tensor_descriptor, matmul_tile], kind: CANONICAL_BENCHMARK_ONLY}
+  - {id: C04, name: CUTLASS_block_scaled_GEMM, locator: https://github.com/NVIDIA/cutlass, tentative_fields: [narrow_precision_operand, block_scale_factor, scale_factor_layout, tile, epilogue], kind: IMPLEMENTATION_CARRIER_ONLY}
+  - {id: C05, name: Transformer_Engine_MXFP8_NVFP4_recipes, locator: https://github.com/NVIDIA/TransformerEngine, tentative_fields: [mxfp8_block_scaling, nvfp4_block_scaling, per_block_scale, global_scale, tensor_format], kind: IMPLEMENTATION_CARRIER_ONLY}
+  - {id: C06, name: bitsandbytes_4bit_nested_quantization, locator: https://github.com/bitsandbytes-foundation/bitsandbytes, tentative_fields: [packed_4bit_weight, absmax, quant_state, nested_quant, blocksize], kind: IMPLEMENTATION_CARRIER_ONLY}
+  - {id: C07, name: llama_cpp_GGML_K_quants, locator: https://github.com/ggml-org/llama.cpp/tree/master/ggml/src, tentative_fields: [super_block, quant_block, packed_values, scales, mins, importance_matrix], kind: IMPLEMENTATION_CARRIER_ONLY}
+  - {id: C08, name: Marlin_INT4xFP16_kernel, locator: https://github.com/IST-DASLab/marlin, tentative_fields: [gptq_int4, packed_weight, permutation, group_scale, fp16_activation], kind: IMPLEMENTATION_CARRIER_ONLY}
+  - {id: C09, name: BitBLAS_low_bit_matmul, locator: https://github.com/microsoft/BitBLAS, tentative_fields: [low_bit_weight, transform_layout, scaling, zero_point, schedule, target], kind: IMPLEMENTATION_CARRIER_ONLY}
+  - {id: C10, name: GemLite_low_bit_CUDA_kernel, locator: https://github.com/mobiusml/gemlite, tentative_fields: [packed_weight, bit_width, group_size, scale, zero_point, kernel_config], kind: IMPLEMENTATION_CARRIER_ONLY}
+carrier_count: 10
+scientific_denominator_effect: NONE_UNTIL_EVIDENCE_QUALIFIED_RAW_GATE
+result_aware_backfill_forbidden: true
+

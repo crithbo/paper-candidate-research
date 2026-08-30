@@ -1,0 +1,24 @@
+schema: oracle-equivalence-v3
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R6-UINT32-CHECKER-PORTABILITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+obligation: F4_LABELED_VS_QUOTIENT_FRONTIER_ORACLE_EQUALITY
+status: PASS_PRECLAIM_CONTROL
+evidence:
+  replay_1: {path: resources/logs/checker/checker_replay1.json, sha256: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966, result: PASS}
+  replay_2: {path: resources/logs/checker/checker_replay2.json, sha256: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966, result: PASS}
+  deterministic_exact_match: true
+oracle_audit:
+  exhaustive_scenarios: 64
+  successor_set_mismatches: 0
+  labeled_successor_set_equals_quotient: true
+  cost_multiset_equal: true
+  frontier_equality_under_frozen_cost_vector: PASS_DERIVED_FROM_EXHAUSTIVE_ORBIT_CLASS_COST_BIJECTION
+  canonical_backpointer_membership: PASS_STATIC_FROZEN_CONSTRUCTOR_AND_MATERIALIZED_WITNESS_AUDIT
+  corrected_witness_frontier_count: 2
+  corrected_witness_orbit_classes: [COPY_LEGACY, NDD_DIRECT]
+  corrected_witness_backpointers: [COPY_X_TO_DEST_THEN_LEGACY, NDD_DIRECT]
+materialized_output_machineverifier: PASS_CARRIED_FROM_R5_LLC_PAIR_NO_R6_RERUN
+result: PASS_FROZEN_LABELED_QUOTIENT_ORACLE_EQUIVALENCE
+claim_ceiling: PRECLAIM_CONTROL_ONLY__NO_NATURAL_OR_PERFORMANCE_INFERENCE
+scientific_inference: NONE
+

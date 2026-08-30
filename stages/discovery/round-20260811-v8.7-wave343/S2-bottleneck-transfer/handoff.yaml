@@ -1,0 +1,42 @@
+assignment_id: DISCOVERY-S2-20260811-V8.7-WAVE343-FRESH-VERIFIED-PIPELINE-STATE-COUPLING-BREADTH
+lane: S2-bottleneck-transfer
+status: IDLE_REUSABLE_AWAITING_MAINLINE
+completion: COMPLETE_ZERO_PROPOSALS
+authoritative_method: v8.7+R5-P0
+discovery_quality_mode: OFF
+cutoff_date: '2026-08-11'
+write_boundary: stages/discovery/round-20260811-v8.7-wave343/S2-bottleneck-transfer
+rule_freeze:
+  AGENTS.md: 66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063
+  plan.md: 8BED71F1078434DD27461F5B85657FA18E44B072F335666332DA2F91FC59E95D
+  registry.yaml: 22FE6C6DE76A5D94B8B40B64DA9E74161F8D3305BF9B946132D97AB5405E7662
+  rules/ROLE_DISCOVERY.md: FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3
+funnel:
+  raw_row_events: 8
+  repeat_rescreens: 0
+  unique_opportunity_families: 8
+  candidate_grade_deep_reviews: 3
+  grounded_briefs: 0
+deep_reviews:
+  - family: EXT4_JBD2_RECOVERY
+    decision: NOT_ADMITTED_UNFROZEN
+  - family: POSTGRESQL_WAL_RECOVERY
+    decision: NOT_ADMITTED_UNFROZEN
+  - family: OPENZFS_SEND_RECEIVE
+    decision: NOT_ADMITTED_UNFROZEN
+natural_carrier: Version-pinned public ext4, PostgreSQL and OpenZFS traces; 20-50 bounded cases.
+stock_oracle: Stock replay/mount, database recovery/query, or receive/scrub/snapshot equality.
+full_cost: Construction/logging CPU-RSS-temp-bytes; recovery/replay/receive CPU-RSS; cold-warm access and final bytes.
+killer_within_72h: Fail if correctness state/record order/checksum/reader/snapshot semantics changes or only existing policy/config/cache/scheduler remains.
+non_reasons:
+  - missing implementation
+  - missing positive result
+  - data/resource availability
+  - AI readiness
+terminal_stop: false
+manifest: HASH_MANIFEST.sha256
+artifacts:
+  - DISCOVERY_LOG.md
+  - SOURCE_COLLISION_MATRIX.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256

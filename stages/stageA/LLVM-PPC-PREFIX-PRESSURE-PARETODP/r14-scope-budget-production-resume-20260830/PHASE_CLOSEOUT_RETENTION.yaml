@@ -1,0 +1,38 @@
+schema: phase-closeout-retention-v1
+assignment_id: STAGEA-L2-20260830-LLVM-PPC-R14-A0-PRODUCTION-RESUME
+closeout_kind: A0_EXACT_BLOCKER_HANDOFF
+lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+scientific_state_effect: NONE
+retain:
+  - {path: resources/src/runner, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: exact frozen runner and common module}
+  - {path: resources/src/inputs/selected-00.ll, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: exact failed control input}
+  - {path: resources/build/control/candidate, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: decisive raw engineering failure and precommit receipts}
+  - {path: resources/logs/control, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: outer process capture}
+  - {path: A0_CONTROL_STATUS.yaml, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: mechanical status without result visibility}
+  - {path: STAGEA_EXECUTION_READINESS_LEDGER.yaml, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: topic-cumulative A0 budget accounting}
+cleanup_candidates_after_accepted_handoff:
+  - {path: resources/downloads, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, expected_files: 0, expected_bytes: 0}
+  - {path: resources/archives, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, expected_files: 0, expected_bytes: 0}
+  - {path: resources/env, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, expected_files: 0, expected_bytes: 0}
+  - {path: resources/tmp, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, expected_files: 0, expected_bytes: 0}
+  - {path: resources/cache, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, expected_files: 0, expected_bytes: 0}
+  - {path: resources/src/inputs/selected-01.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 2603}
+  - {path: resources/src/inputs/selected-02.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 1154}
+  - {path: resources/src/inputs/selected-03.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 3499}
+  - {path: resources/src/inputs/selected-04.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 1860}
+  - {path: resources/src/inputs/selected-05.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 1705}
+  - {path: resources/src/inputs/selected-06.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 498}
+  - {path: resources/src/inputs/selected-07.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 3621}
+  - {path: resources/src/inputs/selected-08.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 12137}
+  - {path: resources/src/inputs/selected-09.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 770}
+  - {path: resources/src/inputs/selected-10.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 11991}
+  - {path: resources/src/inputs/selected-11.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 1209}
+  - {path: resources/src/inputs/selected-12.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 28301}
+  - {path: resources/src/inputs/selected-13.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 4085}
+  - {path: resources/src/inputs/selected-14.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 2008}
+  - {path: resources/src/inputs/selected-15.ll, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, expected_files: 1, expected_bytes: 2684}
+deletion_gate: MAINLINE_ACCEPTED_HANDOFF_PLUS_CONTAINMENT_REPARSE_ACTIVE_PROCESS_AND_DOWNSTREAM_CHECKS
+reacquire_source_manifest_sha256: 3C40C107A7D312CB74623C13F9018F38C4E411AB537A39E54019ED43C3381A4A
+

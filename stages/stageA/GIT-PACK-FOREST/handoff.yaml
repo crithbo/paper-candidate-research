@@ -1,0 +1,91 @@
+schema_version: git-pack-forest-stagea-handoff-v1
+topic_id: GIT-PACK-FOREST
+lane_id: CANDIDATE-EXECUTION-LANE-3
+assignment_id: STAGEA-L3-20260809-GIT-PACK-FOREST-INITIAL
+stage: STAGEA
+decision_recommendation: STOP
+quality_tier: BELOW_Q2_STOP
+novelty_route: N2
+evidence_ceiling: BOUNDED_NATURAL_20_REPOSITORY_GIT_2_55_NEGATIVE__NO_GENERAL_IMPOSSIBILITY_CLAIM
+claim_bearing_observation:
+  obtained: true
+  first_useful_edge_local_time: '2026-08-09T20:46:34.8929917+08:00'
+  artifact: results/codec-final-initial/hellogitworld.json
+  sha256: F801377F44A9DA2B44995B50E6A3A19B8668CDBB8227DA6660B207EAC41B3755
+pre_claim_contract_fidelity_gate:
+  status: PASS_NATIVE_GIT_CODEC_AND_FULL_COST
+  native_delta_parity: 38/38
+  native_zlib_parity: 38/38
+  strict_small_witness: PASS
+  os_rss_preflight: PASS
+  index_construction_cost_included: true
+claim_runs:
+  initial: results/codec-final-initial
+  replay: results/codec-final-replay
+corpus:
+  repository_count: 20
+  reachable_object_count: 7016
+  canonical_bytes: 50091889
+  lock_sha256: 22985F5747AC66717BF35557951FE542AEE43BB6FE4B141DCB819EB1B418A1DB
+correctness:
+  initial_pass: 20/20
+  replay_pass: 20/20
+  canonical_mismatch_count: 0
+  strict_failure_count: 0
+science:
+  selected_useful_edges_per_run: 832
+  outside_union_edges_per_run: 0
+  residual_aggregate_initial: 0.0
+  residual_aggregate_replay: 0.0
+  residual_p50: 0.0
+  residual_p90: 0.0
+  stop_threshold: 0.10
+  candidate_forest_differs_from_classic_repositories: 18
+  size_residual_fraction_p50: -0.5529550688191515
+  size_residual_fraction_p90: -0.06840419683919774
+  primary_benefit_repositories_initial: 0
+  primary_benefit_repositories_replay: 0
+stop_reasons:
+  - RESIDUAL_COVERAGE_BELOW_0_10
+  - NO_EFFECTIVE_UNION_RESIDUAL_AT_P50_AND_P90
+  - NO_REPRODUCIBLE_PRIMARY_PACK_SIZE_OR_ACCESS_BENEFIT
+full_cost:
+  conservative_recorded_pilot_cpu_upper_seconds: 7773.765625
+  cpu_budget_seconds: 14400
+  pre_manifest_workspace_checkpoint_bytes: 3039633317
+  workspace_budget_bytes: 4294967296
+  peak_rss_bytes_max_claim_runs: 105988096
+reproducibility:
+  assessment: SCIENTIFIC_DECISION_REPRODUCED__BYTE_HASH_PARTIAL
+  candidate_pack_index_hash_pairs: 20/20
+  deterministic_simple_hash_pairs: 40/40
+  all_method_hash_pairs: 224/280
+  covered_flags_equal: true
+  outside_counts_equal: true
+controls:
+  scientific_revision_consumed: false
+  retained_non_claim_controls:
+    - results/initial
+    - results/native-initial
+    - results/native-replay
+    - results/claim-initial
+    - results/claim-replay
+    - results/final-initial
+    - results/final-replay
+stageb:
+  pending_user_stageb_review: false
+  stageb_user_approval_id: null
+  stageb_authorized: false
+  project_write: false
+lane_state:
+  current: DELIVERY_COMPLETE_AWAITING_MAINLINE_ACCEPTANCE
+  after_mainline_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE
+  assignment_context_clear_after_acceptance: true
+deliverables:
+  report: STAGEA_REPORT.md
+  contract: EXPERIMENT_CONTRACT.yaml
+  comparator: Q1_COMPARATOR_MATRIX.md
+  command_log: COMMAND_LOG.md
+  results: RESULTS.md
+  user_packet: USER_REVIEW_PACKET.md
+  manifest: HASH_MANIFEST.sha256

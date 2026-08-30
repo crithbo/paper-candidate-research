@@ -1,0 +1,13 @@
+schema_version: r16b-replacement-neutral-v1
+reservation: CONFIRMED_BY_MAINLINE_2026-08-13
+families:
+  - signature: S4_GLIBC_GCONV_MODULES_CACHE_CONSTRUCTOR__FIXED_GCONV_MODULE_SET__STOCK_ICONV_CONVERSION_SEMANTICS__WHOLE_ICONVCONFIG_CONSTRUCTION__BYTES_BUILD_CPU_RSS_LOOKUP_CPU_RSS
+    source_snapshot: 'glibc manual latest, glibc-iconv implementation; source paths iconv/gconv_conf.c and iconv/iconvconfig.c; accessed 2026-08-13'
+    controls: 'fixed modules/aliases/conversion costs; GCONV_PATH/default search; no iconv semantics change'
+  - signature: S4_NCURSES_TERMINFO_DATABASE_CONSTRUCTOR__FIXED_TERMINFO_SOURCE_SET__STOCK_TIPARM_TERMINFO_LOOKUP_SEMANTICS__WHOLE_TIC_CONSTRUCTION__BYTES_BUILD_CPU_RSS_LOAD_CPU_RSS
+    source_snapshot: 'ncurses 6.6 tic(1m), terminfo(5), term(5); source paths progs/tic.c and ncurses/tinfo; accessed 2026-08-13'
+    controls: 'fixed terminal descriptions/capabilities; directory versus hash build configuration and TERMINFO/TERMINFO_DIRS resolution included'
+  - signature: S4_XKB_COMPILED_KEYMAP_CONSTRUCTOR__FIXED_XKB_RULES_SYMBOLS_GEOMETRY_SET__STOCK_LIBXKBCOMMON_KEYMAP_SEMANTICS__WHOLE_XKBCOMP_CONSTRUCTION__BYTES_BUILD_CPU_RSS_LOAD_CPU_RSS
+    source_snapshot: 'libxkbcommon current FAQ/debug docs; source paths tools/xkbcli-compile-keymap.c and src/xkbcomp; accessed 2026-08-13'
+    controls: 'fixed rules/layout/variant/options/include paths; xkbcli compile-keymap/xkbcomp flags enumerated; no display-server/keymap semantic change'
+dedup: 'Mainline confirmed all three exact signatures reserved and unique across global history/registry/R16A/current-R16B bounded search.'

@@ -1,0 +1,66 @@
+schema_version: stage0-confirmation-handoff-v1
+assignment_id: STAGE0-C2-20260822-PATCHVALUE-COUNTERFACTUAL-CONFIRMATION
+topic_id: PATCHVALUE-COUNTERFACTUAL-REV0
+lane: STAGE0-CONFIRMATION-SENTRY-D
+status: COMPLETE
+decision: CONFIRM
+confirmed_primary_decision: REVISE_ONCE
+quality_tier_if_gate_closes: TIER_B_Q2_VIABLE
+confidence: 0.84
+evidence_ceiling: E1_STATIC_PREFLIGHT__SEARCH_BOUNDED_OPEN__NO_CLAIM_BEARING_RESULT
+atomic_gate:
+  id: FROZEN_SAME_STATE_BRANCH_FIDELITY__NONATTRIBUTION_CONTINUATION_VALUE_CERTIFICATE
+  disposition: CONFIRMED_WITH_MATERIAL_CURRENT_UNION_NARROWING
+  required_conjuncts:
+    - C1_CURRENT_NATIVE_FORK_CATALOG
+    - C2_WHOLE_MUTABLE_ENVIRONMENT_SUTVA
+    - C3_TREATMENT_AND_EVALUATOR_FIREWALL
+    - C4_CAR_RESIDUAL_AND_GUARANTEE
+    - C5_FINITE_FIDELITY_AND_FULL_COST_KILLER
+  revision_count_consumed_by_this_confirmation: 0
+  revision_execution_allowed_to_this_lane: false
+failure_sentinel:
+  id: STOP__CAUSAL_REPLAY_RELABEL_OR_NONIDENTIFIED_BRANCH_EFFECT
+  mechanically_confirmed: true
+  exclusions:
+    - missing implementation
+    - missing positive result
+    - unexecuted native branch replay
+    - model, data, network, or hidden-test resource absence
+material_correction:
+  - Current official OpenHands exposes Conversation.fork and therefore absorbs conversation/event/agent-state copying.
+  - Current LocalConversation.fork reuses the same workspace, so it does not establish whole-mutable-environment SUTVA.
+  - The frozen-pin/current action map and shared-versus-isolated field catalog must be part of the same sole revision gate.
+  - Empirical branch fidelity belongs to the first Stage A preclaim gate; Stage 0 revision must provide its executable static specification, not a result.
+stage0_repair_vector:
+  codes:
+    - OMITTED_CURRENT_SAME_OBJECT
+    - OMITTED_FIRST_PARTY_FEATURE
+  changes_scientific_decision: false
+search_status: SEARCH_BOUNDED_OPEN
+independence:
+  participated_in_discovery: false
+  participated_in_primary: false
+  excluded_topic_read_or_revived: false
+integrity:
+  assignment_sha256: 78E626D89230E438B6D9A9ADC65AC66A93185D8D2E060981A7B37689E06F9DCD
+  primary_handoff_sha256: 7D2B39D18820EE840892D2E118A16DCA2B16E94FCD8D509186B5A48EABA8DB4E
+  primary_manifest_sha256: D04BFEFA3C49051A0278B343CACAA73061199ED085F97B50B8F4B7F3215AF60F
+  primary_manifest_validation: 11/11_PASS
+  discovery_handoff_sha256: 9E2F036FB6D061DB73568D6F2E7161A235169E622C5F90848FF95DE9B336BB55
+  discovery_manifest_sha256: 0BD6DE2423EC33096135FE16D84B1DC3DA4865C6CFBA331E368EA9A359289C24
+  discovery_manifest_validation: 10/10_PASS
+outputs:
+  - CONFIRMATION_REPORT.md
+  - SOURCE_LOG.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+stageA_authorized: false
+stageB_authorized: false
+shared_control_write_performed: false
+next_action:
+  owner: MAINLINE
+  action: Dispatch the sole narrowed static revision to the original PRIMARY owner; require an independent closing if it closes.
+  automatic_stage_transition: false
+lane_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

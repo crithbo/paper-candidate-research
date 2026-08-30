@@ -1,0 +1,64 @@
+schema_version: rvv-current-action-catalog-v1
+created_at: 2026-08-26T00:30:00+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-RVV-R4-PRECLAIM-F1-F5
+gate: F1_CURRENT_LLVM_ACTIONS
+result: PASS
+exact_commit:
+  sha: 5bb2565693f062a9e99929db1814a7a076d4dc76
+  commit_json_sha256: 7104CB0CA8DCDF6C5A9AC89A31C8F65F45CDEA336C938E21DA483A405D2605E3
+  source_archive_sha256: BC0E5CC6B7F4978242749E0FF666DDA851994EFFC178BD782C4799D7C2B52695
+  tool_manifest_sha256: 5E6599C5EEC88D09B6D1623BD6BD889E6DAC943C792029D71B632D8C1693138D
+current_register_classes:
+  - {action: ALLOCATE_VR_OR_VRNoV0, source: llvm/lib/Target/RISCV/RISCVRegisterInfo.td, lines: 897-903}
+  - {action: ALLOCATE_LMUL2_GROUP_OR_NoV0, source: llvm/lib/Target/RISCV/RISCVRegisterInfo.td, lines: 905-910}
+  - {action: ALLOCATE_LMUL4_GROUP_OR_NoV0, source: llvm/lib/Target/RISCV/RISCVRegisterInfo.td, lines: 912-917}
+  - {action: ALLOCATE_LMUL8_GROUP_OR_NoV0, source: llvm/lib/Target/RISCV/RISCVRegisterInfo.td, lines: 919-923}
+  - {action: FRACTIONAL_LMUL_F8_F4_F2_CLASSES_WITH_AND_WITHOUT_V0, source: llvm/lib/Target/RISCV/RISCVRegisterInfo.td, lines: 925-936}
+  - {action: DEDICATED_V0_MASK_CLASS, source: llvm/lib/Target/RISCV/RISCVRegisterInfo.td, line: 938}
+current_register_allocator_actions:
+  - ASSIGN_FROM_ALLOCATION_ORDER_AND_HINTS
+  - EVICT_INTERFERENCE
+  - LAST_CHANCE_RECOLOR
+  - LOCAL_OR_GLOBAL_LIVE_RANGE_SPLIT
+  - WHOLE_LIVE_RANGE_SPILL
+  - REMATERIALIZE_WHEN_LEGAL
+  - HOIST_AND_MERGE_EQUAL_SPILLS
+  - FALLBACK_TO_LARGEST_LEGAL_SUPERCLASS
+current_RVV_spill_reload_actions:
+  - {action: WHOLE_LMUL8_STORE_OR_RELOAD, source: llvm/lib/Target/RISCV/RISCVRegisterInfo.cpp, lines: 466-470, opcodes: [VS8R_V, VL8RE8_V]}
+  - {action: WHOLE_LMUL4_STORE_OR_RELOAD, source: llvm/lib/Target/RISCV/RISCVRegisterInfo.cpp, lines: 471-473, opcodes: [VS4R_V, VL4RE8_V]}
+  - {action: WHOLE_LMUL2_STORE_OR_RELOAD, source: llvm/lib/Target/RISCV/RISCVRegisterInfo.cpp, lines: 474-476, opcodes: [VS2R_V, VL2RE8_V]}
+  - {action: WHOLE_LMUL1_STORE_OR_RELOAD, source: llvm/lib/Target/RISCV/RISCVRegisterInfo.cpp, lines: 477-478, opcodes: [VS1R_V, VL1RE8_V]}
+  - {action: TUPLE_SPILL_RELOAD_DECOMPOSITION, source: llvm/lib/Target/RISCV/RISCVRegisterInfo.cpp, lines: 481-732}
+  - {action: NoV0_TO_LARGEST_SUPERCLASS_FALLBACK, source: llvm/lib/Target/RISCV/RISCVRegisterInfo.cpp, lines: 941-954}
+source_hashes:
+  RISCVRegisterInfo_td: 746B736CF8B18CAC72D3B5DCF0D90B712792C5E5F939FBC235FE4D32FDDC1B4A
+  RISCVRegisterInfo_cpp: DE669556F3E5773E7BE48190ED56C26ED33B52F365B735C07F6F87ABF8E96EF5
+  RegAllocGreedy_cpp: 84C4E975946B3011E86C3135D215A35D13A94CEFE4294D4DA10A3ED5B03B6DFD
+  InlineSpiller_cpp: E5D0CDC9AF62BBB4936E2144F928CA4482DC9AFD6AF31AE38BF04851618E1CCA
+  LiveRangeEdit_cpp: 7ECBFA5E39E19FAF67DBF3A0A1DEBD40C065EB379ABC3A11BBA2A55CA01F20B9
+  Spiller_h: 1717D401488DEF34F1191D562E3ED147DCB706F93738C746F4CC0315BE4F7C33
+flag_and_fallback_catalog:
+  default_allocator: --regalloc=default__PICK_BY_OPT_LEVEL
+  available_allocators: [fast, basic, greedy, pbqp]
+  RVV_allocator_flag: --riscv-rvv-regalloc=[basic,greedy,fast]
+  RVV_register_hint_disable_flag: --riscv-disable-regalloc-hints
+  split_modes: [--split-spill-mode=default, --split-spill-mode=size, --split-spill-mode=speed]
+  recolor_controls: [--lcr-max-depth, --lcr-max-interf, --exhaustive-register-search]
+  rematerialization_controls: [--late-remat-update-threshold, --restrict-statepoint-remat, --riscv-use-rematerializable-movimm]
+  vector_width_controls: [--riscv-v-vector-bits-min, --riscv-v-vector-bits-max, --riscv-v-register-bit-width-lmul]
+  verifier_controls: [--verify-machineinstrs, --verify-regalloc]
+  help_hidden_sha256: 14B9F766BAAC47799B73BCA255A798B1497749D0BAC00DE21CBA17B73D3833A7
+PR_105661:
+  frozen_upstream_classification: UNLANDED_AT_PIN
+  exact_archive_scan_scope: llvm/lib/Target/RISCV__llvm/lib/CodeGen__llvm/test/CodeGen/RISCV
+  exact_archive_hits_for_105661_partial_spill_or_typed_spill: 0
+  current_typed_partial_spill_action_present: false
+  future_work_or_unlanded_PR_used_as_current_fact: false
+fidelity_boundary:
+  complete_current_union_enumerated: true
+  candidate_action_not_misattributed_to_current_LLVM: true
+  network_used: false
+  upstream_source_modified: false
+  claim_bearing_observation: false
+  scientific_inference: NONE

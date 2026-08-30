@@ -1,0 +1,103 @@
+schema_version: "candidate-owner-handoff-v1"
+topic_id: "S5-OCCUPANCY-CLIFF-JOINTCODEGEN"
+lane_id: "CANDIDATE_EXECUTION_LANE_1"
+assignment_id: "STAGEA-L1-20260811-S5-OCCUPANCY-CLIFF-JOINTCODEGEN-RESUME2-STAGEA-R2A"
+authorization_id: "STAGEA-RESUME-S5-20260811-R2A"
+assignment_state: "COMPLETE_AWAITING_MAINLINE_ACCEPTANCE"
+lane_state: "IDLE_REUSABLE_AWAITING_MAINLINE"
+source_stage: "STAGEA_REVISION1_RESUME_FROM_RESOURCE_BLOCKER"
+proposed_next_stage: "RESUME_FROM_BLOCKER_IN_NEW_MAINLINE_ASSIGNED_DIRECTORY"
+decision: "BLOCKED_USER_ACTION_REQUIRED"
+quality_tier: "TIER_B_Q2_VIABLE_CARRIED_FORWARD_NOT_RESCORED"
+stage_semantics: "STAGEA_RISK_PILOT_FAIL_CLOSED_BEFORE_CLAIM"
+cross_assignment_contamination_declared: false
+
+input_freeze_sha256: "DFD6CFAB0A1A22DD0FCDC4681DE8E8D0716CC454D9D1EE720610D5564A8D1522"
+frozen_controls:
+  AGENTS.md: "66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063"
+  plan.md: "6CE3E9207E02F4DC24D7B4126EEB7A9E9210AC51FF1D64440F2C7FF1BE12373D"
+  registry.yaml: "E18E1145EDCF11DF0A0843DD93AE9FB65A26C8CF41C64E4B300CA567F175C33D"
+  rules_role_candidate_owner: "30E23336CF339771821EAEC8B2C7011025BA815D613DB639E68121FDCDE54D1F"
+  intake_verification: "PASS_4_OF_4"
+
+exact_object: "LLVM AMDGPU MachineScheduler plus greedy RA at commit 1f112d62e1fa2c4f1a04887abd72da1ed61cf791, amdgpu11.00 wave32, complete natural pre-scheduler MIR"
+main_claim: "A fixed-budget tier-frontier joint scheduling/allocation route may expose legal full-cost occupancy-tier or spill residuals over current GCNSchedStrategy+greedy on natural cliff regions; this assignment did not test the claim."
+novelty_route: "N2"
+strongest_baseline:
+  - "EXACT_COMMIT_GCNSchedStrategy_PLUS_GREEDY"
+  - "same allocator, MIR bytes, target, wave, information, verifier and budget"
+preclaim_contract_fidelity_gate_actual_status: "FAIL_CLOSED_RESOURCE_TOOLCHAIN"
+fidelity_closure_plan_status: "RESOURCE_BLOCKED_FIDELITY_GAP"
+
+resource_result:
+  bootstrap_asset_ready: true
+  bootstrap_asset_bytes: 187504083
+  bootstrap_asset_sha256: "B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35"
+  bootstrap_uncompressed_bytes: 740825211
+  bootstrap_role: "BOOTSTRAP_ONLY_NOT_EVALUATED"
+  cmake_ready: true
+  ninja_ready: true
+  exact_commit_fetch_head: "1f112d62e1fa2c4f1a04887abd72da1ed61cf791"
+  exact_commit_worktree_ready: false
+  exact_tools_ready: false
+  required_tool_count: "0/3"
+  natural_mir_ready: false
+  natural_mir_count: "0/8_MINIMUM"
+  exact_checkout_error: "curl 28 low-speed timeout; 5450 response bytes missing; unexpected disconnect; early EOF; invalid index-pack output"
+
+scientific_status:
+  claim_bearing_observation_obtained_before_failure: false
+  scientific_revision_consumed: false
+  scientific_revision_available_after_unblock: true
+  stagea_probe_support: "NOT_APPLICABLE"
+  pass_recommended: false
+  stop_recommended: false
+  reserve_recommended: false
+  evidence_ceiling: "RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE"
+  baseline_runs: 0
+  candidate_runs: 0
+  verifier_runs: 0
+  replay_runs: 0
+
+full_cost_failure_ledger:
+  bootstrap_network_bytes_this_assignment: 0
+  bootstrap_extract_wall_seconds: 176.968
+  bootstrap_extracted_bytes: 740825211
+  cmake_ninja_download_bytes: 37847576
+  exact_source_git_state_bytes: 187851937
+  directory_bytes_before_final_text_closure: 1053455557
+  exact_build_cpu_hours: 0
+  scientific_cpu_hours: 0
+  gpu_or_exclusive_device_time: 0
+  git_protocol_network_bytes: "NOT_DIRECTLY_EXPOSED__NOT_FABRICATED"
+
+blocker_status: "BLOCKED_USER_ACTION_REQUIRED"
+blocker_kind: "NETWORK_TOOLCHAIN_DATA"
+user_blocker_packet: "USER_BLOCKER_PACKET.md"
+resume_contract_sha256: "9365D3188593359BBC376F40DCE4808E923AE439362D5DE4E304232134BEAF75"
+resume_directory: "NEW_MAINLINE_ASSIGNED_SUBDIRECTORY_REQUIRED__DO_NOT_OVERWRITE"
+next_killer_gate: "After resource closure, rerun the unchanged PRE_CLAIM_CONTRACT_FIDELITY_GATE; only then run the frozen natural same-object full-cost comparison."
+
+authority:
+  pending_user_stageb_review: false
+  stageb_user_approval_id: null
+  stageb_authorized: false
+  independent_stagea_gate_requested: false
+  independent_stagea_gate_reason: "Preclaim did not pass and no scientific observation exists."
+  formal_large_scale_experiment_authorized: false
+  system_installation_performed: false
+  global_environment_modified: false
+  automation_run: false
+
+file_hashes:
+  INPUT_FREEZE.yaml: "DFD6CFAB0A1A22DD0FCDC4681DE8E8D0716CC454D9D1EE720610D5564A8D1522"
+  EXPERIMENT_CONTRACT.yaml: "9365D3188593359BBC376F40DCE4808E923AE439362D5DE4E304232134BEAF75"
+  COMMAND_LOG.md: "78E36518BB246E6B313DA21E75A1109EB5AD3095C5AFC882CC2982AF40E1E05F"
+  TOOLCHAIN_PROBE.json: "07D9B0991A626B1B046FF7165C4596D1BAA0C10B5AABB3F43A1BE2182E90B6B1"
+  RESULTS.md: "5F62907F1F0612C01701B433DBF383713BFCDD12E59445E2BB0EF73367C84AF2"
+  STAGEA_REPORT.md: "B479E58D6E53632ADF78BD34F9F51B6DFEDC71BAAFBF27979557AB1416297B26"
+  Q1_COMPARATOR_MATRIX.md: "F490F78E59EFDE1EF817602A4081F0159147CB667FAAF31CF898DF026F9FF45F"
+  USER_REVIEW_PACKET.md: "70F0653C5E0A6F20962211360ED52C42C320835D76AD8B2DD459BCD37DD7DE71"
+  USER_BLOCKER_PACKET.md: "C9D42AF2155FA4B1002227AF8FD3510296F681237AA6DC8EC4B92070427B27B3"
+  scripts/download_verified.py: "CFD44A48375C3C383A8A12F850A12A802D90B2450B52D2F829070D6FD11D6F51"
+hash_manifest_file: "HASH_MANIFEST.sha256"

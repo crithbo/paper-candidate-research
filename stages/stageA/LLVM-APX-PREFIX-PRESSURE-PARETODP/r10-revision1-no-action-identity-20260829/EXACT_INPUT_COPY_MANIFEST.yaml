@@ -1,0 +1,25 @@
+schema: exact-input-copy-manifest-v2
+assignment_id: STAGEA-L2-20260829-LLVM-APX-R10-REVISION1-NO-ACTION-IDENTITY
+source_assignment_id: STAGEA-L2-20260829-LLVM-APX-R9-NATURAL-CLAIM
+source_manifest: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/EXACT_RESOURCE_COPY_MANIFEST.yaml
+source_manifest_sha256: E42F754F779DD490AFF4BC1E916B0B9C861F9B80668FA70CA531557662A5CE0C
+destination_root: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/resources
+copy_attempts_max: 1
+network_bytes: 0
+patched_driver_overrides_source_driver: true
+files:
+  - {source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_PATCHED_ROW_DRIVER.py, destination: resources/src/apx_tpd/apx_r8_row_driver.py, sha256: B4783E43EFB5A43C7212E8B64BFE554E3D430848396CDE04407AF163A1803133, role: PATCHED_DRIVER_OVERRIDE}
+  - {source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/apx_tpd_r7c.py, destination: resources/src/apx_tpd/apx_tpd_r7c.py, sha256: FC1E6CB729A5F6693A6264C5B0DDFD24C73129638419278E879705C676C10FF1, role: FROZEN_SOURCE}
+  - {source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/apx_tpd.py, destination: resources/src/apx_tpd/apx_tpd.py, sha256: 5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086, role: FROZEN_SOURCE}
+  - {source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/catalog_contract.json, destination: resources/src/apx_tpd/catalog_contract.json, sha256: BC129B73FC7FABC488C3B4A52C41737EFBE398000542AC2CDCD382E5337CC6CA, role: FROZEN_SOURCE}
+  - {source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/independent_oracle.py, destination: resources/src/apx_tpd/independent_oracle.py, sha256: 7BD2FB476C912621320021238AE458C63F62B5DDC34F5368C783C176489EA205, role: FROZEN_SOURCE}
+  - {source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/tiny_trace.json, destination: resources/src/apx_tpd/tiny_trace.json, sha256: AD7F2DBE3F19DFFCD1EB0C3B4FDF80DCDDA7DCC71BACC769FCF40AF022F57910, role: FROZEN_SOURCE}
+  - {source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/corpus/S01/and.ll, destination: resources/src/corpus/S01/and.ll, sha256: 8FCB0455C1F2D73F992C67003B1A03B1D2EE024005DF5D0FC79EBB8425E32861, role: SELECTED_INPUT_S01}
+  - {source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/corpus/S02/neg.ll, destination: resources/src/corpus/S02/neg.ll, sha256: FFB56115E7895DFD6404939FC59E8DA71D93BACF36F5B8D7211F9A96FFB08037, role: SELECTED_INPUT_S02}
+  - {source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/corpus/S03/ctest.ll, destination: resources/src/corpus/S03/ctest.ll, sha256: 4293426EBB97473D4A56499CB3F18A3C9A6300170E4DA7F9ECBFDB1F1726BBA1, role: SELECTED_INPUT_S03}
+  - {source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/corpus/S04/asm-constraint.ll, destination: resources/src/corpus/S04/asm-constraint.ll, sha256: A44D49A47C34CCE86BB4952F42F6C557230A669BEC950DACDD856F9D133E0776, role: SELECTED_INPUT_S04}
+selected_inputs: [S01, S02, S03, S04]
+selected_count: 4
+replay_count: 2
+result_based_exclusion: false
+resource_action_started: false

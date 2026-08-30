@@ -1,0 +1,17 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-P2-REPLACEMENT-ORACLE-COST
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P1A7_handoff.yaml, sha256: 39800CE34BEEB127AE4C0BEDDFA93E9103555AD48B550186932E8BF1BE04DA4B}, {path: resources/src/probe/hnsw_minimal_probe.cpp, retention: P1A3_EDITED_HARNESS__REQUIRES_P2_EXACT_EDIT}]
+only_source_edit:
+  file: resources/src/probe/hnsw_minimal_probe.cpp
+  required_changes:
+    - create_deterministic_replacement_vector_distinct_from_base17_using_frozen_seed_20260829
+    - replace_live_vector_at_label17_before_HNSW_reinsert_and_before_oracle_queries
+    - separately_measure_oracle_full_query_wall_seconds
+    - separately_measure_HNSW_full_query_wall_seconds
+    - emit auditable replacement_witness_and_separate_cost_fields
+  forbidden_changes: [vector_query_grid_parameter_or_baseline_change, source_other_than_harness, result_exclusion]
+fresh_command_budget: {compile: 1, run: 3, retry: 0}
+evidence_ceiling: MINIMAL_CANONICAL_PROBE__NONBLIND_COMPATIBILITY_ONLY__NO_PRODUCTION_CANDIDATE_OR_STAGEB
+scientific_revision_consumed: false

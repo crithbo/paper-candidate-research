@@ -1,0 +1,60 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE53-R40-SKILL-CONSOLIDATED-V1
+lane: S2_BOTTLENECK_TRANSFER
+status: COMPLETE_ZERO_PROPOSALS
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+write_directory: stages/discovery/round-20260815-adaptive-source53/S2-bottleneck-transfer
+rule_freeze:
+  canonical: v8.7
+  rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  claim_pack: OFF
+  v9: OFF
+  r40_skill_revision: RESEARCH_TOPIC_DISCOVERY_R1_R40_20260815
+  r40_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  model: gpt-5.6-terra
+  reasoning: high
+  source52_read_or_reused: false
+frozen_controls:
+  assignment_sha256: AB8EAE7AD3CA3B53C8A732832C889DF1D32E0CE98E36B047AAA03D43E90757C0
+  control_sha256: 702F527D57ED291DC90A3AC8D8BCEB961F7523B6B6FAAC9C46E12C49AF918A70
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+r40_sequence:
+  seed_portfolio_non_evidence: 6
+  selected_exact_anchors: 3
+  primary_rqs: 3
+  pre_rq_closure_declaration: NONE
+  selective_strong_execution_started: false
+  mainline_notification_sent_before_ordinary_closure: true
+  evidence_qualified_raw: 0
+  type_specific_deep_reviews: 0
+  clean_stage0_briefs: 0
+identity_preflight:
+  exact_excluded:
+    - signature: GPU_DIRECT_STORAGE__CUFILE_BATCH_TRANSACTION_SET__BATCH_DESCRIPTOR_REGISTRATION__BYTE_STATUS_READ_RESULT
+      prior_location: stages/discovery/round-20260815-adaptive-source37/S2-bottleneck-transfer/SOURCE_COLLISION_MATRIX.md
+      rationale: exact object/action/endpoint identity, without external evidence delta
+  related_only_not_excluded: true
+  no_match_not_novelty_evidence: true
+ordinary_closure_dispositions:
+  - signature: MPI4_PARTITIONED_PERSISTENT_P2P__PARTITION_READY_MATERIALIZATION__MESSAGE_COMPLETION
+    disposition: NOT_ADMITTED__DIRECT_CURRENT_UNION
+    rationale: native `Psend_init`/`Precv_init` and `Pready*` express the alleged partition setup/readiness action; no target-specific guarantee/action survived.
+  - signature: LLVM_OPENMP_OFFLOAD_BINARY__DEVICE_IMAGE_METADATA_LAYOUT__STOCK_LIBOMPTARGET_LOAD
+    disposition: NOT_ADMITTED__GENERIC_OR_CHANGED_READER
+    rationale: current format is documented string-map/image serialization and stock wrapper/loader composition; residual would be generic packing or alter the fixed loader/ABI.
+scientific_integrity:
+  missing_implementation_result_resource_or_ai_readiness_used_as_drop: false
+  network_security_scope_used: false
+  build_install_experiment_benchmark_stage_actions: false
+  resource_producing_action: false
+  search_ceiling: SEARCH_BOUNDED_OPEN__NO_GLOBAL_NOVELTY_OR_ABSENCE_CLAIM
+summary_zh: >-
+  本轮按 R40 先冻结种子、精确公开锚点与单一 RQ，并在强模型选择前声明 NONE。
+  cuFile batch 与本 lane Source37 形成 exact identity；MPI partitioned readiness 已由当前
+  Psend/Precv/Pready 原生动作表达；LLVM offload image 的剩余布局是通用序列化或会改变
+  固定 loader/ABI。故没有 evidence-qualified raw、deep 或 Stage0 brief。该零提案不基于
+  实现、结果、资源或 AI 可执行性缺失。
+next_action: >-
+  Mainline may minimally accept this canonical zero-proposal package. Reconsideration
+  requires an external evidence delta for a distinct same-object action/guarantee;
+  do not reopen the exact Source37 cuFile identity by family resemblance.
+manifest: HASH_MANIFEST.sha256

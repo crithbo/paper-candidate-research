@@ -1,0 +1,20 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE114-PERFORMANCE-MODEL-THEORY-V1
+cutoff: '2026-08-24'
+sources:
+  - {source_id: S114-01, title_or_artifact: Vidur, canonical_version: public repository/MLSys 2024, locator: https://github.com/microsoft/vidur, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S114-02, title_or_artifact: LLMCompass, canonical_version: ISCA 2024 repository, locator: https://github.com/PrincetonUniversity/LLMCompass, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S114-03, title_or_artifact: GenZ, canonical_version: public repository viewed 2026-08-24, locator: https://github.com/abhibambhaniya/genz-llm-analyzer, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S114-04, title_or_artifact: LLMCompass validation, canonical_version: ISCA 2024, locator: https://augustning.com/assets/papers/llmcompass-isca-2024.pdf, source_role: CONTRARY, read_depth: SECTIONS}
+claims:
+  - claim_id: C114-01
+    text: Vidur already targets deployment configuration/capacity decisions under workload, scheduler and hardware knobs using explicit TTFT/TPOT/E2E metrics.
+    priority: HIGH
+    source_links: [{source_id: S114-01, relation: DIRECT, locator: README capacity planning and metrics, evidence_status: DIRECT_OBSERVATION, conflict: no new fixed decision error identified, permitted_conclusion: simulator restatement not raw}]
+  - claim_id: C114-02
+    text: LLMCompass and GenZ already model hardware/design and serving latency/memory tradeoffs; LLMCompass reports model validation against A100 and roofline results.
+    priority: HIGH
+    source_links: [{source_id: S114-02, relation: DIRECT, locator: repository paper/artifact description, evidence_status: DIRECT_OBSERVATION, conflict: no new estimand/unit/calibration artifact frozen, permitted_conclusion: generic roofline/model improvement not raw}, {source_id: S114-03, relation: DIRECT, locator: GenZ overview and serving questions, evidence_status: DIRECT_OBSERVATION, conflict: none, permitted_conclusion: generic platform trend model not raw}, {source_id: S114-04, relation: OPPOSE, locator: validation figure description, evidence_status: AUTHOR_CLAIM, conflict: model scope, permitted_conclusion: no unfrozen calibration critique}]
+stopping: {high_impact_items_bounded: true, latest_and_current_union_checked: true, first_party_depth_sufficient: true, heterogeneous_independent_path_complete: true, contrary_search_complete: true, natural_or_canonical_carrier_frozen: false, full_cost_frozen: false, marginal_sources_no_longer_decision_changing: true, decisive_contradictions_resolved_or_bounded: true, disposition: NOT_ADMITTED_UNFROZEN}
+execution_readiness: {state: E0, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: NO_RAW_ADMISSION__NO_CLAIM

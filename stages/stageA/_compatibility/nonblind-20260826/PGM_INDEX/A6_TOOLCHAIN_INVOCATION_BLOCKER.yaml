@@ -1,0 +1,10 @@
+schema: nonblind-stagea-engineering-failure-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A6-TOOLCHAIN
+decision: FAIL_CLOSED__RELATIVE_CLANG_INVOCATION_NOT_RECOGNIZED__NO_RETRY
+extract: {llvm_mingw: PASS, ninja: PASS, assignment_local_only: true}
+version_validation:
+  clang_command: resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/clang.exe --version
+  result: NONZERO__POWERSHELL_RELATIVE_EXECUTABLE_NOT_RECOGNIZED
+  call_operator_retry_attempted: false
+subsequent_steps: {clangxx_version: false, ninja_version: false, configure: false, build: false, ctest: false, fidelity: false, probe: false}
+scientific_boundary: {scientific_inference: NONE, claim: false, production: false, stageB: false, cleanup: false}

@@ -1,0 +1,27 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE43-GLOBAL-IDENTITY-CLOSURE-CONTINUATION-V1
+sources:
+  - role: ANCHOR_AND_SOURCE_CLOSURE
+    family: S43-01
+    url: https://rocm.docs.amd.com/projects/llvm-project/en/docs-7.2.3/LLVM/llvm/html/AMDGPU/AMDGPUAsmGFX12.html
+    publisher: LLVM/ROCm official documentation
+    version_or_date: LLVM 22.0.0git GFX12 page, accessed 2026-08-15
+    evidence: legal global_load_lds instruction forms exist; not evidence of the current compiler lowerer.
+  - role: CURRENT_UNION_AND_CONTRARY
+    family: S43-02
+    url: https://oneapi-spec.uxlfoundation.org/specifications/oneapi/v1.1-rev-1/elements/onevpl/source/programming_guide/vpl_prg_frame
+    publisher: oneAPI / Intel
+    version_or_date: current official page accessed 2026-08-15
+    evidence: surface locks, reference count, allocation and release compose the proposed lifetime action.
+  - role: CURRENT_UNION_AND_CONTRARY
+    family: S43-03
+    url: https://uxlfoundation.github.io/oneDNN/v3.13/dev_guide_grouped_mem.html
+    publisher: oneDNN project
+    version_or_date: v3.13 documentation accessed 2026-08-15
+    evidence: grouped descriptor fixes values/offsets buffer representation and variable-dimension parameters.
+  - role: SOURCE_CLOSURE_ATTEMPT
+    family: S43-01
+    url: https://github.com/llvm/llvm-project/tree/main/llvm/lib/Target/AMDGPU
+    publisher: LLVM upstream
+    version_or_date: main selection rule, queried 2026-08-15
+    evidence: bounded public search returned no exact source locus; recorded in SCQ-43-01, not used as absence.
+resource_actions: NONE__READ_ONLY_WEB_RESEARCH_ONLY

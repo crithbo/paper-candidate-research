@@ -1,0 +1,133 @@
+schema: stagea-executable-claim-packet-pilot-v1
+audit_id: RULE-AUDIT-20260829-STAGEA-EXECUTABLE-CLAIM-PACKET-V1
+proposal_id: STAGEA_EXECUTABLE_CLAIM_PACKET_V1
+status: USER_APPROVED__ASSIGNMENT_LOCAL_PILOT__MAINLINE_FREEZE_REQUIRED
+authorization:
+  user_text: '好的，按这个方案执行，如果效果好，就写到skill和规则中'
+  date: '2026-08-29'
+  policy_scope: APX_PPC_RVV_NONLINUX_STAGEA_ONLY
+  shared_rule_or_skill_install_now: false
+  install_only_after_pilot_acceptance: true
+
+scientific_invariants:
+  unchanged: [exact_object, primary_RQ, atomic_action, mechanism, comparator_union, natural_or_canonical_workload, metric_denominator, guarantee, claim_ceiling, stageA_revision_limit, independent_gate, user_stageB_gate]
+  result_aware_row_or_baseline_change: forbidden
+  StageB: forbidden
+  Linux_or_system_install: forbidden
+
+pilot_topics:
+  APX:
+    topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+    current_resume: r8b-corpus-layout-resume-20260829
+    packet_builder_lane: CANDIDATE_EXECUTION_LANE_1
+    control_rows: 1
+    pilot_rows: 4
+    reserve_rows_max: 2
+    first_required_closure: exact_corpus_layout_plus_argv_cwd_env_output_schema
+  PPC:
+    topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+    current_resume: r11p-baseline-cost-collector-preclaim-20260829
+    packet_builder_lane: CANDIDATE_EXECUTION_LANE_2
+    control_rows: 1
+    pilot_rows: 8
+    reserve_rows_max: 2
+    first_required_closure: fixture_plus_ppc_toolchain_plus_56_baseline_and_15_candidate_metric_consumer_closure
+  RVV:
+    topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+    current_resume: r6-natural-claim-contract-20260829
+    packet_builder_lane: CANDIDATE_EXECUTION_LANE_3
+    control_rows: 1
+    pilot_rows: 4
+    reserve_rows_max: 2
+    first_required_closure: result_independent_natural_MIR_corpus_plus_baselines_argv_output_schema
+
+shared_assets:
+  owner: MAINLINE_ONLY
+  requested_assets:
+    - {asset_id: ASSET-LLVM-APX-A1194BE1, source_topic: LLVM-APX-PREFIX-PRESSURE-PARETODP, mode: READ_ONLY}
+    - {asset_id: ASSET-LLVM-RVV-5BB2565, source_topic: LLVM-RVV-GROUP-MASK-SPILL-PARETODP, mode: READ_ONLY}
+    - {asset_id: ASSET-LLVM-PPC-F127B4C, source_topic: LLVM-PPC-PREFIX-PRESSURE-PARETODP, mode: READ_ONLY}
+  consumer_rule: EXECUTE_IN_PLACE_READ_ONLY__COPY_ONLY_MUTABLE_INPUTS_AND_OUTPUTS
+  process_cache_tmp_logs: ASSIGNMENT_LOCAL_RESOURCES_ONLY
+  full_tree_rehash_on_reuse: false
+
+integrity_policy:
+  CLAIM_CRITICAL:
+    examples: [candidate_source, corpus_index, executable_claim_packet, command_DAG, full_cost_ledger, raw_claim_result, claim_summary]
+    check: SHA256_ON_FINAL_PACKET_FREEZE_AND_FINAL_HANDOFF_ONLY
+  EXECUTION_CRITICAL:
+    examples: [executed_tool_binaries, runtime_libraries]
+    check: ONE_TIME_ASSET_HASH_THEN_PATH_VERSION_SIZE_MTIME__REHASH_ONLY_ON_DRIFT
+  AUXILIARY:
+    examples: [ordinary_logs, copy_receipts, temporary_files, helper_JSON]
+    check: EXISTENCE_SIZE_COUNT_ONLY
+  recursive_full_tree_manifest: forbidden_by_default
+  expected_canonical_manifest_entries: 5_TO_15
+
+state_machine:
+  E0_ASSET_BIND:
+    output: ASSET_BINDING_STATUS.yaml
+    claim_visibility: NONE
+  E1_PACKET_COMPILE:
+    outputs: [EXECUTABLE_CLAIM_PACKET.yaml, COMMAND_DAG.json, STATIC_PACKET_VALIDATION.yaml]
+    static_lint_edits_max: 3
+    separate_assignment_per_lint_fix: false
+  E2_CONTROL_ROW:
+    output: ENGINEERING_STATUS.yaml
+    initial_runs_max: 1
+    engineering_correction_max: 1
+    replay_after_correction_max: 1
+    scientific_denominator: EXCLUDED
+    effect_comparison_visible_to_candidate: false
+  C0_PILOT_FREEZE:
+    packet_becomes_immutable: true
+    selected_and_reserve_rows_frozen_before_results: true
+  C1_NATURAL_CLAIM_PILOT:
+    claim_batches_max: 1
+    reserve_extension_batches_max: 1
+    run_scheduling: SERIAL_APX_THEN_PPC_THEN_RVV
+  G1_INDEPENDENT_GATE:
+    required: true
+    positive_ceiling: PRELIMINARY_SUPPORT_ONLY
+
+engineering_result_firewall:
+  directories: [resources/engineering_raw, resources/engineering_status, resources/claim_raw, resources/claim_summary]
+  E0_E2_visible_fields: [exit_code, required_outputs_present, schema_valid, missing_metric_ids, missing_paths, version_or_hash_drift, timeout]
+  E0_E2_hidden_fields: [candidate_performance, baseline_performance, speedup, Pareto_result, relative_rank]
+  runner_route: gpt-5.6-luna/xhigh
+  claim_and_gate_route: gpt-5.6-terra/high
+  silent_retry: forbidden
+
+same_assignment_engineering_corrections:
+  allowed: [path_relocation, missing_import, process_local_environment, stdout_stderr_path, argv_serialization, copy_manifest_completion, frozen_metric_producer_consumer_wiring, schema_parser_mechanical_compatibility]
+  forbidden: [candidate_mechanism, baseline_set, denominator, selected_workload, scientific_metric, exact_object, claim, guarantee, result_based_exclusion]
+  ledger: ENGINEERING_CORRECTION_LEDGER.yaml
+
+dashboard_fields:
+  primary: [executable_packet_ready, control_row_pass, valid_claim_rows_planned, decisive_stagea_observation, independent_gate_decision]
+  collapsed_substatus: [copy_success, file_count, static_compile, manifest_count, preclaim_pass, handoff_count, ack_start_count]
+
+acceptance:
+  pilot_topics_reaching_valid_natural_claim_row_min: 2
+  integrated_packet_assignments_max_per_topic: 1
+  engineering_corrections_max_per_topic: 1
+  micro_assignment_count_reduction_target: 0.60
+  repeated_toolchain_copy_target: ZERO_OR_MINIMAL_MUTABLE_INPUT_ONLY
+  result_aware_scientific_contract_changes: 0
+  unauthorized_state_transitions: 0
+  positive_results_required: false
+  success_definition: VALID_DECISIVE_POSITIVE_OR_NEGATIVE_STAGEA_OBSERVATION
+
+failure_and_rollback:
+  no_valid_claim_row_after_two_mainline_control_cycles: EXECUTION_CONTRACT_HOLD__RELEASE_LANE__NO_SCIENTIFIC_STOP
+  control_fails_after_one_correction: ABANDON_CURRENT_EXECUTION_ROUTE__NO_MORE_MICRO_ASSIGNMENTS
+  packet_changes_after_claim_visibility: INVALIDATE_AFFECTED_RESULTS_AND_FAIL_PILOT
+  pilot_fails_acceptance: KEEP_CURRENT_RULES_AND_DO_NOT_INSTALL_SKILL_OR_RULE_PATCH
+  existing_topic_states_and_evidence: PRESERVED
+
+post_pilot_install_if_accepted:
+  skill_target: .agents/skills/hardware-stageb-runner_or_new_stagea_execution_reference__MAINLINE_AND_SKILL_OWNER_TO_SELECT
+  rule_targets: [rules/ROLE_CANDIDATE_OWNER.md, rules/ROLE_MAINLINE.md]
+  template_targets: [templates/STAGEA_EXECUTABLE_CLAIM_PACKET.yaml, templates/STAGEA_ENGINEERING_STATUS.yaml, templates/STAGEA_COMMAND_DAG.schema.json, templates/STAGEA_LIGHTWEIGHT_MANIFEST.md]
+  plan_dashboard_update: required
+  AGENTS_core_scientific_policy_change: false

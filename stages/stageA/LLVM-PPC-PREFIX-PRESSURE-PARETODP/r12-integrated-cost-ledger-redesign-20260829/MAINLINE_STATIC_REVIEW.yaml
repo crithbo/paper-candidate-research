@@ -1,0 +1,18 @@
+schema: mainline-static-packet-review-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R12-INTEGRATED-COST-LEDGER-REDESIGN
+decision: REJECT_STATIC_PACKET__BOUNDED_CORRECTION_REQUIRED
+validated_hashes:
+  packet: C735407802262D11E902E30C044F8181015B69C2C552115EE068859FD59D32E2
+  dag: 7B09B7240C8C538925DDAEE7F4284D770FE1AA9E06F8D8BC09C71F46580D3AAC
+  producer: AD7A61FF5C75E8B4EE95287DFC2E55CB1CC663DAE5A78137435EE48E38F77E34
+  validation: A0F40F060865B2B16DB84EEE364082EBA862B60A4513210CE51D2B0648655EC3
+  copy_manifest: 5DD862B80E3B78428043083429FADEE711D72992B2F91F8A77F084EB61E6CB9E
+first_defect: CROSS_FILE_EXECUTION_BINDING_INCONSISTENT
+defects:
+  - packet full_cost_argv input path omits the stages path component
+  - DAG candidate and baseline collector execute source from the superseded V2 assignment instead of an r12 assignment-local immutable copy
+  - copy manifest lacks runner/common/collector source-to-destination mappings and the 16 per-file input mappings
+  - static validation does not prove packet/DAG/manifest cross-file path equality
+control_or_claim_authorized: false
+scientific_inference: NONE
+

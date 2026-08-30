@@ -1,0 +1,48 @@
+schema_version: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+created_at: 2026-08-28T10:20:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER_RESUME_NONLINUX_STAGEA_AFTER_BACKTEST_CLOSEOUT_20260828, USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+identity:
+  lane_id: CANDIDATE_EXECUTION_LANE_3
+  lane_thread_id: 01a034d0-d67f-7f32-ab5f-54454407cb22
+  role_id: CANDIDATE_OWNER
+  assignment_id: STAGEA-L3-20260828-LLVM-APX-R7C-A2-ORACLE-REIMPORT
+  topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+  stage: STAGEA_PRECLAIM_ENGINEERING_CORRECTION
+  authoritative_project_root: E:/project/writing/reserch
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a2-oracle-reimport-20260828
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a2-oracle-reimport-20260828/resources
+  read_only_input_directory: E:/project/writing/reserch/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a1-resume-20260828
+frozen_shared_snapshots:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 6AFE5D0FCC3B955665A184F62E5341A8B072A977C6535A8406E810A27EE37600}
+  registry: {path: registry.yaml, sha256: 5275F701BFD27699CBA13E48FAA4FAC54CADF856EFC3050A4E9529CD4CDC5DD9}
+rules_and_skills:
+  role_rule: {path: rules/ROLE_CANDIDATE_OWNER.md, sha256: 4373A320D7EF96FB5EB1683872FEC9CDCB9EA6D16ACDF893CA997C5FB2745A1A}
+  soft_blocker_recovery: {path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74}
+  resource_localization: {path: rules/RESOURCE_LOCALIZATION.md, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+  artifact_lifecycle: {path: rules/ARTIFACT_LIFECYCLE.md, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6}
+  academic_skill: {path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  experiment_workflow: {path: C:/Users/15383/.codex/skills/academic-research-suite/ars/experiment-agent/WORKFLOW.md, sha256: 389747B305FFA4160D1B2CEAF97B98A61EF9583CD45C473EFED5B4B414E27889}
+templates:
+  bootstrap_ack: {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+  stagea_report: {path: templates/STAGEA_REPORT.md, sha256: DF9AA27111D303600FD4C7F81DEB1FF52FFD6C308973D33B8A9EC59CA4542D7F}
+  resource_inventory: {path: templates/RESOURCE_INVENTORY.yaml, sha256: E859CE19DC3EB906EF391B1D8039E7B02A762EB74D7421454E40BB4539FEEEC7}
+assignment_control: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a2-oracle-reimport-20260828/control/ASSIGNMENT.yaml, sha256: 1A6C2F51C62D9013DE9B1F550196A434C0CFFA20371FD47270A0DEB5D9184DBC}
+minimum_inputs:
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a1-resume-20260828/handoff.yaml, sha256: 44F571247E79EC1D7258E851A05A57B0A00762289CE0019F050CD8A5CCB45758, purpose: PRIOR_A1_BLOCKER_HANDOFF}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a1-resume-20260828/A1_FAILURE_RAW.txt, sha256: 320675659D9110C55082789E1C01FCF88E71B3E91B16D4C9ABEB5DE5C5440D53, purpose: RE_IMPORT_FAILURE_EVIDENCE}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a1-resume-20260828/resources/src/apx_tpd/independent_oracle.py, sha256: C2B98CE4CFDAFF07D320A61DD4D2442D436B71198ABE19D8BBEF7D96A7158429, purpose: EXACT_SOURCE_BEFORE_SINGLE_IMPORT_EDIT}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a1-resume-20260828/resources/src/apx_tpd/apx_tpd.py, sha256: 5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086, purpose: CANDIDATE_MODULE_UNCHANGED}
+current_status: {assignment_state: BOOTSTRAP_ACK_PENDING, resource_root_absent: true, base_a1_evidence_read_only: true, source_edit_transactions_max: 1, C3_parser_rerun_allowed: false, C4_formal_rerun_allowed: false, network_bytes_max: 0, selected_or_natural_or_claim_runs: 0, scientific_revision_consumed: false, start_authorized_by_mainline: false}
+permissions: {write_scope: ONLY_UNIQUE_WRITE_DIRECTORY, copy_base_inputs_after_start_only: true, one_source_edit_only: true, C4_tiny_to_C7_control_attempts_max: 1, selected_or_natural_or_claim_allowed: false, stageb_allowed: false, owner_cleanup_allowed: false}
+forbidden_actions: [ANY_ACTION_BEFORE_ACK_ACCEPTANCE_AND_START, MODIFY_A1_DIRECTORY_OR_BASE_EVIDENCE, RERUN_C3_OR_C4_FORMAL, CHANGE_ORACLE_SEMANTICS_OR_BASELINES_OR_DENOMINATOR, ALTERNATE_INTERPRETER_OR_TOOLCHAIN, RETRY, NETWORK, NATURAL_SELECTED_CLAIM_STAGEB_CLEANUP_OR_SHARED_STATE_TRANSITION, SECOND_PIVOT_OR_SCIENTIFIC_REVISION]
+bootstrap_instructions:
+  read_order: [AGENTS.md, plan.md, THIS_CONTEXT, ROLE_CANDIDATE_OWNER, AUTONOMOUS_SOFT_BLOCKER_RECOVERY, RESOURCE_AND_LIFECYCLE, ACADEMIC_SKILL_AND_WORKFLOW, TEMPLATES, MINIMUM_INPUTS, FULL_REGISTRY_AND_RELATED_DUAL_READ]
+  bootstrap_only: true
+  unique_ack_path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/a2-oracle-reimport-20260828/BOOTSTRAP_ACK.yaml
+  ready_condition: ALL_HASHES_STATUS_PERMISSIONS_MATCH_AND_DIFFERENCES_EMPTY
+  refuse_condition: ANY_DIFFERENCE_OR_DRIFT
+resume_point: WRITE_BOOTSTRAP_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE
+next_action_after_start: COPY_A1_RESOURCE_INPUTS_ONCE_EDIT_IMPORT_RE_ONCE_THEN_RUN_C4_TINY_TO_C7

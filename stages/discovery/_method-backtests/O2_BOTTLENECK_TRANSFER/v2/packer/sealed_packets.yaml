@@ -1,0 +1,150 @@
+schema_version: discovery-backtest-sealed-packets-v2
+role: DISCOVERY-BACKTEST-PACKER
+opportunity_lens: O2_BOTTLENECK_TRANSFER
+method_revision: v2
+sealed_at: 2026-08-03T15:40:00+08:00
+executor_rules:
+  - Use only this file and the assigned Discovery role; do not search for or identify hidden targets.
+  - Recover the before/after bottleneck, causal transfer, decision structure, contribution route, falsifying evidence, and abstain decision.
+  - Do not call any generic limitation a transfer; require a changed workload, scale, platform, representation, or resource balance.
+packets:
+  - packet_id: S2-POS-01
+    label: positive
+    cutoff_date: 2019-10-03
+    domain_tags: [CUDA_GPU, DISTRIBUTED_TRAINING, COMPILER_RUNTIME_SYSTEM]
+    paper_inputs:
+      - source_id: P01-A
+        citation: "Dean et al. (2012), Large Scale Distributed Deep Networks, NeurIPS."
+        public_date: 2012-12-01
+        url: https://proceedings.neurips.cc/paper/2012/hash/6aca97005c68f1206823815f66102863-Abstract.html
+        pre_cutoff_signal: "Distributed training separates model replicas, parameter state, communication, and asynchronous progress."
+      - source_id: P01-B
+        citation: "Micikevicius et al. (2017), Mixed Precision Training."
+        public_date: 2017-10-11
+        url: https://arxiv.org/abs/1710.03740
+        pre_cutoff_signal: "Reduced precision raises accelerator arithmetic throughput and lowers selected memory costs."
+      - source_id: P01-C
+        citation: "Shazeer et al. (2018), Mesh-TensorFlow: Deep Learning for Supercomputers, NeurIPS."
+        public_date: 2018-11-01
+        url: https://proceedings.neurips.cc/paper/2018/hash/3a37abdeefe1dab1b30f7c5c7e581b93-Abstract.html
+        pre_cutoff_signal: "Tensor-dimension layouts make distributed model partitioning explicit."
+      - source_id: P01-D
+        citation: "Huang et al. (2019), GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism, NeurIPS."
+        public_date: 2018-11-16
+        url: https://arxiv.org/abs/1811.06965
+        pre_cutoff_signal: "Pipeline partitioning addresses models that exceed one accelerator's memory, at the cost of bubbles and state placement choices."
+      - source_id: P01-E
+        citation: "Shoeybi et al. (2019), Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism."
+        public_date: 2019-09-17
+        url: https://arxiv.org/abs/1909.08053
+        pre_cutoff_signal: "Large transformer training combines tensor/model parallelism with high accelerator utilization."
+    public_artifacts:
+      - source_id: P01-F
+        name: Mesh TensorFlow
+        snapshot_rule: "Repository state no later than cutoff."
+        url: https://github.com/tensorflow/mesh
+    environment_at_cutoff:
+      - "Compute-focused acceleration and parallelism allow model size and arithmetic throughput to grow faster than per-device memory capacity."
+      - "Optimizer, gradient, parameter, and activation states may be replicated or partitioned differently; communication and memory must be jointly priced."
+      - "No hidden target name, stage decomposition, implementation, or result is supplied."
+
+  - packet_id: S2-POS-02
+    label: positive
+    cutoff_date: 2010-12-31
+    domain_tags: [COMPUTER_ARCHITECTURE, HARDWARE_MODELING]
+    paper_inputs:
+      - source_id: P02-A
+        citation: "Dennard et al. (1974), Design of Ion-Implanted MOSFETs with Very Small Physical Dimensions, IEEE JSSC 9(5)."
+        public_date: 1974-10-01
+        url: https://doi.org/10.1109/JSSC.1974.1050511
+        pre_cutoff_signal: "Classical constant-field scaling links smaller devices with voltage and power-density scaling."
+      - source_id: P02-B
+        citation: "Amdahl (1967), Validity of the Single Processor Approach to Achieving Large-Scale Computing Capabilities, AFIPS."
+        public_date: 1967-04-01
+        url: https://doi.org/10.1145/1465482.1465560
+        pre_cutoff_signal: "Parallel speedup is bounded by serial work even when more compute resources are exposed."
+      - source_id: P02-C
+        citation: "Borkar (2007), Thousand Core Chips—A Technology Perspective, DAC."
+        public_date: 2007-06-01
+        url: https://doi.org/10.1145/1278480.1278667
+        pre_cutoff_signal: "Future many-core scaling is constrained by energy, variability, memory, and programmability rather than transistor availability alone."
+      - source_id: P02-D
+        citation: "Venkatesh et al. (2010), Conservation Cores: Reducing the Energy of Mature Computations, ASPLOS."
+        public_date: 2010-03-01
+        url: https://doi.org/10.1145/1736020.1736044
+        pre_cutoff_signal: "Specialized low-energy execution is motivated when general-purpose energy scaling stalls."
+    public_artifacts:
+      - source_id: P02-E
+        name: "International Technology Roadmap for Semiconductors historical reports"
+        snapshot_rule: "Only reports released by 2010-12-31."
+        url: https://www.semiconductors.org/resources/2011-international-technology-roadmap-for-semiconductors-itrs/
+    environment_at_cutoff:
+      - "The historical growth path shifts from frequency scaling toward multicore and specialization as voltage scaling weakens."
+      - "Any opportunity must quantify active area, power limits, device/core scaling, parallel fraction, and workload behavior; transistor-count extrapolation alone is insufficient."
+      - "This packet contains no post-2010 projection, retrospective, hidden target model, or target conclusion."
+
+  - packet_id: S2-POS-03
+    label: positive
+    cutoff_date: 2018-07-09
+    domain_tags: [NPU_AI_ACCELERATOR, ASIC, SPARSE_DNN]
+    paper_inputs:
+      - source_id: P03-A
+        citation: "Chen et al. (2016), Eyeriss: An Energy-Efficient Reconfigurable Accelerator for Deep Convolutional Neural Networks, ISCA."
+        public_date: 2016-06-01
+        url: https://doi.org/10.1109/ISCA.2016.40
+        pre_cutoff_signal: "A row-stationary dataflow and on-chip hierarchy optimize reuse for then-common convolution layers."
+      - source_id: P03-B
+        citation: "Han et al. (2016), EIE: Efficient Inference Engine on Compressed Deep Neural Network, ISCA."
+        public_date: 2016-06-01
+        url: https://doi.org/10.1109/ISCA.2016.30
+        pre_cutoff_signal: "Compressed sparse weights move accelerator pressure away from dense arithmetic toward sparse access and load balance."
+      - source_id: P03-C
+        citation: "Zhang et al. (2016), Cambricon-X: An Accelerator for Sparse Neural Networks, MICRO."
+        public_date: 2016-10-01
+        url: https://doi.org/10.1109/MICRO.2016.7783723
+        pre_cutoff_signal: "Weight sparsity changes fetch, indexing, and utilization constraints."
+      - source_id: P03-D
+        citation: "Iandola et al. (2017), SqueezeNet: AlexNet-level Accuracy with 50x Fewer Parameters and <0.5 MB Model Size, ICLR."
+        public_date: 2016-02-24
+        url: https://arxiv.org/abs/1602.07360
+        pre_cutoff_signal: "Compact network design reduces parameter storage and changes layer-shape distribution."
+      - source_id: P03-E
+        citation: "Howard et al. (2017), MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications."
+        public_date: 2017-04-17
+        url: https://arxiv.org/abs/1704.04861
+        pre_cutoff_signal: "Depthwise-separable layers trade dense reuse for compact models and heterogeneous layer shapes."
+    public_artifacts:
+      - source_id: P03-F
+        name: "Original accelerator project materials"
+        snapshot_rule: "Only project material publicly dated by cutoff."
+        url: https://eyeriss.mit.edu/
+    environment_at_cutoff:
+      - "Mobile-oriented compact and sparse networks reduce operations and parameters but can also reduce reuse and expose bandwidth, interconnect, and utilization limits."
+      - "A valid architecture opportunity must cover varying shapes and compression overhead rather than extrapolate one dense layer."
+      - "No hidden target architecture, network topology, analysis method, chip result, or post-cutoff source is supplied."
+
+  - packet_id: S2-NEG-01
+    label: negative_control
+    cutoff_date: 2018-12-31
+    domain_tags: [PERFORMANCE_MODELING, CPU]
+    paper_inputs:
+      - source_id: N01-A
+        citation: "Williams, Waterman, and Patterson (2009), Roofline: An Insightful Visual Performance Model for Multicore Architectures, CACM 52(4)."
+        public_date: 2009-04-01
+        url: https://doi.org/10.1145/1498765.1498785
+        pre_cutoff_signal: "A workload's arithmetic intensity locates its governing compute or bandwidth ceiling."
+      - source_id: N01-B
+        citation: "Treibig, Hager, and Wellein (2010), LIKWID: A Lightweight Performance-Oriented Tool Suite for x86 Multicore Environments, ICPPW."
+        public_date: 2010-09-01
+        url: https://doi.org/10.1109/ICPPW.2010.38
+        pre_cutoff_signal: "Hardware counters and topology-aware tools support measurement rather than speculative bottleneck labels."
+      - source_id: N01-C
+        citation: "Ilic et al. (2014), Cache-Aware Roofline Model: Upgrading the Loft, IEEE CAL 13(1)."
+        public_date: 2014-01-01
+        url: https://doi.org/10.1109/L-CA.2013.6
+        pre_cutoff_signal: "Multiple cache levels refine, but do not by themselves imply, a bottleneck transfer."
+    public_artifacts: []
+    environment_at_cutoff:
+      - "Control slice: one unchanged CPU, input-size range already resident in the same cache level, fixed exact kernel, fixed compiler flags, and no evidence comparing a prior regime with a changed one."
+      - "The sources offer measurement vocabulary but the packet supplies no workload/platform/scale change and therefore no causal transfer."
+      - "Abstain rather than inventing a new bottleneck."

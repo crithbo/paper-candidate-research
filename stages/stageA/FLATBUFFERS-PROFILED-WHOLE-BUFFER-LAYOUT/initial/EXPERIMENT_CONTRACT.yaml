@@ -1,0 +1,128 @@
+schema_version: stagea-v8.7
+assignment_id: STAGEA-L3-20260811-FLATBUFFERS-PROFILED-WHOLE-BUFFER-LAYOUT-INITIAL-V8.7
+topic_id: FLATBUFFERS-PROFILED-WHOLE-BUFFER-LAYOUT
+frozen_at: 2026-08-11T08:20:00+08:00
+stageb_authorization: false
+stageb_user_approval_id: null
+exact_object:
+  input: version-pinned FlatBuffers schema plus identity-labelled rooted logical DAG, fixed values/nulls/presence, fixed vector/key order, fixed profile and fixed root framing
+  output: one ordinary raw native FlatBuffers buffer
+  invariants:
+    - same schema and root type
+    - same accessor values, nulls, union tags/payloads, required fields and presence policy
+    - same vector order and schema-key order
+    - same table/string identity classes and explicit aliases
+    - same ordinary finish, file identifier and verifier limits
+    - pinned unmodified stock reader and verifier accept
+  excluded:
+    - schema or logical-object mutation
+    - record/vector/key reorder
+    - arbitrary byte injection or patched serializer
+    - external compression or non-native reader
+    - size-prefixed or Offset64 output for the TFLite stratum
+preclaim_gate:
+  status: PENDING
+  scientific_observations_allowed_before_pass: false
+  obligations:
+    atomic_action_mapping: complete generated/direct public-builder grammar pinned to source blobs
+    native_codec_parity: stock writer/reader/verifier and ordinary raw format only
+    comparator_semantics: all executable arms consume the same frozen logical object/profile
+    common_denominator_full_cost: bytes and profile quality plus extraction/planning/build/verify/read CPU/wall/RSS/temp/fallback
+    small_witness: native 56-byte two-plan replay and complete tiny oracle/candidate frontier equality
+  any_failure_disposition: correct_before_claim_or_fail_closed_without_scientific_inference
+native_configuration:
+  flatbuffers_commit: 7e163021e59cca4f8e1e35a7c828b5c6b7915953
+  flatc_version: 25.12.19
+  force_defaults: fixed_by_presence_arm; all arms receive identical presence policy
+  dedup_vtables: comparator_grid_on_off
+  initial_capacity: comparator_grid_default_and_size_matched; never selected from heldout outcome
+  allocator: stock_default_only; allocation/reallocation measured
+  builder_reuse: fresh_builder_per_repetition; warm reader separated
+  finish: ordinary
+  size_prefix: false
+  identifier:
+    tflite: TFL3
+    tiny_gate: FBLT
+  force_vector_alignment:
+    source: pinned generated TFLite schema expansion
+    fields:
+      - CustomQuantization.custom:u8:16
+      - Int32Vector.values:u16:4
+      - Uint16Vector.values:u8:4
+      - Buffer.data:u8:16
+  force_string_alignment: not_applicable_and_frozen_off
+  offset64: absent_from_pinned_tflite_schema_and_frozen_off
+  maximum_standard_buffer_bytes: 4294967295
+profile:
+  extraction_split: training_only
+  event_identity: logical accessor endpoint IDs, never reference-buffer offsets
+  heldout_use: frozen profile only
+  static_proxy: weighted absolute address distance
+  runtime_claim_rule: static proxy cannot substitute for measured native reader/runtime
+candidate:
+  name: FB-RCFDP
+  deployable_form: bounded global reuse-closure dynamic program with deterministic frontier/beam cap and explicit fallback
+  exact_tiny_form: unpruned complete reuse-closure quotient DP
+  state:
+    - completed dependency ideal and ready frontier
+    - exact current reverse-buffer position and minimum alignment
+    - future-live identity offsets
+    - future-queryable exact raw-vtable histories
+    - future-queryable shared-string histories
+    - unresolved profile endpoints
+    - nondominated full cost and deterministic backpointer
+  forgetting:
+    - identity offset only after last unbuilt parent and last profile incidence
+    - vtable only after no remaining table can query its exact signature
+    - shared string only after no remaining legal call can query its key
+    - profile endpoint only after all incident events are charged
+comparators:
+  B0_generated_pack_default: current generated Pack/default construction
+  B0_stable_legal_topo: deterministic stable legal node order
+  B0_hot_first_ready: profile-aware ready-node heuristic
+  B0_current_config_grid: all fixed applicable stock configuration arms
+  B1_local_subtree_dp: local-only table/subtree plan without global reuse closure
+  B2_generic_bounded_oracle: same state/action bounds and full exact net-byte cost without FlatBuffers-specific quotient advantage
+  B3_tiny_exhaustive_oracle: validation ceiling only
+  candidate_FB_RCFDP: global reuse-closure DP plus legal write plan
+natural_corpus:
+  freeze_only_after_gate_pass: true
+  target_count: 20-50
+  primary_source: official tensorflow/tflite-micro at commit 18b9e6f2a8c5a9518e588f59c2ba16ef7ef9d551
+  second_source: official FlatBuffers examples at commit 7e163021e59cca4f8e1e35a7c828b5c6b7915953 if executable natural objects exist
+  minimum_retained_action_coverage: 0.10
+  split: preregistered model-family heldout split before outcomes
+metrics:
+  primary:
+    - raw_buffer_bytes
+    - measured_reader_latency_ns
+    - measured_profile_trace_latency_ns
+  full_cost:
+    - profile_extraction_cpu_wall_rss_bytes
+    - planner_cpu_wall_peak_rss_states_backpointers
+    - builder_cpu_wall_peak_rss_allocated_and_temporary_bytes
+    - verifier_cpu_wall
+    - cold_and_warm_reader_latency
+    - cache_proxy_weighted_address_distance
+    - fallback_rate_and_end_to_end_cost
+  summaries: [p50, p90]
+killers:
+  - native action catalog omission or proxy action
+  - stock verifier/reader/object equality failure
+  - tiny exhaustive oracle and exact candidate frontier mismatch
+  - current union directly absorbs candidate actions and frontier
+  - natural retained residual action coverage below 0.10
+  - natural normalized states singleton or no strict reuse-closure compression
+  - no heldout full-cost nondominated executable residual at both p50 and p90
+  - planner/build/runtime costs consume claimed bytes or access benefit
+resource_budget:
+  execution: PUBLIC_CPU_ONLY
+  workspace_bytes_max: 4294967296
+  cpu_hours_max: 4
+  gpu: false
+  global_install: forbidden
+resource_failure_before_claim:
+  decision: BLOCKED_USER_ACTION_REQUIRED
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed: false
+positive_evidence_ceiling: PRELIMINARY_SUPPORT__NOT_FALSIFIED

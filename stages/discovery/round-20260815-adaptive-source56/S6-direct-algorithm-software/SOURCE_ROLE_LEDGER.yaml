@@ -1,0 +1,26 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE56-ORDINARY-CONTROL-V1
+retrieval_date: 2026-08-15
+sources:
+  - role: ANCHOR_AND_CURRENT_OFFICIAL_DOCUMENTATION
+    url: https://gcc.gnu.org/onlinedocs/gccint/Machine-Desc.html
+    version_or_date: current GCC internals documentation retrieved 2026-08-15
+    decisive_content: "Machine descriptions contain target instruction patterns."
+    provenance: official GCC documentation
+  - role: CURRENT_OFFICIAL_DOCUMENTATION
+    url: https://gcc.gnu.org/onlinedocs/gccint/Predicates.html
+    version_or_date: current GCC internals documentation retrieved 2026-08-15
+    decisive_content: "Normal predicate modes allow genrecog optimization and diagnostics; special predicates are not optimized."
+    provenance: official GCC documentation
+  - role: CURRENT_SOURCE_LOCUS
+    url: https://gnu.googlesource.com/gcc/+/ff565e12243cadeed779804792335abfb3c8cd7c/gcc/genrecog.cc
+    version_or_date: "upstream mirror commit observed by search on 2026-08-15"
+    decisive_content: "The producer builds decision trees, removes redundant tests, CSEs/folds tests, and extracts common subtrees/pattern routines."
+    provenance: read-only GCC source mirror; official GCC git availability is documented at https://gcc.gnu.org/git.html
+  - role: CONTRARY_GENERIC_KERNEL
+    url: https://gnu.googlesource.com/gcc/+/ff565e12243cadeed779804792335abfb3c8cd7c/gcc/genrecog.cc
+    version_or_date: same source locus
+    decisive_content: "Proposed tree sharing/order actions are already current composition or generic decision-tree synthesis."
+    provenance: source-level subtractor
+bounded_status: CLOSED_FOR_RAW_GATE
+absence_claim: NONE
+note: "No files were downloaded or retained; no experiment was run."

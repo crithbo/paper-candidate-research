@@ -1,0 +1,10 @@
+# Source / collision matrix
+
+| first-party source | frozen fact | role in strongest union / collision |
+|---|---|---|
+| [Arrow IPC specification v25](https://arrow.apache.org/docs/format/Columnar.html), checked 2026-08-11 | Stream is Schema + DictionaryBatch/RecordBatch messages; dictionary key must be defined before use; stream permits replacement and delta; message bodies obey 8-byte alignment. | Native semantics and legality oracle. File-format dictionary rules are not silently imported. |
+| [Arrow C++ IPC API](https://arrow.apache.org/docs/cpp/api/ipc.html), checked 2026-08-11 | A changed dictionary emits delta if possible, otherwise full replacement; default is false for maximum stream compatibility; nested dictionaries never delta; `WriteTable(max_chunksize)` and write/read statistics exist. | Strong current writer union and direct subtractor. |
+| [Apache Arrow main IPC source directory](https://github.com/apache/arrow/tree/main/cpp/src/arrow/ipc), observed 2026-08-11 | `dictionary.{cc,h}`, `options.{cc,h}`, `reader.{cc,h}`, and `writer.{cc,h}` are current upstream symbols/paths. | Reality-check pin: branch `main`, source directory observed; exact SHA must be frozen by Stage 0 before source-level absence testing. |
+| [NYC TLC Trip Record Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) and [2025 Yellow Taxi dictionary](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf) | Official 2025 monthly releases; categorical fields include VendorID/RatecodeID/payment-related codes. | Versioned natural categorical stream route; exact monthly hashes are a Stage A fidelity item. |
+
+Latest-collision result: the current API directly collides with any claim of merely adding delta/replacement support or choosing a fixed maximum chunk size. It does not document a joint whole-stream optimizer over synchronized multi-field cuts and dictionary state. This is a source-bounded non-absence statement, not a novelty proof; Stage 0 must independently search direct literature/source collisions.

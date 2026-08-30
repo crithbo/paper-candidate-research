@@ -1,0 +1,14 @@
+schema: nonblind-stagea-compatibility-start-failure-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX
+source_assistance: {path: MAINLINE_SOURCE_TRANSPORT_ASSISTANCE.yaml, sha256: 9C4CF34F7877226FD903786E07FCA5DC2C470F9D5F8343B5DC9CD9305777D991}
+archive: {path: resources/archives/pgm-index-c6fcf3d34e55eb0061b01e2f49dfcbdb711f1407.tar.gz, sha256: FAB5E806AB225A850D2AA17BE5C7FA26CEC265906978B1733C4B06D23482905D, bytes: 276936}
+decision: FAIL_CLOSED__CONFIGURE_NMAKE_AND_CXX_TOOLCHAIN_UNAVAILABLE__NO_RETRY
+extract: {result: PASS, path: resources/src/PGM-index-c6fcf3d34e55eb0061b01e2f49dfcbdb711f1407}
+configure:
+  result: NONZERO
+  process_local_CMAKE_ROOT: resources/env/cmake-3.31.6-windows-x86_64/share/cmake-3.31
+  errors: ["nmake -? failed: no such file or directory", CMAKE_C_COMPILER_not_set, CMAKE_CXX_COMPILER_not_set]
+  generator_or_compiler_change_attempted: false
+  system_install_or_environment_change_attempted: false
+subsequent_steps: {build: false, author_test: false, fidelity: false, probe: false}
+scientific_boundary: {scientific_inference: NONE, claim: false, production: false, stageB: false, gold_or_blind_input: false, cleanup: false}

@@ -1,0 +1,3615 @@
+--- |
+  ; ModuleID = 'D:\project\writing\reserch\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\runs\natural\modules\aha-mont64__mont64.ll'
+  source_filename = "D:\\project\\writing\\reserch\\stages\\stageA\\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\\resume1\\resources\\corpus\\embench\\src\\aha-mont64\\mont64.c"
+  target datalayout = "e-m:e-p:32:32-i64:64-n32-S128"
+  target triple = "riscv32-unknown-unknown-elf"
+  
+  @_MergedGlobals = private global <{ i1, [7 x i8], i1, [7 x i8], i1 }> zeroinitializer, align 8, !guid !0
+  
+  @in_m = internal alias i1, ptr @_MergedGlobals
+  @in_b = internal alias i1, getelementptr inbounds (<{ i1, [7 x i8], i1, [7 x i8], i1 }>, ptr @_MergedGlobals, i32 0, i32 2)
+  @in_a = internal alias i1, getelementptr inbounds (<{ i1, [7 x i8], i1, [7 x i8], i1 }>, ptr @_MergedGlobals, i32 0, i32 4)
+  
+  ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write)
+  define dso_local void @mulul64(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
+    %5 = lshr i64 %0, 32
+    %6 = and i64 %0, 4294967295
+    %7 = lshr i64 %1, 32
+    %8 = and i64 %1, 4294967295
+    %9 = mul nuw i64 %8, %6
+    %10 = and i64 %9, 4294967295
+    %11 = lshr i64 %9, 32
+    %12 = mul nuw i64 %8, %5
+    %13 = add nuw i64 %11, %12
+    %14 = and i64 %13, 4294967295
+    %15 = lshr i64 %13, 32
+    %16 = mul nuw i64 %7, %6
+    %17 = add nuw i64 %14, %16
+    %18 = lshr i64 %17, 32
+    %19 = shl i64 %17, 32
+    %20 = or disjoint i64 %19, %10
+    store i64 %20, ptr %3, align 8, !tbaa !11
+    %21 = mul nuw i64 %7, %5
+    %22 = add nuw i64 %15, %21
+    %23 = add nuw i64 %22, %18
+    store i64 %23, ptr %2, align 8, !tbaa !11
+    ret void
+  }
+  
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+  declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+  
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+  declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
+  
+  ; Function Attrs: nofree norecurse nosync nounwind memory(none)
+  define dso_local i64 @modul64(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+    br label %4
+  
+  4:                                                ; preds = %4, %3
+    %5 = phi i64 [ %0, %3 ], [ %16, %4 ]
+    %6 = phi i64 [ 1, %3 ], [ %17, %4 ]
+    %7 = phi i64 [ %1, %3 ], [ %14, %4 ]
+    %8 = ashr i64 %5, 63
+    %9 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %7, i64 1)
+    %10 = shl i64 %7, 1
+    %11 = or i64 %9, %8
+    %12 = icmp uge i64 %11, %2
+    %13 = zext i1 %12 to i64
+    %14 = or disjoint i64 %10, %13
+    %15 = select i1 %12, i64 %2, i64 0
+    %16 = sub i64 %9, %15
+    %17 = add nuw nsw i64 %6, 1
+    %18 = icmp samesign ult i64 %6, 64
+    br i1 %18, label %4, label %19, !llvm.loop !13
+  
+  19:                                               ; preds = %4
+    ret i64 %16
+  }
+  
+  ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
+  define dso_local i64 @montmul(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
+    %5 = lshr i64 %0, 32
+    %6 = and i64 %0, 4294967295
+    %7 = lshr i64 %1, 32
+    %8 = and i64 %1, 4294967295
+    %9 = mul nuw i64 %8, %6
+    %10 = and i64 %9, 4294967295
+    %11 = lshr i64 %9, 32
+    %12 = mul nuw i64 %8, %5
+    %13 = add nuw i64 %11, %12
+    %14 = and i64 %13, 4294967295
+    %15 = lshr i64 %13, 32
+    %16 = mul nuw i64 %7, %6
+    %17 = add nuw i64 %14, %16
+    %18 = lshr i64 %17, 32
+    %19 = shl i64 %17, 32
+    %20 = or disjoint i64 %19, %10
+    %21 = mul nuw i64 %7, %5
+    %22 = add nuw i64 %15, %21
+    %23 = mul i64 %20, %3
+    %24 = lshr i64 %23, 32
+    %25 = and i64 %23, 4294967295
+    %26 = lshr i64 %2, 32
+    %27 = and i64 %2, 4294967295
+    %28 = mul nuw i64 %25, %27
+    %29 = and i64 %28, 4294967295
+    %30 = lshr i64 %28, 32
+    %31 = mul nuw i64 %24, %27
+    %32 = mul nuw i64 %25, %26
+    %33 = mul nuw i64 %24, %26
+    %34 = xor i64 %20, -1
+    %35 = add nuw i64 %22, %18
+    %36 = add nuw i64 %30, %31
+    %37 = and i64 %36, 4294967295
+    %38 = add nuw i64 %37, %32
+    %39 = shl i64 %38, 32
+    %40 = or disjoint i64 %39, %29
+    %41 = icmp ugt i64 %40, %34
+    %42 = zext i1 %41 to i64
+    %43 = insertelement <4 x i64> poison, i64 %36, i64 0
+    %44 = insertelement <4 x i64> %43, i64 %38, i64 1
+    %45 = insertelement <4 x i64> %44, i64 %42, i64 2
+    %46 = insertelement <4 x i64> %45, i64 %35, i64 3
+    %47 = lshr <4 x i64> %46, <i64 32, i64 32, i64 0, i64 0>
+    %48 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %47)
+    %49 = add i64 %48, %33
+    %50 = icmp ult i64 %49, %35
+    %51 = icmp eq i64 %49, %35
+    %52 = and i1 %41, %51
+    %53 = or i1 %50, %52
+    %54 = icmp uge i64 %49, %2
+    %55 = or i1 %54, %53
+    %56 = select i1 %55, i64 %2, i64 0
+    %57 = sub i64 %49, %56
+    ret i64 %57
+  }
+  
+  ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite)
+  define dso_local void @xbinGCD(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+    %5 = icmp eq i64 %0, 0
+    br i1 %5, label %27, label %.preheader
+  
+  .preheader:                                       ; preds = %4
+    br label %6
+  
+  6:                                                ; preds = %.preheader, %23
+    %7 = phi i64 [ %25, %23 ], [ 0, %.preheader ]
+    %8 = phi i64 [ %24, %23 ], [ 1, %.preheader ]
+    %9 = phi i64 [ %10, %23 ], [ %0, %.preheader ]
+    %10 = lshr i64 %9, 1
+    %11 = and i64 %8, 1
+    %12 = icmp eq i64 %11, 0
+    br i1 %12, label %13, label %16
+  
+  13:                                               ; preds = %6
+    %14 = lshr exact i64 %8, 1
+    %15 = lshr i64 %7, 1
+    br label %23
+  
+  16:                                               ; preds = %6
+    %17 = xor i64 %8, %1
+    %18 = lshr i64 %17, 1
+    %19 = and i64 %8, %1
+    %20 = add i64 %18, %19
+    %21 = lshr i64 %7, 1
+    %22 = add i64 %21, %0
+    br label %23
+  
+  23:                                               ; preds = %16, %13
+    %24 = phi i64 [ %14, %13 ], [ %20, %16 ]
+    %25 = phi i64 [ %15, %13 ], [ %22, %16 ]
+    %26 = icmp eq i64 %10, 0
+    br i1 %26, label %27, label %6, !llvm.loop !15
+  
+  27:                                               ; preds = %23, %4
+    %28 = phi i64 [ 1, %4 ], [ %24, %23 ]
+    %29 = phi i64 [ 0, %4 ], [ %25, %23 ]
+    store volatile i64 %28, ptr %2, align 8, !tbaa !11
+    store volatile i64 %29, ptr %3, align 8, !tbaa !11
+    ret void
+  }
+  
+  ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: readwrite, target_mem: none)
+  define dso_local void @warm_caches(i32 noundef %0) local_unnamed_addr #5 {
+    %2 = tail call fastcc i32 @benchmark_body(i32 noundef %0) #10
+    ret void
+  }
+  
+  ; Function Attrs: nofree noinline norecurse nounwind memory(read, argmem: none, inaccessiblemem: readwrite, target_mem: none)
+  define internal fastcc i32 @benchmark_body(i32 noundef %0) unnamed_addr #6 {
+    %2 = alloca i64, align 8
+    %3 = alloca i64, align 8
+    %4 = icmp sgt i32 %0, 0
+    br i1 %4, label %5, label %364
+  
+  5:                                                ; preds = %1
+    %6 = load i1, ptr @_MergedGlobals, align 8
+    %7 = select i1 %6, i64 -366962936819156833, i64 0
+    %8 = load i1, ptr getelementptr inbounds (<{ i1, [7 x i8], i1, [7 x i8], i1 }>, ptr @_MergedGlobals, i32 0, i32 2), align 8
+    %9 = select i1 %8, i64 1473642379452024179, i64 0
+    %10 = load i1, ptr getelementptr inbounds (<{ i1, [7 x i8], i1, [7 x i8], i1 }>, ptr @_MergedGlobals, i32 0, i32 4), align 8
+    %11 = select i1 %10, i64 380896260630216687, i64 0
+    %12 = lshr i64 %11, 32
+    %13 = and i64 %11, 2267250671
+    %14 = lshr i64 %9, 32
+    %15 = and i64 %9, 3107128691
+    %16 = mul nuw nsw i64 %13, %15
+    %17 = and i64 %16, 4294967295
+    %18 = lshr i64 %16, 32
+    %19 = mul nuw nsw i64 %12, %15
+    %20 = add nuw nsw i64 %18, %19
+    %21 = and i64 %20, 4294967295
+    %22 = lshr i64 %20, 32
+    %23 = mul nuw nsw i64 %13, %14
+    %24 = add nuw nsw i64 %21, %23
+    %25 = lshr i64 %24, 32
+    %26 = shl i64 %24, 32
+    %27 = or disjoint i64 %26, %17
+    %28 = mul nuw nsw i64 %12, %14
+    %29 = add nuw nsw i64 %22, %28
+    %30 = add nuw nsw i64 %29, %25
+    %31 = lshr i64 %7, 32
+    %32 = and i64 %7, 958986399
+    br label %33
+  
+  33:                                               ; preds = %354, %5
+    %34 = phi i32 [ 0, %5 ], [ %355, %354 ]
+    call void @llvm.lifetime.start.p0(ptr nonnull %2)
+    call void @llvm.lifetime.start.p0(ptr nonnull %3)
+    br label %35
+  
+  35:                                               ; preds = %35, %33
+    %36 = phi i64 [ %30, %33 ], [ %47, %35 ]
+    %37 = phi i64 [ 1, %33 ], [ %48, %35 ]
+    %38 = phi i64 [ %27, %33 ], [ %45, %35 ]
+    %39 = ashr i64 %36, 63
+    %40 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %38, i64 1)
+    %41 = shl i64 %38, 1
+    %42 = or i64 %40, %39
+    %43 = icmp uge i64 %42, %7
+    %44 = zext i1 %43 to i64
+    %45 = or disjoint i64 %41, %44
+    %46 = select i1 %43, i64 %7, i64 0
+    %47 = sub i64 %40, %46
+    %48 = add nuw nsw i64 %37, 1
+    %49 = icmp samesign ult i64 %37, 64
+    br i1 %49, label %35, label %50, !llvm.loop !13
+  
+  50:                                               ; preds = %35
+    %51 = lshr i64 %47, 32
+    %52 = and i64 %47, 4294967295
+    %53 = mul nuw i64 %52, %52
+    %54 = and i64 %53, 4294967295
+    %55 = lshr i64 %53, 32
+    %56 = mul nuw i64 %52, %51
+    %57 = add nuw i64 %55, %56
+    %58 = and i64 %57, 4294967295
+    %59 = lshr i64 %57, 32
+    %60 = add nuw i64 %58, %56
+    %61 = lshr i64 %60, 32
+    %62 = shl i64 %60, 32
+    %63 = or disjoint i64 %62, %54
+    %64 = mul nuw i64 %51, %51
+    %65 = add nuw i64 %59, %64
+    %66 = add nuw i64 %65, %61
+    br label %67
+  
+  67:                                               ; preds = %67, %50
+    %68 = phi i64 [ %66, %50 ], [ %79, %67 ]
+    %69 = phi i64 [ 1, %50 ], [ %80, %67 ]
+    %70 = phi i64 [ %63, %50 ], [ %77, %67 ]
+    %71 = ashr i64 %68, 63
+    %72 = tail call i64 @llvm.fshl.i64(i64 %68, i64 %70, i64 1)
+    %73 = shl i64 %70, 1
+    %74 = or i64 %72, %71
+    %75 = icmp uge i64 %74, %7
+    %76 = zext i1 %75 to i64
+    %77 = or disjoint i64 %73, %76
+    %78 = select i1 %75, i64 %7, i64 0
+    %79 = sub i64 %72, %78
+    %80 = add nuw nsw i64 %69, 1
+    %81 = icmp samesign ult i64 %69, 64
+    br i1 %81, label %67, label %82, !llvm.loop !13
+  
+  82:                                               ; preds = %67
+    %83 = lshr i64 %79, 32
+    %84 = and i64 %79, 4294967295
+    %85 = mul nuw i64 %84, %84
+    %86 = and i64 %85, 4294967295
+    %87 = lshr i64 %85, 32
+    %88 = mul nuw i64 %84, %83
+    %89 = add nuw i64 %87, %88
+    %90 = and i64 %89, 4294967295
+    %91 = lshr i64 %89, 32
+    %92 = add nuw i64 %90, %88
+    %93 = lshr i64 %92, 32
+    %94 = shl i64 %92, 32
+    %95 = or disjoint i64 %94, %86
+    %96 = mul nuw i64 %83, %83
+    %97 = add nuw i64 %91, %96
+    %98 = add nuw i64 %97, %93
+    br label %99
+  
+  99:                                               ; preds = %99, %82
+    %100 = phi i64 [ %98, %82 ], [ %111, %99 ]
+    %101 = phi i64 [ 1, %82 ], [ %112, %99 ]
+    %102 = phi i64 [ %95, %82 ], [ %109, %99 ]
+    %103 = ashr i64 %100, 63
+    %104 = tail call i64 @llvm.fshl.i64(i64 %100, i64 %102, i64 1)
+    %105 = shl i64 %102, 1
+    %106 = or i64 %104, %103
+    %107 = icmp uge i64 %106, %7
+    %108 = zext i1 %107 to i64
+    %109 = or disjoint i64 %105, %108
+    %110 = select i1 %107, i64 %7, i64 0
+    %111 = sub i64 %104, %110
+    %112 = add nuw nsw i64 %101, 1
+    %113 = icmp samesign ult i64 %101, 64
+    br i1 %113, label %99, label %.preheader1, !llvm.loop !13
+  
+  .preheader1:                                      ; preds = %99
+    br label %114
+  
+  114:                                              ; preds = %.preheader1, %131
+    %115 = phi i64 [ %133, %131 ], [ 0, %.preheader1 ]
+    %116 = phi i64 [ %132, %131 ], [ 1, %.preheader1 ]
+    %117 = phi i64 [ %118, %131 ], [ -9223372036854775808, %.preheader1 ]
+    %118 = lshr i64 %117, 1
+    %119 = and i64 %116, 1
+    %120 = icmp eq i64 %119, 0
+    br i1 %120, label %121, label %124
+  
+  121:                                              ; preds = %114
+    %122 = lshr exact i64 %116, 1
+    %123 = lshr i64 %115, 1
+    br label %131
+  
+  124:                                              ; preds = %114
+    %125 = xor i64 %116, %7
+    %126 = lshr i64 %125, 1
+    %127 = and i64 %116, %7
+    %128 = add i64 %126, %127
+    %129 = lshr i64 %115, 1
+    %130 = or disjoint i64 %129, -9223372036854775808
+    br label %131
+  
+  131:                                              ; preds = %124, %121
+    %132 = phi i64 [ %122, %121 ], [ %128, %124 ]
+    %133 = phi i64 [ %123, %121 ], [ %130, %124 ]
+    %134 = icmp eq i64 %118, 0
+    br i1 %134, label %135, label %114, !llvm.loop !15
+  
+  135:                                              ; preds = %131
+    store volatile i64 %132, ptr %2, align 8, !tbaa !11
+    store volatile i64 %133, ptr %3, align 8, !tbaa !11
+    %136 = load volatile i64, ptr %2, align 8, !tbaa !11
+    %137 = load volatile i64, ptr %3, align 8, !tbaa !11
+    br label %138
+  
+  138:                                              ; preds = %138, %135
+    %139 = phi i64 [ %11, %135 ], [ %150, %138 ]
+    %140 = phi i64 [ 1, %135 ], [ %151, %138 ]
+    %141 = phi i64 [ 0, %135 ], [ %148, %138 ]
+    %142 = ashr i64 %139, 63
+    %143 = tail call i64 @llvm.fshl.i64(i64 %139, i64 %141, i64 1)
+    %144 = shl i64 %141, 1
+    %145 = or i64 %143, %142
+    %146 = icmp uge i64 %145, %7
+    %147 = zext i1 %146 to i64
+    %148 = or disjoint i64 %144, %147
+    %149 = select i1 %146, i64 %7, i64 0
+    %150 = sub i64 %143, %149
+    %151 = add nuw nsw i64 %140, 1
+    %152 = icmp samesign ult i64 %140, 64
+    br i1 %152, label %138, label %.preheader, !llvm.loop !13
+  
+  .preheader:                                       ; preds = %138
+    br label %153
+  
+  153:                                              ; preds = %.preheader, %153
+    %154 = phi i64 [ %165, %153 ], [ %9, %.preheader ]
+    %155 = phi i64 [ %166, %153 ], [ 1, %.preheader ]
+    %156 = phi i64 [ %163, %153 ], [ 0, %.preheader ]
+    %157 = ashr i64 %154, 63
+    %158 = tail call i64 @llvm.fshl.i64(i64 %154, i64 %156, i64 1)
+    %159 = shl i64 %156, 1
+    %160 = or i64 %158, %157
+    %161 = icmp uge i64 %160, %7
+    %162 = zext i1 %161 to i64
+    %163 = or disjoint i64 %159, %162
+    %164 = select i1 %161, i64 %7, i64 0
+    %165 = sub i64 %158, %164
+    %166 = add nuw nsw i64 %155, 1
+    %167 = icmp samesign ult i64 %155, 64
+    br i1 %167, label %153, label %168, !llvm.loop !13
+  
+  168:                                              ; preds = %153
+    %169 = load volatile i64, ptr %3, align 8, !tbaa !11
+    %170 = lshr i64 %150, 32
+    %171 = and i64 %150, 4294967295
+    %172 = lshr i64 %165, 32
+    %173 = and i64 %165, 4294967295
+    %174 = mul nuw i64 %173, %171
+    %175 = and i64 %174, 4294967295
+    %176 = lshr i64 %174, 32
+    %177 = mul nuw i64 %173, %170
+    %178 = add nuw i64 %176, %177
+    %179 = and i64 %178, 4294967295
+    %180 = lshr i64 %178, 32
+    %181 = mul nuw i64 %172, %171
+    %182 = add nuw i64 %179, %181
+    %183 = lshr i64 %182, 32
+    %184 = shl i64 %182, 32
+    %185 = or disjoint i64 %184, %175
+    %186 = mul nuw i64 %172, %170
+    %187 = add nuw i64 %180, %186
+    %188 = mul i64 %169, %185
+    %189 = lshr i64 %188, 32
+    %190 = and i64 %188, 4294967295
+    %191 = mul nuw nsw i64 %190, %32
+    %192 = and i64 %191, 4294967295
+    %193 = lshr i64 %191, 32
+    %194 = mul nuw nsw i64 %189, %32
+    %195 = mul nuw i64 %190, %31
+    %196 = mul nuw i64 %189, %31
+    %197 = xor i64 %185, -1
+    %198 = add nuw i64 %187, %183
+    %199 = add nuw nsw i64 %193, %194
+    %200 = and i64 %199, 4294967295
+    %201 = add nuw i64 %200, %195
+    %202 = shl i64 %201, 32
+    %203 = or disjoint i64 %202, %192
+    %204 = icmp ugt i64 %203, %197
+    %205 = zext i1 %204 to i64
+    %206 = insertelement <4 x i64> poison, i64 %199, i64 0
+    %207 = insertelement <4 x i64> %206, i64 %201, i64 1
+    %208 = insertelement <4 x i64> %207, i64 %205, i64 2
+    %209 = insertelement <4 x i64> %208, i64 %198, i64 3
+    %210 = lshr <4 x i64> %209, <i64 32, i64 32, i64 0, i64 0>
+    %211 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %210)
+    %212 = add i64 %211, %196
+    %213 = icmp ult i64 %212, %198
+    %214 = icmp eq i64 %212, %198
+    %215 = and i1 %204, %214
+    %216 = or i1 %213, %215
+    %217 = icmp uge i64 %212, %7
+    %218 = or i1 %217, %216
+    %219 = select i1 %218, i64 %7, i64 0
+    %220 = sub i64 %212, %219
+    %221 = load volatile i64, ptr %3, align 8, !tbaa !11
+    %222 = lshr i64 %220, 32
+    %223 = and i64 %220, 4294967295
+    %224 = mul nuw i64 %223, %223
+    %225 = and i64 %224, 4294967295
+    %226 = lshr i64 %224, 32
+    %227 = mul nuw i64 %223, %222
+    %228 = add nuw i64 %226, %227
+    %229 = and i64 %228, 4294967295
+    %230 = lshr i64 %228, 32
+    %231 = add nuw i64 %229, %227
+    %232 = lshr i64 %231, 32
+    %233 = shl i64 %231, 32
+    %234 = or disjoint i64 %233, %225
+    %235 = mul nuw i64 %222, %222
+    %236 = add nuw i64 %230, %235
+    %237 = mul i64 %234, %221
+    %238 = lshr i64 %237, 32
+    %239 = and i64 %237, 4294967295
+    %240 = mul nuw nsw i64 %239, %32
+    %241 = and i64 %240, 4294967295
+    %242 = lshr i64 %240, 32
+    %243 = mul nuw nsw i64 %238, %32
+    %244 = mul nuw i64 %239, %31
+    %245 = mul nuw i64 %238, %31
+    %246 = xor i64 %234, -1
+    %247 = add nuw i64 %236, %232
+    %248 = add nuw nsw i64 %242, %243
+    %249 = and i64 %248, 4294967295
+    %250 = add nuw i64 %249, %244
+    %251 = shl i64 %250, 32
+    %252 = or disjoint i64 %251, %241
+    %253 = icmp ugt i64 %252, %246
+    %254 = zext i1 %253 to i64
+    %255 = insertelement <4 x i64> poison, i64 %248, i64 0
+    %256 = insertelement <4 x i64> %255, i64 %250, i64 1
+    %257 = insertelement <4 x i64> %256, i64 %254, i64 2
+    %258 = insertelement <4 x i64> %257, i64 %247, i64 3
+    %259 = lshr <4 x i64> %258, <i64 32, i64 32, i64 0, i64 0>
+    %260 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %259)
+    %261 = add i64 %260, %245
+    %262 = icmp ult i64 %261, %247
+    %263 = icmp eq i64 %261, %247
+    %264 = and i1 %253, %263
+    %265 = or i1 %262, %264
+    %266 = icmp uge i64 %261, %7
+    %267 = or i1 %266, %265
+    %268 = select i1 %267, i64 %7, i64 0
+    %269 = sub i64 %261, %268
+    %270 = load volatile i64, ptr %3, align 8, !tbaa !11
+    %271 = lshr i64 %269, 32
+    %272 = and i64 %269, 4294967295
+    %273 = mul nuw i64 %272, %272
+    %274 = and i64 %273, 4294967295
+    %275 = lshr i64 %273, 32
+    %276 = mul nuw i64 %272, %271
+    %277 = add nuw i64 %275, %276
+    %278 = and i64 %277, 4294967295
+    %279 = lshr i64 %277, 32
+    %280 = add nuw i64 %278, %276
+    %281 = lshr i64 %280, 32
+    %282 = shl i64 %280, 32
+    %283 = or disjoint i64 %282, %274
+    %284 = mul nuw i64 %271, %271
+    %285 = add nuw i64 %279, %284
+    %286 = mul i64 %283, %270
+    %287 = lshr i64 %286, 32
+    %288 = and i64 %286, 4294967295
+    %289 = mul nuw nsw i64 %288, %32
+    %290 = and i64 %289, 4294967295
+    %291 = lshr i64 %289, 32
+    %292 = mul nuw nsw i64 %287, %32
+    %293 = mul nuw i64 %288, %31
+    %294 = mul nuw i64 %287, %31
+    %295 = xor i64 %283, -1
+    %296 = add nuw i64 %285, %281
+    %297 = add nuw nsw i64 %291, %292
+    %298 = and i64 %297, 4294967295
+    %299 = add nuw i64 %298, %293
+    %300 = shl i64 %299, 32
+    %301 = or disjoint i64 %300, %290
+    %302 = icmp ugt i64 %301, %295
+    %303 = zext i1 %302 to i64
+    %304 = insertelement <4 x i64> poison, i64 %297, i64 0
+    %305 = insertelement <4 x i64> %304, i64 %299, i64 1
+    %306 = insertelement <4 x i64> %305, i64 %303, i64 2
+    %307 = insertelement <4 x i64> %306, i64 %296, i64 3
+    %308 = lshr <4 x i64> %307, <i64 32, i64 32, i64 0, i64 0>
+    %309 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %308)
+    %310 = add i64 %309, %294
+    %311 = icmp ult i64 %310, %296
+    %312 = icmp eq i64 %310, %296
+    %313 = and i1 %302, %312
+    %314 = or i1 %311, %313
+    %315 = icmp uge i64 %310, %7
+    %316 = or i1 %315, %314
+    %317 = select i1 %316, i64 %7, i64 0
+    %318 = sub i64 %310, %317
+    %319 = load volatile i64, ptr %2, align 8, !tbaa !11
+    %320 = lshr i64 %318, 32
+    %321 = and i64 %318, 4294967295
+    %322 = lshr i64 %319, 32
+    %323 = and i64 %319, 4294967295
+    %324 = mul nuw i64 %321, %323
+    %325 = and i64 %324, 4294967295
+    %326 = lshr i64 %324, 32
+    %327 = mul nuw i64 %320, %323
+    %328 = add nuw i64 %326, %327
+    %329 = and i64 %328, 4294967295
+    %330 = lshr i64 %328, 32
+    %331 = mul nuw i64 %321, %322
+    %332 = add nuw i64 %329, %331
+    %333 = lshr i64 %332, 32
+    %334 = shl i64 %332, 32
+    %335 = or disjoint i64 %334, %325
+    %336 = mul nuw i64 %320, %322
+    %337 = add nuw i64 %330, %336
+    %338 = add nuw i64 %337, %333
+    br label %339
+  
+  339:                                              ; preds = %339, %168
+    %340 = phi i64 [ %338, %168 ], [ %351, %339 ]
+    %341 = phi i64 [ 1, %168 ], [ %352, %339 ]
+    %342 = phi i64 [ %335, %168 ], [ %349, %339 ]
+    %343 = ashr i64 %340, 63
+    %344 = tail call i64 @llvm.fshl.i64(i64 %340, i64 %342, i64 1)
+    %345 = shl i64 %342, 1
+    %346 = or i64 %344, %343
+    %347 = icmp uge i64 %346, %7
+    %348 = zext i1 %347 to i64
+    %349 = or disjoint i64 %345, %348
+    %350 = select i1 %347, i64 %7, i64 0
+    %351 = sub i64 %344, %350
+    %352 = add nuw nsw i64 %341, 1
+    %353 = icmp samesign ult i64 %341, 64
+    br i1 %353, label %339, label %354, !llvm.loop !13
+  
+  354:                                              ; preds = %339
+    call void @llvm.lifetime.end.p0(ptr nonnull %3)
+    call void @llvm.lifetime.end.p0(ptr nonnull %2)
+    %355 = add nuw nsw i32 %34, 1
+    %356 = icmp eq i32 %355, %0
+    br i1 %356, label %357, label %33, !llvm.loop !16
+  
+  357:                                              ; preds = %354
+    %358 = select i1 %6, i64 366962936819156833, i64 0
+    %359 = mul i64 %137, %358
+    %360 = icmp ne i64 %359, 1
+    %361 = icmp ne i64 %351, %111
+    %362 = select i1 %361, i1 true, i1 %360
+    %363 = zext i1 %362 to i32
+    br label %364
+  
+  364:                                              ; preds = %357, %1
+    %365 = phi i32 [ %363, %357 ], [ undef, %1 ]
+    ret i32 %365
+  }
+  
+  ; Function Attrs: nofree noinline norecurse nounwind memory(read, inaccessiblemem: readwrite, target_mem: none)
+  define dso_local i32 @benchmark() local_unnamed_addr #7 {
+    %1 = tail call fastcc i32 @benchmark_body(i32 noundef 423) #10
+    ret i32 %1
+  }
+  
+  ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem: none)
+  define dso_local void @initialise_benchmark() local_unnamed_addr #8 {
+    store i1 true, ptr @_MergedGlobals, align 8
+    store i1 true, ptr getelementptr inbounds (<{ i1, [7 x i8], i1, [7 x i8], i1 }>, ptr @_MergedGlobals, i32 0, i32 2), align 8
+    store i1 true, ptr getelementptr inbounds (<{ i1, [7 x i8], i1, [7 x i8], i1 }>, ptr @_MergedGlobals, i32 0, i32 4), align 8
+    ret void
+  }
+  
+  ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
+  define dso_local range(i32 0, 2) i32 @verify_benchmark(i32 noundef %0) local_unnamed_addr #3 {
+    %2 = icmp eq i32 %0, 0
+    %3 = zext i1 %2 to i32
+    ret i32 %3
+  }
+  
+  ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+  declare i64 @llvm.fshl.i64(i64, i64, i64) #9
+  
+  ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+  declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #9
+  
+  attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) "target-features"="+m,+a,+c,+zcmp" }
+  attributes #2 = { nofree norecurse nosync nounwind memory(none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #4 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #5 = { nofree norecurse nounwind memory(read, inaccessiblemem: readwrite, target_mem: none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #6 = { nofree noinline norecurse nounwind memory(read, argmem: none, inaccessiblemem: readwrite, target_mem: none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #7 = { nofree noinline norecurse nounwind memory(read, inaccessiblemem: readwrite, target_mem: none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem: none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) "target-features"="+m,+a,+c,+zcmp" }
+  attributes #10 = { nobuiltin "no-builtins" }
+  
+  !llvm.module.flags = !{!1, !2, !3, !5}
+  !llvm.ident = !{!6}
+  !llvm.errno.tbaa = !{!7}
+  
+  !0 = !{i64 -8939657338858269468}
+  !1 = !{i32 1, !"wchar_size", i32 4}
+  !2 = !{i32 1, !"target-abi", !"ilp32"}
+  !3 = !{i32 6, !"riscv-isa", !4}
+  !4 = !{!"rv32i2p1_m2p0_a2p1_c2p0_zmmul1p0_zaamo1p0_zalrsc1p0_zca1p0_zcmp1p0"}
+  !5 = !{i32 8, !"SmallDataLimit", i32 0}
+  !6 = !{!"clang version 22.1.8 (https://github.com/llvm/llvm-project.git ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"}
+  !7 = !{!8, !8, i64 0}
+  !8 = !{!"int", !9, i64 0}
+  !9 = !{!"omnipotent char", !10, i64 0}
+  !10 = !{!"Simple C/C++ TBAA"}
+  !11 = !{!12, !12, i64 0}
+  !12 = !{!"long long", !9, i64 0}
+  !13 = distinct !{!13, !14}
+  !14 = !{!"llvm.loop.mustprogress"}
+  !15 = distinct !{!15, !14}
+  !16 = distinct !{!16, !14}
+...
+---
+name:            mulul64
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 18, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 19, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 20, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 21, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 23, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 24, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 25, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 26, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 27, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%0' }
+  - { reg: '$x11', virtual-reg: '%1' }
+  - { reg: '$x12', virtual-reg: '%2' }
+  - { reg: '$x13', virtual-reg: '%3' }
+  - { reg: '$x14', virtual-reg: '%4' }
+  - { reg: '$x15', virtual-reg: '%5' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.4):
+    liveins: $x10, $x11, $x12, $x13, $x14, $x15
+  
+    %5:gpr = COPY $x15
+    %4:gpr = COPY $x14
+    %2:gpr = COPY $x12
+    %1:gpr = COPY $x11
+    %0:gpr = COPY $x10
+    %3:gpr = COPY $x13
+    %7:gpr = MULHU %2, %0
+    %9:gpr = MUL %2, %1
+    %8:gpr = MULHU %2, %1
+    %14:gpr = MUL %3, %0
+    %19:gpr = MUL %3, %1
+    %13:gpr = MULHU %3, %0
+    %18:gpr = MULHU %3, %1
+    %6:gpr = MUL %2, %0
+    %10:gpr = ADD %7, %9
+    %11:gpr = SLTU %10, %7
+    %12:gpr = ADD %8, %11
+    %15:gpr = ADD %10, %14
+    %16:gpr = SLTU %15, %10
+    %20:gpr = ADD %12, %19
+    %17:gpr = ADD %13, %16
+    %21:gpr = SLTU %20, %12
+    %23:gpr = ADD %20, %17
+    %22:gpr = ADD %18, %21
+    %24:gpr = SLTU %23, %20
+    SW %6, %5, 0 :: (store (s32) into %ir.3, align 8, !tbaa !11)
+    SW %15, %5, 4 :: (store (s32) into %ir.3 + 4, basealign 8, !tbaa !11)
+    %25:gpr = ADD %22, %24
+    SW %23, %4, 0 :: (store (s32) into %ir.2, align 8, !tbaa !11)
+    SW %25, %4, 4 :: (store (s32) into %ir.2 + 4, basealign 8, !tbaa !11)
+    PseudoRET
+...
+---
+name:            modul64
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 18, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 19, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 20, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 21, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 23, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 24, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 25, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 26, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 27, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 28, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 29, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 30, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 31, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 32, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 33, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 34, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 35, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 36, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 37, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 38, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 39, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 40, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 41, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 42, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 43, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 44, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 45, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 46, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 47, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 48, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 49, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 50, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 51, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 52, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 53, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 54, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 55, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 56, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 57, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 58, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 59, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 60, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 61, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%12' }
+  - { reg: '$x11', virtual-reg: '%13' }
+  - { reg: '$x12', virtual-reg: '%14' }
+  - { reg: '$x13', virtual-reg: '%15' }
+  - { reg: '$x14', virtual-reg: '%16' }
+  - { reg: '$x15', virtual-reg: '%17' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.3):
+    successors: %bb.1(0x80000000)
+    liveins: $x10, $x11, $x12, $x13, $x14, $x15
+  
+    %23:gpr = COPY $x15
+    %16:gpr = COPY $x14
+    %60:gpr = COPY $x13
+    %59:gpr = COPY $x12
+    %56:gpr = COPY $x11
+    %55:gpr = COPY $x10
+    %58:gpr = COPY $x0
+    %57:gpr = ADDI $x0, 1
+  
+  bb.1 (%ir-block.4):
+    successors: %bb.3(0x40000000), %bb.2(0x40000000)
+  
+    %27:gpr = SRAI %56, 31
+    %28:gpr = SRLI %55, 31
+    %29:gpr = SLLI %56, 1
+    %30:gpr = OR %29, %28
+    %31:gpr = SLLI %55, 1
+    %32:gpr = SRLI %60, 31
+    %38:gpr = OR %30, %27
+    %33:gpr = OR %31, %32
+    BNE %38, %23, %bb.3
+  
+  bb.2:
+    successors: %bb.4(0x80000000)
+  
+    %37:gpr = OR %33, %27
+    %61:gpr = SLTU %37, %16
+    PseudoBR %bb.4
+  
+  bb.3 (%ir-block.4):
+    successors: %bb.4(0x80000000)
+  
+    %61:gpr = SLTU %38, %23
+  
+  bb.4 (%ir-block.4):
+    successors: %bb.1(0x7c000000), %bb.5(0x04000000)
+  
+    %34:gpr = SRLI %59, 31
+    %35:gpr = SLLI %60, 1
+    %36:gpr = SLLI %59, 1
+    %60:gpr = OR %35, %34
+    %42:gpr = XORI %61, 1
+    %59:gpr = disjoint OR %36, %42
+    %44:gpr = SUB $x0, %42
+    %45:gpr = AND %44, %23
+    %46:gpr = AND %44, %16
+    %47:gpr = SLTU %33, %46
+    %48:gpr = SUB %30, %45
+    %56:gpr = SUB %48, %47
+    %55:gpr = SUB %33, %46
+    %50:gpr = SLTIU %57, 64
+    %10:gpr = ADDI %57, 1
+    %49:gpr = SLTIU %10, 1
+    %51:gpr = SLTIU %58, 1
+    %11:gpr = ADD %58, %49
+    %52:gpr = AND %51, %50
+    %57:gpr = COPY %10
+    %58:gpr = COPY %11
+    BNE %52, $x0, %bb.1
+    PseudoBR %bb.5
+  
+  bb.5 (%ir-block.19):
+    $x10 = COPY %55
+    $x11 = COPY %56
+    PseudoRET implicit $x10, implicit $x11
+...
+---
+name:            montmul
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 18, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 19, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 20, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 21, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 23, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 24, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 25, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 26, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 27, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 28, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 29, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 30, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 31, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 32, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 33, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 34, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 35, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 36, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 37, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 38, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 39, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 40, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 41, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 42, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 43, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 44, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 45, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 46, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 47, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 48, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 49, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 50, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 51, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 52, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 53, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 54, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 55, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 56, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 57, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 58, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 59, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 60, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 61, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 62, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 63, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 64, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 65, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 66, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 67, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 68, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 69, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 70, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 71, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 72, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 73, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 74, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 75, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 76, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 77, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 78, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 79, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 80, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 81, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 82, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 83, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 84, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 85, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 86, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 87, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 88, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 89, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 90, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 91, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 92, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 93, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 94, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 95, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 96, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 97, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 98, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 99, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 100, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 101, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 102, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 103, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 104, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%0' }
+  - { reg: '$x11', virtual-reg: '%1' }
+  - { reg: '$x12', virtual-reg: '%2' }
+  - { reg: '$x13', virtual-reg: '%3' }
+  - { reg: '$x14', virtual-reg: '%4' }
+  - { reg: '$x15', virtual-reg: '%5' }
+  - { reg: '$x16', virtual-reg: '%6' }
+  - { reg: '$x17', virtual-reg: '%7' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.4):
+    successors: %bb.2(0x40000000), %bb.1(0x40000000)
+    liveins: $x10, $x11, $x12, $x13, $x14, $x15, $x16, $x17
+  
+    %7:gpr = COPY $x17
+    %6:gpr = COPY $x16
+    %2:gpr = COPY $x12
+    %1:gpr = COPY $x11
+    %0:gpr = COPY $x10
+    %3:gpr = COPY $x13
+    %4:gpr = COPY $x14
+    %5:gpr = COPY $x15
+    %9:gpr = MULHU %2, %0
+    %11:gpr = MUL %2, %1
+    %16:gpr = MUL %3, %0
+    %8:gpr = MUL %2, %0
+    %12:gpr = ADD %9, %11
+    %10:gpr = MULHU %2, %1
+    %17:gpr = ADD %12, %16
+    %25:gpr = MUL %8, %7
+    %26:gpr = MULHU %8, %6
+    %21:gpr = MUL %3, %1
+    %28:gpr = MUL %17, %6
+    %30:gpr = MUL %8, %6
+    %13:gpr = SLTU %12, %9
+    %15:gpr = MULHU %3, %0
+    %20:gpr = MULHU %3, %1
+    %14:gpr = ADD %10, %13
+    %18:gpr = SLTU %17, %12
+    %27:gpr = ADD %26, %25
+    %22:gpr = ADD %14, %21
+    %29:gpr = ADD %27, %28
+    %32:gpr = MULHU %30, %4
+    %34:gpr = MUL %29, %4
+    %23:gpr = SLTU %22, %14
+    %36:gpr = MUL %30, %5
+    %19:gpr = ADD %15, %18
+    %24:gpr = ADD %20, %23
+    %33:gpr = MULHU %29, %4
+    %35:gpr = MULHU %30, %5
+    %37:gpr = MUL %29, %5
+    %38:gpr = MULHU %29, %5
+    %39:gpr = XORI %17, -1
+    %41:gpr = ADD %22, %19
+    %42:gpr = SLTU %41, %22
+    %44:gpr = ADD %32, %34
+    %43:gpr = ADD %24, %42
+    %47:gpr = ADD %44, %36
+    %45:gpr = SLTU %44, %32
+    %48:gpr = SLTU %47, %44
+    %46:gpr = ADD %33, %45
+    %49:gpr = ADD %35, %48
+    BNE %47, %39, %bb.2
+  
+  bb.1:
+    successors: %bb.3(0x80000000)
+  
+    %31:gpr = MUL %30, %4
+    %40:gpr = XORI %8, -1
+    %102:gpr = SLTU %40, %31
+    PseudoBR %bb.3
+  
+  bb.2 (%ir-block.4):
+    successors: %bb.3(0x80000000)
+  
+    %102:gpr = SLTU %39, %47
+  
+  bb.3 (%ir-block.4):
+    successors: %bb.5(0x40000000), %bb.4(0x40000000)
+  
+    %53:gpr = ADD %46, %49
+    %54:gpr = ADD %53, %102
+    %58:gpr = SLTU %53, %46
+    %55:gpr = ADD %54, %41
+    %57:gpr = SLTU %54, %53
+    %93:gpr = ADD %58, %43
+    %56:gpr = SLTU %55, %54
+    %60:gpr = ADD %93, %57
+    %61:gpr = ADD %60, %56
+    %63:gpr = ADD %55, %37
+    %62:gpr = ADD %61, %38
+    %64:gpr = SLTU %63, %55
+    %65:gpr = ADD %62, %64
+    BNE %65, %43, %bb.5
+  
+  bb.4:
+    successors: %bb.6(0x80000000)
+  
+    %103:gpr = SLTU %63, %41
+    PseudoBR %bb.6
+  
+  bb.5 (%ir-block.4):
+    successors: %bb.6(0x80000000)
+  
+    %103:gpr = SLTU %65, %43
+  
+  bb.6 (%ir-block.4):
+    successors: %bb.8(0x40000000), %bb.7(0x40000000)
+  
+    %69:gpr = XOR %65, %43
+    %70:gpr = XOR %63, %41
+    %71:gpr = OR %70, %69
+    %72:gpr = SLTIU %71, 1
+    %73:gpr = AND %102, %72
+    %74:gpr = OR %103, %73
+    BNE %65, %5, %bb.8
+  
+  bb.7:
+    successors: %bb.9(0x80000000)
+  
+    %104:gpr = SLTU %63, %4
+    PseudoBR %bb.9
+  
+  bb.8 (%ir-block.4):
+    successors: %bb.9(0x80000000)
+  
+    %104:gpr = SLTU %65, %5
+  
+  bb.9 (%ir-block.4):
+    %78:gpr = XORI %104, 1
+    %79:gpr = OR %78, %74
+    %81:gpr = SUB $x0, %79
+    %82:gpr = AND %81, %5
+    %83:gpr = AND %81, %4
+    %84:gpr = SLTU %63, %83
+    %85:gpr = SUB %65, %82
+    %86:gpr = SUB %85, %84
+    %87:gpr = SUB %63, %83
+    $x10 = COPY %87
+    $x11 = COPY %86
+    PseudoRET implicit $x10, implicit $x11
+...
+---
+name:            xbinGCD
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 18, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 19, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 20, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 21, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 23, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 24, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 25, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 26, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 27, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 28, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 29, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 30, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 31, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 32, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 33, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 34, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 35, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 36, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 37, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 38, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 39, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 40, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 41, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 42, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 43, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 44, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 45, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 46, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 47, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 48, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 49, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 50, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 51, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 52, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 53, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 54, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 55, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 56, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 57, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 58, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 59, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 60, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 61, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 62, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 63, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 64, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 65, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 66, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 67, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 68, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 69, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 70, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 71, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 72, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 73, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 74, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 75, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 76, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 77, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 78, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 79, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 80, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 81, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 82, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 83, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 84, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 85, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 86, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 87, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 88, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 89, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%24' }
+  - { reg: '$x11', virtual-reg: '%25' }
+  - { reg: '$x12', virtual-reg: '%26' }
+  - { reg: '$x13', virtual-reg: '%27' }
+  - { reg: '$x14', virtual-reg: '%28' }
+  - { reg: '$x15', virtual-reg: '%29' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.4):
+    successors: %bb.1(0x30000000), %bb.2(0x50000000)
+    liveins: $x10, $x11, $x12, $x13, $x14, $x15
+  
+    %29:gpr = COPY $x15
+    %28:gpr = COPY $x14
+    %25:gpr = COPY $x11
+    %24:gpr = COPY $x10
+    %27:gpr = COPY $x13
+    %38:gpr = OR %24, %25
+    %26:gpr = COPY $x12
+    BNE %38, $x0, %bb.2
+  
+  bb.1:
+    successors: %bb.7(0x80000000)
+  
+    %79:gpr = COPY $x0
+    %76:gpr = COPY $x0
+    %77:gpr = COPY $x0
+    %78:gpr = ADDI $x0, 1
+    PseudoBR %bb.7
+  
+  bb.2..preheader:
+    successors: %bb.3(0x80000000)
+  
+    %76:gpr = COPY $x0
+    %77:gpr = COPY $x0
+    %79:gpr = COPY $x0
+    %78:gpr = ADDI $x0, 1
+    %80:gpr = COPY %24
+    %81:gpr = COPY %25
+  
+  bb.3 (%ir-block.6):
+    successors: %bb.4(0x40000000), %bb.5(0x40000000)
+  
+    %47:gpr = ANDI %78, 1
+    %73:gpr = SRLI %76, 1
+    %74:gpr = SLLI %77, 31
+    %77:gpr = SRLI %77, 1
+    BNE %47, $x0, %bb.5
+    PseudoBR %bb.4
+  
+  bb.4 (%ir-block.13):
+    successors: %bb.6(0x80000000)
+  
+    %64:gpr = SRLI %78, 1
+    %65:gpr = SLLI %79, 31
+    %78:gpr = OR %64, %65
+    %79:gpr = SRLI %79, 1
+    %76:gpr = OR %73, %74
+    PseudoBR %bb.6
+  
+  bb.5 (%ir-block.16):
+    successors: %bb.6(0x80000000)
+  
+    %49:gpr = XOR %79, %27
+    %48:gpr = AND %79, %27
+    %50:gpr = SRLI %49, 1
+    %51:gpr = ADD %48, %50
+    %52:gpr = XOR %78, %26
+    %53:gpr = SRLI %52, 1
+    %54:gpr = SLLI %49, 31
+    %55:gpr = OR %53, %54
+    %56:gpr = AND %78, %26
+    %78:gpr = ADD %56, %55
+    %60:gpr = OR %73, %74
+    %57:gpr = SLTU %78, %56
+    %76:gpr = ADD %60, %24
+    %62:gpr = SLTU %76, %60
+    %63:gpr = ADD %77, %25
+    %79:gpr = ADD %51, %57
+    %77:gpr = ADD %63, %62
+  
+  bb.6 (%ir-block.23):
+    successors: %bb.7(0x04000000), %bb.3(0x7c000000)
+  
+    %45:gpr = SRLI %80, 1
+    %46:gpr = SLLI %81, 31
+    %80:gpr = OR %45, %46
+    %81:gpr = SRLI %81, 1
+    %68:gpr = OR %80, %81
+    BNE %68, $x0, %bb.3
+    PseudoBR %bb.7
+  
+  bb.7 (%ir-block.27):
+    SW %78, %28, 0 :: (volatile store (s32) into %ir.2, align 8, !tbaa !11)
+    SW %79, %28, 4 :: (volatile store (s32) into %ir.2 + 4, basealign 8, !tbaa !11)
+    SW %77, %29, 4 :: (volatile store (s32) into %ir.3 + 4, basealign 8, !tbaa !11)
+    SW %76, %29, 0 :: (volatile store (s32) into %ir.3, align 8, !tbaa !11)
+    PseudoRET
+...
+---
+name:            warm_caches
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%0' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     true
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    liveins: $x10
+  
+    %0:gpr = COPY $x10
+    $x10 = COPY %0
+    PseudoTAIL target-flags(riscv-call) @benchmark_body, csr_ilp32_lp64, implicit $x2, implicit $x10
+...
+---
+name:            benchmark_body
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 18, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 19, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 20, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 21, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 23, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 24, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 25, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 26, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 27, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 28, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 29, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 30, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 31, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 32, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 33, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 34, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 35, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 36, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 37, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 38, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 39, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 40, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 41, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 42, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 43, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 44, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 45, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 46, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 47, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 48, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 49, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 50, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 51, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 52, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 53, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 54, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 55, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 56, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 57, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 58, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 59, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 60, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 61, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 62, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 63, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 64, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 65, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 66, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 67, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 68, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 69, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 70, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 71, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 72, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 73, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 74, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 75, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 76, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 77, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 78, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 79, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 80, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 81, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 82, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 83, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 84, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 85, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 86, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 87, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 88, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 89, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 90, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 91, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 92, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 93, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 94, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 95, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 96, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 97, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 98, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 99, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 100, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 101, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 102, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 103, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 104, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 105, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 106, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 107, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 108, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 109, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 110, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 111, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 112, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 113, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 114, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 115, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 116, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 117, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 118, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 119, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 120, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 121, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 122, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 123, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 124, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 125, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 126, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 127, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 128, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 129, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 130, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 131, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 132, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 133, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 134, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 135, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 136, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 137, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 138, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 139, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 140, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 141, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 142, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 143, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 144, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 145, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 146, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 147, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 148, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 149, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 150, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 151, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 152, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 153, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 154, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 155, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 156, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 157, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 158, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 159, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 160, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 161, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 162, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 163, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 164, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 165, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 166, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 167, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 168, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 169, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 170, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 171, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 172, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 173, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 174, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 175, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 176, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 177, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 178, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 179, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 180, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 181, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 182, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 183, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 184, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 185, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 186, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 187, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 188, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 189, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 190, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 191, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 192, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 193, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 194, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 195, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 196, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 197, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 198, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 199, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 200, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 201, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 202, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 203, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 204, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 205, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 206, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 207, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 208, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 209, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 210, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 211, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 212, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 213, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 214, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 215, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 216, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 217, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 218, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 219, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 220, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 221, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 222, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 223, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 224, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 225, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 226, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 227, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 228, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 229, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 230, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 231, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 232, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 233, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 234, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 235, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 236, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 237, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 238, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 239, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 240, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 241, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 242, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 243, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 244, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 245, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 246, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 247, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 248, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 249, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 250, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 251, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 252, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 253, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 254, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 255, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 256, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 257, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 258, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 259, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 260, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 261, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 262, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 263, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 264, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 265, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 266, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 267, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 268, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 269, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 270, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 271, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 272, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 273, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 274, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 275, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 276, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 277, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 278, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 279, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 280, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 281, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 282, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 283, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 284, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 285, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 286, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 287, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 288, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 289, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 290, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 291, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 292, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 293, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 294, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 295, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 296, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 297, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 298, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 299, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 300, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 301, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 302, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 303, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 304, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 305, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 306, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 307, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 308, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 309, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 310, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 311, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 312, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 313, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 314, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 315, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 316, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 317, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 318, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 319, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 320, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 321, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 322, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 323, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 324, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 325, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 326, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 327, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 328, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 329, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 330, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 331, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 332, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 333, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 334, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 335, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 336, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 337, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 338, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 339, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 340, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 341, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 342, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 343, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 344, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 345, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 346, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 347, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 348, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 349, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 350, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 351, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 352, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 353, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 354, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 355, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 356, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 357, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 358, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 359, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 360, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 361, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 362, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 363, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 364, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 365, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 366, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 367, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 368, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 369, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 370, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 371, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 372, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 373, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 374, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 375, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 376, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 377, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 378, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 379, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 380, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 381, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 382, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 383, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 384, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 385, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 386, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 387, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 388, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 389, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 390, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 391, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 392, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 393, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 394, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 395, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 396, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 397, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 398, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 399, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 400, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 401, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 402, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 403, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 404, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 405, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 406, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 407, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 408, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 409, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 410, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 411, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 412, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 413, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 414, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 415, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 416, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 417, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 418, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 419, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 420, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 421, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 422, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 423, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 424, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 425, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 426, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 427, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 428, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 429, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 430, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 431, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 432, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 433, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 434, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 435, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 436, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 437, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 438, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 439, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 440, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 441, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 442, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 443, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 444, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 445, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 446, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 447, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 448, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 449, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 450, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 451, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 452, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 453, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 454, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 455, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 456, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 457, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 458, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 459, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 460, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 461, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 462, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 463, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 464, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 465, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 466, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 467, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 468, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 469, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 470, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 471, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 472, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 473, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 474, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 475, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 476, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 477, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 478, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 479, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 480, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 481, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 482, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 483, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 484, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 485, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 486, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 487, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 488, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 489, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 490, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 491, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 492, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 493, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 494, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 495, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 496, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 497, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 498, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 499, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 500, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 501, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 502, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 503, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 504, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 505, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 506, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 507, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 508, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 509, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 510, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 511, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 512, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 513, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 514, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 515, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 516, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 517, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 518, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 519, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 520, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 521, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 522, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 523, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 524, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 525, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 526, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 527, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 528, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 529, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 530, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 531, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 532, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 533, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 534, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 535, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 536, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 537, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 538, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 539, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 540, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 541, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 542, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 543, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 544, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 545, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 546, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 547, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 548, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 549, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 550, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 551, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 552, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 553, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 554, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 555, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 556, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 557, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 558, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 559, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 560, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 561, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 562, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 563, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 564, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 565, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 566, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 567, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 568, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 569, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 570, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 571, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 572, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 573, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 574, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 575, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 576, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 577, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 578, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 579, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 580, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 581, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 582, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 583, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 584, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 585, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 586, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 587, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 588, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 589, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 590, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 591, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 592, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 593, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 594, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 595, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 596, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 597, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 598, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 599, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 600, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 601, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 602, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 603, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 604, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 605, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 606, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 607, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 608, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 609, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 610, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 611, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 612, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 613, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 614, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 615, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 616, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 617, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 618, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 619, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 620, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 621, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 622, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 623, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 624, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 625, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 626, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 627, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 628, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 629, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 630, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 631, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 632, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 633, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 634, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 635, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 636, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 637, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 638, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 639, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 640, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 641, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 642, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 643, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 644, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 645, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 646, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 647, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 648, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 649, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 650, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 651, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 652, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 653, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 654, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 655, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 656, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 657, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 658, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 659, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 660, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 661, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 662, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 663, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 664, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 665, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 666, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 667, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 668, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 669, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 670, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 671, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 672, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 673, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 674, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 675, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 676, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 677, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 678, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 679, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 680, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 681, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 682, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 683, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 684, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 685, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 686, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 687, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 688, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 689, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 690, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 691, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 692, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 693, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 694, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 695, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 696, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 697, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 698, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 699, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 700, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 701, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 702, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 703, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 704, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 705, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 706, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 707, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 708, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 709, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 710, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 711, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 712, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 713, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 714, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 715, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 716, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 717, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 718, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 719, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 720, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 721, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 722, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 723, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 724, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 725, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 726, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 727, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 728, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 729, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 730, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 731, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 732, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 733, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 734, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 735, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 736, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 737, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 738, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 739, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 740, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 741, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 742, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 743, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 744, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 745, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 746, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 747, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 748, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 749, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 750, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 751, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 752, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 753, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 754, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 755, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 756, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 757, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 758, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 759, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 760, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 761, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 762, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 763, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 764, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 765, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 766, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 767, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 768, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 769, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 770, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 771, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 772, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 773, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 774, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 775, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 776, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 777, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 778, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 779, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 780, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 781, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 782, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 783, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 784, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 785, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 786, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 787, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 788, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 789, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 790, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 791, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 792, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 793, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 794, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 795, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 796, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 797, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 798, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 799, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 800, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 801, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 802, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 803, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 804, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 805, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 806, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 807, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 808, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 809, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 810, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 811, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 812, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 813, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 814, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 815, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 816, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 817, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 818, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 819, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 820, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 821, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 822, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 823, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 824, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 825, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 826, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 827, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 828, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%125' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    8
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  16
+fixedStack:      []
+stack:
+  - { id: 0, name: '', type: default, offset: 0, size: 8, alignment: 8, 
+      stack-id: default, callee-saved-register: '', callee-saved-restored: true, 
+      local-offset: -8, debug-info-variable: '', debug-info-expression: '', 
+      debug-info-location: '' }
+  - { id: 1, name: '', type: default, offset: 0, size: 8, alignment: 8, 
+      stack-id: default, callee-saved-register: '', callee-saved-restored: true, 
+      local-offset: -16, debug-info-variable: '', debug-info-expression: '', 
+      debug-info-location: '' }
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    successors: %bb.2(0x50000000), %bb.1(0x30000000)
+    liveins: $x10
+  
+    %125:gpr = COPY $x10
+    BLT $x0, %125, %bb.2
+  
+  bb.1:
+    successors: %bb.67(0x80000000)
+  
+    %828:gpr = IMPLICIT_DEF
+    PseudoBR %bb.67
+  
+  bb.2 (%ir-block.5):
+    successors: %bb.3(0x80000000)
+  
+    %766:gpr = COPY $x0
+    %129:gpr = PseudoMovAddr target-flags(riscv-hi) @_MergedGlobals, target-flags(riscv-lo) @_MergedGlobals
+    %136:gpr = LBU %129, 8 :: (dereferenceable load (s8) from `ptr getelementptr inbounds (<{ i1, [7 x i8], i1, [7 x i8], i1 }>, ptr @_MergedGlobals, i32 0, i32 2)`, align 8)
+    %0:gpr = LBU %129, 0 :: (dereferenceable load (s8) from @_MergedGlobals, align 8)
+    %132:gpr = LUI 1027717
+    %138:gpr = LUI 83767
+    %142:gpr = LBU %129, 16 :: (dereferenceable load (s8) from `ptr getelementptr inbounds (<{ i1, [7 x i8], i1, [7 x i8], i1 }>, ptr @_MergedGlobals, i32 0, i32 4)`, align 8)
+    %140:gpr = LUI 758576
+    %139:gpr = ADDI %138, -529
+    %141:gpr = ADDI %140, 1395
+    %137:gpr = SUB $x0, %136
+    %131:gpr = SUB $x0, %0
+    %4:gpr = AND %137, %139
+    %3:gpr = AND %137, %141
+    %143:gpr = SUB $x0, %142
+    %144:gpr = LUI 21651
+    %146:gpr = LUI 553528
+    %145:gpr = ADDI %144, 1825
+    %147:gpr = ADDI %146, -17
+    %6:gpr = AND %143, %145
+    %5:gpr = AND %143, %147
+    %148:gpr = MULHU %5, %3
+    %150:gpr = MUL %6, %3
+    %133:gpr = ADDI %132, -1753
+    %155:gpr = MUL %5, %4
+    %134:gpr = LUI 234128
+    %149:gpr = MULHU %6, %3
+    %154:gpr = MULHU %5, %4
+    %159:gpr = MUL %6, %4
+    %455:gpr = AND %131, %133
+    %135:gpr = ADDI %134, -1889
+    %1:gpr = AND %131, %135
+    %158:gpr = MULHU %6, %4
+    %7:gpr = MUL %5, %3
+    %151:gpr = ADD %148, %150
+    %152:gpr = SLTU %151, %148
+    %8:gpr = ADD %151, %155
+    %153:gpr = ADD %149, %152
+    %156:gpr = SLTU %8, %151
+    %157:gpr = ADD %154, %156
+    %160:gpr = ADD %153, %159
+    %161:gpr = SLTU %160, %153
+    %9:gpr = ADD %160, %157
+    %162:gpr = ADD %158, %161
+    %163:gpr = SLTU %9, %160
+    %10:gpr = ADD %162, %163
+    %310:gpr = LUI 524288
+  
+  bb.3 (%ir-block.33):
+    successors: %bb.4(0x80000000)
+  
+    %770:gpr = COPY $x0
+    %769:gpr = ADDI $x0, 1
+    %767:gpr = COPY %9
+    %768:gpr = COPY %10
+    %771:gpr = COPY %7
+    %772:gpr = COPY %8
+  
+  bb.4 (%ir-block.35):
+    successors: %bb.6(0x40000000), %bb.5(0x40000000)
+  
+    %167:gpr = SRAI %768, 31
+    %168:gpr = SRLI %767, 31
+    %169:gpr = SLLI %768, 1
+    %170:gpr = OR %169, %168
+    %171:gpr = SLLI %767, 1
+    %172:gpr = SRLI %772, 31
+    %178:gpr = OR %170, %167
+    %173:gpr = OR %171, %172
+    BNE %178, %455, %bb.6
+  
+  bb.5:
+    successors: %bb.7(0x80000000)
+  
+    %177:gpr = OR %173, %167
+    %773:gpr = SLTU %177, %1
+    PseudoBR %bb.7
+  
+  bb.6 (%ir-block.35):
+    successors: %bb.7(0x80000000)
+  
+    %773:gpr = SLTU %178, %455
+  
+  bb.7 (%ir-block.35):
+    successors: %bb.4(0x7c000000), %bb.8(0x04000000)
+  
+    %174:gpr = SRLI %771, 31
+    %175:gpr = SLLI %772, 1
+    %176:gpr = SLLI %771, 1
+    %772:gpr = OR %175, %174
+    %184:gpr = XORI %773, 1
+    %771:gpr = disjoint OR %176, %184
+    %186:gpr = SUB $x0, %184
+    %187:gpr = AND %186, %455
+    %188:gpr = AND %186, %1
+    %189:gpr = SLTU %173, %188
+    %190:gpr = SUB %170, %187
+    %768:gpr = SUB %190, %189
+    %767:gpr = SUB %173, %188
+    %192:gpr = SLTIU %769, 64
+    %26:gpr = ADDI %769, 1
+    %191:gpr = SLTIU %26, 1
+    %193:gpr = SLTIU %770, 1
+    %27:gpr = ADD %770, %191
+    %194:gpr = AND %193, %192
+    %769:gpr = COPY %26
+    %770:gpr = COPY %27
+    BNE %194, $x0, %bb.4
+    PseudoBR %bb.8
+  
+  bb.8 (%ir-block.50):
+    successors: %bb.9(0x80000000)
+  
+    %777:gpr = COPY $x0
+    %197:gpr = MULHU %767, %767
+    %199:gpr = MUL %767, %768
+    %198:gpr = MULHU %767, %768
+    %206:gpr = MUL %768, %768
+    %205:gpr = MULHU %768, %768
+    %778:gpr = MUL %767, %767
+    %200:gpr = ADD %197, %199
+    %201:gpr = SLTU %200, %197
+    %779:gpr = ADD %200, %199
+    %202:gpr = ADD %198, %201
+    %203:gpr = SLTU %779, %200
+    %204:gpr = ADD %198, %203
+    %207:gpr = ADD %202, %206
+    %208:gpr = SLTU %207, %202
+    %774:gpr = ADD %207, %204
+    %209:gpr = ADD %205, %208
+    %210:gpr = SLTU %774, %207
+    %775:gpr = ADD %209, %210
+    %776:gpr = ADDI $x0, 1
+  
+  bb.9 (%ir-block.67):
+    successors: %bb.11(0x40000000), %bb.10(0x40000000)
+  
+    %212:gpr = SRAI %775, 31
+    %213:gpr = SRLI %774, 31
+    %214:gpr = SLLI %775, 1
+    %215:gpr = OR %214, %213
+    %216:gpr = SLLI %774, 1
+    %217:gpr = SRLI %779, 31
+    %223:gpr = OR %215, %212
+    %218:gpr = OR %216, %217
+    BNE %223, %455, %bb.11
+  
+  bb.10:
+    successors: %bb.12(0x80000000)
+  
+    %222:gpr = OR %218, %212
+    %780:gpr = SLTU %222, %1
+    PseudoBR %bb.12
+  
+  bb.11 (%ir-block.67):
+    successors: %bb.12(0x80000000)
+  
+    %780:gpr = SLTU %223, %455
+  
+  bb.12 (%ir-block.67):
+    successors: %bb.9(0x7c000000), %bb.13(0x04000000)
+  
+    %219:gpr = SRLI %778, 31
+    %220:gpr = SLLI %779, 1
+    %221:gpr = SLLI %778, 1
+    %779:gpr = OR %220, %219
+    %229:gpr = XORI %780, 1
+    %778:gpr = disjoint OR %221, %229
+    %231:gpr = SUB $x0, %229
+    %232:gpr = AND %231, %455
+    %233:gpr = AND %231, %1
+    %234:gpr = SLTU %218, %233
+    %235:gpr = SUB %215, %232
+    %775:gpr = SUB %235, %234
+    %774:gpr = SUB %218, %233
+    %237:gpr = SLTIU %776, 64
+    %42:gpr = ADDI %776, 1
+    %236:gpr = SLTIU %42, 1
+    %238:gpr = SLTIU %777, 1
+    %43:gpr = ADD %777, %236
+    %239:gpr = AND %238, %237
+    %776:gpr = COPY %42
+    %777:gpr = COPY %43
+    BNE %239, $x0, %bb.9
+    PseudoBR %bb.13
+  
+  bb.13 (%ir-block.82):
+    successors: %bb.14(0x80000000)
+  
+    %784:gpr = COPY $x0
+    %242:gpr = MULHU %774, %774
+    %244:gpr = MUL %774, %775
+    %243:gpr = MULHU %774, %775
+    %251:gpr = MUL %775, %775
+    %250:gpr = MULHU %775, %775
+    %785:gpr = MUL %774, %774
+    %245:gpr = ADD %242, %244
+    %246:gpr = SLTU %245, %242
+    %786:gpr = ADD %245, %244
+    %247:gpr = ADD %243, %246
+    %248:gpr = SLTU %786, %245
+    %249:gpr = ADD %243, %248
+    %252:gpr = ADD %247, %251
+    %253:gpr = SLTU %252, %247
+    %781:gpr = ADD %252, %249
+    %254:gpr = ADD %250, %253
+    %255:gpr = SLTU %781, %252
+    %782:gpr = ADD %254, %255
+    %783:gpr = ADDI $x0, 1
+  
+  bb.14 (%ir-block.99):
+    successors: %bb.16(0x40000000), %bb.15(0x40000000)
+  
+    %257:gpr = SRAI %782, 31
+    %258:gpr = SRLI %781, 31
+    %259:gpr = SLLI %782, 1
+    %260:gpr = OR %259, %258
+    %261:gpr = SLLI %781, 1
+    %262:gpr = SRLI %786, 31
+    %268:gpr = OR %260, %257
+    %263:gpr = OR %261, %262
+    BNE %268, %455, %bb.16
+  
+  bb.15:
+    successors: %bb.17(0x80000000)
+  
+    %267:gpr = OR %263, %257
+    %787:gpr = SLTU %267, %1
+    PseudoBR %bb.17
+  
+  bb.16 (%ir-block.99):
+    successors: %bb.17(0x80000000)
+  
+    %787:gpr = SLTU %268, %455
+  
+  bb.17 (%ir-block.99):
+    successors: %bb.14(0x7c000000), %bb.18(0x04000000)
+  
+    %264:gpr = SRLI %785, 31
+    %265:gpr = SLLI %786, 1
+    %266:gpr = SLLI %785, 1
+    %786:gpr = OR %265, %264
+    %274:gpr = XORI %787, 1
+    %785:gpr = disjoint OR %266, %274
+    %276:gpr = SUB $x0, %274
+    %277:gpr = AND %276, %455
+    %278:gpr = AND %276, %1
+    %279:gpr = SLTU %263, %278
+    %280:gpr = SUB %260, %277
+    %782:gpr = SUB %280, %279
+    %781:gpr = SUB %263, %278
+    %282:gpr = SLTIU %783, 64
+    %58:gpr = ADDI %783, 1
+    %281:gpr = SLTIU %58, 1
+    %283:gpr = SLTIU %784, 1
+    %59:gpr = ADD %784, %281
+    %284:gpr = AND %283, %282
+    %783:gpr = COPY %58
+    %784:gpr = COPY %59
+    BNE %284, $x0, %bb.14
+    PseudoBR %bb.18
+  
+  bb.18..preheader1:
+    successors: %bb.19(0x80000000)
+  
+    %788:gpr = COPY $x0
+    %789:gpr = COPY $x0
+    %791:gpr = COPY $x0
+    %792:gpr = COPY $x0
+    %793:gpr = LUI 524288
+    %790:gpr = ADDI $x0, 1
+  
+  bb.19 (%ir-block.114):
+    successors: %bb.20(0x40000000), %bb.21(0x40000000)
+  
+    %294:gpr = ANDI %790, 1
+    %763:gpr = SRLI %788, 1
+    %764:gpr = SLLI %789, 31
+    %789:gpr = SRLI %789, 1
+    BNE %294, $x0, %bb.21
+    PseudoBR %bb.20
+  
+  bb.20 (%ir-block.121):
+    successors: %bb.22(0x80000000)
+  
+    %311:gpr = SRLI %790, 1
+    %312:gpr = SLLI %791, 31
+    %790:gpr = OR %311, %312
+    %791:gpr = SRLI %791, 1
+    %788:gpr = OR %763, %764
+    PseudoBR %bb.22
+  
+  bb.21 (%ir-block.124):
+    successors: %bb.22(0x80000000)
+  
+    %298:gpr = XOR %791, %455
+    %301:gpr = XOR %790, %1
+    %302:gpr = SRLI %301, 1
+    %303:gpr = SLLI %298, 31
+    %304:gpr = OR %302, %303
+    %297:gpr = AND %791, %455
+    %305:gpr = AND %790, %1
+    %299:gpr = SRLI %298, 1
+    %790:gpr = ADD %305, %304
+    %300:gpr = ADD %297, %299
+    %306:gpr = SLTU %790, %305
+    %791:gpr = ADD %300, %306
+    %788:gpr = OR %763, %764
+    %789:gpr = disjoint OR %789, %310
+  
+  bb.22 (%ir-block.131):
+    successors: %bb.23(0x04000000), %bb.19(0x7c000000)
+  
+    %292:gpr = SRLI %792, 1
+    %293:gpr = SLLI %793, 31
+    %792:gpr = OR %292, %293
+    %793:gpr = SRLI %793, 1
+    %315:gpr = OR %792, %793
+    BNE %315, $x0, %bb.19
+    PseudoBR %bb.23
+  
+  bb.23 (%ir-block.135):
+    successors: %bb.24(0x80000000)
+  
+    %801:gpr = COPY $x0
+    %802:gpr = COPY $x0
+    %803:gpr = COPY $x0
+    SW %790, %stack.0, 0 :: (volatile store (s32) into %ir.2, align 8, !tbaa !11)
+    SW %791, %stack.0, 4 :: (volatile store (s32) into %ir.2 + 4, basealign 8, !tbaa !11)
+    SW %789, %stack.1, 4 :: (volatile store (s32) into %ir.3 + 4, basealign 8, !tbaa !11)
+    SW %788, %stack.1, 0 :: (volatile store (s32) into %ir.3, align 8, !tbaa !11)
+    dead %320:gpr = LW %stack.0, 4 :: (volatile dereferenceable load (s32) from %ir.2 + 4, basealign 8, !tbaa !11)
+    dead %321:gpr = LW %stack.0, 0 :: (volatile dereferenceable load (s32) from %ir.2, align 8, !tbaa !11)
+    %81:gpr = LW %stack.1, 4 :: (volatile dereferenceable load (s32) from %ir.3 + 4, basealign 8, !tbaa !11)
+    %80:gpr = LW %stack.1, 0 :: (volatile dereferenceable load (s32) from %ir.3, align 8, !tbaa !11)
+    %800:gpr = ADDI $x0, 1
+    %798:gpr = COPY %5
+    %799:gpr = COPY %6
+  
+  bb.24 (%ir-block.138):
+    successors: %bb.26(0x40000000), %bb.25(0x40000000)
+  
+    %323:gpr = SRAI %799, 31
+    %324:gpr = SRLI %798, 31
+    %325:gpr = SLLI %799, 1
+    %326:gpr = OR %325, %324
+    %327:gpr = SLLI %798, 1
+    %328:gpr = SRLI %803, 31
+    %334:gpr = OR %326, %323
+    %329:gpr = OR %327, %328
+    BNE %334, %455, %bb.26
+  
+  bb.25:
+    successors: %bb.27(0x80000000)
+  
+    %333:gpr = OR %329, %323
+    %804:gpr = SLTU %333, %1
+    PseudoBR %bb.27
+  
+  bb.26 (%ir-block.138):
+    successors: %bb.27(0x80000000)
+  
+    %804:gpr = SLTU %334, %455
+  
+  bb.27 (%ir-block.138):
+    successors: %bb.24(0x7c000000), %bb.28(0x04000000)
+  
+    %330:gpr = SRLI %802, 31
+    %331:gpr = SLLI %803, 1
+    %332:gpr = SLLI %802, 1
+    %803:gpr = OR %331, %330
+    %340:gpr = XORI %804, 1
+    %802:gpr = disjoint OR %332, %340
+    %342:gpr = SUB $x0, %340
+    %343:gpr = AND %342, %455
+    %344:gpr = AND %342, %1
+    %345:gpr = SLTU %329, %344
+    %346:gpr = SUB %326, %343
+    %799:gpr = SUB %346, %345
+    %798:gpr = SUB %329, %344
+    %348:gpr = SLTIU %800, 64
+    %92:gpr = ADDI %800, 1
+    %347:gpr = SLTIU %92, 1
+    %349:gpr = SLTIU %801, 1
+    %93:gpr = ADD %801, %347
+    %350:gpr = AND %349, %348
+    %800:gpr = COPY %92
+    %801:gpr = COPY %93
+    BNE %350, $x0, %bb.24
+    PseudoBR %bb.28
+  
+  bb.28..preheader:
+    successors: %bb.29(0x80000000)
+  
+    %808:gpr = COPY $x0
+    %809:gpr = COPY $x0
+    %810:gpr = COPY $x0
+    %807:gpr = ADDI $x0, 1
+    %805:gpr = COPY %3
+    %806:gpr = COPY %4
+  
+  bb.29 (%ir-block.153):
+    successors: %bb.31(0x40000000), %bb.30(0x40000000)
+  
+    %356:gpr = SRAI %806, 31
+    %357:gpr = SRLI %805, 31
+    %358:gpr = SLLI %806, 1
+    %359:gpr = OR %358, %357
+    %360:gpr = SLLI %805, 1
+    %361:gpr = SRLI %810, 31
+    %367:gpr = OR %359, %356
+    %362:gpr = OR %360, %361
+    BNE %367, %455, %bb.31
+  
+  bb.30:
+    successors: %bb.32(0x80000000)
+  
+    %366:gpr = OR %362, %356
+    %811:gpr = SLTU %366, %1
+    PseudoBR %bb.32
+  
+  bb.31 (%ir-block.153):
+    successors: %bb.32(0x80000000)
+  
+    %811:gpr = SLTU %367, %455
+  
+  bb.32 (%ir-block.153):
+    successors: %bb.29(0x7c000000), %bb.33(0x04000000)
+  
+    %363:gpr = SRLI %809, 31
+    %364:gpr = SLLI %810, 1
+    %365:gpr = SLLI %809, 1
+    %810:gpr = OR %364, %363
+    %373:gpr = XORI %811, 1
+    %809:gpr = disjoint OR %365, %373
+    %375:gpr = SUB $x0, %373
+    %376:gpr = AND %375, %455
+    %377:gpr = AND %375, %1
+    %378:gpr = SLTU %362, %377
+    %379:gpr = SUB %359, %376
+    %806:gpr = SUB %379, %378
+    %805:gpr = SUB %362, %377
+    %381:gpr = SLTIU %807, 64
+    %104:gpr = ADDI %807, 1
+    %380:gpr = SLTIU %104, 1
+    %382:gpr = SLTIU %808, 1
+    %105:gpr = ADD %808, %380
+    %383:gpr = AND %382, %381
+    %807:gpr = COPY %104
+    %808:gpr = COPY %105
+    BNE %383, $x0, %bb.29
+    PseudoBR %bb.33
+  
+  bb.33 (%ir-block.168):
+    successors: %bb.35(0x40000000), %bb.34(0x40000000)
+  
+    %389:gpr = MULHU %805, %798
+    %391:gpr = MUL %805, %799
+    %396:gpr = MUL %806, %798
+    %388:gpr = MUL %805, %798
+    %386:gpr = LW %stack.1, 4 :: (volatile dereferenceable load (s32) from %ir.3 + 4, basealign 8, !tbaa !11)
+    %387:gpr = LW %stack.1, 0 :: (volatile dereferenceable load (s32) from %ir.3, align 8, !tbaa !11)
+    %392:gpr = ADD %389, %391
+    %397:gpr = ADD %392, %396
+    %406:gpr = MULHU %387, %388
+    %408:gpr = MUL %386, %388
+    %405:gpr = MUL %387, %397
+    %410:gpr = MUL %387, %388
+    %714:gpr = ADD %406, %408
+    %409:gpr = ADD %714, %405
+    %412:gpr = MULHU %410, %1
+    %414:gpr = MUL %409, %1
+    %416:gpr = MUL %410, %455
+    %424:gpr = ADD %412, %414
+    %419:gpr = XORI %397, -1
+    %427:gpr = ADD %424, %416
+    BNE %427, %419, %bb.35
+  
+  bb.34:
+    successors: %bb.36(0x80000000)
+  
+    %411:gpr = MUL %410, %1
+    %420:gpr = XORI %388, -1
+    %812:gpr = SLTU %420, %411
+    PseudoBR %bb.36
+  
+  bb.35 (%ir-block.168):
+    successors: %bb.36(0x80000000)
+  
+    %812:gpr = SLTU %419, %427
+  
+  bb.36 (%ir-block.168):
+    successors: %bb.38(0x40000000), %bb.37(0x40000000)
+  
+    %390:gpr = MULHU %805, %799
+    %395:gpr = MULHU %806, %798
+    %401:gpr = MUL %806, %799
+    %413:gpr = MULHU %409, %1
+    %393:gpr = SLTU %392, %389
+    %415:gpr = MULHU %410, %455
+    %398:gpr = SLTU %397, %392
+    %400:gpr = MULHU %806, %799
+    %425:gpr = SLTU %424, %412
+    %428:gpr = SLTU %427, %424
+    %417:gpr = MUL %409, %455
+    %418:gpr = MULHU %409, %455
+    %394:gpr = ADD %390, %393
+    %399:gpr = ADD %395, %398
+    %426:gpr = ADD %413, %425
+    %402:gpr = ADD %394, %401
+    %429:gpr = ADD %415, %428
+    %403:gpr = SLTU %402, %394
+    %421:gpr = ADD %402, %399
+    %404:gpr = ADD %400, %403
+    %422:gpr = SLTU %421, %402
+    %433:gpr = ADD %426, %429
+    %423:gpr = ADD %404, %422
+    %434:gpr = ADD %433, %812
+    %435:gpr = ADD %434, %421
+    %438:gpr = SLTU %433, %426
+    %437:gpr = SLTU %434, %433
+    %718:gpr = ADD %438, %423
+    %436:gpr = SLTU %435, %434
+    %440:gpr = ADD %718, %437
+    %441:gpr = ADD %440, %436
+    %443:gpr = ADD %435, %417
+    %442:gpr = ADD %441, %418
+    %444:gpr = SLTU %443, %435
+    %445:gpr = ADD %442, %444
+    BNE %445, %423, %bb.38
+  
+  bb.37:
+    successors: %bb.39(0x80000000)
+  
+    %813:gpr = SLTU %443, %421
+    PseudoBR %bb.39
+  
+  bb.38 (%ir-block.168):
+    successors: %bb.39(0x80000000)
+  
+    %813:gpr = SLTU %445, %423
+  
+  bb.39 (%ir-block.168):
+    successors: %bb.41(0x40000000), %bb.40(0x40000000)
+  
+    BNE %445, %455, %bb.41
+  
+  bb.40:
+    successors: %bb.42(0x80000000)
+  
+    %814:gpr = SLTU %443, %1
+    PseudoBR %bb.42
+  
+  bb.41 (%ir-block.168):
+    successors: %bb.42(0x80000000)
+  
+    %814:gpr = SLTU %445, %455
+  
+  bb.42 (%ir-block.168):
+    successors: %bb.44(0x40000000), %bb.43(0x40000000)
+  
+    %449:gpr = XOR %445, %423
+    %450:gpr = XOR %443, %421
+    %451:gpr = OR %450, %449
+    %452:gpr = SLTIU %451, 1
+    %453:gpr = AND %812, %452
+    %460:gpr = XORI %814, 1
+    %454:gpr = OR %813, %453
+    %461:gpr = OR %460, %454
+    %463:gpr = SUB $x0, %461
+    %464:gpr = AND %463, %455
+    %465:gpr = AND %463, %1
+    %466:gpr = SLTU %443, %465
+    %467:gpr = SUB %445, %464
+    %469:gpr = SUB %443, %465
+    %468:gpr = SUB %467, %466
+    %473:gpr = MULHU %469, %469
+    %475:gpr = MUL %469, %468
+    %472:gpr = MUL %469, %469
+    %470:gpr = LW %stack.1, 4 :: (volatile dereferenceable load (s32) from %ir.3 + 4, basealign 8, !tbaa !11)
+    %471:gpr = LW %stack.1, 0 :: (volatile dereferenceable load (s32) from %ir.3, align 8, !tbaa !11)
+    %476:gpr = ADD %473, %475
+    %479:gpr = ADD %476, %475
+    %488:gpr = MUL %472, %470
+    %489:gpr = MULHU %472, %471
+    %487:gpr = MUL %479, %471
+    %492:gpr = MUL %472, %471
+    %490:gpr = ADD %489, %488
+    %491:gpr = ADD %490, %487
+    %494:gpr = MULHU %492, %1
+    %496:gpr = MUL %491, %1
+    %498:gpr = MUL %492, %455
+    %506:gpr = ADD %494, %496
+    %501:gpr = XORI %479, -1
+    %509:gpr = ADD %506, %498
+    BNE %509, %501, %bb.44
+  
+  bb.43:
+    successors: %bb.45(0x80000000)
+  
+    %493:gpr = MUL %492, %1
+    %502:gpr = XORI %472, -1
+    %815:gpr = SLTU %502, %493
+    PseudoBR %bb.45
+  
+  bb.44 (%ir-block.168):
+    successors: %bb.45(0x80000000)
+  
+    %815:gpr = SLTU %501, %509
+  
+  bb.45 (%ir-block.168):
+    successors: %bb.47(0x40000000), %bb.46(0x40000000)
+  
+    %474:gpr = MULHU %469, %468
+    %483:gpr = MUL %468, %468
+    %495:gpr = MULHU %491, %1
+    %477:gpr = SLTU %476, %473
+    %497:gpr = MULHU %492, %455
+    %480:gpr = SLTU %479, %476
+    %482:gpr = MULHU %468, %468
+    %507:gpr = SLTU %506, %494
+    %510:gpr = SLTU %509, %506
+    %478:gpr = ADD %474, %477
+    %481:gpr = ADD %474, %480
+    %499:gpr = MUL %491, %455
+    %500:gpr = MULHU %491, %455
+    %508:gpr = ADD %495, %507
+    %484:gpr = ADD %478, %483
+    %511:gpr = ADD %497, %510
+    %485:gpr = SLTU %484, %478
+    %503:gpr = ADD %484, %481
+    %486:gpr = ADD %482, %485
+    %504:gpr = SLTU %503, %484
+    %515:gpr = ADD %508, %511
+    %505:gpr = ADD %486, %504
+    %516:gpr = ADD %515, %815
+    %517:gpr = ADD %516, %503
+    %520:gpr = SLTU %515, %508
+    %519:gpr = SLTU %516, %515
+    %732:gpr = ADD %520, %505
+    %518:gpr = SLTU %517, %516
+    %522:gpr = ADD %732, %519
+    %523:gpr = ADD %522, %518
+    %525:gpr = ADD %517, %499
+    %524:gpr = ADD %523, %500
+    %526:gpr = SLTU %525, %517
+    %527:gpr = ADD %524, %526
+    BNE %527, %505, %bb.47
+  
+  bb.46:
+    successors: %bb.48(0x80000000)
+  
+    %816:gpr = SLTU %525, %503
+    PseudoBR %bb.48
+  
+  bb.47 (%ir-block.168):
+    successors: %bb.48(0x80000000)
+  
+    %816:gpr = SLTU %527, %505
+  
+  bb.48 (%ir-block.168):
+    successors: %bb.50(0x40000000), %bb.49(0x40000000)
+  
+    BNE %527, %455, %bb.50
+  
+  bb.49:
+    successors: %bb.51(0x80000000)
+  
+    %817:gpr = SLTU %525, %1
+    PseudoBR %bb.51
+  
+  bb.50 (%ir-block.168):
+    successors: %bb.51(0x80000000)
+  
+    %817:gpr = SLTU %527, %455
+  
+  bb.51 (%ir-block.168):
+    successors: %bb.53(0x40000000), %bb.52(0x40000000)
+  
+    %531:gpr = XOR %527, %505
+    %532:gpr = XOR %525, %503
+    %533:gpr = OR %532, %531
+    %534:gpr = SLTIU %533, 1
+    %535:gpr = AND %815, %534
+    %540:gpr = XORI %817, 1
+    %536:gpr = OR %816, %535
+    %541:gpr = OR %540, %536
+    %542:gpr = SUB $x0, %541
+    %543:gpr = AND %542, %455
+    %544:gpr = AND %542, %1
+    %545:gpr = SLTU %525, %544
+    %546:gpr = SUB %527, %543
+    %548:gpr = SUB %525, %544
+    %547:gpr = SUB %546, %545
+    %552:gpr = MULHU %548, %548
+    %554:gpr = MUL %548, %547
+    %551:gpr = MUL %548, %548
+    %549:gpr = LW %stack.1, 4 :: (volatile dereferenceable load (s32) from %ir.3 + 4, basealign 8, !tbaa !11)
+    %550:gpr = LW %stack.1, 0 :: (volatile dereferenceable load (s32) from %ir.3, align 8, !tbaa !11)
+    %555:gpr = ADD %552, %554
+    %558:gpr = ADD %555, %554
+    %567:gpr = MUL %551, %549
+    %568:gpr = MULHU %551, %550
+    %566:gpr = MUL %558, %550
+    %571:gpr = MUL %551, %550
+    %569:gpr = ADD %568, %567
+    %570:gpr = ADD %569, %566
+    %573:gpr = MULHU %571, %1
+    %575:gpr = MUL %570, %1
+    %577:gpr = MUL %571, %455
+    %585:gpr = ADD %573, %575
+    %580:gpr = XORI %558, -1
+    %588:gpr = ADD %585, %577
+    BNE %588, %580, %bb.53
+  
+  bb.52:
+    successors: %bb.54(0x80000000)
+  
+    %572:gpr = MUL %571, %1
+    %581:gpr = XORI %551, -1
+    %818:gpr = SLTU %581, %572
+    PseudoBR %bb.54
+  
+  bb.53 (%ir-block.168):
+    successors: %bb.54(0x80000000)
+  
+    %818:gpr = SLTU %580, %588
+  
+  bb.54 (%ir-block.168):
+    successors: %bb.56(0x40000000), %bb.55(0x40000000)
+  
+    %553:gpr = MULHU %548, %547
+    %562:gpr = MUL %547, %547
+    %574:gpr = MULHU %570, %1
+    %556:gpr = SLTU %555, %552
+    %576:gpr = MULHU %571, %455
+    %559:gpr = SLTU %558, %555
+    %561:gpr = MULHU %547, %547
+    %586:gpr = SLTU %585, %573
+    %589:gpr = SLTU %588, %585
+    %557:gpr = ADD %553, %556
+    %560:gpr = ADD %553, %559
+    %578:gpr = MUL %570, %455
+    %579:gpr = MULHU %570, %455
+    %587:gpr = ADD %574, %586
+    %563:gpr = ADD %557, %562
+    %590:gpr = ADD %576, %589
+    %564:gpr = SLTU %563, %557
+    %582:gpr = ADD %563, %560
+    %565:gpr = ADD %561, %564
+    %583:gpr = SLTU %582, %563
+    %594:gpr = ADD %587, %590
+    %584:gpr = ADD %565, %583
+    %595:gpr = ADD %594, %818
+    %596:gpr = ADD %595, %582
+    %599:gpr = SLTU %594, %587
+    %598:gpr = SLTU %595, %594
+    %746:gpr = ADD %599, %584
+    %597:gpr = SLTU %596, %595
+    %601:gpr = ADD %746, %598
+    %602:gpr = ADD %601, %597
+    %604:gpr = ADD %596, %578
+    %603:gpr = ADD %602, %579
+    %605:gpr = SLTU %604, %596
+    %606:gpr = ADD %603, %605
+    BNE %606, %584, %bb.56
+  
+  bb.55:
+    successors: %bb.57(0x80000000)
+  
+    %819:gpr = SLTU %604, %582
+    PseudoBR %bb.57
+  
+  bb.56 (%ir-block.168):
+    successors: %bb.57(0x80000000)
+  
+    %819:gpr = SLTU %606, %584
+  
+  bb.57 (%ir-block.168):
+    successors: %bb.59(0x40000000), %bb.58(0x40000000)
+  
+    BNE %606, %455, %bb.59
+  
+  bb.58:
+    successors: %bb.60(0x80000000)
+  
+    %820:gpr = SLTU %604, %1
+    PseudoBR %bb.60
+  
+  bb.59 (%ir-block.168):
+    successors: %bb.60(0x80000000)
+  
+    %820:gpr = SLTU %606, %455
+  
+  bb.60 (%ir-block.168):
+    successors: %bb.61(0x80000000)
+  
+    %824:gpr = COPY $x0
+    %610:gpr = XOR %606, %584
+    %611:gpr = XOR %604, %582
+    %612:gpr = OR %611, %610
+    %613:gpr = SLTIU %612, 1
+    %614:gpr = AND %818, %613
+    %619:gpr = XORI %820, 1
+    %615:gpr = OR %819, %614
+    %620:gpr = OR %619, %615
+    %621:gpr = SUB $x0, %620
+    %628:gpr = LW %stack.0, 4 :: (volatile dereferenceable load (s32) from %ir.2 + 4, basealign 8, !tbaa !11)
+    %629:gpr = LW %stack.0, 0 :: (volatile dereferenceable load (s32) from %ir.2, align 8, !tbaa !11)
+    %622:gpr = AND %621, %455
+    %623:gpr = AND %621, %1
+    %624:gpr = SLTU %604, %623
+    %625:gpr = SUB %606, %622
+    %626:gpr = SUB %625, %624
+    %627:gpr = SUB %604, %623
+    %630:gpr = MULHU %627, %629
+    %632:gpr = MUL %626, %629
+    %637:gpr = MUL %627, %628
+    %631:gpr = MULHU %626, %629
+    %636:gpr = MULHU %627, %628
+    %641:gpr = MUL %626, %628
+    %640:gpr = MULHU %626, %628
+    %825:gpr = MUL %627, %629
+    %633:gpr = ADD %630, %632
+    %634:gpr = SLTU %633, %630
+    %826:gpr = ADD %633, %637
+    %635:gpr = ADD %631, %634
+    %638:gpr = SLTU %826, %633
+    %639:gpr = ADD %636, %638
+    %642:gpr = ADD %635, %641
+    %643:gpr = SLTU %642, %635
+    %821:gpr = ADD %642, %639
+    %644:gpr = ADD %640, %643
+    %645:gpr = SLTU %821, %642
+    %822:gpr = ADD %644, %645
+    %823:gpr = ADDI $x0, 1
+  
+  bb.61 (%ir-block.339):
+    successors: %bb.63(0x40000000), %bb.62(0x40000000)
+  
+    %646:gpr = SRAI %822, 31
+    %647:gpr = SRLI %821, 31
+    %648:gpr = SLLI %822, 1
+    %649:gpr = OR %648, %647
+    %650:gpr = SLLI %821, 1
+    %651:gpr = SRLI %826, 31
+    %657:gpr = OR %649, %646
+    %652:gpr = OR %650, %651
+    BNE %657, %455, %bb.63
+  
+  bb.62:
+    successors: %bb.64(0x80000000)
+  
+    %656:gpr = OR %652, %646
+    %827:gpr = SLTU %656, %1
+    PseudoBR %bb.64
+  
+  bb.63 (%ir-block.339):
+    successors: %bb.64(0x80000000)
+  
+    %827:gpr = SLTU %657, %455
+  
+  bb.64 (%ir-block.339):
+    successors: %bb.61(0x7c000000), %bb.65(0x04000000)
+  
+    %653:gpr = SRLI %825, 31
+    %654:gpr = SLLI %826, 1
+    %655:gpr = SLLI %825, 1
+    %826:gpr = OR %654, %653
+    %663:gpr = XORI %827, 1
+    %825:gpr = disjoint OR %655, %663
+    %665:gpr = SUB $x0, %663
+    %666:gpr = AND %665, %455
+    %667:gpr = AND %665, %1
+    %668:gpr = SLTU %652, %667
+    %669:gpr = SUB %649, %666
+    %822:gpr = SUB %669, %668
+    %821:gpr = SUB %652, %667
+    %671:gpr = SLTIU %823, 64
+    %120:gpr = ADDI %823, 1
+    %670:gpr = SLTIU %120, 1
+    %672:gpr = SLTIU %824, 1
+    %121:gpr = ADD %824, %670
+    %673:gpr = AND %672, %671
+    %823:gpr = COPY %120
+    %824:gpr = COPY %121
+    BNE %673, $x0, %bb.61
+    PseudoBR %bb.65
+  
+  bb.65 (%ir-block.354):
+    successors: %bb.66(0x04000000), %bb.3(0x7c000000)
+  
+    %766:gpr = nuw nsw ADDI %766, 1
+    BNE %766, %125, %bb.3
+    PseudoBR %bb.66
+  
+  bb.66 (%ir-block.357):
+    successors: %bb.67(0x80000000)
+  
+    %675:gpr = SLLI %0, 31
+    %677:gpr = LUI 814448
+    %680:gpr = LUI 20859
+    %676:gpr = SRAI %675, 31
+    %678:gpr = ADDI %677, 1889
+    %681:gpr = ADDI %680, 1752
+    %679:gpr = AND %676, %678
+    %682:gpr = AND %676, %681
+    %683:gpr = MUL %80, %682
+    %684:gpr = MULHU %80, %679
+    %686:gpr = MUL %81, %679
+    %688:gpr = MUL %80, %679
+    %685:gpr = ADD %684, %683
+    %689:gpr = XORI %688, 1
+    %687:gpr = ADD %685, %686
+    %690:gpr = XOR %822, %782
+    %691:gpr = XOR %821, %781
+    %692:gpr = OR %691, %689
+    %693:gpr = OR %690, %687
+    %694:gpr = OR %692, %693
+    %828:gpr = SLTU $x0, %694
+  
+  bb.67 (%ir-block.364):
+    $x10 = COPY %828
+    PseudoRET implicit $x10
+...
+---
+name:            benchmark
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+liveins:         []
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     true
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.0):
+    $x10 = ADDI $x0, 423
+    PseudoTAIL target-flags(riscv-call) @benchmark_body, csr_ilp32_lp64, implicit $x2, implicit killed $x10
+...
+---
+name:            initialise_benchmark
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+liveins:         []
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.0):
+    %0:gpr = PseudoMovAddr target-flags(riscv-hi) @_MergedGlobals, target-flags(riscv-lo) @_MergedGlobals
+    %1:gpr = ADDI $x0, 1
+    SB %1, %0, 0 :: (store (s8) into @_MergedGlobals, align 8)
+    SB %1, %0, 8 :: (store (s8) into `ptr getelementptr inbounds (<{ i1, [7 x i8], i1, [7 x i8], i1 }>, ptr @_MergedGlobals, i32 0, i32 2)`, align 8)
+    SB %1, %0, 16 :: (store (s8) into `ptr getelementptr inbounds (<{ i1, [7 x i8], i1, [7 x i8], i1 }>, ptr @_MergedGlobals, i32 0, i32 4)`, align 8)
+    PseudoRET
+...
+---
+name:            verify_benchmark
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%0' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    liveins: $x10
+  
+    %0:gpr = COPY $x10
+    %1:gpr = SLTIU %0, 1
+    $x10 = COPY %1
+    PseudoRET implicit $x10
+...

@@ -1,0 +1,21 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S5-20260824-SOURCE105-PUBLIC-NDP-ROTATION-V1
+topic_id: SOURCE105-PORTFOLIO-S5
+lane_id: DISCOVERY_S5
+lane_mode: S5_SCALE_ONLINE_APPROX
+thread_id: 01a02e0a-e6cf-7051-adc8-514d53e55549
+common_contract: stages/discovery/round-20260824-strategy-source105/control/CONTROL.yaml
+common_contract_sha256: 07647BAFBC3042AB97D49B0F54B0CAEC4A3AFC14315E66232538660CEEDB4E8D
+write_directory: stages/discovery/round-20260824-strategy-source105/S5-scale-online-approx
+resource_root: stages/discovery/round-20260824-strategy-source105/S5-scale-online-approx/resources
+focus: PUBLIC_POWERINFER_OR_HETEROGENEOUS_MEMORY_SCALE_ONLINE_APPROXIMATION_WITH_FIXED_QUALITY
+anchor_portfolio: [POWERINFER_CURRENT_SOURCE, PUBLIC_HETEROGENEOUS_MEMORY_LLM_ARTIFACT, SINGLE_GPU_CPU_OFFLOAD_BASELINE]
+contribution_types_preferred: [METHOD_ALGORITHM, SYSTEM_ARCHITECTURE]
+forbidden_exact_repeats: [LLAMA_CPP_GENERIC_CACHE_LIFECYCLE, EXISTING_SPECULATIVE_PATH, GENERIC_PLACEMENT_POLICY_WITHOUT_NEW_ACTION]
+model_route: {model: gpt-5.6-terra, reasoning: high}
+discovery_rq_frontend_mode: PRODUCTION
+discovery_claim_pack_mode: OFF
+discovery_quality_mode: OFF
+selective_depth: OFF
+next_action_before_start: WRITE_BOOTSTRAP_ACK_AND_WAIT_FOR_MAINLINE_ACCEPTANCE
+

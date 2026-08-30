@@ -1,0 +1,23 @@
+schema: stage0-primary-assignment-v1
+assignment_id: STAGE0-PRIMARY-20260830-MLPERF-INFERRED-RANK-VALIDITY
+topic_id: MLPERF-INFERRED-RANK-VALIDITY
+mode: PRIMARY
+lane_id: STAGE0_PRIMARY
+thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+unique_write_directory: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY
+resource_root: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY/resources
+source_assignment_id: DISCOVERY-S4-20260830-SOURCE120-EXACT-CARRIER
+source_brief: {path: stages/discovery/round-20260830-strategy-source120/S4-objective-constraint/TOPIC_BRIEF.md, sha256: 5E97FB68A4911A14AA31CC69F9F85F442192DCAF12DAE55AA98459FBC929C3F5}
+source_handoff: {path: stages/discovery/round-20260830-strategy-source120/S4-objective-constraint/handoff.yaml, sha256: BC3851460A6DF083170FB54E1C16E9EA1C2BC418DF5BA150924EF31102B20919}
+source_manifest: {path: stages/discovery/round-20260830-strategy-source120/S4-objective-constraint/HASH_MANIFEST.sha256, sha256: 5D1D2CBAB3C96F6FFD736A7CE85DBCB9AD0D0449CB35DD11E5DDF121A53BDFF8}
+exact_object: versioned_MLPerf_Edge_result_rows_and_official_inference_formulas
+claim_ceiling: CANONICAL_MLPERF_BENCHMARK_VALIDITY_ONLY
+contribution_type: [BENCHMARK_DATASET, MEASUREMENT_CHARACTERIZATION]
+stage0_atomic_repair_trace_mode: SHADOW
+discovery_claim_pack_mode: OFF
+review_budget: {search_or_open_calls_max: 32, stored_bytes_max: 134217728, network_bytes_max: 67108864, build_or_experiment: 0}
+required: [independent_current_source_and_formula_check, measured_vs_inferred_pair_feasibility, direct_collision_search, strongest_comparators, q1_q2_shape_calibration, stagea_killer, repair_vector]
+forbidden: [candidate_implementation, formula_result_computation_as_stagea_evidence, stagea, stageb, shared_write, result_aware_topic_change]
+pause_signal: finish_current_primary_review_and_handoff_then_no_successor
+

@@ -1,0 +1,122 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S3-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+cutoff: '2026-08-13'
+method_status: NONCANONICAL_SHADOW_ONLY
+same_neutral_snapshot: ../neutral-source-snapshot/SOURCE_SNAPSHOT.md
+families:
+  - opportunity_family_id: S3-R16A-F01-BIND-ZONE-JOURNAL
+    canonical_signature: BIND9_DYNAMIC_ZONE__ZONEFILE_PLUS_JNL__STOCK_NAMED_REPLAY_TRANSFER_SEMANTICS__PREFIX_SUFFIX_UPDATE_LOCALITY__WHOLE_DUMP_RECONSTRUCTION__UPDATE_REPLAY_TRANSFER_STORAGE_CPU_RSS
+    contribution_contract: SYSTEM_ARCHITECTURE
+    canonical_disposition: STRUCTURAL_DROP_CONTROLLER_ONLY
+    shadow_disposition: STRUCTURAL_DROP_CONTROLLER_ONLY
+    academic_maturity: A1_OPEN_WITHIN_EVIDENCE
+    collision: C1_PARTIALLY_COVERED_NARROWED
+    evidence: D2_DECISION_READY_FACETS
+    execution_readiness: E1_STATIC_PREFLIGHT
+    claims:
+      - text: BIND documents journal replay and delayed zone dumping, but dump/sync timing is an online operational controller rather than a same-object whole-constructor mechanism.
+        role: OPPOSE
+        evidence_status: AUTHOR_CLAIM
+        source: https://bind9.readthedocs.io/en/stable/chapter6.html
+        permitted_conclusion: controller-only structural negative
+    full_cost: update replay CPU/RSS, IXFR/AXFR bytes, journal+zone storage, dump CPU/RSS and lookup/transfer latency
+    falsifier: Held-out contiguous update epochs show no locality after zone-size, RR-type, DNSSEC, policy and transfer-mode controls.
+    fidelity_closure_plan: Freeze a public 20-50 epoch trace and stock named policy/config; no experiment executed.
+    source_action_correction: NONE
+  - opportunity_family_id: S3-R16A-F02-GETTEXT-CATALOG-CHURN
+    canonical_signature: GETTEXT_PO_TO_MO__STOCK_GETTEXT_LOOKUP_SEMANTICS__TRANSLATION_DOMAIN_CONTEXT_CHURN__WHOLE_CATALOG_CONSTRUCTION__BUILD_LOOKUP_STORAGE_CPU_RSS
+    contribution_contract: COMPILER_TOOL
+    canonical_disposition: EXCLUDED_REPEATED__CURRENT_UNION_ABSORPTION_KERNEL
+    shadow_disposition: EXCLUDED_REPEATED__CURRENT_UNION_ABSORPTION_KERNEL
+    academic_maturity: A0_STRUCTURAL_NO
+    collision: C0_DIRECT_COVERED
+    evidence: D2_DECISION_READY_FACETS
+    execution_readiness: E0_UNKNOWN
+    claims:
+      - text: A finite release-pinned catalog-churn law can be tested, but current msgfmt source/action/configuration union is not closed and generic encoding/delta is excluded.
+        role: DIRECT
+        evidence_status: SYSTEM_INFERENCE
+        source: https://www.gnu.org/software/gettext/manual/
+        permitted_conclusion: historical current-union absorption; excluded and not revived by shadow
+    full_cost: msgfmt build CPU/RSS, catalog bytes, stock lookup CPU/RSS, installed storage and any patch bytes/apply cost
+    falsifier: Held-out release tail loses domain/context locality after message, plural, locale and generator controls.
+    fidelity_closure_plan: Use 20-50 official catalog versions with stock lookup; action catalog must be source-closed before a claim package can be admitted.
+    source_action_correction: Mainline historical Wave260/Wave266 correction; shadow cannot revive this family.
+  - opportunity_family_id: S3-R16A-F03-GCC-PCH-INCLUDE-CHURN
+    canonical_signature: GCC_PCH_GCH__STOCK_GCC_PCH_ADMISSIBILITY_SEMANTICS__INCLUDE_GRAPH_CHURN__WHOLE_PCH_CONSTRUCTION__COMPILE_VALIDATION_STORAGE_CPU_RSS
+    contribution_contract: COMPILER_TOOL
+    canonical_disposition: EXCLUDED_REPEATED__CLANG_PCH_PCM_EQUIVALENT
+    shadow_disposition: EXCLUDED_REPEATED__CLANG_PCH_PCM_EQUIVALENT
+    academic_maturity: A0_STRUCTURAL_NO
+    collision: C0_DIRECT_COVERED
+    evidence: D2_DECISION_READY_FACETS
+    execution_readiness: E0_UNKNOWN
+    claims:
+      - text: GCC requires a matching compiler/language and compatible macros/options for PCH use, and ignores unusable PCH; no union-external whole-PCH action is frozen.
+        role: OPPOSE
+        evidence_status: AUTHOR_CLAIM
+        source: https://gcc.gnu.org/onlinedocs/gcc/Precompiled-Headers.html
+        permitted_conclusion: materially equivalent to historical Clang PCH/PCM family; excluded
+    full_cost: PCH generation and validation CPU/RSS/temp, artifact storage, compilation CPU/RSS and fallback compile cost
+    falsifier: Conditional header-subgraph stability disappears on held-out project tags after toolchain/target/macro/options controls.
+    fidelity_closure_plan: Freeze one public tagged project chain and exact compiler/options; no artifact creation executed.
+    source_action_correction: Signature comparison confirms no material GCC-versus-Clang distinction for object/problem/action/mechanism/guarantee.
+  - opportunity_family_id: S3-R16A-F04-TEX-FMT-MACRO-REGIME
+    canonical_signature: WEB2C_TEX_FMT__STOCK_ENGINE_FORMAT_LOAD_SEMANTICS__MACRO_STATE_CHURN__WHOLE_FMT_CONSTRUCTION__BUILD_LOAD_CPU_RSS_STORAGE
+    contribution_contract: COMPILER_TOOL
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    academic_maturity: A1_OPEN_WITHIN_EVIDENCE
+    collision: CU_UNKNOWN
+    evidence: D1_BASIC_MATERIALS
+    execution_readiness: E1_STATIC_PREFLIGHT
+    claims:
+      - text: Web2c defines stock format construction/loading selection, while a target-specific whole-format action and current action union remain unclosed.
+        role: DIRECT
+        evidence_status: AUTHOR_CLAIM
+        source: https://tug.org/texinfohtml/web2c.html
+        permitted_conclusion: bounded-open action gap only
+    full_cost: format build CPU/RSS/temp, fmt storage, engine startup/load CPU/RSS and typesetting compatibility cost
+    falsifier: Macro-regime locality disappears on held-out package releases after engine/platform/source controls.
+    fidelity_closure_plan: Freeze a 20-50 release macro-package chain and stock format loader; no run performed.
+    source_action_correction: V9 separates the prospective natural law from an unclosed action catalog; no decision change.
+  - opportunity_family_id: S3-R16A-F05-SYSTEMD-HWDB-CHURN
+    canonical_signature: SYSTEMD_HWDB_SOURCE_TO_BINARY__STOCK_UDEVADM_PROPERTY_LOOKUP__DEVICE_MODALIAS_PREFIX_CHURN__WHOLE_DATABASE_CONSTRUCTION__BUILD_LOOKUP_STORAGE_CPU_RSS
+    contribution_contract: SYSTEM_ARCHITECTURE
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    academic_maturity: A1_OPEN_WITHIN_EVIDENCE
+    collision: CU_UNKNOWN
+    evidence: D1_BASIC_MATERIALS
+    execution_readiness: E1_STATIC_PREFLIGHT
+    claims:
+      - text: Binary hwdb generation and stock device-property lookup are documented, while the proposed natural modalias locality law and a target-specific whole-database action remain unclosed.
+        role: DIRECT
+        evidence_status: AUTHOR_CLAIM
+        source: https://wayland.freedesktop.org/libinput/doc/latest/device-configuration-via-udev.html
+        permitted_conclusion: bounded-open candidate family only
+    full_cost: generator CPU/RSS/temp, binary database bytes, update/reload cost, property lookup CPU/RSS and installed storage
+    falsifier: Prefix locality fails on held-out systemd tags after device-class, vendor-addition and syntax controls.
+    fidelity_closure_plan: Freeze a 20-50 tag source chain and stock udev property semantics; no run performed.
+    source_action_correction: Replacement generated only after canonical update; explicit action union remains unresolved.
+  - opportunity_family_id: S3-R16A-F06-SHARED-MIME-CACHE-CHURN
+    canonical_signature: SHARED_MIME_XML_TO_MIME_CACHE__STOCK_MIME_MATCH_SEMANTICS__RULE_CONFLICT_CLUSTER_CHURN__WHOLE_DATABASE_CONSTRUCTION__BUILD_LOOKUP_STORAGE_CPU_RSS
+    contribution_contract: COMPILER_TOOL
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    academic_maturity: A1_OPEN_WITHIN_EVIDENCE
+    collision: CU_UNKNOWN
+    evidence: D1_BASIC_MATERIALS
+    execution_readiness: E1_STATIC_PREFLIGHT
+    claims:
+      - text: The specification fixes XML merging, precedence, generation and matching semantics; an unabsorbed target-specific whole-database constructor is not yet stated.
+        role: DIRECT
+        evidence_status: AUTHOR_CLAIM
+        source: https://apol.pages.freedesktop.org/xdg-specs/shared-mime-info-spec/shared-mime-info-spec-latest.html
+        permitted_conclusion: bounded-open candidate family only
+    full_cost: merge/generation CPU/RSS/temp, cache bytes, type-match CPU/RSS and installed storage
+    falsifier: Conflict-cluster recurrence disappears on held-out XML database releases after type, priority, alias and precedence controls.
+    fidelity_closure_plan: Freeze 20-50 public database releases with stock matching semantics; no run performed.
+    source_action_correction: Replacement generated only after canonical update; separates natural law from unclosed constructor.
+leakage_assertion: Shadow contains no canonical brief, no registry transition, and no input unavailable in neutral-source-snapshot.

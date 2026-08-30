@@ -1,0 +1,22 @@
+schema: ppc-r3-preclaim-reproducibility-report-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R3-PRECLAIM-F1-F5
+exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+result: BLOCKER_REPRODUCIBLE_FROM_IMMUTABLE_INPUTS__NO_RERUN_PERFORMED
+frozen_inputs:
+  source_archive: {path: resources/downloads/llvm-project-f127b4c19c63b0492fb924934e37e032c17ea35b.tar.gz, bytes: 280166423, sha256: C7871896611513E3E850818A7E5C6B0C600BE60BA46260105602EB9BFBD651CF}
+  commit_metadata: {path: resources/downloads/llvm-commit-f127b4c19c63b0492fb924934e37e032c17ea35b.json, bytes: 6641, sha256: E64F34464C58A1356359629FBBE629E40975B494A009AED5821CF0CDF7923492}
+  tool_package_manifest_sha256: 39CF76C8DA10D645F26789C3FF1A4E3A47839C70DBDAC3D5A4AED73C6792094C
+  exact_witness_sha256: 94343AB218377B6D3A7736F3E280299C6AB80A2751386BD0CC0441B3174F88C5
+  failing_ir_sha256: D2EC9F564FBAE963A0515E6028EF2FD10E436CC8EAADF5F14EB0068A227BAD19
+  runner_sha256: 4915D5A53DAA5D91A5014ADA8F531ECDB2F4E57AAAFD03B654FE63D5284117BD
+determinism:
+  planned_replays: 2
+  replay_1_started: true
+  replay_2_started: false
+  automatic_retry: false
+  failure_preserved: true
+resume_rule: NEW_ASSIGNMENT_AND_NEW_DIRECTORY_ONLY__DO_NOT_OVERWRITE_R3
+minimum_mechanical_fix: change_LLVM_IR_global_modifier_order_from_hidden_dso_local_to_dso_local_hidden
+rerun_authority: MAINLINE_NEW_FROZEN_ASSIGNMENT_REQUIRED
+scientific_inference: NONE
+

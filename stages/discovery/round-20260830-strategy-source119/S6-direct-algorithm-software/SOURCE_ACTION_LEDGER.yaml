@@ -1,0 +1,33 @@
+schema: discovery-source-action-ledger-v1
+assignment_id: DISCOVERY-S6-20260830-SOURCE119-DIRECT-ALGORITHM-SOFTWARE
+budget: {search_or_open_calls_max: 24, used: 24, remaining: 0}
+policy: official_project_docs_source_repositories_primary_papers_and_specs_only
+network_bytes_used: UNAVAILABLE_FROM_RUNTIME__NOT_ESTIMATED
+persisted_response_bytes: 0
+actions:
+  - {n: 1, role: ANCHOR, action: search, rq: RQ01, query: 'official DeepGEMM masked grouped GEMM scheduler work queue', result: core}
+  - {n: 2, role: ANCHOR, action: search, rq: RQ02, query: 'official FlashInfer BatchDecode paged KV planner', result: core}
+  - {n: 3, role: ANCHOR, action: search, rq: RQ03, query: 'official PyTorch FlexAttention BlockMask source', result: core}
+  - {n: 4, role: ANCHOR, action: search, rq: RQ04, query: 'official FlashAttention paged KV split scheduler', result: anchorable_unresolved}
+  - {n: 5, role: ANCHOR, action: search, rq: RQ05, query: 'official CUTLASS grouped persistent tile scheduler', result: current_fatal}
+  - {n: 6, role: ANCHOR, action: search, rq: RQ06, query: 'official llama.cpp graph build reuse', result: current_fatal}
+  - {n: 7, role: ANCHOR, action: search, rq: RQ07, query: 'official TensorRT-LLM overlap scheduler dependency', result: anchorable_unresolved}
+  - {n: 8, role: ANCHOR, action: search, rq: RQ08, query: 'official torchao packed-weight layout transform', result: core}
+  - {n: 9, role: CURRENT, action: search, rq: RQ01, query: 'DeepGEMM grouped_layout masked_m current API/source', result: core}
+  - {n: 10, role: CURRENT, action: search, rq: RQ02, query: 'FlashInfer plan cache CUDA graph wrapper reuse', result: anchorable_unresolved}
+  - {n: 11, role: CURRENT, action: search, rq: RQ03, query: 'FlexAttention BlockMask _adjust slice update', result: current_subtractor}
+  - {n: 12, role: CURRENT, action: search, rq: RQ04, query: 'FlashAttention num_splits paged KV split-KV', result: anchorable_unresolved}
+  - {n: 13, role: CONTRARY, action: search, rq: RQ05, query: 'CUTLASS grouped scheduler host precompute sort load balance', result: current_fatal}
+  - {n: 14, role: CONTRARY, action: search, rq: RQ06, query: 'llama.cpp allow_reuse can_reuse graph params', result: current_fatal}
+  - {n: 15, role: CONTRARY, action: search, rq: RQ07, query: 'TensorRT-LLM overlap scheduler dependency source', result: anchorable_unresolved}
+  - {n: 16, role: CONTRARY, action: search, rq: RQ08, query: 'torchao layout_tensor get_plain from_plain packed layout', result: current_subtractor}
+  - {n: 17, role: CURRENT, action: open, rq: RQ01, url: 'https://github.com/deepseek-ai/DeepGEMM/blob/main/csrc/apis/gemm.hpp', result: core}
+  - {n: 18, role: CURRENT, action: open, rq: RQ02, url: 'https://github.com/flashinfer-ai/flashinfer/blob/main/flashinfer/decode.py', result: core_but_action_unclosed}
+  - {n: 19, role: CURRENT, action: open, rq: RQ03, url: 'https://github.com/pytorch/pytorch/blob/main/torch/nn/attention/flex_attention.py', result: current_subtractor}
+  - {n: 20, role: CURRENT, action: open, rq: RQ04, url: 'https://github.com/Dao-AILab/flash-attention', result: anchorable_unresolved}
+  - {n: 21, role: CONTRARY, action: open, rq: RQ05, url: 'https://github.com/NVIDIA/cutlass/blob/main/media/docs/cpp/grouped_scheduler.md', result: current_fatal}
+  - {n: 22, role: CONTRARY, action: open, rq: RQ06, url: 'https://github.com/ggml-org/llama.cpp/blob/master/src/llama-graph.h', result: current_fatal}
+  - {n: 23, role: CURRENT, action: open, rq: RQ07, url: 'https://github.com/NVIDIA/TensorRT-LLM', result: anchorable_unresolved}
+  - {n: 24, role: CURRENT, action: open, rq: RQ08, url: 'https://github.com/pytorch/ao/issues/391', result: current_subtractor}
+result_aware_backfill: false
+further_source_actions: forbidden_budget_exhausted

@@ -1,0 +1,58 @@
+schema: stagea-a0-method-redesign1-handoff-v1
+assignment_id: STAGEA-L2-20260830-LLVM-PPC-R14-A0-PRODUCTION-RESUME
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+decision: EXECUTION_CONTRACT_HOLD__METHOD_REDESIGN1_STATIC_SCAN_FAILED__NO_CAP_PATCH_OR_CONTROL_REPLAY
+evidence_ceiling: PRE_RESULT_STATIC_SCAN_FAILURE__NO_SCIENTIFIC_INFERENCE
+authorization:
+  blocker_acceptance_sha256: 9DC2E0F90E8DE70D1CB3F25D6F90281C6E6DF90E4E2ED02E16A07C16336678D0
+  method_redesign_start_sha256: 4334D4F8E8E4677546030ABDB1EA54940FDB8780D70F1111F5D6DB718AEDAC00
+preserved_identity:
+  exact16_input_selection: true
+  action_set: unchanged
+  strongest_baseline_grid: unchanged
+  denominator_71: unchanged
+  baseline_bundles_16: unchanged
+  guarantee: unchanged
+method_redesign:
+  consumed: 1_of_1
+  requested_cap: result_independent_exact16_max_visible_interface
+  absolute_cap_max: 64
+  static_scan_inputs_required: 16
+  static_scan_inputs_attempted: 12
+  static_scan_inputs_succeeded: 11
+  first_failure_input: selected-11
+  first_failure_exit_code: -1073741795
+  first_failure_class: LLVM_MACHINE_VERIFIER_UNDEFINED_PHYSICAL_REGISTER__EXCEPTION_C000001D
+  frozen_exact16_max_established: false
+  partial_max_used: false
+  cap_patch_applied: false
+  source_sha256_unchanged: 3DDA6A7574D9FC0F0222213BDC3EAF6D3D361A528592052DDFCDF911BE7207B9
+  additional_DP_exploration_started: false
+  fresh_N01_control_replay_started: false
+engineering_accounting:
+  prelaunch_wrapper_parse_correction: 1_of_2
+  llc_processes_from_failed_wrapper: 0
+  actual_scan_retry: 0
+  control_retry: 0
+artifacts:
+  static_scan_report: {path: A0_METHOD_REDESIGN1_STATIC_SCAN.yaml, sha256: 84C85BB87514827077FB72466A96316B351135C06009048B9ABA9FB1B95E5273}
+  readiness_ledger: {path: STAGEA_EXECUTION_READINESS_LEDGER.yaml, sha256: EADED1A672BEAA637632DCB563B80C5D106E12E9EDEA3B6ADC7D414280B1A5A5}
+  resource_inventory: {path: RESOURCE_INVENTORY.yaml, sha256: 0A1AFF454878C3ACB879F31976C5B5DD1347BC7EB4582E3EB80FE8401743452E}
+  prior_ledger_preserved: {path: STAGEA_EXECUTION_READINESS_LEDGER.pass1_blocker.yaml, sha256: 78B447B6AC6740CC465DD87DC766F39F950896471D5039F7FF0C5ED377402E1A}
+  prior_inventory_preserved: {path: RESOURCE_INVENTORY.pass1_blocker.yaml, sha256: 58CC6E82F9449D7298B8179205229EBA59973CFC1F946D14BD2D09E32B8D97A5}
+  retention_path: A0_METHOD_REDESIGN1_RETENTION.yaml
+  resume_capsule_path: A0_METHOD_REDESIGN1_RESUME_CAPSULE.yaml
+  manifest_path: A0_METHOD_REDESIGN1_MANIFEST.yaml
+resource_summary: {files: 68, logical_bytes: 338730, reparse_points: 0, network_bytes: 0, cleanup_performed: false}
+firewall:
+  relative_effect_values_read: false
+  result_aware_selection: false
+  valid_claim_rows_observed: 0
+  decisive_stagea_observation: false
+  scientific_revision_consumed: false
+  scientific_inference: NONE
+  claim_execution: false
+  stageb: false
+  shared_write: false
+next_action: WAIT_MAINLINE_DISPOSITION__NO_SECOND_REDESIGN_OR_SUCCESSOR

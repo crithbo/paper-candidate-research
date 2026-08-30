@@ -1,0 +1,30 @@
+schema: ppc-r9-a2-a24-a25-retained-outputs-precommit-v1
+created_at: 2026-08-26T08:51:35.6985092+08:00
+output_root: resources/build/a2_retained
+output_root_absent_before_run: true
+source_harness_sha256: 6234A3380940D87A2FCDBAA1D08DB3F4893A37901E3854CCD9222F3A035BDC0E
+retained_A1_inputs:
+  candidate_trace: {path: resources/build/a1_gate/candidate_trace.json, sha256: 86F608ED50B8FB078BC58AE917CAC136A8B204C2C5E27F7FD82EA986C39D1D74}
+  transformed_mir: {path: resources/build/a1_gate/artifacts/materialized.mir, sha256: 5BE899B33F82E343CB8F7C94C88FFED6BEBE4BF5F0B76C83642A672A358E2E4E}
+  candidate_object: {path: resources/build/a1_gate/artifacts/candidate.o, sha256: DA6417380F2898627E95DA0D09485915D20BD17B1385930BD12F2DF9A1054CDC}
+  baseline_object: resources/build/a1_gate/artifacts/baseline.o
+  candidate_command_metrics: resources/build/a1_gate/candidate_command_metrics.json
+  baseline_command_metrics: resources/build/a1_gate/baseline_command_metrics.json
+A24:
+  mode: native_check
+  function: ir_pressure_control
+  output: resources/build/a2_retained/native_checkers.json
+  expected: EXIT_0_AND_PASS_7_OF_7
+A25:
+  mode: full_cost_collect
+  output: resources/build/a2_retained/full_cost.json
+  expected: EXIT_0_AND_DEPENDENCY_VALIDATION_PASS
+ordered: A24_PASS_REQUIRED_BEFORE_A25
+attempts: {A24: 1_OF_1, A25: 1_OF_1_IF_A24_PASS}
+case_timeout_seconds: 300
+automatic_retry: false
+source_edit_allowed: false
+A1_raw_outputs_modify_allowed: false
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_runs: 0
+scientific_inference: NONE

@@ -1,0 +1,20 @@
+schema: reproducibility-report-v3
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM-A2
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+A2_addendum_sha256: 729C5DF7D5C634EE76937993456330FF8AAF8A1B08E45777F3E6515EEDD998B5
+A2_ACK_sha256: 994C84BE241893BF677AE6C76211A1DC3F0A9651A9AE0F0E705D2A31FF9327A2
+A2_acceptance_sha256: A8BE0E61CE4F7A45846929C4D5652E2DCFC278730BEF069B6AE23276D7D550FE
+A2_START_sha256: FD8A6A2414E26369B901276C286AB4362534386C6EB62DA5521DF026AF750983
+run_index:
+  - {id: A20_A1_PRESERVATION, classification: CONTROL_NON_CLAIM_BEARING, child_launches: 0, result: PASS_BYTE_EXACT_45_OF_45, evidence: A20_A1_PRESERVATION.yaml}
+  - {id: A21_CURRENT_COMPLETE_STABLE_BASENAME, classification: CONTROL_NON_CLAIM_BEARING, attempts: 1_OF_1, child_launches: 1, exit_code: 0, result: PASS_EXACT_EXPECTED_HASH, output_sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A}
+  - {id: A22_TUNING_STABLE_BASENAME, classification: CONTROL_NON_CLAIM_BEARING, attempts: 1_OF_1, child_launches: 1, exit_code: 0, result: PASS_DETERMINISTIC_MIR, output_sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A}
+  - {id: A23_ACTUAL_DP_BASELINE_ORACLE, classification: PRECLAIM_CONTROL_NON_CLAIM_BEARING, attempts: 1_OF_1, child_launches: 1, exit_code: 0, result: PASS_ALL_11_CHECKS, output_sha256: 8D4654A176681E154882D4C56E9A8C4F0A7760C361C97500DB1FEE684BCBB309}
+  - {id: A24_CORPUS_FREEZE, classification: RESULT_INDEPENDENT_STATIC_SELECTION, attempts: 1_OF_1, child_launches: 1, exit_code: 0, result: PASS_16_PLUS_4_ZERO_SELECTED_TOOL, output_sha256: B9A49957E61EE49B15EB9E4BFB81F4393DD7AC80C4AF6DC5F1CA461A10FCED9E}
+  - {id: A25_R8_PLAN, classification: FUTURE_PLAN_GENERATION_ONLY, attempts: 1_OF_1, child_launches: 1, exit_code: 0, result: PASS_32_ROWS_ZERO_EXECUTED, output_sha256: 97BEEDBDFD4D2BE19637853CB99D89E92974A9F888B5A985D10A37F9B0B5949C}
+retry_audit: {automatic_retries: 0, command_changes: 0, child_argv_changes: 0, invoke_expression_uses: 0, string_reparse_uses: 0, output_postprocessing: 0, implementation_edits: 0, result_based_exclusions: 0, reserve_backfills: 0}
+monitoring: {all_exit_codes_observed: 0, stdout_bytes_all_runs: 0, stderr_bytes_all_runs: 0, active_LLVM_processes_at_closeout: 0, hard_timeout_triggered: false}
+budgets: {network_bytes_used: 0, resource_root_logical_bytes: 812768401, resource_root_logical_bytes_max: 2147483648, A2_child_commands_launched: 5, selected_or_reserve_corpus_tool_invocations: 0, claim_bearing_runs: 0, max_parallel_processes_observed: 1, max_parallel_processes_allowed: 2, gpu_hours_used: 0, exact_cpu_and_wall: UNAVAILABLE__NOT_ESTIMATED}
+forbidden_actions: {A1_output_overwrite: NOT_RUN, posthoc_normalization_or_output_edit: NOT_RUN, source_edit: NOT_RUN, retry: NOT_RUN, natural_selected_claim: NOT_RUN, network: NOT_RUN, scientific_revision_or_pivot: NOT_RUN, state_transition: NOT_RUN, cleanup: NOT_RUN, stageb: NOT_RUN}
+result: REPRODUCIBLE_A20_A25_PASS__NO_SCIENTIFIC_INFERENCE

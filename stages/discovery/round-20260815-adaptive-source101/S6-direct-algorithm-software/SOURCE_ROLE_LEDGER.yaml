@@ -1,0 +1,43 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE101-R40-ORDINARY-BREADTH-V1
+network_acquisition: none
+sources:
+  - id: SRC-S101-BAZEL-DESIGN
+    role: CURRENT_UNION_AND_CONTRARY
+    publisher: Bazel
+    url: https://be.bazel.build/designs/skyframe.html
+    version_or_date: current page accessed 2026-08-15
+    finding: immutable graph evaluation, bottom-up invalidation, change pruning, all-or-nothing mutation limit
+  - id: SRC-S101-BAZEL-CODEBASE
+    role: CURRENT_SOURCE_LOCUS
+    publisher: Bazel
+    url: https://bazel.build/versions/7.6.0/contribute/codebase
+    version_or_date: official documentation accessed 2026-08-15
+    finding: Skyframe package and SkyFunction/SkyValue evaluation model
+  - id: SRC-S101-GHC-USERGUIDE
+    role: CURRENT_UNION
+    publisher: GHC
+    url: https://downloads.haskell.org/ghc/latest/docs/users_guide/index.html
+    version_or_date: 9.14.1 current guide
+    finding: nonmoving GC is an RTS mode; GC/allocator controls and constraints are documented
+  - id: SRC-S101-GHC-RTS
+    role: CURRENT_DEFAULT_NONDEFAULT_FLAGS
+    publisher: GHC
+    url: https://downloads.haskell.org/ghc/9.6.5/docs/users_guide/runtime_control.html
+    version_or_date: official RTS options documentation accessed 2026-08-15
+    finding: copying GC default, nonmoving GC default off, and option incompatibilities
+  - id: SRC-S101-MOZ-SEARCHFOX
+    role: CURRENT_SOURCE_LOCUS
+    publisher: Mozilla
+    url: https://searchfox.org/mozilla-central/source/js/src/jit
+    version_or_date: current indexed Mozilla central accessed 2026-08-15
+    finding: WarpBuilder/WarpOracle/bailout and related JIT paths coexist in current tree
+  - id: SRC-S101-DART-SDK
+    role: LOCATOR_ONLY_CURRENT_SOURCE
+    publisher: Dart
+    url: https://github.com/dart-lang/sdk/tree/main/runtime/vm/compiler
+    version_or_date: main branch locator accessed 2026-08-15
+    finding: VM compiler source locus only; not used to assert current-union absence
+source_policy:
+  primary_or_official_only: true
+  response_downloaded: false
+  bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED

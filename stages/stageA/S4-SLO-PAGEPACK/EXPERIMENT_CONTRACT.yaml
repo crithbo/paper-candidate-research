@@ -1,0 +1,174 @@
+schema_version: stagea-experiment-contract-v1
+contract_status: FROZEN_BEFORE_INPUT_ACQUISITION_AND_CLAIM_BEARING_EXECUTION
+frozen_at: '2026-08-09T17:09:13+08:00'
+lane_id: CANDIDATE-EXECUTION-LANE-1
+assignment_id: STAGEA-L1-20260809-S4-SLO-PAGEPACK-INITIAL
+topic_id: S4-SLO-PAGEPACK
+stage: STAGEA
+stageb: false
+stageb_user_approval_id: null
+cross_assignment_contamination: false
+
+write_scope: stages/stageA/S4-SLO-PAGEPACK
+resource_limits:
+  workspace_bytes_max: 4294967296
+  cpu_seconds_max: 14400
+  gpu_allowed: false
+  exclusive_device_allowed: false
+  experiment_timeout_seconds_each: 1800
+
+input_freeze:
+  discovery_directory: stages/discovery/round-20260809-v8.4-wave3/S4-objective-constraint
+  discovery_brief_sha256: A8A90DF02CD8B91241861D635729AB1FF4819A9A6A030B98A42B4CFC610EFA5D
+  discovery_handoff_sha256: E614C22526377242ED7DBC2C2E7AE781C68B443BE8A93DEA5053713292FF9989
+  discovery_manifest_sha256: 6A4C17A10A9D40EE50BA676934B7FB5B62A7F60F2ABF8F5E3199851D182238FB
+  discovery_manifest_entries_verified: 4
+  primary_directory: stages/stage0/_reviews/round-20260809-v8.4-wave3-primary/S4-SLO-PAGEPACK
+  primary_report_sha256: B1B77EFAFB7692E2A012515297502B57AB1EA5C78684D2501E337CDC6EBE46D0
+  primary_handoff_sha256: B12A1C8198B9EDC61A7871140A73FB61C03ECF9B9BB3F342360CD1226306FCB7
+  primary_manifest_sha256: B378CE5E508338BB37E2F8DE6E068908A63E38BCA244B80CE4285B7FB3116A88
+  primary_manifest_entries_verified: 4
+  confirmation_directory: stages/stage0/_reviews/round-20260809-v8.4-wave3-confirmation/S4-SLO-PAGEPACK
+  confirmation_report_sha256: 80C08ABD2E8DFB90091B24B7FC5A993BC6B47B8288C1A603B87FF2A70D281AE8
+  confirmation_handoff_sha256: 903A453BA4CFAD0E5162B0A901753FDDC9E7A23113BDB2250D05D7E63FC8FB39
+  confirmation_manifest_sha256: 5F44B00EA2A354BDB67C233F2E0042A12FEF089D600C312A066FAAC820968128
+  confirmation_manifest_entries_verified: 2
+  natural_trace:
+    corpus: cacheMon cache_dataset MetaKV 202206, sourced from Meta CacheLib
+    upstream_repository: https://github.com/cacheMon/cache_dataset
+    upstream_repository_commit: a005343f26f47110de5c8d78d645ee89bee1e7ed
+    object_url: https://cache-datasets.s3.amazonaws.com/cache_dataset_txt/2022_metaKV/kvcache_202206/kvcache_traces_3.csv.zst
+    object_size_bytes: 922629678
+    object_etag: '327306a722493cd45a2e9b093f9719d9-110'
+    deterministic_slice: header plus first 120000 complete data records after streaming Zstandard decompression
+    derived_slice_path: inputs/meta_kv_202206_trace3_first_120000.csv
+    derived_slice_sha256_recorded_in: inputs/INPUT_FREEZE.json
+  cachelib_model_sources:
+    repository: https://github.com/facebook/CacheLib
+    repository_commit: 50ba7c416b7a60eaae09d17d30696c66b4ecec7b
+    item_handle_path: website/docs/Cache_Library_User_Guides/Item_and_Handle.md
+    replay_path: cachelib/cachebench/workload/KVReplayGenerator.h
+  technical_sources:
+    - https://www.usenix.org/system/files/osdi26-banakar.pdf
+    - https://www.usenix.org/system/files/osdi26-patel.pdf
+    - https://research.cs.wisc.edu/adsl/Publications/dimes25-banakar.pdf
+    - https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ECRTS.2026.15
+
+exact_object:
+  id: EPOCHAL_UNMANAGED_POINTER_BASED_OBJECT_HEAP_WITH_POINTER_SAFE_RELOCATION__4KIB_PAGE_TIERING_BACKEND__TRACE_DEFINED_GET_SET_SEMANTICS__FIXED_SLOWDOWN_OR_SLO_CAP
+  page_bytes: 4096
+  cache_semantics: trace-defined GET and SET outcomes, sizes, key identity, and update order are immutable
+  backend: fixed abstract 4KiB fast/slow page tier; only object-to-page placement changes
+  item_footprint_bytes: align8(key_size + positive_value_size + 32)
+  metadata_basis: CacheLib official Item and Handle guide states 32 bytes per item
+  pointer_model: opaque byte-array values have no interior pointer fields; all external access is by key lookup and a CacheLib-style ReadHandle or WriteHandle
+  mobility_model: every selected live opaque item is movable only at an epoch boundary after all handles drain; the key-to-item mapping is atomically updated before the next operation
+  mobility_provenance: adapter/object-model contract from official CacheLib Handle semantics, never inferred from raw operation records
+  forbidden:
+    - fabricate mobility or alias facts from the operation trace
+    - move an object while a handle is live
+    - alter key/value result, update visibility, lifetime, page size, or backend
+    - convert the candidate into an admission, eviction, threshold, controller, or policy selector
+
+epoch_protocol:
+  rows_consumed: 120000
+  warmup_rows: 30000
+  evaluation_epochs: 3
+  rows_per_evaluation_epoch: 30000
+  trace_op_count_expansion: use op_count as the access multiplicity without materializing repeated rows
+  state_replay:
+    SET: create or atomically replace the keyed object when size is positive
+    GET_positive_size: establish or refresh the observed resident size and count accesses
+    GET_zero_size: count as a miss but create no object
+    DELETE: remove the object if present
+  reduced_object_count: 12
+  reduced_object_selection: >-
+    At each boundary, among live objects with footprint <= 2048 bytes and positive
+    previous-epoch accesses, sort by previous access count then SHA-256(key).
+    Select four evenly spaced ranks from each of the lower, middle, and upper
+    access-count terciles; de-duplicate by key and fill any shortage by increasing
+    SHA-256(key). This causal deterministic stratification is fixed before seeing
+    evaluation-epoch accesses.
+  initial_layout: allocation/first-seen order next-fit into the minimum number of 4KiB pages; no cross-page object
+  prediction: previous-epoch access multiplicity only; no evaluation-epoch lookahead
+
+algorithms:
+  candidate:
+    id: EXACT_JOINT_MIGRATION_SLO_PAGEPACK_REDUCED
+    decision: ordered object-to-page assignment plus set of slow/reclaimed pages
+    solver: exhaustive dynamic programming over page index and covered-object bitmask, enumerating every capacity-feasible page subset and slow/fast label
+    objective: maximize predicted-SLO-feasible reclaimed pages, then minimize predicted full work, migration bytes, fragmentation, and canonical layout tuple
+    deployability: uses only prior-epoch counts, fixed object sizes/mobility, and current layout
+    nondegeneracy: object-to-page assignments are explicit joint decisions; no hotness-threshold or policy selection action is accepted as candidate output
+  faithful_composition:
+    id: OBASE_TEMPERATURE_LAYOUT_TO_ONLINE_MDK_STYLE_TARGET
+    obase_action: >-
+      Sweep every causal previous-epoch access threshold; create NEW/HOT/COLD-style
+      temperature regions, pack HOT then COLD items contiguously with deterministic
+      size-descending placement within each region, and charge every changed page.
+    mdk_action: >-
+      For each resulting layout, rank pages by predicted access cost and enumerate
+      every prefix target within the fixed predicted SLO cap. The deployable point
+      is selected only from prior-epoch prediction; the complete causal sweep is
+      also retained as a deliberately stronger baseline envelope.
+    same_information: true
+    same_object_epoch_mobility_backend: true
+    offline_policy_used_as_baseline: false
+  offline_ceiling:
+    id: EXACT_ACTUAL_ACCESS_LAYOUT_CEILING
+    role: ceiling_only
+    information: evaluation-epoch actual accesses
+    cost_charged: same migration, pointer, metadata, trace, planning, and remote-access ledger
+
+full_cost_ledger:
+  fixed_slowdown_cap_fraction: 0.05
+  cap_base: total op_count multiplicity for all valid records in the evaluation epoch
+  common_trace_handling_work_per_record: 1
+  remote_or_slow_page_work_per_access: 4
+  migration_copy_work_per_64_bytes_rounded_up: 1
+  pointer_validation_work_per_moved_object: 8
+  metadata_update_work_per_moved_object: 4
+  page_reclaim_work_per_page: 64
+  solver_work: exact counted states plus transitions; baseline counted threshold, comparison, placement, ranking, and target operations
+  measured_time: process high-resolution elapsed nanoseconds and CPU user/system microseconds
+  measured_peak_ram: sampled process RSS at solver phase boundaries
+  migration_bytes: sum complete item footprints for objects whose page id changes
+  fragmentation_bytes: sum page capacity minus resident item footprint, reported separately for fast and slow pages
+  retained_metadata_bytes: 32 times live reduced objects
+  reclaimed_fast_tier_bytes: 4096 times slow/reclaimed pages
+  feasibility: all common and algorithm-specific work must be <= ceil(0.05 * evaluation epoch total op_count)
+  note: abstract integer work is a trace-level Stage A cost model, not a hardware-cycle or end-to-end performance claim
+
+preregistered_primary_criterion:
+  name: STRICT_FULL_COST_RECLAIMED_BYTE_NONDOMINATED_RESIDUAL_AT_FIXED_SLO
+  per_epoch_positive: >-
+    Candidate replay is legal and actually SLO-feasible, and candidate reclaimed
+    bytes strictly exceed the maximum actually SLO-feasible reclaimed bytes of
+    the full causal OBASE-to-MDK baseline envelope at the same fixed cap.
+  bounded_support: at least one of three evaluation epochs is positive, no epoch has changed optimum/illegal replay, and the candidate action is nondegenerate
+  scientific_stop: >-
+    The faithful composition absorbs every candidate point, all candidate residuals
+    are zero after full cost, legality fails under the frozen same object, or the
+    candidate degenerates to a threshold/controller/selector.
+  positive_claim_ceiling: PRELIMINARY_SUPPORT
+  no_main_claim: true
+
+legality_and_reproducibility:
+  replay_checks:
+    - identical trace-defined GET/SET result digest for original, composition, candidate, and ceiling
+    - every object footprint fits one page and every page capacity is respected
+    - every moved object is adapter-movable and moves only between epochs with zero live handles
+    - no object loss, duplication, lifetime change, or key/value mutation
+  primary_command: node tools/run_probe.mjs --mode primary
+  replay_command: node tools/run_probe.mjs --mode replay
+  validator_command: node tools/validate_replay.mjs
+  nonvolatile_replay_fields: all inputs, selections, layouts, costs, optima, feasibility, legality, state/transition/work counters, and semantic hashes
+  volatile_fields_excluded_from_exact_replay_hash: elapsed time, cpu time, peak RSS, timestamps, host and process identifiers
+
+failure_policy:
+  pre_observation_resource_failure: BLOCKED_USER_ACTION_REQUIRED
+  resource_failure_evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed_on_resource_failure: false
+  scientific_revision_used: false
+  mechanism_pivot_allowed: false
+

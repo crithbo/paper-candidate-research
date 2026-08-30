@@ -1,0 +1,45 @@
+schema_version: resume-capsule-v1
+created_at: 2026-08-25T18:33:56.8775107+08:00
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-R7-NATURAL-CLAIM-PILOT
+topic_id: ROCKSDB-DICT-COVER
+capsule_state: INVALID_CLAIM_CONSTRUCTION_BLOCKER_HANDOFF_READY
+decision: FAIL_CLOSED_INVALID_CLAIM_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+evidence_ceiling: INVALID_CLAIM_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: false
+scientific_state_transition_by_owner: false
+completed:
+  tool_archives_hash_accepted: 3_OF_3
+  configure_attempts: 1_OF_1_PASS
+  clean_build_attempts: 1_OF_1_PASS
+  compatibility_smokes: 4_OF_4_PASS
+  quiescence_gate: PASS
+  natural_processes: 344_OF_560
+  natural_processes_pass: 342
+  natural_processes_fail: 2
+  natural_processes_not_started: 216
+failure_kernel:
+  identities: [pypi-django-B1-G2-R1, pypi-django-B1-G2-R2]
+  exact_error: SST has fewer than 16 data blocks
+  frozen_minimum_data_blocks_per_sst: 16
+  deterministic_replay: true
+preserved_raw:
+  root: resources/build/claim-runs
+  files: 5452
+  logical_bytes: 331806359
+  pass_results: 342
+  fail_results: 2
+  disposition: RETAIN_ALL_UNTIL_MAINLINE_AND_INDEPENDENT_GATE_DISPOSITION
+forbidden_resume_actions:
+  - continue_remaining_216_in_same_assignment
+  - rerun_failed_pair
+  - exclude_django_or_G2
+  - lower_16_block_gate
+  - second_configure_or_build
+  - contract_baseline_metric_or_mechanism_change
+  - owner_cleanup
+  - owner_state_transition
+  - stageb
+future_resume_gate:
+  authority: MAINLINE_AND_INDEPENDENT_STAGEA_GATE
+  requirement: SEPARATE_HASH_PINNED_REVISION_OR_TERMINAL_DISPOSITION
+  scientific_revision_status: REMAINS_UNCONSUMED_UNTIL_SEPARATE_AUTHORIZED_REVISION_IS_ACTUALLY_EXECUTED

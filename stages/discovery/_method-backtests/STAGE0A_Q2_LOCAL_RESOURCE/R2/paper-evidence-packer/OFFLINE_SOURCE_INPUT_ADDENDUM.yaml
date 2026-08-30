@@ -1,0 +1,23 @@
+schema: stagea-paper-evidence-packer-offline-source-input-addendum-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+purpose: RESOLVE_SOURCE_BOUNDARY_WITHOUT_MODIFYING_FROZEN_CONTEXT_PLAN_REGISTRY_OR_START_AUTHORIZATION
+boundary_resolution: OFFLINE_ONLY__USE_EXISTING_LOCAL_READ_ONLY_INPUTS__NO_NEW_DOWNLOAD
+network_allowed: false
+new_download_allowed: false
+capsule_extraction_from_existing_inputs: true
+missing_page_table_figure_or_locator_action: RECORD_EVIDENCE_MISSING__DO_NOT_FETCH
+exact_read_only_inputs:
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/GOLD_LABEL_QUALIFICATION.yaml, sha256: 244C06121B8AB80B49C57C56FF7A9A1F2C131DFDFCBDDF55925C2E48DCD7185C, purpose: gold_qualification_and_historical_cutoff}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/RESOURCE_PREFLIGHT.yaml, sha256: 6356234F690AC4A5FCC5F954D6ED17C3CD37EE47588FF399D16E6596FC2D4C0D, purpose: predeclared_resource_route}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/resources/src/PACKER_PRIMARY_SOURCE_LEDGER.yaml, sha256: 26F72C6707E6544C149C137B2D441D33AA26ECAA710E9124B1CC913D1FF0EFE1, purpose: paper_source_ledger}
+  - {path: stages/rule-audit/RULE-AUDIT-20260826-STAGE0A-Q2-LOCAL-RESOURCE-BACKTEST-R1/CASE_POOL.yaml, sha256: 4F4956D65C57DAE5AF41EF10E6D6FB0E7301203ECE710F8DAEA77405DA3F9C0E, purpose: original_case_population}
+  - {path: stages/rule-audit/RULE-AUDIT-20260826-STAGE0A-Q2-LOCAL-RESOURCE-BACKTEST-R1/SOURCE_LEDGER.md, sha256: 2A0D8842A1AA30C2DA0D358863AEED3A29D575AABAEFA00B2F5AE03B4758665B, purpose: source_provenance}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/auditor_key_v2/GOLD_IDENTITY_AND_EXPECTED_ROUTE.yaml, sha256: 8B7CF4254E12B7BE7CB23951B89C19CE5E9D5FC0E5B25FBECB5CA5F0626B5C1D, purpose: packer_authorized_gold_route_only}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/sealed_executor_input_v2/sealed_input_manifest.yaml, sha256: 13DD016DD3653CFC777F698C10F8069FB8D952BC7CDF1D1978558F268B7B824A, purpose: case_input_identity}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/P3_handoff.yaml, sha256: C02DE79F17639969EEE797E2A438B5FB1511A02F8DE3A9AE3E4F83726A84C396, label: PROJECT_LOCAL_SUPPLEMENT}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/PGM_INDEX/P1A5_CANONICAL_BLOCKER_HANDOFF.yaml, sha256: 468D3A9D49040FAD520A340AD8B7FF4CE2CDDA5EF6581163E5C8B92B873F636B, label: PROJECT_LOCAL_SUPPLEMENT}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/CVC5/P1_handoff.yaml, sha256: 655A2C2C813AA605E5586F298AC280986A97CA988D9B33F78A47A478305DD4A3, label: PROJECT_LOCAL_SUPPLEMENT}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/ALEX/A7_AUTHOR_EXAMPLE_RESULT.yaml, sha256: 79B647D9CBE8C6D7F88C03CFA8823746FE51FCA107A46FDD6757FA6EC14D6593, label: PROJECT_LOCAL_SUPPLEMENT}
+allowed_capsule_fields: [exact_paper_identity_version_year_cutoff, object_action_mechanism, StageA_key_premise, page_section_figure_table_theorem_locator, natural_canonical_workload, comparator_fairness, full_cost, legality_witness, boundary_unreported, artifact_AE, evidence_label]
+forbidden: [network, new_source_fetch, build, probe, experiment, scoring, gold_reveal_to_gate, production_state_change, StageB]
+next_action: EXTRACT_12_PLUS_4_CAPSULES_FROM_EXACT_LOCAL_INPUTS_AND_SEAL_HANDOFF

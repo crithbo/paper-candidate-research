@@ -1,0 +1,26 @@
+schema: stagea-a0-same-object-method-redesign-v1
+assignment_id: STAGEA-L2-20260830-VHLO-BINARY-DISTRIBUTION-REDESIGN1
+topic_id: SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+lane_id: CANDIDATE_EXECUTION_LANE_2
+mode: A0_EXECUTION_READINESS__SAME_OBJECT_METHOD_REDESIGN_1_OF_1
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+unique_write_directory: stages/stageA/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/a0-method-redesign1-binary-distribution-20260830
+resource_root: stages/stageA/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/a0-method-redesign1-binary-distribution-20260830/resources
+prior_a0:
+  handoff: {path: stages/stageA/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/a0-execution-readiness-20260830/handoff.yaml, sha256: 8004257F664B8B02801104B8DDAF6C748BA50A4FA28FAC00F3668D5C818E4CA7}
+  manifest: {path: stages/stageA/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/a0-execution-readiness-20260830/TARGETED_MANIFEST.yaml, sha256: 6C77E814D54C31DDAC32A3C38B1F4E80ECE4648FC9C31F4B58DCDD4FB81CA69B}
+
+same_object_invariants: {exact_object: StableHLO_portable_artifact_semantic_compatibility_with_versioned_VHLO_witnesses, versions: 2, witness_classes: 4, oracle_classes: [exact, tolerance, implementation_defined, unsupported], consumers: [IREE, OpenXLA_JAXLIB], planned_claim_cells: 24, full_cost_fields: 12, claim_ceiling: CONDITIONAL_CANONICAL_FORMAL_ORACLE_COMPATIBILITY_ONLY}
+binary_distribution_route:
+  python: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+  acquisition_processes_max: 1
+  command_shape: python_-m_pip_download_--only-binary=:all:_--no-deps_iree-base-compiler==3.11.0_jaxlib==0.11.1
+  packages:
+    - {name: iree-base-compiler, version: 3.11.0, filename: iree_base_compiler-3.11.0-cp312-abi3-win_amd64.whl, sha256: 67B3656C473D6DD3059B9AD9676190591F11B77C6E2F785D55E79730BE677BE7, role: IREE_CONSUMER}
+    - {name: jaxlib, version: 0.11.1, filename: jaxlib-0.11.1-cp312-cp312-win_amd64.whl, sha256: EEF943B42D6D42A2B2F3DC2A66E7A3DC89AEB1541F5A13AD8E1E94001BB590EC, role: OPENXLA_CONSUMER_AND_STABLEHLO_DIALECT_BINDING}
+  install: assignment_local_no_index_no_deps_target_only
+  system_or_user_environment_change: forbidden
+reference_oracle: deterministic_spec_typed_oracle_from_frozen_StableHLO_version_window_and_A0_witness_contract
+redesign_boundary: {same_object_method_redesign_consumed_on_first_acquisition_process: true, engineering_correction_batches_remaining: 0, claim_execution: forbidden, result_visibility: forbidden}
+allowed: [bootstrap_ACK, one_binary_acquisition_process, verify_exact_wheel_hashes, assignment_local_install, bind_literal_argv_cwd_env_outputs_schema, one_nonclaim_import_and_schema_control, inventory_retention_handoff_manifest]
+forbidden: [change_versions_or_witnesses_or_oracle_classes_or_consumer_count_or_denominator_or_claim_ceiling, source_build, system_install, claim_matrix, StageB, shared_write, retry]

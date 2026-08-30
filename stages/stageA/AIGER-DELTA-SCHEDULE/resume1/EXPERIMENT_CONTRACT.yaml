@@ -1,0 +1,50 @@
+schema_version: STAGEA_RESUME_CONTRACT_V1
+assignment:
+  lane_id: CANDIDATE-EXECUTION-LANE-2
+  assignment_id: RESOURCE-STAGEA-L2-20260811-AIGER-DELTA-SCHEDULE-RESUME1-R3E
+  authorization_id: AIGER-EXACT-TOOLCHAIN-RESUME-20260811-R3E
+  topic_id: AIGER-DELTA-SCHEDULE
+  unique_write_root: D:\project\writing\reserch\stages\stageA\AIGER-DELTA-SCHEDULE\resume1
+  parent_contract_sha256: 8262CCF6F5C39C9F7E2E586AFF592D1A62429B7971B40514267DF2DBC7584287
+  stageb_authorized: false
+exact_object:
+  format: standard binary AIGER 1.9
+  identity: fixed reachable AND DAG, fixed PI/latch/interface/property identities and order, fixed inversion bits, reset semantics, property semantics, and Boolean functions
+  only_action: whole-DAG legal topological bijection of fixed AND vertices to consecutive post-interface identifiers
+  excluded: [logic_rewrite, merge, deletion, interface_reorder, property_reorder, aig2, ascii_replacement, external_codec]
+objective:
+  primary: sum of native ULEB128 byte lengths of lhs-rhs0 and rhs0-rhs1 for every AND
+  deployment: whole standard binary AIGER file bytes
+  full_cost_dimensions: [graph_extraction_cpu, scheduling_search_cpu, serialization_cpu, native_reader_cpu, equality_check_cpu, peak_rss, input_bytes, output_bytes, disk_io_bytes, fallback_and_failure]
+resource_gate:
+  exact_aiger_commit: 039ec1a2cc37d3093ac35c4b6df65336b346f409
+  exact_yosys_commit: 0f2bcb94b7dc8310a52abf6eef3a7e1a9f09b552
+  exact_abc_commit: 6c51a9238544bce6eb300b7b1c3e5bb4215bec84
+  native_smoke_required: true
+  six_and_native_replay_required: true
+preclaim_gate:
+  native_union:
+    - AIGER_REFERENCE_NOOP_REENCODE_ROOT_DFS
+    - YOSYS_COMPLETE_SAME_OBJECT_GRID_INCLUDING_NO_SORT
+    - ABC_DEFAULT
+    - ABC_U_IF_IDENTITY_CONTRACT_PASSES
+  candidate_action: COMPLETE_WHOLE_DAG_LEGAL_TOPOLOGICAL_NUMBERING
+  equality: REFERENCE_PARSE_PLUS_IDENTITY_ANCHORED_GRAPH_INTERFACE_INVERSION_AND_PROPERTY_EQUALITY
+  complexity_claim: HONEST_EXACT_ORACLE_ONLY_UNTIL_NONTRIVIAL_FORMAL_PROPERTY_IS_PROVED
+  witness: FROZEN_SIX_AND_12B_13B_ACTION_DIVERGENCE
+  actual_status: PENDING_RESOURCE_GATE
+natural_gate:
+  corpus: PUBLIC_HWMCC_BINARY_AIGER_FAMILY_STRATIFIED_HASH_FROZEN_SUBSET
+  forbidden_until: RESOURCE_AND_SIX_AND_AND_PRECLAIM_PASS
+  killer_choice_rate: BELOW_10_PERCENT_THRESHOLD_SENSITIVE_LEGAL_CHOICES
+  full_cost_killer: NO_P50_P90_PARETO_RESIDUAL_AND_NO_INDEPENDENT_FORMAL_ALGORITHMIC_CONTRIBUTION
+decision_policy:
+  resource_failure_before_claim: BLOCKED_USER_ACTION_REQUIRED
+  scientific_negative_only_after_claim_bearing_same_object_full_cost_probe: true
+  positive_ceiling: PRELIMINARY_SUPPORT_OR_NOT_FALSIFIED
+  scientific_revision_consumed_at_entry: false
+limits:
+  storage_bytes: 8589934592
+  cpu_seconds: 21600
+  clean_builds_per_component: 2
+

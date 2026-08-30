@@ -1,0 +1,35 @@
+schema_version: preclaim-fidelity-v1
+assignment_id: RESOURCE-STAGEA-L2-20260811-S5-OCCUPANCY-CLIFF-JOINTCODEGEN-RESUME3-R3D
+evaluated_at: 2026-08-11T21:08:22+08:00
+overall: FAIL_CLOSED
+claim_bearing_run_allowed: false
+checks:
+  exact_source_and_amdgpu_llc:
+    status: PASS
+    evidence: exact signed commit, verified archive, AMDGPU-enabled exact llc hash 50B2889F0BE87D5FB0B9F11AE9C35A2A6A5745DFB723F4060A27D5C686C79C24
+  exact_filecheck:
+    status: PASS
+    evidence: stock AMDGPU and occupancy smokes passed
+  occupancy_semantics:
+    status: PASS_EXACT_TOOL
+    evidence: exact llvm-calc-occupancy built and smoke-checked; no proxy used
+  complete_natural_mir_set:
+    status: FAIL
+    required: 8_TO_16_COMPLETE_NATURAL_KERNEL_DERIVED_PRE_MACHINE_SCHEDULER_MIR_FROM_AT_LEAST_8_SOURCE_DIRECTORIES
+    obtained_complete_natural_device_ir_directories: 5
+    obtained_complete_prescheduler_mir_for_small_witness: 1
+    reason: full examples require a Linux/MSVC-compatible host ABI and official HIP runtime headers; RTC-safe extraction cannot legally trim host code or fabricate APIs
+  same_object_baseline_candidate_small_witness:
+    status: PASS_FOR_WITNESS_ONLY
+    input_sha256: CBB0A09D3927CDD05053F1E62A66DEDDFDEB41776EF2307285651E8A48DED798
+    variants: [default_fallback, occupancy_only_bias, amdgpu_pressure_trackers, joint_bias_trackers]
+    output_sha256_all_variants: 53FB0FF12A5ED1BC082A8EA13884F9B1DD6CE73382C2E2419611C4CB9EE016B3
+    verifier_exit_all: 0
+    occupancy_all: 16
+  full_cost_collection_path:
+    status: PARTIAL_NOT_ACTIVATED
+    acquisition_build_derivation: available
+    method_selection_verifier_fallback_rss_io: preregistered_but_not_run
+failure_boundary: BEFORE_FIRST_CLAIM_BEARING_OBSERVATION
+scientific_revision_consumed: false
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE

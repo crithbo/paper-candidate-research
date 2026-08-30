@@ -1,0 +1,23 @@
+schema_version: r3-stagea-cleanup-evidence-capsule-v1
+created_at: 2026-08-27
+scope: USER_TERMINATED_R2_R3_BLIND_NONBLIND_STAGEA_ONLY_WAVES
+artifact_state: CAPSULE_SEALED
+scientific_state_transition: false
+production_candidate_registration: false
+stageb: false
+retained_evidence:
+  reports:
+    - {path: stages/stageA/_compatibility/paper-evidence-20260827/FINAL_STAGEA_BACKTEST_REPORT.md, sha256: 86EC569F5E9617E1881072749034C97CFE46552065B8BD7B6FFAEDDA72ADF670}
+  R2_gate: [{path: stages/stageA/_compatibility/paper-evidence-20260827/gate/PAPER_EVIDENCE_STAGEA_GATE_REPORT.yaml, sha256: 089C34B34E796598BD7E91A2696946B990697B9A49B1A0D8F134FABD3BAD4569}, {path: stages/stageA/_compatibility/paper-evidence-20260827/gate/handoff.yaml, sha256: 6A8E2628D531733143A89261BE62A7514F0642F6AF4FD6F52E9906BA14296438}]
+  R2_auditor: [{path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/auditor-nb2-paper-evidence/handoff.yaml, sha256: 692F1B803CA572FFDFBE8EA89A53DCAD1CFB1788487744CAA82801CF3F175B4E}, {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/auditor-nb2-paper-evidence/HASH_MANIFEST.sha256, sha256: 3B507743C3FDEA3BFF628BAEB3ADD775BC9AFD33D82D14CD47E1D338C2DBB60B}]
+  R3_packer: [{path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/handoff.yaml, sha256: 0E831D1CBDEA7DE7C8AEDA2B3B4E9043843470091D5136D7210EF9FE457DE812}, {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/HASH_MANIFEST.sha256, sha256: BFBF1AA9D7F9B58D924625CBE6CEC64E728F8AB124D6D05FC34FB1532143BD5B}, {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/PACKER_SELECTION_LEDGER.yaml, sha256: E48D3C8568A7841E3D293DE9FD411EBD4FDA3AE275F8FD05D3EA62E9E6EAE00A}]
+  R3_stage0_nonblind: [{path: stages/stage0/_compatibility/nonblind-r3/primary-a1/NONBLIND_STAGE0_NONCOLLISION_DECISION.yaml, sha256: E702E5D7CACD0E49A14163CB2397A04BAF7CB7D51697D7399B80BE7FEE7BED89}, {path: stages/stage0/_compatibility/nonblind-r3/primary-a1/handoff.yaml, sha256: CBF34469B4AEC4491038567CD7F8DA74CB4E94938FBE47C9CB05DB32548FB047}, {path: stages/stage0/_compatibility/identity-blind-r3/BLIND_PHASE_DISPOSITION.yaml, sha256: C3864137483EE3B9D4F83FE237B32CAC3E1F53F2A3F7F5390D15793FD653BF74}]
+  supplemental_test: [{path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/evidence-enrichment1/ANONYMIZED_EVIDENCE_SUPPLEMENT.yaml, sha256: F74BC511C41984CE51F0AB4E6F42B63AC4F9006A092F25560FDBB63C15BB9176}, {path: stages/stageA/_compatibility/temporary-blind-review-20260827-terra-supplement/BLIND_STAGEA_ONLY_COMPATIBILITY_DECISION.yaml, sha256: 4762E9631B5B0F62DED71412DC6A43508046917B3E8C28B9774D9FDC836E5542}]
+resource_targets:
+  - {topic: HNSW, path: stages/stageA/_compatibility/nonblind-20260826/HNSW/resources, files: 17688, bytes: 1103359419, status_before_cleanup: ACTIVE_START_AUTHORIZED}
+  - {topic: PGM_INDEX, path: stages/stageA/_compatibility/nonblind-20260826/PGM_INDEX/resources, files: 17591, bytes: 1103872335, status_before_cleanup: ACTIVE_START_AUTHORIZED}
+  - {topic: ALEX, path: stages/stageA/_compatibility/nonblind-20260826/ALEX/resources, files: 17546, bytes: 1097546583, status_before_cleanup: BOOTSTRAP_ACK_PENDING}
+  - {topic: CVC5, path: stages/stageA/_compatibility/nonblind-20260826/CVC5/resources, files: 36, bytes: 217238688, status_before_cleanup: BOOTSTRAP_ACK_PENDING}
+  - {topic: R3_identity_blind_l1, path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer/resources, files: 1, bytes: 409, status_before_cleanup: TERMINATED}
+  - {topic: R3_identity_blind_l2, path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/resources, files: 42, bytes: 15724, status_before_cleanup: TERMINATED}
+cleanup_policy: {owner: MAINLINE, exact_literal_targets_only: true, no_reparse: required, active_process_count_before_delete: 0, downstream_input_acceptance: not_required_after_user_termination_and_capsule_seal, recoverability: reacquire_or_rebuild_from_preserved_assignment_records}

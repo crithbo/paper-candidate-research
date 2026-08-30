@@ -1,0 +1,30 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+identity:
+  topic_id: S2-91-CQ01
+  assignment_id: SOURCE-CLOSURE-SOURCE91-S2-CQ01-CPYTHON-ADAPTIVE-CACHE-LAYOUT-SPECIALIZATION-STATE-V1
+  stage_or_mode: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+  run_id: source91-cq01-v1
+  unique_write_directory: stages/discovery/round-20260815-adaptive-source91/S2-bottleneck-transfer/closure-cq01
+  resource_root: stages/discovery/round-20260815-adaptive-source91/S2-bottleneck-transfer/closure-cq01/resources
+  inventory_path: stages/discovery/round-20260815-adaptive-source91/S2-bottleneck-transfer/closure-cq01/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T11:00:00+08:00
+  finalized_at: 2026-08-15T11:08:00+08:00
+root_measurement: {logical_bytes: 542045, allocated_bytes: null, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true}
+required_directories: {downloads: PRESENT, archives: PRESENT_EMPTY, src: PRESENT_EMPTY, build: PRESENT_EMPTY, env: PRESENT_EMPTY, cache: PRESENT_EMPTY, tmp: PRESENT_EMPTY, logs: PRESENT}
+redirect_preflight: {status: PASS, process_local_only: true, system_or_user_environment_modified: false, tools: [PowerShell_7, Invoke-WebRequest]}
+resource_envelope: {network_bytes_max: 16777216, stored_bytes_max: 16777216, cpu_hours_max: null, gpu_hours_max: 0, wall_seconds_max: 1800, attempts_max: 6, network_bytes_used: 536434, stored_bytes_used: 542045, attempts_used: 6}
+entries:
+  - {path: resources/downloads/01-cpython-repository.json, bytes: 5996, sha256: b4d446b8af13d98f2f6f249aa1093a0a8d668fa0d6c704ca035d5a1b2a94277e, provenance: official_github_api}
+  - {path: resources/downloads/02-cpython-main-commit.json, bytes: 14786, sha256: 43007a1ac570e1507569f07d0bb97bfe14bba56db259e93034d939684a477d6b, provenance: official_github_api}
+  - {path: resources/downloads/03-pycore-code.h, bytes: 23035, sha256: 08db5fac78833099243ab519a0e8ef039fcee2e3f7b9795aa57f9499daf18fc8, provenance: official_python_cpython_raw}
+  - {path: resources/downloads/04-specialize.c, bytes: 111198, sha256: aabab89656c84ee7e5539cc45ab3dd625693b0ffa4193d690bf2c6ef74894e60, provenance: official_python_cpython_raw}
+  - {path: resources/downloads/05-bytecodes.c, bytes: 268150, sha256: 42554ee70c95d75413f60f99ed0fca1a6b10efbee75355d2a84759dd08c76e82, provenance: official_python_cpython_raw}
+  - {path: resources/downloads/06-test-dis.py, bytes: 113269, sha256: 7ec27f4df07d342803bd4cfc9c6c1346957341de3c00bb299e522ccd4e0ff730, provenance: official_python_cpython_raw}
+  - {path: resources/logs/acquisition-attempt-ledger.yaml, bytes: 3346, sha256: 2be292f84864aae1ac378461fe449e08675db68246682cfba0a4fcc3621886d7, provenance: local_ledger}
+  - {path: resources/logs/resource-inventory/preflight-v1.yaml, bytes: 584, sha256: 059476a19aeaf31a9fb37a68ecfefd8f81a0182580d07f52026b1521948c3b5d, provenance: local_preflight}
+  - {path: resources/logs/resource-inventory/final-v1.yaml, bytes: 1681, sha256: 07a28dbcfa3d41fd84c9922bd5f2bee517453d2009104a2f357aa8542f00eb84, provenance: local_final_snapshot}
+shared_assets_consumed: []
+external_system_dependencies: [GitHub_official_API, raw.githubusercontent.com]
+cleanup: {owner: MAINLINE, authorized_descendants: [], performed: false, deleted_entries: [], deleted_logical_bytes: 0, performed_at: null, recoverability: assignment_local_resources}
+validation: {resource_root_exact_match: true, root_under_workspace: true, forbidden_root_check: true, reparse_traversal_check: true, required_directories_present: true, persisted_resources_inventoried: true, envelope_within_limit: true, claim_critical_content_hashes_present: true, result: PASS}

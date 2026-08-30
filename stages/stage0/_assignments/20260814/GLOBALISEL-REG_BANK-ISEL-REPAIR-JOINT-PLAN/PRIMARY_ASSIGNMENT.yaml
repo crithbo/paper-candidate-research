@@ -1,0 +1,70 @@
+assignment_id: STAGE0-P1-20260814-GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN-PRIMARY-V8.7
+mode: PRIMARY
+topic_id: GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_READY_TO_DISPATCH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source01-primary\GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+quality_floor: TIER_B_Q2_VIABLE
+stage_semantics: CONDITIONAL_PAPER_POTENTIAL_SCREEN__NO_MAIN_CLAIM_RESULT_REQUIRED
+
+required_reads:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules\ROLE_STAGE0_REVIEW.md
+  - templates\STAGE0_REPORT.md
+  - templates\Q1_COMPARATOR_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source01\S2-bottleneck-transfer\TOPIC_BRIEF_GLOBALISEL_REG_BANK_JOINT_PLAN.md
+  - stages\discovery\round-20260814-adaptive-source01\S2-bottleneck-transfer\SOURCE_COLLISION_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source01\S2-bottleneck-transfer\DISCOVERY_LOG.md
+  - stages\discovery\round-20260814-adaptive-source01\S2-bottleneck-transfer\handoff.yaml
+
+input_hashes:
+  brief_sha256: 7046C37EBB3608E1795FCC06DF95C9022119A796CF36E0DD1AD79E3B0D85181C
+  source_collision_matrix_sha256: 50C75F20662DE6EE51453086F8DD7089DC2F31017530065C8BE254B195C9D3D1
+  discovery_log_sha256: 7356743C4B6EA0C6E850DAA0E2F8810F31760864AC7127D48ABC0EE8AEC7FE26
+  discovery_handoff_sha256: 9B8E88BF9480556A7AA0319F96FFF0EA8AF8FCB2D4A6BDD9C0F5B797CB98A97F
+  discovery_manifest_sha256: 9B868450B7679F3594C0D792245AAE178A45DC5BEEAAFA2E8A2980337C1B8C34
+
+control_freeze:
+  rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__r7-p0-repair-vector-dormant-off__discovery-six-lanes-direct-20260811__p1-shadow-not-authoritative__r3-resource-unblock-policy-20260811__stageb-autonomous-execution-r1__discovery-claim-pack-v9-r0-installed-off__risk-tiered-validation-readable-reporting-20260814__adaptive-source-zero-yield-audit-20260814
+  agents_sha256: 772FAF07F28F45CA26E6617C39FFD95AE316759CD4DEAFB7FD4D331719C3D700
+  plan_sha256: 1BF29713EB289C98CF3BEC4F5F2C46A0D7796A3C25A354F1C56A59DF5FFD5061
+  registry_sha256: 9A12F090AC3675AD025C960E56026587C9B36E6BC7631F61DF61A5ED2ABE0FA6
+  role_stage0_sha256: 9BD18454A98DB3C97A57F715F853795D9442E7E80BE902F708570296CAD6EB15
+  stage0_template_sha256: 321DB6FEF1838EAA4759F3662C27721F2131441DAB8EBF5E58DFCF9DD3004CE7
+  q1_template_sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87
+
+independent_attack_requirements:
+  - Independently pin current LLVM upstream and inspect RegBankSelect, RegisterBankInfo, target mapping modes, default and nondefault controls.
+  - Determine whether stock/current GlobalISel already expresses region-wide coupled mapping plus legal repair placement or an equivalent guarantee.
+  - Freeze exact same-MachineFunction, same-ABI, same-target, same-information contract and the full downstream compile-cost denominator.
+  - Attack whether bounded-width state is sufficient, the recurrence is exact or genuinely FPT, and the fallback preserves stock legality and diagnostics.
+  - Re-search direct same-object collisions, including historical GlobalISel global mode and adjacent bank-selection, instruction-selection and register-allocation methods.
+  - Give one bounded Stage A killer and a Discovery repair vector.
+
+forbidden:
+  - implementation
+  - experiment
+  - benchmark
+  - source_build
+  - system_install
+  - stageA
+  - stageB
+  - shared_control_write
+  - treating_missing_results_as_scientific_failure
+
+required_outputs:
+  - STAGE0_REPORT.md
+  - Q1_COMPARATOR_MATRIX.md
+  - SOURCE_AUDIT.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

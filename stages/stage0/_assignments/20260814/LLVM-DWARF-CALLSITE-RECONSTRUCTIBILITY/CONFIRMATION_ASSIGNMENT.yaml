@@ -1,0 +1,27 @@
+assignment_id: STAGE0-C2-20260814-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-CONFIRM-V8.7
+mode: SENTRY
+topic_id: LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_READY_TO_DISPATCH
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source08-confirmation\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source08-primary\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+primary_decision: REVISE_ONCE
+primary_atomic_gate: SAME_MIR_TWO_PLAN_CLOBBER_WITNESS__TARGET_SPECIFIC_CALLSITE_FRONTIER
+primary_hashes:
+  report_sha256: A3C30BF7A1041A400B0FB44A252A3011F8ACFD397B3EBE41D147457D686C0CBE
+  q1_sha256: 8B149DF3CE020EE8B239770D482BB3A170F5C687FE3607E3CF12B27CDF00AD2D
+  source_sha256: 74A44DE6C09D24A3D792E62A71C0A9044DF906ADD46D3660AACA2592EF628C06
+  handoff_sha256: 0D3735359A80290DDAD1B505210DD55CDD212C87FF3A48A1392C75DB218527D2
+  manifest_sha256: 699F5C28DBC96C6BBB756896F556AD99D7E85555AC380D0E400640883FFC8EF1
+independent_attack_requirements:
+  - Recheck current target allocator, coalescing, spills, frame pipeline, LiveDebugVariables, LiveDebugValues and DwarfDebug call-site parameter union on pinned LLVM main.
+  - Decide whether one fixed pre-RA MachineIR admits two complete native-legal allocation/spill/rematerialization/debug plans preserving executable, ABI, unwind and DWARF semantics.
+  - Attack whether any surviving frontier is target and call-site specific rather than metadata emission, ordinary RA tuning or generic CP/ILP.
+  - Verify finite future-native-action state, full-cost coordinates, natural corpus and Stage A killer without executing a revision.
+  - Confirm REVISE_ONCE, confirm STOP, or disagree with explicit evidence.
+forbidden: [revision_execution, implementation, experiment, benchmark, build, stageA, stageB, shared_control_write]
+required_outputs: [CONFIRMATION_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

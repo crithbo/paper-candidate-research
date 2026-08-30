@@ -1,0 +1,17 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+identity: {topic_id: S2-93-CQ01, assignment_id: SOURCE-CLOSURE-SOURCE93-S2-CQ01-POSTGRESQL-EXPRESSION-TUPLE-DEFORM-JIT-V1, stage_or_mode: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY, unique_write_directory: stages/discovery/round-20260815-adaptive-source93/S2-bottleneck-transfer/closure-cq01, resource_root: stages/discovery/round-20260815-adaptive-source93/S2-bottleneck-transfer/closure-cq01/resources, inventory_path: stages/discovery/round-20260815-adaptive-source93/S2-bottleneck-transfer/closure-cq01/RESOURCE_INVENTORY.yaml, finalized_at: 2026-08-15T11:33:00+08:00}
+root_measurement: {logical_bytes: 163995, allocated_bytes: null, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true}
+required_directories: {downloads: PRESENT, archives: PRESENT_EMPTY, src: PRESENT_EMPTY, build: PRESENT_EMPTY, env: PRESENT_EMPTY, cache: PRESENT_EMPTY, tmp: PRESENT_EMPTY, logs: PRESENT}
+redirect_preflight: {status: PASS, process_local_only: true, system_or_user_environment_modified: false, tools: [PowerShell_7, Invoke-WebRequest]}
+resource_envelope: {network_bytes_max: 16777216, stored_bytes_max: 16777216, wall_seconds_max: 1800, attempts_max: 6, network_bytes_used: 159471, stored_bytes_used: 163995, attempts_used: 6}
+entries:
+  - {path: resources/downloads/01-postgres-repository.json, bytes: 6335, sha256: addbf7728db54b6af44a52e4b4e3138a91fa988dc6f021323ae04ecc91da74fc}
+  - {path: resources/downloads/02-postgres-master-commit.json, bytes: 5772, sha256: 82fd97988c76bea1f3f071273b2959d502b92021ce5472fe7444f1747fb2ae95}
+  - {path: resources/downloads/03-llvmjit-expr.c, bytes: 89154, sha256: 6ba17f160b13f198d6eed9d0d2152a01c9fb3f9b19c4cb68144b5e7c37156a85}
+  - {path: resources/downloads/04-llvmjit-deform.c, bytes: 22359, sha256: 0d82eb8d09c935224dd5494c459ce76d99e578477f44300de7c597f2e1610ab2}
+  - {path: resources/downloads/05-llvmjit.c, bytes: 35851, sha256: b3e3c36f1d9e1006ed9bc7738f9d3518a6e14505fecb1ea374a3071930b66f7f}
+  - {path: resources/logs/acquisition-attempt-ledger.yaml, bytes: 3428, sha256: ad1b51c57d7f200b715f6bd57fe3c4b625edcce6ac243c6407af96a31d7d7cab}
+  - {path: resources/logs/resource-inventory/preflight-v1.yaml, bytes: 572, sha256: 43a0d4f600a1fe195492bba25e64827a29175d5a5a0bc03ed0914598e52a8eb1}
+  - {path: resources/logs/resource-inventory/final-v1.yaml, bytes: 524, sha256: 02e113840000693baa426c07426ed4b20df7fb5500e97db25bb08fa6b6c49d60}
+validation: {resource_root_exact_match: true, root_under_workspace: true, required_directories_present: true, persisted_resources_inventoried: true, envelope_within_limit: true, result: PASS}

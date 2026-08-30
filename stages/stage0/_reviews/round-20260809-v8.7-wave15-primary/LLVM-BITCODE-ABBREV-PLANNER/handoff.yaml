@@ -1,0 +1,92 @@
+assignment_id: STAGE0-P1-20260809-LLVM-BITCODE-ABBREV-PLANNER-PRIMARY-V8.7
+topic_id: LLVM-BITCODE-ABBREV-PLANNER
+role: STAGE0_PRIMARY
+cutoff: 2026-08-09
+decision: PASS_RECOMMENDED
+tier: TIER_B_Q2_VIABLE
+confirmation: PENDING_CONFIRMATION
+structural_paper_potential: PASS_CONDITIONAL_ON_GLOBAL_ALGORITHMIC_RESIDUAL
+current_evidence_readiness: FINITE_FIDELITY_GAP__PINNED_RECORD_TRACE_AND_CURRENT_WRITER_PARITY_REQUIRED
+confidence: 0.82
+search_status: SEARCH_BOUNDED_OPEN
+stageA_authorized: false
+stageB_authorized: false
+lane_next: IDLE_REUSABLE_AWAITING_MAINLINE
+scores:
+  academic: 53
+  ai: 26
+  total: 79
+  ai_core_fraction: 0.82
+exact_object:
+  input: pinned LLVM Module and its frozen semantic block-record trace
+  output: one ordinary raw LLVM bitcode file accepted by the pinned native reader
+  permitted_actions:
+    - legal abbreviation grammar construction
+    - BLOCKINFO versus immediate-block definition scope where format-legal
+    - abbreviation ID/code width induced by selected definitions
+    - unchanged-record assignment to legal abbreviation or UNABBREV_RECORD
+  forbidden_drift:
+    - IR or semantic record changes
+    - record reorder or omission
+    - module split or merge
+    - alternative codec or external compression as the primary object
+    - non-native reader
+primary_mechanism: GLOBAL_FILE_LOCAL_DICTIONARY_SCOPE_ASSIGNMENT_AND_ID_WIDTH_CONSTRUCTOR
+n2_minimum:
+  required: named global algorithm or formal guarantee exploiting definition amortization, shared/local scope, record coverage, and ID-width step costs
+  insufficient:
+    - unused-template deletion
+    - flag or threshold sweep
+    - emitter-only patch
+    - opaque generic solver without structural result
+    - postprocessor wrapper
+    - local byte heuristic
+fair_baselines:
+  - B0_COMPLETE_CURRENT_NATIVE_WRITER
+  - B1_CURRENT_GRAMMAR_SUBSET_AND_ASSIGNMENT_ORACLE
+  - B2_GREEDY_FULL_BOUNDED_GRAMMAR_PLANNER
+  - B3_SMALL_INSTANCE_EXACT_CEILING_ONLY
+subtractor_boundary:
+  BCDB: compression-friendly database/external-compression pipeline; not same-object raw-native baseline
+  alternative_encoding: changed decoder/representation; adjacent only
+  llvm_bcanalyzer: analysis oracle, not constructor
+current_source_correction: >-
+  LLVM is not fixed-template-only. The fair baseline includes fixed BLOCKINFO,
+  block-local abbreviations, input-sensitive string/type/instruction choices,
+  and all applicable writer flags. No global planner was found in the bounded audit.
+preclaim_fidelity_gate:
+  - archive the full immutable LLVM commit and relevant source blobs with hashes
+  - freeze and compare the semantic record trace after abbreviation expansion
+  - enumerate current-native actions and close B1 parity
+  - native parse, canonical decoded-module equality, and opt verification
+  - exact definition and abbreviation-ID-width bit accounting
+natural_plan:
+  count: 100
+  sources:
+    - LLVM Test-Suite
+    - MLGO-associated public build corpora
+  required_freeze:
+    - repository commits and licenses
+    - build commands and compiler flags
+    - source and module hashes
+    - optimization/debug/language/size strata
+killer:
+  - any trace, native parse, verify, or canonical equality failure
+  - fewer than 10 percent of natural modules expose an action beyond B1/B2
+  - all gains reproduced by current-family subset or greedy baseline
+  - no non-dominated point against B0-B2 on raw bytes plus planning/write/read/RSS at median and tail
+  - gains require external compression, changed module content/order, omitted records, or non-native reader
+  - optimization or encoding overhead consumes the declared full-cost benefit
+claim_ceiling: CONDITIONAL_STANDARD_FORMAT_LLVM_BITCODE_ABBREVIATION_PLANNER
+confirmation_request:
+  role: LONG_LIVED_STAGE0_CONFIRMATION_SENTRY
+  focus:
+    - corrected complete current-writer baseline boundary
+    - BCDB object classification
+    - whether the proposed algorithm remains more than emitter engineering
+source_package:
+  brief_sha256: A8F04AD9E52E3AFFED974BD16355EEA7950435C2D112D4C19725477954BF0A23
+  discovery_log_sha256: 64C3F496E7E4FFB315A4A87F6A58E676709FF17AD0DA6AC2F684E5C89A942F67
+  collision_matrix_sha256: AA4AA20D25687A53B6737BECAE834EE9F9C7E7D60F91BC351106D7D7E0E1D6E8
+  handoff_sha256: 65E72461DA07E1513BA0DF763AF28048D7502E13490B48ACBFE42C5DBC6A4097
+  manifest_self_sha256: F6F248E2A6D7FF6F1D4CAFBCF43AA943A755842F911935E0050DAAA6BA0B145F

@@ -1,0 +1,53 @@
+schema_version: discovery-two-axis-auditor-comparison-v8.2
+role: DISCOVERY-BACKTEST-AUDITOR
+overall_verdict: CONTAMINATION_UNKNOWN
+counts:
+  packet_total: 30
+  positives: 18
+  negatives: 12
+  content_reasonable_recoveries_including_partial: 17
+  substantive_omissions: 1
+  false_opportunities: 0
+  forced_negative_packaging: 0
+  finite_route_positives: 6
+  finite_route_misclassified_as_structural_stop: 0
+  target_pre_cutoff_violations: 3
+  source_level_cutoff_records_available: 0
+packets:
+  L1-P01: {class: positive, target: MapReduce, comparison: RECOVERED, structural: CONTINUE_N1_CONDITIONAL, evidence: READY, audit: valid_target_date_source_chain_unknown}
+  L1-P02: {class: positive, target: Dryad, comparison: MISSED, structural: CONTINUE_N1_N2_CONDITIONAL, evidence: FINITE_ROUTE_NOT_YET_ACQUIRED, audit: valid_target_date_source_chain_unknown}
+  L1-P03: {class: positive, target: Spanner_SQL, comparison: PARTIAL, structural: CONTINUE_N1_CONDITIONAL, evidence: READY, audit: valid_target_date_source_chain_unknown}
+  L1-N01: {class: negative, comparison: ABSTAIN_CORRECT, audit: valid_target_date_source_chain_unknown}
+  L1-N02: {class: negative, comparison: ABSTAIN_CORRECT, audit: valid_target_date_source_chain_unknown}
+  L2-P01: {class: positive, target: ZeRO, comparison: RECOVERED, structural: CONTINUE_N2_CONDITIONAL, evidence: READY, audit: valid_target_date_source_chain_unknown}
+  L2-P02: {class: positive, target: FlashAttention, comparison: RECOVERED, structural: CONTINUE_N2_CONDITIONAL, evidence: FINITE_ROUTE_NOT_YET_ACQUIRED, audit: valid_target_date_source_chain_unknown}
+  L2-P03: {class: positive, target: PagedAttention, comparison: RECOVERED, structural: CONTINUE_N1_N2_CONDITIONAL, evidence: READY, audit: valid_target_date_source_chain_unknown}
+  L2-N01: {class: negative, comparison: ABSTAIN_CORRECT}
+  L2-N02: {class: negative, comparison: ABSTAIN_CORRECT}
+  L3-P01: {class: positive, target: Dremel, comparison: RECOVERED, structural: CONTINUE_N1_N3_CONDITIONAL, evidence: READY, audit: valid_target_date_source_chain_unknown}
+  L3-P02: {class: positive, target: GraphChi, comparison: RECOVERED, structural: CONTINUE_N2_N3_CONDITIONAL, evidence: FINITE_ROUTE_NOT_YET_ACQUIRED, audit: valid_target_date_source_chain_unknown}
+  L3-P03: {class: positive, target: X_Stream, comparison: RECOVERED, structural: CONTINUE_N2_N3_CONDITIONAL, evidence: READY, audit: valid_target_date_source_chain_unknown}
+  L3-N01: {class: negative, comparison: ABSTAIN_CORRECT}
+  L3-N02: {class: negative, comparison: ABSTAIN_CORRECT}
+  L4-P01: {class: positive, target: Dynamo, comparison: RECOVERED, structural: CONTINUE_N1_N2_CONDITIONAL, evidence: FINITE_ROUTE_NOT_YET_ACQUIRED, audit: valid_target_date_source_chain_unknown}
+  L4-P02: {class: positive, target: Shenango, comparison: RECOVERED, structural: CONTINUE_N2_CONDITIONAL, evidence: READY, audit: valid_target_date_source_chain_unknown}
+  L4-P03: {class: positive, target: Clockwork, comparison: RECOVERED, structural: CONTINUE_N2_CONDITIONAL, evidence: READY, audit: valid_target_date_source_chain_unknown}
+  L4-N01: {class: negative, comparison: ABSTAIN_CORRECT}
+  L4-N02: {class: negative, comparison: ABSTAIN_CORRECT}
+  L5-P01: {class: positive, target: Quantiles_and_Equidepth_Histograms, comparison: RECOVERED_BUT_INVALID_HOLDOUT, structural: CONTINUE_N1_N2_CONDITIONAL, evidence: READY, audit: target_published_2001_09_11_on_or_before_cutoff_2003_12_31}
+  L5-P02: {class: positive, target: Cuckoo_Filter, comparison: RECOVERED, structural: CONTINUE_N1_N2_CONDITIONAL, evidence: FINITE_ROUTE_NOT_YET_ACQUIRED, audit: valid_target_date_source_chain_unknown}
+  L5-P03: {class: positive, target: BlinkDB, comparison: RECOVERED_BUT_INVALID_HOLDOUT, structural: CONTINUE_N2_CONDITIONAL, evidence: READY, audit: target_published_2013_04_14_on_or_before_cutoff_2015_12_31}
+  L5-N01: {class: negative, comparison: ABSTAIN_CORRECT}
+  L5-N02: {class: negative, comparison: ABSTAIN_CORRECT}
+  L6-P01: {class: positive, target: Halide, comparison: RECOVERED, structural: CONTINUE_N2_CONDITIONAL, evidence: READY, audit: valid_target_date_source_chain_unknown}
+  L6-P02: {class: positive, target: Souper, comparison: RECOVERED_BUT_INVALID_HOLDOUT, structural: CONTINUE_N1_N2_CONDITIONAL, evidence: FINITE_ROUTE_NOT_YET_ACQUIRED, audit: target_published_2017_04_08_on_or_before_cutoff_2017_12_31}
+  L6-P03: {class: positive, target: egg, comparison: RECOVERED, structural: CONTINUE_N2_CONDITIONAL, evidence: READY, audit: valid_target_date_source_chain_unknown}
+  L6-N01: {class: negative, comparison: ABSTAIN_CORRECT}
+  L6-N02: {class: negative, comparison: ABSTAIN_CORRECT}
+lens_verdicts:
+  O1_O6_BOUNDARY_CONTRADICTION: CONTAMINATION_UNKNOWN
+  O2_BOTTLENECK_TRANSFER: CONTAMINATION_UNKNOWN
+  O3_NATURAL_STRUCTURE: CONTAMINATION_UNKNOWN
+  O4_OBJECTIVE_CONSTRAINT_SHIFT: CONTAMINATION_UNKNOWN
+  O5_SCALE_ONLINE_APPROXIMATION: CONTAMINATION_UNKNOWN
+  O7_DIRECT_ALGORITHM_SOFTWARE: CONTAMINATION_UNKNOWN

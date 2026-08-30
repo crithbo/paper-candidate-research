@@ -1,0 +1,11 @@
+schema: nonblind-stagea-engineering-correction-ack-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-P1A6-RUNTIME-DLL
+correction: {path: P1A6_RUNTIME_DLL_CORRECTION.yaml, sha256: 77F071B68D08CA43AF1BE2C4AC13004C44B9EAF650B719416672032B7D0224A4}
+preserved_handoff: {path: P1A5_CANONICAL_BLOCKER_HANDOFF.yaml, sha256: 468D3A9D49040FAD520A340AD8B7FF4CE2CDDA5EF6581163E5C8B92B873F636B}
+dll_sources: [{path: resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/libc++.dll, bytes: 2095104}, {path: resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/libunwind.dll, bytes: 204288}]
+destination: {path: resources/build, current_runtime_dll_count: 0, assignment_local: true}
+scope: {only_change: copy_two_exact_assignment_local_runtime_DLLs_once, recompile_or_harness_edit: false, input_or_epsilon_change: false, alternate_runtime_or_system_DLL_install_or_global_PATH: false, root_cwd: false, production_or_stageB: false}
+prestart_state: {DLL_copy: false, epsilon_runs: 0, scientific_inference: NONE}
+differences_or_ambiguities: []
+ack_disposition: READY
+next_action: WAIT_FOR_MAINLINE_P1A6_ACCEPTANCE_AND_START

@@ -1,0 +1,35 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE29-RQ-PRODUCTION-V1
+write_root: stages/discovery/round-20260814-adaptive-source29/S1-boundary-contradiction
+status: COMPLETE_ZERO_PROPOSALS
+method:
+  canonical: v8.7
+  rq_refinement: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  v9_shadow: OFF
+funnel:
+  divergence_seeds: 8
+  selected_rq_families: 2
+  rq_variants: 6
+  evidence_qualified_raw: 0
+  candidate_grade_deep_reviews: 0
+  propose_stage0: 0
+families:
+  - signature: RISCV_ZFINX__FIXED_ABI__INTERPROCEDURAL_VALUE_PLACEMENT
+    canonical_disposition: EXCLUDED_BEFORE_RAW__CHANGED_OBJECT_OR_GENERIC_KERNEL
+    reason: >-
+      Official Zfinx states F and Zfinx software are incompatible. Keeping the fixed F ABI
+      changes the object; Zfinx-native reformulation leaves generic integer RA/spill placement.
+    evidence_ceiling: PRIMARY_SPEC_AND_CURRENT_UPSTREAM_DOCUMENTATION
+  - signature: WASM_MEMORY64__FIXED_HOST_ABI__CROSS_BOUNDARY_REPRESENTATION
+    canonical_disposition: LOCATOR_ONLY__PUBLIC_EVIDENCE_UNCLOSED
+    reason: >-
+      The public memory64 core draft does not define the host ABI, and bounded source inspection
+      did not pin a Wasmtime commit/configuration union for that boundary.
+    evidence_ceiling: SOURCE_CLOSURE_DEBT__NO_ABSENCE_CLAIM
+source28_dedup:
+  status: PASS
+  note: Source28 exact families and contract-listed AMX/UPMEM/NVDLA cooldown identities were not reused.
+artifacts:
+  required_files_present: true
+  manifest: HASH_MANIFEST.sha256
+mainline_action_required: false
+next_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

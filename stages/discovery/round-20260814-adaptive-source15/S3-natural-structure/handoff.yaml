@@ -1,0 +1,26 @@
+assignment_id: DISCOVERY-S3-20260814-ADAPTIVE-SOURCE15
+lane: S3_NATURAL_STRUCTURE
+write_directory: stages/discovery/round-20260814-adaptive-source15/S3-natural-structure
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+completion_state: COMPLETE_ZERO_PROPOSALS
+return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+summary_zh: >-
+  本轮强制checksum-pinned版本三元组；未下载工件、未伪造哈希。六条raw均先定义需要记录的release/tag/commit与SHA-256路线。
+  两条深审发现ONNX Model Zoo已转为历史保存而无法闭合前向自然版本面板，Hailo路线则尚未闭合同一源模型语义、三元组checksum与当前action union。
+  因此零提案；没有用合成图、内置selector、缓存或安全主题替代。
+counts:
+  raw_screen_row_events: 6
+  unique_opportunity_families: 6
+  compiler_architecture_families: 3
+  gpu_npu_families: 3
+  candidate_grade_deep_reviews: 2
+  stage0_briefs: 0
+  propose_stage0: 0
+deep_decisions:
+  - signature: ONNX_MODEL_ZOO__COMMIT_PINNED_MODEL_TEST_ARTIFACT_TRIPLETS__TOPOLOGY_SHAPE_LAW__OFFLINE_ACCELERATOR_MAPPING
+    disposition: NOT_ADMITTED_UNFROZEN__IMMUTABLE_FORWARD_TRIPLET_ROUTE_NOT_CLOSED
+  - signature: HAILO_MODEL_ZOO__CHECKSUM_PINNED_SOURCE_TO_HEF_TRIPLETS__STRUCTURE_LAW__OFFLINE_ACCELERATOR_MAPPING
+    disposition: NOT_ADMITTED_UNFROZEN__SAME_OBJECT_AND_UNION_UNCLOSED
+manifest: HASH_MANIFEST.sha256
+canonical_files: [DISCOVERY_LOG.md, SOURCE_COLLISION_MATRIX.md, handoff.yaml]

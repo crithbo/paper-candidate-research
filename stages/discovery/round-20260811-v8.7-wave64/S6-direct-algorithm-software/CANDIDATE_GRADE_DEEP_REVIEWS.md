@@ -1,0 +1,10 @@
+# Candidate-grade deep residual reviews — Wave64
+
+| Family | Current action catalog / strongest union | Minimal action-divergence witness | Algorithm / guarantee shape | Natural carrier, full cost, finite 72h killer | Decision |
+|---|---|---|---|---|---|
+| Robin-Hood static build | Current open-addressing insertion, displacement and resize/load configurations | Two keys competing for one probe slot | Exact key lookup; candidate was global displacement assignment | URL keys; build CPU/RAM, load, bytes, lookup. Killer: legal map on a six-key collision witness and no full-cost Pareto. | `DROP`: global assignment is known hash-table construction or generic matching. |
+| Judy index | Current Judy trie/node allocation and compression | Two prefix-sharing keys choose node form/allocation | Exact key/prefix lookup | Dictionary keys; builder CPU/RAM, bytes, lookup. Killer: native lookup equality on small prefix witness. | `DROP`: current direct trie/index construction; no new node representation/guarantee. |
+| Cardinality CNF | Sequential counter, totalizer and sorting-network encoding union | Three literals/bound where encoding clauses differ | Equisatisfiability and proof/solver acceptance | SAT instances; encoding CPU/clauses/aux vars/solve/check. Killer: exhaustive truth-table witness and no charged advantage. | `DROP`: established encoding family; proposed global clause sharing is generic postprocessing/ILP. |
+| LevelDB table | Native data-block/index/filter/table builder union | Two key blocks compete for one restart/index boundary | Exact key/value reader semantics | Public KV traces; build CPU/RAM, table bytes, read/seek. Killer: native reader equality and no full-cost Pareto. | `DROP`: restart/index policy is native table construction/configuration; no union-external action. |
+
+All reviews freeze a finite fidelity route but none freezes a nontrivial atomic N2 beyond the stated current direct algorithm families. No decision uses missing code, results, resources, or AI readiness.

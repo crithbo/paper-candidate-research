@@ -1,0 +1,104 @@
+schema_version: rvv-r5c-a3-independent-transitive-graph-quotient-audit-v1
+created_at: 2026-08-26T17:57:45+08:00
+assignment_id: STAGEA-GATE-20260826-LLVM-RVV-R5C-A3-TRANSITIVE-SPLIT-PRECLAIM
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+decision: REJECT_G2_AND_G4__CLOSURE_INTEGRITY_PRESENT_BUT_QUOTIENT_AND_BASELINE_SEMANTIC_DEPENDENCY_ABSENT
+scientific_inference: NONE
+
+frozen_inputs:
+  owner_handoff_sha256: C5C26B78ACD5F389BDD4D8D239A2D56D8EE10DFE9485C17EF5EAFE3951EBCE4B
+  owner_manifest_sha256: 779FB2138E2F841F11C941A2690CDB3F187C80F648E605695DFE0F6C562B50F8
+  split_closure_source_sha256: 256C78891FAAE6AB78741FABD309274DAFAF979F092A492A867BB580B1B73D4F
+  harness_source_sha256: 1924CA21C1E42EB4E5C5A094B7871C1AC5AA226589C2D0272360F531CE5FDC36
+  runner_source_sha256: 3D1C17A36490D71860EF66986499ADC0E2286486DE9EAAFACBE5CDD20AAD03ED
+  split_closure_raw_sha256: E5B47FA5E60F16C7ABBDD3A69A0186BE55700C5605583BF53845D0FDA18E3F16
+  F4_raw_sha256: EC9B6D13C6F1A407E5AA4EDEF971BA47B321EF80BA03FD4F22FC671372E99813
+  F5_raw_sha256: 3BD03197D0F74E226AD12C771C1DEEC8000DCFE97E4180D5E254B7C0F1F3E2B1
+
+G1_TRANSITIVE_SPLIT_GRAPH:
+  decision: PASS
+  observed_graph:
+    mir_sha256: AE30D1243442F787A117EBBD708F9CC1E75DF96975E505B4EA015FC14238799B
+    roots: [4, 11]
+    state_count: 2
+    descendants_by_root: {'4': [14, 15], '11': [12, 13]}
+    successor_relation_by_root:
+      '4': [{from: 4, action_node: 14, to: 13}, {from: 13, action_node: 15, to: 4}]
+      '11': [{from: 11, action_node: 12, to: 12}, {from: 12, action_node: 13, to: 11}]
+    graph_sha256: 9B049F7D27F3B3D1DE3A73A04DA9D35A9048446018A226A0237138C69BF92748
+    dependency_receipt_sha256: 031A5AC6301EF9977FEFACCE3E7C678F1404C557A4A0C360851C5D1B1504446F
+    quotient_state_signatures:
+      - 27BBB62B466C0DF1821CFCB439C2E6D9F9CCCEF0E7FAEAE26DC76A7554F7E4F4
+      - 7313F85051D31D8DE4998526999613207A168D837CA7B7868D43E8588BC51BD8
+  source_findings:
+    dynamic_root_derivation: true
+    recursive_descendant_walk: true
+    ancestry_and_parent_action_backpointers_emitted: true
+    future_action_signature_emitted: true
+    spill_reload_cost_signature_emitted: true
+    mask_interference_signature_emitted: true
+    hardcoded_root_register_ids: false
+    cycle_unknown_parent_cross_class_lmul_orphan_multiroot_fail_closed: true
+  scope_note: POSITIVE_RAW_WITNESS_HAS_TWO_ONE_LEVEL_SPLIT_PAIRS_BUT_IMPLEMENTATION_WALK_IS_RECURSIVE
+
+G2_QUOTIENT_AND_FUTURE_ACTION_COST:
+  decision: FAIL
+  decisive_findings:
+    closure_signatures_enter_labeled_state: false
+    closure_signatures_enter_quotient_key: false
+    closure_successor_relation_drives_quotient_successors: false
+    closure_parent_action_backpointer_drives_replay: false
+    closure_spill_reload_future_use_cost_enters_cost_tensor: false
+  source_pointers:
+    labeled_and_quotient_key: resources/src/harness/rvv_preclaim.py:210
+    quotient_successors: resources/src/harness/rvv_preclaim.py:216
+    closure_independent_certificate: resources/src/harness/rvv_preclaim.py:243
+    closure_dependency_attached_after_certificate: resources/src/harness/rvv_preclaim.py:293
+    closure_effect_on_F4_pass_only_nonempty_successor_relation: resources/src/harness/rvv_preclaim.py:294
+  failure_kernel: CLOSURE_PATH_FUTURE_COST_AND_BACKPOINTER_OBLIGATIONS_ARE_HASHED_AND_REPORTED_BUT_NOT_PART_OF_THE_COMPARED_QUOTIENT_TRANSITION_SYSTEM
+
+G4_F3_F4_F5_DEPENDENCY:
+  decision: FAIL
+  exact_hash_validation: PASS
+  internal_graph_and_dependency_receipt_validation: PASS
+  F3_result: PASS_UNAFFECTED_CONTROL
+  F4_result_file_declares: PASS
+  F5_result_file_declares: PASS
+  independent_semantic_assessment:
+    F4_certificate_changes_with_valid_closure_semantics: false
+    F4_frontier_changes_with_valid_closure_semantics: false
+    F4_backpointer_replay_changes_with_valid_closure_semantics: false
+    F5_candidate_frontier_changes_with_valid_closure_semantics: false
+    F5_baseline_frontiers_change_with_valid_closure_semantics: false
+    F5_split_closed_grammar_check_is_computed: false
+    F5_same_information_checks_are_computed: false
+    F5_no_future_information_check_is_computed: false
+  source_pointers:
+    F4_closure_independent_certificate_call: resources/src/harness/rvv_preclaim.py:290
+    F4_pass_predicate: resources/src/harness/rvv_preclaim.py:294
+    F5_closure_independent_certificate_call: resources/src/harness/rvv_preclaim.py:319
+    F5_constant_parity_assertions: resources/src/harness/rvv_preclaim.py:327
+    F5_action_presence_and_count_only: resources/src/harness/rvv_preclaim.py:333
+  mutation_control_interpretation:
+    MUTATED_TRANSITIVE_GRAPH_HASH: FAILS_INTERNAL_DEPENDENCY_MISMATCH_BEFORE_QUOTIENT_SEMANTICS
+    MUTATED_FUTURE_ACTION_OR_COST_SIGNATURE: FAILS_INTERNAL_DEPENDENCY_MISMATCH_BEFORE_QUOTIENT_SEMANTICS
+    F4_WITHOUT_CLOSURE: FAILS_REQUIRED_ARGUMENT_GATE
+    F5_WITH_MUTATED_CLOSURE: FAILS_EXACT_RAW_HASH_GATE
+    self_consistent_rehashed_semantic_mutation_present: false
+  static_counterfactual: ANY_INTERNALLY_SELF_CONSISTENT_CLOSURE_WITH_NONEMPTY_SUCCESSOR_RELATION_REACHES_THE_SAME_CLOSURE_INDEPENDENT_F4_CERTIFICATE_AND_F5_FRONTIERS
+
+bounded_route:
+  blocker_class: SOFT_ENGINEERING_BLOCKER
+  route_id: RVV_R5D_SPLIT_CLOSURE_SEMANTIC_INJECTION_INTO_QUOTIENT_AND_BASELINES_V1
+  same_object_mechanism_action_baselines_gate_unchanged: true
+  consumes_second_pivot: false
+  consumes_scientific_revision: false
+  requirements:
+    - CLOSURE_OBLIGATIONS_ENTER_LABELED_AND_QUOTIENT_STATE_KEYS_AND_SUCCESSORS
+    - CLOSURE_PARENT_ACTION_BACKPOINTERS_ENTER_REPLAY_EQUALITY
+    - CLOSURE_SPILL_RELOAD_FUTURE_USE_COST_ENTERS_THE_SHARED_FULL_COST_TENSOR
+    - ALL_FROZEN_BASELINES_ARE_COMPUTED_FROM_THE_IDENTICAL_CLOSURE_CONDITIONED_GRAMMAR
+    - INTERNALLY_SELF_CONSISTENT_REHASHED_SEMANTIC_MUTATIONS_AFFECT_RESULT_OR_FAIL_SEMANTICALLY
+    - FRESH_PRECLAIM_RECEIPTS_AND_INDEPENDENT_REGATE
+  execution_authorized_by_review: false
+

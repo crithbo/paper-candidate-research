@@ -1,0 +1,160 @@
+schema_version: discovery-backtest-sealed-packets-v2
+role: DISCOVERY-BACKTEST-PACKER
+opportunity_lens: O1_ASSUMPTION_BREAK_PLUS_O6_CONTRADICTION_ANOMALY_OR_PRIMITIVE_MISMATCH
+method_revision: v2
+sealed_at: 2026-08-03T15:40:00+08:00
+executor_rules:
+  - Use only this file and the assigned Discovery role.
+  - Do not search for, identify, or guess any hidden target.
+  - For each packet recover a problem shape, baseline limitation, decision structure, contribution route, evidence entry, and abstain decision.
+  - A limitation alone is not an opportunity; abstain when the packet lacks a defensible mechanism and falsifiable evidence route.
+packets:
+  - packet_id: S1-POS-01
+    label: positive
+    cutoff_date: 2022-05-26
+    domain_tags: [CUDA_GPU, COMPILER_RUNTIME_SYSTEM, ALGORITHM_DATA_STRUCTURE]
+    paper_inputs:
+      - source_id: P01-A
+        citation: "Vaswani et al. (2017), Attention Is All You Need, NeurIPS 30."
+        public_date: 2017-06-12
+        url: https://proceedings.neurips.cc/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html
+        pre_cutoff_signal: "Self-attention exposes quadratic sequence interactions implemented through dense tensor operations."
+      - source_id: P01-B
+        citation: "Williams, Waterman, and Patterson (2009), Roofline: An Insightful Visual Performance Model for Multicore Architectures, CACM 52(4)."
+        public_date: 2009-04-01
+        url: https://doi.org/10.1145/1498765.1498785
+        pre_cutoff_signal: "Arithmetic intensity and memory traffic can bound attained performance even when arithmetic complexity is unchanged."
+      - source_id: P01-C
+        citation: "Kitaev, Kaiser, and Levskaya (2020), Reformer: The Efficient Transformer, ICLR."
+        public_date: 2020-01-13
+        url: https://openreview.net/forum?id=rkgNKkHtvB
+        pre_cutoff_signal: "Long-sequence work largely attacks quadratic attention through approximation or sparsification."
+      - source_id: P01-D
+        citation: "Katharopoulos et al. (2020), Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention, ICML."
+        public_date: 2020-06-03
+        url: https://proceedings.mlr.press/v119/katharopoulos20a.html
+        pre_cutoff_signal: "A linearized attention family trades the original computation for a different formulation."
+      - source_id: P01-E
+        citation: "Rabe and Staats (2021), Self-attention Does Not Need O(n^2) Memory."
+        public_date: 2021-12-10
+        url: https://arxiv.org/abs/2112.05682
+        pre_cutoff_signal: "Exact attention can reduce auxiliary memory without changing mathematical attention semantics."
+    public_artifacts:
+      - source_id: P01-F
+        name: "PyTorch scaled dot-product building blocks as available at cutoff"
+        snapshot_rule: "Only documentation and repository history dated on or before cutoff."
+        url: https://github.com/pytorch/pytorch
+    environment_at_cutoff:
+      - "The literature separates arithmetic-complexity reductions, exact semantic preservation, and memory-footprint reductions."
+      - "The Roofline model makes data movement a first-class performance constraint on hierarchical-memory processors."
+      - "No hidden target implementation, name, result, or post-cutoff comparison is supplied."
+
+  - packet_id: S1-POS-02
+    label: positive
+    cutoff_date: 2023-06-19
+    domain_tags: [CUDA_GPU, COMPILER_RUNTIME_SYSTEM, AI_ACCELERATOR]
+    paper_inputs:
+      - source_id: P02-A
+        citation: "Shoeybi et al. (2019), Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism."
+        public_date: 2019-09-17
+        url: https://arxiv.org/abs/1909.08053
+        pre_cutoff_signal: "Large transformer models consume substantial accelerator memory and require partitioned execution."
+      - source_id: P02-B
+        citation: "Yu et al. (2022), Orca: A Distributed Serving System for Transformer-Based Generative Models, OSDI."
+        public_date: 2022-07-11
+        url: https://www.usenix.org/conference/osdi22/presentation/yu
+        pre_cutoff_signal: "Iteration-level scheduling and selective batching improve autoregressive serving, while request lengths remain variable."
+      - source_id: P02-C
+        citation: "Aminabadi et al. (2022), DeepSpeed Inference: Enabling Efficient Inference of Transformer Models at Unprecedented Scale, SC."
+        public_date: 2022-11-01
+        url: https://doi.org/10.1109/SC41404.2022.00043
+        pre_cutoff_signal: "Distributed inference systems optimize kernels and model partitioning for large transformers."
+      - source_id: P02-D
+        citation: "Pope et al. (2022), Efficiently Scaling Transformer Inference."
+        public_date: 2022-11-09
+        url: https://arxiv.org/abs/2211.05102
+        pre_cutoff_signal: "Inference scaling exposes memory-capacity and communication constraints beyond raw compute."
+      - source_id: P02-E
+        citation: "Sheng et al. (2023), FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU, ICML."
+        public_date: 2023-03-13
+        url: https://arxiv.org/abs/2303.06865
+        pre_cutoff_signal: "Offloading and scheduling widen feasible model size but add a memory hierarchy and transfer decision problem."
+    public_artifacts:
+      - source_id: P02-F
+        name: NVIDIA FasterTransformer
+        snapshot_rule: "Repository state no later than 2023-06-19."
+        url: https://github.com/NVIDIA/FasterTransformer
+    environment_at_cutoff:
+      - "Autoregressive requests have variable and evolving state; throughput depends on the number of requests admitted together."
+      - "Existing systems expose scheduling, batching, offload, partitioning, and kernel choices, but the packet does not prescribe a new memory representation."
+      - "No hidden target repository, blog, preprint, title, method name, or result is included."
+
+  - packet_id: S1-POS-03
+    label: positive
+    cutoff_date: 2017-12-03
+    domain_tags: [ALGORITHM_DATA_STRUCTURE, DATABASE_SYSTEM]
+    paper_inputs:
+      - source_id: P03-A
+        citation: "Bayer and McCreight (1972), Organization and Maintenance of Large Ordered Indexes, Acta Informatica 1."
+        public_date: 1972-09-01
+        url: https://doi.org/10.1007/BF00288683
+        pre_cutoff_signal: "Balanced search trees provide distribution-agnostic logarithmic lookup and update guarantees."
+      - source_id: P03-B
+        citation: "Perl, Itai, and Avni (1978), Interpolation Search—A Log Log N Search, CACM 21(7)."
+        public_date: 1978-07-01
+        url: https://doi.org/10.1145/359545.359557
+        pre_cutoff_signal: "Known key distributions can support position prediction faster than comparison-only binary search."
+      - source_id: P03-C
+        citation: "Rao and Ross (2000), Making B+-Trees Cache Conscious in Main Memory, SIGMOD."
+        public_date: 2000-05-01
+        url: https://doi.org/10.1145/342009.335449
+        pre_cutoff_signal: "Index layout can be redesigned around cache-line and pointer costs without changing query semantics."
+      - source_id: P03-D
+        citation: "Kim et al. (2010), FAST: Fast Architecture Sensitive Tree Search on Modern CPUs and GPUs, SIGMOD."
+        public_date: 2010-06-01
+        url: https://doi.org/10.1145/1807167.1807206
+        pre_cutoff_signal: "Architecture-sensitive layouts improve tree search across CPU and GPU memory hierarchies."
+      - source_id: P03-E
+        citation: "Idreos, Kersten, and Manegold (2007), Database Cracking, CIDR."
+        public_date: 2007-01-01
+        url: http://cidrdb.org/cidr2007/papers/cidr07p07.pdf
+        pre_cutoff_signal: "Adaptive indexing exploits workload history rather than maintaining a fully general static index."
+    public_artifacts:
+      - source_id: P03-F
+        name: STX B+ Tree
+        snapshot_rule: "Repository history no later than cutoff; used only as a classical index implementation artifact."
+        url: https://github.com/bingmann/stx-btree
+    environment_at_cutoff:
+      - "Classical indexes intentionally make weak assumptions about the key distribution; specialized searches already demonstrate that distribution knowledge can matter."
+      - "A credible result must preserve lookup semantics and fully price training/build time, model size, fallback search, updates, and worst cases."
+      - "No hidden target paper, model architecture, benchmark result, or post-cutoff learned-index work is included."
+
+  - packet_id: S1-NEG-01
+    label: negative_control
+    cutoff_date: 2021-12-31
+    domain_tags: [CUDA_GPU, NUMERICAL_SOFTWARE]
+    paper_inputs:
+      - source_id: N01-A
+        citation: "Goto and van de Geijn (2008), Anatomy of High-Performance Matrix Multiplication, ACM TOMS 34(3)."
+        public_date: 2008-05-01
+        url: https://doi.org/10.1145/1356052.1356053
+        pre_cutoff_signal: "Dense GEMM performance is organized around a mature blocked algorithm and memory hierarchy."
+      - source_id: N01-B
+        citation: "Volkov and Demmel (2008), Benchmarking GPUs to Tune Dense Linear Algebra, SC."
+        public_date: 2008-11-01
+        url: https://doi.org/10.1109/SC.2008.5214359
+        pre_cutoff_signal: "GPU dense-linear-algebra tuning already prices occupancy, locality, and instruction throughput."
+      - source_id: N01-C
+        citation: "Nath et al. (2010), Tuning GPU Dense Matrix Multiplication, SC."
+        public_date: 2010-11-01
+        url: https://doi.org/10.1109/SC.2010.7
+        pre_cutoff_signal: "Architecture-specific tile and kernel choices are established optimization dimensions."
+    public_artifacts:
+      - source_id: N01-D
+        name: NVIDIA CUTLASS
+        snapshot_rule: "Repository state at or before cutoff."
+        url: https://github.com/NVIDIA/cutlass
+    environment_at_cutoff:
+      - "Control slice: fixed-size dense square FP32 GEMM, exact BLAS semantics, one already-supported GPU generation, no new data type, shape family, workload regime, anomaly trace, or interface constraint."
+      - "Only ordinary tile-size and launch-parameter changes are exposed; the packet provides no evidence of a broken assumption or primitive mismatch outside mature library tuning."
+      - "Abstention is allowed and expected when no nontrivial, generalizable mechanism can be grounded."

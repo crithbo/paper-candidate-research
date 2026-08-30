@@ -1,0 +1,13 @@
+schema_version: temporary-blind-stagea-operation-card-v2
+assignment_id: TEMP-STAGEA-BLIND-REVIEW-20260827-TERRA-SUPPLEMENT
+role: INDEPENDENT_BLIND_STAGEA_REVIEWER
+purpose: REASSESS_ANONYMIZED_STAGEA_COMPATIBILITY_WITH_SUPPLEMENT
+allowed_inputs: [OPERATION_CARD.yaml, ANONYMIZED_STAGEA_PACKET.yaml, ANONYMIZED_EVIDENCE_SUPPLEMENT.yaml]
+input_hashes: {packet: BA621A4D5006EDDBD8574FCD3521FEECD301E42C8C25E770A87275A142F4F294, supplement: F74BC511C41984CE51F0AB4E6F42B63AC4F9006A092F25560FDBB63C15BB9176}
+forbidden_inputs: [AGENTS.md, plan.md, registry.yaml, history.md, prior_case_directories, paper_identity, title, authors, venue, DOI, URL, locator, auditor_key, gold_label, expected_disposition, external_sources]
+forbidden_actions: [network_search, external_lookup, identity_guessing, Stage0_judgment, collision_adjustment, production_candidate_registration, StageB]
+review_dimensions: [claim_contract_fidelity, evidence_adequacy, comparator_fairness, natural_or_canonical_workload, full_cost, legality_equivalence_or_witness]
+required_output: BLIND_STAGEA_ONLY_COMPATIBILITY_DECISION.yaml
+contamination_rule: IF_ANY_CASE_IDENTITY_IS_RECOGNIZED_STOP_IMMEDIATELY_WITHOUT_SCIENTIFIC_JUDGMENT
+metrics: {blind_metric_only: true, no_nonblind_merge: true, no_unbiased_recall_claim: true, no_threshold_75_claim: true}
+scientific_state_transition: false

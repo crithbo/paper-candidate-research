@@ -1,0 +1,32 @@
+schema_version: discovery-r16a-replacement-handoff-v1
+assignment_id: DISCOVERY-S5-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+subtree: replacement-02
+completed_at: '2026-08-13'
+prior_subtree:
+  path: replacement-01
+  state: PRESERVED_UNCHANGED
+  mainline_adjudication: "R01 Nix/R02 Helm/R04 PyPA provisional unique; R03 OCI Distribution repeated Wave326 and excluded."
+frozen_control:
+  master_sha256: 0F63DB562E04A3D90F3D058A070D271C9C707553E5A321F5DC35193D5671F471
+  control_manifest_sha256: 3681B20701DCEADE21761275135446C20E957913190FA4BCC984EE30CB120824
+  canonical_method: v8.7
+  claim_pack_mode: SHADOW
+integrity:
+  exact_predepth_dedup_scope: [plan.md, registry.yaml, history.md]
+  lexical_predepth_result: no literal hit for OSTree static-delta/summary signature
+  canonical_sealed_before_shadow: true
+  shadow_isolated_from_canonical: true
+  experiments_or_E2_run: false
+families:
+  - opportunity_family_id: R16A-S5-R05
+    signature: "OSTree fixed revisions plus summary; signed static delta and summary update; stock verification/apply; build/sign/I-O/bytes/verification cost"
+    canonical_disposition: DROP__CURRENT_UNION_DIRECTLY_EXPRESSES_ATOMIC_ACTION
+    shadow_disposition: C0_DIRECT_COVERED__STRUCTURAL_DROP
+    source_action_correction: "No residual: current static-delta generate and summary --update form the complete native union."
+    full_cost: [object-reads, delta-generation, compression, signing, summary-I-O, served-bytes, apply-verification]
+    leakage_check: PASS__CANONICAL_SEALED_BEFORE_SHADOW
+    stability: STABLE
+proposal_summary:
+  propose_stage0: []
+  reason: current native union directly expresses the frozen whole action
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

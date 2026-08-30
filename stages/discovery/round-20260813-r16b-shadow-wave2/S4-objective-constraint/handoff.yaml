@@ -1,0 +1,43 @@
+assignment_id: DISCOVERY-S4-20260813-R16B-V9-PROSPECTIVE-SHADOW-WAVE2
+lane: S4_OBJECTIVE_CONSTRAINT
+state: IDLE_REUSABLE_AWAITING_MAINLINE
+write_root: stages/discovery/round-20260813-r16b-shadow-wave2/S4-objective-constraint
+canonical_track: canonical-v8.7
+shadow_track: shadow-v9
+canonical_sealed_before_shadow: true
+families:
+  - signature: S4_GLIBC_LOCALE_ARCHIVE_CONSTRUCTOR
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    source_action_correction: 'V9 separates current action-union uncertainty and the stock-absorption countertest; no canonical change.'
+    cost_boundary: 'bytes; producer CPU/RSS/temp; reader/load latency/RSS'
+    leakage_check: PASS
+    stability: STABLE
+  - signature: S4_MANDB_WHATIS_INDEX_CONSTRUCTOR
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    source_action_correction: 'V9 separates DB backend/writer/query union and 20-item legality witness; no canonical change.'
+    cost_boundary: 'bytes; producer CPU/RSS/temp; query latency/RSS'
+    leakage_check: PASS
+    stability: STABLE
+  - signature: S4_PLOCATE_DATABASE_CONSTRUCTOR
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    source_action_correction: 'V9 makes format/flag union and generic-compression alternative explicit; no canonical change.'
+    cost_boundary: 'bytes; producer CPU/RSS/temp; cold/warm query CPU/RSS/latency'
+    leakage_check: PASS
+    stability: STABLE
+  - signature: S4_KMOD_MODULE_DEPENDENCY_INDEX_CONSTRUCTOR
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    source_action_correction: 'V9 requires alias-preservation and fixed module-semantics attack; no canonical change.'
+    cost_boundary: 'bytes; producer CPU/RSS/temp; modprobe resolution CPU/RSS/latency'
+    leakage_check: PASS
+    stability: STABLE
+dedup:
+  accepted_unique_families: 4
+  excluded_repeat: 'GTK/GdkPixbuf cache family (historical S2 Wave295)'
+canonical_clean_briefs: 0
+canonical_stage0_proposals: 0
+scientific_negative_inference_from_missing_implementation_result_or_resources: false
+callback_required: true

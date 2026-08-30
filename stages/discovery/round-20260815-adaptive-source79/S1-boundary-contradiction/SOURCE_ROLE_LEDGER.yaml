@@ -1,0 +1,31 @@
+sources:
+  - id: SRC01
+    role: ANCHOR_AND_CURRENT_CONTRACT
+    url: https://docs.python.org/3/c-api/buffer.html
+    project_object_version: Python C-API buffer protocol / documentation 3.14.6
+    selection_rule: official current C-API contract for the frozen Py_buffer object
+    provenance: official Python documentation
+    license: documentation site terms; consulted as public primary documentation
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: supports acquire/release, strong-reference, and fixed-validity contract
+  - id: SRC02
+    role: CURRENT_SOURCE
+    url: https://github.com/python/cpython/blob/main/Objects/abstract.c
+    project_object_version: CPython main / PyBuffer_Release implementation locus
+    selection_rule: official upstream source for release behavior
+    provenance: Python upstream repository
+    license: CPython PSF license
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: release calls producer release hook where applicable, nulls obj, and decrefs it
+  - id: SRC03
+    role: CONTRARY_CONTEXT
+    url: https://peps.python.org/pep-0688/
+    project_object_version: PEP 688
+    selection_rule: primary design context, not absence evidence
+    provenance: Python Enhancement Proposal
+    license: public PEP text
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: contextual only; does not prove a current residual

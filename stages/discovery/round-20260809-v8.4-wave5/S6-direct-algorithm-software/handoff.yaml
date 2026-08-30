@@ -1,0 +1,48 @@
+assignment_id: DISCOVERY-S6-20260809-V8.4-WAVE5
+lane: S6-direct-algorithm-software
+completed_on: 2026-08-09
+method:
+  used: DISCOVERY_METHOD_V2_V8_1
+  production_admissibility: ACCEPTED_CALIBRATED
+  calibration_record: stages/discovery/_method-backtests/O7_DIRECT_ALGORITHM_SOFTWARE/v2/handoff.yaml
+  explicitly_not_used: TWO_AXIS_V8_2R2_TLS_BLOCKED_NOT_PRODUCTION_ADMISSIBLE
+source_policy:
+  current_through: 2026-08-09
+  allowed: paper_originals_and_official_or_upstream_project_sources
+  baseline_residual_first: true
+  experiments_started: false
+  e_drive_referenced: false
+scope_exclusions:
+  active_pb_delete_schedule: excluded
+  wave4_five_formal_algorithm_objects: excluded
+  terminal_topics_revived: false
+candidates:
+  - id: GIT-PACK-FOREST
+    status: PROPOSE_STAGE0
+    quality_tier: TIER_B_Q2_VIABLE
+    structural_paper_potential: TIER_B_Q2_VIABLE
+    current_evidence_readiness: MODERATE_FINITE_CPU_ROUTE
+    contribution_route: N2
+    exact_object: self_contained_on_disk_Git_pack_index_for_fixed_reachable_object_set_of_one_repository
+    brief: TOPIC_BRIEF_GIT-PACK-FOREST.md
+    direct_subtractor: current_Git_sliding_window_and_JSS2025_generic_delta_graph_PPC_routes
+    finite_stagea_killer: >
+      Stop if residual coverage is below 10 percent, strict Git verification/object equality fails,
+      no Pareto point survives against the frozen current Git baseline union on charged size/CPU/RSS/access,
+      or graph/optimization cost consumes apparent saving.
+    fairness_boundary: no_thin_pack_no_changed_object_no_codec_switch_no_default_only_comparison
+screened_drops:
+  - W5-D1-GIT-PACK-GLOBAL-CROSS-REPO__DIRECT_FATAL_CHANGED_OBJECT
+  - W5-D2-GIT-PACK-WINDOW-TUNING__ROUTINE_TUNING
+  - W5-D3-GIT-PACK-PATH-REORDER-WRAPPER__WRAPPER_CONTROLLER
+recommendation:
+  propose_stage0:
+    - GIT-PACK-FOREST
+  stage0_not_created_by_discovery: true
+boundary:
+  no_stage0_created: true
+  no_stageA_created: true
+  no_stageB_created: true
+  no_experiment_or_benchmark_run: true
+  no_master_files_modified: true
+lane_return: IDLE_REUSABLE_AWAITING_MAINLINE

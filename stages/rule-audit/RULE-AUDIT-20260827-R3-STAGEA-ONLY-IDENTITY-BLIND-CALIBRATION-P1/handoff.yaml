@@ -1,0 +1,28 @@
+schema: rule-audit-stagea-only-blind-handoff-v1
+audit_id: RULE-AUDIT-20260827-R3-STAGEA-ONLY-IDENTITY-BLIND-CALIBRATION-P1
+proposal_id: R3_STAGEA_ONLY_IDENTITY_BLIND_CALIBRATION_P1
+status: READY_FOR_MAINLINE_FREEZE__NO_EXECUTION_STARTED
+authority:
+  policy_authority: USER
+  user_authorization: USER_EXPLICIT_REQUEST__R3_CONTINUE_WITH_STAGEA_ONLY_BLIND_SCHEME_20260827
+  shared_file_writer: MAINLINE
+  audit_proposal_author: RULE_AUDIT_SENTRY
+proposal_artifacts:
+  contract: {path: PROPOSED_ASSIGNMENT_CONTRACT.yaml, sha256: BBB0C596A24F0B78FAA3BD429AF7D2209AA0474FCC33A138ACAD234802D5F697}
+  report: {path: RULE_AUDIT_REPORT.md, sha256: 05D45DFB9279D0F40DA458ACED6B1E83EFE2DD2B827057079D293E1399A7F174}
+  change_proposal: {path: RULE_CHANGE_PROPOSAL.md, sha256: 2A5C6CF82F148C2CB33FF47CBE898408D6237183063DD9A9F1DCCF4154BB47D0}
+existing_immutable_inputs:
+  stagea_packet: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/STAGEA_ANONYMIZED_PACKET.yaml, sha256: BA621A4D5006EDDBD8574FCD3521FEECD301E42C8C25E770A87275A142F4F294}
+  evidence_manifest: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/PACKER_EVIDENCE_CAPSULE_MANIFEST.yaml, sha256: E6CBB4919A7E2D8BB3E80AA450D7037C42884AF6FECEF82551C82A86096DA798}
+  packer_handoff: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/handoff.yaml, sha256: 0E831D1CBDEA7DE7C8AEDA2B3B4E9043843470091D5136D7210EF9FE457DE812}
+  packer_acceptance: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/MAINLINE_PACKER_HANDOFF_ACCEPTANCE.yaml, sha256: 5151B4AF50845B8BFDF457555C37DA9BB2F484826C8CD41D9270A938AADBF8B7}
+required_mainline_actions:
+  - create a distinct calibration assignment and write directory; do not mutate R3 status
+  - designate a fresh reviewer only after exposure attestation
+  - have a packer seal a new 16-case StageA-only packet and auditor-only key
+  - prevent any shared plan/registry/history input from reaching the blind reviewer
+  - issue a separate start only after packet and bootstrap checks pass
+prohibited_until_mainline_freeze: [reviewer_dispatch, packet_delivery, auditor_key_release, network, experiment, StageB, shared_state_transition]
+scientific_or_resource_action_started: false
+shared_files_modified: false
+next_action: MAINLINE_MECHANICAL_ACCEPTANCE_OR_FAIL_CLOSED_REJECTION

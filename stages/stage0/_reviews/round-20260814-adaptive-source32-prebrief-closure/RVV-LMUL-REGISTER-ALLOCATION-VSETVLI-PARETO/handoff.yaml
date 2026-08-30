@@ -1,0 +1,33 @@
+assignment_id: STAGE0-P1-20260814-RVV-LMUL-REGISTER-ALLOCATION-VSETVLI-PARETO-PREBRIEF-CLOSURE-V8.7
+topic_id: RVV-LMUL-REGISTER-ALLOCATION-VSETVLI-PARETO
+mode: PREBRIEF_SOURCE_CLOSURE
+decision: NOT_ADMITTED_UNFROZEN__BOUNDED_SOURCE_OR_WITNESS_CLOSURE_INCOMPLETE
+confidence: 0.86
+scope: prebrief_only__not_full_stage0
+source_pin:
+  llvm_commit: 72edcedcdf0a8de68338e9b42f4effd1f21e9725
+  source_blobs:
+    - {path: resources/downloads/RISCVTargetMachine.cpp, sha256: E248815BF3AA066B8C10F9101C3D9574BA97B7C212B130B14765CB23FD16B297}
+    - {path: resources/downloads/RISCVInsertVSETVLI.cpp, sha256: 5EBC9690C63A59D0A216F7340696206D28E510D2B58DE7353B835777BB98AC8C}
+    - {path: resources/downloads/RISCVRegisterInfo.cpp, sha256: DE669556F3E5773E7BE48190ED56C26ED33B52F365B735C07F6F87ABF8E96EF5}
+closed_facts:
+  - RVV_register_allocation_precedes_RISCVInsertVSETVLI
+  - current_vsetvli_pass_performs_cross_block_VL_VTYPE_dataflow_PRE_and_coalescing
+  - grouped_spill_reload_paths_have_VL_VTYPE_preservation_interactions
+unclosed_debts:
+  - public_fixed_semantics_two_plan_RVV_IR_or_MIR_witness
+  - complete_target_feature_RA_pseudo_spill_rematerialization_action_envelope
+  - same_function_action_divergence_table
+  - target_specific_frontier_or_guarantee_beyond_sequential_composition
+resource_localization:
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory: RESOURCE_INVENTORY.yaml
+  preflight: PASS_FOR_POWERSHELL_INVOKE_WEBREQUEST_ONLY
+  attempts_used: 5
+  retained_logical_bytes: 133221
+stageA_authorized: false
+stageB_authorized: false
+route_full_stage0_primary: false
+claim_ceiling: current_source_skeleton_only__no_novelty_or_performance_claim
+next_action_for_mainline: HOLD_RAW_FOR_NEW_BOUNDED_SOURCE_CLOSURE__DO_NOT_ROUTE_FULL_STAGE0
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

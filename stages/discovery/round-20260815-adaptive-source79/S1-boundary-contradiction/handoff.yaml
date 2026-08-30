@@ -1,0 +1,31 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE79-R40-ORDINARY-BREADTH-V1
+lane: S1-boundary-contradiction
+write_directory: stages/discovery/round-20260815-adaptive-source79/S1-boundary-contradiction
+canonical_mode: v8.7
+rq_frontend_mode: RQ_REFINEMENT_STAGED_EVIDENCE_V1/PRODUCTION
+claim_pack_mode: OFF
+v9_mode: OFF
+disposition: COMPLETE_ZERO_PROPOSALS
+funnel:
+  divergence_seeds: 6
+  selected_exact_anchors: 1
+  primary_rqs: 1
+  unique_opportunity_families: 1
+  evidence_qualified_raw: 0
+  deep_reviews: 0
+  clean_stage0_briefs: 0
+families:
+  - signature: CPYTHON_BUFFER_PROTOCOL__PYBUFFER_ACQUIRE_RELEASE_OWNERSHIP__FIXED_EXPORTER_CONSUMER_VALIDITY_ENDPOINT__CPYTHON_CAPI_FULL_COST
+    canonical_disposition: EXCLUDED_BEFORE_RAW__PROTOCOL_PRESCRIBED_OWNERSHIP_OR_CHANGED_EXPORT_VALIDITY
+    history_relation: NO_MATCH__NOT_NOVELTY_PROOF
+    exact_object: CPython C-API Py_buffer exporter-consumer view
+    reason: Different release placement changes exporter validity/resizability; the unchanged acquire-use-release pair is current protocol and generic lifetime work, not a target-specific N2.
+    natural_carrier: bytes/bytearray/array/memoryview and C-API consumers
+    oracle: official buffer-protocol and CPython release semantics
+    full_cost: consumer CPU/refcounts, retained memory, producer release work, bytes/copy, resize wait, end-to-end work
+    finite_killer: native acquire-use-release trace that exposes changed exporter validity or exact current pairing
+source_closure_queue: EMPTY_NOT_EXHAUSTED
+resource_actions_performed: false
+scientific_negative_inference_from_resources: false
+next_step: Do not create Stage0. Only a distinct same-object mechanism with a different non-generic action could justify a future assignment.
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

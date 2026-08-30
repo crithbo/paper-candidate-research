@@ -1,0 +1,3 @@
+# Source85 S4 Divergence Seed Pool
+
+Six non-evidence O4 sketches were generated offline: compilation resource ranking, accelerator energy/tail attribution, stock-reader artifact cost, formal producer/checker cost, recovery deadline regimes, and database construction/read-tail cost. R68, OpenXLA S2-84-CQ01, RISC-V GP CQ01/CQ02, and every held/terminal identity were not read, seeded, or used; network-security excluded. None freezes an exact public project/artifact/specification plus version/date and immutable same-object contract. All remain `SEED_ONLY__NO_EXACT_PUBLIC_ANCHOR`; R40 blocks RQ, locator, and closure. No DROP, absence, novelty, or exhaustion inference follows.

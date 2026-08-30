@@ -1,0 +1,111 @@
+schema: discovery-source-role-ledger-v1
+assignment_id: DISCOVERY-S6-20260826-ROCKSDB-MULTISST-DICT-TRACE-REDESIGN
+cutoff: 2026-08-26
+network_attempts_reserved: 17
+network_attempts_completed: 17
+attempts_max: 20
+persisted_network_bytes: 0
+connector_network_bytes: UNAVAILABLE__NOT_ESTIMATED
+shell_network_failure: A01_SCHANNEL_SEC_E_NO_CREDENTIALS__NO_RETRY
+search_boundary: OFFICIAL_ROCKSDB_AND_ZSTD__PRIMARY_PAPERS_ON_MULTI_DICTIONARY_SELECTION_LSM_SST_AND_SHARED_DICTIONARY__BOUNDED_OPEN
+sources:
+  - source_id: RDB-RELEASES
+    role: CURRENT
+    title: RocksDB official releases
+    locator: https://github.com/facebook/rocksdb/releases
+    version: v11.1.2__2026-06-24
+    read_depth: SECTIONS
+    permitted_conclusion: exact current stable tag; not a source-level absence claim
+  - source_id: RDB-BUILDER-MAIN
+    role: CURRENT
+    title: BlockBasedTableBuilder current main source
+    locator: https://github.com/facebook/rocksdb/blob/main/table/block_based/block_based_table_builder.cc
+    version: refs/heads/main__inspected_2026-08-26
+    read_depth: SOURCE_SYMBOLS
+    decisive_loci: [Rep.data_block_buffers, MaybeEnterUnbuffered, GetSerializedDict, WriteCompressionDictBlock, verify_decompressor_with_dict]
+    permitted_conclusion: current builder trains/finalizes one dictionary from this file and writes it into this SST; no collection portfolio/assignment/causal trace found in bounded loci
+  - source_id: RDB-DICT-WIKI
+    role: CURRENT
+    title: Dictionary Compression
+    locator: https://github.com/facebook/rocksdb/wiki/Dictionary-Compression
+    version: current_page_read_2026-08-26
+    read_depth: SECTIONS
+    permitted_conclusion: current documentation describes per-file dictionary size/training and per-SST construction from buffered whole blocks
+  - source_id: RDB-COMPRESSION-WIKI
+    role: CURRENT
+    title: Compression
+    locator: https://github.com/facebook/rocksdb/wiki/Compression
+    version: current_page_read_2026-08-26
+    read_depth: SECTIONS
+    permitted_conclusion: dictionaries are stored with SSTs; compression configuration is column-family/bottommost aware
+  - source_id: RDB-OPTIONS-SOURCE
+    role: CURRENT
+    title: options/options.cc and db/column_family.cc
+    locator: https://github.com/facebook/rocksdb/blob/main/options/options.cc
+    version: main_read_2026-08-26
+    read_depth: SOURCE_SECTIONS
+    permitted_conclusion: public/default/nondefault dictionary controls and validation surface
+  - source_id: RDB-HISTORICAL-SUBCOMPACTION
+    role: CONTRARY_GENEALOGY
+    title: Historical BlockBasedTable format dictionary description
+    locator: https://github.com/facebook/rocksdb/wiki/Rocksdb-BlockBasedTable-Format/413416ac52479003471652f4ef1df6aedd8b77e4
+    version: historical_revision
+    read_depth: SECTIONS
+    permitted_conclusion: cross-output reuse of the first subcompaction output dictionary was already a RocksDB mechanism; cross-SST reuse alone is not novel
+  - source_id: RDB-SST-CARRIER
+    role: NATURAL_CARRIER
+    title: Creating and Ingesting SST files
+    locator: https://github.com/facebook/rocksdb/wiki/Creating-and-Ingesting-SST-files
+    version: current_page_read_2026-08-26
+    read_depth: SECTIONS
+    permitted_conclusion: legal native multi-SST collections and strict key/comparator constraints are public carrier routes
+  - source_id: ZSTD-ZDICT
+    role: CURRENT_BASELINE
+    title: facebook/zstd zdict.h
+    locator: https://github.com/facebook/zstd/blob/dev/lib/zdict.h
+    version: dev_page_read_2026-08-26
+    read_depth: SOURCE_SECTIONS
+    permitted_conclusion: codec trains one dictionary from similar samples; multiple use cases may use separate dictionaries; portfolio choice is external to codec
+  - source_id: ZSTD-MANUAL
+    role: CURRENT_BASELINE
+    title: Zstd CLI dictionary builder and CDict API
+    locator: https://github.com/facebook/zstd/blob/dev/programs/zstd.1.md
+    version: dev_page_read_2026-08-26
+    read_depth: SECTIONS
+    permitted_conclusion: training/fastCover/cover, dictionary size, IDs and CDict reuse are strong primitives/baselines
+  - source_id: DCC2001-MULTI-DICT
+    role: CONTRARY_GENERIC_KERNEL
+    title: On the Hardness of Finding Optimal Multiple Preset Dictionaries
+    locator: https://www.eecs.harvard.edu/~michaelm/postscripts/dcc2001a.pdf
+    version: DCC_2001
+    read_depth: FULL_RELEVANT_SECTIONS
+    permitted_conclusion: choosing a family of k preset dictionaries and assigning one per object is known compression segmentation and natural Huffman/LZ77 versions are NP-hard
+  - source_id: WSDM2019-DINT
+    role: CONTRARY_METHODOLOGICAL
+    title: Fast Dictionary-Based Compression for Inverted Indexes
+    locator: https://jermp.github.io/assets/pdf/papers/WSDM2019.pdf
+    version: WSDM_2019__DOI_10.1145/3289600.3290962
+    read_depth: FULL_RELEVANT_SECTIONS
+    permitted_conclusion: suites of dictionaries, matching dictionary selection per block, selector signaling, clustering and compression/decoding trade-offs are prior art on a different object/codec
+  - source_id: CROSS-ENTITY-DELTA
+    role: ESCAPE_CONTRARY
+    title: The Case for Cross-Entity Delta Encoding in Web Compression
+    locator: https://vsis-www.informatik.uni-hamburg.de/getDoc.php/publications/658/wingerath-2023-jwe-cross-entity-delta-encoding.pdf
+    version: 2022_extended
+    read_depth: FULL_RELEVANT_SECTIONS
+    permitted_conclusion: selecting among shared/cross-entity dictionaries and accounting selection/storage/deployment cost are established adjacent problems; perfect brute-force selection is not a practical algorithm
+  - source_id: FAST2022-COMPRESSION-BACKGROUND
+    role: BACKGROUND
+    title: Closing the B+-tree vs. LSM-tree Write Amplification Gap on Modern Storage Hardware with Built-in Transparent Compression
+    locator: https://www.usenix.org/conference/fast22/presentation/qiao
+    version: FAST_2022
+    read_depth: ABSTRACT_BACKGROUND
+    permitted_conclusion: 4 KiB block/full-cost storage and write-amplification context; not a dictionary-selection prior
+current_union_summary:
+  native_current: per-file training and per-SST dictionary meta-block
+  native_historical: one shared dictionary reused across later subcompaction outputs
+  codec_primitives: train/finalize/CDict/dict-ID/cover/fastCover
+  generic_algorithms: compression segmentation, clustering, brute-force or heuristic dictionary assignment
+  absent_within_bound: target-specific collection-wide global sample budget plus bounded portfolio plus per-SST assignment plus reader-local duplicate-dictionary cost plus exact causal trace
+collision_state: SEARCH_BOUNDED_OPEN__NO_DIRECT_FATAL__MAJOR_DIRECT_SUBTRACT_AND_GENERIC_KERNEL
+

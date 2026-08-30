@@ -1,0 +1,36 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260815-SOURCE56-57-QUEUE-SEPARATION-R43
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+write_directory: stages/rule-audit/RULE-AUDIT-20260815-SOURCE56-57-QUEUE-SEPARATION-R43
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE_ONLY
+  audit_proposal_author: RULE_AUDIT_SENTRY
+  shared_files_modified: false
+scope:
+  included: [Source56, Source57, current_shared_discovery_rules]
+  excluded: [Source58_outcomes, Discovery_or_Stage_contact, experiments, downloads]
+  mips_comparison: HISTORICAL_ONLY__NO_SOURCE56_57_INFERENCE
+classification:
+  healthy_abstention: [exact_identity, current_union, generic_kernel, changed_object_or_controller]
+  pre_anchor_recall_loss: [Source56_S3, Source56_S4, Source57_S3, Source57_S4]
+  bounded_closure_queues: [WASMTIME_THREADS_CQ01, WASMTIME_GC_SCQ_S57_01]
+recommendation:
+  decision_label: NO_CHANGE
+  unique_next_boundary: RETAIN_ORDINARY_R40__QUEUE_SEPARATION_ONLY
+  new_profile: none
+  user_policy_approval_required: false
+  backtest_required: false
+  queues_may_only: [close_frozen_bundle, return_CLOSED_TO_TYPED_RQ_or_STRUCTURAL_FATAL_or_UNRESOLVED_BACKLOG]
+  queues_may_not: [be_raw_or_brief_before_closure, seed_next_cycle, cross_parent_or_wave_reuse]
+  invariants_preserved: [Q2, same_object, current_union, strong_baseline, natural_or_canonical_carrier, full_cost, reproducibility, claim_ceiling, STOP_non_revival]
+mainline_action:
+  may_continue_canonical_screening: true
+  may_not_modify_Source56_or_Source57: true
+  may_not_read_Source58_outcome_for_R43: true
+  may_not_stack_micro_rule: true
+files:
+  report: RULE_AUDIT_REPORT.md
+  proposal: RULE_CHANGE_PROPOSAL.md
+  input_snapshot: AUDIT_INPUT_SNAPSHOT.md
+  manifest: HASH_MANIFEST.sha256

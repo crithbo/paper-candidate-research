@@ -1,0 +1,43 @@
+schema: blindness-and-contamination-audit-v1
+created_at: 2026-08-26T17:56:00+08:00
+assignment_id: BACKTEST-PACKER-20260826-STAGE0A-Q2-LOCAL-RESOURCE-R1
+executor_visible_root_local_source: sealed_executor_input
+case_count: 16
+file_count: 17
+logical_bytes: 29023
+sealed_input_manifest_sha256: D8BE140E157945166629AF8771997F9143E1B06A735F63560CDB9703A9E5E0A9
+manifest_entry_validation: PASS_16_OF_16
+scans:
+  forbidden_prior_tokens:
+    patterns: [backtest, calibration, paper, published, q1, q2, positive, negative_control, known_success, expected_pass]
+    matches: 0
+  hidden_identity_names:
+    patterns: [hnsw, ann-benchmarks, cvc5, carcara, pythia, berti, bolt, webgraph, pgm-index, alex]
+    matches: 0
+  identity_metadata:
+    patterns: [http_url, doi_field, author_field, venue_field, artifact_field, gold_field, expected_decision]
+    matches: 0
+  target_quantitative_results:
+    matches: 0
+  candidate_file_hashes:
+    match_manifest: PASS_16_OF_16
+semantic_review:
+  titles_or_abstract_sentences_copied_verbatim: false
+  author_method_implementation_or_reproduction_script_included: false
+  target_repository_or_git_remote_included: false
+  source_cards_deidentified: true
+  random_ids_semantic: false
+  class_or_expected_route_visible: false
+  local_resource_envelopes_visible_without_identity: true
+required_router_actions_before_executor_dispatch:
+  - copy only sealed_executor_input subtree by exact manifest hashes
+  - destination directory title prompt context path and IDs must be neutral
+  - source assignment directory must not be visible to executor
+  - do not pass this audit, auditor_key, source ledger, selection ledger, gold qualification, or resource-preflight identities
+  - executor receives current role rule separately and treats each item as an ordinary candidate
+  - if exact hidden identity is recognized, emit BLINDING_CONTAMINATION and stop without scientific judgment
+auditor_reveal_gate:
+  auditor_key_visible_before_all_executor_outputs_immutable: false
+  required_executor_handoff_acceptance_before_reveal: true
+  packer_scored_cases: false
+result: PASS_DOUBLE_BLIND_PACKET_READY_FOR_MAINLINE_ROUTING_CHECK

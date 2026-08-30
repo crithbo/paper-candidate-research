@@ -1,0 +1,1 @@
+Stock YJIT code-block/side-exit/code-GC machinery is the fair union with identical program/profile facts. Main is not immutable-pinned: no absence or collision-absence claim. `PARTIALLY_FROZEN_UNION__SOURCE_CLOSURE_REQUIRED`.

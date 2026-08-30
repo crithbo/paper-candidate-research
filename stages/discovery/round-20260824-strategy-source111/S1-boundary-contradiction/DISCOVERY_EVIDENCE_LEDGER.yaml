@@ -1,0 +1,21 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE111-KERNEL-CORPUS-DSL-COMPILER-V1
+cutoff: '2026-08-24'
+sources:
+  - {source_id: S111-01, title_or_artifact: KernelBench-Verified, canonical_version: public repository viewed 2026-08-24, locator: https://github.com/facebookresearch/kernel_bench_verified, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S111-02, title_or_artifact: TritonBench, canonical_version: main viewed 2026-08-24, locator: https://github.com/meta-pytorch/tritonbench/blob/main/README.md, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S111-03, title_or_artifact: TileLang, canonical_version: current documentation/repository viewed 2026-08-24, locator: https://github.com/tile-ai/tilelang/, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S111-04, title_or_artifact: The Correctness Illusion in LLM-Generated GPU Kernels, canonical_version: arXiv:2606.20128, locator: https://arxiv.org/abs/2606.20128, source_role: CONTRARY, read_depth: ABSTRACT}
+  - {source_id: S111-05, title_or_artifact: Correct but Slow, canonical_version: arXiv:2607.04454, locator: https://arxiv.org/abs/2607.04454, source_role: CONTRARY, read_depth: ABSTRACT}
+claims:
+  - claim_id: C111-01
+    text: KernelBench-Verified already uses hidden multi-distribution correctness testing and verified metrics, while TritonBench evaluates both correctness and performance.
+    priority: HIGH
+    source_links: [{source_id: S111-01, relation: DIRECT, locator: hidden tests and gating flags, evidence_status: DIRECT_OBSERVATION, conflict: none, permitted_conclusion: generic verifier enhancement is not raw-admissible}, {source_id: S111-02, relation: DIRECT, locator: README suite purpose, evidence_status: DIRECT_OBSERVATION, conflict: none, permitted_conclusion: generic Triton benchmark correctness/performance route is current}]
+  - claim_id: C111-02
+    text: Recent 2026 work directly studies allclose-style correctness gaps and correctness-performance divergence in KernelBench/Triton/TileLang settings.
+    priority: HIGH
+    source_links: [{source_id: S111-04, relation: OPPOSE, locator: abstract, evidence_status: AUTHOR_CLAIM, conflict: corpus scope, permitted_conclusion: no broad semantic verifier proposal is fresh}, {source_id: S111-05, relation: OPPOSE, locator: abstract, evidence_status: AUTHOR_CLAIM, conflict: evaluated corpus scope, permitted_conclusion: no broad correct-but-slow benchmark-validity proposal is fresh}]
+stopping: {high_impact_items_bounded: true, latest_and_current_union_checked: true, first_party_depth_sufficient: true, heterogeneous_independent_path_complete: true, contrary_search_complete: true, natural_or_canonical_carrier_frozen: false, full_cost_frozen: false, marginal_sources_no_longer_decision_changing: true, decisive_contradictions_resolved_or_bounded: true, disposition: NOT_ADMITTED_UNFROZEN}
+execution_readiness: {state: E0, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: NO_RAW_ADMISSION__NO_CLAIM

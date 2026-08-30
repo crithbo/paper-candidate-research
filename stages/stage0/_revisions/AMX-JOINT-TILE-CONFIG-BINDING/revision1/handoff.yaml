@@ -1,0 +1,38 @@
+assignment_id: STAGE0-P1-20260814-AMX-JOINT-TILE-CONFIG-BINDING-REVISION1-V8.7
+topic_id: AMX-JOINT-TILE-CONFIG-BINDING
+mode: PRIMARY_REVISION1
+sole_gate: SAME_MANAGEDRA_MF_TWO_PLAN__UNION_EXTERNAL_CONFIG_BINDING_FRONTIER_CERTIFICATE
+decision: RECOMMEND_BELOW_Q2_STOP
+quality_tier: BELOW_Q2_STOP
+confidence: 0.91
+scientific_revision:
+  limit: 1
+  consumed: true
+  reason: gate-bearing same-object static action/frontier construction completed
+terminal_sentinel: BELOW_Q2_STOP__CURRENT_AMX_SEQUENTIAL_UNION_OR_GENERIC_RA_WRAPPER
+frozen_identity:
+  llvm_commit: 3de6fef89d9f9eb602a5bdaa2a3fe2a75a468030
+  witness: llvm/test/CodeGen/X86/AMX/amx-sink-config-after-calls.mir
+  witness_sha256: 679426407304782A85A4BB85E5041DF095179FE17A79F2A16AD02E86D712D9F6
+  target: x86_64_plus_amx_tile
+  program_model: ManagedRA
+  semantics: fixed_abi_call_regmask_tile_numerical_frame_and_object_semantics
+fair_current_union:
+  - optimized_PreTileConfig__tile_only_Greedy_RA__postRA_TileConfig
+  - fast_FastPreTileConfig__FastRA__FastTileConfig
+gate_findings:
+  - component config placement/reload and physical shape materialization are current-native actions
+  - a physical-TMM label swap is native-legal but full-cost invariant
+  - global config/call obligations factor from ordinary TMM interference allocation
+  - no union-external Pareto point or target-specific non-product recurrence exists on the pinned witness
+claims_not_made:
+  - no candidate implementation
+  - no compiler build or native output generation
+  - no benchmark, GPU, code-size, compile-time, RSS, or runtime result
+  - no inference from paper-search absence
+stage_authorization:
+  stage_a: false
+  stage_b: false
+  next_action: MAINLINE_RECORD_SCIENTIFIC_STOP
+mainline_notification_required: true
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

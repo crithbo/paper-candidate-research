@@ -1,0 +1,8 @@
+schema: ppc-r10-natural-claim-plan-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10-NATURAL-CLAIM-CONTRACT-FREEZE
+status: FROZEN_NOT_EXECUTED
+process_matrix: {rows: 32, source: NATURAL_CLAIM_CONTRACT.yaml#exact_process_contract, commands_per_row: 896, max_parallelism: 0_in_this_assignment}
+sequence: [freeze_exact_natural_inputs_and_hashes, verify_legality_witness, execute_exact_32_rows_only_under_separate_START, collect_all_896_costs_per_row, independent_gate_then_backtest_auditor]
+comparison: {candidate: frozen_PPC_prefix_pressure_method, baselines: frozen_expanded_greedy_and_PBQP_matrix, comparator_semantics: exact_same_function_and_lowering_contract}
+no_execution_authorization: true
+scientific_claim_allowed: false

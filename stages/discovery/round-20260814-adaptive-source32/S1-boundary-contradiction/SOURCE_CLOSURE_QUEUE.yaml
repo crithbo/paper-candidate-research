@@ -1,0 +1,19 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE32-NON-PRODUCT-COUPLING-V1
+queue:
+  - rq_id: RQ-S01-2
+    signature: RISCV_ZICOND__FIXED_PSABI__CONDITIONAL_FORM_RA_SCHEDULE_CONSTRUCTION
+    status: CLOSED_BEFORE_RAW__GENERIC_KERNEL
+    finding: >-
+      Zicond v1.0 defines czero instructions and explicit short conditional sequences;
+      LLVM current documentation supports Zicond through target selection. The proposed
+      coupling is ordinary instruction selection/register allocation/scheduling.
+    canonical_disposition: EXCLUDED_BEFORE_RAW__GENERIC_WRAPPER_OR_SOLVER
+  - rq_id: RQ-S02-2
+    signature: VULKAN_SHADER_OBJECT__FIXED_RESOURCE_INTERFACE__LAYOUT_COMMITMENT_CONSTRUCTION
+    status: LOCATOR_ONLY__CURRENT_COMPILER_RUNTIME_UNION_UNCLOSED
+    finding: >-
+      Current Vulkan specifications freeze shader/pipeline-layout resource interfaces,
+      but the bounded route did not pin a particular public compiler/runtime implementation
+      and its complete layout-commitment configuration/action union.
+    closure_debt: [PIN_COMPILER_RUNTIME, FREEZE_SHADER_OBJECT_CARRIER, ENUMERATE_LAYOUT_COMMIT_PATH]
+    canonical_disposition: LOCATOR_ONLY__PUBLIC_EVIDENCE_UNCLOSED

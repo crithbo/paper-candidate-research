@@ -1,0 +1,91 @@
+schema_version: stage0-revision-closing-assignment-v1
+assignment_id: STAGE0-P2-20260821-PATCHYIELD-REVISION1-CLOSING
+mode: PRIMARY_REVISION_CLOSING
+lane: STAGE0-BATCH-GATE
+authority: USER_EXPLICIT_PATCHYIELD_REPAIR_AND_INDEPENDENT_STAGE0_20260821
+topic_id: PATCHYIELD-CALL
+status_on_dispatch: ACTIVE
+
+independence:
+  revision_owner_must_not_close_its_own_revision: true
+  closing_reviewer_must_reconstruct_the_counterexample: true
+  revision_owner_disposition_is_not_binding: true
+
+frozen_rules:
+  project_rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__research-topic-discovery-r1-r40-20260815
+  role_stage0_sha256: BC58D2A365AFF6A0F82290CC3CC4E16177DBFDA69D1B28260084E9BE6B56E48C
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  quality_target: Q2_MINIMUM_Q1_PRIORITY
+
+frozen_inputs:
+  primary_review_directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-primary\PATCHYIELD-CALL
+  primary_batch_handoff_sha256: 9BBF5390E1A21E4526AF1C92358DAE506A3C70A3CCB9821935E609B7CDB0406E
+  confirmation_directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-confirmation\PATCHYIELD-CALL
+  confirmation_batch_handoff_sha256: 04C57FA1FF5C5A8FC06FFAC50EAB152C79B5042E3AAFFDAA91A68578128923B4
+  revision_directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260821\patchyield-stage0-revision1
+  revision_handoff_sha256: DAF7EEE0FB7F65B2BF2597AB970C08AC2A046B4CAF2A076DF63B21F1A5BE81D3
+  revision_manifest_sha256: 4B53017ADF32BBCA8BC1FE255508FDED6D995F1B7F8ACEF22C63F6680A250ACD
+  revision_consumed: true
+
+frozen_object:
+  action: SELECT_NEXT_COMPLETE_NON_PREEMPTIVE_LLM_CALL_FROM_SIMULTANEOUSLY_READY_ADMITTED_SESSIONS
+  batch_capacity: 8
+  fairness_cap: EVERY_READY_CALL_BYPASS_LE_16_IN_EVERY_LEGAL_QUEUE_STATE
+  forbidden_repairs:
+    - change admission or rejection semantics
+    - impose a new ready-queue bound
+    - change complete-call or bypass semantics
+    - raise batch capacity
+    - add pause, preemption, routing, or active-subset fairness
+
+sole_question: >-
+  Independently determine whether the revision's 25-ready-call counterexample is a legal state under the frozen object and, if so, whether it proves that the sole revision gate is impossible without changing the object or falling back to generic priority/fair scheduling.
+
+required_checks:
+  - Verify from frozen inputs that the action grammar permits 25 simultaneously ready admitted calls while batch capacity is eight.
+  - Reconstruct the counting argument independently: any complete nonpreemptive schedule of 25 calls in batches of at most eight leaves at least one call after 24 other-session dispatches.
+  - Check whether any frozen native action, progress state, tie rule, or reservation can satisfy the all-legal-state cap without a forbidden contract change.
+  - Decide whether a valid non-generic progress-incremental action or guarantee survives the counterexample and the confirmed comparator union.
+  - Do not reject for lack of H100, experiment, download, positive gain, or engineering implementation.
+
+write_boundary:
+  unique_write_directory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-patchyield-revision1-closing
+  resource_root: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-patchyield-revision1-closing\resources
+  resource_inventory: D:\project\writing\reserch\stages\stage0\_reviews\user-proposed-20260821-patchyield-revision1-closing\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+allowed_actions:
+  - Read the frozen Stage0 and revision inputs listed above.
+  - Use only small official/current text if needed to verify the frozen vLLM batch/action meaning.
+  - Write a closing report, source log, handoff, resource inventory, and manifest inside unique_write_directory.
+
+forbidden_actions:
+  - Modify the research object, fairness cap, admission, action grammar, batch capacity, comparator set, or revision package.
+  - Run H100, vLLM, agents, replay, simulation, benchmark, build, installation, model/container/dataset download, or Stage A/B work.
+  - Read or review QRefine or QNN materials.
+  - Modify plan.md, registry.yaml, rules, templates, or other assignment directories.
+
+resource_envelope:
+  official_routes_max: 4
+  accepted_persisted_bytes_max: 16777216
+  cpu_time_max: 30m
+  wall_time_max: 1h
+  system_install: false
+  global_environment_change: false
+  failure_consequence: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+
+allowed_decisions:
+  - PASS_RECOMMENDED__REVISION_GATE_CLOSED
+  - STOP__REVISION_GATE_NOT_CLOSED__BELOW_Q2_GENERIC_OR_INFEASIBLE_FAIRNESS_CONTRACT
+  - PROVENANCE_FAIL
+
+required_outputs:
+  - CLOSING_REPORT.md
+  - SOURCE_LOG.md
+  - HANDOFF.yaml
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+next_step:
+  rule: Mainline routes the closing decision to the independent confirmation sentry before applying a final PASS or STOP state transition.

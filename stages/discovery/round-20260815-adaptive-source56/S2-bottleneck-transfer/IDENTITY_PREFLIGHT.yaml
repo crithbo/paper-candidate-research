@@ -1,0 +1,30 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE56-ORDINARY-CONTROL-V1
+lookup_surface: registry.yaml plus bounded historical canonical handoffs/collision matrices
+results:
+  - seed: S56-01
+    signature: CLANG_PCM_BMI__MODULE_VALIDATION_AST_MATERIALIZATION__STOCK_COMPILER_RESULT
+    relation: EXACT
+    prior_locators:
+      - stages/discovery/round-20260814-canonical-resume01/S2-bottleneck-transfer/SOURCE_COLLISION_MATRIX.md
+      - stages/discovery/round-20260814-adaptive-source15/S1-boundary-contradiction/SOURCE_COLLISION_MATRIX.md
+    disposition: EXCLUDE_EXACT_OR_TERMINAL
+    rationale: same PCM/BMI module cache/serialized AST validation/materialization and compiler semantic endpoint.
+  - seed: S56-02
+    signature: RUSTC_INCREMENTAL__DEPGRAPH_FINGERPRINT_WORKPRODUCT_RESTORE__INCREMENTAL_COMPILER_RESULT
+    relation: EXACT
+    prior_locators:
+      - stages/discovery/round-20260814-canonical-resume01/S2-bottleneck-transfer/SOURCE_COLLISION_MATRIX.md
+      - stages/discovery/round-20260814-adaptive-source01/S5-scale-online-approx/SOURCE_COLLISION_MATRIX.md
+    disposition: EXCLUDE_EXACT_OR_TERMINAL
+    rationale: same red-green dep-graph, query/work-product persistence/reuse and incremental compiler validity endpoint.
+  - seed: S56-03
+    signature: OPENJDK_CDS__CLASS_METADATA_ARCHIVE_MAPPING_RELOCATION_VERIFICATION__JVM_CLASS_LOADING_RESULT
+    relation: EXACT
+    prior_locators:
+      - stages/discovery/round-20260810-v8.7-wave44/S3-natural-structure/DISCOVERY_LOG.md
+      - stages/discovery/round-20260811-v8.7-wave302/S2-bottleneck-transfer/DISCOVERY_LOG.md
+    disposition: EXCLUDE_EXACT_OR_TERMINAL
+    rationale: same stock class-loading semantics and class/metadata archive mapping/relocation construction; no external evidence delta.
+mechanical_rules:
+  related_only_does_not_exclude: true
+  no_match_is_not_novelty_or_absence_evidence: true

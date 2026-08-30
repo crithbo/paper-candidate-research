@@ -1,0 +1,67 @@
+{
+  "schema": "executorch-qfallback-a0-packet-v1",
+  "assignment_id": "STAGEA-L3-20260830-EXECUTORCH-QFALLBACK-RANK-VALIDITY-A0",
+  "topic_id": "SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY",
+  "claim_visibility": "HIDDEN_UNTIL_SEPARATE_A1_START",
+  "claim_ceiling": "CONDITIONAL_CANONICAL_EXECUTORCH_BENCHMARK_VALIDITY_ONLY",
+  "executorch_commit": "c27baa8031862fb7528bb87616d6793a032a1257",
+  "models": [
+    {"id":"HuggingFaceTB/SmolLM2-135M","revision":"93efa2f097d58c2a74874c7e644dbc9b0cee75a2","license":"apache-2.0","role":"calibration_and_smallest_panel"},
+    {"id":"Qwen/Qwen2.5-0.5B","revision":"060db6499f32faf8b98477b0a26969ef7d8b9987","license":"apache-2.0","role":"calibration"},
+    {"id":"Qwen/Qwen3-0.6B","revision":"c1899de289a04d12100db370d81485cdf75e47ca","license":"apache-2.0","role":"held_out"}
+  ],
+  "smallest_model_topology_panel": {
+    "model_id": "HuggingFaceTB/SmolLM2-135M",
+    "model_revision": "93efa2f097d58c2a74874c7e644dbc9b0cee75a2",
+    "result_independent": true,
+    "variants": [
+      {"id":"portable_only","portable":true,"xnnpack_enabled":false,"xnnpack_extended_ops":false,"proprietary_backend":false},
+      {"id":"xnnpack_standard","portable":true,"xnnpack_enabled":true,"xnnpack_extended_ops":false,"proprietary_backend":false},
+      {"id":"xnnpack_extended","portable":true,"xnnpack_enabled":true,"xnnpack_extended_ops":true,"proprietary_backend":false}
+    ],
+    "legality_rule": "variant_is_in_denominator_only_if_export_and_same_quality_contract_pass_before_effect_visibility"
+  },
+  "quality_contract": {
+    "pipeline_stages": ["source_pytorch","edge_exported_program","executorch_runtime"],
+    "same_tokenizer_revision": true,
+    "same_prompt_token_ids": true,
+    "same_model_weights_revision": true,
+    "same_precision_and_quantization": true,
+    "atol": 0.0001,
+    "rtol": 0.001,
+    "top1_token_agreement": 1.0,
+    "failure_effect": "exclude_variant_as_illegal_before_result_visibility_not_result_based_backfill"
+  },
+  "profiling_truth": {
+    "primary_runtime_truth": "external_wall_timer_profiling_off",
+    "observability_arm": "etdump_on",
+    "same_warmup_and_repetitions": true,
+    "observer_effect_direction_hidden_in_a0": true,
+    "etrecord_role": "source_mapping_only"
+  },
+  "predictive_features": [
+    {"id":"delegated_node_fraction","source":"partition_table.node_assignment.delegated_slice","numerator":"delegated_executable_nodes","denominator":"total_executable_nodes","target_leakage":false},
+    {"id":"fallback_node_fraction","source":"partition_table.node_assignment.portable_fallback_slice","numerator":"portable_fallback_executable_nodes","denominator":"total_executable_nodes","target_leakage":false},
+    {"id":"partition_count","source":"partition_table.partition_ids","unit":"count","target_leakage":false},
+    {"id":"delegated_subgraph_count","source":"delegation_info.subgraphs","unit":"count","target_leakage":false},
+    {"id":"graph_boundary_count","source":"partition_table.assignment_transitions","unit":"count","target_leakage":false},
+    {"id":"delegate_init_time_ms","source":"etdump.delegate_init_event","unit":"ms","target_leakage":false},
+    {"id":"pte_artifact_bytes","source":"filesystem.pte_length","unit":"bytes","target_leakage":false}
+  ],
+  "forbidden_feature_sources": ["runtime_latency","candidate_rank","rank_reversal","held_out_gain","observer_effect_direction"],
+  "full_cost_fields": [
+    {"id":"metadata_acquisition_bytes","unit":"bytes","boundary":"official metadata only"},
+    {"id":"model_artifact_bytes","unit":"bytes","boundary":"all acquired model and tokenizer files"},
+    {"id":"export_wall_ms","unit":"ms","boundary":"source load through torch.export completion"},
+    {"id":"lowering_wall_ms","unit":"ms","boundary":"edge conversion plus delegation plus pte serialization"},
+    {"id":"initialization_wall_ms","unit":"ms","boundary":"runtime load through method ready"},
+    {"id":"runtime_wall_ms","unit":"ms","boundary":"external timer profiling off"},
+    {"id":"validation_wall_ms","unit":"ms","boundary":"source edge runtime quality comparisons"},
+    {"id":"observer_effect_wall_ms","unit":"ms","boundary":"profiling on minus matched profiling off arm hidden until A1"},
+    {"id":"peak_rss_bytes","unit":"bytes","boundary":"per process high-water mark"},
+    {"id":"persisted_bytes","unit":"bytes","boundary":"all assignment-controlled retained artifacts"}
+  ],
+  "a1_split": {"calibration_models":["HuggingFaceTB/SmolLM2-135M","Qwen/Qwen2.5-0.5B"],"held_out_models":["Qwen/Qwen3-0.6B"]},
+  "claim_panel_execution_authorized": false,
+  "result_aware_selection_authorized": false
+}

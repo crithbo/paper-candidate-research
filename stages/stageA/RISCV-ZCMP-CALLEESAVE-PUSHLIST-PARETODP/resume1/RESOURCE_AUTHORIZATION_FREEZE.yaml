@@ -1,0 +1,66 @@
+schema: resource-authorization-freeze-v1
+authorization_id: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+assignment_id: RESOURCE-STAGEA-L3-20260814-RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP-RESUME1
+topic_id: RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_3
+write_root: stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1
+parent_failure_root: stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\initial
+write_policy: ADDITIVE_ONLY__PARENT_IMMUTABLE
+frozen_scientific_identity:
+  llvm_commit: ba5bccfe01368f76e74d6ff4c35f1330e155b4ba
+  target: riscv32-unknown-elf__rv32imac_zcmp__ilp32
+  object: SAME_RV32_MACHINEFUNCTION__BEHAVIOR__PSABI__CFI_AND_UNWIND
+allowed_routes_in_order:
+  - route: OFFICIAL_EXACT_BLOBS
+    scope: >-
+      获取并 git-hash-object 核对 f802748a5a1dc9c79577896eed4351796ce6ed8f
+      与 e5ebd2a071d05e147b6bc24cb5e9378bbffabd97 两个缺失 blob。
+    attempts_max: 2
+  - route: PROVENANCE_VERIFIABLE_PORTABLE_EXACT_COMMIT_TOOLCHAIN
+    scope: >-
+      搜索可核验构建参数、许可证、归档哈希且启用 RISC-V 的 exact-commit
+      便携 LLVM；只有 commit/target/tool capability 全部一致才可接纳。
+    attempts_max: 2
+  - route: ISOLATED_EXACT_SOURCE_BUILD
+    scope: >-
+      获取 official llvm-project exact-commit source 与带哈希的便携
+      CMake/Ninja/bootstrap compiler，在 resume1 内构建最小 LLVM tools；
+      不修改 upstream scientific source。
+    attempts_max: 2
+required_tools:
+  - llc_with_RISCV_and_MachineVerifier
+  - llvm-mc
+  - llvm-objdump
+  - llvm-readobj_or_llvm-readelf
+  - ld.lld
+build_scope:
+  llvm_targets_to_build: [RISCV, X86]
+  projects_allowed: [clang, lld]
+  assertions_preferred: true
+  source_patch_allowed: false
+  test_or_scientific_patch_allowed: false
+  environment_wrapper_allowed: true
+  process_local_path_only: true
+budgets:
+  successful_response_bytes_max: 3221225472
+  storage_bytes_max: 37580963840
+  cpu_seconds_max: 64800
+  wall_seconds_max: 129600
+  clean_build_attempts_max: 2
+  gpu_or_exclusive_device: false
+forbidden:
+  - SYSTEM_INSTALL
+  - GLOBAL_PATH_OR_REGISTRY_MUTATION
+  - PRIVATE_OR_UNLICENSED_BINARY
+  - TOPIC_OR_COMMIT_SUBSTITUTION
+  - STAGE_B
+resource_gate:
+  - EXACT_COMMIT_AND_BLOB_PROVENANCE
+  - TOOL_BINARY_HASHES_AND_BUILD_COMMANDS
+  - RISCV_REGISTERED_TARGET_AND_NATIVE_HELP_SMOKE
+  - BOTH_MISSING_BLOBS_MATCH_GIT_OBJECT_IDS
+failure_policy:
+  before_claim: BLOCKED_USER_ACTION_REQUIRED
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed: false
+

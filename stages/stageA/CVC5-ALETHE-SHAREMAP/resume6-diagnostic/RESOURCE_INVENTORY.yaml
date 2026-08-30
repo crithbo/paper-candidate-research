@@ -1,0 +1,117 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: CVC5-ALETHE-SHAREMAP
+  assignment_id: SAFE-DIAGNOSTIC-L1-20260816-CVC5-RESUME6-GMP-COMPILER-PROBE
+  stage_or_mode: STAGEA_RESOURCE_DIAGNOSTIC_ONLY
+  run_id: resume6-gmp-compiler-probe-20260816
+  unique_write_directory: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume6-diagnostic
+  resource_root: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume6-diagnostic\resources
+  inventory_path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume6-diagnostic\RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-16T00:39:56.7913119+08:00
+  finalized_at: 2026-08-16T00:44:50.7201617+08:00
+root_measurement:
+  logical_bytes: 7373
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS__EXACT_PATHS_EXIST__ALL_WRITABLE_SURFACES_UNDER_RESUME6
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - resume4 portable MSYS2 sh/gcc/ar, read-only transitive frozen input
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 67108864
+  cpu_hours_max: 0.033334
+  gpu_hours_max: 0
+  wall_seconds_max: 600
+  attempts_max: 1
+  network_bytes_used: 0
+  stored_bytes_used: 7373
+  attempts_used: 1
+entries:
+  - id: gmp_trivial_c_input
+    relative_path: resources/build/carcara-target/release/build/gmp-mpfr-sys-7107cdddf71b20a3/out/build/gmp-build/conftest.c
+    class: DIAGNOSTIC_INPUT
+    logical_bytes: 26
+    sha256: 9B8044C13CC843FE16795FD957E3EDE9DA9C5C12F3104E538396EA98230389B2
+    hash_scope: FILE_CONTENT
+    provenance: exact source body retained by resume5 GMP config.log
+    retention: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: single_shell_command
+    relative_path: resources/logs/diagnostic-command.sh.txt
+    class: DIAGNOSTIC_COMMAND
+    logical_bytes: 502
+    sha256: 49A0FA1B2DDEAA02128B5FF68614A7A6BB84F45C3F3717F18D9AD48232A50F6B
+    hash_scope: FILE_CONTENT
+    retention: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: diagnostic_stdout
+    relative_path: resources/logs/diagnostic.stdout.log
+    class: DIAGNOSTIC_STDOUT
+    logical_bytes: 1500
+    sha256: A59031BE4DBD1636885A30B9ACC75F7A791C247007654EDA09BBEEE827AA4675
+    hash_scope: FILE_CONTENT
+    retention: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: diagnostic_stderr
+    relative_path: resources/logs/diagnostic.stderr.log
+    class: DIAGNOSTIC_STDERR
+    logical_bytes: 45
+    sha256: EB9F69CF94EDB4FC50FB342AC9D0A2474049D5D20B0429FB942356BD8136F15C
+    hash_scope: FILE_CONTENT
+    retention: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: diagnostic_status
+    relative_path: resources/logs/diagnostic-status.txt
+    class: DIAGNOSTIC_STATUS
+    logical_bytes: 364
+    sha256: 7FD90B0B6F839C27069688DD9F6EEFC79C9E6804B664A89D7074952830F7708A
+    hash_scope: FILE_CONTENT
+    retention: RETAIN_REPRODUCIBILITY_DEPENDENCY
+shared_assets_consumed: []
+external_system_dependencies:
+  - id: resume5_failed_build_environment
+    path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume5-safe-recovery
+    mode: READ_ONLY_UPSTREAM_ASSIGNMENT_INPUT
+  - id: resume4_portable_msys2_gcc
+    path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery\resources\env\msys64
+    mode: READ_ONLY_TRANSITIVE_FROZEN_INPUT_REFERENCED_BY_RESUME5
+  - id: resume3_rust_1_72_gnu
+    path: D:\project\writing\reserch\stages\stageA\CVC5-ALETHE-SHAREMAP\resume3\toolchain\rustup-home\toolchains\1.72.0-x86_64-pc-windows-gnu
+    mode: READ_ONLY_TRANSITIVE_FROZEN_INPUT_REFERENCED_BY_RESUME5
+tool_hashes:
+  sh_exe_sha256: 41B09F0A9C1C68FD65253A7E8087B3775F0AF245B729ADE74CA4425D14392C2D
+  gcc_exe_sha256: AB37C11763FDCB3BF6F809B5D033A31EBEB77F10BA5934C72FA37287EE56144F
+  gpp_exe_sha256: FE03455C28AB0C69F1ADB0CCDE202124091F01D02B0C0EDE8578F606063CC894
+  ar_exe_sha256: 1B2551C5E8B3F61C80F84A6D526C61FE1E5186806A1696E3A546E26784956923
+cleanup:
+  owner: MAINLINE
+  authorized_descendants:
+    - resources/tmp
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: FINAL_VALID__ONE_ATTEMPT_CONSUMED__DIAGNOSTIC_HARNESS_PATH_NOT_REPRODUCED

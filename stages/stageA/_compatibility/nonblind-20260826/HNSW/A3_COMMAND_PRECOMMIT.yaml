@@ -1,0 +1,13 @@
+schema: nonblind-stagea-command-precommit-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A3-RECOVERY
+authority: MAINLINE_A3_START_AUTHORIZED
+ack: {path: A3_ACK.yaml, sha256: 2CDC9B70B0505EC19038045563F1F2A4417252F05486D2F50A3B3E0182DE1967}
+command_id: A3S0
+command: "curl.exe --fail --silent --show-error --max-redirs 0 --output resources/archives/cmake-3.31.6-windows-x86_64.zip https://cmake.org/files/v3.31/cmake-3.31.6-windows-x86_64.zip"
+expected_sha256: d163cd3ab4959b0a53fa8988f2ddbd2e6c501658201e6a154386bad9dbe4f836
+redirects_max: 0
+download_attempts_max: 1
+process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp}
+no_retry: true
+on_failure: FAIL_CLOSED_SEAL_ONLY
+scientific_or_resource_action_started_before_precommit: false

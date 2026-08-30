@@ -1,0 +1,38 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE63-R40-ORDINARY-BREADTH-V1
+lane: S1_BOUNDARY_CONTRADICTION
+write_directory: stages/discovery/round-20260815-adaptive-source63/S1-boundary-contradiction
+result: COMPLETE_ZERO_PROPOSALS
+rule_freeze: RULE_FREEZE.md
+forbidden_inputs: R46_AUDIT__GCC_GENAUTOMATA_STOP__SOURCE55_58_59_HELD_QUEUES__NOT_READ
+method:
+  canonical: v8.7
+  rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  claim_pack: OFF
+  v9: OFF
+  selective_depth: OFF
+  model: gpt-5.6-terra/high
+funnel:
+  non_evidence_seeds: 4
+  selected_anchor: 1
+  rq_candidates: 1
+  ordinary_closures: 1
+  raw: 0
+  deep: 0
+  clean_briefs: 0
+identity_preflight: RELATED_ONLY_DO_NOT_EXCLUDE__SOURCE61_OPENMP_DETACH
+screened_locator:
+  signature: OPENMP52_TARGET_NOWAIT__TARGET_TASK_COMPLETION__FIXED_DEPENDENCE_AND_OBSERVABLE_COMPLETION__LLVM_OPENMP_RUNTIME__HOST_DEVICE_COST
+  disposition: EXCLUDED_BEFORE_RAW__EARLY_FATAL_GENERIC_COMMUNICATION_TASK_SCHEDULING_SHELL
+  rationale: Fixed target-task dependence and completion semantics leave only ready-task/transport timing; no target-specific state, information condition, action structure, or guarantee was frozen.
+  evidence:
+    - https://www.openmp.org/spec-html/5.2/openmpse94.html
+    - https://openmp.llvm.org/design/Runtimes.html
+    - https://openmp.llvm.org/doxygen/kmp__tasking_8cpp_source.html
+    - https://arxiv.org/abs/2406.03077
+scientific_inference_boundary: Structural generic-shell exclusion only; no negative inference from absent implementation, result, resource, hardware, or AI readiness.
+source_closure_queue: EMPTY_NOT_EXHAUSTED
+proposal: NONE
+remaining_debt: NONE_FOR_ADMITTED_CANDIDATES
+resource_inventory: RESOURCE_INVENTORY.yaml
+manifest: HASH_MANIFEST.sha256
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

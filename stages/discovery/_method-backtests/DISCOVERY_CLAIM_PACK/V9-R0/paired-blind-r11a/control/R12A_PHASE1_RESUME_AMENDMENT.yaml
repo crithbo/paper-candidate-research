@@ -1,0 +1,54 @@
+schema: R11A_PHASE1_R12A_RESUME_AMENDMENT_V1
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+authorization_id: R11A-HASH-ONLY-PRIOR-IDENTITY-DENYLIST-20260813-R12A
+created_at: 2026-08-13T14:30:00+08:00
+base_contract:
+  path: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\control\PHASE1_INDEX_ASSIGNMENT.yaml
+  sha256: 641E28EA6AD3FA9E0D3036E4AD377D52375B2F901B6495B4EB23051BA93B485A
+resume_checkpoint:
+  path: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\index\IN_PROGRESS_CHECKPOINT_000_CUMULATIVE_008.yaml
+  sha256: B3C614BA87C8F8266DEA1CE2DC02517EAD263D5D7883C4E73D1C31D867BBC3C1
+candidate_commitment:
+  path: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\index\CANDIDATE_IDENTITY_COMMITMENT.yaml
+  sha256: 7BD8EEB5BD135DCFF681EBE5A80313FE2CFFCFF33A5FC848259C4A9C7CA986BF
+  manifest_sha256: 0A41E8C24729CBB552DAAD9B1944BBCE474982A39DB7006A8CD728BBDA6697D6
+  candidate_identity_count: 4
+  unhashable_count: 0
+packer_visible_exclusion_result:
+  path: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\control\prior-identity-denylist-v1\packer-visible\PRIOR_IDENTITY_EXCLUSION_RESULT.yaml
+  sha256: 2007C7F9FDE01048370DE0CAEF429C8A44943FFFEB6BD368A9602B95D5E839C3
+  manifest_sha256: C48C1E5C3408F59715EC168FFDDC45B220A27A60D5FC90FF659B1B683A59B970
+  decision: PASS_NO_REUSE
+  matched_candidate_count: 0
+normalization:
+  profile: R11A-STABLE-FAMILY-IDENTITY-NORM-V1
+  profile_sha256: 515B641D52328FC916078B1999ABD03A5FDC8B5581865FB7AE90ECD5AE3FB434
+  transform_sha256: 9DE7DBF144B02D002C776438ECBF09370CE28B8C16D105321D93D3E78A63B90E
+source_manifest_sha256:
+  - 69357EE2B5F29FAE3CA590382EA36E87647DDAA031CFF6063AF1F6FF6AF59BBD
+  - 856FD1DE777B0F40542FFC58D4934CDA78F78AA6A57192AA7CAF24A756584AB5
+  - D66507876068BA4084830FA6D16307BC422BCB8C167747215BBE973DA9E845C4
+packer_read_allowlist_addition:
+  - stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\control\R12A_PHASE1_RESUME_AMENDMENT.yaml
+  - stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\control\R12A_PHASE1_RESUME_AMENDMENT_MANIFEST.sha256
+  - stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\control\prior-identity-denylist-v1\NORMALIZATION_PROFILE.yaml
+  - stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\control\prior-identity-denylist-v1\packer-visible\PRIOR_IDENTITY_EXCLUSION_RESULT.yaml
+  - stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\control\prior-identity-denylist-v1\packer-visible\HASH_MANIFEST.sha256
+explicitly_forbidden_to_packer:
+  - PRIVATE_PRIOR_IDENTITY_DENYLIST.sha256
+  - PRIVATE_CURATION_PROVENANCE.yaml
+  - PRIVATE_VALIDATION_REPORT.md
+  - historical_identity_plaintext
+  - historical_case_semantics_outcomes_answers_classes_strata_method_labels
+resume_scope:
+  same_phase1_assignment: true
+  continue_only_pre_registered_checkpoint_008_next_routes: true
+  prior_evidence_bytes_mutable: false
+  thresholds_or_strata_changed: false
+  canonical_mode: OFF
+  phase2_executor_auditor_shadow_production_dispatch_allowed: false
+  discovery_stage0_stagea_stageb_dispatch_allowed: false
+  e2_experiment_download_automation_external_service_allowed: false
+failure_policy:
+  any_missing_ambiguity_collision_nondeterminism_or_leak: RESTORE_CHECKPOINT_008_BLOCKER
+  scientific_inference_from_control_failure: NONE

@@ -1,0 +1,33 @@
+assignment_id: STAGE0-P1-20260814-LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION-PRIMARY-V8.7
+mode: PRIMARY
+topic_id: LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_QUEUED_AFTER_QEMU_REVISION1
+project_root: D:\project\writing\reserch
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source21-primary\LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+quality_floor: TIER_B_Q2_VIABLE
+required_reads:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules\ROLE_STAGE0_REVIEW.md
+  - templates\STAGE0_REPORT.md
+  - templates\Q1_COMPARATOR_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source21\S6-direct-algorithm-software\TOPIC_BRIEF_LLVM_MACHINE_OUTLINER_GLOBAL_SELECTION.md
+  - stages\discovery\round-20260814-adaptive-source21\S6-direct-algorithm-software\SOURCE_COLLISION_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source21\S6-direct-algorithm-software\DISCOVERY_LOG.md
+  - stages\discovery\round-20260814-adaptive-source21\S6-direct-algorithm-software\handoff.yaml
+input_hashes: {brief: 3517AE98FB57931F276073A00FE7D54983373920513E1B701824246F2FA319E8, collision_matrix: 090678A1A64F54F0ED466D954D488D83DA958B3190771EE5D54130BD1FF63FF3, discovery_log: 4B7FF6282B21F11CA97EEFEF267F93B9337E33F211C7DEC717F67221FBD26263, handoff: 9B7D5FE47C4D0D95F137EA14F8925C5371072AED8E86FEBE948AC5B7AEF23742}
+independent_attack_requirements:
+  - Pin exact current LLVM commit and reconstruct MachineOutliner candidate discovery, legality, overlap/conflict, pruning, target cost/frame/call hooks, global CGData and default/non-default union.
+  - Freeze one target, ABI, unwind and relocation contract plus a legal same-MachineIR small conflict component with multiple individually legal but mutually incompatible outlining candidates.
+  - Determine whether current global CGData or target backends already perform the claimed global compatible selection and Pareto accounting.
+  - Require a target-specific exact/FPT/certified frontier preserving MachineInstr, object, call-frame and unwind semantics; generic weighted set packing or suffix-tree candidate enumeration is not an N2 residual.
+  - Require full cost for outlined bodies, calls, frame/unwind/relocations, code bytes, compile time and solver state, with a finite StageA fidelity killer only if the static gate closes.
+  - Independently search direct collisions and calibrate Q1/Q2 without implementation or performance results.
+failure_sentinel: BELOW_Q2_STOP__CURRENT_MACHINE_OUTLINER_GLOBAL_SELECTION_ABSORPTION_OR_GENERIC_CONFLICT_GRAPH_PACKING
+forbidden: [implementation, experiment, benchmark_run, source_build, system_install, stageA, stageB, shared_control_write]
+required_outputs: [STAGE0_REPORT.md, Q1_COMPARATOR_MATRIX.md, SOURCE_AUDIT.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

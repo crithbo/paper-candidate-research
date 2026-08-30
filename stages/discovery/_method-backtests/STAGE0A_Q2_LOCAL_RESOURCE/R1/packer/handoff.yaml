@@ -1,0 +1,107 @@
+schema: discovery-backtest-packer-a1-handoff-v1
+created_at: 2026-08-26T19:34:00+08:00
+assignment_id: BACKTEST-PACKER-20260826-STAGE0A-Q2-LOCAL-RESOURCE-R1-A1
+from_role: DISCOVERY_BACKTEST_PACKER
+to_role: MAINLINE
+status: COMPLETE_V2_READY_FOR_MAINLINE_ACCEPTANCE_AND_FRESH_REVIEWER_FREEZE
+
+summary_cn:
+  conclusion: 已按污染补封 addendum 保全 pass1，仅核验预登记 ALT02，并以全新随机中性 ID 替换污染项；其余 15 项逐字节不变，v2 封包和 auditor-only key 已完成。
+  qualification: ALT02 的 PLDI 2021 学术金标、历史切片、同对象非吸收、自然证据、公平比较、full-cost 与公开复现路线成立；Windows no-WSL 本地链未闭合，因此严格分类为 routing-only，不进入 operational denominator。
+  contamination: 原污染项只被读取 1 项即停止，科学判断为 0；该项从 v2 排除并计入污染分母，同一 reviewer 绝对不得复用。
+  integrity: v2 含 16 项，污染 ID 缺席；禁词、隐藏身份及身份元数据扫描均为 0 命中，其他 15 项与 pass1 的内容 SHA256 全部一致。
+  next_step: MAINLINE 验收本 handoff 与最终 manifest 后，只复制 sealed_executor_input_v2 到完全中性的目标，并冻结不同于污染 reviewer 的全新执行者；auditor_key_v2 只在所有执行输出不可变且已验收后下发。
+  user_action: 当前不需要。
+
+counts:
+  pass1_preservation_roots: 4
+  pass1_preservation_file_checks: 38
+  contaminated_cases_excluded_and_counted: 1
+  scientific_judgments_on_contaminated_case: 0
+  alternate_candidates_evaluated: 1
+  unregistered_substitutes_evaluated: 0
+  sealed_v2_items: 16
+  sealed_v2_qualified_controls: 12
+  sealed_v2_structural_controls: 4
+  local_operational_routes: 8
+  heavy_routing_only: 4
+  unchanged_pass1_cases_byte_exact: 15
+  fresh_random_case_ids: 1
+  tested_method_runs: 0
+  case_scores: 0
+  build_install_extract_experiment_runs: 0
+  candidate_or_scientific_state_changes: 0
+
+pass1_preservation:
+  handoff: {path: handoff.pass1.yaml, sha256: 61C45AC1C611E8109162237948E2A1C9D6BB1798F6D0EEF241E0405290FB870A, match: true}
+  manifest: {path: HASH_MANIFEST.pass1.sha256, sha256: BBF70D14E551A7364A26AEBC3CB6DBB323D2F0A7FA25BE991E4C0F1BA3B28DE4, match: true}
+  sealed_root: {path: sealed_executor_input_pass1, files: 17, bytes: 29023, byte_exact: PASS_17_OF_17}
+  auditor_root: {path: auditor_key_pass1, files: 2, bytes: 5172, byte_exact: PASS_2_OF_2}
+  overwritten_or_cleaned: false
+
+contamination_and_replacement:
+  contaminated_case_id: C-14F00B4F47004C29
+  contaminated_case_sha256: C11CA974BF260440E5AB48309B629DBAE92481AD6C8C684524FE50C207FBDDB6
+  disposition: EXCLUDE_AND_COUNT_CONTAMINATION__ZERO_SCIENTIFIC_JUDGMENT
+  same_reviewer_reuse_allowed: false
+  forbidden_reviewer_task_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c
+  selected_alternate: ALT02_ALIVE2
+  alternate_academic_result: QUALIFIED_CONTROL
+  alternate_resource_route: ROUTING_CONTROL_ONLY__EXCLUDED_FROM_OPERATIONAL_DENOMINATOR
+  fresh_neutral_case_id: C-9CFA2F4203AE487D
+  fresh_candidate_sha256: C50D1AEA2E158CC32928A37C0FF8BC5D0CE3153A7ACE3E83B8F4714605A4DFC6
+  contaminated_case_present_in_v2: false
+  outcome_aware: false
+
+canonical_outputs:
+  sealed_v2_manifest: {path: sealed_executor_input_v2/sealed_input_manifest.yaml, sha256: 13DD016DD3653CFC777F698C10F8069FB8D952BC7CDF1D1978558F268B7B824A, validation: PASS_16_OF_16}
+  sealed_v2_tree: {path: sealed_executor_input_v2, files: 17, bytes: 29566, tree_sha256: A55D63E88480C166D4F9BCD64E2A8C26CA67C52F85E2F08D770E88E2BAFDE6F2}
+  auditor_key: {path: auditor_key_v2/AUDITOR_KEY.yaml, sha256: AB8653FF36354958D8CC1A3FE00A2B8F7E8A1A1C1E9ABF0F7DFF39F06F6B6029}
+  auditor_gold_route: {path: auditor_key_v2/GOLD_IDENTITY_AND_EXPECTED_ROUTE.yaml, sha256: 8B7CF4254E12B7BE7CB23951B89C19CE5E9D5FC0E5B25FBECB5CA5F0626B5C1D}
+  a1_source_ledger: {path: resources/src/A1_ALT02_SOURCE_LEDGER.yaml, sha256: 390D9E8C235989E9275AC9EB5296D3A75B565193869C2D5F61B35D1717258822}
+  a1_resource_preflight: {path: A1_RESOURCE_PREFLIGHT.yaml, sha256: 1E4414E969207974F44212FA8A1B6C738A73DFBD919DDDDEDBA7E38B1D49CF7F}
+  replacement_ledger: {path: A1_CONTAMINATION_REPLACEMENT_LEDGER.yaml, sha256: 90C67296676516C507D4CD707072AB4512B9277D0991AA912DA3561F271B9EA9}
+  blindness_audit: {path: A1_BLINDNESS_AND_CONTAMINATION_AUDIT.yaml, sha256: AE81620E57BD99DC250D79AA7A3A3F30A2809113A9DF161F9C4610108CC061A1, forbidden_matches: 0}
+  resource_inventory: {path: RESOURCE_INVENTORY.yaml, sha256: 24033F87D8690F56CBE5F1F6CFB8895F6D4F2415BCDA357BCC947C4B88547ADB}
+  resume_capsule: {path: RESUME_CAPSULE.yaml, sha256: A1C6C97F1EF4F8CDF3EAE2AFADD1C6FB1A5D641AACAC9B68C058808D16F0DF02}
+  phase_closeout: {path: PHASE_CLOSEOUT_RETENTION.yaml, sha256_bound_by_final_manifest: true}
+  final_manifest: {path: HASH_MANIFEST.sha256, self_excluded: true}
+
+network_and_resources:
+  codex_web_endpoint_requests: 70
+  curl_endpoint_requests: 14
+  total_attempts: 84
+  total_attempts_budget: 120
+  exact_network_bytes: 本次运行环境没有提供精确统计，未作估算
+  persisted_raw_network_response_bytes: 0
+  resource_root_logical_bytes: 27828
+  resource_root_budget_bytes: 4294967296
+  downloaded_or_cloned: false
+  extracted: false
+  installed: false
+  built: false
+  experiment_run: false
+
+double_blind_hard_boundary:
+  executor_visible_subtree_only: sealed_executor_input_v2
+  visible_source_path_must_be_neutralized: true
+  forbidden_downstream: [A1_ASSIGNMENT_CONTEXT, A1_CONTAMINATION_RESEAL_ADDENDUM, PACKER_DIRECTORY_PATH, RULE_AUDIT_DIRECTORY, PASS1_ROOTS, GOLD_LABEL_QUALIFICATION, A1_RESOURCE_PREFLIGHT, A1_CONTAMINATION_REPLACEMENT_LEDGER, A1_BLINDNESS_AND_CONTAMINATION_AUDIT, PACKER_PRIMARY_SOURCE_LEDGER, A1_ALT02_SOURCE_LEDGER, AUDITOR_KEY_V2, GOLD_IDENTITY_AND_EXPECTED_ROUTE]
+  identity_recognition_disposition: BLINDING_CONTAMINATION__STOP_WITHOUT_SCIENTIFIC_JUDGMENT
+  auditor_reveal_gate: ONLY_AFTER_ALL_EXECUTOR_OUTPUTS_IMMUTABLE_AND_HANDOFF_ACCEPTED
+  same_reviewer_reuse_allowed: false
+
+mainline_acceptance_checks:
+  - verify final manifest and all 16 sealed v2 case hashes
+  - verify pass1 preservation roots and preserved handoff and manifest hashes
+  - repeat forbidden-token and hidden-identity scan on the exact copied v2 subtree
+  - freeze a fresh reviewer distinct from task 01a034d0-cab5-7de1-8f42-4805bc71b74c
+  - freeze a destination whose title prompt context path IDs and filenames are neutral
+  - do not expose the source assignment directory or any packer or auditor-only material
+  - do not dispatch auditor key until all executor outputs are immutable
+  - do not infer any production rule or scientific state change from PACKER outputs
+
+cleanup:
+  performed_by_packer: false
+  allowed_before_downstream_acceptance: false
+  proposed_delete_targets: []
+  owner: MAINLINE

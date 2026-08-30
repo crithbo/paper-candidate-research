@@ -1,0 +1,38 @@
+schema: reproducibility-report-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+start_authorization_sha256: 63C65D01459AC43377DA90332ACD376C1580E62EED6A2933E5BD5BC1432F0EFE
+implementation_freeze: {files: 3, script_sha256: 5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086, edits_after_freeze: 0}
+run_index:
+  - {id: P0_COPY_SOURCE_ARCHIVE, classification: RESOURCE_NON_CLAIM_BEARING, attempts: 1_OF_1, result: PASS}
+  - {id: P0_COPY_TOOLCHAIN, classification: RESOURCE_NON_CLAIM_BEARING, attempts: 1_OF_1, result: PASS_96_OF_96}
+  - {id: P0_COPY_R6_HARNESS, classification: RESOURCE_NON_CLAIM_BEARING, attempts: 1_OF_1, result: PASS_5_OF_5}
+  - {id: P1_ARCHIVE_MEMBER_SCAN, classification: RESOURCE_NON_CLAIM_BEARING, attempts: 1_OF_1, result: PASS_197178_MEMBERS_ZERO_UNSAFE}
+  - {id: P1_SELECTIVE_EXTRACTION, classification: RESOURCE_NON_CLAIM_BEARING, attempts: 1_OF_1, result: PASS_8049_FILES_ZERO_REPARSE}
+  - {id: P1_ACTUAL_NATIVE_ACTION_CATALOG, classification: CONTROL_NON_CLAIM_BEARING, child_launches: 1, exit_code: 0, result: PASS_14_ROWS_9_SOURCE_FILES, output_sha256: CF406685A11968882608273C9D86B9B1806C562B3B4DD64B933926EDB2F677FC}
+  - {id: P4_R6_FORMAL_CONTROL_REPLAY, classification: CONTROL_NON_CLAIM_BEARING, child_launches: 1, exit_code: 0, result: PASS, output_sha256: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966}
+  - {id: P3_LLVM_CURRENT_COMPLETE_TINY_OUTPUT, classification: INVALIDATED_NON_EVIDENCE_PRELAUNCH, child_launches: 0, result: FAIL_POWERSHELL_PARSER_MISSING_ARGUMENT_IN_PARAMETER_LIST, raw_sha256: 38CD8D71DE2DACDBB567537AA38D4F4955141167FF8CE0F76D40F8A42873B273}
+  - {id: P3_LLVM_FINITE_TUNING_GRID, classification: NOT_RUN, result: ORDERED_FIRST_FAILURE_STOP}
+  - {id: P2_P4_ACTUAL_DP_AND_ORACLE, classification: NOT_RUN, result: ORDERED_FIRST_FAILURE_STOP}
+  - {id: P5_CORPUS_FREEZE, classification: NOT_RUN, result: ORDERED_FIRST_FAILURE_STOP}
+  - {id: P6_R8_PLAN, classification: NOT_RUN, result: ORDERED_FIRST_FAILURE_STOP}
+retry_audit: {automatic_retries: 0, command_changes_after_failure: 0, implementation_edits_after_freeze: 0, result_based_exclusions: 0, reserve_backfills: 0}
+monitoring: {completed_child_processes: 2, failed_child_processes: 0, P3_child_started: false, active_LLVM_processes_at_closeout: 0, output_paths: resources/logs, hard_timeout_triggered: false}
+budgets:
+  network_bytes_used: 0
+  resource_root_logical_bytes: 812740033
+  resource_root_logical_bytes_max: 2147483648
+  control_child_commands_launched: 2
+  control_command_records_max: 500
+  selected_or_reserve_corpus_tool_invocations: 0
+  selected_or_reserve_corpus_tool_invocations_max: 0
+  claim_bearing_runs: 0
+  claim_bearing_runs_max: 0
+  max_parallel_processes_observed: 1
+  max_parallel_processes_allowed: 2
+  gpu_hours_used: 0
+  exact_cpu_and_wall: UNAVAILABLE__NOT_ESTIMATED
+forbidden_actions: {network: NOT_RUN, full_tree_extraction: NOT_RUN, upstream_patch: NOT_RUN, implementation_edit_after_freeze: NOT_RUN, command_retry_or_variant: NOT_RUN, selected_or_reserve_tool: NOT_RUN, natural_claim_performance: NOT_RUN, scientific_revision_or_pivot: NOT_RUN, state_transition: NOT_RUN, cleanup: NOT_RUN, stageb: NOT_RUN}
+result: REPRODUCIBLE_P0_P1_PASS_PLUS_P3_PRELAUNCH_FAILURE__NO_SCIENTIFIC_INFERENCE
+

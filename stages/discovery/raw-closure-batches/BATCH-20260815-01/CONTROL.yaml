@@ -1,0 +1,99 @@
+schema_version: pending-raw-batched-resume-v1
+batch_program_id: PENDING-RAW-BATCHED-RESUME-20260815
+user_authority:
+  authorization_id: USER_PENDING_RAW_BATCHED_RETRY_20260815
+  instruction: prioritize unresolved raw items, allow another bounded attempt, process in batches and never dispatch the whole set in parallel
+  granted_at: 2026-08-15T00:00:00+08:00
+scope:
+  discovery_generation: false
+  stage0_decision: false
+  stagea_or_stageb: false
+  source_closure_and_candidate_grade_input_only: true
+  scientific_gates_unchanged: true
+scheduling:
+  mode: SERIAL_WITHIN_EACH_BATCH
+  active_assignment_limit: 1
+  next_item_dispatch_condition: current item completed or blocked and mainline accepted its handoff
+  outcome_aware_backfill: forbidden
+  batch_1:
+    status: COMPLETE_ACCEPTED__TWO_UNRESOLVED_BACKLOG
+    ordered_items:
+      - order: 1
+        queue_id: S5-96-CQ01
+        family: ERLANG_OTP_PERSISTENT_TERM_EXACT_CONSTANT_LOOKUP__VERSIONED_LITERAL_RECLAMATION
+        state: COMPLETE_ACCEPTED__UNRESOLVED_BACKLOG
+        task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+        dispatch_turn_id: 01a004b6-f167-7c13-8e43-d567a7e21238
+      - order: 2
+        queue_id: S5-98-CQ01
+        family: ERLANG_MNESIA_EXACT_TRANSFORM_TABLE__ONLINE_VERSIONED_RECORD_RECOURSE
+        state: COMPLETE_ACCEPTED__UNRESOLVED_BACKLOG
+        task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+        dispatch_turn_id: 01a004bf-c26d-79f0-b14e-784c80a7f95b
+batch_1_item_1_result:
+  disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+  immutable_pin: f26c7e590c5d1b3afa0dee38093442df117822e3
+  acquisition_calls: 6
+  persisted_response_bytes: 3476163
+  handoff_sha256: 66E5C04A133394713C8A902DFC0CD64647ABBE4960E8E391F063403602A0F442
+  manifest_sha256: E1A4133059CE5711586C38D78E06C7635F2A5950A1610B27DBB1AF5F085F251D
+  stage_or_candidate_authority: false
+batch_1_item_2_result:
+  disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+  immutable_pin: f26c7e590c5d1b3afa0dee38093442df117822e3
+  acquisition_calls: 7
+  persisted_response_bytes: 4112040
+  handoff_sha256: 058DFF06CA8FB7FD5B06F87813A8E502B1DD760A8F168AF1D941E7DB31511FF6
+  manifest_sha256: A408707DD539C28F0785400A3D46BB0822073BE94517238BBC093369767F6B3F
+  stage_or_candidate_authority: false
+batch_1_summary:
+  raw_items_processed: 2
+  closed_to_candidate_grade_input: 0
+  structural_fatal: 0
+  unresolved_backlog: 2
+  resource_blocker: 0
+  clean_brief_or_stage_authority: 0
+
+priority_basis:
+  - evidence-qualified raw already exists
+  - exact project and immutable release tag are already frozen
+  - source closure has zero prior attempts
+  - one-project official route is finite
+  - no known direct fatal has already resolved the item
+remaining_unresolved_raw_backlog:
+  count: 14
+  not_dispatched: true
+  items:
+    - SOURCE81_RISCV_GP_DATA_LAYOUT__CQ01_CQ02
+    - S2-84-CQ01_OPENXLA
+    - S2-85-CQ01_TVM_RELAX
+    - S2-86-CQ01_ONNXRUNTIME
+    - S2-87-CQ01_GRAALVM_NATIVE_IMAGE
+    - S2-88-CQ01_JAVASCRIPTCORE
+    - S2-89-CQ01_RUSTC
+    - S2-90-CQ01_SWIFT_SIL
+    - S2-91-CQ01_CPYTHON
+    - S2-92-CQ01_RUBY_YJIT
+    - S2-93-CQ01_POSTGRESQL
+    - S5-99-CQ01_OPENJDK_CDS
+    - S5-100-CQ01_PHP_OPCACHE
+    - S6-S100-CQ01_SWI_PROLOG
+resource_only_blockers_not_part_of_active_raw_batch:
+  - SC86-01-CQ01_GNU_MAKE_TRANSPORT_TIMEOUT
+  - S6-S100-CQ02_X264_ROBOTS_DENIED
+rules:
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  role_mainline_sha256: 1EAC0ED2148C4F8E13107763CFD87E43F71B0D474B48BC0D2641F9B0F044F2C5
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+permissions:
+  existing_authority_used: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+  new_permission_required_for_batch_1: false
+  forbidden_without_new_user_authority:
+    - private_or_credentialed_sources
+    - closed_or_nonredistributable_material
+    - system_level_install_or_global_environment_change
+    - exclusive_hardware_or_device_use
+    - budget_expansion_beyond_frozen_assignment
+    - changing_exact_object_version_endpoint_or_guarantee
+    - claim_bearing_experiment_or_stage_transition

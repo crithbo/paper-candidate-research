@@ -1,0 +1,40 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_path: rules/ARTIFACT_LIFECYCLE.md, policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824, artifact_state: ARTIFACT_OPEN, legacy_disposition: NOT_APPLICABLE, closeout_event: R13_SHADOW_CONTROL1, downstream_consumer: STAGEA_SCOPE_BUDGET_PROSPECTIVE_VALIDATION, post_close_retained_bytes_max: 134217728, phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml, capsule_path: null, cleanup_receipt_path: CLEANUP_RECEIPT.yaml}
+identity:
+  topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+  assignment_id: STAGEA-L2-20260830-PPC-R13-SHADOW-CONTROL1
+  stage_or_mode: A0_EXECUTION_READINESS_SHADOW_CONTROL
+  run_id: R13-SHADOW-CONTROL1-20260830
+  unique_write_directory: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830
+  resource_root: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830/resources
+  inventory_path: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-30T00:00:00Z
+  finalized_at: 2026-08-29T16:42:11.0025431Z
+root_measurement: {logical_bytes: 195540, allocated_bytes: null, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true, tree_manifest_sha256: 6E528AEEED1AB8FE6A3434AC3B28FA3F133C7A00D41B201D43C8219187CF45AA}
+required_directories:
+  downloads: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830/resources/downloads
+  archives: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830/resources/archives
+  src: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830/resources/src
+  build: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830/resources/build
+  env: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830/resources/env
+  cache: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830/resources/cache
+  tmp: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830/resources/tmp
+  logs: E:/project/writing/reserch/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830/resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - {executable: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, surfaces: [TEMP, TMP, TMPDIR, PYTHONNOUSERSITE], redirect_map: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONNOUSERSITE: "1"}, reliable: true}
+    - {executable: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain/bin/llc.exe, surfaces: [stdout, stderr, output], redirect_map: {stdout: resources/logs/control, stderr: resources/logs/control, output: resources/build/control}, reliable: true}
+resource_envelope: {network_bytes_max: 0, stored_bytes_max: 134217728, cpu_hours_max: 1.0, gpu_hours_max: 0, wall_seconds_max: 3600, attempts_max: 1, network_bytes_used: 0, stored_bytes_used: 195540, attempts_used: 1}
+entries:
+  - {relative_path: resources/src, child_file_count: 19, logical_bytes: 179179, hash_scope: TREE_MANIFEST_SHA256, sha256: 3B0C502C014B611332D716466DE21F4844281403EF6F48996FA69D5DBB59370F, source: parent EXACT_RESOURCE_COPY_MANIFEST.yaml, creating_run: CONTROL1_COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [STAGEA_SCOPE_BUDGET_PROSPECTIVE_VALIDATION], provenance: HASH_PINNED_LOCAL_COPY, license: ASSET_RECORD, reacquirable: true, recovery_command: PARENT_MANIFEST_COPY, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/src/runner/__pycache__/common.cpython-312.pyc, logical_bytes: 12262, hash_scope: CONTENT_SHA256, sha256: 4C4DFE9A865FEED2BCDD76AC1571339F940CB0ED9542C2101B6E253211716FD4, source: N01 candidate import cache, creating_run: CONTROL1_N01_CANDIDATE_REPLAY, claim_critical: false, reproducibility_minimum: false, downstream_consumers: [NONE], provenance: PROCESS_LOCAL_CACHE, license: SYSTEM_RUNTIME, reacquirable: true, recovery_command: PYTHON_IMPORT, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, deletion_status: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF}
+  - {relative_path: resources/build/control/candidate/first_failure.json, logical_bytes: 327, hash_scope: CONTENT_SHA256, sha256: 7B3B97192E38DF50FA862110FE421F7D7938490DA3695203FB7B7301016F8E62, source: materializer_harness failure receipt, creating_run: CONTROL1_N01_CANDIDATE_REPLAY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [STAGEA_SCOPE_BUDGET_PROSPECTIVE_VALIDATION], provenance: CONTROL_FAILURE_RAW, license: PROJECT_CODE, reacquirable: false, recovery_command: NONE_PRESERVE, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/logs/control, child_file_count: 5, logical_bytes: 3772, hash_scope: TREE_MANIFEST_SHA256, sha256: AA3AE02385D73BE1609C8CB88714C9F06C295D04BF2F9E93E0A2B2F86FFA9886, source: CONTROL1 runner receipts and status, creating_run: CONTROL1_RUN, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [STAGEA_SCOPE_BUDGET_PROSPECTIVE_VALIDATION], provenance: ENGINEERING_CONTROL_LOGS, license: PROJECT_CODE, reacquirable: false, recovery_command: NONE_PRESERVE, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+shared_assets_consumed: [{asset_id: ASSET-LLVM-PPC-F127B4C, record_sha256: 060595813C17FCE769C449D19F6702286EAB9A8D68FE535A9A76BA2EB680E665, mode: EXECUTE_IN_PLACE_READ_ONLY}]
+external_system_dependencies: [{path: C:/Users/15383/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, status: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED}]
+cleanup: {owner: TEMP_MAINLINE, authorized_descendants: [], allowed_automatic_retention_classes: [], closeout_plan_accepted: false, downstream_inputs_accepted: false, capsule_sealed: false, active_owner_or_process_count: 0, predelete_target_count: 0, predelete_logical_bytes: 0, performed: false, deleted_entries: [], deleted_logical_bytes: 0, performed_at: null, recoverability: null}
+validation: {resource_root_exact_match: true, root_under_workspace: true, forbidden_root_check: true, reparse_traversal_check: true, required_directories_present: true, persisted_resources_inventoried: true, envelope_within_limit: true, claim_critical_content_hashes_present: false, lifecycle_mode_and_hash_match: true, all_persisted_entries_classified: true, downstream_consumers_resolved: false, deterministic_recovery_routes_complete: false, closeout_budget_or_exception_pass: true, cleanup_receipt_valid: false, result: CONTROL1_N01_FAIL_CLOSED}

@@ -1,0 +1,26 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE58-R40-ORDINARY-BREADTH-V1
+retrieval_date: 2026-08-15
+sources:
+  - role: CURRENT_OFFICIAL_BACKEND_DOCUMENTATION
+    url: https://llvm.org/docs/TableGen/BackEnds.html
+    version_or_date: LLVM 24.0.0git documentation retrieved 2026-08-15
+    decisive_content: "AsmMatcher emits target-specific matcher functions converting parsed assembly operands into MCInst structures, including custom operand parsing."
+    provenance: official LLVM documentation
+  - role: CURRENT_SOURCE_LOCUS
+    url: https://llvm.googlesource.com/llvm/+/4bd19b66187df029dd209b370e89e7d24b135033/utils/TableGen/AsmMatcherEmitter.cpp
+    version_or_date: upstream mirror source locus retrieved 2026-08-15
+    decisive_content: "Core algorithm exploits instruction-set regularity, classifies operands, identifies possible matches, simplifies generated code and builds operand match tables."
+    provenance: LLVM source mirror
+  - role: CURRENT_TARGET_INTERFACE
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/include/llvm/Target/Target.td
+    version_or_date: main observed 2026-08-15
+    decisive_content: "Target interface contains AsmMatchConverter and assembler-variant fields used by matcher generation."
+    provenance: official llvm-project upstream mirror
+  - role: CONTRARY_GENERIC_KERNEL
+    url: https://llvm.googlesource.com/llvm/+/4bd19b66187df029dd209b370e89e7d24b135033/utils/TableGen/AsmMatcherEmitter.cpp
+    version_or_date: same source locus
+    decisive_content: "The purported action is existing matcher-table construction or generic rule matching."
+    provenance: source-level subtractor
+bounded_status: CLOSED_FOR_RAW_GATE
+absence_claim: NONE
+note: "No retained download or execution; no experiment."

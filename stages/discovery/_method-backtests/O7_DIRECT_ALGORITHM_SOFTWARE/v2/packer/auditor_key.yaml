@@ -1,0 +1,55 @@
+schema_version: discovery-backtest-auditor-key-v2
+confidentiality: PACKER_AND_FUTURE_AUDITOR_ONLY
+executor_must_not_read: true
+opportunity_lens: O7_DIRECT_ALGORITHM_OR_SOFTWARE_ADVANCE
+anchors:
+  S6-POS-01:
+    hidden_target:
+      title: "Halide: A Language and Compiler for Optimizing Parallelism, Locality, and Recomputation in Image Processing Pipelines"
+      venue: PLDI 2013
+      publication_date: 2013-06-16
+      doi: 10.1145/2491956.2462176
+      canonical_url: https://people.csail.mit.edu/jrk/halide-pldi13.pdf
+    expected_problem_shape:
+      - "Image algorithms should be separated from schedules that choose fusion, tiling, parallelism, locality, and recomputation."
+      - "Recover a schedule representation/compiler plus search, not a fixed library of kernels."
+    expected_decision_structure: "per-stage compute/store location, tiling, vectorization, parallelization, fusion and recomputation"
+    contribution_route: N1_NEW_LANGUAGE_OR_REPRESENTATION
+    evidence_entry: "same algorithm across pipelines and CPU/GPU targets; expert code baselines; code complexity; portability; schedule/search cost"
+  S6-POS-02:
+    hidden_target:
+      title: "Ansor: Generating High-Performance Tensor Programs for Deep Learning"
+      venue: OSDI 2020
+      earliest_public_date: 2020-06-11
+      canonical_url: https://www.usenix.org/conference/osdi20/presentation/zheng
+    expected_problem_shape:
+      - "Template-limited tensor autoschedulers miss strong programs, while a naïvely broad space is too costly to explore."
+      - "Recover hierarchical sketch/program generation, evolutionary refinement with learned cost, and multi-task scheduling."
+    expected_decision_structure: "program sketch/sample, transformation completion, measurement selection, evolutionary search, cost-model update, task-budget allocation"
+    contribution_route: N2_NEW_ALGORITHM_OR_OPTIMIZATION
+    evidence_entry: "CPU/ARM/GPU operator and network matrix; search time; strong vendor/compiler baselines; space/search/task-scheduler ablations"
+    claim_ceiling: "Measured generated-software performance; no claim about GPU silicon or accelerator PPA."
+  S6-POS-03:
+    hidden_target:
+      title: "Ambit: In-Memory Accelerator for Bulk Bitwise Operations Using Commodity DRAM Technology"
+      venue: MICRO 2017
+      publication_date: 2017-10-14
+      doi: 10.1145/3123939.3124544
+      canonical_url: https://www.microsoft.com/en-us/research/?p=424701
+    expected_problem_shape:
+      - "Bulk Boolean operations are limited by moving large bit vectors over the external channel."
+      - "Recover a DRAM-internal AND/OR primitive plus NOT support that composes a Boolean basis while preserving ordinary memory use."
+    expected_decision_structure: "row placement, multi-row activation, sense-amplifier inversion, command sequencing, initialization/destructive-operation handling"
+    contribution_route: N1_NEW_ARCHITECTURAL_MECHANISM
+    evidence_entry: "circuit/variation simulation, area estimate, DRAM timing/command model, system simulation, real bulk-bitwise applications, CPU/GPU/logic-layer baselines"
+    claim_ceiling: "Circuit simulation and modeled system performance only; not fabricated DRAM, FPGA, measured silicon, or product efficiency."
+  S6-NEG-01:
+    hidden_target: null
+    expected_result: ABSTAIN
+    reason: "The proposed object, state, action, and complexity are exactly LRU; only an input parameter and name change. Strong same-object adaptive baselines make forced packaging especially invalid."
+cutoff_exclusions:
+  - "All hidden-target title/method/result text, repositories, project pages, reviews, talks, and follow-on work."
+  - "No hidden target appears as a visible precursor in another packet."
+hardware_claim_ceiling:
+  status: ENFORCED
+  rule: "PIM/DRAM evidence stops at the labelled circuit/model stage; theoretical internal bandwidth is not usable application bandwidth without timing, contention, and command accounting."

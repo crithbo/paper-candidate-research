@@ -1,0 +1,31 @@
+topic_id: PIM-PRACCREDIT
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: "显式展开为 ACT/PRE 等命令的 host/PIM 共享 DRAM，在 PRAC/RFM 状态下联合决定 PIM issue、preemption/decomposition 与等价 bank placement"
+main_claim: "security-credit-aware scheduler 在相同 RowHammer 安全上界下减少 PRAC-induced host/PIM interference，并揭示 activation phase 决定的可推广 regime"
+academic_value_score: 57
+ai_executability_score: 26
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.84
+strongest_baseline:
+  - "COSM"
+  - "QPRAC or MOAT"
+  - "P-PIM"
+  - "fair Ramulator2 composition of COSM + QPRAC/MOAT"
+decisive_evidence:
+  - "公开 simulator 中 PIM macro-op 到 PRAC 可计数 ACT/PRE 的语义追踪"
+  - "自然与 adversarial trace 上的 per-bank security-credit timeline"
+  - "相同安全 invariant 下组合基线与候选的 issue/preempt 决策及端到端成本"
+unresolved_risks:
+  - "PIM 内部 operation 对 PRAC 可能不可观察或产品相关"
+  - "COSM+QPRAC 组合可能给出同一决策"
+  - "证据 ceiling 初期仅 simulator"
+next_killer_gate: "72 小时内冻结一个公开 PIM command expansion 并重建最小 COSM+QPRAC；若对象不成立则停止，若 Mechanism A 被等价覆盖但合法 decomposition 存在则 pivot B"
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: "Discovery/早期 Stage0：Ramulator2/AiM cycle-level simulation 与分析安全 invariant；非 JEDEC silicon"
+execution_authority: "AI 可用 CPU、公开 simulator/trace；真实硬件、现有项目写入和正式实验需用户授权"
+file_hashes:
+  topic_brief.md: 927d99d6a31ae0ab829857528e0b09fa51ffd342acb8c74b4d830d5df087995f
+  source_log.md: aed8da4cbad340fe4a4411e90113ee37e044314290fab2d64fdd8e93fa22bc1b

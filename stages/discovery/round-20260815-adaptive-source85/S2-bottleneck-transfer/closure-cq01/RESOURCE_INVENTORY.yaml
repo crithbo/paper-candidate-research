@@ -1,0 +1,71 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  assignment_id: SOURCE-CLOSURE-SOURCE85-S2-CQ01-TVM-RELAX-FUSION-LIFETIME-V1
+  stage_or_mode: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+  unique_write_directory: stages/discovery/round-20260815-adaptive-source85/S2-bottleneck-transfer/closure-cq01
+  resource_root: stages/discovery/round-20260815-adaptive-source85/S2-bottleneck-transfer/closure-cq01/resources
+  inventory_path: stages/discovery/round-20260815-adaptive-source85/S2-bottleneck-transfer/closure-cq01/RESOURCE_INVENTORY.yaml
+resource_envelope:
+  network_bytes_max: 50331648
+  stored_bytes_max: 16777216
+  attempts_max: 6
+  attempts_used: 6
+  stored_bytes_used: 1164536
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: powershell/Invoke-WebRequest
+      writable_surfaces: [resources/downloads, resources/tmp, resources/cache]
+      process_local_redirects: [TEMP, TMP, TMPDIR, XDG_CACHE_HOME]
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+entries:
+  - path: resources/downloads/01-tvm-main-commit.json
+    class: official_github_api_default_branch_commit
+    bytes: 57778
+    sha256: 5826332A91819F66DCA7205F9F66C41215E1141FB7F6216064D7C435C53C59CB
+    version: 27c2e019d0ce6182158020c7534dda4a3ce981ae
+  - path: resources/downloads/02-tvm-pinned-tree.json
+    class: official_github_api_recursive_tree
+    bytes: 896069
+    sha256: 1E5EE8EEA037389047CAADDAEA51A45C85912E28947E52C436511D2471D7F5E4
+    response_truncated: false
+  - path: resources/downloads/03-fuse_ops.cc
+    class: pinned_raw_upstream_source
+    bytes: 65195
+    sha256: 6D4C3584AA5C8934C50125C6AE5FC2AF2A2750F87D8E717676686A5E802597FC
+  - path: resources/downloads/04-static_plan_block_memory.cc
+    class: pinned_raw_upstream_source
+    bytes: 45035
+    sha256: A5FA5AAF6B5D9098731F74FC71BDC8CA9C2BCD996ACD6DDFEA365C769A1DFBB2
+  - path: resources/downloads/05-codegen_vm.cc
+    class: pinned_raw_upstream_source
+    bytes: 19544
+    sha256: 1C597E9310A85BFF188FA8F6C4DF8C28ED03795B3B53B90C376DD8297E0483C8
+  - path: resources/downloads/06-test_transform_static_plan_block_memory.py
+    class: pinned_raw_upstream_source
+    bytes: 80915
+    sha256: 09E8AE64C238D7EDB997FDF53787807CC10C70EEFF2A4C66F153E30292BA9420
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: CLOSED_WITHIN_FROZEN_ENVELOPE

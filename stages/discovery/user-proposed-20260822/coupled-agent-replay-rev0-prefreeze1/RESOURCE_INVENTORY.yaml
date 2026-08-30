@@ -1,0 +1,80 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: COUPLED-AGENT-REPLAY-REV0
+  assignment_id: DISCOVERY-S3-20260822-COUPLED-AGENT-REPLAY-PREFREEZE1
+  stage_or_mode: CLEAN_PRE_EVIDENCE_IDENTITY_FREEZE_ONLY
+  run_id: prefreeze1
+  unique_write_directory: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze1
+  resource_root: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze1\resources
+  inventory_path: D:\project\writing\reserch\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze1\RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-22T00:00:00+08:00
+  finalized_at: 2026-08-22T11:26:44+08:00
+root_measurement:
+  logical_bytes: 0
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS__IN_MEMORY_HTTPS_METADATA_ONLY
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: PowerShell Invoke-WebRequest
+      expected_writable_surfaces: []
+      redirect_controls: NONE__IN_MEMORY_RESPONSE_ONLY
+      evidence: No OutFile, cache, download, clone, extraction, build, or installation action is authorized.
+      preflight_result: PASS
+resource_envelope:
+  network_bytes_max: 67108864
+  stored_bytes_max: 67108864
+  cpu_hours_max: 0.5
+  gpu_hours_max: 0
+  wall_seconds_max: 3600
+  attempts_max: 8
+  network_bytes_used: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  stored_bytes_used: 0
+  attempts_used: 2
+entries:
+  - class: OFFICIAL_METADATA_ROUTE__IN_MEMORY_ONLY
+    path: null
+    source_uri: https://api.github.com/repos/OpenHands/OpenHands/git/ref/heads/main
+    attempts: 2
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    persisted_bytes: 0
+    outcome: RESOURCE_TRANSPORT_UNAVAILABLE
+    deletion_status: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED
+shared_assets_consumed: []
+external_system_dependencies:
+  - PowerShell runtime
+  - Codex network transport
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: false
+  result: PASS__NO_PERSISTED_RESOURCES__IDENTITY_ROUTE_BLOCKED

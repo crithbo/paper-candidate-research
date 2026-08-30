@@ -1,0 +1,39 @@
+assignment_id: DISCOVERY-S5-20260814-ADAPTIVE-SOURCE11
+lane: S5_SCALE_ONLINE_APPROX
+method: V8_7_CANONICAL
+discovery_claim_pack_mode: OFF
+write_directory: stages/discovery/round-20260814-adaptive-source11/S5-scale-online-approx
+completed_at: '2026-08-14T00:00:00+08:00'
+result: COMPLETE_ZERO_PROPOSALS__CLOSURE_FINAL
+summary_zh: >-
+  本次只闭合 Source10 的 Jasmin 与 Fiat-Crypto 两条近门槛线。Jasmin 官方当前文档已列出
+  tight/pessimistic/optimistic 与局部 callee_saved 配置，并把 spill 保留为源程序动作；
+  Fiat-Crypto 当前生成器已列出全部策略联合并给出同类证明生成输出。两题所设构造分别
+  落入现有 union，或在引入 online recourse 时改变原对象，故均为最终结构性 DROP；无 Stage0 建议。
+objects:
+  - signature: JASMIN_CRYPTO_PROGRAM__FIXED_SOURCE_ASM_CT_CONTRACT__BOUNDED_RECOURSE_REGISTER_STACK_CONSTRUCTION__COMPILE_CHECK_COST
+    disposition: DROP_CURRENT_UNION_ABSORPTION__SAME_OBJECT_RECOURSE_FAILURE__FINAL
+    current_union: >-
+      jasminc register/stack allocation plus callee-saved tight/pessimistic/optimistic
+      strategies and callee_saved=n annotation; manual source spilling remains distinct input.
+    two_legal_outputs: tight_and_pessimistic_successful_compilations_of_same_export_contract
+    no_further_extension: true
+  - signature: FIAT_CRYPTO_FIELD_ARITHMETIC__FIXED_MODULUS_OPERATION_C_API__PROOF_PRESERVING_JOINT_REWRITE_CARRY_CONSTRUCTION__GEN_COMPILE_PROOF_COST
+    disposition: DROP_CURRENT_UNION_ABSORPTION__CHANGED_OBJECT_IF_ONLINE__FINAL
+    current_union: >-
+      fiat_crypto strategies saturated-solinas, unsaturated-solinas, word-by-word-montgomery,
+      dettman-multiplication, solinas-reduction and base-conversion with documented target parameters.
+    two_legal_outputs: documented_proof_preserving_strategy_outputs
+    no_further_extension: true
+counts:
+  carry_forward_objects: 2
+  fresh_backfill: 0
+  propose_stage0: 0
+  briefs: 0
+evidence_boundary:
+  current_source_checked: true
+  no_absence_claim: true
+  no_resource_or_readiness_negative_inference: true
+  no_execution_performed: true
+next_step_for_mainline: NO_STAGE0_ACTION__SOURCE11_FINAL_NO_EXTENSION_FOR_BOTH_OBJECTS
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

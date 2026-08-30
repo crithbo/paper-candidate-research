@@ -1,0 +1,31 @@
+schema_version: assignment-resource-cleanup-receipt-v1
+policy_id: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+approval: USER_EXPLICIT_TERMINATION_AND_CLEANUP_20260827
+executed_at: 2026-08-27
+cleanup_owner: MAINLINE
+capsule_path: R3_STAGEA_CLEANUP_EVIDENCE_CAPSULE.yaml
+capsule_sha256: EBABA2394A94666BC4ED6AF2C72B417869A6D9F7271DC8DDA0B8DAA65C4A938E
+predelete_inventory_path: ../storage-cleanup-preflight-20260827/NONBLIND_STAGEA_RESOURCE_LEAF_INVENTORY.yaml
+predelete_inventory_sha256: 998965A739DACAFAE5A88136E06CC97C9BB72C32C94F6E08B4B4853AC0DEAD88
+predelete_gates_path: PREDELETE_GATES.yaml
+predelete_gates_sha256: C9C2C4A94F453A7F6AF1F37C379B58F0841ED8ED72E4AD3FED5960CEA8FBEA9E
+assignment_closeout: USER_TERMINATED__NO_FURTHER_QUEUE_OR_SUCCESSOR
+targets_deleted:
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/resources, predelete_files: 17688, predelete_bytes: 1103359419, postdelete_exists: false}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/PGM_INDEX/resources, predelete_files: 17591, predelete_bytes: 1103872335, postdelete_exists: false}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/ALEX/resources, predelete_files: 17546, predelete_bytes: 1097546583, postdelete_exists: false}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/CVC5/resources, predelete_files: 36, predelete_bytes: 217238688, postdelete_exists: false}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer/resources, predelete_files: 1, predelete_bytes: 409, postdelete_exists: false}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/resources, predelete_files: 42, predelete_bytes: 15724, postdelete_exists: false}
+totals: {files_deleted: 52904, logical_bytes_deleted: 3522033158, binary_gib_deleted: 3.28}
+containment_and_safety: {all_targets_under_E_workspace: true, target_roots_or_shared_assets_deleted: false, reparse_points_before_delete: 0, active_related_processes_before_delete: 0, postdelete_targets_absent: 6}
+partial_delete_note: HNSW first PowerShell removal partially removed 5 files/234339199 bytes then stopped at hidden long-path directory; final exact-root removal completed and totals use original predelete inventory.
+retained_evidence_hash_recheck: {checked_files: 8, missing: 0, drift: 0}
+excluded_from_cleanup: [D_drive, unrelated_two_axis_backtest_resources, project_shared_assets, reports_decisions_handoffs_manifests_inventories_provenance_capsules]
+scientific_state_changed: false
+production_candidate_state_changed: false
+stageb_started: false
+recoverability: REACQUIRE_OR_REBUILD_USING_RETAINED_ASSIGNMENT_RECORDS_AND_PROVENANCE
+artifact_state_after_cleanup: GC_COMPLETE
+plan_sha256_after_closeout: 9BF0CBB69D5C60E05E167B40C07B90CA208077BB56E2B7B8717A449EF753D7D8
+registry_sha256_after_closeout: 962532C7A8570FC313F1C1D64AEB4E414DE5314D1C6115A1FC3774B9A7A7B15C

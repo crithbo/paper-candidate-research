@@ -1,0 +1,117 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S5-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+opportunity_family_id: R16A-S5-R05
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+mode_for_this_artifact: canonical-v8.7-off
+cutoff: '2026-08-13'
+opportunity_family:
+  canonical_signature: "OSTree fixed revisions plus summary; signed static delta and summary update; same stock verification/apply contract; build/sign/I-O/bytes/verification cost"
+  relations: []
+queries:
+  - query_id: Q001
+    text: "ostree static-delta generate official manual --from --to --empty --max-usize"
+    purpose: freeze current complete native delta action and non-default controls
+    source_or_search_engine: ostreedev.github.io official manual
+    executed_at: '2026-08-13'
+    filters: [first-party, current-manual]
+    read_depth: SECTIONS
+    key_result_ids: [S001]
+    exclusions_with_reasons: ["No implementation-absence claim was made."]
+    state_change: direct current-action coverage
+  - query_id: Q002
+    text: "ostree summary --update official manual signing metadata"
+    purpose: freeze summary publication action and signing controls
+    source_or_search_engine: ostreedev.github.io official manual
+    executed_at: '2026-08-13'
+    filters: [first-party, current-manual]
+    read_depth: SECTIONS
+    key_result_ids: [S002]
+    exclusions_with_reasons: ["Native union includes summary update and signing controls."]
+    state_change: complete union closed
+  - query_id: Q003
+    text: "ostreedev ostree v2026.1 official release commit"
+    purpose: pin current upstream reality
+    source_or_search_engine: github.com/ostreedev/ostree official upstream
+    executed_at: '2026-08-13'
+    filters: [first-party, release]
+    read_depth: SECTIONS
+    key_result_ids: [S003]
+    exclusions_with_reasons: []
+    state_change: source pin recorded
+sources:
+  - source_id: S001
+    title_or_artifact: ostree static-delta manual
+    canonical_version: v2026.1
+    locator: https://ostreedev.github.io/ostree/man/ostree-static-delta.html
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SECTIONS
+    normalized_variants: [generate, from, to, empty, max-usize, verify, apply-offline]
+    repository_commit_config_or_dataset_hash: "upstream v2026.1 commit 84fcfe1; accessed 2026-08-13"
+  - source_id: S002
+    title_or_artifact: ostree summary manual
+    canonical_version: v2026.1
+    locator: https://ostreedev.github.io/ostree/man/ostree-summary.html
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SECTIONS
+    normalized_variants: [update, add-metadata, gpg-sign, sign-type, sign]
+    repository_commit_config_or_dataset_hash: "upstream v2026.1 commit 84fcfe1; accessed 2026-08-13"
+  - source_id: S003
+    title_or_artifact: ostreedev/ostree releases
+    canonical_version: v2026.1
+    locator: https://github.com/ostreedev/ostree/releases
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SECTIONS
+    normalized_variants: [v2026.1]
+    repository_commit_config_or_dataset_hash: 84fcfe1
+claims:
+  - claim_id: C001
+    text: "The native union directly expresses the frozen static-delta plus summary construction action."
+    priority: HIGH
+    priority_rationale: "Decides whether a residual can be admitted."
+    source_links:
+      - source_id: S001
+        relation: IMPLEMENTS
+        locator: "synopsis and Generate Options"
+        evidence_status: AUTHOR_CLAIM
+        conflict: ''
+        permitted_conclusion: "Current native delta construction is present."
+      - source_id: S002
+        relation: IMPLEMENTS
+        locator: "synopsis and Description"
+        evidence_status: AUTHOR_CLAIM
+        conflict: ''
+        permitted_conclusion: "Current native summary update is present."
+direct_coverage:
+  target_source_or_union: "ostree static-delta generate + ostree summary --update"
+  predicates:
+    same_object_function_protocol: YES
+    same_scenario_workload: YES
+    same_or_weaker_information: YES
+    atomic_action_covered: YES
+    same_or_stronger_legality_quality_guarantee: YES
+    same_nonworse_full_cost: YES
+    comparable_scale_platform_version_config: YES
+    sufficient_read_or_reproduction_depth: YES
+independent_prior_current_audit:
+  owner_or_lane: S5 source lane; first-party-current check only, no independent external audit asserted
+  query_ids: [Q001, Q002, Q003]
+  completed: false
+stopping:
+  high_impact_items_bounded: true
+  latest_and_current_union_checked: true
+  first_party_depth_sufficient: true
+  heterogeneous_independent_path_complete: false
+  contrary_search_complete: true
+  natural_or_canonical_carrier_frozen: true
+  full_cost_frozen: true
+  marginal_sources_no_longer_decision_changing: true
+  decisive_contradictions_resolved_or_bounded: true
+  disposition: DECISION_READY
+execution_readiness:
+  state: E1
+  e1_evidence: [read-only official manuals and release pin]
+  e2_authorization_id: ''
+  e2_allowlist: {}
+  e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0
+  scientific_inference_permitted: false
+claim_ceiling: "Narrow current-union absorption of the frozen whole action; no broader absence or performance claim."

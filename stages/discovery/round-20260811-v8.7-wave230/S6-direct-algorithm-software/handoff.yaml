@@ -1,0 +1,25 @@
+assignment_id: DISCOVERY-S6-20260811-V8.7-WAVE230-POSTGRES-GIST-SPLIT-JOINTLAYOUT-DEPTH
+lane: S6-direct-algorithm-software
+rules_revision: v8.7+R5-P0
+discovery_quality_mode: OFF
+frozen_control_hashes:
+  plan: C42A163DE232BDD28FA5F26DA66A085224546BFB95E99746A0E3B91038C12894
+  registry: 50C23FAF25A62C10A2CF8EF9957766C592B5FF52E9392572F06A91D130D04E52
+  role_discovery: FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3
+final_disposition: COMPLETE_ZERO_PROPOSALS
+deep_reviews: 1
+grounded_briefs: 0
+candidate_status:
+  - id: F1_POSTGRES_GIST_GLOBAL_SPLIT_LAYOUT
+    disposition: NOT_ADMITTED_UNFROZEN
+    reason: >-
+      A two-index split witness is legal, but it only shows local partition freedom.
+      Current fixed-opclass callbacks, sorted/buffered builds, WAL and maintenance form a
+      strong union whose source/options and direct R-tree/GiST collision are unclosed.
+      No union-external global guarantee is frozen.
+fidelity_closure_if_reopened:
+  - Pin PostgreSQL core and representative built-in opclass revisions, paths, defaults, and flags.
+  - Close direct R-tree/GiST bulk-loading and splitting literature/tool collision.
+  - Specify a same-opclass global algorithm/guarantee beyond callbacks and build mode.
+prohibited_actions_performed: []
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,23 @@
+schema: mainline-stagea-a1-start-v1
+assignment_id: STAGEA-L1-20260830-LLVM-APX-R12-A0-PRODUCTION-RESUME
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+mode: A1_DECISIVE_PILOT
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+user_exception_authorization: USER_APX_EXCEPTIONAL_S04_AND_PPC_CLEAN_PACKET_20260829
+source_static_packet:
+  handoff: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r11-exceptional-s04-canonical-feature-20260829/handoff.yaml, sha256: 44712B3EA56C4B3799AE9F9CE25198D86F44325F0F12B259A91EC6A120E1468D}
+  manifest: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r11-exceptional-s04-canonical-feature-20260829/HASH_MANIFEST.sha256, sha256: CEC5DF788A43EE9D2BD71418B0998E38D112B3231BDB8959E1D7A03CE74ECC00}
+frozen_execution:
+  selected_inputs: 4
+  replays_each: 2
+  rows: 8
+  commands_per_row: 9
+  retry: 0
+  selected_ids: [S01, S02, S03, S04]
+  exceptional_feature_guard: S04_exact_hash_only
+  denominator_or_baseline_or_action_change: forbidden
+exception_consumption_point: first_claim_bearing_process_using_exceptional_driver
+allowed: [copy_remaining_hash_pinned_r11_inputs_once, execute_full_frozen_DAG_once, collect_directional_full_cost_and_legality, preserve_all_raw, write_claim_result_stagea_report_handoff_manifest]
+forbidden: [result_aware_input_selection, retry_or_backfill, second_scientific_revision, denominator_or_baseline_relaxation, stageb, shared_write, cleanup]
+pause_signal: complete_current_A1_and_safe_handoff_then_no_successor
+stop: after_A1_handoff

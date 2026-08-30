@@ -1,0 +1,39 @@
+assignment_id: DISCOVERY-S4-20260815-ADAPTIVE-SOURCE60-R40-ORDINARY-BREADTH-V1
+attempt_counter: 6
+items:
+  - id: S60-S4-PERF-FLUSTER-CQ01
+    status: OPEN_BOUNDED
+    exact_project_object_version_rule: >-
+      One Linux upstream source commit plus one Fluendo Fluster upstream commit,
+      selected as each project's default-branch commit on the same future closure date.
+    frozen_object_envelope: >-
+      Same Fluster decoder/vector invocation and conformance outcome; perf PMU event
+      interpretation only; no decoder/hardware/controller/endpoint substitution.
+    question: >-
+      Is there a non-generic same-object measurement estimand or estimator outside
+      perf's documented scaling/event-group union?
+    sources:
+      - role: ANCHOR_CURRENT
+        url: https://docs.kernel.org/process/debugging/media_specific_debugging_guide.html
+        status: ATTEMPTED__CURRENT_OFFICIAL
+      - role: CURRENT
+        url: https://github.com/torvalds/linux/blob/master/tools/perf/Documentation/perf-list.txt
+        status: ATTEMPTED__CURRENT_UPSTREAM_SOURCE
+      - role: ANCHOR_CARRIER
+        url: https://github.com/fluendo/fluster
+        status: ATTEMPTED__UPSTREAM_PROJECT
+      - role: TRANSPORT_PIN_FALLBACK
+        url: https://api.github.com/repos/torvalds/linux/commits/master
+        status: MECHANICALLY_UNAVAILABLE__WEB_SAFE_OPEN_REJECTED
+      - role: TRANSPORT_PIN_FALLBACK
+        url: https://api.github.com/repos/fluendo/fluster/commits/HEAD
+        status: MECHANICALLY_UNAVAILABLE__WEB_SAFE_OPEN_REJECTED
+    finite_stop_condition: >-
+      Close only with the two exact commits and a target-specific action/estimand;
+      otherwise retain locator-only. Do not add disjunctive projects or broaden to a
+      general profiling survey.
+    exhaustion_consistency: NOT_EXHAUSTED
+    resources: NOT_ACQUIRED__NO_LOCAL_DOWNLOAD
+note: >-
+  Attempts include the bounded official/current anchor routes and the two rejected
+  transport-only commit-pin endpoints. No zero-attempt exhaustion claim is made.

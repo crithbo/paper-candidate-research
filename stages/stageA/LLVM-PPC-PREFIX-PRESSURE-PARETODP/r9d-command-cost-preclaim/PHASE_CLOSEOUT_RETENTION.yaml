@@ -1,0 +1,51 @@
+schema: phase-closeout-retention-v1
+created_at: 2026-08-26T09:37:00Z
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9D-COMMAND-COST-PRECLAIM
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+artifact_lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+lifecycle_policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+closeout_decision: RETAIN_FOR_SAME_INDEPENDENT_STAGEA_GATE
+resource_root_logical_bytes: 127698561
+post_close_retained_bytes_max: 805306368
+budget_pass: true
+downstream_consumer: SAME_INDEPENDENT_STAGEA_GATE
+evidence_ceiling: PRECLAIM_ENGINEERING_FIDELITY_ONLY__NO_SELECTED_OR_SCIENTIFIC_INFERENCE
+
+retain:
+  - {path: resources/src/r9c_top_level, reason: frozen upstream audit provenance}
+  - {path: resources/src/natural_materializer, reason: bounded correction source and controller}
+  - {path: resources/build/a1_control_replay_1, reason: retained exact raw and metrics consumed by gate}
+  - {path: resources/build/a1_control_replay_2, reason: retained exact raw and metrics consumed by gate}
+  - {path: resources/build/r9d_audits, reason: decisive preclaim command-cost and negative-control evidence}
+  - {path: resources/build/r9d_r10_plan.json, reason: future structural dependency witness, not executed}
+  - {path: resources/build/r9d_r10_validation.json, reason: future structural validation witness, not executed}
+  - {path: COMMAND_COST_EDGE_AUDIT.yaml, reason: canonical C1 and C5 audit}
+  - {path: NEGATIVE_CONTROL_RESULTS.yaml, reason: canonical C2 audit}
+  - {path: R10_PLAN_VALIDATION.yaml, reason: canonical C3 and C4 audit}
+  - {path: PRE_CLAIM_COMMAND_COST_AND_R10_GATE.yaml, reason: canonical preclaim gate}
+  - {path: STAGEA_REPORT.md, reason: owner report}
+  - {path: RESUME_CAPSULE.yaml, reason: minimum resume metadata}
+  - {path: handoff.yaml, reason: canonical downstream handoff}
+  - {path: HASH_MANIFEST.sha256, reason: immutable leaf integrity}
+
+exact_cleanup_candidate_leaves:
+  - {path: resources/downloads, files: 0, logical_bytes: 0, retention_class: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF}
+  - {path: resources/archives, files: 0, logical_bytes: 0, retention_class: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF}
+  - {path: resources/cache, files: 3, logical_bytes: 135527, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/tmp, files: 0, logical_bytes: 0, retention_class: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF}
+cleanup_candidate_count: 4
+cleanup_candidate_files: 3
+cleanup_candidate_logical_bytes: 135527
+cleanup_owner: MAINLINE
+owner_cleanup_allowed: false
+owner_cleanup_actions: 0
+cleanup_performed: false
+cleanup_receipt: null
+containment_preflight:
+  resource_root_exact: true
+  candidates_are_exact_descendant_leaves: true
+  reparse_entries: 0
+  active_exact_native_processes: 0
+  active_bundled_python_processes: 0
+  downstream_acceptance_required_before_cleanup: true
+scientific_effect: NONE

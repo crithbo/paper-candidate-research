@@ -1,0 +1,45 @@
+schema_version: discovery-wave-handoff-v8.4
+assignment_id: DISCOVERY-S1-20260809-V8.4-WAVE4
+lane: DISCOVERY-S1-BOUNDARY-CONTRADICTION
+generated_at: 2026-08-09T19:00:00+08:00
+
+method:
+  used: ACCEPTED_PRODUCTION_V2_V8_1
+  o1_o6_backtest: CALIBRATED
+  excluded: TLS_BLOCKED_TWO_AXIS_V8_2R2_NOT_USED
+
+authority:
+  writable_directory: stages/discovery/round-20260809-v8.4-wave4/S1-boundary-contradiction
+  master_files_modified: false
+  registry_modified: false
+  stage0_stagea_stageb_created: false
+  experiments_or_benchmarks_started: false
+
+result:
+  status: COMPLETE_ZERO_PROPOSALS
+  proposal_count: 0
+  quality_threshold: TIER_B_Q2_VIABLE
+  rationale: No new same-object mechanism survived direct-collision, target-semantics, strong-baseline, and finite-falsifier gates.
+
+screened_leads:
+  - lead: multitenant_ebpf_late_binding
+    outcome: DROP
+    collision: DIRECT_FATAL
+    rationale: vBPF OSDI 2026 directly implements the semantic assumption break and response.
+  - lead: stateful_execution_application_streaming
+    outcome: DROP
+    rationale: STREAMBUS NSDI 2026 covers semantic storage/execution bridging and variable-network deployment.
+  - lead: amd_gfx1250_target_taxonomy
+    outcome: DROP
+    rationale: Exact cross-architecture object and fair comparison cannot be defined from verified public facts; no forbidden equivalence inferred.
+  - lead: isa_description_backend_generation
+    outcome: DROP
+    collision: DIRECT_FATAL
+    rationale: ACT directly covers automatic backend generation from formal ISA descriptions.
+
+artifacts:
+  source_collision_matrix: SOURCE_COLLISION_MATRIX.md
+  discovery_log: DISCOVERY_LOG.md
+  hash_manifest: HASH_MANIFEST.sha256
+
+next_state: IDLE_REUSABLE_AWAITING_MAINLINE

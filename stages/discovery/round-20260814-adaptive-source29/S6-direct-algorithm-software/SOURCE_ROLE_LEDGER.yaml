@@ -1,0 +1,48 @@
+assignment_id: DISCOVERY-S6-20260814-ADAPTIVE-SOURCE29-RQ-PRODUCTION-V1
+retrieval_budget:
+  response_bytes_observed: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  storage_bytes_written_from_web: 0
+  build_install_experiment: NOT_RUN
+sources:
+  - role: ANCHOR_AND_CURRENT_SEMANTICS
+    url: https://llvm.org/docs/AArch64SME.html
+    project_version_or_date: LLVM 23.0.0git/24.0.0git current documentation, accessed 2026-08-14
+    provenance: official LLVM documentation, Apache-2.0 with LLVM exception project
+    selection_rule: selected before deep as RQ29-01 primary source route
+    disposition: 支持 SME ABI、PSTATE.SM/ZA 语义与编译器插入边界动作；不单独证明残余。
+  - role: CURRENT_SOURCE_LOCUS
+    url: https://llvm.org/doxygen/AArch64SMEAttributes_8h_source.html
+    project_version_or_date: current LLVM doxygen, accessed 2026-08-14
+    provenance: official LLVM generated source documentation
+    selection_rule: current source triad for QC29-01
+    disposition: 支持 callsite 的 streaming/ZA 状态查询与 lazy-save 条件。
+  - role: CURRENT_NATIVE_ACTIONS
+    url: https://mlir.llvm.org/docs/Passes/
+    project_version_or_date: current MLIR documentation, accessed 2026-08-14
+    provenance: official MLIR documentation
+    selection_rule: current source/action boundary for ArmSME tile allocation and mode options
+    disposition: 支持 function-level streaming/ZA options 与 conversion-integrated tile allocation；完整 union 仍为 closure debt。
+  - role: CURRENT_UNION_AND_CONTRARY
+    url: https://www.llvm.org/docs/doxygen/RISCVInsertVSETVLI_8cpp_source.html
+    project_version_or_date: LLVM 23.0.0git current doxygen, accessed 2026-08-14
+    provenance: official LLVM generated source documentation
+    selection_rule: RQ29-02 primary route
+    disposition: 三阶段跨基本块数据流已覆盖 proposed RVV configuration core，因此结构淘汰。
+  - role: CURRENT_DOCUMENTATION
+    url: https://llvm.org/docs/RISCV/RISCVVectorExtension.html
+    project_version_or_date: LLVM 24.0.0git docs, accessed 2026-08-14
+    provenance: official LLVM documentation
+    selection_rule: validates pass ordering relative to allocation
+    disposition: confirms VSETVLI insertion after vector-register allocation.
+  - role: LOCATOR_ONLY_CURRENT_TOOL
+    url: https://github.com/nxp-imx/ethos-u-vela
+    project_version_or_date: accessed 2026-08-14
+    provenance: public Arm-derived Vela project page; not used as absence proof
+    selection_rule: RQ29-03 precommitted primary locator
+    disposition: identifies command-stream/TFLite artifact and native configuration surface; insufficient for raw closure.
+  - role: SPECIFICATION_AND_CONTRARY_SCOPE
+    url: https://registry.khronos.org/SPIR-V/specs/unified1/SPIRV.html
+    project_version_or_date: current unified SPIR-V specification, accessed 2026-08-14
+    provenance: Khronos official specification
+    selection_rule: RQ29-04 primary route
+    disposition: fixes layouts but not a distinct target-specific producer/consumer identity.

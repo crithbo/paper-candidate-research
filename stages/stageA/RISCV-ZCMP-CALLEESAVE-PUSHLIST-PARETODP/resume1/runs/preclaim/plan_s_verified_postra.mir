@@ -1,0 +1,92 @@
+--- |
+  ; ModuleID = 'runs\preclaim\plan_s_postra_input.mir'
+  source_filename = "runs\\preclaim\\witness.ll"
+  target datalayout = "e-m:e-p:32:32-i64:64-n32-S128"
+  target triple = "riscv32-unknown-unknown-elf"
+  
+  declare void @clobber() #0
+  
+  ; Function Attrs: nounwind uwtable
+  define i32 @witness(i32 %x, i32 %y) #1 {
+  entry:
+    call void @clobber()
+    %sum = add i32 %x, %y
+    ret i32 %sum
+  }
+  
+  attributes #0 = { "target-features"="+m,+a,+c,+zcmp,+m,+a,+c,+zcmp" }
+  attributes #1 = { nounwind uwtable "target-features"="+m,+a,+c,+zcmp,+m,+a,+c,+zcmp" }
+...
+---
+name:            witness
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         true
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: true
+registers:       []
+liveins:
+  - { reg: '$x10', virtual-reg: '' }
+  - { reg: '$x11', virtual-reg: '' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    4
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:
+  - { id: 0, name: '', type: default, offset: 0, size: 4, alignment: 4, 
+      stack-id: default, callee-saved-register: '', callee-saved-restored: true, 
+      debug-info-variable: '', debug-info-expression: '', debug-info-location: '' }
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0.entry:
+    liveins: $x10, $x11
+  
+    renamable $x8 = COPY $x10
+    SW killed $x11, %stack.0, 0 :: (store (s32) into %stack.0)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    PseudoCALL target-flags(riscv-call) @clobber, csr_ilp32_lp64, implicit-def dead $x1, implicit-def $x2
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    renamable $x5 = LW %stack.0, 0 :: (load (s32) from %stack.0)
+    renamable $x10 = ADD killed renamable $x8, killed renamable $x5
+    PseudoRET implicit $x10
+...

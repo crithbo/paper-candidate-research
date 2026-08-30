@@ -1,0 +1,31 @@
+assignment_id: STAGE0-C2-20260814-RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP-REVISION1-CLOSING-V8.7
+topic_id: RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+role: INDEPENDENT_REVISION1_CLOSING
+atomic_gate: PINNED_RV32_ZCMP_SAME_MACHINEFUNCTION_TWO_PLAN_WITNESS__TARGET_SPECIFIC_BOUNDED_FRONTIER_CERTIFICATE
+decision: CONFIRM_STAGE0_PASS
+quality_tier: TIER_B_Q2_VIABLE
+confidence: 0.81
+evidence_ceiling: E1_STATIC_PREFLIGHT__SHORT_COMMIT_LOCATOR__NATIVE_GRAMMAR_CERTIFICATE_ONLY
+revision_budget:
+  scientific_limit: 1
+  scientific_index: 1
+  consumed: true
+  further_revision_authorized: false
+frozen_revision_integrity:
+  revision_report_sha256: 8317C76AED5407EF73FD0A48DB0B99F39B59066ABBD239CF2882668102E7F521
+  action_frontier_audit_sha256: F46CC1369EFAD69D8F5B7E0947716A05E0704F5DD6E053EE9AB21D7F143BAE4C
+  claim_matrix_sha256: 048C71D724B12E9C57FE89063DC13B258E92FC8B5F82CC248883058DE868B8DE
+  revision_handoff_sha256: 26045F486ACDDE7F55B39C3457D17B0D9C4085776AA6134003FBABB1177C7DEA
+  revision_manifest_sha256: 5CDE7894CE49339A6F574B6EDAE77A4A69D79D7A6EE2A7355D39FEC44F13A20C
+independent_closing_findings:
+  - RV32 rlist and stack-adjust arithmetic supports both declared plans; Plan S's ordinary spill occupies a free low frame slot and all stated CFI/psABI obligations are coherent.
+  - Current FrameLowering and late PushPop are included in the strong union; they materialize a chosen native path but do not expose the declared bounded exact/FPT frontier.
+  - The state remains target-specific because prefix grammar, stack-adjust and CFI/future-clobber obligations are necessary for every successor; the guarantee is limited to bounded width w.
+  - The short commit locator lowers reproducibility evidence only; full commit/blob retention is mandatory before a Stage A claim-bearing run.
+next_if_mainline_accepts: DISPATCH_STAGEA_PRECLAIM_CONTRACT_FIDELITY_GATE_ONLY
+stagea_authorized_by_this_review: false
+stageb_authorized_by_this_review: false
+failure_sentinel: BELOW_Q2_STOP__GENERIC_REGISTER_ALLOCATION_FRAME_PACKING_OR_CURRENT_ZCMP_UNION_ABSORPTION
+search_boundary: SEARCH_BOUNDED_OPEN
+mainline_notification_required: true
+lane_state_after_mainline_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE

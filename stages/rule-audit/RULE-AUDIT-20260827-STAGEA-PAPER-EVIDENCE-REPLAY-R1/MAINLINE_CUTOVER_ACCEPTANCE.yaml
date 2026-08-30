@@ -1,0 +1,17 @@
+schema: mainline-rule-audit-cutover-acceptance-v1
+audit_id: RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-REPLAY-R1
+manifest: {path: HASH_MANIFEST.sha256, sha256: DE7AF1CAEA498A8155C815BE8E228CDD2866B7994A6F0F85B38BD989A2EFE9D6}
+handoff: {path: handoff.yaml, sha256: 4C4EBA3948733980AB565B600738F9C0CD34D4AA22D347F183FD32EED31E51B9}
+protocol: {path: STAGEA_PAPER_EVIDENCE_REPLAY_PROTOCOL.md, sha256: FE250BAAF666FD3A85C916662C3610A431D8A127DA7612A3AA156F7825AA95AB}
+user_authorization: USER_STAGEA_USE_PAPER_RESULTS_INSTEAD_OF_FULL_LOCAL_REDO_20260827
+decision: ACCEPTED__SAFE_CUTOVER_TO_PAPER_EVIDENCE_REPLAY
+scope: CURRENT_8_NONBLIND_STAGEA_CASES_ONLY
+effects:
+  stop_new_local_download_toolchain_build_probe: true
+  preserve_existing_local_results_as_PROJECT_LOCAL_SUPPLEMENT: true
+  production_candidate_state_changed: false
+  StageB_changed: false
+  blind_or_stage0_nonblind_metric_merge: false
+  new_large_download_build_experiment_allowed: false
+  paper_appendix_AE_metadata_acquisition_allowed: true
+next_route: BACKTEST_PACKER__PAPER_EVIDENCE_CAPSULES

@@ -1,0 +1,11 @@
+schema: minimal-canonical-probe-ack-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-P1
+assignment: {path: P1_MINIMAL_CANONICAL_PROBE_ASSIGNMENT.yaml, sha256: E5E3A8EFAEFED927F4F265CAA30A874E90CB42C80729BC838088DC9CB9F2710E}
+parent_fidelity_acceptance: {path: F0_MAINLINE_FIDELITY_ACCEPTANCE.yaml, sha256: 4A38F270D41112F44E2C413495ABD2C00278CAE64ED4D5F0F28B92C39ABE9A2F, decision: PRECLAIM_CONTRACT_FIDELITY_GATE_ACCEPTED}
+fidelity_report: {path: F0_FIDELITY_CONTRACT_REPORT.yaml, sha256: F042FDD9D924231A59AB35B5A04E7BD8E3D36738D66D3DC933F1CDBA23A015EE}
+frozen_probe: {harness: resources/src/probe/pgm_minimal_probe.cpp, source_change_max: 1, keys: 1000000_uint64, queries: 200000, epsilons: [4,16,64,256], comparator: exact_lower_bound_same_array, commands_max: {compile: 1, run: 4, retry: 0}}
+prestart_state: {harness_exists: false, compile_runs: 0, probe_runs: 0, scientific_inference: NONE}
+forbidden_before_mainline_acceptance: [write_harness, compile, run, source_change_other_than_future_harness, production_registration, stageB, claim_above_preliminary_compatibility]
+differences_or_ambiguities: []
+ack_disposition: READY
+next_action: WAIT_FOR_MAINLINE_P1_ACCEPTANCE_AND_START

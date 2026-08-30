@@ -1,0 +1,27 @@
+# Discovery log — WAVE44 NATURAL STRUCTURE
+
+- Assignment: `DISCOVERY-S3-20260810-V8.7-WAVE44-NATURAL-STRUCTURE`
+- Frozen cutoff: `2026-08-10`; accepted production discovery `v2/v8.1 + v8.6 + v8.7`.
+- Scope: 10 new lineages. Explicitly excluded: Wave29–43 objects, HNSW, WebGraph, UST, Knative, and every registry terminal/active object.
+- Execution: primary source and original-paper inspection only; no download, experiment, benchmark, Stage0/A/B, or control-file mutation.
+
+## Result
+
+`COMPLETE_ZERO_PROPOSALS`. Several natural carriers are real and reproducible, but none left a complete same-object N2/N3 action after strongest-union and six-dimensional subtraction. This is a structural screening result, not a negative result due to absent implementation, benchmark, hardware, or AI readiness.
+
+| # | New natural-structure lineage | Natural carrier | Current source / latest collision | Structural disposition |
+|---|---|---|---|---|
+| 1 | Soufflé relation representation | Public Datalog analyses and fact relations with arity/access skew | [Soufflé current relation representations](https://souffle-lang.github.io/relations); [specialized B-tree paper](https://souffle-lang.github.io/pdf/ppopp19.pdf) | Default B-tree plus explicit `btree`/`brie`/`eqrel` already own legal representation action. A cross-relation plan is a compiler-wide selector without a fixed new data-structure contract. `DROP`. |
+| 2 | DuckDB join/split planning | Natural SQL workloads and base-table statistics | [DuckDB join guide](https://duckdb.org/docs/current/guides/performance/join_operations); [current internals](https://duckdb.org/docs/lts/internals/overview); [SplitJoin 2025](https://arxiv.org/abs/2510.25684) | Join order/build side are native DP optimizer decisions; per-split planning is an existing direct paper family. `DROP`. |
+| 3 | ClickHouse MergeTree granule pruning | Production columnar parts with predicate/value locality | [current pruning guide](https://clickhouse.com/blog/index-based-pruning); [current columnar storage guide](https://clickhouse.com/resources/engineering/what-is-columnar-storage) | Index type/granularity/projection/primary-key choice is native storage configuration; no union-external immutable construction found. `DROP`. |
+| 4 | systemd journal DATA/ENTRY locality | Public Linux journal streams with repeated fields and append order | [current journal file format](https://systemd.io/JOURNAL_FILE_FORMAT/) | Compression choice and object/hash/entry-array format are native compatibility semantics; alternative cross-entry packing changes journal object/reader contract. `DROP`. |
+| 5 | Avro object-container blocks | Natural schema-evolving event records | [current Avro specification](https://avro.apache.org/docs/%2B%2Bversion%2B%2B/specification/) | Block boundaries, sync markers and codec are standardized container actions. Any adaptive codec/boundary rule is selector/config; a multi-schema representation changes object contract. `DROP`. |
+| 6 | Redis compact objects | Natural small collections/stream entries with cardinality skew | [current object-encoding documentation](https://redis.io/docs/latest/commands/object-encoding/) | `listpack`, `quicklist`, radix-tree/listpack streams and automatic conversion form the current same-object union. No separate complete action identified. `DROP`. |
+| 7 | Linux eBPF verifier state space | Kernel selftest / real eBPF program CFGs with repeated abstract states | [current kernel verifier documentation](https://www.kernel.org/doc/html/latest/bpf/verifier.html); [eBPF runtime paper](https://arxiv.org/abs/2410.00026) | State containment/pruning is verifier soundness-critical. A new merge order/table policy is a selector unless it supplies a new sound abstract domain; none with finite same-kernel closure was isolated. `DROP`. |
+| 8 | OpenJDK CDS archive sharing | Natural application classpaths and startup sets | [JEP 310](https://openjdk.org/jeps/310); [Java 21 VM guide](https://docs.oracle.com/en/java/javase/21/vm/java-virtual-machine-guide.pdf) | Archive class-list, classpath and dynamic archive are native artifact actions. Cross-application packing changes loader/classpath semantics or is archive selection. `DROP`. |
+| 9 | Prometheus TSDB chunks/blocks | Public monitoring time-series traces with timestamp/value regularity | [current Prometheus storage documentation](https://prometheus.io/docs/prometheus/latest/storage/); [native histogram storage spec](https://prometheus.io/docs/specs/native_histograms/) | Two-hour blocks, WAL/chunk transitions and per-sample-type encoding are native format/compaction actions. No complete new static representation preserving ingest/query semantics was isolated. `DROP`. |
+| 10 | Hadoop SequenceFile blocks | Natural key/value batch streams with key/value repetition | [current Hadoop API](https://hadoop.apache.org/docs/current/api/org/apache/hadoop/io/SequenceFile.html) | Record/block compression, block size, codec and reader compatibility are explicitly native choices. A joint block plan remains codec/config selection. `DROP`. |
+
+## Evidence boundary
+
+All ten sources provide a real natural carrier, but carrier existence is not admission. For every line, the remaining action was either native configuration/selection, direct paper collision, semantic object change, or no finite auditable full-cost construction. No line was dropped because an artifact was not downloaded, a result was not produced, or readiness was low.

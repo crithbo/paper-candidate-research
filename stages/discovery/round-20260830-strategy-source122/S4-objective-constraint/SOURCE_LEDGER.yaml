@@ -1,0 +1,11 @@
+schema: discovery-source-ledger-v1
+assignment_id: DISCOVERY-S4-20260830-SOURCE122
+sources:
+  - {role: CURRENT, locator: https://github.com/vllm-project/vllm/blob/main/vllm/benchmarks/serve.py, use: goodput_TTFT_TPOT_E2EL_rate_and_dataset_contract}
+  - {role: CURRENT, locator: https://github.com/vllm-project/vllm-bench, use: schema_compatible_metrics_and_goodput_current_union}
+  - {role: CURRENT, locator: https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/perf_analyzer/genai-perf/README.html, use: GenAI_Perf_metrics_inputs_and_deprecation_to_AIPerf}
+  - {role: DIRECT_SUBTRACT, locator: https://github.com/ai-dynamo/aiperf/blob/main/docs/metrics-reference.md, use: fixed_schedule_replay_lag_and_degradation_metrics}
+  - {role: DIRECT_SUBTRACT, locator: https://github.com/ai-dynamo/aiperf/blob/main/docs/tutorials/agentic-code-generator.md, use: MoonCake_timestamp_session_hash_trace_contract}
+  - {role: CURRENT, locator: https://github.com/ggml-org/llama.cpp/blob/master/tools/server/bench/speed-bench/README.md, use: already_running_server_and_speculative_decoding_object}
+source_actions_used: 10
+maximum: 24

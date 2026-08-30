@@ -1,0 +1,26 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE43-GLOBAL-IDENTITY-CLOSURE-CONTINUATION-V1
+coverage_required: 100_PERCENT
+items:
+  - queue_id: SCQ-43-01
+    family: S43-01
+    exact_project_object_version: llvm/llvm-project__main__AMDGPU_GFX12_global_load_lds_lowering__checked_2026-08-15
+    missing_facet: current compiler source symbol/path and default/non-default lowering control for the proposed legal lowerer
+    deterministic_project_selection_rule: current upstream llvm/llvm-project main; restrict lookup to llvm/lib/Target/AMDGPU and tests containing the exact `global_load_lds` spelling
+    primary_route: https://github.com/llvm/llvm-project/tree/main/llvm/lib/Target/AMDGPU
+    fallback_route: NOT_AUTHORIZED__NO_DISJUNCTIVE_PROJECT_SUBSTITUTION
+    route_count: 1
+    attempt_counter: 1
+    attempts:
+      - time: 2026-08-15
+        before_call_counter: 1
+        route: official upstream source search for exact global_load_lds spelling
+        result: ATTEMPTED__ZERO_RESULT_FROM_BOUNDED_PUBLIC_SEARCH
+    queue_status: OPEN_BOUNDED
+    exhausted_consistency: PASS_ATTEMPTED_ROUTE
+    scientific_inference: NONE__ZERO_RESULT_IS_NOT_ABSENCE
+    next_decisive_question: does the selected current LLVM source path already construct the same legality-preserving global-to-LDS plus wait/placement action?
+not_queue_items:
+  - family: S43-05
+    status: LOCATOR_ONLY__RQ_BACKLOG
+    reason: project/object/version was disjunctive and no deterministic one-project selection rule existed.
+reconciliation: PASS__ONE_CONCRETE_POST_RQ_GAP_HAS_ONE_FROZEN_ATTEMPTED_ROUTE

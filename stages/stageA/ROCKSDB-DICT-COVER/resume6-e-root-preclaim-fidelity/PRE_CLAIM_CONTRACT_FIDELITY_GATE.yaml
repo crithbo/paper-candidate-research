@@ -1,0 +1,122 @@
+schema_version: pre-claim-contract-fidelity-gate-v1
+created_at: 2026-08-25T14:40:00+08:00
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-RESUME6-E-ROOT-PRECLAIM-FIDELITY
+topic_id: ROCKSDB-DICT-COVER
+gate_scope: PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY
+decision: PASS__PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY
+claim_start_authorized: false
+next_gate: WAIT_FOR_SEPARATE_MAINLINE_CLAIM_BEARING_ASSIGNMENT_AND_START
+evidence_ceiling: PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_inference: NONE
+scientific_revision_consumed: false
+mechanism_pivot_used: false
+
+F0_INPUT_AND_OBJECT_IDENTITY:
+  result: PASS
+  exact_manifest_copies_accepted: 20_OF_20
+  copied_bytes: 61951583
+  source_destination_sha256_equal: 20_OF_20
+  upstream_acceptance_sha256: 0AB3E88C0EBC3E8C3D82A5484F9D7904DC641C2F1749F9184E857E43A8675244
+  upstream_closure_sha256: 673B96BB41B667111061E9DAB888C4AAF1E3017A28D1196ADD0B546BB3F38EEE
+  downstream_acceptance_sha256: B72DB74C03782DAF792E8D32CC91C9CD41F7CFA302C2F67DA5063AC793F47F31
+  exact_object_unchanged: true
+  rocksdb_commit: 1dfa7297933df05237ac11376d6cb69d32591b1d
+  zstd_commit: 82d322c4973d9e2968d94047a40892bc6d9a9bdf
+  manifest_format: KVMAN1_little_endian_length_prefixed_sorted_unique_KV
+  natural_manifest_executed: false
+
+F1_ATOMIC_ACTION_IMPLEMENTATION:
+  result: PASS
+  implementation_sha256: 9BB41C3A169E3EC2BF7865C3D1BE135A3EE5F0774C7D88AE096D2B55242AE323
+  complete_action_mapped: true
+  complete_action_control_smoke: true
+  proxy_or_subset: false
+  atomic_invariants:
+    - fixed_256_byte_fragments_and_64_byte_min_tail
+    - little_endian_8_byte_tokens_and_16_dmer_minimizer_windows
+    - fixed_4x4096_uint32_count_min_sketch_and_row_salts
+    - each_buffered_block_once_in_original_order
+    - fixed_retained_byte_budget_equal_to_grid_train_byte_ceiling
+    - retained_set_rescored_before_replacement
+    - strictly_lowest_score_per_byte_replacement_with_fixed_digest_tie_break
+    - final_trainer_input_sorted_by_original_block_and_fragment_offset
+    - unchanged_ZDICT_trainFromBuffer
+  representative_control_trace: candidate_63_blocks_263038_bytes_1071_fragments_239476_windows_957904_cms_updates_217965_rescores_523_replacements_299_retained_65406_bytes
+
+F2_COMPARATOR_NATIVE_PARITY:
+  result: PASS_WITH_NATIVE_CURRENT_SEMANTIC_PRECISION_PIN
+  individually_runnable_paths: [B0, B1, B2, B3, B4, B5]
+  grid_wrapper_B6: all_applicable_methods_run_separately_in_G1_and_G2
+  control_processes: 28
+  all_paths_smoked: true
+  unchanged_Zstd_trainer: true
+  native_BlockBasedTable_format_and_reader: true
+  comparator_information_and_grid_parity: true
+  precision_pin:
+    issue: upstream_whole_block_shorthand_omits_native_final_byte_cap_truncation
+    exact_behavior: native_midpoint_prime_stride_order_with_final_sample_truncated_at_exact_byte_cap
+    disposition: exact_pinned_source_semantics_control__no_baseline_weakening_or_function_change
+    required_for_future_claim_contract: true
+
+F3_SMALL_WITNESS_LEGALITY_EQUIVALENCE:
+  result: PASS_CONTROL_NON_CLAIM_ONLY
+  witness: deterministic_1024_sorted_KV_records_1024_value_bytes_each
+  natural_input: false
+  production_path: stock_BlockBasedTable_manual_kCompaction_to_L1_then_forced_bottommost_rewrite
+  final_live_sst_count: 1
+  final_level: 1
+  minimum_data_blocks_pass: true
+  table_open: PASS
+  whole_file_checksum: PASS
+  block_checksum: PASS
+  full_ordered_scan_equality: 1024_OF_1024
+  every_key_point_equality: 1024_OF_1024
+  deterministic_range_equality: 32_OF_32
+  SstFileWriter_used: false
+  run_count: 28
+  pass_count: 28
+
+F4_DENOMINATOR_AND_FULL_COST_PATHS:
+  result: PASS_COLLECTION_PATH_ONLY
+  operation_inventory_path: OPERATION_INVENTORY.yaml
+  acquisition_conversion_path: resume5_RESOURCE_LEDGER_and_handoff
+  selector_internal_counter_path: per_process_ROCKSDICT_TRACE_PATH
+  process_cpu_wall_rss_path: assignment_local_10ms_process_monitor
+  SST_storage_path: LiveFileMetaData_and_TableProperties
+  temp_IO_path: literal_run_directory_before_after_inventory
+  reader_protocol_path: separate_cold_and_warm_process_boundaries
+  units_and_boundaries_frozen: true
+  no_work_to_byte_scalarization: true
+  path_smoke_sha256: 9AF9EBDFAA33022476F806C40BFA24F86F94E1F5FCEDB4562071D9AE41BAD18A
+  performance_comparison_executed: false
+
+F5_REPRODUCIBILITY_AND_RUN_CLASSIFICATION:
+  result: PASS
+  environment_lock_path: ENVIRONMENT_LOCK.yaml
+  run_class: CONTROL_NON_CLAIM_BEARING
+  matrix_summary_sha256: 66719333E215EE3F23946FCFADCC0402F5283965E375F0B87EF461B6FF9904D3
+  replay_verification_sha256: C3D58031711DC614D16820F2F483B4CB05196E883B703BB9FBF8620AF798713D
+  replay_pairs: 14
+  replay_pairs_pass: 14
+  semantic_and_selector_trace_match: true
+  frozen_executable_sha256: 22A57C80065AC0883AA62678DB7BAD7546BDC08A51064EBDA9721DE991DC34D4
+  minimal_runtime_smoke: PASS
+  invalid_engineering_runs_retained_and_excluded: true
+
+non_claim_boundary:
+  network_bytes: 0
+  natural_twenty_manifest_grid_executed: false
+  candidate_performance_executed: false
+  baseline_performance_executed: false
+  claim_bearing_observation: false
+  scientific_pass_stop_reserve_inference: NONE
+  stage_transition: NONE
+  stageb_authorized: false
+  upstream_cleanup: false
+  owner_cleanup: false
+
+final_disposition:
+  preclaim_fidelity_gate: PASS
+  StageA_scientific_decision: UNCHANGED
+  resource_blocker: RESOLVED_BY_ACCEPTED_EXACT_MANIFEST_COPIES
+  next_action: FREEZE_SEPARATE_CLAIM_BEARING_ASSIGNMENT_OR_HOLD

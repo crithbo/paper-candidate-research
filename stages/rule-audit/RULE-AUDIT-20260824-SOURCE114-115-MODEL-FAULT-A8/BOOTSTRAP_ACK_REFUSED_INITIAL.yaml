@@ -1,0 +1,68 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-24T08:12:28+08:00
+lane_id: RULE_AUDIT
+role_id: RULE-AUDIT-SENTRY
+thread_id: 01a02e08-0b16-7ed2-bfc4-f37b5ad86992
+assignment_id: RULE-AUDIT-20260824-SOURCE114-115-MODEL-FAULT-A8
+topic_id: SOURCE114-115-MODEL-FAULT
+assignment_context_path: stages/rule-audit/RULE-AUDIT-20260824-SOURCE114-115-MODEL-FAULT-A8/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: 4CEEE278F4FA7956540F46B873CE8E376108CD07D9A1133CA9F3FB72E3CD7EC9
+old_chat_memory_required: false
+
+frozen_hash_ack:
+  AGENTS_sha256: 77B8B100DB219BEDC77A593737C55CD6AAADAA6A544A8D2ED0DB388314BD1AF8
+  plan_sha256: A2F86134BD911644B6D0C6D00BC1A01F28845D4EA5BEEFA1E3C787A7BCF6F17B
+  registry_snapshot_sha256: D60A07201C517A17981C4CBD052CFF600C34D0B1CC15BCF486F3EF46FC6B0BC1
+  role_rule_sha256: 0B6788481571968C0FF8946BA725BDF41689095809DE8238B072C8ED6E6FADC6
+  skill_hashes:
+    - path: C:/Users/15383/.codex/skills/academic-research-suite/SKILL.md
+      sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F
+  template_hashes:
+    - path: templates/RULE_AUDIT_REPORT.md
+      sha256: D3417652D622529C0E5C163E6856425191D21E0246DF568F7FE1A9CE68540376
+    - path: templates/RULE_CHANGE_PROPOSAL.md
+      sha256: D9173DA82C04F1DBD93CF61229C9CD22D8FF4D9F12271EF7D1EF99BDA4E5430E
+    - path: templates/BOOTSTRAP_ACK.yaml
+      sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B
+  source_assignment_sha256: 29B45A3FBE170734A22EC143882422461EC1DC1CDE5760D99436A0555E37FC8E
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: true
+
+boundary_ack:
+  unique_write_directory_exact: D:/project/writing/reserch/stages/rule-audit/RULE-AUDIT-20260824-SOURCE114-115-MODEL-FAULT-A8
+  resource_root_exact: null
+  claim_ceiling_exact: PROCESS_DIAGNOSIS_AND_CHANGE_PROPOSAL_ONLY
+  evidence_ceiling_exact: REGISTERED_SOURCE114_SOURCE115_A7_ARTIFACTS_ONLY
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  source116_results_loaded: false
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: NONE
+  contamination_detected: false
+
+execution_ack:
+  current_status: BOOTSTRAP_ACK_PENDING__NO_ACTION_AUTHORIZED
+  resume_point: REFUSED_WAITING_MAINLINE_CONTEXT_REFREEZE
+  next_action: STOP_AND_WAIT_FOR_MAINLINE_CORRECTED_CONTEXT
+  user_gate_or_blocker: MAINLINE_MUST_REFREEZE_CURRENT_PLAN_AND_REGISTRY_HASHES
+  scientific_or_resource_action_started: false
+
+differences_or_ambiguities:
+  - field: frozen_control.plan.sha256
+    expected: A2F86134BD911644B6D0C6D00BC1A01F28845D4EA5BEEFA1E3C787A7BCF6F17B
+    actual: 34F3AB9A6CB652593DFC1B0157F2AC2025A34051998FC327E6B0CA1F2B689E32
+    disposition: REFUSE_HASH_DRIFT
+  - field: frozen_control.registry_snapshot.sha256
+    expected: D60A07201C517A17981C4CBD052CFF600C34D0B1CC15BCF486F3EF46FC6B0BC1
+    actual: 3566E69D08BED9652EA6D9FB73E8FC5BD65523EE37577D37C1D4BAD7B5D12AA5
+    disposition: REFUSE_HASH_DRIFT
+ack_disposition: REFUSE_MISSING_OR_CONFLICTING_CONTEXT
+start_authorized_by_mainline: false
+start_authorization_timestamp: null
