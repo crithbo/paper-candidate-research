@@ -1,0 +1,125 @@
+schema: ppc-r7-h6-resource-root-index-correction-addendum-v1
+generated_by: MAINLINE
+generated_at: 2026-08-26T05:10:00+08:00
+addendum_id: PPC-R7-A2-H6-RESOURCE-ROOT-INDEX-CORRECTION
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R7-NATURAL-CLAIM-HARNESS-FIDELITY
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+status: A2_ACK_PENDING
+base_context_sha256: FB5DF314F0E6C6C6B775120E8CAFA6FB38A9D87EA5D40EF5AC4C8BF6B9CA17F7
+a1_addendum_sha256: FD229E21AA0DB9DD504E004C34F9DF7CDA51FA3C4085C28D9DDB1ACA30E06AF7
+a1_start_sha256: B2D323024409363FE168923EDDF549C5EFD9ED77B277916AF81BFC3280DB153D
+a1_handoff_sha256: 6B650FEC970B836B011FCE42F07A5386E381A433ABE8C1B75B0BF85308CE6183
+a1_manifest_sha256: B43B2EF8C2F1C444CF1C0FAAD49EA63569692243E64F33EA400E83381F5B19F8
+a1_mainline_acceptance_sha256: BF0568E068A48CE298FF5E2E64BDBEEC5FB3EF91FE6A0817FC2B47A544CA63A7
+frozen_shared_snapshot:
+  plan_sha256: 48BBA51D9DE33C2E4D4E001B21C54B2A842887FA021CD0E6C4D363AA376B3CE0
+  registry_sha256: E478130057BC8135932CAC0D4A6D7D2AD2DE8713BC931646AE3DA0ABE0C75F71
+
+classification:
+  type: ENGINEERING_CORRECTION_IN_PRECLAIM_CONTRACT
+  scientific_revision_consumed: false
+  exact_object_mechanism_comparator_corpus_metric_claim_changed: false
+  H0_H5_rerun_allowed: false
+  selected_or_reserve_tool_invocations_so_far: 0
+  claim_runs_so_far: 0
+
+resource_precondition:
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r7/resources
+  files: 593
+  logical_bytes: 245146033
+  reparse_entries: 0
+  active_related_processes: 0
+  new_copy_extraction_or_network_allowed: false
+
+pass2_preservation:
+  before_edit_copy_handoff_to: handoff.pass2_h6_path_fail.yaml
+  before_edit_copy_manifest_to: HASH_MANIFEST.pass2_h6_path_fail.sha256
+  expected_handoff_sha256: 6B650FEC970B836B011FCE42F07A5386E381A433ABE8C1B75B0BF85308CE6183
+  expected_manifest_sha256: B43B2EF8C2F1C444CF1C0FAAD49EA63569692243E64F33EA400E83381F5B19F8
+
+single_edit_contract:
+  file: resources/src/claim_harness/r8_plan.py
+  original_sha256: A7C2027EC8AE52990A407934E1A2B5C10056E46B00EE5F58263A02CE71939604
+  original_bytes: 1556
+  exact_substitution: 'R=H.parents[2] -> R=H.parents[1]'
+  occurrences: 1
+  expected_corrected_sha256: A26B4B680DF3413049D1D640BB0A507078AE44AE30E1E8504FB526F4E329AAF2
+  expected_bytes: 1556
+  all_other_bytes_unchanged: true
+  source_edit_operations_max: 1
+
+single_command_contract:
+  record_before_execution: true
+  working_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r7
+  argv:
+    - BUNDLED_WORKSPACE_PYTHON
+    - resources/src/claim_harness/r8_plan.py
+  attempts_max: 1
+  automatic_retry: false
+  expected_output: resources/src/claim_harness/r8_processes.json
+  selected_or_reserve_compiler_tool_invocation: false
+  claim_run: false
+
+H6_validation:
+  process_count: 32
+  selected_rows: 16
+  replay_rows_per_selected: 2
+  reserve_rows: 0
+  exact_order: SELECTED_ROW_ORDINAL_THEN_REPLAY_1_THEN_REPLAY_2
+  required_fields:
+    - process_id
+    - selected_row_ordinal
+    - exact_member
+    - exact_function
+    - exact_body_sha256
+    - exact_whole_file_sha256
+    - replay_id
+    - working_directory
+    - candidate_argv_and_outputs
+    - baseline_16_compile_32_link_cell_argv_and_outputs
+    - form_fixed_current_ra_argv_and_outputs
+    - form_aware_fixed_ra_argv_and_outputs
+    - checker_argv_and_outputs
+    - full_cost_output
+    - invalid_construction_stop
+  input_identity_equality_required: R6_NATURAL_CORPUS_FREEZE_AND_CORPUS_SCAN_20_OF_20__SELECTED_16_ONLY
+  executable_or_claim_actions_performed: false
+
+allowed_actions_after_A2_start:
+  - WRITE_A2_CORRECTION_PRECOMMIT
+  - PRESERVE_PASS2_HANDOFF_AND_MANIFEST
+  - APPLY_EXACT_ONE_SUBSTITUTION_TO_R8_PLAN_PY
+  - RUN_EXACT_PLAN_GENERATOR_COMMAND_ONCE
+  - VALIDATE_32_ROWS_AND_HASHES_WITHOUT_EXECUTION
+  - UPDATE_ONLY_H6_GATE_REPRO_INVENTORY_RETENTION_CAPSULE_HANDOFF_AND_MANIFEST
+forbidden_actions:
+  - ANY_OTHER_SOURCE_OR_RESOURCE_BYTE_CHANGE_EXCEPT_A2_OUTPUTS_AND_CANONICAL_METADATA
+  - RERUN_H0_H5_OR_SYNTHETIC_TOOL_COMMANDS
+  - ANY_SELECTED_OR_RESERVE_COMPILER_LINKER_VERIFIER_DISASSEMBLY_OR_RESULT_OBSERVATION
+  - CLAIM_RUN
+  - NEW_COPY_EXTRACTION_NETWORK_BUILD
+  - RETRY_RESULT_BASED_EXCLUSION_BACKFILL_OR_COMMAND_CHANGE
+  - SCIENTIFIC_INFERENCE_REVISION_PIVOT_STATE_TRANSITION_CLEANUP_OR_STAGEB
+limits:
+  source_edit_operations_max: 1
+  plan_generator_attempts_max: 1
+  additional_command_records_max: 1
+  cumulative_command_records_max: 152
+  selected_or_reserve_tool_invocations_max: 0
+  claim_runs_max: 0
+  automatic_retry: false
+ack_requirement:
+  path: A2_ACK.yaml
+  must_confirm:
+    - ALL_BASE_A1_AND_SHARED_HASHES
+    - RESOURCE_TREE_593_FILES_245146033_BYTES_0_REPARSE_0_ACTIVE
+    - UNIQUE_ONE_SUBSTITUTION_AND_EXPECTED_HASH
+    - H0_H5_NO_RERUN
+    - PLAN_GENERATOR_ONE_ATTEMPT_ONLY
+    - SELECTED_OR_RESERVE_TOOL_INVOCATIONS_ZERO
+    - CLAIM_RUNS_ZERO
+    - DIFFERENCES_OR_AMBIGUITIES_EMPTY
+success_route: NATURAL_CLAIM_HARNESS_FIDELITY_PASS__WAIT_SEPARATE_R8_EXACT_CLAIM_ASSIGNMENT
+failure_route: FAIL_CLOSED_H6_PLAN_GENERATION__NO_SELECTED_CORPUS_OR_SCIENTIFIC_INFERENCE

@@ -1,0 +1,30 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+identity: {lane_id: BACKTEST-PACKER, lane_thread_id: 01a034d0-e1e2-7921-bb72-a675ff98d5b0, role_id: DISCOVERY_BACKTEST_PACKER, assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3-POOL0, topic_id: STAGE0A_IDENTITY_BLIND_EVIDENCE_BACKTEST_R3, stage_or_mode: IDENTITY_BLIND_CANDIDATE_POOL_FREEZE, status: BOOTSTRAP_ACK_PENDING, resume_point: R3_PACKER_SELECTION_UNIVERSE_BLOCKER_ACCEPTED, next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY}
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: BACKTEST-PACKER
+  allowed_actions: [after_start_construct_metadata_only_20_candidate_pool, derive_reviewer_contact_exclusion, derive_identity_risk_and_key_preimage]
+  forbidden_actions: [final_12_selection, paper_pdf_download, code_download, artifact_download, build, probe, experiment, scoring, packet_creation, production_candidate_registration, StageB]
+boundaries: {unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-pool0, resource_root: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-pool0/resources, write_allowed_paths: [<LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-pool0], network_allowed_after_start: true, network_source_allowlist: [official_publisher, official_proceedings, author_page, arxiv, openreview], resource_limits: {stored_bytes_max: 67108864, source_attempts_max: 64, code_or_artifact_downloads_max: 0}, experiment_allowed: false, state_transition_allowed: false}
+resource_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, resource_localization_rule_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97, artifact_lifecycle_rule_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, post_close_budget_bytes: 67108864, cleanup_owner: MAINLINE, automatic_delete: false, resource_inventory_template_sha256: E859CE19DC3EB906EF391B1D8039E7B02A762EB74D7421454E40BB4539FEEEC7}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 02472797B3C6606D065AC598CA4185FA91AAE24CB2A2C8C7E4B73548CF998FA7}
+  registry_snapshot: {path: registry.yaml, sha256: DC17C168D7A3EF8EB4967620CE1767E56F0BAF161E2D7DB780B3AC6A996E0279}
+  role_rule: {path: rules/ROLE_DISCOVERY_BACKTEST.md, sha256: 74056A6BF3F6A1ABBFF56A13BA27DCD9656B39DD6673D046935C312D39033C23}
+  resource_localization_rule: {path: rules/RESOURCE_LOCALIZATION.md, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+  artifact_lifecycle_rule: {path: rules/ARTIFACT_LIFECYCLE.md, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6}
+  skills: [{path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+  templates: [{path: templates/DISCOVERY_METHOD_BACKTEST.md, sha256: 442CD660FD993C75611B22C87B2C1C928B2A46E7691D9D75E12A0010822A6DA8}, {path: templates/RESOURCE_INVENTORY.yaml, sha256: E859CE19DC3EB906EF391B1D8039E7B02A762EB74D7421454E40BB4539FEEEC7}]
+minimum_inputs:
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-pool0/ASSIGNMENT.yaml, sha256: 163D9F001C421B7CDA870365C5DB8A20D92459FFAC6CA2EB021608CB94AC8F47}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer/MAINLINE_START_FAILURE_ACCEPTANCE.yaml, sha256: 0A8BF6C363F1F3EF41B08043891452A09AB3BD061A685506859E2505D1EB9450}
+  - {path: stages/rule-audit/RULE-AUDIT-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-BACKTEST-R3/BACKTEST_PROTOCOL.md, sha256: 6E92420D4014D7A26D0E32382A3E56D19973245B1C9EA5A10FD4172336139C3E}
+  - {path: stages/rule-audit/RULE-AUDIT-20260826-STAGE0A-Q2-LOCAL-RESOURCE-BACKTEST-R1/CASE_POOL.yaml, sha256: 4F4956D65C57DAE5AF41EF10E6D6FB0E7301203ECE710F8DAEA77405DA3F9C0E}
+  - {path: stages/rule-audit/RULE-AUDIT-20260826-STAGE0A-Q2-LOCAL-RESOURCE-BACKTEST-R1/SOURCE_LEDGER.md, sha256: 2A0D8842A1AA30C2DA0D358863AEED3A29D575AABAEFA00B2F5AE03B4758665B}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/ENRICHED_PAPER_EVIDENCE_CAPSULES_MANIFEST.yaml, sha256: 152E118F169F43DAA7316C19F6EE2745425FE3CF72F7E579B7A29E9643050061}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/AUDITOR_GOLD_KEY.yaml, sha256: C3F813395CDB4AF93FFDF7DC89E77973FEA24749C3E36FDA6A2CACEB55043D82, visibility: PACKER_ONLY}
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: VALIDATED}

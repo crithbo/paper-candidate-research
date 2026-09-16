@@ -1,0 +1,52 @@
+schema_version: candidate-preclaim-blocker-handoff-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R3-PRECLAIM-F1-F5
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+assignment_state: FROZEN_AWAITING_MAINLINE_BLOCKER_ACCEPTANCE
+decision: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE__NEW_MAINLINE_DISPOSITION_REQUIRED
+user_summary_cn:
+  outcome: replay1 F1 原生 PLD 与 PADDI+LD 见证已机械生成并验证；F2 首次 MIR 生成因 assignment-local IR 修饰符顺序语法错误停止
+  main_reason: llc 在任何 MachineVerifier、F3、F4 或 F5 动作前返回 1；合同禁止重试
+  next_step: MAINLINE 验收 blocker，并在需要时冻结新 resume assignment，以 dso_local hidden 的合法顺序机械修正输入
+  user_action_required: false
+  scientific_negative_inference: false
+context_sha256: DBB24FB56E77836E144A1C0ADD29A6465B0503CFCCEFFAE2AFC3C03F576D7537
+mainline_start_authorization_sha256: A35F76A206B23A14BF5A0F9DAF2966EB50C11FBB6BC22AE5FFC921241F4E87DD
+exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+preclaim_gate:
+  F1: PARTIAL_REPLAY_1_ONLY__NOT_PASS
+  F2: PARTIAL_BLOCKED_BEFORE_MACHINEVERIFIER__NOT_PASS
+  F3: NOT_STARTED
+  F4: IMPLEMENTED_NOT_EXECUTED
+  F5: NOT_STARTED_PARTIAL_TELEMETRY_ONLY
+  first_failure_tag: replay1.llc.mir_emit
+  exact_error: "ppc_union_input.ll:3:27: expected 'global' or 'constant'"
+  commands_started: 7
+  commands_successful: 6
+  commands_failed: 1
+  replay_1_started: true
+  replay_2_started: false
+  retry_count: 0
+resource_root: {files: 3775, directories_including_root: 197, logical_bytes: 575051772, stored_budget_bytes: 2147483648, within_budget: true, reparse_entries: 0, active_related_processes: 0}
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  artifact_state: BLOCKER_HANDOFF_FROZEN_WAITING_MAINLINE
+  cleanup_owner: MAINLINE
+  owner_cleanup_performed: false
+  projected_postclose_retained_bytes: 575051772
+  projected_postclose_budget_bytes: 805306368
+  projected_postclose_budget_pass: true
+claim_ceiling: PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY__NO_NATURAL_RUNTIME_OR_PERFORMANCE_CLAIM
+evidence_ceiling: PARTIAL_PRECLAIM_CONTROL_AND_ENGINEERING_BLOCKER_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: false
+preclaim_control_action_started: true
+claim_bearing_or_natural_action_started: false
+candidate_baseline_natural_performance_full_cost_or_claim_run_started: false
+state_transition_performed: false
+stageb_action_performed: false
+owner_cleanup_performed: false
+forbidden_actions_respected: true
+network_bytes: 0
+next_owner: MAINLINE
+next_action: VERIFY_CANONICAL_BLOCKER_PACKAGE_AND_MANIFEST__ACCEPT_OR_REJECT__OPTIONALLY_FREEZE_NEW_RESUME_ASSIGNMENT

@@ -1,0 +1,17 @@
+schema: ppc-r6-resource-inventory-v2
+result: PASS_CLAIM_CRITICAL_CLOSURE
+root: resources
+files: 26
+logical_bytes: 134206
+tree_content_sha256: 3CA86BD1AE32C004731C4081354D67FE104C35647C29E79C2A02CF46C5441167
+budget_bytes: 134217728
+reparse_entries: 0
+entries:
+  - {path: resources/src/corpus, files: 16, consumers: [SEPARATE_EXACT_PPC_NATURAL_CLAIM_ASSIGNMENT], claim_critical: true, reproducibility_minimum: true, reacquire: exact_archive_plus_frozen_ledger, class: KEEP_CAPSULE_CLAIM_CRITICAL}
+  - {path: resources/src/preclaim_harness, files: 5, consumers: [HARNESS_GAP_AUDIT, SEPARATE_EXACT_PPC_NATURAL_CLAIM_ASSIGNMENT], claim_critical: false, reproducibility_minimum: true, reacquire: exact_r5_hash_copy, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM}
+  - {path: resources/logs/corpus_scan.json, files: 1, consumers: [CORPUS_SELECTION_LEDGER], claim_critical: true, reproducibility_minimum: true, reacquire: one_frozen_scan_only, class: KEEP_CAPSULE_CLAIM_CRITICAL}
+  - {path: resources/src/static_freeze.py, files: 1, consumers: [REPRODUCIBILITY], claim_critical: false, reproducibility_minimum: true, reacquire: manifest, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM}
+  - {path: empty_standard_directories, files: 0, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+cleanup_owner: MAINLINE
+cleanup_candidates: []
+owner_cleanup_performed: false

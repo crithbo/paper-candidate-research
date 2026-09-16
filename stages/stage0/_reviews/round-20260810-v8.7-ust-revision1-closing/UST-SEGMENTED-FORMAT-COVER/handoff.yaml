@@ -1,0 +1,66 @@
+schema: stage0-revision1-closing-confirmation-v8.7
+assignment_id: STAGE0-C1-20260810-UST-SEGMENTED-FORMAT-COVER-REVISION1-CLOSING-V8.7
+topic_id: UST-SEGMENTED-FORMAT-COVER
+mode: CLOSING_SENTRY
+review_independence: true
+decision:
+  protocol: CONFIRM
+  scientific: CONFIRM_STOP
+  quality_tier: BELOW_Q2_STOP
+  terminal_sentinel: BELOW_Q2_STOP__HYBRID_ROW_PARTITION_PLUS_UST_WRAPPER_ABSORPTION
+  confidence: 0.95
+  revision_budget: "1/1_CONSUMED"
+structural_stop_basis:
+  frozen_action_space_legality_preserved_by_layered_dag: true
+  frozen_full_cost_preserved_by_finite_state: true
+  candidate_only_legal_action_named: false
+  candidate_specific_nontrivial_algorithm_named: false
+  candidate_specific_approximation_or_formal_guarantee_named: false
+  current_ust_and_hybrid_sparse_union_absorbs_frozen_mechanism: true
+bijection_audit:
+  contiguous_cover_and_K: PASS
+  original_row_order: PASS
+  reuse_and_cache: PASS
+  plan_and_jit_fixed_charge: PASS
+  ordinary_transition_cost: PASS
+  live_memory_and_peak: PASS_WITH_EXPLICIT_LIVESET_STATE
+  cold_warm_state: PASS
+  pareto_vector_cost: PASS
+  caveat: >-
+    Expressibility can require exponential state and does not prove that no future
+    lower-complexity or approximation algorithm exists. The exhausted revision,
+    however, did not state such a residual for this candidate.
+fair_comparator_requirement:
+  deployable: equal-budget label-setting/beam/DP over the same finite state/action system
+  exact: small-instance ceiling only
+  opaque_universal_union_allowed: false
+subtraction:
+  - current pinned UST native action family
+  - 1D-VBR contiguous sparse blocking
+  - Yang et al. 2018 optimal sparse blocking
+  - HR-SpMM hybrid-row specialization
+  - GeneralSparse region/format specialization
+  - RSH-SpMM hybrid sparse-format specialization
+out_of_scope_escape_routes:
+  concurrent_multi_plan: NEW_COSCHEDULING_OBJECT
+  multiple_phase_covers: NEW_ONLINE_OR_MATERIALIZED_VIEW_OBJECT
+  fused_converter: COMPILER_OR_EMITTER_MECHANISM_DRIFT
+  approximation: NUMERICAL_CONTRACT_DRIFT
+  row_reorder: FROZEN_PHYSICAL_ORDER_DRIFT
+  custom_kernel: DEPLOYMENT_AND_MECHANISM_DRIFT
+  threshold_or_weight_tuning: PRODUCT_OR_CONTROLLER_ONLY
+input_integrity:
+  revision_report_sha256: D8F23A865C4C2244DA4823DC96A00CCCADBECD9243D3E20EC87A4B28533524BA
+  action_catalog_sha256: 677950F2631330857FCFCBF9A6E2532EFB8CFE78DFDDB324CAF71408BA9B23C7
+  claim_matrix_sha256: 076843D2EB1BEF9E0EF8087AB71396E4F43E9060EE22C94E0F8111B67A9C7E62
+  revision_handoff_sha256: 662630C0A99E53ADB58E8532A5C79450941F88F450BEDC4EFD66DBFA0D9F5BFF
+  revision_manifest_sha256: 1F0824DC941AF9DA4D9D967A7972C2AC7A127A4BF40E9E66A8B19B0A63556A47
+  manifest_entries_verified: "4/4"
+  provenance_status: PASS_WITH_CONTROL_PLANE_TIMING_LAG_NOTED
+permissions:
+  stage_a_authorized: false
+  stage_b_authorized: false
+  experiment_authorized: false
+  second_revision_authorized: false
+  control_files_modified: false
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,44 @@
+schema: pilot-e0_5-asset-binding-status-v1
+assignment_id: PILOT-V2-PPC-E0_5-BINDING-CLOSURE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+status: PASS_BINDING_CLOSED
+execution_performed: false
+asset_record:
+  asset_id: ASSET-LLVM-PPC-F127B4C
+  path: projects/_assets/ASSET-LLVM-PPC-F127B4C/ASSET_RECORD.yaml
+  sha256: 060595813C17FCE769C449D19F6702286EAB9A8D68FE535A9A76BA2EB680E665
+bound_assets:
+  - {role: llc, path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain/bin/llc.exe, bytes: 68959744, sha256: 706EACEC5579CE3B1FD09AA57B0CCB0442B9B9182C4938081F033CC2A076A7CB, status: MATCH}
+  - {role: materializer_source, path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r10-natural-claim-execution-20260829/resources/src/natural_materializer/materializer_harness.py, bytes: 89441, sha256: C504250677F59E3B2EE2C054E51D160EE632D3E9E84688BA93C20C0236525C53, status: MATCH}
+required_input_binding:
+  exact_selected_inputs: 16
+  exact_manifest: {path: EXACT16_INPUT_MANIFEST.yaml, sha256: D278BD508A192186115D337048C44E7DACC7B259ADE1FB114EEE6067378F3F7D, entries: 16, status: MATCH}
+  selected_fixture: {destination_name: selected-00.ll, source_path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r6/resources/src/corpus/llvm-project-f127b4c19c63b0492fb924934e37e032c17ea35b/llvm/test/CodeGen/PowerPC/2005-11-30-vastart-crash.ll, bytes: 527, sha256: 8EDC7E74BA204C27683406E246B7F9B27DC6F8422C09F106544F48BA38AD9010, status: HASH_PINNED}
+  input_hashes_frozen: true
+required_tool_binding:
+  llc.exe: {status: MATCH}
+  ld.lld.exe: {status: MATCH, sha256: DA0B35A697D3354E276377EA21925BE9FBE4E1C237F4800FA75ED93751B0259C}
+  llvm-readobj.exe: {status: MATCH, sha256: 485FAC4BC5B262BCB980D35DD912C3D3D24D5EB7F57B45D7DFCAE85078947A94}
+  llvm-objdump.exe: {status: MATCH, sha256: AD4B570AC01C0E30A69012740DC9E04322100C12D5D12343F7B051BED315FFCE}
+required_runtime_binding:
+  python_runtime: {path: <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, bytes: 91648, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA, status: MATCH}
+metric_producer_consumer_binding:
+  candidate_metrics: 15
+  baseline_metrics: 56
+  total_metrics: 71
+  orphan_max: 0
+  double_count_max: 0
+  producer: {status: BOUND_FOR_E1_PACKET, invocation_count_per_row: 1}
+  consumers: [native_checker, full_cost_ledger]
+  status: CLOSED
+binding_firewall:
+  no_placeholder_execution: true
+  no_result_aware_change: true
+  no_resource_copy: true
+  no_tool_or_claim_execution: true
+  no_shared_install: true
+static_correction_edits_used: 0
+differences_or_ambiguities: []
+next_gate: MAINLINE_E0_5_ACCEPTANCE_BEFORE_E1
+e0_5_action_started: false
+scientific_or_resource_action_started: false

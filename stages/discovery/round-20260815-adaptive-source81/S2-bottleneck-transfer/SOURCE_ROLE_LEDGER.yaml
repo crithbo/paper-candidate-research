@@ -1,0 +1,43 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE81-R40-ORDINARY-BREADTH-V1
+sources:
+  - source_id: S81-SRC-01
+    role: ANCHOR_AND_CURRENT_DOC
+    title: LLVM RISC-V target user guide
+    url: https://llvm.org/docs/RISCVUsage.html
+    provenance: LLVM_Project__official_current_documentation
+    accessed_on: '2026-08-15'
+    use: "Documents Clang -mrelax default, --relax-gp requirements, one gp per process, executable/medlow restrictions, and the ±2 KiB rewrite condition."
+  - source_id: S81-SRC-02
+    role: CURRENT_SOURCE_ACTION
+    title: lld/ELF/Arch/RISCV.cpp
+    url: https://raw.githubusercontent.com/llvm/llvm-project/main/lld/ELF/Arch/RISCV.cpp
+    provenance: LLVM_Project__official_upstream_source
+    observed_ref: main__2026-08-15
+    use: "Shows GP-relative rewrite uses ctx.sym.riscvGlobalPointer and a signed 12-bit displacement, and that relaxation is driven by relocation groups."
+  - source_id: S81-SRC-03
+    role: CURRENT_SOURCE_FLAGS
+    title: lld/ELF/Driver.cpp
+    url: https://raw.githubusercontent.com/llvm/llvm-project/main/lld/ELF/Driver.cpp
+    provenance: LLVM_Project__official_upstream_source
+    observed_ref: main__2026-08-15
+    use: "Shows --relax is default true and --relax-gp default false, with the latter RISC-V-only."
+  - source_id: S81-SRC-04
+    role: SEMANTIC_GUARANTEE
+    title: RISC-V ELF psABI linker relaxation
+    url: https://docs.riscv.org/reference/abi/riscv-elf-linker-relaxation.html
+    provenance: RISC_V_International__official_specification
+    accessed_on: '2026-08-15'
+    use: "Defines legal GP relaxation and its initialization and relocation conditions."
+  - source_id: S81-SRC-05
+    role: NATURAL_CARRIER
+    title: Zephyr Project v4.4.0 release
+    url: https://github.com/zephyrproject-rtos/zephyr/releases/tag/v4.4.0
+    provenance: Zephyr_Project__official_signed_release
+    version: v4.4.0__684c9e8
+    use: "Versioned public RISC-V application/source carrier route; not acquired or built here."
+  - source_id: S81-SRC-06
+    role: CONTRARY_COLLISION_LEAD
+    title: Code size reduction by advanced near addressing modes
+    url: https://arxiv.org/abs/2605.25602
+    provenance: primary_preprint
+    use: "Contrary lead: studies ISA variants for near addressing; it is not assumed to absorb a fixed-current-ISA stock-LLD layout algorithm. Independent Stage 0 must verify."

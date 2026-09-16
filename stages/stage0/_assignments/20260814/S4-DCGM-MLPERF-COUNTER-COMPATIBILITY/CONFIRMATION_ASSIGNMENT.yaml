@@ -1,0 +1,20 @@
+assignment_id: STAGE0-C2-20260814-S4-DCGM-MLPERF-COUNTER-COMPATIBILITY-CONFIRM-V8.7
+mode: INDEPENDENT_CONFIRMATION
+topic_id: S4-DCGM-MLPERF-COUNTER-COMPATIBILITY
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_READY_TO_DISPATCH
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source13-confirmation\S4-DCGM-MLPERF-COUNTER-COMPATIBILITY
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source13-primary\S4-DCGM-MLPERF-COUNTER-COMPATIBILITY
+primary_decision: REVISE_ONCE
+atomic_gate: PINNED_DCGM_NATIVE_GROUP_CONTRACT__MLPERF_PAIRED_WINDOW_CONCLUSION_STABILITY_CERTIFICATE
+primary_hashes: {report: 747953213D0A16CFAC39BC9444416CCE974F9BCB8B2B85891E8C2631D5C92F4D, q1: CC09169368298F27FF78CE13A8A1D0CFFC1E24012921BE1EB4E9B8CD15752BDC, source: 7E2C07CE2EC9BF32A1EBF3A10AA7FCAC454F4990E6BBF5A6213694CF06AF89C1, handoff: 1AE53C46B435204663DD1EFB58056D78A40841F89A8DA67738C4F9440B780572, manifest: 67DE87E2AFD3D339CBCC09D359EF03AE51CDF414DC8587C2CEC03786A5145901}
+independent_attack_requirements:
+  - Verify the exact non-GPM GPU, MLPerf release/model/quality/LoadGen scenario/request stream, SUT, driver and DCGM version can form one versioned same-object observation contract.
+  - Confirm compatible native counter groups and automatic multiplex are two available observation plans under the same workload and quality contract, not a field-selector or controller comparison.
+  - Independently subtract current DCGM functionality and CounterPoint; determine whether either already covers the exact DCGM-native plus MLPerf wall-energy/tail/full-cost paired-window conclusion protocol.
+  - Require randomized paired windows, zero/blank policy, materiality interval, confound controls, held-out model-scenario-GPU falsifier and a consequence capable of changing a ranking, conclusion or benchmark design.
+  - Preserve the measurement-characterization/benchmark-dataset paper entry; do not impose an algorithmic-action requirement merely because this is Stage0.
+forbidden: [revision_execution, hardware_run, experiment, benchmark, build, install, stageA, stageB, shared_control_write]
+required_outputs: [CONFIRMATION_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

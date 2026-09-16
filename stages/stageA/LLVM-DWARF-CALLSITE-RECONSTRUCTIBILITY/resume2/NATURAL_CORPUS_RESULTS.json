@@ -1,0 +1,4158 @@
+{
+  "schema": "llvm-dwarf-natural-corpus-results-v1",
+  "assignment_id": "STAGEA-L3-20260815-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-RESUME2-NONSECURITY-CORPUS",
+  "denominator": 30,
+  "rows": [
+    {
+      "index": 1,
+      "source_relpath": "compiler-rt/lib/builtins/atomic.c",
+      "input": "n01_atomic.bc",
+      "input_sha256": "7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469",
+      "site": {
+        "function": "__atomic_compare_exchange",
+        "bb": 176,
+        "offset": 4,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%131"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.174003600001015,
+        "cpu_seconds": 0.171875,
+        "peak_rss_bytes": 30453760
+      },
+      "planner": {
+        "wall_seconds": 0.00456800000029034,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "E98C77280D4C4A09E673A3F84BF88985299EF474B6DF94B6D1ECCD2231A434C0",
+      "atomic_mapping": {
+        "function": "__atomic_compare_exchange",
+        "bb": 176,
+        "old_call_offset": 4,
+        "new_call_offset": 5,
+        "arg_reg": "rdi",
+        "source_vreg": "%131",
+        "scratch_reg": "rbx",
+        "source_operand": "%131",
+        "inserted_native_actions": [
+          "$rbx=COPY %131",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.17172540000319714,
+        "cpu_seconds": 0.15625,
+        "peak_rss_bytes": 31797248
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.11264049999954295,
+        "cpu_seconds": 0.09375,
+        "peak_rss_bytes": 29544448
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.1675375000013446,
+        "cpu_seconds": 0.1875,
+        "peak_rss_bytes": 31870976
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 42192,
+          "object_sha256": "AD86339086644055B9BB7204EB4DAA3F873A1ECF6A29002CED1E068345A29DC3",
+          "dwarf": {
+            "call_site_parameters": 3,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 5305,
+            "debug_payload_bytes": 15366,
+            "debug_relocation_bytes": 7800,
+            "eh_frame_bytes": 0,
+            "section_count": 24
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.034914399999252055,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10424320
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.028485200000432087,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10330112
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.030777699997997843,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.03493769999840879,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11247616
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.0625,
+            "wall_seconds": 0.12911499999609077,
+            "peak_rss_bytes": 11247616
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.15625,
+            "wall_seconds": 0.17172540000319714,
+            "peak_rss_bytes": 31797248
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 42192,
+          "object_sha256": "3992337D24EA7DBA03D50128DD532139811D9AC725658F65B875CBAF22494533",
+          "dwarf": {
+            "call_site_parameters": 3,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 5305,
+            "debug_payload_bytes": 15366,
+            "debug_relocation_bytes": 7800,
+            "eh_frame_bytes": 0,
+            "section_count": 24
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.0329916000009689,
+              "cpu_seconds": 0.046875,
+              "peak_rss_bytes": 10416128
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.033189099998708116,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10326016
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.03000199999951292,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.044560900001670234,
+              "cpu_seconds": 0.046875,
+              "peak_rss_bytes": 11239424
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.125,
+            "wall_seconds": 0.14074360000086017,
+            "peak_rss_bytes": 11239424
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.1875,
+            "wall_seconds": 0.1675375000013446,
+            "peak_rss_bytes": 31870976
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 0,
+        "text_bytes": 0,
+        "debug_payload_bytes": 0,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 2,
+      "source_relpath": "compiler-rt/lib/builtins/crtbegin.c",
+      "input": "n02_crtbegin.bc",
+      "input_sha256": "3ACA0BFAD12EB308A44C1F236169C3B173045011C9DD4AD9425C86BA6567D141",
+      "site": {
+        "function": "__do_fini",
+        "bb": 2,
+        "offset": 3,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%3"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.04782329999943613,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 26255360
+      },
+      "planner": {
+        "wall_seconds": 0.000668799999402836,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "295FE0980AA8F65ED9963915C2F1F8B37BB12C39114BD81D2D94DC2E595A9E9E",
+      "atomic_mapping": {
+        "function": "__do_fini",
+        "bb": 2,
+        "old_call_offset": 3,
+        "new_call_offset": 4,
+        "arg_reg": "rdi",
+        "source_vreg": "%3",
+        "scratch_reg": "rbx",
+        "source_operand": "%3",
+        "inserted_native_actions": [
+          "$rbx=COPY %3",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.05350499999985914,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25571328
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.04638360000171815,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22368256
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.054543700000067474,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25546752
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 6672,
+          "object_sha256": "D6C1B72A8710E17150AEFA528821778F2B5B9E6EA3E88741CA74923AA6787ACC",
+          "dwarf": {
+            "call_site_parameters": 0,
+            "breg3_call_values": 0,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 181,
+            "debug_payload_bytes": 1998,
+            "debug_relocation_bytes": 1056,
+            "eh_frame_bytes": 0,
+            "section_count": 30
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.02935040000011213,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10395648
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.02890320000005886,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10285056
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.029753200000413926,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 9916416
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.029090800002450123,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11169792
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.09375,
+            "wall_seconds": 0.11709760000303504,
+            "peak_rss_bytes": 11169792
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.05350499999985914,
+            "peak_rss_bytes": 25571328
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 6688,
+          "object_sha256": "D22F56036792FBCC1089A22A674BD37E1CB92917135CEE8F494F63CC9AFE4672",
+          "dwarf": {
+            "call_site_parameters": 1,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 181,
+            "debug_payload_bytes": 2014,
+            "debug_relocation_bytes": 1056,
+            "eh_frame_bytes": 0,
+            "section_count": 30
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.02768379999906756,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10395648
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.02930019999985234,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10297344
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.026671399999031564,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9928704
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.03533820000302512,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11165696
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.09375,
+            "wall_seconds": 0.11899360000097658,
+            "peak_rss_bytes": 11165696
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.054543700000067474,
+            "peak_rss_bytes": 25546752
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 1,
+        "breg3_call_values": 1,
+        "object_bytes": 16,
+        "text_bytes": 0,
+        "debug_payload_bytes": 16,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "PAIRED_NATIVE_RECONSTRUCTIBILITY_GAIN__STATIC_BEHAVIOR_EQUIVALENCE"
+    },
+    {
+      "index": 3,
+      "source_relpath": "compiler-rt/lib/builtins/divtc3.c",
+      "input": "n03_divtc3.bc",
+      "input_sha256": "B81E83BF5421685316235761B1463D382F25D5D519675F39E1690E19E84CA410",
+      "site": {
+        "function": "__divtc3",
+        "bb": 8,
+        "offset": 3,
+        "arg": 0,
+        "arg_reg": "edi",
+        "source_vreg": "%3"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.07096929999897839,
+        "cpu_seconds": 0.09375,
+        "peak_rss_bytes": 28741632
+      },
+      "planner": {
+        "wall_seconds": 0.0022525000022142194,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "FE06C4DEB4E65BDE2CB985B3E2363DEACF00B4B106F3949AA9152B16FABBD231",
+      "atomic_mapping": {
+        "function": "__divtc3",
+        "bb": 8,
+        "old_call_offset": 3,
+        "new_call_offset": 4,
+        "arg_reg": "edi",
+        "source_vreg": "%3",
+        "scratch_reg": "ebx",
+        "source_operand": "%3.sub_32bit",
+        "inserted_native_actions": [
+          "$ebx=COPY %3.sub_32bit",
+          "$edi=COPY $ebx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 1,
+        "wall_seconds": 0.05676359999779379,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 26185728
+      },
+      "candidate_machine_verifier": {
+        "exit": 1,
+        "wall_seconds": 0.056730699998297496,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 25542656
+      },
+      "candidate_writer": {
+        "exit": 1,
+        "wall_seconds": 0.05758290000085253,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 26177536
+      },
+      "disposition": "NATIVE_LEGALITY_OR_WRITER_FAILURE__COUNTED_IN_DENOMINATOR",
+      "error_head": "error: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n03_divtc3\\common_prera.mir: __divtc3 instruction offset out of range. Unable to reference instruction at bb: 5 at offset:4\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n03_divtc3\\site_03\\candidate.mir: __divtc3 instruction offset out of range. Unable to reference instruction at bb: 5 at offset:4\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n03_divtc3\\site_03\\candidate.mir: __divtc3 instruction offset out of range. Unable to reference instruction at bb: 5 at offset:4\r\n\r\n"
+    },
+    {
+      "index": 4,
+      "source_relpath": "compiler-rt/lib/builtins/divxc3.c",
+      "input": "n04_divxc3.bc",
+      "input_sha256": "1A9AB16C0A7674CAA20999713662E0D73885CA66179BD7B40698500F3900553C",
+      "site": {
+        "function": "__divxc3",
+        "bb": 1,
+        "offset": 14,
+        "arg": 1,
+        "arg_reg": "edi",
+        "source_vreg": "%44"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.052971000000979984,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 26914816
+      },
+      "planner": {
+        "wall_seconds": 0.0012734000010823365,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "F3A8A3ED18802440EB39CFE9639A0C527BA894106B14E4C9429E0328BA21F8ED",
+      "atomic_mapping": {
+        "function": "__divxc3",
+        "bb": 1,
+        "old_call_offset": 14,
+        "new_call_offset": 15,
+        "arg_reg": "edi",
+        "source_vreg": "%44",
+        "scratch_reg": "ebx",
+        "source_operand": "%44",
+        "inserted_native_actions": [
+          "$ebx=COPY %44",
+          "$edi=COPY $ebx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 1,
+        "wall_seconds": 0.04754309999771067,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23572480
+      },
+      "candidate_machine_verifier": {
+        "exit": 1,
+        "wall_seconds": 0.04617119999966235,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22945792
+      },
+      "candidate_writer": {
+        "exit": 1,
+        "wall_seconds": 0.05090399999971851,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23580672
+      },
+      "disposition": "NATIVE_LEGALITY_OR_WRITER_FAILURE__COUNTED_IN_DENOMINATOR",
+      "error_head": "error: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n04_divxc3\\common_prera.mir: __divxc3 instruction offset out of range. Unable to reference instruction at bb: 1 at offset:14\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n04_divxc3\\site_04\\candidate.mir: __divxc3 instruction offset out of range. Unable to reference instruction at bb: 1 at offset:15\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n04_divxc3\\site_04\\candidate.mir: __divxc3 instruction offset out of range. Unable to reference instruction at bb: 1 at offset:15\r\n\r\n"
+    },
+    {
+      "index": 5,
+      "source_relpath": "compiler-rt/lib/builtins/floattidf.c",
+      "input": "n05_floattidf.bc",
+      "input_sha256": "8BB520F4746A23BC2C71334CAE3191DCE7B8B9DB300C03A494B0D181331FFF8E",
+      "site": {
+        "function": "__floattidf",
+        "bb": 2,
+        "offset": 15,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%2"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.04719879999902332,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25948160
+      },
+      "planner": {
+        "wall_seconds": 0.000654499999654945,
+        "cpu_seconds": 0.015625,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "56DC341C0AFD14530D370247C1F673B069820398100F34B167BDA74E39DE7E2E",
+      "atomic_mapping": {
+        "function": "__floattidf",
+        "bb": 2,
+        "old_call_offset": 15,
+        "new_call_offset": 16,
+        "arg_reg": "rdi",
+        "source_vreg": "%2",
+        "scratch_reg": "rbx",
+        "source_operand": "%2",
+        "inserted_native_actions": [
+          "$rbx=COPY %2",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.047757000000274274,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 25415680
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.04508290000012494,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22638592
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.0476678000013635,
+        "cpu_seconds": 0.0625,
+        "peak_rss_bytes": 25530368
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 6904,
+          "object_sha256": "BB33D484F8C72CE0C23D4F26F103EABD102204AFC11BF988828B23D065F74F86",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 277,
+            "debug_payload_bytes": 2999,
+            "debug_relocation_bytes": 1512,
+            "eh_frame_bytes": 0,
+            "section_count": 22
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.029349399999773595,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10424320
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.028989700000238372,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10321920
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.028608799999346957,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.03169839999827673,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11235328
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.078125,
+            "wall_seconds": 0.11864629999763565,
+            "peak_rss_bytes": 11235328
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.046875,
+            "wall_seconds": 0.047757000000274274,
+            "peak_rss_bytes": 25415680
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 6904,
+          "object_sha256": "6AF94A3524542EDA36E08A49410D5166A44B5D05D9096A9C2BBB31D309A246F5",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 276,
+            "debug_payload_bytes": 2999,
+            "debug_relocation_bytes": 1512,
+            "eh_frame_bytes": 0,
+            "section_count": 22
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.027707400000508642,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10416128
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.026990599999408005,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10321920
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.02926120000120136,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9920512
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.02983710000262363,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11231232
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.078125,
+            "wall_seconds": 0.11379630000374164,
+            "peak_rss_bytes": 11231232
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.0625,
+            "wall_seconds": 0.0476678000013635,
+            "peak_rss_bytes": 25530368
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 0,
+        "text_bytes": -1,
+        "debug_payload_bytes": 0,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 6,
+      "source_relpath": "compiler-rt/lib/builtins/floattisf.c",
+      "input": "n06_floattisf.bc",
+      "input_sha256": "CE5AD6FA61065C4E5A33C02075DA97391E3927A35F4D594A2466680F8CC3F76E",
+      "site": {
+        "function": "__floattisf",
+        "bb": 2,
+        "offset": 15,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%2"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.04266199999983655,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25874432
+      },
+      "planner": {
+        "wall_seconds": 0.0004227999997965526,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "E0AF6A962FD0F12AAFF8D7014733D8CDBA1A858F2561457BB8AF3E5561E33E95",
+      "atomic_mapping": {
+        "function": "__floattisf",
+        "bb": 2,
+        "old_call_offset": 15,
+        "new_call_offset": 16,
+        "arg_reg": "rdi",
+        "source_vreg": "%2",
+        "scratch_reg": "rbx",
+        "source_operand": "%2",
+        "inserted_native_actions": [
+          "$rbx=COPY %2",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.047430599999643164,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25493504
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.04635390000112238,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22638592
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.04868679999708547,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25497600
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 6848,
+          "object_sha256": "9F9FB05EE6E48728D6C08B98E11F75D98362806F51E83D1BB73850EA48BA7516",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 240,
+            "debug_payload_bytes": 2999,
+            "debug_relocation_bytes": 1488,
+            "eh_frame_bytes": 0,
+            "section_count": 22
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.03085830000054557,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10412032
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.027950700001383666,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10334208
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.02716830000281334,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9920512
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.030462599999736995,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11218944
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.078125,
+            "wall_seconds": 0.11643990000447957,
+            "peak_rss_bytes": 11218944
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.047430599999643164,
+            "peak_rss_bytes": 25493504
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 6848,
+          "object_sha256": "9F9FB05EE6E48728D6C08B98E11F75D98362806F51E83D1BB73850EA48BA7516",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 240,
+            "debug_payload_bytes": 2999,
+            "debug_relocation_bytes": 1488,
+            "eh_frame_bytes": 0,
+            "section_count": 22
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.029415500001050532,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10407936
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.02941129999817349,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10330112
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.030830099996819627,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.033591100000194274,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11210752
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.0625,
+            "wall_seconds": 0.12324799999623792,
+            "peak_rss_bytes": 11210752
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.04868679999708547,
+            "peak_rss_bytes": 25497600
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 0,
+        "text_bytes": 0,
+        "debug_payload_bytes": 0,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 7,
+      "source_relpath": "compiler-rt/lib/builtins/floattitf.c",
+      "input": "n07_floattitf.bc",
+      "input_sha256": "0E8629A1A302B93E1493D3E8AD4B46C1C423556D25E7B882A23C34DBF11674EE",
+      "site": {
+        "function": "__floattitf",
+        "bb": 2,
+        "offset": 15,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%2"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.044856299999082694,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 26140672
+      },
+      "planner": {
+        "wall_seconds": 0.000441699998191325,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "3EA59C5F58FE6C99E0E0079B3B230B7F3697DBD6262F75EC349B9F07A6A29AE5",
+      "atomic_mapping": {
+        "function": "__floattitf",
+        "bb": 2,
+        "old_call_offset": 15,
+        "new_call_offset": 16,
+        "arg_reg": "rdi",
+        "source_vreg": "%2",
+        "scratch_reg": "rbx",
+        "source_operand": "%2",
+        "inserted_native_actions": [
+          "$rbx=COPY %2",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.05191399999966961,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 25604096
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.045078499999362975,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22818816
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.04793539999809582,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25591808
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 6552,
+          "object_sha256": "CAF44602B81FD80F96B52FF534A61C1282CE9A84F6876E817D154EA052541A40",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 303,
+            "debug_payload_bytes": 2762,
+            "debug_relocation_bytes": 1368,
+            "eh_frame_bytes": 0,
+            "section_count": 22
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.03001819999917643,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10412032
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.028524600002128864,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10334208
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.028059400003257906,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 9916416
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.03072489999976824,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11235328
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.09375,
+            "wall_seconds": 0.11732710000433144,
+            "peak_rss_bytes": 11235328
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.046875,
+            "wall_seconds": 0.05191399999966961,
+            "peak_rss_bytes": 25604096
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 6552,
+          "object_sha256": "926E3E69CCFBBBC0E7BA42538356E1373407E77918668F577FF0B045D608D1A9",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 302,
+            "debug_payload_bytes": 2762,
+            "debug_relocation_bytes": 1368,
+            "eh_frame_bytes": 0,
+            "section_count": 22
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.029215899998234818,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10412032
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.028241799998795614,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10330112
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.02750259999811533,
+              "cpu_seconds": 0.0,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.029615999999805354,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11218944
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.0625,
+            "wall_seconds": 0.11457629999495111,
+            "peak_rss_bytes": 11218944
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.04793539999809582,
+            "peak_rss_bytes": 25591808
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 0,
+        "text_bytes": -1,
+        "debug_payload_bytes": 0,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 8,
+      "source_relpath": "compiler-rt/lib/builtins/floattixf.c",
+      "input": "n08_floattixf.bc",
+      "input_sha256": "7CE8854D690D539DEFBFEE27B2456EA95AF740123E46DED53565F0040D2302B7",
+      "site": {
+        "function": "__floattixf",
+        "bb": 1,
+        "offset": 14,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%2"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.04626790000111214,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 26431488
+      },
+      "planner": {
+        "wall_seconds": 0.00040689999877940863,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "F7730A223F68B81C3514A9FED669289E18A97D9998D420C1570FD85EE5A33355",
+      "atomic_mapping": {
+        "function": "__floattixf",
+        "bb": 1,
+        "old_call_offset": 14,
+        "new_call_offset": 15,
+        "arg_reg": "rdi",
+        "source_vreg": "%2",
+        "scratch_reg": "rbx",
+        "source_operand": "%2",
+        "inserted_native_actions": [
+          "$rbx=COPY %2",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.04755690000092727,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25526272
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.043205400001170347,
+        "cpu_seconds": 0.015625,
+        "peak_rss_bytes": 22663168
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.046881399997801054,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25534464
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 5736,
+          "object_sha256": "8792F2C01072E1D947ED87B9904B00D581546B9068C77A2EC7E84C60696F832B",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 266,
+            "debug_payload_bytes": 2250,
+            "debug_relocation_bytes": 1200,
+            "eh_frame_bytes": 0,
+            "section_count": 21
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.030205400002159877,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10412032
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.02888609999718028,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10301440
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.029785700000502402,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.030764499999349937,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11231232
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.09375,
+            "wall_seconds": 0.1196416999991925,
+            "peak_rss_bytes": 11231232
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.04755690000092727,
+            "peak_rss_bytes": 25526272
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 5736,
+          "object_sha256": "B163767337789FBCB8499419A8569CCCAFD03CBD12A3B015FFB76D02386C833E",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 266,
+            "debug_payload_bytes": 2250,
+            "debug_relocation_bytes": 1200,
+            "eh_frame_bytes": 0,
+            "section_count": 21
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.029469999997672858,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10379264
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.028124700002081227,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10301440
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.02970629999981611,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9920512
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.02997719999984838,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11223040
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.078125,
+            "wall_seconds": 0.11727819999941858,
+            "peak_rss_bytes": 11223040
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.046881399997801054,
+            "peak_rss_bytes": 25534464
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 0,
+        "text_bytes": 0,
+        "debug_payload_bytes": 0,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 9,
+      "source_relpath": "compiler-rt/lib/builtins/floatuntidf.c",
+      "input": "n09_floatuntidf.bc",
+      "input_sha256": "9A4AD0F8BD7F9B3EFA819FE89C7070318E7F8C740210C78DB5B5A118EA36255C",
+      "site": {
+        "function": "__floatuntidf",
+        "bb": 2,
+        "offset": 8,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%65"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.04595069999777479,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25878528
+      },
+      "planner": {
+        "wall_seconds": 0.0006007000010868069,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "3C71E6928DB31AE542037DB8F09E49962D9F924C6DD45836F43836A302E5D9E7",
+      "atomic_mapping": {
+        "function": "__floatuntidf",
+        "bb": 2,
+        "old_call_offset": 8,
+        "new_call_offset": 9,
+        "arg_reg": "rdi",
+        "source_vreg": "%65",
+        "scratch_reg": "rbx",
+        "source_operand": "%65",
+        "inserted_native_actions": [
+          "$rbx=COPY %65",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.04816199999913806,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25423872
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.044681800001853844,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22532096
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.04870459999801824,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25427968
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 6904,
+          "object_sha256": "A58A89C0B3AA9EDE66411F24A9DB7ABCE38D041CD4531D687E78C8EC27B86FE0",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 227,
+            "debug_payload_bytes": 3044,
+            "debug_relocation_bytes": 1512,
+            "eh_frame_bytes": 0,
+            "section_count": 22
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.02838539999720524,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10428416
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.02989489999890793,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10313728
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.0276813000018592,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 9920512
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.031033499999466585,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11214848
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.09375,
+            "wall_seconds": 0.11699509999743896,
+            "peak_rss_bytes": 11214848
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.04816199999913806,
+            "peak_rss_bytes": 25423872
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 6904,
+          "object_sha256": "F0CDBBF1EAED9A2A11CA8ADBB43D9730FFF36811857AAE00D053354C3F732CCC",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 226,
+            "debug_payload_bytes": 3044,
+            "debug_relocation_bytes": 1512,
+            "eh_frame_bytes": 0,
+            "section_count": 22
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.029597800003102748,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10416128
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.032770900001196424,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10313728
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.03035470000031637,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.0333000999999058,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11214848
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.078125,
+            "wall_seconds": 0.12602350000452134,
+            "peak_rss_bytes": 11214848
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.04870459999801824,
+            "peak_rss_bytes": 25427968
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 0,
+        "text_bytes": -1,
+        "debug_payload_bytes": 0,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 10,
+      "source_relpath": "compiler-rt/lib/builtins/floatuntisf.c",
+      "input": "n10_floatuntisf.bc",
+      "input_sha256": "9BE04A85D9D82067DF87E0FA40FEAEE4D1D3CE6CE71BB4BAB9717BD500AF7EB5",
+      "site": {
+        "function": "__floatuntisf",
+        "bb": 2,
+        "offset": 8,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%69"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.045511600001191255,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25792512
+      },
+      "planner": {
+        "wall_seconds": 0.0005736999992222991,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "41242DC02DD2C45492640CECB222EBC517261A480598F94469F6D04EFA051FC6",
+      "atomic_mapping": {
+        "function": "__floatuntisf",
+        "bb": 2,
+        "old_call_offset": 8,
+        "new_call_offset": 9,
+        "arg_reg": "rdi",
+        "source_vreg": "%69",
+        "scratch_reg": "rbx",
+        "source_operand": "%69",
+        "inserted_native_actions": [
+          "$rbx=COPY %69",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.047432300001673866,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25505792
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.04240799999752198,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22532096
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.04732779999903869,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25501696
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 6848,
+          "object_sha256": "9663BCEBF042B8D8A88A455EB9F21AFE147B70612406389058663BEEEAB4CF08",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 199,
+            "debug_payload_bytes": 3034,
+            "debug_relocation_bytes": 1488,
+            "eh_frame_bytes": 0,
+            "section_count": 22
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.029963699998916127,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10412032
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.0384236999998393,
+              "cpu_seconds": 0.0,
+              "peak_rss_bytes": 10330112
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.028669799998169765,
+              "cpu_seconds": 0.046875,
+              "peak_rss_bytes": 9912320
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.03052139999999781,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11202560
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.09375,
+            "wall_seconds": 0.127578599996923,
+            "peak_rss_bytes": 11202560
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.047432300001673866,
+            "peak_rss_bytes": 25505792
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 6848,
+          "object_sha256": "9663BCEBF042B8D8A88A455EB9F21AFE147B70612406389058663BEEEAB4CF08",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 199,
+            "debug_payload_bytes": 3034,
+            "debug_relocation_bytes": 1488,
+            "eh_frame_bytes": 0,
+            "section_count": 22
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.029420000002573943,
+              "cpu_seconds": 0.0625,
+              "peak_rss_bytes": 10407936
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.03052370000295923,
+              "cpu_seconds": 0.046875,
+              "peak_rss_bytes": 10321920
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.027082000000518747,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.030496499999571824,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11206656
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.140625,
+            "wall_seconds": 0.11752220000562374,
+            "peak_rss_bytes": 11206656
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.04732779999903869,
+            "peak_rss_bytes": 25501696
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 0,
+        "text_bytes": 0,
+        "debug_payload_bytes": 0,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 11,
+      "source_relpath": "compiler-rt/lib/builtins/floatuntitf.c",
+      "input": "n11_floatuntitf.bc",
+      "input_sha256": "6E313E81253F0781464282516E37F69679954305D5FF27FF0E7996CA53976C36",
+      "site": {
+        "function": "__floatuntitf",
+        "bb": 2,
+        "offset": 8,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%70"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.042944600001646904,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 26071040
+      },
+      "planner": {
+        "wall_seconds": 0.0005597999988822266,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "9419E17C1588D4BA2030FC8E2F5EE91B3BB583A3CBEB3B1DAEE196EC475E4921",
+      "atomic_mapping": {
+        "function": "__floatuntitf",
+        "bb": 2,
+        "old_call_offset": 8,
+        "new_call_offset": 9,
+        "arg_reg": "rdi",
+        "source_vreg": "%70",
+        "scratch_reg": "rbx",
+        "source_operand": "%70",
+        "inserted_native_actions": [
+          "$rbx=COPY %70",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.04825649999838788,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 25600000
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.04502850000062608,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22814720
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.045337699997617165,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25587712
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 6512,
+          "object_sha256": "42B3114C77A3F1716169E3F43CD5962024E3362AA6713E85C6854BE443AC0A91",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 258,
+            "debug_payload_bytes": 2764,
+            "debug_relocation_bytes": 1368,
+            "eh_frame_bytes": 0,
+            "section_count": 22
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.030523000001267064,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10412032
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.030885400003171526,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10326016
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.029758799999399344,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9912320
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.030208500000298955,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11214848
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.0625,
+            "wall_seconds": 0.12137570000413689,
+            "peak_rss_bytes": 11214848
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.046875,
+            "wall_seconds": 0.04825649999838788,
+            "peak_rss_bytes": 25600000
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 6512,
+          "object_sha256": "2C6A6F6DA573084EF18C2ADC00A88485844523CFB9843DDF4E17EE4FAD3F3271",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 257,
+            "debug_payload_bytes": 2764,
+            "debug_relocation_bytes": 1368,
+            "eh_frame_bytes": 0,
+            "section_count": 22
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.02737909999996191,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10407936
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.028169400000479072,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10326016
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.030750100002478575,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.029555299999628915,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11231232
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.0625,
+            "wall_seconds": 0.11585390000254847,
+            "peak_rss_bytes": 11231232
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.045337699997617165,
+            "peak_rss_bytes": 25587712
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 0,
+        "text_bytes": -1,
+        "debug_payload_bytes": 0,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 12,
+      "source_relpath": "compiler-rt/lib/builtins/floatuntixf.c",
+      "input": "n12_floatuntixf.bc",
+      "input_sha256": "CF4A70EC8EE092097A8949892BBA02823D7EF67B55E33FFA26546641C6822938",
+      "site": {
+        "function": "__floatuntixf",
+        "bb": 1,
+        "offset": 4,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%60"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.042876499999692896,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 26312704
+      },
+      "planner": {
+        "wall_seconds": 0.0005243000014161225,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "495C95D5FAC5521DBADFE5140622D11F332ADCBE2043F11CE2EC96BB3E8F3C17",
+      "atomic_mapping": {
+        "function": "__floatuntixf",
+        "bb": 1,
+        "old_call_offset": 4,
+        "new_call_offset": 5,
+        "arg_reg": "rdi",
+        "source_vreg": "%60",
+        "scratch_reg": "rbx",
+        "source_operand": "%60",
+        "inserted_native_actions": [
+          "$rbx=COPY %60",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.04639839999799733,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25407488
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.0459313999999722,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 22683648
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.047681700001703575,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25378816
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 5664,
+          "object_sha256": "72AE86C459B094F762158E59C32A08657174F0ABF5C905523BE7B5DA51810442",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 227,
+            "debug_payload_bytes": 2222,
+            "debug_relocation_bytes": 1200,
+            "eh_frame_bytes": 0,
+            "section_count": 21
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.029099999999743886,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10375168
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.029919799999333918,
+              "cpu_seconds": 0.0,
+              "peak_rss_bytes": 10285056
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.02789140000095358,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9920512
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.029877699998905882,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11231232
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.046875,
+            "wall_seconds": 0.11678889999893727,
+            "peak_rss_bytes": 11231232
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.04639839999799733,
+            "peak_rss_bytes": 25407488
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 5664,
+          "object_sha256": "B3862AC00589347D9125FCC87C1864AF4669F9A98CBF530FF3F263B27F3DA0F1",
+          "dwarf": {
+            "call_site_parameters": 2,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 227,
+            "debug_payload_bytes": 2222,
+            "debug_relocation_bytes": 1200,
+            "eh_frame_bytes": 0,
+            "section_count": 21
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.029332199999771547,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10387456
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.030068000000028405,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10305536
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.026922900000499794,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9940992
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.03387540000039735,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11223040
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.078125,
+            "wall_seconds": 0.1201985000006971,
+            "peak_rss_bytes": 11223040
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.047681700001703575,
+            "peak_rss_bytes": 25378816
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 0,
+        "text_bytes": 0,
+        "debug_payload_bytes": 0,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 13,
+      "source_relpath": "compiler-rt/lib/builtins/gcc_personality_v0.c",
+      "input": "n13_gcc_personality_v0.bc",
+      "input_sha256": "75B11C82E3C3ACCA90B6812AE50A69F9B7165DAD6134B2128DC5C80AF65F971F",
+      "site": {
+        "function": "__gcc_personality_v0",
+        "bb": 1,
+        "offset": 2,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%33"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.049343900001986185,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 27840512
+      },
+      "planner": {
+        "wall_seconds": 0.0007572000031359494,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "C0E472C66C8C12F897505955F923A56E7F78898909F5CE46D29872DFF4B957EE",
+      "atomic_mapping": {
+        "function": "__gcc_personality_v0",
+        "bb": 1,
+        "old_call_offset": 2,
+        "new_call_offset": 3,
+        "arg_reg": "rdi",
+        "source_vreg": "%33",
+        "scratch_reg": "rbx",
+        "source_operand": "%33",
+        "inserted_native_actions": [
+          "$rbx=COPY %33",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 1,
+        "wall_seconds": 0.04557139999815263,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23261184
+      },
+      "candidate_machine_verifier": {
+        "exit": 1,
+        "wall_seconds": 0.04445560000021942,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22618112
+      },
+      "candidate_writer": {
+        "exit": 1,
+        "wall_seconds": 0.0454619999982242,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 23273472
+      },
+      "disposition": "NATIVE_LEGALITY_OR_WRITER_FAILURE__COUNTED_IN_DENOMINATOR",
+      "error_head": "error: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\common_prera.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\site_13\\candidate.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\site_13\\candidate.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\n"
+    },
+    {
+      "index": 14,
+      "source_relpath": "compiler-rt/lib/builtins/muloti4.c",
+      "input": "n14_muloti4.bc",
+      "input_sha256": "E6E625E64D6A00FC62880FB009DC00CBED30D3EAEBC7E8A9CFF66E1B1832F829",
+      "site": {
+        "function": "__muloti4",
+        "bb": 6,
+        "offset": 6,
+        "arg": 1,
+        "arg_reg": "rsi",
+        "source_vreg": "%45"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.04142090000095777,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25366528
+      },
+      "planner": {
+        "wall_seconds": 0.0006366000015987083,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "314C1D1EC441C1C7261AFAF13082E8E02F82212F7987A3A04998641B8CEAB7B1",
+      "atomic_mapping": {
+        "function": "__muloti4",
+        "bb": 6,
+        "old_call_offset": 6,
+        "new_call_offset": 7,
+        "arg_reg": "rsi",
+        "source_vreg": "%45",
+        "scratch_reg": "rbx",
+        "source_operand": "%45",
+        "inserted_native_actions": [
+          "$rbx=COPY %45",
+          "$rsi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.048134299999219365,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 25337856
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.04447780000191415,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22306816
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.045826199999282835,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25346048
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 5272,
+          "object_sha256": "0A559D401CA629034F02AF13C8AAB6C4B5574D22D850794259A214C469F60914",
+          "dwarf": {
+            "call_site_parameters": 0,
+            "breg3_call_values": 0,
+            "call_sites": 0
+          },
+          "sections": {
+            "text_bytes": 314,
+            "debug_payload_bytes": 2055,
+            "debug_relocation_bytes": 888,
+            "eh_frame_bytes": 0,
+            "section_count": 21
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.02896879999752855,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10399744
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.02996319999874686,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10297344
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.02969210000082967,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.03162019999945187,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11173888
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.109375,
+            "wall_seconds": 0.12024429999655695,
+            "peak_rss_bytes": 11173888
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.046875,
+            "wall_seconds": 0.048134299999219365,
+            "peak_rss_bytes": 25337856
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 5280,
+          "object_sha256": "EC01ACEB63DE4141734019F4445F46EE20B14C03FFF169B6E85F048E414E7BA0",
+          "dwarf": {
+            "call_site_parameters": 0,
+            "breg3_call_values": 0,
+            "call_sites": 0
+          },
+          "sections": {
+            "text_bytes": 318,
+            "debug_payload_bytes": 2057,
+            "debug_relocation_bytes": 888,
+            "eh_frame_bytes": 0,
+            "section_count": 21
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.028181199999380624,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10391552
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.028450000001612352,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10293248
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.028127899997343775,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.027943400000367546,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11182080
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.078125,
+            "wall_seconds": 0.1127024999987043,
+            "peak_rss_bytes": 11182080
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.045826199999282835,
+            "peak_rss_bytes": 25346048
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 8,
+        "text_bytes": 4,
+        "debug_payload_bytes": 2,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 15,
+      "source_relpath": "compiler-rt/lib/builtins/mulvti3.c",
+      "input": "n15_mulvti3.bc",
+      "input_sha256": "426FB91D9FFC2154772A34E180D077CD53467A402E3A00803BEA0388FF2A2AB8",
+      "site": {
+        "function": "__mulvti3",
+        "bb": 10,
+        "offset": 6,
+        "arg": 1,
+        "arg_reg": "rsi",
+        "source_vreg": "%55"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.0454275999982201,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25579520
+      },
+      "planner": {
+        "wall_seconds": 0.0007346000020334031,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "593CA9E613DF4E29247D4BFD753448C1D2B782AD9D565D8281BD3385F6E4D025",
+      "atomic_mapping": {
+        "function": "__mulvti3",
+        "bb": 10,
+        "old_call_offset": 6,
+        "new_call_offset": 7,
+        "arg_reg": "rsi",
+        "source_vreg": "%55",
+        "scratch_reg": "rbx",
+        "source_operand": "%55",
+        "inserted_native_actions": [
+          "$rbx=COPY %55",
+          "$rsi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.051252900000690715,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25722880
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.044533899999805726,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22544384
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.048066400002426235,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25735168
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 6608,
+          "object_sha256": "80B3C53584472C6DE6F2F39F2E93EE1F71AD3AB2D2A864C46F82509E129BF52C",
+          "dwarf": {
+            "call_site_parameters": 0,
+            "breg3_call_values": 0,
+            "call_sites": 0
+          },
+          "sections": {
+            "text_bytes": 433,
+            "debug_payload_bytes": 2461,
+            "debug_relocation_bytes": 936,
+            "eh_frame_bytes": 0,
+            "section_count": 23
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.031175600001006387,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10436608
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.032782700000097975,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10313728
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.033186700002261205,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9916416
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.03319030000056955,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11177984
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.078125,
+            "wall_seconds": 0.13033530000393512,
+            "peak_rss_bytes": 11177984
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.051252900000690715,
+            "peak_rss_bytes": 25722880
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 6616,
+          "object_sha256": "DA50C844ADE53211E406A7D76FEAE325B2319891EB612B89D7E6982AA24C7516",
+          "dwarf": {
+            "call_site_parameters": 0,
+            "breg3_call_values": 0,
+            "call_sites": 0
+          },
+          "sections": {
+            "text_bytes": 441,
+            "debug_payload_bytes": 2467,
+            "debug_relocation_bytes": 936,
+            "eh_frame_bytes": 0,
+            "section_count": 23
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.029296800003066892,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10420224
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.028028600001562154,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10313728
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.02946449999944889,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9920512
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.030728800000360934,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11182080
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.09375,
+            "wall_seconds": 0.11751870000443887,
+            "peak_rss_bytes": 11182080
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.048066400002426235,
+            "peak_rss_bytes": 25735168
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 8,
+        "text_bytes": 8,
+        "debug_payload_bytes": 6,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 16,
+      "source_relpath": "compiler-rt/lib/builtins/atomic.c",
+      "input": "n01_atomic.bc",
+      "input_sha256": "7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469",
+      "site": {
+        "function": "__atomic_compare_exchange",
+        "bb": 177,
+        "offset": 4,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%131"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.174003600001015,
+        "cpu_seconds": 0.171875,
+        "peak_rss_bytes": 30453760
+      },
+      "planner": {
+        "wall_seconds": 0.004115899999305839,
+        "cpu_seconds": 0.015625,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "6CA11F97C57EE1726CF80563080FEF8E7F6D04F4E4C51205E69C27CE6B731891",
+      "atomic_mapping": {
+        "function": "__atomic_compare_exchange",
+        "bb": 177,
+        "old_call_offset": 4,
+        "new_call_offset": 5,
+        "arg_reg": "rdi",
+        "source_vreg": "%131",
+        "scratch_reg": "rbx",
+        "source_operand": "%131",
+        "inserted_native_actions": [
+          "$rbx=COPY %131",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.15912799999932759,
+        "cpu_seconds": 0.15625,
+        "peak_rss_bytes": 31776768
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.11709379999956582,
+        "cpu_seconds": 0.09375,
+        "peak_rss_bytes": 29593600
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.16909369999848423,
+        "cpu_seconds": 0.1875,
+        "peak_rss_bytes": 31723520
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 42192,
+          "object_sha256": "AD86339086644055B9BB7204EB4DAA3F873A1ECF6A29002CED1E068345A29DC3",
+          "dwarf": {
+            "call_site_parameters": 3,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 5305,
+            "debug_payload_bytes": 15366,
+            "debug_relocation_bytes": 7800,
+            "eh_frame_bytes": 0,
+            "section_count": 24
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.036772600000404054,
+              "cpu_seconds": 0.078125,
+              "peak_rss_bytes": 10420224
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.030981800002336968,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10317824
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.028561300001456402,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 9940992
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.03830969999762601,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11243520
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.15625,
+            "wall_seconds": 0.13462540000182344,
+            "peak_rss_bytes": 11243520
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.15625,
+            "wall_seconds": 0.15912799999932759,
+            "peak_rss_bytes": 31776768
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 42200,
+          "object_sha256": "CA1AFF147EEDC373E293D3433CA3898CAA0953DEAAD892578FA37AF41D5AB3A4",
+          "dwarf": {
+            "call_site_parameters": 3,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 5305,
+            "debug_payload_bytes": 15380,
+            "debug_relocation_bytes": 7800,
+            "eh_frame_bytes": 0,
+            "section_count": 24
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.033239700002013706,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10428416
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.03306660000089323,
+              "cpu_seconds": 0.0625,
+              "peak_rss_bytes": 10317824
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.029485400002158713,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9928704
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.037275999999110354,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11251712
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.125,
+            "wall_seconds": 0.133067700004176,
+            "peak_rss_bytes": 11251712
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.1875,
+            "wall_seconds": 0.16909369999848423,
+            "peak_rss_bytes": 31723520
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 8,
+        "text_bytes": 0,
+        "debug_payload_bytes": 14,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 17,
+      "source_relpath": "compiler-rt/lib/builtins/divtc3.c",
+      "input": "n03_divtc3.bc",
+      "input_sha256": "B81E83BF5421685316235761B1463D382F25D5D519675F39E1690E19E84CA410",
+      "site": {
+        "function": "__divtc3",
+        "bb": 9,
+        "offset": 42,
+        "arg": 0,
+        "arg_reg": "edi",
+        "source_vreg": "%1"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.07096929999897839,
+        "cpu_seconds": 0.09375,
+        "peak_rss_bytes": 28741632
+      },
+      "planner": {
+        "wall_seconds": 0.0027515000001585577,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "E590B902F80C973FDD54CC45077ECF86A6622A9B883AF6DFA6A291267E52730C",
+      "atomic_mapping": {
+        "function": "__divtc3",
+        "bb": 9,
+        "old_call_offset": 42,
+        "new_call_offset": 43,
+        "arg_reg": "edi",
+        "source_vreg": "%1",
+        "scratch_reg": "ebx",
+        "source_operand": "%1.sub_32bit",
+        "inserted_native_actions": [
+          "$ebx=COPY %1.sub_32bit",
+          "$edi=COPY $ebx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 1,
+        "wall_seconds": 0.06325969999670633,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 26148864
+      },
+      "candidate_machine_verifier": {
+        "exit": 1,
+        "wall_seconds": 0.05816340000092168,
+        "cpu_seconds": 0.0625,
+        "peak_rss_bytes": 25522176
+      },
+      "candidate_writer": {
+        "exit": 1,
+        "wall_seconds": 0.05824159999974654,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 26148864
+      },
+      "disposition": "NATIVE_LEGALITY_OR_WRITER_FAILURE__COUNTED_IN_DENOMINATOR",
+      "error_head": "error: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n03_divtc3\\common_prera.mir: __divtc3 instruction offset out of range. Unable to reference instruction at bb: 5 at offset:4\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n03_divtc3\\site_17\\candidate.mir: __divtc3 instruction offset out of range. Unable to reference instruction at bb: 5 at offset:4\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n03_divtc3\\site_17\\candidate.mir: __divtc3 instruction offset out of range. Unable to reference instruction at bb: 5 at offset:4\r\n\r\n"
+    },
+    {
+      "index": 18,
+      "source_relpath": "compiler-rt/lib/builtins/divxc3.c",
+      "input": "n04_divxc3.bc",
+      "input_sha256": "1A9AB16C0A7674CAA20999713662E0D73885CA66179BD7B40698500F3900553C",
+      "site": {
+        "function": "__divxc3",
+        "bb": 1,
+        "offset": 21,
+        "arg": 1,
+        "arg_reg": "edi",
+        "source_vreg": "%44"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.052971000000979984,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 26914816
+      },
+      "planner": {
+        "wall_seconds": 0.0008761000026424881,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "A33A81C29DF1680B2BAE4AAB1C4EF54F2088E8CDA80441BEA5942871A2250AD3",
+      "atomic_mapping": {
+        "function": "__divxc3",
+        "bb": 1,
+        "old_call_offset": 21,
+        "new_call_offset": 22,
+        "arg_reg": "edi",
+        "source_vreg": "%44",
+        "scratch_reg": "ebx",
+        "source_operand": "%44",
+        "inserted_native_actions": [
+          "$ebx=COPY %44",
+          "$edi=COPY $ebx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 1,
+        "wall_seconds": 0.046075000002019806,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 23576576
+      },
+      "candidate_machine_verifier": {
+        "exit": 1,
+        "wall_seconds": 0.046307300002808915,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22953984
+      },
+      "candidate_writer": {
+        "exit": 1,
+        "wall_seconds": 0.04747060000227066,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23580672
+      },
+      "disposition": "NATIVE_LEGALITY_OR_WRITER_FAILURE__COUNTED_IN_DENOMINATOR",
+      "error_head": "error: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n04_divxc3\\common_prera.mir: __divxc3 instruction offset out of range. Unable to reference instruction at bb: 1 at offset:14\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n04_divxc3\\site_18\\candidate.mir: __divxc3 instruction offset out of range. Unable to reference instruction at bb: 1 at offset:14\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n04_divxc3\\site_18\\candidate.mir: __divxc3 instruction offset out of range. Unable to reference instruction at bb: 1 at offset:14\r\n\r\n"
+    },
+    {
+      "index": 19,
+      "source_relpath": "compiler-rt/lib/builtins/gcc_personality_v0.c",
+      "input": "n13_gcc_personality_v0.bc",
+      "input_sha256": "75B11C82E3C3ACCA90B6812AE50A69F9B7165DAD6134B2128DC5C80AF65F971F",
+      "site": {
+        "function": "__gcc_personality_v0",
+        "bb": 3,
+        "offset": 3,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%33"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.049343900001986185,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 27840512
+      },
+      "planner": {
+        "wall_seconds": 0.0008463999984087422,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "BB076878CBEACF8DE568973DF5681A88A5CAF09C6D0C8F152B1B96A4AE8982C1",
+      "atomic_mapping": {
+        "function": "__gcc_personality_v0",
+        "bb": 3,
+        "old_call_offset": 3,
+        "new_call_offset": 4,
+        "arg_reg": "rdi",
+        "source_vreg": "%33",
+        "scratch_reg": "rbx",
+        "source_operand": "%33",
+        "inserted_native_actions": [
+          "$rbx=COPY %33",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 1,
+        "wall_seconds": 0.04962149999846588,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23289856
+      },
+      "candidate_machine_verifier": {
+        "exit": 1,
+        "wall_seconds": 0.04572270000062417,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22638592
+      },
+      "candidate_writer": {
+        "exit": 1,
+        "wall_seconds": 0.04717270000037388,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23265280
+      },
+      "disposition": "NATIVE_LEGALITY_OR_WRITER_FAILURE__COUNTED_IN_DENOMINATOR",
+      "error_head": "error: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\common_prera.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\site_19\\candidate.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\site_19\\candidate.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\n"
+    },
+    {
+      "index": 20,
+      "source_relpath": "compiler-rt/lib/builtins/muloti4.c",
+      "input": "n14_muloti4.bc",
+      "input_sha256": "E6E625E64D6A00FC62880FB009DC00CBED30D3EAEBC7E8A9CFF66E1B1832F829",
+      "site": {
+        "function": "__muloti4",
+        "bb": 7,
+        "offset": 6,
+        "arg": 1,
+        "arg_reg": "rsi",
+        "source_vreg": "%39"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.04142090000095777,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25366528
+      },
+      "planner": {
+        "wall_seconds": 0.0006581000016012695,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "4C6C4166A37D6E78286AB7C2BF9B0FA65A41BD5D1C1738765B390885690B1189",
+      "atomic_mapping": {
+        "function": "__muloti4",
+        "bb": 7,
+        "old_call_offset": 6,
+        "new_call_offset": 7,
+        "arg_reg": "rsi",
+        "source_vreg": "%39",
+        "scratch_reg": "rbx",
+        "source_operand": "%39",
+        "inserted_native_actions": [
+          "$rbx=COPY %39",
+          "$rsi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.04624150000017835,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25329664
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.04052690000025905,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22310912
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.04660829999920679,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25358336
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 5272,
+          "object_sha256": "0A559D401CA629034F02AF13C8AAB6C4B5574D22D850794259A214C469F60914",
+          "dwarf": {
+            "call_site_parameters": 0,
+            "breg3_call_values": 0,
+            "call_sites": 0
+          },
+          "sections": {
+            "text_bytes": 314,
+            "debug_payload_bytes": 2055,
+            "debug_relocation_bytes": 888,
+            "eh_frame_bytes": 0,
+            "section_count": 21
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.028381600001011975,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10407936
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.027288500001304783,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10289152
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.026936599999316968,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9920512
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.028942900000402005,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11169792
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.0625,
+            "wall_seconds": 0.11154960000203573,
+            "peak_rss_bytes": 11169792
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.04624150000017835,
+            "peak_rss_bytes": 25329664
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 5280,
+          "object_sha256": "F3A69EFA00B4AFF2DE6C12E14EA760167E378DB6DC1C37875C6E7243F8A40647",
+          "dwarf": {
+            "call_site_parameters": 0,
+            "breg3_call_values": 0,
+            "call_sites": 0
+          },
+          "sections": {
+            "text_bytes": 318,
+            "debug_payload_bytes": 2057,
+            "debug_relocation_bytes": 888,
+            "eh_frame_bytes": 0,
+            "section_count": 21
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.026317900003050454,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10383360
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.02789620000112336,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10293248
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.027423600000474835,
+              "cpu_seconds": 0.0,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.027486099999805447,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11177984
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.046875,
+            "wall_seconds": 0.1091238000044541,
+            "peak_rss_bytes": 11177984
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.04660829999920679,
+            "peak_rss_bytes": 25358336
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 8,
+        "text_bytes": 4,
+        "debug_payload_bytes": 2,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 21,
+      "source_relpath": "compiler-rt/lib/builtins/mulvti3.c",
+      "input": "n15_mulvti3.bc",
+      "input_sha256": "426FB91D9FFC2154772A34E180D077CD53467A402E3A00803BEA0388FF2A2AB8",
+      "site": {
+        "function": "__mulvti3",
+        "bb": 12,
+        "offset": 6,
+        "arg": 1,
+        "arg_reg": "rsi",
+        "source_vreg": "%46"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.0454275999982201,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25579520
+      },
+      "planner": {
+        "wall_seconds": 0.0007465000016964041,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "2AF2AA8F12FFA49E90D72C5B67D382E07D75127966980AC6529FCB910911733B",
+      "atomic_mapping": {
+        "function": "__mulvti3",
+        "bb": 12,
+        "old_call_offset": 6,
+        "new_call_offset": 7,
+        "arg_reg": "rsi",
+        "source_vreg": "%46",
+        "scratch_reg": "rbx",
+        "source_operand": "%46",
+        "inserted_native_actions": [
+          "$rbx=COPY %46",
+          "$rsi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.045178000000305474,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25735168
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.03987820000111242,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22577152
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.04847019999942859,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 25718784
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 6608,
+          "object_sha256": "80B3C53584472C6DE6F2F39F2E93EE1F71AD3AB2D2A864C46F82509E129BF52C",
+          "dwarf": {
+            "call_site_parameters": 0,
+            "breg3_call_values": 0,
+            "call_sites": 0
+          },
+          "sections": {
+            "text_bytes": 433,
+            "debug_payload_bytes": 2461,
+            "debug_relocation_bytes": 936,
+            "eh_frame_bytes": 0,
+            "section_count": 23
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.033032399998774054,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10416128
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.029073999998217914,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10321920
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.030847999998513842,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9916416
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.030462999999144813,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11182080
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.0625,
+            "wall_seconds": 0.12341739999465062,
+            "peak_rss_bytes": 11182080
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.045178000000305474,
+            "peak_rss_bytes": 25735168
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 6616,
+          "object_sha256": "CE1D6CBB67EC03D22E7CFCC0A6E2A977CD2C882C9174262AFDBB282AA3FE3549",
+          "dwarf": {
+            "call_site_parameters": 0,
+            "breg3_call_values": 0,
+            "call_sites": 0
+          },
+          "sections": {
+            "text_bytes": 441,
+            "debug_payload_bytes": 2467,
+            "debug_relocation_bytes": 936,
+            "eh_frame_bytes": 0,
+            "section_count": 23
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.028804799996578367,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10420224
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.03071520000230521,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10326016
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.03085599999758415,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9916416
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.030896000000211643,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11177984
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.0625,
+            "wall_seconds": 0.12127199999667937,
+            "peak_rss_bytes": 11177984
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.03125,
+            "wall_seconds": 0.04847019999942859,
+            "peak_rss_bytes": 25718784
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 8,
+        "text_bytes": 8,
+        "debug_payload_bytes": 6,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 22,
+      "source_relpath": "compiler-rt/lib/builtins/atomic.c",
+      "input": "n01_atomic.bc",
+      "input_sha256": "7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469",
+      "site": {
+        "function": "__atomic_compare_exchange",
+        "bb": 178,
+        "offset": 4,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%132"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.174003600001015,
+        "cpu_seconds": 0.171875,
+        "peak_rss_bytes": 30453760
+      },
+      "planner": {
+        "wall_seconds": 0.004256399999576388,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "D6A5B0811AC9608800C63592ABF8B61B41B941C2A1FF6C3036815545869EFF71",
+      "atomic_mapping": {
+        "function": "__atomic_compare_exchange",
+        "bb": 178,
+        "old_call_offset": 4,
+        "new_call_offset": 5,
+        "arg_reg": "rdi",
+        "source_vreg": "%132",
+        "scratch_reg": "rbx",
+        "source_operand": "%132",
+        "inserted_native_actions": [
+          "$rbx=COPY %132",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.15839580000101705,
+        "cpu_seconds": 0.1875,
+        "peak_rss_bytes": 31834112
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.10157989999788697,
+        "cpu_seconds": 0.109375,
+        "peak_rss_bytes": 29089792
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.15934719999859226,
+        "cpu_seconds": 0.140625,
+        "peak_rss_bytes": 31838208
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 42192,
+          "object_sha256": "AD86339086644055B9BB7204EB4DAA3F873A1ECF6A29002CED1E068345A29DC3",
+          "dwarf": {
+            "call_site_parameters": 3,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 5305,
+            "debug_payload_bytes": 15366,
+            "debug_relocation_bytes": 7800,
+            "eh_frame_bytes": 0,
+            "section_count": 24
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.029379899999185,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10420224
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.0286004999979923,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10330112
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.027307599997584475,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9928704
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.030359199998201802,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11259904
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.078125,
+            "wall_seconds": 0.11564719999296358,
+            "peak_rss_bytes": 11259904
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.1875,
+            "wall_seconds": 0.15839580000101705,
+            "peak_rss_bytes": 31834112
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 42192,
+          "object_sha256": "AD86339086644055B9BB7204EB4DAA3F873A1ECF6A29002CED1E068345A29DC3",
+          "dwarf": {
+            "call_site_parameters": 3,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 5305,
+            "debug_payload_bytes": 15366,
+            "debug_relocation_bytes": 7800,
+            "eh_frame_bytes": 0,
+            "section_count": 24
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.027750699999160133,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10420224
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.02669170000081067,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10334208
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.02699660000143922,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9920512
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.031728199999633944,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11247616
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.0625,
+            "wall_seconds": 0.11316720000104397,
+            "peak_rss_bytes": 11247616
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.140625,
+            "wall_seconds": 0.15934719999859226,
+            "peak_rss_bytes": 31838208
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 0,
+        "text_bytes": 0,
+        "debug_payload_bytes": 0,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 23,
+      "source_relpath": "compiler-rt/lib/builtins/divxc3.c",
+      "input": "n04_divxc3.bc",
+      "input_sha256": "1A9AB16C0A7674CAA20999713662E0D73885CA66179BD7B40698500F3900553C",
+      "site": {
+        "function": "__divxc3",
+        "bb": 2,
+        "offset": 15,
+        "arg": 1,
+        "arg_reg": "edi",
+        "source_vreg": "%208"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.052971000000979984,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 26914816
+      },
+      "planner": {
+        "wall_seconds": 0.0010039000007964205,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "CE4B0DDD3274A29893C73C60AE9AB4211053331E2569E305C750328BC6103649",
+      "atomic_mapping": {
+        "function": "__divxc3",
+        "bb": 2,
+        "old_call_offset": 15,
+        "new_call_offset": 16,
+        "arg_reg": "edi",
+        "source_vreg": "%208",
+        "scratch_reg": "ebx",
+        "source_operand": "%208",
+        "inserted_native_actions": [
+          "$ebx=COPY %208",
+          "$edi=COPY $ebx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 1,
+        "wall_seconds": 0.044737100000929786,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23564288
+      },
+      "candidate_machine_verifier": {
+        "exit": 1,
+        "wall_seconds": 0.04438529999970342,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22970368
+      },
+      "candidate_writer": {
+        "exit": 1,
+        "wall_seconds": 0.042114500000025146,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23552000
+      },
+      "disposition": "NATIVE_LEGALITY_OR_WRITER_FAILURE__COUNTED_IN_DENOMINATOR",
+      "error_head": "error: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n04_divxc3\\common_prera.mir: __divxc3 instruction offset out of range. Unable to reference instruction at bb: 1 at offset:14\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n04_divxc3\\site_23\\candidate.mir: __divxc3 instruction offset out of range. Unable to reference instruction at bb: 1 at offset:14\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n04_divxc3\\site_23\\candidate.mir: __divxc3 instruction offset out of range. Unable to reference instruction at bb: 1 at offset:14\r\n\r\n"
+    },
+    {
+      "index": 24,
+      "source_relpath": "compiler-rt/lib/builtins/gcc_personality_v0.c",
+      "input": "n13_gcc_personality_v0.bc",
+      "input_sha256": "75B11C82E3C3ACCA90B6812AE50A69F9B7165DAD6134B2128DC5C80AF65F971F",
+      "site": {
+        "function": "__gcc_personality_v0",
+        "bb": 3,
+        "offset": 9,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%33"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.049343900001986185,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 27840512
+      },
+      "planner": {
+        "wall_seconds": 0.0006920999985595699,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "9C32FEA8156AA06096793815CFDD96655B7588D64830B1742DC33F2A4243D3A0",
+      "atomic_mapping": {
+        "function": "__gcc_personality_v0",
+        "bb": 3,
+        "old_call_offset": 9,
+        "new_call_offset": 10,
+        "arg_reg": "rdi",
+        "source_vreg": "%33",
+        "scratch_reg": "rbx",
+        "source_operand": "%33",
+        "inserted_native_actions": [
+          "$rbx=COPY %33",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 1,
+        "wall_seconds": 0.04385550000006333,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23281664
+      },
+      "candidate_machine_verifier": {
+        "exit": 1,
+        "wall_seconds": 0.04419860000052722,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22642688
+      },
+      "candidate_writer": {
+        "exit": 1,
+        "wall_seconds": 0.04355869999926654,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23261184
+      },
+      "disposition": "NATIVE_LEGALITY_OR_WRITER_FAILURE__COUNTED_IN_DENOMINATOR",
+      "error_head": "error: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\common_prera.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\site_24\\candidate.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\site_24\\candidate.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\n"
+    },
+    {
+      "index": 25,
+      "source_relpath": "compiler-rt/lib/builtins/atomic.c",
+      "input": "n01_atomic.bc",
+      "input_sha256": "7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469",
+      "site": {
+        "function": "__atomic_exchange",
+        "bb": 36,
+        "offset": 4,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%32"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.174003600001015,
+        "cpu_seconds": 0.171875,
+        "peak_rss_bytes": 30453760
+      },
+      "planner": {
+        "wall_seconds": 0.0037985999988450203,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "C71DE07825D066BCE09C7B233BEFC537C91D6C10679FF954F1983C0EB31F3C9F",
+      "atomic_mapping": {
+        "function": "__atomic_exchange",
+        "bb": 36,
+        "old_call_offset": 4,
+        "new_call_offset": 5,
+        "arg_reg": "rdi",
+        "source_vreg": "%32",
+        "scratch_reg": "rbx",
+        "source_operand": "%32",
+        "inserted_native_actions": [
+          "$rbx=COPY %32",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.1600493000005372,
+        "cpu_seconds": 0.140625,
+        "peak_rss_bytes": 31830016
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.1055837000021711,
+        "cpu_seconds": 0.09375,
+        "peak_rss_bytes": 29372416
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.1599421999999322,
+        "cpu_seconds": 0.140625,
+        "peak_rss_bytes": 31764480
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 42192,
+          "object_sha256": "AD86339086644055B9BB7204EB4DAA3F873A1ECF6A29002CED1E068345A29DC3",
+          "dwarf": {
+            "call_site_parameters": 3,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 5305,
+            "debug_payload_bytes": 15366,
+            "debug_relocation_bytes": 7800,
+            "eh_frame_bytes": 0,
+            "section_count": 24
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.030907599997590296,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10420224
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.0321287000006123,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10338304
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.028954899997188477,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9928704
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.03720739999698708,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11251712
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.078125,
+            "wall_seconds": 0.12919859999237815,
+            "peak_rss_bytes": 11251712
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.140625,
+            "wall_seconds": 0.1600493000005372,
+            "peak_rss_bytes": 31830016
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 42240,
+          "object_sha256": "FC3C4ABE676964BF53BD624A8C4ACDA9E2D2F8458158CAB40E7678F929283BB1",
+          "dwarf": {
+            "call_site_parameters": 3,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 5337,
+            "debug_payload_bytes": 15383,
+            "debug_relocation_bytes": 7800,
+            "eh_frame_bytes": 0,
+            "section_count": 24
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.03327979999812669,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 10424320
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.033063599999877624,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10334208
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.030834799999865936,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.060510100000101374,
+              "cpu_seconds": 0.03125,
+              "peak_rss_bytes": 11251712
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.09375,
+            "wall_seconds": 0.15768829999797163,
+            "peak_rss_bytes": 11251712
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.140625,
+            "wall_seconds": 0.1599421999999322,
+            "peak_rss_bytes": 31764480
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 48,
+        "text_bytes": 32,
+        "debug_payload_bytes": 17,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    },
+    {
+      "index": 26,
+      "source_relpath": "compiler-rt/lib/builtins/divxc3.c",
+      "input": "n04_divxc3.bc",
+      "input_sha256": "1A9AB16C0A7674CAA20999713662E0D73885CA66179BD7B40698500F3900553C",
+      "site": {
+        "function": "__divxc3",
+        "bb": 2,
+        "offset": 27,
+        "arg": 1,
+        "arg_reg": "edi",
+        "source_vreg": "%208"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.052971000000979984,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 26914816
+      },
+      "planner": {
+        "wall_seconds": 0.0009004000021377578,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "ECB50C2F5F05D4B78DE3423E0E36E366C89FD06CDEBAD17C3EC9183C3F4585FA",
+      "atomic_mapping": {
+        "function": "__divxc3",
+        "bb": 2,
+        "old_call_offset": 27,
+        "new_call_offset": 28,
+        "arg_reg": "edi",
+        "source_vreg": "%208",
+        "scratch_reg": "ebx",
+        "source_operand": "%208",
+        "inserted_native_actions": [
+          "$ebx=COPY %208",
+          "$edi=COPY $ebx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 1,
+        "wall_seconds": 0.044321199999103555,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23556096
+      },
+      "candidate_machine_verifier": {
+        "exit": 1,
+        "wall_seconds": 0.043246899997029686,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 22937600
+      },
+      "candidate_writer": {
+        "exit": 1,
+        "wall_seconds": 0.04760580000220216,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23556096
+      },
+      "disposition": "NATIVE_LEGALITY_OR_WRITER_FAILURE__COUNTED_IN_DENOMINATOR",
+      "error_head": "error: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n04_divxc3\\common_prera.mir: __divxc3 instruction offset out of range. Unable to reference instruction at bb: 1 at offset:14\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n04_divxc3\\site_26\\candidate.mir: __divxc3 instruction offset out of range. Unable to reference instruction at bb: 1 at offset:14\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n04_divxc3\\site_26\\candidate.mir: __divxc3 instruction offset out of range. Unable to reference instruction at bb: 1 at offset:14\r\n\r\n"
+    },
+    {
+      "index": 27,
+      "source_relpath": "compiler-rt/lib/builtins/gcc_personality_v0.c",
+      "input": "n13_gcc_personality_v0.bc",
+      "input_sha256": "75B11C82E3C3ACCA90B6812AE50A69F9B7165DAD6134B2128DC5C80AF65F971F",
+      "site": {
+        "function": "__gcc_personality_v0",
+        "bb": 4,
+        "offset": 5,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%43"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.049343900001986185,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 27840512
+      },
+      "planner": {
+        "wall_seconds": 0.000995499998680316,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "7BA4B78DD48F45E88BF53851B92402156A8076D5A49833D65C35F1AFBB324FD6",
+      "atomic_mapping": {
+        "function": "__gcc_personality_v0",
+        "bb": 4,
+        "old_call_offset": 5,
+        "new_call_offset": 6,
+        "arg_reg": "rdi",
+        "source_vreg": "%43",
+        "scratch_reg": "rbx",
+        "source_operand": "%43",
+        "inserted_native_actions": [
+          "$rbx=COPY %43",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 1,
+        "wall_seconds": 0.04878090000056545,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23248896
+      },
+      "candidate_machine_verifier": {
+        "exit": 1,
+        "wall_seconds": 0.04602850000082981,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 22650880
+      },
+      "candidate_writer": {
+        "exit": 1,
+        "wall_seconds": 0.049557199999981094,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23207936
+      },
+      "disposition": "NATIVE_LEGALITY_OR_WRITER_FAILURE__COUNTED_IN_DENOMINATOR",
+      "error_head": "error: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\common_prera.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\site_27\\candidate.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\site_27\\candidate.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\n"
+    },
+    {
+      "index": 28,
+      "source_relpath": "compiler-rt/lib/builtins/atomic.c",
+      "input": "n01_atomic.bc",
+      "input_sha256": "7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469",
+      "site": {
+        "function": "__atomic_exchange",
+        "bb": 36,
+        "offset": 10,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%32"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.174003600001015,
+        "cpu_seconds": 0.171875,
+        "peak_rss_bytes": 30453760
+      },
+      "planner": {
+        "wall_seconds": 0.0030762999995204154,
+        "cpu_seconds": 0.015625,
+        "peak_rss_bytes": null
+      },
+      "disposition": "MAPPER_INAPPLICABLE_OR_FIDELITY_FAILURE__COUNTED_IN_DENOMINATOR",
+      "error_head": "frozen source COPY is not in the selected call's local preparation interval"
+    },
+    {
+      "index": 29,
+      "source_relpath": "compiler-rt/lib/builtins/gcc_personality_v0.c",
+      "input": "n13_gcc_personality_v0.bc",
+      "input_sha256": "75B11C82E3C3ACCA90B6812AE50A69F9B7165DAD6134B2128DC5C80AF65F971F",
+      "site": {
+        "function": "__gcc_personality_v0",
+        "bb": 12,
+        "offset": 3,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%57"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.049343900001986185,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 27840512
+      },
+      "planner": {
+        "wall_seconds": 0.000961900001129834,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "B0B1F8AA521951816293268B2A8DAB057189F36AB39D45808EE0238D20C352F0",
+      "atomic_mapping": {
+        "function": "__gcc_personality_v0",
+        "bb": 12,
+        "old_call_offset": 3,
+        "new_call_offset": 4,
+        "arg_reg": "rdi",
+        "source_vreg": "%57",
+        "scratch_reg": "rbx",
+        "source_operand": "%57",
+        "inserted_native_actions": [
+          "$rbx=COPY %57",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 1,
+        "wall_seconds": 0.05229260000123759,
+        "cpu_seconds": 0.03125,
+        "peak_rss_bytes": 23240704
+      },
+      "candidate_machine_verifier": {
+        "exit": 1,
+        "wall_seconds": 0.04984659999900032,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 22650880
+      },
+      "candidate_writer": {
+        "exit": 1,
+        "wall_seconds": 0.05172339999990072,
+        "cpu_seconds": 0.046875,
+        "peak_rss_bytes": 23265280
+      },
+      "disposition": "NATIVE_LEGALITY_OR_WRITER_FAILURE__COUNTED_IN_DENOMINATOR",
+      "error_head": "error: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\common_prera.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:3\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\site_29\\candidate.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:4\r\n\r\nerror: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume2\\resources\\build\\natural_run04\\n13_gcc_personality_v0\\site_29\\candidate.mir: __gcc_personality_v0 instruction offset out of range. Unable to reference instruction at bb: 12 at offset:4\r\n\r\n"
+    },
+    {
+      "index": 30,
+      "source_relpath": "compiler-rt/lib/builtins/atomic.c",
+      "input": "n01_atomic.bc",
+      "input_sha256": "7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469",
+      "site": {
+        "function": "__atomic_load",
+        "bb": 28,
+        "offset": 4,
+        "arg": 0,
+        "arg_reg": "rdi",
+        "source_vreg": "%19"
+      },
+      "preRA": {
+        "exit": 0,
+        "wall_seconds": 0.174003600001015,
+        "cpu_seconds": 0.171875,
+        "peak_rss_bytes": 30453760
+      },
+      "planner": {
+        "wall_seconds": 0.003139199998258846,
+        "cpu_seconds": 0.0,
+        "peak_rss_bytes": null
+      },
+      "candidate_mir_sha256": "D3F3052AD61980A743BEDB8E861C4503CFEA90536D768323DA39CF53073D2999",
+      "atomic_mapping": {
+        "function": "__atomic_load",
+        "bb": 28,
+        "old_call_offset": 4,
+        "new_call_offset": 5,
+        "arg_reg": "rdi",
+        "source_vreg": "%19",
+        "scratch_reg": "rbx",
+        "source_operand": "%19",
+        "inserted_native_actions": [
+          "$rbx=COPY %19",
+          "$rdi=COPY $rbx"
+        ],
+        "cfg_changed": false,
+        "call_regmask_changed": false,
+        "debug_record_changed": false,
+        "post_emission_patch": false
+      },
+      "baseline_writer": {
+        "exit": 0,
+        "wall_seconds": 0.16609900000185007,
+        "cpu_seconds": 0.140625,
+        "peak_rss_bytes": 31776768
+      },
+      "candidate_machine_verifier": {
+        "exit": 0,
+        "wall_seconds": 0.1079176000021107,
+        "cpu_seconds": 0.09375,
+        "peak_rss_bytes": 29155328
+      },
+      "candidate_writer": {
+        "exit": 0,
+        "wall_seconds": 0.170605200000864,
+        "cpu_seconds": 0.171875,
+        "peak_rss_bytes": 31690752
+      },
+      "arms": {
+        "baseline": {
+          "object_bytes": 42192,
+          "object_sha256": "AD86339086644055B9BB7204EB4DAA3F873A1ECF6A29002CED1E068345A29DC3",
+          "dwarf": {
+            "call_site_parameters": 3,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 5305,
+            "debug_payload_bytes": 15366,
+            "debug_relocation_bytes": 7800,
+            "eh_frame_bytes": 0,
+            "section_count": 24
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.03835919999983162,
+              "cpu_seconds": 0.046875,
+              "peak_rss_bytes": 10424320
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.03342599999814411,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10334208
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.0314126999983273,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9932800
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.037771300001622876,
+              "cpu_seconds": 0.0,
+              "peak_rss_bytes": 11251712
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.078125,
+            "wall_seconds": 0.1409691999979259,
+            "peak_rss_bytes": 11251712
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.140625,
+            "wall_seconds": 0.16609900000185007,
+            "peak_rss_bytes": 31776768
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        },
+        "candidate": {
+          "object_bytes": 42200,
+          "object_sha256": "0C99F9F785B104DE4A0AE1600B6F40C35E93C01015016CE596E65A2680FAD8B7",
+          "dwarf": {
+            "call_site_parameters": 3,
+            "breg3_call_values": 1,
+            "call_sites": 1
+          },
+          "sections": {
+            "text_bytes": 5305,
+            "debug_payload_bytes": 15371,
+            "debug_relocation_bytes": 7800,
+            "eh_frame_bytes": 0,
+            "section_count": 24
+          },
+          "readers": {
+            "dwarfdump_info": {
+              "exit": 0,
+              "wall_seconds": 0.03669670000090264,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10432512
+            },
+            "dwarfdump_verify": {
+              "exit": 0,
+              "wall_seconds": 0.03093539999827044,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 10330112
+            },
+            "readobj_unwind": {
+              "exit": 0,
+              "wall_seconds": 0.029966499998408835,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 9924608
+            },
+            "objdump": {
+              "exit": 0,
+              "wall_seconds": 0.03503619999901275,
+              "cpu_seconds": 0.015625,
+              "peak_rss_bytes": 11251712
+            }
+          },
+          "reader_full_cost": {
+            "cpu_seconds": 0.0625,
+            "wall_seconds": 0.13263479999659467,
+            "peak_rss_bytes": 11251712
+          },
+          "writer_full_cost": {
+            "cpu_seconds": 0.171875,
+            "wall_seconds": 0.170605200000864,
+            "peak_rss_bytes": 31690752
+          },
+          "unwind_reader_pass": true,
+          "dwarf_verify_pass": true,
+          "rbx_present_in_disassembly": true
+        }
+      },
+      "paired_delta": {
+        "reconstructible_parameters": 0,
+        "breg3_call_values": 0,
+        "object_bytes": 8,
+        "text_bytes": 0,
+        "debug_payload_bytes": 5,
+        "debug_relocation_bytes": 0,
+        "eh_frame_bytes": 0
+      },
+      "behavior_verification": {
+        "static_native_copy_equivalence_and_CSR_restore": "PASS",
+        "executed_natural_function_replay": "UNOBSERVED__NO_SELF_CONTAINED_HARNESS",
+        "warm_latency": "UNOBSERVED__DO_NOT_IMPUTE"
+      },
+      "disposition": "NO_ACCEPTED_PAIRED_GAIN__COUNTED_IN_DENOMINATOR"
+    }
+  ],
+  "summary": {
+    "sites_run": 30,
+    "accepted_static_equivalence_gains": 1,
+    "accepted_gain_fraction": 0.03333333333333333,
+    "native_legality_or_writer_failures": 11,
+    "mapper_or_fidelity_failures": 1,
+    "no_accepted_gain": 17,
+    "executed_natural_behavior_replays": 0,
+    "runtime_latency_observation": "UNOBSERVED__DO_NOT_IMPUTE"
+  },
+  "current_union_reuse": {
+    "arms": 3072,
+    "successes": 3072,
+    "reconstructible_arms_on_frozen_witness": 0,
+    "rerun": false
+  },
+  "scientific_revision_consumed": false,
+  "stageb_authorized": false
+}

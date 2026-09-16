@@ -1,0 +1,58 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-27T17:51:10+08:00
+lane_id: BACKTEST-AUDITOR
+role_id: DISCOVERY_BACKTEST_AUDITOR
+assignment_id: BACKTEST-AUDITOR-20260827-IDENTITY-BLIND-R3-COLLISION
+topic_id: STAGE0A_IDENTITY_BLIND_EVIDENCE_BACKTEST_R3
+actual_cwd: '<LOCAL_PROJECT_ROOT>'
+assignment_context_path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/auditor-collision/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: 9D307E344C6CDB07F581DEC36559F1E755B5C626361CB863518D2C2BA7453F6C
+
+frozen_hash_ack:
+  AGENTS_sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75
+  plan_sha256: 87EC9E172959B337E7BFD38A41F1E01333394FE3DE7F162C8A441F133125F9DF
+  registry_snapshot_sha256: A40B774D0FB5776692A2DD739B05E11284B99DBC3E0F5809CA1CC2B42F63369D
+  role_rule_sha256: 74056A6BF3F6A1ABBFF56A13BA27DCD9656B39DD6673D046935C312D39033C23
+  skill_hashes:
+    - path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md
+      sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F
+  minimum_input_hashes:
+    - path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/auditor-collision/ASSIGNMENT.yaml
+      sha256: 18C0C24CC8820220851D4F804DE511B5F557B7BAC02292A03045E7AD1608A2D4
+    - path: stages/stage0/_compatibility/nonblind-r3/primary-a1/NONBLIND_STAGE0_NONCOLLISION_DECISION.yaml
+      sha256: E702E5D7CACD0E49A14163CB2397A04BAF7CB7D51697D7399B80BE7FEE7BED89
+  auditor_key:
+    path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/AUDITOR_IDENTITY_COLLISION_AND_GOLD_KEY.yaml
+    expected_sha256: 10B72D5D2BDAD2CB4E744953842E1DE7C80BA169003958D3CA2F3DABC266ACF7
+    content_read: false
+    path_probed: false
+    release_condition: EXPLICIT_MAINLINE_START
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  assignment_context_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  minimum_inputs_complete_except_start_gated_auditor_key: true
+  registry_dual_read_performed: true
+  registry_assignment_mapping_consistent: true
+
+boundary_ack:
+  unique_write_directory_exact: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/auditor-collision
+  network_allowed: false
+  experiment_allowed: false
+  state_transition_allowed: false
+  collision_adjustment_started: false
+  StageA_release_started: false
+  production_or_StageB_started: false
+
+execution_ack:
+  current_status: BOOTSTRAP_ACK_PENDING
+  next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY
+  scientific_or_resource_action_started: false
+
+differences_or_ambiguities: []
+ack_disposition: READY
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

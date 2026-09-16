@@ -1,0 +1,19 @@
+assignment_id: STAGE0-C2-20260814-RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP-CONFIRM-V8.7
+mode: INDEPENDENT_CONFIRMATION
+topic_id: RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_READY_TO_DISPATCH
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source09-confirmation\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source09-primary\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+primary_decision: REVISE_ONCE
+atomic_gate: PINNED_RV32_ZCMP_SAME_MACHINEFUNCTION_TWO_PLAN_WITNESS__TARGET_SPECIFIC_BOUNDED_FRONTIER_CERTIFICATE
+primary_hashes: {report_sha256: 1DF08A5AD7AE14ABAC9EF90BA6755905C99E249B2E3AD4C1E8C1C4C4E70C785A, q1_sha256: 2658EB05D257E92AFBCCFC73660BFEA6170AB03A9750ACE2F6F5770CCE660C27, source_sha256: 99EECA3D1649A0785A03FB6B959E06734BE6E96F734E1B08A8C96C6F998056F4, handoff_sha256: CBC74CDDABBCE8A10D250909679C48364C59A26E26DA7BF8B9701D5ABFF035B5, manifest_sha256: 0577F16B03DBD92AEB7B51CD88089D293D8656C1680F81A3181C1023A236D2E9}
+independent_attack_requirements:
+  - Verify current LLVM RISC-V PushPop placement, frame-lowering ownership, pseudo expansion, RA and unwind union without treating failed git transport as absence evidence.
+  - Decide whether one fixed RV32 MachineFunction has two complete native-legal plans preserving ABI, unwind and behavior while differing jointly in coloring, Zcmp list or stack adjustment and spill realization.
+  - Attack current option/pass direct coverage and generic RA or frame-packing degeneration.
+  - Confirm or narrow the single atomic revision gate; do not execute the revision.
+forbidden: [revision_execution, implementation, experiment, benchmark, build, stageA, stageB, shared_control_write]
+required_outputs: [CONFIRMATION_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

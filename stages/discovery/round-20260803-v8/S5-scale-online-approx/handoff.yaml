@@ -1,0 +1,76 @@
+schema_version: discovery-source-handoff-v1
+batch_id: round-20260803-v8
+session_id: DISCOVERY-S5-SCALE-ONLINE-APPROX
+opportunity_lens: O5_SCALE_ONLINE_OR_APPROXIMATION
+generated_at: 2026-08-03T14:55:55+08:00
+work_directory: stages\discovery\round-20260803-v8\S5-scale-online-approx
+status: COMPLETE_PRODUCTION_DISCOVERY_CONVERGENCE
+production_allowed: true
+grounded_brief_allowed: true
+propose_stage0_allowed: true
+stage0_created: false
+method_revision: v2
+historical_backtest:
+  required: true
+  status: CALIBRATED
+  handoff_in_assigned_directory: stages\discovery\_method-backtests\O5_SCALE_ONLINE_APPROXIMATION\v2\handoff.yaml
+  consequence: PRODUCTION_DISCOVERY_ALLOWED_NOT_STAGE0_AUTHORIZATION
+inputs_read:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules\ROLE_DISCOVERY.md
+  - templates\TOPIC_BRIEF.md
+  - academic-research-suite\SKILL.md
+  - academic-research-suite\ars\deep-research\WORKFLOW.md
+outputs:
+  - STARTUP.md
+  - RAW_OPPORTUNITIES.md
+  - SEARCH_LOG.md
+  - handoff.yaml
+  - PROGRESS.md
+  - S5-OCCUPANCY-CLIFF-JOINTCODEGEN.md
+raw_opportunity_count: 6
+raw_opportunities:
+  - id: S5-RAW-01
+    short_name: JIT-GAP-SCHEDREG
+    priority: HIGH_WITHIN_RAW_BATCH
+    collision: SEARCH_BOUNDED_OPEN
+    next_action_after_backtest: NATURAL_HEADROOM_AND_EXACT_OBJECT_PROBE
+  - id: S5-RAW-02
+    short_name: MOE-ONLINE-BMATCH
+    priority: MEDIUM
+    collision: DIRECT_SUBTRACT
+    next_action_after_backtest: LATEST_COLLISION_AND_SAME_INFORMATION_TRACE_PROBE
+  - id: S5-RAW-03
+    short_name: DYN-PGROUP-COLL
+    priority: MEDIUM_LOW
+    collision: HIGH_COLLISION_NOT_DIRECT_FATAL
+    next_action_after_backtest: CONTINUE_ONLY_IF_INCREMENTAL_REPAIR_IS_INDEPENDENT_OBJECT
+  - id: S5-RAW-04
+    short_name: PREFIX-DAG-ONLINE
+    priority: LOW
+    collision: HIGH_COLLISION_UNION_RISK
+    next_action_after_backtest: DO_NOT_CONVERGE_WITHOUT_DAG_SPECIFIC_ALGORITHMIC_DELTA
+  - id: S5-RAW-05
+    short_name: DYN-REMAT-CERT
+    priority: LOW
+    collision: DIRECT_SUBTRACT
+    next_action_after_backtest: HEADROOM_FIRST_OR_STOP
+  - id: S5-RAW-06
+    short_name: STREAM-ANN-MAINT
+    priority: NOT_FOR_CONVERGENCE
+    collision: COLLISION_SATURATED
+    next_action_after_backtest: RETAIN_AS_NEGATIVE_RAW_CONTROL
+grounded_brief_count: 1
+stage0_proposals:
+  - topic_id: S5-OCCUPANCY-CLIFF-JOINTCODEGEN
+    brief: S5-OCCUPANCY-CLIFF-JOINTCODEGEN.md
+    recommendation: PROPOSE_STAGE0
+    authority_note: RECOMMENDATION_ONLY_NO_STAGE0_CREATED
+direct_fatal_found: true
+ownership_or_resource_blocker: false
+file_conflict: false
+batch_notification_reason: BATCH_COMPLETE
+recommended_mainline_action: ROUTE_SINGLE_PROPOSE_STAGE0_BRIEF_TO_INDEPENDENT_STAGE0_PRIMARY
+next_mandatory_gate: INDEPENDENT_STAGE0_PRIMARY_REVIEW

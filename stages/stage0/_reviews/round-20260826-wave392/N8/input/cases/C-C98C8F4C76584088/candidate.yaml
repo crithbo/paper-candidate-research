@@ -1,0 +1,21 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-C98C8F4C76584088
+cutoff_date: 2023-01-27
+contribution_type: COMPILER_TOOL
+exact_object: independent validation and elaboration of proof traces in a standard solver-proof format
+natural_scenario: solver-emitted traces containing both fine-grained and coarse-grained steps
+problem: reconstruction inside proof assistants is not a standalone semantic checker and coarse steps can be expensive downstream
+atomic_action: check each rule independently and expand selected coarse steps into explicit fine-grained steps
+mechanism: rule-specific validation plus offline elaboration separates producer trust from downstream reconstruction cost
+information_condition: original formula, proof trace, rule specification, and optional elaboration side conditions
+comparators: [assistant_internal_reconstruction, logical_framework_checker, format_without_standalone_checker]
+claim_endpoint: validity detection and downstream checkability at measured time, memory, and trace size
+full_cost: [check_time, memory, accepted_steps, rejected_steps, elaborated_bytes, downstream_check_cost]
+minimum_falsifier: invalid steps escape detection or elaboration worsens checkability after size and time costs
+source_cards:
+  - {id: S01, year: 2021, role: proof_format_specification}
+  - {id: S02, year: 2009, role: proof_emitting_solver}
+  - {id: S03, year: 2011, role: predecessor_solver_and_proof_ecosystem}
+  - {id: S04, year: 2021, role: standard_problem_language}
+local_resource_envelope: WINDOWS_NATIVE_CPU__RUST_TOOLCHAIN_LOCALIZED__SMALL_FORMULA_TRACE_PAIRS
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

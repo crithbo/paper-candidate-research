@@ -1,0 +1,32 @@
+cycle: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE73-R40-ORDINARY-BREADTH-V1
+retrieval_date: '2026-08-15'
+resource_actions: NONE
+sources:
+  - id: SRC01
+    role: ANCHOR_CURRENT
+    title: libstdc++ atomic header
+    url: https://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00050_source.html
+    provenance: official_GNU_source_documentation
+    version_or_date: latest doxygen snapshot accessed 2026-08-15
+    decision_relevance: maps wait/notify API to internal atomic wait helpers.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC02
+    role: CURRENT
+    title: libstdc++ atomic_wait.h
+    url: https://gcc.gnu.org/onlinedocs/gcc-15.1.0/libstdc++/api/a00659_source.html
+    provenance: official_GNU_source_documentation
+    version_or_date: GCC 15.1.0 source documentation snapshot accessed 2026-08-15
+    decision_relevance: exposes fixed-size shared waiter pool, address mapping, wait counters, and notification implementation.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC03
+    role: CONTRARY_CONTRACT
+    title: std::atomic::wait reference
+    url: https://en.cppreference.com/w/cpp/atomic/atomic/wait
+    provenance: standard_reference_locator
+    version_or_date: C++20 contract snapshot accessed 2026-08-15
+    decision_relevance: fixes value-representation comparison, notify/spurious wake behavior, return condition, and memory-order boundary.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+source_role_outcome: ONLY_GENERIC_WAITER_POOL_MAPPING_OR_POLICY_REMAINS

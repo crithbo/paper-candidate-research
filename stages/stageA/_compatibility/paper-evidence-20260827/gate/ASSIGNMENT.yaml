@@ -1,0 +1,19 @@
+schema: independent-stagea-paper-evidence-gate-assignment-v2
+assignment_id: PAPER-EVIDENCE-STAGEA-GATE-20260827-R2
+role: STAGEA_GATE_REVIEW
+lane_id: STAGEA-GATE
+lane_thread_id: 01a034d0-d990-7d50-9d9f-a6d05a81bf11
+topic_id: STAGEA_PAPER_EVIDENCE_BACKTEST_R2
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/paper-evidence-20260827/gate
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/paper-evidence-20260827/gate/resources
+status: BOOTSTRAP_ACK_PENDING
+inputs:
+  enriched_capsules: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/ENRICHED_PAPER_EVIDENCE_CAPSULES_MANIFEST.yaml, sha256: 152E118F169F43DAA7316C19F6EE2745425FE3CF72F7E579B7A29E9643050061}
+  locator_handoff_acceptance: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/MAINLINE_HANDOFF_ACCEPTANCE.yaml, sha256: EBDF2BD43985EEC4831307124154D4163930B029AC31B346167C4AE5B6EBFE0F}
+  r2_spec: {path: stages/rule-audit/RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2/BACKTEST_ASSIGNMENT_SPEC.md, sha256: 4DFB6C2F538E69F26BEC4B91D58200ABA895D173B29D62F0AA86C5BB01553658}
+  local_supplements: [HNSW_P3_handoff, PGM_P1A5_blocker_handoff, CVC5_P1_handoff, ALEX_A7_author_example]
+scope: [paper_only_decision_per_12_positive, paper_plus_project_local_supplement_decision_per_12_positive, negative_specificity_per_4, missing_locator_attribution, first_failure_gate, contribution_type, full_cost_and_natural_evidence]
+forbidden_inputs: [AUDITOR_GOLD_KEY, expected_labels, gold_qualification, blind_metrics]
+forbidden_actions: [new_experiment, new_probe, resource_creation, network, production_candidate_registration, StageB]
+outputs: [PAPER_EVIDENCE_STAGEA_GATE_REPORT.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+model_route: {model: gpt-5.6-terra, thinking: high}

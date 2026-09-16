@@ -1,0 +1,24 @@
+--- a/rules/ROLE_MAINLINE.md
++++ b/rules/ROLE_MAINLINE.md
+@@
++## Stage A shared assets, lightweight integrity, and milestone dashboard
++
++MAINLINE may register an accepted, exact-version toolchain under `projects/_assets/<asset_id>/` for read-only reuse. A consumer assignment executes the asset in place and writes all mutable inputs, outputs, caches, temporary files and logs under its own resource root. Asset acceptance must close the consumer-declared tool/runtime/input dependency set; a representative binary alone is insufficient.
++
++Routine reuse does not require recursive full-tree hashing. Claim-critical files are hashed at packet freeze and scientific handoff; executed binaries are hashed once at asset registration and rehashed only after path/version/size/mtime drift; auxiliary logs use existence/size/count checks. Risk or drift may always trigger targeted revalidation.
++
++The Stage A primary dashboard reports `executable_packet_ready`, `control_row_pass`, `valid_claim_rows/planned`, `decisive_stagea_observation`, and `independent_gate_decision`. Copy, file-count, compile, manifest, preclaim, handoff and ACK/START details remain subordinate diagnostics.
+
+--- a/rules/ROLE_CANDIDATE_OWNER.md
++++ b/rules/ROLE_CANDIDATE_OWNER.md
+@@
++### Engineering-result firewall before claim visibility
++
++Before the first claim-bearing observation, an assignment may use a shared read-only asset and a bounded engineering closure envelope. Engineering status may expose only exit, required-output presence, schema validity, missing metric/path, version drift and timeout. Candidate-versus-baseline effects, speedup, Pareto rank and relative performance remain unavailable until the natural packet is frozen.
++
++A control row is non-claim-bearing and excluded from the scientific denominator. Mechanical corrections may alter only pre-registered path/import/environment/output/argv/copy-manifest/schema wiring fields; they may not alter object, mechanism, baseline set, workload selection, metric, denominator, guarantee or claim. All corrections remain auditable and never authorize silent retry.
+
+--- a/plan.md
++++ b/plan.md
+@@
++Stage A lane summaries use the milestone fields `executable_packet_ready / control_row_pass / valid_claim_rows_planned / decisive_stagea_observation / independent_gate_decision`; ordinary bootstrap/copy/preclaim details are compact subordinate status.

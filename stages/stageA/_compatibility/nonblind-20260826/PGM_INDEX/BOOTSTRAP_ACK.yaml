@@ -1,0 +1,83 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-26T12:59:05Z
+lane_id: CANDIDATE-L2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+role_id: CANDIDATE_OWNER
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX
+topic_id: NONBLIND_STAGEA_COMPATIBILITY__PGM_INDEX
+stage_or_mode: NONBLIND_STAGEA_COMPATIBILITY
+assignment_context_path: stages/stageA/_compatibility/nonblind-20260826/PGM_INDEX/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: 08620BE36963C405D922A883C8A56DF13EFB11A5B3901447060052CB1EE17397
+old_chat_memory_required: false
+previous_ack_evidence:
+  path: BOOTSTRAP_ACK.pass1_superseded.yaml
+  sha256: 1EB7B9309195A132C39FFEFBFC9242891E79F12C173E55F74412CBC31A6A6230
+  disposition: REFUSE_REGISTRY_SNAPSHOT_DRIFT
+  superseded_reason: MAINLINE_REFRESHED_FULL_REGISTRY_SNAPSHOT_AFTER_HNSW_START_REGISTRATION
+
+frozen_hash_ack:
+  AGENTS_sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75
+  plan_sha256: 2934D15DF761FE6C57D30CC29417A01F6353B4CC68227DD5C35A0249B24DD5BB
+  registry_snapshot_sha256: 967F1A080A11296E6453319C86C4BB826C3C2355B544C56A12747C3AC2830132
+  role_rule_sha256: 4373A320D7EF96FB5EB1683872FEC9CDCB9EA6D16ACDF893CA997C5FB2745A1A
+  skill_hashes:
+    - {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+    - {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/experiment-agent/WORKFLOW.md, sha256: 389747B305FFA4160D1B2CEAF97B98A61EF9583CD45C473EFED5B4B414E27889, routing: EXPERIMENT_REPRODUCIBILITY}
+    - {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/experiment-agent/agents/code_runner_agent.md, sha256: E50C1303EBCB451304D427CE063651AF5D6FA5AB9CC9249E399353714B8BBFE1}
+    - {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/experiment-agent/references/reproducibility_protocol.md, sha256: 12962834FC54551B0BEAD25F56B8978C5DA6580E15CA882C21ABC2BFBFF7C506}
+  conditional_protocol_hashes:
+    - {path: rules/RESOURCE_LOCALIZATION.md, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+    - {path: rules/ARTIFACT_LIFECYCLE.md, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6}
+  template_hashes:
+    - {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+    - {path: templates/RESOURCE_INVENTORY.yaml, sha256: E859CE19DC3EB906EF391B1D8039E7B02A762EB74D7421454E40BB4539FEEEC7}
+  source_assignment_sha256: FF1E75FEDF9753ADF70B9786A2473820C26A1167BA12A1AFBC2B2EA83F9D0121
+  neutral_contract_sha256: 23ABC62CE6C42DD2318EDA9056293CBB30E9EE31B142E7445F01BF007632A51D
+  resource_preflight_sha256: 6356234F690AC4A5FCC5F954D6ED17C3CD37EE47588FF399D16E6596FC2D4C0D
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  assignment_context_current_after_refresh: true
+  reack_pass: 2
+  role_rule_complete: true
+  required_skills_complete: true
+  required_experiment_reproducibility_flow_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: true
+  registry_record: nonblind_stagea_compatibility_wave_20260826.cases.PGM_INDEX
+  registry_context_comparison: MATCH
+
+boundary_ack:
+  cwd_exact: <LOCAL_PROJECT_ROOT>
+  unique_write_directory_exact: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/PGM_INDEX
+  resource_root_exact: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/PGM_INDEX/resources
+  resource_root_absent_at_ack: true
+  historical_identity_visible_by_nonblind_contract: true
+  forbidden_inputs_understood: true
+  forbidden_inputs_not_read: [auditor_key_v2, gold_expected_gate_disposition, final_gold_values, blind_outputs]
+  forbidden_actions_understood: true
+  forbidden_before_start: [download, copy, extract, build, run, resource_directory_creation, scientific_observation, production_candidate_registration, production_state_transition, cleanup]
+  forbidden_after_start_remain: [production_candidate_registration, production_state_transition, stageB, expected_gate_disposition, final_gold_values, blind_metric_merge, unbiased_recall_claim, threshold_75_claim, system_install, global_environment_change, cleanup]
+  cross_assignment_material_loaded: false
+  declared_minimum_upstream_material_loaded: true
+  independence_or_role_conflict: NONE__NONBLIND_OWNER_HAS_NO_GATE_OR_GOLD_AUTHORITY
+  contamination_detected: false
+
+execution_ack:
+  current_status: BOOTSTRAP_ACK_PENDING
+  resume_point: BOOTSTRAP_ONLY__RESOURCES_ABSENT
+  next_action: WAIT_FOR_MAINLINE_ACK_ACCEPTANCE_AND_START
+  user_gate_or_blocker: MAINLINE_ACCEPTANCE_AND_EXPLICIT_START_REQUIRED
+  network_allowed_after_start_only: true
+  experiment_allowed_before_start: false
+  state_transition_allowed: false
+  claim_ceiling: AUTHOR_ARTIFACT_REPLAY_COMPATIBILITY_ONLY__NOT_AI_AUTONOMOUS_IMPLEMENTATION
+  evidence_ceiling: NONBLIND_STAGEA_COMPATIBILITY__NO_PRODUCTION_CANDIDATE_OR_STAGEB
+  scientific_or_resource_action_started: false
+
+differences_or_ambiguities: []
+ack_disposition: READY
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

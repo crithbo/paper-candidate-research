@@ -1,0 +1,21 @@
+topic_id: LLVM-GUARDBUDGET
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: "固定 LLVM target 上函数内可合法 loop vectorization 的 runtime guard、版本化集合与 fallback CFG。"
+main_claim: "共享 guard 的预算化 loop-group 选择能在完整代码尺寸与动态成本下支配原生逐 loop 版本化。"
+academic_value_score: 52
+ai_executability_score: 26
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.82
+strongest_baseline: ["LLVM -O3 Loop Vectorizer", "-fno-vectorize", "independent per-loop versioning"]
+decisive_evidence: ["IR/assembly guard and code-size accounting", "correctness regression plus benchmark net-time comparison"]
+unresolved_risks: ["LLVM may already canonicalize enough guards", "benefit may be microbenchmark-only"]
+next_killer_gate: "在自然多-loop functions 中证明共享 guard 的净收益不能由 -O3 或独立版本化支配；否则 DROP。"
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: "compiler prototype and CPU benchmark; no cross-ISA general claim"
+execution_authority: "Discovery only; no Stage 0 creation or formal experiments"
+file_hashes:
+  topic_brief.md: eeae91ba5ccd1f88dd5af7ef3580bdd2e599a64809de02266992c20c90b68667
+  source_log.md: 50cb192c7d2832cb74a767d0ae7b43f3eb55187819dc870db0ac6abcf9e710ee

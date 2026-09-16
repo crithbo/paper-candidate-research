@@ -1,0 +1,21 @@
+topic_id: UPMEM-RANKBATCH
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: "UPMEM rank abstraction上 PrIM 自然 workloads 的 cohort、DPU配额和host–DPU传输批次决策。"
+main_claim: "phase-aware rank co-batching 能在完整 transfer/barrier 账本下改善 tail completion time。"
+academic_value_score: 51
+ai_executability_score: 21
+ai_executability_class: AI_CORE_CONDITIONAL
+ai_core_fraction: 0.65
+strongest_baseline: ["FIFO exclusive-rank", "static equal DPU partition", "work-conserving allocation without transfer/barrier model", "native single-job PrIM"]
+decisive_evidence: ["公开 workload phase/traffic replay", "P99 completion, bytes, commands and barriers under frozen arrival sequences"]
+unresolved_risks: ["public SDK/simulator availability", "phase complementarity may be absent", "prior multiprogramming work may subtract residual"]
+next_killer_gate: "至少一个自然 PrIM pair 在完整账本下获得不可被 FIFO/等分配支配的 P99 改善；否则 DROP。"
+mechanism_pivot_remaining: 1
+reserve_reason: "If no legal SDK/same-semantic execution becomes available, retain only as HUMAN_RESEARCH_RESERVE candidate."
+evidence_ceiling: "analysis/replay evidence unless SDK or hardware experiments are separately authorized"
+execution_authority: "Discovery only; no Stage 0 creation, hardware reservation, or formal experiments"
+file_hashes:
+  topic_brief.md: abb54e1d2cf17460184209cdcf0240b46dffbf5ebe7b829dca3d3ec7033cb745
+  source_log.md: b8f00b7f54f3b3eddc7e0426b77e5937391424eed1d31c0dc00ffa41e3a814be

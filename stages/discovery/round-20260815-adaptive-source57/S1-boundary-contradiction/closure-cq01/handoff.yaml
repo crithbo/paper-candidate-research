@@ -1,0 +1,37 @@
+assignment_id: SOURCE-CLOSURE-SOURCE57-S1-CQ01-WASMTIME-THREADS-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+queue_item: CQ01
+write_directory: stages/discovery/round-20260815-adaptive-source57/S1-boundary-contradiction/closure-cq01
+disposition: STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_GENERIC_POLICY__RETURN_TO_MAINLINE
+state_authority: NONE__RETURN_TO_MAINLINE_ONLY
+project_pin:
+  project: bytecodealliance/wasmtime
+  default_branch: main
+  resolved_commit: bc2f967927f9f0e839095a752bf554c4a09fdd13
+resource_envelope:
+  acquisition_attempts_used: 6
+  acquisition_attempts_cap: 6
+  persisted_response_bytes: 2528578
+  persisted_bytes_cap: 16777216
+  localization: PASS
+closure_summary:
+  - Wasm threads dispatches validated shared-memory wait/notify operations to a thread-local waiter and one ParkingSpot.
+  - Current native actions are address-keyed map lookup plus FIFO linked waiter queue and ordinary park/unpark.
+  - The source identifies the mechanism as simplified parking_lot_core; a map/list/bucket variation is generic scheduler policy, not a Wasm-specific representation action.
+  - The pinned source action catalog provides no same-semantics second native layout witness.
+semantic_oracle:
+  - mismatch/ok/timed-out result
+  - address/alignment validation
+  - FIFO dequeue and bounded notify count
+forbidden_inferences_preserved:
+  - no raw, brief, tier, Q2, PASS, STOP, or stage-state decision
+  - no absence inference from transport, 404, zero match, or missing tool
+  - no Source58 material read
+canonical_files:
+  report: SOURCE_CLOSURE_REPORT.md
+  current_upstream_audit: CURRENT_UPSTREAM_AUDIT.md
+  resource_inventory: RESOURCE_INVENTORY.yaml
+  attempt_ledger: resources/logs/acquisition-attempt-ledger.yaml
+  manifest: HASH_MANIFEST.sha256
+next_action: Return this prebrief disposition to mainline; no downstream authority or further acquisition is granted by this assignment.
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

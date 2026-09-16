@@ -1,0 +1,100 @@
+schema: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260810-DISCOVERY-PRESTAGE0-QUALITY-AND-PARALLELISM-R7
+proposal_id: COLLISION-FIRST-DEPTH-RESERVATION-R7
+status: USER_APPROVED_STAGED_IMPLEMENTATION__P0_READY_FOR_MAINLINE__P1P2_FAIL_CLOSED_PENDING_INDEPENDENT_GATES__IDLE_REUSABLE
+decision_label: BACKTEST_REQUIRED
+shared_files_modified: false
+shared_file_writer: MAINLINE_ONLY
+policy_authority: USER
+user_approval_present: true
+user_approval_scope: EXACT_STAGED_PACKAGE_ONLY
+user_approval_directive: USER_APPROVAL_IMPLEMENTATION_DIRECTIVE.md
+user_approval_directive_sha256: 493E70EFC25141013C0BCF42F43976FEAEF01361408633777441E30887DF191A
+mainline_inserted_r6_disposition:
+  audit_id: RULE-AUDIT-20260810-V8_8-NOT-CALIBRATED-RESOLUTION-R6
+  this_lane_assignment_accepted: false
+  user_directive: REROUTE_TO_ANOTHER_COMPLIANT_SESSION
+  r6_outcome_predetermined_by_r7: false
+  r7_behavior_may_start_before_r6_resolution: false
+implementation_sequence:
+  - step: MAINLINE_VALIDATE_R7_PACKAGE_AND_RECORD_USER_APPROVAL
+    behavior_change: false
+    authorized: true
+  - step: MAINLINE_APPLY_P0_REPAIR_VECTOR_TELEMETRY_AND_DORMANT_MODE_SCAFFOLD_AT_SAFE_BOUNDARY
+    behavior_change: false
+    authorized: true
+  - step: REROUTE_AND_COMPLETE_INDEPENDENT_V8_8_RESOLUTION
+    owned_by_this_lane: false
+    required_before_r7_backtest: true
+  - step: RUN_R7_BLIND_PACKER_EXECUTOR_AUDITOR_WITH_EXISTING_LONG_LIVED_LANES
+    behavior_change: false
+    canonical_candidate_effect: none
+    authorized_only_after_v8_8_gate: true
+  - step: RUN_TWO_NONCANONICAL_R7_SHADOW_WAVES
+    behavior_change: false
+    canonical_candidate_effect: none
+    authorized_only_after_r7_backtest_pass: true
+  - step: APPLY_EXACT_R7_PRODUCTION_DELTA_AT_NEXT_SAFE_ASSIGNMENT_BOUNDARY
+    behavior_change: true
+    conditionally_preapproved: true
+    conditions:
+      - INDEPENDENT_R7_AUDITOR_CALIBRATED
+      - TWO_SHADOW_WAVES_ALL_FROZEN_THRESHOLDS_PASS
+      - APPLIED_SCOPE_BYTE_OR_SEMANTIC_EQUIVALENT_TO_DRAFT_PATCH
+      - NO_ACTIVE_ASSIGNMENT_RULE_DRIFT
+    scope_change_requires_new_user_approval: true
+parallelism:
+  base_active_seats: 4
+  maintenance_coexistence_burst: 1
+  hot_discovery_slots: 2
+  permanent_lane_increase: false
+  no_depth_backlog: BREADTH_PLUS_ORTHOGONAL_BREADTH
+  qualified_depth_backlog: BREADTH_PLUS_DEPTH_REDTEAM
+  resource_ready_stagea_work: DISCOVERY_MAX_ONE__DEPTH_IF_QUALIFIED_ELSE_BREADTH
+  same_packet_backtest_roles_serial: true
+  new_per_candidate_tasks: false
+non_relaxable_gates:
+  q2_minimum: preserved
+  same_object: preserved
+  latest_collision: strengthened
+  fair_current_strong_baseline: strengthened
+  natural_input_and_evidence: preserved
+  full_cost: preserved
+  reproducibility: strengthened
+  evidence_claim_honesty: preserved
+  stop_non_revival: preserved
+  stageb_user_gate: preserved
+acceptance_summary:
+  known_material_corrections_recovered: all
+  aiger_proposal_eligible: required
+  blind_positive_shape_recovery: AT_LEAST_2_OF_3
+  blind_structural_negatives_abstain: 3_OF_3
+  blind_unfrozen_resource_controls_not_structural: 2_OF_2
+  structural_decisions_with_named_subtractor_and_facet_match: 100_PERCENT
+  action_overlap_false_fatal: 0
+  terminal_revival: 0
+  shadow_stage0_first_discovered_cutoff_omission: 0
+  duplicate_work: 0
+  shared_write_conflict: 0
+  rule_revision_drift: 0
+one_failure_stop:
+  trigger:
+    - NOT_CALIBRATED
+    - CONTAMINATION_UNKNOWN
+    - ANY_FROZEN_SHADOW_THRESHOLD_FAIL
+  automatic_second_revision_or_repack: forbidden
+  automatic_production_cutover: forbidden
+  next_state: USER_POLICY_DECISION_REQUIRED
+rollback:
+  discovery_quality_mode: OFF
+  discovery_depth_reservation: 0
+  restore: TWO_ORTHOGONAL_ROTATING_BREADTH_SLOTS
+  candidate_state_rollback_required: false
+artifacts:
+  RULE_AUDIT_REPORT.md: B21939533363787A1C9E0456C478C1D6559593320BF306C703B25E2CD0CACB7B
+  RULE_CHANGE_PROPOSAL.md: 6EDE032C18DEB2D2B8E417F3C6D1856E639AE935BDA09F43F18F502D7F2219F2
+  USER_APPROVAL_IMPLEMENTATION_DIRECTIVE.md: 493E70EFC25141013C0BCF42F43976FEAEF01361408633777441E30887DF191A
+  DRAFT_PATCH.diff: 1F1521284F8810804458094ACDA943E3497AA293E2588F3E7E2FA0BA680493C8
+canonical_manifest: HASH_MANIFEST.sha256
+next_owner: MAINLINE_CONTROL
+audit_lane_state: IDLE_REUSABLE_AWAITING_USER_DIALOGUE

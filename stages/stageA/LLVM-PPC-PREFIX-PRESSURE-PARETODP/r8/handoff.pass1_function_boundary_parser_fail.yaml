@@ -1,0 +1,91 @@
+schema: ppc-r8-addendum-a1-handoff-v1
+created_at: 2026-08-26T06:11:42.5663154+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+addendum_id: PPC-R8-A1-HASH-PINNED-WITNESS-IDENTITY-CORRECTION
+lane_id: CANDIDATE_EXECUTION_LANE_2
+decision: FAIL_CLOSED_ACTUAL_NATURAL_HARNESS_FIDELITY__FUNCTION_BOUNDARY_PARSER_INCLUDED_ALIGNMENT_NOP__NO_SCIENTIFIC_INFERENCE
+evidence_ceiling: INVALID_PRECLAIM_CONSTRUCTION__FUNCTION_BOUNDARY_PARSER_INCLUDED_ALIGNMENT_NOP__NO_SCIENTIFIC_INFERENCE
+ordered_gate:
+  J0: REUSED_PASS_WITHOUT_COPY_OR_HASH_RERUN
+  J1: FAIL_AFTER_11_SUCCESSFUL_REAL_TOOL_COMMANDS_AT_REAL_OBJDUMP_FUNCTION_BOUNDARY_PARSE
+  J2: NOT_STARTED
+  J3: NOT_STARTED
+  J4: NOT_STARTED
+  J5: NOT_STARTED
+  J6: NOT_STARTED
+identity_contract:
+  ir_function: ir_direct_load
+  direct_symbol: witness_direct
+  materialized_symbol: witness_materialized
+  target_symbol: target_value
+  ir_indexed_load_used_as_substitute: false
+  input_bytes_changed: false
+pass1_preserved:
+  handoff: {path: handoff.pass1_j1_input_identity_blocker.yaml, sha256: 30F7C757412C4D16966D094EE2C8CADB29C7B10AC3E90CCF889C1F0516B52EEA}
+  manifest: {path: HASH_MANIFEST.pass1_j1_input_identity_blocker.sha256, sha256: F87F362F9C4BEF2971B9D28ACCFB806C2989F26E5844219E0F5273FB1BD14C68}
+first_failure:
+  fresh_parser_sha256: BDA3B305DFD8A17CC723BD62D72C901608EFA33DAD0F396E878F1F54CE0ACB2F
+  actual_direct_disassembly_until_next_symbol: [pld, blr, nop]
+  actual_ELF_symbol_size_bytes: 12
+  valid_function_body_by_symbol_size: [pld, blr]
+  parser_required_exact_trace: [pld, blr]
+  defect: PARSER_DID_NOT_USE_ELF_SYMBOL_SIZE_AND_INCLUDED_ALIGNMENT_NOP
+  controller_stderr_sha256: 44F99317D4918E60715B24332342588CAF96A192658DF9E4B66D6DDD9B7F940E
+  witness_readobj_sha256: 6778B4F4E17B6A661E89DFD0F15CF74BB25E39069E76D498C55722A23EC3C0A3
+  witness_objdump_sha256: 7C92E636734223DF6194C4EC2430145AAF1079853C89343DF17BBB57AABD5838
+execution_summary:
+  implementation_files: 5
+  successful_llvm_or_native_tool_commands: 11
+  failed_llvm_or_native_tool_commands: 0
+  controller_records: 1
+  controller_failures: 1
+  total_executed_records: 12
+  retries: 0
+  replay_1_started: true
+  replay_1_candidate_payload_completed: false
+  replay_2_started: false
+  r9_plan_rows: 0
+  r9_plan_executed: false
+  selected_or_reserve_corpus_tool_invocations: 0
+  claim_bearing_runs: 0
+  network_bytes: 0
+  resource_files: 251
+  resource_logical_bytes: 245603214
+  resource_reparse_entries: 0
+  active_related_processes: 0
+  tool_cpu_seconds_sum: 0.546875
+  tool_wall_seconds_sum: 1.81671310002275
+  controller_cpu_seconds: 0.203125
+  controller_wall_seconds: 2.17844440000772
+  peak_rss_bytes_max: 23543808
+  cleanup_performed: false
+scientific_boundary:
+  claim_bearing_observations: 0
+  scientific_revision_consumed: false
+  mechanism_pivot_consumed: false
+  state_transition_performed: false
+  stageb_action_performed: false
+  scientific_inference: NONE
+canonical_hashes:
+  environment_lock_sha256: 9FC0A506E449B5ED452F29FBF646079222F3A151101661004D3D9B22C08266D0
+  actual_cli_audit_sha256: 3732DF7AA2D823EB5B2EA2BBA05C790FCDF365DF6D48E0A1D763B0FE8075A76F
+  input_driven_candidate_audit_sha256: FB06D5FF5EE61B775E46772948B74693A995F47FCA956C680B4C55D3654E5625
+  expanded_union_ablation_audit_sha256: 486858EA73E729C03AC9F575EB773F3371093ECC04070DA4B2B47068415BD0B4
+  native_checker_evidence_audit_sha256: 4A613492F25AE32A7AA45EAD7E402DCBE6915200BE4B582B6A2D57713FE4B2F7
+  real_command_full_cost_audit_sha256: DD6800B1175622E0E47B4C1308CB486551520F912D8A54BDE64A3B9D694AA45D
+  synthetic_native_fidelity_smoke_sha256: BB9BDE787DEBE9A210003F2C2ADA31AB61BD568633B9B796E748C97AD3C6528E
+  r9_expanded_command_precommit_sha256: E635571376C580DE9A7424BECF3B785A6E4ABFDB786B84EE7E1889A856A6AF7D
+  preclaim_gate_sha256: D3FECB2EC1F0EC917F975CCC56922DFB4783CC9A79BBA563D659F0F0348B0688
+  reproducibility_report_sha256: E1D7FEEF6FE4F9505EB055454B7D6E43FEDEA4549A9981F6D4C80168FB6AA194
+  resource_inventory_sha256: 2B0F7BB8BA93FE29DBE14C26FCBA113ABF27DEA57CBB622E73802CAE6FC21B7E
+  phase_closeout_retention_sha256: 915DF86359B86F3982ACDBF8317B3AA3B73833D68A8F0DB6FE78FC82B1C69797
+  resume_capsule_sha256: F66B71B617A85A388242A72CC85A1A06E2959C0CAF3E8A4C1BB004A70B90D447
+exact_cleanup_candidate_leaves:
+  - resources/cache
+  - resources/tmp
+  - resources/downloads
+  - resources/archives
+owner_cleanup_allowed: false
+future_correction_requires_new_mainline_freeze: true
+future_minimum_correction: BOUND_OBJDUMP_FUNCTION_ROWS_BY_ELF_SYMBOL_VALUE_AND_SIZE_BEFORE_ALIGNMENT_PADDING
+next_action: MAINLINE_ACCEPT_HANDOFF_AND_DECIDE_SEPARATE_ENGINEERING_CORRECTION

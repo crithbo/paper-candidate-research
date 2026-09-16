@@ -1,0 +1,1 @@
+`COMPLETE_ZERO_PROPOSALS`. One exact public Zfa anchor and primary RQ received bounded primary-source subtraction; it failed before raw as generic FP environment. No selective-depth packet, build, experiment, download, or Stage action occurred.

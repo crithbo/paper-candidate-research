@@ -1,0 +1,54 @@
+llc.exe : '-experimental-xrivosvisni' is not a recognized feature for this target (ignoring feature)
+所在位置 行:2 字符: 170
++ ... +$env:Path; & .\b\bin\llc.exe -x mir -mtriple=riscv32-unknown-elf '-m ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ('-experimental-...noring feature):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+'-experimental-xrivosvizip' is not a recognized feature for this target (ignoring feature)
+'-experimental-zvqdotq' is not a recognized feature for this target (ignoring feature)
+'-experimental-xrivosvisni' is not a recognized feature for this target (ignoring feature)
+'-experimental-xrivosvizip' is not a recognized feature for this target (ignoring feature)
+'-experimental-zvqdotq' is not a recognized feature for this target (ignoring feature)
+Assertion failed: !NodePtr->isKnownSentinel(), file <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/RISCV-ZCMP-CALLEESAVE-PUSH
+LIST-PARETODP/resume1/s/llvm/include/llvm/ADT/ilist_iterator.h, line 168
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace and instruct
+ions to reproduce the bug.
+Stack dump:
+0.	Program arguments: <LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\\resume1\\
+b\\bin\\llc.exe -x mir -mtriple=riscv32-unknown-elf -mattr=+m,+a,+c,+zcmp -target-abi=ilp32 -O2 -start-before=greedy -v
+erify-machineinstrs -filetype=asm -o runs\\natural\\pilot_probe\\aes\\p0.s runs\\natural\\pilot_probe\\aes\\plan_0000.m
+ir
+1.	Running pass 'Function Pass Manager' on module 'runs\natural\pilot_probe\aes\plan_0000.mir'.
+2.	Running pass 'Machine Cycle Info Analysis' on function '@_aes_set_key'
+Exception Code: 0xC000001D
+ #0 0x00007ff7fa0a81d6 HandleAbort (<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\re
+sume1\b\bin\llc.exe+0x19981d6)
+ #1 0x00007ffba7fd2139 (C:\Windows\System32\ucrtbase.dll+0xc2139)
+ #2 0x00007ffba7fb5261 (C:\Windows\System32\ucrtbase.dll+0xa5261)
+ #3 0x00007ffba7f6ff6d (C:\Windows\System32\ucrtbase.dll+0x5ff6d)
+ #4 0x00007ffba7fd3291 (C:\Windows\System32\ucrtbase.dll+0xc3291)
+ #5 0x00007ff7f8afb724 _assert /home/runner/work/llvm-mingw/llvm-mingw/mingw-w64/mingw-w64-crt/build-x86_64/../misc/_as
+sert.c:27:3
+ #6 0x00007ff7f93e8196 llvm::GenericCycleInfoCompute<llvm::GenericSSAContext<llvm::MachineFunction>>::run(llvm::Machine
+Function*) (<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\b\bin\llc.exe+0xcd
+8196)
+ #7 0x00007ff7f93e7803 llvm::GenericCycleInfo<llvm::GenericSSAContext<llvm::MachineFunction>>::compute(llvm::MachineFun
+ction&) (<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\b\bin\llc.exe+0xcd780
+3)
+ #8 0x00007ff7f93eb1a5 llvm::MachineCycleInfoWrapperPass::runOnMachineFunction(llvm::MachineFunction&) (D:\project\writ
+ing\reserch\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\b\bin\llc.exe+0xcdb1a5)
+ #9 0x00007ff7f8c4377e llvm::MachineFunctionPass::runOnFunction(llvm::Function&) (<LEGACY_LOCAL_PROJECT_ROOT>\stages\sta
+geA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\b\bin\llc.exe+0x53377e)
+#10 0x00007ff7f88dca88 llvm::FPPassManager::runOnFunction(llvm::Function&) (<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RI
+SCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\b\bin\llc.exe+0x1cca88)
+#11 0x00007ff7f88e46d2 llvm::FPPassManager::runOnModule(llvm::Module&) (<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RISCV-
+ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\b\bin\llc.exe+0x1d46d2)
+#12 0x00007ff7f88dd91b llvm::legacy::PassManagerImpl::run(llvm::Module&) (<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RISC
+V-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\b\bin\llc.exe+0x1cd91b)
+#13 0x00007ff7f8715ed0 main (<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\b
+\bin\llc.exe+0x5ed0)
+#14 0x00007ff7f87110fe __tmainCRTStartup /home/runner/work/llvm-mingw/llvm-mingw/mingw-w64/mingw-w64-crt/build-x86_64/.
+./crt/crtexe.c:277:10
+#15 0x00007ffbaa95ccb7 (C:\Windows\System32\KERNEL32.DLL+0x2ccb7)
+#16 0x00007ffbaacead6c (C:\Windows\SYSTEM32\ntdll.dll+0xaad6c)

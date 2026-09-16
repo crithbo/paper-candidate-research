@@ -1,0 +1,130 @@
+schema: handoff-transport-envelope-v2
+topic_id: SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+assignment_id: STAGE0-PRIMARY-20260830-ORT-EP-ASSIGNMENT-STABILITY
+lane_id: STAGE0_PRIMARY
+role_id: STAGE0_PRIMARY
+source_stage: STAGE0
+assignment_state: FROZEN_AWAITING_MAINLINE
+input_freeze_sha256: 45AADF7DCC0865C02E2997B5768C6DEDDE1477B78543A21F80DCCCC7C96EE637
+cross_assignment_contamination_declared: false
+
+user_summary_cn:
+  outcome: "PRIMARY 建议 REVISE_ONCE；不是 STOP。修订后仍有 Tier-B/Q2 潜力，但当前 packet 不得直接进入 Stage A。"
+  main_reason: "current ORT/Mobius/QNN 与 ModelMeta/OODTE/OATest 已吸收 assignment API、通用等价变异、optimization-aware synthesis、EP-aware rewrite trace 和部分 lineage；残余仅为跨等价表示的预注册部署决策稳定性。packet 尚未在 EP-selection 与 optimizer-level selection 中选择唯一端点，也未冻结 legality/lineage/Q2 denominator。"
+  next_step: "MAINLINE 验收后交独立 SENTRY；若确认，只允许一次同对象 contract revision，再经独立 closing，禁止直接 Stage A。"
+  user_action_required: false
+  user_action: null
+
+decision:
+  scientific_verdict: REVISE_ONCE
+  operational_disposition: NONE
+  quality_tier: TIER_B_Q2_VIABLE
+  evidence_ceiling: STATIC_CURRENT_SOURCE_AND_PRIMARY_FULLTEXT__ZERO_CANDIDATE_RESULT__CANONICAL_BENCHMARK_HYPOTHESIS_ONLY
+  claim_bearing_observation_obtained: false
+  scientific_revision_consumed: false
+
+review_scope:
+  search_or_open_calls_used: 28
+  search_or_open_calls_max: 32
+  build_or_experiment: 0
+  implementation: 0
+  resource_action: 0
+  stagea_or_stageb_started: false
+  shared_write: false
+  queued_torchdynamo_assignment_or_source_packet_read: false
+  current_cycle_usage_reset_confirmed: false
+  temporary_model_override: gpt-5.6-sol/high__THIS_COMMAND_ONLY
+
+decisive_findings:
+  direct_fatal: false
+  current_native_union:
+    - "ORT 1.24+ assignment/subgraph/node API with opt-in recording"
+    - "provider priority, strict CPU fallback, profiling and graph-optimization grid"
+    - "current capacity-aware CUDA and name/annotation-based assignment controls"
+    - "Mobius EP-aware graph rewrite/trace and build benchmark infrastructure"
+    - "QNN source-to-EP-input-to-backend-op provenance and profile correlation"
+  literature_subtraction:
+    - "ModelMeta: equivalent model structural MRs plus time/memory/resource anomaly detection"
+    - "OODTE/DiTOX: 130-model ONNX optimizer differential and per-pass localization"
+    - "OATest: optimization-aware ONNXRuntime graph synthesis and bug oracles"
+    - "NNSmith: valid diverse DL-compiler graph generation and differential testing"
+  residual_kernel: "held-out regret of one representation's precommitted ORT optimizer/config deployment choice, explained by semantic-region assignment quotient"
+  first_defect: "DUAL_DECISION_ENDPOINT_AND_UNFROZEN_LEGALITY_LINEAGE_DENOMINATOR"
+  recommended_primary_endpoint: "fixed CUDAExecutionProvider+CPUExecutionProvider; choose BASIC/EXTENDED/ALL optimizer level under frozen full-cost objective and output threshold"
+  q2_minimum: "at least 12 models, 3 families, 4 canonical rewrite families, and a second ORT release or same-version public EP route"
+  stagea_killer_after_closing: "2 model families x 2 legal relation families x BASIC/EXTENDED/ALL plus normalized-away negative; kill on no surviving assignment change, ambiguous lineage, decision neutrality, process-control disappearance, or no gain over timing/structure"
+
+allowed_revision:
+  preserve:
+    - exact_ORT_ONNX_object
+    - semantics_equivalent_representation_question
+    - held_out_deployment_decision_validity
+    - output_quality_constraint
+    - canonical_benchmark_ceiling
+  required_delta:
+    - choose_one_primary_decision_endpoint
+    - freeze_exact_ORT_wheel_commit_and_EP_order
+    - freeze_four_legal_relation_families_and_legality_levels
+    - define_semantic_region_quotient_and_all_cell_denominator
+    - freeze_minimum_Q2_breadth
+  forbidden_delta:
+    - generic_bug_finding
+    - result_dependent_mutation_or_corpus
+    - private_hardware_or_telemetry
+    - incompatible_wheel_versions_in_one_ranking_denominator
+    - failed_cell_exclusion
+    - StageA_before_independent_closing
+  revision_consumed_now: false
+
+artifact_pointers:
+  canonical_report:
+    path: stages/stage0/_reviews/round-20260830-source122-primary/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/STAGE0_REPORT.md
+    sha256: 1227D97D8BDC70CE216D71D5051F3DC412B3A166A9BDAE63B9FD3FD05CA92991
+  raw_or_decisive_evidence:
+    - "STAGE0_REPORT.md#semantic-rewrite-legality-and-lineage-audit"
+    - "STAGE0_REPORT.md#independent-current-upstream-reality-check"
+    - "STAGE0_REPORT.md#collision-analysis"
+  comparator_or_full_cost:
+    - path: stages/stage0/_reviews/round-20260830-source122-primary/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/q1_calibration.md
+      sha256: FD9FD8F82E63025CCE1C55DC1B8724214AFEA80032D3AE66769E038B1F57D759
+    - "STAGE0_REPORT.md#named-baselines-and-fairness-contract"
+    - "STAGE0_REPORT.md#full-cost-contract"
+  independent_review:
+    path: null
+    sha256: null
+  resource_inventory:
+    path: null
+    sha256: null
+  lifecycle_or_retention:
+    path: null
+    sha256: null
+  capsule_or_resume:
+    path: null
+    sha256: null
+
+blocker:
+  kind: null
+  user_blocker_packet: null
+  resume_directory: null
+  attempts_or_routes_exhausted: null
+
+next_gate:
+  proposed_stage_or_gate: STAGE0_SENTRY
+  exact_action: "independently verify no direct fatal, current first-party/tool subtraction, the single-endpoint revision need, Tier-B breadth and post-closing Stage-A killer"
+  authority_required: MAINLINE
+  stageb_user_approval_id: null
+
+stage0_repair_vector:
+  codes: [OMITTED_FIRST_PARTY_FEATURE, OMITTED_GENERIC_KERNEL, ATOMIC_ACTION_UNCLEAR, EVIDENCE_LOCATOR_OR_VERSION_GAP, NATURAL_CARRIER_GAP, FULL_COST_GAP, Q2_SHAPE_GAP]
+  available_before_cutoff: true
+  decision_effect: NONE_NONDECISIONAL_FEEDBACK
+
+file_hashes:
+  ASSIGNMENT_CONTEXT.yaml: 45AADF7DCC0865C02E2997B5768C6DEDDE1477B78543A21F80DCCCC7C96EE637
+  BOOTSTRAP_ACK.yaml: 3621D8E06E37390907B03D3A6D286C9CACCECBBE42828BB87E898A63617F5137
+  MAINLINE_BOOTSTRAP_ACCEPTANCE.yaml: C15AA9CC8AF9FC0600E2C338FC6666FB46AED32578996BDB01D6C5388122CE5A
+  MAINLINE_START.yaml: CF55D894436346480AB6C0A44F308E18A178BDD71F02914D781AE08341B75F79
+  STAGE0_REPORT.md: 1227D97D8BDC70CE216D71D5051F3DC412B3A166A9BDAE63B9FD3FD05CA92991
+  q1_calibration.md: FD9FD8F82E63025CCE1C55DC1B8724214AFEA80032D3AE66769E038B1F57D759
+hash_manifest_file: HASH_MANIFEST.sha256
+

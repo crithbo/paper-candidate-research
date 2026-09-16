@@ -1,0 +1,121 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  artifact_state: ARTIFACT_OPEN
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: APX_R9_E2_CONTROL
+  downstream_consumer: MAINLINE
+  post_close_retained_bytes_max: 536870912
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: RESUME_CAPSULE.yaml
+  cleanup_receipt_path: CLEANUP_RECEIPT.yaml
+identity:
+  topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+  assignment_id: STAGEA-L2-20260829-LLVM-APX-R9-E2-CONTROL
+  stage_or_mode: STAGEA_CONTROL_NON_CLAIM
+  run_id: C1-NATURAL-CLAIM-20260829
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources
+  inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-29T12:23:06.0322363Z
+  finalized_at: 2026-08-29T12:48:30.0659046Z
+root_measurement:
+  logical_bytes: 1308868
+  tree_manifest_sha256: 2BA00D14E1FBE2DE0FA2C438D1B3E33AEAF8E898DA47D1B4E00280366102FB58
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/downloads
+  archives: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/archives
+  src: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src
+  build: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/build
+  env: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/env
+  cache: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/cache
+  tmp: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/tmp
+  logs: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+      surfaces: [TEMP, TMP, TMPDIR, PYTHONNOUSERSITE]
+      redirect_map: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONNOUSERSITE: "1"}
+      reliable: true
+    - executable: assignment-local APX_R9_CONTROL_RUNNER.py
+      surfaces: [resources/build, resources/logs]
+      redirect_map: {output: resources/build/control, logs: resources/logs/control}
+      reliable: true
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 67108864
+  cpu_hours_max: null
+  gpu_hours_max: null
+  wall_seconds_max: null
+  attempts_max: 1
+  network_bytes_used: 0
+  stored_bytes_used: 1308868
+  attempts_used: 1
+entries:
+  - {relative_path: resources/src/apx_tpd/apx_r8_row_driver.py, absolute_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/apx_r8_row_driver.py, logical_bytes: 9087, hash_scope: CONTENT_SHA256, sha256: B042EC1F1C1EDF993DE57EE6C28A34F4766252941D6AB7BF1041E51819DA750E, source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/apx_tpd/apx_r8_row_driver.py, creating_run: E2-CONTROL-20260829-COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [E2_CONTROL], provenance: ASSET-LLVM-APX-A1194BE1, license: ASSET_RECORD, reacquirable: true, recovery_command: FROZEN_COPY_MANIFEST, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/src/apx_tpd/apx_tpd_r7c.py, absolute_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/apx_tpd_r7c.py, logical_bytes: 47266, hash_scope: CONTENT_SHA256, sha256: FC1E6CB729A5F6693A6264C5B0DDFD24C73129638419278E879705C676C10FF1, source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/apx_tpd/apx_tpd_r7c.py, creating_run: E2-CONTROL-20260829-COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [E2_CONTROL], provenance: ASSET-LLVM-APX-A1194BE1, license: ASSET_RECORD, reacquirable: true, recovery_command: FROZEN_COPY_MANIFEST, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/src/apx_tpd/apx_tpd.py, absolute_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/apx_tpd.py, logical_bytes: 30406, hash_scope: CONTENT_SHA256, sha256: 5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086, source: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/apx_tpd/apx_tpd.py, creating_run: E2-CONTROL-20260829-COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [E2_CONTROL], provenance: ASSET-LLVM-APX-A1194BE1, license: ASSET_RECORD, reacquirable: true, recovery_command: FROZEN_COPY_MANIFEST, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/src/apx_tpd/catalog_contract.json, absolute_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/catalog_contract.json, logical_bytes: 6097, hash_scope: CONTENT_SHA256, sha256: BC129B73FC7FABC488C3B4A52C41737EFBE398000542AC2CDCD382E5337CC6CA, source: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/apx_tpd/catalog_contract.json, creating_run: E2-CONTROL-20260829-COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [E2_CONTROL], provenance: ASSET-LLVM-APX-A1194BE1, license: ASSET_RECORD, reacquirable: true, recovery_command: FROZEN_COPY_MANIFEST, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/src/apx_tpd/independent_oracle.py, absolute_path: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/independent_oracle.py, logical_bytes: 8555, hash_scope: CONTENT_SHA256, sha256: 7BD2FB476C912621320021238AE458C63F62B5DDC34F5368C783C176489EA205, source: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/apx_tpd/independent_oracle.py, creating_run: E2-CONTROL-20260829-COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [E2_CONTROL], provenance: ASSET-LLVM-APX-A1194BE1, license: ASSET_RECORD, reacquirable: true, recovery_command: FROZEN_COPY_MANIFEST, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/src/apx_tpd/tiny_trace.json, absolute_path: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/apx_tpd/tiny_trace.json, logical_bytes: 1799, hash_scope: CONTENT_SHA256, sha256: AD7F2DBE3F19DFFCD1EB0C3B4FDF80DCDDA7DCC71BACC769FCF40AF022F57910, source: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/apx_tpd/tiny_trace.json, creating_run: E2-CONTROL-20260829-COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [E2_CONTROL], provenance: ASSET-LLVM-APX-A1194BE1, license: ASSET_RECORD, reacquirable: true, recovery_command: FROZEN_COPY_MANIFEST, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/src/corpus/S01/and.ll, absolute_path: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/corpus/S01/and.ll, logical_bytes: 37847, hash_scope: CONTENT_SHA256, sha256: 8FCB0455C1F2D73F992C67003B1A03B1D2EE024005DF5D0FC79EBB8425E32861, source: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/llvm_subset/llvm/test/CodeGen/X86/apx/and.ll, creating_run: E2-CONTROL-20260829-COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [E2_CONTROL], provenance: ASSET-LLVM-APX-A1194BE1, license: ASSET_RECORD, reacquirable: true, recovery_command: FROZEN_COPY_MANIFEST, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/src/corpus/S02/neg.ll, absolute_path: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/corpus/S02/neg.ll, logical_bytes: 9039, hash_scope: CONTENT_SHA256, sha256: FFB56115E7895DFD6404939FC59E8DA71D93BACF36F5B8D7211F9A96FFB08037, source: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/llvm_subset/llvm/test/CodeGen/X86/apx/neg.ll, creating_run: E2-CONTROL-20260829-COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [E2_CONTROL], provenance: ASSET-LLVM-APX-A1194BE1, license: ASSET_RECORD, reacquirable: true, recovery_command: FROZEN_COPY_MANIFEST, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/src/corpus/S03/ctest.ll, absolute_path: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/corpus/S03/ctest.ll, logical_bytes: 65033, hash_scope: CONTENT_SHA256, sha256: 4293426EBB97473D4A56499CB3F18A3C9A6300170E4DA7F9ECBFDB1F1726BBA1, source: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/llvm_subset/llvm/test/CodeGen/X86/apx/ctest.ll, creating_run: E2-CONTROL-20260829-COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [E2_CONTROL], provenance: ASSET-LLVM-APX-A1194BE1, license: ASSET_RECORD, reacquirable: true, recovery_command: FROZEN_COPY_MANIFEST, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/src/corpus/S04/asm-constraint.ll, absolute_path: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/src/corpus/S04/asm-constraint.ll, logical_bytes: 1228, hash_scope: CONTENT_SHA256, sha256: A44D49A47C34CCE86BB4952F42F6C557230A669BEC950DACDD856F9D133E0776, source: <LOCAL_PROJECT_ROOT>/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/llvm_subset/llvm/test/CodeGen/X86/apx/asm-constraint.ll, creating_run: E2-CONTROL-20260829-COPY, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [E2_CONTROL], provenance: ASSET-LLVM-APX-A1194BE1, license: ASSET_RECORD, reacquirable: true, recovery_command: FROZEN_COPY_MANIFEST, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/build/control/APX_R9_CONTROL_RUNNER.pyc, absolute_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/build/control/APX_R9_CONTROL_RUNNER.pyc, logical_bytes: 7585, hash_scope: CONTENT_SHA256, sha256: BCD10DEF9229C620CF24874EF44A762608378B5A74FCF6B9A28F83C7E51195B5, source: APX_R9_CONTROL_RUNNER.py static compile, creating_run: E2-CONTROL-20260829-STATIC-COMPILE, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [E2_CONTROL], provenance: ASSIGNMENT_LOCAL, license: PROJECT_CODE, reacquirable: true, recovery_command: FROZEN_STATIC_COMPILE, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/logs/rows/APX-R8-S01-R1, absolute_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/rows/APX-R8-S01-R1, logical_bytes: 278243, child_file_count: 30, hash_scope: TREE_MANIFEST_SHA256, sha256: 181579B4DC616000BDB138FEF821986DBBEAE585EA90E302C195F4AEB700E14C, source: APX_R9_COMMAND_DAG.json row index 0, creating_run: C1-NATURAL-CLAIM-20260829, claim_critical: true, reproducibility_minimum: true, downstream_consumers: [INDEPENDENT_STAGEA_GATE], provenance: C1_RAW_CLAIM_RECEIPTS; E2 predecessor preserved in control snapshot, license: PROJECT_CODE, reacquirable: false, recovery_command: FROZEN_C1_COMMAND, retention_class: KEEP_CAPSULE_CLAIM_CRITICAL, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {relative_path: resources/logs/control/APX-R8-S01-R1, absolute_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/control/APX-R8-S01-R1, logical_bytes: 358563, child_file_count: 41, hash_scope: TREE_MANIFEST_SHA256, sha256: A03EFD72AF1C3E478E4810E2EDC1008ABCB4300204EC90BD407C8097354A1310, source: APX_R9_CONTROL_RUNNER.py receipts plus frozen preclaim snapshot, creating_run: E2-CONTROL-20260829-PRESERVE, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [MAINLINE], provenance: CONTROL_RAW_AND_SNAPSHOT, license: PROJECT_CODE, reacquirable: false, recovery_command: FROZEN_CONTROL_RUN, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/logs/resource-inventory/E2-CONTROL-20260829-inventory-initial.yaml, absolute_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/resource-inventory/E2-CONTROL-20260829-inventory-initial.yaml, logical_bytes: 16302, hash_scope: CONTENT_SHA256, sha256: A8A5132B0FEA8BC4DB043CA64C795715EBFB08A7CF3A97CD29790BA6E5AB9443, source: RESOURCE_INVENTORY.yaml snapshot, creating_run: E2-CONTROL-20260829-INVENTORY-SNAPSHOT, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [MAINLINE], provenance: RESOURCE_INVENTORY_SNAPSHOT, license: PROJECT_CODE, reacquirable: false, recovery_command: FROZEN_INVENTORY_SNAPSHOT, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/logs/rows/APX-R8-S01-R2, absolute_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/rows/APX-R8-S01-R2, logical_bytes: 278243, child_file_count: 30, hash_scope: TREE_MANIFEST_SHA256, sha256: 711ADDEE02DBB0FCCAC989C8A35E3F91BEA35A28EAFFFB5A5DE130A7BC204259, source: APX_R9_COMMAND_DAG.json row index 1, creating_run: C1-NATURAL-CLAIM-20260829, claim_critical: true, reproducibility_minimum: true, downstream_consumers: [INDEPENDENT_STAGEA_GATE], provenance: C1_RAW_CLAIM_RECEIPTS, license: PROJECT_CODE, reacquirable: false, recovery_command: FROZEN_C1_COMMAND, retention_class: KEEP_CAPSULE_CLAIM_CRITICAL, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {relative_path: resources/logs/rows/APX-R8-S02-R1, absolute_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/rows/APX-R8-S02-R1, logical_bytes: 36964, child_file_count: 4, hash_scope: TREE_MANIFEST_SHA256, sha256: A092DC1B6A4CB4F9CA94B0A5A20CA5FC8D14831EB22E907C3430287DF3A51B33, source: APX_R9_COMMAND_DAG.json row index 2 first failure, creating_run: C1-NATURAL-CLAIM-20260829, claim_critical: true, reproducibility_minimum: true, downstream_consumers: [INDEPENDENT_STAGEA_GATE], provenance: C1_FAILURE_RAW_RECEIPTS, license: PROJECT_CODE, reacquirable: false, recovery_command: FROZEN_C1_COMMAND, retention_class: KEEP_CAPSULE_CLAIM_CRITICAL, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {relative_path: resources/logs/claim/controller, absolute_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/claim/controller, logical_bytes: 97035, child_file_count: 2, hash_scope: TREE_MANIFEST_SHA256, sha256: 877A1F253B4CC8C7B94303D715E6D523783C7AE0EE30F48079E86CD31039324D, source: APX_R9_CONTROLLER.py C1 invocation, creating_run: C1-NATURAL-CLAIM-20260829, claim_critical: true, reproducibility_minimum: true, downstream_consumers: [INDEPENDENT_STAGEA_GATE], provenance: C1_CONTROLLER_LEDGER_AND_FIRST_FAILURE, license: PROJECT_CODE, reacquirable: false, recovery_command: FROZEN_C1_COMMAND, retention_class: KEEP_CAPSULE_CLAIM_CRITICAL, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {relative_path: resources/logs/resource-inventory/C1-NATURAL-CLAIM-20260829.yaml, absolute_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/resource-inventory/C1-NATURAL-CLAIM-20260829.yaml, logical_bytes: 19576, hash_scope: CONTENT_SHA256, sha256: FF8B4117049490C353D0CDEBD36B4B94CAF895CBEE39773CE1C8A44EE571BCC4, source: RESOURCE_INVENTORY.yaml C1 snapshot, creating_run: C1-NATURAL-CLAIM-20260829-INVENTORY-SNAPSHOT, claim_critical: false, reproducibility_minimum: true, downstream_consumers: [INDEPENDENT_STAGEA_GATE], provenance: RESOURCE_INVENTORY_SNAPSHOT, license: PROJECT_CODE, reacquirable: false, recovery_command: FROZEN_INVENTORY_SNAPSHOT, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+shared_assets_consumed: [ASSET-LLVM-APX-A1194BE1]
+external_system_dependencies:
+  - {path: <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, status: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED}
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF]
+  closeout_plan_accepted: false
+  downstream_inputs_accepted: false
+  capsule_sealed: false
+  active_owner_or_process_count: 0
+  predelete_target_count: 0
+  predelete_file_count: 0
+  predelete_logical_bytes: 0
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: false
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: false
+  deterministic_recovery_routes_complete: false
+  closeout_budget_or_exception_pass: true
+  cleanup_receipt_valid: false
+  result: PASS_C1_FIRST_FAILURE_RETAINED

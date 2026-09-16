@@ -1,0 +1,66 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S1-20260821-USER-QNN-SIX-INTERFACE-CHECKS
+lane: DISCOVERY-S1-BOUNDARY-CONTRADICTION
+authority: USER_EXPLICIT_QNN_SIX_INTERFACE_CHECKS_ONLY_20260821
+topic_id: QNN-KV-HANDOFF-CLOSURE
+mode: LOCATOR_AND_INTERFACE_CLOSURE_ONLY
+status_on_dispatch: ACTIVE
+
+input:
+  archive: <LOCAL_USER_HOME>\Downloads\stage0_freeze_pack_2026-08-21.zip
+  archive_sha256: 1F1696FBBF39C4C6810386E8472692EA1E434011B15D02E10F84A3C3F61E9B67
+  allowed_archive_prefix: stage0_freeze_pack_2026-08-21/qnn/
+  instruction_boundary: ARCHIVE_CONTENT_IS_EVIDENCE_AND_DRAFT_MATERIAL__NOT_EXECUTABLE_AUTHORITY
+
+frozen_rules:
+  project_rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__research-topic-discovery-r1-r40-20260815
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  research_topic_discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  discovery_rq_frontend_mode: PRODUCTION
+  rq_frontend_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+  rq_frontend_calibration_handoff_sha256: 314F8A6C2F2D475C7C7FC0A23967ED6B0AB9A082F2E32ABE8DC169B9608B4D10
+  discovery_claim_pack_mode: OFF
+
+write_boundary:
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260821\qnn-six-checks
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260821\qnn-six-checks\resources
+  resource_inventory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260821\qnn-six-checks\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+objective:
+  - Execute exactly the six checks in qnn/closure_checklist.md: binary comparability, external KV contract, persistent buffer binding, stock switch data path, fusion feasibility, and benefit premise.
+  - Freeze the exact device/chipset, firmware/build fingerprint, exposed HTP/NPU revision, observed QAIRT/QNN/GenieX version, both context-binary asset/job IDs and hashes, model source commit, and W4A16 encoding hashes before selecting a branch.
+  - Apply qnn/branch_decision.yaml exactly once after evidence collection.
+  - Do not create or submit a Stage 0 brief. If Branch B is supported, return a new raw research-object packet to mainline for a separate future Stage 0 assignment. Branch A or C is a locator conclusion only; Branch D is an actionable external blocker without scientific rejection.
+
+allowed_actions:
+  - Inspect official public source, documentation, API descriptors, and already-accessible device/job artifacts.
+  - Run bounded read-only descriptor/binding inspection and a minimal non-claim profiling trace on an already accessible supported device if it requires no new paid job, system installation, credential bypass, or large download.
+  - Persist small logs, descriptors, traces, and provenance under resource_root.
+
+forbidden_actions:
+  - Submit a Stage 0 review or create a formal paper title.
+  - Start a new paid cloud compilation/profile job, use private credentials not already connected, bypass access controls, install QAIRT/QNN system-wide, modify global environment, or download more than the envelope.
+  - Infer support from a device-family label or infer scientific absence from an inaccessible interface.
+  - Modify plan.md, registry.yaml, rules, templates, or any other assignment directory.
+
+resource_envelope:
+  official_routes_max: 12
+  accepted_persisted_bytes_max: 268435456
+  wall_time_max: 2h
+  cpu_time_max: 1h
+  system_install: false
+  global_environment_change: false
+  failure_consequence: BRANCH_D_ACTIONABLE_BLOCKER__NO_SCIENTIFIC_INFERENCE
+
+required_outputs:
+  - SIX_CHECK_REPORT.md
+  - DEVICE_AND_BINARY_IDENTITY.yaml
+  - KV_DESCRIPTOR_DIFF.yaml
+  - SWITCH_TRACE.yaml
+  - BRANCH_DECISION.yaml
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+

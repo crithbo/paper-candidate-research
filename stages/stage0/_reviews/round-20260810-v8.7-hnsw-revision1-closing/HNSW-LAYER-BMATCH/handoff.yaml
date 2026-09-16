@@ -1,0 +1,99 @@
+schema_version: "stage0-closing-handoff-v1"
+assignment_id: "STAGE0-C2-20260810-HNSW-LAYER-BMATCH-REVISION1-CLOSING-V8.7"
+candidate_id: "HNSW-LAYER-BMATCH"
+role: "STAGE0_CONFIRMATION_SENTRY"
+review_kind: "REVISION_FINAL_CLOSING"
+protocol_decision: "CONFIRM"
+scientific_decision: "CONFIRM_BELOW_Q2_STOP"
+quality_label: "BELOW_Q2_STOP"
+terminal_sentinel: "BELOW_Q2_STOP__FASTHNSW_GLOBAL_CONSTRUCTION_PLUS_GENERIC_BMATCHING_REPAIR_ABSORPTION"
+decision_reason_code: "FORMAL_SIX_VECTOR_WITNESS_COLLAPSE_UNDER_FAIR_TWO_SWAP_PLUS_REFILL"
+evidence_ceiling: "STATIC_FORMAL_COUNTERCHECK_ONLY__NO_NATIVE_OR_NATURAL_GAIN_INFERENCE"
+latest_collision_status: "SEARCH_BOUNDED_OPEN"
+
+frozen_inputs:
+  revision1:
+    directory: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stage0\\_revisions\\HNSW-LAYER-BMATCH\\revision1"
+    handoff_sha256: "E8E05FC2102C7E6E0F5B7F5622352D0CE200B80F77D8BD75D693F908FCF386D0"
+    manifest_self_sha256: "63D9CEF9677FC5C513FCBCC95CA9EECE6501B0D25926E79E4E151241FE79F4D6"
+    manifest_entries_verified: "5/5"
+  primary:
+    directory: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stage0\\_reviews\\round-20260810-v8.7-wave41-primary\\HNSW-LAYER-BMATCH"
+    handoff_sha256: "C2FCA75304EDD864C2C0EEBDC3E93A28E7AD0B29B365BBABB95F36782BAC3DDF"
+    manifest_self_sha256: "C2862210C86F3A56A0C8FEF8D76814F44FCA6E0455A4B27E83DA02AA48EA851A"
+    manifest_entries_verified: "4/4"
+  confirmation:
+    directory: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stage0\\_reviews\\round-20260810-v8.7-wave41-confirmation-reroute1\\HNSW-LAYER-BMATCH"
+    review_sha256: "F7EF1BA8576C7A091007BB2970AB72EC5681178DAE01AA0F45215C89B25B7143"
+    handoff_sha256: "7914714D8D0C826C14BAC97024E22A7261ACBC7D87D747149711A9F819B17462"
+    manifest_self_sha256: "E4D042551026B5714FF1532DAE06E782EBD929207A2FF344F53F824D6B1AE60A"
+    manifest_entries_verified: "2/2"
+
+independent_findings:
+  same_object_static_selector: "PASS_WITH_CLAIM_CEILING"
+  six_vector_geometry_and_g_traces: "PASS"
+  six_vector_action_divergence: "FAIL_FORMAL"
+  pe_class_nonempty: "PASS__EXPLICIT_PE_3_2_WITNESS"
+  pe_completeness: "NOT_CLOSED__EXISTENTIAL_CERTIFICATE_DOES_NOT_IMPLY_GREEDY_EXTENSION"
+  three_exchange_local_optimality: "CONDITIONAL_GENERIC_GUARANTEE__NOT_ACTION_SEPARATING"
+  fast_hnsw_broad_absorption: "CONFIRMED_FROM_FROZEN_AUDIT"
+  additive_bmatching_delta: "OBJECTIVE_NONADDITIVE_BUT_REPAIR_ABSORBED"
+  ordinary_bridge_one_two_repair_delta: "FAIL_DIRECT_ABSORPTION"
+
+mechanical_countercheck:
+  candidate_edges: ["01", "02", "12", "13", "25", "34", "35", "45"]
+  cap_per_vertex: 2
+  repair_seed:
+    edges: ["02", "12", "13", "35", "45"]
+    connected: true
+    degree_legal: true
+    greedy_reach_count: 3
+  fair_two_swap:
+    delete: ["12", "35"]
+    add: ["01", "34"]
+    result_edges: ["01", "02", "13", "34", "45"]
+    degree_vector: [2, 2, 1, 2, 2, 1]
+    connected: true
+    degree_legal: true
+    greedy_reach_count: 5
+    q_strictly_improves: true
+  ordinary_refill:
+    add: ["25"]
+    result_edges: ["01", "02", "13", "25", "34", "45"]
+    equals_frozen_pax_output: true
+    connected: true
+    degree_legal: true
+    greedy_reach_count: 6
+    q_strictly_improves: true
+  conclusion: "E_R_TO_E_STAR_REACHABLE_BY_TWO_SWAP_PLUS_REFILL__NO_K3_ACTION_SEPARATION"
+
+policy_checks:
+  stopped_for_missing_native_adapter_or_output: false
+  stopped_for_missing_natural_gain: false
+  absence_inferred_from_transport: false
+  new_retrieval_started: false
+  implementation_or_experiment_started: false
+  stage_a_started: false
+  stage_b_started: false
+  second_revision_requested: false
+  policy_hold_required: false
+  decisive_required: false
+
+deliverables:
+  directory: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stage0\\_reviews\\round-20260810-v8.7-hnsw-revision1-closing\\HNSW-LAYER-BMATCH"
+  expected_files: 3
+  manifest_entries_expected: 2
+  confirmation_review:
+    file: "CONFIRMATION_REVIEW.md"
+    sha256: "B38A2B29B56EDC7D2E1473CAE200F9A1CE9C76858E9A86FED2D0D90B0E7815C7"
+  handoff_file: "handoff.yaml"
+  manifest_file: "HASH_MANIFEST.sha256"
+
+mainline_recommendation:
+  stage0_state: "BELOW_Q2_STOP"
+  enter_stage_a: false
+  enter_stage_b: false
+  create_second_revision: false
+  required_mechanical_action: "REGISTER_TERMINAL_STOP_WITH_FORMAL_WITNESS_COLLAPSE_REASON"
+
+lane_after_delivery: "IDLE_REUSABLE_AWAITING_MAINLINE"

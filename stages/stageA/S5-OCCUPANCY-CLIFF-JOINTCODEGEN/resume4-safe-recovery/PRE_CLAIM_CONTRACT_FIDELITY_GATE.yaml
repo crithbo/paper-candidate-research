@@ -1,0 +1,39 @@
+schema_version: preclaim-fidelity-v1
+assignment_id: SAFE-RECOVERY-L2-20260815-S5-GFX11-MIR-RESUME4
+evaluated_at: 2026-08-15T23:41:08+08:00
+overall: PASS
+claim_bearing_run_started: false
+claim_bearing_run_authority_in_this_assignment: false
+checks:
+  exact_source_and_amdgpu_llc:
+    status: PASS
+    evidence: exact commit tool hash rechecked; llc has AMDGPU targets
+  exact_filecheck:
+    status: PASS_REUSED_IMMUTABLE
+    evidence: hash rechecked; resume3 stock smoke accepted unchanged
+  occupancy_semantics:
+    status: PASS_EXACT_TOOL_REUSED_IMMUTABLE
+    evidence: exact llvm-calc-occupancy hash rechecked; no proxy
+  complete_natural_mir_set:
+    status: PASS
+    required: 8_TO_16_COMPLETE_NATURAL_KERNEL_DERIVED_PRE_MACHINE_SCHEDULER_MIR_FROM_AT_LEAST_8_SOURCE_DIRECTORIES
+    obtained: 8
+    distinct_source_directories: 8
+    synthetic_counted_as_natural: 0
+    source_modified_or_trimmed: 0
+    machine_functions: 8
+    verifier_pass: 8_OF_8
+    deterministic_replay_hash_match: 8_OF_8
+    manifest: NATURAL_MIR_MANIFEST.tsv
+  same_object_baseline_candidate_small_witness:
+    status: PASS_REUSED_IMMUTABLE
+    evidence: resume3 witness four variants, verifier legal and byte-identical
+  full_cost_collection_path:
+    status: PASS_PREREGISTERED_NOT_ACTIVATED
+    evidence: parent contract retains acquisition, derivation, methods, selection, verifier, fallback, RSS, I/O and bytes
+boundary: PRECLAIM_GATE_ONLY__NO_CANDIDATE_OR_BASELINE_CORPUS_RUN
+scientific_revision_consumed: false
+scientific_inference: none
+evidence_ceiling: RESOURCE_AND_PRECLAIM_FIDELITY_PASS_ONLY__NO_SCIENTIFIC_INFERENCE
+resume_route: MAINLINE_MAY_RETURN_TO_EXISTING_FROZEN_STAGEA_AFTER_ACCEPTANCE
+

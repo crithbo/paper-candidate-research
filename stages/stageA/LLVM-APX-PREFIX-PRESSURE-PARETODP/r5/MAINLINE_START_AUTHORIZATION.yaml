@@ -1,0 +1,31 @@
+schema: mainline-start-authorization-v1
+issued_at: 2026-08-26T00:16:35+08:00
+issued_by: MAINLINE
+decision: START_AUTHORIZED
+authorization_ids: [USER-PARALLEL-STAGEA-READY-CANDIDATES-20260825, USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825]
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R5-F2-STOP-AFTER-CORRECTION
+lane_id: CANDIDATE_EXECUTION_LANE_3
+lane_thread_id: 01a034d0-d67f-7f32-ab5f-54454407cb22
+context_sha256: 67DB6ED5670F622A11F9E2E057E26E2E6B97269CC495102963F6CC984500A19D
+bootstrap_ack_sha256: 532A7597825EFCDDC11DD2D82B36F9A3FB7080D39B7A6F59AE8F04247931EEFB
+bootstrap_acceptance: {disposition: ACCEPTED_READY, differences_or_ambiguities: [], resource_root_absent: true, scientific_or_resource_action_started: false}
+allowed_after_start:
+  - create the eight r5 standard resource directories
+  - copy and hash-accept only the frozen r4 same-topic tool bundle, exact archives and harness
+  - write CORRECTION_PRECOMMIT before the first corrected replay
+  - run exactly the fixed corrected F2 command twice as two planned deterministic replays
+  - preserve the separate exact llvm-mc encoding control and explicitly record MachineVerifier status
+  - only if F2 passes, run the frozen F3 and F4 control obligations
+  - finalize the canonical preclaim package and wait
+fixed_correction:
+  command: llc.exe apx_witness.mir -mtriple=x86_64-unknown -mattr=+ndd,+egpr -start-before=x86-compress-evex -stop-after=x86-compress-evex -verify-machineinstrs -o replay_after_x86_compress_evex.mir
+  planned_replays: 2
+  automatic_retry: false
+  extra_variant: forbidden
+  witness_or_contract_change: forbidden
+scientific_boundary: {claim_bearing_action_allowed: false, natural_performance_or_full_cost_allowed: false, scientific_revision_authorized: false, owner_state_transition_authority: false, stageb_authorized: false}
+budgets: {network_bytes_max: 0, stored_bytes_max: 2147483648, cpu_seconds_max: 7200, wall_seconds_max: 14400, max_parallel_processes: 2, gpu_hours_max: 0}
+failure_policy: {any_F2_F3_F4_construct_or_fidelity_failure: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE, retry: forbidden}
+lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, cleanup_owner: MAINLINE, owner_cleanup_allowed: false, post_close_retained_bytes_max: 536870912}
+next_action: COPY_ACCEPT_INPUTS__PRECOMMIT__RUN_FIXED_F2_PAIR__CONDITIONAL_F3_F4__HANDOFF

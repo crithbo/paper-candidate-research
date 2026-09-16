@@ -1,0 +1,122 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-30T00:51:06.2133669+08:00
+lane_id: DISCOVERY_S4_OBJECTIVE_CONSTRAINT
+role_id: DISCOVERY
+assignment_id: DMR-V1-PSHADOW-CYCLE-01-S4
+topic_id: null
+assignment_context_path: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/cycle01/S4/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: DBCE514270380F2B35636B9898C9798F9239E990BA93B8A7103FB303478436D9
+old_chat_memory_required: false
+
+frozen_hash_ack:
+  AGENTS_sha256: 9813407301BE295CB15B6030CAB5F225A91E3297729CF482393868066ACF825B
+  plan_sha256: 2BB432B796928EFD4CFDB1CE880C8EDE9CE85F35CC3CFD0F1896007E760630E6
+  registry_snapshot_sha256: 87C1E65B67B7C110DE7A54894B48BE8D8AB38060180C79DF3A5EF93462C64E83
+  role_rule_sha256: B13A18085D54D4D57F40D4833A0555F14505242C45043940E6C316D120AEBEE8
+  skill_hashes:
+    - name: research-topic-discovery
+      path: .agents/skills/research-topic-discovery/SKILL.md
+      sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+    - path: .agents/skills/research-topic-discovery/references/source-portfolios.md
+      sha256: FE3BC9503F70ED4BD729B338A7729BFA5CA3A3747312D63AF83D59B93FFE1F4D
+  template_hashes:
+    - path: templates/DISCOVERY_DIVERGENCE_SEED_POOL.md
+      sha256: 31B6A89548313B51EFD0C7685ACF50EA56D6EC5C0B557BD9E8B920C7E2179470
+    - path: templates/DISCOVERY_RQ_CANDIDATE.md
+      sha256: 0FF1E7FD811C3BCA84D15DA9713B7A27ED8EB9076C2939316AF43DA85168F5BF
+    - path: templates/DISCOVERY_QUESTION_CARD.md
+      sha256: D157B1B5D14C0DCEB3D238E85075777C3850C7E145ABD5EA8A3A111D3D022739
+    - path: templates/TOPIC_BRIEF.md
+      sha256: F1EF88AFE26DB2949E86CD66187821E5331AA3081DF5C76D6D271530CAC87637
+  source_assignment_sha256: null
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: true
+
+minimum_input_hashes:
+  - path: stages/control/user-authorizations/USER_DISCOVERY_REPAIR_FAST_TEST_AND_RULE_CONSOLIDATION_20260830.yaml
+    sha256: 9B3F2425041DB29EA5D1BCB2B1DE9A4DF2A5BA8C63DD6AFAF1E7ADFB1646C052
+  - path: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/PAIR_CONTROL.yaml
+    sha256: 15D22D324A14459A2B68D0984676B1A3FDEC72704FC6914DABD38E787666038D
+  - path: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/CYCLE01_CONTROL.yaml
+    sha256: 626EB13FD8B471AE8A62641937CF98743BA5A2C8968FD341AE791C6BC0644FC7
+  - path: stages/rule-audit/RULE-AUDIT-20260830-DISCOVERY-MATURATION-REPAIR-FAST-SHADOW-R1/SHADOW_PROTOCOL_SNAPSHOT.md
+    sha256: 6D484DD1E2DBDEB90EC070310D8620911CDFE7505C5E390920481FACE3B745BD
+  - path: stages/rule-audit/RULE-AUDIT-20260830-DISCOVERY-MATURATION-REPAIR-FAST-SHADOW-R1/SHADOW_BOUNDED_DEBT_CLOSURE_TEMPLATE.yaml
+    sha256: A1307597A56C1D161735853E18744F5A4672200177D865009CC3B96D9C806ABA
+
+mode_ack:
+  discovery_claim_pack: OFF
+  discovery_quality: OFF
+  discovery_rq_frontend: PRODUCTION
+  bounded_debt_closure_shadow_test: true
+  canonical_state_effect: NONE
+  stagea_stageb_effect: NONE
+
+boundary_ack:
+  unique_write_directory_exact: stages/discovery/_method-backtests/DISCOVERY_MATURATION_REPAIR/PSHADOW_PAIR_20260830/cycle01/S4
+  resource_root_exact: null
+  resource_root_absent: true
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  forbidden_actions:
+    - repair_execution_before_six_lane_barrier
+    - result_aware_backfill
+    - stage0_dispatch_effect
+    - candidate_download
+    - build
+    - experiment
+    - stagea
+    - stageb
+    - shared_write
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: NONE
+  contamination_detected: false
+
+permission_ack:
+  allowed_at_bootstrap:
+    - read_frozen_inputs
+    - read_related_registry_record
+    - write_BOOTSTRAP_ACK_only
+  model_route: gpt-5.6-terra/medium
+  canonical_search_or_open_calls_max: 6
+  nomination_max: 1
+  repair_execution_max: 0
+  download_build_experiment: 0
+
+related_registry_ack:
+  related_record_found: true
+  pair_freeze_id_consistent: true
+  cycle_id_consistent: true
+  lane_thread_id_consistent: true
+  unique_write_directory_consistent: true
+  registry_snapshot_hash_matches_context: false
+
+execution_ack:
+  current_status: BOOTSTRAP_REFUSE__FROZEN_SHARED_SNAPSHOT_DRIFT
+  resume_point: REQUEST_REFRESHED_CONTEXT_FROM_MAINLINE
+  next_action: WAIT_FOR_MAINLINE
+  user_gate_or_blocker: MAINLINE_CONTEXT_REFRESH_REQUIRED
+  preaction: false
+  scientific_or_resource_action_started: false
+
+differences_or_ambiguities:
+  - field: shared_snapshot.agents.sha256
+    expected: 260BC8FA9108CF50E4B5E84B3346FB58C79E0B3C1CB07A8D0A760B8BA43EE4AB
+    observed: 9813407301BE295CB15B6030CAB5F225A91E3297729CF482393868066ACF825B
+  - field: shared_snapshot.plan.sha256
+    expected: 08A2366859C328EC3D34711734EA4057A72C9D18A2DCB5972613A84584A2AD69
+    observed: 2BB432B796928EFD4CFDB1CE880C8EDE9CE85F35CC3CFD0F1896007E760630E6
+  - field: shared_snapshot.registry.sha256
+    expected: BFC242CFD962112958A5909F1AE8620FC91E638EF182120D3ACEA74555B350D8
+    observed: 87C1E65B67B7C110DE7A54894B48BE8D8AB38060180C79DF3A5EF93462C64E83
+ack_disposition: REFUSE_MISSING_OR_CONFLICTING_CONTEXT
+start_authorized_by_mainline: false
+start_authorization_timestamp: null
+

@@ -1,0 +1,34 @@
+assignment_id: STAGE0-P1-20260814-VERILATOR-SEMANTIC-BOUNDED-RECOURSE-MTASK-REVISION1-V8.7
+topic_id: VERILATOR-SEMANTIC-BOUNDED-RECOURSE-MTASK
+mode: PRIMARY_REVISION1
+sole_gate: PINNED_VERILATOR_STATIC_MTASK_ACTION_CATALOG__DEPENDENCY_CLOSED_EPOCH_REPACK_CERTIFICATE
+decision: STOP
+quality_disposition: BELOW_Q2_STOP__CURRENT_VERILATOR_REBINDING_ABSORPTION_OR_GENERIC_DYNAMIC_SCHEDULER
+scientific_revision:
+  limit: 1
+  consumed: true
+  reason: gate-bearing static source/action/frontier construction submitted
+immutable_source_pin:
+  project: Verilator
+  release: v5.050
+  commit: 848d926ebd4addacacd294dc84e35d9d4ae8078c
+findings:
+  action_gap: Runtime repack is documented as a TODO, not a current in-process native action.
+  structural_failure: >-
+    At a dependency-closed epoch, reassigning fixed MTask bundles changes only
+    generic precedence-DAG worker mapping/order. Trigger, active, NBA, timing,
+    DPI, and interface constraints remain fixed feasibility barriers, so no
+    Verilator-specific non-product action, recurrence, or guarantee survives.
+  resources: No hardware, build, experiment, or download was used or needed for this decision.
+authorization:
+  stageA: false
+  stageB: false
+  independent_closing: false
+  same_id_second_revision: false
+next_action: Mainline may record the pre-registered scientific STOP. A successor requires a new topic ID and a distinct native semantic action.
+written_files:
+  - REVISION_REPORT.md
+  - CURRENT_ACTION_AND_FRONTIER_AUDIT.md
+  - CLAIM_MATRIX.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256

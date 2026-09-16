@@ -1,0 +1,13 @@
+schema: phase-a-execution-blocker-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+start_authorization: {path: MAINLINE_PHASE_A_START.yaml, sha256: 017C16238C35E3515D4013BBCFE6A325EA8371CFCE982D39226B5F92886B763A}
+request_response_contract: {path: PER_CANDIDATE_REQUEST_RESPONSE_CONTRACT.yaml, sha256: 31746DD752A601180254E552EC41CCCA426C7240E66E2894D26215F613C2E59D}
+first_unmet_requirement: ASSIGNMENT_LOCAL_RESOURCE_INVENTORY_AND_LOG_ROOT_NOT_INITIALIZED_FOR_REQUIRED_R3A01_RESPONSE_CAPTURE
+observed_paths:
+  expected_log: resources/logs/preflight/1.yaml
+  resource_inventory: RESOURCE_INVENTORY.yaml
+  observed_log_exists: false
+  observed_inventory_exists: false
+reason: The contract requires persisted per-row response logs, but the resource-producing response-capture root has no canonical inventory/initialized log root to classify retained metadata before the first request.
+action_counts: {R3A01_search: 0, R3A01_open: 0, total_phase_A_searches: 0, total_phase_A_opens: 0, selection: 0, packets: 0, scoring: 0, build_probe_experiment: 0}
+next_action: MAINLINE_MUST_FREEZE_OR_AUTHORIZE_RESOURCE_INVENTORY_AND_LOG_ROOT_INITIALIZATION

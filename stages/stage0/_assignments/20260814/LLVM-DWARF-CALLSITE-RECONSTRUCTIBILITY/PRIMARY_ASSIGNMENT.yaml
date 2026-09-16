@@ -1,0 +1,39 @@
+assignment_id: STAGE0-P1-20260814-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-PRIMARY-V8.7
+mode: PRIMARY
+topic_id: LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_QUEUED_AFTER_HWASAN_REVISION1
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source08-primary\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+quality_floor: TIER_B_Q2_VIABLE
+required_reads:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules\ROLE_STAGE0_REVIEW.md
+  - templates\STAGE0_REPORT.md
+  - templates\Q1_COMPARATOR_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source08\S1-boundary-contradiction\TOPIC_BRIEF.md
+  - stages\discovery\round-20260814-adaptive-source08\S1-boundary-contradiction\SOURCE_COLLISION_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source08\S1-boundary-contradiction\CANDIDATE_GRADE_DEEP_REVIEWS.md
+  - stages\discovery\round-20260814-adaptive-source08\S1-boundary-contradiction\handoff.yaml
+input_hashes:
+  brief_sha256: C620BF823B544CC166014498AD594B635E1C0D27C8A09486F905D139FC81C030
+  source_collision_matrix_sha256: FA59D6FD1A418B1789D88A012855735814957C5868F102F7566585AFDCFC0C8B
+  deep_reviews_sha256: C44FC7D9C0C3F3536CCC02DBF0C40E3537F08B7DBEFB3F3CBBA556AD0D6FA1FE
+  discovery_handoff_sha256: 41BBA4E930ACBF873A5B4548C80E8379BE4ED921D8772CD11F77A9E0131C223C
+  discovery_manifest_sha256: 3B07522D10261545A0A83499BAA31A9F49D31EB82D5E23AE357C818568E3F37C
+independent_attack_requirements:
+  - Pin current LLVM revision, one target, call-site DWARF semantics, LiveDebugVariables, register allocation and spills, LiveDebugValues, DwarfDebug, target hooks and relevant debug options.
+  - Reconstruct whether current pass composition already expresses every proposed retain, move, spill reuse, entry/rematerialization expression or budgeted frontier point with the same information.
+  - Require one same-MachineIR clobber witness with two complete native-legal plans preserving executable, ABI, unwind and DWARF-consumer semantics.
+  - Attack whether the recurrence has LLVM/DWARF-specific state and guarantee rather than generic resource-constrained location assignment or Pareto packaging.
+  - Audit strongest paper and source collision, natural optimized-debug corpus, compile/text/spill/runtime/DWARF full cost and a finite Stage A killer.
+  - Missing implementation or positive result is not a scientific failure; direct same-object absorption, illegal debug expression, generic remainder or changed executable/unwind semantics is.
+forbidden: [implementation, experiment, benchmark, source_build, system_install, stageA, stageB, shared_control_write]
+required_outputs: [STAGE0_REPORT.md, Q1_COMPARATOR_MATRIX.md, SOURCE_AUDIT.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

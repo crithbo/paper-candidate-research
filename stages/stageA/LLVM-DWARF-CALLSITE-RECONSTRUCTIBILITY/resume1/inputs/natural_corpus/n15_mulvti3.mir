@@ -1,0 +1,600 @@
+--- |
+  ; ModuleID = '<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\resume1\results\natural_corpus_eligibility\mulvti3.bc'
+  source_filename = "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins\\mulvti3.c"
+  target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+  target triple = "x86_64-unknown-linux-gnu"
+  
+  @.str = private unnamed_addr constant [189 x i8] c"<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/int_mulv_impl.inc\00", align 1, !dbg !0
+  @__func__.__mulvXi3 = private unnamed_addr constant [10 x i8] c"__mulvXi3\00", align 1, !dbg !7
+  
+  ; Function Attrs: nounwind
+  define dso_local i128 @__mulvti3(i128 noundef %a, i128 noundef %b) local_unnamed_addr #0 !dbg !35 {
+  entry:
+      #dbg_value(i128 %a, !40, !DIExpression(), !42)
+      #dbg_value(i128 %b, !41, !DIExpression(), !42)
+      #dbg_value(i128 %a, !43, !DIExpression(), !56)
+      #dbg_value(i128 %b, !46, !DIExpression(), !56)
+      #dbg_value(i32 128, !47, !DIExpression(), !56)
+      #dbg_value(i128 -170141183460469231731687303715884105728, !49, !DIExpression(), !56)
+      #dbg_value(i128 170141183460469231731687303715884105727, !51, !DIExpression(), !56)
+    %cmp.i = icmp eq i128 %a, -170141183460469231731687303715884105728, !dbg !58
+    br i1 %cmp.i, label %if.then.i, label %if.end4.i, !dbg !60
+  
+  if.then.i:                                        ; preds = %entry
+    %or.cond.i = icmp ult i128 %b, 2, !dbg !61
+    br i1 %or.cond.i, label %if.then3.i, label %if.end.i, !dbg !61
+  
+  if.then3.i:                                       ; preds = %if.then.i
+    %mul.i = shl nuw i128 %b, 127, !dbg !64
+    br label %__mulvXi3.exit, !dbg !65
+  
+  if.end.i:                                         ; preds = %if.then.i
+    tail call void @__compilerrt_abort_impl(ptr noundef nonnull @.str, i32 noundef 26, ptr noundef nonnull @__func__.__mulvXi3) #2, !dbg !66
+    unreachable, !dbg !66
+  
+  if.end4.i:                                        ; preds = %entry
+    %cmp5.i = icmp eq i128 %b, -170141183460469231731687303715884105728, !dbg !67
+    br i1 %cmp5.i, label %if.then6.i, label %if.end13.i, !dbg !69
+  
+  if.then6.i:                                       ; preds = %if.end4.i
+    %or.cond41.i = icmp ult i128 %a, 2, !dbg !70
+    br i1 %or.cond41.i, label %if.then10.i, label %if.end12.i, !dbg !70
+  
+  if.then10.i:                                      ; preds = %if.then6.i
+    %mul11.i = shl nuw i128 %a, 127, !dbg !73
+    br label %__mulvXi3.exit, !dbg !74
+  
+  if.end12.i:                                       ; preds = %if.then6.i
+    tail call void @__compilerrt_abort_impl(ptr noundef nonnull @.str, i32 noundef 31, ptr noundef nonnull @__func__.__mulvXi3) #2, !dbg !75
+    unreachable, !dbg !75
+  
+  if.end13.i:                                       ; preds = %if.end4.i
+    %shr.i = ashr i128 %a, 127, !dbg !76
+      #dbg_value(i128 %shr.i, !52, !DIExpression(), !56)
+    %xor.i = xor i128 %shr.i, %a, !dbg !77
+    %sub.i = sub nsw i128 %xor.i, %shr.i, !dbg !78
+      #dbg_value(i128 %sub.i, !53, !DIExpression(), !56)
+    %shr14.i = ashr i128 %b, 127, !dbg !79
+      #dbg_value(i128 %shr14.i, !54, !DIExpression(), !56)
+    %xor15.i = xor i128 %shr14.i, %b, !dbg !80
+    %sub16.i = sub nsw i128 %xor15.i, %shr14.i, !dbg !81
+      #dbg_value(i128 %sub16.i, !55, !DIExpression(), !56)
+    %cmp17.i = icmp slt i128 %sub.i, 2, !dbg !82
+    %cmp19.i = icmp slt i128 %sub16.i, 2
+    %or.cond42.i = select i1 %cmp17.i, i1 true, i1 %cmp19.i, !dbg !84
+    br i1 %or.cond42.i, label %cleanup.i, label %if.end22.i, !dbg !84
+  
+  if.end22.i:                                       ; preds = %if.end13.i
+    %cmp23.i = icmp eq i128 %shr.i, %shr14.i, !dbg !85
+    br i1 %cmp23.i, label %if.then24.i, label %if.else.i, !dbg !87
+  
+  if.then24.i:                                      ; preds = %if.end22.i
+    %div.i = udiv i128 170141183460469231731687303715884105727, %sub16.i, !dbg !88
+    %cmp25.i = icmp samesign ugt i128 %sub.i, %div.i, !dbg !91
+    br i1 %cmp25.i, label %if.then26.i, label %cleanup.i, !dbg !92
+  
+  if.then26.i:                                      ; preds = %if.then24.i
+    tail call void @__compilerrt_abort_impl(ptr noundef nonnull @.str, i32 noundef 41, ptr noundef nonnull @__func__.__mulvXi3) #2, !dbg !93
+    unreachable, !dbg !93
+  
+  if.else.i:                                        ; preds = %if.end22.i
+    %div2967.i = udiv i128 -170141183460469231731687303715884105728, %sub16.i, !dbg !94
+    %cmp30.i = icmp samesign ugt i128 %sub.i, %div2967.i, !dbg !97
+    br i1 %cmp30.i, label %if.then31.i, label %cleanup.i, !dbg !98
+  
+  if.then31.i:                                      ; preds = %if.else.i
+    tail call void @__compilerrt_abort_impl(ptr noundef nonnull @.str, i32 noundef 44, ptr noundef nonnull @__func__.__mulvXi3) #2, !dbg !99
+    unreachable, !dbg !99
+  
+  cleanup.i:                                        ; preds = %if.else.i, %if.then24.i, %if.end13.i
+    %retval.0.i = mul nsw i128 %b, %a, !dbg !56
+    br label %__mulvXi3.exit
+  
+  __mulvXi3.exit:                                   ; preds = %if.then3.i, %if.then10.i, %cleanup.i
+    %retval.1.i = phi i128 [ %mul.i, %if.then3.i ], [ %mul11.i, %if.then10.i ], [ %retval.0.i, %cleanup.i ], !dbg !56
+    ret i128 %retval.1.i, !dbg !100
+  }
+  
+  ; Function Attrs: noreturn
+  declare void @__compilerrt_abort_impl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+  
+  attributes #0 = { nounwind "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+  attributes #1 = { noreturn "frame-pointer"="all" "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+  attributes #2 = { nobuiltin noreturn nounwind "no-builtins" }
+  
+  !llvm.dbg.cu = !{!13}
+  !llvm.module.flags = !{!23, !24, !25, !26, !27, !28}
+  !llvm.ident = !{!29}
+  !llvm.errno.tbaa = !{!30}
+  
+  !0 = !DIGlobalVariableExpression(var: !1, expr: !DIExpression())
+  !1 = distinct !DIGlobalVariable(scope: null, file: !2, line: 26, type: !3, isLocal: true, isDefinition: true)
+  !2 = !DIFile(filename: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/int_mulv_impl.inc", directory: "", checksumkind: CSK_MD5, checksum: "c65625e4e45695a0addc6ab87e35dcb8")
+  !3 = !DICompositeType(tag: DW_TAG_array_type, baseType: !4, size: 1512, elements: !5)
+  !4 = !DIBasicType(name: "char", size: 8, encoding: DW_ATE_signed_char)
+  !5 = !{!6}
+  !6 = !DISubrange(count: 189)
+  !7 = !DIGlobalVariableExpression(var: !8, expr: !DIExpression())
+  !8 = distinct !DIGlobalVariable(scope: null, file: !2, line: 26, type: !9, isLocal: true, isDefinition: true)
+  !9 = !DICompositeType(tag: DW_TAG_array_type, baseType: !10, size: 80, elements: !11)
+  !10 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !4)
+  !11 = !{!12}
+  !12 = !DISubrange(count: 10)
+  !13 = distinct !DICompileUnit(language: DW_LANG_C11, file: !14, producer: "clang version 24.0.0git", isOptimized: true, runtimeVersion: 0, emissionKind: FullDebug, retainedTypes: !15, globals: !22, splitDebugInlining: false, nameTableKind: None)
+  !14 = !DIFile(filename: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/mulvti3.c", directory: "<LEGACY_LOCAL_PROJECT_ROOT>", checksumkind: CSK_MD5, checksum: "c1f84a92fe1e0be3d0e5dea2ab396c5c")
+  !15 = !{!16, !17, !20}
+  !16 = !DIBasicType(name: "int", size: 32, encoding: DW_ATE_signed)
+  !17 = !DIDerivedType(tag: DW_TAG_typedef, name: "ti_int", file: !18, line: 84, baseType: !19)
+  !18 = !DIFile(filename: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/int_types.h", directory: "", checksumkind: CSK_MD5, checksum: "0cefa99f1024f3001da915c45d60c390")
+  !19 = !DIBasicType(name: "__int128", size: 128, encoding: DW_ATE_signed)
+  !20 = !DIDerivedType(tag: DW_TAG_typedef, name: "tu_int", file: !18, line: 85, baseType: !21)
+  !21 = !DIBasicType(name: "unsigned __int128", size: 128, encoding: DW_ATE_unsigned)
+  !22 = !{!0, !7}
+  !23 = !{i32 7, !"Dwarf Version", i32 5}
+  !24 = !{i32 2, !"Debug Info Version", i32 3}
+  !25 = !{i32 8, !"PIC Level", i32 2}
+  !26 = !{i32 7, !"PIE Level", i32 2}
+  !27 = !{i32 7, !"frame-pointer", i32 2}
+  !28 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+  !29 = !{!"clang version 24.0.0git"}
+  !30 = !{!31, !32, i64 0}
+  !31 = !{!"__libc_errno", !32, i64 0}
+  !32 = !{!"int", !33, i64 0}
+  !33 = !{!"omnipotent char", !34, i64 0}
+  !34 = !{!"Simple C/C++ TBAA"}
+  !35 = distinct !DISubprogram(name: "__mulvti3", scope: !36, file: !36, line: 25, type: !37, scopeLine: 25, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !13, retainedNodes: !39, keyInstructions: true)
+  !36 = !DIFile(filename: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins\\mulvti3.c", directory: "", checksumkind: CSK_MD5, checksum: "c1f84a92fe1e0be3d0e5dea2ab396c5c")
+  !37 = !DISubroutineType(types: !38)
+  !38 = !{!17, !17, !17}
+  !39 = !{!40, !41}
+  !40 = !DILocalVariable(name: "a", arg: 1, scope: !35, file: !36, line: 25, type: !17)
+  !41 = !DILocalVariable(name: "b", arg: 2, scope: !35, file: !36, line: 25, type: !17)
+  !42 = !DILocation(line: 0, scope: !35)
+  !43 = !DILocalVariable(name: "a", arg: 1, scope: !44, file: !2, line: 19, type: !17)
+  !44 = distinct !DISubprogram(name: "__mulvXi3", scope: !2, file: !2, line: 19, type: !37, scopeLine: 19, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition | DISPFlagOptimized, unit: !13, retainedNodes: !45, keyInstructions: true)
+  !45 = !{!43, !46, !47, !49, !51, !52, !53, !54, !55}
+  !46 = !DILocalVariable(name: "b", arg: 2, scope: !44, file: !2, line: 19, type: !17)
+  !47 = !DILocalVariable(name: "N", scope: !44, file: !2, line: 20, type: !48)
+  !48 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !16)
+  !49 = !DILocalVariable(name: "MIN", scope: !44, file: !2, line: 21, type: !50)
+  !50 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !17)
+  !51 = !DILocalVariable(name: "MAX", scope: !44, file: !2, line: 22, type: !50)
+  !52 = !DILocalVariable(name: "sa", scope: !44, file: !2, line: 33, type: !17)
+  !53 = !DILocalVariable(name: "abs_a", scope: !44, file: !2, line: 34, type: !17)
+  !54 = !DILocalVariable(name: "sb", scope: !44, file: !2, line: 35, type: !17)
+  !55 = !DILocalVariable(name: "abs_b", scope: !44, file: !2, line: 36, type: !17)
+  !56 = !DILocation(line: 0, scope: !44, inlinedAt: !57)
+  !57 = distinct !DILocation(line: 25, column: 63, scope: !35)
+  !58 = !DILocation(line: 23, column: 9, scope: !59, inlinedAt: !57, atomGroup: 4, atomRank: 2)
+  !59 = distinct !DILexicalBlock(scope: !44, file: !2, line: 23, column: 7)
+  !60 = !DILocation(line: 23, column: 9, scope: !59, inlinedAt: !57, atomGroup: 4, atomRank: 1)
+  !61 = !DILocation(line: 24, column: 16, scope: !62, inlinedAt: !57, atomGroup: 5, atomRank: 1)
+  !62 = distinct !DILexicalBlock(scope: !63, file: !2, line: 24, column: 9)
+  !63 = distinct !DILexicalBlock(scope: !59, file: !2, line: 23, column: 17)
+  !64 = !DILocation(line: 25, column: 16, scope: !62, inlinedAt: !57, atomGroup: 7, atomRank: 2)
+  !65 = !DILocation(line: 25, column: 7, scope: !62, inlinedAt: !57, atomGroup: 7, atomRank: 1)
+  !66 = !DILocation(line: 26, column: 5, scope: !63, inlinedAt: !57)
+  !67 = !DILocation(line: 28, column: 9, scope: !68, inlinedAt: !57, atomGroup: 8, atomRank: 2)
+  !68 = distinct !DILexicalBlock(scope: !44, file: !2, line: 28, column: 7)
+  !69 = !DILocation(line: 28, column: 9, scope: !68, inlinedAt: !57, atomGroup: 8, atomRank: 1)
+  !70 = !DILocation(line: 29, column: 16, scope: !71, inlinedAt: !57, atomGroup: 9, atomRank: 1)
+  !71 = distinct !DILexicalBlock(scope: !72, file: !2, line: 29, column: 9)
+  !72 = distinct !DILexicalBlock(scope: !68, file: !2, line: 28, column: 17)
+  !73 = !DILocation(line: 30, column: 16, scope: !71, inlinedAt: !57, atomGroup: 11, atomRank: 2)
+  !74 = !DILocation(line: 30, column: 7, scope: !71, inlinedAt: !57, atomGroup: 11, atomRank: 1)
+  !75 = !DILocation(line: 31, column: 5, scope: !72, inlinedAt: !57)
+  !76 = !DILocation(line: 33, column: 19, scope: !44, inlinedAt: !57, atomGroup: 12, atomRank: 2)
+  !77 = !DILocation(line: 34, column: 23, scope: !44, inlinedAt: !57)
+  !78 = !DILocation(line: 34, column: 29, scope: !44, inlinedAt: !57, atomGroup: 13, atomRank: 2)
+  !79 = !DILocation(line: 35, column: 19, scope: !44, inlinedAt: !57, atomGroup: 14, atomRank: 2)
+  !80 = !DILocation(line: 36, column: 23, scope: !44, inlinedAt: !57)
+  !81 = !DILocation(line: 36, column: 29, scope: !44, inlinedAt: !57, atomGroup: 15, atomRank: 2)
+  !82 = !DILocation(line: 37, column: 13, scope: !83, inlinedAt: !57, atomGroup: 16, atomRank: 2)
+  !83 = distinct !DILexicalBlock(scope: !44, file: !2, line: 37, column: 7)
+  !84 = !DILocation(line: 37, column: 17, scope: !83, inlinedAt: !57, atomGroup: 16, atomRank: 1)
+  !85 = !DILocation(line: 39, column: 10, scope: !86, inlinedAt: !57, atomGroup: 19, atomRank: 2)
+  !86 = distinct !DILexicalBlock(scope: !44, file: !2, line: 39, column: 7)
+  !87 = !DILocation(line: 39, column: 10, scope: !86, inlinedAt: !57, atomGroup: 19, atomRank: 1)
+  !88 = !DILocation(line: 40, column: 21, scope: !89, inlinedAt: !57)
+  !89 = distinct !DILexicalBlock(scope: !90, file: !2, line: 40, column: 9)
+  !90 = distinct !DILexicalBlock(scope: !86, file: !2, line: 39, column: 17)
+  !91 = !DILocation(line: 40, column: 15, scope: !89, inlinedAt: !57, atomGroup: 20, atomRank: 2)
+  !92 = !DILocation(line: 40, column: 15, scope: !89, inlinedAt: !57, atomGroup: 20, atomRank: 1)
+  !93 = !DILocation(line: 41, column: 7, scope: !89, inlinedAt: !57)
+  !94 = !DILocation(line: 43, column: 21, scope: !95, inlinedAt: !57)
+  !95 = distinct !DILexicalBlock(scope: !96, file: !2, line: 43, column: 9)
+  !96 = distinct !DILexicalBlock(scope: !86, file: !2, line: 42, column: 10)
+  !97 = !DILocation(line: 43, column: 15, scope: !95, inlinedAt: !57, atomGroup: 21, atomRank: 2)
+  !98 = !DILocation(line: 43, column: 15, scope: !95, inlinedAt: !57, atomGroup: 21, atomRank: 1)
+  !99 = !DILocation(line: 44, column: 7, scope: !95, inlinedAt: !57)
+  !100 = !DILocation(line: 25, column: 56, scope: !35, atomGroup: 1, atomRank: 1)
+...
+---
+name:            __mulvti3
+alignment:       1
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   true
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 18, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 19, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 20, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 21, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 23, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 24, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 25, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 26, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 27, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 28, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 29, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 30, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 31, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 32, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 33, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 34, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 35, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 36, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 37, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 38, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 39, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 40, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 41, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 42, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 43, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 44, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 45, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 46, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 47, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 48, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 49, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 50, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 51, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 52, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 53, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 54, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 55, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 56, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 57, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 58, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 59, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 60, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 61, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 62, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 63, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 64, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 65, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 66, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 67, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 68, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 69, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 70, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 71, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 72, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 73, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 74, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 75, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 76, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 77, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 78, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 79, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 80, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 81, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 82, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 83, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 84, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 85, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 86, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 87, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 88, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 89, class: gr64, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$rdi', virtual-reg: '%16' }
+  - { reg: '$rsi', virtual-reg: '%17' }
+  - { reg: '$rdx', virtual-reg: '%18' }
+  - { reg: '$rcx', virtual-reg: '%19' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: all
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 4294967295
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:
+  - { bb: 3, offset: 4, fwdArgRegs: 
+      - { arg: 0, reg: '$rdi' }
+      - { arg: 1, reg: '$esi' }
+      - { arg: 2, reg: '$rdx' } }
+  - { bb: 7, offset: 4, fwdArgRegs: 
+      - { arg: 0, reg: '$rdi' }
+      - { arg: 1, reg: '$esi' }
+      - { arg: 2, reg: '$rdx' } }
+  - { bb: 10, offset: 6, fwdArgRegs: 
+      - { arg: 0, reg: '$rdi' }
+      - { arg: 1, reg: '$rsi' }
+      - { arg: 2, reg: '$rdx' }
+      - { arg: 3, reg: '$rcx' } }
+  - { bb: 11, offset: 4, fwdArgRegs: 
+      - { arg: 0, reg: '$rdi' }
+      - { arg: 1, reg: '$esi' }
+      - { arg: 2, reg: '$rdx' } }
+  - { bb: 12, offset: 6, fwdArgRegs: 
+      - { arg: 0, reg: '$rdi' }
+      - { arg: 1, reg: '$rsi' }
+      - { arg: 2, reg: '$rdx' }
+      - { arg: 3, reg: '$rcx' } }
+  - { bb: 13, offset: 4, fwdArgRegs: 
+      - { arg: 0, reg: '$rdi' }
+      - { arg: 1, reg: '$esi' }
+      - { arg: 2, reg: '$rdx' } }
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  amxProgModel:    None
+body:             |
+  bb.0.entry:
+    successors: %bb.1(0x40000000), %bb.4(0x40000000)
+    liveins: $rdi, $rsi, $rdx, $rcx
+  
+    DBG_PHI $rdi, 10
+    DBG_PHI $rsi, 9
+    DBG_PHI $rdx, 8
+    DBG_PHI $rcx, 7
+    %19:gr64 = COPY $rcx
+    %18:gr64 = COPY $rdx
+    %17:gr64 = COPY $rsi
+    %16:gr64 = COPY $rdi
+    DBG_INSTR_REF !41, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(7, 0), debug-location !42
+    DBG_INSTR_REF !46, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(7, 0), debug-location !56
+    DBG_INSTR_REF !41, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(8, 0), debug-location !42
+    DBG_INSTR_REF !46, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(8, 0), debug-location !56
+    DBG_INSTR_REF !40, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(9, 0), debug-location !42
+    DBG_INSTR_REF !43, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(9, 0), debug-location !56
+    DBG_INSTR_REF !40, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(10, 0), debug-location !42
+    DBG_INSTR_REF !43, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(10, 0), debug-location !56
+    %28:gr64 = MOV64ri -9223372036854775808, debug-location !58
+    DBG_VALUE 128, $noreg, !47, !DIExpression(), debug-location !56
+    DBG_VALUE i128 -170141183460469231731687303715884105728, $noreg, !49, !DIExpression(), debug-location !56
+    DBG_VALUE i128 170141183460469231731687303715884105727, $noreg, !51, !DIExpression(), debug-location !56
+    %26:gr64 = COPY %17, debug-location !58
+    %26:gr64 = XOR64rr %26, %28, implicit-def dead $eflags, debug-location !58
+    dead %26:gr64 = OR64rr %26, %16, implicit-def $eflags, debug-location !58
+    JCC_1 %bb.4, 5, implicit killed $eflags, debug-location !60
+    JMP_1 %bb.1, debug-location !60
+  
+  bb.1.if.then.i:
+    successors: %bb.2(0x7ffff800), %bb.3(0x00000800)
+  
+    undef %81.sub_32bit:gr64_with_sub_8bit = MOV32r0 implicit-def dead $eflags, debug-location !61
+    %78:gr64 = MOV32ri64 1, debug-location !61
+    CMP64rr %78, %18, implicit-def $eflags, debug-location !61
+    dead %81:gr64_with_sub_8bit = SBB64rr %81, %19, implicit-def $eflags, implicit killed $eflags, debug-location !61
+    JCC_1 %bb.3, 2, implicit killed $eflags, debug-location !61
+    JMP_1 %bb.2, debug-location !61
+  
+  bb.2.if.then3.i:
+    successors: %bb.15(0x80000000)
+  
+    %18:gr64 = SHL64ri %18, 63, implicit-def dead $eflags, debug-location !64
+    undef %88.sub_32bit:gr64_with_sub_8bit = MOV32r0 implicit-def dead $eflags, debug-location !64
+    %19:gr64 = COPY %18
+    JMP_1 %bb.15, debug-location !65
+  
+  bb.3.if.end.i:
+    successors:
+  
+    ADJCALLSTACKDOWN64 0, 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !66
+    $rdi = MOV32ri64 @.str, debug-location !66
+    $rdx = MOV32ri64 @__func__.__mulvXi3, debug-location !66
+    $esi = MOV32ri 26, debug-location !66
+    CALL64pcrel32 target-flags(x86-plt) @__compilerrt_abort_impl, csr_64, implicit $rsp, implicit $ssp, implicit $rdi, implicit $esi, implicit $rdx, implicit-def $rsp, implicit-def $ssp, debug-location !66
+    ADJCALLSTACKUP64 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !66
+  
+  bb.4.if.end4.i:
+    successors: %bb.5(0x40000000), %bb.8(0x40000000)
+  
+    %28:gr64 = XOR64rr %28, %19, implicit-def dead $eflags, debug-location !67
+    dead %28:gr64 = OR64rr %28, %18, implicit-def $eflags, debug-location !67
+    JCC_1 %bb.8, 5, implicit killed $eflags, debug-location !69
+    JMP_1 %bb.5, debug-location !69
+  
+  bb.5.if.then6.i:
+    successors: %bb.6(0x7ffff800), %bb.7(0x00000800)
+  
+    undef %72.sub_32bit:gr64_with_sub_8bit = MOV32r0 implicit-def dead $eflags, debug-location !70
+    %69:gr64 = MOV32ri64 1, debug-location !70
+    CMP64rr %69, %16, implicit-def $eflags, debug-location !70
+    dead %72:gr64_with_sub_8bit = SBB64rr %72, %17, implicit-def $eflags, implicit killed $eflags, debug-location !70
+    JCC_1 %bb.7, 2, implicit killed $eflags, debug-location !70
+    JMP_1 %bb.6, debug-location !70
+  
+  bb.6.if.then10.i:
+    successors: %bb.15(0x80000000)
+  
+    %16:gr64 = SHL64ri %16, 63, implicit-def dead $eflags, debug-location !73
+    undef %88.sub_32bit:gr64_with_sub_8bit = MOV32r0 implicit-def dead $eflags, debug-location !73
+    %19:gr64 = COPY %16
+    JMP_1 %bb.15, debug-location !74
+  
+  bb.7.if.end12.i:
+    successors:
+  
+    ADJCALLSTACKDOWN64 0, 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !75
+    $rdi = MOV32ri64 @.str, debug-location !75
+    $rdx = MOV32ri64 @__func__.__mulvXi3, debug-location !75
+    $esi = MOV32ri 31, debug-location !75
+    CALL64pcrel32 target-flags(x86-plt) @__compilerrt_abort_impl, csr_64, implicit $rsp, implicit $ssp, implicit $rdi, implicit $esi, implicit $rdx, implicit-def $rsp, implicit-def $ssp, debug-location !75
+    ADJCALLSTACKUP64 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !75
+  
+  bb.8.if.end13.i:
+    successors: %bb.14(0x40000000), %bb.9(0x40000000)
+  
+    %41:gr64 = COPY %17, debug-location !76
+    %41:gr64 = SAR64ri %41, 63, implicit-def dead $eflags, debug-instr-number 1, debug-location !76
+    DBG_INSTR_REF !52, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(1, 0), debug-location !56
+    DBG_INSTR_REF !52, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(1, 0), debug-location !56
+    %7:gr64 = COPY %17, debug-location !78
+    %7:gr64 = XOR64rr %7, %41, implicit-def dead $eflags, debug-location !78
+    %6:gr64 = COPY %16, debug-location !78
+    %6:gr64 = XOR64rr %6, %41, implicit-def dead $eflags, debug-location !78
+    %6:gr64 = SUB64rr %6, %41, implicit-def $eflags, debug-instr-number 2, debug-location !78
+    DBG_INSTR_REF !53, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(2, 0), debug-location !56
+    %7:gr64 = SBB64rr %7, %41, implicit-def dead $eflags, implicit killed $eflags, debug-instr-number 3, debug-location !78
+    DBG_INSTR_REF !53, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(3, 0), debug-location !56
+    %8:gr64 = COPY %19, debug-location !79
+    %8:gr64 = SAR64ri %8, 63, implicit-def dead $eflags, debug-instr-number 4, debug-location !79
+    DBG_INSTR_REF !54, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(4, 0), debug-location !56
+    DBG_INSTR_REF !54, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(4, 0), debug-location !56
+    %11:gr64 = COPY %19, debug-location !81
+    %11:gr64 = XOR64rr %11, %8, implicit-def dead $eflags, debug-location !81
+    %10:gr64 = COPY %18, debug-location !81
+    %10:gr64 = XOR64rr %10, %8, implicit-def dead $eflags, debug-location !81
+    %10:gr64 = SUB64rr %10, %8, implicit-def $eflags, debug-instr-number 5, debug-location !81
+    DBG_INSTR_REF !55, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(5, 0), debug-location !56
+    %11:gr64 = SBB64rr %11, %8, implicit-def dead $eflags, implicit killed $eflags, debug-instr-number 6, debug-location !81
+    DBG_INSTR_REF !55, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(6, 0), debug-location !56
+    CMP64ri32 %6, 2, implicit-def $eflags, debug-location !82
+    %35:gr64 = COPY %7, debug-location !82
+    dead %35:gr64 = SBB64ri32 %35, 0, implicit-def $eflags, implicit killed $eflags, debug-location !82
+    %36:gr8 = SETCCr 12, implicit killed $eflags, debug-location !82
+    CMP64ri32 %10, 2, implicit-def $eflags
+    %38:gr64 = COPY %11
+    dead %38:gr64 = SBB64ri32 %38, 0, implicit-def $eflags, implicit killed $eflags
+    %40:gr8 = SETCCr 12, implicit killed $eflags
+    dead %40:gr8 = OR8rr %40, %36, implicit-def $eflags, debug-location !84
+    JCC_1 %bb.14, 5, implicit killed $eflags, debug-location !84
+    JMP_1 %bb.9, debug-location !84
+  
+  bb.9.if.end22.i:
+    successors: %bb.10(0x40000000), %bb.12(0x40000000)
+  
+    %41:gr64 = XOR64rr %41, %8, implicit-def dead $eflags, debug-location !85
+    dead %41:gr64 = OR64rr %41, %41, implicit-def $eflags, debug-location !85
+    JCC_1 %bb.12, 5, implicit killed $eflags, debug-location !87
+    JMP_1 %bb.10, debug-location !87
+  
+  bb.10.if.then24.i:
+    successors: %bb.11(0x00000800), %bb.14(0x7ffff800)
+  
+    ADJCALLSTACKDOWN64 0, 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !88
+    %55:gr64 = MOV64ri 9223372036854775807, debug-location !88
+    $rdi = MOV64ri32 -1, debug-location !88
+    $rsi = COPY %55, debug-location !88
+    $rdx = COPY %10, debug-location !88
+    $rcx = COPY %11, debug-location !88
+    CALL64pcrel32 target-flags(x86-plt) &__udivti3, csr_64, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit $rdx, implicit $rcx, implicit-def $rsp, implicit-def $ssp, implicit-def $rax, implicit-def $rdx, debug-location !88
+    ADJCALLSTACKUP64 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !88
+    %56:gr64 = COPY $rax, debug-location !88
+    %59:gr64 = COPY $rdx, debug-location !88
+    CMP64rr %56, %6, implicit-def $eflags, debug-location !91
+    dead %59:gr64 = SBB64rr %59, %7, implicit-def $eflags, implicit killed $eflags, debug-location !91
+    JCC_1 %bb.14, 3, implicit killed $eflags, debug-location !92
+    JMP_1 %bb.11, debug-location !92
+  
+  bb.11.if.then26.i:
+    successors:
+  
+    ADJCALLSTACKDOWN64 0, 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !93
+    $rdi = MOV32ri64 @.str, debug-location !93
+    $rdx = MOV32ri64 @__func__.__mulvXi3, debug-location !93
+    $esi = MOV32ri 41, debug-location !93
+    CALL64pcrel32 target-flags(x86-plt) @__compilerrt_abort_impl, csr_64, implicit $rsp, implicit $ssp, implicit $rdi, implicit $esi, implicit $rdx, implicit-def $rsp, implicit-def $ssp, debug-location !93
+    ADJCALLSTACKUP64 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !93
+  
+  bb.12.if.else.i:
+    successors: %bb.13(0x00000800), %bb.14(0x7ffff800)
+  
+    ADJCALLSTACKDOWN64 0, 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !94
+    %46:gr64 = MOV64ri -9223372036854775808, debug-location !94
+    dead $edi = MOV32r0 implicit-def dead $eflags, implicit-def $rdi, debug-location !94
+    $rsi = COPY %46, debug-location !94
+    $rdx = COPY %10, debug-location !94
+    $rcx = COPY %11, debug-location !94
+    CALL64pcrel32 target-flags(x86-plt) &__udivti3, csr_64, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit $rdx, implicit $rcx, implicit-def $rsp, implicit-def $ssp, implicit-def $rax, implicit-def $rdx, debug-location !94
+    ADJCALLSTACKUP64 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !94
+    %47:gr64 = COPY $rax, debug-location !94
+    %50:gr64 = COPY $rdx, debug-location !94
+    CMP64rr %47, %6, implicit-def $eflags, debug-location !97
+    dead %50:gr64 = SBB64rr %50, %7, implicit-def $eflags, implicit killed $eflags, debug-location !97
+    JCC_1 %bb.14, 3, implicit killed $eflags, debug-location !98
+    JMP_1 %bb.13, debug-location !98
+  
+  bb.13.if.then31.i:
+    successors:
+  
+    ADJCALLSTACKDOWN64 0, 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !99
+    $rdi = MOV32ri64 @.str, debug-location !99
+    $rdx = MOV32ri64 @__func__.__mulvXi3, debug-location !99
+    $esi = MOV32ri 44, debug-location !99
+    CALL64pcrel32 target-flags(x86-plt) @__compilerrt_abort_impl, csr_64, implicit $rsp, implicit $ssp, implicit $rdi, implicit $esi, implicit $rdx, implicit-def $rsp, implicit-def $ssp, debug-location !99
+    ADJCALLSTACKUP64 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !99
+  
+  bb.14.cleanup.i:
+    successors: %bb.15(0x80000000)
+  
+    $rax = COPY %18, debug-location !56
+    MUL64r %16, implicit-def $rax, implicit-def $rdx, implicit-def dead $eflags, implicit $rax, debug-location !56
+    %88:gr64_with_sub_8bit = COPY $rax, debug-location !56
+    %64:gr64 = COPY $rdx, debug-location !56
+    %17:gr64 = IMUL64rr %17, %18, implicit-def dead $eflags, debug-location !56
+    %17:gr64 = ADD64rr %17, %64, implicit-def dead $eflags, debug-location !56
+    %19:gr64 = IMUL64rr %19, %16, implicit-def dead $eflags, debug-location !56
+    %19:gr64 = ADD64rr %19, %17, implicit-def dead $eflags, debug-location !56
+  
+  bb.15.__mulvXi3.exit:
+    $rax = COPY %88, debug-location !100
+    $rdx = COPY %19, debug-location !100
+    RET 0, $rax, $rdx, debug-location !100
+...

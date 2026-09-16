@@ -1,0 +1,40 @@
+schema_version: discovery-source-closure-handoff-v1
+assignment_id: SOURCE-CLOSURE-SOURCE90-S2-CQ01-SWIFT-SIL-OWNERSHIP-ARC-LAYOUT-V1
+queue_item: S2-90-CQ01
+mode: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+authority_statement: "No clean-brief, Q2, candidate, PASS, STOP, or stage-state decision was made."
+immutable_pin:
+  project: swiftlang/swift
+  branch: main
+  commit: d056c33516f5c5e934dfc45bff945ef3bb2771b3
+  resolved_at: 2026-08-15T10:52:00+08:00
+resource_result:
+  attempt_count: 6
+  attempt_limit: 6
+  persisted_response_bytes: 24175
+  persisted_bytes_limit: 16777216
+  status: PASS_WITH_FROZEN_PATH_TELEMETRY
+  telemetry:
+    - "404: lib/SILOptimizer/ARC/ARCAnalysis.cpp"
+    - "404: lib/SILOptimizer/Transforms/AllocBoxToStack.cpp"
+    - "404: test/SILOptimizer/arc_sequence_opts.sil"
+  interpretation: "The fixed routes were not substituted. HTTP 404 is not treated as implementation absence."
+retained_current_locus:
+  path: lib/SILOptimizer/ARC/ARCSequenceOpts.cpp
+  sha256: 2e5486b0fb00a57980338a27264b956795648a4a593dbb92674f7265f2a3346e
+  observation: "Stock ARC sequence matching, pairing, loop and post-dominating release handling is a local subtractor."
+closure_status:
+  stock_union_ownership_arc_lifetime_layout: INCOMPLETE
+  fixed_in_tree_carrier_and_two_complete_plans: INCOMPLETE
+  union_external_action_and_finite_guarantee: NOT_FREEZABLE_FROM_BOUNDED_RETAINED_LOCI
+  direct_collision: SEARCH_BOUNDED_OPEN
+  generic_arc_layout_objection: UNRESOLVED
+next_authorized_need: "A new bounded assignment must re-freeze direct official current loci for ARC analysis, allocation/lifetime lowering and an in-tree SIL carrier before candidate-grade review can be considered."
+canonical_files:
+  - SOURCE_CLOSURE_REPORT.md
+  - SOURCE_AUDIT.md
+  - RESOURCE_INVENTORY.yaml
+  - resources/logs/acquisition-attempt-ledger.yaml
+  - HASH_MANIFEST.sha256
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

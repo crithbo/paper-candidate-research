@@ -1,0 +1,42 @@
+schema: nonblind-stagea-compatibility-a1-correction-ack-v1
+ack_disposition: READY
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A1-CMAKE
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW
+mode: NONBLIND_STAGEA_COMPATIBILITY
+correction_path: A1_PORTABLE_CMAKE_CORRECTION.yaml
+correction_sha256: FDBC7D28B3CC97D36E674E6AD2A28DFD5DEFF75CDFBCEA82AC923F7826312687
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserved_parent_evidence:
+  handoff_sha256: 9E36069028B47C10FF13CB9A22EFCFA85DD15ABF2C5B5DC0770174ED870CD8A6
+  manifest_sha256: 16215F50DE6208D9B06E8E586E607E483C76DC3435182F1F0749CB6EADB54217
+  S0_stderr_path: resources/logs/S0_cmake.stderr.txt
+  S0_stderr_sha256: 6996FCE9EBB54A20F65868F8AEE483FB76151F321FD04AF4DB4854C8E16294A6
+  all_match: true
+portable_cmake:
+  version: 3.31.6
+  url: https://cmake.org/files/v3.31/cmake-3.31.6-windows-x86_64.zip
+  archive_path: resources/archives/cmake-3.31.6-windows-x86_64.zip
+  expected_sha256: d163cd3ab4959b0a53fa8988f2ddbd2e6c501658201e6a154386bad9dbe4f836
+  extract_path: resources/env/cmake-3.31.6-windows-x86_64
+  executable: resources/env/cmake-3.31.6-windows-x86_64/bin/cmake.exe
+  download_attempts_max: 1
+  redirects_allowed: 0
+  download_started: false
+  archive_exists: false
+boundaries_ack:
+  only_change: ASSIGNMENT_LOCAL_PORTABLE_CMAKE_REPLACES_UNRESOLVED_CMAKE_COMMAND
+  author_commit_unchanged: d9b3608c83d83b46c96e25088cb1d729b29dcfe9
+  author_archive_route_unchanged: true
+  artifact_replay_mode_unchanged: true
+  comparator_and_probe_budget_unchanged: true
+  evidence_ceiling_unchanged: true
+  no_retry_or_alternate_tool: true
+  production_candidate_registration: false
+  production_state_transition: false
+  stageB: false
+  gold_or_blind_input_read: false
+  cleanup: false
+scientific_revision_consumed: false
+scientific_or_resource_action_started_since_correction: false
+differences_or_ambiguities: []
+next_action: WAIT_FOR_MAINLINE_A1_ACK_ACCEPTANCE_AND_START

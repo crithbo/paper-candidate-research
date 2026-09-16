@@ -1,0 +1,30 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE84-R40-ORDINARY-BREADTH-V1
+candidate_signature: OPENXLA_XLA_GPU__FIXED_HLO_GPU_EXECUTABLE__CAPTURE_STABLE_BUFFER_SLICE_AND_CONTIGUOUS_COMMAND_GROUP_CONSTRUCTOR__PEAK_MEMORY_RECORD_REPLAY_FULL_COST
+five_field:
+  object: fixed HLO module and stock XLA GPU executable
+  action_or_estimator: joint buffer-slice/alias assignment plus contiguous command-buffer-group construction
+  endpoint: peak device allocation plus record/replay/launch CPU and end-to-end execution
+  guarantee: stock tensor-result and command-legality preservation; possible certified Pareto/approximation only if later closed
+  carrier: version-pinned XLA GPU HLO test module selected from one current upstream commit
+checks:
+  registry_exact_search:
+    result: NO_EXACT_MATCH_FOUND__NOT_NOVELTY_EVIDENCE
+    evidence: "bounded search for OpenXLA, XLA GPU, command buffer, BufferAssignment, HLO buffer"
+  related_history:
+    result: RELATED_ONLY__NOT_EXCLUDING
+    record: "S2 prior Source14: OPENXLA_AND_PRIVATE_TOOLCHAIN_AMDGPU_SCHEDULER_OR_CONFIG_ABSORPTION"
+    difference: "prior record concerns scheduler/config absorption; this RQ fixes a different joint allocation/capture constructor and a different full-cost endpoint"
+  terminal_and_held_preflight:
+    result: NO_EXACT_IDENTITY_MATCH
+    excluded_inputs_not_read:
+      - GCC_GENAUTOMATA_TERMINAL_STOP
+      - SOURCE55_MIPS_FCSR_CQ01
+      - SOURCE58_WASMTIME_POST_RETURN_FATAL
+      - SOURCE59_GLIBC_TLSDESC_CQ01
+      - SOURCE63_OCAML_FLAMBDA2_QC01
+      - SOURCE75_LLVM_MACHO_COMPACT_UNWIND_CQ01
+      - SOURCE76_GO_UNIFIED_EXPORT_DATA_CQ01
+      - SOURCE77_GCC_GCOV_DATA_CQ01
+      - SOURCE81_RISCV_GP_LAYOUT_CQ01
+      - SOURCE81_RISCV_GP_LAYOUT_CQ02
+  disposition: RELATED_ONLY_PROCEED_TO_RAW_GATE__NO_NOVELTY_INFERENCE

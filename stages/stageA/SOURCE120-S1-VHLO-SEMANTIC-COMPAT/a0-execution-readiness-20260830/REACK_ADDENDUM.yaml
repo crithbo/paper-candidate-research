@@ -1,0 +1,21 @@
+schema: mainline-bootstrap-reack-addendum-v1
+assignment_id: STAGEA-L2-20260830-VHLO-SEMANTIC-COMPAT-A0
+topic_id: SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+reason: mechanical_dual_read_snapshot_and_claim_ceiling_reconciliation
+prior_ack:
+  path: BOOTSTRAP_ACK.yaml
+  sha256: A42AA565AE1F3F8D800BB94B0A0895AB522F1206FEF1697D8FA8BC42EDA07DC2
+  disposition: REFUSE_MISSING_OR_CONFLICTING_CONTEXT
+preservation:
+  target: BOOTSTRAP_ACK.pass1_refuse.yaml
+  byte_exact_required: true
+corrected_chain:
+  context: {path: ASSIGNMENT_CONTEXT.yaml}
+  plan: {path: plan.md, sha256: 3B8BF3C9787B6D3B020E8FE65829A4DC83D60F588CCA95AA51B0390005280B5C}
+  registry: {path: registry.yaml, sha256: E695B3C5730A39FF872F922610324F39853AA37FE6155D319C8A3ED63044B0C2}
+  sentry_state: COMPLETE_ACCEPTED__CONFIRM_PASS
+  claim_ceiling: CONDITIONAL_CANONICAL_FORMAL_ORACLE_COMPATIBILITY_ONLY
+allowed_actions: [preserve_prior_ack_byte_exact, reread_corrected_frozen_chain, write_new_canonical_BOOTSTRAP_ACK]
+forbidden_actions: [network, resource_action, build, control, claim, StageB, shared_write]
+scientific_revision: NONE
+next_action: FULL_REACK_AND_STOP

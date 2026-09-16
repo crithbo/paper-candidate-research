@@ -1,0 +1,41 @@
+assignment_id: DISCOVERY-S2-20260809-V8.7-WAVE13
+lane: S2-bottleneck-transfer
+method_used: production_v2_v8.1_plus_v8.6_fidelity_plan_plus_v8.7_upstream_reality_check
+method_not_used: two_axis_v8.2r2_tls_blocked
+cutoff_date: '2026-08-09'
+write_scope: stages/discovery/round-20260809-v8.7-wave13/S2-bottleneck-transfer
+result: PROPOSE_STAGE0
+propose_stage0:
+  - topic_id: PARQUET-PAGE-COSEGMENT
+    brief: PARQUET-PAGE-COSEGMENT.md
+    tier: TIER_B_Q2_VIABLE
+    contribution_route: N2
+    fidelity_status: FINITE_FIDELITY_GAP
+    structural_paper_potential: credible_Q2_if_joint_algorithm_survives_collision_and_killer
+    current_evidence_readiness: source_grounded_hypothesis_no_implementation_or_results
+    exact_object: standard_parquet_file_and_native_arrow_datafusion_query_result
+    direct_subtractors:
+      - Parquet_Java_current_writer
+      - Arrow_late_materialization_page_index
+      - Oasis_2026
+    stageA_killer: 20_file_public_NYC_TLC_Pareto_and_result_equivalence_gate
+    v8_7_reality_check:
+      release_tag: apache-parquet-1.17.0
+      source_snapshot: parquet_java_master_observed_2026-08-06
+      source_symbols:
+        - withPageSize
+        - withPageRowCountLimit
+        - withBloomFilterEnabled
+      current_defaults_checked:
+        - iceberg_parquet_page_size_1MiB
+        - iceberg_page_row_limit_20000
+        - iceberg_adaptive_bloom_false
+      negative_transport_evidence: git_ls_remote_tls_SEC_E_NO_CREDENTIALS_no_scientific_inference
+state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE
+deliverables:
+  - PARQUET-PAGE-COSEGMENT.md
+  - DISCOVERY_LOG.md
+  - ACTION_SPACE_COLLISION_MATRIX.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+hash_manifest: HASH_MANIFEST.sha256

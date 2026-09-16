@@ -1,0 +1,122 @@
+schema: ppc-r8-hash-pinned-witness-identity-correction-addendum-v1
+generated_by: MAINLINE
+generated_at: 2026-08-26T05:50:00+08:00
+addendum_id: PPC-R8-A1-HASH-PINNED-WITNESS-IDENTITY-CORRECTION
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+status: ADDENDUM_ACK_PENDING
+base_context_sha256: AF0AF5A6F5CEF9205004AAC6FB6F9E99B44773919C400DE1F8125635CBADAD3B
+base_control_sha256: AF281CA3D8B9E664DEE345E1C3A8B7B3F17B665D0F29726EE501ABB95946012E
+base_start_sha256: A97459981DE4B3091DAF3D3C49E726D64165869F605BF64680CE9AA86CA19801
+blocker_handoff_sha256: 30F7C757412C4D16966D094EE2C8CADB29C7B10AC3E90CCF889C1F0516B52EEA
+blocker_manifest_sha256: F87F362F9C4BEF2971B9D28ACCFB806C2989F26E5844219E0F5273FB1BD14C68
+mainline_acceptance_sha256: EAAC2D13CADB036A3CD0D888A469C4304B84A4D96D926C370C5F17F3F6E432F4
+frozen_shared_snapshot:
+  plan_sha256: EF1F1A91F601014604128CBDD6F5ABB46F1CD88BC88ED2BBAD0D04EE475EBC0B
+  registry_sha256: D92ED2599CAB6BE9824E6BDE7858FA7F7BDE8D3FBBF402F23FA5E8C6E20C1804
+
+classification:
+  type: PRECLAIM_HASH_PINNED_CONTRACT_IDENTITY_CORRECTION
+  source_of_error: MAINLINE_REQUIRED_NONEXISTENT_IR_FUNCTION_NAME
+  scientific_revision_consumed: false
+  exact_object_changed: false
+  mechanism_changed: false
+  comparator_changed: false
+  selected_corpus_or_denominator_changed: false
+  metric_or_claim_changed: false
+  input_bytes_changed: false
+  J0_rerun_allowed: false
+  implementation_or_tool_actions_before_failure: 0
+
+immutable_inputs:
+  ir_input:
+    path: resources/src/r6_input/src/preclaim_harness/ppc_union_input.ll
+    sha256: 1124F15D99EC0CF7F1688CD20E21416A17C1A075F46419FE95A9E35C262BD939
+    bytes: 2972
+    actual_functions: [ir_direct_load, ir_indexed_load, ir_fixed_offset_load, ir_sink, ir_pressure_control]
+    required_synthetic_ir_functions_after_correction: [ir_direct_load]
+    ir_indexed_load_disposition: CONTROL_ONLY__PADDI_PLUS_LDX_INDEXED_ARRAY_ACCESS__NOT_SAME_FUNCTION_MATERIALIZED_SUBSTITUTE
+  assembly_witness:
+    path: resources/src/r6_input/src/preclaim_harness/ppc_exact_witness.s
+    sha256: 94343AB218377B6D3A7736F3E280299C6AB80A2751386BD0CC0441B3174F88C5
+    bytes: 698
+    required_symbols: [witness_direct, witness_materialized, target_value]
+    direct_form: witness_direct__PLD_R_PPC64_PCREL34_TARGET_VALUE
+    materialized_form: witness_materialized__PADDI_R_PPC64_PCREL34_TARGET_VALUE_PLUS_LD
+    same_target_symbol: target_value
+    r5_validation: TWO_EXACT_REPLAYS__ASSEMBLER_READOBJ_OBJDUMP_LLD_UNWIND_AND_STATIC_SEMANTICS_PASS
+
+corrected_synthetic_fidelity_contract:
+  ir_control_input: ppc_union_input.ll
+  ir_control_function: ir_direct_load
+  native_pair_input: ppc_exact_witness.s
+  native_pair_symbols: [witness_direct, witness_materialized]
+  no_alias_rename_generated_substitute_or_input_edit: true
+  actual_harness_cli_must_accept:
+    - --mode
+    - --input
+    - --function
+    - --asm-input
+    - --direct-symbol
+    - --materialized-symbol
+    - --method
+    - --output-root
+    - --replay
+    - --check
+  future_natural_claim_cli_still_requires: [--mode, --input, --function, --method, --output-root, --replay, --check]
+  candidate_trace_must_be_parsed_from_real_tool_artifacts: true
+  native_checker_evidence_paths_required: true
+  selected_or_reserve_corpus_tool_invocations_allowed: 0
+
+resource_resume:
+  existing_resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources
+  files: 160
+  logical_bytes: 244208913
+  reparse_entries: 0
+  active_related_processes: 0
+  existing_J0_copy_acceptance_reused: true
+  new_copy_extraction_or_network_allowed: false
+
+allowed_actions_after_addendum_start:
+  - WRITE_INPUT_IDENTITY_CORRECTION_PRECOMMIT
+  - PRESERVE_BLOCKER_HANDOFF_AND_MANIFEST_AS_PASS1
+  - IMPLEMENT_FRESH_ACTUAL_INPUT_DRIVEN_NATURAL_CLAIM_HARNESS_WITH_CORRECTED_SYNTHETIC_IDENTITIES
+  - RUN_J1_J6_ONLY_WITH_HASH_PINNED_SYNTHETIC_CONTROL_AND_WITNESS
+  - GENERATE_FULLY_EXPANDED_R9_32_PROCESS_PLAN_WITHOUT_EXECUTION
+  - WRITE_CANONICAL_PRECLAIM_PACKAGE
+forbidden_actions:
+  - RERUN_J0_COPY_OR_HASH_ACCEPTANCE_COMMANDS
+  - MODIFY_ANY_R6_INPUT_BYTE_OR_FUNCTION_SYMBOL
+  - SUBSTITUTE_IR_INDEXED_LOAD_FOR_MATERIALIZED_SAME_FUNCTION_WITNESS
+  - ALIAS_RENAME_OR_GENERATE_IR_MATERIALIZED_LOAD
+  - COPY_OR_REUSE_R7_REJECTED_CLAIM_HARNESS_CODE
+  - ANY_SELECTED_OR_RESERVE_CORPUS_COMPILER_LINKER_VERIFIER_DISASSEMBLY_OR_RESULT_OBSERVATION
+  - CLAIM_RUN
+  - NETWORK_NEW_COPY_EXTRACTION_LLVM_SOURCE_PATCH_OR_REBUILD
+  - HARDCODE_NATIVE_CHECKER_PASS_OR_CONSTANT_TRACE_PROXY
+  - GENERATOR_LABEL_OR_UNSUPPORTED_CLI_IN_R9_PLAN
+  - RETRY_RESULT_BASED_EXCLUSION_BACKFILL_OR_COMMAND_CHANGE
+  - SCIENTIFIC_INFERENCE_REVISION_PIVOT_STATE_TRANSITION_CLEANUP_OR_STAGEB
+limits:
+  resource_root_logical_bytes_max: 536870912
+  implementation_files_max: 20
+  synthetic_tool_command_records_max: 200
+  selected_or_reserve_corpus_tool_invocations_max: 0
+  claim_bearing_runs_max: 0
+  automatic_retry: false
+ack_requirement:
+  path: ADDENDUM_ACK.yaml
+  must_confirm:
+    - BASE_BLOCKER_ACCEPTANCE_ADDENDUM_AND_SHARED_HASHES
+    - RESOURCE_TREE_160_FILES_244208913_BYTES_0_REPARSE_0_ACTIVE
+    - J0_REUSE_WITHOUT_RERUN
+    - EXACT_IR_AND_ASSEMBLY_WITNESS_HASHES_SYMBOLS_AND_ROLES
+    - IR_INDEXED_LOAD_NOT_A_SUBSTITUTE
+    - J1_J6_ACTUALITY_REQUIREMENTS
+    - SELECTED_OR_RESERVE_TOOL_INVOCATIONS_ZERO
+    - CLAIM_RUNS_ZERO
+    - DIFFERENCES_OR_AMBIGUITIES_EMPTY
+success_route: ACTUAL_NATURAL_CLAIM_HARNESS_FIDELITY_PASS__WAIT_SEPARATE_R9_EXACT_CLAIM_ASSIGNMENT
+failure_route: FAIL_CLOSED_ACTUAL_NATURAL_HARNESS_FIDELITY__NO_SELECTED_CORPUS_OR_SCIENTIFIC_INFERENCE

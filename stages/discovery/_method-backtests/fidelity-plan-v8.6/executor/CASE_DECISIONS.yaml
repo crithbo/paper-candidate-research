@@ -1,0 +1,85 @@
+assignment_id: BACKTEST-EXECUTOR-L1-20260809-FIDELITY-PLAN-V8.6
+role: DISCOVERY_BACKTEST_EXECUTOR_LANE_1
+method_revision: fidelity-plan-v8.6
+decision_rule: >-
+  PROPOSE_STAGE0 requires a fixed same object/function/guarantee, a non-wrapper
+  union-external action with a testable residual, and a finite auditable
+  fidelity-closure path. Otherwise DROP.
+blindness: EXECUTOR_INPUT_ONLY__NO_AUDIT_KEY_OR_OUTCOME_MAPPING
+cases:
+  case-a9x3:
+    decision: DROP
+    object_guarantee_test: FAIL__no target-specific object, legality, liveness, cost semantics, or native denominator is frozen.
+    action_gap_reasoning: A generic scheduler cannot identify a same-object residual before a target is selected; selecting one changes the object.
+    closure_plan_status: STRUCTURALLY_UNCLOSABLE
+    small_witness: No finite target-independent legality/liveness witness can establish the required contract.
+  case-b8k1:
+    decision: PROPOSE_STAGE0
+    object_guarantee_test: PASS__fixed manifest, block-table writer/reader, dictionary representation, trainer, comparator, and budget semantics are stated.
+    action_gap_reasoning: Bounded sketch-maintained marginal coverage is a construction action selecting retained fragments before an unchanged trainer, not merely a choice among stated reservoirs or parameter settings.
+    closure_plan_status: FINITE
+    small_witness: Pin writer/reader and use one small manifest to compare retained fragments against frozen reservoirs and an exact coverage ceiling, with complete scan/checksum equivalence.
+  case-f6d0:
+    decision: DROP
+    object_guarantee_test: PASS__target-correct machine code and target legality/liveness are fixed.
+    action_gap_reasoning: The stated global speculative, predicative, and pull-up actions are already in the same-object upstream action space; any residual is a selector, while a local control is not the claimed action.
+    closure_plan_status: STRUCTURALLY_UNCLOSABLE
+    small_witness: The supplied action-space inclusion is itself the finite absorption witness.
+  case-h4v9:
+    decision: PROPOSE_STAGE0
+    object_guarantee_test: PASS__one self-contained pack/index with exact object identity, content resolution, and strict verification is fixed.
+    action_gap_reasoning: Type-preserving candidate-graph construction plus bounded-depth acyclic forest and legal emission order is a joint construction outside the described bounded local window/configuration union.
+    closure_plan_status: FINITE
+    small_witness: On a tiny fixed object set, enumerate the exact forest ceiling and require strict reconstruction/format verification for candidate and every named baseline.
+  case-m0s5:
+    decision: DROP
+    object_guarantee_test: PASS__feedback-driven legal join-plan repair is fixed.
+    action_gap_reasoning: Choosing timing or one existing repair in the already-owned repair family is a feedback selector, with neither a new guarantee nor union-external action.
+    closure_plan_status: STRUCTURALLY_UNCLOSABLE
+    small_witness: The same feedback contract and existing repair family provide the absorption witness.
+  case-n5r8:
+    decision: PROPOSE_STAGE0
+    object_guarantee_test: PASS__query, required order, plan space, cost model, and exact global-optimum guarantee are frozen.
+    action_gap_reasoning: Future-equivalence quotienting with a safe lower bound is a distinct exact-search representation/action relative to the full order-state DP, not a change in result semantics.
+    closure_plan_status: FINITE
+    small_witness: Exhaustively seek inequivalent paired partial states and cross-check every small optimum against exhaustive and ILP oracles before measuring state/time/memory.
+  case-q7m2:
+    decision: PROPOSE_STAGE0
+    object_guarantee_test: PASS__input/output trace, proof operations, machine-checkable equioptimality semantics, and checker remain unchanged.
+    action_gap_reasoning: Maintaining live dependency/rederivation obligations to construct an ordered partition is a legal construction schedule; the stated tooling only verifies an externally supplied order.
+    closure_plan_status: FINITE
+    small_witness: Replay one small natural trace, require identical output and checker acceptance, then compare stable and legal-greedy schedules with the specified full cost ledger.
+  case-r8e1:
+    decision: DROP
+    object_guarantee_test: PASS__directory closure, root digest, and protocol upload semantics are fixed.
+    action_gap_reasoning: With digest and input mapping retained, reconstruction/reuse is only cache policy; changing either violates the frozen semantics, leaving no stated union-external construction action.
+    closure_plan_status: STRUCTURALLY_UNCLOSABLE
+    small_witness: Digest equality plus fixed Merkle input mapping is the finite semantic boundary witness.
+  case-t3c6:
+    decision: PROPOSE_STAGE0
+    object_guarantee_test: PASS__request stream, application frame, model quality/weights, and thermal/power envelope are fixed.
+    action_gap_reasoning: Carrying bounded request criticality to the first shared arbiter is a finer-grained arbitration action than command yielding, accelerator-wide priority, or aggregate bandwidth control.
+    closure_plan_status: FINITE
+    small_witness: Use a small public-measurement-calibrated queue/DRAM trace to test class-separable contention under timing, starvation, bandwidth, metadata, fairness, delay, and energy-proxy accounting.
+  case-w2j7:
+    decision: DROP
+    object_guarantee_test: PASS__kernel semantics and compiler legality/output/compile-time/code-size/synchronization contract are fixed.
+    action_gap_reasoning: Both systems already expose the full claimed multi-worker orchestration action space; choosing one schedule is a selector and the permitted proxy is expressly incomplete.
+    closure_plan_status: STRUCTURALLY_UNCLOSABLE
+    small_witness: Full action-space exposure under the same contract supplies the absorption witness.
+  case-y4u6:
+    decision: DROP
+    object_guarantee_test: PASS__workload/configuration measurement contract is fixed.
+    action_gap_reasoning: Repeating the already-combined observation, treatment, inference, selection, and deployment chain has no distinct atomic action or guarantee.
+    closure_plan_status: STRUCTURALLY_UNCLOSABLE
+    small_witness: Identity with the stated complete current action chain is the absorption witness.
+  case-z1p4:
+    decision: PROPOSE_STAGE0
+    object_guarantee_test: PASS__epoch accesses, backend, results, updates, lifetime, pointer safety, page size, and SLO limit are frozen.
+    action_gap_reasoning: Joint movable-object slot selection and migration under capacity, pointer safety, migration-cost, and SLO constraints is a construction action beyond hot/cold organization, reclamation, and their stated same-information composition.
+    closure_plan_status: FINITE
+    small_witness: Use a reduced-epoch solver/replayer with explicit mobility flags, exact small packing ceiling, and four same-information baseline replays charging all listed movement and validation costs.
+decision_totals:
+  PROPOSE_STAGE0: 6
+  DROP: 6
+  total: 12

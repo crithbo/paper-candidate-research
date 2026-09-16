@@ -1,0 +1,59 @@
+schema_version: 1
+assignment_id: STAGEA-L1-20260811-PARQUET-PAGE-COSEGMENT-RESUME1-V8.7
+topic_id: PARQUET-PAGE-COSEGMENT
+lane_id: CANDIDATE_EXECUTION_LANE_1
+unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/PARQUET-PAGE-COSEGMENT/resume1
+old_candidate_root_read_only: true
+cross_assignment_contamination: false
+stageb_authorized: false
+continuity_gate:
+  checked_at: 2026-08-11T00:00:00+08:00
+  status: PASS
+  checkpoint_sha256: C3DA106D6AB8482394B7CDFBDC33ED9BE192AF47A5AB89745F18D424E6424F72
+  checkpoint_core_hashes_verified: 10_of_10
+  old_replay1_tree:
+    canonicalization: UTF-8 relative/path=UPPERCASE_SHA256 sorted, LF, final LF
+    expected_sha256: BB6EC296E6019CF476DBFAAAE778DA5D0EC2EB291DD353FDAA746E682AEBD64E
+    observed_sha256: BB6EC296E6019CF476DBFAAAE778DA5D0EC2EB291DD353FDAA746E682AEBD64E
+    files: 105
+    bytes: 143771739
+  frozen_corpus_hashes_verified: 20_of_20
+core_files:
+  old_contract: {sha256: 843E55559486640B79D86A9E184429E9B191D0F2640FF9597C57FC8BECF5BD2E, mode: READ_ONLY}
+  old_preclaim_gate: {sha256: C3D5A929156C0D7A6CE6ED3EA3F848CB9E5CEDD8F0DFFC45DD9F546C3D09F3F8, mode: READ_ONLY}
+  old_witness_result: {sha256: 24417FD6E160AC2CAB16C024D1BF61D9E5C2C7BBEFDDD2FB579A925B60627798, mode: READ_ONLY}
+  old_corpus_audit: {sha256: CFED787BCAF68D0B750CDEC2D90CDF5AA41E8032EB549E4356EC1808013B96AE, mode: READ_ONLY}
+  old_script: {sha256: 38E7BC74352BFD235709BD383E087BF5CEDF978DE2017BBC65BD9764A083EFF6, mode: READ_ONLY}
+old_complete_results:
+  green_tripdata_2024-01: F46DCB12B15568545EB5F13281288D03B905A71833987368E2066FD0A0828631
+  green_tripdata_2024-02: C1F7CFAA5CEACD1740CAD4E7826517EC5146A815C748B3AC0FF12EAAAED41F1C
+  green_tripdata_2024-03: E26D4E4EFAA5B0719BE48A8B11D22EFA4AB819BE2C95207E41AEE20E85902AF4
+  green_tripdata_2024-04: 061FF6A562622780E8D781820C68055316992B8AE3F1ABE6F4176513CE0B8F94
+  green_tripdata_2024-05: 03C9050EE21A1D74A50541BE2FEDD7376D2A8CB1E6BEF3BF052616112951B65F
+partial_2024_06_boundary_oracles:
+  expected_count: 15
+  observed_count: 15
+  revalidation_status: PASS
+  revalidation_artifact: continuity/boundary_oracle_revalidation_2024-06.json
+  reuse_mode: COPY_AFTER_HASH_AND_SEMANTIC_REVALIDATION__OLD_FILES_UNMODIFIED
+runtime:
+  python: 3.12.13
+  pyarrow: 25.0.0
+  datafusion: 54.0.0
+  thriftpy2: 0.7.0a1
+  zstandard: 0.23.0
+  psutil: 7.0.0
+provenance_anomaly:
+  status: RECORDED_NON_CORE_NO_OBJECT_OR_RESULT_CHANGE
+  file: old INPUT_FREEZE.yaml
+  field: Discovery handoff SHA-256
+  recorded_value: 3AF2505AFCE8E9B3B6D46362ADDF5F4D31071EB5344926C2229CF73B71239DFE
+  actual_manifest_and_registry_value: FC2D773EBBD26B73D0BEADC95DF51607F6397A8C1DF8FC07CEC693F9E063F38A
+  disposition: use actual frozen upstream hash in resume handoff; never edit old file
+claim_boundary:
+  snapshot_semantics: STATE_AT_CONTINUITY_FREEZE_BEFORE_RESUMED_CLAIM_RUNS
+  preclaim_gate_prior_status: PASS
+  continuity_confirmed: true
+  aggregate_decision_before_resume: NONE
+  scientific_revision_consumed: false
+  replay2_started_at_continuity_freeze: false

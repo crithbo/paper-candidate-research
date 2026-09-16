@@ -1,0 +1,6 @@
+# Rule freeze — Wave280
+
+- Assignment: `DISCOVERY-S1-20260811-V8.7-WAVE280-AARCH64-SME-ZA-CALLBOUNDARY-SPILL-PARETODP-N2-CLOSURE`.
+- Frozen: AGENTS `66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063`; plan `B6730447CE2753DD4049330E168DB121E0010DF7D33AD272326136426F01D88D`; registry `7918DE7515604225723E0D2DC6F05C4104B5A0ADB6E9E771284B39391EECFA43`; ROLE `FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3`.
+- Authority: requested v8.7 R5-P0 revision, quality mode OFF. Known actions may be N2 only with target-specific non-generic guarantee and forced divergence.
+- Wave190's nonterminal unfrozen prior was not used as a conclusion. No experiment/benchmark/download/Stage0-A-B/shared write/E-drive use.

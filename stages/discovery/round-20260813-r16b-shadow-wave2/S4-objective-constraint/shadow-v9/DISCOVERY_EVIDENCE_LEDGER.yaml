@@ -1,0 +1,22 @@
+schema_version: discovery-v9-shadow-evidence-ledger-v1
+snapshot_reference: ../neutral-source-snapshot/FAMILY_SNAPSHOTS.yaml
+queries:
+  - date: '2026-08-13'
+    purpose: 'Current first-party docs/source locator and default/non-default control check.'
+    source: 'official documentation and upstream project endpoints'
+    read_depth: bounded_documentation_and_path_locator
+    results: 'glibc locale archive/localedef; man-db apropos/mandb index; plocate builder/reader; kmod depmod/modprobe.'
+    limitation: 'Official git transport failed with SEC_E_NO_CREDENTIALS; no absence conclusion taken.'
+families:
+  - signature: S4_GLIBC_LOCALE_ARCHIVE_CONSTRUCTOR
+    high_uncertainty: 'complete current archive writer/reader union'
+    shadow_state: NOT_ADMITTED_UNFROZEN
+  - signature: S4_MANDB_WHATIS_INDEX_CONSTRUCTOR
+    high_uncertainty: 'complete mandb backend/writer/query union'
+    shadow_state: NOT_ADMITTED_UNFROZEN
+  - signature: S4_PLOCATE_DATABASE_CONSTRUCTOR
+    high_uncertainty: 'complete format/builder/query union'
+    shadow_state: NOT_ADMITTED_UNFROZEN
+  - signature: S4_KMOD_MODULE_DEPENDENCY_INDEX_CONSTRUCTOR
+    high_uncertainty: 'complete depmod/libkmod union'
+    shadow_state: NOT_ADMITTED_UNFROZEN

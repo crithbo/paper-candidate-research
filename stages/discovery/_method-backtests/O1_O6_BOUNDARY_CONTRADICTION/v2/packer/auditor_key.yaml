@@ -1,0 +1,55 @@
+schema_version: discovery-backtest-auditor-key-v2
+confidentiality: PACKER_AND_FUTURE_AUDITOR_ONLY
+executor_must_not_read: true
+opportunity_lens: O1_ASSUMPTION_BREAK_PLUS_O6_CONTRADICTION_ANOMALY_OR_PRIMITIVE_MISMATCH
+anchors:
+  S1-POS-01:
+    hidden_target:
+      title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
+      venue: NeurIPS 2022
+      earliest_public_date: 2022-05-27
+      canonical_url: https://proceedings.neurips.cc/paper/2022/hash/67d57c32e20fd0a7a302cb81d36e40d5-Abstract-Conference.html
+    expected_problem_shape:
+      - "FLOP-centric efficient-attention work can miss wall-clock behavior when GPU HBM traffic dominates."
+      - "Seek an exact-attention computation order or tiling whose decisions explicitly minimize hierarchical-memory I/O."
+    expected_decision_structure: "sequence/block tiling and recomputation versus HBM/SRAM traffic, with exact semantics and an IO lower-bound or comparable argument"
+    contribution_route: N2_NEW_ALGORITHM_OR_OPTIMIZATION
+    evidence_entry: "exactness; HBM-access accounting; end-to-end GPU timing against exact and approximate attention baselines; sequence-length/SRAM sensitivity"
+  S1-POS-02:
+    hidden_target:
+      title: "Efficient Memory Management for Large Language Model Serving with PagedAttention"
+      common_system_name: vLLM
+      venue: SOSP 2023
+      earliest_public_date: 2023-06-20
+      doi: 10.1145/3600006.3613165
+      canonical_url: https://dl.acm.org/doi/10.1145/3600006.3613165
+    expected_problem_shape:
+      - "Variable-length request state makes contiguous reservation fragment or over-reserve scarce accelerator memory."
+      - "Recover an OS-like non-contiguous allocation/sharing decision structure for dynamic serving state, not another kernel-only speedup."
+    expected_decision_structure: "block granularity, logical-to-physical mapping, allocation/reclamation, sharing/copy-on-write, batching/admission interaction"
+    contribution_route: N1_NEW_ABSTRACTION_OR_MECHANISM
+    evidence_entry: "memory-waste accounting; same-model/same-quality throughput and latency; workload-length and decoding-policy sensitivity; scheduler and metadata cost"
+  S1-POS-03:
+    hidden_target:
+      title: "The Case for Learned Index Structures"
+      venue: SIGMOD 2018
+      earliest_public_date: 2017-12-04
+      doi: 10.1145/3183713.3196909
+      canonical_url: https://dl.acm.org/doi/10.1145/3183713.3196909
+    expected_problem_shape:
+      - "General indexes ignore stable data-distribution structure even though an index maps keys to positions or membership."
+      - "Recover a learned predictive index framing while keeping correction search, build/update cost, and adversarial distributions explicit."
+    expected_decision_structure: "model family/capacity versus prediction error and correction range; hierarchy/fallback; static versus update regime"
+    contribution_route: N1_NEW_REPRESENTATION
+    evidence_entry: "lookup latency and size versus strong cache-conscious indexes; build/update ledger; distribution shift and worst-case boundary"
+  S1-NEG-01:
+    hidden_target: null
+    expected_result: ABSTAIN
+    reason: "The slice intentionally fixes semantics, shape regime, hardware generation, and objective while exposing only mature tile/launch knobs already covered by strong libraries; no contradiction or primitive mismatch is evidenced."
+cutoff_exclusions:
+  - "All hidden-target title/abstract/method/result text."
+  - "All target repositories, project pages, reviews, talks, citations, replications, and follow-on papers at or after each target's earliest public date."
+  - "FlashAttention-2/3, later vLLM work, and the post-2017 learned-index literature."
+hardware_claim_ceiling:
+  rule: "Input GPU/library materials support software or measured-runtime problem formulation only; no architectural or silicon claim may be inferred."
+  status: ENFORCED

@@ -1,0 +1,28 @@
+schema: stage0-revision-assignment-v1
+assignment_id: STAGE0-REVISION1-20260830-ORT-EP-ASSIGNMENT-STABILITY
+topic_id: SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c
+mode: REVISE_ONCE
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+unique_write_directory: stages/stage0/_revisions/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/revision1-contract-20260830
+resource_root: stages/stage0/_revisions/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/revision1-contract-20260830/resources
+upstream:
+  primary_handoff: {path: stages/stage0/_reviews/round-20260830-source122-primary/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/handoff.yaml, sha256: 984C97D2955ECED7DA7F9175A5E5A027A1274ADDBA26D1C85BA3FA1B1C0F6F9E}
+  sentry_handoff: {path: stages/stage0/_reviews/round-20260830-source122-sentry/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/handoff.yaml, sha256: F6FE9F14D8F737DC173B68184896359C3A3A7B8D90E5BB2EFF7E0C9B5AEF83AC}
+preserve: [exact_ONNX_ORT_object, semantics_equivalent_representation_question, held_out_deployment_decision_validity, output_quality_constraint, canonical_benchmark_ceiling]
+single_primary_endpoint:
+  stack: {onnxruntime_gpu_version: 1.26.0, providers_order: [CUDAExecutionProvider, CPUExecutionProvider], provider_options: frozen_identical_across_cells}
+  actions: [ORT_ENABLE_BASIC, ORT_ENABLE_EXTENDED, ORT_ENABLE_ALL]
+  diagnostic_only: ORT_DISABLE_ALL
+  decision: minimize_frozen_full_cost_under_frozen_output_quality_threshold_on_source_representation_then_evaluate_held_out_equivalent_representations
+relation_families: [ONNX_Function_expansion_or_inlining, inverse_Transpose_or_Reshape_identity, Split_then_Concat_reconstruction, constrained_Gemm_to_MatMul_plus_Add]
+normalized_away_negative_control: identity_or_inverse_pair_expected_to_be_removed_by_basic_optimization
+legality: [L0_PROTO_LEGAL, L1_RELATION_JUSTIFIED, L2_NUMERIC_ORACLE]
+lineage: semantic_region_id_zero_one_many_mapping_with_explicit_normalized_fused_expanded_unmatched_unsupported_session_fail_illegal_unproven_numeric_fail
+all_cell_denominator: model_x_source_representation_x_heldout_relation_instance_x_optimizer_action_x_repetition_process_control_arm
+minimum_q2_breadth: {models_min: 12, model_families_min: 3, relation_families_min: 4, second_release_or_same_version_public_EP_route: true, heldout_models_and_relations: mandatory}
+strongest_baselines: [output_only_differential, raw_timing, simple_structure, native_assignment_info, full_per_representation_optimizer_grid, strongest_version_compatible_Mobius_QNN_lineage]
+post_closing_stagea_killer: 2_model_families_x_2_relation_families_plus_normalized_negative_x_BASIC_EXTENDED_ALL_with_paired_instrumentation_process_controls
+allowed: [write_revised_contract_packet_denominator_legality_lineage_Q2_breadth_report_handoff_manifest]
+forbidden: [search, resource_action, implementation, experiment, generic_bug_finding, result_dependent_endpoint_or_corpus, mixed_versions_in_one_denominator, failed_cell_exclusion, private_QNN_requirement, StageA, StageB, shared_write]
+revision_consumption_point: first_write_of_revised_contract_packet

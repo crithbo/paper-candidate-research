@@ -1,0 +1,47 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+generated_at: 2026-08-24T03:16:00+08:00
+context_mode: DUAL_READ_SHADOW
+mainline_task_or_contact: 01a02e08-06de-7281-89ab-eb4965cccc92
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_ACTION
+identity: {lane_id: RULE_AUDIT, role_id: RULE-AUDIT-SENTRY, assignment_id: RULE-AUDIT-20260824-SOURCE104-CARRIER-FIRST-EVALUATION-A3, topic_id: SOURCE103-104-CARRIER-FIRST-EVALUATION, stage_or_mode: PROPOSAL_ONLY_RULE_AUDIT, status: BOOTSTRAP_ACK_PENDING, resume_point: NEW_AUDIT_COLD_START, next_action: WRITE_BOOTSTRAP_ACK_AND_WAIT_FOR_MAINLINE_ACCEPTANCE, source_assignment_path: stages/rule-audit/RULE-AUDIT-20260824-SOURCE103-104-CARRIER-FIRST-A3/ASSIGNMENT.yaml, source_assignment_sha256: 4D5A7672D0CA4015C355C5397BCA20C76BBB0F01B33444DBFD42E4957CBA8DCE}
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: RULE_AUDIT_SENTRY
+  user_approval_ids: [USER_CONTINUOUS_LLM_VLA_PIPELINE_UNTIL_USAGE_RESET_20260824, AGENTS_ZERO_YIELD_DIAGNOSIS]
+  allowed_actions: [READ_MINIMUM_REGISTERED_INPUTS, COMPARE_SOURCE103_SOURCE104, EVALUATE_CARRIER_FIRST_ALLOCATION, WRITE_PROPOSAL_ONLY_OUTPUTS]
+  forbidden_actions: [START_BEFORE_ACK_ACCEPTANCE, MODIFY_SHARED_OR_CANDIDATE_FILES, READ_SOURCE105_RESULTS, BACKWRITE_SOURCE105, NETWORK_SEARCH_DOWNLOAD_BUILD_EXPERIMENT_QUEUE_BACKTEST_AUTOMATION_STAGE, RELAX_GATES_OR_CREATE_QUOTA_COOLDOWN_STOP_REVIVAL]
+  forbidden_inputs: [SOURCE105_RESULTS, UNREGISTERED_CHAT_MEMORY, PRIVATE_MATERIAL, NONMINIMAL_HISTORY]
+boundaries: {unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/rule-audit/RULE-AUDIT-20260824-SOURCE103-104-CARRIER-FIRST-A3, resource_root: null, read_only_paths: [AGENTS.md, plan.md, registry.yaml, rules/ROLE_RULE_AUDIT.md, rules/ROLE_DISCOVERY.md, stages/rule-audit/RULE-AUDIT-20260824-SOURCE102-103-ZERO-BRIEF-A2/RULE_AUDIT_REPORT.md, stages/rule-audit/RULE-AUDIT-20260824-SOURCE102-103-ZERO-BRIEF-A2/handoff.yaml, stages/discovery/round-20260824-strategy-source103/control/CONTROL.yaml, stages/discovery/round-20260824-strategy-source104/control/CONTROL.yaml, SOURCE104_ACCEPTED_HANDOFFS_FROM_MINIMUM_INPUTS], write_allowed_paths: [<LEGACY_LOCAL_PROJECT_ROOT>/stages/rule-audit/RULE-AUDIT-20260824-SOURCE103-104-CARRIER-FIRST-A3], network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 77B8B100DB219BEDC77A593737C55CD6AAADAA6A544A8D2ED0DB388314BD1AF8}
+  plan: {path: plan.md, sha256: D7883ACC781F7EE2B7A64B5216912EC9F3D89259C7DB7BC5EFA639A01126494A}
+  registry_snapshot: {path: registry.yaml, sha256: B7CBA954D727ADFD593A0B9A84082D94BEEBD550906EDD8DEE98A45029E9DBE3}
+  role_rule: {path: rules/ROLE_RULE_AUDIT.md, sha256: 0B6788481571968C0FF8946BA725BDF41689095809DE8238B072C8ED6E6FADC6}
+  conditional_protocols: []
+  skills: [{path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}, {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/deep-research/WORKFLOW.md, sha256: 055E902187665C2437D0F41F35E2CC9C11FB5D62A736CF3ED23E44193BD4F029}]
+  templates: [{path: templates/RULE_AUDIT_REPORT.md, sha256: D3417652D622529C0E5C163E6856425191D21E0246DF568F7FE1A9CE68540376}, {path: templates/RULE_CHANGE_PROPOSAL.md, sha256: D9173DA82C04F1DBD93CF61229C9CD22D8FF4D9F12271EF7D1EF99BDA4E5430E}, {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}]
+minimum_inputs:
+  - {path: stages/rule-audit/RULE-AUDIT-20260824-SOURCE103-104-CARRIER-FIRST-A3/ASSIGNMENT.yaml, sha256: 4D5A7672D0CA4015C355C5397BCA20C76BBB0F01B33444DBFD42E4957CBA8DCE}
+  - {path: stages/rule-audit/RULE-AUDIT-20260824-SOURCE102-103-ZERO-BRIEF-A2/RULE_AUDIT_REPORT.md, sha256: A5F69B49C84D2952F303B50F97EA2AA1C8DACADBBAE25E8008C75A954F6AC97F}
+  - {path: stages/rule-audit/RULE-AUDIT-20260824-SOURCE102-103-ZERO-BRIEF-A2/handoff.yaml, sha256: 5E31AC8216721727798BAE3C2BB552192D07064C5D319FE44C96AE0EE0CA4B52}
+  - {path: stages/discovery/round-20260824-strategy-source103/control/CONTROL.yaml, sha256: 99521CA4E743F87A5B6FA0FA492DBBE4B7F70709E5512813E016699E9AA1EA2C}
+  - {path: stages/discovery/round-20260824-strategy-source104/control/CONTROL.yaml, sha256: 9D0373EF71F71500E489F522467263F3B5BBBF7C571F4684C12D0E9BBC319B88}
+  - {path: stages/discovery/round-20260824-strategy-source104/S1-boundary-contradiction/handoff.yaml, sha256: 613066BD64EFB03D7E694F9571AA9005CBBCC26D9B23223D8D910E63DC22383C}
+  - {path: stages/discovery/round-20260824-strategy-source104/S2-bottleneck-transfer/handoff.yaml, sha256: B2ABEA86E4E2BF667A4A2B59BF0F6001ACE909D2521AEFA2B6A2E7E92D987108}
+  - {path: stages/discovery/round-20260824-strategy-source104/S3-natural-structure/handoff.yaml, sha256: ACEF4A72C2A9D45D5E2FD37F95E49DB433D24026B5308EAE052E77CBAB57ADAD}
+  - {path: stages/discovery/round-20260824-strategy-source104/S4-objective-constraint/handoff.yaml, sha256: 3284F34D569668FEAEC2F51DDE427EF412FC16AA57B7EF44522ECA8F79250EE9}
+  - {path: stages/discovery/round-20260824-strategy-source104/S5-scale-online-approx/handoff.yaml, sha256: FFE09BCD4F327B31AC7B39E45E20754E199D28A0BB8438E6832A4E6B2096A6EB}
+  - {path: stages/discovery/round-20260824-strategy-source104/S6-direct-algorithm-software/handoff.yaml, sha256: D9D9146A343F590EFC4060107AEA50E8BB8D3386954656971CD7A1B9A04F7F52}
+expected_outputs: [RULE_AUDIT_REPORT.md, RULE_CHANGE_PROPOSAL.md, handoff.yaml, HASH_MANIFEST.sha256]
+budget: {model: gpt-5.6-sol, reasoning: high, network_bytes_max: 0, stored_bytes_max: 0, wall_seconds_max: 7200, attempts_max: 0}
+claim_ceiling: PROCESS_DIAGNOSIS_AND_CHANGE_PROPOSAL_ONLY
+evidence_ceiling: REGISTERED_CONTROL_AND_HANDOFF_ARTIFACTS_ONLY
+scientific_revision: {allowed_total: 0, consumed: 0, remaining: 0, exceptional_revision_authorized: false}
+mechanism_pivot: {allowed: false, consumed: 0, remaining: 0}
+identity_and_collision: {exact_identity_digest: NOT_APPLICABLE, terminal_identity_digest: REGISTRY, current_collision_digest: NOT_APPLICABLE, terminal_stop_non_revival_asserted: true}
+user_and_blocker_state: {user_action_required: false, blocker_state: null, blocker_packet_path: null, resource_policy_path: rules/RESOURCE_LOCALIZATION.md, resource_policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+stop_and_escalation_conditions: [HASH_PATH_ROLE_SCOPE_MISMATCH, NEED_SOURCE105_OR_NETWORK_RESOURCE_SHARED_WRITE, POLICY_CHANGE_REQUIRES_USER]
+handoff_requirements: [SHARED_FILES_MODIFIED_FALSE, DECISION_LABEL, CARRIER_FIRST_RETAIN_DOWNGRADE_REMOVE, MINIMUM_FUTURE_CHANGE_OR_NO_CHANGE, SOURCE105_UNAFFECTED]
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_IN_BOOTSTRAP_ACK, result: READY_FOR_LANE_BOOTSTRAP_ACK}

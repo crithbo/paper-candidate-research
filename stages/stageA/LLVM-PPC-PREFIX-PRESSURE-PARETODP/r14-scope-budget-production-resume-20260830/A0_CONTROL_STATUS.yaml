@@ -1,0 +1,62 @@
+schema: stagea-a0-control-status-v1
+assignment_id: STAGEA-L2-20260830-LLVM-PPC-R14-A0-PRODUCTION-RESUME
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+run_classification: CONTROL_NON_CLAIM_BEARING
+node: N01_CANDIDATE_REPLAY
+attempt: 1_of_1
+started_at_utc: 2026-08-29T18:19:53.0490132Z
+ended_at_utc: 2026-08-29T18:19:58.1005611Z
+wall_milliseconds: 5045
+process_exit_code: 1
+timeout: false
+runtime_mode_literal: claim_run
+firewall_classification_overrides_runtime_label: CONTROL_NON_CLAIM_BEARING
+argv:
+  - <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+  - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r14-scope-budget-production-resume-20260830/resources/src/runner/materializer_harness.py
+  - --mode
+  - claim_run
+  - --input
+  - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r14-scope-budget-production-resume-20260830/resources/src/inputs/selected-00.ll
+  - --function
+  - bar
+  - --method
+  - ppc_tpd
+  - --output-root
+  - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r14-scope-budget-production-resume-20260830/resources/build/control/candidate
+  - --replay
+  - '1'
+  - --defer-checker-full-cost
+  - --check
+cwd: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r14-scope-budget-production-resume-20260830/resources/build/control
+process_local_redirects:
+  TEMP: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r14-scope-budget-production-resume-20260830/resources/tmp
+  TMP: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r14-scope-budget-production-resume-20260830/resources/tmp
+  TMPDIR: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r14-scope-budget-production-resume-20260830/resources/tmp
+  PYTHONPYCACHEPREFIX: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r14-scope-budget-production-resume-20260830/resources/cache/pycache
+  PYTHONNOUSERSITE: '1'
+  PYTHONDONTWRITEBYTECODE: '1'
+fresh_output_root_absent_before_process_start: true
+commands_completed_before_failure: 2
+command_status:
+  - {id: 01_baseline_emit_original_mir, exit_code: 0, timeout: false, required_output_present: true}
+  - {id: 02_candidate_materialize_same_function, exit_code: 1, timeout: false, required_output_present: false}
+first_failure:
+  command: 02_candidate_materialize_same_function
+  mechanical_failure_class: INTERFACE_CAP_EXCEEDED
+  wrapper_stderr: {path: resources/logs/control/nodes/N01_CANDIDATE_REPLAY.stderr, bytes: 113, sha256: 15D4A16DF0CB78EA11A60D49CB44F51A81C757D8A5E668CB6F612CD2427B9282}
+  command_stderr: {path: resources/build/control/candidate/logs/02_candidate_materialize_same_function.stderr.txt, bytes: 51, sha256: 0ADADB5EE2E5F9EBCCC974C84C39F21B94C55440457DB661DC42D891EBF8E731}
+  first_failure_record: {path: resources/build/control/candidate/first_failure.json, bytes: 192, sha256: EF8A263B64CCC8469D8CD772E82FB2ED9710AC0113B2C2E9812794DB18A471A0}
+mechanical_output_presence:
+  original_mir: {present: true, bytes: 3985, sha256: 396473657AD7BD41CD35346992C9E52E476673C2256C13096808794F12D510E1}
+  command_metrics_log: {present: true, records: 2, bytes: 6541, sha256: 6E4DE3A0804C10F68BEB558DF410CF70515904CEFA55C5FE668A87A5236E0508}
+  candidate_command_metrics: {present: false}
+  replay_summary: {present: false}
+  candidate_result: {present: false}
+  relative_effect_fields_inspected: false
+retry_performed: false
+engineering_correction_started: false
+valid_claim_rows_observed: 0
+decisive_stagea_observation: false
+scientific_inference: NONE
+stageb_action: false

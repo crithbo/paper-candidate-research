@@ -1,0 +1,1761 @@
+--- |
+  ; ModuleID = '<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\runs\natural\modules\qrduino__qrframe.ll'
+  source_filename = "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\\resume1\\resources\\corpus\\embench\\src\\qrduino\\qrframe.c"
+  target datalayout = "e-m:e-p:32:32-i64:64-n32-S128"
+  target triple = "riscv32-unknown-unknown-elf"
+  
+  @eccblocks = internal unnamed_addr constant [640 x i8] c"\01\00\13\07\01\00\10\0A\01\00\0D\0D\01\00\09\11\01\00\22\0A\01\00\1C\10\01\00\16\16\01\00\10\1C\01\007\0F\01\00,\1A\02\00\11\12\02\00\0D\16\01\00P\14\02\00 \12\02\00\18\1A\04\00\09\10\01\00l\1A\02\00+\18\02\02\0F\12\02\02\0B\16\02\00D\12\04\00\1B\10\04\00\13\18\04\00\0F\1C\02\00N\14\04\00\1F\12\02\04\0E\12\04\01\0D\1A\02\00a\18\02\02&\16\04\02\12\16\04\02\0E\1A\02\00t\1E\03\02$\16\04\04\10\14\04\04\0C\18\02\02D\12\04\01+\1A\06\02\13\18\06\02\0F\1C\04\00Q\14\01\042\1E\04\04\16\1C\03\08\0C\18\02\02\\\18\06\02$\16\04\06\14\1A\07\04\0E\1C\04\00k\1A\08\01%\16\08\04\14\18\0C\04\0B\16\03\01s\1E\04\05(\18\0B\05\10\14\0B\05\0C\18\05\01W\16\05\05)\18\05\07\18\1E\0B\07\0C\18\05\01b\18\07\03-\1C\0F\02\13\18\03\0D\0F\1E\01\05k\1C\0A\01.\1C\01\0F\16\1C\02\11\0E\1C\05\01x\1E\09\04+\1A\11\01\16\1C\02\13\0E\1C\03\04q\1C\03\0B,\1A\11\04\15\1A\09\10\0D\1A\03\05k\1C\03\0D)\1A\0F\05\18\1E\0F\0A\0F\1C\04\04t\1C\11\00*\1A\11\06\16\1C\13\06\10\1E\02\07o\1C\11\00.\1C\07\10\18\1E\22\00\0D\18\04\05y\1E\04\0E/\1C\0B\0E\18\1E\10\0E\0F\1E\06\04u\1E\06\0E-\1C\0B\10\18\1E\1E\02\10\1E\08\04j\1A\08\0D/\1C\07\16\18\1E\16\0D\0F\1E\0A\02r\1C\13\04.\1C\1C\06\16\1C!\04\10\1E\08\04z\1E\16\03-\1C\08\1A\17\1E\0C\1C\0F\1E\03\0Au\1E\03\17-\1C\04\1F\18\1E\0B\1F\0F\1E\07\07t\1E\15\07-\1C\01%\17\1E\13\1A\0F\1E\05\0As\1E\13\0A/\1C\0F\19\18\1E\17\19\0F\1E\0D\03s\1E\02\1D.\1C*\01\18\1E\17\1C\0F\1E\11\00s\1E\0A\17.\1C\0A#\18\1E\13#\0F\1E\11\01s\1E\0E\15.\1C\1D\13\18\1E\0B.\0F\1E\0D\06s\1E\0E\17.\1C,\07\18\1E;\01\10\1E\0C\07y\1E\0C\1A/\1C'\0E\18\1E\16)\0F\1E\06\0Ey\1E\06\22/\1C.\0A\18\1E\02@\0F\1E\11\04z\1E\1D\0E.\1C1\0A\18\1E\18.\0F\1E\04\12z\1E\0D .\1C0\0E\18\1E* \0F\1E\14\04u\1E(\07/\1C+\16\18\1E\0AC\0F\1E\13\06v\1E\12\1F/\1C\22\22\18\1E\14=\0F\1E", align 1
+  @adelta = internal unnamed_addr constant [41 x i8] c"\00\0B\0F\13\17\1B\1F\10\12\14\16\18\1A\1C\14\16\18\18\1A\1C\1C\16\18\18\1A\1A\1C\1C\18\18\1A\1A\1A\1C\1C\18\1A\1A\1A\1C\1C", align 1
+  @vpat = internal unnamed_addr constant [34 x i32] [i32 3220, i32 1468, i32 2713, i32 1235, i32 3062, i32 1890, i32 2119, i32 1549, i32 2344, i32 2936, i32 1117, i32 2583, i32 1330, i32 2470, i32 1667, i32 2249, i32 2028, i32 3780, i32 481, i32 4011, i32 142, i32 3098, i32 831, i32 3445, i32 592, i32 2517, i32 1776, i32 2234, i32 1951, i32 2827, i32 1070, i32 2660, i32 1345, i32 3177], align 4
+  @_MergedGlobals = private global <{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }> zeroinitializer, align 4, !guid !0
+  
+  @WDB = alias i8, ptr @_MergedGlobals
+  @WD = alias i8, getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1)
+  @VERSION = alias i8, getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 2)
+  @ECCLEVEL = alias i8, getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 3)
+  @neccblk1 = alias i8, getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 4)
+  @neccblk2 = alias i8, getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 5)
+  @datablkw = alias i8, getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 6)
+  @eccblkwid = alias i8, getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 7)
+  @framebase = alias ptr, getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8)
+  @framask = alias ptr, getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9)
+  @rlens = alias ptr, getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 10)
+  @qrframe = alias ptr, getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 11)
+  @strinbuf = alias ptr, getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 12)
+  
+  ; Function Attrs: nounwind
+  define dso_local void @initframe() local_unnamed_addr #0 {
+    %1 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %2 = zext i8 %1 to i32
+    %3 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %4 = zext i8 %3 to i32
+    %5 = mul nuw nsw i32 %4, %2
+    %6 = tail call ptr @calloc_beebs(i32 noundef %5, i32 noundef 1) #4
+    store ptr %6, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %7 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %8 = zext i8 %7 to i32
+    %9 = add nuw nsw i32 %8, 1
+    %10 = mul nuw nsw i32 %9, %8
+    %11 = lshr i32 %10, 1
+    %12 = add nuw nsw i32 %11, 7
+    %13 = lshr i32 %12, 3
+    %14 = tail call ptr @calloc_beebs(i32 noundef %13, i32 noundef 1) #4
+    store ptr %14, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %15 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %16 = zext i8 %15 to i32
+    %17 = add nuw nsw i32 %16, 1
+    %18 = tail call ptr @malloc_beebs(i32 noundef %17) #4
+    store ptr %18, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 10), align 4, !tbaa !12
+    br label %19
+  
+  19:                                               ; preds = %102, %0
+    %20 = phi i32 [ 0, %0 ], [ %180, %102 ]
+    %21 = icmp eq i32 %20, 1
+    %22 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1
+    %23 = add i8 %22, -7
+    %24 = zext i8 %23 to i32
+    %25 = select i1 %21, i32 %24, i32 0
+    %26 = icmp eq i32 %20, 2
+    %27 = select i1 %26, i32 %24, i32 0
+    %28 = add nuw nsw i32 %27, 3
+    %29 = and i32 %28, 7
+    %30 = lshr exact i32 128, %29
+    %31 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %32 = lshr i32 %28, 3
+    %33 = add nuw nsw i32 %25, 3
+    %34 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %35 = zext i8 %34 to i32
+    %36 = mul nuw nsw i32 %33, %35
+    %37 = getelementptr inbounds nuw i8, ptr %31, i32 %32
+    %38 = getelementptr inbounds nuw i8, ptr %37, i32 %36
+    %39 = load i8, ptr %38, align 1, !tbaa !11
+    %40 = trunc nuw i32 %30 to i8
+    %41 = or i8 %39, %40
+    store i8 %41, ptr %38, align 1, !tbaa !11
+    %42 = and i32 %27, 7
+    %43 = lshr exact i32 128, %42
+    %44 = lshr i32 %27, 3
+    %45 = add nuw nsw i32 %27, 6
+    %46 = and i32 %45, 7
+    %47 = lshr exact i32 128, %46
+    %48 = lshr i32 %45, 3
+    %49 = add nuw nsw i32 %25, 6
+    br label %57
+  
+  50:                                               ; preds = %57
+    %51 = trunc nuw i32 %27 to i8
+    %52 = trunc nuw i32 %25 to i8
+    %53 = add i8 %52, 1
+    %54 = add i8 %51, 1
+    %55 = add i8 %51, 5
+    %56 = add i8 %52, 5
+    br label %182
+  
+  57:                                               ; preds = %57, %19
+    %lsr.iv13 = phi i32 [ %lsr.iv.next14, %57 ], [ %27, %19 ]
+    %lsr.iv11 = phi i32 [ %lsr.iv.next12, %57 ], [ %25, %19 ]
+    %58 = trunc nuw i32 %47 to i8
+    %59 = trunc nuw i32 %43 to i8
+    %60 = and i32 %lsr.iv13, 7
+    %61 = lshr exact i32 128, %60
+    %62 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %63 = lshr i32 %lsr.iv13, 3
+    %64 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %65 = zext i8 %64 to i32
+    %66 = mul nuw nsw i32 %25, %65
+    %67 = getelementptr inbounds nuw i8, ptr %62, i32 %63
+    %68 = getelementptr inbounds nuw i8, ptr %67, i32 %66
+    %69 = load i8, ptr %68, align 1, !tbaa !11
+    %70 = trunc nuw i32 %61 to i8
+    %71 = or i8 %69, %70
+    store i8 %71, ptr %68, align 1, !tbaa !11
+    %72 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %73 = add i32 %lsr.iv11, 1
+    %74 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %75 = zext i8 %74 to i32
+    %76 = mul nuw nsw i32 %73, %75
+    %77 = getelementptr inbounds nuw i8, ptr %72, i32 %44
+    %78 = getelementptr inbounds nuw i8, ptr %77, i32 %76
+    %79 = load i8, ptr %78, align 1, !tbaa !11
+    %80 = or i8 %79, %59
+    store i8 %80, ptr %78, align 1, !tbaa !11
+    %81 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %82 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %83 = zext i8 %82 to i32
+    %84 = mul nuw nsw i32 %lsr.iv11, %83
+    %85 = getelementptr inbounds nuw i8, ptr %81, i32 %48
+    %86 = getelementptr inbounds nuw i8, ptr %85, i32 %84
+    %87 = load i8, ptr %86, align 1, !tbaa !11
+    %88 = or i8 %87, %58
+    store i8 %88, ptr %86, align 1, !tbaa !11
+    %89 = add i32 %lsr.iv13, 1
+    %90 = and i32 %89, 7
+    %91 = lshr exact i32 128, %90
+    %92 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %93 = lshr i32 %89, 3
+    %94 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %95 = zext i8 %94 to i32
+    %96 = mul nuw nsw i32 %49, %95
+    %97 = getelementptr inbounds nuw i8, ptr %92, i32 %93
+    %98 = getelementptr inbounds nuw i8, ptr %97, i32 %96
+    %99 = load i8, ptr %98, align 1, !tbaa !11
+    %100 = trunc nuw i32 %91 to i8
+    %101 = or i8 %99, %100
+    store i8 %101, ptr %98, align 1, !tbaa !11
+    %lsr.iv.next12 = add i32 %lsr.iv11, 1
+    %lsr.iv.next14 = add nuw nsw i32 %lsr.iv13, 1
+    %lsr_fold_term_cond.replaced_term_cond = icmp eq i32 %lsr.iv.next12, %49
+    br i1 %lsr_fold_term_cond.replaced_term_cond, label %50, label %57, !llvm.loop !15
+  
+  102:                                              ; preds = %182
+    %103 = trunc nuw i32 %30 to i8
+    %104 = add nuw nsw i32 %25, 2
+    %105 = add nuw nsw i32 %27, 2
+    %106 = and i32 %105, 7
+    %107 = lshr exact i32 128, %106
+    %108 = lshr i32 %105, 3
+    %109 = trunc nuw i32 %107 to i8
+    %110 = add nuw nsw i32 %27, 4
+    %111 = and i32 %110, 7
+    %112 = lshr exact i32 128, %111
+    %113 = lshr i32 %110, 3
+    %114 = trunc nuw i32 %112 to i8
+    %115 = add nuw nsw i32 %25, 4
+    %116 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %117 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %118 = zext i8 %117 to i32
+    %119 = mul nuw nsw i32 %104, %118
+    %120 = getelementptr inbounds nuw i8, ptr %116, i32 %108
+    %121 = getelementptr inbounds nuw i8, ptr %120, i32 %119
+    %122 = load i8, ptr %121, align 1, !tbaa !11
+    %123 = or i8 %122, %109
+    store i8 %123, ptr %121, align 1, !tbaa !11
+    %124 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %125 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %126 = zext i8 %125 to i32
+    %127 = mul nuw nsw i32 %33, %126
+    %128 = getelementptr inbounds nuw i8, ptr %124, i32 %108
+    %129 = getelementptr inbounds nuw i8, ptr %128, i32 %127
+    %130 = load i8, ptr %129, align 1, !tbaa !11
+    %131 = or i8 %130, %109
+    store i8 %131, ptr %129, align 1, !tbaa !11
+    %132 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %133 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %134 = zext i8 %133 to i32
+    %135 = mul nuw nsw i32 %104, %134
+    %136 = getelementptr inbounds nuw i8, ptr %132, i32 %113
+    %137 = getelementptr inbounds nuw i8, ptr %136, i32 %135
+    %138 = load i8, ptr %137, align 1, !tbaa !11
+    %139 = or i8 %138, %114
+    store i8 %139, ptr %137, align 1, !tbaa !11
+    %140 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %141 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %142 = zext i8 %141 to i32
+    %143 = mul nuw nsw i32 %115, %142
+    %144 = getelementptr inbounds nuw i8, ptr %140, i32 %32
+    %145 = getelementptr inbounds nuw i8, ptr %144, i32 %143
+    %146 = load i8, ptr %145, align 1, !tbaa !11
+    %147 = or i8 %146, %103
+    store i8 %147, ptr %145, align 1, !tbaa !11
+    %148 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %149 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %150 = zext i8 %149 to i32
+    %151 = mul nuw nsw i32 %104, %150
+    %152 = getelementptr inbounds nuw i8, ptr %148, i32 %32
+    %153 = getelementptr inbounds nuw i8, ptr %152, i32 %151
+    %154 = load i8, ptr %153, align 1, !tbaa !11
+    %155 = or i8 %154, %103
+    store i8 %155, ptr %153, align 1, !tbaa !11
+    %156 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %157 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %158 = zext i8 %157 to i32
+    %159 = mul nuw nsw i32 %115, %158
+    %160 = getelementptr inbounds nuw i8, ptr %156, i32 %108
+    %161 = getelementptr inbounds nuw i8, ptr %160, i32 %159
+    %162 = load i8, ptr %161, align 1, !tbaa !11
+    %163 = or i8 %162, %109
+    store i8 %163, ptr %161, align 1, !tbaa !11
+    %164 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %165 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %166 = zext i8 %165 to i32
+    %167 = mul nuw nsw i32 %33, %166
+    %168 = getelementptr inbounds nuw i8, ptr %164, i32 %113
+    %169 = getelementptr inbounds nuw i8, ptr %168, i32 %167
+    %170 = load i8, ptr %169, align 1, !tbaa !11
+    %171 = or i8 %170, %114
+    store i8 %171, ptr %169, align 1, !tbaa !11
+    %172 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %173 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %174 = zext i8 %173 to i32
+    %175 = mul nuw nsw i32 %115, %174
+    %176 = getelementptr inbounds nuw i8, ptr %172, i32 %113
+    %177 = getelementptr inbounds nuw i8, ptr %176, i32 %175
+    %178 = load i8, ptr %177, align 1, !tbaa !11
+    %179 = or i8 %178, %114
+    store i8 %179, ptr %177, align 1, !tbaa !11
+    %180 = add nuw nsw i32 %20, 1
+    %181 = icmp samesign ult i32 %20, 2
+    br i1 %181, label %19, label %256, !llvm.loop !17
+  
+  182:                                              ; preds = %182, %50
+    %183 = phi i8 [ 1, %50 ], [ %254, %182 ]
+    %184 = trunc nuw i32 %25 to i8
+    %185 = trunc nuw i32 %27 to i8
+    %186 = add i8 %183, %185
+    %187 = tail call i8 @llvm.umin.i8(i8 %186, i8 %53)
+    %188 = tail call i8 @llvm.umax.i8(i8 %186, i8 %53)
+    %189 = zext i8 %188 to i32
+    %190 = add nuw nsw i32 %189, 1
+    %191 = mul nuw nsw i32 %190, %189
+    %192 = lshr i32 %191, 1
+    %193 = zext i8 %187 to i32
+    %194 = add nuw nsw i32 %192, %193
+    %195 = and i32 %194, 7
+    %196 = lshr exact i32 128, %195
+    %197 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %198 = lshr i32 %194, 3
+    %199 = getelementptr inbounds nuw i8, ptr %197, i32 %198
+    %200 = load i8, ptr %199, align 1, !tbaa !11
+    %201 = trunc nuw i32 %196 to i8
+    %202 = or i8 %200, %201
+    store i8 %202, ptr %199, align 1, !tbaa !11
+    %203 = add i8 %183, %184
+    %204 = add i8 %203, 1
+    %205 = tail call i8 @llvm.umin.i8(i8 %54, i8 %204)
+    %206 = tail call i8 @llvm.umax.i8(i8 %54, i8 %204)
+    %207 = zext i8 %206 to i32
+    %208 = add nuw nsw i32 %207, 1
+    %209 = mul nuw nsw i32 %208, %207
+    %210 = lshr i32 %209, 1
+    %211 = zext i8 %205 to i32
+    %212 = add nuw nsw i32 %210, %211
+    %213 = and i32 %212, 7
+    %214 = lshr exact i32 128, %213
+    %215 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %216 = lshr i32 %212, 3
+    %217 = getelementptr inbounds nuw i8, ptr %215, i32 %216
+    %218 = load i8, ptr %217, align 1, !tbaa !11
+    %219 = trunc nuw i32 %214 to i8
+    %220 = or i8 %218, %219
+    store i8 %220, ptr %217, align 1, !tbaa !11
+    %221 = tail call i8 @llvm.umin.i8(i8 %55, i8 %203)
+    %222 = tail call i8 @llvm.umax.i8(i8 %55, i8 %203)
+    %223 = zext i8 %222 to i32
+    %224 = add nuw nsw i32 %223, 1
+    %225 = mul nuw nsw i32 %224, %223
+    %226 = lshr i32 %225, 1
+    %227 = zext i8 %221 to i32
+    %228 = add nuw nsw i32 %226, %227
+    %229 = and i32 %228, 7
+    %230 = lshr exact i32 128, %229
+    %231 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %232 = lshr i32 %228, 3
+    %233 = getelementptr inbounds nuw i8, ptr %231, i32 %232
+    %234 = load i8, ptr %233, align 1, !tbaa !11
+    %235 = trunc nuw i32 %230 to i8
+    %236 = or i8 %234, %235
+    store i8 %236, ptr %233, align 1, !tbaa !11
+    %237 = add i8 %186, 1
+    %238 = tail call i8 @llvm.umin.i8(i8 %237, i8 %56)
+    %239 = tail call i8 @llvm.umax.i8(i8 %237, i8 %56)
+    %240 = zext i8 %239 to i32
+    %241 = add nuw nsw i32 %240, 1
+    %242 = mul nuw nsw i32 %241, %240
+    %243 = lshr i32 %242, 1
+    %244 = zext i8 %238 to i32
+    %245 = add nuw nsw i32 %243, %244
+    %246 = and i32 %245, 7
+    %247 = lshr exact i32 128, %246
+    %248 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %249 = lshr i32 %245, 3
+    %250 = getelementptr inbounds nuw i8, ptr %248, i32 %249
+    %251 = load i8, ptr %250, align 1, !tbaa !11
+    %252 = trunc nuw i32 %247 to i8
+    %253 = or i8 %251, %252
+    store i8 %253, ptr %250, align 1, !tbaa !11
+    %254 = add nuw nsw i8 %183, 1
+    %255 = icmp samesign ult i8 %183, 4
+    br i1 %255, label %182, label %102, !llvm.loop !18
+  
+  256:                                              ; preds = %102
+    %257 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 2), align 1, !tbaa !11
+    %258 = zext i8 %257 to i32
+    %259 = icmp ult i8 %257, 2
+    %260 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    br i1 %259, label %291, label %261
+  
+  261:                                              ; preds = %256
+    %262 = getelementptr inbounds nuw i8, ptr @adelta, i32 %258
+    %263 = load i8, ptr %262, align 1, !tbaa !11
+    %264 = add i8 %260, -7
+    %265 = zext i8 %263 to i32
+    %266 = add nsw i32 %265, -3
+    %267 = add nuw nsw i32 %265, 9
+    br label %268
+  
+  268:                                              ; preds = %285, %261
+    %269 = phi i8 [ %260, %261 ], [ %288, %285 ]
+    %270 = phi i8 [ %264, %261 ], [ %286, %285 ]
+    %271 = add i8 %269, -7
+    %272 = zext i8 %270 to i32
+    %273 = zext i8 %271 to i32
+    %274 = icmp ult i32 %266, %273
+    br i1 %274, label %.preheader3, label %283
+  
+  .preheader3:                                      ; preds = %268
+    br label %275
+  
+  275:                                              ; preds = %.preheader3, %275
+    %276 = phi i32 [ %280, %275 ], [ %273, %.preheader3 ]
+    %277 = phi i8 [ %279, %275 ], [ %271, %.preheader3 ]
+    tail call fastcc void @putalign(i32 noundef %276, i32 noundef %272) #5
+    %278 = icmp uge i8 %277, %263
+    %279 = sub nuw i8 %277, %263
+    %280 = zext i8 %279 to i32
+    %281 = icmp samesign ult i32 %266, %280
+    %282 = select i1 %278, i1 %281, i1 false
+    br i1 %282, label %275, label %283, !llvm.loop !19
+  
+  283:                                              ; preds = %275, %268
+    %284 = icmp samesign ult i32 %267, %272
+    br i1 %284, label %285, label %289
+  
+  285:                                              ; preds = %283
+    %286 = sub i8 %270, %263
+    %287 = zext i8 %286 to i32
+    tail call fastcc void @putalign(i32 noundef 6, i32 noundef %287) #5
+    tail call fastcc void @putalign(i32 noundef %287, i32 noundef 6) #5
+    %288 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    br label %268
+  
+  289:                                              ; preds = %283
+    %290 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    br label %291
+  
+  291:                                              ; preds = %289, %256
+    %292 = phi i8 [ %290, %289 ], [ %260, %256 ]
+    %293 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %294 = zext i8 %292 to i32
+    %295 = add nsw i32 %294, -8
+    %296 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %297 = zext i8 %296 to i32
+    %298 = mul nsw i32 %295, %297
+    %299 = getelementptr i8, ptr %293, i32 %298
+    %300 = getelementptr i8, ptr %299, i32 1
+    %301 = load i8, ptr %300, align 1, !tbaa !11
+    %302 = or i8 %301, -128
+    store i8 %302, ptr %300, align 1, !tbaa !11
+    br label %303
+  
+  303:                                              ; preds = %303, %291
+    %304 = phi i32 [ 0, %291 ], [ %352, %303 ]
+    %305 = trunc nuw nsw i32 %304 to i8
+    %306 = add i32 %304, 28
+    %307 = and i32 %306, 7
+    %308 = lshr exact i32 128, %307
+    %309 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %310 = lshr i32 %306, 3
+    %311 = getelementptr inbounds nuw i8, ptr %309, i32 %310
+    %312 = load i8, ptr %311, align 1, !tbaa !11
+    %313 = trunc nuw i32 %308 to i8
+    %314 = or i8 %312, %313
+    store i8 %314, ptr %311, align 1, !tbaa !11
+    %315 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %316 = add i8 %315, -8
+    %317 = tail call i8 @llvm.umin.i8(i8 %316, i8 %305)
+    %318 = tail call i8 @llvm.umax.i8(i8 %316, i8 %305)
+    %319 = zext i8 %318 to i32
+    %320 = add nuw nsw i32 %319, 1
+    %321 = mul nuw nsw i32 %320, %319
+    %322 = lshr i32 %321, 1
+    %323 = zext nneg i8 %317 to i32
+    %324 = add nuw nsw i32 %322, %323
+    %325 = and i32 %324, 7
+    %326 = lshr exact i32 128, %325
+    %327 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %328 = lshr i32 %324, 3
+    %329 = getelementptr inbounds nuw i8, ptr %327, i32 %328
+    %330 = load i8, ptr %329, align 1, !tbaa !11
+    %331 = trunc nuw i32 %326 to i8
+    %332 = or i8 %330, %331
+    store i8 %332, ptr %329, align 1, !tbaa !11
+    %333 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %334 = add i8 %305, -7
+    %335 = add i8 %334, %333
+    %336 = tail call i8 @llvm.umin.i8(i8 %335, i8 7)
+    %337 = tail call i8 @llvm.umax.i8(i8 %335, i8 7)
+    %338 = zext i8 %337 to i32
+    %339 = add nuw nsw i32 %338, 1
+    %340 = mul nuw nsw i32 %339, %338
+    %341 = lshr i32 %340, 1
+    %342 = zext nneg i8 %336 to i32
+    %343 = add nuw nsw i32 %341, %342
+    %344 = and i32 %343, 7
+    %345 = lshr exact i32 128, %344
+    %346 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %347 = lshr i32 %343, 3
+    %348 = getelementptr inbounds nuw i8, ptr %346, i32 %347
+    %349 = load i8, ptr %348, align 1, !tbaa !11
+    %350 = trunc nuw i32 %345 to i8
+    %351 = or i8 %349, %350
+    store i8 %351, ptr %348, align 1, !tbaa !11
+    %352 = add nuw nsw i32 %304, 1
+    %353 = icmp eq i32 %352, 7
+    br i1 %353, label %.preheader2, label %303, !llvm.loop !20
+  
+  .preheader2:                                      ; preds = %303
+    br label %354
+  
+  354:                                              ; preds = %.preheader2, %354
+    %355 = phi i32 [ %403, %354 ], [ 0, %.preheader2 ]
+    %356 = trunc nuw nsw i32 %355 to i8
+    %357 = add i32 %355, 28
+    %358 = and i32 %357, 7
+    %359 = lshr exact i32 128, %358
+    %360 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %361 = lshr i32 %357, 3
+    %362 = getelementptr inbounds nuw i8, ptr %360, i32 %361
+    %363 = load i8, ptr %362, align 1, !tbaa !11
+    %364 = trunc nuw i32 %359 to i8
+    %365 = or i8 %363, %364
+    store i8 %365, ptr %362, align 1, !tbaa !11
+    %366 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %367 = add i8 %356, -8
+    %368 = add i8 %367, %366
+    %369 = tail call i8 @llvm.umin.i8(i8 %368, i8 7)
+    %370 = tail call i8 @llvm.umax.i8(i8 %368, i8 7)
+    %371 = zext i8 %370 to i32
+    %372 = add nuw nsw i32 %371, 1
+    %373 = mul nuw nsw i32 %372, %371
+    %374 = lshr i32 %373, 1
+    %375 = zext nneg i8 %369 to i32
+    %376 = add nuw nsw i32 %374, %375
+    %377 = and i32 %376, 7
+    %378 = lshr exact i32 128, %377
+    %379 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %380 = lshr i32 %376, 3
+    %381 = getelementptr inbounds nuw i8, ptr %379, i32 %380
+    %382 = load i8, ptr %381, align 1, !tbaa !11
+    %383 = trunc nuw i32 %378 to i8
+    %384 = or i8 %382, %383
+    store i8 %384, ptr %381, align 1, !tbaa !11
+    %385 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %386 = add i8 %385, -8
+    %387 = tail call i8 @llvm.umin.i8(i8 %356, i8 %386)
+    %388 = tail call i8 @llvm.umax.i8(i8 %356, i8 %386)
+    %389 = zext i8 %388 to i32
+    %390 = add nuw nsw i32 %389, 1
+    %391 = mul nuw nsw i32 %390, %389
+    %392 = lshr i32 %391, 1
+    %393 = zext nneg i8 %387 to i32
+    %394 = add nuw nsw i32 %392, %393
+    %395 = and i32 %394, 7
+    %396 = lshr exact i32 128, %395
+    %397 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %398 = lshr i32 %394, 3
+    %399 = getelementptr inbounds nuw i8, ptr %397, i32 %398
+    %400 = load i8, ptr %399, align 1, !tbaa !11
+    %401 = trunc nuw i32 %396 to i8
+    %402 = or i8 %400, %401
+    store i8 %402, ptr %399, align 1, !tbaa !11
+    %403 = add nuw nsw i32 %355, 1
+    %404 = icmp eq i32 %403, 8
+    br i1 %404, label %405, label %354, !llvm.loop !21
+  
+  405:                                              ; preds = %354
+    %406 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %407 = getelementptr inbounds nuw i8, ptr %406, i32 4
+    %408 = load i8, ptr %407, align 1, !tbaa !11
+    %409 = or i8 %408, 15
+    store i8 %409, ptr %407, align 1, !tbaa !11
+    %410 = getelementptr inbounds nuw i8, ptr %406, i32 5
+    %411 = load i8, ptr %410, align 1, !tbaa !11
+    %412 = or i8 %411, -8
+    store i8 %412, ptr %410, align 1, !tbaa !11
+    %413 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %414 = add i8 %413, -8
+    %415 = tail call i8 @llvm.umin.i8(i8 %414, i8 8)
+    %416 = tail call i8 @llvm.umax.i8(i8 %414, i8 8)
+    %417 = zext i8 %416 to i32
+    %418 = add nuw nsw i32 %417, 1
+    %419 = mul nuw nsw i32 %418, %417
+    %420 = lshr i32 %419, 1
+    %421 = zext nneg i8 %415 to i32
+    %422 = add nuw nsw i32 %420, %421
+    %423 = and i32 %422, 7
+    %424 = lshr exact i32 128, %423
+    %425 = lshr i32 %422, 3
+    %426 = getelementptr inbounds nuw i8, ptr %406, i32 %425
+    %427 = load i8, ptr %426, align 1, !tbaa !11
+    %428 = trunc nuw i32 %424 to i8
+    %429 = or i8 %427, %428
+    store i8 %429, ptr %426, align 1, !tbaa !11
+    %430 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %431 = getelementptr inbounds nuw i8, ptr %430, i32 4
+    %432 = load i8, ptr %431, align 1, !tbaa !11
+    %433 = or i8 %432, 8
+    store i8 %433, ptr %431, align 1, !tbaa !11
+    %434 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %435 = add i8 %434, -7
+    %436 = tail call i8 @llvm.umin.i8(i8 %435, i8 8)
+    %437 = tail call i8 @llvm.umax.i8(i8 %435, i8 8)
+    %438 = zext i8 %437 to i32
+    %439 = add nuw nsw i32 %438, 1
+    %440 = mul nuw nsw i32 %439, %438
+    %441 = lshr i32 %440, 1
+    %442 = zext nneg i8 %436 to i32
+    %443 = add nuw nsw i32 %441, %442
+    %444 = and i32 %443, 7
+    %445 = lshr exact i32 128, %444
+    %446 = lshr i32 %443, 3
+    %447 = getelementptr inbounds nuw i8, ptr %430, i32 %446
+    %448 = load i8, ptr %447, align 1, !tbaa !11
+    %449 = trunc nuw i32 %445 to i8
+    %450 = or i8 %448, %449
+    store i8 %450, ptr %447, align 1, !tbaa !11
+    %451 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %452 = getelementptr inbounds nuw i8, ptr %451, i32 4
+    %453 = load i8, ptr %452, align 1, !tbaa !11
+    %454 = or i8 %453, 4
+    store i8 %454, ptr %452, align 1, !tbaa !11
+    %455 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %456 = add i8 %455, -6
+    %457 = tail call i8 @llvm.umin.i8(i8 %456, i8 8)
+    %458 = tail call i8 @llvm.umax.i8(i8 %456, i8 8)
+    %459 = zext i8 %458 to i32
+    %460 = add nuw nsw i32 %459, 1
+    %461 = mul nuw nsw i32 %460, %459
+    %462 = lshr i32 %461, 1
+    %463 = zext nneg i8 %457 to i32
+    %464 = add nuw nsw i32 %462, %463
+    %465 = and i32 %464, 7
+    %466 = lshr exact i32 128, %465
+    %467 = lshr i32 %464, 3
+    %468 = getelementptr inbounds nuw i8, ptr %451, i32 %467
+    %469 = load i8, ptr %468, align 1, !tbaa !11
+    %470 = trunc nuw i32 %466 to i8
+    %471 = or i8 %469, %470
+    store i8 %471, ptr %468, align 1, !tbaa !11
+    %472 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %473 = getelementptr inbounds nuw i8, ptr %472, i32 4
+    %474 = load i8, ptr %473, align 1, !tbaa !11
+    %475 = or i8 %474, 2
+    store i8 %475, ptr %473, align 1, !tbaa !11
+    %476 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %477 = add i8 %476, -5
+    %478 = tail call i8 @llvm.umin.i8(i8 %477, i8 8)
+    %479 = tail call i8 @llvm.umax.i8(i8 %477, i8 8)
+    %480 = zext i8 %479 to i32
+    %481 = add nuw nsw i32 %480, 1
+    %482 = mul nuw nsw i32 %481, %480
+    %483 = lshr i32 %482, 1
+    %484 = zext nneg i8 %478 to i32
+    %485 = add nuw nsw i32 %483, %484
+    %486 = and i32 %485, 7
+    %487 = lshr exact i32 128, %486
+    %488 = lshr i32 %485, 3
+    %489 = getelementptr inbounds nuw i8, ptr %472, i32 %488
+    %490 = load i8, ptr %489, align 1, !tbaa !11
+    %491 = trunc nuw i32 %487 to i8
+    %492 = or i8 %490, %491
+    store i8 %492, ptr %489, align 1, !tbaa !11
+    %493 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %494 = getelementptr inbounds nuw i8, ptr %493, i32 4
+    %495 = load i8, ptr %494, align 1, !tbaa !11
+    %496 = or i8 %495, 1
+    store i8 %496, ptr %494, align 1, !tbaa !11
+    %497 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %498 = add i8 %497, -4
+    %499 = tail call i8 @llvm.umin.i8(i8 %498, i8 8)
+    %500 = tail call i8 @llvm.umax.i8(i8 %498, i8 8)
+    %501 = zext i8 %500 to i32
+    %502 = add nuw nsw i32 %501, 1
+    %503 = mul nuw nsw i32 %502, %501
+    %504 = lshr i32 %503, 1
+    %505 = zext nneg i8 %499 to i32
+    %506 = add nuw nsw i32 %504, %505
+    %507 = and i32 %506, 7
+    %508 = lshr exact i32 128, %507
+    %509 = lshr i32 %506, 3
+    %510 = getelementptr inbounds nuw i8, ptr %493, i32 %509
+    %511 = load i8, ptr %510, align 1, !tbaa !11
+    %512 = trunc nuw i32 %508 to i8
+    %513 = or i8 %511, %512
+    store i8 %513, ptr %510, align 1, !tbaa !11
+    %514 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %515 = getelementptr inbounds nuw i8, ptr %514, i32 5
+    %516 = load i8, ptr %515, align 1, !tbaa !11
+    %517 = or i8 %516, -128
+    store i8 %517, ptr %515, align 1, !tbaa !11
+    %518 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %519 = add i8 %518, -3
+    %520 = tail call i8 @llvm.umin.i8(i8 %519, i8 8)
+    %521 = tail call i8 @llvm.umax.i8(i8 %519, i8 8)
+    %522 = zext i8 %521 to i32
+    %523 = add nuw nsw i32 %522, 1
+    %524 = mul nuw nsw i32 %523, %522
+    %525 = lshr i32 %524, 1
+    %526 = zext nneg i8 %520 to i32
+    %527 = add nuw nsw i32 %525, %526
+    %528 = and i32 %527, 7
+    %529 = lshr exact i32 128, %528
+    %530 = lshr i32 %527, 3
+    %531 = getelementptr inbounds nuw i8, ptr %514, i32 %530
+    %532 = load i8, ptr %531, align 1, !tbaa !11
+    %533 = trunc nuw i32 %529 to i8
+    %534 = or i8 %532, %533
+    store i8 %534, ptr %531, align 1, !tbaa !11
+    %535 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %536 = getelementptr inbounds nuw i8, ptr %535, i32 5
+    %537 = load i8, ptr %536, align 1, !tbaa !11
+    %538 = or i8 %537, 64
+    store i8 %538, ptr %536, align 1, !tbaa !11
+    %539 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %540 = add i8 %539, -2
+    %541 = tail call i8 @llvm.umin.i8(i8 %540, i8 8)
+    %542 = tail call i8 @llvm.umax.i8(i8 %540, i8 8)
+    %543 = zext i8 %542 to i32
+    %544 = add nuw nsw i32 %543, 1
+    %545 = mul nuw nsw i32 %544, %543
+    %546 = lshr i32 %545, 1
+    %547 = zext nneg i8 %541 to i32
+    %548 = add nuw nsw i32 %546, %547
+    %549 = and i32 %548, 7
+    %550 = lshr exact i32 128, %549
+    %551 = lshr i32 %548, 3
+    %552 = getelementptr inbounds nuw i8, ptr %535, i32 %551
+    %553 = load i8, ptr %552, align 1, !tbaa !11
+    %554 = trunc nuw i32 %550 to i8
+    %555 = or i8 %553, %554
+    store i8 %555, ptr %552, align 1, !tbaa !11
+    %556 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %557 = getelementptr inbounds nuw i8, ptr %556, i32 5
+    %558 = load i8, ptr %557, align 1, !tbaa !11
+    %559 = or i8 %558, 32
+    store i8 %559, ptr %557, align 1, !tbaa !11
+    %560 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %561 = add i8 %560, -1
+    %562 = tail call i8 @llvm.umin.i8(i8 %561, i8 8)
+    %563 = tail call i8 @llvm.umax.i8(i8 %561, i8 8)
+    %564 = zext i8 %563 to i32
+    %565 = add nuw nsw i32 %564, 1
+    %566 = mul nuw nsw i32 %565, %564
+    %567 = lshr i32 %566, 1
+    %568 = zext nneg i8 %562 to i32
+    %569 = add nuw nsw i32 %567, %568
+    %570 = and i32 %569, 7
+    %571 = lshr exact i32 128, %570
+    %572 = lshr i32 %569, 3
+    %573 = getelementptr inbounds nuw i8, ptr %556, i32 %572
+    %574 = load i8, ptr %573, align 1, !tbaa !11
+    %575 = trunc nuw i32 %571 to i8
+    %576 = or i8 %574, %575
+    store i8 %576, ptr %573, align 1, !tbaa !11
+    %577 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %578 = getelementptr inbounds nuw i8, ptr %577, i32 5
+    %579 = load i8, ptr %578, align 1, !tbaa !11
+    %580 = or i8 %579, 16
+    store i8 %580, ptr %578, align 1, !tbaa !11
+    %581 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %582 = add i8 %581, -7
+    %583 = tail call i8 @llvm.umin.i8(i8 %582, i8 8)
+    %584 = tail call i8 @llvm.umax.i8(i8 %582, i8 8)
+    %585 = zext i8 %584 to i32
+    %586 = add nuw nsw i32 %585, 1
+    %587 = mul nuw nsw i32 %586, %585
+    %588 = lshr i32 %587, 1
+    %589 = zext nneg i8 %583 to i32
+    %590 = add nuw nsw i32 %588, %589
+    %591 = and i32 %590, 7
+    %592 = lshr exact i32 128, %591
+    %593 = lshr i32 %590, 3
+    %594 = getelementptr inbounds nuw i8, ptr %577, i32 %593
+    %595 = load i8, ptr %594, align 1, !tbaa !11
+    %596 = trunc nuw i32 %592 to i8
+    %597 = or i8 %595, %596
+    store i8 %597, ptr %594, align 1, !tbaa !11
+    %598 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %599 = add i8 %598, -6
+    %600 = tail call i8 @llvm.umin.i8(i8 %599, i8 8)
+    %601 = tail call i8 @llvm.umax.i8(i8 %599, i8 8)
+    %602 = zext i8 %601 to i32
+    %603 = add nuw nsw i32 %602, 1
+    %604 = mul nuw nsw i32 %603, %602
+    %605 = lshr i32 %604, 1
+    %606 = zext nneg i8 %600 to i32
+    %607 = add nuw nsw i32 %605, %606
+    %608 = and i32 %607, 7
+    %609 = lshr exact i32 128, %608
+    %610 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %611 = lshr i32 %607, 3
+    %612 = getelementptr inbounds nuw i8, ptr %610, i32 %611
+    %613 = load i8, ptr %612, align 1, !tbaa !11
+    %614 = trunc nuw i32 %609 to i8
+    %615 = or i8 %613, %614
+    store i8 %615, ptr %612, align 1, !tbaa !11
+    %616 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %617 = add i8 %616, -5
+    %618 = tail call i8 @llvm.umin.i8(i8 %617, i8 8)
+    %619 = tail call i8 @llvm.umax.i8(i8 %617, i8 8)
+    %620 = zext i8 %619 to i32
+    %621 = add nuw nsw i32 %620, 1
+    %622 = mul nuw nsw i32 %621, %620
+    %623 = lshr i32 %622, 1
+    %624 = zext nneg i8 %618 to i32
+    %625 = add nuw nsw i32 %623, %624
+    %626 = and i32 %625, 7
+    %627 = lshr exact i32 128, %626
+    %628 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %629 = lshr i32 %625, 3
+    %630 = getelementptr inbounds nuw i8, ptr %628, i32 %629
+    %631 = load i8, ptr %630, align 1, !tbaa !11
+    %632 = trunc nuw i32 %627 to i8
+    %633 = or i8 %631, %632
+    store i8 %633, ptr %630, align 1, !tbaa !11
+    %634 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %635 = add i8 %634, -4
+    %636 = tail call i8 @llvm.umin.i8(i8 %635, i8 8)
+    %637 = tail call i8 @llvm.umax.i8(i8 %635, i8 8)
+    %638 = zext i8 %637 to i32
+    %639 = add nuw nsw i32 %638, 1
+    %640 = mul nuw nsw i32 %639, %638
+    %641 = lshr i32 %640, 1
+    %642 = zext nneg i8 %636 to i32
+    %643 = add nuw nsw i32 %641, %642
+    %644 = and i32 %643, 7
+    %645 = lshr exact i32 128, %644
+    %646 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %647 = lshr i32 %643, 3
+    %648 = getelementptr inbounds nuw i8, ptr %646, i32 %647
+    %649 = load i8, ptr %648, align 1, !tbaa !11
+    %650 = trunc nuw i32 %645 to i8
+    %651 = or i8 %649, %650
+    store i8 %651, ptr %648, align 1, !tbaa !11
+    %652 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %653 = add i8 %652, -3
+    %654 = tail call i8 @llvm.umin.i8(i8 %653, i8 8)
+    %655 = tail call i8 @llvm.umax.i8(i8 %653, i8 8)
+    %656 = zext i8 %655 to i32
+    %657 = add nuw nsw i32 %656, 1
+    %658 = mul nuw nsw i32 %657, %656
+    %659 = lshr i32 %658, 1
+    %660 = zext nneg i8 %654 to i32
+    %661 = add nuw nsw i32 %659, %660
+    %662 = and i32 %661, 7
+    %663 = lshr exact i32 128, %662
+    %664 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %665 = lshr i32 %661, 3
+    %666 = getelementptr inbounds nuw i8, ptr %664, i32 %665
+    %667 = load i8, ptr %666, align 1, !tbaa !11
+    %668 = trunc nuw i32 %663 to i8
+    %669 = or i8 %667, %668
+    store i8 %669, ptr %666, align 1, !tbaa !11
+    %670 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %671 = add i8 %670, -2
+    %672 = tail call i8 @llvm.umin.i8(i8 %671, i8 8)
+    %673 = tail call i8 @llvm.umax.i8(i8 %671, i8 8)
+    %674 = zext i8 %673 to i32
+    %675 = add nuw nsw i32 %674, 1
+    %676 = mul nuw nsw i32 %675, %674
+    %677 = lshr i32 %676, 1
+    %678 = zext nneg i8 %672 to i32
+    %679 = add nuw nsw i32 %677, %678
+    %680 = and i32 %679, 7
+    %681 = lshr exact i32 128, %680
+    %682 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %683 = lshr i32 %679, 3
+    %684 = getelementptr inbounds nuw i8, ptr %682, i32 %683
+    %685 = load i8, ptr %684, align 1, !tbaa !11
+    %686 = trunc nuw i32 %681 to i8
+    %687 = or i8 %685, %686
+    store i8 %687, ptr %684, align 1, !tbaa !11
+    %688 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %689 = add i8 %688, -1
+    %690 = tail call i8 @llvm.umin.i8(i8 %689, i8 8)
+    %691 = tail call i8 @llvm.umax.i8(i8 %689, i8 8)
+    %692 = zext i8 %691 to i32
+    %693 = add nuw nsw i32 %692, 1
+    %694 = mul nuw nsw i32 %693, %692
+    %695 = lshr i32 %694, 1
+    %696 = zext nneg i8 %690 to i32
+    %697 = add nuw nsw i32 %695, %696
+    %698 = and i32 %697, 7
+    %699 = lshr exact i32 128, %698
+    %700 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %701 = lshr i32 %697, 3
+    %702 = getelementptr inbounds nuw i8, ptr %700, i32 %701
+    %703 = load i8, ptr %702, align 1, !tbaa !11
+    %704 = trunc nuw i32 %699 to i8
+    %705 = or i8 %703, %704
+    store i8 %705, ptr %702, align 1, !tbaa !11
+    %706 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %707 = icmp eq i8 %706, 14
+    br i1 %707, label %763, label %.preheader
+  
+  .preheader:                                       ; preds = %405
+    br label %708
+  
+  708:                                              ; preds = %.preheader, %756
+    %709 = phi i32 [ %757, %756 ], [ 0, %.preheader ]
+    %710 = and i32 %709, 1
+    %711 = icmp eq i32 %710, 0
+    br i1 %711, label %735, label %712
+  
+  712:                                              ; preds = %708
+    %713 = trunc i32 %709 to i8
+    %714 = add i8 %713, 8
+    %715 = tail call i8 @llvm.umin.i8(i8 %714, i8 6)
+    %716 = tail call i8 @llvm.umax.i8(i8 %714, i8 6)
+    %717 = zext i8 %716 to i32
+    %718 = add nuw nsw i32 %717, 1
+    %719 = mul nuw nsw i32 %718, %717
+    %720 = lshr i32 %719, 1
+    %721 = zext nneg i8 %715 to i32
+    %722 = add nuw nsw i32 %720, %721
+    %723 = and i32 %722, 7
+    %724 = lshr exact i32 128, %723
+    %725 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %726 = lshr i32 %722, 3
+    %727 = getelementptr inbounds nuw i8, ptr %725, i32 %726
+    %728 = load i8, ptr %727, align 1, !tbaa !11
+    %729 = trunc nuw i32 %724 to i8
+    %730 = or i8 %728, %729
+    store i8 %730, ptr %727, align 1, !tbaa !11
+    %731 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %732 = getelementptr inbounds nuw i8, ptr %731, i32 %726
+    %733 = load i8, ptr %732, align 1, !tbaa !11
+    %734 = or i8 %733, %729
+    store i8 %734, ptr %732, align 1, !tbaa !11
+    br label %756
+  
+  735:                                              ; preds = %708
+    %736 = add i32 %709, 8
+    %737 = and i32 %709, 6
+    %738 = lshr exact i32 128, %737
+    %739 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %740 = lshr i32 %736, 3
+    %741 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %742 = zext i8 %741 to i32
+    %743 = mul nuw nsw i32 %742, 6
+    %744 = getelementptr inbounds nuw i8, ptr %739, i32 %740
+    %745 = getelementptr inbounds nuw i8, ptr %744, i32 %743
+    %746 = load i8, ptr %745, align 1, !tbaa !11
+    %747 = trunc nuw i32 %738 to i8
+    %748 = or i8 %746, %747
+    store i8 %748, ptr %745, align 1, !tbaa !11
+    %749 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %750 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %751 = zext i8 %750 to i32
+    %752 = mul i32 %736, %751
+    %753 = getelementptr inbounds nuw i8, ptr %749, i32 %752
+    %754 = load i8, ptr %753, align 1, !tbaa !11
+    %755 = or i8 %754, 2
+    store i8 %755, ptr %753, align 1, !tbaa !11
+    br label %756
+  
+  756:                                              ; preds = %735, %712
+    %757 = add nuw i32 %709, 1
+    %758 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %759 = zext i8 %758 to i32
+    %760 = zext i8 %758 to i32
+    %761 = add nsw i32 %760, -14
+    %762 = icmp ult i32 %757, %761
+    br i1 %762, label %708, label %763, !llvm.loop !22
+  
+  763:                                              ; preds = %756, %405
+    %764 = phi i32 [ 14, %405 ], [ %759, %756 ]
+    %765 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 2), align 1, !tbaa !11
+    %766 = zext i8 %765 to i32
+    %767 = icmp ult i8 %765, 7
+    br i1 %767, label %866, label %768
+  
+  768:                                              ; preds = %763
+    %769 = getelementptr i32, ptr @vpat, i32 %766
+    %770 = getelementptr i8, ptr %769, i32 -28
+    %771 = load i32, ptr %770, align 4, !tbaa !7
+    br label %772
+  
+  772:                                              ; preds = %859, %768
+    %773 = phi i32 [ %861, %859 ], [ 17, %768 ]
+    %774 = phi i32 [ %860, %859 ], [ 0, %768 ]
+    %775 = sub nuw nsw i32 5, %774
+    %776 = lshr exact i32 128, %775
+    br label %777
+  
+  777:                                              ; preds = %855, %772
+    %lsr.iv7 = phi i32 [ %lsr.iv.next8, %855 ], [ -9, %772 ]
+    %778 = phi i32 [ %858, %855 ], [ %773, %772 ]
+    %779 = phi i32 [ %856, %855 ], [ 0, %772 ]
+    %780 = icmp samesign ugt i32 %778, 11
+    %781 = add i32 %778, -12
+    %782 = lshr i32 %766, %781
+    %783 = lshr i32 %771, %778
+    %784 = select i1 %780, i32 %782, i32 %783
+    %785 = and i32 %784, 1
+    %786 = icmp eq i32 %785, 0
+    br i1 %786, label %814, label %787
+  
+  787:                                              ; preds = %777
+    %788 = trunc nuw i32 %776 to i8
+    %789 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %790 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %791 = zext i8 %790 to i32
+    %792 = add i32 %lsr.iv7, %791
+    %793 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %794 = zext i8 %793 to i32
+    %795 = mul nsw i32 %792, %794
+    %796 = getelementptr inbounds i8, ptr %789, i32 %795
+    %797 = load i8, ptr %796, align 1, !tbaa !11
+    %798 = or i8 %797, %788
+    store i8 %798, ptr %796, align 1, !tbaa !11
+    %799 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %800 = zext i8 %799 to i32
+    %801 = add i32 %lsr.iv7, %800
+    %802 = and i32 %801, 7
+    %803 = lshr exact i32 128, %802
+    %804 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %805 = ashr i32 %801, 3
+    %806 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %807 = zext i8 %806 to i32
+    %808 = mul nuw nsw i32 %775, %807
+    %809 = getelementptr i8, ptr %804, i32 %805
+    %810 = getelementptr i8, ptr %809, i32 %808
+    %811 = load i8, ptr %810, align 1, !tbaa !11
+    %812 = trunc nuw i32 %803 to i8
+    %813 = or i8 %811, %812
+    store i8 %813, ptr %810, align 1, !tbaa !11
+    br label %855
+  
+  814:                                              ; preds = %777
+    %815 = trunc nuw nsw i32 %775 to i8
+    %816 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %817 = trunc nuw nsw i32 %779 to i8
+    %818 = sub i8 %816, %817
+    %819 = add i8 %818, -9
+    %820 = tail call i8 @llvm.umin.i8(i8 %815, i8 %819)
+    %821 = tail call i8 @llvm.umax.i8(i8 %815, i8 %819)
+    %822 = zext i8 %821 to i32
+    %823 = add nuw nsw i32 %822, 1
+    %824 = mul nuw nsw i32 %823, %822
+    %825 = lshr i32 %824, 1
+    %826 = zext nneg i8 %820 to i32
+    %827 = add nuw nsw i32 %825, %826
+    %828 = and i32 %827, 7
+    %829 = lshr exact i32 128, %828
+    %830 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %831 = lshr i32 %827, 3
+    %832 = getelementptr inbounds nuw i8, ptr %830, i32 %831
+    %833 = load i8, ptr %832, align 1, !tbaa !11
+    %834 = trunc nuw i32 %829 to i8
+    %835 = or i8 %833, %834
+    store i8 %835, ptr %832, align 1, !tbaa !11
+    %836 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %837 = sub i8 %836, %817
+    %838 = add i8 %837, -9
+    %839 = tail call i8 @llvm.umin.i8(i8 %838, i8 %815)
+    %840 = tail call i8 @llvm.umax.i8(i8 %838, i8 %815)
+    %841 = zext i8 %840 to i32
+    %842 = add nuw nsw i32 %841, 1
+    %843 = mul nuw nsw i32 %842, %841
+    %844 = lshr i32 %843, 1
+    %845 = zext nneg i8 %839 to i32
+    %846 = add nuw nsw i32 %844, %845
+    %847 = and i32 %846, 7
+    %848 = lshr exact i32 128, %847
+    %849 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %850 = lshr i32 %846, 3
+    %851 = getelementptr inbounds nuw i8, ptr %849, i32 %850
+    %852 = load i8, ptr %851, align 1, !tbaa !11
+    %853 = trunc nuw i32 %848 to i8
+    %854 = or i8 %852, %853
+    store i8 %854, ptr %851, align 1, !tbaa !11
+    br label %855
+  
+  855:                                              ; preds = %814, %787
+    %856 = add nuw nsw i32 %779, 1
+    %lsr.iv.next8 = add nsw i32 %lsr.iv7, -1
+    %857 = icmp eq i32 %856, 3
+    %858 = add i32 %778, -1
+    br i1 %857, label %859, label %777, !llvm.loop !23
+  
+  859:                                              ; preds = %855
+    %860 = add nuw nsw i32 %774, 1
+    %861 = add nsw i32 %773, -3
+    %862 = icmp eq i32 %860, 6
+    br i1 %862, label %863, label %772, !llvm.loop !24
+  
+  863:                                              ; preds = %859
+    %864 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %865 = zext i8 %864 to i32
+    br label %866
+  
+  866:                                              ; preds = %863, %763
+    %867 = phi i32 [ %865, %863 ], [ %764, %763 ]
+    %868 = icmp eq i32 %867, 0
+    br i1 %868, label %922, label %869
+  
+  869:                                              ; preds = %866
+    %870 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %871 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %872 = zext i8 %871 to i32
+    br label %873
+  
+  873:                                              ; preds = %917, %869
+    %lsr.iv5 = phi i32 [ %lsr.iv.next6, %917 ], [ 0, %869 ]
+    %lsr.iv = phi i32 [ %lsr.iv.next, %917 ], [ 2, %869 ]
+    %874 = phi i32 [ %872, %869 ], [ %911, %917 ]
+    %875 = phi ptr [ %870, %869 ], [ %912, %917 ]
+    %876 = phi i32 [ 1, %869 ], [ %920, %917 ]
+    %877 = phi i32 [ 0, %869 ], [ %879, %917 ]
+    %878 = lshr i32 %lsr.iv5, 1
+    %879 = add nuw nsw i32 %877, 1
+    br label %880
+  
+  880:                                              ; preds = %910, %873
+    %881 = phi i32 [ %874, %873 ], [ %911, %910 ]
+    %882 = phi ptr [ %875, %873 ], [ %912, %910 ]
+    %883 = phi i32 [ %874, %873 ], [ %913, %910 ]
+    %884 = phi ptr [ %875, %873 ], [ %914, %910 ]
+    %885 = phi i32 [ 0, %873 ], [ %915, %910 ]
+    %886 = lshr i32 %885, 3
+    %887 = mul nuw nsw i32 %877, %883
+    %888 = getelementptr inbounds nuw i8, ptr %884, i32 %886
+    %889 = getelementptr inbounds nuw i8, ptr %888, i32 %887
+    %890 = load i8, ptr %889, align 1, !tbaa !11
+    %891 = zext i8 %890 to i32
+    %892 = and i32 %885, 7
+    %893 = xor i32 %892, 7
+    %894 = shl nuw nsw i32 1, %893
+    %895 = and i32 %894, %891
+    %896 = icmp eq i32 %895, 0
+    br i1 %896, label %910, label %897
+  
+  897:                                              ; preds = %880
+    %898 = add i32 %878, %885
+    %899 = and i32 %898, 7
+    %900 = lshr exact i32 128, %899
+    %901 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %902 = lshr i32 %898, 3
+    %903 = getelementptr inbounds nuw i8, ptr %901, i32 %902
+    %904 = load i8, ptr %903, align 1, !tbaa !11
+    %905 = trunc nuw i32 %900 to i8
+    %906 = or i8 %904, %905
+    store i8 %906, ptr %903, align 1, !tbaa !11
+    %907 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %908 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %909 = zext i8 %908 to i32
+    br label %910
+  
+  910:                                              ; preds = %897, %880
+    %911 = phi i32 [ %881, %880 ], [ %909, %897 ]
+    %912 = phi ptr [ %882, %880 ], [ %907, %897 ]
+    %913 = phi i32 [ %883, %880 ], [ %909, %897 ]
+    %914 = phi ptr [ %884, %880 ], [ %907, %897 ]
+    %915 = add nuw nsw i32 %885, 1
+    %916 = icmp eq i32 %876, %915
+    br i1 %916, label %917, label %880, !llvm.loop !25
+  
+  917:                                              ; preds = %910
+    %918 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %919 = zext i8 %918 to i32
+    %920 = add nuw nsw i32 %876, 1
+    %lsr.iv.next = add nuw nsw i32 %lsr.iv, 2
+    %lsr.iv.next6 = add i32 %lsr.iv5, %lsr.iv
+    %921 = icmp samesign ult i32 %879, %919
+    br i1 %921, label %873, label %922, !llvm.loop !26
+  
+  922:                                              ; preds = %917, %866
+    ret void
+  }
+  
+  declare dso_local ptr @calloc_beebs(i32 noundef, i32 noundef) local_unnamed_addr #1
+  
+  declare dso_local ptr @malloc_beebs(i32 noundef) local_unnamed_addr #1
+  
+  ; Function Attrs: nounwind
+  define dso_local void @freeframe() local_unnamed_addr #0 {
+    %1 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    tail call void @free_beebs(ptr noundef %1) #4
+    %2 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    tail call void @free_beebs(ptr noundef %2) #4
+    %3 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 10), align 4, !tbaa !12
+    tail call void @free_beebs(ptr noundef %3) #4
+    ret void
+  }
+  
+  declare dso_local void @free_beebs(ptr noundef) local_unnamed_addr #1
+  
+  ; Function Attrs: nounwind
+  define dso_local range(i32 -3, 130303) i32 @initecc(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+    store i8 %1, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 2), align 1, !tbaa !11
+    %3 = zext i8 %1 to i32
+    %4 = shl i8 %1, 2
+    %5 = add i8 %4, 17
+    store i8 %5, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %6 = zext i8 %5 to i16
+    %7 = add nuw nsw i16 %6, 7
+    %8 = lshr i16 %7, 3
+    %9 = trunc nuw nsw i16 %8 to i8
+    store i8 %9, ptr @_MergedGlobals, align 1, !tbaa !11
+    %10 = zext i8 %5 to i32
+    %11 = zext nneg i16 %8 to i32
+    %12 = mul nuw nsw i32 %11, %10
+    %13 = tail call i32 @llvm.umax.i32(i32 %12, i32 768)
+    %14 = tail call ptr @malloc_beebs(i32 noundef %13) #4
+    store ptr %14, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 11), align 4, !tbaa !12
+    store i8 %0, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 3), align 1, !tbaa !11
+    %15 = zext i8 %0 to i32
+    %16 = shl nuw nsw i32 %15, 2
+    %17 = shl nuw nsw i32 %3, 4
+    %18 = getelementptr i8, ptr @eccblocks, i32 %16
+    %19 = getelementptr i8, ptr %18, i32 %17
+    %20 = getelementptr i8, ptr %19, i32 -20
+    %21 = load i8, ptr %20, align 1, !tbaa !11
+    store i8 %21, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 4), align 1, !tbaa !11
+    %22 = getelementptr i8, ptr %19, i32 -19
+    %23 = load i8, ptr %22, align 1, !tbaa !11
+    store i8 %23, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 5), align 1, !tbaa !11
+    %24 = getelementptr i8, ptr %19, i32 -18
+    %25 = load i8, ptr %24, align 1, !tbaa !11
+    store i8 %25, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 6), align 1, !tbaa !11
+    %26 = getelementptr i8, ptr %19, i32 -17
+    %27 = load i8, ptr %26, align 1, !tbaa !11
+    store i8 %27, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 7), align 1, !tbaa !11
+    %28 = zext i8 %25 to i32
+    %29 = zext i8 %27 to i32
+    %30 = add nuw nsw i32 %29, %28
+    %31 = zext i8 %21 to i32
+    %32 = zext i8 %23 to i32
+    %33 = add nuw nsw i32 %32, %31
+    %34 = mul nuw nsw i32 %30, %33
+    %35 = add nuw nsw i32 %28, %32
+    %36 = add nuw nsw i32 %35, %34
+    %37 = tail call i32 @llvm.umax.i32(i32 %13, i32 %36)
+    %38 = tail call ptr @malloc_beebs(i32 noundef %37) #4
+    store ptr %38, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 12), align 4, !tbaa !12
+    %39 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 6), align 1, !tbaa !11
+    %40 = zext i8 %39 to i32
+    %41 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 4), align 1, !tbaa !11
+    %42 = zext i8 %41 to i32
+    %43 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 5), align 1, !tbaa !11
+    %44 = zext i8 %43 to i32
+    %45 = add nuw nsw i32 %44, %42
+    %46 = mul nuw nsw i32 %45, %40
+    %47 = add nsw i32 %44, -3
+    %48 = add nsw i32 %47, %46
+    ret i32 %48
+  }
+  
+  ; Function Attrs: nounwind
+  define dso_local range(i32 -3, 130303) i32 @initeccsize(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 {
+    %3 = zext i8 %0 to i32
+    %4 = shl nuw nsw i32 %3, 2
+    %5 = getelementptr i8, ptr @eccblocks, i32 %4
+    %6 = add nsw i32 %4, -2
+    %scevgep = getelementptr i8, ptr @eccblocks, i32 %6
+    br label %7
+  
+  7:                                                ; preds = %20, %2
+    %lsr.iv = phi ptr [ %scevgep1, %20 ], [ %scevgep, %2 ]
+    %8 = phi i32 [ 1, %2 ], [ %21, %20 ]
+    %scevgep2 = getelementptr i8, ptr %lsr.iv, i32 -2
+    %9 = load i8, ptr %scevgep2, align 1, !tbaa !11
+    %scevgep3 = getelementptr i8, ptr %lsr.iv, i32 -1
+    %10 = load i8, ptr %scevgep3, align 1, !tbaa !11
+    %11 = load i8, ptr %lsr.iv, align 1, !tbaa !11
+    %12 = zext i8 %11 to i32
+    %13 = zext i8 %9 to i32
+    %14 = zext i8 %10 to i32
+    %15 = add nuw nsw i32 %14, %13
+    %16 = mul nuw nsw i32 %15, %12
+    %17 = add nsw i32 %14, -3
+    %18 = add nsw i32 %17, %16
+    %19 = icmp ult i32 %1, %18
+    br i1 %19, label %23, label %20
+  
+  20:                                               ; preds = %7
+    %21 = add nuw nsw i32 %8, 1
+    %scevgep1 = getelementptr i8, ptr %lsr.iv, i32 16
+    %22 = icmp eq i32 %21, 40
+    br i1 %22, label %25, label %7, !llvm.loop !27
+  
+  23:                                               ; preds = %7
+    %24 = trunc nuw nsw i32 %8 to i8
+    br label %25
+  
+  25:                                               ; preds = %20, %23
+    %26 = phi i8 [ %24, %23 ], [ 40, %20 ]
+    store i8 %9, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 4), align 1, !tbaa !11
+    store i8 %10, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 5), align 1, !tbaa !11
+    store i8 %11, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 6), align 1, !tbaa !11
+    store i8 %26, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 2), align 1, !tbaa !11
+    %27 = zext nneg i8 %26 to i32
+    %28 = shl i8 %26, 2
+    %29 = add i8 %28, 17
+    store i8 %29, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 1), align 1, !tbaa !11
+    %30 = zext i8 %29 to i16
+    %31 = add nuw nsw i16 %30, 7
+    %32 = lshr i16 %31, 3
+    %33 = trunc nuw nsw i16 %32 to i8
+    store i8 %33, ptr @_MergedGlobals, align 1, !tbaa !11
+    %34 = zext i8 %29 to i32
+    %35 = zext nneg i16 %32 to i32
+    %36 = mul nuw nsw i32 %35, %34
+    %37 = tail call i32 @llvm.umax.i32(i32 %36, i32 768)
+    %38 = tail call ptr @malloc_beebs(i32 noundef %37) #4
+    store ptr %38, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 11), align 4, !tbaa !12
+    store i8 %0, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 3), align 1, !tbaa !11
+    %39 = shl nuw nsw i32 %27, 4
+    %40 = getelementptr i8, ptr %5, i32 %39
+    %41 = getelementptr i8, ptr %40, i32 -20
+    %42 = load i8, ptr %41, align 1, !tbaa !11
+    store i8 %42, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 4), align 1, !tbaa !11
+    %43 = getelementptr i8, ptr %40, i32 -19
+    %44 = load i8, ptr %43, align 1, !tbaa !11
+    store i8 %44, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 5), align 1, !tbaa !11
+    %45 = getelementptr i8, ptr %40, i32 -18
+    %46 = load i8, ptr %45, align 1, !tbaa !11
+    store i8 %46, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 6), align 1, !tbaa !11
+    %47 = getelementptr i8, ptr %40, i32 -17
+    %48 = load i8, ptr %47, align 1, !tbaa !11
+    store i8 %48, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 7), align 1, !tbaa !11
+    %49 = zext i8 %46 to i32
+    %50 = zext i8 %48 to i32
+    %51 = add nuw nsw i32 %50, %49
+    %52 = zext i8 %42 to i32
+    %53 = zext i8 %44 to i32
+    %54 = add nuw nsw i32 %53, %52
+    %55 = mul nuw nsw i32 %51, %54
+    %56 = add nuw nsw i32 %49, %53
+    %57 = add nuw nsw i32 %56, %55
+    %58 = tail call i32 @llvm.umax.i32(i32 %37, i32 %57)
+    %59 = tail call ptr @malloc_beebs(i32 noundef %58) #4
+    store ptr %59, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 12), align 4, !tbaa !12
+    %60 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 6), align 1, !tbaa !11
+    %61 = zext i8 %60 to i32
+    %62 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 4), align 1, !tbaa !11
+    %63 = zext i8 %62 to i32
+    %64 = load i8, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 5), align 1, !tbaa !11
+    %65 = zext i8 %64 to i32
+    %66 = add nuw nsw i32 %65, %63
+    %67 = mul nuw nsw i32 %66, %61
+    %68 = add nsw i32 %65, -3
+    %69 = add nsw i32 %68, %67
+    ret i32 %69
+  }
+  
+  ; Function Attrs: nounwind
+  define dso_local void @freeecc() local_unnamed_addr #0 {
+    %1 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 11), align 4, !tbaa !12
+    tail call void @free_beebs(ptr noundef %1) #4
+    %2 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 12), align 4, !tbaa !12
+    tail call void @free_beebs(ptr noundef %2) #4
+    ret void
+  }
+  
+  ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem: none)
+  define internal fastcc void @putalign(i32 noundef range(i32 0, 256) %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #2 {
+    %3 = and i32 %0, 7
+    %4 = lshr exact i32 128, %3
+    %5 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %6 = lshr i32 %0, 3
+    %7 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %8 = zext i8 %7 to i32
+    %9 = mul nuw nsw i32 %1, %8
+    %10 = getelementptr inbounds nuw i8, ptr %5, i32 %6
+    %11 = getelementptr inbounds nuw i8, ptr %10, i32 %9
+    %12 = load i8, ptr %11, align 1, !tbaa !11
+    %13 = trunc nuw i32 %4 to i8
+    %14 = or i8 %12, %13
+    store i8 %14, ptr %11, align 1, !tbaa !11
+    %15 = add nsw i32 %1, -2
+    %16 = add nsw i32 %0, -2
+    %17 = and i32 %16, 7
+    %18 = lshr exact i32 128, %17
+    %19 = ashr i32 %16, 3
+    %20 = trunc nuw i32 %18 to i8
+    %21 = add nuw nsw i32 %0, 2
+    %22 = and i32 %21, 7
+    %23 = lshr exact i32 128, %22
+    %24 = lshr i32 %21, 3
+    %25 = trunc nuw i32 %23 to i8
+    %26 = add nuw nsw i32 %1, 2
+    %27 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %28 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %29 = zext i8 %28 to i32
+    %30 = mul nsw i32 %15, %29
+    %31 = getelementptr i8, ptr %27, i32 %19
+    %32 = getelementptr i8, ptr %31, i32 %30
+    %33 = load i8, ptr %32, align 1, !tbaa !11
+    %34 = or i8 %33, %20
+    store i8 %34, ptr %32, align 1, !tbaa !11
+    %35 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %36 = add nsw i32 %1, -1
+    %37 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %38 = zext i8 %37 to i32
+    %39 = mul nsw i32 %36, %38
+    %40 = getelementptr i8, ptr %35, i32 %19
+    %41 = getelementptr i8, ptr %40, i32 %39
+    %42 = load i8, ptr %41, align 1, !tbaa !11
+    %43 = or i8 %42, %20
+    store i8 %43, ptr %41, align 1, !tbaa !11
+    %44 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %45 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %46 = zext i8 %45 to i32
+    %47 = mul nsw i32 %15, %46
+    %48 = getelementptr i8, ptr %44, i32 %24
+    %49 = getelementptr i8, ptr %48, i32 %47
+    %50 = load i8, ptr %49, align 1, !tbaa !11
+    %51 = or i8 %50, %25
+    store i8 %51, ptr %49, align 1, !tbaa !11
+    %52 = add nsw i32 %0, -1
+    %53 = and i32 %52, 7
+    %54 = lshr exact i32 128, %53
+    %55 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %56 = ashr i32 %52, 3
+    %57 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %58 = zext i8 %57 to i32
+    %59 = mul nuw nsw i32 %26, %58
+    %60 = getelementptr i8, ptr %55, i32 %56
+    %61 = getelementptr i8, ptr %60, i32 %59
+    %62 = load i8, ptr %61, align 1, !tbaa !11
+    %63 = trunc nuw i32 %54 to i8
+    %64 = or i8 %62, %63
+    store i8 %64, ptr %61, align 1, !tbaa !11
+    %65 = add nsw i32 %0, -1
+    %66 = and i32 %65, 7
+    %67 = lshr exact i32 128, %66
+    %68 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %69 = ashr i32 %65, 3
+    %70 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %71 = zext i8 %70 to i32
+    %72 = mul nsw i32 %15, %71
+    %73 = getelementptr i8, ptr %68, i32 %69
+    %74 = getelementptr i8, ptr %73, i32 %72
+    %75 = load i8, ptr %74, align 1, !tbaa !11
+    %76 = trunc nuw i32 %67 to i8
+    %77 = or i8 %75, %76
+    store i8 %77, ptr %74, align 1, !tbaa !11
+    %78 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %79 = add nsw i32 %1, -1
+    %80 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %81 = zext i8 %80 to i32
+    %82 = mul nuw nsw i32 %1, %81
+    %83 = getelementptr i8, ptr %78, i32 %19
+    %84 = getelementptr i8, ptr %83, i32 %82
+    %85 = load i8, ptr %84, align 1, !tbaa !11
+    %86 = or i8 %85, %20
+    store i8 %86, ptr %84, align 1, !tbaa !11
+    %87 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %88 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %89 = zext i8 %88 to i32
+    %90 = mul nsw i32 %79, %89
+    %91 = getelementptr i8, ptr %87, i32 %24
+    %92 = getelementptr i8, ptr %91, i32 %90
+    %93 = load i8, ptr %92, align 1, !tbaa !11
+    %94 = or i8 %93, %25
+    store i8 %94, ptr %92, align 1, !tbaa !11
+    %95 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %96 = lshr i32 %0, 3
+    %97 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %98 = zext i8 %97 to i32
+    %99 = mul nuw nsw i32 %26, %98
+    %100 = getelementptr i8, ptr %95, i32 %96
+    %101 = getelementptr i8, ptr %100, i32 %99
+    %102 = load i8, ptr %101, align 1, !tbaa !11
+    %103 = or i8 %102, %13
+    store i8 %103, ptr %101, align 1, !tbaa !11
+    %104 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %105 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %106 = zext i8 %105 to i32
+    %107 = mul nsw i32 %15, %106
+    %108 = getelementptr i8, ptr %104, i32 %96
+    %109 = getelementptr i8, ptr %108, i32 %107
+    %110 = load i8, ptr %109, align 1, !tbaa !11
+    %111 = or i8 %110, %13
+    store i8 %111, ptr %109, align 1, !tbaa !11
+    %112 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %113 = add nuw nsw i32 %1, 1
+    %114 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %115 = zext i8 %114 to i32
+    %116 = mul nuw nsw i32 %113, %115
+    %117 = getelementptr i8, ptr %112, i32 %19
+    %118 = getelementptr i8, ptr %117, i32 %116
+    %119 = load i8, ptr %118, align 1, !tbaa !11
+    %120 = or i8 %119, %20
+    store i8 %120, ptr %118, align 1, !tbaa !11
+    %121 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %122 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %123 = zext i8 %122 to i32
+    %124 = mul nuw nsw i32 %1, %123
+    %125 = getelementptr i8, ptr %121, i32 %24
+    %126 = getelementptr i8, ptr %125, i32 %124
+    %127 = load i8, ptr %126, align 1, !tbaa !11
+    %128 = or i8 %127, %25
+    store i8 %128, ptr %126, align 1, !tbaa !11
+    %129 = add nuw nsw i32 %0, 1
+    %130 = and i32 %129, 7
+    %131 = lshr exact i32 128, %130
+    %132 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %133 = lshr i32 %129, 3
+    %134 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %135 = zext i8 %134 to i32
+    %136 = mul nuw nsw i32 %26, %135
+    %137 = getelementptr i8, ptr %132, i32 %133
+    %138 = getelementptr i8, ptr %137, i32 %136
+    %139 = load i8, ptr %138, align 1, !tbaa !11
+    %140 = trunc nuw i32 %131 to i8
+    %141 = or i8 %139, %140
+    store i8 %141, ptr %138, align 1, !tbaa !11
+    %142 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %143 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %144 = zext i8 %143 to i32
+    %145 = mul nsw i32 %15, %144
+    %146 = getelementptr i8, ptr %142, i32 %133
+    %147 = getelementptr i8, ptr %146, i32 %145
+    %148 = load i8, ptr %147, align 1, !tbaa !11
+    %149 = or i8 %148, %140
+    store i8 %149, ptr %147, align 1, !tbaa !11
+    %150 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %151 = add nuw nsw i32 %1, 2
+    %152 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %153 = zext i8 %152 to i32
+    %154 = mul nuw nsw i32 %151, %153
+    %155 = getelementptr i8, ptr %150, i32 %19
+    %156 = getelementptr i8, ptr %155, i32 %154
+    %157 = load i8, ptr %156, align 1, !tbaa !11
+    %158 = or i8 %157, %20
+    store i8 %158, ptr %156, align 1, !tbaa !11
+    %159 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %160 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %161 = zext i8 %160 to i32
+    %162 = mul nuw nsw i32 %113, %161
+    %163 = getelementptr i8, ptr %159, i32 %24
+    %164 = getelementptr i8, ptr %163, i32 %162
+    %165 = load i8, ptr %164, align 1, !tbaa !11
+    %166 = or i8 %165, %25
+    store i8 %166, ptr %164, align 1, !tbaa !11
+    %167 = add nuw nsw i32 %0, 2
+    %168 = and i32 %167, 7
+    %169 = lshr exact i32 128, %168
+    %170 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 8), align 4, !tbaa !12
+    %171 = lshr i32 %167, 3
+    %172 = load i8, ptr @_MergedGlobals, align 1, !tbaa !11
+    %173 = zext i8 %172 to i32
+    %174 = mul nuw nsw i32 %26, %173
+    %175 = getelementptr i8, ptr %170, i32 %171
+    %176 = getelementptr i8, ptr %175, i32 %174
+    %177 = load i8, ptr %176, align 1, !tbaa !11
+    %178 = trunc nuw i32 %169 to i8
+    %179 = or i8 %177, %178
+    store i8 %179, ptr %176, align 1, !tbaa !11
+    %180 = trunc nuw i32 %0 to i8
+    %181 = add i8 %180, -1
+    %182 = add i8 %180, 1
+    %183 = trunc nuw i32 %1 to i8
+    %184 = add i8 %183, -1
+    %185 = add i8 %183, 1
+    %186 = tail call i8 @llvm.umin.i8(i8 %181, i8 %183)
+    %187 = tail call i8 @llvm.umax.i8(i8 %181, i8 %183)
+    %188 = zext i8 %187 to i32
+    %189 = add nuw nsw i32 %188, 1
+    %190 = mul nuw nsw i32 %189, %188
+    %191 = lshr i32 %190, 1
+    %192 = zext i8 %186 to i32
+    %193 = add nuw nsw i32 %191, %192
+    %194 = and i32 %193, 7
+    %195 = lshr exact i32 128, %194
+    %196 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %197 = lshr i32 %193, 3
+    %198 = getelementptr inbounds nuw i8, ptr %196, i32 %197
+    %199 = load i8, ptr %198, align 1, !tbaa !11
+    %200 = trunc nuw i32 %195 to i8
+    %201 = or i8 %199, %200
+    store i8 %201, ptr %198, align 1, !tbaa !11
+    %202 = tail call i8 @llvm.umin.i8(i8 %182, i8 %183)
+    %203 = tail call i8 @llvm.umax.i8(i8 %182, i8 %183)
+    %204 = zext i8 %203 to i32
+    %205 = add nuw nsw i32 %204, 1
+    %206 = mul nuw nsw i32 %205, %204
+    %207 = lshr i32 %206, 1
+    %208 = zext i8 %202 to i32
+    %209 = add nuw nsw i32 %207, %208
+    %210 = and i32 %209, 7
+    %211 = lshr exact i32 128, %210
+    %212 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %213 = lshr i32 %209, 3
+    %214 = getelementptr inbounds nuw i8, ptr %212, i32 %213
+    %215 = load i8, ptr %214, align 1, !tbaa !11
+    %216 = trunc nuw i32 %211 to i8
+    %217 = or i8 %215, %216
+    store i8 %217, ptr %214, align 1, !tbaa !11
+    %218 = tail call i8 @llvm.umin.i8(i8 %180, i8 %184)
+    %219 = tail call i8 @llvm.umax.i8(i8 %180, i8 %184)
+    %220 = zext i8 %219 to i32
+    %221 = add nuw nsw i32 %220, 1
+    %222 = mul nuw nsw i32 %221, %220
+    %223 = lshr i32 %222, 1
+    %224 = zext i8 %218 to i32
+    %225 = add nuw nsw i32 %223, %224
+    %226 = and i32 %225, 7
+    %227 = lshr exact i32 128, %226
+    %228 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %229 = lshr i32 %225, 3
+    %230 = getelementptr inbounds nuw i8, ptr %228, i32 %229
+    %231 = load i8, ptr %230, align 1, !tbaa !11
+    %232 = trunc nuw i32 %227 to i8
+    %233 = or i8 %231, %232
+    store i8 %233, ptr %230, align 1, !tbaa !11
+    %234 = tail call i8 @llvm.umin.i8(i8 %180, i8 %185)
+    %235 = tail call i8 @llvm.umax.i8(i8 %180, i8 %185)
+    %236 = zext i8 %235 to i32
+    %237 = add nuw nsw i32 %236, 1
+    %238 = mul nuw nsw i32 %237, %236
+    %239 = lshr i32 %238, 1
+    %240 = zext i8 %234 to i32
+    %241 = add nuw nsw i32 %239, %240
+    %242 = and i32 %241, 7
+    %243 = lshr exact i32 128, %242
+    %244 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %245 = lshr i32 %241, 3
+    %246 = getelementptr inbounds nuw i8, ptr %244, i32 %245
+    %247 = load i8, ptr %246, align 1, !tbaa !11
+    %248 = trunc nuw i32 %243 to i8
+    %249 = or i8 %247, %248
+    store i8 %249, ptr %246, align 1, !tbaa !11
+    %250 = trunc i32 %113 to i8
+    %251 = tail call i8 @llvm.umin.i8(i8 %181, i8 %250)
+    %252 = tail call i8 @llvm.umax.i8(i8 %181, i8 %250)
+    %253 = zext i8 %252 to i32
+    %254 = add nuw nsw i32 %253, 1
+    %255 = mul nuw nsw i32 %254, %253
+    %256 = lshr i32 %255, 1
+    %257 = zext i8 %251 to i32
+    %258 = add nuw nsw i32 %256, %257
+    %259 = and i32 %258, 7
+    %260 = lshr exact i32 128, %259
+    %261 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %262 = lshr i32 %258, 3
+    %263 = getelementptr inbounds nuw i8, ptr %261, i32 %262
+    %264 = load i8, ptr %263, align 1, !tbaa !11
+    %265 = trunc nuw i32 %260 to i8
+    %266 = or i8 %264, %265
+    store i8 %266, ptr %263, align 1, !tbaa !11
+    %267 = trunc nuw i32 %1 to i8
+    %268 = add i8 %267, -1
+    %269 = tail call i8 @llvm.umin.i8(i8 %182, i8 %268)
+    %270 = tail call i8 @llvm.umax.i8(i8 %182, i8 %268)
+    %271 = zext i8 %270 to i32
+    %272 = add nuw nsw i32 %271, 1
+    %273 = mul nuw nsw i32 %272, %271
+    %274 = lshr i32 %273, 1
+    %275 = zext i8 %269 to i32
+    %276 = add nuw nsw i32 %274, %275
+    %277 = and i32 %276, 7
+    %278 = lshr exact i32 128, %277
+    %279 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %280 = lshr i32 %276, 3
+    %281 = getelementptr inbounds nuw i8, ptr %279, i32 %280
+    %282 = load i8, ptr %281, align 1, !tbaa !11
+    %283 = trunc nuw i32 %278 to i8
+    %284 = or i8 %282, %283
+    store i8 %284, ptr %281, align 1, !tbaa !11
+    %285 = trunc nuw i32 %0 to i8
+    %286 = add i8 %285, -1
+    %287 = tail call i8 @llvm.umin.i8(i8 %286, i8 %184)
+    %288 = tail call i8 @llvm.umax.i8(i8 %286, i8 %184)
+    %289 = zext i8 %288 to i32
+    %290 = add nuw nsw i32 %289, 1
+    %291 = mul nuw nsw i32 %290, %289
+    %292 = lshr i32 %291, 1
+    %293 = zext i8 %287 to i32
+    %294 = add nuw nsw i32 %292, %293
+    %295 = and i32 %294, 7
+    %296 = lshr exact i32 128, %295
+    %297 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %298 = lshr i32 %294, 3
+    %299 = getelementptr inbounds nuw i8, ptr %297, i32 %298
+    %300 = load i8, ptr %299, align 1, !tbaa !11
+    %301 = trunc nuw i32 %296 to i8
+    %302 = or i8 %300, %301
+    store i8 %302, ptr %299, align 1, !tbaa !11
+    %303 = trunc i32 %129 to i8
+    %304 = tail call i8 @llvm.umin.i8(i8 %303, i8 %185)
+    %305 = tail call i8 @llvm.umax.i8(i8 %303, i8 %185)
+    %306 = zext i8 %305 to i32
+    %307 = add nuw nsw i32 %306, 1
+    %308 = mul nuw nsw i32 %307, %306
+    %309 = lshr i32 %308, 1
+    %310 = zext i8 %304 to i32
+    %311 = add nuw nsw i32 %309, %310
+    %312 = and i32 %311, 7
+    %313 = lshr exact i32 128, %312
+    %314 = load ptr, ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 9), align 4, !tbaa !12
+    %315 = lshr i32 %311, 3
+    %316 = getelementptr inbounds nuw i8, ptr %314, i32 %315
+    %317 = load i8, ptr %316, align 1, !tbaa !11
+    %318 = trunc nuw i32 %313 to i8
+    %319 = or i8 %317, %318
+    store i8 %319, ptr %316, align 1, !tbaa !11
+    ret void
+  }
+  
+  ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+  declare i32 @llvm.umax.i32(i32, i32) #3
+  
+  ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+  declare i8 @llvm.umin.i8(i8, i8) #3
+  
+  ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+  declare i8 @llvm.umax.i8(i8, i8) #3
+  
+  attributes #0 = { nounwind "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #1 = { "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem: none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) "target-features"="+m,+a,+c,+zcmp" }
+  attributes #4 = { nobuiltin nounwind "no-builtins" }
+  attributes #5 = { nobuiltin "no-builtins" }
+  
+  !llvm.module.flags = !{!1, !2, !3, !5}
+  !llvm.ident = !{!6}
+  !llvm.errno.tbaa = !{!7}
+  
+  !0 = !{i64 2894913014534831528}
+  !1 = !{i32 1, !"wchar_size", i32 4}
+  !2 = !{i32 1, !"target-abi", !"ilp32"}
+  !3 = !{i32 6, !"riscv-isa", !4}
+  !4 = !{!"rv32i2p1_m2p0_a2p1_c2p0_zmmul1p0_zaamo1p0_zalrsc1p0_zca1p0_zcmp1p0"}
+  !5 = !{i32 8, !"SmallDataLimit", i32 0}
+  !6 = !{!"clang version 22.1.8 (https://github.com/llvm/llvm-project.git ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"}
+  !7 = !{!8, !8, i64 0}
+  !8 = !{!"int", !9, i64 0}
+  !9 = !{!"omnipotent char", !10, i64 0}
+  !10 = !{!"Simple C/C++ TBAA"}
+  !11 = !{!9, !9, i64 0}
+  !12 = !{!13, !13, i64 0}
+  !13 = !{!"p1 omnipotent char", !14, i64 0}
+  !14 = !{!"any pointer", !9, i64 0}
+  !15 = distinct !{!15, !16}
+  !16 = !{!"llvm.loop.mustprogress"}
+  !17 = distinct !{!17, !16}
+  !18 = distinct !{!18, !16}
+  !19 = distinct !{!19, !16}
+  !20 = distinct !{!20, !16}
+  !21 = distinct !{!21, !16}
+  !22 = distinct !{!22, !16}
+  !23 = distinct !{!23, !16}
+  !24 = distinct !{!24, !16}
+  !25 = distinct !{!25, !16}
+  !26 = distinct !{!26, !16}
+  !27 = distinct !{!27, !16}
+...
+---
+name:            freeecc
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+liveins:         []
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     true
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.0):
+    %0:gpr = PseudoMovAddr target-flags(riscv-hi) @_MergedGlobals, target-flags(riscv-lo) @_MergedGlobals
+    %1:gpr = LW %0, 20 :: (dereferenceable load (s32) from `ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 11)`, !tbaa !12)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY %1
+    PseudoCALL target-flags(riscv-call) @free_beebs, csr_ilp32_lp64, implicit-def dead $x1, implicit killed $x10, implicit-def $x2
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %2:gpr = LW %0, 24 :: (dereferenceable load (s32) from `ptr getelementptr inbounds (<{ i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr }>, ptr @_MergedGlobals, i32 0, i32 12)`, !tbaa !12)
+    $x10 = COPY %2
+    PseudoTAIL target-flags(riscv-call) @free_beebs, csr_ilp32_lp64, implicit $x2, implicit killed $x10
+...

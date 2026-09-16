@@ -1,0 +1,115 @@
+schema_version: rocksdb-resource-stagea-resume2-handoff-v1
+assignment_id: RESOURCE-STAGEA-L3-20260811-ROCKSDB-DICT-COVER-RESUME2-R2BC
+topic_id: ROCKSDB-DICT-COVER
+lane_id: CANDIDATE_EXECUTION_LANE_3
+assignment_state: FROZEN_BLOCKED_USER_ACTION_REQUIRED
+decision: BLOCKED_USER_ACTION_REQUIRED
+unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\ROCKSDB-DICT-COVER\resume2
+cross_assignment_contamination: NONE
+
+authorizations:
+  resource: RESOURCE-UNBLOCK-SMALL-BATCH-20260811-R2B
+  auto_stagea_after_resource_pass: STAGEA-AUTO-RESUME-AFTER-RESOURCE-PASS-20260811-R2C
+  resource_pass_reached: false
+  stagea_auto_resume_condition_satisfied: false
+
+resource_status:
+  resource_ready: false
+  resume2_required_assets: 16
+  resume2_closed_assets: 4
+  resume2_blocked_assets: 1
+  resume2_not_started_assets: 11
+  frozen_population_raw_assets_closed_across_immutable_packages: 8_of_20
+  population_wide_unmodified_converter_smoke: NOT_STARTED_RESOURCE_POPULATION_INCOMPLETE
+  preclaim_gate: NOT_STARTED_RESOURCE_PASS_REQUIRED
+  claim_bearing_run: NOT_STARTED
+
+blocker:
+  asset_id: nvd-2023
+  family: NVD_JSON_2_0
+  official_url: https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2023.json.gz
+  official_content_length_observed: 20145689
+  official_last_modified: Sat, 08 Aug 2026 07:15:10 GMT
+  official_etag: '"013bea5527dd1:0"'
+  clean_attempts_started: 2
+  clean_attempt_ceiling_exhausted: true
+  attempt_1_actual_bytes: 20129232
+  attempt_1_short_bytes: 16457
+  attempt_1_partial_sha256: 6329532C213674958762BE1BA18123A5B520099816C4DEFC8154DBA336791B84
+  attempt_2_actual_bytes: 20130584
+  attempt_2_short_bytes: 15105
+  attempt_2_partial_sha256: 7A4689E6F9E33FCCC326A3C51EED4DC9C5E0470DBDC42A6F7B457036E56DC799
+  partials_admissible: false
+  partials_retained: false
+  range_mirror_or_join_used: false
+  minimum_user_action: >-
+    Provide a byte-complete exact-official NVD 2023 asset with exact bytes,
+    SHA-256, acquisition time and provenance plus a reliable official route for
+    NVD 2024 and the ten frozen PyPI JSON responses, or restore a reliable HTTPS
+    route and ask mainline to issue a new immutable resume assignment.
+  detailed_packet: USER_BLOCKER_PACKET.md
+
+closed_resume2_assets:
+  - {id: nvd-2019, bytes: 10171125, sha256: 7106AD65484B53C0E400F59DFF7A350CF7A63BBB11BD8FFD37EE3435D68953E6, validation: PASS_LENGTH_HASH_GZIP_JSON_ALL_ENTRY_SCHEMA_PROVENANCE_LICENSE}
+  - {id: nvd-2020, bytes: 13960211, sha256: 645B6399945F08FEA8693456056BEA8F1837BC973D41176014FCF99F6283C047, validation: PASS_LENGTH_HASH_GZIP_JSON_ALL_ENTRY_SCHEMA_PROVENANCE_LICENSE}
+  - {id: nvd-2021, bytes: 16852651, sha256: E3600406245A4626E5BEFEDA3F6E7BFCB7806F1B8BE7BF62895D55B5395AC595, validation: PASS_LENGTH_HASH_GZIP_JSON_ALL_ENTRY_SCHEMA_PROVENANCE_LICENSE}
+  - {id: nvd-2022, bytes: 18333784, sha256: D9568EB4A189076CE06D020C27908EDD76E3C4A40F048297D8A175AB8E826AD6, validation: PASS_LENGTH_HASH_GZIP_JSON_ALL_ENTRY_SCHEMA_PROVENANCE_LICENSE}
+
+resource_cost:
+  wall_seconds: 990
+  attempt_starts: 6
+  exact_response_body_bytes_from_attempt_log: 99577587
+  closed_asset_bytes: 59317771
+  failed_partial_bytes_removed: 40259816
+  persisted_budget_counter: 139837403
+  persisted_counter_disposition: CONSERVATIVE_DOUBLE_CHARGE_OF_FAILED_PARTIALS__CORRECTED_BY_RESOURCE_RECOMPUTATION
+  topic_bytes_before_reporting: 1370879188
+  resume2_bytes_before_reporting: 59359449
+  topic_limit_bytes: 6442450944
+  cpu_hours_limit: 4
+  exact_process_cpu: NOT_CAPTURED_NOT_INVENTED
+  gpu_used: false
+  exclusive_device_used: false
+  system_install_performed: false
+  global_environment_modified: false
+
+scientific_boundary:
+  claim_bearing_observation: false
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed: false
+  pass_stop_reserve_archive_inference: NONE
+  rocksdb_executed: false
+  zstd_trainer_executed: false
+  candidate_executed: false
+  comparators_executed: false
+  sst_created: false
+  preclaim_gate_executed: false
+  stagea_scientific_gate_request: NONE_RESOURCE_BLOCKED
+  stageb_authorized: false
+  stageb_user_approval_id: null
+
+continuity:
+  frozen_AGENTS_sha256: 66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063
+  frozen_plan_sha256: 6CE3E9207E02F4DC24D7B4126EEB7A9E9210AC51FF1D64440F2C7FF1BE12373D
+  frozen_registry_sha256: E18E1145EDCF11DF0A0843DD93AE9FB65A26C8CF41C64E4B300CA567F175C33D
+  frozen_ROLE_CANDIDATE_OWNER_sha256: 30E23336CF339771821EAEC8B2C7011025BA815D613DB639E68121FDCDE54D1F
+  initial_stagea_manifest_sha256: 7DF818674F8458A23340495C9B6F3B8B13C870F36A66DE563662D65E864BCF45
+  initial_stagea_manifest_verification: PASS_25_OF_25
+  resume1_manifest_sha256: 5C0391573A3B5A24DE4B548029AEB66842ACA81BF18841319A4E8A386B21F724
+  resume1_manifest_verification: PASS_19_OF_19
+
+file_hashes:
+  RESOURCE_UNBLOCK_REPORT.md: CA0629341FADBB629410F01DB1A0DA88D1A527BCB71A4ECA7D6297E7E9F77970
+  USER_BLOCKER_PACKET.md: D11844D888897C34F8998E5E4FCD59A5D66CE64AA8A6A5D2E2AC7479A25555BD
+  RESOURCE_CONTRACT.yaml: 0B07A62F8259C2571203F83BE3B05E353D5A4F2BF7A2B6310E4060669C4571CD
+  RESOURCE_CODE_FREEZE.json: 02FC508D2D518B9237AAAB6DBCF4DC5825EABF81CC5E4918A9FA080A99AC1A25
+  RESOURCE_ACQUISITION_RECORD.json: 5AECD0E459C96EBAC81A916D79CD0B211917BD6105B72E71E3D59AABCF37D9DB
+  RESOURCE_RECOMPUTATION.json: F5EE60AC8C792809887ADA1FF9557339B860C17DDB7FDDF8FFD3034DA1D853DA
+  SOURCE_ASSET_MANIFEST.tsv: CB88BFF814F71F95AC82A16BE86788D35AD468CD5105ECCE4F99E1507934F894
+  resource_attempts.jsonl: 75D4FD117666BC5A55EE5C7E472406E25000CAE8127F40A93C57874B3CE045ED
+  COMMAND_LOG.md: 01D4AED3212A961E3B8CF97011517BAEBF363AD699B6A025F7D8BE9E4FA791B9
+hash_manifest_file: HASH_MANIFEST.sha256
+hash_manifest_excludes_itself: true
+
+requested_mainline_action: REGISTER_BLOCKED_USER_ACTION_REQUIRED__PRESERVE_STAGEA__RELEASE_LANE__NO_INDEPENDENT_SCIENTIFIC_GATE
+lane_state_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE

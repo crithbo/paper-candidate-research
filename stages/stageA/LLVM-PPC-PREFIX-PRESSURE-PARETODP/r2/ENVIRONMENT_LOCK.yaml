@@ -1,0 +1,34 @@
+schema: environment-lock-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R2-OFFICIAL-REDIRECT-COMPATIBLE-EXACT-TOOLCHAIN
+host:
+  os: Microsoft Windows NT 10.0.26200.0
+  architecture: AMD64
+  processor_identifier: AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD
+  logical_processor_count: 32
+  filesystem_route: E_ROOT_EXFAT_LONG_PATH_AWARE_PROCESS_LOCAL_WIN32_API
+  gpu_used: false
+external_system_dependencies:
+  - {name: Windows system DLLs and UCRT API sets, class: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED}
+  - {name: bundled_workspace_python, version: 3.12.13, path: '<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe', role: orchestration_only, class: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED}
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources
+process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONNOUSERSITE: '1', PIP_CACHE_DIR: resources/cache/pip, XDG_CACHE_HOME: resources/cache/xdg, CLANG_MODULE_CACHE_PATH: resources/cache/clang-modules, CCACHE_DISABLE: '1'}
+system_or_user_environment_modified: false
+registry_modified: false
+system_install_performed: false
+wsl_used: false
+subst_junction_symlink_reparse_used: false
+toolchain_inputs:
+  llvm_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+  bootstrap_clang: {version: 22.1.8, commit: ca7933e47d3a3451d81e72ac174dcb5aa28b59d1, target: x86_64-w64-windows-gnu}
+  cmake: {version: 4.4.2, path: resources/env/t/cmake/data/bin/cmake.exe}
+  ninja: {version: 1.13.0.git.kitware.jobserver-pipe-1, path: resources/env/t/ninja-1.13.0.data/scripts/ninja.exe}
+build_configuration: {generator: Ninja, build_type: Release, assertions: true, llvm_targets_to_build: PowerPC, llvm_enable_projects: lld, llvm_build_utils: true, jobs: 2, configure_attempts: 1, clean_build_attempts: 1}
+package:
+  path: resources/env/ppc-toolchain
+  required_tools: 7
+  runtime_dlls: [libc++.dll, libunwind.dll]
+  source_notices: 39
+  bootstrap_notices: 51
+  package_manifest_sha256: RECORDED_AFTER_FINAL_PROVENANCE_COPY_IN_HANDOFF
+validation: {build_exit_code: 0, build_steps: 2826, nonclaim_smoke: PASS, active_related_processes_at_closeout: 0, result: PASS}
+

@@ -1,0 +1,30 @@
+schema: ppc-r3-native-validation-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R3-PRECLAIM-F1-F5
+obligation: F2_NATIVE_VALIDATION
+status: PARTIAL__BLOCKED_BEFORE_MACHINEVERIFIER__NOT_PASS
+completed_replay_1:
+  assembler: PASS
+  llvm_readobj_typed_relocation_addend: PASS_2_X_R_PPC64_PCREL34_ADDEND_0
+  llvm_objdump_forms: PASS_PLD_AND_PADDI_PLUS_LD
+  ld_lld_output: PASS
+  linked_relocations: 0
+  DWARF_unwind_audit: PASS_EH_FRAME_CIE_AND_TWO_FDES
+  observable_semantics_static_audit: BOTH_LEAF_FUNCTIONS_LOAD_SAME_HIDDEN_8_BYTE_TARGET_AND_RETURN_IN_R3__NO_CALLS_OR_STORES
+not_completed:
+  MachineVerifier: NOT_STARTED_INPUT_PARSE_FAILED_BEFORE_MIR_EMISSION
+  replay_2: NOT_STARTED_FAIL_CLOSED
+failure:
+  command_tag: replay1.llc.mir_emit
+  exit_code: 1
+  timed_out: false
+  exact_error: "ppc_union_input.ll:3:27: error: expected 'global' or 'constant'"
+  failing_line: "@target_value_ir = hidden dso_local local_unnamed_addr global i64 1234605616436508552, align 8"
+  mechanical_cause: INVALID_LLVM_IR_GLOBAL_MODIFIER_ORDER__HIDDEN_PRECEDED_DSO_LOCAL
+  acceptable_next_assignment_correction: USE_DSO_LOCAL_HIDDEN_MODIFIER_ORDER_AND_RESTART_IN_NEW_RESUME_DIRECTORY
+  stderr_path: resources/logs/preclaim/replay1.llc.mir_emit.stderr.txt
+  stderr_sha256: 8B479F2252427F503792CD3AC9382960413BBB9E7BB8A25AB2EA93046CE563D2
+retry_performed: false
+scientific_revision_consumed: false
+claim_bearing_observation: false
+scientific_inference: NONE
+

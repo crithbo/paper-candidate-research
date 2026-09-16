@@ -1,0 +1,121 @@
+schema: stage0-source-role-ledger-v1
+assignment_id: STAGE0-P1-20260826-ROCKSDB-MULTISST-DICT-TRACE-COVERAGE-PRIMARY
+topic_id: ROCKSDB-MULTISST-DICT-TRACE-COVERAGE
+cutoff: 2026-08-26
+network:
+  attempts_max: 30
+  attempts_used: 30
+  per_source_attempts_max: 1
+  persisted_network_response_bytes: 0
+  connector_network_bytes: UNAVAILABLE__NOT_ESTIMATED
+  shell_network_used: false
+  stop_reason: FROZEN_ATTEMPT_LIMIT_REACHED
+  search_state: SEARCH_BOUNDED_OPEN
+sources:
+  - source_id: RDB-RELEASES-CURRENT
+    role: CURRENT_RELEASE_IDENTITY
+    title: RocksDB Releases
+    url: https://github.com/facebook/rocksdb/releases
+    version: indexed_snapshot_exposed_v11.1.2_3b44608
+    read_depth: RELEASE_PAGE_SECTIONS
+    permitted_conclusion: official indexed snapshot identifies v11.1.2, but current-main history makes it insufficient as sole current identity
+    limitation: release page snapshot was stale relative to the current main commit history
+  - source_id: RDB-MAIN-COMMITS
+    role: CURRENT_COMMIT_IDENTITY
+    title: RocksDB main commit history
+    url: https://github.com/facebook/rocksdb/commits
+    version: e6a2ee0bd211489e64a45a6a0f6ce1dc67e195d7__visible_head_link_2026-08-22
+    read_depth: CURRENT_HISTORY_PAGE
+    permitted_conclusion: current main identity and evidence that main advanced beyond the Discovery release snapshot
+  - source_id: RDB-BUILDER-MAIN
+    role: CURRENT_SOURCE
+    title: BlockBasedTableBuilder current main source
+    url: https://raw.githubusercontent.com/facebook/rocksdb/main/table/block_based/block_based_table_builder.cc
+    version: main_dated_read_2026-08-26__head_link_separately_verified
+    read_depth: SOURCE_SYMBOLS_AND_RELEVANT_RANGES
+    decisive_loci: [data_block_buffers, MaybeEnterUnbuffered, DictSamples, GetSerializedDict, WriteCompressionDictBlock, CompressionManager, AutoSkipCarryTLS]
+    permitted_conclusion: file-local dictionary construction remains; AutoSkip and CompressionManager broaden the baseline but do not implement a collection dictionary portfolio
+    limitation: connector could not cache-pin raw content to the full commit SHA
+  - source_id: RDB-DICT-DOC
+    role: CURRENT_OFFICIAL_DOCUMENTATION
+    title: Dictionary Compression
+    url: https://github.com/facebook/rocksdb/wiki/Dictionary-Compression
+    version: current_page_read_2026-08-26
+    read_depth: RELEVANT_SECTIONS
+    permitted_conclusion: per-file dictionary size, sampling, training, and SST-local construction
+  - source_id: RDB-COMPRESSION-DOC
+    role: CURRENT_OFFICIAL_DOCUMENTATION
+    title: Compression
+    url: https://github.com/facebook/rocksdb/wiki/Compression
+    version: current_page_read_2026-08-26
+    read_depth: RELEVANT_SECTIONS
+    permitted_conclusion: per-column-family/bottommost configuration and SST-local dictionary storage
+  - source_id: RDB-TABLE-H
+    role: CURRENT_API_SOURCE
+    title: include/rocksdb/table.h
+    url: https://github.com/facebook/rocksdb/blob/main/include/rocksdb/table.h
+    version: main_indexed_2026-08-26
+    read_depth: INDEXED_SOURCE_SECTIONS
+    permitted_conclusion: current format/API surface includes custom compression algorithms via CompressionManager
+  - source_id: RDB-HISTORICAL-FORMAT
+    role: CONTRARY_NATIVE_GENEALOGY
+    title: Historical BlockBasedTable format dictionary description
+    url: https://github.com/facebook/rocksdb/wiki/Rocksdb-BlockBasedTable-Format/413416ac52479003471652f4ef1df6aedd8b77e4
+    version: historical_revision
+    read_depth: FROZEN_UPSTREAM_RELEVANT_SECTIONS
+    permitted_conclusion: sharing/reusing one dictionary across outputs is not novel
+  - source_id: DCC2001-MULTI-PRESET
+    role: CONTRARY_GENERIC_KERNEL
+    title: On the Hardness of Finding Optimal Multiple Preset Dictionaries
+    url: https://www.eecs.harvard.edu/~michaelm/postscripts/dcc2001a.pdf
+    version: IEEE_DCC_2001
+    read_depth: FULL_RELEVANT_PAGES
+    permitted_conclusion: k-dictionary selection and best-dictionary assignment are compression segmentation; natural Huffman/LZ77 variants are NP-hard; heuristics/approximations are expected
+  - source_id: WSDM2019-DINT
+    role: CONTRARY_METHODOLOGICAL_AND_SHAPE_ANCHOR
+    title: Fast Dictionary-Based Compression for Inverted Indexes
+    url: https://jermp.github.io/assets/pdf/papers/WSDM2019.pdf
+    version: WSDM_2019__DOI_10.1145_3289600.3290962
+    read_depth: FULL_RELEVANT_SECTIONS
+    permitted_conclusion: multiple dictionary suites, per-block selectors, exhaustive selection, and dictionary memory/cache costs are prior on a different object
+  - source_id: ROCKSDB-CIDR2017
+    role: DOMAIN_SHAPE_ANCHOR
+    title: Optimizing Space Amplification in RocksDB
+    url: https://www.cidrdb.org/cidr2017/papers/p82-dong-cidr17.pdf
+    version: CIDR_2017
+    read_depth: ABSTRACT_AND_INDEXED_RELEVANT_SECTIONS
+    permitted_conclusion: RocksDB space-amplification and compression/shared-dictionary context
+  - source_id: FAST2022-TRANSPARENT-COMPRESSION
+    role: EVALUATION_SHAPE_ANCHOR
+    title: Closing the B+-tree vs. LSM-tree Write Amplification Gap on Modern Storage Hardware with Built-in Transparent Compression
+    url: https://www.usenix.org/conference/fast22/presentation/qiao
+    version: FAST_2022
+    read_depth: ABSTRACT_BACKGROUND_IN_FROZEN_SOURCE_SET
+    permitted_conclusion: flagship full-system compression evaluation shape; not a dictionary-portfolio collision
+  - source_id: EDBT2025-PARTIAL-COMPACTION
+    role: RECENT_STORAGE_NEIGHBOR
+    title: Benchmarking, Analyzing, and Optimizing Write Amplification of Partial Compaction in RocksDB
+    url: https://openproceedings.org/2025/conf/edbt/paper-114.pdf
+    version: EDBT_2025
+    read_depth: SEARCH_RESULT_ABSTRACT
+    permitted_conclusion: recent RocksDB multi-SST/partial-compaction context, not same-action coverage
+  - source_id: KV-COMPRESSION-SURVEY-2023
+    role: BACKGROUND_ONLY
+    title: Requirements and Trade-Offs of Compression Techniques in Key-Value Stores
+    url: https://www.mdpi.com/2079-9292/12/20/4280
+    version: 2023
+    read_depth: SEARCH_RESULT_ABSTRACT
+    permitted_conclusion: broad KV-store compression trade-offs only; not decisive novelty evidence
+failed_or_unavailable_routes:
+  - api.github.com commit and release endpoints rejected by connector safety policy
+  - raw v11.1.2 builder and guessed compression_manager header returned one-shot internal errors
+  - full-head raw/tree URLs returned one-shot cache misses and were not retried
+current_union_summary:
+  native_current: per-file dictionary training/storage plus AutoSkip and CompressionManager
+  native_historical: one shared dictionary reused across outputs
+  codec_primitives: ZDICT training, serialized dictionaries, dictionary-aware compression/decompression
+  generic_algorithms: multiple-preset-dictionary compression segmentation, facility location, k-medoids, block dictionary selectors
+  strict_direct_fatal: false
+  nontrivial_candidate_residual_after_subtraction: false
+  collision_state: SEARCH_BOUNDED_OPEN__NO_DIRECT_FATAL__GENERIC_N2_COLLAPSE
+

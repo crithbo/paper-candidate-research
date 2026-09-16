@@ -1,0 +1,50 @@
+assignment_id: SOURCE-CLOSURE-SOURCE84-S2-CQ01-OPENXLA-BUFFER-COMMAND-GROUP-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+write_owner: ASSIGNED_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source84/S2-bottleneck-transfer/closure-cq01
+parent_assignment: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE84-R40-ORDINARY-BREADTH-V1
+parent_handoff_sha256: D28D63E126C4CFE8B82C265E3550C48DFB2AC4E9B77FA579089998306EFF0CFE
+queue_item: S2-84-CQ01
+queue_status_at_freeze: PENDING_UNEXECUTED__ATTEMPTS_0__NOT_EXHAUSTED
+exact_project: openxla/xla
+deterministic_version_rule: resolve the official refs/heads/main commit SHA at the first counted bounded attempt and pin every retained source to that one SHA
+exact_object: one fixed HLO module lowered to a stock XLA GPU executable, with buffer assignment and contiguous command-buffer conversion or replay under unchanged executable semantics
+primary_routes:
+  - https://api.github.com/repos/openxla/xla/commits/main
+  - https://api.github.com/repos/openxla/xla/git/trees/<resolved_commit_sha>?recursive=1
+  - https://raw.githubusercontent.com/openxla/xla/<resolved_commit_sha>/<deterministically_selected_buffer_assignment_source>
+  - https://raw.githubusercontent.com/openxla/xla/<resolved_commit_sha>/<deterministically_selected_gpu_command_buffer_source>
+  - https://raw.githubusercontent.com/openxla/xla/<resolved_commit_sha>/<deterministically_selected_debug_options_or_config_source>
+  - https://raw.githubusercontent.com/openxla/xla/<resolved_commit_sha>/<one_fixed_in_tree_test_hlo_or_test_source>
+route_selection_rule: after commit pin, select only immediate buffer-assignment, GPU command-buffer conversion or scheduling, debug-option/default-nondefault, and one in-tree carrier path; record zero matches without absence inference
+required_outputs:
+  - immutable current OpenXLA commit and exact source loci
+  - complete stock buffer-assignment plus command-buffer action/config/default-nondefault union
+  - one fixed stock-legal HLO carrier and two complete legal plans if they exist
+  - whether a union-external target-specific joint action and finite guarantee can be frozen
+  - strongest direct current collision and generic packing/scheduling objection
+  - full-cost dimensions and a finite falsifier route
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_GENERIC_PACKING_SCHEDULING__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide clean_brief_Q2_PASS_STOP_or_stage_state
+  - change fixed_HLO_GPU_executable_stock_semantics_or_full_cost_endpoint
+  - run build_install_experiment_or_claim_bearing_observation
+  - clone_repository_or_download_archives
+  - search outside exact project/source scope
+  - treat 404_zero_match_transport_failure_or_missing_tool_as_absence
+  - read_or_use_Source85_or_later_Discovery_outcomes
+resource_localization:
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  resource_root: stages/discovery/round-20260815-adaptive-source84/S2-bottleneck-transfer/closure-cq01/resources
+  inventory: stages/discovery/round-20260815-adaptive-source84/S2-bottleneck-transfer/closure-cq01/RESOURCE_INVENTORY.yaml
+  max_acquisition_calls: 6
+  max_success_response_bytes_each: 8388608
+  max_persisted_bytes: 16777216
+  pre_call_monotonic_attempt_counter: required
+  eight_standard_subdirectories: required
+model_route: {model: gpt-5.6-terra, reasoning: high}
+notify_mainline_on_finish_or_blocker: true

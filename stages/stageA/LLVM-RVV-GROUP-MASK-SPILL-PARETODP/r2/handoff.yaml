@@ -1,0 +1,96 @@
+schema_version: candidate-resource-gate-handoff-v3
+assignment_id: STAGEA-L1-20260825-LLVM-RVV-R2-E-ROOT-EXACT-TOOLCHAIN
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+assignment_state: FROZEN_AWAITING_MAINLINE
+decision: BLOCKED_USER_ACTION_REQUIRED
+blocker_kind: FILESYSTEM_PATH_CAPABILITY__EXFAT_WINDOWS_260_CHARACTER_SOURCE_FILE
+user_summary_cn:
+  outcome: 五个官方资源已单次闭合，但唯一 source extraction 在 260 字符普通文件路径上失败
+  main_reason: Windows/exFAT 无法按当前 Python 文件接口创建该路径；archive member 本身安全且位于冻结 source root 内
+  next_step: MAINLINE 验收 blocker，并在新 immutable resume 中授权 long-path-aware extraction 或提供 exact 预解压 bundle
+  user_action_required: true
+  scientific_negative_inference: false
+context_sha256: 9262601D5C4A8D547508DC473D2518625B0F25555835A6C6A91CFB2550C57FAB
+bootstrap_ack_sha256: DEC72D348553B4C67B245935E45E8AE701CE08BFC877329CA561E9FB89F5BDAD
+mainline_start_authorization_sha256: BE0A182F1993B7E8B1ABC1B00E9FF16A6B6EB73BCE9906282553DA2B80F8E8AD
+assignment_sha256: AA1DAC266E4274B31FB0A1ABE4249AB9F8A7116DB1396D44E5F5CE5A9EE0F4BE
+exact_commit: 5bb2565693f062a9e99929db1814a7a076d4dc76
+resource_gate:
+  official_assets_passed: 5/5
+  network_attempts: 5/5
+  attempts_per_asset: 1
+  network_bytes: 510320698
+  max_single_response_bytes: 280166923
+  archive_safe_member_preflight: PASS
+  source_extraction: FAILED_1_OF_1_NO_RETRY
+  source_files_before_failure: 71167
+  source_bytes_before_failure: 616586465
+  failed_path_characters: 260
+  failed_parent_characters: 223
+  build_path_projection: PASS_94_BASE_225_PROJECTED_LT_240
+  tool_extraction: NOT_STARTED
+  configure: NOT_STARTED_0_OF_1
+  clean_build: NOT_STARTED_0_OF_1
+  required_tools_ready: 0/6
+  nonclaim_smokes_run: 0
+resource_root:
+  bytes: 1128988666
+  files: 71270
+  directories: 8800
+  reparse_entries: 0
+  stored_budget_bytes: 10737418240
+  within_budget: true
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  artifact_state: ARTIFACT_OPEN
+  owner_cleanup_performed: false
+  cleanup_owner: MAINLINE
+  active_owner_or_process_count: 0
+  exact_cleanup_candidate_count: 2
+  exact_cleanup_candidate_bytes: 618605581
+  projected_post_close_retained_bytes: 510383085
+  projected_post_close_budget_bytes: 2147483648
+  projected_post_close_budget_pass: true
+  downstream_input_accepted: false
+  capsule_sealed: false
+claim_ceiling: RESOURCE_GATE_ONLY__NO_RVV_PRECLAIM_NATURAL_OR_PERFORMANCE_CLAIM
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: false
+mechanism_pivot_consumed: false
+resource_action_started: true
+scientific_action_started: false
+claim_bearing_or_natural_action_started: false
+rvv_f1_f5_started: false
+forced_pressure_typed_replay_quotient_baseline_started: false
+candidate_baseline_benchmark_performance_or_full_cost_run_started: false
+stage_transition_authorized: false
+stageb_authorized: false
+forbidden_actions_respected: true
+file_hashes:
+  OFFICIAL_ASSET_ACCEPTANCE.yaml: A28062B4DDAEE6B3459606A0AE17C7EE47C3E5256A56A2205D44156B6FD887CF
+  PATH_LENGTH_AUDIT.yaml: 329A94C7FB5AB731EA72F11AC7138C9E3D7EF90B9F9C367DBA6288C02BBE66A5
+  BUILD_PROVENANCE.yaml: 025EB6C58ED3D25DACAA799AEAD7F921702F50DE125F646868741E233608AA4B
+  ENVIRONMENT_LOCK.yaml: 5A6E6C8808CD1EE4AA2BF3DA038D9BE9B0DC547F1110D814612667CEEB54E9D5
+  RESOURCE_INVENTORY.yaml: 8A3396C398DBED23E7EC5E49C1E155E4A30F2E9C582A3CE60BD61D7A4ED9A9C8
+  RESOURCE_GATE_REPORT.md: D283F37B9F164F0916D2D5C10E63C6AE0FB403160DCC86A74C83EA2714300666
+  COMMAND_LOG.md: D0981F8FFEBBBF3D71023470BD5B1CE2C731D4C157F2ECE3326D5B1B61679413
+  USER_BLOCKER_PACKET.md: 4E828E4215CA7E390864641EA5E5ED54344D093DC8084DF0332D374A91A11C98
+  PHASE_CLOSEOUT_RETENTION.yaml: A166A1DC6BBDBBDFCB185D8177C43A933F0A1C4448F9F8462E45FCDD2F615D53
+  RESUME_CAPSULE.yaml: CEF6BC5E1C39AC0BA7A4FC581CBF20670D80188C40276515E30C3F0161723D06
+canonical_outputs:
+  - OFFICIAL_ASSET_ACCEPTANCE.yaml
+  - PATH_LENGTH_AUDIT.yaml
+  - BUILD_PROVENANCE.yaml
+  - ENVIRONMENT_LOCK.yaml
+  - RESOURCE_INVENTORY.yaml
+  - RESOURCE_GATE_REPORT.md
+  - COMMAND_LOG.md
+  - USER_BLOCKER_PACKET.md
+  - PHASE_CLOSEOUT_RETENTION.yaml
+  - RESUME_CAPSULE.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+next_owner: MAINLINE
+next_action: ACCEPT_RESOURCE_BLOCKER__FREEZE_NEW_LONG_PATH_AWARE_RESUME__OPTIONAL_MAINLINE_GC

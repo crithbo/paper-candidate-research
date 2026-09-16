@@ -1,0 +1,51 @@
+schema: discovery-canonical-funnel-abstention-v1
+assignment_id: DMR-V1-PSHADOW-CYCLE-01-S4
+lane_id: DISCOVERY_S4_OBJECTIVE_CONSTRAINT
+canonical_frozen_before_shadow: true
+mode: {discovery_claim_pack: OFF, discovery_quality: OFF, discovery_rq_frontend: PRODUCTION}
+source_budget: {maximum: 6, consumed: 6, further_source_actions: forbidden}
+
+seed:
+  id: S4-C01-SEED-01
+  non_evidence: true
+  viewpoint: OBJECTIVE_CONSTRAINT
+  anchor_candidate: CMU-SAFARI/ramulator2 public Ramulator 2.1 repository
+  sketch: A public memory-simulator interface may expose a co-scheduling decision only if a public, semantically defined LLM KV/GEMV address-trace carrier can feed it without replacing the object by a synthetic-only proxy.
+  conclusion_first_test: The most cautious possible result would concern an explicitly frozen trace-to-command mapping, not a deployment claim about an unobserved LLM system.
+  generic_shell_check: PASS
+
+rq_candidate:
+  id: S4-C01-RQ-01
+  primary_rq: Can the public Ramulator 2.1 HBM3/HBM34 interface represent host-memory command co-scheduling for a public LLM KV/GEMV address trace while preserving the trace's defined command and cost semantics?
+  immutable_boundary: Public Ramulator 2.1 plus a public LLM KV/GEMV address-trace carrier; no synthetic-only substitution; no execution in this assignment.
+  contribution_type_hypothesis: SYSTEM_ARCHITECTURE
+  claim_endpoint_hypothesis: target-native action
+  counterfactual: A valid answer would change which command-placement or scheduling policies can be evaluated under the same trace semantics.
+  frozen_primary_route: official Ramulator2 README and official source-repository interface loci
+  transport_fallback: NONE__SOURCE_BUDGET_EXHAUSTED
+
+official_source_log:
+  - {role: ANCHOR, locator: https://github.com/CMU-SAFARI/ramulator2/blob/main/README.md, result: Ramulator_2_1_public_repository__HBM3_HBM4_and_trace_driven_frontends_documented}
+  - {role: CURRENT, locator: https://github.com/CMU-SAFARI/ramulator2/tree/main/src/ramulator/controller, result: official_controller_interface_locus_opened}
+  - {role: CURRENT, locator: https://github.com/CMU-SAFARI/ramulator2/tree/main/src/ramulator/dram/impl, result: official_DRAM_implementation_locus_opened}
+  - {role: CURRENT, locator: https://github.com/CMU-SAFARI/ramulator2/blob/main/README.md#41-the-main-components, result: HBM3_uses_HBM34__controller_and_trace_frontends_are_documented}
+  - {role: CONTRARY, locator: https://raw.githubusercontent.com/CMU-SAFARI/ramulator2/main/python/ramulator/frontend/impl/readwrite_trace.py, result: source_fetch_cache_miss__no_scientific_inference}
+  - {role: ESCAPE, locator: https://raw.githubusercontent.com/CMU-SAFARI/ramulator2/main/python/ramulator/controller/impl/hbm34.py, result: source_fetch_cache_miss__no_scientific_inference}
+
+question_card:
+  exact_public_identity: CMU-SAFARI/ramulator2 public Ramulator 2.1 repository, main branch documentation/source loci opened on 2026-08-30
+  carrier_kind: IMPLEMENTATION_CARRIER_ONLY
+  same_object_contract: INCOMPLETE__public_LLM_KV_GEMV_address_trace_not_frozen
+  current_locus: README documents standalone trace inputs, HBM3/HBM4 support via HBM34, modular controller/component interfaces, and controller statistics
+  direct_fatal: NONE_FOUND_WITHIN_BOUND
+  minimum_falsifier: One official or otherwise assignment-authorized public source must define an LLM KV/GEMV address trace, its event/address semantics, and a finite mapping to Ramulator requests.
+  bounded_debt: EXACT_NATURAL_OR_CANONICAL_CARRIER
+  finite_route_status: OPEN_BOUNDED_BUT_NOT_EXECUTED_IN_THIS_ASSIGNMENT
+  full_cost_boundary: Unfrozen because the carrier/event semantics and host-command mapping are not yet defined.
+
+canonical_disposition:
+  status: LOCATOR_ONLY__HONEST_ABSTENTION
+  reason: Official material establishes a configurable HBM3 controller and trace-driven simulation interface, but the frozen six-source budget did not establish the required public LLM KV/GEMV address-trace carrier or same-object mapping. This is neither evidence of absence nor a scientific negative conclusion.
+  candidate_or_stage0_effect: NONE
+  canonical_brief_written: false
+  search_bounded_open_statement: No claim is made that a qualifying carrier does not exist; this assignment only records that it was not frozen within the authorized official-source budget.

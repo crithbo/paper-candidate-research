@@ -1,0 +1,45 @@
+schema: stage0a-auditor-key-v2
+created_at: 2026-08-26T19:24:00+08:00
+assignment_id: BACKTEST-PACKER-20260826-STAGE0A-Q2-LOCAL-RESOURCE-R1-A1
+visibility: FINAL_AUDITOR_ONLY_AFTER_ALL_EXECUTOR_OUTPUTS_IMMUTABLE
+early_reveal_forbidden: true
+neutral_id_mapping:
+  C-9622BCF5360747AB: {gold_case: P01_HNSW, class: QUALIFIED_CONTROL, stagea_route: PRIMARY_LOCAL}
+  C-1E10CE43D01C4B93: {gold_case: P02_ANN_BENCHMARKS, class: QUALIFIED_CONTROL, stagea_route: PRIMARY_LOCAL_LOCALMODE_ONLY}
+  C-33F7F9CB19284BC4: {gold_case: P03_EGG, class: QUALIFIED_CONTROL, stagea_route: PRIMARY_LOCAL}
+  C-DDDDF3F00E3F4428: {gold_case: P04_CVC5, class: QUALIFIED_CONTROL, stagea_route: PRIMARY_LOCAL}
+  C-C98C8F4C76584088: {gold_case: P05_CARCARA, class: QUALIFIED_CONTROL, stagea_route: PRIMARY_LOCAL}
+  C-BD14C6257DB84D7E: {gold_case: ALT01_WEBGRAPH_LLP, class: QUALIFIED_CONTROL_PREDECLARED_REPLACEMENT, stagea_route: PRIMARY_LOCAL}
+  C-1B61273411BF4421: {gold_case: P07_PGM_INDEX, class: QUALIFIED_CONTROL, stagea_route: PRIMARY_LOCAL}
+  C-DB98638FE01A426A: {gold_case: P08_ALEX, class: QUALIFIED_CONTROL, stagea_route: PRIMARY_LOCAL}
+  C-B8C4102CFFE444B0: {gold_case: P09_PYTHIA, class: QUALIFIED_CONTROL, stagea_route: ROUTING_CONTROL_ONLY}
+  C-9CFA2F4203AE487D: {gold_case: ALT02_ALIVE2, class: QUALIFIED_CONTROL_PREDECLARED_CONTAMINATION_REPLACEMENT, stagea_route: ROUTING_CONTROL_ONLY}
+  C-151972EC3DB44E83: {gold_case: P11_BOLT, class: QUALIFIED_CONTROL, stagea_route: ROUTING_CONTROL_ONLY}
+  C-1D4BF9F12CB743E2: {gold_case: P12_MESS, class: QUALIFIED_CONTROL, stagea_route: ROUTING_CONTROL_ONLY}
+  C-C4BDE6267B264BCB: {gold_case: N01_CURRENT_UNION_DIRECT_ABSORPTION, class: STRUCTURAL_CONTROL, expected_kernel: SAME_OBJECT_DIRECT_ABSORPTION}
+  C-6D9B50D69A8F4CA3: {gold_case: N02_GENERIC_WRAPPER, class: STRUCTURAL_CONTROL, expected_kernel: GENERIC_WRAPPER_NO_DISTINCT_MECHANISM}
+  C-B45878DDEB384E44: {gold_case: N03_SAME_INFORMATION_SELECTOR, class: STRUCTURAL_CONTROL, expected_kernel: SAME_INFORMATION_ACTION_ABSORPTION}
+  C-537C3ADA58FF4BAF: {gold_case: N04_GENERIC_PARTITION_SOLVER, class: STRUCTURAL_CONTROL, expected_kernel: GENERIC_SOLVER_RESTATEMENT}
+replacement_records:
+  - excluded_before_blind_assignment: P06_SOURCE_COMPRESSION
+    replacement: ALT01_WEBGRAPH_LLP
+    basis: STATIC_WINDOWS_RESOURCE_FAILURE
+    executor_output_existed: false
+    outcome_aware: false
+  - excluded_after_blinding_contamination: P10_BERTI
+    contaminated_neutral_case_id: C-14F00B4F47004C29
+    contaminated_case_sha256: C11CA974BF260440E5AB48309B629DBAE92481AD6C8C684524FE50C207FBDDB6
+    replacement: ALT02_ALIVE2
+    fresh_neutral_case_id: C-9CFA2F4203AE487D
+    basis: PREDECLARED_ALT02_AFTER_ZERO_SCIENTIFIC_JUDGMENT_CONTAMINATION
+    cases_read_before_stop: 1
+    scientific_judgment_performed: false
+    same_reviewer_reuse_allowed: false
+    outcome_aware: false
+contamination_rule:
+  signal: BLINDING_CONTAMINATION
+  action: STOP_WITHOUT_SCIENTIFIC_JUDGMENT
+  denominator: EXCLUDE_AND_COUNT_CONTAMINATION
+  contaminated_case_in_v2: false
+  replacement_only_if_predeclared: true
+key_integrity: BOUND_BY_FINAL_HASH_MANIFEST

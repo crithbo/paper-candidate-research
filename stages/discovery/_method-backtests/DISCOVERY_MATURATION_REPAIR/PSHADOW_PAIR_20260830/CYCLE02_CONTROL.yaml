@@ -1,0 +1,49 @@
+schema: discovery-maturation-repair-prospective-cycle-v1
+pair_freeze_id: DMR-V1-PSHADOW-PAIR-20260830
+cycle_id: DMR-V1-PSHADOW-CYCLE-02
+dispatch_after_cycle1_complete: true
+dispatch_order: [S1, S2, S3, S4, S5, S6]
+selection_order_after_barrier: [S4, S3, S1, S2, S5, S6]
+lanes:
+  S1:
+    viewpoint: BOUNDARY_CONTRADICTION
+    track: LOW_BIT_COMPILER_KERNEL
+    anchor: huggingface/optimum-quanto current main quantize/freeze dispatch source
+    anchor_question: Do quantized tensor freeze, serialization and kernel dispatch share one auditable numerical contract that changes backend-lowering decisions?
+    carrier_decision_mechanism: small HF model on CPU/RTX4070; safe quantized dispatch selection; freeze-boundary semantics
+    repair_vector: CURRENT_UNION_EXACT_QUESTION
+  S2:
+    viewpoint: BOTTLENECK_TRANSFER
+    track: SINGLE_GPU_RUNTIME_MEMORY
+    anchor: turboderp-org/exllamav3 v1.2.1 commit 787d158
+    anchor_question: Do active-job block-table occupancy and fused graph shape define admission/compaction beyond compile-cache optimization?
+    carrier_decision_mechanism: Windows RTX4070 plus small EXL3 model; batch admission/compaction; occupancy-aware block-table scheduling
+    repair_vector: COMPARATOR_AND_FULL_COST
+  S3:
+    viewpoint: NATURAL_STRUCTURE
+    track: PERFORMANCE_MODEL_DIAGNOSTICS
+    anchor: huggingface/optimum-benchmark current main InferenceConfig/input generator
+    anchor_question: Do synthetic shapes preserve backend/quantization rankings under tokenizer-generated prompts; if not, what is the minimum rank-loss estimand?
+    carrier_decision_mechanism: local PyTorch/ORT benchmark; backend/quantization selection; token distribution activates dynamic-shape/cache paths
+    repair_vector: NATURAL_OR_CANONICAL_CARRIER
+  S4:
+    viewpoint: OBJECTIVE_CONSTRAINT
+    track: VLA_EDGE_CANONICAL
+    anchor: huggingface/lerobot current main async documentation plus lerobot/smolvla_base
+    anchor_question: Do action/observation timestamps and queue state define age-of-observation deadlines for local-versus-remote inference?
+    carrier_decision_mechanism: SmolVLA plus LeRobot async canonical stack; local/remote placement; freshness/deadline-aware queue accounting
+    repair_vector: ATOMIC_ACTION_OR_ESTIMAND
+  S5:
+    viewpoint: SCALE_ONLINE_APPROX
+    track: LOW_BIT_COMPILER_KERNEL
+    anchor: microsoft/BitNet current main 2026 CPU optimization guide and kernel source
+    anchor_question: Across prefill/decode scale, can online work partition/tiling preserve ternary exact semantics with complete setup/energy cost?
+    carrier_decision_mechanism: official CPU BitNet model; parallel partition/tiling; phase-dependent LUT workload partition
+    repair_vector: Q2_CONTRIBUTION_SHAPE
+  S6:
+    viewpoint: DIRECT_ALGORITHM_SOFTWARE
+    track: SINGLE_GPU_RUNTIME_MEMORY
+    anchor: EricLBuehler/mistral.rs current main paged-attention/prefix-cache scheduler source
+    anchor_question: Under multimodal prefix caching, is there a native page-compaction action that lowers fragmentation without changing eviction or decoding semantics?
+    carrier_decision_mechanism: single-GPU small model; page-compaction timing; live-block-topology-aware relocation
+    repair_vector: CURRENT_UNION_EXACT_QUESTION

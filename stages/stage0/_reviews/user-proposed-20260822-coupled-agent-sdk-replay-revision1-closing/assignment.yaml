@@ -1,0 +1,104 @@
+schema_version: stage0-closing-assignment-v1
+assignment_id: STAGE0-C4R1-20260822-COUPLED-AGENT-SDK-REPLAY-CLOSING
+mode: INDEPENDENT_CLOSING
+authority: USER_EXPLICIT_REPLACE_STOPPED_PATCHVALUE_WITH_NEW_TOPIC_20260822
+topic_id: COUPLED-AGENT-SDK-REPLAY-REV0
+status_on_dispatch: ACTIVE
+
+independence:
+  reviewer_must_not_be_revision_owner: true
+  revision_owner_task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+  assigned_reviewer_task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+
+frozen_rules:
+  role_stage0_sha256: BC58D2A365AFF6A0F82290CC3CC4E16177DBFDA69D1B28260084E9BE6B56E48C
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  revision_semantics: REVISION_1_OF_1_CONSUMED__NO_SECOND_REVISION
+
+upstream_primary:
+  directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-primary
+  decision: REVISE_ONCE
+  handoff_sha256: 28D0E35FE0B2E9DF06FE0E5E15ED6EA97F68D56F829126F8179F6FBB426F73DA
+
+upstream_confirmation:
+  directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-confirmation
+  decision: CONFIRM__REVISE_ONCE
+  handoff_sha256: 752CAB59987E668D40F3F6A7770A6913DBAD767A5417710C12F0664379B6A6E0
+
+upstream_revision1:
+  directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-revision1
+  assignment_sha256: DBC42C7A94B095256354E0AA23EA3050B610FF4099F5D1BAABA01D5F65A4EE14
+  disposition: REVISION_GATE_NOT_CLOSED__RETURN_TO_STAGE0_STOP_SENTINEL
+  quality_tier: BELOW_Q2_STOP
+  failure_sentinel: STOP__GENERIC_TOKEN_COUPLING_OR_NONISOLATED_SDK_BRANCH
+  handoff_sha256: C8A8BECBFA604D323BC5DFAAE3990EDE59478E5738B1D0538AAE5D48704A7B9E
+  manifest_sha256: E31E5BE6D77A05764347006EE49B009D04CC1E720F204641D9EE2A1EC0661538
+
+immutable_object:
+  software_agent_sdk_commit: ddac55697c5d15cf8a34495b5ed6d46c86db092a
+  qwen_revision: c03e6d358207e414f1eca0bb1891e29f1db0e242
+  swebench_verified_revision: c104f840cc67f8b6eec6f759ebc8b2693d585d4a
+  task_list_sha256: 32729224C6BA9EF3A2D47AD86FBB7E7993350D3C0B0A88D0F684A015A0EC240D
+  object_estimand_intervention_and_terminal_semantics: unchanged
+
+closing_question:
+  primary: >-
+    Independently attack the revision owner's conclusion that the surviving
+    construction is only CAR plus generic categorical token coupling, SDK
+    fork/rerun and state hygiene plus generic paired statistics, with no
+    union-external SDK-native transition or target-specific conservative
+    sample/cost frontier.
+  required_checks:
+    - Verify C1 through C5 against the frozen object and current SDK union.
+    - Verify categorical marginal correctness after processors, warpers and stopping controls without accepting a native-RNG bitwise claim.
+    - Determine whether non-idempotent tool effects and workspace/process aliasing are conservatively isolated or merely hidden by fallback.
+    - Search only enough decisive current first-party or primary evidence to attack direct absorption and generic-composition findings.
+    - If disagreeing with STOP, identify a concrete frozen union-external SDK-specific action and nontrivial finite guarantee already contained in revision1; do not invent a new revision.
+
+decision_rules:
+  confirm_stop_when:
+    - C5 remains unclosed after fair subtraction of CAR, token coupling, native fork/rerun, state isolation and paired statistics.
+    - Or the only valid construction is a generic product, safety wrapper or open-ended engineering program.
+  disagree_stop_when:
+    - Revision1 already contains a concrete target-specific nonproduct action and finite conservative frontier overlooked by the owner.
+  resource_failure_is_not_scientific_stop: true
+
+allowed_dispositions:
+  - CONFIRM_STOP__BELOW_Q2_STOP
+  - DISAGREE_STOP__RETURN_TO_MAINLINE_FOR_NONREVISION_RESOLUTION
+  - BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+
+write_boundary:
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-revision1-closing
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-revision1-closing\resources
+  resource_inventory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260822-coupled-agent-sdk-replay-revision1-closing\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+allowed_actions:
+  - Read the frozen Discovery, primary, confirmation and revision1 packages.
+  - Open only decisive current first-party or primary sources needed to attack the stop basis.
+  - Write the independent closing report and handoff under unique_write_directory.
+
+forbidden_actions:
+  - Modify or extend revision1, create a second revision or change the frozen object/estimand/intervention.
+  - Run agents, models, rollouts, SWE-bench, hidden tests, containers, builds, simulations or experiments.
+  - Authorize StageA/B, create another replacement topic, or modify shared control files.
+
+resource_envelope:
+  decisive_routes_max: 8
+  accepted_persisted_bytes_total_max: 67108864
+  cpu_time_max: 1h
+  wall_time_max: 2h
+  system_install: false
+  global_environment_change: false
+  failure_consequence: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+
+required_outputs:
+  - CLOSING_REPORT.md
+  - SOURCE_AND_LOGIC_CHECK.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+next_step:
+  rule: Mainline alone records the final Stage0 state after accepting this independent closing.

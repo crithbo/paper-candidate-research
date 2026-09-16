@@ -1,0 +1,55 @@
+assignment_id: SOURCE-CLOSURE-SOURCE85-S2-CQ01-TVM-RELAX-FUSION-LIFETIME-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+write_owner: ASSIGNED_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source85/S2-bottleneck-transfer/closure-cq01
+parent_assignment: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE85-R40-ORDINARY-BREADTH-V1
+parent_handoff_sha256: E75734E7C5DA392FC7EE3A37813F7FAB68B49C58654537F2CB7FDF415C1292F1
+parent_queue_sha256: 2EC2BCB4D0A88FE071AD4323FBBA20B8F66DDDE18D6BB8588CF67B2A5934208B
+parent_question_card_sha256: 49D57ACBAF275D265266FE321830FC3B1C0BEF84A34C797829E8287DB2457D53
+queue_item: S2-85-CQ01
+queue_status_at_freeze: PENDING_UNEXECUTED__ATTEMPTS_0__NOT_EXHAUSTED
+exact_project: apache/tvm
+deterministic_version_rule: resolve the official refs/heads/main commit SHA at the first counted bounded attempt and pin every retained source to that one SHA
+exact_object: one fixed Relax or TensorIR IRModule lowered through the stock default pipeline to the same stock VMExecutable, with fusion boundaries and static block-memory lifetimes considered jointly under unchanged target, ABI, output, and execution semantics
+primary_routes:
+  - https://api.github.com/repos/apache/tvm/commits/main
+  - https://api.github.com/repos/apache/tvm/git/trees/<resolved_commit_sha>?recursive=1
+  - https://raw.githubusercontent.com/apache/tvm/<resolved_commit_sha>/<deterministically_selected_relax_default_pipeline_or_fusion_source>
+  - https://raw.githubusercontent.com/apache/tvm/<resolved_commit_sha>/<deterministically_selected_static_plan_block_memory_or_allocation_lowering_source>
+  - https://raw.githubusercontent.com/apache/tvm/<resolved_commit_sha>/<deterministically_selected_vm_codegen_or_runtime_contract_source>
+  - https://raw.githubusercontent.com/apache/tvm/<resolved_commit_sha>/<one_fixed_in_tree_relax_or_tir_test_carrier>
+route_selection_rule: after commit pin, select only immediate Relax pipeline/fusion, StaticPlanBlockMemory or allocation lowering, VM codegen/runtime contract, and one in-tree fixed-IR carrier path; record zero matches without absence inference
+required_outputs:
+  - immutable current apache/tvm commit and exact source loci
+  - complete stock fusion plus static-memory/allocation plus VMExecutable action/config/default-nondefault union within the bounded loci
+  - one fixed stock-legal IRModule carrier and two complete legal plans if the in-tree source exposes them
+  - whether a union-external TVM-specific joint action and finite target-specific exact/FPT/approximation/certified guarantee can be frozen
+  - strongest direct current collision and generic packing/pass-selection objection
+  - full-cost dimensions and a finite falsifier route
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_GENERIC_PACKING_PASS_SELECTION__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide_clean_brief_Q2_PASS_STOP_or_stage_state
+  - change_fixed_IRModule_target_VMExecutable_semantics_or_full_cost_endpoint
+  - run_build_install_experiment_or_claim_bearing_observation
+  - clone_repository_or_download_archives
+  - search_outside_exact_project_source_scope
+  - treat_404_zero_match_transport_failure_or_missing_tool_as_absence
+  - read_or_use_Source86_or_later_Discovery_outcomes
+  - read_or_use_Source91_R74_or_OpenXLA_closure_output
+resource_localization:
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source85/S2-bottleneck-transfer/closure-cq01/resources
+  inventory: stages/discovery/round-20260815-adaptive-source85/S2-bottleneck-transfer/closure-cq01/RESOURCE_INVENTORY.yaml
+  max_acquisition_calls: 6
+  max_success_response_bytes_each: 8388608
+  max_persisted_bytes: 16777216
+  max_wall_seconds: 1800
+  pre_call_monotonic_attempt_counter: required
+  eight_standard_subdirectories: required
+model_route: {model: gpt-5.6-terra, reasoning: high}
+notify_mainline_on_finish_or_blocker: true

@@ -1,0 +1,84 @@
+[
+  {
+    "sha": "1377114f8220724206f1f5a770501fda11d8d1e1",
+    "node_id": "C_kwDOAu8KPdoAKDEzNzcxMTRmODIyMDcyNDIwNmYxZjVhNzcwNTAxZmRhMTFkOGQxZTE",
+    "commit": {
+      "author": {
+        "name": "Istvan Kiss",
+        "email": "11085043+neon60@users.noreply.github.com",
+        "date": "2026-07-27T15:27:36Z"
+      },
+      "committer": {
+        "name": "systems-assistant[bot]",
+        "email": "systems-assistant[bot]@users.noreply.github.com",
+        "date": "2026-07-27T15:27:36Z"
+      },
+      "message": "Enable llms generation and per-page download button for HIP\n (#8315)\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n\n## Motivation\n\nMake the HIP documentation more accessible to AI coding assistants and\nagents. rocm-docs-core 1.38.0 introduces LLM-friendly output (llms.txt /\nllms-full.txt) and a per-page Markdown download button. This PR opts HIP\ninto both features so readers and agents can discover the docs via a\nstandard llms.txt index, pull the full documentation as a single file,\nand copy individual pages directly into an AI context window.\n\n## Technical Details\n\nBump rocm-docs-core to 1.38.0 and add the llms extra alongside\napi_reference so llms.txt and llms-full.txt are generated, enable the\nfeature with rocm_docs_generate_llms, and turn on the per-page Markdown\ndownload button.\n\nSpecifically:\n- docs/sphinx/requirements.in: rocm-docs-core[api_reference]==1.33.1 →\nrocm-docs-core[api_reference,llms]==1.38.0. The llms extra is optional\nin 1.38.0 and pulls in sphinx-markdown-builder, which drives the doctree\n→ Markdown conversion.\n- docs/conf.py: set rocm_docs_generate_llms = True, and set\nhtml_theme_options[\"use_download_button\"] = True after the ROCmDocs\nSPHINX_VARS are applied.\n- docs/sphinx/requirements.txt: regenerated with pip-compile in an\nUbuntu / Python 3.12 environment (matching Read the Docs) so no\nWindows-only packages leak in. Adds sphinx-markdown-builder==0.6.10;\nexisting api_reference pins (doxysphinx, sphinxcontrib-doxylink) are\npreserved.\n\n## JIRA ID\n\nAIROCDOC-4080\n\n## Test Plan\n\n- Built the HIP docs locally with a full sphinx -b html build (including\nthe doxygen / api_reference step) using rocm-docs-core 1.38.0 with the\nllms extra installed.\n- Confirmed the generated requirements.txt is free of Windows-only\ndependencies (e.g. pywin32) so the Read the Docs (Ubuntu / Python 3.10)\nbuild resolves cleanly.\n\n## Test Result\n\n- Build succeeded (exit 0).\n- llms.txt (~12 KB) and llms-full.txt (~1.6 MB) generated in the HTML\noutput directory.\n- Per-page Markdown download button renders (dropdown-download-buttons\npresent in the built pages).\n- requirements.txt contains rocm-docs-core[api-reference,llms]==1.38.0\nand sphinx-markdown-builder==0.6.10, with no pywin32.\n\n## Submission Checklist\n\n- [x] Look over the contributing guidelines at\nhttps://github.com/ROCm/ROCm/blob/develop/CONTRIBUTING.md#pull-requests.\n\nCo-authored-by: Claude Sonnet 4 <noreply@anthropic.com>\n[rocm-systems] ROCm/rocm-systems#8315 (commit 701f3bc)",
+      "tree": {
+        "sha": "7bae19958cc640067ae17a274c16dd598598467d",
+        "url": "https://api.github.com/repos/ROCm/hip/git/trees/7bae19958cc640067ae17a274c16dd598598467d"
+      },
+      "url": "https://api.github.com/repos/ROCm/hip/git/commits/1377114f8220724206f1f5a770501fda11d8d1e1",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/ROCm/hip/commits/1377114f8220724206f1f5a770501fda11d8d1e1",
+    "html_url": "https://github.com/ROCm/hip/commit/1377114f8220724206f1f5a770501fda11d8d1e1",
+    "comments_url": "https://api.github.com/repos/ROCm/hip/commits/1377114f8220724206f1f5a770501fda11d8d1e1/comments",
+    "author": {
+      "login": "neon60",
+      "id": 11085043,
+      "node_id": "MDQ6VXNlcjExMDg1MDQz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11085043?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/neon60",
+      "html_url": "https://github.com/neon60",
+      "followers_url": "https://api.github.com/users/neon60/followers",
+      "following_url": "https://api.github.com/users/neon60/following{/other_user}",
+      "gists_url": "https://api.github.com/users/neon60/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/neon60/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/neon60/subscriptions",
+      "organizations_url": "https://api.github.com/users/neon60/orgs",
+      "repos_url": "https://api.github.com/users/neon60/repos",
+      "events_url": "https://api.github.com/users/neon60/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/neon60/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "systems-assistant[bot]",
+      "id": 221163467,
+      "node_id": "BOT_kgDODS6vyw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/21157610?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/systems-assistant%5Bbot%5D",
+      "html_url": "https://github.com/apps/systems-assistant",
+      "followers_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a9e4e97f21a4dd7b1e3b1875139bf001f138bda1",
+        "url": "https://api.github.com/repos/ROCm/hip/commits/a9e4e97f21a4dd7b1e3b1875139bf001f138bda1",
+        "html_url": "https://github.com/ROCm/hip/commit/a9e4e97f21a4dd7b1e3b1875139bf001f138bda1"
+      }
+    ]
+  }
+]

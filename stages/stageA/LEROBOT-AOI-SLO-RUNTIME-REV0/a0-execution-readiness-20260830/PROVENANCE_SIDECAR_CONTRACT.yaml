@@ -1,0 +1,17 @@
+schema: lerobot-aoi-no-wire-provenance-sidecar-v1
+object_commit: 4aaff99be4a1d81568c08c8f0296b41b40c99ec4
+wire_change: false
+origin_key: [echoed_wall_timestamp_exact, observation_timestep]
+capture_value: client_monotonic_capture_seconds
+returned_chunk_match: first_action_echoed_timestamp_and_timestep
+action_sidecar: action_timestep_to_nonzero_contributor_origin_set
+aggregation_contributors:
+  weighted_average: union_old_new
+  latest_only: new_only
+  average: union_old_new
+  conservative: union_old_new
+conservative_execution_age: max_over_nonzero_contributors_of_client_monotonic_execute_minus_client_monotonic_capture
+secondary_weighted_age: allowed_nonclaim_diagnostic_only
+fail_closed: [duplicate_origin_key, missing_origin, ambiguous_chunk_origin, monotonic_rollback, impossible_action_timestep, contributor_set_empty, new_wire_identifier_required]
+policy_action_values_changed: false
+server_client_wall_clock_subtraction: forbidden

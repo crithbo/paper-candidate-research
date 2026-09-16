@@ -1,0 +1,105 @@
+schema_version: "stagea-contract-v8.7"
+assignment_id: "STAGEA-L2-20260811-LLVM-RVV-GROUP-MASK-SPILL-PARETODP-INITIAL-V8.7"
+topic_id: "LLVM-RVV-GROUP-MASK-SPILL-PARETODP"
+lane: "CANDIDATE_EXECUTION_LANE_2"
+stage: "StageA"
+phase: "INITIAL"
+created_at: "2026-08-11T07:48:47+08:00"
+workspace_root: "<LEGACY_LOCAL_PROJECT_ROOT>"
+write_boundary: "<LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/initial"
+
+control_freeze:
+  agents_sha256: "66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063"
+  plan_sha256: "F5C7D04DF32391E3FD958C106BBE41B9A8063F137E7D847230CC5027D295AD22"
+  registry_sha256: "253F93B7A0E39B9AEE80E5E42E728DA43EEC281CE2DCACE0A5EAE97F4A97D934"
+  candidate_owner_rule_sha256: "30E23336CF339771821EAEC8B2C7011025BA815D613DB639E68121FDCDE54D1F"
+  academic_research_suite_sha256: "A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F"
+  assignment_entry_verification:
+    agents: "MATCH"
+    plan: "MATCH_AT_ASSIGNMENT_ENTRY"
+    registry: "MATCH_AT_ASSIGNMENT_ENTRY"
+    candidate_owner_rule: "MATCH"
+  concurrent_control_drift:
+    detected: true
+    treatment: "RECORD_ONLY_DO_NOT_IMPORT_NEW_FACTS"
+    note: >-
+      Mainline changed plan.md and registry.yaml while this frozen assignment was
+      running. The current files continued to name the same assignment and write
+      boundary. Per AGENTS, the assignment keeps its entry freeze until handoff.
+
+upstream_freeze:
+  closing_handoff_sha256: "15E66D9261B52F09DE1B2E72183EA68A14D6A66FD778601D409A4581F824D989"
+  closing_manifest_sha256: "AF909E29D8357EFD9B668E8F595F7CA3322E8BD2661BFDBA441F741478CC3099"
+  closing_manifest_entries: "2/2 VERIFIED"
+  discovery_brief_sha256: "A685791F469B3687CCA828568369A3675FBE4734034BC6A45909188C464C7420"
+  llvm_commit: "5bb2565693f062a9e99929db1814a7a076d4dc76"
+  typed_partial_reference: "llvm/llvm-project PR #105661"
+  typed_partial_status: "UNLANDED_AT_PIN"
+
+frozen_object:
+  target: "LLVM RISC-V V register allocation and mask spilling"
+  candidate: >-
+    Pareto dynamic programming over complete legal whole-register and guarded
+    typed spill actions, preserving VTYPE/VL, ABI, frame, and MachineVerifier
+    semantics.
+  same_object_required: true
+  runtime_claim_permitted: false
+  runtime_claim_reason: "No RVV hardware is authorized or available."
+
+pre_claim_contract_fidelity_gate:
+  mandatory_before_claim_bearing_observation: true
+  all_must_pass:
+    - id: "F1_CURRENT_LLVM_ACTIONS"
+      requirement: >-
+        Pin and hash LLVM 5bb2565693f062a9e99929db1814a7a076d4dc76;
+        enumerate complete current RVV actions; classify PR #105661 as unlanded.
+    - id: "F2_MACHINEVERIFIER_WITNESS"
+      requirement: >-
+        MachineVerifier must reproduce 3x VRM8NoV0 plus live v0 plus eight
+        fractional ordinary VRs, with exact classes/subranges/kills and with
+        split/rematerialization escape excluded.
+    - id: "F3_TYPED_REPLAY"
+      requirement: >-
+        Replay whole and guarded typed semantics including VTYPE/VL, ABI and frame.
+    - id: "F4_QUOTIENT_EQUALITY"
+      requirement: >-
+        On a tiny labeled witness, prove successor and frontier equality between
+        labeled and quotient constructions.
+    - id: "F5_BASELINE_PARITY"
+      requirement: >-
+        Establish parity with the current victim policy and the strongest
+        equal-information baseline.
+  gate_policy: "FAIL_CLOSED"
+  proxy_results_allowed: false
+  current_status: "BLOCKED_BEFORE_F1_EXECUTION"
+
+natural_probe:
+  allowed_only_after_gate_pass: true
+  frozen_trace_count: "10-20"
+  provenance: "public natural traces only"
+  accounting:
+    - "compile wall and CPU time"
+    - "peak RSS"
+    - "spill/reload and frame effects"
+    - "search/planning cost"
+    - "verifier and legality failures"
+    - "fallback cost"
+    - "code-size/static instruction effects"
+    - "variance and double replay"
+  status: "NOT_STARTED__PROHIBITED_BY_FIDELITY_BLOCKER"
+
+resource_and_authority:
+  stageb_authorized: false
+  stageb_user_approval_id: null
+  system_install_authorized: false
+  global_environment_change_authorized: false
+  automation_authorized: false
+  shared_file_write_authorized: false
+  scientific_revision_consumed: false
+  claim_bearing_observation: false
+
+failure_policy:
+  preclaim_resource_failure: "BLOCKED_USER_ACTION_REQUIRED"
+  evidence_ceiling: "RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE"
+  prohibited_outcomes: ["PASS_RECOMMENDED", "STOP_RECOMMENDED", "RESERVE_RECOMMENDED"]
+

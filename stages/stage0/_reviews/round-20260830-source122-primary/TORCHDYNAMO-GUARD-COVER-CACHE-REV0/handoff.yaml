@@ -1,0 +1,125 @@
+schema: handoff-transport-envelope-v2
+topic_id: TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+assignment_id: STAGE0-PRIMARY-20260830-TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+lane_id: STAGE0_PRIMARY
+role_id: STAGE0_PRIMARY
+source_stage: STAGE0
+assignment_state: FROZEN_AWAITING_MAINLINE
+input_freeze_sha256: 1099ACD8B9DB2DA4C6F8ECC7D417768A1E1C09F16D8CC178491BA32599AC077A
+cross_assignment_contamination_declared: false
+
+user_summary_cn:
+  outcome: "PRIMARY 建议 REVISE_ONCE；不是 STOP。受限的 shape-guard coverage/compaction 仍有 Tier-B/Q2 潜力，但当前 packet 不得直接进入 Stage A。"
+  main_reason: "PyTorch 2.13 已覆盖 automatic dynamic、跨运行 PGO、isolate buckets、per-call limits、eager stances、MRU/insertion-order dispatch、guard filtering 和多层持久 cache。它们不构成同一 cost-aware cover+retirement action 的 DIRECT_FATAL，但原 packet 对任意 guard implication 与 downstream artifact ownership 的假设不成立。"
+  next_step: "MAINLINE 验收后交独立 SENTRY；若确认，只允许一次同对象 contract revision，冻结 non-shape guard quotient、ShapeEnv 可证明 implication、compile-unit compatibility 与逻辑/物理 retirement ownership，然后重新 Stage0 closing。"
+  user_action_required: false
+  user_action: null
+
+decision:
+  scientific_verdict: REVISE_ONCE
+  operational_disposition: NONE
+  quality_tier: TIER_B_Q2_VIABLE
+  evidence_ceiling: CURRENT_OFFICIAL_SOURCE_AND_PRIMARY_PAPER_REVIEW__ZERO_CANDIDATE_RESULT
+  claim_bearing_observation_obtained: false
+  scientific_revision_consumed: false
+
+review_scope:
+  search_or_open_calls_used: 17
+  search_or_open_calls_max: 32
+  build_or_experiment: 0
+  implementation: 0
+  resource_action: 0
+  stagea_or_stageb_started: false
+  shared_write: false
+  current_cycle_usage_reset_confirmed: false
+  temporary_model_override: gpt-5.6-sol/high__THIS_COMMAND_ONLY
+
+decisive_findings:
+  direct_fatal: false
+  frozen_upstream: {project: pytorch/pytorch, tag: v2.13.0, release_commit: cf30153, checked: 2026-08-30}
+  current_native_union:
+    - "Dynamo per-code-object/per-isolate-bucket guarded compile-unit lists with first-match lookup and MRU move-to-front"
+    - "recompile_limit=8, accumulated_recompile_limit=256, per-call recompile limits and isolate_recompiles buckets"
+    - "automatic dynamic shapes, mark_dynamic/shapes_spec, automatic_dynamic_exclusion_guard and cross-run local/remote PGO"
+    - "eager_on_recompile, eager_then_compile, aot_eager_then_compile and fail_on_recompile stances"
+    - "guard-filter/skip-guard mechanisms, explicitly unsafe where exact semantics are not guaranteed"
+    - "FxGraphCache multiple guarded symbolic variants plus AOTAutograd/Triton/PGO/autotuning/Mega-Cache artifacts"
+  literature_subtraction:
+    - "PyTorch 2: guarded frame cache and first-match compile-unit dispatch"
+    - "DISC: fully dynamic representation/runtime flow for dynamic-shape workloads"
+    - "Vortex: sample-free hardware-aware dynamic tensor compilation"
+  direct_fatal_failed_predicates: [same_scenario_and_frozen_stream, same_atomic_action, same_retirement_guarantee, same_nonworse_full_cost]
+  residual_kernel: "within one current Dynamo bucket, restricted ShapeEnv-certified cover admission plus compile-unit-compatible logical compaction and separately ownership-audited downstream artifact accounting"
+  first_defect: ARBITRARY_GUARD_IMPLICATION_AND_CROSS_LAYER_RETIREMENT_OWNERSHIP_UNFROZEN
+  semantic_counterexample: "PyTorch issue #166926 shows overlapping valid guard entries can have incompatible saved-activation signatures during activation-checkpoint recomputation; implication alone is not an interchangeability proof."
+  q2_minimum: "at least 12 public models, 3 workload families, result-independent positive/negative streams, CPU plus one public CUDA route, full native baseline union, simple cache and offline oracle"
+  stagea_killer_after_closing: "two public frames from different families, each with 4-8 pre-registered signatures; kill on no nontrivial certified cover pair, any observable/recompute mismatch, no safe same-object retirement hook, or current/simple baselines within 5% of the offline full-cost frontier with no worse peak residency in every witness"
+
+allowed_revision:
+  preserve:
+    - exact_one_torch_compile_frame_and_bucket_object
+    - online_result_independent_signature_stream
+    - past_only_information_contract
+    - exact_PyTorch_semantics
+    - cumulative_compile_execution_dispatch_and_residency_endpoint
+    - public_CPU_single_GPU_resource_ceiling
+  required_delta:
+    - quotient_all_non_shape_type_identity_global_state_and_side_effect_guards_by_exact_equality
+    - restrict_implication_to_solver_certified_ShapeEnv_predicates
+    - freeze_compile_unit_compatibility_oracle_including_outputs_side_effects_autograd_and_recomputation
+    - separate_logical_Dynamo_entry_retirement_from_physical_Inductor_Triton_CUDAGraph_artifact_reclamation
+    - require_sole_owner_refcount_proof_before_any_physical_reclamation_claim
+    - freeze_complete_PyTorch_2_13_baseline_grid_and_Q2_panel_denominator
+  forbidden_delta:
+    - arbitrary_guard_dropping_or_unsafe_filter_as_primary
+    - generic_cache_eviction_or_set_cover_without_TorchDynamo_semantics
+    - proxy_only_simulation_supporting_PASS
+    - result_dependent_trace_model_or_cell_selection
+    - artifact_memory_savings_without_ownership_evidence
+    - StageA_before_independent_revision_closing
+  revision_consumed_now: false
+
+artifact_pointers:
+  canonical_report:
+    path: stages/stage0/_reviews/round-20260830-source122-primary/TORCHDYNAMO-GUARD-COVER-CACHE-REV0/STAGE0_REPORT.md
+    sha256: C90F9B68C1CE7B6F041560F8306105FD765FB93BFAD7D62F6D09CDFA7F2328F1
+  raw_or_decisive_evidence:
+    - "STAGE0_REPORT.md#collision-analysis"
+    - "STAGE0_REPORT.md#independent-current-upstream-reality-check"
+    - "STAGE0_REPORT.md#stage-a-highest-risk-probe-plan"
+  comparator_or_full_cost:
+    - path: stages/stage0/_reviews/round-20260830-source122-primary/TORCHDYNAMO-GUARD-COVER-CACHE-REV0/q1_calibration.md
+      sha256: B5EEB123640CC1A23539E1E3B563C1684D12ACF1AF337C84018D1BF4BE9B0A67
+    - "STAGE0_REPORT.md#named-baselines-and-fairness-contract"
+    - "STAGE0_REPORT.md#performance-optimization-admissibility"
+  independent_review: {path: null, sha256: null}
+  resource_inventory: {path: null, sha256: null}
+  lifecycle_or_retention: {path: null, sha256: null}
+  capsule_or_resume: {path: null, sha256: null}
+
+blocker:
+  kind: null
+  user_blocker_packet: null
+  resume_directory: null
+  attempts_or_routes_exhausted: null
+
+next_gate:
+  proposed_stage_or_gate: STAGE0_SENTRY
+  exact_action: "independently verify no eight-predicate direct fatal, the arbitrary-guard/ownership first defect, bounded same-object revision eligibility, Tier-B breadth and post-closing Stage-A killer"
+  authority_required: MAINLINE
+  stageb_user_approval_id: null
+
+stage0_repair_vector:
+  codes: [OMITTED_FIRST_PARTY_FEATURE, ATOMIC_ACTION_UNCLEAR, FULL_COST_GAP, Q2_SHAPE_GAP]
+  available_before_cutoff: true
+  decision_effect: NONE_NONDECISIONAL_FEEDBACK
+
+file_hashes:
+  ASSIGNMENT_CONTEXT.yaml: 1099ACD8B9DB2DA4C6F8ECC7D417768A1E1C09F16D8CC178491BA32599AC077A
+  BOOTSTRAP_ACK.yaml: EC057E02CEE6FD10163918921BD42AD38E566E08B9E3FC1AE3C640EA75ABE13F
+  MAINLINE_BOOTSTRAP_ACCEPTANCE.yaml: 61B6728A66D17E4EEC6858C06FDA3742F5598E0BB94A0859B610C0ED2C022E17
+  MAINLINE_START.yaml: CDD1CF6819FDA4406428D0A9D3E3A59EFAC2CCB4ADD161958C23330B65C8D9E5
+  STAGE0_REPORT.md: C90F9B68C1CE7B6F041560F8306105FD765FB93BFAD7D62F6D09CDFA7F2328F1
+  q1_calibration.md: B5EEB123640CC1A23539E1E3B563C1684D12ACF1AF337C84018D1BF4BE9B0A67
+hash_manifest_file: HASH_MANIFEST.sha256
+

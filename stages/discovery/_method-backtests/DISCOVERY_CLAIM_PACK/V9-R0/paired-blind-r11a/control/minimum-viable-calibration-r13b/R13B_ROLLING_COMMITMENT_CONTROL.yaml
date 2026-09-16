@@ -1,0 +1,55 @@
+schema: R11A_R13B_ROLLING_COMMITMENT_CONTROL_V1
+approval_id: R11A-MINIMUM-VIABLE-CALIBRATION-20260813-R13B
+normalization_profile: R11A-STABLE-FAMILY-IDENTITY-NORM-V1
+normalization_profile_sha256: 515B641D52328FC916078B1999ABD03A5FDC8B5581865FB7AE90ECD5AE3FB434
+hash_algorithm: SHA-256
+existing_raw_count: 4
+existing_unique_count: 4
+total_raw_ceiling: 88
+total_unique_ceiling: 72
+maximum_new_batches: 4
+batches:
+  - batch_id: R13B-01
+    raw_lead_cap: 24
+    unique_commitment_cap: 20
+    cumulative_raw_cap: 28
+    cumulative_unique_cap: 24
+  - batch_id: R13B-02
+    raw_lead_cap: 24
+    unique_commitment_cap: 20
+    cumulative_raw_cap: 52
+    cumulative_unique_cap: 44
+  - batch_id: R13B-03
+    raw_lead_cap: 24
+    unique_commitment_cap: 20
+    cumulative_raw_cap: 76
+    cumulative_unique_cap: 64
+  - batch_id: R13B-04
+    raw_lead_cap: 12
+    unique_commitment_cap: 8
+    cumulative_raw_cap: 88
+    cumulative_unique_cap: 72
+mandatory_order:
+  - PUBLIC_IDENTITY_PREFLIGHT
+  - LOCAL_NORMALIZATION_AND_CROSS_BATCH_DEDUP
+  - IMMUTABLE_OPAQUE_COMMITMENT_AND_MANIFEST
+  - MAINLINE_PRIVATE_R12A_DENYLIST_INTERSECTION
+  - RESTRICTED_PACKER_VISIBLE_MATCH_RESULT
+  - FULL_SOURCE_QUALIFICATION_FOR_NONMATCH_ONLY
+  - PACKER_CHECKPOINT
+  - MAINLINE_MECHANICAL_BATCH_GATE
+handling:
+  duplicate_unhashable_or_ambiguous: REJECT_PRECOMMIT__CONSUME_RAW_ONLY
+  prior_identity_match: EXCLUDE_POST_INTERSECTION__CONSUME_UNIQUE__NO_SOURCE_QUALIFICATION
+  source_contract_unclosed: NOT_ELIGIBLE__CONSUME_UNIQUE__NO_SCIENTIFIC_INFERENCE
+  collision_distinct_preimages_same_digest: HASH_COLLISION_FATAL
+no_unused_cap_transfer: true
+fifth_replacement_or_post_executor_batch: forbidden
+mainline_gate_required_after_each_batch: true
+stop_when:
+  - SOURCE_QUALIFIED_BLIND_POOL_REACHES_36
+  - RAW_OR_UNIQUE_CAP_EXHAUSTED
+  - ORIGINAL_RESOURCE_ENVELOPE_EXHAUSTED
+below_24_result: FAILED_NOT_DISPATCHABLE__BLIND_CORE_UNCLOSED__NO_SCIENTIFIC_INFERENCE
+qualified_24_to_35: SEAL_24_CORE_PLUS_ONLY_COMPLETE_BALANCED_RESERVE_TRANCHES
+

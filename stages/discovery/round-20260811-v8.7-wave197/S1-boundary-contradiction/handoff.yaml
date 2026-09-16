@@ -1,0 +1,35 @@
+schema: discovery-handoff-v8.7-r5-p0
+assignment_id: DISCOVERY-S1-20260811-V8.7-WAVE197-RISCV-VSTART-RESTART-STATE-DEPTH
+lane: S1-boundary-contradiction
+frozen_date: '2026-08-11'
+rule_revision: v8.7+R5-P0
+discovery_quality_mode: OFF
+post_dispatch_mainline_advancement:
+  plan_sha256: 17FB33BEC9564ACF995C0E6A90E30A67F11758402743A2754E09C1262BCB8BF8
+  registry_sha256: F44FFB7A20546CA853A25AC15737A2CECD6A27134D4F94FC3785C48C37328208
+  effect_on_this_assignment: provenance_only_no_rule_or_contract_change
+scope: RISC-V Vector vstart, fault-only-first, trap/restart, and call-boundary state seam
+counts:
+  raw_screen_row_events: 1
+  unique_opportunity_families: 1
+  candidate_grade_deep_reviews: 1
+  propose_stage0: 0
+  drop: 1
+outcome: COMPLETE_ZERO_PROPOSALS
+briefs: []
+structural_drop:
+  id: U01-RVV-VSTART-RESTART-STATE
+  reason: Current psABI requires vstart zero at call boundaries, while same-object loop restart is already ISA-defined hardware semantics; a cross-call carrier changes ABI or exception/runtime object.
+  not_a_resource_or_readiness_drop: true
+finite_killer_not_run:
+  carrier: official FOF strlen-style loop with a mapped/unmapped page boundary
+  oracle: fixed-ISA trace plus psABI vstart-zero boundary checks in Spike/QEMU
+  full_cost: compile_time,binary_size,dynamic_work,trap_restart_work,emulated_runtime,stack_RSS
+prohibited_actions_not_performed:
+  - experiment
+  - benchmark
+  - large_asset_download
+  - Stage0_A_B_creation
+  - shared_control_write
+  - E_drive_reference
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,41 @@
+schema: user-authorized-transport-retry-failure-v1
+created_at: 2026-08-26T15:38:00Z
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A3-CURL
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+A3_contract: {path: A3_CURL_TRANSPORT_RETRY.yaml, sha256: CF44DD23403F7F9148A30BBB5ADE6D36A5FAB220F6DDEFFC40F7437EEC2D1EF5}
+A3_acceptance: {path: A3_MAINLINE_ACCEPTANCE.yaml, sha256: 746422CD34A70DBC2CE8F28AF1A10D8C36897A5F446CD3C31CA6AF5FD68FC02F}
+decision: FAIL_CLOSED__A3_CURL_SCHANNEL_CREDENTIAL_FAILURE__USER_AUTHORIZED_RETRY_EXHAUSTED
+failure_class: EXTERNAL_TRANSPORT_OR_AUTHENTICATION_BLOCKER
+A3_curl_attempt:
+  command: curl.exe --fail --silent --show-error --max-redirs 0 --output resources/archives/cmake-3.31.6-windows-x86_64.zip https://cmake.org/files/v3.31/cmake-3.31.6-windows-x86_64.zip
+  official_source: cmake.org/files/v3.31
+  redirects_allowed: 0
+  result: NONZERO_EXIT_35
+  error: "schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS (0x8009030e)"
+  attempts: 1
+  retry_attempted: false
+  alternate_endpoint_or_artifact_attempted: false
+  alternate_client_or_tls_bypass_attempted: false
+subsequent_steps:
+  SHA256_validation_started: false
+  extraction_started: false
+  portable_cmake_version_started: false
+  parent_S2_through_S7_started: false
+resource_state:
+  archive_exists: false
+  archive_bytes: 0
+  resource_files: 0
+  resource_logical_bytes: 0
+  reparse_entries: 0
+  cleanup_actions: 0
+scientific_boundary:
+  author_artifact_preclaim_fidelity_started: false
+  natural_or_canonical_probe_started: false
+  claim_bearing_observation: false
+  scientific_inference: NONE
+  scientific_revision_consumed: false
+  production_candidate_registration: false
+  production_state_transition: false
+  stageB: false
+  gold_or_blind_input_read: false
+required_mainline_disposition: EXTERNAL_TRANSPORT_BLOCKER__NO_THIRD_PATH_WITHOUT_NEW_USER_AUTHORIZATION

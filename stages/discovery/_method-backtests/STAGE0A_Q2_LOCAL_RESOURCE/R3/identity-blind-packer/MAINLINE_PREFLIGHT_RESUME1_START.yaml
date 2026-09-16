@@ -1,0 +1,12 @@
+schema_version: mainline-r3-preflight-resume1-start-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+acceptance_sha256: A6B1CA8C7DC89FFCAF9898C6C600F319D883848BA91B87FC7460C61315ACE2F0
+start_authorized: true
+model_route: {model: gpt-5.6-terra, thinking: medium}
+phase: A_ONLY
+allowed_actions: [one_official_static_metadata_and_public_evidence_route_check_for_each_24_frozen_candidates, write_complete_24_row_CANDIDATE_PREFLIGHT_LEDGER, seal_phase_A_handoff]
+network_allowlist: [official_publisher, official_proceedings, author_page, arxiv, openreview]
+resource_limits: {source_attempts_max: 24, stored_bytes_max: 67108864, code_or_artifact_downloads_max: 0}
+explicit_stop_after: PHASE_A_HANDOFF
+forbidden: [phase_B_selection, full_paper_evidence_extraction, packet_creation, gold_expected_label_access, scoring, code_artifact_binary_download, build, probe, experiment, production_candidate_registration, StageB]
+context_plan_registry_mutation_during_run: false

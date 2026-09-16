@@ -1,0 +1,43 @@
+assignment_id: DISCOVERY-S4-20260815-ADAPTIVE-SOURCE45-CANONICAL-BASELINE-AFTER-BRIDGE-V1
+lane: S4_OBJECTIVE_CONSTRAINT
+write_directory: stages/discovery/round-20260815-adaptive-source45/S4-objective-constraint
+frozen_inputs:
+  common_control_sha256: 348DE39508582813EFF8E75D0E03F7D86F4428EF504EF33B6953E54A4C2AEDB3
+  assignment_sha256: F1DC58864FD458B6DEB661896B16BBEE0A9FD6E469BC022ACDB71FDAD4BC7ACF
+  role_discovery_sha256: 1A5E750718D589F0654B1867BC4ACC6B61BCE505E445CDD571FAA28A4B596C37
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+method:
+  canonical: V8_7_POTENTIAL_READINESS_SEPARATED
+  rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  model_route: gpt-5.6-terra__high
+  modes_off: [DISCOVERY_CLAIM_PACK, V9, SHADOW, SOL_PACKET, SOURCE44_OWNERSHIP_BRIDGE]
+funnel:
+  divergence_seeds: 12
+  selected_frames: 3
+  rq_variants: 6
+  evidence_qualified_raw: 0
+  deep_reviews: 0
+  briefs: 0
+identity_preflight:
+  excluded_without_external_delta:
+    - SOURCE43_SWIFT_ASYNC_CONTEXT_FORWARDING
+    - SOURCE43_LLVM_BYREF_INVOKE
+    - SOURCE43_AMDGPU_GFX12_GLOBAL_LOAD_LDS
+    - SOURCE44_RVV_VXRM_INTERPROCEDURAL
+  related_only_is_not_exclusion: true
+  no_match_is_not_novelty: true
+closure_queue:
+  path: SOURCE_CLOSURE_QUEUE.yaml
+  concrete_items: 1
+  attempt_counter: 3
+  final_state: OPEN_BOUNDED__TOOL_EMPTY_RESPONSE__NO_SCIENTIFIC_INFERENCE
+  exhausted: false
+  other_rqs: LOCATOR_ONLY__RQ_BACKLOG
+resources:
+  inventory: RESOURCE_INVENTORY.yaml
+  filesystem_resource_actions: 0
+  read_only_source_attempts: 3
+final_disposition: COMPLETE_ZERO_PROPOSALS
+summary_zh: Source45 回到常规 canonical baseline。唯一单项目官方来源闭合路线已按预调用计数尝试3次，但未返回可持久化页面内容；不据此推断当前缺口或负结论。其余方向无单项目载体，故无raw、无brief。
+notify_mainline: required_on_completion
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

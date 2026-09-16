@@ -1,0 +1,164 @@
+schema_version: stagea-revision-experiment-contract-v1
+topic_id: S6-JS-PREFIXBOUND
+stage: STAGEA_REVISION1
+revision_gate: CONTRACT_FAITHFUL_COSTED_NONVACUITY_GATE
+frozen_at: 2026-08-09T15:00:00+08:00
+
+assignment:
+  lane_id: CANDIDATE-EXECUTION-LANE-1
+  assignment_id: STAGEA-L1-20260809-S6-JS-PREFIXBOUND-R1
+  write_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S6-JS-PREFIXBOUND\revision1
+  no_preread_of_other_candidates: true
+  cross_assignment_contamination: false
+  initial_handoff_sha256: 7E5F1C6B76714F3817DD348B1C57A70D6EFFCF9E9EC795E5D6F242E3FE7404F8
+  gate_handoff_sha256: 9C43D3BF0C652BAE44A1B1D7C0B8D1B4C37BC4D98E5F772E00C64496B2D6A654
+  stageb_user_approval_id: null
+  stageb_authorized: false
+
+authority:
+  stagea_revision_execution_allowed: true
+  stageb_authorized: false
+  workload_expansion_allowed: false
+  object_change_allowed: false
+  formal_large_scale_experiment: false
+  shared_project_write: false
+  network_during_probe: false
+
+object:
+  name: DPOMEGA_LEVEL_MERGE_JOIN_JOIN_AND_SORT_CORE
+  source: https://doi.org/10.1007/s00778-025-00906-y
+  query: conjunctive_equi_join_with_optional_final_order_Omega
+  plan_space: connected_bushy_binary_join_trees_without_cartesian_products
+  physical_join: merge_join_only
+  output_order_rule: chosen_permutation_of_the_cross_cut_join_attribute_set
+  objective: sum_of_join_output_cardinalities_plus_input_partial_sort_costs_plus_final_Omega_sort
+  unchanged:
+    - relation_and_attribute_equivalence_classes
+    - connected_bushy_plan_space
+    - legal_merge_key_permutations
+    - frozen_cardinality_and_NDV_profile
+    - final_output_order_Omega
+    - global_minimum_estimated_join_and_sort_cost
+
+formalization:
+  state: "(S, o, g), with connected subset S, output order o, and exact accumulated cost g"
+  future_demand_set: "D_S contains every permutation of every nonempty cross-cut join-key set; D_R contains Omega when nonempty"
+  full_vector_signature: "Sigma_S(o) is the ordered vector over D_S of demand, LCP(o,d), and exact uniform-segment sort cost"
+  quotient_rule: "retain minimum g per exactly equal Sigma_S(o)"
+  bound: "h=max(h_join,h_sort), with exact order-free join-only completion and minimum unavoidable next/final sort"
+  compact_pivot: "construct the identical full-vector equality relation, intern exact-equal vectors to contiguous class ids per subset, then retain a class-id-indexed cost/representative array while discarding the temporary vector map"
+  compact_equivalence_requirement: "for every reached (S,o1,o2), compact_class_id equality iff full_vector equality"
+
+inputs:
+  exhaustive_family:
+    relation_counts: [3, 4]
+    relation_labels: [R0, R1, R2, R3]
+    join_attribute_alphabet: [A, B]
+    edge_key_choices: [[A], [B], [A, B]]
+    graph_scope: every_connected_labeled_simple_graph
+    edge_label_scope: every_assignment_of_a_nonempty_key_choice_to_each_edge
+    final_orders: [[], [A], [B], [A, B], [B, A]]
+    cardinality_formula: "card(S)=32+7*mask(S)+3*|S|"
+    ndv_A_formula: "ndv(S,A)=min(card(S),2+mask(S)%5)"
+    ndv_B_formula: "ndv(S,B)=min(card(S),3+(mask(S)*2)%7)"
+    expected_instance_count: 19440
+  natural_structure_probe:
+    name: JOB_4a
+    local_file: ..\inputs\JOB_4a.sql
+    expected_bytes: 450
+    expected_sha256: C80E515F37A633ADCA3AB45BBD5CBA20E760C80A71D7841B51E64154B1008065
+    use: natural_SQL_join_graph_and_equivalence_class_structure_only
+    cost_profile: same_frozen_proxy_formulas_as_formal_family
+    attribute_formula_mapping: "ECk uses A formula when k is even and B formula when k is odd"
+    claim_limit: no_natural_cardinality_runtime_or_DBMS_performance_claim
+
+fair_controls:
+  exact: unquotiented_exact_order_state_DP_on_identical_object
+  quotient_full_vector: exact_full_vector_key_with_every_construction_and_table_operation_counted
+  quotient_compact: allowed_once_only_if_full_vector_has_no_positive_deterministic_residual
+  bound: audit_only_not_used_for_pruning_and_costed_separately
+  dpomega: authoritative_definition_only_not_executable_fidelity
+
+measurement:
+  phases:
+    - exact_control
+    - full_vector_quotient
+    - compact_equivalent_quotient_if_triggered
+    - future_equivalence_audit
+    - bound_oracle_audit
+  each_search_phase:
+    - wall_time_seconds
+    - process_cpu_time_seconds
+    - peak_incremental_tracemalloc_bytes
+    - state_count
+    - transition_count
+    - canonical_retained_payload_bytes
+    - logical_work_ledger
+  logical_work_unit_fields:
+    - transition_evaluations
+    - sort_cost_invocations
+    - table_lookups
+    - key_hashes
+    - key_compares
+    - table_writes
+    - signature_invocations
+    - signature_vector_elements
+    - signature_normalizations
+    - compact_class_assignments
+    - bound_evaluations
+    - bound_oracle_calls
+    - bound_oracle_transitions
+  logical_work_total: unweighted_sum_of_all_logical_work_unit_fields
+  lookup_accounting: one logical lookup and one logical key hash per explicit table probe; one logical key comparison when a prior entry is present
+  signature_accounting: every request increments invocation; every materialized demand component increments vector_elements and normalization
+  retained_bytes_definition: UTF8_bytes_of_canonical_JSON_records_for_every_frozen_table_entry_and_every_persistent_metadata_record; ephemeral construction maps count toward peak memory but contribute zero retained bytes after disposal
+  bound_retained_bytes: 0
+  volatile_replay_fields:
+    - phase_costs.*.wall_time_seconds
+    - phase_costs.*.process_cpu_time_seconds
+    - phase_costs.*.peak_incremental_tracemalloc_bytes
+    - total_wall_time_seconds
+    - total_process_cpu_time_seconds
+    - overall_peak_tracemalloc_bytes
+
+predeclared_residual_gate:
+  exact_reference: exact_control
+  candidate_full_cost_work: quotient_search_logical_work_total_plus_bound_oracle_logical_work_total
+  work_residual_units: exact_search_logical_work_total_minus_candidate_full_cost_work
+  retained_residual_bytes: exact_canonical_retained_payload_bytes_minus_candidate_frozen_retained_payload_bytes_minus_bound_retained_bytes
+  positive_local_residual: work_residual_units_strictly_positive_OR_retained_residual_bytes_strictly_positive
+  time_and_peak_ram: descriptive_only_not_sole_positive_gate
+  full_vector_absorbed: full_vector_work_residual_units_le_0_AND_full_vector_retained_residual_bytes_le_0
+  compact_trigger: full_vector_absorbed
+  compact_attempt_limit: 1
+  pass_requires:
+    - zero_full_vector_optimum_mismatches
+    - zero_compact_optimum_mismatches_if_compact_runs
+    - zero_compact_equivalence_mismatches_if_compact_runs
+    - zero_bound_overestimates
+    - exact_formal_and_JOB_object_unchanged
+    - at_least_one_positive_deterministic_local_residual_for_selected_representation
+    - dual_replay_all_nonvolatile_fields_exact_match
+  stop_recommended_if:
+    - any_optimum_mismatch
+    - any_compact_equivalence_mismatch
+    - any_bound_overestimate
+    - full_vector_absorbed_and_compact_has_no_positive_deterministic_local_residual
+
+commands:
+  python: <LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe
+  syntax: "python -m py_compile run_revision.py validate_replay.py"
+  primary: "python run_revision.py --contract REVISION_EXPERIMENT_CONTRACT.yaml --output artifacts/revision_primary.json"
+  replay: "python run_revision.py --contract REVISION_EXPERIMENT_CONTRACT.yaml --output artifacts/revision_replay.json"
+  validate: "python validate_replay.py artifacts/revision_primary.json artifacts/revision_replay.json"
+  timeout_seconds_each: 1800
+
+claim_ceiling:
+  positive: FINITE_CONTRACT_FAITHFUL_COSTED_NONVACUITY_PRELIMINARY_SUPPORT
+  negative: STOP_RECOMMENDED_FOR_NO_BOUNDED_SAME_OBJECT_RESIDUAL
+  forbidden:
+    - UNBOUNDED_THEOREM_ESTABLISHED
+    - DPOMEGA_EXECUTABLE_FIDELITY_ESTABLISHED
+    - DBMS_PERFORMANCE_ESTABLISHED
+    - NATURAL_COST_OR_CARDINALITY_PERFORMANCE_ESTABLISHED
+    - STAGEB_AUTHORIZED

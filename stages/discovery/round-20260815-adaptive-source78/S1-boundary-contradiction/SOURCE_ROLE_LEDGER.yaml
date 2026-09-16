@@ -1,0 +1,19 @@
+sources:
+  - role: ANCHOR_AND_CURRENT
+    url: https://pkg.go.dev/runtime
+    version_or_date: current Go runtime page observed 2026-08-15
+    finding: KeepAlive prevents finalizer execution before its program point; documented syscall example gives a real external-resource carrier.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - role: CURRENT_SOURCE
+    url: https://go.dev/src/runtime/mfinal.go
+    version_or_date: current source observed 2026-08-15
+    finding: KeepAlive introduces a use the compiler cannot eliminate; source documents the early-finalization case.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - role: CONTRARY
+    url: https://go.dev/src/cmd/compile/internal/liveness/
+    version_or_date: current compiler source directory observed 2026-08-15
+    finding: current compiler has ordinary liveness machinery; no automatic-finalizer claim follows from this locator.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY

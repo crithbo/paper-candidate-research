@@ -1,0 +1,10 @@
+schema: ppc-r7-command-precommit-v1
+recorded_before_actions: true
+commands:
+  - {id: C1, kind: corpus_copy, attempt: 1/1, source: r6/resources, destination: resources/src/r6_input}
+  - {id: C2, kind: toolchain_copy, attempt: 1/1, source: r2/resources/env/ppc-toolchain, destination: resources/env/ppc-toolchain}
+  - {id: I1, kind: implementation, files_max: 12, destination: resources/src/claim_harness}
+  - {id: S1, kind: synthetic_smoke, command: bundled_python resources/src/harness/run_preclaim.py, replays: 2, tool_records_max: 180, selected_corpus_inputs: 0}
+selected_or_reserve_tool_invocations: 0
+claim_runs: 0
+retry: false

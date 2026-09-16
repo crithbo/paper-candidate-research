@@ -1,0 +1,84 @@
+[
+  {
+    "sha": "4b824dff90ab4b6e969b53c5bb81e9c9285434c3",
+    "node_id": "C_kwDOJDyCSdoAKDRiODI0ZGZmOTBhYjRiNmU5NjliNTNjNWJiODFlOWM5Mjg1NDM0YzM",
+    "commit": {
+      "author": {
+        "name": "Matt Arsenault",
+        "email": "arsenm2@gmail.com",
+        "date": "2026-07-29T17:35:10Z"
+      },
+      "committer": {
+        "name": "systems-assistant[bot]",
+        "email": "systems-assistant[bot]@users.noreply.github.com",
+        "date": "2026-07-29T17:35:10Z"
+      },
+      "message": "SWDEV-548892 - Partially avoid using ockl workitem ID\n functions (#2439)\n\nThe same functions are already directly implemented in clang. The\ndevelopment history is messy. The builtins should implement both the\nCOv4 or COv5+ ABI depending on the compiler flag, but we somehow ended\nup with versioned ABI paths in both the OCKL functions which are also\npartially implemented with these builtins. It's simplest to just use the\nbuiltin.\n\nThis also drops the handling of the global offset from the\n__hip_get_block_dim_{x|y|z} functions, and hc_get_workitem_absolute_id.\nThis is an OpenCL feature and I do not think is accessible from HIP, so\nthis is theoretically faster.\n\nI'm also not sure if there's any reason for hc_get_workitem_absolute_id\nto still exist. There are no references to it in the repo, besides this\ndefinition.\n\nLeaves __ockl_get_num_groups alone for now. The replacement should be\n`__builtin_amdgcn_grid_size_x() / __builtin_amdgcn_workgroup_size_x()`.\nHowever, that needs to be accompanied by an optimization to turn that\ninto a load from the new ABI location which apparently hasn't been\nimplemented yet.\n[rocm-systems] ROCm/rocm-systems#2439 (commit d25a2bc)",
+      "tree": {
+        "sha": "5d3daab32e7e9129f2c90128c77647a27addb717",
+        "url": "https://api.github.com/repos/ROCm/clr/git/trees/5d3daab32e7e9129f2c90128c77647a27addb717"
+      },
+      "url": "https://api.github.com/repos/ROCm/clr/git/commits/4b824dff90ab4b6e969b53c5bb81e9c9285434c3",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/ROCm/clr/commits/4b824dff90ab4b6e969b53c5bb81e9c9285434c3",
+    "html_url": "https://github.com/ROCm/clr/commit/4b824dff90ab4b6e969b53c5bb81e9c9285434c3",
+    "comments_url": "https://api.github.com/repos/ROCm/clr/commits/4b824dff90ab4b6e969b53c5bb81e9c9285434c3/comments",
+    "author": {
+      "login": "arsenm",
+      "id": 138339,
+      "node_id": "MDQ6VXNlcjEzODMzOQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/138339?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/arsenm",
+      "html_url": "https://github.com/arsenm",
+      "followers_url": "https://api.github.com/users/arsenm/followers",
+      "following_url": "https://api.github.com/users/arsenm/following{/other_user}",
+      "gists_url": "https://api.github.com/users/arsenm/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/arsenm/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/arsenm/subscriptions",
+      "organizations_url": "https://api.github.com/users/arsenm/orgs",
+      "repos_url": "https://api.github.com/users/arsenm/repos",
+      "events_url": "https://api.github.com/users/arsenm/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/arsenm/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "systems-assistant[bot]",
+      "id": 221163467,
+      "node_id": "BOT_kgDODS6vyw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/21157610?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/systems-assistant%5Bbot%5D",
+      "html_url": "https://github.com/apps/systems-assistant",
+      "followers_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/systems-assistant%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "84c5b0527150fc190155d4cfd4413416ea8c1fec",
+        "url": "https://api.github.com/repos/ROCm/clr/commits/84c5b0527150fc190155d4cfd4413416ea8c1fec",
+        "html_url": "https://github.com/ROCm/clr/commit/84c5b0527150fc190155d4cfd4413416ea8c1fec"
+      }
+    ]
+  }
+]

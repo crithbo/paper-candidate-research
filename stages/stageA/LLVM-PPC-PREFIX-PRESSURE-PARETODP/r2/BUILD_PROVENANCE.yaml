@@ -1,0 +1,59 @@
+schema: build-provenance-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R2-OFFICIAL-REDIRECT-COMPATIBLE-EXACT-TOOLCHAIN
+exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+source_archive: {path: resources/downloads/llvm-project-f127b4c19c63b0492fb924934e37e032c17ea35b.tar.gz, bytes: 280166423, sha256: C7871896611513E3E850818A7E5C6B0C600BE60BA46260105602EB9BFBD651CF}
+source_extraction: {attempts: 1, result: PASS, result_sha256: FBDB239BD5BCA2584BA17763A43E04AC83A23791DD0C4ACBC9FA180176B49978, logical_root: resources/src/s, ordinary_files: 181559, ordinary_bytes: 2265353248, archive_symlinks_materialized_without_reparse: 19}
+tool_extraction: {attempts: 1, result: PASS, result_sha256: 0C7900CCD2AB0F2EACB6521CBD9B423DEB00ADCEF61465360B5A81FD8883FA80, logical_root: resources/env/t, ordinary_files: 13669, ordinary_bytes: 839345887}
+bootstrap_toolchain: {asset: llvm-mingw-20260616-ucrt-x86_64.zip, sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35, clang_version: 22.1.8, clang_commit: ca7933e47d3a3451d81e72ac174dcb5aa28b59d1, target: x86_64-w64-windows-gnu}
+cmake: {version: 4.4.2, path: resources/env/t/cmake/data/bin/cmake.exe, asset_sha256: C28388FE95298486169C45C0EC8BDF067AABCB59273B98A4CDAE8BE5CD9C74F3}
+ninja: {version: 1.13.0.git.kitware.jobserver-pipe-1, path: resources/env/t/ninja-1.13.0.data/scripts/ninja.exe, asset_sha256: FB8EE8719F8AF47FED145CCED4A85F0755DD55D45B2BDDAF7431FA89803C5F3E}
+configuration:
+  generator: Ninja
+  build_type: Release
+  assertions: true
+  llvm_targets_to_build: PowerPC
+  llvm_enable_projects: lld
+  llvm_build_utils: true
+  tests_examples_benchmarks_docs_bindings: disabled
+  optional_external_libraries: disabled
+configure:
+  attempts_used: 1
+  result: PASS
+  log_path: resources/logs/configure.log
+  log_sha256: 58DCE968580BB5CF44CBFF3E5348CA91003C2165F042AEC8F2FC90630AF36B2C
+  generated_object_outputs: 2498
+  longest_object_directory_characters: 178
+  path_gate: PASS_178_LT_240
+configure_attempts_used: 1
+build_jobs: 2
+source_patch_or_commit_change: false
+clean_build:
+  attempts_used: 1
+  jobs: 2
+  result: PASS_2826_OF_2826
+  exit_code: 0
+  log_path: resources/logs/build.log
+  log_sha256: 637CA65E1A6FE66ABDFE9FDBFA451DBE46F7BFD7D96FBF6180AED4C1C2BB5028
+clean_build_attempts_used: 1
+required_tools:
+  - {name: llc.exe, bytes: 68959744, sha256: 706EACEC5579CE3B1FD09AA57B0CCB0442B9B9182C4938081F033CC2A076A7CB}
+  - {name: llvm-mc.exe, bytes: 3495936, sha256: A8CDF6776E681C28652F8019DAA312D209CC88B0D2C5A0AB09ACAAC4F9AE974F}
+  - {name: llvm-objdump.exe, bytes: 11058688, sha256: AD4B570AC01C0E30A69012740DC9E04322100C12D5D12343F7B051BED315FFCE}
+  - {name: llvm-readobj.exe, bytes: 10742272, sha256: 485FAC4BC5B262BCB980D35DD912C3D3D24D5EB7F57B45D7DFCAE85078947A94}
+  - {name: opt.exe, bytes: 68722688, sha256: 7A7A1A2B80D5FCD6B618B679AB4DDFCB2682C151097894E046D1B982607143B9}
+  - {name: FileCheck.exe, bytes: 1054208, sha256: 281C52B21118259E92EB290340522530AD8FC45DB8FF105420EAB5842AB1E809}
+  - {name: ld.lld.exe, bytes: 76922880, sha256: DA0B35A697D3354E276377EA21925BE9FBE4E1C237F4800FA75ED93751B0259C}
+runtime_dlls:
+  - {name: libc++.dll, bytes: 2095104, sha256: 952B41B1370DDB5E7299CC9FCEFCE2AD8C2021409948B057EC4D903C03760B6C}
+  - {name: libunwind.dll, bytes: 204288, sha256: 8D9F60801F50C0A6CB7BEB7FD2E121F98BF39EBE40E6C7E07A8A39FCCB817C03}
+nonclaim_smoke:
+  result: PASS
+  result_path: resources/logs/nonclaim_smoke_result.json
+  result_sha256: B784BB7603D8F648CB118D0DC38F0F83840E9280C11C82B28300A4D012E77167
+  commands_retried: 0
+  wrapper_failures_preserved: 2
+  version_target: PASS_7_TOOLS__PPC64LE_PRESENT
+  tiny_mir_machineverifier: PASS
+  generic_power10_prefixed_mc_object_readobj_objdump_lld: PASS
+package: {path: resources/env/ppc-toolchain, tools: 7, runtime_dlls: 2, notices: 90, provenance_files_before_finalization: 8, manifest_sha256: RECORDED_AFTER_FINAL_PROVENANCE_COPY_IN_HANDOFF}
+result: PASS_EXACT_BUILD_AND_NONCLAIM_CAPABILITY_ONLY__NO_SCIENTIFIC_INFERENCE

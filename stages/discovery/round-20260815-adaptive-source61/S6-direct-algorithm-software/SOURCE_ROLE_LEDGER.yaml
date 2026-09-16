@@ -1,0 +1,36 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE61-R40-ORDINARY-BREADTH-V1
+retrieval_date: 2026-08-15
+sources:
+  - source_id: S61_SRC01_GCC_SWITCH_SOURCE
+    role: CURRENT_AND_CONTRARY
+    locator: https://codebrowser.dev/gcc/gcc/tree-switch-conversion.cc.html
+    version_or_date: current rendered GCC source, copyright through 2026
+    observed: "The pass constructs bit-test clusters with bounded dynamic programming, then jump-table clusters, then emits the remaining decision tree."
+    query_yield: current_fatal
+  - source_id: S61_SRC02_GCC_OPTIMIZE_DOCS
+    role: CURRENT
+    locator: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
+    version_or_date: official documentation retrieved 2026-08-15
+    observed: "-ftree-switch-conversion is an enabled GCC optimization at standard optimization levels."
+    query_yield: current_fatal
+  - source_id: S61_SRC03_GHC_WORKWRAP_SOURCE
+    role: CURRENT_AND_CONTRARY
+    locator: https://ghc.gitlab.haskell.org/ghc/doc/libraries/ghc-9.15-inplace/src/GHC.Core.Opt.WorkWrap.html
+    version_or_date: GHC 9.15-inplace current rendered source
+    observed: "Bindings with strictness and/or CPR facts are worker/wrapper-ified; when both properties hold, one worker/wrapper performs both transformations."
+    query_yield: current_fatal
+  - source_id: S61_SRC04_GHC_DMDANAL_SOURCE
+    role: CURRENT
+    locator: https://ghc.gitlab.haskell.org/ghc/doc/libraries/ghc-9.15-inplace/src/GHC.Core.Opt.DmdAnal.html
+    version_or_date: GHC 9.15-inplace current rendered source
+    observed: "The analysis defines worker/wrapper arity and boxity trimming to preserve join-point and semantic constraints."
+    query_yield: current_fatal
+  - source_id: S61_SRC05_GHC_OPTIMISATION_DOCS
+    role: OFFICIAL_SEMANTICS_AND_CONFIG
+    locator: https://ghc.gitlab.haskell.org/ghc/doc/users_guide/using-optimisation.html
+    version_or_date: GHC 9.15.20260306 User Guide
+    observed: "-fworker-wrapper follows demand analysis; documents strictness, absence, unboxing and CBV controls/defaults."
+    query_yield: current_fatal
+limits:
+  - "No source or artifact was downloaded or persisted."
+  - "No build, experiment, benchmark, installation, or Stage action was performed."

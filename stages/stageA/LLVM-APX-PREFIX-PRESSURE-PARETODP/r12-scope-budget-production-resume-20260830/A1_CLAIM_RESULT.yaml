@@ -1,0 +1,19 @@
+schema: apx-r12-a1-claim-result-v1
+assignment_id: STAGEA-L1-20260830-LLVM-APX-R12-A0-PRODUCTION-RESUME
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+classification: CLAIM_BEARING_EXCEPTIONAL_RUN__COMPLETE_FROZEN_DENOMINATOR
+exceptional_revision: {ordinal: 1_of_1, consumed: true, second_revision_allowed: false}
+frozen_denominator: {selected_inputs: 4, replays_each: 2, rows_expected: 8, commands_per_row: 9, commands_expected: 72, result_based_exclusion: false, retry: 0, backfill: 0}
+execution: {attempts_used: 1, commands_started: 72, commands_pass: 72, complete_rows: 8, partial_rows: 0, not_started_rows: 0, first_failure: null, timeouts: 0, hash_or_version_drift: 0}
+legality: {candidate_labeled_generic_oracle_exact_rows: 8, native_current_tuning_separate_rows: 8, full_cost_receipt_pass_rows: 8, replay_exact_inputs: 4, prepared_current_tuning_mir_replay_exact_inputs: 4}
+mechanism: {positive_action_replays: 4, no_action_identity_replays: 4, no_action_identity_candidate_gain_count: 0, s04_replays_complete: 2, s04_no_action_identity: true}
+directional_full_cost:
+  receipt_scope: 72 child processes; controller overhead excluded
+  totals: {cpu_seconds: 11.125, wall_seconds: 14.540901, peak_rss_bytes: 22056960, input_bytes: 2848026, output_bytes: 94124}
+  candidate_vs_labeled: {frontier_exact_rows: 8, candidate_wall_lower_rows: 2, aggregate_cpu_delta_seconds: 0.046875, aggregate_wall_delta_seconds: 0.017376}
+  candidate_vs_generic: {frontier_exact_rows: 8, candidate_wall_lower_rows: 2, aggregate_cpu_delta_seconds: -0.015625, aggregate_wall_delta_seconds: 0.047298}
+  candidate_vs_micro_oracle: {frontier_exact_rows: 8, candidate_wall_lower_rows: 3, aggregate_cpu_delta_seconds: -0.03125, aggregate_wall_delta_seconds: 0.037891}
+  direction: NO_CONSISTENT_CANDIDATE_FULL_COST_ADVANTAGE
+owner_interpretation: {candidate_unique_frontier_advantage_supported: false, candidate_directional_full_cost_advantage_supported: false, stagea_owner_recommendation: DECISIVE_NEGATIVE__CURRENT_STRONG_BASELINES_ABSORB_CANDIDATE_ON_FROZEN_DENOMINATOR, formal_state_change: MAINLINE_AND_INDEPENDENT_GATE_ONLY, stageb_authorized: false}
+raw_ledger: {path: resources/logs/claim/controller/outer_full_cost_ledger.json}
+scientific_inference: LIMITED_TO_FROZEN_STAGEA_DENOMINATOR

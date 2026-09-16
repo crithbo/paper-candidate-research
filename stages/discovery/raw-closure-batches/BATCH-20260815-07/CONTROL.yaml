@@ -1,0 +1,66 @@
+schema_version: pending-raw-batched-resume-v1
+batch_program_id: PENDING-RAW-BATCHED-RESUME-20260815
+batch_id: BATCH-20260815-07
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+public_acquisition_authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+scheduling:
+  mode: SERIAL_WITHIN_BATCH
+  active_assignment_limit: 1
+  status: COMPLETE__TWO_UNRESOLVED__ZERO_BLOCKERS
+  ordered_items:
+    - order: 1
+      queue_id: S2-86-CQ01-RETRY1
+      family: ONNXRUNTIME_EP_PARTITION_MEMORY_PATTERN_JOINT_CONSTRUCTOR
+      state: COMPLETE_ACCEPTED__UNRESOLVED_BACKLOG
+      task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+      dispatch_turn_id: 01a0053e-0ff7-76b3-99a2-93f754f0dd5e
+      assignment: stages/discovery/round-20260815-adaptive-source86/S2-bottleneck-transfer/closure-cq01-retry1/ASSIGNMENT.yaml
+      assignment_sha256: 92387C645BD743F5C842B89E8082C2E04E61D36FE2BC42348F4019E82CC229B5
+    - order: 2
+      queue_id: S2-87-CQ01-RETRY1
+      family: GRAALVM_CLASS_INIT_IMAGE_HEAP_JOINT_CONSTRUCTOR
+      state: COMPLETE_ACCEPTED__UNRESOLVED_BACKLOG
+      task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+      dispatch_turn_id: 01a0054c-dae4-74c2-a8f4-d48ec14579c5
+      assignment: stages/discovery/round-20260815-adaptive-source87/S2-bottleneck-transfer/closure-cq01-retry1/ASSIGNMENT.yaml
+      assignment_sha256: B77683A3A2E4307A3882906D04D1F49E02BB4D65EE11B20BE4A9233E58317E39
+item1_result:
+  disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+  immutable_pin: c5300b71ec44aee30ba0d18190f29372568a8e07
+  calls_used: 11
+  persisted_bytes: 573454
+  model_sha256: 57B2CFC39FECDE2A6451F5E7F93DD57006EC51A461481D20B1F3B59E32D7D0A5
+  report_sha256: AC5BD670A99BEE37174003BC59D2CBD4ACEE23647523E9FAC2F5D6AF78CE88F8
+  handoff_sha256: 834EFE131216C28006AE07316BB59D7F3B4A8D43B569B5AEA22AF0C3A810511C
+  manifest_sha256: 78E3F57CFEBFC3D79363786BDDCA97F771088AA386836237864ABC9B2EDBF149
+  closure_basis: exact model bytes and native EP partition session memory-pattern arena allocation union are closed, but same-session two plans and ORT-specific finite guarantee remain unclosed
+  scientific_or_stage_authority: false
+item2_result:
+  disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+  immutable_pin: f3c130e4d5345b81968f0f9d94fedb87c7143b8c
+  calls_used: 10
+  persisted_bytes: 150476
+  report_sha256: F6EF2E1C7ACE481619CA47973EB122FE6BAA21A64DB74E02DA404CB07A3A16FA
+  handoff_sha256: EB46C0D16445C0EAA54550A3B3C4E6C131C2E982C288D2F016231176FB420711
+  manifest_sha256: 0F4F5DF3A53969539005685D82319A07B124BAA36D4146B6064658ADE098FD9C
+  closure_basis: class-init policy options and image heap layout sorter union is closed, but same-app two plans and GraalVM-specific finite guarantee remain unclosed
+  scientific_or_stage_authority: false
+batch_summary:
+  processed: 2
+  unresolved_backlog: 2
+  structural_fatal: 0
+  resource_blocker: 0
+  clean_brief_or_stage_authority: 0
+  remaining_unprocessed_raw: 2
+priority_basis: ONNX Runtime first because prior closure named a concrete model but did not retain bytes or two session plans; GraalVM follows only after mainline acceptance
+previous_batch:
+  control: stages/discovery/raw-closure-batches/BATCH-20260815-06/CONTROL.yaml
+  outcome: COMPLETE__TWO_UNRESOLVED__ZERO_BLOCKERS
+remaining_unprocessed_raw_at_batch_start: 4
+rules:
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+permissions:
+  additional_user_permission_required: false
+  private_sources_system_install_hardware_budget_expansion_claim_experiment_or_stage_transition: forbidden_without_new_authority

@@ -1,0 +1,17 @@
+schema_version: mainline-backtest-auditor-start-authorization-v1
+assignment_id: BACKTEST-AUDITOR-20260827-STAGEA-PAPER-EVIDENCE-R2-NB2
+issued_at: 2026-08-27
+cwd: <LOCAL_PROJECT_ROOT>
+bootstrap_acceptance_path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/auditor-nb2-paper-evidence/MAINLINE_BOOTSTRAP_ACCEPTANCE.yaml
+bootstrap_acceptance_sha256: 4097A6E8E362D008BE03553CAF01837F0057D48EF430430298AE5A3D4D7FD69F
+start_authorized: true
+model_route: {model: gpt-5.6-terra, thinking: high}
+gold_key_path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/AUDITOR_GOLD_KEY.yaml
+gold_key_sha256: C3F813395CDB4AF93FFDF7DC89E77973FEA24749C3E36FDA6A2CACEB55043D82
+allowed_actions: [read_immutable_gate_outputs, read_auditor_gold_key, perform_gold_comparison, write_auditor_handoff_manifest_and_final_report]
+scope: [12_positive_paper_only_and_paper_plus_supplement_comparison, 4_negative_specificity, conditional_9_evaluable_vs_full_12, immediate_vs_after_clarification, source_evidence_missing_attribution, local_work_saved_summary]
+forbidden_actions: [new_experiment, new_probe, network, resource_creation, production_candidate_registration, StageB]
+forbidden_claims: [independent_reproduction, unbiased_recall, threshold_75_claim, blind_nonblind_metric_merge]
+outputs: [handoff.yaml, HASH_MANIFEST.sha256, <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/paper-evidence-20260827/FINAL_STAGEA_BACKTEST_REPORT.md]
+scientific_state_transition: false
+context_plan_registry_mutation_during_run: false

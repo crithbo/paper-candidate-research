@@ -1,0 +1,33 @@
+schema_version: resume-capsule-v1
+assignment_id: STAGEA-L1-20260825-LLVM-RVV-R2-E-ROOT-EXACT-TOOLCHAIN
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+state: BLOCKED_USER_ACTION_REQUIRED__FILESYSTEM_SOURCE_PATH_CAPABILITY
+original_stage: STAGEA_RESOURCE_GATE_RESUME_FROM_BLOCKER
+exact_commit: 5bb2565693f062a9e99929db1814a7a076d4dc76
+claim_ceiling: RESOURCE_GATE_ONLY__NO_RVV_PRECLAIM_NATURAL_OR_PERFORMANCE_CLAIM
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+claim_bearing_observation: false
+scientific_revision_consumed: false
+blocker:
+  phase: SAFE_SOURCE_EXTRACTION_AFTER_ARCHIVE_MEMBER_PREFLIGHT
+  filesystem: exFAT
+  failed_path_characters: 260
+  failed_parent_characters: 223
+  extraction_files_before_failure: 71167
+  extraction_bytes_before_failure: 616586465
+  configure_attempts_used: 0
+  clean_build_attempts_used: 0
+  required_outputs_ready: 0/6
+retained_resume_inputs:
+  - {path: resources/downloads/llvm-commit-5bb2565693f062a9e99929db1814a7a076d4dc76.json, sha256: 7104CB0CA8DCDF6C5A9AC89A31C8F65F45CDEA336C938E21DA483A405D2605E3}
+  - {path: resources/downloads/llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76.tar.gz, sha256: BC0E5CC6B7F4978242749E0FF666DDA851994EFFC178BD782C4799D7C2B52695}
+  - {path: resources/downloads/llvm-mingw-20260616-ucrt-x86_64.zip, sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35}
+  - {path: resources/downloads/cmake-4.4.2-py3-none-win_amd64.whl, sha256: C28388FE95298486169C45C0EC8BDF067AABCB59273B98A4CDAE8BE5CD9C74F3}
+  - {path: resources/downloads/ninja-1.13.0-py3-none-win_amd64.whl, sha256: FB8EE8719F8AF47FED145CCED4A85F0755DD55D45B2BDDAF7431FA89803C5F3E}
+resume_requires_new_authority:
+  - new immutable resume directory
+  - one long-path-aware safe source extraction route or exact pre-extracted bundle
+  - explicit preservation of logical src/s env/t build paths and no reparse
+forbidden_on_resume_without_new_authority: [retry r2 extraction, configure, build, smoke, WSL, system install, global change, source patch, RVV F1-F5, natural or claim-bearing run]
+resume_entry: RETURN_TO_MAINLINE_FOR_NEW_ASSIGNMENT
+owner_cleanup_performed: false

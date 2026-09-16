@@ -1,0 +1,12 @@
+# Current-source and collision matrix
+
+| Family | Exact object / oracle | Current strongest union / fair subtractor | Action or guarantee route | Result |
+|---|---|---|---|---|
+| LLVM/GCC constant-time pass interaction | Fixed C/C++ source, compiler/target/options, output behavior and constant-time observation boundary. | All documented pass flags and the 2025 paper’s selective-disable mitigation; the paper itself is the closest direct subtractor. | Any intervention found in the bounded source is pass/flag selection or a changed constant-time guarantee boundary. | `DROP` |
+| Verus proof-aware compilation | Fixed verified declarations/imports/options and kernel acceptance. Oracle: Verus kernel checking. | Verus artifact and existing verified-compilation literature; complete current code-generator action union not pinned. | A possible certificate-carrying compilation constructor remains only a hypothesis; its whole action and non-generic N2 guarantee are unclosed. | `NOT_ADMITTED_UNFROZEN` |
+| Basilisk atomic sharding | Fixed program/property and generated verified footprints. Oracle: artifact verification result. | The first-party artifact’s Atomic Sharding Algorithm is the closest same-object method. | Reimplementing or repackaging that procedure would not add a new direct algorithm. | `DROP` |
+| ZK compilation provenance | Fixed source, compiler version, output binary and proof accepted by the stated verifier. | The 2026 primary-paper construction; no independently auditable current open producer/reader union in this bounded pass. | No finite same-object source/flag closure established without assuming a missing interface. | `NOT_ADMITTED_UNFROZEN` |
+| MLIR target-specific schedule construction | Fixed MLIR, target/lowering semantics and output equivalence. Oracle: MLIR verifier/round-trip plus compiled result semantics. | Current transforms/schedulers plus recent schedule-exploration work. | Candidate would need a target-specific finite-state guarantee beyond schedule search; not frozen. | `NOT_ADMITTED_UNFROZEN` |
+| Compiler optimization composition testing | Fixed source and test oracle. | Current compiler pipelines and 2025 targeted-testing work. | Composition testing does not itself construct a semantics-preserving output with a target-specific guarantee. | `DROP` |
+
+`SEARCH_BOUNDED_OPEN` is recorded only for the three `NOT_ADMITTED_UNFROZEN` rows. It is not used as a novelty conclusion and does not authorize a brief.

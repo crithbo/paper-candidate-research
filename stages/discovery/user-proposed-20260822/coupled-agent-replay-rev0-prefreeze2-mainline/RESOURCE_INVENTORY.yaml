@@ -1,0 +1,93 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: COUPLED-AGENT-REPLAY-REV0
+  assignment_id: MAINLINE-20260822-COUPLED-AGENT-REPLAY-PREFREEZE2-TRANSPORT
+  stage_or_mode: DISCOVERY_PRE_EVIDENCE_IDENTITY_FREEZE_ONLY
+  run_id: prefreeze2-mainline
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze2-mainline
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze2-mainline\resources
+  inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze2-mainline\RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-22T11:30:00+08:00
+  finalized_at: 2026-08-22T11:40:44.7716228+08:00
+root_measurement:
+  logical_bytes: 18361842
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources\downloads
+  archives: resources\archives
+  src: resources\src
+  build: resources\build
+  env: resources\env
+  cache: resources\cache
+  tmp: resources\tmp
+  logs: resources\logs
+redirect_preflight:
+  status: PASS_AFTER_BOUNDED_MECHANICAL_DIRECTORY_CORRECTION
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: <LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe
+      role: HTTPS retrieval and JSON parsing only
+      writes: resources\src and resources\scripts
+resource_envelope:
+  network_bytes_max: 67108864
+  stored_bytes_max: 67108864
+  cpu_hours_max: 0.5
+  gpu_hours_max: 0
+  wall_seconds_max: 3600
+  attempts_max: 18
+  network_bytes_used: 18359480
+  stored_bytes_used: 18361842
+  attempts_used: 15
+entries:
+  - {path: resources\src\openhands-ref.json, class: official_metadata, bytes: 336, sha256: A8C91DD676608340C5EEC1D07D2BC74644EFEAD64636F2C638B8F71E57B3A5DB, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources\src\openhands-commit.json, class: official_metadata, bytes: 2406, sha256: D8350FFE2DDC0F91B1168A0AA024BA990CDBB2C9EA11D9E2717CB4D034DF9950, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources\src\qwen-model.json, class: official_metadata, bytes: 8039, sha256: 76BC5FE5E5F3D1EA163552A0C5B96FD4242DC78844AE03C22C59E46DD9A86528, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources\src\swebench-dataset.json, class: official_metadata, bytes: 1994, sha256: 24A45FEE6EF8DA290159D43B08F36E33815B2C9B64CFA209C913F4FA3B3D441A, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources\src\swebench-verified.parquet, class: pinned_dataset, bytes: 2096679, sha256: A45B1FE4E2F0C8390B2B2938AC83E92ED5979000856808F3679C07812E9E6DCD, retention: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {path: resources\src\hf-rows-pinned-0.json, class: pinned_dataset_view, bytes: 1629065, sha256: 1C3850DA017BD530532C42F80035DF75ECC6ED7943E1494D0A5302C60D67FF3D, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources\src\hf-rows-pinned-100.json, class: pinned_dataset_view, bytes: 1293192, sha256: AD2828DA9A1A8AB3BE3000672F287393CE83BC0102DC48BE114E5E60ED0E18CB, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources\src\hf-rows-pinned-200.json, class: pinned_dataset_view, bytes: 2092339, sha256: B0F1A84AA338D3CA7FDFC387D49435DEB52DFA6CEF00899B299CC5F7844A9370, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources\src\hf-rows-pinned-300.json, class: pinned_dataset_view, bytes: 2411482, sha256: 1E4DB401E4969DDD52A497872BE782D252FA5207C2988D3B139064F07222E28F, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources\src\hf-rows-pinned-400.json, class: pinned_dataset_view, bytes: 698935, sha256: A99AB0683594B82169E5A5531451F8CEBDDCBB6B6A0895654E7ED6E50AD80B0E, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources\src\hf-rows-0.json, class: unpinned_transport_telemetry, bytes: 1629065, sha256: 1C3850DA017BD530532C42F80035DF75ECC6ED7943E1494D0A5302C60D67FF3D, retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF}
+  - {path: resources\src\hf-rows-100.json, class: unpinned_transport_telemetry, bytes: 1293192, sha256: AD2828DA9A1A8AB3BE3000672F287393CE83BC0102DC48BE114E5E60ED0E18CB, retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF}
+  - {path: resources\src\hf-rows-200.json, class: unpinned_transport_telemetry, bytes: 2092339, sha256: B0F1A84AA338D3CA7FDFC387D49435DEB52DFA6CEF00899B299CC5F7844A9370, retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF}
+  - {path: resources\src\hf-rows-300.json, class: unpinned_transport_telemetry, bytes: 2411482, sha256: 1E4DB401E4969DDD52A497872BE782D252FA5207C2988D3B139064F07222E28F, retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF}
+  - {path: resources\src\hf-rows-400.json, class: unpinned_transport_telemetry, bytes: 698935, sha256: A99AB0683594B82169E5A5531451F8CEBDDCBB6B6A0895654E7ED6E50AD80B0E, retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF}
+  - {path: resources\scripts\fetch-hf-rows.js, class: local_retrieval_script, bytes: 1147, sha256: 4DA231116AB1EDB740BF131C02EC618FA53A04EAC08EBAF5DE48C19AFF263A09, retention: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {path: resources\scripts\fetch-hf-rows-pinned.js, class: local_retrieval_script, bytes: 1215, sha256: EE76C58B2E755728D6D5C616498E83C318655933CFB4B25D627F7AA277E8DDD6, retention: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+shared_assets_consumed: []
+external_system_dependencies:
+  - <LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: [resources\tmp]
+  performed: true
+  cleanup_id: MAINLINE-LEGACY-COUPLED-AGENT-TRANSPORT-JSON-20260824
+  cleanup_receipt: stages/control/e-drive-cutover-lifecycle-implementation-20260824-V1/legacy_cleanup/CLEANUP_RECEIPT.yaml
+  deleted_entries:
+    - resources\src\hf-rows-0.json
+    - resources\src\hf-rows-100.json
+    - resources\src\hf-rows-200.json
+    - resources\src\hf-rows-300.json
+    - resources\src\hf-rows-400.json
+  deleted_logical_bytes: 8125013
+  performed_at: 2026-08-24T21:08:00+08:00
+  recoverability: EXACT_IDENTICAL_PINNED_TWINS_RETAINED_5_OF_5__RETRIEVAL_SCRIPTS_RETAINED
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: PASS__POST_HANDOFF_LEGACY_CLEANUP_COMPLETE__PINNED_TWINS_RETAINED

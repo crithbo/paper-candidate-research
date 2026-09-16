@@ -1,0 +1,62 @@
+schema: apx-r9-static-validation-v2
+assignment_id: STAGEA-L1-20260829-LLVM-APX-R9-INTEGRATED-ROW-CONTROLLER-REDESIGN
+status: PASS_STATIC_CORRECTION3
+source_plan:
+  path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/REBOUND_R8_COMMAND_PLAN.yaml
+  sha256: A2734145DF704EC9BBD6DFA36E7906B089FB86B7D758F96694D9E1704B646B32
+artifacts:
+  packet: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_EXECUTABLE_PACKET.yaml, sha256: E4DFAC313496C124CE1305CD718C39A12AB96811D9E8194703B99F1DC4E41B76}
+  dag: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_COMMAND_DAG.json, sha256: 2D4351FD99101794A809122EB5A92521B74898FE117D2DB9859F0FB52C942EA7}
+  controller: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_CONTROLLER.py, sha256: 25F643B96CF17F031FB6BE1D4CBC6C4F5B8A96CBEE79381EDA937FBCD769A469}
+  copy_manifest: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/EXACT_RESOURCE_COPY_MANIFEST.yaml, sha256: E42F754F779DD490AFF4BC1E916B0B9C861F9B80668FA70CA531557662A5CE0C}
+selection: {selected_ids: [S01, S02, S03, S04], replays: [1, 2], row_count: 8, commands_per_row: 9, command_count: 72}
+mechanical_substitutions: {root_replacement_count: 376, llc_replacement_count: 24, other_argv_edits: 0}
+placeholder_count: 0
+checks:
+  source_plan_first_eight_rows_exact: true
+  command_ids_in_frozen_order: true
+  literal_argv_cwd_env_timeout_stdout_stderr_outputs: true
+  every_path_flag_absolute: true
+  selected_inputs_and_replays_exact: true
+  producer_consumer_edges_closed: true
+  controller_loads_dag: true
+  controller_serial_rows_and_commands: true
+  controller_shell_false: true
+  controller_captures_stdout_stderr: true
+  controller_process_cost_receipts: true
+  controller_windows_child_peak_rss: true
+  controller_output_schema_validation: true
+  controller_first_failure_stop: true
+  controller_outer_full_cost_ledger: true
+  driver_report_values_not_measured: true
+  execution_performed: false
+  resource_copy: false
+  tool_execution: false
+  control_row: false
+  claim_row: false
+  network: false
+  shared_write: false
+  cleanup: false
+  stageb: false
+edge_rules:
+  - {producer: prepare_same_object_trace, consumer: orbit_candidate, artifact: trace.json, expanded_rows: 8}
+  - {producer: prepare_same_object_trace, consumer: labeled_pareto_dp, artifact: trace.json, expanded_rows: 8}
+  - {producer: prepare_same_object_trace, consumer: generic_exact_subtractor, artifact: trace.json, expanded_rows: 8}
+  - {producer: prepare_same_object_trace, consumer: independent_micro_oracle, artifact: trace.json, expanded_rows: 8}
+  - {producer: llvm_current_complete, consumer: checker, artifact: llvm-current.json, expanded_rows: 8}
+  - {producer: llvm_finite_tuning_grid, consumer: checker, artifact: llvm-tuning.json, expanded_rows: 8}
+  - {producer: orbit_candidate, consumer: checker, artifact: candidate.json, expanded_rows: 8}
+  - {producer: labeled_pareto_dp, consumer: checker, artifact: labeled.json, expanded_rows: 8}
+  - {producer: generic_exact_subtractor, consumer: checker, artifact: generic.json, expanded_rows: 8}
+  - {producer: independent_micro_oracle, consumer: checker, artifact: oracle.json, expanded_rows: 8}
+  - {producer: checker, consumer: full_cost, artifact: checked.json, expanded_rows: 8}
+  - {producer: full_cost, consumer: outer_full_cost_ledger, artifact: full-cost.json, expanded_rows: 8}
+edge_count: 96
+edge_audit: {dag_rule_count: 11, dag_expanded_edge_count: 88, dag_edge_match_count: 88, dag_edge_mismatch_count: 0, outer_ledger_edges: 8, total_typed_edges: 96}
+actual_recompute: {row_count: 8, per_row_command_counts: [9, 9, 9, 9, 9, 9, 9, 9], command_count: 72, command_order_matches: 8, out_flag_matches_output_paths: 72, absolute_path_checks: 328, absolute_path_checks_passed: 328, placeholder_count: 0, old_root_argv_residual: 0, old_llc_argv_residual: 0, source_prefix_rows: 8}
+static_lint_edits_used: 1
+static_lint_edits_max: 3
+claim_ready: false
+execution_ready: false
+scientific_inference: NONE
+reason: FINAL_STATIC_OUTPUTS_SEALED__WAIT_MAINLINE

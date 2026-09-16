@@ -1,0 +1,16 @@
+schema_version: r3-identity-blind-selection-input-addendum-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+parent_start_failure_blocker: {path: START_FAILURE_BLOCKER.yaml, sha256: 810706DE3D15853D992980437E115486856316E9B67860A989DCD0E0A41CD086}
+audited_candidate_pool: {path: stages/rule-audit/RULE-AUDIT-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-BACKTEST-R3/CANDIDATE_SOURCE_POOL.yaml, sha256: 22CF0D0C9CC1C7DB1317DA085D323EDFBC1394C67E116B2FC1AD29A9F5E7D3AC, candidates: 24, strata: 4, candidates_per_stratum: 6}
+pool_acceptance: {path: stages/rule-audit/RULE-AUDIT-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-BACKTEST-R3/MAINLINE_POOL_ACCEPTANCE.yaml, sha256: 3706B5A82083A9709D908603F2C3737DE8DA7E254AA160519E97502F0DDCEA73}
+reviewer_contact_exclusion_source: CANDIDATE_SOURCE_POOL.yaml.reviewer_contact_exclusions
+selection_rule:
+  - remove_identity_excluded_or_preflight_ineligible_candidates
+  - order_each_stratum_LOW_then_MEDIUM_then_HIGH_identity_risk
+  - order_ties_by_uppercase_SHA256_of_lowercase_ascii_title_pipe_year_pipe_venue
+  - break_remaining_ties_by_lexical_normalized_identity_key
+  - choose_first_three_qualified_per_stratum
+  - use_next_same_stratum_frozen_candidate_only_for_admitted_preflight_failure
+forbidden: [result_aware_replacement, cross_stratum_replacement, selection_from_unfrozen_universe, reviewer_identity_disclosure, reviewer_gold_disclosure]
+authorized_post_reack_actions: [selection_from_audited_pool_only, official_paper_appendix_AE_acquisition_under_original_budget, evidence_and_packet_sealing]
+scientific_or_resource_action_started_since_parent_failure: false

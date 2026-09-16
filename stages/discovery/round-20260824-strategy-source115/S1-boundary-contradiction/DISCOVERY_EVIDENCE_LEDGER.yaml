@@ -1,0 +1,15 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE115-UPSTREAM-FAULT-NEGATIVE-REPLICATION-V1
+cutoff: '2026-08-24'
+sources:
+  - {source_id: S115-01, title_or_artifact: Triton issue tracker, canonical_version: current issues viewed 2026-08-24, locator: https://github.com/triton-lang/triton/issues, source_role: CURRENT_FIRST_PARTY, read_depth: SECTIONS}
+  - {source_id: S115-02, title_or_artifact: Triton issue 11153, canonical_version: opened 2026-08-03, locator: https://github.com/triton-lang/triton/issues/11153, source_role: CONTRARY, read_depth: SECTIONS}
+  - {source_id: S115-03, title_or_artifact: LLVM MLIR issue 216535, canonical_version: opened 2026-08-16, locator: https://github.com/llvm/llvm-project/issues/216535, source_role: CONTRARY, read_depth: SECTIONS}
+claims:
+  - claim_id: C115-01
+    text: Located upstream issues are locator/contrary evidence only; no current official-documentation, current-source and default/nondefault-flag triad was closed for a same-object candidate.
+    priority: HIGH
+    source_links: [{source_id: S115-01, relation: PARTIAL, locator: current issue list, evidence_status: DIRECT_OBSERVATION, conflict: issue state is not source-level proof, permitted_conclusion: do not infer current fault}, {source_id: S115-02, relation: PARTIAL, locator: issue report, evidence_status: AUTHOR_CLAIM, conflict: no current source/flag closure, permitted_conclusion: no raw}, {source_id: S115-03, relation: PARTIAL, locator: issue report, evidence_status: AUTHOR_CLAIM, conflict: local compiler object and no frozen project carrier, permitted_conclusion: no raw}]
+stopping: {high_impact_items_bounded: true, latest_and_current_union_checked: true, first_party_depth_sufficient: false, heterogeneous_independent_path_complete: false, contrary_search_complete: true, natural_or_canonical_carrier_frozen: false, full_cost_frozen: false, marginal_sources_no_longer_decision_changing: true, decisive_contradictions_resolved_or_bounded: true, disposition: NOT_ADMITTED_UNFROZEN}
+execution_readiness: {state: E0, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: NO_RAW_ADMISSION__NO_CLAIM

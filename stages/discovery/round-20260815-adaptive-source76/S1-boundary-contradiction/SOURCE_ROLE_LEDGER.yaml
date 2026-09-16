@@ -1,0 +1,19 @@
+sources:
+  - role: ANCHOR_AND_CONTRARY
+    url: https://doc.rust-lang.org/stable/reference/attributes/codegen.html?highlight=track_call
+    version_or_date: current Rust Reference observed 2026-08-15
+    finding: implicit ABI parameter; a coercion shim hides it and intentionally loses actual caller information across virtual calls.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - role: CURRENT_CONTRACT
+    url: https://doc.rust-lang.org/error_codes/E0737.html
+    version_or_date: current error index observed 2026-08-15
+    finding: track_caller requires Rust ABI for implicitly receiving caller location.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - role: CURRENT_SURFACE
+    url: https://doc.rust-lang.org/nightly/std/attribute.track_caller.html
+    version_or_date: nightly 1.99.0 page, observed 2026-08-15
+    finding: current standard-library surface describes caller-location reporting for Rust-ABI functions.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY

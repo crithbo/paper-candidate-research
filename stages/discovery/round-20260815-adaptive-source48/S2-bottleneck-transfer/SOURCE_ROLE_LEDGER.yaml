@@ -1,0 +1,43 @@
+sources:
+  - id: SRC48-01
+    role: ANCHOR_AND_CURRENT_UNION
+    title: cuDNN Graph API
+    url: https://docs.nvidia.com/deeplearning/cudnn/v1.9.0/developer/graph-api.html
+    version_or_date: current-versioned-doc__accessed_2026-08-15
+    provenance: NVIDIA_official
+    decision_use: operation_graph_engine_and_configuration_union
+  - id: SRC48-02
+    role: CURRENT_UNION_AND_CONTRARY
+    title: cuDNN Frontend overview
+    url: https://docs.nvidia.com/deeplearning/cudnn/v1.20.0/developer/overview.html
+    version_or_date: v1.20.0__accessed_2026-08-15
+    provenance: NVIDIA_official
+    decision_use: workspace_query_plan_build_and_autotune_union
+  - id: SRC48-03
+    role: CURRENT_SOURCE
+    title: NVIDIA cudnn-frontend upstream
+    url: https://github.com/NVIDIA/cudnn-frontend
+    version_or_date: main__accessed_2026-08-15
+    provenance: official_upstream
+    decision_use: current_frontend_source_locus
+  - id: SRC48-04
+    role: ANCHOR_AND_CURRENT_UNION
+    title: PyTorch CUDA semantics and graph memory management
+    url: https://docs.pytorch.org/docs/stable/notes/cuda.html
+    version_or_date: stable__accessed_2026-08-15
+    provenance: PyTorch_official
+    decision_use: private_pool_and_graph_replay_contract
+  - id: SRC48-05
+    role: CURRENT_SOURCE_AND_CONTRARY
+    title: PyTorch CUDA graph trees upstream
+    url: https://github.com/pytorch/pytorch/blob/main/torch/_inductor/cudagraph_trees.py
+    version_or_date: main__accessed_2026-08-15
+    provenance: official_upstream
+    decision_use: tree_pool_checkpoint_live_storage_union
+  - id: SRC48-06
+    role: ANCHOR_CURRENT_UNION_AND_CONTRARY
+    title: ROCr environment variables
+    url: https://rocm.docs.amd.com/en/develop/reference/env-variables.html
+    version_or_date: develop__accessed_2026-08-15
+    provenance: AMD_official
+    decision_use: scratch_reclaim_default_and_nondefault_behavior

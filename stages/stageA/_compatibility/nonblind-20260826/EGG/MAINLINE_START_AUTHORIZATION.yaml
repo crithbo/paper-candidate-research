@@ -1,0 +1,17 @@
+schema: nonblind-stagea-compatibility-start-v1
+assignment_id: NONBLIND-STAGEA-20260826-EGG
+authority: {issued_by: MAINLINE, model: gpt-5.6-terra, thinking: high}
+decision: START_AUTHORIZED__EXACT_AUTHOR_ARTIFACT_RUST_ROUTE
+source: {repository: egraphs-good/egg, commit: 2f31b28e3f9d78e02273b6c6d4201b5b0720b343, archive_url: https://codeload.github.com/egraphs-good/egg/tar.gz/2f31b28e3f9d78e02273b6c6d4201b5b0720b343, archive_path: resources/archives/egg-2f31b28e3f9d78e02273b6c6d4201b5b0720b343.tar.gz, archive_hash_rule: SINGLE_DOWNLOAD__SHA256_BEFORE_EXTRACTION, redirects_allowed: 0, download_attempts_max: 1}
+resource_layout: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, CARGO_HOME: resources/cache/cargo-home, CARGO_TARGET_DIR: resources/build/cargo-target}
+allowed_command_sequence:
+  - {id: S0, command: cargo --version, stop_on_nonzero: true}
+  - {id: S1, command: create_eight_literal_resource_subdirectories_with_New_Item_Path, stop_on_nonzero: true}
+  - {id: S2, command: Invoke-WebRequest -UseBasicParsing -MaximumRedirection 0 -Uri <archive_url> -OutFile <archive_path>, stop_on_nonzero: true}
+  - {id: S3, command: Get-FileHash -Algorithm SHA256 <archive_path>, stop_on_nonzero: true}
+  - {id: S4, command: tar -xf <archive_path> -C resources/src, stop_on_nonzero: true}
+  - {id: S5, command: cargo test --release --test math, purpose: author_canonical_test_preclaim_only, stop_on_nonzero: true}
+fidelity_before_probe: [verify_canonical_symbolic_workload_and_full_cost_schema, mainline_accept_preclaim_contract_fidelity_gate]
+stop_conditions: [any_failure_or_over_3000000000_bytes_or_build_over_7200_seconds_fail_closed_no_retry]
+prohibitions_remain: [alternate_artifact, retry, system_install, global_environment_change, production_candidate_registration, stageB, gold_input, blind_metric_merge, cleanup]

@@ -1,0 +1,31 @@
+assignment_id: DISCOVERY-S5-20260815-ADAPTIVE-SOURCE53-R40-SKILL-CONSOLIDATED-V1
+lane: S5_SCALE_ONLINE_APPROX
+write_directory: stages/discovery/round-20260815-adaptive-source53/S5-scale-online-approx
+contract:
+  control_sha256: 702F527D57ED291DC90A3AC8D8BCEB961F7523B6B6FAAC9C46E12C49AF918A70
+  assignment_sha256: 9EB0787D8CD49DED7845A5177BD29EB77BE96928CC33A3301CFCBE8F74662D99
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  canonical_method: v8.7__RQ_REFINEMENT_STAGED_EVIDENCE_V1_PRODUCTION
+  claim_pack: OFF
+  v9: OFF
+pre_rq_selective_depth:
+  declaration: NONE
+  declaration_file: PRE_RQ_CLOSURE_DECLARATION.yaml
+  mainline_notified: true
+  sol_high_execution: NOT_STARTED
+result:
+  disposition: COMPLETE_ZERO_PROPOSALS
+  funnel: {seed: 6, exact_anchor_primary_rq: 3, pre_rq_nominations: 0, ordinary_screen: 3, raw: 0, c0: 0, d1: 0, deep: 0, clean_brief: 0}
+  screened:
+    - POSTGRES_MATERIALIZED_VIEW_INCREMENTAL_MAINTENANCE__LOCATOR_ONLY_GENERIC_N2_UNFROZEN
+    - HOTSPOT_NMETHOD_CODECACHE_RELOCATION__LOCATOR_ONLY_RQ_BACKLOG
+    - BAZEL_INCREMENTAL_BUILDGRAPH_RECOURSE__STRUCTURAL_DROP_CURRENT_UNION_GENERIC_CACHE
+  source49_50_or_source51_exact_current_identity_reopened: false
+queue: {status: EMPTY_NOT_EXHAUSTED, attempts: 0, file: SOURCE_CLOSURE_QUEUE.yaml}
+resources: {persistent_actions: 0, file: RESOURCE_INVENTORY.yaml}
+canonical_manifest: HASH_MANIFEST.sha256
+plain_chinese_summary: >-
+  R40 的新顺序已完整执行并先冻结了 selective-depth NONE。普通一手核验后，没有形成 raw 或 brief：
+  PostgreSQL 路线没有越过既有 IVM 的非通用残差门，HotSpot 只保留为未闭合定位线索，
+  Bazel 则落入原生增量缓存 union。没有用相关性当排除，也没有把没查到写成不存在。
+lane_return_state: IDLE_REUSABLE_AWAITING_MAINLINE

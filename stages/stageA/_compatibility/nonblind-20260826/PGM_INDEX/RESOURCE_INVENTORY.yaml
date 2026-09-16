@@ -1,0 +1,72 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  artifact_state: ARTIFACT_OPEN
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: COMPATIBILITY_HANDOFF
+  downstream_consumer: INDEPENDENT_STAGEA_GATE_THEN_BACKTEST_AUDITOR
+  post_close_retained_bytes_max: 536870912
+  cleanup_receipt_path: CLEANUP_RECEIPT.yaml
+identity:
+  topic_id: NONBLIND_STAGEA_COMPATIBILITY__PGM_INDEX
+  assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX
+  stage_or_mode: NONBLIND_STAGEA_COMPATIBILITY
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/PGM_INDEX
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/PGM_INDEX/resources
+  inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/PGM_INDEX/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-26T13:08:00Z
+root_measurement:
+  logical_bytes: 0
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: FAIL_CLOSED__A3_CURL_CMAKE_ORG_SCHANNEL_CREDENTIAL_FAILURE
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - {command: cmake --version, result: COMMAND_NOT_FOUND}
+    - {command: tar --version, result: COMPLETED__BSDTAR_3_8_4}
+    - {command: Invoke-WebRequest portable_cmake official_github one_redirect, result: AUTHENTICATION_FAILED__NO_ARCHIVE_PERSISTED}
+    - {command: curl.exe portable_cmake cmake.org zero_redirect, result: SCHANNEL_SEC_E_NO_CREDENTIALS__NO_ARCHIVE_PERSISTED}
+resource_envelope:
+  network_bytes_max: 1500000000
+  stored_bytes_max: 1500000000
+  cpu_hours_max: 2
+  wall_seconds_max: 7200
+  network_bytes_used: 0
+  stored_bytes_used: 0
+  attempts_used: {A1_directory_creation: 8, S0_cmake_version: 1, S1_tar_version: 1, A2S0_portable_cmake_download: 1, A3_curl_cmake_org_download: 1, A2S1_through_A2S5: 0, S2_through_S7: 0, automatic_retries: 0}
+entries: []
+shared_assets_consumed: []
+external_system_dependencies: [CMAKE_NOT_AVAILABLE_ON_CURRENT_PROCESS_PATH, GITHUB_PORTABLE_CMAKE_TRANSPORT_AUTHENTICATION_FAILED_IN_CURRENT_ENVIRONMENT, CURL_SCHANNEL_SEC_E_NO_CREDENTIALS_ON_CMAKE_ORG_TRANSPORT]
+cleanup:
+  owner: MAINLINE
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  lifecycle_mode_and_hash_match: true
+  result: FAIL_CLOSED__TWO_SEPARATELY_AUTHORIZED_TRANSPORT_ATTEMPTS_FAILED__NO_ARCHIVE_OR_BUILD_STARTED

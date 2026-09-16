@@ -1,0 +1,57 @@
+schema_version: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+created_at: 2026-08-26T16:02:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+
+identity: {lane_id: CANDIDATE_EXECUTION_LANE_1, lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620, old_lane_thread_id: 01a02e0c-2a04-7063-b397-c3cf8970b9f9, role_id: CANDIDATE_OWNER, assignment_id: STAGEA-L1-20260826-LLVM-RVV-R5C-TRANSITIVE-SPLIT-QUOTIENT-DEPENDENCY-CLOSURE, topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP, stage: STAGEA_PRECLAIM_ENGINEERING_CORRECTION, authoritative_project_root: <LOCAL_PROJECT_ROOT>, unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient, resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient/resources, old_chat_memory_required: false}
+
+frozen_shared_snapshots:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: FA7D4D8363F85147C56022BB085C62F1D09A257F4F2932F3ED7AA7E3EC5B7217}
+  registry: {path: registry.yaml, sha256: 397F96554D4FCEF8D5922D67A706534366E149EE9CF0C2E84630DF067B13BB17}
+  related_registry_records: [soft_blocker_recovery_policy_20260826, autonomous_stagea_wave_20260826.rvv_r5, rvv_r5c_transitive_quotient_20260826, stagea_gate_rvv_r5_preclaim_20260826, no_wsl_localized_resource_recovery_20260825.llvm_queue.RVV, candidates.stagea_llvm_rvv_group_mask_spill_paretodp_initial, role_threads.candidate_execution_lane_1]
+
+rules_and_skills:
+  role_rule: {path: rules/ROLE_CANDIDATE_OWNER.md, sha256: 880008B9B042D29198B1A8941E8FB7DB2212181675718DA99BEF7BDF95F1A3C5}
+  soft_blocker_recovery: {path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74}
+  resource_localization: {path: rules/RESOURCE_LOCALIZATION.md, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+  artifact_lifecycle: {path: rules/ARTIFACT_LIFECYCLE.md, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6}
+  academic_skill: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  experiment_workflow: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/experiment-agent/WORKFLOW.md, sha256: 389747B305FFA4160D1B2CEAF97B98A61EF9583CD45C473EFED5B4B414E27889}
+  code_runner_reference: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/experiment-agent/agents/code_runner_agent.md, sha256: E50C1303EBCB451304D427CE063651AF5D6FA5AB9CC9249E399353714B8BBFE1}
+
+templates:
+  bootstrap_ack: {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+  stagea_report: {path: templates/STAGEA_REPORT.md, sha256: DF9AA27111D303600FD4C7F81DEB1FF52FFD6C308973D33B8A9EC59CA4542D7F}
+  resource_inventory: {path: templates/RESOURCE_INVENTORY.yaml, sha256: E859CE19DC3EB906EF391B1D8039E7B02A762EB74D7421454E40BB4539FEEEC7}
+
+assignment_control: {path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient/control/ASSIGNMENT.yaml, sha256: 269A0DFF737FB16CDBE7A94206798EEA05B82EBD07142F4A4B18541D2B0A6638}
+
+minimum_inputs:
+  - {path: stages/stageA/_reviews/round-20260826-rvv-r5-preclaim/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/MAINLINE_HANDOFF_ACCEPTANCE.yaml, sha256: 85E6D76FC532F3D98D6DE9D8A2C0DD11CC8CEE3A9CC0759C7B5C2C14241AA0D6, purpose: INDEPENDENT_GATE_ACCEPTANCE}
+  - {path: stages/stageA/_reviews/round-20260826-rvv-r5-preclaim/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/handoff.yaml, sha256: 18BA5DE9CB39FC54B2C569FD44537862ED474712CE286C9ABC4EFC1B96E92936, purpose: INDEPENDENT_GATE_FINDINGS}
+  - {path: stages/stageA/_reviews/round-20260826-rvv-r5-preclaim/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/HASH_MANIFEST.sha256, sha256: A303CFA22CF46EF9A960B36977B384BE9FDE38D2495C76B7A56537018753B6EA, purpose: INDEPENDENT_GATE_MANIFEST}
+  - {path: stages/stageA/_reviews/round-20260826-rvv-r5-preclaim/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/SPLIT_CLOSURE_ROUTE_AUDIT.yaml, sha256: AF88FBA44D8F0BBF8C36414F98C43ADCBD83C79B2165C6C38C608849B0C08F55, purpose: BOUNDED_CORRECTION_ROUTE}
+  - {path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5/MAINLINE_A2_HANDOFF_ACCEPTANCE.yaml, sha256: 2366384A4E148A87A0D8B29E561277590F1C334A0DB84AD382A49C35B8A6737A, purpose: R5_SOURCE_ACCEPTANCE}
+  - {path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5/handoff.yaml, sha256: 967B53E77BA847710B2BFBAD9F1BD119CF004D4DFBE30B7067D634FD3B806A93, purpose: R5_OWNER_PACKET}
+  - {path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5/HASH_MANIFEST.sha256, sha256: 481FB226432012B26E78C348B397AF9741637C0B31FD404CA3DA7877591219FE, purpose: R5_MANIFEST}
+  - {path: stages/stage0/_revisions/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/revision1/CLAIM_MATRIX.md, sha256: A9B5C690C7B967AA58D29DA1068DF11F87B989A298B589BE576AE2D99F0AB81B, purpose: FROZEN_ATOMIC_CLAIM}
+  - {path: stages/stage0/_revisions/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/revision1/CURRENT_ACTION_AND_QUOTIENT_AUDIT.md, sha256: 1662A2FBB9C61C36C721A7FE39C1DF8934BB6F7A663BBFE14F8EF9D7D6296C0F, purpose: QUOTIENT_BOUNDARY}
+
+current_status: {assignment_state: BOOTSTRAP_ACK_PENDING, resource_root_absent: true, source_r5_processes_active: false, mechanism_pivot_consumed: true, scientific_revision_consumed: false, natural_or_selected_tool_invocations: 0, claim_bearing_observations: 0, start_authorized_by_mainline: false}
+permissions: {write_scope: ONLY_UNIQUE_WRITE_DIRECTORY, source_r5_owner_shared_or_upstream_write_allowed: false, resource_copy_after_start_allowed: true, two_existing_source_edits_plus_one_new_wrapper_after_start_allowed: true, control_compiler_checker_execution_after_start_allowed: true, natural_selected_or_claim_allowed: false, second_pivot_or_revision_allowed: false, owner_cleanup_allowed: false, stageb_allowed: false}
+budgets: {network_bytes_max: 0, resource_root_logical_bytes_max: 536870912, cpu_seconds_max: 14400, wall_seconds_max: 28800, max_parallel_processes: 2, input_copy_attempts_max: 1, modify_existing_files_max: 2, new_files_max: 1, control_tool_command_records_max: 64, fresh_llc_commands_max: 2, natural_or_selected_tool_invocations_max: 0, claim_bearing_runs_max: 0, automatic_retry: false}
+forbidden_actions: [ANY_ACTION_BEFORE_ACK_ACCEPTANCE_AND_START, MODIFY_R5_R4_OR_UPSTREAM, HARDCODE_REGISTER_IDS_OR_IMMEDIATE_PARENT_SET, IGNORE_SPLITS_OR_LOWER_MACHINEVERIFIER, CHANGE_WITNESS_OBJECT_MECHANISM_BASELINE_OR_GATE, SECOND_PIVOT_OR_SCIENTIFIC_REVISION, NATURAL_SELECTED_CLAIM_STATE_CLEANUP_OR_STAGEB, RETRY_OR_RESULT_BASED_EDIT]
+
+bootstrap_instructions:
+  read_order: [AGENTS.md, plan.md, THIS_CONTEXT, ROLE_CANDIDATE_OWNER, AUTONOMOUS_SOFT_BLOCKER_RECOVERY, RESOURCE_AND_LIFECYCLE, ACADEMIC_SKILL_AND_EXPERIMENT_WORKFLOW, TEMPLATES, MINIMUM_INPUTS, RELATED_AND_FULL_REGISTRY_DUAL_READ]
+  bootstrap_only: true
+  unique_ack_required: true
+  ack_must_confirm: [CWD_E_ROOT, NEW_OLD_THREAD_MAPPING, ALL_HASHES_MAPPING_STATUS_PERMISSIONS, RESOURCE_ROOT_ABSENT, TRANSITIVE_GRAPH_QUOTIENT_F4_F5_DEPENDENCY_AND_RECEIPT_CONTRACT, PIVOT_CONSUMED_WITH_NO_SECOND_PIVOT_OR_REVISION, ZERO_NATURAL_CLAIM_SCIENCE, DIFFERENCES_EMPTY, SCIENTIFIC_OR_RESOURCE_ACTION_STARTED_FALSE]
+  ready_condition: ALL_MATCH
+  refuse_condition: ANY_DIFFERENCE_OR_DRIFT
+
+resume_point: WRITE_BOOTSTRAP_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE
+next_action_after_start: COPY_R5_RESOURCES_ONCE_THEN_EXECUTE_C0_C8
+user_gate: NONE_UNLESS_HARD_EXTERNAL_OR_USER_GATE

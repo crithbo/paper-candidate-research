@@ -1,0 +1,37 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260815-SOURCE86-87-ZERO-BRIEF-R71
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+disposition: NO_CHANGE
+recommendation: RETAIN_ORDINARY_R40__NO_SUCCESSOR_MICRO_RULE__PRESERVE_PENDING_RAW_RESOURCE_BLOCKER_AND_MECHANICAL_CONTINUATION_SEPARATION
+assignment: {path: stages/rule-audit/_assignments/RULE_AUDIT_SOURCE86_87_ZERO_BRIEF_R71.yaml, sha256: 8823D668F9678070A9338B126BC761F3E6DAAE0CFA0D1A44A0DC0456D7362E7E}
+scope:
+  included: [Source86, Source87]
+  forbidden_input: Source88
+  source88_read: false
+  source88_contacted: false
+  source88_modified: false
+  queue_execution: false
+  retrieval_download_experiment_automation: false
+  shared_files_modified: false
+canonical_inputs:
+  source86_control_sha256: 94DD0C0A3D863B0CE12A98B26F5FC0BBA3E2D31B77D9A525ABE8BC74660619DE
+  source87_control_sha256: 24D069090BB2761288A4B0FF328F96974DAC48C2258F20062613C9EFF7BE9B42
+funnel:
+  source86: {evidence_qualified_raw: 1, clean_stage0_brief: 0}
+  source87: {evidence_qualified_raw: 1, clean_stage0_brief: 0}
+separation:
+  S2-86-CQ01: {status: PENDING_UNEXECUTED, attempt_count: 0, source88_evidence: false}
+  S2-87-CQ01: {status: PENDING_UNEXECUTED, attempt_count: 0, source88_evidence: false}
+  SC86-01-CQ01: {status: BLOCKED, attempt_count: 1, scientific_inference: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE, source88_evidence: false}
+  source87_s4: {disposition: MECHANICAL_CONTINUATION_ONLY, scientific_fields_changed: false, raw: 0, clean_stage0_brief: 0, resource_actions: 0}
+findings: {new_attributable_rule_defect: false, ordinary_r40_supported: true, successor_micro_rule_justified: false}
+authorization: {user_policy_decision_required: false, mainline_shared_patch_required: false, backtest_required: false, new_assignment_local_action: none}
+validation:
+  required_files: PASS
+  assignment_hash: PASS
+  counts: PASS__SOURCE86_RAW_1_BRIEF_0__SOURCE87_RAW_1_BRIEF_0
+  separation: PASS__PENDING_RESOURCE_AND_CONTINUATION_NOT_USED_AS_SOURCE88_EVIDENCE
+  forbidden_input: PASS__SOURCE88_NOT_READ
+  prohibited_actions: PASS
+  resource_localization: PASS__EMPTY_ROOT
+  manifest_replay: PASS__FIVE_CANONICAL_ARTIFACTS

@@ -1,0 +1,93 @@
+schema_version: e-drive-temp-cleanup-dry-run-v1
+generated_by: RULE_AUDIT_SENTRY
+workspace_root: <LOCAL_PROJECT_ROOT>
+mode: DRY_RUN_ONLY
+cleanup_executed: false
+shared_files_modified: false
+
+workspace_measurement:
+  stages_bytes: 5233776702
+  stages_files: 77104
+  stageA_bytes: 4980383745
+  stageA_files: 63151
+  discovery_bytes: 198819846
+  root_tmp_bytes: 0
+
+generic_dependency_scan:
+  git_repository: false
+  gitignore_present: false
+  node_modules_dirs: 0
+  project_dot_venv_dirs: 0
+  pycache_dirs: 47
+  pycache_bytes: 7686046
+  pycache_disposition: DO_NOT_BULK_DELETE__MOSTLY_PENDING_OR_VENDOR_EVIDENCE
+  note: bin directories are toolchain contents, not generic disposable bin outputs
+
+exact_candidates:
+  - path: <LOCAL_PROJECT_ROOT>/stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-prefreeze2-mainline/resources/src/hf-rows-0.json
+    bytes: 1629065
+    sha256: 1C3850DA017BD530532C42F80035DF75ECC6ED7943E1494D0A5302C60D67FF3D
+    inventory_class: unpinned_transport_telemetry
+    inventory_retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF
+    pinned_twin: <LOCAL_PROJECT_ROOT>/stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-prefreeze2-mainline/resources/src/hf-rows-pinned-0.json
+    pinned_twin_hash_equal: true
+    reparse: false
+  - path: <LOCAL_PROJECT_ROOT>/stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-prefreeze2-mainline/resources/src/hf-rows-100.json
+    bytes: 1293192
+    sha256: AD2828DA9A1A8AB3BE3000672F287393CE83BC0102DC48BE114E5E60ED0E18CB
+    inventory_class: unpinned_transport_telemetry
+    inventory_retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF
+    pinned_twin: <LOCAL_PROJECT_ROOT>/stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-prefreeze2-mainline/resources/src/hf-rows-pinned-100.json
+    pinned_twin_hash_equal: true
+    reparse: false
+  - path: <LOCAL_PROJECT_ROOT>/stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-prefreeze2-mainline/resources/src/hf-rows-200.json
+    bytes: 2092339
+    sha256: B0F1A84AA338D3CA7FDFC387D49435DEB52DFA6CEF00899B299CC5F7844A9370
+    inventory_class: unpinned_transport_telemetry
+    inventory_retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF
+    pinned_twin: <LOCAL_PROJECT_ROOT>/stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-prefreeze2-mainline/resources/src/hf-rows-pinned-200.json
+    pinned_twin_hash_equal: true
+    reparse: false
+  - path: <LOCAL_PROJECT_ROOT>/stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-prefreeze2-mainline/resources/src/hf-rows-300.json
+    bytes: 2411482
+    sha256: 1E4DB401E4969DDD52A497872BE782D252FA5207C2988D3B139064F07222E28F
+    inventory_class: unpinned_transport_telemetry
+    inventory_retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF
+    pinned_twin: <LOCAL_PROJECT_ROOT>/stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-prefreeze2-mainline/resources/src/hf-rows-pinned-300.json
+    pinned_twin_hash_equal: true
+    reparse: false
+  - path: <LOCAL_PROJECT_ROOT>/stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-prefreeze2-mainline/resources/src/hf-rows-400.json
+    bytes: 698935
+    sha256: A99AB0683594B82169E5A5531451F8CEBDDCBB6B6A0895654E7ED6E50AD80B0E
+    inventory_class: unpinned_transport_telemetry
+    inventory_retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF
+    pinned_twin: <LOCAL_PROJECT_ROOT>/stages/discovery/user-proposed-20260822/coupled-agent-replay-rev0-prefreeze2-mainline/resources/src/hf-rows-pinned-400.json
+    pinned_twin_hash_equal: true
+    reparse: false
+
+total_candidate_bytes: 8125013
+candidate_file_count: 5
+
+preconditions:
+  exact_literal_paths_verified: true
+  under_e_workspace: true
+  reparse_check: PASS_5_OF_5
+  pinned_hash_equal: PASS_5_OF_5
+  accepted_handoff_registered: true
+  inventory_safe_delete_status: PASS_5_OF_5
+  active_process_check: UNAVAILABLE__ACCESS_DENIED
+  cleanup_owner_authorized_for_this_branch: false
+  final_disposition: BLOCKED_PENDING_MAINLINE_EXACT_CLEANUP_ASSIGNMENT
+
+excluded_from_cleanup:
+  - path_class: PARQUET_PENDING_GATE_ASSETS_AND_PYCACHE
+    reason: NONTERMINAL_AND_DOWNSTREAM_GATE_DEPENDENCY
+  - path_class: ROCKSDB_AND_AIGER_RESERVE_RESOURCES
+    reason: RESUME_CRITICAL_OR_NOT_REACQUIRE_CLOSED
+  - path_class: CVC5_AND_OCCUPANCY_BLOCKED_RECOVERY_PACKS
+    reason: BLOCKED_TOPIC_RECOVERY_VALUE
+  - path_class: SEALED_METHOD_BACKTEST_PDFS_AND_KEYS
+    reason: SEALED_AUDIT_EVIDENCE
+  - path_class: EMPTY_STANDARD_RESOURCE_BUILD_CACHE_TMP_DIRS
+    reason: ZERO_BYTES_AND_REQUIRED_LAYOUT
+

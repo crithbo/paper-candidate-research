@@ -1,0 +1,26 @@
+schema: discovery-source-ledger-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE121
+source_calls_used: 8
+source_calls_max: 24
+source_call_accounting_note: Six web search/open batches plus two git ls-remote attempts; the first ls-remote failed before returning evidence and the second pinned the official main commit.
+network_bytes_observed: null
+network_bytes_note: 本次运行环境没有提供精确统计，未作估算。
+sources:
+  - {id: S01, role: ANCHOR_CURRENT_SOURCE, locator: https://github.com/huggingface/lerobot/blob/4aaff99be4a1d81568c08c8f0296b41b40c99ec4/src/lerobot/async_inference/robot_client.py, depth: SOURCE, conclusion: observation readiness is queue-occupancy threshold based; observations and actions carry timestamps and queue state is observable}
+  - {id: S02, role: ANCHOR_CURRENT_SOURCE, locator: https://github.com/huggingface/lerobot/blob/4aaff99be4a1d81568c08c8f0296b41b40c99ec4/src/lerobot/async_inference/configs.py, depth: SOURCE, conclusion: exposed client controls include actions_per_chunk chunk_size_threshold fps and aggregate function; no explicit action-age deadline control was found}
+  - {id: S03, role: ANCHOR_CURRENT_SOURCE, locator: https://github.com/huggingface/lerobot/blob/4aaff99be4a1d81568c08c8f0296b41b40c99ec4/src/lerobot/async_inference/policy_server.py, depth: SOURCE, conclusion: server preserves observation timestamp and timestep into generated timed actions and exposes configurable inference latency}
+  - {id: S04, role: OFFICIAL_DOCUMENTATION, locator: https://github.com/huggingface/lerobot/blob/main/docs/source/async.mdx, depth: DOCS_SOURCE, conclusion: official tuning surface is actions_per_chunk chunk_size_threshold fps and aggregation; the tradeoff is queue exhaustion versus update frequency and compute pressure}
+  - {id: S05, role: OFFICIAL_EXPLANATION, locator: https://github.com/huggingface/blog/blob/main/async-robot-inference.md, depth: DOCS_SOURCE, conclusion: current mechanism overlaps execution and inference and filters similar observations; dispatch remains controlled by queue occupancy fraction}
+  - {id: S06, role: CLOSEST_CURRENT, locator: https://arxiv.org/abs/2506.07339, depth: PRIMARY_ABSTRACT, conclusion: RTC asynchronously generates the next action chunk using committed-action freezing and inpainting; it is a strong comparator for supported flow/diffusion policies}
+  - {id: S07, role: CLOSEST_CURRENT, locator: https://arxiv.org/abs/2603.28565, depth: PRIMARY_ABSTRACT, conclusion: StreamingVLA uses action-saliency-aware adaptive early observation but changes the model architecture/action-generation mechanism}
+  - {id: S08, role: CLOSEST_CURRENT, locator: https://arxiv.org/abs/2607.24008, depth: PRIMARY_ABSTRACT, conclusion: FutureRTC corrects execution-time state mismatch through proprioceptive correction and visual prediction; exact direct coverage remains to be checked in Stage 0}
+  - {id: S09, role: CURRENT_ADJACENT, locator: https://arxiv.org/abs/2509.23224, depth: PRIMARY_ABSTRACT, conclusion: A2C2 addresses asynchronous action chunk execution and must be included in the complete current union}
+  - {id: S10, role: CARRIER, locator: https://github.com/robocasa/robocasa/blob/main/docs/datasets/using_datasets.md, depth: DOCS_SOURCE, conclusion: RoboCasa exposes timestamps actions proprioception video and raw simulator state in LeRobot-compatible episodes}
+  - {id: S11, role: CARRIER, locator: https://github.com/OpenDriveLab/AgiBot-World, depth: README_AND_PROJECT_PAGE, conclusion: public natural robot trajectories and task/failure metadata exist; exact clock sufficiency was not established within the bound}
+  - {id: S12, role: CARRIER, locator: https://github.com/Lifelong-Robot-Learning/LIBERO, depth: README_AND_DATASET_DOCS, conclusion: demonstrations include images proprioception actions language and task definitions but no distributed-runtime clock was established}
+  - {id: S13, role: CARRIER, locator: https://robomimic.github.io/docs/datasets/overview.html, depth: OFFICIAL_DOCS, conclusion: public demonstration and simulator-state datasets exist with version caveats but not a natural async transport trace}
+  - {id: S14, role: CARRIER, locator: https://rail-berkeley.github.io/bridgedata/, depth: OFFICIAL_PAGE, conclusion: BridgeData V2 provides 60096 robot trajectories across 24 environments; runtime clock sufficiency remains unverified}
+  - {id: S15, role: CARRIER, locator: https://github.com/stepjam/RLBench, depth: README, conclusion: task demonstrations observations actions waypoints and simulator state support canonical replay but not natural distributed latency}
+source_boundary: Official public code/docs/carriers and primary paper abstracts only; no download, build, experiment, or result-aware backfill.
+contrary_search_result: The broad asynchronous freshness/action-mismatch problem is crowded; the surviving residual is restricted to an explicit model-agnostic AoI-SLO controller on the pinned LeRobot distributed async path.
+

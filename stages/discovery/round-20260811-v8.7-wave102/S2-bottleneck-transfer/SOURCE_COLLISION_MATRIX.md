@@ -1,0 +1,16 @@
+# Six-object data-movement / verification deep matrix
+
+**Assignment:** `DISCOVERY-S2-20260811-V8.7-WAVE102-DATA-MOVEMENT-VERIFY-BOTTLENECK-DEEP` · **cutoff:** 2026-08-11.
+
+| Object | Source-backed shift | Exact same-object contract / full cost | Strongest current union and action witness | Natural carrier + 72h falsifier | Final |
+|---|---|---|---|---|---|
+| PyTorch DataLoader | pinned host memory speeds H2D and enables overlap | ordered equal tensor batches/model step; read+collate+queue+pin/H2D+compute | `pin_memory`, `prefetch_factor`, worker/persistence/order and nonblocking transfer; frozen action selects them | public image dataset/upstream tests; same values/order or current flags express action | `DROP_CONTROLLER` |
+| TensorFlow tf.data | prefetch/autotune stages input alongside compute | same deterministic elements/model output; transform+batch+stage+transfer+compute | prefetch/autotune/pipeline staging; no complete alternative action named | TFDS/tf.data tests; reject changed order/cardinality or config-only action | `NOT_ADMITTED_UNFROZEN` |
+| NVIDIA DALI | GPU preprocessing moves input preparation from training compute | same decoded tensor/label; read+decode+augment+movement+materialize+step | pipeline operators/prefetch/execution; no whole distinct construction | public DALI examples; fixed-seed output equivalence test | `NOT_ADMITTED_UNFROZEN` |
+| libfabric | registration/completion are native transfer stages after short payload compute | same message/RMA bytes + completion/error; prep/register+transfer+completion+consume | provider/FI modes, memory registration and completion APIs; protocol action not fixed | libfabric functional loopback tests; completion/error equivalence | `NOT_ADMITTED_UNFROZEN` |
+| Ceph BlueStore | data I/O separated from checksum/extent/database integrity path | same object ack/integrity/recovery; I/O+checksum+extent/DB+verify/recover | cache/checksum/OSD scheduling excluded; alternate on-disk construction not fixed | OSD integration traces; recovery/checksum equivalence | `NOT_ADMITTED_UNFROZEN` |
+| JAX async dispatch | async dispatch exposes synchronization/result materialization boundary | same function value/error; trace/compile/dispatch+movement+compute+sync/result | async/sync/copy paths; frozen action only changes timing selection | JAX public functions; same output/error timing contract test | `DROP_CONTROLLER` |
+
+## Current-source anchors and deduplication
+
+Primary anchors: [PyTorch DataLoader source](https://github.com/pytorch/pytorch/blob/main/torch/utils/data/dataloader.py), [PyTorch CUDA note](https://github.com/pytorch/pytorch/blob/main/docs/source/notes/cuda.rst), [TensorFlow upstream](https://github.com/tensorflow/tensorflow), [NVIDIA DALI upstream](https://github.com/NVIDIA/DALI), [libfabric upstream](https://github.com/ofiwg/libfabric), [Ceph upstream](https://github.com/ceph/ceph), [JAX documentation](https://docs.jax.dev/en/latest/async_dispatch.html). Wave55 UCX/DPDK/SPDK, Wave60/70 representation/parser, Wave87 verification-copy, Wave92 metadata, and active/terminal registry objects are excluded. Current native hooks are not automatic absorption; only PyTorch/JAX were dropped after their screened atomic action reduced to existing policy/path selection.

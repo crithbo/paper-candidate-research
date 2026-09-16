@@ -1,0 +1,14 @@
+schema: nonblind-stagea-engineering-failure-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A7-INVOKE
+decision: FAIL_CLOSED__NINJA_GENERATOR_CONFLICTS_WITH_RETAINED_NMAKE_CACHE__NO_CLEANUP_OR_RETRY
+tool_versions: {clang: 22.1.8, clangxx: 22.1.8, ninja: 1.13.2, result: PASS}
+configure:
+  requested_generator: Ninja
+  build_directory: resources/build/pgm
+  result: NONZERO
+  error: "Ninja does not match generator used previously: NMake Makefiles; remove CMakeCache.txt/CMakeFiles or choose different binary directory"
+  cache_cleanup_attempted: false
+  alternate_build_directory_attempted: false
+  retry_attempted: false
+subsequent_steps: {build: false, ctest: false, fidelity: false, probe: false}
+scientific_boundary: {scientific_inference: NONE, claim: false, production: false, stageB: false, cleanup: false}

@@ -1,0 +1,111 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: CVC5-ALETHE-SHAREMAP
+  assignment_id: SAFE-RECOVERY-L1-20260816-CVC5-RESUME12-SCRIPTED-RELAY-SMOKE-BUILD
+  stage_or_mode: STAGEA_RESOURCE_RECOVERY_ONLY
+  run_id: resume12-scripted-relay-smoke-build-1
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/CVC5-ALETHE-SHAREMAP/resume12-scripted-relay-smoke-build
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/CVC5-ALETHE-SHAREMAP/resume12-scripted-relay-smoke-build/resources
+  inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/CVC5-ALETHE-SHAREMAP/resume12-scripted-relay-smoke-build/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-16T01:51:23.4519188+08:00
+  finalized_at: 2026-08-16T02:00:39.8390720+08:00
+root_measurement:
+  logical_bytes: 404766399
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: READY_FOR_SCRIPTED_RELAY_SMOKE
+  process_local_only: true
+  system_or_user_environment_modified: false
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 838860800
+  cpu_hours_max: 0.25
+  gpu_hours_max: 0
+  wall_seconds_max: 1800
+  attempts_max: 2_SEQUENTIAL_GATES
+  network_bytes_used: 0
+  stored_bytes_used: 404766399
+  attempts_used: 2_OF_2_SEQUENTIAL_GATES
+entries:
+  - id: frozen_corrected_native_relay
+    relative_path: resources/env/relay/native_tool_relay.exe
+    sha256: 78978515A5F2A14F733A4B689272438336075B3876A878F1DB66B7341B418E8C
+    logical_bytes: 259735
+    provenance: EXACT_READ_ONLY_COPY_FROM_RESUME11
+    status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: frozen_trivial_smoke_source
+    relative_path: resources/src/smoke/conftest.c
+    sha256: 9B8044C13CC843FE16795FD957E3EDE9DA9C5C12F3104E538396EA98230389B2
+    provenance: ASSIGNMENT_FROZEN_CONTENT
+    status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: scripted_relay_smoke_executable
+    relative_path: resources/build/smoke/conftest.exe
+    sha256: D4D554E209F4EF406F653AF35035119BA930D4D0BD4BDEE276A48DCC59F81195
+    logical_bytes: 102187
+    provenance: ONE_FROZEN_SCRIPTED_RELAY_SMOKE
+    status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: frozen_carcara_source
+    relative_path: resources/src/carcara-carcara-1.1.0
+    logical_bytes: 2469505
+    file_count: 72
+    tree_content_manifest_sha256: 79F052442AE3FF77838AEBA558A6493FBBF0A23CB94AD7DB280B031150B7D48F
+    cargo_lock_sha256: 0E9C953C2C1B184511E2DFDF19D4BB7C35A6BE55140BC1A3D77179411D7C7378
+    provenance: EXACT_LOCAL_COPY_FROM_RESUME5__72_OF_72_CONTENT_HASHES_REVALIDATED
+    status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: frozen_locked_cargo_registry
+    relative_path: resources/cache/cargo-home/registry
+    logical_bytes: 257457109
+    file_count: 8647
+    provenance: EXACT_LOCAL_COPY_FROM_RESUME5__PATH_COUNT_AND_SIZE_REVALIDATED
+    status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - id: failed_carcara_build_tree
+    relative_path: resources/build/carcara-target
+    logical_bytes: 144468397
+    file_count: 165
+    metadata_index_sha256_not_content_integrity: 26EABE078917CA581E86B6FBFB3AED36465BCF1E77146864D6780511B6F792C6
+    provenance: SOLE_CLEAN_LOCKED_OFFLINE_BUILD_ATTEMPT
+    status: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF
+  - id: carcara_build_failure_log
+    relative_path: resources/logs/carcara-build.stderr.log
+    sha256: 19B43FD44AFCD35DCBB00F09DD12CE218754375A468C0AE64804DC4CDC481D38
+    logical_bytes: 3224
+    status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+shared_assets_consumed: []
+external_system_dependencies:
+  - id: frozen_resume4_msys2_native_tools
+    mode: READ_ONLY_UPSTREAM_ASSIGNMENT_INPUT
+  - id: frozen_rust_1_72_gnu
+    mode: READ_ONLY_UPSTREAM_ASSIGNMENT_INPUT_IF_BUILD_GATE_REACHED
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: [resources/tmp]
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: PASS_ZERO_REPARSE_POINTS__16_INTERNAL_HARDLINK_DIRECTORY_ENTRIES_NOT_REPARSE_POINTS
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: PASS
+  claim_critical_content_hashes_present: true
+  result: FINAL__SAFE_RELAY_ROUTES_EXHAUSTED__BUILD_EXIT_101__NO_RETRY

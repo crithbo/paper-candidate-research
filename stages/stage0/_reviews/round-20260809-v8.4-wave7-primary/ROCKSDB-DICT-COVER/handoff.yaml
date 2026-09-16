@@ -1,0 +1,82 @@
+schema_version: stage0-handoff-v8.4
+assignment_id: STAGE0-P1-20260809-ROCKSDB-DICT-COVER-PRIMARY-V8.4
+topic_id: ROCKSDB-DICT-COVER
+role: PRIMARY
+lane_id: STAGE0-BATCH-GATE/PRIMARY
+decision: PASS_RECOMMENDED
+confirmation_status: PENDING_CONFIRMATION
+quality_tier: TIER_B_Q2_VIABLE
+structural_paper_potential: TIER_B_Q2_VIABLE
+current_evidence_readiness: MODERATE_FINITE_CPU_ROUTE
+confidence: 0.71
+novelty_route: N2
+academic_score: 49
+ai_executability_score: 23
+total_score: 72
+ai_core_fraction: 0.76
+evidence_ceiling: DESIGN_AND_PRIMARY_SOURCE_AUDIT_ONLY__NO_CLAIM_BEARING_RESULT
+collision_status: SEARCH_BOUNDED_OPEN
+direct_fatal_found: false
+stageA_authorized: false
+stageB_authorized: false
+blocker_required: false
+human_reserve_required: false
+registry_entry_present_at_review: true
+provenance_correction: >-
+  The historical BlockBasedTable wiki random-64-byte sampling description is
+  stale for current main. Current BlockBasedTableBuilder uses a deterministic
+  midpoint/prime-stride traversal over buffered blocks up to max_sample_bytes.
+exact_object: >-
+  One production-equivalent bottommost-compaction standard RocksDB
+  BlockBasedTable SST from one fixed sorted KV manifest, with unchanged order,
+  KV bytes, comparator, block/table format, dictionary scope, decoder,
+  checksum/read semantics, block size, Zstd level and byte budgets.
+residual_kernel: >-
+  A deterministic bounded online retained-fragment coreset under the current
+  per-SST buffering and trainer-input byte contract, followed by the unchanged
+  pinned Zstd FastCover trainer. Coverage-based final dictionary construction
+  itself is absorbed by FastCover and Liao et al. WWW 2016.
+strongest_fair_baselines:
+  - no dictionary
+  - current RocksDB raw dictionary mode
+  - current RocksDB trained mode with midpoint/prime-stride block sampling
+  - first-prefix and seeded uniform byte/block reservoir
+  - deterministic key-range-stratified reservoir
+  - preregistered finite legal settings grid under identical semantics and full cost
+  - tiny exact maximum-coverage oracle as ceiling only
+stageA_killer:
+  premise: >-
+    Under an identical sample-byte cap, natural structured SSTs contain useful
+    fragments omitted by the complete current/simple union, and the bounded
+    coreset retains them cheaply enough to affect the unchanged trainer and the
+    end-to-end SST Pareto frontier.
+  stop_if:
+    - useful retained-action coverage outside the complete seeded union is below 10 percent
+    - any reader, checksum, full-scan, point or range equality check fails
+    - no p50 and p90 full-cost Pareto point survives every finite-union member
+    - sketch, replacement or training overhead consumes the apparent benefit
+    - benefit requires changing object, order, block size, level, trainer, byte budget or cache policy after outcomes
+  positive_ceiling: PRELIMINARY_SUPPORT_ONLY
+current_source_findings:
+  - current builder uses deterministic prime-stride block sampling, not the historical random-64-byte scheme
+  - Zstd FastCover already performs d-mer-frequency coverage and redundancy removal
+  - WWW 2016 Liao et al. is the coverage-method genealogy and a major subtractor
+  - no exact one-SST bounded pre-trainer coreset plus full-cost direct fatal was found
+required_confirmation_attacks:
+  - validate current-source provenance correction and pin target commits
+  - test bottommost-compaction versus SstFileWriter object parity
+  - challenge whether pre-trainer coreset is non-product beyond FastCover/current sampling
+  - validate the finite-union and p50/p90 full-cost killer
+required_next_review: LONG_LIVED_STAGE0_CONFIRMATION_SENTRY
+input_provenance:
+  discovery_brief_sha256: AB142932C96A51EE5D1DCA1CF5A9C24DBBB6CD73AD6AB487BAAFAFB055A10247
+  collision_matrix_sha256: 5316BA3A887D0FB8A1621D23526F2815679AC3502524FC558CEC024DC47461A4
+  discovery_log_sha256: A2C08B94CF25DE279151BEACB2F49CAA8B368B30104E9EEF541A2D0A80643E2A
+  discovery_handoff_sha256: D10B56200F32D73FCEEF03CB07BAAADA3F5860C61581D2A796827DC5DCB2B9D5
+  discovery_manifest_sha256: 5D94A0BEF7C4C995ED9455C01812E1E46874F3313FB29FADFB9E087B22317AEF
+outputs:
+  report: STAGE0_REPORT.md
+  comparator: Q1_COMPARATOR_MATRIX.md
+  source_audit: SOURCE_AUDIT.md
+  hash_manifest: HASH_MANIFEST.sha256
+lane_state_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE

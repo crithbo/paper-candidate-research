@@ -1,0 +1,96 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-30T04:23:34+08:00
+lane_id: CANDIDATE_EXECUTION_LANE_1
+role_id: CANDIDATE_OWNER
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-METHOD-REDESIGN1
+topic_id: MLPERF-INFERRED-RANK-VALIDITY
+assignment_context_path: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a1-method-redesign1-unit-rss-20260830/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: 267B418F591837F3BF50A12D20670A10E8F866B79FDFF41212150F62823C52BA
+old_chat_memory_required: false
+
+model_route_ack:
+  model: gpt-5.6-sol
+  thinking: high
+  temporary_user_command_override: true
+  override_scope: THIS_BOOTSTRAP_COMMAND_ONLY
+  current_cycle_usage_reset_confirmed: false
+
+frozen_hash_ack:
+  AGENTS_sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655
+  plan_sha256: A47E395F2EAE50FC705E765A6649DD488BC7171F79BDFE9C8F19E1FF0E15062A
+  registry_snapshot_sha256: 901453F2E47CEBCA3DAB776E971298FB4E7748CE1559ABE551B7995F66B5C68E
+  role_rule_sha256: A015EF2474D741BABA566339A3F1571074CE2423615FDCFFE1DD15749E523938
+  rule_hashes:
+    - {path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, sha256: 243BFCFAD28A116C743AF42567AC4FA2B024E433B8D5B91F61E543E5E02BB1CE}
+    - {path: rules/RESOURCE_LOCALIZATION.md, sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA}
+    - {path: rules/ARTIFACT_LIFECYCLE.md, sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED}
+  skill_hashes:
+    - {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  template_hashes:
+    - {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+  source_assignment_sha256: 0B597A6561076AE754B8CC08A155836F8D6493A033937CAAE5547FEBFD9351B0
+
+minimum_input_ack:
+  prior_handoff: {path: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/handoff.yaml, sha256: 3789BBBBA3E47FB8DF53732A2BC7D451C2441CCEF4C85A71C37BD9F3EA64639F, disposition: EXECUTION_CONTRACT_HOLD}
+  prior_manifest: {path: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/HASH_MANIFEST.sha256, sha256: 443EB90FC3A9842B215D143CBE6E031D267EA3E966BCBA1F3812257D07F1A0F9}
+  independent_gate: {path: stages/stageA/_reviews/20260830-mlperf-rank-validity-final/MLPERF-INFERRED-RANK-VALIDITY/INDEPENDENT_REVIEW_REPORT.md, sha256: DD3CF354D5B8A55D45AB7F6904C98FC88B44FEA70AA6653320DBC4F95A25CE40, scientific_verdict: INCONCLUSIVE__INVALID_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE}
+
+redesign_ack:
+  same_object_method_redesign: 1_OF_1_ASSIGNED__NOT_STARTED
+  ordinary_or_exceptional_scientific_revision: false
+  allowed_changes_only:
+    - deterministic_documented_MLPerf_scenario_metric_alias_map_with_raw_token_emission
+    - original_and_normalized_unit_token_rule_and_reason_for_every_rejected_row
+    - external_Windows_child_peak_working_set_wrapper
+  unchanged_invariants: [releases, formulas, pairing_key, missingness_policy, materiality_threshold_0.02, denominator, cost_dimensions, claim_ceiling]
+  static_compile_attempts: 1
+  claim_processes: 1
+  retries: 0
+  network: 0
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  role_rule_complete: true
+  required_rules_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  independent_gate_complete: true
+  registry_dual_read_performed: true
+
+registry_ack:
+  topic_formal_state: STAGEA_ACTIVE
+  prior_assignment_state: EXECUTION_CONTRACT_HOLD__ROUTE_METHOD_REDESIGN1
+  independent_gate_state: GATE_COMPLETE__INCONCLUSIVE_INVALID_CONSTRUCTION__METHOD_REDESIGN_AVAILABLE
+  redesign_assignment_state: BOOTSTRAP_PENDING
+  lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+
+boundary_ack:
+  cwd_exact: <LOCAL_PROJECT_ROOT>
+  unique_write_directory_exact: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a1-method-redesign1-unit-rss-20260830
+  resource_root_exact: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a1-method-redesign1-unit-rss-20260830/resources
+  resource_root_absent: true
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: NONE
+  contamination_detected: false
+
+execution_ack:
+  current_status: BOOTSTRAP_PENDING
+  resume_point: WAIT_FOR_SEPARATE_MAINLINE_START
+  next_action: WAIT_FOR_MAINLINE_BOOTSTRAP_ACCEPTANCE_AND_START
+  user_gate_or_blocker: MAINLINE_START_REQUIRED
+  copy_or_resource_action_started: false
+  code_or_alias_map_edit_started: false
+  static_compile_or_claim_started: false
+  network_or_stageb_started: false
+  shared_write_started: false
+  scientific_or_resource_action_started: false
+  method_redesign_action_started: false
+
+differences_or_ambiguities: []
+ack_disposition: READY
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

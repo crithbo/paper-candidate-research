@@ -1,0 +1,79 @@
+{
+  "schema": "R11A_R13B_BATCH02_CLOSURE_BATCH03_STRUCTURED_TRANSPORT_GATE_V1",
+  "approval_id": "R11A-R13B-BATCH02-PARTIAL-PREFLIGHT-RECOVERY-20260813-R15A",
+  "assignment_id": "BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX",
+  "batch02": {
+    "closure_status": "INVALID_PARTIAL_PREFLIGHT__NO_COMMITMENT__NO_SCIENTIFIC_INFERENCE",
+    "request1_raw_slots_charged": 12,
+    "request1_aggregate_quarantined": true,
+    "request2_reservation_invalidated": true,
+    "additional_batch02_call_allowed": false
+  },
+  "batch03": {
+    "batch_id": "R13B-03",
+    "original_raw_cap": 24,
+    "original_unique_cap": 20,
+    "global_raw_remaining_before_batch03": 32,
+    "effective_raw_cap": 24,
+    "replacement_batch": false,
+    "status": "DISPATCHABLE_AFTER_MAINLINE_MECHANICAL_VALIDATION__STRUCTURED_TRANSPORT_GATE_PASS"
+  },
+  "authority_proof": {
+    "phase1_assignment_path": "stages\\discovery\\_method-backtests\\DISCOVERY_CLAIM_PACK\\V9-R0\\paired-blind-r11a\\control\\PHASE1_INDEX_ASSIGNMENT.yaml",
+    "phase1_assignment_sha256": "641E28EA6AD3FA9E0D3036E4AD377D52375B2F901B6495B4EB23051BA93B485A",
+    "phase1_public_network_retrieval_allowed": true,
+    "phase1_systematic_route": "primary_preprint_indexes",
+    "phase1_metadata_role": "LOCATOR_ONLY",
+    "frozen_assignment_skill": "academic-research-suite/deep-research",
+    "route_classification": "EXISTING_FROZEN_ACADEMIC_RESEARCH_SUITE_PUBLIC_METADATA_ROUTE__NOT_NEW_SERVICE",
+    "package_install_required": false,
+    "system_install_required": false,
+    "artifact_download_authorized_by_this_gate": false,
+    "live_capability_probe_used_for_gate": false
+  },
+  "provider_contract": {
+    "provider": "OpenAlex",
+    "endpoint": "https://api.openalex.org/works",
+    "method": "GET",
+    "authentication": "NONE",
+    "api_key_or_polite_email_use": "forbidden",
+    "one_literal_query_per_call": "required",
+    "request_query_parameters": {"search": "PRECALL_FROZEN_LITERAL_QUERY", "per-page": 12, "select": "id,title,doi,primary_location,publication_year", "sort": "OMITTED__PROVIDER_DEFAULT_SEARCH_RELEVANCE"},
+    "sort_and_order_contract": {"sort_semantics": "PROVIDER_DEFAULT_SEARCH_RELEVANCE__NO_CLIENT_SIDE_RERANK_BEFORE_FREEZE", "provider_row_order": "RESPONSE_JSON_RESULTS_ARRAY_ORDER_AS_RECEIVED", "request_order": "PRECALL_FROZEN_REQUEST_ORDINAL_ASCENDING", "pagination": "NONE", "retry": "NONE", "rows_after_12": "IGNORE_AND_DO_NOT_USE", "fewer_than_12_rows": "MISSING_SLOTS_CONSUMED__NO_REPLACEMENT"},
+    "raw_slot_reservation_per_call": 12,
+    "maximum_batch03_calls": 2
+  },
+  "local_contract_anchors": {
+    "openalex_protocol_path": "<LOCAL_USER_HOME>\\.codex\\skills\\academic-research-suite\\ars\\deep-research\\references\\openalex_api_protocol.md",
+    "openalex_protocol_sha256": "A03FEA3BEDC1D89EE64D86D3D5783CA745E573E0AE4A0F93D18A2F9E7906CA65",
+    "parser_path": "<LOCAL_USER_HOME>\\.codex\\skills\\academic-research-suite\\ars\\scripts\\openalex_client.py",
+    "parser_version": "ARS_OPENALEX_CLIENT_V3_9_0__ORDERED_RESULTS_PROJECTION_PROFILE_V1",
+    "parser_sha256": "05634F0BA79E1ED89BA74E30F9B51B6E1B5ED1508ADA40A1927DD752428C05B4",
+    "parser_test_path": "<LOCAL_USER_HOME>\\.codex\\skills\\academic-research-suite\\ars\\scripts\\test_openalex_client.py",
+    "parser_test_sha256": "8FE55326DBB7F4D0D45C0A0F3C3D19C6DD13987030AAD989292B2E3A970B17C4"
+  },
+  "raw_response_freeze_protocol": {
+    "transport_must_write_body_directly_to_new_raw_file_without_displaying_body": true,
+    "raw_file_path_and_sha256_and_byte_count_frozen_before_parse": "required",
+    "raw_response_model_read_before_freeze": "forbidden",
+    "parsing_filtering_or_identity_selection_before_freeze": "forbidden",
+    "HTTP_status_and_final_exact_URL_without_credentials_frozen": "required"
+  },
+  "ordered_row_projection": {
+    "JSON_root_required": "object",
+    "results_field_required": "array",
+    "preserve_results_array_order": true,
+    "row_ordinal": "ONE_BASED_POSITION_IN_RESULTS_ARRAY",
+    "stable_locator_or_provider_id": "id",
+    "title": "title",
+    "url_precedence": ["doi", "primary_location.landing_page_url", "id"],
+    "no_semantic_filter_before_order_freeze": true,
+    "row_freeze_fields": ["request_ordinal", "provider_row_ordinal", "stable_locator_or_provider_id", "title", "url"],
+    "missing_required_field": "REJECT_AFTER_ORDER_FREEZE__RAW_SLOT_REMAINS_CONSUMED"
+  },
+  "precall_mandatory_freeze": ["request_ordinal", "exact_endpoint", "literal_query", "literal_query_sha256", "exact_parameter_map", "exact_URL_sha256", "sort_and_order", "row_limit", "parser_version_and_sha256", "raw_slot_reservation", "global_raw_remaining_before_call", "public_seed_and_request_plan_sha256"],
+  "postcall_mandatory_order": ["FREEZE_RAW_RESPONSE_BYTES_AND_HASH_WITHOUT_MODEL_READ", "FREEZE_HTTP_AND_TRANSPORT_LEDGER", "PARSE_AND_FREEZE_ORDERED_ROWS_WITHOUT_SEMANTIC_FILTER", "LOCAL_NORMALIZATION_AND_CROSS_BATCH_DEDUP", "IMMUTABLE_OPAQUE_COMMITMENT_AND_MANIFEST", "STOP_FOR_MAINLINE_PRIVATE_R12A_INTERSECTION"],
+  "fail_closed": {"non_JSON_or_missing_results_array": true, "combined_prose_or_unknown_structure": true, "raw_bytes_not_frozen_before_parse": true, "endpoint_redirect_or_schema_drift_unrecorded": true, "query_order_or_row_order_ambiguity": true, "collision_or_private_leak": true, "cap_or_budget_breach": true, "failure_effect": "PRESERVE_BYTES_AND_COUNTERS__NO_CAPACITY_RESTORATION__RETURN_TO_MAINLINE"},
+  "prohibitions": {"batch01_or_batch02_replay_reference_or_reconstruction": "forbidden", "result_aware_query_change": "forbidden", "pagination_retry_or_replacement": "forbidden", "source_qualification_before_private_intersection": "forbidden", "phase2_executor_auditor_shadow_discovery_stage0_stagea_stageb_e2_experiment": "forbidden"},
+  "scientific_inference": "NONE"
+}

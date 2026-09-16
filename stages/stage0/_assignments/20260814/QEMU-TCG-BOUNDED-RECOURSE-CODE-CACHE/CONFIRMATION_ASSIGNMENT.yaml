@@ -1,0 +1,20 @@
+assignment_id: STAGE0-C2-20260814-QEMU-TCG-BOUNDED-RECOURSE-CODE-CACHE-CONFIRM-V8.7
+mode: INDEPENDENT_CONFIRMATION
+topic_id: QEMU-TCG-BOUNDED-RECOURSE-CODE-CACHE
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_QUEUED_AFTER_VERILATOR_CONFIRMATION
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source18-confirmation\QEMU-TCG-BOUNDED-RECOURSE-CODE-CACHE
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source18-primary\QEMU-TCG-BOUNDED-RECOURSE-CODE-CACHE
+primary_decision: REVISE_ONCE
+atomic_gate: PINNED_QEMU_REGION_ALLOCATION_AND_TB_REFERENCE_CATALOG__LIVE_TB_RELOCATION_CERTIFICATE
+primary_hashes: {report: 4BD6AE619786C76F789647559D57CF23099006A6735E683348C10E5187B782AD, q1: DF194C53416CDDB58ED25B010C2AF420AD982C3DFF96BA82D7C810D1102F0455, source: 3687381CD7C23343F8455AD7D75AA329AEDA431BC41494C653DD7F9C8FA8D217, handoff: C42F2EDC9C2B33DA97D34B3A34AF2D5D7B5B83C0C96F55F19EE7FF03B705118D, manifest: 064067E84BE0C8487F362D9574C670942695185743B4AF0410A84D2979AA1879}
+independent_attack_requirements:
+  - Verify current dynamic multi-region allocation, capacity full flush, granular page invalidation, jump-cache/QHT/page-list/direct-jump and host-PC mapping union.
+  - Require an immutable QEMU source pin; transport or local-source gaps are provenance/readiness only and cannot support scientific STOP.
+  - Attack the same-QEMU two-TB witness, direct chain, page/cache membership, invalidation and pressure admission, including the complete quiescent repair order.
+  - Determine whether current QEMU already has equivalent capacity-triggered live-TB relocation or whether the residual is generic cache/controller/compaction work.
+  - Require a target-specific bounded-recourse guarantee and full-cost accounting; confirm, narrow or reject the sole revision gate without executing it.
+forbidden: [revision_execution, implementation, experiment, benchmark, build, install, stageA, stageB, shared_control_write]
+required_outputs: [CONFIRMATION_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

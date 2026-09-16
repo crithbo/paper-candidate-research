@@ -1,0 +1,118 @@
+schema: candidate-stagea-claim-pilot-assignment-v1
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-R7-NATURAL-CLAIM-PILOT
+authorization_id: USER-PARALLEL-STAGEA-READY-CANDIDATES-20260825
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+topic_id: ROCKSDB-DICT-COVER
+stage: STAGEA_RESTRICTED_REAL_RISK_PILOT__CLAIM_BEARING
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/r7
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/r7/resources
+inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/r7/RESOURCE_INVENTORY.yaml
+
+scientific_boundary:
+  exact_object: ONE_PRODUCTION_EQUIVALENT_BOTTOMMOST_COMPACTION_STANDARD_BLOCKBASEDTABLE_SST_PER_FROZEN_SORTED_KV_MANIFEST
+  exact_contract_sha256: 8B578D63EE6DC515DB60E6D5A7D29AECEE35EAFF816AF7D800888C9746CEDC70
+  claim_bearing_action_allowed_after_start_and_quiescence_gate: true
+  claim_ceiling: STAGEA_PRELIMINARY_SUPPORT_OR_VALID_SCIENTIFIC_STOP_RECOMMENDATION_ONLY
+  owner_state_transition_authority: false
+  scientific_revision_consumed_before_assignment: false
+  scientific_revision_or_mechanism_pivot_authorized: false
+  stageb_authorized: false
+
+upstream_preclaim_acceptance:
+  assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-RESUME6-E-ROOT-PRECLAIM-FIDELITY
+  mainline_acceptance_sha256: B9E9EE88F26982D15382CF7DF3D4BFE6FFB9CED62EBA661F0A16C855B17D37DE
+  handoff_sha256: F6C7F363C4FCE820B4462362B8DBCFCCA9F1EF8DDCFE2BF867AAB384C7668D55
+  preclaim_gate_sha256: 7912054E173D29AB85A2EF094C5008897E2A6E4B83ADBC293CD030AD9E20DB34
+  operation_inventory_sha256: A4FCB9986AE01094A50293AA411577426AAD92A20AB5A510BDA470E6A94F6357
+  environment_lock_sha256: 81CFE0E333C23D083296EC016F2CE98D7F796E79A693991010DEC9F9E8A67492
+  resume_capsule_sha256: C908878C2F798DFDD940AF8F8D9F33A699188D2E115CDF450A62A0F7EEAAC795
+  postcleanup_inventory_sha256: 0FCD64F374B5D1D767B0C918F0C8A8009E3909C81B577B7B581824DFDD5961E5
+  cleanup_receipt_sha256: DD1E312CB6E96DB3E44F22E7C501396958268AE912D3B35AAD5F9DEE56FBB118
+  gate_results: [F0_PASS, F1_PASS, F2_PASS_WITH_NATIVE_CURRENT_PRECISION_PIN, F3_PASS_CONTROL_NON_CLAIM_ONLY, F4_PASS_COLLECTION_PATH_ONLY, F5_PASS]
+  native_current_precision_pin: MIDPOINT_PLUS_PRIME_STRIDE_BLOCK_ORDER__FINAL_SAMPLE_TRUNCATED_AT_EXACT_BYTE_CAP
+
+same_topic_input_transfer:
+  source_root: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources
+  source_access: READ_ONLY_HASH_PINNED_SAME_TOPIC
+  required_trees:
+    - {source: resources/src, destination: resources/src, files: 3009, bytes: 120924595, tree_sha256: BB422A956D525172FEEE0D4D608F081213632B29296825E90DA64791F7A2498C, role: accepted_20_manifests_patched_sources_and_harness}
+    - {source: resources/build/frozen, destination: resources/build/frozen, files: 3, bytes: 47943324, tree_sha256: 6BED3634B5D5194F6CAEAAC0DB54F42F2F83035F1BEEB8465A1ABC727AA7B6D5, role: frozen_harness_and_static_libraries}
+    - {source: resources/env/runtime, destination: resources/env/runtime, files: 2, bytes: 2299392, tree_sha256: 6DC336C15FD5F13AE2E95531A294A4A87946259C4ED07ED38762C64FB8F21A23, role: runtime_dlls}
+  exact_harness_sha256: 22A57C80065AC0883AA62678DB7BAD7546BDC08A51064EBDA9721DE991DC34D4
+  exact_candidate_implementation_sha256: 9BB41C3A169E3EC2BF7865C3D1BE135A3EE5F0774C7D88AE096D2B55242AE323
+  exact_manifest_count: 20
+  exact_manifest_bytes: 61951583
+  input_acceptance_output: SAME_TOPIC_CLAIM_INPUT_ACCEPTANCE.yaml
+  source_modify_or_delete_allowed: false
+
+frozen_methods:
+  baselines: [B0_NO_DICT, B1_RAW_NATIVE_CURRENT, B2_TRAINED_NATIVE_CURRENT, B3_PREFIX_SAME_BYTES, B4_SEEDED_RESERVOIR_WHOLE_BLOCK, B5_DETERMINISTIC_KEY_RANGE_STRATIFIED]
+  candidate: C1_STREAMING_MARGINAL_REPEATED_MINIMIZER_CORESET
+  grid:
+    G1: {max_dict_bytes: 4096, zstd_max_train_bytes: 65536, max_dict_buffer_bytes: 262144}
+    G2: {max_dict_bytes: 8192, zstd_max_train_bytes: 131072, max_dict_buffer_bytes: 524288}
+  manifests: [nvd-2015, nvd-2016, nvd-2017, nvd-2018, nvd-2019, nvd-2020, nvd-2021, nvd-2022, nvd-2023, nvd-2024, pypi-boto3, pypi-botocore, pypi-django, pypi-pandas, pypi-numpy, pypi-scipy, pypi-tensorflow, pypi-torch, pypi-matplotlib, pypi-scikit-learn]
+  replays: [R1, R2]
+  expected_processes: 560
+  process_boundary: ONE_METHOD_MANIFEST_GRID_CELL_PER_FRESH_PROCESS
+  maximum_concurrent_claim_processes: 2
+  automatic_retry: false
+
+claim_start_quiescence_gate:
+  input_copy_and_hash_acceptance_may_run_in_parallel_with_other_lanes: true
+  claim_matrix_must_not_start_while_other_assignment_has_active_clang_cmake_ninja_or_claim_performance_process: true
+  e_drive_claim_critical_performance_contention_must_be_zero_at_start: true
+  if_not_quiescent: WAIT_WITHOUT_SCIENTIFIC_ACTION_AND_REPORT_MAINLINE
+  no_result_based_exclusion_or_rerun: true
+
+required_validity_checks:
+  object: [kCompaction_bottommost_L1, one_live_sst, standard_BlockBasedTable, no_SstFileWriter]
+  semantics: [table_open, file_and_block_checksum, full_ordered_equality, every_key_point_equality, 32_range_probe_equality]
+  fairness: [same_manifest, same_grid_cell, same_comparator, same_format, same_block_size, same_cache, same_zstd_level, unchanged_ZDICT_trainer]
+  replay: ALL_NONVOLATILE_RESULT_AND_SELECTOR_TRACE_FIELDS_EXACTLY_EQUAL
+  any_object_semantic_or_replay_failure: INVALID_CLAIM_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+
+mechanism_gate:
+  pooled_useful_residual_ratio_min: 0.10
+  per_manifest_p50_useful_residual_ratio_min: 0.10
+  final_dictionary_and_compressed_match_effect_required: true
+  native_precision_pin_required: true
+
+full_cost_and_frontier:
+  lower_is_better: [total_sst_bytes, end_to_end_build_write_cpu_ns, peak_working_set_bytes, cold_full_scan_ns, warm_point_lookup_ns, warm_range_probe_ns]
+  quantiles: [p50, p90]
+  candidate_required: NO_APPLICABLE_INDIVIDUAL_BASELINE_WEAKLY_DOMINATES_AND_CANDIDATE_STRICTLY_BETTER_ON_AT_LEAST_ONE_METRIC_AT_BOTH_QUANTILES
+  include: [selector_work, sketch_work, buffering, trainer, compression, compaction, write, temporary_io, fallback, reader_open, checksum, scans, point, range, acquisition_conversion_ledger]
+  uncalibrated_work_to_byte_scalarization: forbidden
+
+resource_localization:
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  every_resource_write_under_resource_root: true
+  network_allowed: false
+  cross_topic_resource_access_allowed: false
+  process_local_redirect_required: true
+  system_wsl_or_global_change_allowed: false
+
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  closeout_event: STAGEA_CLAIM_PILOT_HANDOFF_ACCEPTED_BY_MAINLINE
+  downstream_consumer: INDEPENDENT_STAGEA_GATE
+  post_close_retained_bytes_max: 1610612736
+  cleanup_owner: MAINLINE
+  owner_cleanup_allowed: false
+
+limits: {network_bytes_max: 0, resource_root_logical_bytes_max: 4294967296, cpu_seconds_max: 14400, wall_seconds_max: 21600, max_concurrent_claim_processes: 2, gpu_hours_max: 0}
+allowed_actions: [CREATE_STANDARD_RESOURCE_DIRS, COPY_AND_HASH_ACCEPT_EXACT_SAME_TOPIC_INPUTS, RUN_FROZEN_560_PROCESS_NATURAL_MATRIX_AFTER_QUIESCENCE_GATE, COLLECT_FROZEN_FULL_COST_AND_MECHANISM_TRACES, VERIFY_OBJECT_SEMANTICS_REPLAYS, AGGREGATE_PRE_REGISTERED_P50_P90_FRONTIER, WRITE_CANONICAL_STAGEA_PACKAGE]
+forbidden_actions: [NETWORK, WSL, SYSTEM_INSTALL, GLOBAL_ENVIRONMENT_CHANGE, CROSS_TOPIC_ACCESS, SOURCE_OR_CONTRACT_CHANGE, PARAMETER_SEED_ORDER_PREFIX_STRATUM_OR_TRAINER_SCAN, AUTOMATIC_RETRY, RESULT_BASED_RERUN_OR_EXCLUSION, SCIENTIFIC_REVISION, MECHANISM_PIVOT, OWNER_STATE_TRANSITION, OWNER_CLEANUP, STAGEB]
+
+expected_outputs: [SAME_TOPIC_CLAIM_INPUT_ACCEPTANCE.yaml, ENVIRONMENT_LOCK.yaml, RUN_MATRIX.yaml, CLAIM_MATRIX.yaml, FULL_COST_LEDGER.csv, MECHANISM_TRACE_SUMMARY.yaml, REPRODUCIBILITY_REPORT.yaml, RESULTS.md, STAGEA_REPORT.md, RESOURCE_INVENTORY.yaml, PHASE_CLOSEOUT_RETENTION.yaml, RESUME_CAPSULE.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+success_route: HANDOFF_TO_MAINLINE_FOR_INDEPENDENT_STAGEA_GATE__OWNER_RECOMMENDATION_ONLY
+failure_routes:
+  resource_or_quiescence: BLOCKED_OR_WAITING__NO_SCIENTIFIC_INFERENCE
+  invalid_construction: FAIL_CLOSED_INVALID_CLAIM_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+  valid_scientific_negative: STOP_RECOMMENDED_TO_INDEPENDENT_GATE
+  valid_scientific_positive: PASS_RECOMMENDED_TO_INDEPENDENT_GATE__PRELIMINARY_SUPPORT_ONLY
+

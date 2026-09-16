@@ -1,0 +1,118 @@
+schema: candidate-resource-recovery-assignment-v2
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-RESUME5-E-ROOT-OFFICIAL-ASSETS
+authorization_id: USER-NO-WSL-TOPIC-LOCALIZED-RESOURCE-RECOVERY-20260825
+program_id: MAINLINE-NO-WSL-RESOURCE-RECOVERY-20260825-R1
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+topic_id: ROCKSDB-DICT-COVER
+stage: STAGEA_RESOURCE_GATE_RESUME_FROM_RESERVE
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/resume5-e-root-official-assets
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/resume5-e-root-official-assets/resources
+inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/resume5-e-root-official-assets/RESOURCE_INVENTORY.yaml
+prior_directories: READ_ONLY_IMMUTABLE
+
+exact_object: FIXED_SORTED_KV_MANIFEST_TO_ONE_STANDARD_DICTIONARY_COMPRESSED_ROCKSDB_BLOCKBASEDTABLE_SST
+scope: OFFICIAL_RESOURCE_ACQUISITION_HASH_SCHEMA_UNMODIFIED_CONVERTER_READ_SMOKE_AND_TWENTY_MANIFEST_CLOSURE_ONLY
+claim_ceiling: RESOURCE_GATE_ONLY
+evidence_ceiling: RESOURCE_VALIDATION_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: false
+claim_bearing_execution_allowed: false
+stage_state_transition_authority: false
+stageb_authorized: false
+
+resource_localization:
+  policy: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  every_project_controlled_write_under_unique_write_directory: true
+  every_resource_write_under_resource_root: true
+  process_local_redirect_required: true
+  system_or_user_environment_change_allowed: false
+  global_path_or_registry_change_allowed: false
+  cross_topic_resource_write_or_unregistered_reuse_allowed: false
+
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy: rules/ARTIFACT_LIFECYCLE.md
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  artifact_state: ARTIFACT_OPEN
+  closeout_event: RESOURCE_GATE_HANDOFF_ACCEPTED
+  downstream_consumer: STAGEA_ROCKSDB_PRECLAIM_RESUME_AFTER_RESOURCE_PASS
+  post_close_retained_bytes_max: 536870912
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: RESUME_CAPSULE.yaml
+  cleanup_receipt_path: CLEANUP_RECEIPT.yaml
+  cleanup_owner: MAINLINE
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY]
+  never_automatic: [TOPIC_ROOT, ASSIGNMENT_ROOT, RESOURCE_ROOT, CONTROL_FILES, CLAIM_CRITICAL, REPRODUCIBILITY_MINIMUM, RESUME_CRITICAL, UNCLASSIFIED]
+
+official_assets:
+  nvd:
+    - {id: NVD_2023_CVE_JSON_2_0, url: 'https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2023.json.gz'}
+    - {id: NVD_2024_CVE_JSON_2_0, url: 'https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2024.json.gz'}
+  pypi_projects: [boto3, botocore, django, pandas, numpy, scipy, tensorflow, torch, matplotlib, scikit-learn]
+  pypi_url_rule: 'https://pypi.org/pypi/{project}/json'
+  licenses_and_provenance: RECORD_RESPONSE_URL_UTC_HEADERS_BYTES_SHA256_AND_SOURCE_TERMS_OR_METADATA
+
+transport:
+  allowed_tools: [POWERSHELL_INVOKE_WEBREQUEST, DOTNET_SYSTEM_NET_HTTP_HTTPCLIENT, BUNDLED_WORKSPACE_PYTHON_HTTPS]
+  tls_policy: PLATFORM_DEFAULT__NO_CERTIFICATE_PROXY_PROTOCOL_OR_ACCESS_BYPASS
+  per_asset_attempt_limit: 1
+  total_attempt_limit: 12
+  persist_only_complete_responses: true
+  partial_response_disposition: DELETE_TEMP_PARTIAL_AFTER_HASH_SIZE_AND_ERROR_RECORD
+  required_validation: [HTTP_SUCCESS, CONTENT_LENGTH_IF_PRESENT, SHA256, GZIP_FULL_STREAM_FOR_NVD, JSON_PARSE, SCHEMA_AND_IDENTITY_CHECK]
+
+redirect_map_required:
+  TEMP: resources/tmp
+  TMP: resources/tmp
+  TMPDIR: resources/tmp
+  PYTHONPYCACHEPREFIX: resources/cache/pycache
+  PYTHONNOUSERSITE: '1'
+  PIP_CACHE_DIR: resources/cache/pip
+  DOTNET_CLI_HOME: resources/cache/dotnet-home
+  NUGET_PACKAGES: resources/cache/nuget
+  tool_output_and_log_flags: EXPLICIT_PATHS_UNDER_RESOURCES
+
+limits:
+  max_single_response_bytes: 134217728
+  max_cumulative_network_bytes: 268435456
+  max_resource_root_logical_bytes: 2147483648
+  max_cpu_seconds: 3600
+  max_wall_seconds: 7200
+  max_parallel_heavy_processes: 1
+  hard_timeout_required: true
+
+allowed_actions:
+  - CREATE_EIGHT_STANDARD_RESOURCE_SUBDIRECTORIES
+  - COPY_FROZEN_CONVERTER_FROM_PRIOR_READ_ONLY_PACKAGE_INTO_RESOURCES_SRC_AFTER_HASH_MATCH
+  - ACQUIRE_TWELVE_EXACT_OFFICIAL_ASSETS
+  - HASH_AND_VALIDATE_COMPLETE_RESPONSES
+  - RUN_NON_CLAIM_BEARING_GZIP_JSON_SCHEMA_IDENTITY_AND_CONVERTER_READ_SMOKE
+  - BUILD_TWENTY_FROZEN_MANIFEST_INPUTS_WITHOUT_RUNNING_ROCKSDB_OR_ZSTD
+  - WRITE_INVENTORY_LEDGER_REPORT_CLOSEOUT_PROPOSAL_CAPSULE_HANDOFF_AND_MANIFEST
+forbidden_actions:
+  - WSL_OR_LINUX_ROUTE
+  - SYSTEM_INSTALL_OR_GLOBAL_ENVIRONMENT_OR_REGISTRY_CHANGE
+  - WRITE_OUTSIDE_UNIQUE_WRITE_DIRECTORY
+  - RESOURCE_WRITE_OUTSIDE_RESOURCE_ROOT
+  - UNOFFICIAL_MIRROR_OR_TLS_CERTIFICATE_BYPASS
+  - SILENT_RETRY_OR_MORE_THAN_ONE_ATTEMPT_PER_ASSET
+  - ROCKSDB_ZSTD_CANDIDATE_BASELINE_SST_OR_CLAIM_BEARING_EXECUTION
+  - SCIENTIFIC_PASS_STOP_RESERVE_OR_STAGE_TRANSITION
+  - DELETE_TOPIC_ASSIGNMENT_RESOURCE_ROOT_CONTROL_OR_UNCLASSIFIED_CONTENT
+
+success_route: RESOURCE_GATE_READY_FOR_MAINLINE_ACCEPTANCE_AND_SEPARATE_PRECLAIM_ASSIGNMENT
+failure_route: BLOCKED_USER_ACTION_REQUIRED__RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+handoff_requirements:
+  - RESOURCE_INVENTORY.yaml_FINALIZED
+  - RESOURCE_GATE_REPORT.md
+  - RESOURCE_LEDGER.tsv
+  - COMMAND_LOG.md
+  - PHASE_CLOSEOUT_RETENTION.yaml
+  - RESUME_CAPSULE.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+  - cleanup_candidates_exact_leaf_only
+

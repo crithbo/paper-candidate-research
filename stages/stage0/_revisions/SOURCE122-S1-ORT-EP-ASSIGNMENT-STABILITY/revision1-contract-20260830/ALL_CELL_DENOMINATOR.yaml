@@ -1,0 +1,72 @@
+schema: ort-stage0-all-cell-denominator-v1
+assignment_id: STAGE0-REVISION1-20260830-ORT-EP-ASSIGNMENT-STABILITY
+topic_id: SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+
+primary_denominator:
+  exact_stack: onnxruntime_gpu_1_26_0__CUDAExecutionProvider_then_CPUExecutionProvider
+  cartesian_product:
+    - MODEL
+    - SOURCE_REPRESENTATION
+    - HELDOUT_RELATION_INSTANCE
+    - OPTIMIZER_ACTION
+    - REPETITION
+    - PROCESS_CONTROL_ARM
+  optimizer_actions: [ORT_ENABLE_BASIC, ORT_ENABLE_EXTENDED, ORT_ENABLE_ALL]
+  process_control_arms: [INSTRUMENTATION_ON, INSTRUMENTATION_OFF]
+  repetition_count_symbol: R
+  repetition_count_freeze_rule: one_positive_integer_R_must_be_frozen_in_the_future_StageA_assignment_before_any_cell_runs_and_cannot_change_after_results
+  cell_id: hash_of_all_dimension_values_and_exact_stack
+
+holdout_contract:
+  source_representation_used_for_decision: exactly_one_predeclared_source_representation_per_model
+  heldout_relation_instances: all_predeclared_non_source_variants
+  heldout_models_and_relations: mandatory
+  per_representation_retuning: forbidden
+  result_aware_holdout_reassignment: forbidden
+
+cell_status_vocabulary:
+  - COMPLETE_L2_PASS
+  - NORMALIZED_AWAY_ZERO
+  - UNMATCHED_LINEAGE
+  - UNSUPPORTED_LINEAGE
+  - SESSION_FAIL
+  - ILLEGAL_L0
+  - UNPROVEN_L1
+  - NUMERIC_FAIL_L2
+  - OUTPUT_QUALITY_FAIL
+  - INFRASTRUCTURE_FAIL
+
+inclusion_policy:
+  every_planned_cell_in_denominator: true
+  failed_cell_exclusion: forbidden
+  normalized_away_cell_exclusion: forbidden
+  unsupported_or_ambiguous_lineage_exclusion: forbidden
+  missing_measurement_imputation_as_success: forbidden
+  denominator_redefinition_after_results: forbidden
+  process_control_pair_required_for_interpretable_cost_or_assignment_flip: true
+
+full_cost_record_per_cell:
+  - model_load_and_session_creation
+  - graph_optimization_and_compilation
+  - provider_assignment_observation
+  - instrumentation_overhead
+  - cache_warmup_and_cache_state
+  - execution_latency
+  - host_and_device_memory_where_observable
+  - transfer_and_fallback_cost
+  - failure_time_and_failure_class
+  - output_oracle_cost
+  - lineage_extraction_cost
+
+decision_and_regret:
+  source_action_selection: minimize_frozen_full_cost_subject_to_frozen_output_quality_threshold
+  heldout_regret_reference: full_per_representation_BASIC_EXTENDED_ALL_grid
+  inadmissible_or_failed_selected_action: use_a_failure_penalty_fixed_before_any_future_StageA_run_and_report_raw_failure_separately
+  aggregate_levels: [per_cell, per_model, per_model_family, per_relation_family, global]
+  primary_summary_must_report_denominator_counts_by_every_cell_status: true
+
+external_validity_strata:
+  second_ORT_release_or_same_version_public_EP_route_required_for_Q2: true
+  never_mix_incompatible_versions_or_EP_routes_into_primary_denominator: true
+  each_external_stratum_has_its_own_exact_stack_and_complete_denominator: true
+

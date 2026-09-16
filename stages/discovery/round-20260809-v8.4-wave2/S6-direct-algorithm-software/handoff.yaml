@@ -1,0 +1,57 @@
+assignment_id: DISCOVERY-S6-20260809-V8.4-WAVE2
+lane: S6-direct-algorithm-software
+completed_on: 2026-08-09
+scope:
+  allowed_objects:
+    - compiler
+    - runtime
+    - validation_tool
+    - data_movement_abstraction
+  required_assets: public_reproducible_artifact_and_natural_regression_or_workload_corpus
+  excluded_hardware_conflations:
+    - gfx1250_equals_CDNA5
+    - AMD_Tensor_Data_Mover_or_Tensor_DMA_equals_NVIDIA_TMA
+method:
+  used: DISCOVERY_METHOD_V2_V8_1
+  production_admissibility: ACCEPTED_CALIBRATED
+  calibration_record: stages/discovery/_method-backtests/O7_DIRECT_ALGORITHM_SOFTWARE/v2/handoff.yaml
+  not_used: TWO_AXIS_V8_2R2_TLS_BLOCKED_NOT_PRODUCTION_ADMISSIBLE
+search:
+  as_of: 2026-08-09
+  source_policy: paper_originals_and_official_or_upstream_project_sources_only
+  result: ZERO_PROPOSALS
+  search_bounded_open_used_as_novelty_conclusion: false
+candidates: []
+screened_drops:
+  - id: W2-D1
+    object: pass_to_pass_MLIR_equivalence_validation
+    outcome: DIRECT_SUBTRACT
+    latest_collision: Tucker_et_al_2026_Practical_Formal_Verification_for_MLIR_Programs
+  - id: W2-D2
+    object: MLIR_AIR_AIE_async_data_movement_scheduling
+    outcome: DROP_INSUFFICIENT_N2_RESIDUAL
+    reason: remaining_policy_is_ordinary_schedule_parameter_selection
+  - id: W2-D3
+    object: AXI4MLIR_host_to_DMA_zero_copy_lowering
+    outcome: DIRECT_FATAL
+    latest_collision: Cohavi_et_al_2026_Defeat_the_Heap
+  - id: W2-D4
+    object: Triton_compiler_grounded_diagnosis_and_rewrite
+    outcome: DIRECT_FATAL
+    latest_collision: Chen_et_al_2026_Compiler_Grounded_Hierarchical_Diagnosis
+  - id: W2-D5
+    object: AMD_NVIDIA_descriptor_abstraction
+    outcome: OBJECT_SEMANTICS_BLOCK
+    reason: cross_backend_semantics_not_interchangeable
+recommendation:
+  propose_stage0: []
+  rationale: No screened object retains a frozen same-object nontrivial N2/N1/N3 residual at or above TIER_B_Q2_VIABLE.
+  structural_paper_potential: NOT_APPLICABLE_NO_CANDIDATE
+  current_evidence_readiness: NOT_APPLICABLE_NO_CANDIDATE
+boundary:
+  no_stage0_created: true
+  no_stageA_created: true
+  no_stageB_created: true
+  no_experiment_started: true
+  no_master_files_modified: true
+lane_return: IDLE_REUSABLE_AWAITING_MAINLINE

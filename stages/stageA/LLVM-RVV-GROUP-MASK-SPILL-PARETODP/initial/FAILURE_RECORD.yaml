@@ -1,0 +1,49 @@
+schema_version: "failure-record-v1"
+assignment_id: "STAGEA-L2-20260811-LLVM-RVV-GROUP-MASK-SPILL-PARETODP-INITIAL-V8.7"
+recorded_at: "2026-08-11T07:48:47+08:00"
+failure_class: "TOOLCHAIN_RESOURCE_UNAVAILABLE"
+stage: "PRE_CLAIM_CONTRACT_FIDELITY_GATE/F1"
+exact_error: >-
+  No executable or source/build tree was found that can be verified as LLVM
+  5bb2565693f062a9e99929db1814a7a076d4dc76 with the RISC-V target,
+  MIR parser and MachineVerifier. Required LLVM commands were absent from PATH.
+observed_missing_commands:
+  - "llc"
+  - "llvm-mc"
+  - "llvm-objdump"
+  - "llvm-readobj"
+  - "opt"
+  - "FileCheck"
+  - "clang"
+  - "cmake"
+  - "ninja"
+unsafe_or_invalid_fallbacks_rejected:
+  - "unregistered llc.exe from another candidate directory"
+  - "a different LLVM release"
+  - "a Python or handwritten semantic proxy"
+  - "static Stage-0 evidence treated as an executable Stage-A observation"
+network_download_attempted: false
+source_build_attempted: false
+reason_no_download_or_build: >-
+  The assignment does not authorize a large difficult-to-clean source/toolchain
+  acquisition or build and forbids system/global changes. The candidate-owner
+  rule requires a user-action packet instead of an improvised acquisition.
+claim_bearing_observation: false
+scientific_revision_consumed: false
+evidence_ceiling: "RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE"
+decision_recommendation: "BLOCKED_USER_ACTION_REQUIRED"
+scientific_outcomes_forbidden: ["PASS", "STOP", "RESERVE"]
+
+non_scientific_command_failures:
+  - id: "CMD-READ-001"
+    error: "PowerShell parser error in an initial read-only foreach/pipeline composition"
+    impact: "none; corrected command completed"
+  - id: "CMD-ENV-001"
+    error: "PowerShell parser error in an initial read-only tool inventory composition"
+    impact: "none; corrected inventory completed"
+  - id: "CMD-HASH-001"
+    error: "A guessed academic-research-suite subpath did not exist"
+    impact: "none; the actual referenced path had already been read and was later located"
+  - id: "CMD-CIM-001"
+    error: "Get-CimInstance access denied for OS/CPU inventory"
+    impact: "none; no experiment executed and the blocker does not depend on hardware inventory"

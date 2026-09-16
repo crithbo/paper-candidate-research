@@ -1,0 +1,86 @@
+schema_version: candidate-preclaim-handoff-v1
+created_at: 2026-08-26T00:35:33.1028272+08:00
+lane_id: CANDIDATE_EXECUTION_LANE_2
+assignment_id: STAGEA-L2-20260826-LLVM-RVV-R4-PRECLAIM-F1-F5
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+decision: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE
+owner_recommendation: MAINLINE_DISPOSITION_REQUIRED
+claim_ceiling: PRECLAIM_CONTROL_ONLY__NO_SCIENTIFIC_INFERENCE
+evidence_ceiling: PRECLAIM_CONTROL_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_state_changed: false
+scientific_revision_consumed: false
+mechanism_pivot_used: false
+owner_state_transition: false
+stageb_authorized: false
+
+inputs:
+  exact_commit: 5bb2565693f062a9e99929db1814a7a076d4dc76
+  r3_tool_bundle: PASS_101_OF_101_RECORDS__102_FILES__195813113_BYTES
+  r2_assets_copied: EXACT_SOURCE_ARCHIVE_AND_COMMIT_JSON_ONLY
+  network_bytes: 0
+  cross_topic_input: false
+  upstream_source_modified: false
+  selective_extraction:
+    final_files: 17
+    final_bytes: 2167446
+    optional_member_selection_errors: 2
+    overwrites: 0
+    further_extraction_retry: false
+
+ordered_gate:
+  F1_CURRENT_LLVM_ACTIONS:
+    result: PASS
+    PR_105661: UNLANDED_AT_PIN
+    current_action_union_complete: true
+  F2_MACHINEVERIFIER_WITNESS:
+    result: FAIL_CLOSED
+    llc_exit_codes: [0, 0]
+    replay_exact: true
+    replay_sha256: 7992C346456BCE4B58B6891FE35E68C5D229FA5C5E5614AB1A6E6D1E9881DDDC
+    geometry: THREE_VRM8NOV0_PLUS_V0_PLUS_EIGHT_ZZZ_VRMF8
+    spill_reload_present: true
+    failure: VIRTUAL_REGISTERS_RETAINED_AND_SPLIT_ESCAPE_OBSERVED
+    split_from_pairs: ['%4→%14,%15', '%11→%12,%13']
+  F3_TYPED_REPLAY: NOT_RUN_ORDERED_STOP
+  F4_QUOTIENT_EQUALITY: NOT_RUN_ORDERED_STOP
+  F5_BASELINE_PARITY: NOT_RUN_ORDERED_STOP
+
+execution_integrity:
+  planned_harness_builds_used: 0
+  planned_harness_builds_max: 1
+  automatic_retry: false
+  result_based_rerun_or_exclusion: false
+  natural_trace_or_function_run: false
+  performance_or_full_cost_claim_run: false
+  claim_bearing_observation: false
+  cleanup_by_owner: false
+
+resources:
+  exact_tool_bundle_ready: true
+  preclaim_gate_ready: false
+  files: 190
+  logical_bytes: 480234196
+  reparse_count: 0
+  active_related_processes: 0
+  stored_bytes_max: 4294967296
+  cleanup_owner: MAINLINE
+  exact_cleanup_candidate_leaves: 3
+  cleanup_candidate_logical_bytes: 281894502
+  projected_retained_logical_bytes: 198339694
+
+canonical_hashes:
+  input_acceptance_sha256: 58231DFBCE3BC9060EB5D4BF7299FEAF95020994D8F78E69FF3F4322554C169C
+  environment_lock_sha256: 9795A8C7CD7F643ECBEB9AACDD8BDE4E830FDA4C8A3A9C61070F9DB15B913990
+  current_action_catalog_sha256: 9AC63DDF00C84C523A67043533B6998C70B5C2B63E32B96C3FCFD5C5424A847A
+  forced_pressure_witness_sha256: 3D3B1D445F955A0C9D22E618B6D1E0FA82FDA70513DC35BAFA1C39FD279744D4
+  typed_replay_sha256: C89E6F16706B8963584ED8B3FF85BF2EC3A899344AB3B6E844C08B840376D8A0
+  quotient_oracle_equality_sha256: EFA155B8AFFA044B72A21D4963A285963CB069D7031C45683205E516C3649816
+  baseline_parity_sha256: 2AE0A03D48354F17415CA150A5666C667E6F3838BE4822B4DC817E72C8995A8B
+  preclaim_gate_sha256: 42D2D3E42D8D2DBD2CEBFC3B71005B21875DB7D78AB09270104143A6A345829E
+  reproducibility_report_sha256: C00CA9B18DFFC849C70485B529E345D1CE4DFD0B02CCD3026DDB3FD9263AA239
+  resource_inventory_sha256: 5E0475A0FFE304AF01B4B4A8D49661AE8F43A8ED2B1BF8332667BED305D455AB
+  phase_closeout_retention_sha256: 365BDC5E0D91F65DA914B4DD4F8F743192C657F72D55C33492057FF5DC8FDC5E
+  resume_capsule_sha256: 2932218EEDCB61F906A9D16FC9338EF25B87906953072AC1861AA4370FF49462
+  blocker_packet_sha256: 6CBF71B711032648C102897F9282E5F925A1EA374C69AC0BBD637F66870C282A
+
+next_action: MAINLINE_MECHANICAL_ACCEPTANCE_AND_NEW_PRECLAIM_DISPOSITION

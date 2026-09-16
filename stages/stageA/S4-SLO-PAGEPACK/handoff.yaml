@@ -1,0 +1,51 @@
+schema_version: stagea-candidate-owner-handoff-v1
+lane_id: CANDIDATE-EXECUTION-LANE-1
+assignment_id: STAGEA-L1-20260809-S4-SLO-PAGEPACK-INITIAL
+topic_id: S4-SLO-PAGEPACK
+completion_status: COMPLETE
+recommended_decision: STOP
+quality_tier: BELOW_Q2_STOP
+evidence_ceiling: TRACE_LEVEL_EXACT_REDUCED_EPOCH_NEGATIVE__NO_PRODUCTION_PERFORMANCE_CLAIM
+novelty_route: N2_NEW_ALGORITHM_OR_OPTIMIZATION
+cross_assignment_contamination: false
+scientific_revision_consumed: false
+mechanism_pivot_used: false
+resource_blocked: false
+stageb: false
+stageb_authorized: false
+stageb_user_approval_id: null
+pending_user_stageb_review: false
+input_hashes:
+  discovery_brief_sha256: A8A90DF02CD8B91241861D635729AB1FF4819A9A6A030B98A42B4CFC610EFA5D
+  discovery_handoff_sha256: E614C22526377242ED7DBC2C2E7AE781C68B443BE8A93DEA5053713292FF9989
+  discovery_manifest_sha256: 6A4C17A10A9D40EE50BA676934B7FB5B62A7F60F2ABF8F5E3199851D182238FB
+  primary_report_sha256: B1B77EFAFB7692E2A012515297502B57AB1EA5C78684D2501E337CDC6EBE46D0
+  primary_handoff_sha256: B12A1C8198B9EDC61A7871140A73FB61C03ECF9B9BB3F342360CD1226306FCB7
+  primary_manifest_sha256: B378CE5E508338BB37E2F8DE6E068908A63E38BCA244B80CE4285B7FB3116A88
+  confirmation_report_sha256: 80C08ABD2E8DFB90091B24B7FC5A993BC6B47B8288C1A603B87FF2A70D281AE8
+  confirmation_handoff_sha256: 903A453BA4CFAD0E5162B0A901753FDDC9E7A23113BDB2250D05D7E63FC8FB39
+  confirmation_manifest_sha256: 5F44B00EA2A354BDB67C233F2E0042A12FEF089D600C312A066FAAC820968128
+  experiment_contract_sha256: 16D52CFF36AEBD7B44742EED21BB9A0D059D08ACBE3F1A3DACDE2C8F7EA0AB23
+  natural_trace_slice_sha256: E5D16D849BCD2E015C5E54A161E202241E7B7D25696F4055C742D51649DDF2A8
+result:
+  evaluated_epochs: 3
+  positive_epochs: 0
+  strict_full_cost_residual_bytes: [-12288, 0, -12288]
+  all_candidate_points_absorbed_by_faithful_composition: true
+  all_legality_checks_pass: true
+  stable_result_digest: 55A97297FB0A00465CB6414EC7C6F4F2B3BFD57A1BE3F0FFF6AAE8B0FBFB2FFA
+  nonvolatile_file_sha256_primary_and_replay: C4FB253A84F118D828CDACCF7E5F8024EA5FA939C1CD79C86EFBBDE64D942F6E
+  replay_validation_pass: true
+stop_basis:
+  - faithful same-information composition absorbs every frozen candidate point
+  - full-cost residual is never positive
+  - exact planning work exceeds the fixed SLO cap in two of three epochs
+unsupported_claims:
+  - unbounded impossibility
+  - production CacheLib or OBASE performance
+  - real hardware slowdown or cycles
+  - global novelty conclusion
+stagea_gate_required: true
+mainline_action: VERIFY_MANIFEST_AND_DISPATCH_INDEPENDENT_STAGEA_GATE_FOR_STOP_CONFIRMATION
+lane_state_after_mainline_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE
+

@@ -1,0 +1,86 @@
+schema: rvv-r5d-split-closure-semantic-injection-assignment-v1
+created_at: 2026-08-26T18:43:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+assignment_id: STAGEA-L1-20260826-LLVM-RVV-R5D-SPLIT-CLOSURE-SEMANTIC-INJECTION
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection/resources
+
+source_gate:
+  directory: stages/stageA/_reviews/round-20260826-rvv-r5c-a3-preclaim/LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+  handoff_sha256: 1B62ED3B549400AD015797CEF330D05E22B02CC14B2A5BFBCBEAD4331BF2BA7E
+  manifest_sha256: 87517B209BE46D8046119EA2E18638B23613936EAF4B186685302ED1361802F1
+  mainline_acceptance_sha256: 4D3213B1A44678EF474D80850CF7982F64922FC446201BCF38C4E163707145A5
+  decision: REJECT_PRECLAIM_FIDELITY__SPECIFIC_BOUNDED_ROUTE_OR_HARD_BLOCKER__NO_SCIENTIFIC_INFERENCE
+  route_id: RVV_R5D_SPLIT_CLOSURE_SEMANTIC_INJECTION_INTO_QUOTIENT_AND_BASELINES_V1
+
+source_owner:
+  directory: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient
+  handoff_sha256: C5C26B78ACD5F389BDD4D8D239A2D56D8EE10DFE9485C17EF5EAFE3951EBCE4B
+  manifest_sha256: 779FB2138E2F841F11C941A2690CDB3F187C80F648E605695DFE0F6C562B50F8
+  mainline_acceptance_sha256: FA85E4484DE5E80EB0FF07E1F65F370DF6EEB30FAD2AC4B0E0FDEFA6681A736F
+  accepted_copy_roots: [resources/src/split_closure, resources/src/harness, resources/src/r5_inputs, resources/env/rvv-toolchain]
+  accepted_copy_files: [resources/logs/r5c_a3/replay-R1.mir, resources/logs/r5c_a3/replay-R2.mir, resources/logs/r5c_a3/split_closure.json, resources/logs/r5c_a3/f3.json, resources/logs/r5c_a3/f4.json, resources/logs/r5c_a3/f5.json, COMMAND_RECEIPT_INDEX.yaml, NEGATIVE_CONTROL_RESULTS.yaml]
+  source_modify_or_delete_allowed: false
+
+classification:
+  blocker_class: SOFT_ENGINEERING_BLOCKER
+  mechanism_pivot_state: CONSUMED_1_OF_1__THIS_IS_CORRECTION_WITHIN_PIVOT
+  second_pivot_consumption: false
+  scientific_revision_consumption: false
+  exact_object_RQ_action_guarantee_baselines_denominator_changed: false
+  user_gate: NONE
+
+required_atomic_bundle:
+  D0_INPUT_ACCEPTANCE: HASH_ACCEPT_ALL_DECLARED_INPUTS_BEFORE_IMPLEMENTATION
+  D1_CLOSURE_CONDITIONED_STATE:
+    require: [CLOSURE_OBLIGATIONS_IN_LABELED_STATE, CLOSURE_OBLIGATIONS_IN_QUOTIENT_KEY, SUCCESSOR_RELATION_DRIVES_QUOTIENT_SUCCESSORS, PARENT_ACTION_BACKPOINTERS_DRIVE_REPLAY_EQUALITY]
+  D2_SHARED_FULL_COST_TENSOR:
+    require: [SPILL_RELOAD_FUTURE_USE_COST_CHARGED, MASK_INTERFERENCE_AND_PHYSREG_OBLIGATIONS_CHARGED, SAME_UNITS_AND_DENOMINATOR_FOR_CANDIDATE_AND_BASELINES]
+  D3_IDENTICAL_CLOSURE_CONDITIONED_GRAMMAR:
+    require: [CANDIDATE_AND_ALL_FROZEN_BASELINES_USE_IDENTICAL_CLOSURE_INPUT, F4_CERTIFICATE_AND_FRONTIER_DEPEND_ON_CLOSURE, F5_CANDIDATE_AND_BASELINE_FRONTIERS_DEPEND_ON_CLOSURE, SPLIT_CLOSED_GRAMMAR_SAME_INFORMATION_AND_NO_FUTURE_INFORMATION_CHECKS_COMPUTED]
+  D4_SELF_CONSISTENT_REHASHED_SEMANTIC_MUTATIONS:
+    mutations: [SUCCESSOR_RELATION, FUTURE_ACTION_SIGNATURE, SPILL_RELOAD_FUTURE_USE_COST, PARENT_ACTION_BACKPOINTER]
+    mutation_must: CHANGE_RESULT_OR_FAIL_SEMANTICALLY_AFTER_ALL_HASHES_AND_RECEIPTS_ARE_SELF_CONSISTENT
+    integrity_only_failure_not_sufficient: true
+  D5_FRESH_NATIVE_AND_CONTROL_RECEIPTS:
+    fresh_llc_machineverifier_replays: 2
+    byte_exact_replay_required: true
+    F3_F4_F5_fresh: true
+    retry: 0
+  D6_CANONICAL_RESEAL:
+    outputs_required: [PRE_CLAIM_SEMANTIC_INJECTION_GATE.yaml, CLOSURE_CONDITIONED_QUOTIENT_AUDIT.yaml, SHARED_FULL_COST_AND_BASELINE_AUDIT.yaml, SELF_CONSISTENT_MUTATION_RESULTS.yaml, COMMAND_RECEIPT_INDEX.yaml, RESOURCE_INVENTORY.yaml, PHASE_CLOSEOUT_RETENTION.yaml, RESUME_CAPSULE.yaml, STAGEA_REPORT.md, handoff.yaml, HASH_MANIFEST.sha256]
+
+implementation_boundary:
+  existing_source_files_modify_max: 1
+  allowed_existing_source: resources/src/harness/rvv_preclaim.py
+  new_source_files_max: 3
+  total_source_files_max: 6
+  split_closure_source_must_remain_hash: 256C78891FAAE6AB78741FABD309274DAFAF979F092A492A867BB580B1B73D4F
+  automatic_retry: false
+  result_based_edit_or_exclusion: false
+  selected_or_natural_tool_invocations_max: 0
+  claim_bearing_runs_max: 0
+
+resources_and_lifecycle:
+  network_bytes_max: 0
+  resource_root_logical_bytes_max: 536870912
+  cpu_seconds_max: 14400
+  wall_seconds_max: 28800
+  max_parallel_processes: 1
+  input_copy_attempts_max: 8
+  control_tool_command_records_max: 100
+  lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  lifecycle_policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  post_close_retained_bytes_max: 536870912
+  downstream_consumer: SAME_INDEPENDENT_STAGEA_GATE
+  cleanup_owner: MAINLINE
+  owner_cleanup_allowed: false
+
+evidence_ceiling: PRECLAIM_METHOD_CONTROL_FIDELITY_ONLY__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+forbidden_actions: [CHANGE_SPLIT_CLOSURE_SOURCE_OR_EXACT_OBJECT_RQ_ACTION_GUARANTEE_BASELINES_DENOMINATOR, USE_INTEGRITY_ONLY_MUTATION_AS_SEMANTIC_PROOF, SECOND_PIVOT_OR_SCIENTIFIC_REVISION, SELECTED_NATURAL_CLAIM_PERFORMANCE_OR_STAGEB, RESULT_BASED_EDIT_RETRY_OR_EXCLUSION, MODIFY_UPSTREAM_OR_SHARED_FILES, CLEANUP_OR_STATE_TRANSITION]
+success_route: RVV_R5D_PRECLAIM_FIDELITY_PASS__RETURN_SAME_INDEPENDENT_GATE
+failure_route: FAIL_CLOSED_RVV_R5D_PRECLAIM__NO_NATURAL_OR_SCIENTIFIC_INFERENCE

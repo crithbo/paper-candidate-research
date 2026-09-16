@@ -1,0 +1,30 @@
+schema: backtest-packer-start-failure-blocker-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+stage_or_mode: IDENTITY_BLIND_PAPER_EVIDENCE_PACKING
+first_failed_precondition: FROZEN_RESULT_INDEPENDENT_SELECTION_INPUTS_INCOMPLETE
+exact_conflict: >-
+  ASSIGNMENT.yaml and BACKTEST_PROTOCOL.md require low-identity-risk then
+  identity-key-SHA256 selection while excluding all R1/R2 identities and all
+  selected-reviewer-contacted identities, but no frozen candidate source pool,
+  identity-risk input, reviewer-contacted identity list, or identity-key preimage
+  universe is supplied in minimum inputs or assignment source inputs.
+why_execution_cannot_safely_continue: >-
+  Selecting papers from an agent-invented universe would violate the frozen
+  result-independent selection contract and cannot demonstrate the required
+  prior-identity or reviewer-contact exclusion.
+required_mainline_remediation:
+  - freeze a candidate source pool with exact identities and source locators
+  - freeze identity-risk values or a deterministic derivation rule
+  - freeze selected-reviewer-contacted identity exclusion input
+  - freeze identity-key hash ordering preimage and tie handling
+actions_not_started:
+  selection: false
+  network_or_source_acquisition: false
+  evidence_extraction: false
+  packet_creation: false
+  scoring: false
+  code_artifact_binary_download: false
+  build_probe_experiment: false
+  production_state_transition: false
+scientific_inference: NONE
+next_action: STOP_PENDING_MAINLINE_FROZEN_SELECTION_INPUT_REMEDIATION

@@ -1,0 +1,25 @@
+schema: stagea-same-object-evaluation-redesign-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R12-INTEGRATED-COST-LEDGER-REDESIGN
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+classification: SOFT_ENGINEERING_BLOCKER__SEPARATE_SAME_OBJECT_REDESIGN
+identity_preserved: [exact_object, atomic_action, same_function_witness, strongest_baseline_grid, natural_denominator, guarantee]
+purpose: freeze_the_missing_71_metric_ledger_producer_before_any_control_or_claim_run
+frozen_inputs:
+  asset_record: {path: projects/_assets/ASSET-LLVM-PPC-F127B4C/ASSET_RECORD.yaml, sha256: 060595813C17FCE769C449D19F6702286EAB9A8D68FE535A9A76BA2EB680E665}
+  exact16_manifest: {path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/EXACT16_INPUT_MANIFEST.yaml, sha256: D278BD508A192186115D337048C44E7DACC7B259ADE1FB114EEE6067378F3F7D}
+  corrected_runner: {path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/resources/engineering_raw/runner/materializer_harness.py, sha256: 3DDA6A7574D9FC0F0222213BDC3EAF6D3D361A528592052DDFCDF911BE7207B9}
+  common: {path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/resources/engineering_raw/runner/common.py, sha256: EE19181CEA403725748E22E0F632ABA97639C81EAABEB0BC6DA16249520414D7}
+  baseline_collector: {path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/resources/engineering_raw/baseline_cost_collector.py, sha256: FDC83841B6EB167A20FBEAC019C45AC8D9F35FC53DDD9CF43F0F9E7EF4C848EC}
+required_static_outputs: [PPC_R12_EXECUTABLE_PACKET.yaml, PPC_R12_COMMAND_DAG.json, PPC_R12_FULL_COST_LEDGER_PRODUCER.py, PPC_R12_STATIC_VALIDATION.yaml, EXACT_RESOURCE_COPY_MANIFEST.yaml]
+packet_requirements:
+  - exact16 selection is immutable and result-independent
+  - candidate path emits exactly 15 command metrics
+  - strong baseline collector emits exactly 56 unique command metrics and 16 bundles
+  - ledger producer has literal argv and consumes all 71 unique metric IDs plus all 16 bundle artifact records
+  - ledger producer validates units, status, exit, cpu, wall, rss, object/text/relocation/uop and dependency edges
+  - no single baseline bundle substitutes for the 16-bundle denominator
+  - control row remains non-claim-bearing and hides relative effects
+allowed_actions: [read_frozen_inputs, write_required_static_outputs, static_lint_max_3]
+forbidden_actions: [resource_copy, tool_execution, control_row, claim_row, network, baseline_or_denominator_change, result_aware_change, shared_install, stageb]
+next_gate: MAINLINE_STATIC_PACKET_ACCEPTANCE
+

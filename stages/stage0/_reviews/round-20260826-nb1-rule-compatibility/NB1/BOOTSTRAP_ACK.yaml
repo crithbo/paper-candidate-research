@@ -1,0 +1,91 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-26T19:58:21.1693165+08:00
+lane_id: STAGE0_SENTRY
+role_id: STAGE0_SENTRY_REVIEW
+assignment_id: STAGE0-NB1-20260826-RULE-COMPATIBILITY
+topic_id: null
+assignment_context_path: stages/stage0/_reviews/round-20260826-nb1-rule-compatibility/NB1/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: D29D98646BC3D0BA4F976C4D6B749DE1AC47A6DE6F16461E97C18327C6E750F6
+old_chat_memory_required: false
+
+cwd_ack:
+  actual_cwd: '<LOCAL_PROJECT_ROOT>'
+  authoritative_project_root: <LOCAL_PROJECT_ROOT>
+  matches_required_E_root: true
+
+thread_mapping_ack:
+  lane_thread_id: 01a034d0-cda0-74b3-a099-b4b711d9d8a8
+  old_lane_thread_id: 01a02e0b-eb8d-7c90-afb0-ac52bd0548ad
+  mapping_matches_context: true
+
+frozen_hash_ack:
+  AGENTS_sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75
+  plan_sha256: DE4C826E174DEE9B95BB6A3802ACFD94A0BE2E282989B5F865B764D6E84A99A0
+  registry_snapshot_expected_sha256: 4D9D4215A097069EEF977287742D42979A260512F0C9862A6351D1EA09D24CA6
+  registry_snapshot_actual_sha256: 4D9D4215A097069EEF977287742D42979A260512F0C9862A6351D1EA09D24CA6
+  role_rule_sha256: 71D2E972A7C46812C49E78693AC24E00752D653C42AD0F6664DAD731DE82623C
+  academic_skill_sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F
+  bootstrap_template_sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B
+  report_template_sha256: 2C72A46D7385A4DFE0D0981E4BDF4AB2A3BF6F19674BC94B14A1596386A2B809
+  v2_neutral_manifest_sha256: 13DD016DD3653CFC777F698C10F8069FB8D952BC7CDF1D1978558F268B7B824A
+  identity_and_cutoff_sha256: 35E1027ABEA00C12045FC477195550C4CF5AD214BD0B5C9F3F8F28EE756A987D
+  assignment_sha256: 7B41F0557667A7C4A9C3AA49D8878ADA2338857D6104C25C5609677738305131
+  input_acceptance_sha256: 26A2DC7613E179F084237FD183BE039D6FF092AADD0068343452963C0CF94B95
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  assignment_context_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  neutral_input_manifest_and_cases_complete: true
+  registry_dual_read_performed: true
+
+nb1_boundary_ack:
+  phase: NB1_RULE_ONLY_DECISION
+  model_route_explicit: gpt-5.6-terra/high
+  identity_and_historical_cutoff_allowed: true
+  identity_entries: 16
+  neutral_input_files: 17
+  neutral_input_cases: 16
+  all_neutral_case_hashes_match_manifest: true
+  expected_route_loaded: false
+  expected_disposition_loaded: false
+  auditor_key_loaded: false
+  blind_phase_decisions_reused: false
+  blind_and_nonblind_metrics_merge_allowed: false
+  nonblind_unbiased_recall_or_75_claim_allowed: false
+
+boundary_ack:
+  unique_write_directory_exact: <LOCAL_PROJECT_ROOT>/stages/stage0/_reviews/round-20260826-nb1-rule-compatibility/NB1
+  resource_root_exact: null
+  network_allowed: false
+  forbidden_actions_understood: true
+  forbidden_actions:
+    - READ_AUDITOR_KEY_OR_EXPECTED_ROUTE
+    - REWRITE_NB1_DECISIONS_AFTER_GOLD_REVEAL
+    - MODIFY_INPUTS
+    - MODIFY_SHARED_FILES
+    - RUN_STAGEA_STAGEB_OR_EXPERIMENT
+    - MERGE_BLIND_AND_NONBLIND_METRICS
+    - CLAIM_UNBIASED_RECALL_OR_75
+    - CLEANUP
+  cross_assignment_material_loaded: false
+  contamination_detected: false
+
+execution_ack:
+  current_status: BOOTSTRAP_ACK_PENDING
+  resume_point: WRITE_NB1_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE
+  next_action: WAIT_FOR_MAINLINE_ACCEPTANCE
+  NB1_decisions_started: false
+  scientific_or_resource_action_started: false
+  resource_action_started: false
+  formal_state_transition_started: false
+  cleanup_started: false
+
+differences_or_ambiguities: []
+ack_disposition: READY
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

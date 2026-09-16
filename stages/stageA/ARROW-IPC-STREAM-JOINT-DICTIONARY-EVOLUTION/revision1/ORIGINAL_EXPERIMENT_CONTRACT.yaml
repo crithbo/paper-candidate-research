@@ -1,0 +1,120 @@
+schema_version: 1
+preregistered_before_claim_bearing_observation: true
+assignment_id: STAGEA-L1-20260811-ARROW-IPC-STREAM-JOINT-DICTIONARY-EVOLUTION-INITIAL-V8.7
+topic_id: ARROW-IPC-STREAM-JOINT-DICTIONARY-EVOLUTION
+stage: STAGEA
+exact_object:
+  input: fixed schema and ordered logical rows with at least two flat dictionary fields
+  output: one standard Arrow IPC stream accepted by the pinned stock RecordBatchStreamReader
+  invariants:
+    - schema metadata and field/index types
+    - total rows and row order across returned batches
+    - decoded ordered values and logical null positions
+    - dictionary ids and stock reader protocol legality
+  legal_actions:
+    - every row boundary as a caller-supplied record-batch cut
+    - every capacity-legal injective ordered physical dictionary covering the batch values
+    - optional future values and dictionary permutations
+    - null-index realization and any independently validated native legal physical-null realization
+    - native no-event on equality
+    - native delta on proper ordered prefix when deltas are enabled
+    - native replacement otherwise and for every change when deltas are disabled
+  prohibited_actions:
+    - modified writer or reader
+    - nested dictionary fields
+    - changed logical rows/schema/index type/dictionary id
+    - external codec or stream postprocessor
+    - emitter patch as contribution
+candidate:
+  id: RP_FDP
+  name: RESET_PREFIX_FACTORIZED_MIN_PLUS_DP
+  guarantee: exact same scalar optimum and finite Pareto frontier as explicit Cartesian-product oracle
+  representation: dominance-pruned lower envelope of separable field components
+  backpointer_requirement: reconstruct exact cuts, dictionaries, event branches, and stock-writer inputs
+  selection_objective: lexicographic_static_physical_buffer_bytes_then_work_then_event_count_then_plan_signature
+  complexity_accounting:
+    - component_generation
+    - local_transition_evaluations
+    - pointwise_dominance_comparisons
+    - deduplication
+    - resource_label_convolution
+    - backpointer_bytes
+    - temporary_bytes
+    - planning_wall_cpu_peak_rss
+strongest_union:
+  - CURRENT_NATIVE_LOCAL_CALLER_PLAN
+  - INDEPENDENT_FIELD_COMPLETE_FRONTIERS_PLUS_OPTIMAL_SHARED_CUT_POOL_MERGE
+  - EXPLICIT_CARTESIAN_PRODUCT_ORACLE_WHERE_FEASIBLE
+  - CURRENT_WRITER_CUT_DICTIONARY_GRID_WITH_BOTH_DELTA_ARMS
+  - GENERIC_EXACT_PRODUCT_FORMULATION_CONTROL
+exact_product_feasibility:
+  max_materialized_product_states_per_boundary: 4096
+  max_estimated_product_transition_options: 50000000
+  disposition_above_cap: exact_product_is_ceiling_only_and_may_be_omitted_for_that_window_with_reason_and_zero_candidate_superiority_claim
+same_information: true
+preclaim_ordered_gate:
+  - COMPLETE_RAW_AND_REDUCED_NATIVE_ACTION_CATALOG
+  - EXHAUSTIVE_PRODUCT_ORACLE_VS_RP_FDP_OPTIMUM_FRONTIER_BACKPOINTER
+  - SAME_Q_ALL_EVENT_PREDECESSOR_ORDER_AND_CROSS_FIELD_ADVERSARIES
+  - EXACT_NATIVE_4U_LT_5U_CROSSING_WITH_STOCK_READER_AND_WHOLE_STREAM_LEDGER
+  - ENVELOPE_TIME_RSS_TEMPORARY_BACKPOINTER_AND_DOMINANCE_COST
+  - NATURAL_RANK_AND_PRODUCT_KILLER_PREREGISTRATION
+  - FULL_COST_DENOMINATOR_FREEZE
+natural_preregistration:
+  observation_forbidden_until_preclaim_pass: true
+  carriers:
+    - id: NYC_TLC_YELLOW_2025_01
+      url: https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-01.parquet
+      windows: 16
+    - id: NYC_TLC_YELLOW_2025_02
+      url: https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-02.parquet
+      windows: 16
+    - id: UCI_ADULT
+      url: https://archive.ics.uci.edu/static/public/2/adult.zip
+      windows: 8
+      role: independent_natural_carrier_if_resource_closes
+  window_rule: contiguous 16-row windows at floor(k*(row_count-16)/(window_count-1)); no value-dependent selection
+  nyc_fields: [store_and_fwd_flag, payment_type]
+  adult_fields: [workclass, education]
+  null_semantics: preserve source nulls; textual question-mark remains a value in UCI Adult
+  candidate_cuts: every one of the 15 internal row boundaries
+  dictionary_catalog: complete reduced injective ordered dictionaries over the window universe subject to int8 capacity
+  delta_arms: [emit_dictionary_deltas_false, emit_dictionary_deltas_true]
+rank_metric:
+  definition: max_over_eligible_noninitial_boundaries_of_R_times_sum_local_state_counts_divided_by_product_local_state_counts
+  eligible_boundary: boundary_gt_0_and_product_local_state_counts_ge_sum_local_state_counts
+  excluded_boundary_reporting: initialization_and_trivial_product_boundaries_are_reported_but_cannot_define_compression
+  strict_compression: ratio_lt_1
+  useful_compression: ratio_le_0_75
+  success_threshold: useful_compression_on_at_least_10_of_40_windows_and_strict_compression_on_at_least_20_of_40
+  product_sized_killer: strict_compression_on_fewer_than_4_of_40_or_median_ratio_ge_1
+  independent_carrier_rule: if UCI asset fails before claim observation, fail closed as resource blocker rather than silently reduce denominator
+full_cost:
+  dimensions:
+    - complete_stream_bytes_including_schema_messages_metadata_bodies_and_padding
+    - construction_and_index_remap_wall_cpu_peak_rss_temporary_bytes
+    - planner_or_solver_wall_cpu_peak_rss_states_transitions_components_dominance_checks_backpointer_bytes
+    - writer_wall_cpu_peak_rss
+    - first_complete_batch_decode_wall_cpu
+    - total_decode_wall_cpu_peak_rss
+    - validation_and_digest_wall_cpu
+    - failed_search_and_fallback
+  repetitions: 5
+  warmups: 1
+  arm_order: deterministic_latin_rotation_by_carrier_window_repetition
+  timing_claim_rule: report_p50_and_p90_over_four_measured_repetitions_after_one_warmup
+  pareto_dimensions: [stream_bytes, end_to_end_wall_ns, peak_rss_bytes, temporary_bytes, first_batch_decode_wall_ns, total_decode_wall_ns]
+  candidate_residual: candidate must be non-dominated by the per-window executable strongest union and must match exact-product bytes where feasible
+  aggregate_support: residual_on_at_least_10_of_40_windows_including_at_least_2_of_8_independent_carrier_windows
+killer_conditions:
+  - CATALOG_MISS_OR_ILLEGAL_ACTION
+  - PRODUCT_ORACLE_MISMATCH
+  - UNSAFE_MERGE_OR_HIDDEN_DEPENDENCE
+  - NATIVE_WITNESS_NOT_REALIZABLE
+  - NATURAL_R_PRODUCT_SIZED
+  - DIRECT_CURRENT_OR_PRIOR_ABSORPTION
+  - NO_FULL_COST_STRONGEST_UNION_RESIDUAL
+claim_ceiling_positive: PRELIMINARY_SUPPORT
+stageb_authorized: false
+stageb_user_approval_id: null
+scientific_revision_consumed: false

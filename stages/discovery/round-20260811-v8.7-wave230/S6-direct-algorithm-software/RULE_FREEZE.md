@@ -1,0 +1,13 @@
+# Rule freeze — Wave230
+
+| Field | Frozen value |
+|---|---|
+| Assignment | `DISCOVERY-S6-20260811-V8.7-WAVE230-POSTGRES-GIST-SPLIT-JOINTLAYOUT-DEPTH` |
+| Rules | v8.7 + R5-P0; `DISCOVERY_QUALITY_MODE=OFF` |
+| plan SHA-256 | `C42A163DE232BDD28FA5F26DA66A085224546BFB95E99746A0E3B91038C12894` |
+| registry SHA-256 | `50C23FAF25A62C10A2CF8EF9957766C592B5FF52E9392572F06A91D130D04E52` |
+| ROLE_DISCOVERY SHA-256 | `FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3` |
+| Cutoff | 2026-08-11 |
+| Final decision | `COMPLETE_ZERO_PROPOSALS` / `NOT_ADMITTED_UNFROZEN` |
+
+Only first-party PostgreSQL documentation and current official-source discovery were used. No database, table, index, WAL stream, query, build, update, or benchmark was created or run.

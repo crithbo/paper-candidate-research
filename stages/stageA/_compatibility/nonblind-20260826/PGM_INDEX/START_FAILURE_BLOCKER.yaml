@@ -1,0 +1,40 @@
+schema: nonblind-stagea-compatibility-start-failure-v1
+created_at: 2026-08-26T13:00:00Z
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX
+topic_id: NONBLIND_STAGEA_COMPATIBILITY__PGM_INDEX
+stage_or_mode: NONBLIND_STAGEA_COMPATIBILITY
+start_authorization_path: MAINLINE_START_AUTHORIZATION.yaml
+start_authorization_sha256: 9E22B81A26A319EEDD1B23B7EE5D15A9D38E8916B6B5E8C7138B8F5021823840
+decision: FAIL_CLOSED__PRE_S0_RESOURCE_LAYOUT_COMMAND_FAILURE__NO_RETRY
+failure_class: SOFT_ENGINEERING_BLOCKER
+failed_precommand:
+  purpose: CREATE_EIGHT_REQUIRED_RESOURCE_DIRECTORIES
+  attempted_command: "New-Item -ItemType Directory -LiteralPath <each frozen resource subdirectory>"
+  error: "A parameter cannot be found that matches parameter name 'LiteralPath'."
+  failed_before: S0_CMAKE_VERSION
+  permitted_command_sequence_started: false
+  retry_or_alternate_command_attempted: false
+  alternative_path_or_tool_attempted: false
+stop_reason: START_CONTRACT_REQUIRES_FAIL_CLOSED_ON_ANY_COMMAND_FAILURE_AND_FORBIDS_RETRY
+resource_state:
+  resource_root_exists: false
+  required_directories_created: 0
+  persisted_resource_files: 0
+  network_bytes: 0
+  download_attempts: 0
+  archive_hash_attempts: 0
+  extraction_attempts: 0
+  configure_attempts: 0
+  build_attempts: 0
+  test_attempts: 0
+scientific_boundary:
+  author_artifact_preclaim_fidelity_started: false
+  natural_or_canonical_probe_started: false
+  claim_bearing_observation: false
+  scientific_inference: NONE
+  production_candidate_registration: false
+  production_state_transition: false
+  stageB: false
+  forbidden_gold_or_blind_input_read: false
+required_mainline_disposition: ISSUE_EXACT_MECHANICAL_CORRECTION_OR_TERMINATE_THIS_START_ATTEMPT
+owner_cleanup_actions: 0

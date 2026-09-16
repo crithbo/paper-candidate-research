@@ -1,0 +1,11 @@
+schema: nonblind-stagea-engineering-correction-ack-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-P1A1-JSON-CAPTURE
+correction: {path: P1A1_EXPLICIT_JSON_FILE_CAPTURE_CORRECTION.yaml, sha256: A094A9C5D8E092E080F223BB4A898218781413E9660D6800D66FED3F2966B0FA}
+preserved_blocker: {path: P1_OUTPUT_CAPTURE_BLOCKER.yaml, sha256: 6E62E8706ED26DED700DB6CF21959871578A5D41483F9D929B20AB3338E763AA}
+original_harness: {path: resources/src/probe/pgm_minimal_probe.cpp, sha256: 1C715DD8E3E6A2BA62201C394883E0C1D4360C437E6A08D4E0073291BE80D5EC}
+memory_edit_simulation: {result: PASS, only_change: accept_output_file_argv_and_write_existing_JSON_payload, required_include: fstream, invariants_unchanged: [keys, queries, epsilons, lower_bound_algorithm, metrics_cost_fields, exit_conditions], edit_occurrences: 1}
+fresh_budget: {compile: 1, run: 4, retry: 0, output_files: [resources/build/probe/epsilon-4.json, resources/build/probe/epsilon-16.json, resources/build/probe/epsilon-64.json, resources/build/probe/epsilon-256.json]}
+prestart_state: {source_edit: false, compile_or_runs: 0, scientific_inference: NONE}
+differences_or_ambiguities: []
+ack_disposition: READY
+next_action: WAIT_FOR_MAINLINE_P1A1_ACCEPTANCE_AND_START

@@ -1,0 +1,35 @@
+schema: rule-audit-stagea-paper-evidence-replay-handoff-v1
+audit_id: RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-REPLAY-R1
+created_at: '2026-08-27'
+from_role: RULE_AUDIT_SENTRY
+to_role: MAINLINE
+status: READY_FOR_SAFE_CUTOVER
+user_authorization: USER_STAGEA_USE_PAPER_RESULTS_INSTEAD_OF_FULL_LOCAL_REDO_20260827
+scope: <LOCAL_PROJECT_ROOT>_ONLY__CURRENT_8_NONBLIND_STAGEA_CASES
+shared_files_modified: false
+cutover:
+  stop_new_local_reimplementation_and_probe_work: true
+  running_processes_observed: 0
+  preserve_existing_local_results_as_supplement: true
+  queued_cases_convert_to_paper_evidence_replay: true
+  completed_or_partial_cases_also_receive_paper_only_gate_result: true
+canonical_flow: BACKTEST_PACKER__PAPER_EVIDENCE_CAPSULES__INDEPENDENT_STAGEA_GATE__BACKTEST_AUDITOR
+case_count: 8
+author_artifact_execution_required: false
+new_large_download_build_experiment_allowed: false
+paper_or_appendix_metadata_acquisition_allowed: true
+metrics:
+  merge_with_blind: false
+  merge_with_stage0_nonblind: false
+  claim_independent_reproduction: false
+  claim_unbiased_75_percent: false
+requested_mainline_actions:
+  - issue a compatibility cutover that stops new local StageA replay work
+  - close or suspend existing compatibility assignments without scientific STOP
+  - preserve existing local observations and resource inventories as supplements
+  - freeze eight PAPER_EVIDENCE_CAPSULE assignments for Backtest PACKER
+  - dispatch independent StageA gate only after capsule acceptance
+  - dispatch Backtest AUDITOR only after gate outputs are immutable
+  - keep production candidate states and StageB unchanged
+next_gate: MAINLINE_ACCEPTANCE_AND_PAPER_EVIDENCE_PACKER_FREEZE
+

@@ -1,0 +1,32 @@
+assignment_id: DISCOVERY-S1-20260811-V8.7-WAVE158-VORTEX-VOLT-COMPILER-RUNTIME-BOUNDARY-DEPTH-REDTEAM
+lane: S1-boundary-contradiction
+status: COMPLETE_ZERO_PROPOSALS
+rule_revision: v8.7+R5-P0
+quality_mode: OFF
+cutoff_date: '2026-08-11'
+object: fixed OpenCL/CUDA kernel compiled and executed under a frozen Vortex profile
+current_source_freeze:
+  volt_branch: master
+  volt_short_tip: 799891e
+  volt_submodules:
+    llvm: bb85f7e
+    pocl: f613f42
+    vortex: a4b6543
+  vortex_branch: master
+  vortex_config_source: VX_config.toml
+decision:
+  result: DROP__CURRENT_UNION_ABSORPTION
+  reason: >-
+    The only frozen minimal witness is divergent-region lowering, which is already
+    inside VOLT's documented centralized SIMT compiler transformation union.
+counts:
+  raw_screen_row_events: 1
+  unique_opportunity_families: 1
+  candidate_grade_deep_reviews: 1
+  propose_stage0: 0
+integrity:
+  no_future_work_absence_claim: true
+  no_experiment_benchmark_or_download: true
+  no_shared_control_write: true
+  resource_or_readiness_not_used_for_drop: true
+next_state: IDLE_REUSABLE_AWAITING_MAINLINE

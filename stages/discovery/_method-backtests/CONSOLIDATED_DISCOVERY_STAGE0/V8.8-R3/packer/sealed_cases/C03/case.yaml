@@ -1,0 +1,26 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C03
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-09T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [P4_DATA_PLANE, DECISION_TREE, ONLINE_UPDATE, NON_CUDA]
+raw_opportunity: >-
+  A line-rate data-plane decision-tree system partitions feature collection
+  and subtrees for resource-feasible deployment. Consider whether localized
+  labeled-flow drift permits partial updates without changing classification,
+  time-to-detection, line-rate or target-feasibility guarantees.
+required_analysis:
+  - inspect the paper, public artifact surface and project route together
+  - require a deterministic affected-state rule and complete legal update action
+  - include retraining, rule generation/install and target resources in full cost
+  - abstain if the atomic action or finite same-object witness is not frozen
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C03/sources/S01_splidt-paper.pdf, sha256: 0F22DFBEBF69D10CD06AD7C66017888027F29474DD25B3E11487A422221261B6, bytes: 1056356, url: "https://www.usenix.org/system/files/nsdi26-parvez.pdf", available_by: "2026-04-30", role: CLOSEST_SAME_OBJECT_PAPER}
+  - {source_id: S02, path: sealed_cases/C03/sources/S02_artifact-readme.md, sha256: 5C6113D1F6ADEDAEA5AF82A36685A1ABE39EC8B89739ED20246F50FC165BC302, bytes: 3440, url: "https://raw.githubusercontent.com/SpliDT-Decision-Trees/SpliDT-Artifact-NSDI26/1f8c8d11c042bb3c743683bedb4a8f6873c23941/README-ARTIFACT-NSDI26.md", available_by: "2026-04-14", role: FIRST_PARTY_ARTIFACT_SURFACE}
+  - {source_id: S03, path: sealed_cases/C03/sources/S03_project.html, sha256: 8A0CA4CFBAB2D0B57975473D49A9DF5C1A794860EE85EC06EC78D8FC9850245C, bytes: 81889, url: "https://splidt-decision-trees.github.io/", available_by: "2026-04-30", role: FIRST_PARTY_PROJECT_AND_DATA_ROUTE}
+exclusions:
+  - local rescreen logs, dispositions and later source-recovery commentary
+  - post-cutoff artifact changes
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL
+

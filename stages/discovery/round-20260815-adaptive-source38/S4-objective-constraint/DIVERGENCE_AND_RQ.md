@@ -1,0 +1,5 @@
+# Source38 seeds and RQs
+
+Twelve non-evidentiary seeds were generated across estimator decomposition, ranking counterfactual, coverage, full-cost, temporal sampling, regime characterization, replication, quality/tail, fairness, versioning, causal contrast and falsifier inversion. Three selected seeds each formed two same-object RQ variants before evidence: (1) whether a fixed versioned accelerator benchmark artifact's conclusion changes under a predeclared full-cost estimand; (2) whether a fixed canonical result set's ranking survives a held-out stratum; (3) whether a fixed public artifact's comparative conclusion replicates across a predeclared stratum. No RQ formation required a complete union, collision catalogue, witness, implementation, result or Q2 verdict.
+
+At the raw gate none froze an exact carrier, current-source locus, minimum falsifier, finite closure and full-cost boundary simultaneously. All remain `LOCATOR_ONLY`; no raw was admitted. OFST and NVPTX tcgen05 were not reopened. Broad tool/ISA/carrier similarity was treated as RELATED only.

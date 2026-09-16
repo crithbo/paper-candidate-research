@@ -1,0 +1,111 @@
+topic_id: "S5-OCCUPANCY-CLIFF-JOINTCODEGEN"
+lane_id: "stagea_wave_20260809_existing_five"
+assignment_id: "019fe4aa-2840-7a93-aaee-49a7fa76362f"
+assignment_state: "FROZEN_AWAITING_MAINLINE"
+input_freeze_sha256: "9c4b9ddd1106c2ef141a80db09dc894b06241b0f73635ec5ac4e931333c8f253"
+cross_assignment_contamination_declared: false
+source_stage: "STAGEA_REVISION1"
+proposed_next_stage: "HUMAN_RESEARCH_RESERVE"
+decision: "RESERVE_RECOMMENDED"
+quality_tier: "TIER_B_Q2_VIABLE"
+structural_paper_potential: "CONDITIONAL_TIER_B_SHAPE_REMAINS_BUT_NO_REVISION_EXPERIMENT_EVIDENCE"
+evidence_acquisition_readiness: "RESOURCE_ACQUISITION_BLOCKED_UNIQUE_REVISION_EXHAUSTED"
+stage_semantics: "STAGEA_RISK_PILOT"
+opportunity_origins:
+  - "O5_SCALE_ONLINE_OR_APPROXIMATION"
+domain_tags:
+  - "CUDA_GPU"
+  - "COMPILER_RUNTIME_SYSTEM"
+  - "ALGORITHM_DATA_STRUCTURE"
+paper_genealogy:
+  - "Unison / ACM TOPLAS 2019"
+  - "Register Allocation for Intel Processor Graphics / CGO 2018"
+  - "RL4ReAl / CC 2023"
+  - "GPU minimum-register scheduling / arXiv 2023"
+discovery_method_revision: "v2"
+discovery_backtest_reference: "stages/discovery/_method-backtests/O5_SCALE_ONLINE_APPROXIMATION/v2/backtest_review.md"
+exact_object: "LLVM AMDGPU MachineScheduler plus greedy RA at commit 1f112d62e1fa2c4f1a04887abd72da1ed61cf791, subtarget amdgpu11.00, explicit wave32, identical pre-scheduler MIR, 2,000 ms per method/region, legal post-greedy MIR, SGPR/VGPR/AGPR occupancy tiers"
+main_claim: "A fixed-budget tier-frontier joint scheduling/allocation algorithm can return legal non-dominated occupancy-tier/spill/compile-cost points over the current staged LLVM pipeline on natural cliff regions. This revision did not test that claim."
+novelty_route: "N2"
+evidence_route:
+  - "PERFORMANCE"
+  - "PARETO_APPROXIMATION"
+mechanism_signature: "Gains should concentrate on natural regions at occupancy cliffs and increase monotonically with search budget; far-from-cliff regions should show no systematic gain."
+seed_distance: "Explicit multi-bank occupancy-tier feasibility and an anytime boundary-state certificate, not generic joint scheduling/allocation or occupancy-aware heuristics."
+nearest_prior_facet_matrix: "stages/discovery/round-20260803-v8/S5-scale-online-approx/S5-OCCUPANCY-CLIFF-JOINTCODEGEN.md"
+q1_venue_family: "PLDI / CGO / ACM TOPLAS compiler optimization"
+q1_calibration_status: "PARITY_NOT_PLAUSIBLE"
+q1_reference_set:
+  - "Combinatorial Register Allocation and Instruction Scheduling (Unison), ACM TOPLAS 2019"
+  - "Register Allocation for Intel Processor Graphics, CGO 2018"
+  - "RL4ReAl, CC 2023"
+  - "Exact-commit LLVM GCNSchedStrategy source, blob 5816559fcc8992c05627e233cb88099e0036d42d"
+q1_comparator_matrix: "REVISION_Q1_COMPARATOR_MATRIX.md"
+q1_evidence_gap:
+  - "executable llc/FileCheck/llvm-calc-occupancy attributable to the exact LLVM commit"
+  - "8-16 complete public natural-kernel-derived amdgpu11.00 MIR regions"
+  - "actual current GCNSchedStrategy+greedy same-object baseline"
+  - "verifier-legal candidate and occupancy-tier/spill/compile-cost measurements"
+  - "double replay, corpus statistics, no-gain regions, and orthogonal validation"
+q2_viability_basis: "A bounded N2 compiler result remains structurally possible, but the unique automated revision supplied no experimental evidence because exact-toolchain acquisition failed before build."
+non_relaxable_quality_gates:
+  same_object: "FAIL_NOT_EXECUTED"
+  latest_collision: "SEARCH_BOUNDED_OPEN_WITH_DIRECT_SUBTRACT"
+  fair_strong_baseline: "FAIL_NOT_EXECUTED"
+  natural_input_and_evidence: "FAIL_ZERO_MIR"
+  full_cost: "PASS_FOR_FAILED_ACQUISITION_ONLY"
+  reproducibility: "PASS_FOR_FAILURE_RECORD_ONLY_EXPERIMENT_UNAVAILABLE"
+  evidence_claim_honesty: "PASS"
+academic_value_score: 48
+ai_executability_score: 0
+ai_executability_class: "HUMAN_RESEARCH_RESERVE_RESOURCE_BLOCKED"
+ai_core_fraction: 0.0
+strongest_baseline:
+  - "CURRENT_LLVM_GCNSCHEDSTRATEGY_GREEDY_AT_EXACT_COMMIT"
+  - "SAME_ALLOCATOR_PRESSURE_LIST"
+  - "MIN_REGISTER_RECONSTRUCTION"
+  - "UNISON"
+baseline_contract: "Actual exact-commit current LLVM GCNSchedStrategy plus greedy RA under the same input, subtarget, wave, allocator, verifier, and 2,000 ms budget; not run, and no proxy substituted."
+same_function_contract: "Byte-identical complete natural pre-scheduler MIR for baseline and candidate at the frozen exact commit; verifier-legal post-greedy output."
+algorithmic_delta: "The frozen minimal candidate was an exact-LLVM configuration frontier followed by greedy RA; because these are existing knobs, any later paper route must implement a non-routine joint state/algorithm rather than report knob selection."
+full_cost_ledger_scope: "download bytes/time, source checkout, configure/build CPU and wall time, peak storage, derivation, baseline/candidate/verifier/selection compile cost, fallback, code size, spills, register use, occupancy, and hardware time only when supported"
+generality_hypothesis: "Natural AMDGPU regions near discrete register-resource occupancy cliffs; no claim for arbitrary CPU/IR, non-register-limited kernels, NVIDIA GPUs, or hardware performance."
+why_not_routine_tuning: "A valid N2 contribution would require a new joint representation, feasibility structure, or certificate. The frozen existing-knob frontier was only a premise probe, and it never ran."
+decisive_evidence:
+  - "results/acquisition_failure.json: bootstrap transfer ended 24,067 bytes short and failed closed before hash acceptance"
+  - "COMMAND_LOG.md: exact command, exit path, full failed-acquisition cost, and all skipped stages"
+  - "downloads/llvm-mingw-20260616-ucrt-x86_64.zip: preserved 187,480,016-byte partial asset with SHA-256 a8155db381a8dd945cd68fe009565a967d3ba5ec28442ddc7ce8d844f750afcb"
+orthogonal_validation: "Not reached; no executable exact-commit experiment existed."
+unresolved_risks:
+  - "current LLVM may already match the occupancy-tier/spill ceiling on natural regions"
+  - "candidate schedules may be illegal or lose after greedy RA"
+  - "the frozen configuration frontier may be routine knob tuning rather than a paper mechanism"
+  - "natural occupancy-cliff prevalence and end-to-end relevance remain unmeasured"
+  - "latest direct-fatal collision search remains open"
+next_killer_gate: "No further automated Stage A revision is authorized. A human-owned reserve attempt would first have to provide an already publisher-hash-verified exact-commit AMDGPU toolchain and 8-16 complete natural MIR, then execute the unchanged same-object verifier-legal comparison and require a replayable non-dominated occupancy-tier or spill improvement."
+mechanism_pivot_remaining: "EXHAUSTED"
+reserve_reason: "The only authorized Stage A revision failed at immutable toolchain acquisition before build or experiment. This is a resource-readiness failure, not a mechanism falsifier, while project rules forbid lowering the exact-commit/natural-MIR/legal-baseline gates."
+evidence_ceiling: "RESOURCE_ACQUISITION_FAILURE_ONLY; ANALYTICAL_SOURCE_INSPECTION_ONLY; TRACE_ABSENT; EXACT_SOFTWARE_EXPERIMENT_ABSENT; AMD_GPU_ABSENT; HARDWARE_ABSENT"
+stagea_probe_support: "NOT_APPLICABLE"
+pending_user_stageb_review: false
+stageb_user_approval_id: null
+execution_authority:
+  stagea: false
+  stagea_revision: "EXHAUSTED"
+  stageb: false
+  formal_large_scale_experiment: false
+  exclusive_hardware: false
+  nvidia_gpu_as_amdgpu_evidence: false
+file_hashes:
+  COMMAND_LOG.md: "1693a8a3038ece1dcd3a8d208fcb24e69ebb6caed259427552790ab8c1a5467e"
+  PREACQUISITION_MANIFEST.sha256: "9c4b9ddd1106c2ef141a80db09dc894b06241b0f73635ec5ac4e931333c8f253"
+  REVISION_EXPERIMENT_CONTRACT.yaml: "b93d6cc3b44ed7f71b6e00445c98bbf848a8d7d08f9f4d99f8bb69e913d009f8"
+  REVISION_Q1_COMPARATOR_MATRIX.md: "42fdf234a987aa2f43ffee3ad7dfd071561a03ca3641c5d8e3a298da14c49886"
+  REVISION_RESULTS.md: "e02ad78b380c546c76c303de0512a5633b98ba47427caba2f0129ad77bf8621e"
+  REVISION_STAGEA_REPORT.md: "78019644e83c74d418dfbbe6fc3a72345cd2c05a6aba0b53a07719ee3fc5c983"
+  REVISION_USER_REVIEW_PACKET.md: "853bee574eee4621cbb31464fee2b638e2c10b20ffdf9064d571cf5316cb0da4"
+  SOURCE_MANIFEST.yaml: "8c27d3187494e443e43d84797f3b221f73ff36f24c80582f45f92c1ce1258a18"
+  downloads/llvm-mingw-20260616-ucrt-x86_64.zip: "a8155db381a8dd945cd68fe009565a967d3ba5ec28442ddc7ce8d844f750afcb"
+  results/acquisition_failure.json: "affb827c48beb5a9cd62e87f91e6afa840be80d25f7f111d6e9f2101b1cb4de8"
+  scripts/build_exact_toolchain.ps1: "25dcb68c598d1c7beb73c3b3ccfacaa204b6db7f4a28aebe2bd5d675303ed016"
+  scripts/fetch_natural_corpus.ps1: "ea9f21362ab34e2b7c4f75c80be08e734bb143fb43b3e65d2558cd2c5f64396e"

@@ -1,0 +1,19 @@
+sources:
+  - role: ANCHOR_AND_CURRENT
+    url: https://doc.rust-lang.org/stable/reference/type-layout.html
+    version_or_date: current Rust Reference observed 2026-08-15
+    finding: repr(C) fixes C-compatible layout; Rust representation gives only soundness-required guarantees.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - role: CONTRARY
+    url: https://doc.rust-lang.org/nomicon/other-reprs.html?highlight=repr
+    version_or_date: current Rustonomicon observed 2026-08-15
+    finding: FFI layout compatibility requires repr(C); exotic Rust layout features must not be assumed across FFI.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - role: CURRENT_SOURCE_LOCATOR
+    url: https://doc.rust-lang.org/stable/nightly-rustc/src/rustc_abi/layout.rs.html
+    version_or_date: current rustc source view observed 2026-08-15
+    finding: source locates the compiler layout and discriminant machinery.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY

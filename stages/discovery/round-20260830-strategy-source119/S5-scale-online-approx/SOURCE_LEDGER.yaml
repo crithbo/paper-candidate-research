@@ -1,0 +1,20 @@
+schema: source119-s5-evidence-ledger-v1
+assignment_id: DISCOVERY-S5-20260830-SOURCE119-SCALE-ONLINE-APPROX
+cutoff: 2026-08-30
+source_actions:
+  - {role: CURRENT, locator: https://github.com/vllm-project/vllm/blob/main/docs/features/kv_offloading_usage.md, result: current-fatal-for-generic-policy}
+  - {role: CURRENT, locator: https://github.com/sgl-project/sglang/blob/main/python/sglang/srt/mem_cache/unified_cache/components/README.md, result: current-hierarchical-policy-surface}
+  - {role: CURRENT, locator: https://nvidia.github.io/TensorRT-LLM/performance/performance-tuning-guide/fp8-quantization.html, result: native-static-kv-quantization}
+  - {role: CURRENT, locator: https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md, result: current-k-v-type-selector}
+  - {role: CURRENT, locator: https://docs.pytorch.org/ao/stable/workflows/inference.html, result: dynamic-and-weight-only-quantization-surface}
+  - {role: CURRENT, locator: https://onnxruntime.ai/docs/genai/howto/past-present-share-buffer.html, result: native-buffer-aliasing}
+  - {role: CURRENT, locator: https://docs.pytorch.org/executorch/stable/compiler-memory-planning.html, result: aot-custom-device-aware-planning}
+  - {role: CURRENT, locator: https://github.com/NVIDIA/Model-Optimizer/blob/main/examples/llm_ptq/README.md, result: calibrated-and-cast-kv-recipes}
+  - {role: CURRENT, locator: https://huggingface.co/docs/transformers/main/kv_cache, result: explicit-cache-class-selector}
+  - {role: CONTRARY, locator: https://arxiv.org/abs/2604.04722, result: adaptive-kv-precision-strong-collision}
+  - {role: ESCAPE, locator: https://arxiv.org/abs/2608.23658, result: honest-negative-elastic-kv-mechanism}
+query_accounting:
+  search_or_open_calls_used: 5
+  maximum: 24
+  result_aware_backfill: false
+claim_ceiling: NO_CLEAN_BRIEF__NO_NOVELTY_OR_ABSENCE_CLAIM

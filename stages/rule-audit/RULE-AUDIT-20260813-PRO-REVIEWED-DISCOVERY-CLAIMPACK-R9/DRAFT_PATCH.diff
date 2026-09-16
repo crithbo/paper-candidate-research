@@ -1,0 +1,525 @@
+diff --git a/AGENTS.md b/AGENTS.md
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -21,1 +21,5 @@
+ Discovery 使用六个长期主来源会话和一个周期性测量观测会话，而不是按 CUDA、量化、编译器等领域划分。领域是候选标签和专业审查维度；新发现方法必须先通过历史论文时间切片回测。
++
++Discovery 的规范工作单元是去重后的 `OPPORTUNITY_FAMILY`，规范交付是可证伪 `RESEARCH_CLAIM_PACKAGE`，而不是论文条目或模型自报分数。claim package 至少冻结 exact object、自然/canonical 场景、问题或机会、原子动作、机制、信息条件、公平比较器、预期效果/保证、full-cost、边界/失败区、最小 falsifier、贡献类型和依赖。先按 `METHOD_ALGORITHM / SYSTEM_ARCHITECTURE / COMPILER_TOOL / MEASUREMENT_CHARACTERIZATION / BENCHMARK_DATASET / THEORY_FORMAL / REPLICATION_NEGATIVE` 的类型合同判断论文结构，再映射到项目内部 Q1/Q2 档；该映射不降低任何科学硬门。
++
++行为改变型 Discovery assignment 必须冻结 `DISCOVERY_CLAIM_PACK_MODE=OFF / SHADOW / PRODUCTION`。`SHADOW / PRODUCTION` 额外读取 `rules/DISCOVERY_CLAIM_PACK.md`；缺少字段或未通过独立回测时 fail closed 为 `OFF`。六个长期槽位上限不因方法升级改变；方法质量与 3/6 席调度必须分开验证。
+@@ -76,2 +80,4 @@
+ 2. 下列一个与 lane 角色匹配的规则文件；
+ 3. 被分配题目的最小上游材料和该角色指定的模板。
++
++当冻结 assignment 的 `DISCOVERY_CLAIM_PACK_MODE` 为 `SHADOW / PRODUCTION` 时，Discovery、Mainline、Discovery Backtest 与 Stage 0 还读取共同协议 `rules/DISCOVERY_CLAIM_PACK.md`；`OFF` 或旧冻结 assignment 不读取该协议改变 canonical 判断。
+@@ -108,1 +114,2 @@
+ - 每个 Stage A 在首个 claim-bearing observation 前必须通过 `PRE_CLAIM_CONTRACT_FIDELITY_GATE`：候选实现覆盖冻结原子动作而非局部代理；比较器与声明语义一致；codec/solver/reader/format 等决定性构造路径同对象；指标分母、单位与 full-cost 维度完整；至少一个小 witness 的 legality/equivalence 可复核。未过门的 control/proxy 结果不得支持 PASS 或 STOP，可在初始 assignment 内纠正且不消耗 scientific revision。
++- Discovery claim-pack mode 将执行准备度分成 `E0_UNKNOWN / E1_STATIC_PREFLIGHT / E2_ENGINEERING_SMOKE / EB_RESOURCE_OR_ENGINEERING_BLOCKED / EH_HUMAN_CORE`。E1 只读检查 artifact、依赖、接口和命令入口；E2 仅在 assignment 明确授权的字节、时间、命令、安装和写目录边界内运行非 claim-bearing 冒烟。E2 不测试科研假设，不是送 Stage 0 前置门，不得提升学术/碰撞/证据状态；失败只能改变执行准备度或形成 blocker，不能学术 DROP/STOP。
+diff --git a/rules/DISCOVERY_CLAIM_PACK.md b/rules/DISCOVERY_CLAIM_PACK.md
+new file mode 100644
+--- /dev/null
++++ b/rules/DISCOVERY_CLAIM_PACK.md
+@@ -0,0 +1,142 @@
++# Discovery Claim-Pack Protocol
++
++Protocol revision: `DISCOVERY-CLAIM-PACK-V9-R0`
++
++This protocol is user-approved for installation but is canonical only when a frozen assignment says `DISCOVERY_CLAIM_PACK_MODE=PRODUCTION`. `SHADOW` writes noncanonical comparison artifacts; `OFF` preserves the frozen legacy method. A method backtest or shadow output is process evidence, never candidate novelty, headroom or feasibility evidence.
++
++## Unit of work and immutable gates
++
++The unit of work is an `OPPORTUNITY_FAMILY`; the deliverable is a falsifiable `RESEARCH_CLAIM_PACKAGE`. Proposal count is capacity telemetry, never a quota. All Q2 minimum, Q1 priority, same-object, latest/current collision, fair current strong baseline, natural/canonical evidence, full-cost, reproducibility, evidence honesty, claim ceiling, STOP non-revival and user Stage B/formal-project gates remain unchanged.
++
++A claim package freezes:
++
++1. exact research object and same-function/protocol/quality contract;
++2. natural workload/scenario or canonical real formal family;
++3. observed problem or opportunity and its source-backed quantitative/static anchor;
++4. intervention and atomic action;
++5. claimed mechanism and mechanism-specific prediction;
++6. available/unavailable information and assumptions;
++7. named current strong comparator set;
++8. expected output, effect target or guarantee;
++9. complete decision-relevant full-cost boundary;
++10. scope, no-gain/failure region and strongest competing explanation;
++11. minimum falsification test and finite Stage A closure route;
++12. contribution type, N1/N2/N3 route, dependencies, resources and evidence ceiling.
++
++## Contribution-type contracts
++
++Evaluate the relevant type contract before mapping to the project's internal Q1/Q2 tier:
++
++- `METHOD_ALGORITHM`: problem → nontrivial action/mechanism → fair comparator → measurable effect/guarantee → boundary.
++- `SYSTEM_ARCHITECTURE`: real constraint → mechanism → end-to-end route → performance/power/area/bandwidth/cost → fair baseline.
++- `COMPILER_TOOL`: new capability/automation scope → correctness → integration → compile/runtime/data-movement cost → real workload.
++- `MEASUREMENT_CHARACTERIZATION`: new phenomenon → reproducible measurement → generality/conditional distribution → consequence → explanation or design implication.
++- `BENCHMARK_DATASET`: construct → coverage → data quality → discriminative ability → real research need.
++- `THEORY_FORMAL`: object/assumptions → result/guarantee → proof route → correspondence to practice.
++- `REPLICATION_NEGATIVE`: prior boundary → rigorous replication → inconsistency/failure condition → substantive implication.
++
++Q1/Q2 is an internal paper-shape and investment mapping, not a universal cross-field score. A type contract that is incomplete cannot be repaired by venue prestige, prose quality, AI readiness or a numeric score.
++
++## Opportunity-family graph
++
++Every family has a stable `opportunity_family_id`, a canonical signature and typed edges. The signature covers object, problem, action, mechanism, information, output/guarantee, comparator and full-cost boundary. Legal edge types are:
++
++- `EQUIVALENT`
++- `CONTAINS`
++- `CONDITIONAL_SPECIALIZATION`
++- `ALTERNATE_MECHANISM`
++- `COMPLEMENTARY`
++- `PREREQUISITE`
++- `COMPETING_EXPLANATION`
++- `INDEPENDENT`
++
++Flat keyword or title similarity never proves equivalence. A family may hold multiple claim packages until one is selected, merged, narrowed or structurally removed. Cross-lane dedup locks the family ID and signature, not a paper title.
++
++## Local audit coordinates
++
++These coordinates are Discovery-local metadata and do not replace registry lifecycle state:
++
++- Academic maturity: `A0_STRUCTURAL_NO / A1_OPEN_WITHIN_EVIDENCE / A2_RESEARCH_SPACE_ARTICULABLE / A3_FALSIFIABLE_CONTRIBUTION_CLAIM`.
++- Collision: `C0_DIRECT_COVERED / C1_PARTIALLY_COVERED_NARROWED / C2_ADJACENT_DISTINCT / C3_NO_DIRECT_COVER_WITHIN_RECORDED_SEARCH / CU_UNKNOWN`.
++- Evidence: `D0_CLUE / D1_BASIC_MATERIALS / D2_DECISION_READY_FACETS / D3_INDEPENDENT_EVIDENCE_AUDIT`.
++- Execution readiness: `E0_UNKNOWN / E1_STATIC_PREFLIGHT / E2_ENGINEERING_SMOKE / EB_RESOURCE_OR_ENGINEERING_BLOCKED / EH_HUMAN_CORE`.
++
++The axes cannot override one another. E1/E2 never upgrades A/C/D; low execution readiness never makes an academically viable topic scientific DROP/STOP.
++
++## Direct coverage and structural negatives
++
++`C0_DIRECT_COVERED` requires evidence that one current work or a fair deployable union satisfies all eight predicates:
++
++1. same object/function/protocol;
++2. same scenario/workload class;
++3. same or weaker information assumptions;
++4. action or decision rule covers the proposed atomic action;
++5. output legality, quality and guarantee are the same or stronger;
++6. full-cost boundary is the same and not conclusion-changing worse;
++7. scale, platform, version and configuration are comparable;
++8. coverage is supported by sufficient full-text, current implementation or reproducible observation, not a snippet or naming overlap.
++
++If any predicate is unresolved, use `C1/C2/CU`, narrow the residual and keep an explicit claim ceiling. Action-space overlap alone is not algorithm absorption.
++
++A structural DROP is legal only when evidence establishes at least one of:
++
++- object/problem/guarantee is internally inconsistent or violates same-object;
++- the central claim is not falsifiable;
++- the apparent gain exists only by deleting decisive cost or weakening the guarantee;
++- all eight direct-coverage predicates hold;
++- the delta is only naming, tuning, wrapper, application/backend relabeling or a nongeneral special case;
++- no testable mechanism chain can be stated;
++- the claim requires information unavailable under its own contract;
++- finite fidelity closure necessarily changes object, function, guarantee or fair comparator.
++
++The following are not structural negatives: missing implementation/result/proof; missing compute/license/data/platform; AI capability limits; incomplete search; adjacent or partial coverage; a human-core proof or experiment; resource transport failure. Use `NOT_ADMITTED_UNFROZEN`, `SEARCH_BOUNDED_OPEN`, `EB`, `EH` or an actionable blocker as appropriate.
++
++## Source roles, search ledger and claim audit
++
++Decision-ready work must cover these source roles, with `NOT_FOUND_WITHIN_SEARCH` permitted when the bounded search is recorded:
++
++1. paper genealogy and forward/backward chaining;
++2. current first-party documentation, source, defaults and non-default controls;
++3. natural phenomena, measurements, workloads or canonical formal carrier;
++4. generic algorithm/formal kernel;
++5. independent prior-work and contrary/no-gain evidence;
++6. synthesis, assumption attack and execution preflight.
++
++For the highest-priority family, the decisive prior-work/current-source search is performed by a lane or reviewer not responsible for generating the package. A shared summary or copied query is not independent review.
++
++The evidence ledger records each query's text, purpose, source/search engine, date, filters, read depth, key results, exclusions and state change. Normalize preprint/conference/journal versions; repository/branch/tag/commit; default/non-default configurations; dataset version/license/checksum/date; and online-document access date or snapshot.
++
++Each material claim records source, locator, version, role (`DIRECT / PARTIAL / SUPPORT / OPPOSE / IMPLEMENTS / BASELINE / CARRIER / BACKGROUND`), read depth, evidence status (`AUTHOR_CLAIM / DIRECT_OBSERVATION / INDEPENDENT_REPLICATION / SYSTEM_INFERENCE / UNVERIFIED`), relation, conflict and permitted conclusion. Search snippets locate sources but cannot support decisive claims.
++
++Check priority is ordinal, not pseudo-probabilistic: expected chance of changing the decision × consequence ÷ check cost, reported as `HIGH / MEDIUM / LOW` with rationale.
++
++## Decision-ready stopping and reopening
++
++A family reaches `D2_DECISION_READY_FACETS` only when:
++
++- every high-impact claim/uncertainty is answered or explicitly bounded;
++- latest same-object work and current strong comparator/source/configuration union are checked;
++- first-party implementation is read to sufficient depth where action absence matters;
++- at least one heterogeneous independent search path is completed;
++- contrary/no-gain/competing-explanation search is recorded;
++- natural/canonical carrier and full-cost boundary are frozen;
++- repeated new sources add no decision-changing facet within the registered search boundary;
++- no unresolved contradiction could immediately flip A/C or the structural disposition.
++
++Budget exhaustion does not force a yes/no decision. It yields `SEARCH_BOUNDED_OPEN`, `NOT_ADMITTED_UNFROZEN`, `RESOURCE_BLOCKED`, `EXPERT_REVIEW_NEEDED` or `DEEP_DIVE_REQUIRED`. Mainline samples low-ranked families for false-negative audit.
++
++Reopen triggers for a nonterminal opportunity family include a new same-object paper, new official feature/configuration, new natural dataset/workload, a Stage 0 repair, a later observation that falsifies an assumption, or a material platform/cost change. A terminal STOP candidate never reopens or changes name; a genuinely different object/problem receives a new ID.
++
++## E1 and E2
++
++`E1_STATIC_PREFLIGHT` is read-only: artifact availability, version/license, build/run entry points, dependencies, interfaces, format/checker semantics, rough resource bound and known blocker. It does not require environment mutation.
++
++`E2_ENGINEERING_SMOKE` is optional and only legal with an assignment-level allowlist for commands, bytes, time, installation, network, write directory and cleanup. Allowed outputs are environment/container build status, official unit-test/minimal-example status, one input read/check, baseline startup, output/checker parity, tiny semantic correctness and order-of-magnitude resource feasibility. It must not run a parameter sweep, compare candidate scientific performance, optimize a mechanism or support a scientific claim. Failure updates execution readiness/blocker only; absence of E2 never blocks Stage 0.
++
++## Neutral review and activation
++
++Mainline renders claim-pack fields in a fixed order for Stage 0. Remove model self-confidence, persuasive adjectives, source-lane identity and venue prestige as evidence. Do not hide technical facts or provenance.
++
++Before `PRODUCTION`, independent PACKER→EXECUTOR→AUDITOR evaluation must include paired same-snapshot legacy/V9 runs, contamination controls, at least three contribution types, positive/structural-negative/partial-coverage/unfinished cases, a new blind holdout, style/evidence-order/adversarial perturbations and two prospective noncanonical shadow waves. Pre-register noninferiority margins, sample expansion/stopping and adjudication. A six-case replay or two waves alone is a pilot, not calibration.
++
++Method pass requires no hard-gate leakage, no terminal-revival behavior, no E2-to-academic leakage, noninferior critical-source recall and false-structural-DROP under the preregistered uncertainty rule, and acceptable audit cost. Failure returns mode `OFF`; no candidate state rolls back. A 3-vs-6 lane-count comparison is a separate scheduling experiment.
+diff --git a/rules/ROLE_DISCOVERY.md b/rules/ROLE_DISCOVERY.md
+--- a/rules/ROLE_DISCOVERY.md
++++ b/rules/ROLE_DISCOVERY.md
+@@ -18,1 +18,3 @@
+ 这些会话读取同一文件，按自己的 mode 执行。默认使用 `gpt-5.6-terra / medium`。
++
++每个新 assignment 还必须冻结 `DISCOVERY_CLAIM_PACK_MODE=OFF / SHADOW / PRODUCTION`。`OFF` 沿用该 assignment 的既有 canonical 方法；`SHADOW` 读取 `rules/DISCOVERY_CLAIM_PACK.md` 并生成非 canonical 对照；`PRODUCTION` 才按该共同协议形成 canonical claim package。缺模式、协议 hash、独立校准或主线 cutover 记录时一律 `OFF`。R7 与 claim-pack 不得在同一 assignment 叠加改变判断；启用 claim-pack 时 `DISCOVERY_QUALITY_MODE` 必须为 `OFF`。
+@@ -31,1 +33,2 @@
+ 6. 当前来源回测 handoff 与本波输入包
++7. 仅当 `DISCOVERY_CLAIM_PACK_MODE=SHADOW / PRODUCTION` 时读取 `rules/DISCOVERY_CLAIM_PACK.md` 与 `templates/DISCOVERY_EVIDENCE_LEDGER.yaml`
+@@ -110,1 +113,9 @@
+ 每份材料记录版本/日期及角色。没有找到时写 `NOT_FOUND_WITHIN_SEARCH`，不得把“未发现”写成绝对首次。
++
++## Claim-pack V9 机会族工作流（assignment 门控）
++
++在 `SHADOW / PRODUCTION` 下，以 `OPPORTUNITY_FAMILY` 而不是论文条目为去重和深审单位，并按共同协议完成：贡献类型合同、typed opportunity graph、A/C/D/E 本地坐标、八谓词 direct-coverage、结构性负面分类、query/claim evidence ledger、decision-ready 停止条件以及 E1/E2 边界。
++
++六个长期 lane 仍是现有并发上限，不因本方法增加第七个来源。主线可在同一机会族上冻结 `EXPLORE / INDEPENDENT_PRIOR_CURRENT_AUDIT / SYNTHESIS_PREFLIGHT` 任务角色；生成者不得完成自己的决定性 prior/current 独立审查，synthesizer 不得用多数投票替代证据。3 席与 6 席的效率比较属于单独调度试验，不能与方法回测合并。
++
++canonical brief 必须先写类型合同与 claim package，再映射内部 Q1/Q2。模型自报置信度、写作风格、来源 lane 和 venue 名声不得作为证据。文献数量不构成完成；source-role 与决定性 facet 闭合才构成 `D2_DECISION_READY_FACETS`。
+@@ -154,1 +165,3 @@
+ ## R7 collision-first 深审模块（assignment 门控，当前默认 OFF）
++
++R7 是旧 dormant 模块。任何 claim-pack `SHADOW / PRODUCTION` assignment 都必须冻结 R7 为 `OFF`，避免两套结构性淘汰和排序语义叠加；旧 R7 artifact 只能作为方法审计输入，不能成为 V9 candidate evidence。
+@@ -276,1 +289,2 @@
+ - 至少达到 `TIER_B_Q2_VIABLE`，并说明能否上探 `TIER_A_Q1_POTENTIAL`。
++- 在 claim-pack `PRODUCTION` 下，另须达到 `A3_FALSIFIABLE_CONTRIBUTION_CLAIM`、`D2_DECISION_READY_FACETS`，collision 为 `C1/C2/C3` 而非 `C0`，贡献类型合同完整，独立 prior/current audit 已完成，并随 brief 提交 `DISCOVERY_EVIDENCE_LEDGER.yaml`；E2 不是必需条件。
+diff --git a/rules/ROLE_MAINLINE.md b/rules/ROLE_MAINLINE.md
+--- a/rules/ROLE_MAINLINE.md
++++ b/rules/ROLE_MAINLINE.md
+@@ -19,1 +19,3 @@
+ 当前 assignment 还必须核对其冻结的规则 revision/hash。已运行 assignment 不因新规则发布而中途换裁决标准；新规则默认只作用于下一 assignment，纯机械且不影响判断的兼容修复除外。
++
++当 assignment 的 `DISCOVERY_CLAIM_PACK_MODE` 为 `SHADOW / PRODUCTION` 时，还必须读取并冻结 `rules/DISCOVERY_CLAIM_PACK.md` 的 hash；未满足该协议 activation gate 时不得把 shadow 产物写入 canonical candidate state。
+@@ -163,1 +165,3 @@
+ 每个调度控制周期登记：`ready_queue_count`、`active_lane_count`、`completed_handoff_wait_cycles`、`handoff_rework`、`duplicate_work`、`shared_write_conflict`、`rule_revision_drift`，以及分开的 `raw_screen_row_event_count`、`repeat_or_rescreen_row_event_count`、`unique_opportunity_family_count`、`candidate_grade_deep_review_count`、`stage0_brief_count`、`clean_stage0_brief_count`、`decisive_stagea_observation_count`、`stagea_pass_count`。R7 兼容遥测另记 `discovery_breadth_assignment_count`、`discovery_depth_redteam_assignment_count`、`failure_kernel_lookup_count`、`prebrief_adversarial_check_count` 和 `stage0_repair_vector_counts`；在 `OFF` 模式下未执行的行为计数必须写 `NOT_APPLICABLE_MODE_OFF`，不得伪装为零。所有字段都只作诊断，不是配额。旧字段 `decisive_stagea_observation` 只作兼容别名，不得与 count 重复相加。并在可测时报告每个 `CLEAN_STAGE0_BRIEF` 与 `DECISIVE_STAGEA_OBSERVATION` 的用户/model 成本；无法测量时写明 `NOT_YET_MEASURABLE`，不得填零。
++
++claim-pack shadow/production 另登记：`opportunity_family_relation_counts`、`critical_source_recall`、`false_structural_drop_count`、`first_party_feature_late_discovery_count`、`decision_ready_facet_completeness`、`claim_source_coverage`、`contradiction_disclosure_count`、`independent_search_completion`、`audit_minutes_or_model_cost`、`duplicate_deep_review_count`、`decision_stability_under_perturbation`、`contribution_type_diversity`、`E1_count`、`E2_count`、`EB_count`、`EH_count`、`stage0_material_repair_count` 和可用时的 later central-claim survival。不可测写 `NOT_YET_MEASURABLE`，不得填零或反推配额。
+@@ -165,1 +169,11 @@
+ `STAGE0_REPAIR_VECTOR` 可多选：`OMITTED_CURRENT_SAME_OBJECT / OMITTED_FIRST_PARTY_FEATURE / OMITTED_GENERIC_KERNEL / ATOMIC_ACTION_UNCLEAR / NATURAL_CARRIER_GAP / FULL_COST_GAP / Q2_SHAPE_GAP / NO_MATERIAL_REPAIR`。它只描述 Stage0 是否补回 cutoff 前可获得而 Discovery 遗漏的材料，不改变 PASS/RESERVE/REVISE/STOP；科学 STOP 也可以是 `NO_MATERIAL_REPAIR`。
++
++### Discovery claim-pack V9（已批准安装，生产需校准）
++
++新 assignment 冻结 `DISCOVERY_CLAIM_PACK_MODE=OFF / SHADOW / PRODUCTION`、protocol hash、output schema hash 与资源边界。当前没有独立 auditor PASS、两波 prospective shadow 和主线 cutover 记录时，canonical 值保持 `OFF`。`SHADOW` 必须与 legacy canonical 输出隔离；`PRODUCTION` 只能在下一安全 assignment 边界生效。
++
++claim-pack 工作按 `OPPORTUNITY_FAMILY` 去重。主线为优先族分配 `EXPLORE / INDEPENDENT_PRIOR_CURRENT_AUDIT / SYNTHESIS_PREFLIGHT` 任务角色并保持生成—决定性查重独立；角色可由现有 S1–S6 长期 lane 承担，不增加 lane 上限。一个 family 的 query lock、claim ID、signature 与已查范围必须冻结，避免重复深审。
++
++Stage 0 输入使用固定字段顺序的 neutral packet：保留技术事实、来源、locator、版本、冲突和 ceiling，移除模型自报置信度、说服性形容词、来源 lane 身份和 venue prestige 作为证据。E2 只有 assignment 明确资源 allowlist 才可调度；它不是 Stage 0 admission gate，失败不得改变 academic/collision/evidence 结论。
++
++V9 生产 cutover 必须来自独立 PACKER→EXECUTOR→AUDITOR：paired same-snapshot legacy/V9、污染审计、新 blind holdout、贡献类型/负例覆盖、风格与证据顺序鲁棒性、预登记 noninferiority/停止规则，以及两波非 canonical prospective shadow。小样本 replay 只能标记 `PILOT_NOT_CALIBRATED`。方法与 3/6 席调度分别回测；本 patch 不改变六槽上限。
+@@ -218,1 +232,2 @@
+ - 对任何以“current implementation lacks X”为核心的提案，主线机械验收必须看到 `CURRENT_UPSTREAM_REALITY_CHECK`：官方文档、当前 upstream 源码、版本/commit 和相关默认/非默认 flag/threshold 四项齐全；Stage 0 assignment 必须要求独立复核。缺实现不等于 STOP，但旧文档与当前源码冲突时不得把旧缺口登记成 residual。
++- 对 claim-pack V9 提案，主线还必须看到 contribution type contract、完整 claim package、opportunity graph、A/C/D/E 本地坐标、八谓词 coverage audit、独立 prior/current 审查和 `DISCOVERY_EVIDENCE_LEDGER.yaml`。这些字段不替代正式状态；E2 缺失不阻止 Stage 0。
+diff --git a/rules/ROLE_DISCOVERY_BACKTEST.md b/rules/ROLE_DISCOVERY_BACKTEST.md
+--- a/rules/ROLE_DISCOVERY_BACKTEST.md
++++ b/rules/ROLE_DISCOVERY_BACKTEST.md
+@@ -14,1 +14,3 @@
+ 每个 lane 一次只处理一个 assignment，完成后回到 `IDLE_REUSABLE`。没有获批回测时，主线将三种空闲任务窗口登记为 `ARCHIVED_UI_POOL_COMPACTION` 并保持冷归档；新回测获批后反归档原 PACKER/EXECUTOR/AUDITOR，不能临时新建逐方法任务。PACKER 可以跨版本复用，但不得执行方法；EXECUTOR 永远不得接收 auditor key、揭盲结论或目标身份；AUDITOR 不得改写 PACKER/EXECUTOR 输出。若实际积压需要并行，可建立总计 2–4 个回测/审查 lane 组，但不得用同一会话兼任角色或让同一 packet 并行进入多个角色。
++
++当待测方法为 `DISCOVERY-CLAIM-PACK-V9-R0` 时，三角色还读取 `rules/DISCOVERY_CLAIM_PACK.md`，但 EXECUTOR 仍不得读取 auditor key、目标身份、揭盲标签、预计 relation 或通过阈值答案。
+@@ -78,1 +80,13 @@
+ `CONTAMINATION_UNKNOWN` 不得记为通过。
++
++以上 3 正例 + 1 负例只适用于 legacy lens 的初始小回测。claim-pack V9 属于行为改变型方法，不能凭该小样本宣告 calibrated。
++
++## Claim-pack V9 独立校准
++
++PACKER 为 legacy 与 V9 冻结相同 snapshot、source universe、cutoff、工具/模型、budget 与 neutral input。样本须覆盖至少三种贡献类型，并包含 later-success positives、direct structural negatives、partial-coverage/narrowing cases、unfinished-but-nonstructural cases、stale-document/current-feature traps 和 style-attractive weak packages。开发回归集与新 blind holdout 不得重用身份或 auditor key。
++
++EXECUTOR 以 paired randomized/cross-over 顺序运行 legacy 与 V9，保存每个 query、source、claim、关系、状态变化、成本和原始输出。对 neutral rendering、标题/长度/同义改写、证据顺序、非关键噪声与可信相反证据做预登记扰动；不得反向猜目标论文或硬编码案例答案。
++
++AUDITOR 先验收污染、snapshot、预算与配对完整性，再独立评价 critical-source recall、direct-coverage 识别、false structural DROP、unfinished 正确保留、claim–source 匹配、contradiction disclosure、decision-ready completeness、审计成本、决策稳定性、贡献类型/对象/机制多样性和 Stage 0 repair 预期。关键分歧由未参与 PACKER/EXECUTOR 的 adjudicator 处理；LLM 自评不能单独决定 PASS。
++
++协议必须预登记 paired noninferiority margin、初始 blind 样本、区间估计、以固定增量扩样的触发器、最大样本和一次失败后的停止条件。样本不足或区间不决时输出 `PILOT_NOT_CALIBRATED / INCONCLUSIVE`, 不能 PASS。blind 通过后还需两波同预算、非 canonical prospective shadow；lane count 3 vs 6 另做 scheduling experiment，不得与方法效果合并。
+diff --git a/rules/ROLE_STAGE0_REVIEW.md b/rules/ROLE_STAGE0_REVIEW.md
+--- a/rules/ROLE_STAGE0_REVIEW.md
++++ b/rules/ROLE_STAGE0_REVIEW.md
+@@ -22,1 +22,2 @@
+ 6. `templates/STAGE0_REPORT.md`、`templates/Q1_COMPARATOR_MATRIX.md`
++7. 若输入冻结 `DISCOVERY_CLAIM_PACK_MODE=SHADOW / PRODUCTION`，读取 `rules/DISCOVERY_CLAIM_PACK.md`、neutral claim package 与 `DISCOVERY_EVIDENCE_LEDGER.yaml`
+@@ -55,1 +56,3 @@
+ 14. 在独立科学结论形成后输出非裁决性的 `STAGE0_REPAIR_VECTOR`，说明 Stage 0 是否补回 cutoff 前可获得而 Discovery 遗漏的 current same-object source、first-party feature、generic kernel、atomic action、natural carrier、full-cost 或 Q2 shape。可多选 `OMITTED_CURRENT_SAME_OBJECT / OMITTED_FIRST_PARTY_FEATURE / OMITTED_GENERIC_KERNEL / ATOMIC_ACTION_UNCLEAR / NATURAL_CARRIER_GAP / FULL_COST_GAP / Q2_SHAPE_GAP`；没有材料性修正时用 `NO_MATERIAL_REPAIR`。该向量不得改变 PASS/RESERVE/REVISE/STOP，科学 STOP 也可以是 `NO_MATERIAL_REPAIR`，并随 handoff 返回主线做聚合反馈。
++15. 对 claim-pack 输入，先按贡献类型合同判断结构完整性，再映射 Q1/Q2；独立复核 opportunity-family 关系、A/C/D/E 本地坐标、八谓词 direct coverage、结构性负面理由、query/claim provenance 与 search stopping。E1/E2 只评价执行准备度，不能改变学术或碰撞判断。
++16. claim-pack repair vector 还可多选 `CONTRIBUTION_TYPE_CONTRACT_MISMATCH / CLAIM_MECHANISM_UNCLEAR / EFFECT_OR_GUARANTEE_UNCLEAR / BOUNDARY_OR_FALSIFIER_GAP / EVIDENCE_LOCATOR_OR_VERSION_GAP / CONTRARY_SEARCH_GAP / OPPORTUNITY_RELATION_ERROR / DIRECT_COVERAGE_PREDICATE_ERROR / EXECUTION_ROUTE_UNREALISTIC / PRESENTATION_STYLE_BIAS`。
+@@ -66,1 +69,3 @@
+ ## 新颖性与基线
++
++对 claim-pack 输入，`DIRECT_FATAL/C0_DIRECT_COVERED` 必须逐项满足共同协议的八个 coverage 谓词并有足够 read depth；任一未闭合只能是 partial/narrowing/adjacent/unknown。标题、动作名、组件重叠或“理论上能表达”不能替代 same information、guarantee、full-cost、scale/version 和实现/全文证据。
+@@ -146,1 +151,3 @@
+ 缺异常、商品硬件、多 GPU、多个 fault family、完整 theorem 或完整自然 trace不自动停止非验证题。
++
++claim-pack 中 `E2_ENGINEERING_SMOKE` 的成功只证明该工程入口；失败只支持 `EB_RESOURCE_OR_ENGINEERING_BLOCKED` 或用户 blocker。PRIMARY/SENTRY 不得把 E2 成败当作机制正负证据，也不得因未运行 E2 拒绝一个 A3/D2、无 C0 的 Tier A/B 条件性题目。
+diff --git a/templates/TOPIC_BRIEF.md b/templates/TOPIC_BRIEF.md
+--- a/templates/TOPIC_BRIEF.md
++++ b/templates/TOPIC_BRIEF.md
+@@ -9,1 +9,5 @@
+ - Discovery method revision:
++- Discovery claim-pack mode: `OFF / SHADOW / PRODUCTION`
++- Opportunity family ID:
++- Contribution type: `METHOD_ALGORITHM / SYSTEM_ARCHITECTURE / COMPILER_TOOL / MEASUREMENT_CHARACTERIZATION / BENCHMARK_DATASET / THEORY_FORMAL / REPLICATION_NEGATIVE`
++- Local audit coordinates: `A0/A1/A2/A3`, `C0/C1/C2/C3/CU`, `D0/D1/D2/D3`, `E0/E1/E2/EB/EH`
+@@ -11,1 +15,23 @@
+ ## Research question
++
++## Canonical research claim package
++
++- Exact object and same-function/protocol/quality contract:
++- Natural/canonical scenario or workload:
++- Observed problem/opportunity and quantitative/static anchor:
++- Intervention and atomic action:
++- Claimed mechanism and mechanism-specific prediction:
++- Available/unavailable information and assumptions:
++- Named comparator and fairness contract:
++- Expected effect target, output or guarantee:
++- Full-cost boundary:
++- Scope, no-gain/failure region and competing explanation:
++- Minimum falsifier:
++- Dependencies/resources and claim ceiling:
++- Contribution-type contract closure:
++
++## Opportunity-family graph
++
++| Related family ID | Relation: equivalent/contains/conditional specialization/alternate mechanism/complementary/prerequisite/competing explanation/independent | Evidence | Disposition |
++|---|---|---|---|
++| | | | |
+@@ -94,1 +120,14 @@
+ ## Current collision classification
++
++### Eight-predicate direct-coverage audit
++
++| Predicate | Evidence/locator | PASS / FAIL / UNKNOWN |
++|---|---|---|
++| Same object/function/protocol | | |
++| Same scenario/workload | | |
++| Same or weaker information | | |
++| Atomic action covered | | |
++| Same/stronger legality, quality and guarantee | | |
++| Same non-worse full-cost boundary | | |
++| Comparable scale/platform/version/config | | |
++| Sufficient full-text/implementation/reproduction depth | | |
+@@ -124,1 +163,11 @@
+ ## Decisive falsifier
++
++## Search and claim-evidence audit
++
++- Evidence ledger: `DISCOVERY_EVIDENCE_LEDGER.yaml`
++- Heterogeneous independent search owner/path:
++- Contrary/no-gain search:
++- Highest-impact unresolved issue and priority rationale:
++- Decision-ready stopping checklist result:
++- Bounded-open statement:
++- Nonterminal reopen triggers:
+@@ -150,1 +199,8 @@
+ ### 72-hour first evidence
++
++### Execution readiness
++
++- E1 static preflight result and evidence:
++- E2 assignment authorization/allowlist, or `NOT_RUN_NOT_REQUIRED_FOR_STAGE0`:
++- E2 engineering-only result and prohibited scientific inference:
++- EB/EH boundary and next action:
+diff --git a/templates/STAGE0_REPORT.md b/templates/STAGE0_REPORT.md
+--- a/templates/STAGE0_REPORT.md
++++ b/templates/STAGE0_REPORT.md
+@@ -26,1 +26,5 @@
+ - Discovery method revision:
++- Discovery claim-pack mode:
++- Opportunity family ID:
++- Contribution type and type-contract verdict:
++- Independently audited A/C/D/E coordinates:
+@@ -30,1 +34,13 @@
+ ## Frozen object and claim
++
++## Claim-package completeness audit
++
++- Atomic action and mechanism:
++- Information/assumption contract:
++- Effect target/output/guarantee:
++- Boundary/failure region/competing explanation:
++- Minimum falsifier:
++- Dependencies and evidence ceiling:
++- Opportunity-family relation audit:
++- Independent search identity/scope:
++- Evidence-ledger integrity and contradiction disclosure:
+@@ -40,1 +56,14 @@
+ ## Collision analysis
++
++### Eight-predicate direct-coverage audit
++
++| Predicate | Independent evidence/locator | PASS / FAIL / UNKNOWN |
++|---|---|---|
++| Same object/function/protocol | | |
++| Same scenario/workload | | |
++| Same or weaker information | | |
++| Atomic action covered | | |
++| Same/stronger legality, quality and guarantee | | |
++| Same non-worse full-cost boundary | | |
++| Comparable scale/platform/version/config | | |
++| Sufficient full-text/implementation/reproduction depth | | |
+@@ -93,1 +122,3 @@
+ ## Evidence path and AI completion
++
++- E1/E2 execution-readiness audit; scientific inference explicitly excluded:
+@@ -125,1 +156,8 @@
+ ## Stop conditions
++
++## Discovery repair vector
++
++- Codes:
++- Materiality:
++- Was the missing information available before the frozen cutoff?:
++- Does this feedback alter the independent scientific decision?: `NO`
+diff --git a/templates/HANDOFF.yaml b/templates/HANDOFF.yaml
+--- a/templates/HANDOFF.yaml
++++ b/templates/HANDOFF.yaml
+@@ -17,2 +17,22 @@
+ discovery_method_revision: null
++discovery_claim_pack_mode: null # OFF | SHADOW | PRODUCTION
++discovery_claim_pack_protocol_sha256: null
++opportunity_family_id: null
++opportunity_family_signature: null
++opportunity_family_relations: []
++contribution_type: null
++contribution_type_contract_verdict: null
++discovery_local_coordinates:
++  academic_maturity: null # A0 | A1 | A2 | A3
++  collision: null # C0 | C1 | C2 | C3 | CU
++  evidence: null # D0 | D1 | D2 | D3
++  execution_readiness: null # E0 | E1 | E2 | EB | EH
++discovery_evidence_ledger: null
++independent_prior_current_audit:
++  owner_or_lane: null
++  scope: null
++  completed: false
++direct_coverage_eight_predicates: {}
++decision_ready_stopping_check: null
++nonterminal_reopen_triggers: []
+ discovery_backtest_reference: null
+@@ -77,2 +97,8 @@
+ evidence_ceiling: null
++e1_static_preflight: null
++e2_engineering_smoke:
++  status: NOT_RUN_NOT_REQUIRED_FOR_STAGE0
++  authorization_id: null
++  allowlist: null
++  scientific_inference_permitted: false
+ stagea_probe_support: null # NOT_FALSIFIED | PRELIMINARY_SUPPORT | NEGATIVE_KILL | NOT_APPLICABLE
+diff --git a/templates/DISCOVERY_METHOD_BACKTEST.md b/templates/DISCOVERY_METHOD_BACKTEST.md
+--- a/templates/DISCOVERY_METHOD_BACKTEST.md
++++ b/templates/DISCOVERY_METHOD_BACKTEST.md
+@@ -5,1 +5,3 @@
+ - Method/prompt revision:
++- Claim-pack protocol revision/hash, if applicable:
++- Evaluation class: `LEGACY_SMALL_CALIBRATION / CLAIMPACK_PAIRED_REGRESSION / CLAIMPACK_BLIND_HOLDOUT / CLAIMPACK_PROSPECTIVE_SHADOW`
+@@ -21,1 +23,9 @@
+ - Abstention definition:
++- Same snapshot/model/tools/budget confirmation:
++- Paired order/randomization or cross-over rule:
++- Neutral rendering rule:
++- Contamination and model-memory audit:
++- Pre-registered primary endpoints and noninferiority margins:
++- Initial sample, expansion increment, maximum sample and stop rule:
++- Contribution-type and negative-case coverage:
++- Robustness perturbations:
+@@ -74,3 +84,13 @@
+ - Quality-tier leakage audit: confirm that using Q2 anchors did not weaken abstention, provenance, natural-input, baseline, full-cost or reproducibility requirements.
++- Critical-source recall with uncertainty:
++- False structural DROP with uncertainty:
++- Direct-coverage predicate accuracy:
++- Unfinished/nonstructural retention:
++- Claim-source coverage and contradiction disclosure:
++- Decision-ready completeness and audit cost:
++- Stability under style/evidence-order/adversarial perturbations:
++- Contribution/object/mechanism diversity:
++- E1/E2 and Stage0-repair metrics:
++- Verdict: `CALIBRATED / NOT_CALIBRATED / PILOT_NOT_CALIBRATED / INCONCLUSIVE / CONTAMINATION_UNKNOWN`
+ 
+-Calibration requires at least 2/3 reasonable problem-shape recoveries and no forced packaging of the negative control. It validates the discovery method, not the novelty or feasibility of future candidates.
++Legacy small calibration requires at least 2/3 reasonable problem-shape recoveries and no forced packaging of the negative control. Claim-pack V9 requires its preregistered paired blind protocol and two prospective shadow waves; a small fixed set cannot establish calibration. Any calibration validates the process, not the novelty or feasibility of future candidates.
+diff --git a/templates/DISCOVERY_EVIDENCE_LEDGER.yaml b/templates/DISCOVERY_EVIDENCE_LEDGER.yaml
+new file mode 100644
+--- /dev/null
++++ b/templates/DISCOVERY_EVIDENCE_LEDGER.yaml
+@@ -0,0 +1,77 @@
++schema_version: discovery-evidence-ledger-v1
++assignment_id: ""
++opportunity_family_id: ""
++claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
++cutoff: ""
++opportunity_family:
++  canonical_signature: ""
++  relations:
++    - other_family_id: ""
++      relation: EQUIVALENT|CONTAINS|CONDITIONAL_SPECIALIZATION|ALTERNATE_MECHANISM|COMPLEMENTARY|PREREQUISITE|COMPETING_EXPLANATION|INDEPENDENT
++      evidence_ids: []
++queries:
++  - query_id: Q000
++    text: ""
++    purpose: ""
++    source_or_search_engine: ""
++    executed_at: ""
++    filters: []
++    read_depth: SNIPPET|ABSTRACT|SECTIONS|FULL_TEXT|SOURCE|REPRODUCED
++    key_result_ids: []
++    exclusions_with_reasons: []
++    state_change: ""
++sources:
++  - source_id: S000
++    title_or_artifact: ""
++    canonical_version: ""
++    locator: ""
++    source_role: GENEALOGY|CURRENT_FIRST_PARTY|NATURAL_CARRIER|GENERIC_KERNEL|CONTRARY|BASELINE|BACKGROUND
++    read_depth: SNIPPET|ABSTRACT|SECTIONS|FULL_TEXT|SOURCE|REPRODUCED
++    normalized_variants: []
++    repository_commit_config_or_dataset_hash: ""
++claims:
++  - claim_id: C000
++    text: ""
++    priority: HIGH|MEDIUM|LOW
++    priority_rationale: ""
++    source_links:
++      - source_id: S000
++        relation: DIRECT|PARTIAL|SUPPORT|OPPOSE|IMPLEMENTS|BASELINE|CARRIER|BACKGROUND
++        locator: ""
++        evidence_status: AUTHOR_CLAIM|DIRECT_OBSERVATION|INDEPENDENT_REPLICATION|SYSTEM_INFERENCE|UNVERIFIED
++        conflict: ""
++        permitted_conclusion: ""
++direct_coverage:
++  target_source_or_union: ""
++  predicates:
++    same_object_function_protocol: UNKNOWN
++    same_scenario_workload: UNKNOWN
++    same_or_weaker_information: UNKNOWN
++    atomic_action_covered: UNKNOWN
++    same_or_stronger_legality_quality_guarantee: UNKNOWN
++    same_nonworse_full_cost: UNKNOWN
++    comparable_scale_platform_version_config: UNKNOWN
++    sufficient_read_or_reproduction_depth: UNKNOWN
++independent_prior_current_audit:
++  owner_or_lane: ""
++  query_ids: []
++  completed: false
++stopping:
++  high_impact_items_bounded: false
++  latest_and_current_union_checked: false
++  first_party_depth_sufficient: false
++  heterogeneous_independent_path_complete: false
++  contrary_search_complete: false
++  natural_or_canonical_carrier_frozen: false
++  full_cost_frozen: false
++  marginal_sources_no_longer_decision_changing: false
++  decisive_contradictions_resolved_or_bounded: false
++  disposition: SEARCH_BOUNDED_OPEN|NOT_ADMITTED_UNFROZEN|DEEP_DIVE_REQUIRED|DECISION_READY
++execution_readiness:
++  state: E0|E1|E2|EB|EH
++  e1_evidence: []
++  e2_authorization_id: ""
++  e2_allowlist: {}
++  e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0
++  scientific_inference_permitted: false
++claim_ceiling: ""

@@ -1,0 +1,28 @@
+schema: nb2-gold-comparison-assignment-v1
+created_at: 2026-08-26T21:01:00+08:00
+created_by: MAINLINE
+authorization_id: USER_LUNA_XHIGH_AND_BLIND_FALLBACK_20260826
+assignment_id: STAGE0-NB2-20260826-RULE-COMPATIBILITY
+lane_id: STAGE0_SENTRY
+lane_thread_id: 01a034d0-cda0-74b3-a099-b4b711d9d8a8
+model_route: {model: gpt-5.6-terra, thinking: high}
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stage0/_reviews/round-20260826-nb1-rule-compatibility/NB2
+phase: NB2_GOLD_COMPARISON_AFTER_NB1_FREEZE
+
+inputs:
+  nb1_decisions: ../NB1/NB1_RULE_ONLY_DECISIONS.yaml
+  nb1_handoff_index: ../NB1/NB1_HANDOFF_INDEX.yaml
+  auditor_key: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/auditor_key_v2/GOLD_IDENTITY_AND_EXPECTED_ROUTE.yaml
+  v2_neutral_cases: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/sealed_executor_input_v2/cases
+
+ordering:
+  NB1_decisions_immutable: true
+  auditor_key_read_only_after_NB1_acceptance: true
+  compare_without_rewriting_NB1: true
+  blind_and_nonblind_metrics_never_merge: true
+  nonblind_unbiased_recall_or_75_claim_forbidden: true
+
+outputs: [NB2_GOLD_COMPARISON.yaml, NB2_CASE_COMPARISON_REPORT.md, HASH_MANIFEST.sha256]
+permissions: {write_scope: ONLY_UNIQUE_WRITE_DIRECTORY, read_nb1_decisions: true, read_auditor_key: true, modify_nb1: false, modify_inputs: false, shared_write: false, candidate_registration: false, formal_state_transition: false, network: false, experiment: false, cleanup: false}
+forbidden_actions: [REWRITE_NB1_DECISIONS, MERGE_BLIND_AND_NONBLIND_METRICS, CLAIM_UNBIASED_RECALL_OR_75, MODIFY_INPUTS_OR_SHARED_FILES, RUN_STAGEA_STAGEB_OR_EXPERIMENT, CLEANUP]
+next_action: WRITE_NB2_COMPARISON_ONLY

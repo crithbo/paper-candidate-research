@@ -1,0 +1,61 @@
+schema: stagea-executable-claim-packet-v1
+proposal_id: STAGEA_EXECUTABLE_CLAIM_PACKET_V1
+assignment_id: PILOT-RVV-20260829-EXECUTABLE-CLAIM-PACKET
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+phase: E1_PACKET_COMPILE
+packet_status: COMPILED_STATICALLY__NOT_EXECUTABLE_UNTIL_EXACT_FIELDS_BOUND
+claim_visibility: NONE_UNTIL_C0_FREEZE_AND_G1_GATE
+claim_ceiling: STAGEA_DIRECTIONAL_ONLY__NO_STAGEB
+evidence_ceiling: E1_STATIC_PACKET_ONLY__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+object_and_question:
+  exact_object: LLVM_RVV_GROUP_MASK_SPILL_PARETODP
+  primary_rq: WHETHER_TRANSITIVE_SPLIT_PROVENANCE_QUOTIENT_SUCCESSOR_BACKPOINTER_DP_REDUCES_GROUP_MASK_SPILL_RELOAD_FUTURE_USE_COST_ON_THE_SAME_NATURAL_RVV_MIR_OBJECT
+  atomic_action: GROUP_MASK_SPILL_RELOAD_WITH_TRANSITIVE_SPLIT_PROVENANCE_AND_FUTURE_USE_OBLIGATIONS
+  mechanism: COMPLETE_QUOTIENT_SUCCESSOR_BACKPOINTER_SEMANTICS_WITH_SPLIT_PROVENANCE_AND_SHARED_SPILL_RELOAD_FUTURE_USE_FULL_COST_TENSOR
+  guarantee: SAME_OBJECT_LEGALITY_AND_SEMANTIC_EQUIVALENCE_WITH_NO_RESULT_AWARE_SELECTION
+invariants:
+  unchanged: [exact_object, primary_rq, atomic_action, mechanism, comparator_union, natural_workload, metric_denominator, guarantee, claim_ceiling, stagea_revision_limit, independent_gate, user_stageb_gate]
+  result_aware_row_or_baseline_change: forbidden
+  stageb: forbidden
+  linux_or_system_install: forbidden
+inputs:
+  readonly_asset:
+    asset_id: ASSET-LLVM-RVV-5BB2565
+    mode: EXECUTE_IN_PLACE_READ_ONLY
+    tool: {path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/env/rvv-toolchain/bin/llc.exe, bytes: 78790144, sha256: 65A9EAE8B026DF2328B3A75048959CBF8F9F9AC7F86E854C7DDAC8F86485C643}
+    source: {path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/src/split_closure/run_r5d.py, bytes: 9452, sha256: 13B12AF485A560F9F2397AA55F33B32D2BD8D6A3AF1DEEE2AE3D974A6E2773D0}
+  prior_preclaim: {handoff_path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/handoff.yaml, sha256: 13F86B8EE9C755009F0997E78114A89E75FBB79B4B6AF1C8A153BF59455EB740, natural_or_claim_runs: 0}
+  exact_natural_mir_corpus: {status: UNRESOLVED_REQUIRED, paths: null, hashes: null}
+  exact_baseline_artifacts: {status: UNRESOLVED_REQUIRED, paths: null, hashes: null}
+  frozen_candidate_and_baseline_argv: {status: UNRESOLVED_REQUIRED, commands: null}
+  output_schema_and_metric_consumer: {status: UNRESOLVED_REQUIRED, schema: null}
+comparator_union:
+  candidate: TRANSITIVE_SPLIT_PROVENANCE_QUOTIENT_SUCCESSOR_BACKPOINTER_DP
+  required_baselines: [CURRENT_NATIVE_RVV_GREEDY_OR_EQUIVALENT_STRONG_BASELINE, LABELED_OR_EXPLICIT_STATE_BASELINE, GENERIC_EXACT_ORACLE]
+  baseline_artifact_paths_and_hashes: UNRESOLVED_REQUIRED
+  result_aware_exclusion_or_backfill: forbidden
+full_cost_tensor:
+  required_dimensions: [compile_or_transform_wall, candidate_search_or_dp, baseline_search_or_dp, spill, reload, future_use, frame, vtype_transition, query_or_decision_denominator, memory, io]
+  units_and_collection_paths: UNRESOLVED_REQUIRED
+legality_witness:
+  required_fields: [natural_input_identity_and_hash, closure_obligations, candidate_baseline_same_information, replayable_backpointer, object_identity, denominator_identity]
+  current_witness: PRECLAIM_MECHANISM_WITNESS_ONLY__NATURAL_WITNESS_UNRESOLVED
+selection:
+  pilot_rows: 4
+  reserve_rows_max: 2
+  selection_must_be_result_independent: true
+  selected_and_reserve_freeze_before_results: required
+  selected_or_reserve_tool_invocations_so_far: 0
+execution_firewall:
+  e0_e2_visible_fields: [exit_code, required_outputs_present, schema_valid, missing_metric_ids, missing_paths, version_or_hash_drift, timeout]
+  e0_e2_hidden_fields: [candidate_performance, baseline_performance, speedup, pareto_result, relative_rank]
+  no_tool_or_claim_execution_in_e1: true
+static_compile:
+  lint_attempts_max: 3
+  lint_attempts_used: 0
+  mechanical_corrections_used: 0
+  scientific_revision_consumed: 0
+  source_edits: 0
+  result: STATIC_PACKET_SERIALIZATION_ONLY
+scientific_or_resource_action_started: false
+scientific_inference: NONE

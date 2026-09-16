@@ -1,0 +1,56 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260815-SOURCE85-86-ZERO-BRIEF-R70
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+disposition: NO_CHANGE
+recommendation: RETAIN_ORDINARY_R40__NO_SUCCESSOR_MICRO_RULE__PRESERVE_PENDING_RAW_RESOURCE_BLOCKER_AND_MECHANICAL_PACKAGING_SEPARATION
+assignment:
+  path: stages/rule-audit/_assignments/RULE_AUDIT_SOURCE85_86_ZERO_BRIEF_R70.yaml
+  sha256: A3BBCA76B1A38BBB95E2BAE29C96DCE88CBB413F30D232FF99463A7561622DAC
+scope:
+  included: [Source85, Source86]
+  forbidden_input: Source87
+  source87_read: false
+  source87_contacted: false
+  source87_modified: false
+  queue_execution: false
+  retrieval_download_experiment_automation: false
+  shared_files_modified: false
+canonical_inputs:
+  source85_control_sha256: 1F442226A86C6C6E1E9799D54A868BC5CE6B8190BF2D6522325FAD756D522054
+  source86_control_sha256: 94DD0C0A3D863B0CE12A98B26F5FC0BBA3E2D31B77D9A525ABE8BC74660619DE
+funnel:
+  source85: {evidence_qualified_raw: 1, clean_stage0_brief: 0}
+  source86: {evidence_qualified_raw: 1, clean_stage0_brief: 0}
+pending_raw_closures:
+  S2-85-CQ01: {topic: TVM_Relax, status: PENDING_UNEXECUTED, attempt_count: 0, exhausted: false, source87_evidence: false}
+  S2-86-CQ01: {topic: ONNX_Runtime, status: PENDING_UNEXECUTED, attempt_count: 0, exhausted: false, source87_evidence: false}
+resource_only_blocker:
+  SC86-01-CQ01:
+    status: BLOCKED
+    attempt_count: 1
+    route_status: ATTEMPTED_TRANSPORT_TIMEOUT__NO_RESPONSE_PERSISTED
+    scientific_inference: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+    source87_evidence: false
+s4_mechanical_repair:
+  scientific_fields_changed: false
+  final_funnel: {raw: 0, clean_stage0_brief: 0}
+  resource_actions: 0
+  disposition: MECHANICAL_PACKAGING_ONLY
+findings:
+  new_attributable_rule_defect: false
+  separation_correct: true
+  successor_micro_rule_justified: false
+authorization:
+  user_policy_decision_required: false
+  mainline_shared_patch_required: false
+  backtest_required: false
+  new_assignment_local_action: none
+validation:
+  required_files: PASS
+  assignment_hash: PASS
+  counts: PASS__SOURCE85_RAW_1_BRIEF_0__SOURCE86_RAW_1_BRIEF_0
+  separation: PASS__PENDING_AND_RESOURCE_BLOCKER_NOT_USED_AS_SOURCE87_EVIDENCE
+  forbidden_input: PASS__SOURCE87_NOT_READ
+  prohibited_actions: PASS
+  resource_localization: PASS__EMPTY_ROOT
+  manifest_replay: PASS__FIVE_CANONICAL_ARTIFACTS

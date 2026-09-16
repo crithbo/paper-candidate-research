@@ -1,0 +1,33 @@
+schema: stagea-revision-claim-start-v1
+assignment_id: STAGEA-L2-20260829-LLVM-APX-R10-REVISION1-CLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+model_route: gpt-5.6-terra
+thinking: high
+authority:
+  preclaim_report: {path: stages/stageA/_reviews/20260829-apx-r10-revision1-preclaim/LLVM-APX-PREFIX-PRESSURE-PARETODP/INDEPENDENT_REVIEW_REPORT.md, sha256: 36257A4F36A7A50355C211144F625FE050C94ABFBAE7C9879E8DF78F1ED19841}
+  packet: {path: APX_R10_EXECUTABLE_PACKET.yaml, sha256: CEFA8F1E7C00A1AC0230CB91E1FC3D90BC637CDA55C72B4A632ABA33768F3466}
+  dag: {path: APX_R10_COMMAND_DAG.json, sha256: 9FA5EE23E85AAD9395C78547E81F5FBEDE8C5E642C37D05D95FB1075536240CC}
+  controller: {path: APX_R10_CONTROLLER.py, sha256: 25F643B96CF17F031FB6BE1D4CBC6C4F5B8A96CBEE79381EDA937FBCD769A469}
+  copy_manifest: {path: EXACT_INPUT_COPY_MANIFEST.yaml, sha256: E0EE1B31E4E11397A9B5B1BCCF0BEFEF444ECB46C31BCF5871FDEDF07A5B45D3}
+revision_consumption:
+  status_before_start: PRECOMMITTED_NOT_CONSUMED
+  consume_when: FIRST_PATCHED_DRIVER_PROCESS_STARTS
+  ordinal: 1_of_1
+resource_init: {standard_dirs: [downloads, archives, src, build, env, cache, tmp, logs], network_bytes_max: 0, stored_bytes_max: 67108864, copy_attempts_max: 1}
+claim_command:
+  argv: [<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, -B, <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_CONTROLLER.py, --dag, <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_COMMAND_DAG.json, --output, <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/resources/logs/claim/controller]
+  cwd: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829
+  env: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONNOUSERSITE: '1'}
+  timeout_seconds: 14400
+  attempts_max: 1
+  automatic_retry: false
+frozen_denominator: {selected_inputs: 4, replays_each: 2, rows: 8, commands_per_row: 9, commands: 72, result_based_exclusion: false, reserve_backfill: false}
+required_outputs: [RESOURCE_INVENTORY.yaml, REVISION_COPY_RECEIPT.yaml, resources/logs/claim/controller/outer_full_cost_ledger.json, APX_R10_CLAIM_RESULT.yaml, STAGEA_REPORT.md, handoff.yaml, HASH_MANIFEST.sha256, PHASE_CLOSEOUT_RETENTION.yaml]
+claim_analysis:
+  required: [replay_determinism, positive_action_rows, no_action_identity_rows, failure_region_rate, candidate_labeled_generic_oracle_relation, native_current_tuning_separation, directional_full_cost, claim_ceiling]
+  no_action_identity_policy: retain_as_negative_case_never_count_as_candidate_gain
+  forbidden: [drop_no_action_rows, change_inputs, backfill_reserve, change_baselines, change_denominator, change_metrics, post_result_code_change]
+first_failure_policy: FAIL_CLOSED__PRESERVE_RAW__NO_RETRY
+cleanup: forbidden
+stageb: forbidden
+stop_after: OWNER_REVISION_CLAIM_HANDOFF__WAIT_INDEPENDENT_FORMAL_STAGEA_GATE

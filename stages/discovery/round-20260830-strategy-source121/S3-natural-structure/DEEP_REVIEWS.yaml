@@ -1,0 +1,27 @@
+schema: discovery-deep-reviews-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE121
+reviews:
+  - topic_id: LEROBOT-AOI-SLO-RUNTIME-REV0
+    carrier: C01
+    type: SYSTEM_ARCHITECTURE
+    exact_object: LeRobot_commit_4aaff99_distributed_async_client_server_protocol
+    action: Online observation dispatch plus returned-action admission/trim decisions from predicted execution age, latency estimate, queue horizon, and a frozen age budget.
+    mechanism: Queue occupancy aliases states with different observation age and latency; an age-aware controller separates them and controls tail age without changing the policy.
+    direct_fatal_found: false
+    strongest_collision: StreamingVLA adaptive early observation
+    collision_difference: StreamingVLA changes the VLA generation mechanism and uses action saliency; candidate remains model-agnostic and targets an explicit runtime age SLO on LeRobot's distributed protocol.
+    mandatory_same_stack_baseline: LeRobot fixed queue-threshold controller with a fair parameter grid
+    mandatory_conditional_baseline: LeRobot RTC for policies for which RTC is semantically applicable
+    bounded_open_debt: Full-text/source audit of RTC, StreamingVLA, FutureRTC, and A2C2; exact natural delay trace; formal/small-state safety witness; full-cost protocol.
+    outcome: CLEAN_STAGE0_BRIEF__SEARCH_BOUNDED_OPEN
+  - topic_id: LEROBOT-RTC-DIRECT-COVERAGE-CHECK
+    carrier: C02
+    type: SYSTEM_ARCHITECTURE
+    outcome: ABSORBED_AS_COMPARATOR_AND_COLLISION
+  - topic_id: ROBOCASA-ASYNC-TIMING-BENCHMARK
+    carrier: C03
+    type: BENCHMARK_DATASET
+    outcome: SUPPORTING_CARRIER_ONLY__NO_STANDALONE_RAW
+deep_review_count: 3
+clean_brief_count: 1
+

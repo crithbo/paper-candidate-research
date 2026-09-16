@@ -1,0 +1,98 @@
+schema_version: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+created_at: 2026-08-26T12:54:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826, USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825]
+
+identity:
+  lane_id: CANDIDATE_EXECUTION_LANE_2
+  lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+  role_id: CANDIDATE_OWNER
+  assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9C-PER-ACTION-TPD-BASELINE-CLOSURE
+  topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+  stage: STAGEA_PRECLAIM_ENGINEERING_FIDELITY_CORRECTION
+  authoritative_project_root: <LOCAL_PROJECT_ROOT>
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/resources
+  old_chat_memory_required: false
+
+frozen_shared_snapshots:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 7C08FDA8158E55799AC2FE522B516706525C1B66C7310264C5C46F26BA309BFE}
+  registry: {path: registry.yaml, sha256: 466F61F05B15833A3B8F1435C489590917460E88B77E5530035E02E4A5EB2B19}
+  related_registry_records:
+    - soft_blocker_recovery_policy_20260826
+    - autonomous_stagea_wave_20260826.ppc_r9
+    - autonomous_stagea_wave_20260826.ppc_r9c
+    - no_wsl_localized_resource_recovery_20260825.llvm_queue.PPC
+    - candidates.stagea_llvm_ppc_prefix_pressure_paretodp_initial
+    - role_threads.candidate_execution_lane_2
+
+rules_and_skills:
+  role_rule: {path: rules/ROLE_CANDIDATE_OWNER.md, sha256: 880008B9B042D29198B1A8941E8FB7DB2212181675718DA99BEF7BDF95F1A3C5}
+  soft_blocker_recovery: {path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74}
+  resource_localization: {path: rules/RESOURCE_LOCALIZATION.md, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+  artifact_lifecycle: {path: rules/ARTIFACT_LIFECYCLE.md, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6}
+  academic_skill: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  experiment_workflow: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/experiment-agent/WORKFLOW.md, sha256: 389747B305FFA4160D1B2CEAF97B98A61EF9583CD45C473EFED5B4B414E27889}
+  code_runner_reference: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/experiment-agent/agents/code_runner_agent.md, sha256: E50C1303EBCB451304D427CE063651AF5D6FA5AB9CC9249E399353714B8BBFE1}
+
+templates:
+  bootstrap_ack: {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+  resource_inventory: {path: templates/RESOURCE_INVENTORY.yaml, sha256: E859CE19DC3EB906EF391B1D8039E7B02A762EB74D7421454E40BB4539FEEEC7}
+  stagea_report: {path: templates/STAGEA_REPORT.md, sha256: DF9AA27111D303600FD4C7F81DEB1FF52FFD6C308973D33B8A9EC59CA4542D7F}
+  q1_comparator_matrix: {path: templates/Q1_COMPARATOR_MATRIX.md, sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87}
+
+assignment_control: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/control/ASSIGNMENT.yaml, sha256: D5A92CDB24468AF3BA6F6FB06090FD4984E5F3F1C5958802031E6C3FF28FEF4A}
+
+minimum_inputs:
+  - {path: stages/stageA/_reviews/round-20260826-ppc-r9-deep-fidelity/LLVM-PPC-PREFIX-PRESSURE-PARETODP/handoff.yaml, sha256: 257D7FB4BC0A9DDDE4A665042AD9E79BD648705CEFAAEB6EA26C995F9E40D5CB, purpose: INDEPENDENT_GATE_DECISION}
+  - {path: stages/stageA/_reviews/round-20260826-ppc-r9-deep-fidelity/LLVM-PPC-PREFIX-PRESSURE-PARETODP/HASH_MANIFEST.sha256, sha256: 745DD2A838A738682035749B7F53E221817B6CA5A5325946C8C51A2EF4A90853, purpose: INDEPENDENT_GATE_MANIFEST}
+  - {path: stages/stageA/_reviews/round-20260826-ppc-r9-deep-fidelity/LLVM-PPC-PREFIX-PRESSURE-PARETODP/CORRECTION_ROUTE_AUDIT.yaml, sha256: DD169D47F4910259C9C6C41E026D92794DBF6FCC9C150F49FF0C038A48509855, purpose: BOUNDED_CORRECTION_ROUTE}
+  - {path: stages/stage0/_reviews/round-20260811-v8.7-wave253-primary/LLVM-PPC-PREFIX-PRESSURE-PARETODP/STAGE0_REPORT.md, sha256: 4FB8598F5B09FCA1445F4FBF9D5154131B797AFE2BE300076D5483D24C63A9C8, purpose: STAGE0_SCOPE}
+  - {path: stages/stage0/_reviews/round-20260811-v8.7-wave253-primary/LLVM-PPC-PREFIX-PRESSURE-PARETODP/Q1_COMPARATOR_MATRIX.md, sha256: 9167EF6C825304B0C9B1287174AECB3E33D0DC49E1653433022F1693B48F51FD, purpose: STRONG_BASELINE_SCOPE}
+  - {path: stages/stage0/_reviews/round-20260811-v8.7-wave253-revision1-closing/LLVM-PPC-PREFIX-PRESSURE-PARETODP/CLOSING_REVIEW.md, sha256: 42B0A547381AC29B1780EF51CFC2F2EAC13C7D2DD2B70097A17F83D454E0D167, purpose: STAGE0_CEILING}
+  - {path: stages/stage0/_revisions/LLVM-PPC-PREFIX-PRESSURE-PARETODP/revision1/CLAIM_MATRIX.md, sha256: 7B5F12EF39C130773DE589B69C562681FED2E3C60CB6E4AE02CDAF05582D514F, purpose: FROZEN_ATOMIC_CLAIM}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/handoff.yaml, sha256: 8C452B1CB8A8BE30BCF71786A59E7C6B1EAD9197E497690E11BE2535AAA6E649, purpose: PRIOR_OWNER_HANDOFF}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/HASH_MANIFEST.sha256, sha256: 88E1FF1CD596AE59C6F8F4B4324E33C83D6E0CEA5BA5DB8175B7F04DDF467EC2, purpose: PRIOR_OWNER_MANIFEST}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/CLEANUP_RECEIPT.yaml, sha256: 8F547694F9CE3D44F412C08788044F3AC17CF7F419EACC7AB5FE8B796C37790A, purpose: PRIOR_LIFECYCLE_BOUNDARY}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/POST_GC_RESOURCE_INVENTORY.yaml, sha256: A0C6D27E84FE272F47A8236E00647D6003C07000368C50E88DF38E1A3ABE801D, purpose: EXACT_COPY_SOURCE_INVENTORY}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources/src/natural_materializer/materializer_harness.py, sha256: 6234A3380940D87A2FCDBAA1D08DB3F4893A37901E3854CCD9222F3A035BDC0E, purpose: PERMITTED_CORRECTION_SOURCE}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources/src/natural_materializer/r10_plan.py, sha256: 0366CCC8D98D0489C604A31A56E29761C3EC9C2E3D8479C7909E99652697890C, purpose: PERMITTED_CORRECTION_SOURCE}
+
+current_status:
+  assignment_state: BOOTSTRAP_ACK_PENDING
+  resource_root_absent: true
+  r10_directory_created: false
+  selected_or_reserve_tool_invocations: 0
+  claim_bearing_observations: 0
+  scientific_revision_consumed_in_stageA: false
+  correction_action_started: false
+  start_authorized_by_mainline: false
+
+permissions:
+  write_scope: ONLY_UNIQUE_WRITE_DIRECTORY
+  shared_or_upstream_write_allowed: false
+  resource_action_before_start_allowed: false
+  exact_r9_input_copy_after_start_allowed: true
+  two_existing_source_edits_plus_two_new_fixture_files_after_start_allowed: true
+  control_only_compiler_and_linker_runs_after_start_allowed: true
+  selected_natural_or_claim_allowed: false
+  r10_directory_creation_allowed: false
+  owner_cleanup_allowed: false
+  stageb_allowed: false
+
+budgets: {network_bytes_max: 0, resource_root_logical_bytes_max: 805306368, cpu_seconds_max: 21600, wall_seconds_max: 43200, max_parallel_processes: 2, input_copy_attempts_max: 3, modify_existing_files_max: 2, new_schema_or_control_fixture_files_max: 2, control_tool_command_records_max: 500, selected_or_reserve_tool_invocations_max: 0, claim_bearing_runs_max: 0, automatic_retry: false}
+forbidden_actions: [ANY_ACTION_BEFORE_ACK_ACCEPTANCE_AND_START, MODIFY_R9_OR_UPSTREAM, CREATE_R10, USE_TWO_GLOBAL_STATE_PROXY, OMIT_OR_ORPHAN_CURRENT_STRONG_BASELINE_OUTPUTS, SELECTED_NATURAL_CLAIM_SCIENCE_STATE_CLEANUP_OR_STAGEB, RETRY_OR_RESULT_BASED_EDIT_EXCLUSION_BACKFILL]
+
+bootstrap_instructions:
+  read_order: [AGENTS.md, plan.md, THIS_CONTEXT, ROLE_CANDIDATE_OWNER, AUTONOMOUS_SOFT_BLOCKER_RECOVERY, RESOURCE_AND_LIFECYCLE, ACADEMIC_SKILL_AND_EXPERIMENT_WORKFLOW, TEMPLATES, MINIMUM_INPUTS, RELATED_REGISTRY_DUAL_READ]
+  bootstrap_only: true
+  unique_ack_required: true
+  ack_must_confirm: [CWD_E_ROOT, THREAD_AND_ASSIGNMENT_MAPPING, HASHES_AND_RELATED_RECORDS, RESOURCE_ROOT_ABSENT, EXACT_CONTROL_ONLY_CORRECTION_BOUNDARY, PER_ACTION_DP_AND_EIGHT_BY_TWO_BASELINE_DEPENDENCY_REQUIREMENTS, ZERO_SELECTED_CLAIM_SCIENCE, DIFFERENCES_EMPTY, SCIENTIFIC_OR_RESOURCE_ACTION_STARTED_FALSE]
+  ready_condition: ALL_MATCH
+  refuse_condition: ANY_DIFFERENCE_OR_DRIFT
+
+resume_point: WRITE_BOOTSTRAP_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE
+next_action_after_start: COPY_R9_RETAINED_INPUTS_THEN_EXECUTE_C0_C7_PRECLAIM_CORRECTION
+user_gate: NONE_UNLESS_HARD_EXTERNAL_OR_USER_GATE

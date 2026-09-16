@@ -1,0 +1,21 @@
+
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\runs\preclaim\current_union_grid\basic\witness.elf:	file format elf32-littleriscv
+
+Disassembly of section .text:
+
+00011108 <witness>:
+   11108:      	cm.push	{ra, s0-s1}, -16
+   1110a:      	cm.mvsa01	s0, s1
+   1110c:      	auipc	ra, 0x0
+   11110:      	jalr	0xe(ra) <clobber>
+   11114:      	add	a0, s0, s1
+   11118:      	cm.popret	{ra, s0-s1}, 16
+
+0001111a <clobber>:
+   1111a:      	li	t0, 0x1
+   1111c:      	li	t1, 0x2
+   1111e:      	li	t2, 0x3
+   11120:      	li	a0, 0x4
+   11122:      	li	a1, 0x5
+   11124:      	ret
+

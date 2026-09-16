@@ -1,0 +1,15 @@
+# CANDIDATE_GRADE_DEEP_REVIEWS
+
+## R01 — GCR GPU state ownership: `DROP__CURRENT_UNION_ABSORPTION`
+
+Exact object: a GPU process state checkpointed then restored under the same application-transparent C/R guarantee. The legal atomic action is capture control state and data state, identify incremental dirty state, serialize, restore, then validate resumed observable execution. The [GCR paper](https://www.usenix.org/conference/fast26/presentation/zeng) already declares its hybrid control/data separation, CPU shadow execution, dirty templates and incremental C/R, while naming cuda-ckpt and PhOS as same-object comparators. A proposed transfer/ownership rule is either part of that whole C/R action or changes the checkpoint/recovery guarantee. Natural carrier: checkpoint/restore trace; oracle: resumed output/state equivalence; full cost: capture/restore latency, dirty bytes, CPU shadow work, normal-path overhead and recovery correctness. <=72h killer: a small same-process trace must reject the claim if it reuses the documented split/dirty-template action or alters restored state. No test was run.
+
+## R02 — Neutrino trace ownership: `DROP__INSTRUMENTATION_NOT_WHOLE_ACTION`
+
+Exact object: the semantics-preserving execution of a GPU kernel together with its profiling report. The producer emits dynamic events; the consumer probes/attributes/analyses them. The first-party [artifact appendix](https://www.usenix.org/system/files/osdi25-huang-songlin.pdf?file=osdi25-huang-songlin.pdf) describes system source, probes, collected traces and collection/analysis scripts. An additional probe or attribution rule is instrumentation unless it supplies a complete same-function algorithm/guarantee. Natural carrier: the published block/warp/latency traces; oracle: trace/report agreement and kernel semantic preservation; full cost: instrumentation overhead, collection, storage, analysis, perturbation and output correctness. <=72h killer: a single probe trace rejects a purported N2 if it is expressible as an existing probe placement/analysis configuration. No measurement occurred.
+
+## R03 — Bin2Wrong binary ownership: `DROP__CURRENT_UNION_ABSORPTION`
+
+Exact object: a compiled binary, with source/compiler/optimization/executable-format tuple held fixed, and a decompiler's semantic reconstruction target. The paper's whole action explicitly combines all four factors into a unified testcase structure and mutates them, with differential/semantic oracle use across decompilers. Therefore an apparent producer-consumer seam—e.g., ownership of optimization-induced binary detail—is directly inside the current generation/fuzz/oracle union. Natural carrier: the public tuple corpus; oracle: source/binary/decompiled behavior relation; full cost: compile/mutation, binary diversity, oracle execution, decompiler work and false-positive triage. <=72h killer: enumerate the alleged action's tuple mutation and reject it if it is representable by the existing unified testcase dimensions. No fuzzing was run.
+
+No row has a union-external complete N1/N2/N3. No `TOPIC_BRIEF` is created.

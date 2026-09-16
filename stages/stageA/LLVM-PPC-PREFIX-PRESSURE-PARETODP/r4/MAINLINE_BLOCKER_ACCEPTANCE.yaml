@@ -1,0 +1,26 @@
+schema: mainline-preclaim-blocker-acceptance-v1
+accepted_at: 2026-08-26T04:05:00+08:00
+accepted_by: MAINLINE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R4-GLOBAL-MODIFIER-ORDER-CORRECTION
+decision: ACCEPT_FAIL_CLOSED_PRECLAIM_ENGINEERING_BLOCKER__NO_SCIENTIFIC_INFERENCE
+canonical_hashes: {handoff_sha256: 500B32A7B1E781FD52D5B6A37C70077CA97BA76EFCE3B1FF09FAB5190B6241CC, manifest_sha256: 52135150A292BE0D9BE7CBDE27243741162C5D7145EF2AE3B01CEBC3FA611C78}
+validation: {manifest_entries: 34, missing_or_hash_mismatch: 0, resource_files: 3793, resource_logical_bytes: 575072633, reparse_entries: 0, active_related_processes: 0}
+accepted_r4_correction: {global_substitutions: 2_OF_2, corrected_sha256: 77A92601566F1CD5190B0FD5892EE62C295E00F64AC018BF5782B965DC268F3E, bytes: 2972, function_modifier_occurrences_preserved: 5, other_source_files_unchanged: 3618_OF_3618}
+accepted_failure: {tag: replay1.llc.mir_emit, exact_error: "ppc_union_input.ll:6:15: expected type", failing_construct: "define hidden dso_local", occurrences: 5, replay2_started: false, automatic_retry: false, F1: PARTIAL_FRESH_REPLAY1_NOT_PASS, F2: BLOCKED_BEFORE_MACHINEVERIFIER, F3_F4_F5: NOT_STARTED}
+accepted_evidence_ceiling: PARTIAL_FRESH_PRECLAIM_CONTROL_AND_ENGINEERING_BLOCKER_ONLY__NO_SCIENTIFIC_INFERENCE
+claim_bearing_observation_count: 0
+scientific_revision_consumed: false
+finite_resume_correction:
+  eligible: true
+  source_file: resources/src/harness/ppc_union_input.ll
+  original_sha256: 77A92601566F1CD5190B0FD5892EE62C295E00F64AC018BF5782B965DC268F3E
+  exact_substitution: "define hidden dso_local -> define dso_local hidden"
+  exact_occurrences: 5
+  expected_corrected_sha256: 1124F15D99EC0CF7F1688CD20E21416A17C1A075F46419FE95A9E35C262BD939
+  expected_bytes: 2972
+  all_other_bytes_unchanged: true
+  new_immutable_assignment_required: true
+lifecycle_disposition: DEFER_R4_AND_R3_GC_UNTIL_R5_ACCEPTS_EXACT_INPUT_COPIES_AND_HANDOFF
+owner_lane_released: true
+next_action: FREEZE_PPC_R5_EXACT_FIVE_FUNCTION_MODIFIER_ORDER_CORRECTION__RESTART_F1_F5_FRESH

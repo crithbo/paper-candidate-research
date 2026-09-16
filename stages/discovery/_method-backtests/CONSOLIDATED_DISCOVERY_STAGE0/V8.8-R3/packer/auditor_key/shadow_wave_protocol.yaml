@@ -1,0 +1,44 @@
+schema_version: consolidated-discovery-shadow-wave-protocol-v8.8-r3
+visibility: AUDITOR_ONLY
+status: FROZEN_NOT_RUN
+production_semantics_before_full_backtest_pass: FORBIDDEN
+selection_epoch: FIRST_SAFE_ASSIGNMENT_BOUNDARY_AFTER_A_SEPARATE_PRODUCTION_PATCH_APPROVAL
+wave_selection:
+  SW1:
+    eligible_modes: [S1_O1_PLUS_O6, S2_O2]
+    selector: >-
+      Choose the earliest normally queued, non-backtest Discovery assignment by
+      immutable registry assignment-created order; break a timestamp tie by
+      lexicographically smallest assignment_id. Include its entire raw
+      opportunity set. No topic or expected-yield filtering is allowed.
+  SW2:
+    eligible_modes: [S3_O3, S4_O4, S5_O5, S6_O7]
+    selector: >-
+      After SW1 is frozen, choose the earliest normally queued assignment in a
+      different source mode by the same immutable order and include its entire
+      raw opportunity set. No topic or expected-yield filtering is allowed.
+cutoff_and_freeze:
+  cutoff: ASSIGNMENT_CREATED_AT
+  required_freeze:
+    - full raw-opportunity inventory and hashes
+    - inclusion and exclusion ledger
+    - all public source bytes, URLs, public dates and SHA256 values
+    - current upstream repository tag or commit and feature/config surface
+    - method/rule hashes
+    - contamination scan
+minimum_set_audit_at_stage0_intake:
+  independent_rescan_required: true
+  components:
+    - nearest current same-object paper or artifact
+    - all known first-party implementation family including sibling repository, package and CLI
+    - generic algorithm or optimization kernel
+    - strongest deployed/configuration union including nondefault actions
+  failure_event: >-
+    A direct subtractor public by the wave cutoff is first identified only after
+    Discovery intake and is absent from the frozen Discovery minimum-set ledger.
+  allowed_zero_briefs: true
+acceptance:
+  waves_required: 2
+  omitted_minimum_set_direct_subtractors: 0
+  hard_gate_violations: 0
+execution_in_this_assignment: false

@@ -1,0 +1,80 @@
+schema_version: stage0-scientific-revision-handoff-v8.7
+assignment_id: STAGE0-P1-20260810-WEBGRAPH-REFERENCE-FOREST-REVISION1-V8.7
+topic_id: WEBGRAPH-REFERENCE-FOREST
+role: STAGE0_BATCH_GATE_PRIMARY
+revision:
+  consumed: 1
+  budget: 1
+  atomic_gate: REALIZABLE_COMPLETE_PIPELINE_DIVERGENCE_WITH_COMPLETE_EDGE_FORMAL_RESIDUAL
+  result: FAIL
+recommendation: RECOMMEND_BELOW_Q2_STOP
+decision_status: PENDING_CLOSING_CONFIRMATION
+quality_tier: BELOW_Q2_STOP
+structural_paper_potential: NOT_ESTABLISHED_AT_Q2_AFTER_ATOMIC_REVISION
+current_evidence_readiness: TERMINAL_SCIENTIFIC_GATE_FAILURE
+confidence: 0.96
+evidence_ceiling: SOURCE_AND_STATIC_PIPELINE_ANALYSIS_ONLY__NO_NATIVE_DIVERGENCE
+terminal_sentinel: BELOW_Q2_STOP__CURRENT_BVCOMPZ_ZUCKERLI_REFERENCE_FOREST_ABSORPTION
+atomic_result:
+  proposition: >-
+    Under one pinned native BVGraph contract, actual sorted successor lists induce
+    a legal complete-edge forest with strictly lower native objective than the
+    final BvCompZ best-parent-forest, depth-DP, all-edge-refill pipeline, and the
+    divergent action is governed by a nontrivial exact/FPT/approximation/formal property.
+  failure_reason: >-
+    No actual successor-list fixture with native encoder costs, final BvCompZ
+    forest, and strictly better legal complete-edge forest was defined. The only
+    numerical witness uses author-injected weights. A plausible frontier-FPT
+    route remains unlinked to a native action divergence and therefore collapses
+    to a generic oracle rather than a same-object N2.
+  not_a_resource_failure: true
+  not_due_to_missing_implementation_results_proof_or_hardware: true
+current_pipeline:
+  implementation: RUST_WEBGRAPH_0_6_2_BVCOMPZ
+  cli: WEBGRAPH_CLI_0_4_2
+  phases:
+    - native_root_and_all_legal_reference_cost_enumeration
+    - maximum_weight_best_parent_forest
+    - bounded_depth_dynamic_program
+    - all_edge_greedy_refill
+    - native_stream_and_offsets_write
+witness_audit:
+  discovery_sibling_witness: INVALID_NO_PATH_DEPTH_COMPETITION
+  abstract_chain_star_weights: REJECTED_AUTHOR_INJECTED_NOT_NATIVE_REALIZABLE_EVIDENCE
+  nested_list_family: SEARCH_SEED_ONLY_NO_NATIVE_COST_OR_FINAL_FOREST
+  accepted_native_witness: NONE
+formal_residual:
+  bounded_window_frontier_dp: PLAUSIBLE_SEARCH_BOUNDED_HYPOTHESIS
+  linked_to_native_divergence: false
+  contribution_status: INSUFFICIENT_GENERIC_ORACLE_WITHOUT_ACTION_GAP
+fair_baselines:
+  - JAVA_BVGRAPH_3_6_12_COMPLETE_LEGAL_NATIVE_GRID
+  - RUST_WEBGRAPH_0_6_2_BVCOMP_COMPLETE_LEGAL_NATIVE_GRID
+  - RUST_WEBGRAPH_0_6_2_BVCOMPZ_COMPLETE_LEGAL_NATIVE_GRID
+  - SMALL_COMPLETE_EDGE_EXACT_CEILING_ONLY
+input_integrity:
+  discovery_manifest_entries_verified: 4/4
+  discovery_manifest_sha256: 599702F16DAC90960CCD1F27817FD2A19E6B08306FE5261260854016FA14381B
+  primary_manifest_entries_verified: 4/4
+  primary_manifest_sha256: E3EED1FDB253ED703F3D546DD6A11CB64E613D2383887050E2C09E5A40A69D68
+  confirmation_manifest_entries_verified: 2/2
+  confirmation_manifest_sha256: 24D1112D9CAC73898D84D7483A3AE3D45FB59A9556647E36C4420814386AA07D
+source_boundary:
+  cutoff: '2026-08-10'
+  search_status: SEARCH_BOUNDED_OPEN
+  transport_failures_used_as_absence_evidence: false
+permissions:
+  same_id_revision_remaining: false
+  stageA_authorized: false
+  stageB_authorized: false
+  implementation_authorized: false
+  experiment_authorized: false
+  control_files_modified: false
+deliverables:
+  - REVISION_REPORT.md
+  - COMPLETE_EDGE_ACTION_AUDIT.md
+  - CLAIM_MATRIX.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+next_route: LONG_LIVED_STAGE0_CONFIRMATION_SENTRY_CLOSING_REVIEW
+lane_state_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE

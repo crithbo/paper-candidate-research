@@ -1,0 +1,58 @@
+schema_version: rq-refinement-staged-evidence-v1-auditor-decision
+assignment_id: BACKTEST-AUDITOR-L1-20260814-RQ-REFINEMENT-STAGED-EVIDENCE-V1
+method_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+input_integrity:
+  sealed_input_manifest_sha256: 9B81E99CD7A4419D8B1EB3C6244D2ED050927F31655B28A473F9143A367C4F94
+  packer_handoff_sha256: B72DF684DCFB6CCA22EBA2B65CDAD99CAB2CDF82A6628B3393F7015AA76F45E9
+  packer_manifest_sha256: 2DD51833674D76178E8E800810A5501E877A542CA7F05AD8C08D4DBE87B78359
+  executor_manifest_sha256: A8F59AC48B754748DF027A5EA1CAF1CF43ED5CE70F0CA04712538ADD34931C0D
+  executor_entries: 6/6
+  executor_hashes: PASS
+  blind_separation: PASS__NO_TARGET_IDENTITY_OR_OUTCOME_ACCESS
+  cutoff_and_identity: PASS__NEW_CASE_IDENTITIES__POSITIVE_SOURCES_PRE_CUTOFF
+case_mapping:
+  CASE-A:
+    target: Learning_to_Optimize_Tensor_Programs
+    recovered: true
+    rq_same_object_and_guarantee: PASS
+    rq_versions: 3
+    result: Compiler primitive/layout plan under identical graph semantics and charged conversion/workspace/tuning cost; finite witness route.
+  CASE-B:
+    target: FlexGen
+    recovered: true
+    rq_same_object_and_guarantee: PASS
+    rq_versions: 3
+    result: Exact-attention cache placement/transfer schedule preserves output contract with complete placement and latency falsifier.
+  CASE-C:
+    target: MLPerf_Training_Benchmark
+    recovered: true
+    rq_same_object_and_guarantee: PASS__CANONICAL_BENCHMARK_ONLY
+    rq_versions: 3
+    bounded_closure_debt: PASS
+    debt_owner: DISCOVERY_C0_DEEP_THEN_STAGE0
+    debt_questions: 3
+    finite_route_and_failure: PASS__VERSIONED_SPEC_WORKLOAD_LOGS__SOURCE_CLOSURE_QUEUE_ON_TRANSPORT_FAILURE
+    result: Fixed time-to-target ranking estimand with no natural-deployment extrapolation; debt not rejected before raw.
+  CASE-D:
+    target: DIRECT_NATIVE_COVERAGE_CONTROL
+    recovered: NOT_APPLICABLE
+    disposition: DROP__EXCLUDED_BEFORE_RAW
+    direct_fatal_crossing_raw_or_brief: false
+    result: Native source and pre-cutoff release directly express the action; no debt, wrapper, or clean brief.
+thresholds:
+  positive_problem_shapes_recovered: {observed: 3/3, required_minimum: 2/3, status: PASS}
+  bounded_debt_positive_not_rejected_before_raw: {observed: 1/1, required_minimum: 1/1, status: PASS}
+  negative_controls_packaged_as_clean_brief: {observed: 0/1, allowed_maximum: 0/1, status: PASS}
+  known_direct_fatal_crossing_raw_or_brief: {observed: 0/1, allowed_maximum: 0/1, status: PASS}
+  changed_object_or_guarantee_rq_rewrite: {observed: 0, allowed_maximum: 0, status: PASS}
+  unbounded_closure_debt: {observed: 0, allowed_maximum: 0, status: PASS}
+  generic_noun_swap_or_pure_limitation_false_recovery: {observed: 0, allowed: 0, status: PASS}
+  rq_to_raw_accounting: {observed: 4/4, required: 4/4, status: PASS}
+  stage_boundary_compliance: PASS__NO_STAGE0_UNION_COLLISION_OR_Q2_FINALIZATION_BY_DISCOVERY
+  decisive_leakage: {observed: false, allowed: false, status: PASS}
+verdict: CALIBRATED
+limitations:
+  - FOUR_CASE_HISTORICAL_CALIBRATION_ONLY
+  - DOES_NOT_ESTABLISH_NOVELTY_Q2_FEASIBILITY_OR_STAGE0_PASS
+  - PRODUCTION_CUTOVER_REQUIRES_SEPARATE_MAINLINE_SAFE_BOUNDARY
+return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,18 @@
+schema: mlperf-rank-validity-a0-control-binding-v1
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-A0
+row_id: MLPERF-A0-HAND-CHECKED-SCHEMA-CONTROL
+classification: CONTROL_NON_CLAIM_BEARING
+attempts: {max: 1, retry: 0}
+python: {path: <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA}
+runner: {path: resources/src/control_runner.py, sha256: 5E4C5EEFAAD925AF9A31B9C4B5D217DDDED949AA99F280D0903F4534CFF7C067}
+parser: {path: resources/src/mlperf_rank_parser.py, sha256: E4AAAEC48DBE0487FFAB58DB14EAB28DCAB504ACAFC849D04526273909D3F2F2}
+fixture: {path: resources/src/control/hand_checked_fixture.json, sha256: DD18CE4A80BB3D61DBD9548F451236452C80CACDCEC93E3FC883457E1F8C1C6E, class: HAND_CHECKED_SYNTHETIC_SCHEMA_WITNESS, scientific_denominator: false}
+contract: {path: A0_PRECLAIM_CONTRACT.yaml, sha256: 92140F68D925254464CFD038A4BB3178E352F5FB1BE0E5DC6E88E102223F4295}
+schema: {path: PARSER_OUTPUT_SCHEMA.json, sha256: 20207E69416D8AF14B9E976F470A496D82C7D05E4A9E2C61BBE207540F911D73}
+outer_argv: [<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, -B, resources/src/control_runner.py, --python, <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, --parser, <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources/src/mlperf_rank_parser.py, --fixture, <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources/src/control/hand_checked_fixture.json, --output, <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources/logs/control/control_result.json, --stdout, <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources/logs/control/stdout.txt, --stderr, <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources/logs/control/stderr.txt, --receipt, <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources/logs/control/process_receipt.json, --cwd, <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources, --timeout, '60']
+outer_cwd: <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830
+inner_cwd: <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources
+env: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONNOUSERSITE: '1'}
+outputs: [resources/logs/control/control_result.json, resources/logs/control/stdout.txt, resources/logs/control/stderr.txt, resources/logs/control/process_receipt.json]
+output_firewall: {relative_effect_visibility: false, formula_errors: forbidden, rank_or_reversal: forbidden, candidate_direction: forbidden}
+full_cost_fields: [cpu_seconds, wall_seconds, peak_rss_bytes, input_bytes, output_bytes, stdout_bytes, stderr_bytes, timeout, exit_code]

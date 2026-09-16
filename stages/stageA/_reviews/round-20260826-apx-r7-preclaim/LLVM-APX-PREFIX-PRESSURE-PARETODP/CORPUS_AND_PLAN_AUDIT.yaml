@@ -1,0 +1,75 @@
+schema: independent-apx-r7-corpus-and-plan-audit-v1
+assignment_id: STAGEA-GATE-20260826-LLVM-APX-R7-ACTUAL-DP-CORPUS-PRECLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+review_mode: STATIC_ROW_HASH_KEY_IDENTITY_AND_PLAN_DEPENDENCY_AUDIT
+corpus_or_plan_commands_executed: 0
+
+G6_RESULT_INDEPENDENT_CORPUS_FREEZE:
+  disposition: FAIL__RESULT_INDEPENDENCE_PASSES_BUT_SAME_OBJECT_ELIGIBILITY_IS_NOT_ESTABLISHED
+  raw_freeze_sha256: B9A49957E61EE49B15EB9E4BFB81F4393DD7AC80C4AF6DC5F1CA461A10FCED9E
+  eligible_static_candidates_claimed: 317
+  selected_count: 16
+  reserve_count: 4
+  selected_hashes_checked: 16
+  reserve_hashes_checked: 4
+  row_hash_failures: 0
+  selection_keys_recomputed: 20
+  selection_key_failures: 0
+  frozen_first_twenty_keys_strictly_sorted: true
+  reserve_backfill_used: false
+  result_read_by_selector: false
+  selected_or_reserve_tool_invocations: 0
+  result_based_exclusion: false
+  result_independence_disposition: PASS
+  eligibility_audit:
+    selected_mc_file_scope_rows: 8
+    reserve_mc_file_scope_rows: 2
+    total_mc_file_scope_rows: 10
+    selected_llvm_ir_rows: 8
+    reserve_llvm_ir_rows: 2
+    total_evex_first_marker_rows: 14
+    selected_rows_outside_apx_path: 8
+    selected_rows_whose_original_RUN_lines_have_no_APX_EGPR_NDD_arm: 6
+    same_target_contract_field_computation: UNCONDITIONAL_CONSTANT_STRING
+    selector_semantic_test: FIRST_NONCHECK_MARKER_MATCH_ONLY
+  decisive_findings:
+    - THE_SELECTOR_ACCEPTS_ANY_LL_OR_MIR_OR_S_FILE_UNDER_THREE_BROAD_X86_TEST_ROOTS_WHEN_ANY_APX_EGPR_NDD_REX2_EVEX_OR_NF_TOKEN_APPEARS
+    - EVEX_ALONE_ADMITS_NON_APX_AVX512_AVX10_AND_SM4_TESTS
+    - TEN_OF_TWENTY_FROZEN_ROWS_ARE_MC_FILE_SCOPE_INPUTS_WITH_NO_MACHINEIR_FUNCTION_OR_LIVENESS_IDENTITY
+    - SAME_X86_64_APX_ABI_AND_TARGET_FEATURE_CONTRACT_IS_WRITTEN_AS_A_CONSTANT_WITHOUT_VALIDATION
+    - ORIGINAL_RUN_LINES_INCLUDE_I686_APPLE_AND_NON_APX_FEATURE_ARMS__THE_FROZEN_R7_PACKET_CONTAINS_NO_STATIC_CONVERSION_PROOF_TO_THE_EXACT_MACHINEIR_OBJECT
+  source_pointers:
+    identity_extraction: resources/src/apx_tpd/apx_tpd.py:474-487
+    eligibility_and_selection: resources/src/apx_tpd/apx_tpd.py:490-539
+  inference_limit: THE_FROZEN_16_PLUS_4_IS_HONESTLY_RESULT_INDEPENDENT_BUT_NOT_YET_A_VALID_SAME_OBJECT_NATURAL_DENOMINATOR
+
+G7_UNEXECUTED_PLAN_AND_NEXT_ROUTE:
+  disposition: FAIL__ROW_SHAPE_PASSES_BUT_FINITE_EXECUTABLE_SAME_OBJECT_ROUTE_IS_NOT_CLOSED
+  plan_sha256: 97BEEDBDFD4D2BE19637853CB99D89E92974A9F888B5A985D10A37F9B0B5949C
+  process_rows: 32
+  unique_row_ids: 32
+  selected_ids: 16
+  replays_per_selected: [1, 2]
+  command_legs_per_row: 7
+  all_expected_consumers_present: true
+  commands_executed_in_r7: 0
+  automatic_retry: false
+  result_based_exclusion_or_backfill: false
+  structural_row_and_denominator_disposition: PASS
+  unresolved_dependencies:
+    future_r8_resource_root_exists_now: false
+    apx_r8_row_driver_frozen_or_present_in_r7: false
+    type_specific_mc_to_machineir_liveness_route_frozen: false
+    type_specific_ir_to_exact_apx_trace_route_frozen: false
+    baseline_output_semantic_parser_frozen: false
+  decisive_findings:
+    - EVERY_ROW_DISPATCHES_TO_A_FUTURE_APX_R8_ROW_DRIVER_THAT_IS_NOT_PART_OF_THE_FROZEN_PACKET
+    - THE_SEVEN_SUBCOMMAND_NAMES_HIDE_THE_DECISIVE_TYPE_SPECIFIC_TRACE_BASELINE_AND_COST_IMPLEMENTATION
+    - THE_PLAN_CANNOT_CLOSE_A_SEPARATE_SAME_OBJECT_NATURAL_ASSIGNMENT_UNTIL_G1_G3_G6_AND_THE_DRIVER_DEPENDENCIES_ARE_CORRECTED
+  source_pointers:
+    plan_generator: resources/src/apx_tpd/apx_tpd.py:549-605
+    expanded_plan: R8_EXPANDED_COMMAND_PRECOMMIT.yaml
+
+overall_disposition: FAIL_G6_G7__RESULT_INDEPENDENCE_AND_ROW_COUNTS_PRESERVED
+scientific_or_claim_effect: NONE
+

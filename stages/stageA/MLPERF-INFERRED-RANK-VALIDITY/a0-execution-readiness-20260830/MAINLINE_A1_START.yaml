@@ -1,0 +1,32 @@
+schema: mainline-stagea-a1-start-v1
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-A0
+topic_id: MLPERF-INFERRED-RANK-VALIDITY
+mode: A1_DECISIVE_PILOT
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+source_freeze:
+  a0_acceptance: {path: MAINLINE_A0_ACCEPTANCE.yaml}
+  preclaim_contract: {path: A0_PRECLAIM_CONTRACT.yaml, sha256: 92140F68D925254464CFD038A4BB3178E352F5FB1BE0E5DC6E88E102223F4295}
+  source_lock: {path: OFFICIAL_SOURCE_LOCK.yaml, sha256: 48A01E71D14DC15157971A1DEAD919E3A44733BB2839E0188F8EBECECC64DE49}
+frozen_claim_run:
+  development_release: v5.1
+  held_out_release: v6.0
+  processes: 1
+  retries: 0
+  result_aware_exclusion_or_refit: forbidden
+  materiality_threshold_relative_error: 0.02
+  exact_pairing_key_order: [version, ID, Submitter, Availability, Category, Suite, System, Platform, UsedModel, Model, Accuracy, Software, operating_system, has_power]
+  outputs_required:
+    - claim_result_json
+    - per_release_pair_and_missingness_ledger
+    - formula_error_and_rank_stability_summary
+    - process_receipt_with_CPU_wall_peak_RSS_input_output_bytes
+    - STAGEA_REPORT
+    - handoff
+    - targeted_manifest
+implementation_boundary:
+  allowed: implement_one_assignment_local_claim_runner_from_frozen_contract_then_static_compile_once
+  forbidden: [change_formula, change_pairing_key, change_missingness_policy, change_threshold, remove_cost_dimension, add_or_drop_release, use_result_aware_filter, network, retry, backfill]
+claim_ceiling: CANONICAL_MLPERF_BENCHMARK_VALIDITY_ONLY
+stageb_authorized: false
+pause_signal: complete_current_A1_and_safe_handoff_then_no_successor_if_reset_signal_arrives
+stop: after_A1_handoff

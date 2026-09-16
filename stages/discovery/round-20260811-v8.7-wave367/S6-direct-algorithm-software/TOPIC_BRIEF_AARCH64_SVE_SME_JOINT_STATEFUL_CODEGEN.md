@@ -1,0 +1,3 @@
+# Conditional topic brief — AArch64 SVE/SME joint stateful code generation
+
+Recommendation: `PROPOSE_STAGE0` conditional on `FINITE_FIDELITY_GAP`. Same LLVM IR/ABI/feature semantics; proposed N2 jointly constructs SME mode/ZA lifetime, predicate/register allocation and spills under a bounded target state. Comparator is full current LLVM AArch64 union at equal flags. Natural MIR/IR route, stock semantic/assembler/linker oracle, full compile-memory-bytes-static-cost ledger, and a finite MIR-based killer are frozen. Stage0 must close current source flags/passes, direct same-object collisions and legal action witness. No result is claimed.

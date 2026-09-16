@@ -1,0 +1,84 @@
+schema: patchyield-replay-and-fairness-repair-v1
+topic_id: PATCHYIELD-CALL
+status: REPAIRED_STATIC_CONTRACT__NO_EXECUTION
+frozen_identity_reference: FROZEN_INPUTS.md
+
+primary_causal_evidence:
+  mode: deterministic_live_reexecution
+  required_platform: NVIDIA_H100_SXM_80GB__single_GPU__sm90
+  same_object_requirements:
+    - fixed OpenHands/SDK/model/vLLM/dataset/evaluator identities from FROZEN_INPUTS.md
+    - fixed admitted task set, repository-held-out split, request bodies, deterministic per-task/call seed rule, and non-preemptive call action
+    - network-disabled or snapshot-only tools and pinned task-container digests
+    - each compared scheduler re-executes the same frozen object on the same H100/software snapshot
+  mandatory_live_ledger:
+    - request arrival, ready, dispatch, completion, tool start/complete, and agent finish timestamps
+    - input/output tokens, dynamic-batch membership, prefix reuse counters, KV residency/eviction, KV rebuild/recompute, queue state, and actual service time
+    - task-level sealed evaluator result only after service; it is never an online feature
+  causal_interpretation: >-
+    Compare schedulers by live outcomes under identical frozen identity and capacity.
+    Service time is policy-dependent and therefore must be measured rather than fixed.
+
+recorded_replay:
+  status: DEBUGGING_OR_SENSITIVITY_ONLY
+  prohibited_as_primary_causal_evidence: true
+  permitted_after_live_calibration_only: true
+  calibration_contract:
+    train_calibration_schedules: distinct pre-registered live schedule set
+    held_out_validation_schedules: disjoint pre-registered live schedule set
+    required_dimensions: [dynamic_batching, kv_residency_and_eviction, prefix_reuse, recomputation, queue_interference, policy_dependent_service_time]
+    acceptance_rule: >-
+      A simulator/replay model is sensitivity-only unless it reports calibration error
+      on live fitting schedules and separately reports error on held-out schedules for
+      every required dimension. It never replaces live primary evidence.
+
+deadline_contract:
+  request_arrival: arrival_i is the externally scheduled arrival timestamp of request i
+  deadline: deadline_i = arrival_i + tier_i_minutes * 60 seconds
+  tiers_minutes: [30, 59, 90]
+  primary_report_anchor_minutes: 59
+  prohibited_anchor_changes: [ready_time, dispatch_time, first_token_time, completion_time]
+  outcomes_separated:
+    deadline_success: task completes by deadline_i and passes sealed evaluator
+    throughput_and_full_cost: admitted deadline-solved tasks per allocated GPU-capacity hour plus declared cost vector
+    fairness: bounded-bypass feasibility, separately reported and never folded into deadline success
+
+fairness_constraint:
+  name: READY_CALL_BOUNDED_BYPASS_16
+  per_call_measure: >-
+    bypass_i is the number of complete non-preemptive LLM calls from other sessions
+    dispatched after request i becomes ready and before i is dispatched.
+  numeric_threshold: bypass_i <= 16 for every admitted ready LLM call
+  aggregation_rule: >-
+    A policy/cell is fair only if violation_count equals zero. Report maximum bypass
+    and violation_count for each repository-held-out fold x deadline tier x load x seed;
+    the overall policy verdict is the conjunction across all cells.
+  prohibited_relaxations: [admission_rejection, early_termination, hidden_label_priority, tool_reordering, token_preemption]
+
+full_cost_vector:
+  - allocated_GPU_capacity_seconds
+  - active_GPU_seconds
+  - GPU_queue_seconds
+  - prefill_tokens
+  - decode_tokens
+  - recompute_tokens
+  - KV_rebuild_seconds
+  - CPU_core_seconds
+  - tool_container_wall_seconds
+  - predictor_CPU_or_GPU_seconds
+  - scheduler_decision_microseconds
+  - peak_GPU_memory_bytes
+  - peak_host_memory_bytes
+
+stageA_fidelity_plan:
+  status: FINITE_FIDELITY_GAP
+  gate_0_resource: H100 booking plus 1-TB local NVMe, 256-GiB host RAM, 32 physical CPU cores, pinned software and container snapshot
+  gate_1_static_bootstrap: verify all model/parser/dataset/container hashes and scripts' local paths without changing frozen identity
+  gate_2_live_determinism: verify identical token IDs for identical request bodies before comparing schedules
+  gate_3_live_primary: run each scheduler on the same live object and record mandatory ledger
+  gate_4_replay_optional: calibrate and held-out validate any replay model; otherwise retain it as debugging only
+  killer: >-
+    Stop the PatchYield mechanism if progress features add no stable repository-held-out
+    value over the frozen outcome-agnostic baseline, or if the bounded-bypass fairness
+    constraint cannot be met under the same admitted set and capacity.
+  no_stageA_execution_in_this_assignment: true

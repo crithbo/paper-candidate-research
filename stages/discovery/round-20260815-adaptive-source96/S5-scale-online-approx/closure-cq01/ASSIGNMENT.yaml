@@ -1,0 +1,93 @@
+schema_version: discovery-prebrief-source-closure-v2
+assignment_id: SOURCE-CLOSURE-RESUME-BATCH01-ITEM01-SOURCE96-S5-PERSISTENT-TERM-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+batch_program: PENDING-RAW-BATCHED-RESUME-20260815
+batch_control: stages/discovery/raw-closure-batches/BATCH-20260815-01/CONTROL.yaml
+batch_order: 1
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+public_acquisition_authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+write_owner: ASSIGNED_LONG_LIVED_SOURCE_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source96/S5-scale-online-approx/closure-cq01
+parent_assignment: DISCOVERY-S5-20260815-ADAPTIVE-SOURCE96-R40-ORDINARY-BREADTH-V1
+parent_handoff_sha256: B085FCFA3B57D927DE451487FDF1AF3A61C2BE59F121688C222431C21932FA62
+parent_queue_sha256: 56BDB8CDA7D4E836204BED47B8C36D3DE05FF79351515F6A06EF30E88DAA1345
+parent_question_card_sha256: 38D204E93C3924D3CC6342FDBC6CEF249DBF7957D5CA9CBD9F44B6F34E9B15F7
+queue_item: S5-96-CQ01
+queue_status_at_freeze: PENDING_UNEXECUTED__ATTEMPTS_0__NOT_EXHAUSTED
+claim_ceiling: SOURCE_CLOSURE_ONLY__NO_CLEAN_BRIEF_Q2_PASS_STOP_OR_STAGE_AUTHORITY
+exact_identity:
+  project: erlang/otp
+  version: OTP-29.0.1
+  family_signature: ERLANG_OTP_PERSISTENT_TERM_EXACT_CONSTANT_LOOKUP__VERSIONED_LITERAL_RECLAMATION
+  object: fixed Erlang/OTP persistent_term API and exact constant-time lookup semantics
+  endpoint: unchanged lookup result, update/delete visibility, process and VM termination behavior
+  full_cost: [update_cpu_latency, process_scan_or_deferred_work, retained_literal_memory, peak_rss, literal_area, lookup_cost, recovery_and_termination_semantics]
+deterministic_version_rule: resolve the official OTP-29.0.1 tag to one immutable commit at the first counted call and pin every retained source to that commit
+allowed_official_sources:
+  - https://api.github.com/repos/erlang/otp/commits/OTP-29.0.1
+  - https://api.github.com/repos/erlang/otp/git/trees/<resolved_commit_sha>?recursive=1
+  - https://raw.githubusercontent.com/erlang/otp/<resolved_commit_sha>/<deterministically_selected_erts_source_path>
+  - https://www.erlang.org/doc/apps/erts/persistent_term.html
+license_and_provenance:
+  source_license: Apache-2.0
+  provenance: official erlang/otp repository and official Erlang documentation only
+route_selection_rule: >-
+  After the immutable tag pin and one recursive tree response, select only the smallest
+  exact ERTS source/test loci whose paths and symbols own persistent_term put/erase,
+  literal-area allocation or release, the documented process/global-GC transition,
+  and any default or non-default reclamation control. Do not search another project,
+  branch, tag, mirror, issue tracker, paper, or general web index.
+fields_to_close:
+  - complete current persistent_term and literal-reclamation action union
+  - exact source symbols and ownership boundaries
+  - default and non-default controls that alter reclamation rather than reservation only
+  - one stock-legal two-process visibility and reclamation witness route
+  - whether a union-external BEAM-native versioned-literal action and finite guarantee can be frozen
+  - strongest direct current collision and generic epoch_or_lifetime_controller objection
+  - finite falsifier and full-cost reconciliation
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_CHANGED_ENDPOINT_OR_GENERIC_LIFETIME_CONTROLLER__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide clean brief, Q2, PASS, STOP, candidate, or stage state
+  - change exact project, release tag, API, lookup semantics, visibility endpoint, or full-cost denominator
+  - run build, install, experiment, benchmark, VM execution, or claim-bearing observation
+  - use substitute search after 404, zero match, rate limit, or transport failure
+  - infer current absence, novelty, performance, correctness, or exhaustion from missing material
+  - read any other raw closure output, Source97 or later Discovery outcome, rule-audit result, held queue, or terminal identity beyond the frozen parent files
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source96/S5-scale-online-approx/closure-cq01/resources
+  inventory: stages/discovery/round-20260815-adaptive-source96/S5-scale-online-approx/closure-cq01/RESOURCE_INVENTORY.yaml
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+resource_envelope:
+  max_acquisition_calls: 8
+  max_success_response_bytes_each: 10485760
+  max_network_bytes: 33554432
+  max_persisted_bytes: 33554432
+  max_cpu_hours: 0.5
+  max_gpu_hours: 0
+  max_wall_seconds: 2700
+  pre_call_monotonic_attempt_counter: required
+  build_or_install_allowed: false
+  experiment_allowed: false
+rules:
+  discovery_skill_revision: RESEARCH_TOPIC_DISCOVERY_R1_R40_20260815
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+model_route: {model: gpt-5.6-terra, reasoning: high}
+required_outputs:
+  - SOURCE_CLOSURE_REPORT.md
+  - CURRENT_UPSTREAM_AUDIT.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+notify_mainline_on_finish_or_blocker: true
+next_batch_item_must_not_be_read_or_started: S5-98-CQ01
+

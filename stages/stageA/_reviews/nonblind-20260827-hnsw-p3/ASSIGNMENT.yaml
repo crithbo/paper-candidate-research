@@ -1,0 +1,14 @@
+schema: independent-stagea-review-assignment-v1
+assignment_id: NONBLIND-STAGEA-GATE-20260827-HNSW-P3
+role: STAGEA_GATE_REVIEW
+subject_assignment: NONBLIND-STAGEA-20260826-HNSW-P3-RUNTIME-TRANSITION
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/_reviews/nonblind-20260827-hnsw-p3
+inputs:
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/F0_MAINLINE_FIDELITY_ACCEPTANCE.yaml, sha256: A1B4B3B1D7CAAD4F63437C97905B2ABD31505A40F21112999516EC8D9F2EAB4B}
+  - {path: stages/stageA/_reviews/nonblind-20260827-hnsw-p2/INDEPENDENT_REVIEW_REPORT.md, sha256: 856610BB2ADD4276E9639E92002D9A9A0ABA16D9D070B2D364662A7FC898F06E}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/P3_MAINLINE_PROBE_ACCEPTANCE.yaml, sha256: 5B1F6CE2698FBC18DD53DA735B73051C9B430A1981152BA7D5957FC64BA74CF4}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/P3_handoff.yaml, sha256: C02DE79F17639969EEE797E2A438B5FB1511A02F8DE3A9AE3E4F83726A84C396}
+scope: [P2_gate_defect_closure, runtime_transition, live_oracle, computed_witness, complete_grid_cost_fields, evidence_ceiling]
+forbidden: [new_experiment, new_probe, resource_creation, network, production_candidate_registration, StageB, gold_final_disposition]
+expected_output: INDEPENDENT_REVIEW_REPORT.md
+model_route: {model: gpt-5.6-terra, thinking: high}

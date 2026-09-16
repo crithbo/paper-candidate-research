@@ -1,0 +1,22 @@
+schema_version: discovery-backtest-packer-handoff-v2
+role: DISCOVERY-BACKTEST-PACKER
+delegated_from_thread: 019fadc8-afb2-7cc3-85c7-fee56974b612
+source_session_id: DISCOVERY-S1-BOUNDARY-CONTRADICTION
+opportunity_lens: O1_ASSUMPTION_BREAK_PLUS_O6_CONTRADICTION_ANOMALY_OR_PRIMITIVE_MISMATCH
+method_revision: v2
+status: PACKER_COMPLETE_AWAITING_MAINLINE_ACCEPTANCE
+counts: {positive: 3, negative_control: 1}
+files:
+  sealed_input_manifest: {path: ../sealed_input_manifest.yaml, sha256: 4B1036EECB7C6B929C00CC8554DE75F4E7F8086050CE88EECBC0C647B594A238}
+  sealed_packets: {path: sealed_packets.yaml, sha256: BC0B45285F6BB77BB122605AB4F8DDA98BD988CB5D3A3ECEFADAC89E0CA27A72}
+  auditor_key: {path: auditor_key.yaml, sha256: 1F9E22953D49C37F7CD889621191934A795880C050E38D88D19229EFF6459562, access: FUTURE_AUDITOR_ONLY}
+checks:
+  yaml_parse: PASS
+  positive_papers_between_3_and_8: PASS
+  all_visible_paper_dates_at_or_before_cutoff: PASS
+  hidden_target_title_cross_packet_scan: PASS
+  source_url_head_check: PASS
+  hardware_claim_ceiling: PASS
+  method_executed: false
+  scoring_performed: false
+next_action: "Mainline mechanically verifies hashes, then independently creates executor/auditor roles if desired."

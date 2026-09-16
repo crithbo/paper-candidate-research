@@ -1,0 +1,12 @@
+schema_version: r3-packer-l2-phase-a3-metadata-correction-addendum-v1
+assignment_id: BACKTEST-PACKER-L2-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+parent_merged_ledger: {path: CANDIDATE_PREFLIGHT_MERGED_LEDGER.yaml, sha256: 688887B26213E1FEFD1C84F0C9AAF28C21C2676AD2D8F2CABA51CCE9D723C389}
+accepted_patch: {path: stages/rule-audit/RULE-AUDIT-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-BACKTEST-R3/SOURCE_CLOSURE_PATCH_A3.yaml, sha256: 2231A7107F5B2D667BBBD2AF052B0B2980DF858278C20BB9C6C762A0CD0FAB0C}
+allowed_ordinals: [9, 14]
+exact_sources: {9: 'https://proceedings.mlsys.org/paper_files/paper/2021/file/cc427d934a7f6c0663e5923f49eba531-Paper.pdf', 14: 'https://arxiv.org/abs/1905.11055'}
+execution: open_each_exact_source_once__require_canonical_title_and_year_match__write_resources_logs_preflight_a3_ordinal_yaml
+merge: preserve_A2_ledger__replace_only_ordinals_9_14__recompute_normalized_identity_key_and_SHA_order_using_canonical_title
+required_outputs: [CANDIDATE_PREFLIGHT_A3_MERGED_LEDGER.yaml, PHASE_A3_HANDOFF.yaml, PHASE_A3_HASH_MANIFEST.sha256]
+retries: 0
+phase_B_selection: forbidden_until_mainline_acceptance
+forbidden: [cross_candidate_change, unfrozen_source, result_aware_replacement, evidence_extraction, packet_creation, scoring, gold_expected_label_access, code_artifact_binary_download, build, probe, experiment, production_candidate_registration, StageB]

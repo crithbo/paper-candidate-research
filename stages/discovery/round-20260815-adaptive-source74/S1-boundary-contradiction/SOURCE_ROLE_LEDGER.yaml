@@ -1,0 +1,32 @@
+cycle: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE74-R40-ORDINARY-BREADTH-V1
+retrieval_date: '2026-08-15'
+resource_actions: NONE
+sources:
+  - id: SRC01
+    role: ANCHOR_CURRENT
+    title: libstdc++ barrier header
+    url: https://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00053_source.html
+    provenance: official_GNU_source_documentation
+    version_or_date: latest snapshot accessed 2026-08-15
+    decision_relevance: fixes implementation identity and `__tree_barrier` default algorithm.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC02
+    role: CURRENT_MECHANISM
+    title: libstdc++ tree barrier source
+    url: https://gcc.gnu.org/onlinedocs/gcc-12.3.0/libstdc++/api/a00056_source.html
+    provenance: official_GNU_source_documentation
+    version_or_date: GCC source documentation snapshot accessed 2026-08-15
+    decision_relevance: documents tree rounds, cache-line layout, participant numbering, phase update, completion, and expected-count adjustment.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC03
+    role: CONTRARY_CONTRACT
+    title: std::barrier / arrive_and_drop contract
+    url: https://en.cppreference.com/w/cpp/thread/barrier
+    provenance: standard_reference_locator
+    version_or_date: C++20 contract snapshot accessed 2026-08-15
+    decision_relevance: fixes phase completion, expected-count reset, strong happens-before, and drop semantics.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+source_role_outcome: CURRENT_CACHE_AWARE_TREE_PLUS_GENERIC_BARRIER_ALGORITHM_KERNEL

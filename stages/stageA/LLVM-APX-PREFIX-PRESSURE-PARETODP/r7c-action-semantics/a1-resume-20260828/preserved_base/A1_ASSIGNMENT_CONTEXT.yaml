@@ -1,0 +1,56 @@
+schema_version: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+created_at: 2026-08-26T18:36:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+
+identity: {lane_id: CANDIDATE_EXECUTION_LANE_3, lane_thread_id: 01a034d0-d67f-7f32-ab5f-54454407cb22, old_lane_thread_id: 01a02e0e-45b3-76b3-9257-07a736fae7d8, role_id: CANDIDATE_OWNER, assignment_id: STAGEA-L3-20260826-LLVM-APX-R7C-A1-POWERSHELL-CMDLET-TOKENIZATION, topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP, stage: STAGEA_PRECLAIM_ENGINEERING_CORRECTION, authoritative_project_root: <LOCAL_PROJECT_ROOT>, unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics, resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/resources, old_chat_memory_required: false}
+
+frozen_shared_snapshots:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 7C45E36D492A83BDE47826FB8D4CED4B0F8E2894E1E8E0285931D12432AFE185}
+  registry: {path: registry.yaml, sha256: 6A0D3A60FEE6B9C4946792E4FA36A45FEED88D5B24BBD271A40DDAFC46C053F3}
+  related_registry_records: [soft_blocker_recovery_policy_20260826, autonomous_stagea_wave_20260826.apx_r7, apx_r7c_action_semantics_20260826, stagea_gate_apx_r7_preclaim_20260826, no_wsl_localized_resource_recovery_20260825.llvm_queue.APX, candidates.stagea_llvm_apx_prefix_pressure_paretodp_initial, role_threads.candidate_execution_lane_3]
+
+rules_and_skills:
+  role_rule: {path: rules/ROLE_CANDIDATE_OWNER.md, sha256: 880008B9B042D29198B1A8941E8FB7DB2212181675718DA99BEF7BDF95F1A3C5}
+  soft_blocker_recovery: {path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74}
+  resource_localization: {path: rules/RESOURCE_LOCALIZATION.md, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+  artifact_lifecycle: {path: rules/ARTIFACT_LIFECYCLE.md, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6}
+  academic_skill: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  experiment_workflow: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/experiment-agent/WORKFLOW.md, sha256: 389747B305FFA4160D1B2CEAF97B98A61EF9583CD45C473EFED5B4B414E27889}
+  code_runner_reference: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/experiment-agent/agents/code_runner_agent.md, sha256: E50C1303EBCB451304D427CE063651AF5D6FA5AB9CC9249E399353714B8BBFE1}
+
+templates: {bootstrap_ack: {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}, stagea_report: {path: templates/STAGEA_REPORT.md, sha256: DF9AA27111D303600FD4C7F81DEB1FF52FFD6C308973D33B8A9EC59CA4542D7F}, resource_inventory: {path: templates/RESOURCE_INVENTORY.yaml, sha256: E859CE19DC3EB906EF391B1D8039E7B02A762EB74D7421454E40BB4539FEEEC7}}
+
+assignment_control:
+  base_context: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/ASSIGNMENT_CONTEXT.yaml, sha256: 25B66A5E76CE61AC1ADB185A91B6A4E9B707FA7FB0C3BBC0C134403F43F37D9D}
+  base_control: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/control/ASSIGNMENT.yaml, sha256: 3207D5769AB75D631BC0BCE5DAE5B041C4F6B5D6D886ED914422529CE3C23748}
+  a1_addendum: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/A1_POWERSHELL_CMDLET_TOKENIZATION_ADDENDUM.yaml, sha256: 91ED1CA1694B5F9D540C7CCC3A87A6A7BC03E5F0F8A90DB811477DE3D1AD57C5}
+
+minimum_inputs:
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/A1_ACK.pass1_superseded.yaml, sha256: FA78AF3019C33BE32A2A0E09FD2BD4EDF42D66CBD243C101E7B3F7170C27BB5C, purpose: PASS1_REFUSE_DUPLICATE_AND_PIVOT_DRIFT_EVIDENCE}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/MAINLINE_HANDOFF_ACCEPTANCE.yaml, sha256: 99640395784E4D3864766296B07C1295D7ABE48CC9D1CB7C9F54F248ABFBF78B, purpose: BASE_SOFT_BLOCKER_ACCEPTANCE}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/handoff.yaml, sha256: 80EA712A49411426A270DBF2B22DAC42D470BD248B89C5F812C798C796A8189B, purpose: BASE_CANONICAL_HANDOFF}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/HASH_MANIFEST.sha256, sha256: 5B417F27455B24A8EBA56D89F336CDCF3BFEB7DE9102C5915591EE35847E1360, purpose: BASE_CANONICAL_MANIFEST}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/C3_WRAPPER_FAILURE_RAW.txt, sha256: FF37D7B2A111D5B68BDFF4A7409F32AAD9009445BA54215ADDF698F1362C75EF, purpose: EXACT_PRELAUNCH_FAILURE}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/CONTROL_COMMAND_PRECOMMIT.yaml, sha256: 6503370AA7E32512EC1F2BE2C159F2A5088CC9CCFFF7ED2AD32F8F85E8D42D6F, purpose: EXACT_C3_TO_C6_COMMAND_CONTRACT}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/ACTION_HANDLER_COVERAGE_AUDIT.yaml, sha256: 0D0A51E4C8D2CC4FFB504E5C39A482D24011A0EA8D5C9A9D177408131C3A3564, purpose: REUSED_C2_PASS}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/IMPLEMENTATION_FREEZE.yaml, sha256: 70073CFA3A685427CE1F46A46DAC03834DD1B89714F500C45989BF24E1EC403A, purpose: FROZEN_SOURCES}
+
+current_status: {assignment_state: A1_BOOTSTRAP_REACK_PENDING__REGISTRY_DUPLICATES_REMOVED_AND_PIVOT_ALIGNED, resource_tree_existing_from_base: true, resource_files: 8175, resource_bytes: 512107220, reparse_points: 0, active_related_processes: 0, C0_C1_C2_reused_without_rerun: true, C3_child_started: false, mechanism_pivot_consumed: true, scientific_revision_consumed: false, selected_or_reserve_tool_invocations: 0, claim_bearing_observations: 0, start_authorized_by_mainline: false}
+permissions: {write_scope: ONLY_UNIQUE_WRITE_DIRECTORY, preserve_all_base_evidence: true, corrected_wrapper_attempt_after_start_only: true, project_source_edit_allowed: false, C0_C1_C2_rerun_allowed: false, selected_or_reserve_tool_invocations_allowed: false, natural_or_claim_allowed: false, scientific_revision_allowed: false, second_pivot_allowed: false, owner_cleanup_allowed: false, stageb_allowed: false}
+budgets: {network_bytes_max: 0, project_source_edit_transactions_max: 0, wrapper_correction_attempts_max: 1, C3_child_attempts_max: 1, remaining_control_child_processes_max: 6, automatic_retry: false, selected_or_reserve_tool_invocations_max: 0, claim_bearing_runs_max: 0}
+forbidden_actions: [ANY_ACTION_BEFORE_ACK_ACCEPTANCE_AND_A1_START, DELETE_OR_OVERWRITE_BASE_EVIDENCE, RERUN_C0_C1_C2, CHANGE_CONTROL_COMMAND_PRECOMMIT_OR_PROJECT_SOURCE, USE_ALTERNATE_C3_ARGV_OR_INTERPRETER, SECOND_PIVOT_OR_SCIENTIFIC_REVISION, SELECTED_RESERVE_TOOL_NATURAL_CLAIM_STATE_CLEANUP_OR_STAGEB, RETRY]
+
+bootstrap_instructions:
+  read_order: [AGENTS.md, plan.md, THIS_A1_CONTEXT, ROLE_CANDIDATE_OWNER, AUTONOMOUS_SOFT_BLOCKER_RECOVERY, RESOURCE_AND_LIFECYCLE, ACADEMIC_SKILL_AND_EXPERIMENT_WORKFLOW, TEMPLATES, A1_ADDENDUM, MINIMUM_INPUTS, FULL_REGISTRY_AND_RELATED_DUAL_READ]
+  bootstrap_only: true
+  unique_ack_path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/A1_ACK.yaml
+  ack_must_confirm: [CWD_E_ROOT, THREAD_MAPPING, ALL_HASHES_STATUS_PERMISSIONS, BASE_50_OF_50_UNCHANGED, C3_CHILD_NEVER_STARTED, INVALID_AND_VALID_CMDLET_TOKEN_SEQUENCES, C3_TO_C6_OUTPUT_ABSENCE_AND_REUSE_BOUNDARY, ZERO_SELECTED_CLAIM_SCIENCE, DIFFERENCES_EMPTY, A1_ACTION_STARTED_FALSE]
+  ready_condition: ALL_MATCH
+  refuse_condition: ANY_DIFFERENCE_OR_DRIFT
+
+resume_point: PRESERVE_PASS1_REFUSE_BYTE_EXACT_THEN_WRITE_FULL_NEW_A1_ACK_ONLY_AND_WAIT_FOR_MAINLINE_ACCEPTANCE_AND_A1_START
+next_action_after_start: PRESERVE_BASE_THEN_EXECUTE_EXACT_WRAPPER_CORRECTION_AND_A10_A16
+user_gate: NONE_UNLESS_HARD_EXTERNAL_OR_USER_GATE

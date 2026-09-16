@@ -1,0 +1,39 @@
+schema: cvc5-stagea-safe-resource-recovery-contract-v1
+assignment_id: SAFE-RECOVERY-L1-20260815-CVC5-RESUME4
+topic_id: CVC5-ALETHE-SHAREMAP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+mode: RESOURCE_AND_NON_CLAIM_BEARING_SMOKE_ONLY
+write_directory: stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery
+resource_authorization: RESOURCE_AUTHORIZATION_FREEZE.yaml
+resource_inventory: RESOURCE_INVENTORY.yaml
+
+exact_object:
+  carcara_release: 1.1.0
+  carcara_commit: 5d817d86bd18ea2a850a580d602f17f36959ee99
+  rust: 1.72.0-x86_64-pc-windows-gnu
+  source_patch: FORBIDDEN
+  cargo_lock_patch: FORBIDDEN
+  build: cargo build --release --locked -p carcara-cli
+
+resource_gate:
+  route: OFFICIAL_PORTABLE_MSYS2_MINGW64_GCC
+  provenance_hash_license: REQUIRED
+  c_link_smoke: REQUIRED
+  rust_gnu_link_smoke: REQUIRED
+  clean_build_attempts_max: 1
+  carcara_version_help_smoke: REQUIRED_IF_BINARY_EXISTS
+  stock_checker_smoke: REQUIRED_IF_BINARY_EXISTS
+
+scientific_boundary:
+  resource_ready: false
+  existing_frozen_preclaim_gate_may_follow_resource_pass: true
+  claim_bearing_corpus_allowed: false
+  claim_bearing_observation: false
+  scientific_revision_consumed: false
+  scientific_pass_or_stop_allowed: false
+  stageb: false
+
+failure_policy:
+  decision: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+

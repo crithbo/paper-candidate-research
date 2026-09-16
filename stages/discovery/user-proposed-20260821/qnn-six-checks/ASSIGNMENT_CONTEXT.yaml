@@ -1,0 +1,62 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+generated_at: 2026-08-23T18:10:36+08:00
+context_mode: DUAL_READ_SHADOW
+mainline_task_or_contact: 01a02e08-06de-7281-89ab-eb4965cccc92
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_ACTION
+thread_mapping: {new_thread_id: 01a02e08-0dca-7291-9b4c-ae4e2720c9a3, old_thread_id: 019fc62c-b47a-7b73-9e3a-6c0c6461f7a9}
+identity:
+  lane_id: DISCOVERY-S1
+  role_id: DISCOVERY
+  assignment_id: DISCOVERY-S1-20260821-USER-QNN-SIX-INTERFACE-CHECKS
+  topic_id: QNN-KV-HANDOFF-CLOSURE
+  stage_or_mode: PRE_STAGE0_RESOURCE_CHECK_BLOCKED
+  status: BLOCKED_USER_ACTION_REQUIRED__BRANCH_D_INTERFACE_OR_RESOURCE_BLOCKED__NO_SCIENTIFIC_INFERENCE
+  resume_point: WAIT_FOR_SUPPORTED_DEVICE_OR_PAIRED_512_4096_ARTIFACTS_AND_READ_ONLY_INTERFACES
+  next_action: WRITE_BOOTSTRAP_ACK_THEN_WAIT_WITHOUT_RESUMING_CHECKS
+  source_assignment_path: stages/discovery/user-proposed-20260821/control/DISCOVERY_S1_QNN_SIX_CHECKS_ASSIGNMENT.yaml
+  source_assignment_sha256: 06F4560F71FFDF5F5054CF145EFD4D4A73CA1D7E0F51612D9E4C6CB5C205CCF5
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: null
+  user_approval_ids: [USER_EXPLICIT_QREFINE_PATCHYIELD_STAGE0_AND_QNN_SIX_CHECKS_20260821]
+  allowed_actions: [read_context, write_bootstrap_ack]
+  forbidden_actions: [resume_interface_checks, search, download, build, experiment, propose_stage0, change_topic_state]
+  forbidden_inputs: [unsupported_device_proxy, synthetic_512_4096_outputs, private_or_credentialed_material]
+boundaries:
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/discovery/user-proposed-20260821/qnn-six-checks
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/discovery/user-proposed-20260821/qnn-six-checks/resources
+  read_only_paths: [stages/discovery/user-proposed-20260821/qnn-six-checks/handoff.yaml]
+  write_allowed_paths: [stages/discovery/user-proposed-20260821/qnn-six-checks/BOOTSTRAP_ACK.yaml]
+  network_allowed: false
+  experiment_allowed: false
+  state_transition_allowed: false
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 665A557A6C8AD8030F97B1767D06B500D658674681FFBF021A276C5B31DBC61B}
+  plan: {path: plan.md, sha256: BFC72BAB2492AB44330EC6091E4159944D750D437AC4FACE323BA2FFDC593A9C}
+  registry_snapshot: {path: registry.yaml, sha256: 7E0199903CF4C2105F2444A2E07F230437835A6A3CFABE228041FF7C978E7DA2}
+  role_rule: {path: rules/ROLE_DISCOVERY.md, sha256: 80906D40E43835007D99B571FACB1F52D8B0A66C085C2220F46AA19E961E8CB1}
+  conditional_protocols: []
+  skills:
+    - {name: research-topic-discovery, path: .agents/skills/research-topic-discovery/SKILL.md, sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2, mode: BLOCKED_NO_EXECUTION}
+  templates:
+    - {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+minimum_inputs:
+  - {path: stages/discovery/user-proposed-20260821/qnn-six-checks/handoff.yaml, sha256: 26845FBBEBCC2F8946ABF5D69A7562B368B8FD762A3B0238C4AADAAF7BAED386}
+expected_outputs: [BOOTSTRAP_ACK.yaml]
+budget: {network_bytes: 0, experiment_runs: 0}
+claim_ceiling: NO_STAGE0_CLAIM__RESOURCE_BLOCKED
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_revision: {allowed_total: null, consumed: 0, remaining: null, exceptional_revision_authorized: false}
+mechanism_pivot: {allowed: null, consumed: 0, remaining: null}
+identity_and_collision: {exact_identity_digest: QNN_KV_HANDOFF_512_4096_SIX_INTERFACE_CHECKS, terminal_identity_digest: null, current_collision_digest: UNRESOLVED_RESOURCE_BLOCKED, terminal_stop_non_revival_asserted: true}
+user_and_blocker_state:
+  user_action_required: true
+  blocker_state: SUPPORTED_DEVICE_OR_PAIRED_512_4096_ARTIFACTS_AND_READ_ONLY_DESCRIPTOR_BINDING_TRACE_INTERFACE_REQUIRED
+  blocker_packet_path: null
+  resource_policy_path: rules/RESOURCE_LOCALIZATION.md
+  resource_policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+stop_and_escalation_conditions: [any_attempt_to_resume_without_user_resource, any_scientific_inference_from_resource_absence]
+handoff_requirements: [ack_only, preserve_branch_d_blocker_and_no_scientific_inference]
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: PASS__QNN_BLOCKER_MATCH, result: PASS__ACK_REQUIRED_NO_START_AUTHORITY}

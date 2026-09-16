@@ -1,0 +1,25 @@
+schema: rvv-r5c-a2-negative-controls-v1
+result: FAIL_CLOSED_AGGREGATION_ORDER_ONLY
+required_count: 12
+individual_controls_true: 12
+graph_controls_path: resources/logs/r5c_a2/graph-negative-controls.json
+graph_controls_sha256: B5683813CE2D0AFF7C33AA7AA8DAA4EE37D96539702184CD57CD35930B2A94E6
+cases:
+  MISSING_LEAF: true
+  UNKNOWN_PARENT: true
+  CROSS_CLASS_OR_LMUL: true
+  CYCLE: true
+  ORPHAN_DESCENDANT: true
+  MULTIROOT_DESCENDANT: true
+  MISSING_SPILL: true
+  MISSING_RELOAD_OR_FUTURE_USE: true
+  MUTATED_TRANSITIVE_GRAPH_HASH: true
+  MUTATED_FUTURE_ACTION_OR_COST_SIGNATURE: true
+  F4_WITHOUT_CLOSURE: true
+  F5_WITH_MUTATED_CLOSURE: true
+aggregator_check:
+  values_all_true: true
+  exact_list_order_equal: false
+  reason: GRAPH_CONTROL_JSON_WAS_WRITTEN_WITH_SORT_KEYS_TRUE_AND_RELOADED_IN_ALPHABETICAL_ORDER
+canonical_gate_pass: false
+scientific_inference: NONE

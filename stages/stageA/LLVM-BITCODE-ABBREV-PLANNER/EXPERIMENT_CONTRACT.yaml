@@ -1,0 +1,88 @@
+schema: llvm-bitcode-abbrev-stagea-contract-v1
+frozen_at: 2026-08-09T22:00:00+08:00
+assignment_id: STAGEA-L3-20260809-LLVM-BITCODE-ABBREV-PLANNER-INITIAL-V8.7
+stage: STAGEA_RISK_PILOT
+claim_ceiling_positive: PRELIMINARY_SUPPORT
+preclaim_gate_required: true
+claim_bearing_run_allowed_before_gate_pass: false
+exact_object:
+  input: pinned LLVM Module plus frozen expanded semantic block-record trace
+  output: one ordinary raw native LLVM bitcode file
+  invariants:
+    - pinned unmodified native reader accepts
+    - canonical decoded IR equality
+    - opt verification passes
+    - expanded semantic record values and order identical
+  allowed_changes:
+    - legal abbreviation grammar
+    - legal BLOCKINFO or immediate-block definition scope and order
+    - induced abbreviation IDs and block code width
+    - unchanged-record assignment or UNABBREV fallback
+  forbidden_changes:
+    - IR or semantic record change
+    - record reorder omission split or merge
+    - module split or merge
+    - alternative codec or nonnative reader
+    - external compression as primary objective
+version_boundary:
+  cutoff_current_source_mirror_commit: de8cb593bcdf9dfeda7be674410e9a3ffbd53fd2
+  cutoff_current_source_git_origin_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+  executable_native_release_tag: llvmorg-22.1.8
+  executable_native_release_commit: ca7933e47d3a3451d81e72ac174dcb5aa28b59d1
+  rule: all B0-B3 and candidate executable arms use exactly the release toolchain; current-main source is absence-audit evidence only
+candidate:
+  name: WIDTH_LADDER_SHARED_LOCAL_DYNAMIC_PROGRAM
+  short_name: WL-SLDP
+  contribution_route: N2
+  bounded_grammar_rule: literal record code plus legal Fixed/VBR/Array/Blob operands inferred from unchanged records; candidate cap and width ladder frozen per block stratum
+  guarantee_target: exact optimum over the preregistered bounded grammar family by enumerating code-width ladders and shared dictionaries, with per-instance local-subset and record-assignment dynamic programming
+  coupled_decisions:
+    - grammar construction
+    - shared BLOCKINFO versus immediate local scope
+    - legal definition order
+    - unchanged record assignment and UNABBREV fallback
+    - abbreviation-ID/code-width step cost
+baselines:
+  B0: complete pinned native WriteBitcodeToFile behavior with matched trace-affecting flags
+  B1: exact current-grammar subset scope and assignment oracle on the same expanded trace
+  B2: greedy full bounded planner using the same grammar bounds and exact net-bit ledger
+  B3: exact small-instance ceiling only; not a deployable baseline
+negative_control:
+  BCDB: same native-format/reader direct subtractor for external-compression objective; non-claim-bearing for raw-byte objective
+metrics:
+  primary:
+    - raw pack-independent ordinary bitcode bytes including all metadata and alignment
+    - fixed cold and warm native read wall and CPU time
+  full_cost:
+    - trace extraction CPU wall peak RSS
+    - grammar generation CPU wall peak RSS
+    - planning CPU wall peak RSS and explored states
+    - native file write CPU wall peak RSS
+    - strict parse canonical equality opt verify CPU wall peak RSS
+    - candidate definition count fallback count and each code-width transition
+  summaries: [p50, p90]
+natural_corpus:
+  target_count: 100
+  source: official LLVM Test-Suite 22.1.8 source archive
+  selection: deterministic path-hash ordering of distinct public compilation units; one module per source; reject duplicate module hashes before claim-bearing run
+  strata: [source_language, source_size_quartile, optimization_level, debug_information]
+  shrink_rule: may shrink only before claim-bearing execution to a preregistered statistically honest set that still decides retained action coverage at 10 percent
+small_witness:
+  required: true
+  must_cross_ID_width_step: true
+  claim_bearing: false
+stop_rules:
+  - any expanded-trace native-parse canonical-equality or opt-verify failure
+  - all actions or benefits absorbed by B1 or B2
+  - mechanism collapses to schema patch flag sweep local heuristic emitter-only patch or postprocessor
+  - retained residual natural action coverage below 0.10
+  - no executable non-dominated point on raw bytes plus full cost at p50 and p90
+  - planning or verification costs consume the preregistered benefit
+resource_envelope:
+  workspace_bytes_max: 4294967296
+  cpu_hours_max: 4
+  gpu: false
+  exclusive_device: false
+stageb_user_approval_id: null
+stageb_authorized: false
+

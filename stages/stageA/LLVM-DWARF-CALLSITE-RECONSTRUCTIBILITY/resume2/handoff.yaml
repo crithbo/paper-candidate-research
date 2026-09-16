@@ -1,0 +1,89 @@
+schema: stagea-candidate-owner-handoff-v1
+topic_id: LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+assignment_id: STAGEA-L3-20260815-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-RESUME2-NONSECURITY-CORPUS
+stage: StageA
+owner_result:
+  recommendation: BELOW_Q2_STOP
+  tier: BELOW_Q2_STOP
+  finality: OWNER_RECOMMENDATION_ONLY
+  confidence: 0.94
+  evidence_ceiling: STAGEA_DIRECTIONAL_RISK_PILOT_ONLY
+  decisive_killer: NATURAL_CORPUS_HAS_NO_NONTRIVIAL_BOUNDARY_AFTER_THE_GATE
+  rationale: ONE_OF_30_GAIN__ONE_OF_18_EXECUTABLE_GAIN__P50_ZERO__P90_ZERO
+continuity:
+  preclaim_gate: HASH_VERIFIED_RESUME1_PASS
+  preclaim_gate_sha256: 927E53B1F168F50F4E5E2551D5F29A76BE5300891DC2264A04EB461FD7571B4A
+  current_union: HASH_VERIFIED_READ_ONLY_REUSE__NOT_RERUN
+  current_union_result_sha256: CEAA705F518B885BB59CAE1D4F1DF2FE251A7E08D8E4432D4570CBFDAB122B96
+  current_union_arms: 3072
+  current_union_successes: 3072
+  current_union_reconstructible_arms: 0
+natural_observation:
+  frozen_denominator: 30
+  natural_freeze_sha256: 373D25F5238185F82B51225B00BA8058483CC44C9AD9AC27828D8AA23F7477EA
+  accepted_native_gains: 1
+  executable_zero_gain: 17
+  native_baseline_roundtrip_or_writer_failures: 11
+  frozen_mapper_or_fidelity_inapplicable: 1
+  gain_fraction_all_30: 0.03333333333333333
+  gain_fraction_executable_18: 0.05555555555555555
+  gain_p50_all_30: 0
+  gain_p90_all_30: 0
+  gain_p50_executable_18: 0
+  gain_p90_executable_18: 0
+sole_positive:
+  site_index: 2
+  input: n02_crtbegin.bc
+  function: __do_fini
+  atomic_mapping: PERCENT3_TO_RBX_TO_RDI
+  native_machine_verifier: PASS
+  native_dwarf_verify: PASS
+  native_unwind_reader: PASS
+  executed_behavior: PASS__3_WARMUPS_AND_30_REPEATS_PER_ARM__ALL_EXIT_ZERO
+  reconstructible_parameter_delta: 1
+  object_bytes_delta: 16
+  text_bytes_delta: 0
+  debug_payload_bytes_delta: 16
+  debug_relocation_bytes_delta: 0
+  eh_frame_bytes_delta: 0
+  baseline_object_sha256: D6C1B72A8710E17150AEFA528821778F2B5B9E6EA3E88741CA74923AA6787ACC
+  candidate_object_sha256: D22F56036792FBCC1089A22A674BD37E1CB92917135CEE8F494F63CC9AFE4672
+full_cost:
+  object_bytes_delta_p50_p90: [0, 16]
+  text_bytes_delta_p50_p90: [0, 8]
+  debug_payload_bytes_delta_p50_p90: [0, 16]
+  writer_wall_seconds_delta_p50_p90: [0.0001388000000588363, 0.004506199999013916]
+  reader_wall_seconds_delta_p50_p90: [-0.002394649998677778, 0.011628600004769396]
+  planner_wall_seconds_p50_p90: [0.0008018000007723458, 0.0037985999988450203]
+  canonical_process_cpu_seconds: 8.328125
+  canonical_summed_nonoverlap_child_and_planner_wall_seconds: 10.919263100004173
+  native_cycle_latency: UNOBSERVED__DO_NOT_IMPUTE
+  behavior_replay_latency: CONTROL_ONLY_BLINK_WALL_TIME__NOT_NATIVE_CYCLES
+integrity:
+  initial_and_resume1_modified: false
+  union_rerun: false
+  excluded_corpus_read_or_enumerated: false
+  network_acquisition: false
+  installation_or_global_environment_change: false
+  scientific_revision_consumed: false
+  invalidated_runs_support_science: false
+  resource_inventory_result: PASS
+  resource_logical_bytes: 63572241
+claim_critical_hashes:
+  resume1_evidence_reuse: 84824F2B0100AE4E73350EE418B25E3614D83A92F5B5BCEC4FB6FF065962C16C
+  natural_corpus_results: ECC73BF2603EBAD24C77578037ED5C1D53F8FE9E08861BAFA3445709145474F5
+  site02_executed_behavior: 54E9464347646AEA4C49E344923C2273C3FEA79A06DB439163949F8201703DEC
+  full_cost_ledger: 860712DFB7C3BB210665B2BAB9890951661DAC3AE91EBF8C51D2A1AE535A1336
+  q1_comparator_matrix: DAE31EDBEC7B6DC7CB8367FA5A9668EAE54E6E199C7FD7B0106F6E47F51A5448
+  results: 9C975741B4A5FDFCFBBE461CC2247FB615D4F23847909D8AC603F5B51D366E7A
+  stagea_report: 6A3DE49F8988F39C1B9FE5DCF9BAA25BFD71CB4348B81048941567EC0890323C
+  resource_inventory: 4D43A3799FBDD2356E13510CBA1DEB550BE1A321D9F1B24B5CC7CCAFE3043E76
+  command_log: 9D944FF231362EF890879A169FAC481F2B568ABD1E08D58B445A8BBCE66B7E1E
+next_action:
+  user_action_required: false
+  route_to: INDEPENDENT_STAGEA_GATE
+  only_independent_gate_pass_counts_toward_target: true
+  stageb_authorized: false
+lane_release:
+  state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE
+  do_not_pre_read_queued_topics: true

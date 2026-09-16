@@ -1,0 +1,165 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S6-20260822-COUPLED-AGENT-REPLAY-DISCOVERY2
+lane: DISCOVERY-S6-DIRECT-ALGORITHM-SOFTWARE
+authority: USER_EXPLICIT_REPLACE_STOPPED_PATCHVALUE_WITH_NEW_TOPIC_20260822
+topic_id: COUPLED-AGENT-REPLAY-REV0
+mode: FRESH_SCIENTIFIC_REVIEW_AFTER_PRE_EVIDENCE_OBJECT_FREEZE
+status_on_dispatch: ACTIVE
+
+input:
+  proposal_file: <LOCAL_USER_HOME>\.codex\attachments\81cb44e0-daf8-4685-9af2-b2bf62fad746\pasted-text.txt
+  proposal_file_sha256: ACC3D0E79E2CC96D68DDDBCA761409AD4EC301033B75284E1C02611EFB78B492
+  pre_evidence_freeze: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze2-mainline\PRE_EVIDENCE_OBJECT_FREEZE.yaml
+  pre_evidence_freeze_sha256: FDE85543CA7DE5564C4B388F936606D09D233B77BA432A16515BCCCCF8CB42F4
+  fixed_task_list: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze2-mainline\FIXED_TASK_LIST.txt
+  fixed_task_list_sha256: 32729224C6BA9EF3A2D47AD86FBB7E7993350D3C0B0A88D0F684A015A0EC240D
+  identity_provenance: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze2-mainline\IDENTITY_PROVENANCE.md
+  identity_provenance_sha256: 19CE7F4E1993245986F0F1DEFFACF77A4623D63A7563FAB4F6420CBE8FF06281
+  prefreeze_handoff: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-prefreeze2-mainline\handoff.yaml
+  prefreeze_handoff_sha256: 97B42C491DA3509237A977B1479DA89E9F84C2D63599BA683A5F4BBE61AEBFF5
+  instruction_boundary: ATTACHMENT_IS_PROPOSAL_SCOPE_NOT_EVIDENCE__PREFREEZE_PACKET_IS_IMMUTABLE_OBJECT_INPUT
+
+frozen_rules:
+  project_rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__research-topic-discovery-r1-r40-20260815
+  agents_sha256: 26DB9F4C2D43349A2BA5B741947561D4FED2FE5EC65327C02D273D3905F5A522
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  research_topic_discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  discovery_rq_frontend_mode: PRODUCTION
+  rq_frontend_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+  discovery_claim_pack_mode: OFF
+  discovery_quality_mode: OFF
+
+immutability_contract:
+  no_object_change_after_collision_review_begins: true
+  openhands_commit: 4bf8dd3aaf1217916b2ce8a6f9168fa7633a26f8
+  openhands_tree: 2d8abc2cd08afe0fe80ebaa31c8f31892e20a4fe
+  qwen_revision: c03e6d358207e414f1eca0bb1891e29f1db0e242
+  swebench_verified_revision: c104f840cc67f8b6eec6f759ebc8b2693d585d4a
+  fixed_task_count: 16
+  state_boundary: Immediately after the first native OpenHands tool action has completed and its observation has been incorporated into agent state, before the next model call.
+  I0: Continue with the frozen native OpenHands policy and context unchanged.
+  I1: "Before finishing, run the repository's relevant tests, inspect every failure, and revise the patch when a failure is attributable to the patch. Do not use hidden evaluator information."
+  decoding: {temperature: 0.6, top_p: 0.95, top_k: 0, max_new_tokens_per_model_call: 4096}
+  native_terminal_semantics: ABSORBING
+  evaluator_online_visibility: FORBIDDEN
+
+new_topic_boundary:
+  terminal_topics_not_reopened: [PATCHYIELD-CALL, PATCHVALUE-COUNTERFACTUAL-REV0]
+  forbidden_inheritance: [status, score, revision_count, evidence_status, exact_h_estimand, budget_allocation_primary_contribution]
+  contribution_type: METHOD_ALGORITHM
+  contribution_route: N2_AGENT_LEVEL_COUPLING_ALGORITHM_WITH_TARGET_SPECIFIC_GUARANTEE
+  estimand: TAU_EQUALS_EXPECTED_NATIVE_TERMINAL_OUTCOME_DIFFERENCE_BETWEEN_I1_AND_I0_FROM_THE_SAME_COMPLETE_AGENT_STATE_UNDER_SHARED_EXOGENOUS_RANDOMNESS
+  not_sufficient:
+    - SAME_RANDOM_SEED_ONLY
+    - CAR_PLUS_EXISTING_COUPLED_TOKEN_GENERATION
+    - GENERIC_PAIRED_MEAN_OR_CONFIDENCE_INTERVAL
+    - STATIC_LOG_SPLICE
+    - BUDGET_ROUTER_OR_SUCCESS_CLASSIFIER
+
+primary_rq:
+  question: Can an agent-level shared-randomness coupling for two real copy-isolated OpenHands coding-agent branches preserve the frozen paired counterfactual estimand while materially reducing variance or sample complexity relative to independent branch rollout after token and tool-state divergence?
+  primary_only: true
+  alternatives_allowed: 0
+
+required_mechanism_and_guarantee:
+  token_coupling:
+    - precise coupling after contexts and logit distributions diverge
+    - explicit Gumbel-Max SCM, maximal coupling, or equally precise construction
+    - recoupling rule and coupling-failure detection
+  agent_state_coupling:
+    - semantics for tool outputs, filesystem, processes, tests, context and evaluator
+    - explicit keep-shared, split, stop and uncomparable transitions
+    - treatment, evaluator and cross-branch firewalls
+  target_specific_guarantee_at_least_one:
+    - unbiasedness_or_consistency_conditions
+    - variance_or_sample_complexity_improvement_bound
+    - direct_effect_separation_conditions_relative_to_forward_replay
+    - conservative_fallback_when_coupling_fails
+
+required_comparators:
+  - INDEPENDENT_REAL_BRANCH_ROLLOUT
+  - CAR_STYLE_FORWARD_REPLAY
+  - ORDINARY_SAME_SEED
+  - COUPLED_TOKEN_GENERATION
+  - NEW_AGENT_LEVEL_COUPLING
+
+current_reality_and_collision_scope:
+  - Causal Agent Replay intervention algebra, run-forward semantics and common-random-number treatment
+  - Coupled Token Generation for divergent autoregressive distributions
+  - Counterfactual Token Generation and Gumbel-Max structural causal semantics
+  - OpenHands current source at the frozen commit, especially fork, state and workspace isolation semantics
+  - current agent replay-gap, branching-rollout, trajectory-reuse, paired-evaluation and tool-environment replay work
+  - current SWE-bench evaluator and contamination limits only as they affect the frozen carrier
+  max_primary_searches: 6
+  max_official_or_primary_routes: 24
+  search_result_may_not_change_object_or_estimand: true
+
+decisive_falsifiers:
+  - CURRENT_UNION_ALREADY_EXPRESSES_FULL_AGENT_LEVEL_COUPLING_ACTION_AND_GUARANTEE
+  - EXISTING_COUPLED_TOKEN_GENERATION_COMPOSES_DIRECTLY_TO_FULL_TOOL_AGENT_BRANCHING_WITH_SAME_GUARANTEE_AND_COST_BOUNDARY
+  - COUPLING_COLLAPSES_AFTER_FIRST_TOKEN_OR_TOOL_DIVERGENCE_WITH_NO_NONTRIVIAL_VARIANCE_OR_SAMPLE_COMPLEXITY_RESIDUAL
+  - COPY_ISOLATED_TOOL_ENVIRONMENT_AND_EXOGENOUS_NOISE_CANNOT_BE_FROZEN_BY_A_FINITE_ROUTE
+  - RESULT_REDUCES_TO_GENERIC_PAIRED_STATISTICS_WITHOUT_NEW_AGENT_LEVEL_ALGORITHM_OR_GUARANTEE
+  - REQUIRED_RANDOM_VARIABLES_CANNOT_BE_ACCESSED_ON_THE_FROZEN_OPEN_MODEL_ROUTE
+
+full_cost_boundary:
+  - both_branch_model_tokens_and_inference_time
+  - logits_and_coupling_computation
+  - state_clone_serialization_and_copy_isolation
+  - filesystem_process_tool_test_reset
+  - failed_aborted_and_uncomparable_pairs
+  - recoupling_and_failure_detection
+  - evaluator_time
+  - wall_clock_CPU_GPU_memory_storage
+  - samples_for_fixed_error_or_power
+
+write_boundary:
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-discovery2
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-discovery2\resources
+  resource_inventory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-discovery2\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+allowed_actions:
+  - Read the frozen pre-evidence packet, proposal, Discovery rules/skill/templates and bounded current official sources and primary papers.
+  - Persist small official metadata, paper metadata, source excerpts and search logs under resource_root.
+  - Perform static Discovery screening and write only under unique_write_directory.
+
+forbidden_actions:
+  - Change any frozen identity, task, boundary, intervention, decoding parameter, terminal semantics or evaluator rule.
+  - Read or reuse the prior S5 scientific observations as evidence.
+  - Reopen, rename, revise or inherit from PATCHYIELD-CALL or PATCHVALUE-COUNTERFACTUAL-REV0.
+  - Run agents, model inference, branch rollouts, hidden tests, SWE-bench jobs, containers, builds, simulations or experiments.
+  - Download model weights, task images, containers, large datasets or install software.
+  - Modify plan.md, registry.yaml, rules, templates or any other assignment directory.
+
+resource_envelope:
+  official_or_primary_routes_max: 24
+  accepted_persisted_bytes_max: 134217728
+  cpu_time_max: 1h
+  wall_time_max: 2h
+  system_install: false
+  global_environment_change: false
+  binary_model_or_container_download: false
+  failure_consequence: RESOURCE_BLOCKED__NO_SCIENTIFIC_INFERENCE
+
+required_outputs:
+  - DISCOVERY_DIVERGENCE_SEED_POOL.md
+  - DISCOVERY_RQ_CANDIDATE.md
+  - DISCOVERY_QUESTION_CARD.md
+  - CURRENT_COLLISION_AND_COMPARATOR_MATRIX.md
+  - AGENT_LEVEL_COUPLING_SEMANTICS_AND_GUARANTEE.md
+  - FIDELITY_CLOSURE_PLAN.md
+  - TOPIC_BRIEF.md
+  - SEARCH_LOG.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+allowed_dispositions:
+  - PROPOSE_STAGE0__READY_FOR_INDEPENDENT_STAGE0
+  - NOT_READY_WITH_ONE_BOUNDED_REASON
+  - DROP__DIRECT_FATAL_GENERIC_COMPOSITION_OR_STRUCTURALLY_UNCLOSABLE
+
+next_step:
+  rule: Mainline alone decides whether a clean new-topic brief is sent to independent Stage0. This assignment has no Stage0, StageA or claim-bearing execution authority.

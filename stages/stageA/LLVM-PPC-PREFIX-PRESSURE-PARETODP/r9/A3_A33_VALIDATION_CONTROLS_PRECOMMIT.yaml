@@ -1,0 +1,25 @@
+schema: ppc-r9-a3-a33-validation-controls-precommit-v1
+created_at: 2026-08-26T09:35:00.5621574+08:00
+auditor: {path: resources/src/replay_equality_auditor/structured_replay_auditor.py, sha256: FD5C3E257AA6E29036A53DCE4737BC6005FCE5FAC549469613AFFE81F2C32F17}
+left_retained_root: resources/build/a2_replay_1
+right_retained_root: resources/build/a2_replay_2
+fixture_root: resources/build/a3_auditor_controls
+fixture_root_absent_before_run: true
+summary: resources/build/a3_auditor_controls/controls_summary.json
+cases:
+  - {id: 00_retained_pair, mutation: NONE, expected: PASS}
+  - {id: 01_dynamic_only_mutation, mutation: FROZEN_TIMING_RSS_AND_DERIVED_STRUCTURED_BYTES_HASHES_ONLY, expected: PASS}
+  - {id: 02_deterministic_payload_mutation, mutation: DETERMINISTIC_PAYLOAD_FUNCTION, expected: FAIL}
+  - {id: 03_one_core_raw_byte_mutation, mutation: APPEND_ONE_BYTE_TO_CANDIDATE_OBJECT_FIXTURE, expected: FAIL}
+  - {id: 04_native_checker_status_mutation, mutation: NATIVE_FIRST_CHECK_STATUS, expected: FAIL}
+  - {id: 05_full_cost_deterministic_payload_mutation, mutation: FULL_COST_CANDIDATE_OBJECT_BYTES, expected: FAIL}
+  - {id: 06_command_exit_code_mutation, mutation: COMMAND_01_EXIT_CODE, expected: FAIL}
+total_cases: 7
+separate_fixture_per_mutated_case: true
+retained_roots_modify_delete_or_rerun_allowed: false
+unexpected_result_policy: STOP_NO_EDIT_RETRY_OR_EXCLUSION_CHANGE
+automatic_retry: false
+source_edit_allowed: false
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_runs: 0
+scientific_inference: NONE

@@ -1,0 +1,72 @@
+schema_version: stage0-revision-closing-handoff-v1
+assignment_id: STAGE0-C2R1-20260822-PATCHVALUE-COUNTERFACTUAL-REVISION1-CLOSING
+topic_id: PATCHVALUE-COUNTERFACTUAL-REV0
+lane: STAGE0-CONFIRMATION-SENTRY-D
+status: COMPLETE
+decision: DISAGREE_STOP__FAILURE_SENTINEL_TRIGGERED
+owner_recommendation_reviewed: REVISION_GATE_CLOSED__PASS_RECOMMENDED__PENDING_INDEPENDENT_STAGE0_CLOSING
+quality_tier: BELOW_Q2_STOP
+confidence: 0.91
+evidence_ceiling: E1_STATIC_CERTIFICATE_ONLY__FORMAL_NEGATIVE__NO_CLAIM_BEARING_RESULT
+sole_atomic_gate:
+  id: FROZEN_SAME_STATE_BRANCH_FIDELITY__NONATTRIBUTION_CONTINUATION_VALUE_CERTIFICATE
+  result: NOT_CLOSED
+  conjuncts:
+    C1_CURRENT_NATIVE_FORK_CATALOG: PARTIALLY_ADDRESSED
+    C2_WHOLE_MUTABLE_ENVIRONMENT_SUTVA: NOT_CLOSED
+    C3_TREATMENT_AND_EVALUATOR_FIREWALL: FAIL__FROZEN_EXACT_H_NOT_IDENTIFIED
+    C4_CAR_RESIDUAL_AND_GUARANTEE: FAIL__CAR_RELABEL_AND_GENERIC_MONTE_CARLO_BOUND
+    C5_FINITE_FIDELITY_AND_FULL_COST_KILLER: PARTIALLY_ADDRESSED
+failure_sentinel:
+  id: STOP__CAUSAL_REPLAY_RELABEL_OR_NONIDENTIFIED_BRANCH_EFFECT
+  triggered: true
+  trigger_branches:
+    - NONIDENTIFIED_EXACT_H_TREATMENT__TERMINAL_BEFORE_H_CHANGES_REALIZED_DOSE_TO_BUDGET_CAP_ITT
+    - CAR_RELABEL__GENERIC_DIFFERENCE_IN_MEANS_AND_HOEFFDING_BONFERRONI_WITHOUT_FULL_COST_PARETO_CERTIFICATE
+  not_based_on:
+    - missing implementation
+    - missing empirical result
+    - missing model or hardware
+    - network or transport failure
+    - unexecuted agent or evaluator
+revision_policy:
+  scientific_revision_consumed: true
+  scientific_revision_count: 1
+  scientific_revision_limit: 1
+  second_revision_allowed: false
+  exceptional_revision_recommended: false
+hold_test:
+  applicable: false
+  reason: Frozen treatment mismatch and CAR/generic-bound failure provide direct formal scientific negative evidence; this is not merely unresolved readiness.
+integrity:
+  assignment_sha256: E7936F88CCED2DDFAA6A38D98190ECE3BBEF907DB23D6CFCBE33A00108CADF57
+  revision_handoff_sha256: B8E71202F4EDDEE48E2ECD4869D7253E280C613739D6D5104AC07FE4ACBBDB7E
+  revision_manifest_sha256: 9B41F0F9B4F60714F8F4739C60A8C2460C6DA7765EE476932C220E389D0800F2
+  revision_manifest_validation: 8/8_PASS
+  confirmation_handoff_sha256: 3F0C1F786F2C5FB37E1EF772A9E53F057419A1CD4F1240FAA1047F3C1E633F25
+  confirmation_manifest_sha256: F3C003FBFA1287541635DEA7C2A393458E30AF157694532CF0ED782C49241350
+  confirmation_manifest_validation: 4/4_PASS
+  primary_handoff_sha256: 7D2B39D18820EE840892D2E118A16DCA2B16E94FCD8D509186B5A48EABA8DB4E
+  primary_manifest_sha256: D04BFEFA3C49051A0278B343CACAA73061199ED085F97B50B8F4B7F3215AF60F
+  primary_manifest_validation: 11/11_PASS
+execution_boundary:
+  network_used: false
+  new_resource_bytes: 0
+  experiment_performed: false
+  agent_or_rollout_performed: false
+  model_or_evaluator_performed: false
+  build_performed: false
+stageA_authorized: false
+stageB_authorized: false
+shared_control_write_performed: false
+outputs:
+  - CLOSING_REPORT.md
+  - SOURCE_AND_LOGIC_CHECK.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+next_action:
+  owner: MAINLINE
+  action: Mechanically adjudicate and, if accepted, register scientific Stage0 STOP; do not dispatch StageA/B or a second revision.
+  automatic_stage_transition: false
+lane_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

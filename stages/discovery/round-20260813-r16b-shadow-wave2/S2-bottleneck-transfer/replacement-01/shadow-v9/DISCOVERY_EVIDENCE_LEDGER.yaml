@@ -1,0 +1,27 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S2-20260813-R16B-V9-PROSPECTIVE-SHADOW-WAVE2
+opportunity_family_id: S2-R16B-REPLACEMENT-01
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+cutoff: 2026-08-13
+opportunity_family:
+  canonical_signature: MULTI_FAMILY__SEE_SOURCE_SNAPSHOT
+  relations: [{other_family_id: ORIGINAL_S2_R16B_DUPLICATE_REPLACEMENTS, relation: INDEPENDENT, evidence_ids: [R01, R02]}]
+queries:
+  - {query_id: Q001, text: current KDE KSycoca KService official API cache rebuild lookup, purpose: current producer-reader union, source_or_search_engine: official KDE API, executed_at: 2026-08-13, filters: [first-party], read_depth: SECTIONS, key_result_ids: [R01], exclusions_with_reasons: [no action-absence inference], state_change: C0_DIRECT_COVERED}
+  - {query_id: Q002, text: current libxml2 catalog xmlcatalog official API source actions, purpose: current producer-reader union, source_or_search_engine: official libxml2 API, executed_at: 2026-08-13, filters: [first-party], read_depth: SECTIONS, key_result_ids: [R02], exclusions_with_reasons: [no action-absence inference], state_change: C0_DIRECT_COVERED}
+sources:
+  - {source_id: R01, title_or_artifact: KDE KSycoca and KService API, canonical_version: current API accessed 2026-08-13, locator: https://api.kde.org/ksycoca.html, source_role: CURRENT_FIRST_PARTY, read_depth: SECTIONS, normalized_variants: [KService module], repository_commit_config_or_dataset_hash: API_SNAPSHOT_NOT_COMMIT_PINNED}
+  - {source_id: R02, title_or_artifact: libxml2 catalog API and xmlcatalog, canonical_version: current API accessed 2026-08-13, locator: https://gnome.pages.gitlab.gnome.org/libxml2/html/catalog_8h.html, source_role: CURRENT_FIRST_PARTY, read_depth: SECTIONS, normalized_variants: [xmlcatalog], repository_commit_config_or_dataset_hash: API_SNAPSHOT_NOT_COMMIT_PINNED}
+claims:
+  - claim_id: C01
+    text: Both families are current-union covered or leave only generic packing; V9 has no clean package.
+    priority: HIGH
+    priority_rationale: decision stability
+    source_links: [{source_id: R01, relation: IMPLEMENTS, locator: KSycoca API, evidence_status: DIRECT_OBSERVATION, conflict: none, permitted_conclusion: KDE union covers constructor}, {source_id: R02, relation: IMPLEMENTS, locator: catalog API, evidence_status: DIRECT_OBSERVATION, conflict: none, permitted_conclusion: libxml2 union covers constructor}]
+direct_coverage:
+  target_source_or_union: KDE KService/KSycoca and libxml2 catalog unions
+  predicates: {same_object_function_protocol: true, same_scenario_workload: true, same_or_weaker_information: true, atomic_action_covered: true, same_or_stronger_legality_quality_guarantee: true, same_nonworse_full_cost: UNKNOWN, comparable_scale_platform_version_config: true, sufficient_read_or_reproduction_depth: SECTIONS}
+independent_prior_current_audit: {owner_or_lane: S2 self-audit; mainline reservation independently checks identity, query_ids: [Q001, Q002], completed: false}
+stopping: {high_impact_items_bounded: true, latest_and_current_union_checked: true, first_party_depth_sufficient: true, heterogeneous_independent_path_complete: false, contrary_search_complete: true, natural_or_canonical_carrier_frozen: true, full_cost_frozen: true, marginal_sources_no_longer_decision_changing: true, decisive_contradictions_resolved_or_bounded: true, disposition: DECISION_READY}
+execution_readiness: {state: E1, e1_evidence: [official API and finite natural route], e2_authorization_id: '', e2_allowlist: {}, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: V9 shadow C0; no candidate admission

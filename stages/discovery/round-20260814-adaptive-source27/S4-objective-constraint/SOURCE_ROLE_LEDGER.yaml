@@ -1,0 +1,65 @@
+assignment_id: DISCOVERY-S4-20260814-ADAPTIVE-SOURCE27-ORIGIN-GROUNDED-V1
+retrieval_policy:
+  official_primary_only: true
+  attempts_per_locator_max: 2
+  build_install_experiment: false
+records:
+  - locator: L27-01
+    source_role: ANCHOR
+    url_or_deterministic_rule: https://docs.openml.org/benchmark/
+    selection_rule: official OpenML benchmark-suite documentation, as precommitted
+    version_or_date: accessed 2026-08-14
+    license_or_provenance: OpenML official documentation
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_PERSISTED
+    disposition: ANCHOR_SEMANTICS_CONFIRMED__CONTENT_ADDRESSABLE_SUITE_EXPORT_UNCLOSED
+  - locator: L27-01
+    source_role: CURRENT_UNION
+    url_or_deterministic_rule: https://docs.openml.org/concepts/runs/
+    selection_rule: official current run/schema and reproducibility documentation
+    version_or_date: accessed 2026-08-14
+    license_or_provenance: OpenML official documentation
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_PERSISTED
+    disposition: NATIVE_RUN_UNION_CONFIRMED__EXACT_EXPORT_UNCLOSED
+  - locator: L27-01
+    source_role: CONTRARY
+    url_or_deterministic_rule: https://docs.openml.org/reference/
+    selection_rule: official reference page, distinct from suite/run documentation
+    version_or_date: accessed 2026-08-14
+    license_or_provenance: OpenML official documentation
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_PERSISTED
+    disposition: CONTRARY_CONTEXT__SUITE_MUTABLE_STUDY_OBJECT
+  - locator: L27-02
+    source_role: ANCHOR
+    url_or_deterministic_rule: https://renaissance.dev/resources/docs/renaissance-suite.pdf
+    selection_rule: official Renaissance suite/harness paper linked by source route
+    version_or_date: official suite PDF, accessed 2026-08-14
+    license_or_provenance: Renaissance official website
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_PERSISTED
+    disposition: HARNESS_ANCHOR_CONFIRMED__CURRENT_TAG_UNCLOSED
+  - locator: L27-02
+    source_role: CURRENT_UNION
+    url_or_deterministic_rule: https://github.com/renaissance-benchmarks/renaissance/releases
+    selection_rule: precommitted official release path, latest non-prerelease tag required
+    version_or_date: attempted 2026-08-14
+    license_or_provenance: Renaissance official GitHub repository
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_PERSISTED
+    disposition: BOUNDED_ROUTE_UNCLOSED__BROWSER_AUTH_ERROR
+    note: browser access returned token-expired error; no retry, build, download, or inferred absence.
+  - locator: L27-02
+    source_role: CONTRARY
+    url_or_deterministic_rule: https://github.com/renaissance-benchmarks/renaissance/issues/439
+    selection_rule: official repository issue noting version/JDK compatibility history; contrary context only
+    version_or_date: issue accessed 2026-08-14
+    license_or_provenance: Renaissance official GitHub repository
+    response_bytes_when_observable: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256_when_bytes_persisted: NOT_PERSISTED
+    disposition: CONTRARY_CONTEXT__VERSION_DEPENDENCE_NOT_A_CURRENT_RESULT_ARTIFACT
+ledger_note: >-
+  The runtime did not expose response byte telemetry for browser-backed reads, so it is not estimated.
+  No source bytes were persisted, datasets downloaded, or code executed. Browser authentication failure is
+  bounded retrieval evidence, not a global absence or scientific negative inference.

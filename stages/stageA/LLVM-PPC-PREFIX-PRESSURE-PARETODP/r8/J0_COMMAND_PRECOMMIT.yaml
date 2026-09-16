@@ -1,0 +1,42 @@
+schema: ppc-r8-j0-command-precommit-v1
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+recorded_before_run: true
+automatic_retry: false
+commands:
+  - id: J0_CREATE_STANDARD_RESOURCE_DIRS
+    operation: New-Item -ItemType Directory
+    outputs:
+      - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/downloads
+      - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/archives
+      - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/src
+      - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/build
+      - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/env
+      - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/cache
+      - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/tmp
+      - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/logs
+  - id: J0_COPY_R6_ATTEMPT_1_OF_1
+    operation: Copy-Item -LiteralPath R6_RESOURCE_ROOT -Destination R8_R6_INPUT -Recurse
+    source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r6/resources
+    destination: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/src/r6_input
+    expected_files: 26
+    expected_logical_bytes: 134206
+  - id: J0_COPY_R2_ATTEMPT_1_OF_1
+    operation: Copy-Item -LiteralPath R2_PPC_TOOLCHAIN -Destination R8_PPC_TOOLCHAIN -Recurse
+    source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain
+    destination: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/env/ppc-toolchain
+    expected_files: 133
+    expected_logical_bytes: 244073942
+  - id: J0_HASH_ACCEPT_R6
+    operation: SHA256_EACH_DESTINATION_FILE_AGAINST_R6_HASH_MANIFEST_RESOURCE_ENTRIES
+    expected_entries: 26
+    read_only: true
+  - id: J0_HASH_ACCEPT_R2
+    operation: SHA256_EACH_DESTINATION_FILE_AGAINST_R2_PACKAGE_MANIFEST_PLUS_MANIFEST_SELF
+    expected_manifest_entries: 132
+    expected_total_files: 133
+    read_only: true
+  - id: J0_CREATE_INVENTORY_SNAPSHOT_DIRECTORY
+    operation: New-Item -ItemType Directory
+    output: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/logs/resource-inventory
+forbidden_source_read_or_copy:
+  - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r7/resources/src/claim_harness

@@ -1,0 +1,11 @@
+{
+  "schema":"stagea-command-dag-v2",
+  "assignment_id":"PILOT-V2-APX-E0_5-BINDING-CLOSURE",
+  "nodes":[
+    {"id":"E0_5_BINDING","class":"STATIC","depends":[],"argv":null,"claim_bearing":false},
+    {"id":"E1_PACKET_COMPILE","class":"STATIC","depends":["E0_5_BINDING"],"argv":null,"claim_bearing":false},
+    {"id":"E2_CONTROL","class":"CONTROL_NON_CLAIM_BEARING","depends":["E1_PACKET_COMPILE"],"argv":"EXACT_CONTROL_ROW_BINDING","claim_bearing":false},
+    {"id":"C1_CLAIM_ROWS","class":"CLAIM_BEARING","depends":["E2_CONTROL"],"argv":"FROZEN_ONLY_AFTER_MAINLINE_START","claim_bearing":true}
+  ],
+  "retry":0,"network":0,"shared_install":false,"stageb":false
+}

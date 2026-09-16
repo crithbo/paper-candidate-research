@@ -1,0 +1,21 @@
+assignment_id: STAGE0-P1-20260814-NVPTX-TCGEN05-TENSORMEM-ALLOC-COPY-STATE-CONSTRUCTION-PREBRIEF-CLOSURE-V8.7
+run_id: preflight-20260814-01
+policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\round-20260814-adaptive-source33-prebrief-closure\NVPTX-TCGEN05-TENSORMEM-ALLOC-COPY-STATE-CONSTRUCTION\resources
+required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+logical_size_bytes: 1135176
+measurement_method: recursive_logical_file_length_under_resource_root_including_retained_responses_and_metadata
+resource_entries:
+  - {relative_path: downloads/llvm-main-commit.json, class: immutable_official_current_commit_metadata, logical_bytes: 10755, source_uri: https://api.github.com/repos/llvm/llvm-project/commits/main, version_or_commit: ec26997e2e4606d97918a4a082c4f93ca38a6f46, sha256: A93490C8A05593781AAC4E1676EBFAC8582C32BFA96B838693431580E2F5D80F, retention_reason: current_upstream_pin, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {relative_path: downloads/IntrinsicsNVVM.td, class: immutable_official_source_blob, logical_bytes: 151440, source_uri: https://raw.githubusercontent.com/llvm/llvm-project/ec26997e2e4606d97918a4a082c4f93ca38a6f46/llvm/include/llvm/IR/IntrinsicsNVVM.td, version_or_commit: ec26997e2e4606d97918a4a082c4f93ca38a6f46, sha256: E7C9D11B8CB3BB2A7760F471A16813F6A5761A9DFFF82C23E58E40D996A2A385, retention_reason: intrinsic_action_grammar, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {relative_path: downloads/NVPTXISelLowering.cpp, class: immutable_official_source_blob, logical_bytes: 305667, source_uri: https://raw.githubusercontent.com/llvm/llvm-project/ec26997e2e4606d97918a4a082c4f93ca38a6f46/llvm/lib/Target/NVPTX/NVPTXISelLowering.cpp, version_or_commit: ec26997e2e4606d97918a4a082c4f93ca38a6f46, sha256: 50D3F6B1B8AC805A310B0C44A2F553DC7DBD4EE337657AB78DFB637D1C5D7116, retention_reason: lowering_union_audit, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {relative_path: downloads/NVPTX-tests-index.json, class: immutable_official_test_directory_index, logical_bytes: 629943, source_uri: https://api.github.com/repos/llvm/llvm-project/contents/llvm/test/CodeGen/NVPTX?ref=ec26997e2e4606d97918a4a082c4f93ca38a6f46, version_or_commit: ec26997e2e4606d97918a4a082c4f93ca38a6f46, sha256: C710EA915448859D5A8FC5B6095D15BEEE5DBE22A16DAB70442CFAC5C7380CE7, retention_reason: public_regression_locator, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: downloads/tcgen05-alloc.ll, class: immutable_official_regression, logical_bytes: 10340, source_uri: https://raw.githubusercontent.com/llvm/llvm-project/ec26997e2e4606d97918a4a082c4f93ca38a6f46/llvm/test/CodeGen/NVPTX/tcgen05-alloc.ll, version_or_commit: ec26997e2e4606d97918a4a082c4f93ca38a6f46, sha256: 44738E12588429DDAE5071D0C9D31506DEBAFD18DD41D0861B40D8FC9D4BFF0B, retention_reason: allocation_grammar_regression, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {relative_path: downloads/tcgen05-cp.ll, class: immutable_official_regression, logical_bytes: 24441, source_uri: https://raw.githubusercontent.com/llvm/llvm-project/ec26997e2e4606d97918a4a082c4f93ca38a6f46/llvm/test/CodeGen/NVPTX/tcgen05-cp.ll, version_or_commit: ec26997e2e4606d97918a4a082c4f93ca38a6f46, sha256: 0E7ACD95DDE5A39F8F5A256F2CFAA3BFB93FB73E56DC9D9183E49E99BFD8E168, retention_reason: copy_grammar_regression, deletion_status: RETAIN_CLAIM_CRITICAL}
+external_system_dependencies:
+  - {executable: powershell, location: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED, role: process_local_preflight_only}
+redirect_preflight: {status: PASS_FOR_POWERSHELL_INVOKE_WEBREQUEST_ONLY, record: resources/logs/REDIRECT_PREFLIGHT__preflight-20260814-01.md}
+inventory_snapshot: resources/logs/resource-inventory/acquire-current-source-20260814-01-complete.yaml
+cleanup_owner: MAINLINE
+lane_cleanup_authorized: false
+deletion_status: BLOCKED_BY_ACTIVE_PROCESS_OR_ASSIGNMENT

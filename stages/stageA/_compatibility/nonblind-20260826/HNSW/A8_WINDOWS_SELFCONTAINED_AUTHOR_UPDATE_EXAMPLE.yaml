@@ -1,0 +1,17 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A8-AUTHOR-UPDATE-EXAMPLE
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A7_handoff.yaml, sha256: FA2076368FFC67A36E6197A56047A6E2B3007B07F2713C768C7AD56ADC82C279}]
+author_source_analysis:
+  data_driven_test_unavailable_reason: update_gen_data.py_requires_numpy_and_generates_unbundled_data_config
+  selected_author_example: example_replace_deleted
+  selected_semantics: in_memory_10000_vector_insert_markDelete_replace_deleted
+  external_input_or_generator_required: false
+only_change: build_and_run_existing_selfcontained_author_example_replace_deleted_in_existing_A6_configured_tree
+allowed_command_sequence:
+  - {id: A8S0, command: portable_cmake --build resources/build/hnswlib-ninja-a6 --target example_replace_deleted --parallel 2, stop_on_nonzero: true}
+  - {id: A8S1, command: resources/build/hnswlib-ninja-a6/example_replace_deleted.exe, stop_on_nonzero: true}
+evidence_ceiling: AUTHOR_ARTIFACT_WINDOWS_SELFCONTAINED_UPDATE_EXAMPLE_PRECLAIM_ONLY__NOT_NATURAL_CLAIM
+prohibitions: [create_config_or_data, Python_or_numpy_install, source_or_CMake_edit, reconfigure, redownload, reextract, custom_harness, natural_or_claim_probe_before_fidelity]
+scientific_revision_consumed: false

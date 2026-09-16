@@ -1,0 +1,38 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE69-R40-ORDINARY-BREADTH-V1
+source_roles:
+  - role: ANCHOR
+    title: Go 1.22 Release Notes
+    url: https://go.dev/doc/go1.22
+    provenance: official Go documentation, read 2026-08-15
+    use: documents PGO devirtualization and compiler interleaving of devirtualization/inlining
+  - role: CURRENT_SOURCE
+    title: cmd/compile internal devirtualize source
+    url: https://go.dev/src/cmd/compile/internal/devirtualize/devirtualize.go
+    provenance: official current upstream source page, read 2026-08-15
+    use: identifies static and profile-guided devirtualization, hottest concrete callee, guarded direct call, and fallback indirect call
+  - role: CURRENT_CONFIG
+    title: Profile-guided optimization
+    url: https://go.dev/doc/pgo
+    provenance: official Go documentation, read 2026-08-15
+    use: fixes CPU pprof as profile input and ordinary PGO build route
+  - role: CURRENT_UNION
+    title: Go compiler README
+    url: https://go.dev/src/cmd/compile/README
+    provenance: official current upstream source page, read 2026-08-15
+    use: places devirtualization and inlining together in the compiler middle-end
+  - role: PRIMARY_CONTRARY_GENERIC_KERNEL
+    title: Profile-guided automatic inline expansion for C programs
+    authors: Pohua P. Chang, Scott Mahlke, Wen-mei Chen and Wen-mei Hwu
+    url: https://onlinelibrary.wiley.com/doi/10.1002/spe.4380220502
+    provenance: primary publication, 1992
+    use: directly supplies profile-guided interprocedural inlining, expansion sequence control and code-growth decision kernel
+  - role: PRIMARY_CONTRARY_GENERIC_KERNEL
+    title: A Study of Devirtualization Techniques
+    url: https://sites.cs.ucsb.edu/~ckrintz/papers/devirt-ibmjit.pdf
+    provenance: primary technical paper, read 2026-08-15
+    use: guarded devirtualization/direct path with backup code is a general compiler mechanism
+current_reality_check:
+  docs_checked: [go1.22, pgo]
+  source_checked: [cmd/compile/internal/devirtualize/devirtualize.go, cmd/compile/README]
+  default_nondefault_surface: CPU profile PGO route and documented compiler behavior; no absence inference made
+resource_actions: []

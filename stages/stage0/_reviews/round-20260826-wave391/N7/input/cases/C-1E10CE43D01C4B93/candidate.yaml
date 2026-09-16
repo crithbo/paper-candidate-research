@@ -1,0 +1,21 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-1E10CE43D01C4B93
+cutoff_date: 2018-07-16
+contribution_type: BENCHMARK_DATASET
+exact_object: comparative evaluation of in-memory approximate nearest-neighbor implementations
+natural_scenario: heterogeneous public algorithms evaluated on standard high-dimensional datasets
+problem: independent evaluations use incompatible adapters, metrics, parameters, and selected operating points
+atomic_action: normalize adapters, datasets, parameter sweeps, resource accounting, recall, and frontier reporting
+mechanism: automated reproducible sweeps expose the non-dominated quality-performance envelope and reduce cherry-picking
+information_condition: public algorithm interfaces, ground-truth neighbors, run metadata, and bounded configuration spaces
+comparators: [per_system_custom_harness, fixed_parameter_single_point_evaluation]
+claim_endpoint: reproducibility and decision stability of cross-system frontier comparisons
+full_cost: [setup, index_time, query_time, recall, memory, parameter_sweep, failed_runs]
+minimum_falsifier: standardized execution changes no conclusion and cannot reproduce representative systems
+source_cards:
+  - {id: S01, year: 2014, role: graph_based_search_family}
+  - {id: S02, year: 2009, role: tuned_tree_baseline}
+  - {id: S03, year: 2017, role: large_scale_vector_search_library}
+  - {id: S04, year: 2015, role: public_tree_based_implementation}
+local_resource_envelope: WINDOWS_NATIVE_CPU__OFFICIAL_LOCAL_RUNNER_ONLY__SMALL_BUILTIN_DATASET__NO_CONTAINER_DAEMON
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

@@ -1,0 +1,15 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-P1A3-ALLOW-REPLACE
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P1A2_handoff.yaml, sha256: E5E7C83A9CEE8B3C60427FB39A63A02F6261B8138E951E49FC2A82F3AFEC2700}, {path: resources/src/probe/hnsw_minimal_probe.cpp, sha256: 338E83A6A73FCB37C01B24D4074352B65229D3A5E3FA4F343FC542307551C96D}]
+only_source_edit:
+  file: resources/src/probe/hnsw_minimal_probe.cpp
+  exact_old: 'hnswlib::HierarchicalNSW<float> ix(&sp,N,M,ec);'
+  exact_new: 'hnswlib::HierarchicalNSW<float> ix(&sp,N,M,ec,100,true);'
+  occurrence_count: 1
+  semantic_reason: enable_frozen_F0_delete_replace_witness_with_same_capacity_N
+fresh_command_budget: {compile: 1, run: 3, retry: 0}
+unchanged: [vectors, queries, oracle, grid, cost_schema, compiler, cwd, author_source]
+prohibitions: [other_harness_edit, input_or_parameter_change, source_edit, result_exclusion, production_or_stageB_action]
+scientific_revision_consumed: false

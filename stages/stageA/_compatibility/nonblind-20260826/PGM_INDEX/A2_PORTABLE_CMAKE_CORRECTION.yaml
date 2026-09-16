@@ -1,0 +1,24 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A2-CMAKE
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A1_S0_CMAKE_AVAILABILITY_BLOCKER.yaml, sha256: CAECEA0D0A1459FEC392CB95D80BF8F6C44A224C57E30FDFC6A6920141E8594C}, {path: RESOURCE_INVENTORY.yaml, sha256: 7004AFB2FF25233956F61685F84266257478B22085CB910A0E19C7A12C7742F9}]
+only_change: assignment_local_portable_cmake_and_stop_on_first_nonzero_exit
+portable_cmake:
+  url: https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-windows-x86_64.zip
+  archive_path: resources/archives/cmake-3.31.6-windows-x86_64.zip
+  sha256: d163cd3ab4959b0a53fa8988f2ddbd2e6c501658201e6a154386bad9dbe4f836
+  extract_path: resources/env/cmake-3.31.6-windows-x86_64
+  executable: resources/env/cmake-3.31.6-windows-x86_64/bin/cmake.exe
+  redirects_allowed: 1
+  allowed_redirect_chain: github.com_to_release_assets.githubusercontent.com_only
+  download_attempts_max: 1
+allowed_command_sequence:
+  - {id: A2S0, command: Invoke-WebRequest -UseBasicParsing -MaximumRedirection 1 -Uri <portable_cmake_url> -OutFile <portable_cmake_archive>, stop_on_nonzero: true}
+  - {id: A2S1, command: Get-FileHash -Algorithm SHA256 <portable_cmake_archive>, require_exact_frozen_sha: d163cd3ab4959b0a53fa8988f2ddbd2e6c501658201e6a154386bad9dbe4f836, stop_on_nonzero: true}
+  - {id: A2S2, command: Expand-Archive -LiteralPath <portable_cmake_archive> -DestinationPath resources/env -Force, stop_on_nonzero: true}
+  - {id: A2S3, command: <portable_cmake_executable> --version, stop_on_nonzero: true}
+  - {id: A2S4, command: tar --version, stop_on_nonzero: true}
+  - {id: A2S5, command: resume_parent_S2_through_S7_once_with_portable_cmake_substituted, stop_on_nonzero: true}
+prohibitions: [retry, nonterminating_serial_batch, alternate_tool_or_artifact, system_install, global_environment_change, production_candidate_registration, stageB, gold_input, cleanup]
+scientific_revision_consumed: false

@@ -1,0 +1,13 @@
+schema: r3-packer-l2-a1-packet-map-assignment-v1
+assignment_id: BACKTEST-PACKER-L2-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3-A1-PACKET-MAP
+role: DISCOVERY_BACKTEST_PACKER
+lane_id: BACKTEST-PACKER-L2
+lane_thread_id: 01a034d0-e533-7d21-aeeb-ac8465688a7e
+topic_id: STAGE0A_IDENTITY_BLIND_EVIDENCE_BACKTEST_R3
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/a1-packet-map
+status: BOOTSTRAP_ACK_PENDING
+scope: EXACT_PACKET_CASE_ID_CONTENT_MAPPING_CORRECTION_ONLY
+inputs: [PACKET_MAPPING_CORRECTION_SPEC.yaml, ../PACKER_SELECTION_LEDGER.yaml, ../STAGE0_NEUTRAL_PACKET.yaml, ../STAGEA_ANONYMIZED_PACKET.yaml]
+outputs: [STAGE0_NEUTRAL_PACKET.corrected.yaml, STAGEA_ANONYMIZED_PACKET.corrected.yaml, A1_MAPPING_AUDIT.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+forbidden: [network, selection_change, evidence_change, gold_expected_label_read, reviewer_output, build, probe, experiment, production_candidate_registration, StageB]
+model_route: {model: gpt-5.6-terra, thinking: medium}

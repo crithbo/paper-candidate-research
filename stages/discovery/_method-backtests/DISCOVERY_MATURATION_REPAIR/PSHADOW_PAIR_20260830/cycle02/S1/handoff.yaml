@@ -1,0 +1,30 @@
+schema: discovery-prospective-shadow-handoff-v1
+assignment_id: DMR-V1-PSHADOW-CYCLE-02-S1
+lane_id: DISCOVERY_S1_BOUNDARY_CONTRADICTION
+status: COMPLETE__CANONICAL_LOCATOR_ONLY__SHADOW_NONE
+canonical_funnel:
+  seed_count: 1
+  rq_count: 1
+  selected_locator_count: 1
+  evidence_qualified_raw_count: 0
+  clean_stage0_brief_count: 0
+  disposition: LOCATOR_ONLY__NO_FROZEN_TARGET_NATIVE_BACKEND_LOWERING_ACTION
+  scientific_inference: NONE
+official_source_actions:
+  consumed: 6
+  maximum: 6
+  records:
+    - {role: ANCHOR, action: search, locator: https://github.com/huggingface/optimum-quanto}
+    - {role: ANCHOR, action: open, locator: https://github.com/huggingface/optimum-quanto}
+    - {role: CURRENT, action: open, locator: https://github.com/huggingface/optimum-quanto/blob/main/optimum/quanto/quantize.py}
+    - {role: CURRENT, action: open, locator: https://github.com/huggingface/optimum-quanto/tree/main/optimum/quanto}
+    - {role: CURRENT, action: open, locator: https://github.com/huggingface/optimum-quanto/tree/main/optimum/quanto/tensor}
+    - {role: ESCAPE, action: open, locator: https://github.com/huggingface/optimum-quanto/blob/main/optimum/quanto/tensor/qbits.py}
+current_source_finding: Current sources expose quantize/freeze/requantize, a per-module qtype map, and separate quantized-tensor data/scale/shift/group state, but no frozen target-native backend-lowering action consuming one unified contract.
+shadow:
+  nomination: NONE
+  result: NOT_RUN
+  canonical_state_effect: NONE
+forbidden_actions_not_run: [repair_execution, result_aware_backfill, download, build, experiment, candidate_state_change, stage0_dispatch_effect, stagea, stageb, shared_write]
+next_action: WAIT_SIX_LANE_BARRIER
+manifest_path: HASH_MANIFEST.sha256

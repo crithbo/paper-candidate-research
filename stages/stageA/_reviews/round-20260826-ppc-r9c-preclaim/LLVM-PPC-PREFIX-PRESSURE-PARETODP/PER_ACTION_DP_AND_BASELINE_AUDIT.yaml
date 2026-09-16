@@ -1,0 +1,142 @@
+schema: independent-ppc-r9c-per-action-dp-and-baseline-audit-v1
+assignment_id: STAGEA-GATE-20260826-LLVM-PPC-R9C-PER-ACTION-PRECLAIM
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+review_mode: STATIC_SOURCE_RAW_AND_DEPENDENCY_AUDIT_ONLY
+owner_artifacts_modified: false
+owner_tools_executed: false
+
+input_integrity:
+  owner_manifest_sha256: 378F4C3C655F5128A7F19839AC560981A7EC5F09B58688EFCD74FE6669F8C233
+  targeted_manifest_entries_rehashed: 333
+  targeted_manifest_entries_passed: 333
+  targeted_manifest_entries_failed: 0
+  decisive_source_sha256: 88A16180356B4515F850D1B63AD09DB0A5B293E11288C5E0E8F9D861E505D9A4
+  exact_control_ir_sha256: 1124F15D99EC0CF7F1688CD20E21416A17C1A075F46419FE95A9E35C262BD939
+
+G0_IDENTITY:
+  disposition: PASS
+  exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+  exact_target: POWER10_PPC64LE_LINUX_ELFV2_MEDIUM_CODE_MODEL
+  exact_object: NON_GOT_PCREL34_DIRECT_VALUE_VS_PADDI8PC_PLUS_LD_WITH_FIXED_FUNCTION_ABI_CFG_MEMORY_ALIAS_CALL_FRAME_UNWIND_AND_LINKER_SEMANTICS
+  control_function: ir_pressure_control
+  evidence: CONTEXT_STAGE0_CLAIM_CONTROL_SOURCE_TRACE_AND_OWNER_HANDOFF_IDENTITIES_MATCH
+
+G1_ACTUAL_PER_ACTION_DP:
+  disposition: PASS
+  action_count: 12
+  visible_interface: 13
+  interface_cap: 16
+  transition_records: 8190
+  terminal_states: 4096
+  frontier_states: 12
+  transitions_by_action_ordinal: [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096]
+  unresolved_parent_state_references: 0
+  action_trace_backpointers_present: true
+  full_action_coverage: true
+  physical_register_identity_enumeration: false
+  heuristic_frontier_truncation: false
+  future_equivalence_and_pareto_logic_present: true
+  actual_control_merges_or_prunes: 0
+  merge_and_nonmerge_negative_controls: PASS
+  global_two_state_proxy_detected: false
+  source_pointers:
+    state_and_future_signatures: resources/src/natural_materializer/materializer_harness.py:290-325
+    action_specific_transitions: resources/src/natural_materializer/materializer_harness.py:384-488
+    recurrence_backpointers_and_pruning: resources/src/natural_materializer/materializer_harness.py:491-618
+  interpretation: REAL_EXHAUSTIVE_TWO_ACTION_PER_LOAD_RECURRENCE_ON_THE_FROZEN_TWELVE_LOAD_CONTROL__NO_SCIENTIFIC_INFERENCE
+
+G2_METHOD_DISTINCTNESS:
+  disposition: PASS
+  ppc_tpd_branch: PPC_TPD_PER_ACTION_RA_SENSITIVE
+  ppc_tpd_ra_mode: RA_AND_SPILL_FRAME_SENSITIVE_TRANSITIONS
+  form_aware_fixed_ra_branch: FORM_AWARE_FIXED_CURRENT_RA
+  form_aware_fixed_ra_mode: CURRENT_RA_TERMS_FROZEN
+  transition_signature_rows_compared: 8190
+  transition_signature_rows_different: 8190
+  transition_cost_rows_different: 8140
+  ppc_tpd_transition_ledger_sha256: CB63991578752DE56BA21EE83A3F464495B5AE8A18335AED78F303F87BCAE256
+  fixed_ra_transition_ledger_sha256: 935E75B4DBD1460E7821E593F79E8715A3C75BE87D53838C3D58B6754DBA224F
+  forced_identical_method_negative_control: PASS_EXPECTED_FAIL
+  method_label_only_detected: false
+  source_pointers:
+    distinct_transition_modes: resources/src/natural_materializer/materializer_harness.py:430-488
+    distinctness_audit: resources/src/natural_materializer/materializer_harness.py:1125-1135
+
+G3_CURRENT_STRONG_BASELINE_UNION:
+  disposition: PASS__WITH_REAL_NULL_ARMS
+  compile_rows: 8
+  compile_rows_exit_zero: 8
+  compile_configuration_grid:
+    register_allocators: [greedy, pbqp]
+    ppc_pcrel_linker_opt: [true, false]
+    ppc_late_peephole: [true, false]
+  link_rows: 16
+  link_rows_exit_zero: 16
+  lld_relaxation_on_rows: 8
+  lld_relaxation_off_rows: 8
+  no_relax_flag_rows: 8
+  unique_bundle_ids: 16
+  command_metric_ids_resolve_to_records: true
+  observed_output_families:
+    unique_object_hashes: 2
+    unique_link_hashes: 2
+    unique_readobj_hashes: 2
+    unique_objdump_hashes: 4
+  null_arm_interpretation: PCREL_PEEPHOLE_AND_LLD_RELAX_TOGGLES_PRODUCED_NO_ADDITIONAL_OUTPUT_FAMILY_ON_THIS_CONTROL_WHILE_GREEDY_VS_PBQP_DID__THE_NULL_ARMS_ARE_REAL_BASELINE_RESULTS_NOT_MISSING_CONFIGS
+  internal_direct_materialized_control_substituted_for_current_union: false
+  source_pointers:
+    grid_generation: resources/src/natural_materializer/materializer_harness.py:878-899
+    compile_link_and_inspection_execution: resources/src/natural_materializer/materializer_harness.py:972-1080
+
+G4_DEPENDENCY_AND_FULL_COST:
+  disposition: FAIL__COMMAND_COST_CONSUMER_EDGES_MISSING
+  artifact_dependency_positive_facts:
+    bundles: 16
+    object_link_readobj_objdump_evidence_rows: 16
+    checker_bundle_ids: 16
+    full_cost_bundle_ids: 16
+    artifact_orphans: 0
+    artifact_cost_rows_recomputed: true
+  replay_1_baseline_command_metrics:
+    rows: 56
+    cpu_seconds_sum: 2.09375
+    wall_seconds_sum: 4.91094479999992
+    peak_rss_bytes_max: 24887296
+  replay_2_baseline_command_metrics:
+    rows: 56
+    cpu_seconds_sum: 2.28125
+    wall_seconds_sum: 4.38019710000117
+    peak_rss_bytes_max: 24887296
+  decisive_findings:
+    - STRONG_BASELINE_FULL_COST_JSON_CONTAINS_ONLY_CONSUMED_BUNDLE_IDS_ARTIFACT_TEXT_RELOCATION_AND_STATIC_UOP_ROWS
+    - FULL_COST_CONSUMER_HAS_NO_COMMAND_METRIC_IDS_CPU_WALL_RSS_STATUS_EXIT_OR_PER_COMMAND_COST_ROWS
+    - GRAPH_STORES_ONE_COMMAND_METRICS_FILE_EVIDENCE_AND_FOUR_COMMAND_METRIC_IDS_PER_BUNDLE_BUT_AUDIT_ONLY_CHECKS_THE_FIELD_EXISTS__IT_DOES_NOT_RESOLVE_OR_CONSUME_THE_METRICS
+    - FULL_COST_CONSUMER_AUDIT_DECLARES_COMMAND_METRICS_REQUIRED_WHILE_ITS_PINNED_EVIDENCE_SHA_POINTS_TO_A_FILE_WITHOUT_THAT_DIMENSION
+    - NEGATIVE_CONTROLS_REMOVE_A_BUNDLE_EDGE_OMIT_A_CONFIG_AND_MUTATE_ARTIFACT_COST__NONE_REMOVES_OR_MUTATES_A_COMMAND_COST_EDGE
+  source_pointers:
+    graph_audit_without_metric_resolution: resources/src/natural_materializer/materializer_harness.py:911-969
+    full_cost_consumer_construction: resources/src/natural_materializer/materializer_harness.py:1081-1115
+    negative_controls: resources/src/natural_materializer/materializer_harness.py:1184-1208
+  fatal_finding: FULL_COST_OMISSION
+  inference_limit: PRECLAIM_DEPENDENCY_FAILURE_ONLY__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+
+G5_RAW_REPRODUCIBILITY:
+  disposition: PASS
+  fresh_replays: 2
+  commands_per_replay: 59
+  raw_readobj_objdump_pairs_checked: 32
+  raw_byte_exact_pairs: 32
+  raw_mismatches: 0
+  deterministic_payload_file_sha256_replay_1: E76B4F82B12A07EC2C48D6796C99573ED3CB893BF3152D45D870FE181D6D1ED3
+  deterministic_payload_file_sha256_replay_2: E76B4F82B12A07EC2C48D6796C99573ED3CB893BF3152D45D870FE181D6D1ED3
+  deterministic_payloads_byte_identical: true
+  declared_payload_sha256_both: ECC77133501D29D9A55D30FEC4AA64915FC37A8624532EB5CF92D399FDE5FBAA
+  inspection_operands_stabilized_before_replay: true
+  posthoc_raw_normalization_replacement_filter_or_exclusion: false
+  dynamic_telemetry_absolute_paths_and_replay_id_excluded_from_precommitted_deterministic_payload: true
+  interpretation: RAW_INSPECTION_IS_EXACT__DYNAMIC_TELEMETRY_IS_EXPLICITLY_OUTSIDE_THE_PRECOMMITTED_DETERMINISTIC_PAYLOAD_AND_WAS_NOT_USED_TO_NORMALIZE_RAW_TEXT
+
+overall_disposition: FAIL_G4__G0_G1_G2_G3_G5_PASS
+fatal_findings: [FULL_COST_OMISSION]
+scientific_or_claim_effect: NONE
+

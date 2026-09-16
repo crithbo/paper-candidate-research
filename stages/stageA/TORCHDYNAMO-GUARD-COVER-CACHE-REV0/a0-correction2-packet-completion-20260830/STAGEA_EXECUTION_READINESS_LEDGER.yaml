@@ -1,0 +1,40 @@
+schema: stagea-execution-readiness-ledger-v1
+assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-A0-CORRECTION2
+topic_id: TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+stagea_scope_budget_mode: PRODUCTION
+engineering_correction_batches_used: 2_of_2
+engineering_correction_batches_remaining: 0
+method_redesign_used: 0
+scientific_revision_used: 0
+packet_implementation:
+  source_files: 10
+  ast_validation: PASS_ONCE
+  literal_runner_binding_source_present: true
+  real_entry_9_field_extractor_source_present: true
+  replayable_16_field_checker_source_present: true
+  exact_1792_cell_producer_source_present: true
+  baseline_15_and_full_cost_10_source_present: true
+  command_dag_builder_source_present: true
+  integrated_control_source_present: true
+control:
+  authorized_attempts: 1
+  attempts_used: 1
+  exit_code: 1
+  case_manifest_written: true
+  solver_receipt_written: true
+  solver_certified: false
+  native_entry_control_started: true
+  native_entry_created: false
+  final_status_written: false
+first_failure:
+  primary: HARD_CHILD_SOLVER_DEADLINE_EXCEEDED__2_OF_2_INCOMPARABLE
+  secondary: OWNER_LOCAL_TORCH_RUNTIME_DEPENDENCY_MISSING__FILELOCK
+  source_location: candidate_runner.py:157 torch.compile lookup_backend
+  retry_performed: false
+readiness:
+  a0_packet_completion_ready: false
+  a1_claim_authorized: false
+  decision: A0_EXECUTION_POLICY_HOLD__FINAL_CORRECTION_FIRST_FAILURE
+  evidence_ceiling: INVALID_NONCLAIM_PACKET_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+firewall: {claim_cells_executed: 0, effect_fields_visible: false, result_aware_change: false, owner_resources_modified: false, network: 0, StageB: false, shared_write: false}
+next_action: WAIT_MAINLINE_DISPOSITION__NO_THIRD_A0_CORRECTION

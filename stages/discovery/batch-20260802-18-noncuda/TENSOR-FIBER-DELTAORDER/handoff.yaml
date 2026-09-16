@@ -1,0 +1,19 @@
+topic_id: TENSOR-FIBER-DELTAORDER
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: Dynamic MLIR SparseTensor ordered-fiber maintenance under insert/delete traces
+main_claim: Delta-ordered fibers can provide a non-dominated exact update/ordered-iteration cost point with charged metadata and merge work.
+academic_value_score: 55
+ai_executability_score: 23
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.72
+strongest_baseline: Native assembly, sorted COO/recompress, per-fiber tree, offline batch oracle with full cost.
+decisive_evidence: Pinned SuiteSparse update traces and exact-output/cost Pareto matrix.
+unresolved_risks: Dynamic sparse-format literature may supply a same-action same-guarantee structure; proof may fail under adversarial updates.
+next_killer_gate: Rebuild full union on 12 pinned traces; stop if it dominates every proposed point or violates the stated work bound.
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: OPEN_SOURCE_CPU
+execution_authority: DISCOVERY_ONLY_NO_LARGE_EXPERIMENT
+file_hashes: topic_brief.md=84D38B7B4A99000CCFDCC9F9671294B6FF81A0FC690EAB1CC599C59FF3D231DE; source_log.md=5251C9636788574BAE48847A7615B4C4B266CF881B5DB708AD31A339F6EE9A6F

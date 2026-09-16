@@ -1,0 +1,33 @@
+schema_version: s5-r3d-routes-v1
+authorization: LLVM-EXACT-COMMIT-MINIMAL-BUILD-BATCH-20260811-R3D_PLUS_R3A_PLUS_R3H
+owner_may_apply_reserve_fallback: false
+llvm_routes:
+  official_codeload_exact_commit:
+    attempted: true
+    result: PASS
+  official_git_filtered_exact_commit:
+    attempted: false
+    reason: unnecessary_after_verified_codeload_pass
+  registered_official_immutable_bundle:
+    attempted: false
+    reason: unnecessary_after_verified_codeload_pass
+build_routes:
+  clean_attempt_1:
+    result: CONFIGURE_FAIL_USER_PYTHON_ACCESS
+  clean_attempt_2:
+    result: PASS_AFTER_PROCESS_LOCAL_RUNTIME_PATH_CORRECTION
+  remaining_clean_attempts: 0
+natural_routes:
+  official_rocm_examples_archive:
+    result: PASS_ASSET
+  exact_clang_normal_windows_abi:
+    result: FAIL_HIP_LP64_LLP64_STATIC_ASSERT
+  exact_clang_msvc_target:
+    result: FAIL_MISSING_MSVC_SDK_RUNTIME_HEADERS
+  exact_clang_linux_target_with_registered_windows_bootstrap:
+    result: FAIL_C_CPP_ABI_HEADERS
+  exact_clang_official_hip_rtc_device_only:
+    result: PARTIAL_5_DIRECTORIES_BELOW_FROZEN_MINIMUM_8
+remaining_owner_authorized_semantics_preserving_route: none
+mainline_action: CONFIRM_EXHAUSTION_THEN_DECIDE_R3H_OR_NEW_RESOURCE_AUTHORIZATION
+reserve_state_changed_by_owner: false

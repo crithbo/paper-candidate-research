@@ -1,0 +1,12 @@
+schema: mainline-static-packet-review-v1
+assignment_id: STAGEA-L1-20260829-LLVM-APX-R9-INTEGRATED-ROW-CONTROLLER-REDESIGN
+decision: REJECT_CORRECTION1__CORRECTION2_REQUIRED
+defects:
+  - COMMAND_DAG rows changed the frozen four selected rows into S01 through S16
+  - literal_control_argv omits required input, hash, receipt, output-root, llc and output arguments
+  - controller still has no immutable command table and its execute entrypoint only raises STATIC_PACKET_ONLY
+  - static validation remained byte-unchanged and therefore does not audit correction1
+static_lint_edits_consumed: 1_of_3
+control_or_claim_authorized: false
+scientific_inference: NONE
+

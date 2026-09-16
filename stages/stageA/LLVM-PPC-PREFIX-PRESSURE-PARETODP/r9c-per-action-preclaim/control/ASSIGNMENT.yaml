@@ -1,0 +1,128 @@
+schema: ppc-r9c-per-action-tpd-strong-baseline-preclaim-correction-v1
+created_at: 2026-08-26T12:52:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9C-PER-ACTION-TPD-BASELINE-CLOSURE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+stage: STAGEA_PRECLAIM_ENGINEERING_FIDELITY_CORRECTION
+route_id: PPC_R9C_PER_ACTION_TPD_AND_STRONG_BASELINE_DEPENDENCY_CLOSURE_V1
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/resources
+
+scientific_boundary:
+  exact_object: POWER10_PPC64LE_LINUX_ELFV2_MEDIUM_CODE_MODEL_PRE_FORM_MACHINEIR_DSO_LOCAL_OR_HIDDEN_NONPREEMPTIBLE_SYMBOL_FIXED_SEMANTICS_ALIASES_CALL_CLOBBERS_ABI_FRAME_UNWIND_AND_LINKER_INPUT
+  exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+  exact_contract_sha256: F36E8CD40E719A9CFEEFBB595EEE05A4FDEEDF490C0ABD6AF40C09D635895E82
+  correction_type: PRECLAIM_ENGINEERING_FIDELITY_CORRECTION
+  mechanism_change: false
+  scientific_revision_consumption: false
+  claim_ceiling: PER_ACTION_DP_AND_STRONG_BASELINE_CONTROL_FIDELITY_ONLY__NO_SELECTED_CORPUS_OR_CLAIM_OBSERVATION
+  selected_or_reserve_corpus_tool_allowed: false
+  claim_bearing_action_allowed: false
+  stageb_authorized: false
+
+independent_gate_input:
+  gate_assignment_id: STAGEA-GATE-20260826-LLVM-PPC-R9-DEEP-PRECLAIM-FIDELITY
+  gate_handoff_sha256: 257D7FB4BC0A9DDDE4A665042AD9E79BD648705CEFAAEB6EA26C995F9E40D5CB
+  gate_manifest_sha256: 745DD2A838A738682035749B7F53E221817B6CA5A5325946C8C51A2EF4A90853
+  correction_route_sha256: DD169D47F4910259C9C6C41E026D92794DBF6FCC9C150F49FF0C038A48509855
+  decision: CONFIRM_PRECLAIM_INVALID__NO_R10_CLAIM_START__BOUNDED_CORRECTION_ROUTE_EXISTS
+
+same_topic_inputs:
+  r9_resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources
+  r9_post_gc_inventory_sha256: A0C6D27E84FE272F47A8236E00647D6003C07000368C50E88DF38E1A3ABE801D
+  r9_cleanup_receipt_sha256: 8F547694F9CE3D44F412C08788044F3AC17CF7F419EACC7AB5FE8B796C37790A
+  copy_exact_roots:
+    - {source: resources/src/r6_input, destination: resources/src/r6_input, copy_attempts_max: 1}
+    - {source: resources/env/ppc-toolchain, destination: resources/env/ppc-toolchain, copy_attempts_max: 1}
+    - {source: resources/src/natural_materializer, destination: resources/src/natural_materializer, copy_attempts_max: 1}
+  selected_or_reserve_files_may_be_copied_but_not_tool_observed: true
+  upstream_modify_or_delete_allowed: false
+
+source_scope:
+  permitted_existing_files_to_modify:
+    - resources/src/natural_materializer/materializer_harness.py
+    - resources/src/natural_materializer/r10_plan.py
+  modify_existing_files_max: 2
+  new_schema_or_control_fixture_files_max: 2
+  all_other_copied_bytes_immutable: true
+  upstream_LLVM_patch_or_build_allowed: false
+
+per_action_TPD:
+  control_function: ir_pressure_control
+  visible_interface_cap: 16
+  decision_order: INPUT_LOAD_ORDINAL
+  transitions_per_action: [KEEP_DIRECT_PLDPC, MATERIALIZE_OR_REUSE_PADDI8PC_BASE_THEN_LD]
+  state_signature: [action_ordinal, direct_value_live_ports, materialized_base_live_ports_and_symbol_reuse, call_crossing_and_ELFV2_register_role_signature, interference_and_coalescing_obligations, spill_reload_and_frame_unwind_obligations_or_exact_auditable_surrogate, typed_relocation_and_link_status, exact_Pareto_cost_vector]
+  recurrence: INITIALIZE__TRANSITION_EACH_ACTION__MERGE_ONLY_FUTURE_ACTION_EQUIVALENT_SIGNATURES__PARETO_PRUNE__TERMINATE_OR_INTERFACE_CAP_EXCEEDED
+  backpointer: PARENT_STATE_ID_PLUS_ACTION_ORDINAL_PLUS_ACTION_KIND
+  physical_register_identity_enumeration: forbidden
+  heuristic_frontier_truncation: forbidden
+  two_global_state_proxy: forbidden
+
+distinct_ablation:
+  ppc_tpd: RA_AND_SPILL_FRAME_SENSITIVE_TRANSITIONS_OR_VALIDATED_SURROGATE
+  form_aware_fixed_ra: SAME_FORM_CHOICES_WITH_RA_COALESCING_SPILL_FRAME_TERMS_FROZEN_TO_CURRENT_RA
+  force_identical_branch_negative_control_must_fail: true
+  at_least_one_fixed_tiny_trace_different_state_or_transition_ledger: true
+
+strong_baseline_graph:
+  register_allocators: [greedy, pbqp]
+  ppc_pcrel_linker_opt: [true, false]
+  ppc_late_peephole: [true, false]
+  compile_configs: 8
+  lld_relaxation: [on, off]
+  link_outputs: 16
+  current_union_bundle_required: [command_metrics, object, link, readobj, objdump, config_id]
+  checker_and_full_cost_must_consume_every_bundle_output: true
+  zero_orphan_baseline_outputs: true
+  internal_direct_materialized_control_not_substitute_for_current_union: true
+  GCC_binutils_role: DEPLOYMENT_SUBTRACTOR_ONLY_NOT_SAME_MACHINEIR_BASELINE
+
+negative_controls:
+  - ONE_LOAD_TWO_ACTION_TRANSITIONS
+  - TWO_LOAD_SAME_SYMBOL_BASE_REUSE_AND_FOUR_FORM_ASSIGNMENTS
+  - CALL_CROSSING_ROLE_PRESSURE_AND_SPILL_FRAME_SURROGATE
+  - FUTURE_ACTION_EQUIVALENT_STATE_MERGE
+  - FUTURE_ACTION_DISTINGUISHABLE_STATE_NONMERGE
+  - INTERFACE_CAP_EXCEEDED_FAIL_CLOSED
+  - PPC_TPD_VS_FORM_AWARE_FIXED_RA_DISTINCTNESS
+  - FORCE_IDENTICAL_METHOD_BRANCH_EXPECTED_FAIL
+  - REMOVE_ONE_BASELINE_DEPENDENCY_EDGE_EXPECTED_FAIL
+  - OMIT_ONE_GRID_CONFIGURATION_EXPECTED_FAIL
+  - MUTATE_ONE_COST_OR_RELOCATION_FIELD_EXPECTED_FAIL
+
+ordered_gate:
+  C0_INPUT_ACCEPTANCE: PASS_REQUIRED
+  C1_EXACT_SOURCE_CORRECTION_AND_STATIC_FREEZE: PASS_REQUIRED
+  C2_PER_ACTION_RECURRENCE_AND_BACKPOINTER_CONTROLS: PASS_REQUIRED
+  C3_METHOD_DISTINCTNESS: PASS_REQUIRED
+  C4_EIGHT_BY_TWO_CURRENT_UNION_AND_DEPENDENCY_GRAPH: PASS_REQUIRED
+  C5_NEGATIVE_CONTROLS: PASS_ALL
+  C6_TWO_DETERMINISTIC_CONTROL_REPLAYS: PASS_EXACT
+  C7_NEW_PRECLAIM_HANDOFF: PASS_REQUIRED
+
+execution_contract:
+  network_allowed: false
+  input_copy_attempts_max: 3
+  source_edit_transactions_max: 2
+  source_freeze_before_first_tool: true
+  compiler_linker_runs: CONTROL_NON_CLAIM_ONLY
+  control_tool_command_records_max: 500
+  selected_or_reserve_corpus_tool_invocations_max: 0
+  claim_bearing_runs_max: 0
+  automatic_retry: false
+  first_failure_stops: true
+  r10_directory_creation: forbidden
+
+soft_blocker_recovery: {mode: SOFT_METHOD_BLOCKER_BOUNDED_CORRECTION, policy_path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, policy_sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74}
+resource_localization: {mode: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97, every_write_under_resource_root: true, process_local_redirect_required: true}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, closeout_event: PPC_R9C_PRECLAIM_HANDOFF_ACCEPTED, downstream_consumer: SEPARATE_NATURAL_CORPUS_OR_CLAIM_ASSIGNMENT_ONLY_AFTER_INDEPENDENT_ACCEPTANCE, post_close_retained_bytes_max: 536870912, cleanup_owner: MAINLINE, owner_cleanup_allowed: false}
+limits: {network_bytes_max: 0, resource_root_logical_bytes_max: 805306368, cpu_seconds_max: 21600, wall_seconds_max: 43200, max_parallel_processes: 2, control_tool_command_records_max: 500, selected_or_reserve_corpus_tool_invocations_max: 0, claim_bearing_runs_max: 0}
+allowed_actions: [CREATE_STANDARD_RESOURCE_DIRS, COPY_AND_HASH_ACCEPT_EXACT_R9_INPUTS, APPLY_BOUNDED_TWO_FILE_PRECLAIM_CORRECTION, RUN_CONTROL_ONLY_C0_C7, WRITE_CANONICAL_PRECLAIM_PACKAGE]
+forbidden_actions: [MODIFY_R9_OR_UPSTREAM, CREATE_R10, SELECTED_OR_NATURAL_TOOL, CLAIM_PERFORMANCE_SCIENTIFIC_REVISION_STATE_CLEANUP_OR_STAGEB, RETRY_OR_RESULT_BASED_EDIT_EXCLUSION_BACKFILL]
+success_route: PPC_PER_ACTION_TPD_AND_STRONG_BASELINE_PRECLAIM_PASS__WAIT_SEPARATE_NATURAL_ASSIGNMENT
+failure_route: FAIL_CLOSED_PPC_R9C_PRECLAIM__NO_SELECTED_OR_SCIENTIFIC_INFERENCE
+expected_outputs: [BOOTSTRAP_ACK.yaml, SAME_TOPIC_INPUT_ACCEPTANCE.yaml, SOURCE_CORRECTION_PRECOMMIT.yaml, PER_ACTION_DP_LEDGER.yaml, METHOD_DISTINCTNESS_AUDIT.yaml, STRONG_BASELINE_DEPENDENCY_GRAPH.yaml, NEGATIVE_CONTROL_RESULTS.yaml, FULL_COST_CONSUMER_AUDIT.yaml, CONTROL_REPLAY_AUDIT.yaml, PRE_CLAIM_PER_ACTION_TPD_GATE.yaml, REPRODUCIBILITY_REPORT.yaml, RESOURCE_INVENTORY.yaml, PHASE_CLOSEOUT_RETENTION.yaml, RESUME_CAPSULE.yaml, handoff.yaml, HASH_MANIFEST.sha256]

@@ -1,0 +1,153 @@
+schema_version: o4-pdec-stagea-contract-v1
+topic_id: O4-DYNCACHE-PGM
+stage: STAGEA
+contract_status: FROZEN_BEFORE_EXECUTION
+frozen_at: 2026-08-09T12:02:23+08:00
+authority:
+  stagea_authorized_by_user_delegation: true
+  stageb_authorized: false
+  allowed_write_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\O4-DYNCACHE-PGM
+stage_semantics:
+  purpose: highest-risk-premise pilot and counterexample search
+  positive_ceiling: PRELIMINARY_SUPPORT
+  forbidden_positive_claim: MAIN_CLAIM_ESTABLISHED
+
+exact_object:
+  structure: single-machine in-memory ordered index leaf microkernel
+  key: fixed-width lexicographic pair (uint32 Hilbert-cell, uint64 type-qualified OSM-element-id)
+  predecessor: strict predecessor, max key strictly less than q
+  range: exact closed range reporting in sorted order, output-sensitive leaf-chain traversal
+  learned_semantics: model narrows a search window only; returned answers remain exact
+  fixed_parameters:
+    epsilon_rank: 1
+    page_capacity_keys: 4
+    page_bytes_accounting_unit: 256
+    per_update_page_touch_cap: 4
+    dual_version_aux_page_cap: 2
+    rebuild_credit_key_slots_per_update: 5
+  explicit_scope_limit: leaf-local transition and one logical routing-page charge; scalable multi-level directory maintenance is not modeled
+
+representation:
+  page_certificate: endpoint affine rank predictor with exact rational residual at most epsilon_rank for every stored key
+  transition: copy-on-write replacement of one affected old page by one or two contiguous feasible new pages
+  dual_version_visibility: pre-state remains queryable until the complete post-state is atomically published
+  credit_interpretation: a fixed page is rebuilt eagerly within one transition; item-copy work is charged separately from logical page touches
+
+inputs:
+  exhaustive:
+    key_universe: integers 0 through 7, embedded as fixed-width ordered keys
+    initial_state: empty
+    reachability: breadth-first closure under every valid insert and delete transition
+    queries: all predecessor probes from -1 through 8 and all closed ranges over 0 through 7 at every reachable state
+  natural:
+    source: OpenStreetMap minute replication diff
+    sequence_number: 7235045
+    state_timestamp_utc: 2026-08-09T03:59:06Z
+    url: https://planet.openstreetmap.org/replication/minute/007/235/045.osc.gz
+    expected_http_content_length_bytes: 38400
+    parser_scope: node create/modify/delete events in XML document order
+    key_mapping: 16-bit-per-axis Hilbert cell from lon/lat plus type-qualified node id
+    replay_semantics: observed-window upsert; modify replaces an earlier observed key for the same id, delete removes only an earlier observed key
+    honesty_limit: this is a natural chronological witness, not a full OSM snapshot replay or an independent second workload
+
+strong_baseline_contract:
+  stagea_action: authoritative source and immutable revision lock only; no performance comparison in this pilot
+  ESA_2025:
+    paper_doi: 10.4230/LIPIcs.ESA.2025.64
+    source_repo: https://github.com/Sgelet/DynamicLearnedIndex
+    source_commit: e668899dab95046384f68723e53e0aacbad32feb
+    bench_repo: https://github.com/Sgelet/LearnedIndexBench
+    bench_commit: c3ad0ca2e0149fd2be070b37ba57b12a447bbf71
+    role: strongest same-object theorem and artifact comparator
+  PGM:
+    paper_doi: 10.14778/3389133.3389135
+    repo: https://github.com/gvinciguerra/PGM-index
+    commit: c6fcf3d34e55eb0061b01e2f49dfcbdb711f1407
+    role: contiguous fully dynamic learned-index deployment baseline
+  ALEX:
+    paper: ALEX An Updatable Adaptive Learned Index, SIGMOD 2020
+    repo: https://github.com/microsoft/ALEX
+    commit: 4370da6aa8b509fdc9b0d2c49faa0624b0078589
+    role: adaptive learned-index deployment baseline
+  BTREE:
+    repo: https://github.com/tlx/tlx
+    commit: 2dd63ab839909f0b43cd02108a1869c4670b2c8e
+    component: tlx::btree
+    role: competitive conventional exact ordered-index baseline
+  HIRE_2026:
+    doi: 10.1145/3786657
+    role: latest paper-level subtractor; not an executable baseline unless lawful source parity is later established
+  static_PGM_oracle:
+    role: headroom ceiling only, never an online winner baseline
+
+primary_metrics:
+  - reachable_states
+  - transitions_checked
+  - predecessor_queries_checked
+  - range_queries_checked
+  - semantic_failures
+  - maximum_logical_page_touches_per_update
+  - maximum_dual_version_aux_pages
+  - maximum_peak_physical_pages_over_committed_old_pages
+  - maximum_rebuild_key_slots
+  - natural_events_parsed
+  - natural_effective_updates
+  - natural_noops
+
+full_cost_ledger:
+  included:
+    - one logical routing-page touch per update/query
+    - affected old leaf read
+    - all new leaf writes
+    - certificate recomputation count
+    - copied/rebuilt key slots
+    - committed leaf pages
+    - dual-version auxiliary pages and bytes
+    - exact-oracle checks and no-op updates
+  excluded_and_claim_limiting:
+    - scalable multi-level directory split/merge and fence propagation
+    - allocator and reclamation latency
+    - CPU cache and TLB counters
+    - concurrency, crash recovery, and publication synchronization
+    - baseline build, conversion, tuning, and runtime costs
+    - end-to-end throughput or latency
+
+stopping_conditions:
+  STOP:
+    - any predecessor or range result differs from the exact sorted-set oracle
+    - any reachable transition breaks sorted nonoverlapping page coverage or its page certificate
+    - any update exceeds 4 charged logical page touches
+    - any transition needs more than 2 auxiliary page images or 512 auxiliary bytes
+    - any transition needs more than 5 rebuild key slots
+  REVISE_ONCE_or_RESERVE:
+    - the locked public natural input cannot be acquired or parsed
+    - the natural input yields no effective ordered-index updates
+  PASS_RECOMMENDED_only_if:
+    - exhaustive closure has zero invariant failures
+    - natural chronological replay has zero semantic or accounting failures
+    - all outputs reproduce byte-for-byte under the same deterministic commands
+  positive_interpretation: the frozen leaf-local premise is NOT_FALSIFIED and receives PRELIMINARY_SUPPORT only
+
+randomness:
+  used: false
+  seeds: []
+  deterministic_ordering: lexicographic state and transition ordering
+
+environment:
+  os: Windows PowerShell host
+  python: 3.12.13 bundled Codex runtime
+  gpu_used: false
+  external_services: only locked public OSM artifact acquisition and read-only baseline metadata verification
+
+commands:
+  python_executable: <LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe
+  acquire_natural_input: >-
+    & '<LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' acquire_osm.py --url https://planet.openstreetmap.org/replication/minute/007/235/045.osc.gz --output inputs\007-235-045.osc.gz
+  exhaustive_probe: >-
+    & '<LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' pdec_probe.py --mode exhaustive --output results\exhaustive.json
+  natural_probe: >-
+    & '<LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' pdec_probe.py --mode natural --input inputs\007-235-045.osc.gz --output results\natural.json
+  deterministic_rerun: >-
+    & '<LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' pdec_probe.py --mode exhaustive --output rerun\exhaustive.json; & '<LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' pdec_probe.py --mode natural --input inputs\007-235-045.osc.gz --output rerun\natural.json
+  validate: >-
+    & '<LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' validate_results.py --original results --rerun rerun --output results\validation.json

@@ -1,0 +1,20 @@
+schema: discovery-seed-rq-freeze-v1
+assignment_id: DMR-V1-PSHADOW-CYCLE-02-S4
+frozen_before_first_source_call: true
+seed:
+  id: S4-C02-SEED-01
+  non_evidence: true
+  viewpoint: OBJECTIVE_CONSTRAINT
+  anchor_candidate: huggingface/lerobot current async documentation plus lerobot/smolvla_base
+  idea: An age-of-observation objective may differ from raw throughput if the async LeRobot stack exposes action and observation timestamps plus queue state that make local-versus-remote inference a same-stack scheduling decision.
+  generic_shell_check: PASS
+primary_rq:
+  id: S4-C02-RQ-01
+  question: Do action/observation timestamps and queue state in the current public LeRobot async stack define age-of-observation deadlines for local-versus-remote inference?
+  exact_object: Current public LeRobot async stack with SmolVLA base integration.
+  immutable_guarantee: Preserve documented action/observation ordering and asynchronous queue semantics; no synthetic-only replacement.
+  contribution_type_hypothesis: SYSTEM_ARCHITECTURE
+  endpoint_hypothesis: target-native action
+  counterfactual: A positive answer would change the placement/scheduling decision under the same timestamped queue semantics.
+  primary_route: official Hugging Face LeRobot documentation and source repository.
+  fallback: NONE__TRANSPORT_ONLY

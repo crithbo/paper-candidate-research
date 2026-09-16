@@ -1,0 +1,20 @@
+schema: phase-closeout-retention-v1
+assignment_id: STAGEA-L2-20260830-VHLO-BINARY-DISTRIBUTION-REDESIGN1
+closeout_kind: A0_METHOD_REDESIGN1_EXACT_HOLD
+lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+retain:
+  - {path: resources/downloads/PRIVATE_TOOLCHAIN_base_compiler-3.11.0-cp312-abi3-win_amd64.whl, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: exact frozen consumer binary}
+  - {path: resources/downloads/jaxlib-0.11.1-cp312-cp312-win_amd64.whl, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: exact failed binding binary}
+  - {path: resources/env/vhlo-redesign, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: exact no-index/no-deps installed environment}
+  - {path: resources/build/control/import-schema/result.json, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: decisive import failure and invariant counts}
+  - {path: resources/src/control/VHLO_BINARY_IMPORT_SCHEMA_CONTROL.py, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: exact sole control}
+  - {path: VHLO_BINARY_DISTRIBUTION_PACKET.json, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: literal binding and frozen contract}
+cleanup_candidates_after_accepted_handoff:
+  - {path: resources/cache, files: 12, logical_bytes: 126579447, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, content_manifest_sha256: 9B31A596E4389A17FAB7140056C32AB297855D5D8492EF09A15998F165A0F47D}
+  - {path: resources/tmp, files: 0, logical_bytes: 0, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/archives, files: 0, logical_bytes: 0, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+deletion_gate: MAINLINE_ACCEPTED_HANDOFF_PLUS_CONTAINMENT_REPARSE_ACTIVE_PROCESS_AND_RESUME_CHECKS
+scientific_state_effect: NONE
+

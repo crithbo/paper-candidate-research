@@ -1,0 +1,29 @@
+assignment_id: DISCOVERY-S5-20260815-ADAPTIVE-SOURCE36-RQ-PRODUCTION-BASELINE
+sources:
+  - id: SRC36-LLVM-TARGET
+    role: CURRENT_UNION
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/include/llvm/Target/Target.td
+    version_or_date: main page retrieved 2026-08-15
+    evidence_used: Register classes expose allocation order and priority declarations; this is a generic target-framework locus, not proof of absence.
+    disposition: supports_locator_only
+  - id: SRC36-LLVM-SCHEDULER
+    role: CURRENT_UNION
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/lib/CodeGen/SelectionDAG/SelectionDAGISel.cpp
+    version_or_date: main page retrieved 2026-08-15
+    evidence_used: Scheduler registry and pre-RA scheduler option are present.
+    disposition: supports_locator_only
+  - id: SRC36-GEMMINI
+    role: ANCHOR_AND_CURRENT_UNION
+    url: https://github.com/ucb-bar/gemmini
+    version_or_date: repository page retrieved 2026-08-15
+    evidence_used: Gemmini describes itself as a full-stack accelerator generator with elaboration parameters, runtime dataflow selection, and generated software headers.
+    disposition: excludes_project_owned_complete_generator
+  - id: SRC36-CALYX
+    role: ANCHOR
+    url: https://github.com/calyxir/calyx
+    version_or_date: locator searched 2026-08-15
+    evidence_used: Used only as an official project locator; no source-closed target-native primitive was established.
+    disposition: locator_only
+search_limitations:
+  - Search responses were bounded and no source download, build, or experiment was performed.
+  - The Calyx locator did not return a decisive current source page in the bounded search response; it was not promoted on that basis.

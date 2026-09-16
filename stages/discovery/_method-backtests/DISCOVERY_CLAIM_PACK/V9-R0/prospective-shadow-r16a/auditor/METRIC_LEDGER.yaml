@@ -1,0 +1,67 @@
+schema_version: discovery-v9-r16a-auditor-metric-ledger-v1
+assignment_id: DISCOVERY-AUDITOR-20260813-R16A-V9-PROSPECTIVE-SHADOW-SAMPLE24
+method_under_review: DISCOVERY_CLAIM_PACK_V9_R0_SHADOW
+canonical_comparator: V8_7_AUTHORITATIVE
+input_verification:
+  sample_ledger_sha256: 91F25C2F88DB6A23B73EA9E8B0067A0A5F6CC5A9924D14DF9DE011E469235E25
+  auditor_assignment_sha256: A8F1F742E3B0291AD28EECAAA5CCC2930D66F6A399514418CCC8CD92E6154825
+  sample_and_assignment_manifest_sha256: 64A2A629DB11523F565984E33B480C92D5B794C04F014338E8783D680F43AFC2
+  sample_and_assignment_manifest: PASS_2_OF_2
+  master_assignment_manifest: PASS
+  lane_package_root_manifests: PASS_9_OF_9_HASH_VALUES_MATCH_LEDGER
+  lane_package_content_manifests: PASS_WITH_FORMAT_CAVEAT
+  lane_package_content_hash_mismatches: 0
+  parent_lane_roots: 6
+  aggregate_files: 118
+  aggregate_bytes: 199207
+  format_caveat:
+    - S1 root manifest uses backslash separators for three child-manifest paths; they resolve within its root on this Windows workspace and their SHA-256 values match, but are not canonical slash form.
+  contamination_status: PASS__NO_HASH_OR_BOUNDARY_BREACH_DETECTED
+  external_material_or_source_lane_contact: false
+sample_and_dedup:
+  unit: UNIQUE_OPPORTUNITY_FAMILY
+  target: 24
+  accepted: 24
+  accepted_unique_signatures: 24
+  duplicate_signature_count: 0
+  excluded_noncounted: 13
+  replacement_reason: DUPLICATE_ONLY
+  outcome_or_proposal_yield_replacement_used: false
+  status: PASS
+order_and_isolation:
+  canonical_before_shadow: PASS__ALL_ACCEPTED_FAMILIES
+  canonical_shadow_leakage: PASS__0_OF_24
+  terminal_stop_revival: PASS__0
+  source_action_correction:
+    observed: 24
+    disposition_changed: 0
+    interpretation: OBSERVED_STABLE__NOT_EVIDENCE_OF_CALIBRATION
+  decision_stability:
+    numerator: 24
+    denominator: 24
+    value: 1.0
+    status: OBSERVED_ONLY__CANNOT_SUPPORT_PASS_ALONE
+clean_brief_precision:
+  canonical_clean_briefs: 0
+  stage0_feedback_or_repair_vectors: 0
+  numerator: null
+  denominator: 0
+  value: UNDEFINED__NOT_0_OVER_0_AND_NOT_PERFECT_PRECISION
+  status: UNOBSERVED
+costs:
+  filesystem_aggregate_bytes: 199207
+  model_token_cost: UNOBSERVED
+  model_monetary_cost: UNOBSERVED
+  cpu_cost: UNOBSERVED__NOT_UNIFORMLY_RECORDED
+  wall_cost: UNOBSERVED__NOT_UNIFORMLY_RECORDED
+  status: INSUFFICIENT_FOR_AUDIT_AND_MODEL_COST_METRIC
+protocol_sufficiency:
+  prospective_shadow_waves_observed: 1
+  prospective_shadow_waves_required: 2
+  second_wave_authorized_by_this_assignment: false
+  production_authorized_by_this_assignment: false
+  status: INSUFFICIENT
+verdict: PILOT_NOT_CALIBRATED_INCONCLUSIVE
+production_state_changed: false
+shadow_waves_run_by_auditor: false
+completion_status: IDLE_REUSABLE_AWAITING_MAINLINE

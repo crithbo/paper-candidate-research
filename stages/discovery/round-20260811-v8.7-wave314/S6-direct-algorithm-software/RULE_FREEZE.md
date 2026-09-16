@@ -1,0 +1,8 @@
+# Rule freeze — WAVE314
+
+- assignment: `DISCOVERY-S6-20260811-V8.7-WAVE314-UPSTREAM-PERFORMANCE-REGRESSION-FIX-GLOBAL-CONSTRUCTOR-BREADTH`
+- method: `v8.7+R5-P0`; quality mode OFF.
+- frozen controls verified: AGENTS `66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063`; plan `88981B9854BB82B3E605AA848C3F6A9F221B7B1A2EF6DDDFC45E42EAFE82672B`; registry `7D3C1E8AF900BD68C2705992A9A3E79CAFC89F7BF9A9024373A0E330BCD2BF1F`; ROLE `FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3`.
+- evidence rule: upstream performance fixes are seeds only, never novelty or absence evidence.
+- boundary: discovery only; no experiment/benchmark, downstream stage, shared write, automation, large download or E-drive use.
+

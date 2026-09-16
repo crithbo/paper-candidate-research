@@ -1,0 +1,43 @@
+schema_version: discovery-screening-ledger-v1
+assignment_id: DISCOVERY-S3-20260824-SOURCE104-PUBLIC-CARRIER-DIVERSIFIED-V1
+lane_id: DISCOVERY_S3
+generated_at: 2026-08-24T03:28:00+08:00
+source104_audit_isolation: PASS__RULE_AUDIT_OUTPUT_NOT_READ_OR_USED
+group_repository_access: FORBIDDEN__NOT_READ
+resource_actions: []
+funnel_counts:
+  seed_non_evidence: 10
+  selected_rq_candidate: 4
+  selected_locator: 4
+  evidence_qualified_raw: 0
+  candidate_grade_deep_review: 0
+  clean_stage0_brief: 0
+query_roles:
+  anchor:
+    - https://github.com/uw-syfi/TraceLab/blob/main/README.md
+    - https://github.com/uw-syfi/TraceLab/blob/main/docs/prompt_cache_accounting.md
+    - https://github.com/uw-syfi/TraceLab/blob/main/scripts/sanitize_round_trace.py
+  current:
+    - https://docs.nvidia.com/aiperf/dev/tutorials/datasets-inputs/replay-trace-lab-agentic-coding-traces
+    - https://mlcommons.org/2026/07/agentic-inference-for-mlperf-inference/
+    - https://docs.vllm.ai/en/latest/serving/online_serving/trace_replay/
+  contrary:
+    - https://www.usenix.org/system/files/conference/nsdi26/nsdi26spring_luo_prepub.pdf
+    - https://arxiv.org/abs/2608.15127
+  escape:
+    - https://github.com/ai-dynamo/aiperf/blob/main/docs/tutorials/weka-trace.md
+screen_rows:
+  - rq_id: S3-104-RQ01
+    status: EXCLUDED_BEFORE_RAW
+    reason: CURRENT_AIPERF_AND_MLPERF_MULTI_TURN_EVENT_CAUSAL_REPLAY_COVER_FROZEN_ACTION
+  - rq_id: S3-104-RQ02
+    status: EXCLUDED_BEFORE_RAW
+    reason: CURRENT_TRACELAB_ACCOUNTING_AND_AIPERF_RECONSTRUCTION_CONTRACT_COVER_FROZEN_MAPPING
+  - rq_id: S3-104-RQ03
+    status: EXCLUDED_BEFORE_RAW
+    reason: NO_FIXED_NON_GENERIC_ESTIMAND_OR_ORACLE_AFTER_CURRENT_FIELD_BOUNDARY_SUBTRACTION
+  - rq_id: S3-104-RQ04
+    status: EXCLUDED_BEFORE_RAW
+    reason: CURRENT_SANITIZE_ANALYZE_VALIDATE_PIPELINE_ABSORBS_GENERIC_RELEASE_CHECKER
+remaining_bounded_debt: []
+final_disposition: ZERO_CLEAN_BRIEFS__NO_STAGE0_DISPATCH

@@ -1,0 +1,18 @@
+schema: apx-r7-p0-resource-precommit-v1
+written_at: 2026-08-26T12:47:27.8242664+08:00
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM
+start_authorization_sha256: 63C65D01459AC43377DA90332ACD376C1580E62EED6A2933E5BD5BC1432F0EFE
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7/resources
+resource_root_initially_absent: true
+redirect_map: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONDONTWRITEBYTECODE: '1'}
+ordered_resource_actions:
+  - {id: CREATE_STANDARD_DIRS, attempts_max: 1, writes: [resources/downloads, resources/archives, resources/src, resources/build, resources/env, resources/cache, resources/tmp, resources/logs]}
+  - {id: COPY_EXACT_SOURCE_ARCHIVE, source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/resume2-e-root-self-contained-build/resources/downloads/llvm-project-a1194be1baefa99d20a09bd04b16056be0ab7225.tar.gz, destination: resources/archives/llvm-project-a1194be1baefa99d20a09bd04b16056be0ab7225.tar.gz, expected_sha256: F90FFC22BF3B220B726C2E4D7953076520C4188ED4409213AFB9829B98254747, expected_bytes: 278674752, attempts_max: 1}
+  - {id: COPY_EXACT_TOOLCHAIN, source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r3/resources/env/apx-toolchain, destination: resources/env/apx-toolchain, expected_manifest_sha256: 0BE2C3F60A6F42886F7951D2887D1A3D936B0E1A26E0C6B9B0B89D421944FB91, expected_files: 97, expected_bytes: 321690391, attempts_max: 1}
+  - {id: COPY_R6_CONTROL_HARNESS, source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r6/resources/src/harness, destination: resources/src/r6_harness, expected_files: 5, expected_bytes: 18869, attempts_max: 1}
+  - {id: SCAN_ARCHIVE_MEMBERS, command_class: TAR_LIST_ONCE_TO_ASSIGNMENT_LOG, attempts_max: 1}
+  - {id: SELECTIVE_EXTRACT, destination: resources/src/llvm_subset, exact_prefixes: [llvm/lib/Target/X86, llvm/include/llvm/TargetParser, llvm/include/llvm/CodeGen, llvm/utils/TableGen, llvm/test/CodeGen/X86, llvm/test/MC/X86, llvm/test/tools/llvm-mca/X86], attempts_max: 1, full_tree_forbidden: true}
+automatic_retry: false
+network_allowed: false
+first_failure_stops: true
+

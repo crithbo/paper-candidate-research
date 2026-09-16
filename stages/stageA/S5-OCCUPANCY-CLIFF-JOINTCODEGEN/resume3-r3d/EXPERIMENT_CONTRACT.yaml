@@ -1,0 +1,49 @@
+contract_version: s5-stagea-r3d-v1
+assignment_id: RESOURCE-STAGEA-L2-20260811-S5-OCCUPANCY-CLIFF-JOINTCODEGEN-RESUME3-R3D
+topic_id: S5-OCCUPANCY-CLIFF-JOINTCODEGEN
+stage: RESOURCE_RECOVERY_THEN_CONDITIONAL_STAGEA_RESUME
+exact_object:
+  llvm_commit: 1f112d62e1fa2c4f1a04887abd72da1ed61cf791
+  target: amdgpu11.00
+  wave: wave32__plus_wavefrontsize32__minus_wavefrontsize64
+  input: 8_TO_16_COMPLETE_PUBLIC_NATURAL_KERNEL_DERIVED_PRE_MACHINE_SCHEDULER_MIR
+  same_function: BYTE_IDENTICAL_COMPLETE_PRE_SCHEDULER_MIR_ALL_METHODS
+  allocator: greedy
+  verifier: EXACT_COMMIT_LLC_VERIFY_MACHINEINSTRS
+strongest_baseline:
+  name: EXACT_COMMIT_GCNSchedStrategy_PLUS_GREEDY
+  parity: SAME_MIR_TARGET_WAVE_ALLOCATOR_VERIFIER_INFORMATION_AND_2000MS_REGION_BUDGET
+candidate:
+  name: FROZEN_BOUNDED_TIER_FRONTIER_CONFIGURATION_SELECTION_PLUS_GREEDY
+  variant_order: [default_fallback, occupancy_only_bias, amdgpu_pressure_trackers, joint_bias_trackers]
+  existing_knob_only_ceiling: PREMISE_PROBE_NOT_NONROUTINE_N2_CONTRIBUTION
+preclaim_contract_fidelity_gate:
+  - exact source attribution and AMDGPU-enabled llc
+  - exact FileCheck smoke
+  - exact llvm-calc-occupancy or source-grounded capability-equivalence audit without proxy
+  - 8 to 16 complete natural MIR with canonical provenance
+  - identical-MIR real GCNSchedStrategy plus greedy baseline and all frozen variants
+  - MachineVerifier legality and deterministic small-witness replay
+  - full-cost collection paths for acquisition, build, derivation, methods, selection, verifier, fallback, RSS, I/O and bytes
+full_cost_units:
+  acquisition: bytes_and_wall_seconds
+  configure_build: cpu_seconds_wall_seconds_peak_rss_bytes_and_storage_bytes
+  derivation: cpu_seconds_wall_seconds_peak_rss_io_bytes
+  methods: cpu_seconds_wall_seconds_peak_rss_io_bytes
+  outputs: occupancy_tier_spills_reloads_sgpr_vgpr_agpr_and_bytes
+  replay: hashes_exit_status_failures_and_timeouts
+scientific_decision:
+  positive_ceiling: PRELIMINARY_SUPPORT
+  negative_requires: VALID_SAME_OBJECT_NATURAL_CLAIM_BEARING_OBSERVATION_AFTER_GATE_PASS
+  resource_failure: BLOCKED_USER_ACTION_REQUIRED
+  resource_failure_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  resource_failure_consumes_revision: false
+authority:
+  stagea_conditional_resume: true
+  stageb_authorized: false
+  pending_user_stageb_review: false
+  stageb_user_approval_id: null
+  source_patch: false
+  system_install: false
+  global_environment_mutation: false
+

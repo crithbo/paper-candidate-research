@@ -1,0 +1,88 @@
+schema_version: stage0-assignment-v1
+assignment_id: STAGE0-C2R1-20260822-PATCHVALUE-COUNTERFACTUAL-REVISION1-CLOSING
+topic_id: PATCHVALUE-COUNTERFACTUAL-REV0
+mode: SENTRY_REVISION_CLOSING
+lane: STAGE0-CONFIRMATION-SENTRY-D
+authority: USER_PATCHVALUE_CONTINUE_AND_CONFIRMED_REVISION1_HANDOFF_20260822
+status_on_dispatch: ACTIVE
+
+upstream_revision:
+  assignment_id: STAGE0-P3R1-20260822-PATCHVALUE-COUNTERFACTUAL-REVISION1
+  directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchvalue-revision1
+  handoff_sha256: B8E71202F4EDDEE48E2ECD4869D7253E280C613739D6D5104AC07FE4ACBBDB7E
+  manifest_sha256: 9B41F0F9B4F60714F8F4739C60A8C2460C6DA7765EE476932C220E389D0800F2
+  recommendation: REVISION_GATE_CLOSED__PASS_RECOMMENDED__PENDING_INDEPENDENT_STAGE0_CLOSING
+  scientific_revision_consumed: true
+  scientific_revision_count: 1
+  scientific_revision_limit: 1
+
+upstream_confirmation:
+  assignment_id: STAGE0-C2-20260822-PATCHVALUE-COUNTERFACTUAL-CONFIRMATION
+  directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchvalue-confirmation
+  handoff_sha256: 3F0C1F786F2C5FB37E1EF772A9E53F057419A1CD4F1240FAA1047F3C1E633F25
+  manifest_sha256: F3C003FBFA1287541635DEA7C2A393458E30AF157694532CF0ED782C49241350
+
+frozen_rules:
+  role_stage0_sha256: BC58D2A365AFF6A0F82290CC3CC4E16177DBFDA69D1B28260084E9BE6B56E48C
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  quality_target: Q2_MINIMUM_Q1_PRIORITY
+
+independence:
+  closing_lane_did_not_construct_revision1: required
+  do_not_repeat_discovery_or_full_primary: true
+  allowed_decisions:
+    - CONFIRM_PASS_RECOMMENDED
+    - DISAGREE_STOP__FAILURE_SENTINEL_TRIGGERED
+    - DISAGREE_INCONCLUSIVE_POLICY_HOLD__REVISION_CONSUMED_NO_VALID_PASS_OR_STOP
+    - PROVENANCE_FAIL
+
+sole_atomic_gate:
+  id: FROZEN_SAME_STATE_BRANCH_FIDELITY__NONATTRIBUTION_CONTINUATION_VALUE_CERTIFICATE
+  decisive_attacks:
+    - verify current native fork catalog does not omit another same-object current feature and does not claim native fork as contribution
+    - verify whole-environment clone schema is finite executable and fail-closed rather than an open implementation promise
+    - verify terminal-before-h handling seed coupling and offline evaluator rules identify the registered future-dose effect
+    - verify CAR facet distinction plus simultaneous lower-confidence-bound frontier is a target-specific nontrivial guarantee rather than CAR or generic Monte_Carlo relabel
+    - verify tiny checker full-cost ledger natural-state route and comparator union are finite enough for a StageA preclaim gate
+    - independently test the STOP sentinel and do not infer STOP from missing implementation result model or hardware
+
+quality_ceiling:
+  if_confirmed: TIER_B_Q2_VIABLE
+  evidence_readiness: E1_STATIC_CERTIFICATE_ONLY__NO_CLAIM_BEARING_RESULT
+  stagea_authorized_by_this_assignment: false
+  stageb_authorized: false
+
+allowed_actions:
+  - Read the frozen revision1, prior confirmation and minimal PRIMARY materials.
+  - Recompute only decisive static logic and source-to-claim consistency.
+  - Write closing report, source check, handoff and manifest in the unique directory.
+
+forbidden_actions:
+  - Modify revision1 or upstream packages.
+  - Execute another revision, mechanism pivot, agent, rollout, evaluator, model, build or experiment.
+  - Perform open-ended search or download new resources.
+  - Enter Stage A/B, revive PATCHYIELD or modify shared control files.
+
+write_boundary:
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchvalue-revision1-closing
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchvalue-revision1-closing\resources
+  resource_inventory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchvalue-revision1-closing\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+resource_envelope:
+  network_bytes_max: 0
+  persisted_new_resource_bytes_max: 0
+  cpu_time_max: 1h
+  wall_time_max: 2h
+  system_install: false
+
+required_outputs:
+  - CLOSING_REPORT.md
+  - SOURCE_AND_LOGIC_CHECK.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+next_action:
+  owner: MAINLINE
+  automatic_stage_transition: false

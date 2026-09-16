@@ -1,0 +1,35 @@
+schema: rvv-r5c-a3-case-set-preflight-v1
+result: PASS
+runner_sha256: 3D1C17A36490D71860EF66986499ADC0E2286486DE9EAAFACBE5CDD20AAD03ED
+required_case_count: 12
+required_cases:
+  - MISSING_LEAF
+  - UNKNOWN_PARENT
+  - CROSS_CLASS_OR_LMUL
+  - CYCLE
+  - ORPHAN_DESCENDANT
+  - MULTIROOT_DESCENDANT
+  - MISSING_SPILL
+  - MISSING_RELOAD_OR_FUTURE_USE
+  - MUTATED_TRANSITIVE_GRAPH_HASH
+  - MUTATED_FUTURE_ACTION_OR_COST_SIGNATURE
+  - F4_WITHOUT_CLOSURE
+  - F5_WITH_MUTATED_CLOSURE
+equality_contract: set(all_cases) == set(required)
+value_contract: all(all_cases[name] for name in required)
+extra_or_missing_case: FAIL_CLOSED
+any_predeclared_value_false: FAIL_CLOSED
+expected_polarity: EACH_MUTATION_OR_MISSING_DEPENDENCY_MUST_FAIL_CLOSED
+case_names_changed: false
+case_count_changed: false
+case_generators_changed: false
+case_values_changed: false
+expected_polarity_changed: false
+no_bytecode_static_compile_route_unchanged: true
+preexisting_pyc:
+  path: resources/src/split_closure/__pycache__/split_closure.cpython-312.pyc
+  sha256: 2E077627F486E287A72E56EB5FF65D609670178B4D68F92929A3D9DAECBFD40C
+  disposition: PREEXISTING_BEFORE_A3__MUST_REMAIN_BYTE_EXACT
+A3_pyc_write_allowed: false
+outer_launch_attempts_started: 0
+scientific_inference: NONE

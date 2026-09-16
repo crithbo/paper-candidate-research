@@ -1,0 +1,34 @@
+assignment_id: DISCOVERY-S6-20260814-ADAPTIVE-SOURCE23-NATURAL-CARRIER-TYPE-SPLIT-V7
+lane: S6_DIRECT_ALGORITHM_SOFTWARE
+write_directory: stages/discovery/round-20260814-adaptive-source23/S6-direct-algorithm-software
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+v9_output: OFF
+completion_state: COMPLETE_ZERO_PROPOSALS
+lane_next_state: IDLE_REUSABLE_AWAITING_MAINLINE
+funnel:
+  locators: 8
+  fresh_raw: 4
+  C0_source_closure: 0
+  D1: 0
+  deep_reviews: 0
+  clean_briefs: 0
+survival_trace:
+  trigger_met: false
+  reason: all raw items failed contribution-type-specific C0 before D1
+dispositions:
+  MLPERF_V5_GPTJ_CROSS_LAYER_PLACEMENT: STRUCTURAL_DROP__GENERIC_BATCHING_OR_SCHEDULING
+  MLPERF_V5_RGAT_FEATURE_PLACEMENT: STRUCTURAL_DROP__GENERIC_GRAPH_LAYOUT_PLACEMENT
+  MLPERF_TINY_V11_ARENA_CONSTRUCTION: STRUCTURAL_DROP__GENERIC_MEMORY_PLANNING
+  SUITESPARSE_BOUNDED_SPARSE_CONSTRUCTION: STRUCTURAL_DROP__GENERIC_SPARSE_PARTITION_SOLVER
+integrity:
+  exact_public_carrier_before_raw: true
+  mature_tool_not_primary_origin: true
+  no_experiment_build_install_or_stage_work: true
+  no_readiness_result_or_resource_inference: true
+  network_security_scope_excluded: true
+  no_outcome_aware_backfill: true
+summary_zh: >-
+  Source23 先以MLPerf v5.0/Tiny v1.1和SuiteSparse的精确版本化自然载体入raw；四条均有同对象估计量与有限闭合路线，但在各自贡献类型C0处只剩通用批处理、图/内存布局或稀疏分块，故未入D1、未触发生存追踪，零提案。
+next_step_zh: >-
+  该轮验证了自然载体准入本身可工作，但下一轮需寻找同时具备载体和目标专属跨层动作/形式保证的对象，而非把通用资源放置重新包装。

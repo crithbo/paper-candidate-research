@@ -1,0 +1,28 @@
+assignment_id: STAGE0-P1-20260815-LLVM-BYREF-INVOKE-CALL-FRAME-LIFETIME-PREBRIEF-CLOSURE-V8.7
+topic_id: LLVM-BYREF-INVOKE-CALL-FRAME-LIFETIME
+mode: PREBRIEF_SOURCE_CLOSURE
+disposition: NOT_ADMITTED_UNFROZEN__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+stage_authority:
+  stage0_primary: false
+  stageA: false
+  stageB: false
+current_source_pin:
+  llvm_main_commit: 10b4fa5b79eb9d27b4928ad82afa3847762bc72f
+  selection_rule: OFFICIAL_COMMIT_ENDPOINT_FIRST_SUCCESS
+decisive_finding: >-
+  Current LLVM sources confirm byref ABI validation and generic CFG-aware stack
+  lifetime coloring, but the bounded bundle does not freeze a target-specific public
+  byref+invoke same-function carrier, target lowering action catalog, or two-plan
+  object/unwind reader route. No absence or direct-absorption inference is made.
+required_if_reopened_as_new_prebrief:
+  - Pin one target triple, calling convention and current target lowering locus.
+  - Freeze one public byref+invoke function with normal and exceptional successors.
+  - Retain stock verifier, object and unwind-reader contracts for that same function.
+  - Define two complete target-legal plans and show why generic stack coloring/frame/EH lowering cannot express their action divergence.
+resource_status:
+  attempts_used: 6
+  attempts_max: 6
+  locator_failure: LangRef.rst URL returned HTTP_404__NO_ABSENCE_INFERENCE
+  scientific_inference_from_resource_status: none
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+next_owner: MAINLINE

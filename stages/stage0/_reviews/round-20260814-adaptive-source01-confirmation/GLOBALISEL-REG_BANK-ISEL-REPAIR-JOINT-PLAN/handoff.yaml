@@ -1,0 +1,39 @@
+schema_version: 1
+assignment_id: STAGE0-C2-20260814-GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN-CONFIRM-V8.7
+topic_id: GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+role: INDEPENDENT_STAGE0_CONFIRMATION_SENTRY
+decision: CONFIRM_REVISE_ONCE
+tier_if_gate_closes: TIER_B_Q2_VIABLE
+stageA: false
+stageB: false
+evidence_ceiling: STATIC_CURRENT_SOURCE_AND_FIDELITY_PLAN__NO_COMPILE_OR_PERFORMANCE_CLAIM
+primary_packet:
+  decision: REVISE_ONCE
+  report_sha256: CC7CC2F2D8E7A2240AB671F87D1C506B3D5FC5FD30FE1767F887B806890EA4D7
+  handoff_sha256: 29AF8C3395167562EAADFAB476F48BD437FCA7F0EA202E7D7665D2FE671B6810
+  manifest_sha256: 62EF07ABD3B2AAE0509EA2D3E2D2C81C25847885ABF1137ECB51B57D98CED43C
+  manifest_verification: 4/4_PASS
+atomic_revision_gate: PINNED_RBI_ACTION_CATALOG__NONLOCAL_BOUNDED_REGION_CERTIFICATE
+confirmed_current_union:
+  - Fast_default_target_mapping
+  - Greedy_all_target_RBI_possible_mappings_with_local_mapping_cost
+  - CFG_aware_RepairingPlacement_reassign_insert_split_and_edge_actions
+  - MBFI_MBPI_where_current_nonfast_mode_uses_them
+  - full_downstream_GlobalISel_RA_scavenger_frame_scheduling_MC_composition
+revision_must_close:
+  - immutable_target_RBI_action_catalog_and_configuration_pin
+  - two_complete_same_MIR_all_edge_nonlocal_legal_plans
+  - candidate_plan_not_reproduced_or_dominated_by_full_current_union
+  - finite_future_action_and_cost_preserving_state_and_exact_FPT_or_certified_frontier
+  - full_cost_ledger_and_finite_same_contract_StageA_preclaim_killer
+collision_status: SEARCH_BOUNDED_OPEN
+direct_fatal_found: false
+failure_boundary: BELOW_Q2_STOP_IF_PINNED_ACTION_CATALOG_HAS_NO_UNION_EXTERNAL_LEGAL_NONLOCAL_PLAN_OR_FULL_UNION_DOMINATES
+forbidden_as_revision_solution:
+  - local_cost_weight_tuning
+  - existing_RepairingPlacement_relabeling
+  - copy_count_only_objective
+  - generic_ILP_CP_or_identity_enumeration
+  - changed_target_RBI_ABI_GMIR_or_downstream_contract
+next_route: PRIMARY_OWNER_SINGLE_STATIC_REVISION_THEN_INDEPENDENT_CLOSING
+lane_terminal_state: IDLE_REUSABLE_AWAITING_MAINLINE

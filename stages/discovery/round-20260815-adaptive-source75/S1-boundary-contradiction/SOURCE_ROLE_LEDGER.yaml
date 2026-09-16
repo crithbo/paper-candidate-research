@@ -1,0 +1,29 @@
+sources:
+  - role: ANCHOR
+    url: https://llvm.org/docs/LangRef.html
+    version_or_date: current page observed 2026-08-15
+    selection_rule: exact LLVM IR callbr semantics
+    finding: callbr has one fallthrough and indirect labels; ordinary use is restricted.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - role: CURRENT
+    url: https://clang.llvm.org/docs/LanguageExtensions.html
+    version_or_date: current page observed 2026-08-15
+    selection_rule: first-party asm-goto surface contract
+    finding: Clang documents asm goto with output constraints.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - role: CONTRARY
+    url: https://llvm.org/docs/doxygen/classllvm_1_1CallBrInst.html
+    version_or_date: current doxygen observed 2026-08-15
+    selection_rule: current API exposes default and indirect destinations
+    finding: current IR already represents the entire destination set.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - role: ESCAPE
+    url: https://lists.llvm.org/pipermail/llvm-dev/2018-October/127239.html
+    version_or_date: 2018 RFC, contrary genealogy only
+    selection_rule: origin of callbr implementation
+    finding: callbr was introduced specifically to represent asm-goto CFG rather than exception CFG.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY

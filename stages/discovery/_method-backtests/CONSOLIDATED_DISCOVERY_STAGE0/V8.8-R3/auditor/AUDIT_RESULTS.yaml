@@ -1,0 +1,60 @@
+schema_version: consolidated-discovery-stage0-audit-results-v8.8-r3
+assignment_id: BACKTEST-AUDITOR-20260810-CONSOLIDATED-V8.8-R3
+role: DISCOVERY_BACKTEST_AUDITOR_LANE_1
+method_revision: CONSOLIDATED_DISCOVERY_STAGE0_V8.8_R3
+input_verification:
+  packer_manifest_sha256: 69357EE2B5F29FAE3CA590382EA36E87647DDAA031CFF6063AF1F6FF6AF59BBD
+  packer_manifest_entries: 85
+  packer_manifest_hashes: PASS
+  packer_path_boundary: PASS
+  packer_manifest_excludes_only_itself: true
+  executor_manifest_sha256: 070DEE14AE8D8B6EA713407CEA8AFF67B06E0A95354EBF6BB0267D8018B84194
+  executor_manifest_entries: 3
+  executor_manifest_hashes: PASS
+  executor_path_boundary: PASS
+  executor_manifest_excludes_only_itself: true
+  executor_readable_sealed_files: 74
+  executor_readable_bytes: 37726016
+  embedded_source_artifacts: 55
+  external_material_used: false
+  executor_auditor_key_access: false
+  contamination_status: PASS__NO_DETECTED_BOUNDARY_BREACH
+  validator_note: >-
+    The supplied read-only validator could not be executed because its PyYAML
+    dependency is absent in the bundled Python runtime; independent manifest,
+    byte/path, and SHA-256 checks were completed directly.
+per_case:
+  C01: {control: PROPOSE_STAGE0, proposed: STRUCTURAL_DROP, audit: FAIL_SENTINEL_DECISIVE_SUBTRACTOR_NOT_NAMED, detail: "All source IDs used, but only S02 is cited; neither RUST_BVCOMPZ_COMPLETE_PIPELINE nor ZUCKERLI is named."}
+  C02: {control: PROPOSE_STAGE0, proposed: STRUCTURAL_DROP, audit: FAIL_SENTINEL_DECISIVE_SUBTRACTOR_NOT_NAMED, detail: "All source IDs used, but only S03 is cited; no keyed decisive subtractor is named."}
+  C03: {control: DROP, proposed: NOT_ADMITTED_UNFROZEN, audit: PASS}
+  C04: {control: PROPOSE_STAGE0, proposed: STRUCTURAL_DROP, audit: FAIL_KEYED_REASON_MISMATCH, detail: "Key requires unfrozen cache-residency/retention availability transition; output instead asserts wrapper/composition absorption."}
+  C05: {control: PROPOSE_STAGE0, proposed: NOT_ADMITTED_UNFROZEN, audit: PASS}
+  C06: {control: DROP, proposed: STRUCTURAL_DROP, audit: PASS}
+  C07: {control: DROP, proposed: STRUCTURAL_DROP, audit: PASS}
+  C08: {control: DROP, proposed: STRUCTURAL_DROP, audit: PASS}
+  C09: {control: PROPOSE_STAGE0, proposed: DEEP_DIVE_REQUIRED, audit: PASS_FULL_CERTIFICATE}
+  C10: {control: PROPOSE_STAGE0, proposed: DEEP_DIVE_REQUIRED, audit: PASS_FULL_CERTIFICATE}
+  C11: {control: PROPOSE_STAGE0, proposed: DEEP_DIVE_REQUIRED, audit: PASS_FULL_CERTIFICATE_MODEL_BOUNDARY}
+  C12: {control: PROPOSE_STAGE0, proposed: DEEP_DIVE_REQUIRED, audit: PASS_FULL_CERTIFICATE}
+  C13: {control: PROPOSE_STAGE0, proposed: DEEP_DIVE_REQUIRED, audit: PASS_FULL_CERTIFICATE}
+  C14: {control: PROPOSE_STAGE0, proposed: STRUCTURAL_DROP, audit: PASS_STRUCTURAL_NEGATIVE}
+  C15: {control: PROPOSE_STAGE0, proposed: STRUCTURAL_DROP, audit: PASS_RESOURCE_EVENT_NOT_CAUSAL, detail: "Current-source collision, not the build blocker, is stated as the disposition reason; key's preferred RESOURCE_BLOCKED label remains a non-gating discrepancy."}
+  C16: {control: PROPOSE_STAGE0, proposed: DEEP_DIVE_REQUIRED, audit: PASS_RESOURCE_EVENT_NOT_CAUSAL}
+  C17: {control: PROPOSE_STAGE0, proposed: DEEP_DIVE_REQUIRED, audit: PASS_RESOURCE_EVENT_NOT_CAUSAL}
+  C18: {control: DROP, proposed: NOT_ADMITTED_UNFROZEN, audit: PASS_RESOURCE_EVENT_NOT_CAUSAL}
+thresholds:
+  sentinel_minimum_set_recall: {observed: 0/2, required: 2/2, status: FAIL, failures: [C01, C02]}
+  sentinel_broad_claim_leakage: {observed: 0/2, required: 0/2, status: PASS}
+  structural_negatives_not_packaged: {observed: 5/6, required: 6/6, status: FAIL, failures: [C04]}
+  positive_candidate_grade_deep_review: {observed: 5/6, required: 5/6, status: PASS}
+  positive_proposal_grade_or_explicit_nonstructural_unfrozen: {observed: 5/6, required: 4/6, status: PASS}
+  resource_controls_not_structural_failure: {observed: 4/4, required: 3/4, status: PASS}
+  every_proposal_full_atomic_certificate: {observed: 7/7, required: 7/7, status: PASS}
+  every_stage0_replay_model_native_boundary_correct: {observed: 7/7, required: 7/7, status: PASS}
+  terminal_revival: {observed: 0, required: 0, status: PASS}
+  hard_gate_violation: {observed: 0, required: 0, status: PASS, interpretation: "No proposal-grade or deep-review packaging bypasses a hard gate; detected gates in dropped/unfrozen cases are correct rejection reasons."}
+overall_verdict: FAIL
+calibration_status: NOT_CALIBRATED
+production_state_changed: false
+shadow_waves_run: false
+completion_status: IDLE_REUSABLE_AWAITING_MAINLINE

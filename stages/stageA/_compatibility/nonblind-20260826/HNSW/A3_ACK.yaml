@@ -1,0 +1,35 @@
+schema: user-authorized-transport-retry-ack-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A3-RECOVERY
+authority: USER-RETRY-TRANSPORT-RECOVERY-20260826
+correction:
+  path: A3_TRANSPORT_RECOVERY_RETRY.yaml
+  sha256: 9F339DFF1E38363147E588F219028C39B8CDD89A7C4C8E47E8987C09DB8D220C
+read_only_preflight_attestation:
+  command: curl.exe --head --fail --max-redirs 0 https://cmake.org/files/v3.31/cmake-3.31.6-windows-x86_64.zip
+  observed_by: MAINLINE
+  result: HTTP_200
+  content_length: 46473549
+preserved_predecessor:
+  path: A2_handoff.yaml
+  sha256: 264761D08F3840B41C339F70DB05883551619D929DAC619B122798E6964F4546
+  a2_manifest_verified: true
+transport_contract:
+  url: https://cmake.org/files/v3.31/cmake-3.31.6-windows-x86_64.zip
+  archive_path: resources/archives/cmake-3.31.6-windows-x86_64.zip
+  expected_sha256: d163cd3ab4959b0a53fa8988f2ddbd2e6c501658201e6a154386bad9dbe4f836
+  executable: curl.exe
+  redirects_max: 0
+  download_attempts_max: 1
+  archive_exists_before_start: false
+  archive_bytes_before_start: 0
+  reparse_points_under_resource_root: 0
+  curl_available: true
+  no_retry: true
+  no_alternate_endpoint_or_artifact: true
+  no_tls_bypass: true
+post_success_only: SHA256_validate_then_resume_A1S2_through_parent_S7_once
+forbidden_before_acceptance: [download, extract, cmake_or_parent_command, probe, cleanup, science, state_transition]
+scientific_or_resource_action_started_since_A3_authorization: false
+differences_or_ambiguities: []
+ack_disposition: READY
+mainline_A3_acceptance_received: false

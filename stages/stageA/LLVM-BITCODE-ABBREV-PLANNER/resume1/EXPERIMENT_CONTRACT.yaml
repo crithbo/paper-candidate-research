@@ -1,0 +1,102 @@
+schema: llvm-bitcode-abbrev-stagea-resume1-contract-v2
+frozen_at_gate: 2026-08-11T00:00:00+08:00
+assignment_id: STAGEA-L3-20260811-LLVM-BITCODE-ABBREV-PLANNER-RESUME1-V8.7
+source_assignment_id: STAGEA-L3-20260809-LLVM-BITCODE-ABBREV-PLANNER-INITIAL-V8.7
+lane_id: CANDIDATE_EXECUTION_LANE_3
+stage: STAGEA_RISK_PILOT
+claim_ceiling_positive: PRELIMINARY_SUPPORT
+preclaim_contract_fidelity_gate: PASS
+scientific_revision_consumed: false
+exact_object:
+  input: pinned LLVM Module plus frozen expanded semantic block-record trace
+  output: one ordinary raw native LLVM bitcode file
+  invariants:
+    - pinned unmodified LLVM 22.1.8 reader accepts
+    - canonical decoded IR equality after removing only filename-derived ModuleID
+    - opt -passes=verify succeeds
+    - expanded semantic block/record values and order are exactly identical
+  allowed_changes:
+    - legal abbreviation grammar
+    - legal BLOCKINFO or immediate-block scope and definition order
+    - induced application abbreviation IDs and fixed per-block CodeLen
+    - unchanged-record assignment or native UNABBREV fallback
+  forbidden_changes:
+    - any IR or expanded record change reorder omission split merge
+    - patching VSTOFFSET FNENTRY or another record value
+    - module split merge
+    - alternative codec nonnative reader external compression primary target
+toolchain:
+  release_tag: llvmorg-22.1.8
+  release_commit: ca7933e47d3a3451d81e72ac174dcb5aa28b59d1
+  current_source_audit_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+  executable_arms_use_release_only: true
+  license: Apache-2.0 WITH LLVM-exception
+candidate:
+  name: WIDTH_LADDER_SHARED_LOCAL_DYNAMIC_PROGRAM
+  short_name: WL-SLDP
+  novelty_route: N2
+  grammar_constructor: literal-code plus deterministic Fixed VBR Array Char6 Blob operands from unchanged records
+  scope_actions:
+    - reuse existing BLOCKINFO grammar
+    - new immediate local grammar
+    - capacity-neutral final-VST local-to-BLOCKINFO move under exact offset safety
+  legal_order: first matching record then canonical grammar key; all definitions precede their use
+  assignment_solver: exact dynamic program over record index and bit residue modulo 32
+  local_solver: exhaustive bounded subsets partitioned by induced CodeLen width ladder
+  global_solver: dynamic-program convolution of leaf frontiers under one module definition budget
+bounds:
+  candidate_universe_per_leaf: 10
+  selected_definitions_per_leaf: 6
+  selected_definitions_per_module: 12
+  mutable_depth: final direct MODULE VALUE_SYMTAB plus leaf top-level blocks after MODULE
+baselines:
+  B0: complete pinned current native writer output with trace-affecting flags fixed
+  B1: exact current-grammar subset scope assignment oracle
+  B2: greedy full bounded planner over same universe scope feasibility limits and exact net bits
+  B3: independent tiny exact ceiling only
+negative_control:
+  BCDB: external-compression subtractor only; not a raw-native B0-B2 replacement
+metrics:
+  primary:
+    - whole ordinary raw bitcode bytes
+    - operational first and warm native read wall CPU peak RSS
+  full_cost:
+    - input compile wall CPU peak RSS
+    - trace parse and freeze
+    - grammar construction and planning wall CPU peak RSS
+    - native file write
+    - llvm-bcanalyzer llvm-dis opt-verify wall CPU peak RSS
+    - failure fallback and invalid-arm count
+    - definition count novel definition count CodeLen transitions
+  summaries: [p50, p90]
+natural_corpus:
+  target_modules: 100
+  public_natural_only: true
+  planned_source: exact-commit official llvm-test-suite source archive
+  selection: deterministic path-SHA256 order of compilable C/C++ translation units with distinct output module hashes
+  compilation: pinned clang 22.1.8 emit-llvm compile-only at frozen flags; one source to one module
+  freeze_before_first_run:
+    - archive URL commit bytes SHA256 license
+    - selected paths source hashes compile commands module bytes hashes traces
+  shrink_rule: before first natural arm only; preregister retained count and prove at least 10 percent action-coverage decision power
+stop_rules:
+  - any native parse expanded-trace decoded-IR or opt-verify failure
+  - all candidate actions or benefits absorbed by B1 or B2
+  - mechanism collapses to local engineering flag sweep schema patch or postprocessor
+  - retained residual useful-action coverage below 0.10
+  - no executable non-dominated raw-byte primary point at both p50 and p90 after full cost
+  - planning write read or verification cost consumes preregistered benefit
+resource_envelope:
+  public_cpu_only: true
+  workspace_bytes_max: 4294967296
+  cumulative_cpu_hours_max: 4
+  gpu: false
+  exclusive_device: false
+preclaim_evidence:
+  id_width_witness: results/witness/ID_WIDTH_STEP_WITNESS.json
+  native_scope_witness: results/scope_witness/NATIVE_SCOPE_WITNESS.json
+  tiny_exact_ceiling: results/witness/TINY_EXACT_CEILING.json
+  smoke_verification: results/planner_smoke/verification.json
+old_failed_offset_rewrite_role: CODEC_OR_IMPLEMENTATION_CONTROL__NON_CLAIM_BEARING
+stageb_user_approval_id: null
+stageb_authorized: false

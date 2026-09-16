@@ -1,0 +1,21 @@
+topic_id: QNN-KV-HANDOFF-CLOSURE
+decision_applied_count: 1
+selected_branch: D_interface_or_resource_blocked
+selected_action: RECORD_BLOCKER_NOT_SCIENTIFIC_DROP
+supporting_conditions:
+  tensor_descriptors_or_binding_are_not_observable: true
+  boundary_adapter_cannot_be_inserted: UNOBSERVED__NOT_INFERRED
+  required_device_runtime_is_not_accessible: true
+non_selected_branches:
+  A_current_union_absorbs: NOT_EVALUABLE__NO_BINDING_OR_STOCK_PATH_EVIDENCE
+  B_fusekv_residual: NOT_EVALUABLE__NO_DESCRIPTOR_OR_FUSION_INTERFACE_EVIDENCE
+  C_structural_drop: NOT_EVALUABLE__NO_TARGET_GRAPH_MATERIALIZATION_EVIDENCE
+scientific_disposition: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+stage0_created: false
+user_action_required:
+  - Provide access to one officially supported physical device or already-completed job artifact for the exact Qwen3-0.6B W4A16 512/4096 pair.
+  - Provide device marketing name, chipset, firmware/build fingerprint, exposed HTP/NPU revision, and observed QAIRT/QNN/GenieX version.
+  - Provide both context-binary asset/job IDs and binary SHA-256s, model commit, and W4A16 encoding hash.
+  - Provide read-only descriptor/binding and stock-switch trace access sufficient to inspect external/persistent K/V tensors.
+resume_condition: A new mainline-frozen closure assignment with the supplied artifact/device boundary.
+

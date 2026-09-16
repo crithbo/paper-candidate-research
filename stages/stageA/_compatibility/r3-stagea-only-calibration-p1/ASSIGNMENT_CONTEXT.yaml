@@ -1,0 +1,9 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: STAGEA-ONLY-IDENTITY-BLIND-CALIBRATION-R3-P1, topic_id: STAGE0A_IDENTITY_BLIND_EVIDENCE_BACKTEST_R3, stage_or_mode: STAGEA_ONLY_IDENTITY_BLIND_CALIBRATION, status: REVIEWER_ELIGIBILITY_CHECK_PENDING, next_action: VERIFY_REVIEWER_ELIGIBILITY_BEFORE_PACKET_DISPATCH}
+authority: {policy_authority: USER, shared_file_writer: MAINLINE, allowed_actions: [reviewer_eligibility_check_only], forbidden_actions: [packet_dispatch_until_clean_reviewer, network, build, probe, experiment, gold_release, production_candidate_registration, StageB]}
+boundaries: {unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/r3-stagea-only-calibration-p1, network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control: {AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}, plan: {path: plan.md, sha256: 87EC9E172959B337E7BFD38A41F1E01333394FE3DE7F162C8A441F133125F9DF}, registry_snapshot: {path: registry.yaml, sha256: A40B774D0FB5776692A2DD739B05E11284B99DBC3E0F5809CA1CC2B42F63369D}, proposal_handoff_sha256: 028AED2AD361C32371FA55523C7B5A536DCECCAA38AD7FA09CF324870C620B2E}
+minimum_inputs: [{path: ASSIGNMENT.yaml, sha256: 7DF787968257283CA1ABB3BF66271C3237BCF1FCC1D3EE25D145E812EF561287}, {path: REVIEWER_ELIGIBILITY_ATTESTATION.yaml, sha256: 36A7E312921CE58826832D7BAD4F3496DEA2FA690EF63B8A20C62AA7602E3252}, {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/STAGEA_ANONYMIZED_PACKET.yaml, sha256: BA621A4D5006EDDBD8574FCD3521FEECD301E42C8C25E770A87275A142F4F294}]
+validation: {hashes_complete: true, source_plan_registry_consistent: true, result: VALIDATED}

@@ -1,0 +1,13 @@
+schema: pilot-v2-ppc-e2-correction-spec-v1
+topic: PPC
+authorization_basis: USER_CONTINUOUS_STAGEA_ECP_AUTONOMY_20260829
+correction_scope:
+  - copy frozen materializer_harness.py and common.py into assignment-local resources/engineering_raw/runner
+  - mechanically replace TOOL_BIN only with exact read-only ASSET-LLVM-PPC-F127B4C tool directory
+  - create assignment-local baseline_cost_collector.py that only calls existing `_run_strong_baseline_grid` once and serializes its 56 command metrics, 16 bundles, graph audit and cost ledger
+  - rewrite frozen E2 control DAG only for corrected runner/collector paths and existing missing workspace-prefix typos
+required_static_checks: [harness_logic_other_than_tool_path_unchanged, exact16_input_unchanged, baseline_grid_8x2_unchanged, denominator_71_unchanged, no_placeholders]
+required_control_outputs: [candidate_command_metrics.json, baseline_cost_ledger.json, strong_baseline_dependency_graph.json, native_checkers.json, full_cost_ledger.json]
+engineering_corrections_after_this: 1
+replay_after_correction_max: 1
+forbidden: [natural_claim, baseline_or_denominator_change, result_aware_change, tool_binary_copy, additional_correction, shared_install, stageb]

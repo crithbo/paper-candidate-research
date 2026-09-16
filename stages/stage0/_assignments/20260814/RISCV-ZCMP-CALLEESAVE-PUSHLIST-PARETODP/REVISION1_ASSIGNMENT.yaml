@@ -1,0 +1,31 @@
+assignment_id: STAGE0-P1-20260814-RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP-REVISION1-V8.7
+mode: PRIMARY_REVISION1
+topic_id: RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_READY_TO_DISPATCH
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_revisions\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\revision1
+scientific_revision_limit: 1
+scientific_revision_index: 1
+sole_gate: PINNED_RV32_ZCMP_SAME_MACHINEFUNCTION_TWO_PLAN_WITNESS__TARGET_SPECIFIC_BOUNDED_FRONTIER_CERTIFICATE
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source09-primary\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+confirmation_directory: stages\stage0\_reviews\round-20260814-adaptive-source09-confirmation\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+frozen_inputs:
+  primary_report_sha256: 1DF08A5AD7AE14ABAC9EF90BA6755905C99E249B2E3AD4C1E8C1C4C4E70C785A
+  primary_q1_sha256: 2658EB05D257E92AFBCCFC73660BFEA6170AB03A9750ACE2F6F5770CCE660C27
+  primary_source_sha256: 99EECA3D1649A0785A03FB6B959E06734BE6E96F734E1B08A8C96C6F998056F4
+  primary_handoff_sha256: CBC74CDDABBCE8A10D250909679C48364C59A26E26DA7BF8B9701D5ABFF035B5
+  primary_manifest_sha256: 0577F16B03DBD92AEB7B51CD88089D293D8656C1680F81A3181C1023A236D2E9
+  confirmation_review_sha256: 7A0629081AE4ED21E383CF6E43DC93EC0BF6B347A99C01931576CA3697A8EA16
+  confirmation_handoff_sha256: A5D8D7AC65A91DF7E423547E7D8950FBF46C56EC65EF87E5007234B353ABD435
+  confirmation_manifest_sha256: 013C72505C4E54CD4B011858387E4A4BD36EE510A69538CA845E3EF1BE96083C
+mandatory_closure:
+  - Pin an immutable current LLVM commit and RV32 psABI plus Zcmp feature configuration.
+  - Freeze one complete MachineFunction and two whole native-legal plans with identical behavior, ABI and unwind, differing jointly in pre-RA coloring, legal Zcmp push or pop list and stack adjustment, and spill realization.
+  - Enumerate the complete current union including fixed CSR order, isPushable rules, CM_PUSH and CM_POP construction, frame and stack layout, CFI, late PushPop rewrite and pseudo expansion.
+  - Prove a target-specific bounded state and future-action and declared-cost preserving exact, FPT or certified Pareto frontier; generic RA or frame packing is below the quality floor.
+  - Freeze but do not run a finite Stage A falsifier using the same MachineFunction and current union.
+failure_sentinel: BELOW_Q2_STOP__GENERIC_REGISTER_ALLOCATION_FRAME_PACKING_OR_CURRENT_ZCMP_UNION_ABSORPTION
+forbidden: [new_topic, second_revision, implementation, build, experiment, benchmark, download, stageA, stageB, shared_control_write]
+required_outputs: [REVISION_REPORT.md, CURRENT_ACTION_AND_FRONTIER_AUDIT.md, CLAIM_MATRIX.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {next_if_gate_closed: INDEPENDENT_REVISION1_CLOSING, notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

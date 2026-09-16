@@ -1,0 +1,10 @@
+# Canonical source/action matrix
+
+| Family | Current source/action union checked | Default/non-default reality | Full-cost and finite falsifier |
+|---|---|---|---|
+| F01 | `importlib` loader protocol: create, preinsert in `sys.modules`, execute, remove own insertion on failure; per-module locking is current import machinery. | Python import semantics/default loader contract; proposed lazy/batched paths are non-default semantic modes and not evidence of a residual. | Import latency, module RSS, lock/wait cost, rollback behavior. Falsifier: a cyclic/import-failure trace that changes observable `sys.modules` or recursion semantics. |
+| F02 | glibc `dl_open` global-scope reserve/update, constructor/destructor, recursive open and link-map cleanup route. | Loader defaults plus `RTLD_*` flags must stay fixed; flags cannot create a new constructor-boundary guarantee. | Loader CPU/RSS, relocation work, scope-list growth, DSO lifetime. Falsifier: recursive DSO graph showing candidate is already reserve/update or changes resolution/constructor semantics. |
+| F03 | Rust `Once` state machine and `call_once_force`; platform once implementation route. | Standard method semantics are the baseline; no non-default flag supplies an independent same-object action. | Blocking/wakeup CPU, state bytes, initialization latency, panic/force behavior. Falsifier: any candidate reduces to choosing an existing closure or changes happens-before/poison semantics. |
+| F04 | POSIX robust mutex lock/owner-death/consistent/unlock states; glibc consistency implementation route. | Robust attribute and standard recovery calls are the union; application data invariant is outside primitive information. | Lock/recovery latency, wait CPU, shared-state validation/rebuild cost. Falsifier: cannot name an invariant without changing object from primitive to a particular application. |
+
+`CURRENT_UPSTREAM_REALITY_CHECK`: source/docs and current defaults/non-default surface were recorded for all action-absence-sensitive families. No current absence is asserted.

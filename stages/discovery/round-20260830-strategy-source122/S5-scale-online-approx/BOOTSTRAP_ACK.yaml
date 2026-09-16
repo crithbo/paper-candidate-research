@@ -1,0 +1,148 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-30T04:05:22.6914327+08:00
+lane_id: DISCOVERY_S5
+role_id: DISCOVERY-S5-SCALE-ONLINE-APPROX
+assignment_id: DISCOVERY-S5-20260830-SOURCE122
+topic_id: SOURCE122-PORTFOLIO-S5
+assignment_context_path: stages/discovery/round-20260830-strategy-source122/S5-scale-online-approx/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: 2F0D24DD95E100886623D00B93DA322724ABFEFD14F5E85686C44ACDABBA3BCC
+old_chat_memory_required: false
+
+thread_mapping_ack:
+  mainline_source_thread_id: 01a034d0-af48-72a1-a311-7495db80d90f
+  lane_thread_id: 01a034d0-c201-7c03-ab03-4c6a2b886820
+  context_thread_id_matches_lane: true
+  lane_assignment_thread_id_matches_context: true
+
+model_route_ack:
+  model: gpt-5.6-sol
+  thinking: high
+  temporary_user_command_override: true
+  applies_only_to_this_user_command: true
+  expires_on_next_user_command: true
+  future_commands_restore_rule_default_routing: true
+
+frozen_hash_ack:
+  AGENTS_sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655
+  plan_sha256: 07993A6D005C868764DB16067F2DEE6568699456CC792037BA5D28FD55455F12
+  registry_snapshot_sha256: 35957B9ADF3331E2B9132AD4A7E5CAF513DA1F14E17C812B22AFC9B41BA6DCC0
+  shared_freeze:
+    path: stages/discovery/round-20260830-strategy-source122/control/SHARED_FREEZE.yaml
+    sha256: BB8E7BE848315783D16A7343373381A85D7EF5D486AB3576AFFBDCC6FE210D8E
+  lane_assignment:
+    path: stages/discovery/round-20260830-strategy-source122/control/LANE_ASSIGNMENTS.yaml
+    key: lanes.S5
+    sha256: 5C3E32DE12C17639EEE244F76DAF1A71F18CD5610BF47A4BA64542CE8630D0AD
+  lane_identity:
+    path: stages/discovery/round-20260830-strategy-source122/control/LANE_IDENTITY.yaml
+    key: lanes.S5
+    sha256: 01CF225555DCFF5AF7A7D0101ED1C32EB9504ED8085FA2C556667432353D6AE9
+  role_rule:
+    path: rules/ROLE_DISCOVERY.md
+    sha256: 4583C7A555AF03E8365D74FFCB9B890107EB877A35059E3BA7CFDCE45E593EBD
+  skill_hashes:
+    - path: .agents/skills/research-topic-discovery/SKILL.md
+      revision: RESEARCH_TOPIC_DISCOVERY_R1_R40_20260815
+      sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+    - path: .agents/skills/research-topic-discovery/references/source-portfolios.md
+      sha256: FE3BC9503F70ED4BD729B338A7729BFA5CA3A3747312D63AF83D59B93FFE1F4D
+    - path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md
+      sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F
+  resource_and_lifecycle_rules:
+    - path: rules/RESOURCE_LOCALIZATION.md
+      sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA
+    - path: rules/ARTIFACT_LIFECYCLE.md
+      sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED
+  template_hashes:
+    - {path: templates/TOPIC_BRIEF.md, sha256: 4AB3144E0E9D366D702C37CAD4377A25E18DFEA746CA65224A18CAA2745E8FE4}
+    - {path: templates/DISCOVERY_DIVERGENCE_SEED_POOL.md, sha256: 31B6A89548313B51EFD0C7685ACF50EA56D6EC5C0B557BD9E8B920C7E2179470}
+    - {path: templates/DISCOVERY_RQ_CANDIDATE.md, sha256: 0FF1E7FD811C3BCA84D15DA9713B7A27ED8EB9076C2939316AF43DA85168F5BF}
+    - {path: templates/DISCOVERY_QUESTION_CARD.md, sha256: D157B1B5D14C0DCEB3D238E85075777C3850C7E145ABD5EA8A3A111D3D022739}
+    - {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+    - {path: templates/RESOURCE_INVENTORY.yaml, sha256: E859CE19DC3EB906EF391B1D8039E7B02A762EB74D7421454E40BB4539FEEEC7}
+  rq_frontend:
+    mode: PRODUCTION
+    method_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+    auditor_handoff:
+      path: stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/auditor/handoff.yaml
+      sha256: 314F8A6C2F2D475C7C7FC0A23967ED6B0AB9A082F2E32ABE8DC169B9608B4D10
+      verdict: CALIBRATED
+    production_cutover:
+      path: stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/control/PRODUCTION_CUTOVER_RECORD.yaml
+      sha256: 14792F83BEB880B5458945FEA60EE157FD11707BE70157FC69CAD09A1D56E0B5
+      status: COMPLETE
+      default_for_new_discovery_assignments: PRODUCTION
+  minimum_input_hashes:
+    - {path: stages/control/user-authorizations/USER_CONTINUOUS_DISCOVERY_STAGEA_SOLHIGH_UNTIL_USAGE_RESET_20260830.yaml, sha256: 6DE4C14EF65F4FF8246716A7F4F05BE29B974C5693743574F032CCBD0DD64B36}
+    - {path: stages/control/user-authorizations/CURRENT_CYCLE_USAGE_RESET_STATUS_20260830.yaml, sha256: 049A509C0F49EFD3EC5901CDB854F2C000926EE7CD2B0F7AC52E91B3F09D93D8}
+    - {path: stages/discovery/round-20260830-strategy-source122/control/CONTROL.yaml, sha256: 3D37A579FBE5E68B058B3848DC60774BD02133BC9F3550B456EAB63B10D8EA45}
+    - {path: stages/discovery/round-20260830-strategy-source122/control/PORTFOLIO_NOTE.yaml, sha256: D40A2CC22DB03F6814F09D83799F4D4F8A0AD4BBEC5F096ADE879459765D6277}
+    - {path: stages/discovery/round-20260830-strategy-source122/control/LANE_ASSIGNMENTS.yaml, sha256: 5C3E32DE12C17639EEE244F76DAF1A71F18CD5610BF47A4BA64542CE8630D0AD}
+    - {path: stages/discovery/round-20260830-strategy-source122/control/LANE_IDENTITY.yaml, sha256: 01CF225555DCFF5AF7A7D0101ED1C32EB9504ED8085FA2C556667432353D6AE9}
+  all_frozen_hashes_match: true
+
+mode_ack:
+  context_mode: DUAL_READ_SHADOW
+  discovery_rq_frontend_mode: PRODUCTION
+  discovery_claim_pack_mode: OFF
+  discovery_quality_mode: OFF
+  discovery_maturation_repair: OFF_NOT_CALIBRATED
+  artifact_lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+
+current_reset_status_ack:
+  status_path: stages/control/user-authorizations/CURRENT_CYCLE_USAGE_RESET_STATUS_20260830.yaml
+  cycle: 2026-08-30_until_11_00_Asia_Shanghai
+  reset_cycle_confirmed: false
+  current_cycle_usage_reset_confirmed: false
+  historical_2026_08_24_confirmation_applies_to_current_cycle: false
+  successor_dispatch_currently_allowed_until_confirmation: true
+  soft_pause_signal_understood: true
+
+read_ack:
+  cwd_actual: '<LOCAL_PROJECT_ROOT>'
+  cwd_is_authoritative_E_root: true
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  assignment_context_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  rq_frontend_auditor_and_cutover_complete: true
+  minimum_inputs_complete: true
+  current_reset_status_complete: true
+  registry_dual_read_performed: true
+  related_registry_records: [discovery_source122_20260830, user_continuous_discovery_stagea_solhigh_until_usage_reset_20260830, discovery_rq_refinement_staged_evidence_20260814]
+  related_registry_consistency: PASS
+  plan_registry_context_lane_mapping_consistency: PASS
+
+boundary_ack:
+  unique_write_directory_exact: '<LOCAL_PROJECT_ROOT>\stages\discovery\round-20260830-strategy-source122\S5-scale-online-approx'
+  resource_root_exact: '<LOCAL_PROJECT_ROOT>\stages\discovery\round-20260830-strategy-source122\S5-scale-online-approx\resources'
+  resource_root_existed_before_ack: false
+  resource_root_created: false
+  bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: NONE
+  contamination_detected: false
+  shared_write_performed: false
+
+execution_ack:
+  current_status: SOURCE122_BOOTSTRAP_PENDING__SOL_HIGH
+  resume_point: AFTER_MAINLINE_ACCEPTS_BOOTSTRAP_ACK_AND_ISSUES_START
+  next_action: WAIT_FOR_MAINLINE_ACCEPTANCE_AND_START
+  user_gate_or_blocker: MAINLINE_BOOTSTRAP_ACCEPTANCE_REQUIRED
+  search_or_network_started: false
+  seed_or_rq_started: false
+  raw_or_brief_started: false
+  resource_action_started: false
+  stage0_started: false
+  stagea_started: false
+  stageb_started: false
+  scientific_or_resource_action_started: false
+
+differences_or_ambiguities: []
+ack_disposition: READY
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

@@ -1,0 +1,16 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-P1A2-LOCAL-OUTPUT
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P1A1_CONTAINMENT_BLOCKER.yaml, sha256: 771F4792757151C5405DEC4FAA380E4FE2E9BBF09FBE189F69E5CCB8DE57FD01}, {path: MAINLINE_CONTAINMENT_RECEIPT.yaml, required: true}, {path: resources/src/probe/pgm_minimal_probe.cpp, retention: P1A1_EDITED_HARNESS__DO_NOT_MODIFY}]
+only_change: create_and_use_assignment_local_absolute_probe_output_directory_without_project_root_cwd
+output_directory: <LOCAL_PROJECT_ROOT>\stages\stageA\_compatibility\nonblind-20260826\PGM_INDEX\resources\build\probe
+allowed_command_sequence:
+  - {id: P1A2S0, command: New-Item -ItemType Directory -Path <assignment_local_output_directory>, stop_on_nonzero: true}
+  - {id: P1A2S1, command: existing_absolute_probe_compile_or_reuse_only_if_compiled_binary_hash_matches, stop_on_nonzero: true}
+  - {id: P1A2S2, command: run_epsilon_4_with_absolute_output_file_no_project_root_cwd, stop_on_nonzero: true}
+  - {id: P1A2S3, command: run_epsilon_16_with_absolute_output_file_no_project_root_cwd, stop_on_nonzero: true}
+  - {id: P1A2S4, command: run_epsilon_64_with_absolute_output_file_no_project_root_cwd, stop_on_nonzero: true}
+  - {id: P1A2S5, command: run_epsilon_256_with_absolute_output_file_no_project_root_cwd, stop_on_nonzero: true}
+prohibitions: [project_root_cwd, harness_edit, input_or_epsilon_change, output_outside_assignment, retry_after_failure, production_or_stageB_action]
+scientific_revision_consumed: false

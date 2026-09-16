@@ -1,0 +1,349 @@
+schema: stage0a-identity-blind-r3b-fresh-candidate-source-pool-v1
+audit_id: RULE-AUDIT-20260827-STAGE0A-IDENTITY-BLIND-R3B-FRESH-POOL-R1
+created_at: '2026-08-27T17:28:00+08:00'
+status: DRAFT_ALTERNATIVE__NOT_SEALED__PAUSED_BY_LATER_MAINLINE_A3_SEAL_REQUEST
+authority: RULE_AUDIT_SENTRY_PROPOSAL_ONLY
+shared_files_modified: false
+reviewer_delivery_performed: false
+phase_b_started: false
+reviewer_packets_created: 0
+scientific_or_resource_action_started: false
+
+purpose:
+  prior_r3_disposition: STRATIFIED_CLOSURE_INFEASIBLE__NO_PHASE_B
+  fresh_batch_requirement: EXCLUDE_R1_R2_R3_AND_REVIEWER_EXPOSED_IDENTITIES
+  pool_shape: FOUR_STRATA_X_SIX_PREQUALIFIED_IDENTITIES
+  proposed_target_shape: TWELVE_TARGET_PLUS_FOUR_RESERVE
+  post_hoc_r3_patch_allowed: false
+
+information_firewall:
+  new_candidate_expected_labels_read: false
+  new_candidate_stage0_or_stagea_gate_outputs_read: false
+  gold_labels_created: false
+  outcome_based_selection: false
+  official_page_abstract_used_only_for_identity_and_contribution_type_prequalification: true
+  exclusion_ledger: R3B_REVIEWER_EXCLUSION_LEDGER.yaml
+
+uniform_prequalification_contract:
+  required_for_every_row:
+    - exact title is present on the official venue page
+    - year and venue match the official BibTeX block
+    - official page states USENIX Open Access and exposes a Download/PDF link
+    - identity is absent from the frozen exclusion ledger, including aliases
+    - one contribution stratum is assigned from the paper's stated object and contribution
+  precheck_date: '2026-08-27'
+  precheck_basis: OFFICIAL_USENIX_EVENT_PAGE__OPEN_ACCESS_MEDIA__DOWNLOAD_LINK_VISIBLE
+  network_or_download_action: WEB_PAGE_READ_ONLY__NO_PROJECT_RESOURCE_DOWNLOAD
+  scientific_quality_or_gate_inference: NONE
+
+identity_normalization:
+  identity_key_format: lowercase_ascii(title)|year|venue
+  encoding: UTF-8_WITHOUT_BOM
+  hash: SHA256_UPPERCASE_HEX
+  apostrophe_rule: NORMALIZE_TYPOGRAPHIC_APOSTROPHE_TO_ASCII_APOSTROPHE
+  venue_rule: USE_EXACT_LOWERCASE_VALUE_FROZEN_IN_IDENTITY_KEY
+
+deterministic_selection_rule:
+  risk_order: [LOW, MEDIUM, HIGH]
+  within_risk_order: ASCENDING_IDENTITY_KEY_SHA256
+  per_stratum_target_count: 3
+  per_stratum_reserve_count: 1
+  fallback_count_per_stratum: 2
+  proposed_total: {target: 12, reserve: 4, fallback: 8, pool: 24}
+  replacement_rule: NEXT_ITEM_IN_SAME_FROZEN_STRATUM_ORDER_ONLY
+  result_aware_replacement: forbidden
+  later_cross_stratum_borrowing: forbidden
+
+identity_risk_contract:
+  scope: REVIEWER_IDENTITY_RECOGNITION_RISK_ONLY__NOT_SCIENTIFIC_QUALITY
+  LOW: title or system is not marked by the official page as an award identity and is not treated here as a canonical household benchmark
+  MEDIUM: acronym or topic is plausibly recognizable to a specialist
+  HIGH: official page exposes an award marker or the identity is especially distinctive
+  risk_must_not_be_recomputed_after_packet_review: true
+
+strata:
+  METHOD_SYSTEM:
+    count: 6
+    deterministic_order: [M03, M06, M04, M01, M05, M02]
+    proposed_target: [M03, M06, M04]
+    proposed_reserve: [M01]
+    fallbacks: [M05, M02]
+    candidates:
+      - id: M01
+        title: 'Fast RDMA-based Ordered Key-Value Store using Remote Learned Cache'
+        year: 2020
+        venue: OSDI
+        identity_risk: MEDIUM
+        identity_key: 'fast rdma-based ordered key-value store using remote learned cache|2020|osdi'
+        identity_key_sha256: F7FF7283303C3E4ACD5A7A2FA069F6DAE744AC2FBEC17CB1017A6D3D01DBC48D
+        official_page: 'https://www.usenix.org/conference/osdi20/presentation/wei'
+        public_fulltext_prechecked: true
+        contribution_precheck: METHOD_SYSTEM__LEARNED_CACHE_AND_RDMA_STORE_DESIGN
+      - id: M02
+        title: 'Virtual Consensus in Delos'
+        year: 2020
+        venue: OSDI
+        identity_risk: HIGH
+        identity_key: 'virtual consensus in delos|2020|osdi'
+        identity_key_sha256: B0670EAAE4678148B5A79A6CC3CB449395AD3569915A181660979E9953C56D16
+        official_page: 'https://www.usenix.org/conference/osdi20/presentation/balakrishnan'
+        public_fulltext_prechecked: true
+        contribution_precheck: METHOD_SYSTEM__VIRTUALIZED_CONSENSUS_SYSTEM
+      - id: M03
+        title: 'Kvell+: Snapshot Isolation without Snapshots'
+        year: 2020
+        venue: OSDI
+        identity_risk: LOW
+        identity_key: 'kvell+: snapshot isolation without snapshots|2020|osdi'
+        identity_key_sha256: 5FBF90F8C0AD4795C114B3F54C28FDC4C835B1BF1C0B32DFD7F07AA595F58347
+        official_page: 'https://www.usenix.org/conference/osdi20/presentation/lepers'
+        public_fulltext_prechecked: true
+        contribution_precheck: METHOD_SYSTEM__ONLINE_COMMUTATIVE_PROCESSING_AND_STORAGE_SYSTEM
+      - id: M04
+        title: 'Tolerating Slowdowns in Replicated State Machines using Copilots'
+        year: 2020
+        venue: OSDI
+        identity_risk: LOW
+        identity_key: 'tolerating slowdowns in replicated state machines using copilots|2020|osdi'
+        identity_key_sha256: A8F4AA8309005B1B24EF7FF6BF59937C7650C34A162B093328D70E328713A2A3
+        official_page: 'https://www.usenix.org/conference/osdi20/presentation/ngo'
+        public_fulltext_prechecked: true
+        contribution_precheck: METHOD_SYSTEM__SLOWDOWN_TOLERANT_CONSENSUS_PROTOCOL
+      - id: M05
+        title: 'Serving DNNs like Clockwork: Performance Predictability from the Bottom Up'
+        year: 2020
+        venue: OSDI
+        identity_risk: HIGH
+        identity_key: 'serving dnns like clockwork: performance predictability from the bottom up|2020|osdi'
+        identity_key_sha256: AACB976B3678DA4EBB87E4F8B1CCA30A63AFB8FD022C5B119482B3C0FD388902
+        official_page: 'https://www.usenix.org/conference/osdi20/presentation/gujarati'
+        public_fulltext_prechecked: true
+        contribution_precheck: METHOD_SYSTEM__PREDICTABLE_DNN_SERVING_SYSTEM
+      - id: M06
+        title: 'Sponge: Fast Reactive Scaling for Stream Processing with Serverless Frameworks'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: LOW
+        identity_key: 'sponge: fast reactive scaling for stream processing with serverless frameworks|2023|usenix atc'
+        identity_key_sha256: 655459641D551FB4293962DC2F5BD8A779A3B6C76158FF48CFAF3A1D47EEA02F
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/song'
+        public_fulltext_prechecked: true
+        contribution_precheck: METHOD_SYSTEM__SERVERLESS_REACTIVE_STREAM_SCALING
+
+  COMPILER_FORMAL:
+    count: 6
+    deterministic_order: [C03, C06, C04, C05, C02, C01]
+    proposed_target: [C03, C06, C04]
+    proposed_reserve: [C05]
+    fallbacks: [C02, C01]
+    candidates:
+      - id: C01
+        title: 'Specification and verification in the field: Applying formal methods to BPF just-in-time compilers in the Linux kernel'
+        year: 2020
+        venue: OSDI
+        identity_risk: HIGH
+        identity_key: 'specification and verification in the field: applying formal methods to bpf just-in-time compilers in the linux kernel|2020|osdi'
+        identity_key_sha256: 29C3EF57F4D7CC713604DACC7CF4D9AF1C565422A9C05B9AFDF2C940CB9870B2
+        official_page: 'https://www.usenix.org/conference/osdi20/presentation/nelson'
+        public_fulltext_prechecked: true
+        contribution_precheck: COMPILER_FORMAL__BPF_JIT_SPECIFICATION_AND_VERIFICATION
+      - id: C02
+        title: 'Gauntlet: Finding Bugs in Compilers for Programmable Packet Processing'
+        year: 2020
+        venue: OSDI
+        identity_risk: MEDIUM
+        identity_key: 'gauntlet: finding bugs in compilers for programmable packet processing|2020|osdi'
+        identity_key_sha256: 9F16C5D35F3D8D7E4D9B7593055E934704428178B602348B90A174B8EAAE3A80
+        official_page: 'https://www.usenix.org/conference/osdi20/presentation/ruffy'
+        public_fulltext_prechecked: true
+        contribution_precheck: COMPILER_FORMAL__DOMAIN_SPECIFIC_COMPILER_BUG_FINDING
+      - id: C03
+        title: 'Cobra: Making Transactional Key-Value Stores Verifiably Serializable'
+        year: 2020
+        venue: OSDI
+        identity_risk: LOW
+        identity_key: 'cobra: making transactional key-value stores verifiably serializable|2020|osdi'
+        identity_key_sha256: 0E55BEECEB96AC0A670B992C50F10FF123B272B32E05171958FDBF2AE8D615EF
+        official_page: 'https://www.usenix.org/conference/osdi20/presentation/tan'
+        public_fulltext_prechecked: true
+        contribution_precheck: COMPILER_FORMAL__SERIALIZABILITY_VERIFICATION_SYSTEM
+      - id: C04
+        title: 'RedLeaf: Isolation and Communication in a Safe Operating System'
+        year: 2020
+        venue: OSDI
+        identity_risk: LOW
+        identity_key: 'redleaf: isolation and communication in a safe operating system|2020|osdi'
+        identity_key_sha256: 8E1D69EDD3D1D5482C9DCC451C653132A672F7922178CFD0D6A64BB5A76A5AA8
+        official_page: 'https://www.usenix.org/conference/osdi20/presentation/narayanan-vikram'
+        public_fulltext_prechecked: true
+        contribution_precheck: COMPILER_FORMAL__LANGUAGE_SAFETY_ISOLATION_SYSTEM
+      - id: C05
+        title: 'Automated Reasoning and Detection of Specious Configuration in Large Systems with Symbolic Execution'
+        year: 2020
+        venue: OSDI
+        identity_risk: LOW
+        identity_key: 'automated reasoning and detection of specious configuration in large systems with symbolic execution|2020|osdi'
+        identity_key_sha256: E88A3AB7515DDCB4B28E75722B6D30EC87E74AB8C558C830B3EA6CCE1F6D8862
+        official_page: 'https://www.usenix.org/conference/osdi20/presentation/hu'
+        public_fulltext_prechecked: true
+        contribution_precheck: COMPILER_FORMAL__SYMBOLIC_EXECUTION_CONFIGURATION_REASONING
+      - id: C06
+        title: 'Aragog: Scalable Runtime Verification of Shardable Networked Systems'
+        year: 2020
+        venue: OSDI
+        identity_risk: LOW
+        identity_key: 'aragog: scalable runtime verification of shardable networked systems|2020|osdi'
+        identity_key_sha256: 127BBF2222A5C091DD65DEEB311781E59ED55B43A4634BB01164FE1425BE25AE
+        official_page: 'https://www.usenix.org/conference/osdi20/presentation/yaseen'
+        public_fulltext_prechecked: true
+        contribution_precheck: COMPILER_FORMAL__SCALABLE_RUNTIME_VERIFICATION
+
+  MEASUREMENT_BENCHMARK:
+    count: 6
+    deterministic_order: [B06, B03, B01, B04, B02, B05]
+    proposed_target: [B06, B03, B01]
+    proposed_reserve: [B04]
+    fallbacks: [B02, B05]
+    candidates:
+      - id: B01
+        title: 'Avoiding the Ordering Trap in Systems Performance Measurement'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: LOW
+        identity_key: 'avoiding the ordering trap in systems performance measurement|2023|usenix atc'
+        identity_key_sha256: 6C48EB74D933E163B2A8B430863908180808EE048C4A0AE8D810D687AABDD92B
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/duplyakin'
+        public_fulltext_prechecked: true
+        contribution_precheck: MEASUREMENT_BENCHMARK__ORDER_EFFECT_METHODOLOGY_AND_LARGE_SCALE_DATASET
+      - id: B02
+        title: 'AutoARTS: Taxonomy, Insights and Tools for Root Cause Labelling of Incidents in Microsoft Azure'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: LOW
+        identity_key: 'autoarts: taxonomy, insights and tools for root cause labelling of incidents in microsoft azure|2023|usenix atc'
+        identity_key_sha256: EDBC84B7B3D1CC72D8515E503A8B139D55400D410CBF047FC1D65DA607A70BF5
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/dogga'
+        public_fulltext_prechecked: true
+        contribution_precheck: MEASUREMENT_BENCHMARK__INCIDENT_STUDY_AND_TAXONOMY
+      - id: B03
+        title: 'Lifting the veil on Meta’s microservice architecture: Analyses of topology and request workflows'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: LOW
+        identity_key: "lifting the veil on meta's microservice architecture: analyses of topology and request workflows|2023|usenix atc"
+        identity_key_sha256: 4B3F659DA453D6E3C0D128EC7EFD1568278C00C4C3C3C58CD526671ECDCCF75C
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/huye'
+        public_fulltext_prechecked: true
+        contribution_precheck: MEASUREMENT_BENCHMARK__PRODUCTION_MICROSERVICE_CHARACTERIZATION
+      - id: B04
+        title: 'Arbitor: A Numerically Accurate Hardware Emulation Tool for DNN Accelerators'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: LOW
+        identity_key: 'arbitor: a numerically accurate hardware emulation tool for dnn accelerators|2023|usenix atc'
+        identity_key_sha256: AD700D0652CD2703DA3F86C91C21A36C7FDB11750BE9314CD53F5073CB1B717C
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/jiang-chenhao'
+        public_fulltext_prechecked: true
+        contribution_precheck: MEASUREMENT_BENCHMARK__NUMERICALLY_ACCURATE_ACCELERATOR_EMULATION_AND_SENSITIVITY_STUDY
+      - id: B05
+        title: 'Tectonic-Shift: A Composite Storage Fabric for Large-Scale ML Training'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: MEDIUM
+        identity_key: 'tectonic-shift: a composite storage fabric for large-scale ml training|2023|usenix atc'
+        identity_key_sha256: 1313A7598AD08879F232906CE5E3CCCE9CEADB8C0829121A362711B5411C76FE
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/zhao'
+        public_fulltext_prechecked: true
+        contribution_precheck: MEASUREMENT_BENCHMARK__PRODUCTION_ML_STORAGE_CHARACTERIZATION_WITH_DESIGN
+      - id: B06
+        title: 'Beware of Fragmentation: Scheduling GPU-Sharing Workloads with Fragmentation Gradient Descent'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: LOW
+        identity_key: 'beware of fragmentation: scheduling gpu-sharing workloads with fragmentation gradient descent|2023|usenix atc'
+        identity_key_sha256: 0981B688D5109DDD6FAE4CCE88696B19E080563F67EB5220D3F923385967E3C3
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/weng'
+        public_fulltext_prechecked: true
+        contribution_precheck: MEASUREMENT_BENCHMARK__PRODUCTION_GPU_FRAGMENTATION_CHARACTERIZATION_WITH_SCHEDULER
+
+  HARDWARE_MEMORY:
+    count: 6
+    deterministic_order: [H03, H01, H06, H04, H05, H02]
+    proposed_target: [H03, H01, H06]
+    proposed_reserve: [H04]
+    fallbacks: [H05, H02]
+    candidates:
+      - id: H01
+        title: 'Efficient Memory Overcommitment for I/O Passthrough Enabled VMs via Fine-grained Page Meta-data Management'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: LOW
+        identity_key: 'efficient memory overcommitment for i/o passthrough enabled vms via fine-grained page meta-data management|2023|usenix atc'
+        identity_key_sha256: B40AF21DBB320646DC25F6A393FC5BF2BC3D912EA01D9E7F3524A780F300ACC3
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/wang-yaohui'
+        public_fulltext_prechecked: true
+        contribution_precheck: HARDWARE_MEMORY__DMA_SAFE_MEMORY_OVERCOMMITMENT
+      - id: H02
+        title: 'SAGE: Software-based Attestation for GPU Execution'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: MEDIUM
+        identity_key: 'sage: software-based attestation for gpu execution|2023|usenix atc'
+        identity_key_sha256: 06A8ECB706DBCC4C7EB3B1AB1AFE62E2B92822DC72DD4392E7F8A1EE8FE9E8D2
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/ivanov'
+        public_fulltext_prechecked: true
+        contribution_precheck: HARDWARE_MEMORY__GPU_EXECUTION_ATTESTATION
+      - id: H03
+        title: 'FarReach: Write-back Caching in Programmable Switches'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: LOW
+        identity_key: 'farreach: write-back caching in programmable switches|2023|usenix atc'
+        identity_key_sha256: B1A53C0C7EE244073FA534E687422BDF08151CA2F5EEA1952C0A5BCD70ED35F1
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/sheng'
+        public_fulltext_prechecked: true
+        contribution_precheck: HARDWARE_MEMORY__PROGRAMMABLE_SWITCH_WRITEBACK_CACHE
+      - id: H04
+        title: 'STYX: Exploiting SmartNIC Capability to Reduce Datacenter Memory Tax'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: LOW
+        identity_key: 'styx: exploiting smartnic capability to reduce datacenter memory tax|2023|usenix atc'
+        identity_key_sha256: BA251B754FCD7F68B5198A6C40D74D9D78B32BBA559BD616237A1C27B5261376
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/ji'
+        public_fulltext_prechecked: true
+        contribution_precheck: HARDWARE_MEMORY__SMARTNIC_MEMORY_FEATURE_OFFLOAD
+      - id: H05
+        title: 'CXL-ANNS: Software-Hardware Collaborative Memory Disaggregation and Computation for Billion-Scale Approximate Nearest Neighbor Search'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: MEDIUM
+        identity_key: 'cxl-anns: software-hardware collaborative memory disaggregation and computation for billion-scale approximate nearest neighbor search|2023|usenix atc'
+        identity_key_sha256: 030A0C9C885A6B82FDB88D8ACFE72049607CA8733F5C2564CC82D233B6CA42FC
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/jang'
+        public_fulltext_prechecked: true
+        contribution_precheck: HARDWARE_MEMORY__CXL_MEMORY_AND_COMPUTE_CODSIGN_FOR_ANNS
+      - id: H06
+        title: 'Overcoming the Memory Wall with CXL-Enabled SSDs'
+        year: 2023
+        venue: USENIX ATC
+        identity_risk: LOW
+        identity_key: 'overcoming the memory wall with cxl-enabled ssds|2023|usenix atc'
+        identity_key_sha256: B581A6DAB0A89C486F046187AAADA41544D6E9E0F7099043675B708ACD819F80
+        official_page: 'https://www.usenix.org/conference/atc23/presentation/yang-shao-peng'
+        public_fulltext_prechecked: true
+        contribution_precheck: HARDWARE_MEMORY__CXL_ENABLED_FLASH_MEMORY_DESIGN_SPACE
+
+prequalification_summary:
+  METHOD_SYSTEM: {eligible: 6, official_fulltext_route: 6, excluded_identity_matches: 0}
+  COMPILER_FORMAL: {eligible: 6, official_fulltext_route: 6, excluded_identity_matches: 0}
+  MEASUREMENT_BENCHMARK: {eligible: 6, official_fulltext_route: 6, excluded_identity_matches: 0}
+  HARDWARE_MEMORY: {eligible: 6, official_fulltext_route: 6, excluded_identity_matches: 0}
+  total: {eligible: 24, official_fulltext_route: 24, excluded_identity_matches: 0}
+
+next_boundary:
+  required_actor: MAINLINE
+  action: NEW_EXPLICIT_FREEZE_REQUIRED_IF_R3B_IS_REACTIVATED
+  packer_recheck_after_freeze: EXACT_PAGE_AND_DOWNLOAD_LINK_VISIBILITY_ONLY
+  reviewer_contact_before_neutral_packet_seal: forbidden
+  old_r3_source_closure_patch_a3: LATER_MAINLINE_EXPLICIT_SEAL_REQUEST_RECEIVED__R3B_IS_NOT_CURRENT_ROUTE

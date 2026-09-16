@@ -1,0 +1,124 @@
+schema: stagea-resource-acquisition-ledger-v1
+assignment_id: RESOURCE-STAGEA-L3-20260814-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-RESUME1
+topic_id: LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+authorization: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+exact_commit: e72ba6cf366a3180cbf5a8690d9e50665880ab76
+write_directory: stages/stageA/LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY/resume1
+claim_bearing_observations_before_resource_gate: 0
+scientific_revision_consumed: false
+budgets:
+  response_bytes_max: 2147483648
+  storage_bytes_max: 12884901888
+  cpu_time_max: 8_CPU_HOURS
+  wall_time_max: 24_WALL_HOURS
+  attempts_total_max: 7
+attempts:
+  - attempt_id: R1A1
+    route: LOCAL_EXACT_ASSET_RECHECK
+    timestamp: '2026-08-14T22:22:00+08:00'
+    action: READ_ONLY_DISCOVERY
+    result: EXHAUSTED__NO_EXACT_COMMIT_X86_TOOLCHAIN_OR_EXISTING_LINUX_RUNNER
+    observations:
+      path_tools: clang_llc_dwarfdump_objdump_readobj_opt_missing
+      wsl: launcher_present_but_feature_or_distribution_unavailable
+      container: docker_and_podman_missing
+      qemu_user: missing
+      exact_commit_search: only_frozen_reports_and_stage0_material
+    network_bytes: 0
+    storage_bytes: 0
+    claim_evidence: none
+  - attempt_id: R2A1
+    route: OFFICIAL_EXACT_COMMIT_SOURCE_AND_MINIMAL_X86_BUILD
+    timestamp: '2026-08-14__exact_wall_clock_not_captured'
+    source_metadata_url: https://api.github.com/repos/llvm/llvm-project/commits/e72ba6cf366a3180cbf5a8690d9e50665880ab76
+    source_archive_url: https://github.com/llvm/llvm-project/archive/e72ba6cf366a3180cbf5a8690d9e50665880ab76.tar.gz
+    license: Apache-2.0-WITH-LLVM-exception
+    action: SANDBOXED_OFFICIAL_API_REQUEST
+    result: TRANSPORT_FAILURE__CURL_EXIT_35__ZERO_BYTES
+    network_bytes: 0
+    storage_bytes: 0
+    claim_evidence: none
+  - attempt_id: R2A2
+    route: OFFICIAL_EXACT_COMMIT_SOURCE_AND_MINIMAL_X86_BUILD
+    timestamp: '2026-08-14__exact_wall_clock_not_captured'
+    source_metadata_url: https://api.github.com/repos/llvm/llvm-project/commits/e72ba6cf366a3180cbf5a8690d9e50665880ab76
+    source_archive_url: https://github.com/llvm/llvm-project/archive/e72ba6cf366a3180cbf5a8690d9e50665880ab76.tar.gz
+    license: Apache-2.0-WITH-LLVM-exception
+    action: APPROVED_PUBLIC_NETWORK_RETRY_AND_UNMODIFIED_MINIMAL_BUILD
+    result: PASS
+    commit_metadata:
+      bytes: 6185
+      sha256: 2BA762DA3E28A957A5C6AFFA52DD66CE5304FC10862764D191D898559EEC91DF
+      resolved_commit: e72ba6cf366a3180cbf5a8690d9e50665880ab76
+      tree: d9b82c63986369de83ca79d0c94fdc9cdfb2e260
+      parent: 389da87c52f1db63440f376621f5daee2fabaaf3
+      upstream_timestamp_utc: '2026-08-13T19:04:50Z'
+    source_archive:
+      bytes: 280594592
+      sha256: 643B7011C512E3204C88F836F4E2A9913C20F03D1BEA5421B60EACB7B527814C
+      etag: '"315584011f27ee98a6dfdb4fbef4699a6ba658266c44f43138ad370e4621a852"'
+      decisive_blob_parity: 7_of_7
+      extraction_exit: 1__WINDOWS_SYMLINK_AND_LONG_TEST_PATHS_ONLY__DECISIVE_CORE_PRESENT
+      extraction_wall_seconds: 220.780
+    build:
+      first_config: FAILED__PYTHON_AUTODETECTION__CORRECTED_WITH_PINNED_BUNDLED_PYTHON
+      successful_config_wall_seconds: 90.366
+      first_compile: INTERRUPTED_AFTER_BOOTSTRAP_RUNTIME_STALL__NO_SOURCE_CHANGE
+      correction: PROCESS_LOCAL_PATH_ONLY_FOR_HASHED_BOOTSTRAP_RUNTIME
+      final_targets: [llc, clang, llvm-dwarfdump, llvm-objdump, llvm-readobj, opt]
+      final_progress: 3137_of_3137
+      final_exit: 0
+      final_wall_seconds: 2284.686
+      jobs: 2
+      exact_process_tree_cpu_and_peak_rss: unavailable__not_estimated
+      conservative_cpu_budget_upper_bound: LESS_THAN_2_CPU_HOURS_FOR_ALL_BUILD_ATTEMPTS
+    network_bytes: 280600777
+    claim_evidence: none__resource_only
+  - attempt_id: R3A1
+    route: PORTABLE_LINUX_EXECUTION
+    timestamp: '2026-08-14__exact_wall_clock_not_captured'
+    action: READ_ONLY_EXISTING_RUNNER_PROBE
+    result: EXHAUSTED__NO_WSL_DISTRIBUTION_CONTAINER_VM_OR_QEMU_USER
+    network_bytes: 0
+    storage_bytes: 0
+    claim_evidence: none
+  - attempt_id: R3A2
+    route: PORTABLE_LINUX_EXECUTION
+    timestamp: '2026-08-14__exact_wall_clock_not_captured'
+    action: OFFICIAL_QEMU_USER_MODE_PLATFORM_SEMANTICS_AUDIT
+    official_references:
+      - https://www.qemu.org/docs/master/user/index.html
+      - https://www.qemu.org/docs/master/about/build-platforms.html
+    result: FAIL_CLOSED__WINDOWS_HOST_QEMU_USER_CANNOT_SUPPLY_LINUX_SYSCALL_ABI
+    network_bytes: 0
+    storage_bytes: 0
+    claim_evidence: none
+  - attempt_id: R4A0
+    route: EXACT_PORTABLE_PREBUILT_FALLBACK
+    timestamp: '2026-08-14__exact_wall_clock_not_captured'
+    action: NOT_ATTEMPTED
+    result: NOT_APPLICABLE__EXACT_TOOLCHAIN_ALREADY_BUILT__PREBUILT_CANNOT_CREATE_LINUX_RUNNER
+    attempts_consumed: 0
+    claim_evidence: none
+totals:
+  route_attempts_used: 5
+  response_bytes: 280600777
+  exact_process_tree_cpu_seconds: unavailable__not_estimated
+  conservative_cpu_budget_upper_bound: LESS_THAN_2_CPU_HOURS
+  successful_configuration_wall_seconds: 90.366
+  extraction_wall_seconds: 220.780
+  successful_build_wall_seconds: 2284.686
+  storage_bytes_before_report_sealing: 4761703433
+  system_installations: 0
+  global_environment_changes: 0
+  stageb_runs: 0
+gate_disposition:
+  exact_commit_and_decisive_blob_parity: PASS
+  X86_registered: PASS
+  native_DWARF_and_object_readers: PASS
+  Linux_SysV_executable_behavior_runner: FAIL_CLOSED__RESOURCE_UNAVAILABLE
+  overall: BLOCKED_USER_ACTION_REQUIRED
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  preclaim_gate_started: false
+  claim_bearing_observations: 0
+  scientific_revision_consumed: false

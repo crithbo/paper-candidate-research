@@ -1,0 +1,37 @@
+assignment_id: DISCOVERY-S2-20260809-V8.4-WAVE6
+lane: DISCOVERY-S2-BOTTLENECK-TRANSFER
+cutoff: 2026-08-09
+model_route: gpt-5.6-terra/medium
+method:
+  used: production_discovery_v2_v8.1__O2_CALIBRATED
+  prohibited_not_used: two_axis_v8.2r2__TLS_BLOCKED
+source_policy: PAPER_ORIGINAL_AUTHOR_ARTIFACT_OFFICIAL_UPSTREAM_ONLY
+execution:
+  experiments_run: false
+  benchmarks_run: false
+  stage0_created: false
+  stagea_created: false
+  stageb_created: false
+  shared_state_modified: false
+result:
+  decision: COMPLETE_ZERO_PROPOSALS
+  grounded_brief_count: 0
+  propose_stage0_count: 0
+  structural_paper_potential: NOT_APPLICABLE__NO_RETAINED_CANDIDATE
+  current_evidence_readiness: NOT_APPLICABLE__NO_RETAINED_CANDIDATE
+  reason: >-
+    Baseline-residual-first analysis finds that the only reproducible parallel-SAT
+    residuals are PalRUP-internal scheduling, exporting, or bridge layers. These
+    are prohibited controllers/selectors/wrappers, not new same-object atomic
+    N1/N2/N3 actions. No other bounded lead provided a finite fair route.
+  not_rejected_for:
+    - missing_implementation
+    - missing_results
+    - missing_resources
+    - ai_readiness
+outputs:
+  discovery_log: DISCOVERY_LOG.md
+  action_space_collision_matrix: ACTION_SPACE_COLLISION_MATRIX.md
+  hash_manifest: HASH_MANIFEST.yaml
+mainline_action_requested: NONE
+lane_next_status: IDLE_REUSABLE_AWAITING_MAINLINE

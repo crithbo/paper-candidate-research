@@ -1,0 +1,111 @@
+schema: ppc-r8-stable-relative-mir-input-path-correction-addendum-v1
+generated_by: MAINLINE
+generated_at: 2026-08-26T06:40:00+08:00
+addendum_id: PPC-R8-A3-STABLE-RELATIVE-MIR-INPUT-PATH
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+status: A3_ACK_PENDING
+base_context_sha256: AF0AF5A6F5CEF9205004AAC6FB6F9E99B44773919C400DE1F8125635CBADAD3B
+A2_addendum_sha256: 68B90C1601EFF92BD74DC2086FA55FB2185A799DC14496BB9C601844CB924C7A
+A2_start_sha256: C8BADC148442BEC5ADD8AC3D48D9E7C5F1B00ED5349C18F63EE8A7B5522D85D6
+A2_handoff_sha256: 6E46907F29CBB678C3E93ED81ABAFAD59EDF81E734FA5858C36481B13B57A40F
+A2_manifest_sha256: B5B8253FBBA8CDCA990C8CB2E09D791F65B59D7C7B8379D198A97DBBB4BD1366
+A2_mainline_acceptance_sha256: E2AEA52E3BE2422D2111C94301DBED78400D7B2325429302B474841EEB6A9748
+frozen_shared_snapshot:
+  plan_sha256: D2C8D63FB3B1E4E17F425D73853774F78A36EBBF34F25C2EB0EFA655D1AB20E0
+  registry_sha256: B53629ED13871C71D162A1CE2A1ED468A521DA985043994F3BC37D6FCE2FB67C
+
+classification:
+  type: ENGINEERING_CORRECTION_IN_PRECLAIM_EXACT_REPLAY_CONTRACT
+  scientific_revision_consumed: false
+  semantic_output_normalization: false
+  posthoc_artifact_edit: false
+  exact_object_mechanism_comparator_corpus_metric_claim_changed: false
+  J0_rerun_allowed: false
+  selected_or_reserve_tool_invocations_so_far: 0
+  claim_runs_so_far: 0
+
+resource_precondition:
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources
+  files: 327
+  logical_bytes: 245928016
+  reparse_entries: 0
+  active_related_processes: 0
+  A2_J1_J4_pass: true
+
+pass2_preservation:
+  before_edit_copy_handoff_to: handoff.pass2_exact_replay_module_id_path_fail.yaml
+  before_edit_copy_manifest_to: HASH_MANIFEST.pass2_exact_replay_module_id_path_fail.sha256
+  expected_handoff_sha256: 6E46907F29CBB678C3E93ED81ABAFAD59EDF81E734FA5858C36481B13B57A40F
+  expected_manifest_sha256: B5B8253FBBA8CDCA990C8CB2E09D791F65B59D7C7B8379D198A97DBBB4BD1366
+
+single_edit_contract:
+  file: resources/src/actual_claim_harness/actual_claim_harness.py
+  original_sha256: 6593C28CFF8021D85A3B95721FBCC4125B93F301DF6DA414BCD69DEEC14B343B
+  original_bytes: 21921
+  exact_context: MACHINEVERIFIER_COMMAND_ARGV_ONLY
+  exact_substitution: 'absolute Path object mir -> relative literal input.mir'
+  occurrences: 1
+  expected_corrected_sha256: B4155CD20EDE6E2F994B69E61B6FC796D70848E4902E1FC1FCAEAA000673A2FE
+  expected_bytes: 21929
+  working_directory: EACH_REPLAY_INDEPENDENT_ARTIFACTS_DIRECTORY
+  replay_local_input_file_name: input.mir
+  replay_local_input_files_remain_independently_generated: true
+  source_edit_operations_max: 1
+  other_command_source_or_checker_change_forbidden: true
+
+exact_replay_contract:
+  old_A2_replays: INVALIDATED_NON_EVIDENCE__RETAIN_RAW
+  fresh_replays: [1, 2]
+  native_tool_commands_per_replay_expected: 11
+  machineverified_raw_bytes_must_be_exact_equal: true
+  ModuleID_expected: input.mir
+  path_metadata_normalization_allowed: false
+  timing_metrics_excluded_from_exact_payload: true
+  J1_J4_must_pass_before_J5: true
+  J5_must_pass_before_J6: true
+  J6_generates_fully_expanded_r9_plan_without_execution: true
+  additional_total_command_records_max: 24
+  cumulative_total_command_records_max: 58
+  automatic_retry: false
+
+allowed_actions_after_A3_start:
+  - WRITE_A3_STABLE_PATH_CORRECTION_PRECOMMIT
+  - PRESERVE_PASS2_HANDOFF_AND_MANIFEST
+  - APPLY_EXACT_SINGLE_EDIT_TO_ACTUAL_CLAIM_HARNESS_PY
+  - RUN_TWO_FRESH_SYNTHETIC_NATIVE_REPLAYS_WITH_NEW_OUTPUT_ROOTS
+  - CONTINUE_J6_ONLY_AFTER_EXACT_RAW_REPLAY_PASS
+  - GENERATE_FULLY_EXPANDED_R9_32_PROCESS_PLAN_WITHOUT_EXECUTION
+  - WRITE_CANONICAL_PRECLAIM_PACKAGE
+forbidden_actions:
+  - RERUN_J0_COPY_OR_HASH_ACCEPTANCE
+  - MODIFY_TRACE_MODEL_OR_ANY_OTHER_IMPLEMENTATION_OR_INPUT_FILE
+  - POSTHOC_NORMALIZE_OR_EDIT_MACHINEVERIFIED_OUTPUT
+  - SHARE_OR_OVERWRITE_REPLAY_INPUT_FILES
+  - ANY_SELECTED_OR_RESERVE_CORPUS_COMPILER_LINKER_VERIFIER_DISASSEMBLY_OR_RESULT_OBSERVATION
+  - CLAIM_RUN
+  - NETWORK_NEW_COPY_EXTRACTION_LLVM_SOURCE_PATCH_OR_REBUILD
+  - RETRY_RESULT_BASED_EXCLUSION_BACKFILL_OR_COMMAND_CHANGE
+  - SCIENTIFIC_INFERENCE_REVISION_PIVOT_STATE_TRANSITION_CLEANUP_OR_STAGEB
+limits:
+  source_edit_operations_max: 1
+  additional_total_command_records_max: 24
+  cumulative_total_command_records_max: 58
+  selected_or_reserve_tool_invocations_max: 0
+  claim_runs_max: 0
+  automatic_retry: false
+ack_requirement:
+  path: A3_ACK.yaml
+  must_confirm:
+    - ALL_BASE_A2_ACCEPTANCE_ADDENDUM_AND_SHARED_HASHES
+    - RESOURCE_TREE_327_FILES_245928016_BYTES_0_REPARSE_0_ACTIVE
+    - ORIGINAL_AND_EXPECTED_HARNESS_HASHES_AND_EXACT_ONE_SUBSTITUTION
+    - REPLAY_LOCAL_INDEPENDENCE_WITH_STABLE_RELATIVE_INPUT_NAME
+    - POSTHOC_NORMALIZATION_FORBIDDEN
+    - OLD_A2_REPLAYS_INVALIDATED_AND_TWO_FRESH_REPLAYS_REQUIRED
+    - J0_NO_RERUN_SELECTED_OR_RESERVE_TOOL_ZERO_CLAIM_ZERO
+    - DIFFERENCES_OR_AMBIGUITIES_EMPTY
+success_route: ACTUAL_NATURAL_CLAIM_HARNESS_FIDELITY_PASS__WAIT_SEPARATE_R9_EXACT_CLAIM_ASSIGNMENT
+failure_route: FAIL_CLOSED_ACTUAL_NATURAL_HARNESS_FIDELITY__NO_SELECTED_CORPUS_OR_SCIENTIFIC_INFERENCE

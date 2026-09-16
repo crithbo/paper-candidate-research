@@ -1,0 +1,39 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+identity:
+  topic_id: RUSTC_COROUTINE_LIVE_SET_STATE_LAYOUT_JOINT_CONSTRUCTOR
+  assignment_id: SOURCE-CLOSURE-RESUME-BATCH04-ITEM01-SOURCE89-S2-RUSTC-RETRY1
+  stage_or_mode: DISCOVERY_PREBRIEF_SOURCE_AND_PRIMARY_COLLISION_CLOSURE_ONLY
+  run_id: BATCH04_ITEM01
+  unique_write_directory: stages/discovery/round-20260815-adaptive-source89/S2-bottleneck-transfer/closure-cq01-retry1
+  resource_root: stages/discovery/round-20260815-adaptive-source89/S2-bottleneck-transfer/closure-cq01-retry1/resources
+  inventory_path: stages/discovery/round-20260815-adaptive-source89/S2-bottleneck-transfer/closure-cq01-retry1/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T12:00:00+08:00
+  finalized_at: 2026-08-15T12:24:00+08:00
+root_measurement: {logical_bytes: 576234, allocated_bytes: null, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true}
+required_directories: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+redirect_preflight:
+  status: PASS__PROCESS_LOCAL_ONLY
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: powershell Invoke-WebRequest
+      writable_surfaces: [resources/downloads, resources/tmp, resources/cache]
+      redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+      evidence: resources/logs/resource-inventory/preflight-v1.yaml
+resource_envelope: {network_bytes_max: 50331648, stored_bytes_max: 50331648, cpu_hours_max: 0.75, gpu_hours_max: 0, wall_seconds_max: 3600, attempts_max: 15, network_bytes_used: 570580, stored_bytes_used: 576162, attempts_used: 12}
+entries:
+  - {path: resources/downloads/01-rustc_mir_transform-src.json, class: official_directory_listing, bytes: 91283, sha256: D41D9961D6D50ADBD4689B2C1506CBDB0A77217C87BB78E0A68E810D8A0C1FEB, commit: 68c677ac3f013d2e587f47e198c92e551716191e, license: Apache-2.0 OR MIT, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {path: resources/downloads/02-coroutine-dir.json, class: official_directory_listing, bytes: 4596, sha256: 09D234924B8CE62A67ECE95FC13AB0EB66686ED7D04DDE1CC2B1FCB95867A334, commit: 68c677ac3f013d2e587f47e198c92e551716191e, license: Apache-2.0 OR MIT, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {path: resources/downloads/03-coroutine-mod.rs, class: official_pinned_source, bytes: 56942, sha256: 0F3E13F85B6A321CB2A7CB163DFAF424C717644E392A024814B80AEF1896CD67, commit: 68c677ac3f013d2e587f47e198c92e551716191e, license: Apache-2.0 OR MIT, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {path: resources/downloads/04-coroutine-by_move_body.rs, class: official_pinned_source, bytes: 16339, sha256: 9F1FA5651E00F69DF5CC89163D1CCB73D0066123D45106AEC8DF74CD37068477, commit: 68c677ac3f013d2e587f47e198c92e551716191e, license: Apache-2.0 OR MIT, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {path: resources/downloads/05-coroutine-drop.rs, class: official_pinned_source, bytes: 13210, sha256: B75EFAB8661A33C206A6D5E7CD7212383934E8FADD84D88B97C63110F910BC30, commit: 68c677ac3f013d2e587f47e198c92e551716191e, license: Apache-2.0 OR MIT, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {path: resources/downloads/06-rustc_middle-mir-dir.json, class: official_directory_listing, bytes: 16122, sha256: E7515D464D8BC0BB55747AA522A692BF97CE799C3854692C899DAB3988B08368, commit: 68c677ac3f013d2e587f47e198c92e551716191e, license: Apache-2.0 OR MIT, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {path: resources/downloads/07-tests-ui-coroutine-dir.json, class: official_directory_listing, bytes: 272467, sha256: E4EEAC3F52DF60CE8ADAA16529634A7D4979C61F5AEB0709FA41D2C76AE17797, commit: 68c677ac3f013d2e587f47e198c92e551716191e, license: Apache-2.0 OR MIT, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {path: resources/downloads/08-test-async-coroutine-issue-67158.rs, class: official_pinned_test, bytes: 171, sha256: 021BB9B3B69C502040924597DF17E23B0FD1FBAEA767350648542D8839571614, commit: 68c677ac3f013d2e587f47e198c92e551716191e, license: Apache-2.0 OR MIT, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {path: resources/downloads/09-rustc-dev-guide-mir-dataflow.html, class: official_documentation, bytes: 34462, sha256: AE26174BF8C342D3786C128C175FEB4AFF8F680AAC1235C4CB83469B02CE08D6, license: Apache-2.0 OR MIT, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {path: resources/downloads/10-rustc-dev-guide-coroutine-closures.html, class: official_documentation, bytes: 64988, sha256: 65107DEB88787511E4161334197630F40E4378D439C42C894534F988AABBD110, license: Apache-2.0 OR MIT, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+shared_assets_consumed: []
+external_system_dependencies: []
+cleanup: {owner: MAINLINE, authorized_descendants: [], performed: false, deleted_entries: [], deleted_logical_bytes: 0, performed_at: null, recoverability: null}
+validation: {resource_root_exact_match: true, root_under_workspace: true, forbidden_root_check: true, reparse_traversal_check: true, required_directories_present: true, persisted_resources_inventoried: true, envelope_within_limit: true, claim_critical_content_hashes_present: true, result: PASS__RESOURCE_ENVELOPE_AND_INVENTORY_COMPLETE}

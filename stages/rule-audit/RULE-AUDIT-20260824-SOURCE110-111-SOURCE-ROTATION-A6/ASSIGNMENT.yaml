@@ -1,0 +1,18 @@
+schema_version: rule-audit-assignment-v1
+audit_id: RULE-AUDIT-20260824-SOURCE110-111-SOURCE-ROTATION-A6
+assignment_id: RULE-AUDIT-20260824-SOURCE110-111-SOURCE-ROTATION-A6
+lane_id: RULE_AUDIT
+thread_id: 01a02e08-0b16-7ed2-bfc4-f37b5ad86992
+trigger: SOURCE110_AND_SOURCE111_CONSECUTIVE_COMPLETE_ZERO_BRIEF
+mode: PROPOSAL_ONLY
+write_directory: stages/rule-audit/RULE-AUDIT-20260824-SOURCE110-111-SOURCE-ROTATION-A6
+resource_root: null
+question: Compare edge CPU runtime/compiler and kernel corpus/DSL rotations, locate first failed conversion, evaluate source-family rotations and explicit denylist, declare pilots RETAIN/DOWNGRADE/REMOVE, and recommend at most one future bounded change or NO_CHANGE while Source112 proceeds independently.
+allowed_actions: [READ_REGISTERED_SOURCE110_SOURCE111_AND_A5_INPUTS, DIAGNOSE_TRANSITIONS, WRITE_PROPOSAL_ONLY_OUTPUTS]
+forbidden_actions: [READ_SOURCE112_RESULTS, MODIFY_SHARED_OR_CANDIDATE_FILES, NETWORK_SEARCH_DOWNLOAD_BUILD_EXPERIMENT_QUEUE_BACKTEST_AUTOMATION_STAGE, RELAX_GATES_QUOTA_COOLDOWN_STOP_REVIVAL]
+forbidden_inputs: [SOURCE112_RESULTS, UNREGISTERED_CHAT_MEMORY, PRIVATE_OR_CREDENTIAL_GATED_MATERIAL, NONMINIMAL_HISTORY]
+expected_outputs: [RULE_AUDIT_REPORT.md, RULE_CHANGE_PROPOSAL.md, handoff.yaml, HASH_MANIFEST.sha256]
+resource_actions_allowed: false
+source112_may_continue_without_waiting: true
+claim_ceiling: PROCESS_DIAGNOSIS_AND_CHANGE_PROPOSAL_ONLY
+evidence_ceiling: REGISTERED_SOURCE110_SOURCE111_A5_CONTROL_AND_HANDOFF_ARTIFACTS_ONLY

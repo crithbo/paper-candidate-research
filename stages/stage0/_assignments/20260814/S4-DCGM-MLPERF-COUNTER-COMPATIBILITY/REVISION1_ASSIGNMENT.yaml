@@ -1,0 +1,26 @@
+assignment_id: STAGE0-P1-20260814-S4-DCGM-MLPERF-COUNTER-COMPATIBILITY-REVISION1-V8.7
+mode: REVISION1_OF_1
+topic_id: S4-DCGM-MLPERF-COUNTER-COMPATIBILITY
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_QUEUED_AFTER_LLVM_GC_STATEPOINT_REVISION1
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_revisions\S4-DCGM-MLPERF-COUNTER-COMPATIBILITY\revision1
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source13-primary\S4-DCGM-MLPERF-COUNTER-COMPATIBILITY
+confirmation_directory: stages\stage0\_reviews\round-20260814-adaptive-source13-confirmation\S4-DCGM-MLPERF-COUNTER-COMPATIBILITY
+quality_floor: TIER_B_Q2_VIABLE
+contribution_type: MEASUREMENT_CHARACTERIZATION_OR_BENCHMARK_VALIDITY_N3
+atomic_gate: PINNED_DCGM_NATIVE_GROUP_CONTRACT__MLPERF_PAIRED_WINDOW_CONCLUSION_STABILITY_CERTIFICATE
+frozen_primary_hashes: {report: 747953213D0A16CFAC39BC9444416CCE974F9BCB8B2B85891E8C2631D5C92F4D, q1: CC09169368298F27FF78CE13A8A1D0CFFC1E24012921BE1EB4E9B8CD15752BDC, source: 7E2C07CE2EC9BF32A1EBF3A10AA7FCAC454F4990E6BBF5A6213694CF06AF89C1, handoff: 1AE53C46B435204663DD1EFB58056D78A40841F89A8DA67738C4F9440B780572, manifest: 67DE87E2AFD3D339CBCC09D359EF03AE51CDF414DC8587C2CEC03786A5145901}
+frozen_confirmation_hashes: {review: 499E08E0D5F4BF67C6E466C5398885407AA6829F2146B76F9CBA839D6FE3A960, handoff: AA9E65A53AF98A23FDC0AD79D38359A70A26DE2DD7ABA201ACA7C96A8698838E, manifest: 479D2FB539565D6ADDCBB8FC29E52EB08F051895DF808E943381A1CF8F265693}
+required_revision:
+  - Pin one pre-GPM/non-GPM NVIDIA GPU, exact MLPerf release/model/quality/LoadGen scenario/request stream, SUT, driver and DCGM version.
+  - Freeze one identical field set and delay. Plan A is stock automatic multiplex; Plan B is the runtime-enumerated complete compatible-group partition, not manual field selection or a controller.
+  - Freeze a single conclusion function and materiality interval over the same MLPerf quality/request contract; raw counters alone may not imply bottleneck or kernel attribution.
+  - Pre-register randomized paired windows, blank/zero/exclusion policy, confounds, held-out model-scenario-GPU falsifier and complete wall-energy/tail/throughput/quality/shared-host-engine/analysis cost.
+  - Map and subtract current DCGM and CounterPoint; retain only the target-specific conclusion-stability or benchmark-validity residual.
+  - Freeze a finite StageA fidelity killer without claiming an observed ranking reversal.
+failure_sentinel: BELOW_Q2_STOP__DCGM_NATIVE_MULTIPLEX_OR_COUNTERPOINT_ABSORPTION__NO_CONCLUSION_STABILITY_RESIDUAL
+evidence_ceiling: E1_STATIC_MEASUREMENT_CONTRACT_AND_FALSIFIER_ONLY
+forbidden: [GPM_GPU, different_fields_between_plans, field_selector, online_controller, kernel_attribution_claim, observed_result_claim, hardware_run, experiment, benchmark, build, install, stageA, stageB, second_revision, shared_control_write]
+required_outputs: [STAGE0_REPORT.md, ACTION_GUARANTEE_AUDIT.md, CLAIM_EVIDENCE_MATRIX.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, route_only_to_independent_closing_if_pass_recommended: true, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

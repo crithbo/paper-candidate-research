@@ -1,0 +1,21 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S2-20260824-SOURCE107-SINGLE-GPU-LLM-SOFTWARE-V1
+topic_id: SOURCE107-PORTFOLIO-S2
+lane_id: DISCOVERY_S2
+lane_mode: S2_BOTTLENECK_TRANSFER
+thread_id: 01a02e08-1076-7df0-83cf-74b2844a3507
+common_contract: stages/discovery/round-20260824-strategy-source107/control/CONTROL.yaml
+common_contract_sha256: F1BE6A196842A5F7EBF5856EDC9E0D3F1D7399CB8C59A14AE11D7B3EF206CC75
+write_directory: stages/discovery/round-20260824-strategy-source107/S2-bottleneck-transfer
+resource_root: stages/discovery/round-20260824-strategy-source107/S2-bottleneck-transfer/resources
+focus: TORCH_COMPILE_CUDA_GRAPH_OR_KERNEL_OPTIMIZATION_MOVING_COST_TO_CACHE_MEMORY_OR_HOST
+anchor_portfolio: [PYTORCH_CUDA_GRAPH_VLLM_CURRENT_SOURCE]
+forbidden_inputs: [CRFEPOCH_STAGE0_OUTPUTS, GROUP_REPOSITORY]
+forbidden_exact_repeats: SOURCE106_PORTFOLIO_NOTE_IDENTITIES
+model_route: {model: gpt-5.6-terra, reasoning: high}
+discovery_rq_frontend_mode: PRODUCTION
+discovery_claim_pack_mode: OFF
+discovery_quality_mode: OFF
+selective_depth: OFF
+next_action_before_start: WRITE_BOOTSTRAP_ACK_AND_WAIT_FOR_MAINLINE_ACCEPTANCE
+

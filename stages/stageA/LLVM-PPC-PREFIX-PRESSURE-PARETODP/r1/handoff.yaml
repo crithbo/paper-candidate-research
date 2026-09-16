@@ -1,0 +1,65 @@
+schema_version: candidate-resource-gate-handoff-v3
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R1-E-ROOT-EXACT-TOOLCHAIN
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+assignment_state: FROZEN_AWAITING_MAINLINE
+decision: BLOCKED_USER_ACTION_REQUIRED
+blocker_kind: OFFICIAL_ASSET_TRANSPORT_REDIRECT_POLICY
+user_summary_cn:
+  outcome: exact commit metadata 与 source archive 已闭合，但 LLVM-MinGW 官方 URL 的 302 被 frozen zero-redirect policy 阻止
+  main_reason: control 要求 followed_redirects_max=0；实际观察到 GitHub 到 release-assets.githubusercontent.com 的 302，未跟随且未重试
+  next_step: MAINLINE 在新 immutable resume 中冻结官方 redirect-compatible route 或 exact asset manifest
+  user_action_required: false
+  scientific_negative_inference: false
+context_sha256: 61966024B13892AF31EEBECD9CAAD3215B30ED55970215E099E4BC0DA1CCE92C
+bootstrap_ack_sha256: 64246285CABD54DF1D5E523C50988ABEA9D6D67C3C1990C696B000AE53331D0B
+mainline_start_authorization_sha256: DE2B4782BB6631A439739DE72709AF6AF0F15C84D85C8160E2A2075C8B98EC2B
+assignment_sha256: 6B00307910C62E637B8FF21FB77662BCB14E6FC3714404EF16D5C3CEDA6764EB
+exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+resource_gate:
+  long_path_capability_preflight: PASS_473_CHARACTER_LOGICAL_PATH
+  official_asset_attempts: 3/5
+  official_assets_complete: 2/5
+  network_bytes: 280173064
+  commit_metadata: PASS_1_OF_1
+  source_archive: PASS_1_OF_1
+  llvm_mingw: FAIL_1_OF_1_HTTP_302_ZERO_REDIRECT_POLICY
+  redirects_followed: 0
+  cmake: NOT_ATTEMPTED
+  ninja: NOT_ATTEMPTED
+  source_archive_safe_member_preflight: NOT_STARTED
+  source_extraction: NOT_STARTED_0_OF_1
+  tool_extraction: NOT_STARTED_0_OF_1
+  configure: NOT_STARTED_0_OF_1
+  clean_build: NOT_STARTED_0_OF_1
+  required_tools_ready: 0/7
+  nonclaim_smokes_run: 0
+resource_root: {bytes: 281845866, files: 84, directories: 28, reparse_entries: 0, stored_budget_bytes: 15032385536, within_budget: true}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, artifact_state: ARTIFACT_OPEN, owner_cleanup_performed: false, cleanup_owner: MAINLINE, active_owner_or_process_count: 0, exact_cleanup_candidate_count: 1, exact_cleanup_candidate_bytes: 1646998, projected_post_close_retained_bytes: 280198868, projected_post_close_budget_bytes: 2147483648, projected_post_close_budget_pass: true, downstream_input_accepted: false, capsule_sealed: false}
+claim_ceiling: RESOURCE_GATE_ONLY__NO_PPC_PRECLAIM_NATURAL_OR_PERFORMANCE_CLAIM
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: false
+resource_action_started: true
+scientific_action_started: false
+claim_bearing_or_natural_action_started: false
+ppc_f1_f5_or_direct_witness_started: false
+candidate_baseline_natural_performance_full_cost_or_claim_run_started: false
+stage_transition_authorized: false
+stageb_authorized: false
+forbidden_actions_respected: true
+file_hashes:
+  OFFICIAL_ASSET_ACCEPTANCE.yaml: 79290BECCC857FFB95B77203613AF4DAA8B2BC9D8C95057C77A7AA7CA6DA2224
+  LONG_PATH_CAPABILITY_AUDIT.yaml: A9BEC52FD8E390919AD7306DDBF12922C2C46BBD5CC634FC80C9C7CCEE4B1D3D
+  PATH_LENGTH_AUDIT.yaml: D708A509534B670F892EE0B0A159149A9E3FADB3F1F614FB60985FE00028BD35
+  BUILD_PROVENANCE.yaml: B184A9305F0414C9DCB409A70BF87555490BE4AF3B4A5D18FFF085EFC0F126C5
+  ENVIRONMENT_LOCK.yaml: 7F7B5189A3BEB3DE05BE2DB14C7BC5F232A29F2B953A14D0E78453377F2E165D
+  RESOURCE_INVENTORY.yaml: 7DE22D27C3A530FA62857EB737ABAD33BEAF54F75E68A532A01AB9CADBC9F035
+  RESOURCE_GATE_REPORT.md: C0274AF022717D12F18BF4962760D8B8FABB617B895FEE70E1066665C8FF97BD
+  COMMAND_LOG.md: 6607BF6B7C3379A37760952E7458D7B12D8947398594209F67CC5B16B39CAAF6
+  USER_BLOCKER_PACKET.md: 1206CB25B3D395474BC9E7C8CF167587983DB21132999BCB85E81E8CBC8BF9B2
+  PHASE_CLOSEOUT_RETENTION.yaml: 26E9E0A6877C610BE8B93888BA64FCCCFEB9ACD2DB1107438DA1ABC4D80B2074
+  RESUME_CAPSULE.yaml: 0A719E8A2B19019231788505134606F5CB5A8C00F744224B4FFBBD6023206BA3
+canonical_outputs: [OFFICIAL_ASSET_ACCEPTANCE.yaml, LONG_PATH_CAPABILITY_AUDIT.yaml, PATH_LENGTH_AUDIT.yaml, BUILD_PROVENANCE.yaml, ENVIRONMENT_LOCK.yaml, RESOURCE_INVENTORY.yaml, RESOURCE_GATE_REPORT.md, COMMAND_LOG.md, USER_BLOCKER_PACKET.md, PHASE_CLOSEOUT_RETENTION.yaml, RESUME_CAPSULE.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+next_owner: MAINLINE
+next_action: ACCEPT_RESOURCE_BLOCKER__FREEZE_REDIRECT_COMPATIBLE_IMMUTABLE_RESUME__OPTIONAL_MAINLINE_GC

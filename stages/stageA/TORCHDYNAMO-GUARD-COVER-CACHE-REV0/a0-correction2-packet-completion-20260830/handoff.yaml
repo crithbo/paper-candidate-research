@@ -1,0 +1,29 @@
+schema: torchdynamo-a0-correction2-handoff-v1
+assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-A0-CORRECTION2
+topic_id: TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+lane_id: CANDIDATE_EXECUTION_LANE_2
+decision: A0_EXECUTION_POLICY_HOLD__FINAL_CORRECTION_FIRST_FAILURE
+evidence_ceiling: INVALID_NONCLAIM_PACKET_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+bootstrap: {ack_sha256: DABFC5FC8853EFBAAC2C69192A9B4D39726D9FE2091C52869A50466CBAF67F9D, acceptance_sha256: E7B2DA3565FEAC02F922EA3A7C4F833AF17BE33F4871FE9CD1104FAD8CFB03EE, start_sha256: 5F9D81DC5D12B173FD8630B3BB4A01D03F66FF06C3FF2B6B5E57F286C50E13F9}
+implementation:
+  source_files: 10
+  static_ast_validation: PASS_ONCE
+  source_root: resources/src/runtime
+  frozen_object_changed: false
+  owner_resource_modified: false
+  contract_dimensions: {cells: 1792, quotient_fields: 9, compatibility_fields: 16, baselines: 15, full_cost_fields: 10}
+control:
+  attempt: 1_of_1
+  exit_code: 1
+  first_failure_primary: HARD_CHILD_SOLVER_DEADLINE_EXCEEDED__2_OF_2_INCOMPARABLE
+  first_failure_secondary: OWNER_LOCAL_TORCH_RUNTIME_DEPENDENCY_MISSING__FILELOCK
+  solver_rows: {launched: 2, certified: 0, hard_timeout: 2, incomparable: 2}
+  case_manifest: {cells: 1792, sha256: B14799D30811DC9951F74750F80D10E895430FC7D20E13808DA73E8B281F4209}
+  native_cache_entries_created: 0
+  claim_cells_executed: 0
+  effect_fields_visible: false
+  retry: 0
+budget: {correction_batches_used: 2_of_2, correction_batches_remaining: 0, network_bytes: 0, resource_files: 16, resource_logical_bytes: 917345, reparse_points: 0, active_related_processes: 0}
+scientific: {inference: NONE, revision_consumed: false, claim_attempted: false, A1_authorized: false, StageB: false}
+lifecycle: {inventory: RESOURCE_INVENTORY.yaml, retention: PHASE_CLOSEOUT_RETENTION.yaml, capsule: RESUME_CAPSULE.yaml, cleanup_performed: false, cleanup_owner: MAINLINE}
+next_action: WAIT_MAINLINE_POLICY_DISPOSITION__NO_THIRD_A0_CORRECTION_OR_SUCCESSOR

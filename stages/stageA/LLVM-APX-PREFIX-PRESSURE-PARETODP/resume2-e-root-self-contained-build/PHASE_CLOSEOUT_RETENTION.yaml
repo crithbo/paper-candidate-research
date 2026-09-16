@@ -1,0 +1,37 @@
+schema_version: phase-closeout-retention-v1
+assignment_id: STAGEA-L1-20260825-LLVM-APX-RESUME2-E-ROOT-SELF-CONTAINED-BUILD
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+closeout_state: BLOCKER_HANDOFF_PENDING_MAINLINE_ACCEPTANCE
+scientific_state_effect: NONE
+current_resource_root_bytes: 4703991763
+post_close_retained_bytes_max: 2147483648
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+keep:
+  - {path: resources/downloads, bytes: 508822273, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: exhausted network attempts and deterministic resume inputs}
+  - {path: resources/env, bytes: 839345887, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: exact portable bootstrap}
+  - {path: resources/tmp, bytes: 73847, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: command and validation scripts}
+  - {path: resources/logs, bytes: 20229193, class: KEEP_CAPSULE_CLAIM_CRITICAL, reason: raw blocker evidence and extracted build capsule}
+exact_cleanup_candidates:
+  - path: resources/src/llvm
+    bytes: 2248766267
+    class: REACQUIRABLE_DELETE_AFTER_HANDOFF
+    gate: MAINLINE_ACCEPTS_BLOCKER_AND_REVALIDATES_RETAINED_SOURCE_ARCHIVE_HASH
+    recovery: reextract retained exact source archive with long-path-aware tool
+  - path: resources/build/llvm-apx
+    bytes: 1085043570
+    class: REACQUIRABLE_DELETE_AFTER_HANDOFF
+    gate: MAINLINE_ACCEPTS_BLOCKER_AND_BUILD_FAILURE_CAPSULE_HASHES_PASS
+    recovery: new user-authorized short-path build; current failed build is non-deliverable
+  - path: resources/cache
+    bytes: 1710726
+    class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT
+    gate: MAINLINE_ACCEPTS_BLOCKER_AND_ZERO_ACTIVE_PROCESS
+    recovery: deterministic regeneration
+projected_post_close_retained_bytes: 1368471200
+projected_budget_result: PASS
+downstream_inputs_accepted: false
+capsule_sealed: false
+cleanup_receipt_path: CLEANUP_RECEIPT.yaml
+cleanup_receipt_exists: false
+never_delete_automatically: [assignment root, resource root, control files, resources/downloads, resources/env, resources/logs, resources/tmp]

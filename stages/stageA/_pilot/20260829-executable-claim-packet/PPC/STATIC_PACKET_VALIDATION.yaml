@@ -1,0 +1,23 @@
+schema: static-executable-claim-packet-validation-v1
+pilot_assignment: PILOT-PPC-20260829-EXECUTABLE-CLAIM-PACKET
+packet: EXECUTABLE_CLAIM_PACKET.yaml
+dag: COMMAND_DAG.json
+static_lint:
+  schema_fields_present: true
+  dag_nodes_unique: true
+  dag_acyclic_topological_order: true
+  checker_consumes_declared_candidate_and_baseline_outputs: true
+  full_cost_consumes_candidate_15_plus_baseline_56: true
+  result_aware_fields_hidden: true
+  shared_installation: false
+  tool_execution: false
+  control_or_claim_execution: false
+asset_bind:
+  llc_asset_record_match: true
+  exact_input_manifest_available: false
+  all_native_tools_available: false
+  e2_ready: false
+missing_asset_bind_inputs: [exact_16_input_manifest, ld.lld.exe, llvm-readobj.exe, llvm-objdump.exe]
+correction_edits_used: 0
+result: PASS_STATIC_PACKET__E2_BLOCKED_ON_ASSET_BIND
+scientific_inference: NONE

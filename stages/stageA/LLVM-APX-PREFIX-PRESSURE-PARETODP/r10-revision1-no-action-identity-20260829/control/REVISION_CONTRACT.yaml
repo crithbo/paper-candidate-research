@@ -1,0 +1,24 @@
+schema: stagea-scientific-revision-contract-v1
+assignment_id: STAGEA-L2-20260829-LLVM-APX-R10-REVISION1-NO-ACTION-IDENTITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+revision_kind: REVISE_ONCE
+revision_ordinal: 1_of_1
+status: PRECOMMITTED__NOT_CONSUMED_UNTIL_PATCHED_DRIVER_EXECUTES
+authority:
+  independent_report: {path: stages/stageA/_reviews/20260829-apx-r9-natural-claim-final/LLVM-APX-PREFIX-PRESSURE-PARETODP/INDEPENDENT_REVIEW_REPORT.md, sha256: 48BCFDE732B2FBC460B940F2B09C4A3C550F13B9520690E208EA6817105D1D31}
+  owner_first_failure: {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_CLAIM_RESULT.yaml, sha256: F485BEBAFA1AFC3D984F02B21CF90FE73564B4A5C922291010C4913C6340D82E}
+identity_preserved: [exact_object, selected_inputs, replay_count, baselines, full_cost_schema, same_program_semantics_and_abi, claim_endpoint, guarantee]
+sole_revision:
+  trigger: observed_action_options_empty
+  new_semantics: retain_row_as_explicit_NO_APX_ACTION_IDENTITY_negative_case
+  action_record: {id: NO_APX_ACTION_IDENTITY, native_form: NO_APX_ACTION, cost: [0, 0, 0]}
+  trace_fields: {native_action_applicable: false, no_action_identity: true, failure_region_retained: true}
+  row_result: PASS_FOR_PIPELINE_COMPLETION__NEGATIVE_CASE_FOR_SCIENTIFIC_ANALYSIS
+  positive_action_rows_unchanged: true
+  checker_requirement: candidate_labeled_generic_oracle_exact_and_native_arms_separate
+scientific_interpretation: no_action_identity_is_not_candidate_gain_and_must_be_reported_as_failure_region
+frozen_denominator: {selected_inputs: 4, replays_each: 2, rows: 8, commands_per_row: 9, result_based_exclusion: false, reserve_backfill: false}
+required_static_outputs: [APX_R10_PATCHED_ROW_DRIVER.py, APX_R10_CONTROLLER.py, APX_R10_COMMAND_DAG.json, APX_R10_EXECUTABLE_PACKET.yaml, APX_R10_STATIC_VALIDATION.yaml, EXACT_INPUT_COPY_MANIFEST.yaml]
+allowed_actions: [read_frozen_inputs, write_required_static_outputs, static_lint_max_3]
+forbidden_actions: [resource_copy, tool_execution, control_row, claim_row, change_nonempty_action_rows, change_inputs, change_baselines, change_denominator, change_cost_units, network, shared_write, cleanup, stageb]
+next_gate: MAINLINE_STATIC_ACCEPTANCE_THEN_INDEPENDENT_PRECLAIM_FIDELITY

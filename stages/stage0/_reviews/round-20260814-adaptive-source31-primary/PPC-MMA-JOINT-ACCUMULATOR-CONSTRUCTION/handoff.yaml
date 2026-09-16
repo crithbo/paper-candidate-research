@@ -1,0 +1,27 @@
+assignment_id: STAGE0-P1-20260814-PPC-MMA-JOINT-ACCUMULATOR-CONSTRUCTION-PRIMARY-V8.7
+topic_id: PPC-MMA-JOINT-ACCUMULATOR-CONSTRUCTION
+role: PRIMARY
+decision_recommendation: STOP
+quality_tier: BELOW_Q2_STOP
+confirmation_required: false
+stageA_authorized: false
+stageB_authorized: false
+evidence_ceiling: E1_STATIC_STAGE0_ONLY__NO_IMPLEMENTATION_NO_RESULT_CLAIM
+terminal_sentinel: BELOW_Q2_STOP__CROSS_TARGET_ACC_UACC_WACC_FMA_ACTION_GRAMMAR_TYPE_DRIFT
+scientific_basis:
+  - current LLVM explicitly bypasses ACC/UACC allocation hints for ISAFuture WACC.
+  - current FMA pressure reduction is a separate PPC64/P9Vector/medium-code-model float-double path.
+  - no one frozen MMA feature/ABI/numerical contract admits the declared action set as two same-object native plans.
+same_id_revision_allowed: false
+new_id_only_conditions:
+  - Freeze exactly one PPC subtarget and one accumulator family (Power10 ACC/UACC or ISAFuture WACC).
+  - Freeze a single numerical/reassociation semantic contract and only actions legal under it.
+  - Provide two same-function native legal plans plus a non-generic PPC-specific state/guarantee before Stage0 consideration.
+strong_baselines:
+  - CURRENT_POWER10_ACC_UACC_HINTS_AND_SPILL_LOWERING
+  - CURRENT_ISAFUTURE_WACC_PATH
+  - CURRENT_PPC_FMA_PRESSURE_REDUCTION_CONFIGURATION_ENVELOPE
+claim_ceiling: No candidate output, performance, compile-time, code-size, hardware or equivalence result was produced. STOP derives from static same-object/action-domain contradiction.
+resource_status: NO_BLOCKER
+mainline_action: Record scientific STOP; do not route confirmation or Stage A/B.
+lane_state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

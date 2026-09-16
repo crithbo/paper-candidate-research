@@ -1,0 +1,23 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE63-R40-ORDINARY-BREADTH-V1
+queue:
+  - queue_id: S63_QC01_OCAML_FLAMBDA2_CURRENT_UNION
+    exact_project: ocaml/ocaml
+    exact_object: Flambda2_from_lambda_closure_set_group_construction
+    version_rule: trunk_at_first_successful_official_source_read
+    missing_fields: [current_producer_union, default_nondefault_controls, primary_direct_collision]
+    frozen_route:
+      allowed_sources:
+        - https://github.com/ocaml/ocaml/tree/trunk/middle_end/flambda2/from_lambda
+        - https://ocaml.org/manual/
+      maximum_new_attempts: 1
+      stop_conditions:
+        - CLOSED_TO_TYPED_RQ
+        - EARLY_FATAL__CURRENT_UNION_OR_GENERIC_KERNEL
+        - UNRESOLVED_BACKLOG__MECHANICAL_UNAVAILABILITY
+    attempts_started: 1
+    attempts_completed: 1
+    disposition: UNRESOLVED_BACKLOG__MECHANICAL_UNAVAILABILITY
+    scientific_inference: NONE
+notes:
+  - Zero-attempt exhaustion was not used.
+  - This exact queue is not a clean brief and may only be resumed by a separately frozen assignment.

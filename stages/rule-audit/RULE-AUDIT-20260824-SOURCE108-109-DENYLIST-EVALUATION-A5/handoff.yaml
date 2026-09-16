@@ -1,0 +1,92 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260824-SOURCE108-109-DENYLIST-EVALUATION-A5
+assignment_id: RULE-AUDIT-20260824-SOURCE108-109-DENYLIST-EVALUATION-A5
+lane_id: RULE_AUDIT
+target: MAINLINE
+status: COMPLETE_PROPOSAL_ONLY__AWAITING_MAINLINE_ACCEPTANCE
+decision_label: PATCH_RECOMMENDED__BACKTEST_REQUIRED
+shared_files_modified: false
+candidate_or_scientific_states_modified: false
+scientific_or_resource_action_started: false
+network_search_download_build_experiment_queue_backtest_automation_started: false
+source110_results_read: false
+source110_backwrite_or_influence: false
+
+authorization:
+  bootstrap_ack_sha256: 27BEDF0387786D0CC68112B6763985CE3678168A8BB545D97421448DF2824B2C
+  mainline_acceptance_state: ACCEPTED__PROPOSAL_ONLY_START
+
+inputs:
+  a4_handoff_sha256: 2E4ED2A4B4164643280F746877A6644B8C93CF6EFD911574ADFEAA093837ECFC
+  source108_control_sha256: E2FA56F064C542F90B76D756340FA647505A05BE6E3AA2B3BD7888449F2C5ED3
+  source109_control_sha256: 94EB3B8F3CB62D20F770AD5757E0594F7BBF831F5207B75FA175D62A6A190541
+  source109_denylist_sha256: 1AC56E95A1859818EFB3E4DB853B1B4DF13D081F3AB7C780E381CA553A0FFB01
+  source108_handoff_sha256: [E02D4E3247CDD4D85FE64E89AE3A7C4AEC6919534F009BF98D834125DE7F4771, 639BE0395404A5F6BD491C3F97739834887B1620E1E44A6D33FFD6D2030EA87D, D94A4DF57320F949D018D430A3FA229C88DA38FB041C9BD300D0D3BB510970AE, 43CB27BAD04802B790EFF3384F19A55F14284ADB9294CFD8EF8A0337BF02A483, 317D3B1702A58C81609439510F2D7DF1F0E1EA5B9550DA1F1BB6F40151E48C37, 758FAC62F2E9E15B8AD3E2CE4EFCDA57C2AC4B5F0BA3F4F853982B2E83AF271C]
+  source109_handoff_sha256: [04A77D605036380C12F565FD76107D1C1D0B50A7B667E31511C5135709EC1F13, DF98E753F4278AB73C6304E639AE42DD9E47368701AC7E61E03711D176959952, 85E39D49905A98DFCAB2F189B82A9D0BC05C8ED89B197B95071579543E88F9C7, F3C8470C6F2EA4DA8CF9F009A9E7E4D1128B8F882A95DB93272F9D7834B30F10, 0B2E102443A5D6A1D75E79023EE7DB93770B802F626C5523EE7F737CFF8DE5A1, 7CDF63C39BF75FF5E2CAC6584CF69FA90F1382BCC4936295A7F894D4E2A47F0C]
+
+comparison:
+  source108:
+    predecessor_check: HIDDEN_CONTROL_HOLD
+    predecessor_exact_repeat_rows: 13
+    pre_rq_nonadmission_rows: 3
+    valid_selected_locator: 2
+    evidence_qualified_raw: 0
+    clean_brief: 0
+  source109:
+    predecessor_check: EXPLICIT_HASH_PINNED_PRELOOKUP_DENYLIST
+    exact_or_contains_selected_locator: 0
+    registered_prelookup_exact_exclusions_lower_bound: 8
+    valid_selected_locator_approx: 10
+    evidence_qualified_raw: 0
+    clean_brief: 0
+  execution_repeat_reduced: true
+  raw_yield_improved: false
+  valid_first_failed_conversion: VALID_SELECTED_LOCATOR_OR_RQ_TO_EVIDENCE_QUALIFIED_RAW
+
+classification:
+  hidden_control_execution_defect: CONFIRMED
+  explicit_denylist_execution_fix: EFFECTIVE
+  scientific_rule_gate_defect: NOT_SHOWN
+  current_union_source_saturation: REMAINS_PRIMARY_SCIENTIFIC_CAUSE
+  exact_carrier_non_generic_action_gap: REMAINS_SECONDARY
+  aggregate_resource_cause: NOT_SHOWN
+
+pilot_dispositions:
+  hidden_predecessor_hold_only: REMOVE_REPLACE
+  explicit_predecessor_denylist: RETAIN
+  exact_or_contains_prelookup_exclusion: RETAIN
+  related_only_with_five_field_discriminator: RETAIN
+  artifact_replication_measurement_rotation: DOWNGRADE_AS_YIELD_INTERVENTION__RETAIN_CONTRIBUTION_TYPE_DIVERSITY
+  temporary_named_source_family_downweight: RETAIN_AS_ALLOCATION_ONLY
+  carrier_first: RETAIN_AS_ORDERING__DOWNGRADE_AS_YIELD_INTERVENTION
+  raw_gate_rq_frontend_honest_abstention: RETAIN
+  outcome_aware_backfill_quota_broad_cooldown_terminal_revival: REMOVE_KEEP_FORBIDDEN
+
+proposal:
+  id: EXPLICIT_PREDECESSOR_IDENTITY_DENYLIST_V1
+  behavior_change: true
+  backtest_required: true
+  production_install_authorized_now: false
+  targets: [rules/ROLE_MAINLINE.md, rules/ROLE_DISCOVERY.md, new assignment-local denylist template/control schema]
+  semantics: EXACT_OR_CONTAINS_ONLY__RELATED_ONLY_ALLOWED_WITH_DISTINCT_FIVE_FIELD_DISCRIMINATOR__NO_SCIENTIFIC_INFERENCE__NO_BACKFILL_QUOTA_OR_COOLDOWN
+  historical_acceptance: {source108_exact_repeat_detection: 13_OF_13, source109_selected_exact_repeat: 0, related_only_false_exclusion: 0, scientific_decision_invariance: REQUIRED}
+  prospective_shadow_required: true
+  rollback: MODE_OFF_KEEP_TELEMETRY_AND_EXISTING_REGISTRY_HOLDS
+
+safety:
+  q2_q1_and_all_scientific_gates_unchanged: true
+  existing_states_unchanged: true
+  source110_unaffected: true
+  broad_category_cooldown_created: false
+  proposal_quota_created: false
+  terminal_revival_allowed: false
+
+canonical_outputs:
+  report: {path: RULE_AUDIT_REPORT.md, sha256: E65B06FD3B4ED6249A8E6010BDC85A0E3D9B5A3F0AC4860AA5D68ECF3C2641BA}
+  proposal: {path: RULE_CHANGE_PROPOSAL.md, sha256: DD66598476A2705AA6B9C13A491C2910878BDFBF57A61EC6BDEF5F05C04C04DE}
+
+mainline_next_action:
+  - ACCEPT_OR_REJECT_HANDOFF
+  - IF_ACCEPTED_REGISTER_BACKTEST_REQUIRED_PROPOSAL_ONLY
+  - DO_NOT_APPLY_MANDATORY_SHARED_BEHAVIOR_OR_MODIFY_SOURCE110
+  - RETURN_RULE_AUDIT_IDLE_REUSABLE

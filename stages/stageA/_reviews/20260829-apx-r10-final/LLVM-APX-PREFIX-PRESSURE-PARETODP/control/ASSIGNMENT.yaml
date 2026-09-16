@@ -1,0 +1,22 @@
+schema: independent-stagea-claim-review-assignment-v1
+assignment_id: STAGEA-GATE-20260829-APX-R10-REVISION1-FINAL
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+review_scope: FORMAL_STAGEA_FINAL_GATE_AFTER_REVISION_CONSUMED
+questions:
+  - Do six complete rows plus S04 native prepare failure support PASS, scientific STOP, or neither?
+  - Is S04 failure a valid mechanism/action-coverage negative observation or an invalid/unobservable construction failure because internal llc stderr was not persisted?
+  - Given REVISE_ONCE 1/1 is consumed, must the topic enter INCONCLUSIVE_POLICY_HOLD, or is a terminal scientific decision justified?
+  - State Q2 viability, supported claim ceiling and the exact user or next-stage gate.
+minimum_inputs:
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_CLAIM_RESULT.yaml, sha256: 8490A474F1AA59C9A28C2A0AE2C2316065361C566FAE00939B1B01DDB77CDFFB}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/STAGEA_REPORT.md, sha256: E1BDCB4493B7C8FE5C547F5964F1AE20C037F9649F5D0EC074D3965CC7288BF2}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/handoff.yaml, sha256: 4C1157DE9317B422DE7B662184C993F48B85E7E22132187956D35D48F2A6FF1C}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/HASH_MANIFEST.sha256, sha256: 600C27A32DBF99953583F9E2A4B3A39B4941026711D67A0D4BFC1E6E9D3B6D16}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/REVISION_CONSUMPTION.yaml, sha256: 256F0AD5A4AE08E17A36DE91826F26D1C00C852CC6E041A94727CAF99E8171E3}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/resources/logs/claim/controller/outer_full_cost_ledger.json, sha256: 91E55A88103D3EC5BB8213D7E006D4694EA08DCEA47EFCC48BA086D4B48BE2A5}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/resources/logs/claim/controller/first_failure.json, sha256: ADC637982B244735AF3BC5F2B2F91675263AAA6DC0126F9F0B9651398E51A955}
+execution_facts: {rows_expected: 8, rows_complete: 6, rows_partial: 1, rows_not_started: 1, commands_started: 55, retries: 0, revision_consumed: 1_of_1, first_failure: S04_R1_PREPARE_LLC_FAILED_TRACE_MISSING}
+claim_ceiling_before_review: REVISION_CONSUMED__INCOMPLETE_FROZEN_DENOMINATOR__INDEPENDENT_GATE_REQUIRED
+required_decision: [PASS_RECOMMENDED, STOP, INCONCLUSIVE_POLICY_HOLD, RESERVE_RECOMMENDED]
+allowed_actions: [read_only_review, targeted_hash_check, write_bootstrap_ack_then_after_start_report_handoff_manifest]
+forbidden_actions: [recommend_ordinary_second_revision, modify_owner_files, resource_copy, tool_replay, new_experiment, claim_run, network, shared_write, state_change, stageb]

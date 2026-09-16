@@ -1,0 +1,3 @@
+# Current upstream audit — GraalVM retry1
+
+Official commit `oracle/graal@f3c130e4d5345b81968f0f9d94fedb87c7143b8c` is retained. Bounded source covers class-initialization policy/options, image heap, heap layout and default sorting, plus the fixed `TestClassInitialization` carrier. Build-time/run-time initialization and image-heap layout are already stock action surfaces. The retained material does not establish a fixed closed-world application with two complete stock-legal class-init-plus-layout plans, a union-external GraalVM-specific action, or finite safety/layout guarantee. Generic policy/packing/controller or altered class-init safety/image format cannot fill that gap.

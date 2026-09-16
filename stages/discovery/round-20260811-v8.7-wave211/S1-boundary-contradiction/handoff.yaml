@@ -1,0 +1,40 @@
+assignment_id: DISCOVERY-S1-20260811-V8.7-WAVE211-ARCH-STATE-TRANSITION-COST-CONSTRUCTOR-BREADTH
+lane: S1-boundary-contradiction
+status: COMPLETE_ZERO_PROPOSALS
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+rule_revision: v8.7+R5-P0
+discovery_quality_mode: OFF
+frozen_control_hashes:
+  plan_sha256: F0B885E43DC30CBB2BA0400286AEF1F69DECA5D4005B0989BCFDEE075FED7219
+  registry_sha256: 393DC81B3BC5D15011D4F04C42DE3339AFE3BFA084188E513E86A9331F8A0B1A
+  role_discovery_sha256: FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3
+evidence_cutoff: '2026-08-11'
+funnel:
+  raw_screen_row_events: 6
+  unique_opportunity_families: 6
+  candidate_grade_deep_reviews: 4
+  propose_stage0: 0
+  structural_drop: 3
+  not_admitted_unfrozen: 3
+briefs: []
+outcomes:
+  - id: D01
+    status: NOT_ADMITTED_UNFROZEN
+    reason: Current LLVM/GCC SVE PCS and runtime action union not fully frozen.
+  - id: D02
+    status: DROP
+    reason: Same-contract residual is existing PKRU primitive placement; changed access changes guarantee.
+  - id: D03
+    status: NOT_ADMITTED_UNFROZEN
+    reason: GCS compiler/linker/unwinder/libc union not fully frozen.
+  - id: D04
+    status: NOT_ADMITTED_UNFROZEN
+    reason: Conforming engine/feature/runtime union not fully frozen.
+  - id: D05
+    status: DROP
+    reason: Fixed fenv semantics leaves no union-external whole action.
+  - id: D06
+    status: DROP
+    reason: Fixed Wasm exception semantics leaves generic tooling or changed object only.
+next_action: Await a new mainline assignment; do not create Stage0/A/B from this package.
+write_boundary: stages/discovery/round-20260811-v8.7-wave211/S1-boundary-contradiction

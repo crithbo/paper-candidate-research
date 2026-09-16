@@ -1,0 +1,73 @@
+assignment_id: BACKTEST-EXECUTOR-L1-20260814-RQ-REFINEMENT-STAGED-EVIDENCE-V1
+role: DISCOVERY_BACKTEST_EXECUTOR_LANE
+task_id: 019fe659-fe9b-7e52-b707-7d144c8a418f
+method_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+write_directory: stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/executor
+write_policy: ADDITIVE_ONLY__NO_PACKER_OR_SHARED_FILE_WRITE
+mainline_packer_acceptance:
+  status: ACCEPTED_FOR_SERIAL_EXECUTION
+  sealed_input_manifest_sha256: 9B81E99CD7A4419D8B1EB3C6244D2ED050927F31655B28A473F9143A367C4F94
+  packer_handoff_sha256: B72DF684DCFB6CCA22EBA2B65CDAD99CAB2CDF82A6628B3393F7015AA76F45E9
+  packer_manifest_sha256: 2DD51833674D76178E8E800810A5501E877A542CA7F05AD8C08D4DBE87B78359
+  targeted_manifest_validation: PASS__6_OF_6
+  simple_executor_label_leak_scan_hits: 0
+allowed_reads:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules/ROLE_DISCOVERY.md
+  - rules/ROLE_DISCOVERY_BACKTEST.md
+  - templates/DISCOVERY_DIVERGENCE_SEED_POOL.md
+  - templates/DISCOVERY_RQ_CANDIDATE.md
+  - templates/DISCOVERY_QUESTION_CARD.md
+  - templates/TOPIC_BRIEF.md
+  - stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/control/MASTER_CONTRACT.yaml
+  - stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/packer/sealed_input_manifest.yaml
+  - stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/packer/EXECUTOR_INSTRUCTIONS.md
+  - stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/packer/EXECUTOR_INPUT
+forbidden_reads:
+  - packer/AUDITOR_KEY
+  - packer/AUDITOR_KEY.yaml
+  - packer/SOURCE_LEDGER.yaml
+  - packer/PACKER_REPORT.md
+  - packer/CONTAMINATION_AUDIT.md
+  - ANY_PRIOR_BACKTEST_AUDITOR_KEY
+  - ANY_TARGET_IDENTITY_OR_POST_CUTOFF_OUTCOME
+execution:
+  case_count: 4
+  external_search_allowed: false
+  network_allowed: false
+  install_build_experiment_allowed: false
+  identify_target_allowed: false
+  per_case_seed_ceiling: 12
+  per_case_rq_candidate_ceiling: 8
+  per_case_locator_ceiling: 4
+  rq_versions_per_retained_seed: 2_TO_3
+  rq_versions_must_be_frozen_before_evidence_disposition: true
+  allowed_case_decisions: [PROPOSE_STAGE0, DROP, ABSTAIN]
+  allowed_frontend_dispositions: [EVIDENCE_QUALIFIED_RAW, LOCATOR_ONLY, SOURCE_CLOSURE_QUEUE, EXCLUDED_BEFORE_RAW]
+  known_direct_fatal_may_be_closure_debt: false
+  no_forced_top_n: true
+  no_proposal_quota: true
+  no_outcome_aware_backfill: true
+required_case_content:
+  - non_evidence_seed_pool_and_convergence
+  - two_or_three_same_object_rq_versions_before_selection
+  - selected_rq_scope_and_finer_lite_without_compensatory_score
+  - question_card_raw_required_audit
+  - bounded_closure_debt_with_owner_max_three_questions_route_and_failure
+  - source_closure_queue_if_transport_or_public_artifact_is_the_only_gap
+  - clean_brief_or_structural_abstention_decision
+  - explicit_stage0_handoff_boundary
+required_outputs:
+  - CASE_RESULTS/CASE-A.md
+  - CASE_RESULTS/CASE-B.md
+  - CASE_RESULTS/CASE-C.md
+  - CASE_RESULTS/CASE-D.md
+  - METHOD_OUTPUT.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+next_gate: MAINLINE_MECHANICAL_ACCEPTANCE_THEN_SERIAL_AUDITOR_DISPATCH
+stage0_stagea_stageb_allowed: false
+production_activation_allowed: false
+return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

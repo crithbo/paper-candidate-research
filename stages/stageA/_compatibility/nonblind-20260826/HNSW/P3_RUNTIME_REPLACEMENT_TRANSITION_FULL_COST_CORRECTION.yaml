@@ -1,0 +1,18 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-P3-RUNTIME-TRANSITION
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P2A1_handoff.yaml, sha256: 41B581CF9342B210FE818E0F64D0048DD081F0514FF6B923B5328B5C45A4AF02}, {path: resources/src/probe/hnsw_minimal_probe.cpp, retention: P2_HARNESS__REQUIRES_P3_EXACT_EDIT}]
+only_source_edit:
+  file: resources/src/probe/hnsw_minimal_probe.cpp
+  required_changes:
+    - build_index_from_unchanged_original_base_vectors
+    - preserve_old_base17_vector_before_markDelete
+    - after_index_construction_markDelete17_then_add_distinct_deterministic_replacement_for_label17
+    - update_live_oracle_vector17_only_after_runtime_replacement
+    - validate_replacement_query_returns_label17_and_old_vector_oracle_does_not_select_label17
+    - emit_boolean_checks_from_computed_results_not_constants
+    - emit_M_efConstruction_efSearch_generation_normalization_construction_delete_replace_HNSW_query_oracle_query_index_bytes_full_cost_fields
+  forbidden_changes: [vectors_queries_grid_baseline_change, source_other_than_harness, result_exclusion]
+fresh_command_budget: {compile: 1, run: 3, retry: 0}
+scientific_revision_consumed: false

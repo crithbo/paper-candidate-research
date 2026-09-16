@@ -1,0 +1,48 @@
+assignment_id: STAGEA-L1-20260810-AIGER-DELTA-SCHEDULE-INITIAL-R3P0
+gate: PRE_CLAIM_CONTRACT_FIDELITY_GATE
+status: FAIL_CLOSED
+claim_bearing_run_started: false
+claim_bearing_observation_obtained: false
+scientific_revision_consumed: false
+subgates:
+  frozen_standard_binary_aiger_object:
+    status: PASS_CONTRACT_ONLY
+    note: fixed interface/property order, inversion bits, reachable AND adjacency, and standard binary AIGER 1.9 were frozen
+  complete_whole_dag_action:
+    status: PASS_SMALL_CONTROL_ONLY
+    implementation: scripts/witness_control.js
+    note: exhaustive recursion covers every legal topological order on the six-AND control; no scalable candidate or N2 result is claimed
+  six_and_12_13_witness:
+    status: PASS_INDEPENDENT_NON_NATIVE_CONTROL
+    legal_schedules_enumerated: 48
+    s1_delta_bytes: 12
+    s2_delta_bytes: 13
+    s1_whole_file_bytes: 36
+    s2_whole_file_bytes: 37
+    structural_identity: 48_of_48
+    native_reader_validated: false
+  exact_recurrence_and_complexity:
+    status: PASS_HONEST_GENERIC_CONTROL_ONLY
+    n2_established: false
+    scalable_candidate_implemented: false
+  aiger_reference_reader_writer:
+    status: FAIL_RESOURCE_UNAVAILABLE
+    executable_found: false
+  yosys_current_native_union:
+    status: FAIL_RESOURCE_UNAVAILABLE
+    executable_found: false
+    required_no_sort_covered: false
+  abc_current_native_union:
+    status: FAIL_RESOURCE_UNAVAILABLE
+    executable_found: false
+    required_u_boundary_covered: false
+  native_object_identity_and_reader_parity:
+    status: NOT_EXECUTED_DUE_TO_RESOURCE_FAILURE
+  directional_full_cost_paths:
+    status: PASS_PREREGISTRATION_ONLY
+    measured_claim_costs: false
+  natural_hwmcc_killer:
+    status: PROHIBITED_BY_FAILED_PRECLAIM_GATE
+    natural_object_count: 0
+fail_closed_reason: exact pinned native AIGER, Yosys, and ABC executables cannot be built or run because no local C/C++ build toolchain or pinned prebuilt bundle is available; system installation is prohibited
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE

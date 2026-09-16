@@ -1,0 +1,34 @@
+schema_version: assignment-resource-inventory-v1
+assignment_id: STAGE0-C2-20260815-RVV-VXRM-INTERPROCEDURAL-CONFIRM-V8.7
+topic_id: RVV-VXRM-INTERPROCEDURAL
+mode: SENTRY
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\round-20260815-adaptive-source44-confirmation\RVV-VXRM-INTERPROCEDURAL\resources
+required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+redirect_preflight:
+  status: READY_BEFORE_ACQUISITION
+  process_local_variables: [TEMP, TMP, TMPDIR, XDG_CACHE_HOME]
+resource_envelope:
+  authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+  attempts_max: 4
+  attempts_used: 4
+  purpose: official_read_only_current_source_and_specification_recheck
+entries:
+  - url: https://raw.githubusercontent.com/llvm/llvm-project/10b4fa5b79eb9d27b4928ad82afa3847762bc72f/llvm/lib/Target/RISCV/RISCVInsertWriteVXRM.cpp
+    local_path: resources/downloads/RISCVInsertWriteVXRM.cpp
+    status: OK
+    bytes: 15461
+  - url: https://raw.githubusercontent.com/llvm/llvm-project/10b4fa5b79eb9d27b4928ad82afa3847762bc72f/llvm/lib/Target/RISCV/RISCVInsertVSETVLI.cpp
+    local_path: resources/downloads/RISCVInsertVSETVLI.cpp
+    status: OK
+    bytes: 45408
+  - url: https://raw.githubusercontent.com/riscv-non-isa/riscv-elf-psabi-doc/master/riscv-cc.adoc
+    local_path: resources/downloads/riscv-cc.adoc
+    status: OK
+    bytes: 50635
+  - url: https://raw.githubusercontent.com/riscv-non-isa/rvv-intrinsic-doc/main/rvv-intrinsic-spec.adoc
+    local_path: resources/downloads/rvv-intrinsic-spec.adoc
+    status: HTTP_404__NO_ABSENCE_INFERENCE
+    bytes: 0

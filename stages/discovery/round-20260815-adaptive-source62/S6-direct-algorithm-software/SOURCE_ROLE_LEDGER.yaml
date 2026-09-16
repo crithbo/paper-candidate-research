@@ -1,0 +1,58 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE62-R40-ORDINARY-BREADTH-V1
+frozen_at: 2026-08-15
+network_activity:
+  source_queries: 3
+  aborted_or_timeout:
+    - role: bounded multi-query search
+      outcome: RESPONSE_TIMEOUT__NO_SCIENTIFIC_INFERENCE
+      action: terminated without download or retry expansion
+families:
+  - card_id: C01
+    source_roles:
+      ANCHOR:
+        url: https://gcc.gnu.org/onlinedocs/15.2.0/
+        source_type: official_release_manual
+        version_or_date: GCC_15.2.0__2026-07-21
+        evidence: public versioned compiler and test-carrier route
+      CURRENT_DOCS:
+        url: https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Dialect-Options.html
+        source_type: official_current_manual
+        version_or_date: crawled_2026-08
+        evidence: -fcoroutines defaults on with -std=c++20 and above
+      CURRENT_SOURCE:
+        url: https://gcc.gnu.org/pipermail/gcc-patches/2024-August/661083.html
+        source_type: official_GCC_source_change_record
+        version_or_date: 2024-08
+        evidence: separates analysis, ramp, and outlined function synthesis; names actor/destroy construction loci
+      CONTRARY:
+        url: https://gcc.gnu.org/pipermail/gcc-patches/2024-August/661079.html
+        source_type: official_GCC_source_change_record
+        version_or_date: 2024-08
+        evidence: build_actor_fn and reverse parameter-copy destructor ordering
+    reality_check: PASS__DOCS_SOURCE_AND_DEFAULT_ENTRY
+    direct_collision_status: CURRENT_PRODUCER_ABSORPTION__DECISIVE
+  - card_id: C02
+    source_roles:
+      ANCHOR:
+        url: https://downloads.haskell.org/ghc/latest/docs/users_guide/using-optimisation.html
+        source_type: official_current_user_guide
+        version_or_date: GHC_9.14.1
+        evidence: public optimizer/test-carrier route
+      CURRENT_DOCS_AND_FLAGS:
+        url: https://ghc.gitlab.haskell.org/ghc/doc/users_guide/flags.html
+        source_type: official_current_flag_reference
+        version_or_date: 9.15.20260306
+        evidence: lift-lams, known-call, recursive and non-recursive parameter controls
+      CURRENT_SOURCE_LOCUS:
+        url: https://gitlab.haskell.org/ghc/ghc/-/blob/master/compiler/GHC/Stg/Lift/Lams.hs
+        source_type: official_upstream_source_locus
+        version_or_date: master__read_route
+        evidence: source locus for the documented STG pass; page response unavailable in bounded retrieval
+      CONTRARY:
+        url: https://downloads.haskell.org/ghc/latest/docs/users_guide/using-optimisation.html
+        source_type: official_current_user_guide
+        version_or_date: GHC_9.14.1
+        evidence: selective lifting converts free variables into parameters, -O2 default and x86_64 parameter bounds
+    reality_check: PASS__DOCS_DEFAULT_NONDEFAULT_AND_SOURCE_LOCUS
+    direct_collision_status: CURRENT_TRANSFORMATION_PLUS_GENERIC_KERNEL__DECISIVE
+source_usage_rule: URLs are evidence locators; no source acquisition, build, installation, experiment, or benchmark was performed.

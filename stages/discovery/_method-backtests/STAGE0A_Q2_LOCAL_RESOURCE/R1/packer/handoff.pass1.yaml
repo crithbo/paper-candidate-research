@@ -1,0 +1,79 @@
+schema: discovery-backtest-packer-handoff-v1
+created_at: 2026-08-26T18:04:00+08:00
+assignment_id: BACKTEST-PACKER-20260826-STAGE0A-Q2-LOCAL-RESOURCE-R1
+from_role: DISCOVERY_BACKTEST_PACKER
+to_role: MAINLINE
+status: COMPLETE_READY_FOR_MAINLINE_ACCEPTANCE_AND_NEUTRAL_EXECUTOR_FREEZE
+
+summary_cn:
+  conclusion: 已完成静态资源预检、金标资格核验、结果无关替补、随机中性 ID、去身份输入包和 auditor-only key；未运行被测方法或评分。
+  evidence: 原 12 个正控均完成金标核验；P06 因官方依赖与入口不满足 Windows no-WSL 门，在 blind assignment 前按预登记顺序由 ALT01 替换；最终为 12 个中性正控输入与 4 个中性结构性输入。
+  local_route: 8 个案例进入条件性 Windows 本地 StageA 路线；4 个硬件/Linux 重型案例只验证学术存活与正确资源路由，不进入 operational denominator。
+  next_step: MAINLINE 先验收 hashes 与污染审计，再只复制 sealed_executor_input 到完全中性的可见目录并冻结独立 executor context；auditor_key 和本目录其他文件不得下发。
+  user_action: 当前不需要；只有后续出现硬来源权限或外部资源门才报告。
+
+counts:
+  gold_original_qualified: 12
+  gold_alternate_qualified: 1
+  sealed_items: 16
+  sealed_qualified_controls: 12
+  sealed_structural_controls: 4
+  local_operational_routes: 8
+  heavy_routing_only: 4
+  preregistered_replacements_used: 1
+  tested_method_runs: 0
+  case_scores: 0
+  build_install_extract_experiment_runs: 0
+  candidate_or_scientific_state_changes: 0
+
+replacement:
+  excluded_before_seal: P06_SOURCE_COMPRESSION
+  basis: STATIC_WINDOWS_RESOURCE_PREFLIGHT_FAILED__NO_SCIENTIFIC_INFERENCE
+  selected_alternate: ALT01_WEBGRAPH_LLP
+  outcome_aware: false
+  executor_output_existed: false
+
+canonical_outputs:
+  sealed_input_manifest: {path: sealed_executor_input/sealed_input_manifest.yaml, sha256: D8BE140E157945166629AF8771997F9143E1B06A735F63560CDB9703A9E5E0A9, validation: PASS_16_OF_16}
+  gold_qualification: {path: GOLD_LABEL_QUALIFICATION.yaml, sha256: 244C06121B8AB80B49C57C56FF7A9A1F2C131DFDFCBDDF55925C2E48DCD7185C}
+  resource_preflight: {path: RESOURCE_PREFLIGHT.yaml, sha256: 6356234F690AC4A5FCC5F954D6ED17C3CD37EE47588FF399D16E6596FC2D4C0D}
+  selection_ledger: {path: CASE_SELECTION_AND_REPLACEMENT_LEDGER.yaml, sha256: 65684F6F2B15C6989BD433D64FF0C0B4C44DE724E87CE81EC6D003AB6C482BD1}
+  blindness_audit: {path: BLINDNESS_AND_CONTAMINATION_AUDIT.yaml, sha256: F793B5695A599216A497F71226BC628BD9D67EA1D6081132D47B076CBF5E9B2D, forbidden_matches: 0}
+  auditor_key: {path: auditor_key/AUDITOR_KEY.yaml, sha256: A3B4FBF7DDFB0F3B02C20BB075655D8AC702FF0F745486BAAA82D2D5AC0A6E45}
+  auditor_gold_route: {path: auditor_key/GOLD_IDENTITY_AND_EXPECTED_ROUTE.yaml, sha256: 4E9DF1D9F9FF88A74EB6C3A1090EBC7FF2AA63D816B7F4BDFD30786794582068}
+  source_ledger: {path: resources/src/PACKER_PRIMARY_SOURCE_LEDGER.yaml, sha256: 26F72C6707E6544C149C137B2D441D33AA26ECAA710E9124B1CC913D1FF0EFE1}
+  resource_inventory: {path: RESOURCE_INVENTORY.yaml, sha256: 18D0D824335531C756CE0595FBA24CF5134475DDA832EA3ED2A6E4AB0BF6D53B}
+  resume_capsule: {path: RESUME_CAPSULE.yaml, sha256: DD91BAF75F28E73070AF160067C5E802D17D909874C8E5D8CC6F596A871854AD}
+  phase_closeout: {path: PHASE_CLOSEOUT_RETENTION.yaml, sha256_bound_by_final_manifest: true}
+  final_manifest: {path: HASH_MANIFEST.sha256, self_excluded: true}
+
+network_and_resources:
+  codex_web_endpoint_requests: 55
+  curl_endpoint_requests: 14
+  total_attempts: 69
+  exact_network_bytes: 本次运行环境没有提供精确统计，未作估算
+  persisted_raw_network_response_bytes: 0
+  curl_failure: SEC_E_NO_CREDENTIALS__NO_RETRY__NO_SCIENTIFIC_INFERENCE
+  resource_root_logical_bytes: 19282
+  resource_root_budget_bytes: 4294967296
+
+double_blind_hard_boundary:
+  executor_visible_subtree_only: sealed_executor_input
+  visible_source_path_must_be_neutralized: true
+  forbidden_downstream: [ASSIGNMENT_CONTEXT, PACKER_DIRECTORY_PATH, RULE_AUDIT_DIRECTORY, GOLD_LABEL_QUALIFICATION, RESOURCE_PREFLIGHT, CASE_SELECTION_AND_REPLACEMENT_LEDGER, BLINDNESS_AND_CONTAMINATION_AUDIT, PACKER_PRIMARY_SOURCE_LEDGER, AUDITOR_KEY, GOLD_IDENTITY_AND_EXPECTED_ROUTE]
+  identity_recognition_disposition: BLINDING_CONTAMINATION__STOP_WITHOUT_SCIENTIFIC_JUDGMENT
+  auditor_reveal_gate: ONLY_AFTER_ALL_EXECUTOR_OUTPUTS_IMMUTABLE_AND_HANDOFF_ACCEPTED
+
+mainline_acceptance_checks:
+  - verify final manifest and 16 sealed case hashes
+  - repeat forbidden-token and hidden-identity scan on the exact copied subtree
+  - freeze a destination whose title prompt context path IDs and filenames are neutral
+  - do not expose the source assignment directory or any packer/auditor-only material
+  - do not dispatch auditor key until all executor outputs are immutable
+  - do not infer any production rule change from PACKER outputs
+
+cleanup:
+  performed_by_packer: false
+  allowed_before_downstream_acceptance: false
+  proposed_delete_targets: []
+  owner: MAINLINE

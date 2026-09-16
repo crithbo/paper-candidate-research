@@ -1,0 +1,3 @@
+# Source90 S4 seeds
+
+Six offline non-evidence O4 sketches covered compilation-resource ranking, accelerator energy/tail estimands, stock-reader artifact cost, formal producer/checker cost, recovery deadline regimes, and database construction/read-tail cost. R73, OpenXLA closure, and all held/terminal identities were not read, seeded, or used; network-security excluded. None freezes an exact public project/artifact/specification plus version/date and immutable same-object boundary. `SEED_ONLY__NO_EXACT_PUBLIC_ANCHOR`; R40 blocks RQ, locator, closure, raw, and brief without scientific DROP, novelty, absence, or exhaustion inference.

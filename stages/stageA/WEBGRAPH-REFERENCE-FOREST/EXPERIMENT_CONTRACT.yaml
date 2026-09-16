@@ -1,0 +1,154 @@
+schema_version: "stagea-experiment-contract-v8.7"
+contract_status: "FROZEN_BEFORE_ANY_CLAIM_BEARING_RUN"
+frozen_at: "2026-08-10T19:10:00+08:00"
+assignment_id: "STAGEA-L1-20260810-WEBGRAPH-REFERENCE-FOREST-INITIAL-V8.7"
+candidate_id: "WEBGRAPH-REFERENCE-FOREST"
+lane_id: "CANDIDATE_EXECUTION_LANE_1"
+workspace_root: "<LEGACY_LOCAL_PROJECT_ROOT>"
+unique_write_root: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\WEBGRAPH-REFERENCE-FOREST"
+cross_assignment_contamination: false
+
+authorization:
+  stagea_authorized: true
+  stageb_authorized: false
+  stageb_user_approval_id: null
+  scientific_revision_available: 1
+  system_install_allowed: false
+  global_environment_mutation_allowed: false
+  gpu_or_exclusive_device_allowed: false
+  external_write_allowed: false
+
+frozen_upstream:
+  controlling_stage0_decisive_report_sha256: "E99137221AB044BAFFF26F634EAF2CA9E787B44FD6CB0BB60E1890693619989D"
+  controlling_stage0_decisive_handoff_sha256: "64D0E33509CC22DBAD67276CFA193B212934BCFFB6D5DC8EE8F66F5B33FB399C"
+  controlling_stage0_decisive_manifest_sha256: "AA9C965999B885FEAF95367C2B20C10C05934061F6ECBDCC341EBDECBF22314B"
+
+native_source:
+  webgraph_crate_version: "0.6.2"
+  webgraph_cli_crate_version: "0.4.2"
+  packaged_vcs_sha1: "6b230673fd8f09ee31e81f09b921671678804de2"
+  webgraph_archive_sha256: "43EE3444AD9A8109842BD7309B099E147FF874BAE36F7438F8F7C813D5FB696A"
+  webgraph_cli_archive_sha256: "9FD9B9DCFC8972408DF4335AA261941D879A3E37FE06262F9828413B3CCFC638"
+  bvcompz_source_sha256: "0567152C09D4718A823F3D2E650D6FA2AA4BA1BAAD6031D7E49616B06658A175"
+  comp_flags_source_sha256: "5B6E78DFCD2C467F3DEF13935E747891529DA7BE247AC4A9E9C39400041B1B0D"
+  license: "Apache-2.0 OR LGPL-2.1-or-later"
+  implementation_boundary: "Baseline and candidate are mechanically copied source trees with the identical non-semantic Windows rustc portability change from a rejected doc comment to an ordinary comment in mmap_helper.rs. Candidate alone changes BvCompZ reference selection and adds audit assertions; estimator, Compressor, bit writer, offset writer, properties writer and readers remain source-identical."
+
+exact_object:
+  input: "fixed vertex order and strictly increasing successor lists, including explicit empty lists"
+  output: "native big-endian BVGraph .graph plus .offsets and .properties"
+  reader_semantics: "unchanged native sequential and random-access BvGraph readers"
+  endianness: "BE"
+  outdegree_code: "Gamma"
+  reference_code: "Unary"
+  block_code: "Gamma"
+  interval_code: "Gamma"
+  residual_code: "Zeta(3)"
+  min_interval_length: 4
+  compression_window_W: 4
+  max_reference_depth_D: 3
+  chunk_size: 128
+  chunk_boundary_rule: "references never cross a native BvCompZ chunk boundary"
+
+legal_action_and_cost:
+  action_at_i: "delta=0, or delta in 1..min(W,offset_in_chunk) whose predecessor successor list is nonempty"
+  depth: "d_i=0 for delta=0; d_i=d_(i-delta)+1 for delta>0; require d_i<=D"
+  cost_c_i_delta: "exact u64 graph-stream bit count returned by the released native estimator using the same Compressor.write path"
+  objective: "minimize sum_i c_i(delta_i) separately inside each chunk"
+  additivity_scope: "graph-stream bits only; offsets/properties and all execution costs are reported separately in the full-cost ledger"
+  tie_break: "minimum total bits, then lexicographically smallest delta vector (root action 0 precedes smaller positive deltas)"
+
+candidate:
+  name: "COMPLETE_LEGAL_ACTION_NATIVE_COST_EXACT_FRONTIER_DP"
+  state: "depth vector for the most recent min(W,i) lists"
+  transitions: "every legal root/nonempty-reference action, with exact u64 addition"
+  reconstruction: "deterministic backpointer/delta-vector reconstruction under the frozen tie rule"
+  guarantee: "exact optimum over the complete frozen legal action set"
+  complexity_bound: "O(n*(W+1)*(D+1)^W) time and O((D+1)^W) rolling frontier values plus reconstruction"
+
+strongest_baseline:
+  name: "WEBGRAPH_0_6_2_FINAL_BVCOMPZ_PIPELINE"
+  stages:
+    - "native cost enumeration and strict best-parent selection"
+    - "released maximum-forest bounded-depth DP"
+    - "released all-edge greedy refill"
+    - "unchanged native stream/offset/property writer"
+  information_parity: "identical ordered lists, action-cost table, W, D, codes, chunking and CPU environment"
+  forbidden_substitutes:
+    - "best-parent prefix without greedy refill"
+    - "standard BvComp"
+    - "oracle envelope"
+    - "changed order, codes, depth, window or chunk"
+
+preclaim_gate:
+  id: "PRECLAIM_NATIVE_COMPLETE_ACTION_DP_FIDELITY_GATE"
+  claim_bearing_before_pass: false
+  tiny_fixture:
+    name: "tiny-native-9"
+    nodes: 9
+    generation: "hand-authored ordered successor lists; SHA-256 frozen before execution"
+    exhaustive_limit: "all complete legal forests for the single nine-list chunk"
+  required_passes:
+    - "official source/config/toolchain identities and hashes recorded"
+    - "candidate and comparator enumerate identical root/nonempty actions and exact native c_i(delta)"
+    - "every selected action estimator cost equals the unchanged writer bit delta; summed action costs equal graph-stream written bits before byte padding"
+    - "frontier-DP optimum and delta vector equal an independent exhaustive enumerator"
+    - "complete final BvCompZ comparator is actually executed under identical information"
+    - "native .graph/.offsets/.properties load, sequential equality and per-node random-access equality pass"
+    - "ties, f32 rounding, empty-reference, flag and chunk artifacts are explicitly classified"
+  fail_effect: "FAIL_CLOSED__NO_PASS_OR_STOP_INFERENCE"
+
+bounded_structural_killer:
+  allowed_only_after_preclaim_pass: true
+  claim_bearing: true
+  domain_id: "NATIVE-STRUCTURAL-DOMAIN-2048-V1"
+  cases: 2048
+  nodes_per_case: 24
+  successor_universe: 24
+  deterministic_seed: 87041031
+  generator_strata:
+    - "512 local-overlap lists"
+    - "512 nested-prefix lists"
+    - "512 alternating-community lists"
+    - "512 mixed empty/nonempty perturbation lists"
+  no_adaptive_tuning: true
+  first_positive_rule: "retain the lowest case index with exact_cost < final_bvcompz_cost and different non-tied delta vector"
+  negative_rule: "no strict non-tie native-bit divergence in all 2048 frozen cases is the frozen killer's scientific negative observation"
+
+natural_killer:
+  allowed_only_after: "preclaim PASS and a strict structural native divergence"
+  corpus_selection_frozen_before_results:
+    - "LAW/WebGraph cnr-2000 in its published native vertex order"
+    - "SNAP Wiki-Vote in ascending original integer-ID order, duplicate/self-loop handling frozen in the input manifest"
+  acquisition_rule: "download only from official first-party corpus hosts; hash and license/provenance freeze before compression"
+  success_rule: "at least one legal strict total graph+offset byte residual, with no reader/access regression outside measured noise, and a disclosed full-cost tradeoff; this can support only PRELIMINARY_SUPPORT"
+  negative_rule: "no graph+offset byte residual on both frozen natural graphs, or complete absorption after full-cost accounting"
+  note_on_decisive_GIST_text: "GIST is a vector corpus rather than a published ordered web graph; it is not silently converted into a different graph object. Any future GIST-derived graph would require a separately frozen construction contract and is outside this initial Stage A."
+
+full_cost_ledger:
+  common_denominator: "same input-list manifest and one complete compression plus validation run"
+  dimensions:
+    - "graph_stream_bits and .graph bytes"
+    - ".offsets bytes and .properties bytes"
+    - "cost-table construction and native compression wall/CPU time"
+    - "reference-selection planning wall/CPU time"
+    - "peak working set and exact DP state/transition counts"
+    - "temporary and output disk bytes"
+    - "sequential full-decode wall time"
+    - "fixed-seed random-list access wall time"
+    - "structural-search generation/compression cost, failures and fallback/no-gain cases"
+  no_work_to_byte_conversion: true
+  pareto_rule: "candidate is non-dominated only if it is strictly better in at least one registered dimension and no worse beyond run-to-run measurement tolerance in every other registered claim dimension; size-only residual is reported as such, not as optimizer speedup"
+
+resource_ceiling:
+  added_disk_bytes: 21474836480
+  network_bytes: 10737418240
+  cpu_hours: 8
+  gpu: false
+  fail_before_first_claim_observation: "BLOCKED_USER_ACTION_REQUIRED__RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE"
+
+terminal_rules:
+  preclaim_failure: "fail closed; repair within initial assignment if same contract and resources permit"
+  frozen_killer_scientific_negative: "STOP_RECOMMENDED is permitted only on the narrow frozen mechanism"
+  positive_ceiling: "PRELIMINARY_SUPPORT__INDEPENDENT_STAGEA_GATE_REQUIRED"
+  final_request: "INDEPENDENT_STAGEA_GATE_ONLY"

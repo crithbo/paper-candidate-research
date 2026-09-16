@@ -1,0 +1,68 @@
+schema_version: discovery-handoff-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE103-LLM-VLA-STRATEGY-V1
+topic_id: SOURCE103-PORTFOLIO-S1
+lane_id: DISCOVERY_S1
+role: DISCOVERY-S1-BOUNDARY-CONTRADICTION
+context_mode: DUAL_READ_SHADOW
+start_authorization_sha256: 89D5E35A6D8ED8877666D68060BA9964D73391AD171A6AC93D80D74790C59BE8
+bootstrap_ack_sha256: 9100CD2853BDD9F65198723010C4AFD9252AE693617EB2E3C9987D8C684AE62E
+disposition: COMPLETE_ZERO_PROPOSALS__NO_EVIDENCE_QUALIFIED_RAW
+quality_tier: NOT_APPLICABLE__NO_CANDIDATE_ADMITTED
+stage0_recommendation: DO_NOT_PROPOSE_STAGE0
+state_transition_authority: MAINLINE_ONLY
+
+funnel:
+  offline_seed: 8
+  frozen_primary_rq: 8
+  selected_locator_or_closure: 8
+  evidence_qualified_raw: 0
+  c0: 0
+  d1: 0
+  deep_review: 0
+  clean_stage0_brief: 0
+  source_closure_queue_open: 0
+  excluded_before_raw: 2
+  locator_only: 6
+
+canonical_artifacts:
+  seed_pool: {path: DISCOVERY_DIVERGENCE_SEED_POOL.md, sha256: 814CD9608AC16FE0D4F5D76D94ED1AD91B9FD23E845DBF8BE6805053B9CFCFB6}
+  rq_candidates: {path: RQ_CANDIDATES.md, sha256: 43C240DC468AC76D481702B08ECB4894F37FECD5FA8D0B14F20BF01168F1265B}
+  question_cards: {path: DISCOVERY_QUESTION_CARDS.md, sha256: F84480F4B0B44F54D8C68C31B8AD333BD60CE4D4D236C1A17BD614DC8B6707F7}
+  screening_ledger: {path: RAW_SCREENING_LEDGER.md, sha256: 4E0EDB9DACDF9F3230A516BA26572C1E18FDB9023056435084A99C139FC6A076}
+  resource_inventory: {path: RESOURCE_INVENTORY.yaml, sha256: CBE8AD43FE5AC581F476E239D5A0170D5D298954FE7CB7770C7E2AEA7A9FA4C2}
+  manifest: HASH_MANIFEST.sha256
+
+source_roles_and_boundaries:
+  anchor_current: [MLIR_quant_dialect, vLLM_INT4_W4A16_docs, TorchAO_INT4_layout_and_dispatch, TensorRT_Edge_INT4_groupwise_GEMM]
+  contrary_or_subtractors: [TVM_QNN_compiler, LUT_Tensor_Core, QPACK_REFINE_REV0, QGROUP_GUARD_REV0, SEGMENTED_SCALE_W4A16_REV0]
+  related_only_context: [PIMCOMP, CHIME_DIMM_PIM, SpecVLA]
+  search_status: SEARCH_BOUNDED_OPEN__NO_ABSENCE_OR_GLOBAL_FIRST_CLAIM
+
+decisive_screening:
+  - RQ-S1-103-01: no exact public same-object compiler-to-target carrier; cross-system bridge would be wrapper.
+  - RQ-S1-103-02: distinct target K-merge action was not frozen; vLLM guard/retile variants are terminally bounded.
+  - RQ-S1-103-03: vLLM packing/remap form terminally absorbed by QPACK; generic layout form covered by current TorchAO mechanism.
+  - RQ-S1-103-04: no exact W4 target fusion carrier; only generic legality/canonicalization route.
+  - RQ-S1-103-05: no current public same-object fast/fallback action and witness in the bounded source set.
+  - RQ-S1-103-06: no public runtime source jointly establishing shared format and distinct decode/prefill actions.
+  - RQ-S1-103-07: no public W4 LLM NDP reduction carrier; available PIM sources are different objects.
+  - RQ-S1-103-08: generic representation-transition shell without target-specific atomic action.
+
+terminal_non_revival:
+  enforced: true
+  consulted: [QPACK-REFINE-REV0, QGROUP-GUARD-REV0, SEGMENTED-SCALE-W4A16-REV0]
+  statement: No old terminal identity was renamed, generalized, or submitted to Stage 0.
+
+resources:
+  resource_producing_action_started: false
+  redirect_preflight: NOT_RUN_NOT_REQUIRED
+  resource_inventory_status: EMPTY_RESOURCE_ROOT_READY
+  group_repository_access: HASH_VERIFIED_ALLOWLIST_ONLY__NO_REPOSITORY_COMMAND_OR_WRITE
+  scientific_inference_from_resource_absence: false
+
+next_action: MAINLINE_ACCEPT_HANDOFF__KEEP_SOURCE103_ASSIGNMENT_COMPLETE__DO_NOT_CREATE_STAGE0
+user_action_required: false
+plain_chinese_summary: >-
+  本轮先冻结 8 个低比特语义/编译 lowering/NDP 边界想法，再做公开一手与强反例核验。
+  没有题目进入 raw：一部分会复活已被 vLLM 原生路径吸收的旧动作，另一部分缺少单一同对象的公开 carrier，或只剩通用 compiler/layout 表述。
+  未发生下载、构建、实验或任何资源失败，因此零 brief 是科学筛选结果而非资源结论。

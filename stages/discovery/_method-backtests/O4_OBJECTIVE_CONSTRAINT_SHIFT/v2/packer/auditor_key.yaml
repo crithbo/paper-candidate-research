@@ -1,0 +1,52 @@
+schema_version: discovery-backtest-auditor-key-v2
+confidentiality: PACKER_AND_FUTURE_AUDITOR_ONLY
+executor_must_not_read: true
+opportunity_lens: O4_OBJECTIVE_OR_CONSTRAINT_SHIFT
+anchors:
+  S4-POS-01:
+    hidden_target:
+      title: "Dynamo: Amazon's Highly Available Key-value Store"
+      venue: SOSP 2007
+      earliest_public_date: 2007-10-02
+      canonical_url: https://www.allthingsdistributed.com/2007/10/amazons_dynamo.html
+    expected_problem_shape:
+      - "For selected single-key services, always-writable availability under failure becomes more important than strong consistency."
+      - "Recover an application-configurable synthesis of partitioning, replication, versioning, quorum, failure handling, and conflict resolution."
+    expected_decision_structure: "N/R/W quorum parameters, consistent-hash placement, hinted handoff, version vectors, reconciliation, durability/latency tradeoff"
+    contribution_route: N1_NEW_SYSTEM_MECHANISM
+    evidence_entry: "production workload/failure evidence, availability and high-percentile latency, operational experience, sensitivity to quorum/configuration"
+  S4-POS-02:
+    hidden_target:
+      title: "Shenango: Achieving High CPU Efficiency for Latency-sensitive Datacenter Workloads"
+      venue: NSDI 2019
+      publication_date: 2019-02-26
+      canonical_url: https://www.usenix.org/conference/nsdi19/presentation/ousterhout
+    expected_problem_shape:
+      - "Dedicated kernel-bypass polling meets microsecond tails but wastes CPU under bursty, sub-peak load."
+      - "Recover fine-grained cross-application core reallocation while retaining low tail latency."
+    expected_decision_structure: "fast congestion/load detection, privileged packet steering, core assignment/revocation, latency-versus-batch-throughput tradeoff"
+    contribution_route: N1_NEW_RUNTIME_MECHANISM
+    evidence_entry: "tail latency and throughput under burst traces; CPU-efficiency/colocation tradeoff; reallocation overhead; strong kernel-bypass baselines"
+  S4-POS-03:
+    hidden_target:
+      title: "Serving DNNs like Clockwork: Performance Predictability from the Bottom Up"
+      venue: OSDI 2020
+      earliest_public_date: 2020-06-03
+      canonical_url: https://www.usenix.org/conference/osdi20/presentation/gujarati
+    expected_problem_shape:
+      - "The serving contract shifts from average throughput/latency toward tight per-request SLO predictability and isolation."
+      - "Recover consolidation of lower-layer choices into an explicit controller because individual inference actions can be profiled as predictable."
+    expected_decision_structure: "model-load and inference actions, centralized schedules, admission, deadlines, cache state, worker isolation"
+    contribution_route: N1_NEW_SYSTEM_MECHANISM
+    evidence_entry: "SLO-attainment distribution, model/workload scale, throughput cost, action-time predictability, ablation of lower-layer choices"
+    claim_ceiling: "Measured system/GPU runtime only; no GPU architecture or silicon claim."
+  S4-NEG-01:
+    hidden_target: null
+    expected_result: ABSTAIN
+    reason: "The objective and constraints are explicitly frozen; parameter tuning under the same contract is not an O4 opportunity."
+cutoff_exclusions:
+  - "All hidden-target title/method/result text, artifacts, project pages, reviews, talks, and follow-on publications."
+  - "Post-cutoff commercial descendants or retrospective claims."
+hardware_claim_ceiling:
+  status: ENFORCED
+  rule: "GPU-serving results are software/runtime evidence only."

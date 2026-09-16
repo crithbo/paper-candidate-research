@@ -1,0 +1,21 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-DDDDF3F00E3F4428
+cutoff_date: 2022-03-30
+contribution_type: COMPILER_TOOL
+exact_object: satisfiability-modulo-theories solving across the standard language and benchmark library
+natural_scenario: mixed-theory formulas requiring preprocessing, theory reasoning, models, and proof support
+problem: a predecessor solver has incomplete theory/feature coverage and weaker performance on the evolving benchmark union
+atomic_action: integrate redesigned preprocessing, theory engines, search coordination, APIs, and proof/model paths
+mechanism: modular solver architecture coordinates theory-specific reasoning while reducing predecessor overheads
+information_condition: standard formulas, theory signatures, solver state, learned clauses, model and proof obligations
+comparators: [immediate_predecessor_solver, established_peer_solver, competition_peer_union]
+claim_endpoint: solved-instance and feature-coverage improvement at matched time and memory limits
+full_cost: [wall_time, memory, solved_instances, proof_model_support, unsupported_features]
+minimum_falsifier: no coverage or performance gain over predecessor and peer union
+source_cards:
+  - {id: S01, year: 2011, role: predecessor_solver_architecture}
+  - {id: S02, year: 2008, role: established_peer_solver}
+  - {id: S03, year: 2021, role: standard_input_language_semantics}
+  - {id: S04, year: 2021, role: canonical_benchmark_library}
+local_resource_envelope: WINDOWS_NATIVE_CPU__PORTABLE_OFFICIAL_BINARY__TINY_STANDARD_FIXTURES
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

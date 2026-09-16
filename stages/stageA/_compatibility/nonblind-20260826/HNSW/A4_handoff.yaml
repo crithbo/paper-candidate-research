@@ -1,0 +1,18 @@
+schema: nonblind-stagea-compatibility-a4-handoff-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A4-EXFAT-SYMLINK
+mode: NONBLIND_STAGEA_COMPATIBILITY
+result: FAIL_CLOSED_RESOURCE_OR_ENGINEERING_BLOCKER
+decision: RETURN_MAINLINE_FOR_ASSIGNMENT_LOCAL_GENERATOR_CLASSIFICATION
+summary: The exact source archive was freshly extracted to hnswlib-a4 with only the frozen setup.py symlink excluded; CMakeLists and C++ examples are present and the partial tree remains untouched. The single inherited CMake configure then selected NMake Makefiles and failed because nmake was unavailable, leaving CMAKE_CXX_COMPILER unset. No build, author test, fidelity gate, or probe started.
+source_extraction: {attempts: 1, excluded_member_count: 1, other_member_exclusions: 0, partial_tree_overwritten: false}
+configure_attempts: 1
+build_author_test_fidelity_probe_started: [false, false, false, false]
+retry_count: 0
+alternate_generator_or_compiler: false
+production_candidate_registration: false
+production_state_transition: false
+stageB: false
+scientific_inference: NONE
+scientific_revision_consumed: false
+owner_cleanup_performed: false
+next_authority: MAINLINE

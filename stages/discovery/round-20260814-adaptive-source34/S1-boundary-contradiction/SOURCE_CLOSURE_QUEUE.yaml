@@ -1,0 +1,18 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE34-RQ-PRODUCTION-BASELINE
+queue:
+  - rq_id: RQ-S01-2
+    signature: RISCV_ZTSO__FIXED_CXX_ATOMIC_CONTRACT__MEMORY_ORDER_LOWERING_CONSTRUCTION
+    status: CLOSED_BEFORE_RAW__GENERIC_KERNEL
+    finding: >-
+      Ztso defines a TSO delta that renders particular fences redundant; current LLVM
+      documents RISC-V atomic mappings and tuning. The proposed action is ordinary
+      memory-model lowering/scheduling rather than a target-specific whole constructor.
+    canonical_disposition: EXCLUDED_BEFORE_RAW__GENERIC_WRAPPER_OR_SOLVER
+  - rq_id: RQ-S02-2
+    signature: OPENCL_MUTABLE_COMMAND_BUFFER__FIXED_COMPLETION_CONTRACT__COMMAND_PUBLICATION_GROUPING
+    status: CLOSED_BEFORE_RAW__CONTROLLER
+    finding: >-
+      The official extension explicitly provides updating command configuration between
+      enqueues and optional simultaneous use. The proposed grouping is a controller/update
+      policy, prohibited as an S1 mechanism.
+    canonical_disposition: EXCLUDED_BEFORE_RAW__CONTROLLER_OR_SELECTOR

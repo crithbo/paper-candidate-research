@@ -1,0 +1,10 @@
+# UNIQUE_OPPORTUNITY_FAMILIES
+
+| Family | Adjacent official-version carrier / hash route | Same-object oracle | Candidate law or constructor | Admission boundary |
+|---|---|---|---|---|
+| AAPT2 resource table | Pin Android SDK/AOSP release tag, app/resource source revision, linked APK/resource-table SHA-256 | `aapt2 dump resources` plus stock Android resource resolution for fixed id/configuration | DP over legal string-pool/config-entry emission order jointly charging table bytes and VCDIFF delta | Resource identifiers/configuration semantics and the complete AAPT2 optimize/link union must be frozen. |
+| LLVM indexed profile | Pin LLVM release tag, fixed raw profiles/IR module, generated `.profdata` SHA-256 | `llvm-profdata show` and compiler `-fprofile-use` lookup result | Target-specific hash-table bucket/record ordering DP under indexed-profile compatibility | Existing merge/order/extbinary/compress/sparse options and direct papers must be exhausted. |
+| .NET R2R | Pin official runtime release, fixed IL assemblies/reference set, R2R SHA-256 | `R2RDump`/stock CoreCLR load and managed behavior | Section/callsite placement Pareto constructor jointly minimizing final R2R and delta | Crossgen2/ILC composite/partial-composite/readytorun source/config union must be frozen. |
+| Chromium pak | Pin Chromium tag and generated `.pak` SHA-256 | stock `DataPack` resource-id lookup | entry/data placement with predecessor stability | Unfrozen source/config and natural release artifact route. |
+| Fontconfig cache | Pin fontconfig release/tag, official font collection/version and cache SHA-256 | stock `FcFontMatch`/cache validity | cache record serialization with predecessor locality | Unfrozen current writer/reader action catalog and natural pair plan. |
+| Swift module | Pin Swift release/compiler invocation/module SHA-256 | same compiler import/type-check result | candidate placement only | Compiler-version-coupled module format defeats required adjacent-version stock-reader identity. |

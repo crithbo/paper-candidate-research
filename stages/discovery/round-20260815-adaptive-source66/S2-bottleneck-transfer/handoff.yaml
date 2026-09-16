@@ -1,0 +1,24 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE66-R40-ORDINARY-BREADTH-V1
+lane: S2_BOTTLENECK_TRANSFER
+write_directory: stages/discovery/round-20260815-adaptive-source66/S2-bottleneck-transfer
+freeze:
+  assignment_sha256: 6F7AD3BF7C4AD1D320BBC3794DB4CC5F1CD45D4DD226BB889D70FD5D8F1F922C
+  control_sha256: 0A82E73D7802991A1EDDE2E36EE0AC46F4BC65FB1CDF68D709CFD9DB11D20D83
+  skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+method: {canonical: v8.7, rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION, model_route: gpt-5.6-terra/high, v9: OFF, claim_pack: OFF, selective_depth: OFF, anchor_first: OFF}
+result:
+  disposition: COMPLETE_ZERO_PROPOSALS
+  clean_stage0_briefs: 0
+  raw_count: 0
+  deep_count: 0
+  plain_chinese_summary: >-
+    OpenCL command buffer、SYCL graph、CUDA memory pool 的后续状态构造均已由
+    当前原生 mutation/update/reuse 联合表达，剩余只是 controller 或配置。
+families:
+  - {signature: OPENCL_COMMAND_BUFFER__FIXED_COMMANDS_RESOURCES_KERNEL_ARGS__MUTABLE_DISPATCH_STATE_CONSTRUCTOR__SAME_DEVICE_RESULT, disposition: EXCLUDED_BEFORE_RAW__CURRENT_MUTABLE_DISPATCH_UNION_OR_CONTROLLER}
+  - {signature: SYCL_COMMAND_GRAPH__FIXED_GRAPH_QUEUE_DEVICE_DEPS__FINALIZE_UPDATE_STATE_CONSTRUCTOR__SAME_GRAPH_EXECUTION, disposition: EXCLUDED_BEFORE_RAW__CURRENT_GRAPH_POOL_UPDATE_UNION_OR_CONTROLLER}
+  - {signature: CUDA_MEMPOOL__FIXED_WORKLOAD_LIFETIMES_STREAM_ORDER__POOL_REUSE_TRIM_STATE_CONSTRUCTOR__SAME_OUTPUT, disposition: EXCLUDED_BEFORE_RAW__CURRENT_MEMORY_POOL_POLICY_UNION}
+integrity: {R49_parallel_audit_used: false, held_or_terminal_identity_reopened: false, resource_actions: 0, network_security_topics: excluded}
+manifest: HASH_MANIFEST.sha256
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE
+next_action: mainline_minimal_acceptance_only

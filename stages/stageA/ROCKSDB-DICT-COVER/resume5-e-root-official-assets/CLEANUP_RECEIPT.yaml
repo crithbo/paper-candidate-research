@@ -1,0 +1,40 @@
+schema: cleanup-receipt-v1
+performed_at: 2026-08-25T15:07:53+08:00
+performed_by: MAINLINE
+topic_id: ROCKSDB-DICT-COVER
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-RESUME5-E-ROOT-OFFICIAL-ASSETS
+artifact_state_after: GC_COMPLETE
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/resume5-e-root-official-assets/resources
+authorization_ids: [USER-NO-WSL-TOPIC-LOCALIZED-RESOURCE-RECOVERY-20260825, USER-PHASE-CLOSEOUT-STORAGE-LIFECYCLE-V1-20260824]
+preconditions:
+  handoff_accepted: true
+  capsule_and_retention_hashes_verified: true
+  downstream_exact_manifest_copies_accepted: 20_OF_20
+  downstream_acceptance_sha256: B72DB74C03782DAF792E8D32CC91C9CD41F7CFA302C2F67DA5063AC793F47F31
+  containment: PASS_31_OF_31
+  reparse: ZERO
+  active_processes: ZERO
+  candidate_hash_and_size_match: PASS_31_OF_31
+deleted:
+  target_count: 31
+  file_count: 31
+  logical_bytes: 83835585
+  postdelete_remaining_targets: 0
+  exact_targets_source: PHASE_CLOSEOUT_RETENTION.yaml__cleanup_candidates.exact_leaves
+  classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY]
+  groups:
+    - {group: redirect_preflight_tmp, targets: 1}
+    - {group: pypi_official_json_responses, targets: 10}
+    - {group: transferred_exact_kvman_source_copies, targets: 20}
+postdelete:
+  resource_root_present: true
+  retained_files: 25
+  retained_logical_bytes: 130005132
+  post_close_budget_bytes: 1610612736
+  budget_pass: true
+recoverability:
+  pypi_json: REACQUIRE_FROM_PINNED_OFFICIAL_URLS__EXACT_OLD_RESPONSE_NOT_GUARANTEED
+  manifests: EXACT_COPIES_ACCEPTED_AND_RETAINED_IN_RESUME6
+  tmp: DETERMINISTIC_REGENERATION
+scientific_effect: NONE
+

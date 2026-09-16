@@ -1,0 +1,27 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C14
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-02T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [CUDA_GPU, HETEROGENEOUS_MEMORY, RUNTIME, ARCHITECTURE]
+raw_opportunity: >-
+  Heterogeneous-memory runtimes choose placement/migration at page granularity,
+  while workloads often exhibit region lifetimes and phase reuse. Examine a
+  region-aware construction or lifecycle abstraction under identical memory
+  semantics, information and full host/device transfer costs.
+required_analysis:
+  - compare current heterogeneous-memory controls and strongest simple selector
+  - freeze region formation, legal actions and same-information parity
+  - include migration, faults, metadata, CPU and device synchronization costs
+  - keep analytical/model evidence below native GPU and hardware claims
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C14/sources/S01_region-memory-paper.pdf, sha256: 3809A0B48FD3B25516D36A927C197B1CD642718C9749655D9C353A261249F01D, bytes: 978957, url: "https://arxiv.org/pdf/2407.07850", available_by: "2024-07-10", role: CLOSEST_REGION_MEMORY_PAPER}
+  - {source_id: S02, path: sealed_cases/C14/sources/S02_cuda-programming-guide.html, sha256: B176AD74B8A634DA6EB824F34EE7BFA02F7D7103E4A3A5DE5197BB7640B16BDF, bytes: 3921458, url: "https://docs.nvidia.com/cuda/archive/13.0.0/cuda-c-programming-guide/index.html", available_by: "2025-12-31", role: VENDOR_NATIVE_MEMORY_SEMANTICS}
+  - {source_id: S03, path: sealed_cases/C14/sources/S03_tpp-paper.pdf, sha256: 514ECC2039E842F0D4638846E46B4CE10B9BC2E108D3004A7DA4D38689A5899D, bytes: 4437137, url: "https://arxiv.org/pdf/2206.02878", available_by: "2022-06-06", role: CLOSEST_PLACEMENT_AND_PROMOTION_GENEALOGY}
+exclusions:
+  - local candidate title, region rule and all Stage-A analytical outcomes
+  - post-cutoff work and any measured hardware claim
+claim_ceiling: SOURCE_GROUNDED_MODEL_ONLY__NO_GPU_EXECUTION_OR_DEVICE_RESULT
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL
+

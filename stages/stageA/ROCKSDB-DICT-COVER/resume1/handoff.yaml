@@ -1,0 +1,81 @@
+schema_version: resource-unblock-handoff-v1
+assignment_id: RESOURCE-UNBLOCK-L2-20260810-ROCKSDB-R1
+authorization_id: UNBLOCK-AUTH-20260810-R1
+topic_id: ROCKSDB-DICT-COVER
+lane_id: CANDIDATE_EXECUTION_LANE_2
+assignment_state: FROZEN_BLOCKED_USER_ACTION_REQUIRED
+decision: BLOCKED_USER_ACTION_REQUIRED
+write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\ROCKSDB-DICT-COVER\resume1
+
+resource_status:
+  resource_ready: false
+  frozen_population_required: 20
+  raw_assets_closed: 4
+  raw_assets_blocked: 1
+  raw_assets_not_started_after_blocker: 15
+  canonical_manifests_closed_in_resume1: 0
+  all_20_manifests_closed: false
+  converter_smoke: NOT_STARTED_POPULATION_INCOMPLETE
+
+blocker:
+  asset_id: nvd-2019
+  official_url: https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2019.json.gz
+  attempts_exhausted: 3
+  attempt_1: EXTERNAL_PROCESS_TERMINATION_ZERO_BODY__NO_SOURCE_INFERENCE
+  attempt_2: EXTERNAL_PROCESS_TERMINATION_ZERO_BODY__NO_SOURCE_INFERENCE
+  attempt_3: CURL_8_21_0_SCHANNEL_SEC_E_NO_CREDENTIALS_0X8009030E__HTTP_000__ZERO_BYTES
+  old_partial_used: false
+  range_used: false
+  mirror_used: false
+  corpus_changed: false
+  minimum_user_action: >-
+    Restore a reliable official HTTPS/TLS route beginning with the exact NVD
+    2019 URL, or provide byte-complete official NVD 2019-2024 and the ten frozen
+    PyPI JSON assets with byte counts, SHA-256 values, acquisition times, and
+    provenance. Mainline must issue a clean continuation without overwriting
+    resume1.
+
+closed_assets:
+  nvd_2015_sha256: 36D62C93A5F15ACDCBA69513F3CA86D44A35E10ACD44258E5A49AFE1EB24B0C0
+  nvd_2016_sha256: E3A4B0B68C30065FB24417DDF1240E8149B3F99F433F4A262B776090A24E930F
+  nvd_2017_sha256: F3569A60D9AD55B6F076ADF6DF74F67BBAE93A88AFD97D31C5A8BC1E4B4FB894
+  nvd_2018_sha256: 6508FA9EB5E45767E3120B5D4A135799C593281D717491BBB94E715F9CF89B31
+
+resource_cost:
+  network_body_bytes: 15970802
+  network_limit_bytes: 1073741824
+  official_response_attempt_count: 5
+  gpu_used: false
+  exclusive_device_used: false
+  system_install_performed: false
+  global_environment_modified: false
+
+scientific_boundary:
+  claim_bearing: false
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision: false
+  pass_stop_reserve_or_archive_inference: NONE
+  candidate_executed: false
+  baseline_executed: false
+  sst_created: false
+  trainer_executed: false
+  stageB: false
+  stageb_user_approval_id: null
+
+input_hashes:
+  initial_contract: 8B578D63EE6DC515DB60E6D5A7D29AECEE35EAFF816AF7D800888C9746CEDC70
+  initial_blocker_packet: CFDC394809DCEDCAA36E6EE655FF64C10CD7AE420F6A98CC97B7382002ECDA09
+  initial_handoff: B33826868E661C0229FD9C2170892F8F436C2C68EBE370012774D9D75B1FACD0
+  initial_manifest: 7DF818674F8458A23340495C9B6F3B8B13C870F36A66DE563662D65E864BCF45
+  frozen_converter: E93D8D7A7AB47B2A65751064F5114FCD9E919813F2A7F810123FDCAF7FD7E244
+
+deliverables:
+  authorization_freeze: RESOURCE_AUTHORIZATION_FREEZE.yaml
+  report: RESOURCE_UNBLOCK_REPORT.md
+  source_manifest: SOURCE_ASSET_MANIFEST.tsv
+  command_log: COMMAND_LOG.md
+  blocker_packet: USER_BLOCKER_PACKET.md
+  acquisition_record: RESOURCE_ACQUISITION_RECORD.json
+  hash_manifest: HASH_MANIFEST.sha256
+
+lane_state_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE

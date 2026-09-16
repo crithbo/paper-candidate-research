@@ -1,0 +1,45 @@
+schema: discovery-canonical-funnel-v1
+assignment_id: DMR-V1-PSHADOW-CYCLE-02-S3
+lane_id: DISCOVERY_S3_NATURAL_STRUCTURE
+canonical_state_effect: NONE
+stage0_dispatch_effect: NONE
+source_budget:
+  max_search_or_open_calls: 6
+  calls_used: 2
+  source_roles:
+    ANCHOR: 1
+    CURRENT: 1
+    CONTRARY: 0
+    ESCAPE: 0
+funnel:
+  seed:
+    id: S3-C2-SEED-01
+    status: NON_EVIDENCE
+    frozen_before_source_call: true
+  rq_candidate:
+    id: S3-C2-RQ-01
+    status: FROZEN_BEFORE_SOURCE_CALL
+    primary_rq: Do synthetic shapes preserve backend and quantization rankings under tokenizer-generated prompts, and if not, what minimum rank-loss estimand exposes non-transportability?
+  selected_locator:
+    id: S3-C2-LOCATOR-01
+    exact_public_identity: huggingface/optimum-benchmark current main inference scenario and configuration surface.
+    carrier_kind: IMPLEMENTATION_CARRIER_ONLY
+    source_loci:
+      - https://github.com/huggingface/optimum-benchmark
+    current_facts:
+      - The official inference scenario benchmarks forward/call/generate using randomly generated inputs.
+      - Current configuration exposes input-shape control, generation kwargs, multiple backends, and full benchmark reports with latency, memory, and energy fields.
+    counterfactual: A ranking obtained from synthetic inputs would be qualified or rejected before it is transferred to tokenizer-generated prompts.
+    strongest_current_alternative: The existing inference scenario already supports randomized inputs, explicit shape control, backend/device choice, and full report capture.
+  question_card:
+    raw_required_audit: INCOMPLETE
+    non_generic_discriminator: NOT_ESTABLISHED
+    natural_or_canonical_carrier: UNFROZEN
+    direct_fatal: NONE_FOUND_WITHIN_BOUNDED_OFFICIAL_READ
+    minimum_falsifier: A frozen same-model/backend/quantization grid in which tokenizer-generated prompts and matched synthetic shapes yield no rank loss under a complete cost ledger.
+    finite_closure_route: A future assignment would need one official or canonical tokenizer-prompt corpus/contract, a frozen rank-loss estimand, and a target-specific corrective action beyond reporting the mismatch.
+    disposition: LOCATOR_ONLY
+    reason_zh: 官方来源已表明当前 inference 基线使用随机输入并可控制 shape，但没有冻结 tokenizer-generated 自然输入、rank-loss 端点或非通用纠正动作；不能把一般性的 benchmark-validity 质疑送入 raw。
+canonical_disposition: HONEST_ABSTENTION__LOCATOR_ONLY
+eligible_for_stage0: false
+scientific_or_resource_action_started: false

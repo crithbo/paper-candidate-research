@@ -1,0 +1,9 @@
+# QC-S90-01 — GNU sed whole command-program construction
+
+The exact object fixes the input stream, in-order command program, options and any referenced resources. The stock endpoint includes output, exit behavior, hold/pattern-space transitions, branches, reads/writes and command effects. GNU sed's current manual states scripts are in-order concatenations of commands and each cycle reads input, conditionally executes addressed commands, then prints unless `-n`; it also documents persistent hold space, branching and effectful commands.
+
+Proposed N2: jointly reorder/factor commands and address evaluation to reduce processing cost while preserving the endpoint. Minimal witness: with `s/a/b/; p` versus `p; s/a/b/`, or any state-changing/printing command pair, the order changes observable output. `n`, `N`, `d`, `D`, `h/H/g/G/x`, branches, `r/R/w`, and `e` make such dependencies explicit. Thus a legal divergent order requires a restricted subset whose commands are independent pure address tests. The remaining problem is generic regular-expression predicate/common-subexpression planning, not a GNU-sed-specific action or guarantee.
+
+Natural carrier: a versioned public sed script plus input corpus; stock oracle: output bytes, exit code and declared file/command effects. Full cost would include parser/compile CPU/RSS, pattern/hold memory, input/output I/O, temporary/file writes and external command time. A finite 72-hour route would pin a script, build its dependency graph, reject every reordering that changes trace, then test whether the restricted residue is only generic regex filtering. No run was performed.
+
+Disposition: `EXCLUDED_BEFORE_RAW__ORDERED_SED_COMMAND_ACTION_DIVERGENCE_CHANGES_PATTERN_HOLD_OUTPUT_OR_EFFECT_ENDPOINT_PLUS_PURE_RESIDUE_IS_GENERIC_REGEX_PREDICATE_PLANNING`. Structural only; no result/resource/readiness inference.

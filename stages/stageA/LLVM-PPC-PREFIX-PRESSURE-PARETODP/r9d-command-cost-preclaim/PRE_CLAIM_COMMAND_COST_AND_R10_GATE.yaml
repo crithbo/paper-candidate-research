@@ -1,0 +1,87 @@
+schema: ppc-r9d-preclaim-command-cost-and-r10-gate-v1
+created_at: 2026-08-26T09:35:00Z
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9D-COMMAND-COST-PRECLAIM
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+role: CANDIDATE_OWNER
+decision: PPC_R9D_PRECLAIM_ENGINEERING_FIDELITY_PASS__RETURN_SAME_INDEPENDENT_GATE
+evidence_ceiling: PRECLAIM_ENGINEERING_FIDELITY_ONLY__NO_SELECTED_OR_SCIENTIFIC_INFERENCE
+independent_gate_required: true
+
+gate_results:
+  C0_INPUT_ACCEPTANCE: PASS_329_FILES_61459088_BYTES_ZERO_MISMATCH_ZERO_REPARSE
+  C1_COMMAND_COST_EDGE_MODEL: PASS_56_OF_56_PER_REPLAY_SHARED_COMPILE_ONCE_ZERO_ORPHAN
+  C2_NEGATIVE_CONTROLS: PASS_3_OF_3_EXPECTED_FAIL
+  C3_R10_PRODUCER_PRECEDENCE: PASS_32_OF_32_NOT_EXECUTED
+  C4_R10_FULL_COST_DEPENDENCY: PASS_896_OF_896_PER_PROCESS_NOT_EXECUTED
+  C5_TWO_REPLAY_CONTROL_AUDIT: PASS_BOTH_EXISTING_RAW_AND_METRICS_ONLY
+  C6_CANONICAL_RESEAL: PENDING_HANDOFF_AND_MANIFEST_FINALIZATION
+
+input_acceptance:
+  path: SAME_TOPIC_INPUT_ACCEPTANCE.yaml
+  copy_attempts: 10
+  files: 329
+  logical_bytes: 61459088
+  mismatches: 0
+  reparse_entries: 0
+  r9c_source_modified_or_deleted: false
+
+implementation:
+  existing_source_files_modified: 2
+  existing_source_files_modified_max: 2
+  new_source_files: 2
+  new_source_files_max: 3
+  total_source_files: 6
+  total_source_files_max: 7
+  source_edits_after_first_controller_tool: 0
+  static_compile_commands: 1
+  static_compile_commands_max: 4
+  static_compile_result: PASS
+
+command_cost_closure:
+  replay_count: 2
+  command_metric_ids_per_replay: 56
+  command_metric_ids_closed_total: 112
+  shared_compile_unique_per_replay: 8
+  shared_compile_reference_count_per_replay: 16
+  unknown_metric_ids_total: 0
+  orphan_metric_ids_total: 0
+  replay_1_result: PASS
+  replay_2_result: PASS
+  cross_replay_result: PASS
+
+r10_structural_plan:
+  rows: 32
+  baseline_graph_producer_precedence_rows: 32
+  future_compile_command_costs_per_process: 128
+  future_link_command_costs_per_process: 256
+  future_inspection_command_costs_per_process: 512
+  future_command_costs_per_process_total: 896
+  future_command_costs_consumed_per_process: 896
+  execution_performed: false
+
+execution_accounting:
+  candidate_controller_or_generator_python_commands: 5
+  candidate_controller_or_auditor_python_commands_max: 40
+  compiler_linker_readobj_objdump_checker_commands: 0
+  selected_or_reserve_corpus_tool_invocations: 0
+  claim_bearing_runs: 0
+  network_bytes: 0
+  automatic_retries: 0
+  result_based_edits_or_exclusions: 0
+  max_parallel_processes_observed: 1
+  controller_python_cpu_seconds: NOT_AVAILABLE_FROM_RUNNER
+  assignment_wall_seconds: NOT_CANONICALLY_RECORDED
+
+scientific_boundary:
+  natural_or_selected_tool_observation: false
+  claim_bearing_observation: false
+  scientific_inference: NONE
+  scientific_revision_consumed: false
+  mechanism_pivot_consumed: false
+  scientific_state_changed: false
+  state_transition_proposed_by_owner: false
+  stageb_authorized: false
+  owner_cleanup_actions: 0
+
+next_gate: SAME_INDEPENDENT_STAGEA_PRECLAIM_GATE

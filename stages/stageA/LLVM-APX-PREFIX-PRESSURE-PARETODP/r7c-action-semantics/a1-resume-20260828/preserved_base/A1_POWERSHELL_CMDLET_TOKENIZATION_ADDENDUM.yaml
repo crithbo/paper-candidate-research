@@ -1,0 +1,65 @@
+schema: apx-r7c-a1-powershell-cmdlet-tokenization-addendum-v1
+created_at: 2026-08-26T17:58:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7C-A1-POWERSHELL-CMDLET-TOKENIZATION
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_3
+lane_thread_id: 01a034d0-d67f-7f32-ab5f-54454407cb22
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/resources
+
+classification:
+  blocker_class: SOFT_ENGINEERING_BLOCKER
+  reason: POWERSHELL_WRAPPER_TOKENIZED_SET_CONTENT_LITERALPATH_AS_ONE_NONEXISTENT_CMDLET
+  C3_child_started: false
+  exact_object_mechanism_action_baselines_gate_changed: false
+  scientific_revision_consumption: false
+  mechanism_pivot_state: CONSUMED_1_OF_1__NO_SECOND_PIVOT
+  user_gate: NONE
+
+base_freeze:
+  handoff_sha256: 80EA712A49411426A270DBF2B22DAC42D470BD248B89C5F812C798C796A8189B
+  manifest_sha256: 5B417F27455B24A8EBA56D89F336CDCF3BFEB7DE9102C5915591EE35847E1360
+  mainline_acceptance_sha256: 99640395784E4D3864766296B07C1295D7ABE48CC9D1CB7C9F54F248ABFBF78B
+  failure_raw_sha256: FF37D7B2A111D5B68BDFF4A7409F32AAD9009445BA54215ADDF698F1362C75EF
+  control_command_precommit_sha256: 6503370AA7E32512EC1F2BE2C159F2A5088CC9CCFFF7ED2AD32F8F85E8D42D6F
+  preserve_all_base_canonical_and_raw_evidence: true
+  preservation_directory: pass1_c3_wrapper_tokenization
+  reuse_without_rerun: [C0_INPUT_ACCEPTANCE, C1_IMPLEMENTATION_FREEZE_AND_STATIC_COMPILE, C2_NATIVE_CATALOG, C2_HANDLER_COVERAGE_AND_MUTATIONS]
+
+exact_wrapper_correction:
+  old_invalid_cmdlet_token: Set-Content-LiteralPath
+  new_valid_cmdlet_and_parameter_tokens: [Set-Content, -LiteralPath]
+  correction_scope: C3_ARGV_RECEIPT_WRITE_WRAPPER_ONLY
+  wrapper_source_file_edit: false
+  project_source_edit: false
+  corrected_wrapper_attempts_max: 1
+  C3_child_attempts_max: 1
+  C3_argv_and_output_contract: REUSE_CONTROL_COMMAND_PRECOMMIT_BYTE_EXACT
+  receipt_required_before_child_start: true
+  receipt_path: resources/logs/commands/r7c/C3_NATIVE_PARSER.argv.json
+  receipt_fields: [COMMAND_ID, PYTHON_EXECUTABLE, ARGV, CWD, START_UTC, EXPECTED_OUTPUT_PATH, RETRY_COUNT]
+  retry_count: 0
+
+ordered_resume_gate:
+  A10_PRESERVE_BASE: BYTE_EXACT_50_OF_50_PLUS_ACCEPTANCE
+  A11_VALIDATE_EXACT_WRAPPER_TOKEN_CHANGE_AND_NO_SOURCE_EDIT: PASS_REQUIRED
+  A12_C3_NATIVE_PARSER: EXIT0_JSON_PASS_REQUIRED
+  A13_C4_R6_FORMAL_CONTROL_INDEPENDENT_ORACLE_AND_TINY_PRECLAIM: PASS_REQUIRED_IN_FROZEN_ORDER
+  A14_C5_STATIC_CORPUS_ELIGIBILITY_AND_FREEZE: EXACT_16_PLUS_4_ZERO_SELECTED_TOOL_REQUIRED
+  A15_C6_RESOLVED_R8_PLAN: EXACT_32_ROWS_ZERO_EXECUTED_REQUIRED
+  A16_CANONICAL_RESEAL: PASS_REQUIRED
+
+limits: {network_bytes_max: 0, project_source_edit_transactions_max: 0, wrapper_correction_attempts_max: 1, C3_child_attempts_max: 1, remaining_control_child_processes_max: 6, automatic_retry: false, selected_or_reserve_tool_invocations_max: 0, claim_bearing_runs_max: 0, owner_cleanup_allowed: false, stageb_allowed: false}
+forbidden_actions: [DELETE_OR_OVERWRITE_BASE_EVIDENCE, RERUN_C0_C1_C2, CHANGE_CONTROL_COMMAND_PRECOMMIT_OR_ANY_PROJECT_SOURCE, USE_ALTERNATE_C3_ARGV_OR_INTERPRETER, SECOND_PIVOT_OR_SCIENTIFIC_REVISION, SELECTED_RESERVE_TOOL_NATURAL_CLAIM_STATE_CLEANUP_OR_STAGEB, RETRY]
+
+bootstrap:
+  ack_path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics/A1_ACK.yaml
+  only_ack_before_acceptance: true
+  ready_requires: [ALL_HASHES_MATCH, C3_CHILD_NEVER_STARTED, INVALID_AND_VALID_TOKEN_SEQUENCES_UNDERSTOOD, BASE_PRESERVATION_TARGET_AND_REUSE_BOUNDARY, C3_TO_C6_OUTPUTS_ABSENT, ZERO_SELECTED_CLAIM_SCIENCE, DIFFERENCES_EMPTY, A1_ACTION_STARTED_FALSE]
+  refuse_on_any_difference: true
+
+success_route: APX_R7C_PRECLAIM_FIDELITY_PASS__RETURN_INDEPENDENT_GATE
+failure_route: FAIL_CLOSED_APX_R7C_A1_PRECLAIM__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+next_action: WRITE_A1_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE_AND_A1_START

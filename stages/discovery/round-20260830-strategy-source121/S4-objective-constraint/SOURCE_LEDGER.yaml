@@ -1,0 +1,11 @@
+schema: discovery-source-ledger-v1
+assignment_id: DISCOVERY-S4-20260830-SOURCE121
+sources:
+  - {role: ANCHOR_CURRENT, locator: https://github.com/mlcommons/inference_policies/blob/master/power_measurement.adoc, use: exact_performance_phase_and_timestamp_boundary}
+  - {role: DIRECT_SUBTRACT, locator: https://arxiv.org/abs/2410.12032, use: MLPerf_Power_methodology_and_cross_scale_characterization}
+  - {role: ANCHOR_CURRENT, locator: https://docs.pytorch.org/executorch/stable/model-inspector.html, use: ETDump_ETRecord_init_load_execute_events}
+  - {role: DIRECT_SUBTRACT, locator: https://pytorch.org/blog/efficient-edge-ai-on-arm-cpus-and-npus/, use: official_warmup_and_thermal_latency_characterization}
+  - {role: LOCATOR_ONLY, locator: https://github.com/pytorch/executorch/issues/5718, use: single_CoreML_cold_start_case_not_paper_carrier}
+  - {role: CURRENT, locator: https://llvm.org/docs/CommandGuide/llvm-mca.html, use: existing_resource_scheduler_semantics}
+source_actions_used: 6
+maximum: 24

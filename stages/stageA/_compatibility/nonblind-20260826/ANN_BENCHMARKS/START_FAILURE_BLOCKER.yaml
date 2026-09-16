@@ -1,0 +1,17 @@
+schema: nonblind-stagea-compatibility-start-failure-v1
+created_at: 2026-08-26T15:45:00Z
+assignment_id: NONBLIND-STAGEA-20260826-ANN-BENCHMARKS
+start_authorization: {path: MAINLINE_START_AUTHORIZATION.yaml, sha256: F765F285970D06344A96A5659DCC92E36448B37274F787A62AEC67CE36726387}
+decision: FAIL_CLOSED__S0_FROZEN_WINDOWS_PYTHON_NOT_INSTALLED__NO_RETRY
+failure_class: TOOL_AVAILABILITY_ENGINEERING_BLOCKER
+S0:
+  command: C:/Windows/py.exe -3 --version
+  result: NONZERO
+  output: "No installed Python found!"
+  retry_attempted: false
+  alternate_python_or_tool_attempted: false
+S1_through_S4:
+  started: false
+resource_state: {resource_root_exists: false, files: 0, network_bytes: 0, archive_exists: false}
+scientific_boundary: {preclaim_fidelity_started: false, local_mode_probe_started: false, claim_bearing_observation: false, scientific_inference: NONE, Docker: false, pip_or_install: false, production_state: false, stageB: false, gold_or_blind_input_read: false, cleanup: false}
+required_mainline_disposition: EXACT_FROZEN_PYTHON_AVAILABILITY_CORRECTION_OR_TERMINAL_FAIL_CLOSED_HANDOFF

@@ -1,0 +1,24 @@
+schema: engineering-status-v2
+pilot_assignment: PILOT-V2-PPC-E0_5-BINDING-CLOSURE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+stage: E2_CONTROL_ROW
+status: FAIL_CLOSED__CONTROL_DAG_MISSING_FULL_COST_ARGV
+control_rows_attempted: 0
+engineering_corrections_used: 1
+replay_after_correction_used: 0
+claim_or_scientific_observation: false
+preflight:
+  corrected_runner_path: <LOCAL_PROJECT_ROOT>/stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/resources/engineering_raw/runner/materializer_harness.py
+  corrected_runner_tool_bin: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain/bin
+  corrected_runner_status: STATIC_ONLY_NOT_EXECUTED
+  baseline_collector_path: <LOCAL_PROJECT_ROOT>/stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/resources/engineering_raw/baseline_cost_collector.py
+  baseline_collector_status: STATIC_ONLY_NOT_EXECUTED
+  exact_input_manifest_bound: true
+  resource_copy_allowed_in_e2: false
+  source_edit_allowed_in_e2: false
+failure_reason: "After the single authorized path/collector correction, COMMAND_DAG.json still defines no full_cost_ledger argv or executable producer; it only lists full-cost inputs/outputs. Deriving one would be command substitution outside the frozen packet."
+visible_fields: [exit_code, required_outputs_present, schema_valid, missing_metric_ids, missing_paths, version_or_hash_drift, timeout]
+hidden_fields: [candidate_performance, baseline_performance, speedup, pareto_result, relative_rank]
+forbidden_actions_observed: [natural_claim_row, shared_install, stageb, network, retry, command_substitution]
+scientific_inference: NONE
+next_action: MAINLINE_DISPOSITION_REQUIRED

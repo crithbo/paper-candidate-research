@@ -1,0 +1,25 @@
+assignment_id: STAGE0-P1-20260814-AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP-REVISION1-V8.7
+topic_id: AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP
+mode: PRIMARY_REVISION1
+sole_gate: SAME_REPORT_TWO_PLAN__LIVE_TAG_RETAG_ASSIGNMENT_FRONTIER_CERTIFICATE
+revision_index: 1
+scientific_revision_consumed: true
+decision: RECOMMEND_BELOW_Q2_STOP
+quality_tier: BELOW_Q2_STOP
+failure_sentinel: BELOW_Q2_STOP__CURRENT_HWASAN_STACKTAG_COMPOSITION_OR_GENERIC_RA_PACKAGING
+stagea_authorized: false
+stageb_authorized: false
+llvm_main_pin: e72ba6cf366a3180cbf5a8690d9e50665880ab76
+current_action_catalog: HWASAN_ONLY_COMPLETE
+mandatory_scope_correction: MTE_SANITIZEMEMTAG_TAGP_NEXTTAG_EXCLUDED
+scientific_basis:
+  - current HWASan fixes a single base-tag and fixed per-alloca retag path
+  - current HWASan owns pointer replacement, align/pad, short-granule and lifetime/UAR handling
+  - no second native-realizable same-report HWASan action plan remains
+  - physical layout/RA remainder is downstream generic codegen, not HWASan-only N2
+resource_failure_or_missing_result_basis: false
+same_id_second_revision_allowed: false
+successor_policy: NEW_ID_REQUIRED_WITH_NEW_SAME_OBJECT_NONMTE_ACTION_AND_TARGET_SPECIFIC_GUARANTEE
+next_route: MAINLINE_TERMINAL_DISPOSITION
+mainline_notification_required: true
+lane_state_after_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE

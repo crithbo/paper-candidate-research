@@ -1,0 +1,68 @@
+schema_version: discovery_convergence_handoff_v1
+session: DISCOVERY-S4-OBJECTIVE-CONSTRAINT
+round: round-20260803-v8
+source_role: O4_OBJECTIVE_OR_CONSTRAINT_SHIFT
+created_at: '2026-08-03T14:08:05+08:00'
+updated_at: '2026-08-03T15:10:00+08:00'
+scope:
+  write_directory: stages/discovery/round-20260803-v8/S4-objective-constraint
+  production: true
+  grounded_briefs_allowed: true
+gate:
+  discovery_method: v2
+  historical_backtest: CALIBRATED
+  stage0_submission: SUGGESTION_ONLY
+  calibration_review: stages/discovery/_method-backtests/O4_OBJECTIVE_CONSTRAINT_SHIFT/v2/backtest_review.md
+batch:
+  status: COMPLETE_PRODUCTION_CONVERGENCE
+  raw_opportunity_count: 5
+  cuda_gpu_count: 1
+  non_cuda_count: 4
+  direct_fatal_count: 0
+  grounded_brief_count: 1
+  propose_stage0_count: 1
+  formal_candidate_count: 0
+  created_stage_directories: 0
+raw_opportunities:
+  - id: RAW-O4-01
+    short_name: peak-current-certified-npu-fusion-tiling
+    assessment: COLLISION_HIGH
+    next_check: full-text direct-collision audit against arXiv:2607.16555
+  - id: RAW-O4-02
+    short_name: correlated-tail-risk-gpu-granularity-synthesis
+    assessment: PROMISING_NEEDS_DIRECT_SEARCH
+    next_check: isolate compiler granularity effect from runtime and DVFS
+  - id: RAW-O4-03
+    short_name: structurally-anytime-tensor-compilation
+    assessment: PROMISING_NEEDS_COLLISION_AUDIT
+    next_check: prove representation-level gain over early-stop and database reuse
+  - id: RAW-O4-04
+    short_name: cache-local-worst-case-dynamic-learned-index
+    assessment: PROMISING_THEORY_BAR_HIGH
+    next_check: theorem and implementation comparison with ESA-2025 and HIRE
+  - id: RAW-O4-05
+    short_name: repairable-bounded-blast-radius-prefix-kv
+    assessment: COLLISION_HIGH
+    next_check: validate fault model and compare ECC, replication, recomputation
+files:
+  startup: STARTUP.md
+  raw_opportunities: RAW_OPPORTUNITIES.md
+  search_log: SEARCH_LOG.md
+  progress: PROGRESS.md
+  grounded_brief: O4-DYNCACHE-PGM.md
+  handoff: handoff.yaml
+integrity:
+  sha256:
+    STARTUP.md: C75A4EDE93D7706ACC36E72DD5FAED91FF8AB8E2BF184A93A8CA009DF0B2B6E4
+    RAW_OPPORTUNITIES.md: 2691899FAFBD7B87A042233926C616848B4F28DA85BDC471E46DF0D783F56922
+    SEARCH_LOG.md: 6E92C16361480C9C5473F54884716EF36300CFCD8EF81F4E37374AF219F4FE76
+    PROGRESS.md: 537B7690AF92B1868B66F219244B11F4991953788A23B4A593653845162BFF24
+    O4-DYNCACHE-PGM.md: AE582C008F633DF648B9B28760AFFA07059AEBDFC7F3CC1024FF1DA5037EE00F
+notifications:
+  batch_complete: true
+  direct_fatal: false
+  ownership_or_resource_hard_block: false
+  file_conflict: false
+next_action:
+  owner: MAINLINE
+  action: independently Stage-0-review the single suggested brief; do not treat this handoff as a candidate registration or stage transition

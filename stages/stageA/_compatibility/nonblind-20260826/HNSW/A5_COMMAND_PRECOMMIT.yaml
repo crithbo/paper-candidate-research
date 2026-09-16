@@ -1,0 +1,8 @@
+schema: nonblind-stagea-command-precommit-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A5-TOOLCHAIN
+ack: {path: A5_ACK.yaml, sha256: 27E5321EF7813F2E72F547FEFB4B767B8331DDC8CC27AF07FEF8B0006A7F6C6F}
+assets: [resources/archives/llvm-mingw-20260616-ucrt-x86_64.zip, resources/archives/ninja-win-v1.13.2.zip]
+authorized_actions: [ONE_ASSIGNMENT_LOCAL_LLVM_EXTRACT, ONE_ASSIGNMENT_LOCAL_NINJA_EXTRACT, VERSION_VERIFY, ONE_EXPLICIT_NINJA_CLANG_CONFIGURE, ONE_BUILD]
+toolchain: {cmake_generator: Ninja, cxx: resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/clang++.exe, ninja: resources/env/ninja-1.13.2/ninja.exe}
+prohibitions: [NMake_generator, system_install, PATH_or_registry_change, alternate_toolchain, retry_after_failure, fidelity_or_probe]
+scientific_or_resource_action_started_before_precommit: false

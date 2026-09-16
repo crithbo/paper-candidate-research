@@ -1,0 +1,20 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE117-LOW-BIT-CONFORMANCE-INTEROP-V1
+cutoff: '2026-08-24'
+sources:
+  - {source_id: S117-01, title_or_artifact: ONNX QuantizeLinear, canonical_version: ONNX 1.23.0 opset 24, locator: https://onnx.ai/onnx/operators/onnx__QuantizeLinear.html, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S117-02, title_or_artifact: ONNX Runtime quantization source, canonical_version: main viewed 2026-08-24, locator: https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/core/quantization/quantization.h, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S117-03, title_or_artifact: TorchAO Quantization Overview, canonical_version: 0.17 2026-03-25, locator: https://docs.pytorch.org/ao/stable/contributing/quantization_overview.html, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S117-04, title_or_artifact: GGUF specification, canonical_version: master viewed 2026-08-24, locator: https://github.com/ggml-org/ggml/blob/master/docs/gguf.md, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+claims:
+  - claim_id: C117-01
+    text: ONNX QuantizeLinear specifies scale/zero-point shape, axis, nearest-even rounding and saturation semantics across versions.
+    priority: HIGH
+    source_links: [{source_id: S117-01, relation: DIRECT, locator: opset 24 summary/attributes, evidence_status: DIRECT_OBSERVATION, conflict: no backend fault located, permitted_conclusion: spec alone is carrier, not novelty}]
+  - claim_id: C117-02
+    text: Current ONNX Runtime and TorchAO expose explicit quantize/dequantize and derived dtype contracts; GGUF separately versions file format and tensor quant scheme.
+    priority: HIGH
+    source_links: [{source_id: S117-02, relation: DIRECT, locator: current quantization source, evidence_status: DIRECT_OBSERVATION, conflict: no exact parser/lowering discrepancy, permitted_conclusion: no raw}, {source_id: S117-03, relation: DIRECT, locator: stack/derived dtype overview, evidence_status: DIRECT_OBSERVATION, conflict: no cross-backend same-graph carrier, permitted_conclusion: no generic interop tool}, {source_id: S117-04, relation: DIRECT, locator: specification version statement, evidence_status: DIRECT_OBSERVATION, conflict: file format is separate from tensor scheme, permitted_conclusion: format name difference is not fault}]
+stopping: {high_impact_items_bounded: true, latest_and_current_union_checked: true, first_party_depth_sufficient: true, heterogeneous_independent_path_complete: true, contrary_search_complete: true, natural_or_canonical_carrier_frozen: false, full_cost_frozen: false, marginal_sources_no_longer_decision_changing: true, decisive_contradictions_resolved_or_bounded: true, disposition: NOT_ADMITTED_UNFROZEN}
+execution_readiness: {state: E0, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: NO_RAW_ADMISSION__NO_CLAIM

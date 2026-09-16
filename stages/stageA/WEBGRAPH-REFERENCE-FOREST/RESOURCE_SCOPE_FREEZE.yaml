@@ -1,0 +1,49 @@
+schema: stagea-resource-scope-freeze-v1
+topic_id: WEBGRAPH-REFERENCE-FOREST
+lane_id: CANDIDATE_EXECUTION_LANE_1
+assignment_id: STAGEA-L1-20260810-WEBGRAPH-REFERENCE-FOREST-INITIAL-V8.7
+frozen_at: 2026-08-10T19:05:00+08:00
+unique_write_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\WEBGRAPH-REFERENCE-FOREST
+cross_assignment_contamination: false
+queue_or_other_candidate_preread: false
+input_freeze:
+  decisive_report_sha256: E99137221AB044BAFFF26F634EAF2CA9E787B44FD6CB0BB60E1890693619989D
+  decisive_handoff_sha256: 64D0E33509CC22DBAD67276CFA193B212934BCFFB6D5DC8EE8F66F5B33FB399C
+  decisive_manifest_sha256: AA9C965999B885FEAF95367C2B20C10C05934061F6ECBDCC341EBDECBF22314B
+  decisive_manifest_entries_verified: 2
+authority:
+  stagea: true
+  stageb: false
+  stageb_user_approval_id: null
+  automation: false
+  system_install: false
+  global_environment_mutation: false
+  external_write: false
+  gpu_or_exclusive_device: false
+resource_limits:
+  added_disk_bytes_max: 21474836480
+  network_bytes_max: 10737418240
+  cumulative_cpu_hours_max: 8
+  cpu_only: true
+source_targets:
+  webgraph:
+    version: 0.6.2
+    official_crate_url: https://crates.io/api/v1/crates/webgraph/0.6.2/download
+  webgraph_cli:
+    version: 0.4.2
+    official_crate_url: https://crates.io/api/v1/crates/webgraph-cli/0.4.2/download
+  source_acceptance: OFFICIAL_CRATE_BYTES_SHA256_AND_LOCAL_EXTRACTED_TREE_HASH_REQUIRED
+preclaim_boundary:
+  gate_id: PRECLAIM_NATIVE_COMPLETE_ACTION_DP_FIDELITY_GATE
+  claim_bearing_before_gate_pass: false
+  natural_corpus_before_gate_pass: false
+  proxy_or_control_can_support_pass_or_stop: false
+  resource_failure_before_claim_observation: BLOCKED_USER_ACTION_REQUIRED
+  scientific_revision_consumed_before_corrected_atomic_construct: false
+kill_boundary:
+  - STOP_ON_HASH_OR_SOURCE_IDENTITY_FAILURE
+  - STOP_ON_NATIVE_ACTION_COST_OR_WRITER_READER_FIDELITY_FAILURE
+  - STOP_BEFORE_NATURAL_CLAIM_RUN_UNLESS_ALL_PRECLAIM_ITEMS_PASS
+  - STOP_ON_DISK_NETWORK_CPU_LIMIT
+  - STOP_BEFORE_STAGEB_OR_AUTOMATION
+

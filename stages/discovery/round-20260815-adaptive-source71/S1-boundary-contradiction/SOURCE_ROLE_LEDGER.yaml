@@ -1,0 +1,35 @@
+cycle: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE71-R40-ORDINARY-BREADTH-V1
+retrieval_date: '2026-08-15'
+resource_actions: NONE
+sources:
+  - id: SRC01
+    role: ANCHOR
+    title: 'LLVM Language Reference Manual — call/musttail'
+    url: https://www.llvm.org/docs/LangRef.html
+    publisher: LLVM Project
+    version_or_date: 'current documentation snapshot accessed 2026-08-15'
+    provenance: official_specification
+    decision_relevance: fixes musttail return adjacency, calling-convention, prototype, and ABI-attribute legality.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC02
+    role: CURRENT_DOCUMENTATION
+    title: 'Clang Attribute Reference — musttail'
+    url: https://clang.llvm.org/docs/AttributeReference.html#musttail
+    publisher: LLVM Project
+    version_or_date: 'Clang 24.0.0git documentation snapshot accessed 2026-08-15'
+    provenance: official_documentation
+    decision_relevance: states source-level contract, matching calling convention, trivially destructible locals, and bounded-stack guarantee.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC03
+    role: CONTRARY_AND_CURRENT
+    title: 'LLVM TailRecursionElimination current source'
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/lib/Transforms/Scalar/TailRecursionElimination.cpp
+    publisher: LLVM Project
+    version_or_date: 'main source snapshot accessed 2026-08-15'
+    provenance: official_upstream_source
+    decision_relevance: existing semantics-preserving tail-recursion elimination and generic side-effect/alloca eligibility analysis.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+source_role_outcome: SPEC_CONTRACT_PLUS_CURRENT_GENERIC_TRANSFORM_ABSORB_CANDIDATE

@@ -1,0 +1,87 @@
+contract_version: "resume1-v1"
+candidate_id: "S5-OCCUPANCY-CLIFF-JOINTCODEGEN"
+stage: "STAGEA_REVISION1_RESUME_FROM_BLOCKER"
+assignment_id: "STAGEA-L2-20260809-S5-OCCUPANCY-CLIFF-JOINTCODEGEN-BLOCKER-RESUME1"
+lane_id: "L2"
+frozen_at: "2026-08-09T13:40:58+08:00"
+resume_reason: "User-authorized one-time clean-source retry after network restoration."
+
+authorization:
+  stagea_resume_authorized: true
+  stageb_authorized: false
+  formal_large_scale_experiment_authorized: false
+  exclusive_hardware_authorized: false
+  amd_gpu_required: false
+  writable_root: "<LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/revision1-resume1"
+
+immutable_inputs:
+  initial_handoff_sha256: "40DEA3218CA18A240F7DF317C7DA7654E2E0658B0C68BA0EB4351C440C5C156B"
+  initial_report_sha256: "0A211A8F280EAEB977C04512C2A82577E4DBD444B099FFC6C4FC5442BDC14704"
+  initial_manifest_entries_verified: "14/14"
+  revision1_handoff_sha256: "51EEB138E89AB43EC76ECD5C4A1DE24A986C0BEB372EE7AAD800A0736DABADB6"
+  revision1_manifest_sha256: "48E78E80EADA239362E9242B4EACABCA00CE5D7B3F359B0E8B2B5456ED7D25F1"
+  revision1_manifest_entries_verified: "13/13"
+  revision1_overwrite_forbidden: true
+
+exact_experiment_object:
+  llvm_commit: "1f112d62e1fa2c4f1a04887abd72da1ed61cf791"
+  target_triple: "amdgpu11.00"
+  wave: "wave32; +wavefrontsize32,-wavefrontsize64"
+  register_allocator: "greedy"
+  current_baseline: "exact-commit GCNSchedStrategy plus greedy"
+  candidate: "frozen bounded tier-frontier configuration selection followed by the same greedy allocator"
+  same_function: "byte-identical complete pre-scheduler MIR"
+  legality: "-verify-machineinstrs must exit zero"
+  natural_gate: "8-16 complete public natural-kernel-derived MIR regions"
+  wall_budget_ms_per_method_region: 2000
+  positive_claim_ceiling: "PRELIMINARY_SUPPORT"
+
+resource_acceptance_gate:
+  sources: "clean official or publisher release sources only"
+  exact_tools_required: ["llc", "FileCheck", "llvm-calc-occupancy"]
+  asset_size_required: true
+  asset_sha256_required: true
+  asset_signature_or_attestation_required: false
+  provenance_chain: "official HTTPS release URL plus exact expected byte size plus frozen publisher SHA-256; exact LLVM and corpus commits additionally require valid immutable GitHub identity/signature"
+  scope_correction: "Mainline clarified that upstream detached signature/attestation is not mandatory when the frozen release did not publish one; this is a provenance interpretation correction, not a result-driven relaxation."
+  extraction_before_all_checks: false
+  execution_before_all_checks: false
+  automatic_retry: false
+  clean_source_retry_count_authorized: 1
+  clean_source_retry_count_used: 0
+
+budgets:
+  maximum_revision_storage_bytes: 4294967296
+  maximum_cpu_hours: 4
+  exclusive_device: "none"
+  stageb: false
+
+blocking_rule:
+  condition: "Any required acquisition/verification fails before claim-bearing observation, or fewer than 8 natural MIR are available."
+  disposition: "BLOCKED_USER_ACTION_REQUIRED"
+  evidence_ceiling: "RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE"
+  scientific_revision_consumed: false
+  scientific_stop_forbidden: true
+  reserve_forbidden: true
+
+resume_preflight_state:
+  bootstrap_asset: "llvm-mingw-20260616-ucrt-x86_64.zip"
+  size_gate: "PASS_METADATA"
+  sha256_gate: "PASS_PUBLISHER_METADATA"
+  detached_signature: "NOT_PUBLISHED_NOT_REQUIRED_AFTER_MAINLINE_SCOPE_CORRECTION"
+  exact_commit_signature_gate: "PASS"
+  corpus_commit_signature_gate: "PASS"
+  download: "PENDING_ONE_AUTHORIZED_ATTEMPT"
+
+mandatory_outputs:
+  - "RESUME_EXPERIMENT_CONTRACT.yaml"
+  - "SOURCE_MANIFEST.yaml"
+  - "ENVIRONMENT.md"
+  - "COMMAND_LOG.md"
+  - "FAILURE_RECORD.json"
+  - "RESUME_RESULTS.md"
+  - "RESUME_STAGEA_REPORT.md"
+  - "RESUME_USER_REVIEW_PACKET.md"
+  - "USER_BLOCKER_PACKET.md"
+  - "handoff.yaml"
+  - "HASH_MANIFEST.sha256"

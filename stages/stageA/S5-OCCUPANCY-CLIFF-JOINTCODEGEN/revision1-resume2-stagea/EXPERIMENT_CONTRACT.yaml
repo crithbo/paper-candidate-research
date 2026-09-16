@@ -1,0 +1,98 @@
+contract_version: "stagea-r2a-v1"
+frozen_at: "2026-08-11T00:00:00+08:00"
+authorization_id: "STAGEA-RESUME-S5-20260811-R2A"
+assignment_id: "STAGEA-L1-20260811-S5-OCCUPANCY-CLIFF-JOINTCODEGEN-RESUME2-STAGEA-R2A"
+topic_id: "S5-OCCUPANCY-CLIFF-JOINTCODEGEN"
+lane_id: "CANDIDATE_EXECUTION_LANE_1"
+stage: "STAGEA_REVISION1_RESUME_FROM_RESOURCE_BLOCKER"
+
+authority:
+  stagea_authorized: true
+  scientific_revision_available: true
+  scientific_revision_consumption_trigger: "Immediately before the first valid claim-bearing observation of the corrected frozen candidate after PRE_CLAIM_CONTRACT_FIDELITY_GATE PASS."
+  stageb_authorized: false
+  pending_user_stageb_review: false
+  stageb_user_approval_id: null
+  system_installation: false
+  global_environment_mutation: false
+  automation: false
+
+resource_ceiling:
+  maximum_new_directory_bytes: 4294967296
+  maximum_cpu_hours: 4
+  exclusive_hardware: false
+  amd_gpu_required: false
+  gpu_execution: false
+
+exact_object:
+  llvm_commit: "1f112d62e1fa2c4f1a04887abd72da1ed61cf791"
+  target: "amdgpu11.00"
+  wave: "wave32; +wavefrontsize32,-wavefrontsize64"
+  input: "8-16 complete public natural-kernel-derived pre-machine-scheduler MIR objects"
+  same_function_rule: "Byte-identical complete pre-scheduler MIR for every compared method."
+  allocator: "greedy"
+  legality: "Exact-commit llc -verify-machineinstrs must accept every compared post-greedy result."
+
+toolchain_gate:
+  bootstrap_asset_role: "Compiler bootstrap only; its LLVM 22 release identity is not evidence for the frozen commit."
+  required_exact_tools: ["llc", "FileCheck", "llvm-calc-occupancy"]
+  exact_tools_must_be_built_or otherwise_immutably_attributed_to_commit: "1f112d62e1fa2c4f1a04887abd72da1ed61cf791"
+  required_target: "AMDGPU"
+  fail_closed_if_missing: true
+
+natural_corpus_gate:
+  repository: "https://github.com/ROCm/rocm-examples.git"
+  commit: "269e9068d6fd6e68b1cc5a76eb77744f88af42ec"
+  frozen_source_directories: 8
+  complete_legal_mir_min: 8
+  complete_legal_mir_max: 16
+  regression_or_synthetic_mir_forbidden_as_claim_evidence: true
+  provenance_fields: ["repository_commit", "source_path", "source_sha256", "ir_sha256", "mir_sha256", "kernel_name"]
+
+methods:
+  strongest_baseline:
+    name: "EXACT_COMMIT_GCNSchedStrategy_PLUS_GREEDY"
+    information: "same MIR, target, wave, allocator, verifier and 2000 ms region budget"
+  candidate:
+    name: "FROZEN_BOUNDED_TIER_FRONTIER_CONFIGURATION_SELECTION_PLUS_GREEDY"
+    variant_order: ["default_fallback", "occupancy_only_bias", "amdgpu_pressure_trackers", "joint_bias_trackers"]
+    honesty_boundary: "Existing-knob selection is only a Stage A premise probe and cannot alone establish a non-routine N2 paper contribution."
+    safe_fallback: "default_fallback"
+  non_claim_controls:
+    - "initial static Python MIR-excerpt proxy"
+    - "offline or normalized-pressure models"
+
+preclaim_contract_fidelity_gate:
+  required_before_claim: true
+  ordered_checks:
+    - "Exact toolchain identity and AMDGPU target availability"
+    - "FileCheck and llvm-calc-occupancy executable smoke if the frozen build exposes them"
+    - "8-16 complete natural MIR with frozen provenance"
+    - "Real GCNSchedStrategy+greedy baseline and all candidate variants operate on identical MIR"
+    - "MachineVerifier legality, object identity and deterministic non-timing replay on a small witness"
+    - "Full-cost denominator collection for derivation, baseline, all candidate variants, selection, verifier and fallback"
+  proxy_cannot_pass_gate: true
+
+full_cost_ledger:
+  - "resource acquisition and extraction bytes/wall time"
+  - "exact source configure/build CPU/wall/RSS/storage"
+  - "natural source-to-IR and IR-to-MIR CPU/wall/RSS/I/O"
+  - "baseline and every candidate variant CPU/wall/RSS/I/O"
+  - "selection/planning, verifier and fallback costs"
+  - "post-greedy occupancy, spill/reload, SGPR/VGPR/AGPR and output bytes"
+  - "double-replay hashes and failures/timeouts"
+
+scientific_rule:
+  positive_ceiling: "PRELIMINARY_SUPPORT"
+  negative_requires: "Valid same-object natural claim-bearing observation after preclaim PASS"
+  resource_failure_before_claim: "BLOCKED_USER_ACTION_REQUIRED"
+  resource_failure_evidence_ceiling: "RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE"
+  resource_failure_consumes_revision: false
+  resource_failure_forbids_stop_or_reserve: true
+
+replay:
+  count: 2
+  deterministic_fields: ["input hashes", "tool commit", "exit status", "selected variant", "legality", "occupancy", "spills", "output hash"]
+  timing_excluded_from_equality: true
+
+write_scope: "<LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/revision1-resume2-stagea"

@@ -1,0 +1,29 @@
+assignment_id: DISCOVERY-S5-20260815-ADAPTIVE-SOURCE37-STAGE-SEPARATED-V1
+sources:
+  - id: SRC37-OPENFST-MUTABLE
+    role: CURRENT_SOURCE_LOCUS
+    url: https://openfst.org/twiki/bin/view/FST/FstAdvancedUsage
+    version_or_date: retrieved 2026-08-15
+    evidence: MutableFst provides state and arc addition/deletion and mutable-state operations.
+    supports: exact_object_and_edit_action
+  - id: SRC37-OPENFST-DETERMINIZE
+    role: CURRENT_SOURCE_LOCUS_AND_CONTRARY
+    url: https://www.openfst.org/twiki/bin/view/FST/DeterminizeDoc
+    version_or_date: retrieved 2026-08-15
+    evidence: Determinize produces an equivalent deterministic FST under stated preconditions; documented complexity supplies a contrary global-rebuild baseline.
+    supports: endpoint_and_minimum_falsifier
+  - id: SRC37-CMUDICT
+    role: NATURAL_CARRIER
+    url: https://github.com/cmusphinx/cmudict
+    version_or_date: repository page retrieved 2026-08-15
+    evidence: Maintained public pronunciation dictionary; README states continual updates and periodic major releases.
+    supports: versioned_natural_carrier
+  - id: SRC37-CMUDICT-FORMAT
+    role: ORACLE_FORMAT_CONTEXT
+    url: https://github.com/cmusphinx/cmudict-tools
+    version_or_date: repository page retrieved 2026-08-15
+    evidence: Documents dictionary entry and variant structure usable for a finite parser/lookup oracle route.
+    supports: finite_fidelity_closure
+limits:
+  - No download, checkout, build, benchmark, or experiment occurred.
+  - These sources do not establish absence of a current incremental exact constructor or a publishable result.

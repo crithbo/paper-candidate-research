@@ -1,0 +1,21 @@
+schema: ppc-r9-a3-a34-retained-replay-audit-precommit-v1
+created_at: 2026-08-26T09:35:57.5156490+08:00
+auditor: {path: resources/src/replay_equality_auditor/structured_replay_auditor.py, sha256: FD5C3E257AA6E29036A53DCE4737BC6005FCE5FAC549469613AFFE81F2C32F17}
+left_root: {path: resources/build/a2_replay_1, files: 54, logical_bytes: 323999}
+right_root: {path: resources/build/a2_replay_2, files: 54, logical_bytes: 324003}
+output_root: resources/build/a3_retained_audit
+output_root_absent_before_run: true
+output: resources/build/a3_retained_audit/audit_result.json
+expected:
+  status: PASS
+  file_set: EXACT_54_OF_54
+  classification: EXACT_38_RAW_6_NORMALIZED_TEXT_10_STRUCTURED
+  differences: 0
+  deterministic_payload_and_core_raw: EXACT
+attempt: 1_OF_1
+retained_roots_modify_delete_or_rerun_allowed: false
+automatic_retry: false
+source_edit_allowed: false
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_runs: 0
+scientific_inference: NONE

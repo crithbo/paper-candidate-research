@@ -1,0 +1,16 @@
+schema: bounded-engineering-correction-addendum-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10-NATURAL-CLAIM-EXECUTION
+prior_order_plan: ROW_SUBCOMMAND_ORDER_PLAN.yaml
+prior_order_plan_sha256: 823F659CFD818D0700EA11A3C4E3986095028AD478E421EF059AAD580E8537F0
+prior_validation_sha256: 453157C0A222CC87B5123A38C539C5529CB345A8DE281C9EBFB6D52D867B2217
+defect: declared_baseline_graph_producer_has_no_argv
+existing_implementation: resources/src/natural_materializer/materializer_harness.py::_run_strong_baseline_grid
+authorized_change:
+  new_file: resources/src/natural_materializer/baseline_graph_producer.py
+  semantic_scope: invoke_only_the_existing_strong_baseline_grid_for_one_frozen_input_and_write_its_existing_graph_output_as_baseline/dependency_graph.json
+  required_inputs: [frozen_input_path, frozen_tool_paths, exact_8x2_current_baseline_configuration]
+  required_outputs: [baseline/dependency_graph.json, baseline/command_metrics.json, exact_existing_bundle_artifacts]
+  required_validation: graph_audit_all_pass_and_exact_896_metric_ids_per_row
+forbidden_changes: [modify_materializer_harness, change_baseline_configuration, change_candidate_or_ablation_commands, change_input_set, add_network, add_retry, alter_cost_denominator, result_based_exclusion]
+execution_scope_after_separate_start: one producer invocation per frozen row before its checker_and_full_cost; no other claim-run deviation
+scientific_revision: {consumed: false, reason: existing_baseline_function_exposure_only}

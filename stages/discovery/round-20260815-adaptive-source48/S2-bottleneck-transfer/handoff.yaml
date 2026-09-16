@@ -1,0 +1,42 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE48-CANONICAL-BASELINE-CONTINUATION-V1
+lane: S2_BOTTLENECK_TRANSFER
+write_directory: stages/discovery/round-20260815-adaptive-source48/S2-bottleneck-transfer
+method:
+  canonical: V8_7_POTENTIAL_READINESS_SEPARATED
+  rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  model_route: gpt-5.6-terra__high
+  disabled: [V9, DISCOVERY_CLAIM_PACK, SHADOW, SOL_PACKET, SOURCE44_OWNERSHIP_BRIDGE]
+rule_freeze:
+  assignment_sha256: 09E7E315B3FCCCF76D0ECC17668CE7F65DBCFD9BBA9FBAFFDB8807BD4EDE69F7
+  control_sha256: 21DABD589D3C903A8FF2774107511E41F7C2AA43358A6C5E38BD008BA4FEDA2C
+  r37_audit: PENDING__NOT_APPLIED
+identity_preflight:
+  all_history_five_field: true
+  related_only_excluded: false
+  no_match_claimed_as_novelty: false
+  excluded_without_external_delta: [SOURCE45_MLPERF_INFERENCE_V5X_OFFICIAL_RULES_RESULT_SOURCE, SOURCE44_RVV_VXRM_INTERPROCEDURAL]
+result:
+  disposition: COMPLETE_ZERO_PROPOSALS__CANONICAL_BASELINE
+  divergence_seeds: 6
+  selected_rqs: 3
+  evidence_qualified_raw: 3
+  c0: 0
+  deep_reviews: 0
+  clean_stage0_briefs: 0
+families:
+  - signature: CUDNN_FIXED_OPERATION_GRAPH__ENGINE_PLAN_WORKSPACE_CONSTRUCTOR__PLAN_WORKSPACE_EXECUTION_COST
+    disposition: STRUCTURAL_DROP__CURRENT_GRAPH_ENGINE_WORKSPACE_UNION_ABSORBS_ACTION
+  - signature: PYTORCH_FIXED_CUDAGRAPH_TREE__POOL_CHECKPOINT_CONSTRUCTOR__CAPTURE_RESIDENCY_REPLAY_COST
+    disposition: STRUCTURAL_DROP__CURRENT_CUDAGRAPH_TREE_POOL_LIVENESS_UNION_ABSORBS_ACTION
+  - signature: ROCR_FIXED_HSA_QUEUE_SEQUENCE__SCRATCH_RESIDENCY_DISPATCH_CONSTRUCTOR__QUEUE_MEMORY_EXECUTION_COST
+    disposition: STRUCTURAL_DROP__CURRENT_SCRATCH_RECLAIM_CONFIGURATION_OR_RUNTIME_CONTROLLER
+source_closure:
+  concrete_items: 0
+  attempted_routes: 3
+  exhausted_items: 0
+  status: NO_CONCRETE_SOURCE_GAP_AFTER_STRUCTURAL_DECISIONS
+resource_actions: NONE
+scientific_negative_inference_from_missing_implementation_results_resources_or_ai_readiness: false
+canonical_manifest: HASH_MANIFEST.sha256
+required_mainline_action: NONE
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

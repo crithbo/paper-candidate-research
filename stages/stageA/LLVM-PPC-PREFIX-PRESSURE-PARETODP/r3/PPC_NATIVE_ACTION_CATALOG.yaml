@@ -1,0 +1,32 @@
+schema: ppc-native-action-catalog-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R3-PRECLAIM-F1-F5
+exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+scope: STATIC_PINNED_SOURCE_AND_TINY_SYNTHETIC_WITNESS_ONLY
+binding_contract: hidden_nonpreemptible_non_GOT_powerpc64le_linux_elfv2_medium
+native_actions:
+  direct:
+    assembly: PLDpc target_value@PCREL
+    relocation: R_PPC64_PCREL34
+    encoded_bytes_replay1: 00001004000060E4
+    schedule: {uops: 1, write: P10W_LD_6C, dispatch: P10W_DISP_PAIR, latency: 6}
+  materialized:
+    assembly: ["PADDIpc r4,target_value@PCREL", "LD r3,0(r4)"]
+    relocation: R_PPC64_PCREL34
+    encoded_bytes_replay1: [0000100600008038, 000064E8]
+    schedule:
+      - {instruction: PADDIpc, uops: 1, write: P10W_SX_3C, dispatch: P10W_DISP_PAIR, latency: 3}
+      - {instruction: LD, uops: 1, write: P10W_LD_6C, dispatch: P10W_DISP_ANY, latency: 6}
+source_loci:
+  relocation_mapping: resources/src/loci/llvm/lib/Target/PowerPC/MCTargetDesc/PPCELFObjectWriter.cpp
+  fixup_encoding: [resources/src/loci/llvm/lib/Target/PowerPC/MCTargetDesc/PPCAsmBackend.cpp, resources/src/loci/llvm/lib/Target/PowerPC/MCTargetDesc/PPCMCCodeEmitter.cpp, resources/src/loci/llvm/lib/Target/PowerPC/MCTargetDesc/PPCFixupKinds.h]
+  native_flags:
+    - {path: resources/src/loci/llvm/lib/Target/PowerPC/PPCTargetMachine.cpp, flag: disable-ppc-peephole, default: false}
+    - {path: resources/src/loci/llvm/lib/Target/PowerPC/PPCPreEmitPeephole.cpp, flag: ppc-pcrel-linker-opt, default: true}
+    - {path: resources/src/loci/llvm/lib/Target/PowerPC/PPCPreEmitPeephole.cpp, flag: ppc-late-peephole, default: true}
+  schedule:
+    - resources/src/loci/llvm/lib/Target/PowerPC/P10InstrResources.td:1246-1258
+    - resources/src/loci/llvm/lib/Target/PowerPC/P10InstrResources.td:1388-1403
+    - resources/src/loci/llvm/lib/Target/PowerPC/P10InstrResources.td:2017-2021
+    - resources/src/loci/llvm/lib/Target/PowerPC/PPCScheduleP10.td:78,282-284,321-323
+catalog_status: COMPLETE_FOR_ATTEMPTED_F1_STATIC_AND_NATIVE_LOCI
+scientific_inference: NONE

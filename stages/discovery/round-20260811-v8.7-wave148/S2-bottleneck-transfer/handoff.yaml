@@ -1,0 +1,48 @@
+assignment_id: DISCOVERY-S2-20260811-V8.7-WAVE148-QUICHE-COALESCED-SEND-DESCRIPTOR-DEPTH-REDTEAM
+lane: DISCOVERY-S2-BOTTLENECK-TRANSFER
+status: COMPLETE_ZERO_PROPOSALS
+next_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+cutoff_date: '2026-08-11'
+write_boundary: stages/discovery/round-20260811-v8.7-wave148/S2-bottleneck-transfer
+rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__r7-p0-repair-vector-dormant-off__discovery-six-lanes-direct-20260811__p1-shadow-not-authoritative
+discovery_quality_mode: OFF
+method: production_v2_v8.1 + v8.6_fidelity_closure_plan + v8.7_current_upstream_reality_check
+scope: finite fidelity red-team of Wave140 quiche coalesced-send descriptor sketch; not a prior-state revival
+counts:
+  raw_row_events: 1
+  repeat_rescreen_events: 1
+  unique_opportunity_families: 0
+  candidate_grade_deep_reviews: 1
+  grounded_briefs: 0
+propose_stage0: []
+decision:
+  action: DROP
+  exact_object: quiche QUIC connection carrying the same HTTP/3 stream trace under identical network and timer events
+  reason: >-
+    An unchanged descriptor is absorbed by the native connection/send constructor;
+    altered coalescing, packet boundaries, socket/GSO behavior, or send time changes the
+    frozen packet/pacing/recovery contract or requires an application/socket wrapper.
+  non_reasons:
+    - implementation absence
+    - missing result
+    - resource availability
+    - AI readiness
+source_reality:
+  upstream: https://github.com/cloudflare/quiche
+  ref: main
+  accessed: '2026-08-11'
+  commit_pin: unavailable_without_authorized_repository_download
+  caveat: source-pin limitation supports no feature-absence inference
+protocol_oracles:
+  - https://www.rfc-editor.org/rfc/rfc9000
+  - https://www.rfc-editor.org/rfc/rfc9002
+  - https://www.rfc-editor.org/rfc/rfc9114
+finite_killer: >-
+  A small official quiche HTTP/3 request/reply plus deterministic loss/reordering trace;
+  fail on any stream, packet, ACK/loss, pacing, or socket observable difference, any wrapper,
+  or representation-only action.
+manifest: HASH_MANIFEST.sha256
+manifest_scope:
+  - DISCOVERY_LOG.md
+  - SOURCE_COLLISION_MATRIX.md
+  - handoff.yaml

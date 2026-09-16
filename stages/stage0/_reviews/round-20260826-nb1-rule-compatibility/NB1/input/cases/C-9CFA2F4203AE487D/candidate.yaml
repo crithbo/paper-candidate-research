@@ -1,0 +1,21 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-9CFA2F4203AE487D
+cutoff_date: 2021-06-01
+contribution_type: COMPILER_TOOL
+exact_object: bounded refinement checking between source and target forms of a typed compiler intermediate representation
+natural_scenario: real optimization pairs and compiler regression tests containing undefined behavior poison values and memory effects
+problem: specification-only checking and generic compiler tests do not automatically establish that a transformed function preserves every defined source behavior
+atomic_action: symbolically encode a source-target function pair and ask a satisfiability solver for a bounded refinement counterexample
+mechanism: an executable intermediate-representation semantics tracks definedness poison and memory while bounded symbolic execution reduces refinement failure to solver queries
+information_condition: source and target intermediate representation control flow types memory operations and language-level undefinedness rules
+comparators: [general_translation_validation, declarative_single_rewrite_checker, compiler_regression_testing, solver_backed_bounded_symbolic_checker]
+claim_endpoint: semantic bug detection and validation coverage at matched solver time memory and supported-language scope
+full_cost: [solver_runtime, peak_memory, timeout_rate, unsupported_construct_rate, loop_bound, false_negative_surface, false_alarm_rate, integration_cost]
+minimum_falsifier: no additional valid transformation checking or defect detection beyond prior same-object checkers after matching semantic scope bounds and solver budget
+source_cards:
+  - {id: S01, year: 2000, role: translation_validation_foundation}
+  - {id: S02, year: 2015, role: declarative_single_rewrite_verification}
+  - {id: S03, year: 2017, role: intermediate_representation_semantics_and_undefined_behavior}
+  - {id: S04, year: 2020, role: satisfiability_solver_backend}
+local_resource_envelope: ROUTE_OUTSIDE_WINDOWS_LOCAL__CUSTOM_COMPILER_AND_SOLVER_BUILD_REQUIRED
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

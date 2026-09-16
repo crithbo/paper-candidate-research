@@ -1,0 +1,33 @@
+assignment_id: STAGE0-P1-20260814-AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP-REVISION1-V8.7
+mode: PRIMARY_REVISION1
+topic_id: AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_READY_TO_DISPATCH
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_revisions\AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP\revision1
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+quality_floor: TIER_B_Q2_VIABLE
+scientific_revision_limit: 1
+scientific_revision_index: 1
+sole_gate: SAME_REPORT_TWO_PLAN__LIVE_TAG_RETAG_ASSIGNMENT_FRONTIER_CERTIFICATE
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source06-primary\AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP
+confirmation_directory: stages\stage0\_reviews\round-20260814-adaptive-source06-confirmation\AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP
+frozen_inputs:
+  primary_manifest_sha256: 1AF7A07297AF488D6CFE99B03E2107EF3F6235FDF7305F1DB7F480EA950D9449
+  confirmation_manifest_sha256: F551D864825F0F74930D6707B06E18704CD80FBFB3ABA44A5560826317C4AD4A
+  confirmation_review_sha256: 4D2A29A9D5CA39DDD47D49E99141FDA26EAC69060ED2624D4BEEB0FB3B9ED760
+  confirmation_handoff_sha256: 2AA624B21E0F77D2BAE789FFE6B482A5940396994F6B30160161344D2B95F5E0
+mandatory_corrections:
+  - Remove AArch64StackTagging MTE tagp and NextTag from the HWASan same-object action catalogue; that pass is guarded by SanitizeMemTag, not SanitizeHWAddress.
+  - Pin one current LLVM commit, AArch64 Linux ABI, HWASan mode, optimization level and the complete HWASan-only native action catalogue.
+  - Give two native-realizable same-function plans preserving the complete stock HWASan report and no-report trace, short-granule, lifetime, ABI and unwind semantics.
+  - Identify a HWASan-only union-external action divergence tied to live tagged-pointer pressure.
+  - Give a future-native-action and full-cost-preserving bounded target-specific state plus exact/FPT or certified-Pareto recurrence.
+  - Freeze but do not execute a finite Stage A fidelity and full-cost falsifier.
+failure_sentinel: BELOW_Q2_STOP__CURRENT_HWASAN_STACKTAG_COMPOSITION_OR_GENERIC_RA_PACKAGING
+forbidden: [MTE_same_object_substitution, new_topic, second_revision, implementation, build, experiment, benchmark, download, stageA, stageB, shared_control_write]
+required_outputs: [REVISION_REPORT.md, CURRENT_ACTION_AND_FRONTIER_AUDIT.md, CLAIM_MATRIX.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  next_if_gate_closed: INDEPENDENT_REVISION1_CLOSING
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

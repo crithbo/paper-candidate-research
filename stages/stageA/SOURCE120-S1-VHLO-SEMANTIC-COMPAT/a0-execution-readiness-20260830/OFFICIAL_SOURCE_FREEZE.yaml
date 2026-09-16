@@ -1,0 +1,51 @@
+schema: vhlo-a0-official-source-freeze-v1
+assignment_id: STAGEA-L2-20260830-VHLO-SEMANTIC-COMPAT-A0
+freeze_time: 2026-08-30T04:15:00+08:00
+source_policy: OFFICIAL_GITHUB_ONLY
+reference:
+  repository: https://github.com/openxla/stablehlo
+  commit: 6a5902c7c0f7b3085a502d148b846a62eaa20501
+  commit_identity_basis: Stage0 full SHA plus official main commit page short SHA 6a5902c
+  source_loci:
+    - https://github.com/openxla/stablehlo/blob/main/docs/compatibility.md
+    - https://github.com/openxla/stablehlo/blob/main/stablehlo/dialect/Version.h
+    - https://github.com/openxla/stablehlo/tree/main/stablehlo/tests/vhlo
+    - https://github.com/openxla/stablehlo/tree/main/stablehlo/testdata
+  current_version: 1.20.0
+  minimum_supported_version: 0.9.0
+  guarantees: {backward_years: 5, forward_years: 2}
+  compatibility_object: portable artifact created by official compatibility API
+consumer_PRIVATE_TOOLCHAIN:
+  repository: https://github.com/PRIVATE_TOOLCHAIN-org/PRIVATE_TOOLCHAIN
+  commit: ee89ff3011fb5bfb952d1471fd3b745c8b06b916
+  commit_identity_basis: Stage0 full SHA plus official main commit page short SHA ee89ff3
+  source_loci:
+    - https://github.com/PRIVATE_TOOLCHAIN-org/PRIVATE_TOOLCHAIN/blob/main/CMakeLists.txt
+    - https://github.com/PRIVATE_TOOLCHAIN-org/PRIVATE_TOOLCHAIN/blob/main/integrations/pjrt/src/PRIVATE_TOOLCHAIN_pjrt/common/PRIVATE_TOOLCHAIN_compiler.cc
+  stablehlo_input_enabled_by_default_when_compiler_built: true
+  input_flag_evidence: --PRIVATE_TOOLCHAIN-input-type=stablehlo_xla
+  embedded_stablehlo_revision_resolved: false
+consumer_xla:
+  repository: https://github.com/openxla/xla
+  commit: 5ce7908a2d32a9f91fd99380435cda1b645c8cc7
+  commit_identity_basis: official openxla/xla issue 39462 reproducible CPU StableHLO command
+  current_head_asserted: false
+  source_loci:
+    - https://github.com/openxla/xla/issues/39462
+  input_command_evidence: run_hlo_module --platform=CPU --reference_platform= --input_format=stablehlo --print_literals=true INPUT
+  embedded_stablehlo_revision_resolved: false
+version_intersection:
+  reference_supported_closed_interval: ['0.9.0', '1.20.0']
+  frozen_probe_versions: ['0.9.0', '1.20.0']
+  consumer_embedded_revision_intersection_closed: false
+  disposition: PARTIAL__REFERENCE_WINDOW_KNOWN__CONSUMER_EMBEDDED_REVISIONS_UNRESOLVED
+transport:
+  native_persisted_source_bytes: 0
+  web_connector_exact_network_bytes: UNAVAILABLE__NOT_ESTIMATED
+  native_curl_failure: SCHANNEL_SEC_E_NO_CREDENTIALS
+  native_git_failure: SCHANNEL_SEC_E_NO_CREDENTIALS
+  engineering_correction_batches_used: 2_of_2
+  no_more_transport_attempts: true
+claim_effect_or_compatibility_result_observed: false
+scientific_inference: NONE
+

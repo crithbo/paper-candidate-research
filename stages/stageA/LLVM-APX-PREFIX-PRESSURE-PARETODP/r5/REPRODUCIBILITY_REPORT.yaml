@@ -1,0 +1,30 @@
+schema: reproducibility-report-v2
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R5-F2-STOP-AFTER-CORRECTION
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+start_authorization_sha256: E79F5BBDD58F0864E906BAC2B01BE964A1F548C8EDB01373BD9D260B787C5126
+run_index:
+  - {id: INPUT_COPY_AND_HASH_REACCEPTANCE, classification: CONTROL_NON_CLAIM_BEARING, result: PASS}
+  - {id: F2_FIXED_STOP_AFTER_REPLAY1, classification: CONTROL_NON_CLAIM_BEARING, result: PASS, output_sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A}
+  - {id: F2_FIXED_STOP_AFTER_REPLAY2, classification: CONTROL_NON_CLAIM_BEARING, result: PASS, output_sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A}
+  - {id: F2_VALUE_EFLAGS_CHECKER_REPLAY1, classification: CONTROL_NON_CLAIM_BEARING, result: FAIL_RUNTIME_UINT32_CONVERSION}
+  - {id: F2_VALUE_EFLAGS_CHECKER_REPLAY2, classification: INVALIDATED_NON_EVIDENCE, result: LAUNCHED_AFTER_FIRST_FAILURE_BY_WRAPPER_DEFECT_THEN_SAME_RUNTIME_FAILURE}
+  - {id: F3_CERTIFICATE, classification: NOT_RUN_AS_VALID_GATE, result: ORDERED_F2_STOP}
+  - {id: F4_ORACLE, classification: NOT_RUN_AS_VALID_GATE, result: ORDERED_F2_STOP}
+retry_audit:
+  automatic_retries: 0
+  extra_command_variants: 0
+  corrected_llc_commands_run: 2_OF_2_PLANNED
+  checker_commands_run: 2_OF_2_PLANNED
+  second_checker_launch_after_first_failure: PROCEDURAL_DEVIATION_NOT_AN_EXTRA_RETRY
+monitoring: {process_alive: synchronous_exit_observed, output_growth: assignment_local_files, timeout_seconds: 14400, timeout_triggered: false}
+budgets:
+  network_bytes_used: 0
+  resource_root_logical_bytes: 600393358
+  resource_root_logical_bytes_max: 2147483648
+  harness_build_attempts_used: 0
+  max_parallel_processes_observed: 1
+  gpu_hours_used: 0
+  exact_cpu_and_wall: UNAVAILABLE__NOT_ESTIMATED
+forbidden_actions: {network: NOT_RUN, build: NOT_RUN, source_or_tool_patch: NOT_RUN, natural_performance_full_cost_claim: NOT_RUN, science_revision_or_pivot: NOT_RUN, cleanup: NOT_RUN, stageb: NOT_RUN}
+result: REPRODUCIBLE_CORRECTED_LLC_PAIR_PLUS_FROZEN_CHECKER_FAILURE__NO_SCIENTIFIC_INFERENCE

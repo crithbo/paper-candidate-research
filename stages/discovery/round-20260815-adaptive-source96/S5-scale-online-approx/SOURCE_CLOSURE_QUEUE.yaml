@@ -1,0 +1,21 @@
+assignment_id: DISCOVERY-S5-20260815-ADAPTIVE-SOURCE96-R40-ORDINARY-BREADTH-V1
+queue_status: PENDING_UNEXECUTED
+items:
+  - id: S5-96-CQ01
+    family_signature: ERLANG_OTP_PERSISTENT_TERM_EXACT_CONSTANT_LOOKUP__VERSIONED_LITERAL_RECLAMATION
+    exact_project: erlang/otp
+    exact_version: OTP-29.0.1
+    deterministic_source_selection_rule: >-
+      Within this single official tag, locate the persistent_term put/erase BIF and the
+      literal allocator/global-GC transition it invokes; enumerate any configuration path
+      that can alter reclamation rather than only literal-area reservation.
+    fields_to_close: [current_source_union, source_symbols, default_nondefault_controls, two_process_legality_witness_route]
+    allowed_sources:
+      - https://github.com/erlang/otp/tree/OTP-29.0.1
+      - https://www.erlang.org/doc/apps/erts/persistent_term.html
+    attempt_counter: 0
+    route_status: PENDING_UNEXECUTED
+    exhaustion_consistency: NOT_EXHAUSTED
+    reason: >-
+      The raw gate permits bounded source debt. No post-RQ source-level closure call was
+      authorized or run in this ordinary breadth packet; absence is not inferred.

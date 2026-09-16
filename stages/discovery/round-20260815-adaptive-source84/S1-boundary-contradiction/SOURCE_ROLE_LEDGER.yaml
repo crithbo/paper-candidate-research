@@ -1,0 +1,31 @@
+sources:
+  - id: SRC01
+    role: ANCHOR_CONTRACT
+    url: https://pubs.opengroup.org/onlinepubs/9799919799/functions/pthread_atfork.html
+    project_object_version: POSIX.1-2024 pthread_atfork
+    selection_rule: primary standard function contract
+    provenance: The Open Group POSIX online publication
+    license: public standard publication
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: BROWSER_403__TRANSPORT_TELEMETRY_ONLY
+  - id: SRC02
+    role: CURRENT_CONTRARY
+    url: https://sourceware.org/glibc/manual/
+    project_object_version: glibc manual 2.43 latest
+    selection_rule: official current project documentation
+    provenance: GNU C Library project
+    license: GNU FDL documentation
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: documents _Fork as a deliberately different API that skips pthread_atfork callbacks
+  - id: SRC03
+    role: GENEALOGY_SOURCE
+    url: https://sourceware.org/pipermail/glibc-cvs/2021q1/072504.html
+    project_object_version: glibc atfork handler consolidation source record
+    selection_rule: official glibc source history exposing prepare reverse and parent/child forward handler traversals
+    provenance: glibc upstream commit record
+    license: LGPL source record
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: source lineage supports specified order; not used to claim current absence

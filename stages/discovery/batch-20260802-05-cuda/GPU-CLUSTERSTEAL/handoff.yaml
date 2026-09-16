@@ -1,0 +1,19 @@
+topic_id: GPU-CLUSTERSTEAL
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: Blackwell CUDA Cluster Launch Control for heterogeneous sparse-attention or MoE tile workloads with cancellation-budget and locality decisions
+main_claim: Cancellation-budgeted CLC exposes latency-tail-preemption Pareto points not achieved by fixed grids, persistent kernels, or unmodified CLC.
+academic_value_score: 57
+ai_executability_score: 18
+ai_executability_class: AI_CORE_CONDITIONAL
+ai_core_fraction: 0.61
+strongest_baseline: Fixed-work grid, fixed-number persistent kernel, and documented unmodified CLC under identical mappings and priority setup
+decisive_evidence: One natural irregular tile workload where a measured tail gain survives failed-cancellation, locality, and paired-priority accounting.
+unresolved_risks: Blackwell access is needed; unmodified CLC samples may already include a similar policy; metadata may not predict tail.
+next_killer_gate: Verify CLC sample semantics and test a variance-triggered no-steal/steal boundary on one reproducible irregular tile distribution.
+mechanism_pivot_remaining: 1
+reserve_reason: Real CLC performance and preemption evidence requires Blackwell hardware.
+evidence_ceiling: Discrete-event and source-level evidence only without Blackwell.
+execution_authority: Discovery only; no formal experiment.
+file_hashes: {topic_brief.md: AE8F493C0DEFA9ED8DB3D95C54A5FB8B7023F75A91480E66592CC57E4FCAECC6, source_log.md: 0D50EC59D4379D5A02A3F0620FF071B7AEB430068BA9C8FE3DC2A38B446762E0}

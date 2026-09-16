@@ -1,0 +1,152 @@
+schema_version: rule-audit-handoff-v1
+assignment_id: RULE-AUDIT-20260823-STAGE0-ATOMIC-REPAIR-CONVERSION-A1
+audit_id: RULE-AUDIT-20260823-STAGE0-ATOMIC-REPAIR-CONVERSION-A1
+source_thread_id: 01a02e08-0b16-7ed2-bfc4-f37b5ad86992
+target: MAINLINE
+status: COMPLETE_PROPOSAL_ONLY__AWAITING_MAINLINE_REVIEW
+decision_label: PATCH_RECOMMENDED__MANDATORY_BEHAVIOR_BACKTEST_REQUIRED
+problem_classification:
+  - TEMPLATE_GAP
+  - TELEMETRY_SCHEMA_GAP
+  - CROSS_STAGE_TRACEABILITY_GAP
+shared_files_modified: false
+candidate_states_modified: false
+scientific_or_resource_action_started: false
+network_search_download_build_experiment_backtest_started: false
+
+authority:
+  user_approval_id: USER_STAGE0_ATOMIC_REPAIR_DOWNSTREAM_CONVERSION_RULE_IMPROVEMENT_20260823
+  user_approval_already_present: true
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  audit_proposal_author: RULE_AUDIT_SENTRY
+  proposal_only: true
+
+frozen_inputs:
+  assignment_path: stages/rule-audit/RULE-AUDIT-20260823-STAGE0-ATOMIC-REPAIR-CONVERSION-A1/ASSIGNMENT.yaml
+  assignment_sha256: 0404C9EC2BD33D24D7E75E86707CC5FF96930C70F4A67D8E42E0A5CA73B3185A
+  context_path: stages/rule-audit/RULE-AUDIT-20260823-STAGE0-ATOMIC-REPAIR-CONVERSION-A1/ASSIGNMENT_CONTEXT.yaml
+  context_sha256: 7320CBB93EE5FEA35DF2755C8E91F264C65D3961354CF137C0A1208873FD25CC
+  bootstrap_ack_path: stages/rule-audit/RULE-AUDIT-20260823-STAGE0-ATOMIC-REPAIR-CONVERSION-A1/BOOTSTRAP_ACK.yaml
+  bootstrap_ack_sha256: E4BC33CEE94E9B944302E85E3257B80AD72BE1430D7ED6E92C0923F74EF30A70
+  mainline_ack_accepted_at: 2026-08-24T00:31:46+08:00
+
+bounded_case_scope:
+  maximum_case_count: 6
+  inspected_case_count: 6
+  expanded_beyond_assignment: false
+  cases:
+    - topic_id: S6-JS-PREFIXBOUND
+      role: POSITIVE_DOWNSTREAM_CONVERSION
+      stage0_path: CONFIRMED_REPAIR__ADMITTED_TO_STAGEA
+      downstream: INDEPENDENT_STAGEA_GATE_PASS_AFTER_ONE_STAGEA_REVISION
+    - topic_id: ARROW-IPC-STREAM-JOINT-DICTIONARY-EVOLUTION
+      role: VALID_NEGATIVE_AFTER_FIDELITY_CORRECTION
+      stage0_path: REVISION_CLOSING_PASS
+      downstream: INDEPENDENT_STAGEA_GATE_STOP
+    - topic_id: FLATBUFFERS-PROFILED-WHOLE-BUFFER-LAYOUT
+      role: VALID_NEGATIVE_AFTER_PROXY_CORRECTION
+      stage0_path: REVISION_CLOSING_PASS
+      downstream: INDEPENDENT_STAGEA_GATE_STOP
+    - topic_id: GIN-POSTING-CUT-DP
+      role: INVALID_STAGE0_REPAIR_CERTIFICATE
+      stage0_path: INDEPENDENT_CLOSING_HOLD
+      downstream: STAGEA_NOT_OPENED
+    - topic_id: S4-SLO-PAGEPACK
+      role: DIRECT_STAGE0_PASS_CONTROL
+      stage0_path: DIRECT_PASS
+      downstream: STAGEA_INVALID_CONSTRUCT_POLICY_HOLD
+    - topic_id: PARQUET-PAGE-COSEGMENT
+      role: DIRECT_STAGE0_PASS_CONTROL
+      stage0_path: DIRECT_PASS
+      downstream: STAGEA_INVALID_COMPARATOR_POLICY_HOLD
+  selected_case_outcomes_are_probability_estimate: false
+
+finding:
+  core: EXISTING_SCIENTIFIC_GATES_ARE_SUBSTANTIALLY_CORRECT__MACHINE_READABLE_REPAIR_LINEAGE_AND_FROZEN_DOWNSTREAM_DENOMINATOR_ARE_MISSING
+  first_failed_conversion: STAGE0_REPAIR_OR_PASS_TO_CONTRACT_FAITHFUL_STAGEA_CONSTRUCTION
+  revision_limit_change_recommended: false
+  admission_relaxation_recommended: false
+  direct_fatal_repair_allowed: false
+  terminal_revival_allowed: false
+  academic_research_suite_change_recommended: false
+
+minimum_patch:
+  p0_non_decisional:
+    disposition: PATCH_RECOMMENDED
+    content:
+      - additive_optional_ATOMIC_REPAIR_TRACE_V1_fields
+      - append_only_conversion_telemetry_with_original_denominator
+      - explicit_unknown_and_censoring_states
+    behavior_change: false
+  p1_mandatory:
+    disposition: BACKTEST_REQUIRED
+    content:
+      - mandatory_trace_validation_before_claim_bearing_stagea
+      - repair_participant_closer_disjointness_gate
+      - missing_or_inconsistent_trace_fail_closed_behavior
+    behavior_change: true
+    executable_in_current_assignment: false
+
+proposed_shared_targets:
+  - {path: rules/ROLE_STAGE0_REVIEW.md, heading: 结论与输出}
+  - {path: templates/STAGE0_REPORT.md, heading: Atomic repair trace}
+  - {path: rules/ROLE_CANDIDATE_OWNER.md, heading: Stage A preclaim gate}
+  - {path: templates/STAGEA_REPORT.md, heading: Upstream Stage 0 atomic-repair traceability}
+  - {path: rules/ROLE_STAGEA_REVIEW.md, heading: 必查}
+  - {path: templates/INDEPENDENT_REVIEW_REPORT.md, heading: Atomic repair verification matrix}
+  - {path: rules/ROLE_MAINLINE.md, heading: 每个调度控制周期登记}
+  - {path: templates/HANDOFF.yaml, field: atomic_repair_trace_and_conversion_telemetry_link}
+
+non_relaxable_gates:
+  q2_minimum_preserved: true
+  same_object_preserved: true
+  latest_collision_preserved: true
+  fair_current_strong_baseline_preserved: true
+  natural_input_and_positive_evidence_preserved: true
+  full_cost_preserved: true
+  reproducibility_preserved: true
+  claim_ceiling_preserved: true
+  one_revise_once_per_stage_preserved: true
+  stop_non_revival_preserved: true
+  user_stageb_gate_preserved: true
+
+conversion_telemetry:
+  schema_path: stages/rule-audit/RULE-AUDIT-20260823-STAGE0-ATOMIC-REPAIR-CONVERSION-A1/CONVERSION_TELEMETRY_SCHEMA.yaml
+  primary_denominator: ALL_INDEPENDENTLY_CONFIRMED_STAGE0_REVISE_ONCE_CASES_AT_FROZEN_CUTOFF
+  primary_numerator: INDEPENDENT_STAGEA_GATE_PASS
+  owner_self_pass_counts: false
+  resource_failure_counts_as_scientific_failure: false
+  missing_zero_imputation: forbidden
+  causal_probability_claim: forbidden
+
+validation_and_rollback:
+  shadow_initial_mode: SHADOW
+  historical_decision_invariance_required: 6_OF_6
+  cohort_outcome_classification_required: 6_OF_6
+  repair_participant_closer_conflict_detection_required: 100_PERCENT
+  forbidden_regression_count_required: 0
+  backtest_role_isolation: PACKER_EXECUTOR_AUDITOR
+  production_cutover_authorized_now: false
+  rollback: SET_MODE_OFF_KEEP_APPEND_ONLY_TELEMETRY
+
+canonical_outputs:
+  report:
+    path: stages/rule-audit/RULE-AUDIT-20260823-STAGE0-ATOMIC-REPAIR-CONVERSION-A1/RULE_AUDIT_REPORT.md
+    sha256: 84B511B5BF67003232D4AC49746B3D3998C2613AD075867E8F6C974AE54F5BBD
+  proposal:
+    path: stages/rule-audit/RULE-AUDIT-20260823-STAGE0-ATOMIC-REPAIR-CONVERSION-A1/RULE_CHANGE_PROPOSAL.md
+    sha256: 2257EE490BC35708711F0D3CBEE104F5F04470F9870EBE9D8B43E3E289DB7B54
+  telemetry_schema:
+    path: stages/rule-audit/RULE-AUDIT-20260823-STAGE0-ATOMIC-REPAIR-CONVERSION-A1/CONVERSION_TELEMETRY_SCHEMA.yaml
+    sha256: D6BF4950E39C59BF097895AECE7CA587E36F21A21E4596A3DE2B975A2E86E365
+  advisory_draft_patch:
+    path: stages/rule-audit/RULE-AUDIT-20260823-STAGE0-ATOMIC-REPAIR-CONVERSION-A1/DRAFT_PATCH.diff
+    sha256: 3CFA94086B9B96406C10343CEDEA69959E25A7752FE2261C95800A40E1EC4E60
+
+mainline_next_action:
+  - mechanically_accept_or_reject_this_handoff
+  - if_accepted_apply_only_p0_additive_fields_at_safe_shared_write_boundary
+  - freeze_independent_backtest_before_any_mandatory_behavior
+  - do_not_modify_academic_research_suite
+  - do_not_start_science_queue_or_backtest_from_this_handoff_without_separate_assignment

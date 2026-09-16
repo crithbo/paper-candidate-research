@@ -1,0 +1,27 @@
+schema: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260829-STAGEA-EXECUTABLE-CLAIM-PACKET-V1
+proposal_id: STAGEA_EXECUTABLE_CLAIM_PACKET_V1
+status: USER_APPROVED__READY_FOR_MAINLINE_ASSIGNMENT_LOCAL_PILOT
+decision: PATCH_RECOMMENDED__PILOT_FIRST
+user_approval:
+  present: true
+  text: '好的，按这个方案执行，如果效果好，就写到skill和规则中'
+  scope: RUN_APX_PPC_RVV_ASSIGNMENT_LOCAL_PILOT__INSTALL_SHARED_CHANGES_ONLY_AFTER_ACCEPTANCE
+artifacts:
+  pilot_contract: {path: PILOT_CONTRACT.yaml, sha256: 23DF5A10EEA736E0E51FFD50C9EA241B70CE59EA4E2B8B0DFC80EEC74F017D64}
+  audit_report: {path: RULE_AUDIT_REPORT.md, sha256: D506D1C0930581BB50C2CEC18CD6E033895A8FAB26420F6953448E6C36965D71}
+  change_proposal: {path: RULE_CHANGE_PROPOSAL.md, sha256: DF4CE434BE45B32F857591FF01A181F75D4B5BD120E6A91209B93642A45B3F75}
+required_mainline_actions:
+  - mechanically accept or reject this proposal in the next control cycle
+  - register APX/RVV/PPC read-only toolchain assets with lightweight critical-file verification
+  - freeze one integrated packet assignment per topic; no further single-defect micro assignments
+  - run E0-E2 with engineering result firewall, then serial natural pilots APX_PPC_RVV
+  - record acceptance metrics and do not install shared changes early
+post_pilot:
+  acceptance_threshold: AT_LEAST_2_OF_3_TOPICS_PRODUCE_VALID_DECISIVE_POSITIVE_OR_NEGATIVE_STAGEA_OBSERVATION
+  if_pass: MAINLINE_INSTALLS_SKILL_RULE_TEMPLATE_AND_DASHBOARD_PATCH_AT_SAFE_BOUNDARY
+  if_fail: NO_SHARED_INSTALL__RETAIN_EXISTING_RULES_AND_PILOT_EVIDENCE
+shared_files_modified: false
+scientific_or_resource_action_started_by_rule_audit: false
+StageB_authorized: false
+next_actor: MAINLINE

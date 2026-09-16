@@ -1,0 +1,47 @@
+schema_version: assignment-context-v1
+context_mode: USER_AUTHORIZED_INFORMATION_PARTITION
+created_at: 2026-08-26T18:14:00+08:00
+created_by: MAINLINE
+authorization_id: USER-N7-INFORMATION-PARTITION-20260826
+
+identity: {lane_id: STAGE0_PRIMARY, lane_thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c, old_lane_thread_id: 01a02e0b-b609-7202-bda9-a2e8b08794b6, role_id: STAGE0_PRIMARY_REVIEW, assignment_id: STAGE0-N7-20260826-WAVE391, stage: STAGE0, authoritative_project_root: <LOCAL_PROJECT_ROOT>, unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stage0/_reviews/round-20260826-wave391/N7, resource_root: null, old_chat_memory_required: false}
+
+frozen_files:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  role_rule: {path: rules/ROLE_STAGE0_REVIEW.md, sha256: 3F36AE4284F00BF5D5AD7CCFCC5DD4E9251C2D57172BA1D0FAAC2A7096560CE0}
+  academic_skill: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  bootstrap_template: {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+  report_template: {path: templates/STAGE0_REPORT.md, sha256: 2C72A46D7385A4DFE0D0981E4BDF4AB2A3BF6F19674BC94B14A1596386A2B809}
+  information_partition: {path: stages/stage0/_reviews/round-20260826-wave391/N7/INFORMATION_PARTITION.yaml, sha256: 4882BE041F8B24EA086C68D61618F6DF07E58C5019E8016920B7EAE4DAA145F3}
+  assignment: {path: stages/stage0/_reviews/round-20260826-wave391/N7/ASSIGNMENT.yaml, sha256: 474E96B55CA6556A463C6323A5287E72997A706035067F2638A1EBF287125838}
+  input_acceptance: {path: stages/stage0/_reviews/round-20260826-wave391/N7/INPUT_ACCEPTANCE.yaml, sha256: 47F8505C62736EFB3724DA04FA22C3471061425FC3744C9150C8327ACB2ECA75}
+  input_manifest: {path: stages/stage0/_reviews/round-20260826-wave391/N7/input/sealed_input_manifest.yaml, sha256: D8BE140E157945166629AF8771997F9143E1B06A735F63560CDB9703A9E5E0A9}
+
+information_boundary:
+  review_each_case_as_ordinary_new_candidate: true
+  provided_input_only: true
+  shared_dashboard_read_allowed: false
+  shared_machine_registry_read_allowed: false
+  external_search_allowed: false
+  unlisted_project_material_allowed: false
+  origin_mapping_or_expected_decision_available: false
+  identity_guessing_allowed: false
+  identity_recognition_disposition: BLINDING_CONTAMINATION__STOP_WITHOUT_SCIENTIFIC_JUDGMENT
+  case_input_modification_allowed: false
+
+current_status: {assignment_state: BOOTSTRAP_ACK_PENDING, input_files: 17, input_cases: 16, input_hash_validation: PASS, review_started: false, scientific_or_resource_action_started: false, start_authorized_by_mainline: false}
+permissions: {write_scope: ONLY_UNIQUE_WRITE_DIRECTORY, read_scope: FROZEN_FILES_AND_INPUT_ONLY, network: false, resource_root_creation: false, shared_write: false, candidate_registration: false, formal_state_transition: false, stagea_or_stageb_execution: false, cleanup: false}
+forbidden_actions: [READ_PLAN_REGISTRY_HISTORY_OR_UNLISTED_MATERIAL, SEARCH_EXTERNAL_IDENTITY, MODIFY_INPUTS_OR_SHARED_FILES, REGISTER_CANDIDATE_OR_CHANGE_FORMAL_STATE, RUN_RESOURCE_STAGEA_STAGEB_OR_EXPERIMENT, CLEANUP]
+
+bootstrap_instructions:
+  read_order: [AGENTS.md, THIS_CONTEXT, INFORMATION_PARTITION, ROLE_STAGE0_REVIEW, ACADEMIC_SKILL, REPORT_TEMPLATE, ASSIGNMENT, INPUT_ACCEPTANCE, INPUT_MANIFEST_AND_CASES]
+  do_not_read: [plan.md, registry.yaml, history.md, ANY_UNLISTED_PATH]
+  bootstrap_only: true
+  unique_ack_path: stages/stage0/_reviews/round-20260826-wave391/N7/BOOTSTRAP_ACK.yaml
+  ack_must_confirm: [CWD_E_ROOT, THREAD_MAPPING, ALL_HASHES, INFORMATION_BOUNDARY, INPUT_17_OF_17_AND_CASES_16, NO_IDENTITY_OR_DECISION_PRIOR, RESOURCE_ROOT_NULL, DIFFERENCES_EMPTY, SCIENTIFIC_OR_RESOURCE_ACTION_STARTED_FALSE]
+  ready_condition: ALL_MATCH
+  refuse_condition: ANY_DIFFERENCE_OR_IDENTITY_RECOGNITION
+
+resume_point: WRITE_BOOTSTRAP_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE
+next_action_after_start: INDEPENDENT_ORDINARY_REVIEW_OF_ALL_16_CASES
+user_gate: NONE_UNLESS_HARD_EXTERNAL_OR_PERMISSION_GATE

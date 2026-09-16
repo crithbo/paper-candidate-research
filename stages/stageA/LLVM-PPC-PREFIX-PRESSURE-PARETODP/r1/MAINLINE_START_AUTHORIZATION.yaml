@@ -1,0 +1,29 @@
+schema: mainline-start-authorization-v1
+issued_at: 2026-08-26T00:16:35+08:00
+issued_by: MAINLINE
+decision: START_AUTHORIZED
+authorization_ids: [USER-NO-WSL-TOPIC-LOCALIZED-RESOURCE-RECOVERY-20260825, USER-BLOCKER-AUTONOMOUS-OPEN-SOURCE-ACQUISITION-20260814, USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825]
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R1-E-ROOT-EXACT-TOOLCHAIN
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+context_sha256: 61966024B13892AF31EEBECD9CAAD3215B30ED55970215E099E4BC0DA1CCE92C
+bootstrap_ack_sha256: 64246285CABD54DF1D5E523C50988ABEA9D6D67C3C1990C696B000AE53331D0B
+bootstrap_acceptance: {disposition: ACCEPTED_READY, frozen_hashes: PASS_18_OF_18, differences_or_ambiguities: [], resource_root_absent: true, scientific_or_resource_action_started: false}
+allowed_after_start:
+  - create the eight r1 standard resource directories
+  - run the nonpersisting process-local long-path capability preflight before network or extraction
+  - download each of the five frozen official assets once and record response bytes and hashes
+  - verify the exact LLVM commit and safe archive members
+  - extract source and tools exactly once with logical src/s, env/t and build paths preserved
+  - configure once and run one clean Ninja build at -j2 for PowerPC plus lld
+  - package the seven required tools, runtime DLLs, notices and provenance
+  - run only version/target, generic PPC64LE MIR MachineVerifier, and generic Power10 MC/object/readobj/objdump/lld nonclaim smokes
+  - finalize the resource-gate package and wait
+attempt_limits: {asset_attempts_each: 1, total_network_attempts: 5, source_extraction: 1, tool_extraction: 1, configure: 1, clean_build: 1, build_jobs: 2, automatic_retry: false}
+long_path_boundary: {api: PROCESS_LOCAL_WIN32_EXTENDED_LENGTH_PREFIX, logical_paths: [resources/src/s, resources/env/t, resources/build], persistent_prefix_subst_junction_symlink_reparse_flatten_rename: forbidden, post_config_actual_path_gate_exclusive: 240}
+scientific_boundary: {claim_bearing_action_allowed: false, PPC_F1_F5_or_direct_witness_allowed: false, natural_performance_or_full_cost_allowed: false, scientific_revision_authorized: false, owner_state_transition_authority: false, stageb_authorized: false}
+budgets: {network_bytes_max: 671088640, max_single_response_bytes: 335544320, stored_bytes_max: 15032385536, cpu_seconds_max: 36000, wall_seconds_max: 36000, max_parallel_build_jobs: 2, gpu_hours_max: 0}
+failure_policy: {resource_or_path_failure: BLOCKED_USER_ACTION_REQUIRED__RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE, automatic_retry: forbidden}
+lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, cleanup_owner: MAINLINE, owner_cleanup_allowed: false, post_close_retained_bytes_max: 2147483648}
+next_action: LONG_PATH_PREFLIGHT__DOWNLOAD_VALIDATE_EXTRACT__CONFIGURE_BUILD_PACKAGE_SMOKE__HANDOFF

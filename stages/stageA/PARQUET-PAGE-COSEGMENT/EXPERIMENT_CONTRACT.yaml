@@ -1,0 +1,171 @@
+schema_version: 1
+preregistered_before_claim_bearing_observation: true
+assignment_id: STAGEA-L2-20260809-PARQUET-PAGE-COSEGMENT-INITIAL-V8.7
+topic_id: PARQUET-PAGE-COSEGMENT
+stage: STAGEA
+scientific_revision_consumed_at_registration: false
+exact_object:
+  input: "Twenty whole, natural, public NYC TLC green taxi monthly Parquet files"
+  invariants:
+    - typed Arrow values including nulls
+    - row order
+    - row-group count and each row-group boundary
+    - column order, names, logical and physical types
+    - one standard self-contained Parquet output file per input and arm
+    - identical SQL results through the pinned unmodified DataFusion reader
+  legal_actions:
+    - row-aligned data-page cuts within an existing column chunk
+    - one codec for every page in a column chunk
+    - type-correct standard Parquet page encoding
+    - per-DataPageV2 compressed or uncompressed retention under the column-chunk codec
+    - standard derived ColumnIndex/PageIndex and OffsetIndex
+  prohibited_actions:
+    - per-page codec selection
+    - page-local Bloom filters
+    - arbitrary per-page dictionaries
+    - row reorder or reclustering
+    - row-group change
+    - custom reader, metadata extension, or external index
+    - object-changing GSOP construction
+reader:
+  implementation: apache-datafusion-python
+  version: 54.0.0
+  reader_modification: none
+  page_index_enabled: true
+writer_and_format:
+  pyarrow_version: 25.0.0
+  parquet_format_version: "2.6"
+  data_page_version: "2.0"
+  codec: ZSTD
+  candidate_writer_status: PASSED_STANDARD_FORMAT_FIDELITY_WITNESS
+current_upstream_reality_check:
+  arrow_rs_parquet_version: 59.1.0
+  datafusion_python_version: 54.0.0
+  official_docs_observed:
+    - https://docs.rs/parquet/59.1.0/parquet/file/properties/struct.WriterPropertiesBuilder.html
+    - https://datafusion.apache.org/user-guide/configs.html
+  native_cdc:
+    default_enabled: false
+    min_chunk_size_bytes: 262144
+    max_chunk_size_bytes: 1048576
+    norm_level: 0
+  disposition: "Generic nonuniform/content-conditioned boundaries are absorbed; only workload-conditioned, globally budgeted joint legal construction is tested."
+natural_corpus:
+  source: NYC Taxi and Limousine Commission Trip Record Data
+  base_url: https://d37ci6vzurychx.cloudfront.net/trip-data/
+  canonical_extraction: "Use each complete downloaded Parquet member as one trace; never split a file to increase n. Preserve bytes and record SHA-256 before decoding."
+  files:
+    - green_tripdata_2024-01.parquet
+    - green_tripdata_2024-02.parquet
+    - green_tripdata_2024-03.parquet
+    - green_tripdata_2024-04.parquet
+    - green_tripdata_2024-05.parquet
+    - green_tripdata_2024-06.parquet
+    - green_tripdata_2024-07.parquet
+    - green_tripdata_2024-08.parquet
+    - green_tripdata_2024-09.parquet
+    - green_tripdata_2024-10.parquet
+    - green_tripdata_2024-11.parquet
+    - green_tripdata_2024-12.parquet
+    - green_tripdata_2025-01.parquet
+    - green_tripdata_2025-02.parquet
+    - green_tripdata_2025-03.parquet
+    - green_tripdata_2025-04.parquet
+    - green_tripdata_2025-05.parquet
+    - green_tripdata_2025-06.parquet
+    - green_tripdata_2025-07.parquet
+    - green_tripdata_2025-08.parquet
+workload_information:
+  shared_by_all_arms: true
+  train_queries:
+    - "pickup timestamp half-open day ranges for days 02, 09, 16, and 23"
+    - "trip_distance half-open ranges [1,3), [3,5), and [5,10)"
+    - "fare_amount half-open ranges [10,25) and [25,50)"
+  held_out_queries:
+    - "pickup timestamp half-open day ranges for days 05, 12, 19, and 26"
+    - "trip_distance half-open ranges [0.5,2), [4,8), and [10,20)"
+    - "fare_amount half-open ranges [5,15), [20,40), and [50,100)"
+  query_shape: "COUNT(*), SUM(total_amount), and AVG(trip_distance), with null semantics delegated to DataFusion SQL"
+  selection_budget_per_file:
+    wall_seconds: 120
+    candidate_and_union_equal: true
+baselines:
+  - id: SOURCE_ORIGINAL_ORDER
+    semantics: "unmodified public file, native DataFusion reader"
+  - id: FIXED_WRITER_GRID
+    grid:
+      data_page_row_count_limit: [1024, 4096, 16384, 65536]
+      data_page_size_bytes: [65536, 262144, 1048576]
+      representation:
+        - DATAPAGEV2_ZSTD_ALWAYS_COMPRESSED
+        - DATAPAGEV2_ZSTD_NATIVE_RETENTION_THRESHOLD_0_9
+    selection: "training workload only; deterministic lexicographic tie break"
+  - id: ARROW_CDC_GRID
+    grid:
+      min_max_norm_bytes:
+        - [65536, 262144, 0]
+        - [262144, 1048576, 1]
+        - [262144, 2097152, 2]
+      representation:
+        - DATAPAGEV2_ZSTD_ALWAYS_COMPRESSED
+        - DATAPAGEV2_ZSTD_NATIVE_RETENTION_THRESHOLD_0_9
+    selection: "training workload only; deterministic lexicographic tie break"
+  - id: STRONGEST_UNION
+    semantics: "best feasible training-selected point from SOURCE_ORIGINAL_ORDER, complete fixed grid, and complete CDC grid; no held-out oracle"
+  - id: GSOP
+    role: OBJECT_CHANGING_METHODOLOGICAL_SUBTRACTOR_ONLY
+  - id: OASIS
+    role: DEPLOYMENT_SUBTRACTOR_ONLY
+candidate:
+  id: GLOBAL_BUDGETED_WORKLOAD_CONDITIONED_COSEGMENT
+  atomic_action: "Jointly choose row-aligned cuts and DataPageV2 compression retention for all eligible predicate column chunks under a single file-level byte/page/search budget."
+  algorithm: "Deterministic dynamic program over shared legal cut candidates, with a global Lagrangian byte budget and fixed trace-ID/row-index tie breaks; it outputs a constructed layout, never merely the best existing arm or a scalar threshold."
+  eligible_predicate_columns: [lpep_pickup_datetime, trip_distance, fare_amount]
+  page_index_and_late_materialization: HELD_CONSTANT_ACROSS_ALL_REWRITTEN_ARMS
+  fallback: "If no legal feasible action is found within budget, emit the strongest-union arm and charge all failed planning cost."
+small_witness:
+  claim_bearing: false
+  rows: 32
+  requirements:
+    - nullable timestamp, floating point, integer, and UTF-8 columns
+    - at least three nonuniform pages in one column chunk
+    - at least one compressed and one retained-uncompressed DataPageV2 under ZSTD
+    - standard ColumnIndex and OffsetIndex decoded by unmodified readers
+    - Arrow table equality, row order equality, schema equality, and SQL scalar equality
+claim_bearing_gate:
+  status: PASS
+  start_condition: "All small-witness requirements pass and every baseline/candidate action maps to a native-format path."
+  proxy_policy: "Any partial writer or reader result is CODEC_OR_IMPLEMENTATION_CONTROL__NON_CLAIM_BEARING and cannot support PASS or STOP."
+mechanism_tests:
+  legal_action_outside_union_exists: true
+  useful_retained_residual_action_rate_min: 0.10
+  residual_action_denominator: "all candidate-selected page cut or representation actions across eligible column chunks and all 20 complete files"
+  useful_action_numerator: "legal actions absent from every selected strongest-union layout and having positive preregistered training objective contribution after marginal byte/planning charge"
+decision_thresholds:
+  size_ratio_vs_strongest_max: 1.05
+  heldout_file_count_with_p50_query_improvement_ge_10pct_min: 12
+  p90_rule: "candidate p90 query wall time must not exceed strongest union p90; bootstrap 95% interval is descriptive only"
+  full_cost_rule: "planning + search + write + all held-out queries + fallback/failure cost must retain a non-dominated point versus strongest union"
+  positive_ceiling: PRELIMINARY_SUPPORT_OR_NOT_FALSIFIED
+  negative_killers:
+    - strongest fair union absorbs the candidate action/result
+    - illegal action or changed object
+    - SQL, Arrow value, schema, row-order, or row-group equivalence failure
+    - no p50/p90 full-cost residual
+full_cost_ledger:
+  planning_search: {units: [wall_ns, cpu_ns, peak_rss_bytes, candidates_evaluated], boundary: "candidate or baseline selection start to selected plan serialization"}
+  write: {units: [wall_ns, cpu_ns, peak_rss_bytes, bytes_written], boundary: "reader open through fsync/close of output"}
+  query: {units: [wall_ns, cpu_ns, peak_rss_bytes], repetitions: 9, warmups: 2, order: "deterministic Latin rotation by file and arm"}
+  variance: {units: [median, p90, median_absolute_deviation], scope: "per query, arm, and file"}
+  file_size: {units: bytes, denominator: "complete self-contained output file"}
+  correctness: {units: "exact Arrow/schema/row-group/SQL equality flags"}
+  fallback_failure: {units: [wall_ns, cpu_ns, bytes], charging: "included in candidate full cost"}
+  preprocessing: {units: [wall_ns, cpu_ns, peak_rss_bytes], includes: "decode, statistics, candidate generation, index derivation"}
+resource_ceiling:
+  disk_bytes_lt: 4294967296
+  cpu_hours_lt: 4
+  gpu: false
+  exclusive_device: false
+stageb_authorized: false
+pending_user_stageb_review: false
+stageb_user_approval_id: null

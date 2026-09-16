@@ -1,0 +1,93 @@
+schema: cvc5-safe-recovery-resume4-freeze-v1
+topic_id: CVC5-ALETHE-SHAREMAP
+assignment_id: SAFE-RECOVERY-L1-20260815-CVC5-RESUME4
+lane_id: CANDIDATE_EXECUTION_LANE_1
+authorization_id: USER_AUTONOMOUS_SAFE_BLOCKER_RECOVERY_20260815
+created_at: 2026-08-15T00:00:00+08:00
+unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  path: rules/RESOURCE_LOCALIZATION.md
+  sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery\resources
+inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery\RESOURCE_INVENTORY.yaml
+
+control_freeze:
+  control_hash_table_sha256: 560E0733D320CC5E968A7B0103F6723C56DA96F2E6098E82A4544BB869C4A61E
+  assignment_sha256: E42ED8E7CD3EA271E140802226B6725A701E8FAAC103E85104A8533CE4B60834
+  AGENTS.md: 26DB9F4C2D43349A2BA5B741947561D4FED2FE5EC65327C02D273D3905F5A522
+  plan.md: 7C0C4E7116C766E3248D13FEB18EBF3FCAF3347D565E10A6E837C18205E96C21
+  registry.yaml: 14FF7BF046FD01D99CED5FB549F320289C432F3980F4B170212CF91F5117AA99
+  ROLE_CANDIDATE_OWNER.md: A703F21B9F33EE341A942501948BC313FACC9D0BAB15F3EE943FC590B65BF519
+
+frozen_object:
+  carcara_release: 1.1.0
+  carcara_commit: 5d817d86bd18ea2a850a580d602f17f36959ee99
+  rust: 1.72.0-x86_64-pc-windows-gnu
+  source_archive_sha256: FCD42C4ED6501B690E3F363E980B2B1403A1A7C9DF262FECC0A4C831B8960F30
+  source_tree_digest: A2D1D25C61CA7076736DE410DFA58C96BF265FE886025D8AA7083C2D4F5735E3
+  cargo_lock_sha256: 0E9C953C2C1B184511E2DFDF19D4BB7C35A6BE55140BC1A3D77179411D7C7378
+  source_or_cargo_lock_patch_allowed: false
+
+route:
+  id: OFFICIAL_PORTABLE_MSYS2_MINGW64_GCC
+  base_release: 20260611
+  base_archive_url: https://repo.msys2.org/distrib/x86_64/msys2-base-x86_64-20260611.tar.xz
+  base_signature_url: https://repo.msys2.org/distrib/x86_64/msys2-base-x86_64-20260611.tar.xz.sig
+  package_repository: https://repo.msys2.org/mingw/mingw64/
+  package_selection: OFFICIAL_CURRENT_MINGW64_GCC_AND_DECLARED_DEPENDENCIES_VIA_PACMAN
+  provenance: OFFICIAL_MSYS2_REPOSITORY_AND_SIGNED_PACKAGE_DATABASE
+  license_rule: RECORD_PACKAGE_LICENSE_METADATA__ACCEPT_ONLY_PUBLIC_OPEN_SOURCE_PACKAGES
+  local_rust_input: stages\stageA\CVC5-ALETHE-SHAREMAP\resume3\toolchain\rustup-home\toolchains\1.72.0-x86_64-pc-windows-gnu
+  local_source_input: stages\stageA\CVC5-ALETHE-SHAREMAP\resume3\downloads\verified\carcara-1.1.0.zip
+
+resource_envelope:
+  max_single_download_bytes: 268435456
+  max_cumulative_download_bytes: 536870912
+  max_new_persisted_bytes: 2147483648
+  max_cpu_seconds: 3600
+  max_wall_seconds: 7200
+  max_parallel_heavy_processes: 1
+  clean_carcara_build_attempts: 1
+
+redirect_map:
+  TEMP: resources\tmp
+  TMP: resources\tmp
+  TMPDIR: resources\tmp
+  HOME: resources\env\home
+  CARGO_HOME: resources\cache\cargo-home
+  CARGO_TARGET_DIR: resources\build\carcara-target
+  pacman_cachedir: resources\cache\pacman
+  pacman_logfile: resources\logs\pacman.log
+  msys2_root: resources\env\msys64
+  carcara_source: resources\src\carcara-carcara-1.1.0
+  command_logs: resources\logs
+  process_local_PATH: RESUME3_RUST_BIN__RESUME4_MINGW64_BIN__RESUME4_MSYS_USR_BIN__SYSTEM32
+  global_environment_change: false
+
+preflight_required:
+  - RESOURCE_ROOT_LITERAL_AND_NO_REPARSE_POINTS
+  - ALL_EIGHT_RESOURCE_DIRECTORIES_PRESENT
+  - PROCESS_LOCAL_REDIRECTS_RESOLVE_UNDER_RESOURCE_ROOT
+  - DOWNLOAD_CONTENT_LENGTH_WITHIN_SINGLE_AND_CUMULATIVE_LIMITS
+  - OFFICIAL_SOURCE_PROVENANCE_HASH_SIGNATURE_AND_LICENSE_RECORD
+  - GCC_C_AND_RUST_GNU_LINK_SMOKE_BEFORE_CARCARA_BUILD
+  - SOURCE_TREE_AND_CARGO_LOCK_EXACT_BEFORE_AND_AFTER_BUILD
+
+kill_boundary:
+  - STOP_BEFORE_ANY_THRESHOLD_EXCEEDANCE
+  - STOP_ON_SOURCE_LOCK_OR_OBJECT_DRIFT
+  - STOP_ON_REDIRECT_FAILURE_OR_WRITE_OUTSIDE_RESOURCE_ROOT
+  - STOP_ON_SYSTEM_WSL_GLOBAL_PATH_OR_REGISTRY_ACTION
+  - STOP_AFTER_ONE_NEW_CLEAN_BUILD
+  - DO_NOT_RUN_CLAIM_BEARING_CORPUS
+  - DO_NOT_ENTER_STAGEB_OR_TRANSITION_SHARED_STATE
+
+failure_policy:
+  decision: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  claim_bearing: false
+  scientific_revision_consumed: false
+cleanup_owner: MAINLINE
+stageb: false
+

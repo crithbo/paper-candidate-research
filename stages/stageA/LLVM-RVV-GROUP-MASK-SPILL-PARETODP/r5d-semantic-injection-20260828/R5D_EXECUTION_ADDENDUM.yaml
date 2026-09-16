@@ -1,0 +1,57 @@
+schema: rvv-r5d-exact-execution-addendum-v1
+created_at: 2026-08-28T09:45:00+08:00
+created_by: MAINLINE
+assignment_id: STAGEA-L1-20260828-LLVM-RVV-R5D-SPLIT-CLOSURE-SEMANTIC-INJECTION
+parent_blocker_path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/R5D_EXECUTION_BLOCKER.yaml
+parent_blocker_sha256: F1E81C3EF35AEF9488A153387A3AB738B54074BD4944CA6244544F7A63F594DE
+route_id: RVV_R5D_SPLIT_CLOSURE_SEMANTIC_INJECTION_INTO_QUOTIENT_AND_BASELINES_V1
+scientific_boundary: SAME_OBJECT_ONLY__NO_SECOND_PIVOT__NO_SCIENTIFIC_REVISION__NO_NATURAL_OR_CLAIM_RUN
+resource_boundary: {network_bytes_max: 0, source_root: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient/resources, destination_root: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources, copy_attempts_max: 1, reparse_allowed: false}
+source_inputs:
+  - {relative_path: src/split_closure/split_closure.py, source_sha256: 256C78891FAAE6AB78741FABD309274DAFAF979F092A492A867BB580B1B73D4F, destination_role: CLOSURE_ENGINE}
+  - {relative_path: src/split_closure/run_r5c.py, source_sha256: 3D1C17A36490D71860EF66986499ADC0E2286486DE9EAAFACBE5CDD20AAD03ED, destination_role: FROZEN_RUNNER_TEMPLATE}
+  - {relative_path: src/harness/rvv_preclaim.py, source_sha256: 1924CA21C1E42EB4E5C5A094B7871C1AC5AA226589C2D0272360F531CE5FDC36, destination_role: F3_F4_F5_HARNESS}
+  - {relative_path: src/harness/forced-pressure.mir, source_sha256: DC8CAA62A0E375CE7C47B162D2B54A066BFBA86A6A1FCE5C7DC529C6E4EECA43, destination_role: FROZEN_WITNESS}
+  - {relative_path: env/rvv-toolchain/bin/llc.exe, source_sha256: 65A9EAE8B026DF2328B3A75048959CBF8F9F9AC7F86E854C7DDAC8F86485C643, destination_role: NONCLAIM_LLC}
+  - {relative_path: logs/r5/replay-R1.mir, source_sha256: 52F7303BBD8CF4A16C888FC6BD36C630D3EBE2D6A27C31D90530D442E4CC4044, destination_role: CLOSURE_INPUT_1}
+  - {relative_path: logs/r5/replay-R2.mir, source_sha256: 52F7303BBD8CF4A16C888FC6BD36C630D3EBE2D6A27C31D90530D442E4CC4044, destination_role: CLOSURE_INPUT_2}
+copy_contract: COPY_ALL_REQUIRED_R5C_SUBTREE_FILES_ONCE_TO_DESTINATION_RESOURCES__BYTE_EXACT__NO_R5C_MODIFICATION
+allowed_implementation:
+  existing_source_edits_max: 2
+  new_wrapper_files_max: 1
+  permitted_paths: [resources/src/split_closure/split_closure.py, resources/src/harness/rvv_preclaim.py, resources/src/split_closure/run_r5d.py]
+  semantic_requirements:
+    - TRANSITIVE_PARENT_CHILD_PROVENANCE_IN_GRAPH_STATES
+    - LABELED_QUOTIENT_KEYS_INCLUDE_INDEX_USED_TYPED_WHOLE_AND_COST
+    - SUCCESSORS_AND_BACKPOINTER_PATHS_EXPLICIT_AND_REHASHED
+    - SHARED_FULL_COST_TENSOR_SPILL_RELOAD_FUTURE_USE_IN_CANDIDATE_AND_ALL_BASELINES
+    - SELF_CONSISTENT_REHASHED_MUTATIONS_WITH_EXPECTED_FAIL_CLOSED
+  forbidden_changes: [OBJECT, WITNESS_VALUES, COMPARATOR_SEMANTICS, BASELINE_SET, DENOMINATOR, GATE_POLARITY, R5C_SOURCE]
+exact_command_contract:
+  working_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828
+  interpreter: <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+  argv: [<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, -B, resources/src/split_closure/run_r5d.py]
+  attempts: 1
+  retry: false
+  max_parallel_processes: 2
+ordered_sequence:
+  - PRESERVE_BLOCKER_AND_R5C_INPUTS
+  - COPY_R5C_REQUIRED_SUBTREE_ONCE
+  - PYTHON_STATIC_COMPILE_NO_BYTECODE
+  - RUN_GRAPH_NEGATIVE_CONTROLS
+  - RUN_TWO_FRESH_LLC_REPLAYS
+  - RUN_SPLIT_CLOSURE_CHECK
+  - RUN_F3_TYPED_REPLAY
+  - RUN_F4_QUOTIENT_EQUALITY
+  - RUN_F5_ALL_BASELINE_PARITY
+  - RUN_REHASHED_SEMANTIC_MUTATION_NEGATIVES
+  - WRITE_RUN_STATUS_COMMAND_RECEIPTS_HANDOFF_MANIFEST
+  first_failure_stops: true
+required_outputs:
+  split_closure_json_keys: [result, graph_sha256, graph, quotient_state_signatures, successor_relation, dependency_receipt_sha256]
+  graph_state_keys: [root, descendants, ancestry, actions, path_obligation_hash, future_action_signature, cost_spill_reload_signature, mask_interference_signature]
+  f4_keys: [result, certificate, split_closure_dependency, deterministic_replays, replay_exact]
+  f5_keys: [result, candidate_frontier, baselines, checks, split_closure_dependency]
+  mutation_cases: [MISSING_LEAF, UNKNOWN_PARENT, CROSS_CLASS_OR_LMUL, CYCLE, ORPHAN_DESCENDANT, MULTIROOT_DESCENDANT, MISSING_SPILL, MISSING_RELOAD_OR_FUTURE_USE, MUTATED_TRANSITIVE_GRAPH_HASH, MUTATED_FUTURE_ACTION_OR_COST_SIGNATURE, F4_WITHOUT_CLOSURE, F5_WITH_MUTATED_CLOSURE]
+evidence_ceiling: PRECLAIM_ENGINEERING_FIDELITY_ONLY__NO_SCIENTIFIC_INFERENCE
+next_authority: MAINLINE_THEN_INDEPENDENT_PRECLAIM_GATE

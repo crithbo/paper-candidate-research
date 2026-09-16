@@ -1,0 +1,29 @@
+schema_version: discovery-two-axis-auditor-handoff-v8.2
+role: DISCOVERY-BACKTEST-AUDITOR
+status: FROZEN_AUDIT_COMPLETE
+overall_verdict: CONTAMINATION_UNKNOWN
+lens_verdicts:
+  O1_O6_BOUNDARY_CONTRADICTION: CONTAMINATION_UNKNOWN
+  O2_BOTTLENECK_TRANSFER: CONTAMINATION_UNKNOWN
+  O3_NATURAL_STRUCTURE: CONTAMINATION_UNKNOWN
+  O4_OBJECTIVE_CONSTRAINT_SHIFT: CONTAMINATION_UNKNOWN
+  O5_SCALE_ONLINE_APPROXIMATION: CONTAMINATION_UNKNOWN
+  O7_DIRECT_ALGORITHM_SOFTWARE: CONTAMINATION_UNKNOWN
+counts:
+  packets: 30
+  positives: 18
+  negatives: 12
+  content_recoveries_including_partial: 17
+  omissions: 1
+  false_opportunities: 0
+  forced_packaging: 0
+  finite_route_positives_continued: 6
+  finite_route_structural_stops: 0
+  invalid_target_pre_cutoff_holdouts: 3
+  negative_controls_reported_by_executor_prose: 10
+  negative_controls_in_manifest_and_results: 12
+executor_report_discrepancy: narrative_count_error_not_result_completeness_error
+blocking_findings:
+  - L5-P01, L5-P03, and L6-P02 targets were public on or before their declared cutoffs.
+  - Required per-source frozen provenance/date/byte-hash records are absent, so source-level cutoff and leakage cannot be independently verified.
+next_action: Repack_and_rerun_with_new_executor_before_any_calibration_or_production_use

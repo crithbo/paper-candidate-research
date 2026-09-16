@@ -1,0 +1,43 @@
+schema_version: discovery-wave-handoff-v8.4
+assignment_id: DISCOVERY-S1-20260809-V8.4-WAVE10
+lane: DISCOVERY-S1-BOUNDARY-CONTRADICTION
+generated_at: 2026-08-09T22:00:00+08:00
+
+method:
+  used: ACCEPTED_V2_V8_1_WITH_V8_4_TWO_LAYER_BASELINE_RESIDUAL_ACTION_GAP
+  o1_o6_backtest: CALIBRATED
+  excluded: TLS_BLOCKED_TWO_AXIS_V8_2R2_NOT_USED
+
+authority:
+  writable_directory: stages/discovery/round-20260809-v8.4-wave10/S1-boundary-contradiction
+  master_files_modified: false
+  registry_modified: false
+  stage0_stagea_stageb_created: false
+  experiments_or_benchmarks_started: false
+
+result:
+  status: COMPLETE_ZERO_PROPOSALS
+  proposal_count: 0
+  quality_threshold: TIER_B_Q2_VIABLE
+  rationale: Oracle-rich objects were available, but no fair strongest-union-external same-object action gap survived.
+
+screened_objects:
+  - object: wasm_binary_lowering
+    outcome: DROP
+    rationale: Binaryen/WABT union absorbs transformation, validation, fixup, and pipeline actions.
+  - object: drat_lrat_proof_certificates
+    outcome: DROP
+    rationale: PB deletion object excluded; no independent format-semantic residual identified.
+  - object: sqlite_format_maintenance
+    outcome: DROP
+    rationale: No defined new format-valid operation outside standard maintenance/selector space.
+  - object: elf_post_link_layout
+    outcome: DROP
+    rationale: LLVM/lld/BOLT union absorbs legal layout and reordering actions.
+
+artifacts:
+  action_gap_certificate_matrix: ACTION_GAP_CERTIFICATE_MATRIX.md
+  discovery_log: DISCOVERY_LOG.md
+  hash_manifest: HASH_MANIFEST.sha256
+
+next_state: IDLE_REUSABLE

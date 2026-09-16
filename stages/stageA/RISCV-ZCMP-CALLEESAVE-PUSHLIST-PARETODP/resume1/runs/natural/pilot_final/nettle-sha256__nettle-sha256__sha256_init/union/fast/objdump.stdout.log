@@ -1,0 +1,19 @@
+
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\runs\natural\pilot_final\nettle-sha256__nettle-sha256__sha256_init\union\fast\linked.o:	file format elf32-littleriscv
+
+Disassembly of section .text:
+
+00000000 <sha256_init>:
+       0:      	cm.push	{ra}, -32
+       2:      	sw	a0, 0xc(sp)
+       4:      	lui	a1, 0x0
+       8:      	mv	a1, a1
+       c:      	li	a2, 0x20
+      10:      	auipc	ra, 0x0
+      14:      	jalr	ra <sha256_init+0x10>
+      18:      	lw	a0, 0xc(sp)
+      1a:      	sw	zero, 0x20(a0)
+      1e:      	sw	zero, 0x24(a0)
+      22:      	sw	zero, 0x68(a0)
+      26:      	cm.popret	{ra}, 32
+

@@ -1,0 +1,12 @@
+schema: mlperf-rank-validity-a0-engineering-correction-v1
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-A0
+batch: 1_of_2
+defect: WINDOWS_CURL_SCHANNEL_ACQUIRE_CREDENTIALS_FAILED
+failed_attempt: {id: N01, curl_exit_code: 35, error: SEC_E_NO_CREDENTIALS, response_bytes: 0}
+scientific_or_claim_effect: NONE
+invalidated_result: NONE__NO_RESPONSE_OR_CONTROL_OBSERVATION
+allowed_correction: use_exact_bundled_python_stdlib_https_transport_with_redirects_disabled
+unchanged: [official_endpoints, selected_releases, formula, units, pairing_key, inferred_rules, missingness, parser_schema, full_cost, claim_firewall]
+retry_visibility: AUDITED_CORRECTION_REPLAY
+silent_retry: false
+network_attempt_budget_after_failed_curl: 15

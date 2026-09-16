@@ -1,0 +1,10 @@
+schema_version: r3-phase-a-resource-initialization-addendum-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+parent_blocker: {path: PHASE_A_EXECUTION_BLOCKER.yaml, sha256: 21B56BB5FC4AA6B2CAEC7D07A07599962E9BC8AD042EF37462B52842A8591C58}
+resource_root: resources
+authorized_directories: [resources/archives, resources/build, resources/cache, resources/downloads, resources/env, resources/logs, resources/src, resources/tmp, resources/logs/preflight]
+authorized_files: [RESOURCE_INVENTORY.yaml]
+inventory_template: {path: templates/RESOURCE_INVENTORY.yaml, sha256: E859CE19DC3EB906EF391B1D8039E7B02A762EB74D7421454E40BB4539FEEEC7}
+initial_inventory: {phase: PHASE_A_PREFLIGHT, response_files_before_start: 0, stored_bytes_before_start: 0, reparse: 0, cleanup_owner: MAINLINE, automatic_delete: false}
+after_initialization: execute_exact_phase_A_contract_31746DD752A601180254E552EC41CCCA426C7240E66E2894D26215F613C2E59D
+forbidden: [phase_B_selection, evidence_extraction, packet_creation, scoring, gold_expected_label_access, code_artifact_binary_download, build, probe, experiment, production_candidate_registration, StageB]

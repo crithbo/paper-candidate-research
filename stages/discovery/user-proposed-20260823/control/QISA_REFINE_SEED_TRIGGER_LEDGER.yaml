@@ -1,0 +1,30 @@
+schema_version: conditional-seed-ledger-v1
+seed_name: QISA-REFINE-SEED
+topic_id_created: false
+state: CONDITIONAL_SEED__NO_TOPIC_ID
+authority: USER_ATTACHMENT_REVISED_FREEZE_PACKROUTE_SEGMENTK_QISA_20260823
+source_cutoff: 2026-08-23T23:59:59+08:00
+parent_topic: QREFINE-TRITON-W4A16
+stage0_dispatch_allowed: false
+discovery_dispatch_allowed_now: false
+
+current_comparators:
+  - VOLTA_PTX_GPU_KERNEL_EQUIVALENCE
+  - CASS_CUDA_HIP_AND_SASS_RDNA3_TRANSLATION
+
+all_activation_conditions_required:
+  - QRefine Stage A produces exact NVIDIA PTX for the frozen kernel.
+  - QRefine Stage A produces exact AMD final ISA or an analyzable final code object for the frozen kernel.
+  - The complete emitted opcode and intrinsic subsets are finite and can be frozen.
+  - At least one W4A16-contract semantic obligation remains in the vendor-backend TCB.
+  - VOLTA cannot directly discharge the obligation without adding packed-INT4/group-scale mixed semantics.
+  - The required ISA semantics are finite and do not require implementing a complete NVIDIA or AMD ISA.
+
+do_not_create_topic_if:
+  - QRefine Stage A finds no vendor-codegen risk relevant to the frozen contract.
+  - VOLTA directly verifies the NVIDIA output under the required semantics.
+  - The AMD route requires complete ISA semantics or opaque proprietary behavior.
+  - The work only reruns QRefine at a lower layer without a new research action.
+
+current_action: NONE__WAIT_FOR_QREFINE_STAGEA_ARTIFACTS
+relation_to_qcast: INDEPENDENT_CONDITIONAL_SEED__QCAST_REMAINS_NOT_CREATED

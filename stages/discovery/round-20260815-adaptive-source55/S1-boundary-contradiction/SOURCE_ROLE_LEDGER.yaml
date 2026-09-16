@@ -1,0 +1,24 @@
+sources:
+  - id: SRC01_GCC_MIPS_BUILTINS
+    role: ANCHOR
+    url: https://gcc.gnu.org/onlinedocs/gcc/Other-MIPS-Built-in-Functions.html
+    observed_date: 2026-08-15
+    primary_or_official: official
+    selection_rule: current official GCC documentation for explicit MIPS FCSR read/write interface
+    evidence_used: exposes get/set FCSR built-ins and compiler assumption about condition-code preservation
+    does_not_establish: current LLVM/GCC union, residual, collision clearance, or performance claim
+  - id: SRC02_LLVM_PROJECT
+    role: CURRENT_UNION_ROUTE
+    url: https://github.com/llvm/llvm-project
+    observed_date: 2026-08-15
+    primary_or_official: upstream
+    selection_rule: deterministic one-project source-closure route for the MIPS backend
+    evidence_used: repository identity only
+    does_not_establish: a source-level FCSR action inventory because the bounded route was not executed
+  - id: SRC03_MIPS64_ARCHITECTURE
+    role: SEMANTIC_BACKGROUND
+    url: https://0x04.net/~mwk/doc/mips/MD00083-2B-MIPS64INT-AFP-02.50.pdf
+    observed_date: 2026-08-15
+    primary_or_official: historical specification mirror
+    evidence_used: FCSR is a control/status register with rounding and exception-related fields
+    does_not_establish: current compiler behavior

@@ -1,0 +1,47 @@
+schema: stagea-input-freeze-v1
+assignment_id: RESOURCE-STAGEA-L3-20260814-RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP-RESUME1
+topic_id: RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+frozen_before_claim_observation: true
+frozen_at: '2026-08-14T16:10:00+08:00'
+write_root: stages/stageA/RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP/resume1
+parent_root: stages/stageA/RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP/initial
+parent_immutable: true
+assignment_sha256: E202E75E16853AC789DD39D7656D6E5FD3CE4A457B1CC194CB9FF7E64934D088
+resource_authorization_sha256: ED8778A61221F05A577E876028D57B48F9102D78B47E66F0BFD6295FCF2DC9AC
+global_user_authorization_sha256: E1450BEAB122B6E349B9FACAB38EBFBBE45D73D952BC99FD063EE0E4CA193A0D
+control_files_observed:
+  AGENTS.md: 1F0C04BB5B9DF11DAA7BBDDA0E0195BCDA433273D86982EE741A0D69F50D3E42
+  plan.md: 287498EDF87A569D31134F7BDF3DE1C91336720087319C0774B7732FD71E1DC3
+  registry.yaml: 9515E25165369BD8FCBEDE3536F87CC27CBB846E27F3DC1471962B9E1E65A9A0
+  rules/ROLE_CANDIDATE_OWNER.md: 6319A738A2C754AC4B82044B7AB295753A48C4BD89B01FF1480789F4DC2A9F53
+  academic-research-suite/SKILL.md: A6C2F5A52DE6512C43A011C0A6BD500B8C260DEB19497B18CED99718B0873F4F
+scientific_identity:
+  llvm_commit: ba5bccfe01368f76e74d6ff4c35f1330e155b4ba
+  source_archive_sha256: 935971AA08E67E6F97BEC82207B444E2D92CAD78C8D9BE10F99DECD060E72472
+  target: riscv32-unknown-elf
+  features: rv32imac_zcmp
+  abi: ilp32
+  optimization: O2
+  exact_object: SAME_RV32_MACHINEFUNCTION__BEHAVIOR__PSABI__CFI_AND_UNWIND
+  exclusions: [dynamic_alloca, stack_realign, shadow_call_stack, save_restore_libcall, dedicated_frame_pointer]
+witness:
+  ir: runs/preclaim/witness.ll
+  fixed_call: clobber
+  fixed_values: ['%x', '%y']
+  fixed_return: x_plus_y
+  plan_p: CSR_s0_s1__rlist_ra_s0_s1__stack16__no_spill
+  plan_s: CSR_s0__rlist_ra_s0__stack32__spill_at_0sp
+candidate:
+  implementation: scripts/zcmp_frontier_planner.py
+  interface_bound_w: 4
+  atomic_action: JOINT_PRE_RA_IDENTITY_MAPPING__LEGAL_ZCMP_PREFIX__NATIVE_SPILL__FRAME_CFA_CFI_CONTINUATION
+  native_continuation: exact_commit_llc__MachineVerifier__llvm_mc__ld_lld__objdump__readobj
+current_union_grid:
+  arm_count: 18
+  frozen_file: scripts/run_union_grid.ps1
+  result: runs/preclaim/current_union_grid/results.json
+  factors: [default, greedy, basic, fast, regalloc_hints, target_cost_per_use, csr_cost_scale, csr_first_time_cost, shrink_wrap]
+preclaim_claim_bearing_observation_started: false
+scientific_revision_consumed: false
+stageb_authorized: false
+

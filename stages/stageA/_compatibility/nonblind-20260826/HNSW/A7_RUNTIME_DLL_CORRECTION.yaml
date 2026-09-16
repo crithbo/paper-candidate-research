@@ -1,0 +1,17 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A7-RUNTIME-DLL
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A6_handoff.yaml, sha256: B9347938A0196EE3535194EF028DB406977379305ACC1AFB2B5EB1EDD636474F}, {path: resources/build/hnswlib-ninja-a6/test_updates.exe, sha256: 4F4834960EE79118F675562D80FC0978B670DF5DBE9971EC3CE0DE57B364CBAD}]
+dependency_analysis: {tool: llvm-objdump, missing_runtime_class: LLVM_MINGW_CXX_RUNTIME, required_assignment_local_dlls: [libc++.dll, libunwind.dll], system_api_dlls: [KERNEL32.dll, api-ms-win-crt-*]}
+only_change: copy_exact_existing_assignment_local_runtime_DLLs_from_toolchain_bin_to_test_updates_directory
+sources:
+  - resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/libc++.dll
+  - resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/libunwind.dll
+destination: resources/build/hnswlib-ninja-a6
+allowed_command_sequence:
+  - {id: A7S0, command: verify_source_DLL_hashes_and_destination_absence, stop_on_nonzero: true}
+  - {id: A7S1, command: copy_two_exact_DLLs_once, stop_on_nonzero: true}
+  - {id: A7S2, command: rerun_existing_test_updates_executable_once, stop_on_nonzero: true}
+prohibitions: [rebuild, source_edit, alternate_runtime, system_DLL_install, global_PATH_change, scientific_probe_before_fidelity]
+scientific_revision_consumed: false

@@ -1,0 +1,3 @@
+# UNIQUE_OPPORTUNITY_FAMILIES
+
+All six families passed novelty-name/cross-lane screening against the frozen registry and have natural recovery carriers and finite potential oracles: Ceph PG states/object versions; HDFS block reports/leases; Cassandra partition/hint traces; InnoDB redo/undo logs; MongoDB oplog/rollback history; BookKeeper ledger entries/fencing epochs. Full cost respectively includes recovery I/O/network, metadata/coordination, latency, memory, normal-path impact and exact recovered observable state. No row has a same-object union-external whole atomic action beyond native recovery/scheduling, so none advances.

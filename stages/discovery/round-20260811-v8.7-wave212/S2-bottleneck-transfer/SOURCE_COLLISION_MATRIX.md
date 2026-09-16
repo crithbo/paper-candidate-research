@@ -1,0 +1,12 @@
+# Source and collision matrix — Wave212
+
+| Family | Current first-party source / stock checker | Whole union and action-gap result | Natural carrier + finite full-cost test | Decision |
+|---|---|---|---|---|
+| eBPF | [kernel verifier](https://www.kernel.org/doc/html/latest/bpf/verifier.html), [bpf(2)](https://www.kernel.org/pub/linux/docs/man-pages/book/man-pages-6.17.pdf) | Clang/libbpf/BTF/load attributes/verifier; no source-pinned union-external semantics-preserving access constructor | Versioned kernel selftest program history; compile + load/verify + behavior/readback + CPU/RSS/bytes/temp | `NOT_ADMITTED_UNFROZEN` |
+| Rust `.rmeta` | [rmeta](https://doc.rust-lang.org/stable/nightly-rustc/rustc_metadata/rmeta/index.html), [metadata fs](https://doc.rust-lang.org/stable/nightly-rustc/rustc_metadata/fs/index.html) | encoder/header/lazy tables/decoder/locator and atomic writer; current commit/action union incomplete | Public Cargo workspace revisions; encode + dependent decode/compile + CPU/RSS/bytes/temp | `NOT_ADMITTED_UNFROZEN` |
+| MLIR bytecode | [MLIR bytecode](https://mlir.llvm.org/docs/BytecodeFormat/), [MLIR verifier](https://mlir.llvm.org/docs/Diagnostics/) | writer/reader/dialect/version/verify surface; no legal whole divergence frozen | Versioned upstream dialect tests; lower/write + parse/verify/read + CPU/RSS/bytes/temp | `NOT_ADMITTED_UNFROZEN` |
+| FlatBuffers | [C++ guide](https://flatbuffers.dev/languages/cpp/), [upstream](https://github.com/google/flatbuffers) | schema/builder/vtable/offset/verifier union; repack/schema/config actions prohibited | Public schema/message revision history; build + verify/read + CPU/RSS/bytes/temp | `NOT_ADMITTED_UNFROZEN` |
+| Iceberg | [Iceberg spec](https://iceberg.apache.org/spec/) | snapshot/manifest writers/readers/planning/maintenance/catalog configuration; no source-pinned outside action | Versioned table snapshot history; write/update + plan/scan/validate + CPU/RSS/bytes/temp | `NOT_ADMITTED_UNFROZEN` |
+| SQLite B-tree | [SQLite file format](https://www.sqlite.org/fileformat2.html), [integrity check](https://www.sqlite.org/pragma.html#pragma_integrity_check) | writer/page/B-tree/WAL/journal/reader/integrity union not fully pinned | Public database mutation history; update/checkpoint + integrity/query/read + CPU/RSS/bytes/temp | `NOT_ADMITTED_UNFROZEN` |
+
+No generic proof compression, postprocessor, format transition, controller/cache or sampling verifier was admitted. No current-source absence was asserted where a source/action union could not be fully frozen.

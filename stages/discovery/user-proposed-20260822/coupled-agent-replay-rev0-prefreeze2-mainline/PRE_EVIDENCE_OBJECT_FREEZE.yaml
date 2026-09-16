@@ -1,0 +1,78 @@
+schema_version: coupled-agent-replay-pre-evidence-object-freeze-v1
+assignment_id: MAINLINE-20260822-COUPLED-AGENT-REPLAY-PREFREEZE2-TRANSPORT
+topic_id: COUPLED-AGENT-REPLAY-REV0
+disposition: PRE_EVIDENCE_EXACT_OBJECT_FREEZE_SEALED
+sealed_at: 2026-08-22T11:40:44.7716228+08:00
+scientific_inference_allowed: false
+stage0_authority: false
+
+selection_integrity:
+  selection_rules_frozen_before_requests: true
+  outcome_or_availability_filter_used: false
+  collision_or_novelty_material_used: false
+  prior_s3_blocker_used_only_as_transport_context: true
+
+agent:
+  project: OpenHands
+  official_repository: https://github.com/OpenHands/OpenHands
+  branch_selector: refs/heads/main resolved exactly once by official GitHub API
+  commit_sha: 4bf8dd3aaf1217916b2ce8a6f9168fa7633a26f8
+  tree_sha: 2d8abc2cd08afe0fe80ebaa31c8f31892e20a4fe
+  commit_signature_verified_by_github: true
+  earlier_official_page_commit: ab23be62ad724fe83483036a0900bed7b7859166
+  version_drift_treatment: TELEMETRY_ONLY__API_RESPONSE_AT_FROZEN_SELECTOR_WINS
+
+model:
+  repository_id: Qwen/Qwen2.5-Coder-7B-Instruct
+  revision: c03e6d358207e414f1eca0bb1891e29f1db0e242
+  tokenizer_revision: c03e6d358207e414f1eca0bb1891e29f1db0e242
+  license: apache-2.0
+  architecture: Qwen2ForCausalLM
+  weight_downloaded: false
+
+benchmark:
+  dataset_id: princeton-nlp/SWE-bench_Verified
+  revision: c104f840cc67f8b6eec6f759ebc8b2693d585d4a
+  split: test
+  instance_count_verified: 500
+  unique_instance_count_verified: 500
+  selection_rule: ascending Unicode code-point order, first 16, no replacement or filtering
+  selected_task_count: 16
+  selected_task_file: FIXED_TASK_LIST.txt
+  selected_task_file_sha256: 32729224C6BA9EF3A2D47AD86FBB7E7993350D3C0B0A88D0F684A015A0EC240D
+  selected_task_file_utf8_bytes: 368
+  pinned_parquet_sha256: A45B1FE4E2F0C8390B2B2938AC83E92ED5979000856808F3679C07812E9E6DCD
+  pinned_parquet_bytes: 2096679
+  pinned_viewer_pages_match_unpinned_telemetry_byte_for_byte: true
+
+state_boundary:
+  definition: Immediately after the first native OpenHands tool action has completed and its observation has been incorporated into agent state, before the next model call.
+  tasks_without_boundary: Retain in the fixed task list and mark the branch pair structurally unexecutable; do not replace the task.
+
+interventions:
+  I0:
+    canonical_text: "Continue with the frozen native OpenHands policy and context unchanged."
+    utf8_bytes: 71
+    sha256: 5193E683046753A6E27E3DC428283682D816F8FBDA7E2ED2C0303E12B62C9D8C
+  I1:
+    delivery: Append once to the next decision context after the frozen boundary, then continue with otherwise identical native semantics.
+    canonical_text: "Before finishing, run the repository's relevant tests, inspect every failure, and revise the patch when a failure is attributable to the patch. Do not use hidden evaluator information."
+    utf8_bytes: 184
+    sha256: 5A593F28B4AFDDCEC69581DE412F3B1986B430AE57B1EA1CC6233231C0590A4A
+
+decoding:
+  temperature: 0.6
+  top_p: 0.95
+  top_k: 0
+  max_new_tokens_per_model_call: 4096
+  native_terminal_semantics: absorbing
+
+evaluator:
+  identity: SWE-bench Verified stock patch evaluator associated with the frozen dataset revision
+  hidden_evaluator_visibility_to_agent: forbidden
+  execution_in_this_assignment: false
+
+claim_boundary:
+  object_only: true
+  no_collision_novelty_quality_or_stage0_claim: true
+  next_permitted_step: FRESH_INDEPENDENT_DISCOVERY_COLLISION_AND_MECHANISM_REVIEW

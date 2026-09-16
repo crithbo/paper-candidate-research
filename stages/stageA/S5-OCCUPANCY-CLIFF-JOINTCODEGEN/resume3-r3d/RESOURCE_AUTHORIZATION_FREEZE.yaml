@@ -1,0 +1,66 @@
+schema_version: s5-resource-stagea-r3d-authorization-v1
+frozen_at: 2026-08-11T16:55:00+08:00
+lane_id: CANDIDATE-EXECUTION-LANE-2
+assignment_id: RESOURCE-STAGEA-L2-20260811-S5-OCCUPANCY-CLIFF-JOINTCODEGEN-RESUME3-R3D
+topic_id: S5-OCCUPANCY-CLIFF-JOINTCODEGEN
+write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume3-r3d
+write_directory_confirmed_absent_before_creation: true
+cross_assignment_contamination: false
+queue_pre_read: false
+authorizations:
+  exact_build: LLVM-EXACT-COMMIT-MINIMAL-BUILD-BATCH-20260811-R3D
+  bootstrap_reuse: RESOURCE-BASELINE-BOOTSTRAP-REUSE-20260811-R3A
+  reserve_fallback: USER-DIRECTED-RESERVE-FALLBACK-20260811-R3H
+  reserve_fallback_owner_action_allowed: false
+frozen_controls:
+  AGENTS.md: B7122A5ACC5CF02A602988548E7464BF03362059293B083796BA1687D2CFAC73
+  plan.md: 9E27DA1DF73D16088D672D33762B78C047AF753C3F0BF1AAB5041C045E8C1C3B
+  registry.yaml: BAB980E7A7BF8D1E283196C5BD73A16D49641FC623AE90DFF1BF7E35151D4AA8
+  rules/ROLE_CANDIDATE_OWNER.md: 96601A060F56B44B95BCBCC4F234E3B107238D4C4655A535679DE88A8D3B3FDC
+  verification: PASS_4_OF_4
+upstream_integrity:
+  stage0_closing_manifest_sha256: EE297A0FC8DE689B433AF0BA4F4FFC75E09875644214271E271E49F579E4D5D5
+  stage0_closing_manifest_verification: PASS_16_OF_16
+  prior_r2a_handoff_sha256: 5729CCCC781F300335C1B4A0FC1150D48D0C72CCF7C5B76866060FF98BBF5568
+  prior_r2a_manifest_sha256: FA8C45EDF98C582645012341E24C7D172BA13CA4F21DD1C4BFE964A640DB9347
+  prior_r2a_manifest_verification: PASS_13466_OF_13466
+exact_resources:
+  llvm_repository: https://github.com/llvm/llvm-project
+  llvm_commit: 1f112d62e1fa2c4f1a04887abd72da1ed61cf791
+  required_tools: [llc, FileCheck]
+  occupancy_requirement: EXACT_TOOL_OR_CAPABILITY_EQUIVALENCE_AUDIT__NO_PROXY
+  natural_repository: https://github.com/ROCm/rocm-examples
+  natural_commit: 269e9068d6fd6e68b1cc5a76eb77744f88af42ec
+  natural_alternative: 8_TO_16_COMPLETE_NATURAL_AMDGPU11_MIR
+finite_routes:
+  official_acquisition_methods_max: 3
+  clean_builds_max: 2
+  source_patch_allowed: false
+  route_order:
+    - OFFICIAL_GITHUB_CODELOAD_EXACT_COMMIT_ARCHIVE
+    - OFFICIAL_GITHUB_GIT_FILTERED_EXACT_COMMIT
+    - USER_OR_MAINLINE_REGISTERED_OFFICIAL_IMMUTABLE_BUNDLE_IF_PRESENT
+resource_limits:
+  storage_bytes: 12884901888
+  cpu_hours: 8
+  gpu: false
+  exclusive_device: false
+  system_install: false
+  global_environment_mutation: false
+  stageb: false
+  automation: false
+bootstrap:
+  role: BUILD_BOOTSTRAP_ONLY__NOT_CLAIM_TOOL
+  clang_path: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/revision1-resume2-stagea/tools/llvm-mingw-20260616-ucrt-x86_64/bin/clang.exe
+  clang_sha256: A8B7A614EEADD9105F814BE3701A7F312CDA4CEA51751B75B408C16100C94E85
+  cmake_path: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/revision1-resume2-stagea/tools/python-packages/cmake/data/bin/cmake.exe
+  cmake_sha256: DE9A9266F8065AAAC2BC0ED0A12D1114FBFCB6945FED8F1BA897291786C32BA6
+  ninja_path: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/revision1-resume2-stagea/tools/python-packages/ninja-1.11.1.4.data/scripts/ninja.exe
+  ninja_sha256: 9EE2FC6BC8C0ACD1DE6E6DCADF009C0598E6336646B87CFB5ED2918604B81597
+claim_boundary:
+  resource_smoke_and_preclaim_pass_required: true
+  claim_bearing_before_pass: false
+  resource_failure_evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  resource_failure_consumes_scientific_revision: false
+  resource_failure_allows_scientific_stop: false
+

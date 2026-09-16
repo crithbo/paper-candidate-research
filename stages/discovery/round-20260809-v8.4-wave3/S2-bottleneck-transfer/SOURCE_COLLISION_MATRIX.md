@@ -1,0 +1,13 @@
+# Source and collision matrix — S2 Wave 3
+
+| Anchor / observed bottleneck transfer | Limitation or future-work-shaped action subtracted first | Current same/adjacent mechanism | Residual tested | Disposition |
+|---|---|---|---|---|
+| [PIMDAL](https://arxiv.org/abs/2504.01948): local PIM database operators reduce CPU–memory movement, leaving explicit memory management and limited communication between UPMEM compute units. | A generic plan that merely makes PIM intermediate exchange or explicit memory movement faster. This is the limitation sentence itself, not an independently discovered mechanism. | [PID-Comm](https://arxiv.org/abs/2404.08871) provides PIM collective communication patterns and optimized implementations for commodity PIM DIMMs. | Query-plan-controlled intermediate ownership/materialization before cross-DPU aggregation. | `DROP—NO_FINITE_NONABSORBED_SAME_OBJECT_RESIDUAL`. The transfer action is already a collective mechanism; an ownership policy without an independently observable invariant is a scheduler/wrapper. No fair PIMDAL-on-PID-Comm natural-trace baseline or full-cost contract was found. |
+| [UPMEM Unleashed](https://arxiv.org/abs/2510.15927): after kernel improvements, host–PIM transfers become sensitive to server NUMA placement. | NUMA-aware allocation/transfer placement as a standalone optimization. | The same paper implements NUMA-aware PIM allocation API extensions and reports the transfer effect. | A generic host–PIM placement scheduler. | `DIRECT_SUBTRACT`. It repeats the published action with changed packaging; no N1/N2/N3 decision structure remains. |
+| [PIM or CXL-PIM?](https://arxiv.org/abs/2511.14400): explicit staging in disjoint-address PIM versus unified-address CXL-PIM creates interface-dependent performance regimes. | Changing interface model or using CXL placement to eliminate PIM staging. | The paper itself frames the interface trade-off through real-PIM measurements and trace-driven CXL modeling. Wave 1 already eliminated the CXL object space and it is not reused here. | A unified cross-interface transport/ownership planner. | `DROP—OBJECT_DRIFT_AND_WAVE1_EXCLUSION`. It changes the object/platform and would evade, rather than meet, same-object comparison. |
+
+## Decision audit
+
+`DIRECT_FATAL` is deliberately not asserted for every adjacent work: none was needed. The only new lead fails earlier because it has no bounded, independently nonabsorbed decision variable. This is a structural selection result, not a statement that every possible PIM system idea is known.
+
+No terminal registry topic is revived, including `COH-REGION-LIFECYCLE`; no Wave 1 CXL, MoE-communication, or decode-launch object is reintroduced.

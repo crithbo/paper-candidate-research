@@ -1,0 +1,69 @@
+schema_version: discovery-screening-ledger-v1
+assignment_id: DISCOVERY-S3-20260824-SOURCE103-LLM-VLA-STRATEGY-V1
+lane_id: DISCOVERY_S3
+generated_at: 2026-08-24T02:45:00+08:00
+resource_actions: []
+network_evidence_persisted_in_workspace: false
+funnel_counts:
+  seed_non_evidence: 10
+  selected_rq_candidate: 4
+  selected_locator: 4
+  evidence_qualified_raw: 0
+  candidate_grade_deep_review: 0
+  clean_stage0_brief: 0
+query_roles:
+  anchor:
+    - https://github.com/vllm-project/vllm/blob/main/vllm/v1/core/block_pool.py
+    - https://github.com/vllm-project/vllm/blob/main/vllm/config/compilation.py
+    - https://arxiv.org/abs/2606.30560
+    - https://github.com/uw-syfi/TraceLab
+  current:
+    - https://docs.vllm.ai/en/latest/configuration/optimization/
+    - https://github.com/vllm-project/vllm/blob/main/docs/design/torch_compile.md
+    - https://github.com/vllm-project/vllm/blob/main/docs/design/cuda_graphs.md
+    - https://sgl-project-sglang-93.mintlify.app/concepts/radix-attention
+  contrary:
+    - https://jxing.me/pdf/unicache-sigmetrics26.pdf
+    - https://arxiv.org/abs/2601.11589
+    - https://arxiv.org/abs/2604.06664
+  escape:
+    - https://arxiv.org/abs/2312.07104
+screen_rows:
+  - rq_id: S3-103-RQ01
+    status: LOCATOR_ONLY
+    primary_reason: NATURAL_TOKEN_LEVEL_REPLAY_CARRIER_NOT_CLOSED__NO_FROZEN_NON_GENERIC_VLLM_ACTION
+    evidence:
+      - https://github.com/vllm-project/vllm/blob/main/vllm/v1/core/block_pool.py
+      - https://sgl-project-sglang-93.mintlify.app/concepts/radix-attention
+      - https://github.com/uw-syfi/TraceLab
+    scientific_inference: NONE
+  - rq_id: S3-103-RQ02
+    status: EXCLUDED_BEFORE_RAW
+    primary_reason: CURRENT_NATIVE_OWNERSHIP_RECLAMATION_ACTIONS_ABSORB_UNFROZEN_GENERIC_RESIDUAL
+    evidence:
+      - https://github.com/vllm-project/vllm/blob/main/vllm/v1/core/block_pool.py
+      - https://sgl-project-sglang-93.mintlify.app/concepts/radix-attention
+    scientific_inference: NO_STAGE0_CANDIDATE_CREATED
+  - rq_id: S3-103-RQ03
+    status: EXCLUDED_BEFORE_RAW
+    primary_reason: CURRENT_DYNAMIC_SHAPE_COMPILATION_AND_CUDAGRAPH_CAPTURE_PLUS_RECENT_LENGTH_AWARE_WORK_ABSORB_UNFROZEN_ACTION
+    evidence:
+      - https://github.com/vllm-project/vllm/blob/main/vllm/config/compilation.py
+      - https://github.com/vllm-project/vllm/blob/main/docs/design/torch_compile.md
+      - https://github.com/vllm-project/vllm/blob/main/docs/design/cuda_graphs.md
+      - https://arxiv.org/abs/2601.11589
+      - https://arxiv.org/abs/2604.06664
+    scientific_inference: NO_STAGE0_CANDIDATE_CREATED
+  - rq_id: S3-103-RQ04
+    status: EXCLUDED_BEFORE_RAW
+    primary_reason: CURRENT_PUBLIC_TRACE_AND_PREFIX_CACHE_EVALUATION_ALREADY_COVER_BROAD_MEASUREMENT_ENDPOINT
+    evidence:
+      - https://arxiv.org/abs/2606.30560
+      - https://github.com/uw-syfi/TraceLab
+      - https://tracelab.cs.washington.edu/exp/prefix_cache/cache_hit_ratio/
+      - https://jxing.me/pdf/unicache-sigmetrics26.pdf
+    scientific_inference: NO_STAGE0_CANDIDATE_CREATED
+remaining_bounded_debt:
+  - A public, replayable token-level natural carrier for an exact vLLM-specific prefix-topology action was not established for RQ01.
+  - This is a bounded admission gap, not a resource failure or a scientific STOP.
+final_disposition: ZERO_CLEAN_BRIEFS__NO_STAGE0_DISPATCH

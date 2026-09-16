@@ -1,0 +1,59 @@
+schema_version: "discovery-wave-handoff-v8.4"
+assignment_id: "DISCOVERY-S6-20260809-V8.4-WAVE1"
+lane: "DISCOVERY-S6-DIRECT-ALGORITHM-SOFTWARE"
+opportunity_lens: "O7_DIRECT_ALGORITHM_OR_SOFTWARE_ADVANCE"
+completed_at: "2026-08-09"
+timezone: "Asia/Shanghai"
+
+production_method:
+  accepted_method_revision: "v2"
+  calibrated_handoff: "stages/discovery/_method-backtests/O7_DIRECT_ALGORITHM_SOFTWARE/v2/handoff.yaml"
+  calibrated_status: "CALIBRATED"
+  registry_quality_interpretation: "v8.1"
+  prohibited_method: "two-axis-v8.2r2"
+  prohibited_method_reason: "TLS blocker; not independently completed and not production-authorized"
+
+result:
+  status: "COMPLETE_ZERO_PROPOSALS"
+  candidate_count: 0
+  proposed_stage0_count: 0
+  quality_tier_counts:
+    TIER_A_Q1_POTENTIAL: 0
+    TIER_B_Q2_VIABLE: 0
+    BELOW_Q2_STOP: 0
+  rationale: "No scanned object retained a same-object nontrivial residual together with current fair strong baselines, public natural evidence, full-cost scope, and a finite reproducible Stage A killer."
+
+screened_families:
+  - family: "heterogeneous AllGather schedule synthesis"
+    disposition: "DROP"
+    reason: "Current same-object schedule synthesis absorbs the residual; remaining selector framing is prohibited."
+  - family: "sparse LU pivot/fill-aware column reordering"
+    disposition: "DROP"
+    reason: "Current factorization-aware and learned permutation methods absorb the concrete action; no distinct constraint structure was frozen."
+  - family: "distributed LSM read/compaction policy"
+    disposition: "DROP"
+    reason: "Current scheduler is direct competition and prior S6 leaf-local object is terminal."
+  - family: "CPU SpMV sparse reordering"
+    disposition: "DROP"
+    reason: "Only score/parameter variants remained after current locality and order-generation methods."
+
+artifacts:
+  discovery_log: "DISCOVERY_LOG.md"
+  source_collision_matrix: "SOURCE_COLLISION_MATRIX.md"
+  hash_manifest: "HASH_MANIFEST.sha256"
+
+compliance:
+  writes_outside_assignment_directory: false
+  stage0_directories_created: 0
+  stagea_directories_created: 0
+  stageb_directories_created: 0
+  formal_experiments_started: false
+  subagents_created: false
+  terminal_candidates_reopened: false
+  ai_readiness_used_as_stop_reason: false
+  source_cutoff: "2026-08-09"
+
+lane_return:
+  requested_status: "IDLE_REUSABLE_AWAITING_MAINLINE"
+  next_action: "Mainline may reuse this long-lived S6 lane for a new frozen assignment."
+

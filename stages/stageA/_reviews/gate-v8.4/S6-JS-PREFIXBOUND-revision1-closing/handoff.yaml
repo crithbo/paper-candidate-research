@@ -1,0 +1,140 @@
+schema_version: stagea-independent-gate-closing-handoff-v1
+topic_id: S6-JS-PREFIXBOUND
+assignment_id: STAGEA-G2-20260809-S6-JS-PREFIXBOUND-R1-CLOSING
+review_role: LONG_LIVED_STAGEA_GATE_LANE_2
+source_stage: STAGEA_REVISION1
+review_kind: REVISION1_CLOSING
+revision_gate: CONTRACT_FAITHFUL_COSTED_NONVACUITY_GATE
+
+input_freeze:
+  initial_handoff_sha256: 7E5F1C6B76714F3817DD348B1C57A70D6EFFCF9E9EC795E5D6F242E3FE7404F8
+  initial_manifest_sha256: 536A2B96A2216EA8525C6EBEBC9ED5AB3F51C60475611BD97BE4FCEB5323C5ED
+  initial_gate_handoff_sha256: 9C43D3BF0C652BAE44A1B1D7C0B8D1B4C37BC4D98E5F772E00C64496B2D6A654
+  initial_gate_manifest_sha256: DF2705EAB4683D4848041C68FD258FFAE33994A1F0C49B1333733E36FDE4553F
+  revision_handoff_sha256: 73B1A6DFC20B3862299C59B454D1B416E8B55C2B05EE2AABD2779AB6E6F2652B
+  revision_manifest_sha256: 0F3D3515ADCFD6DF110E0A2C3421895518B6AFF0501BC4EF91875FFAD0A1C36A
+  revision_contract_sha256: 3F0C3E5C169060E3B3CCD1281972141F93E6A78894E670CF0287B23741310EBD
+  job_4a_sha256: C80E515F37A633ADCA3AB45BBD5CBA20E760C80A71D7841B51E64154B1008065
+  job_4a_bytes: 450
+
+mechanical_verification:
+  initial_manifest_verified: 13/13
+  initial_gate_manifest_verified: 7/7
+  revision_manifest_verified: 12/12
+  primary_replay_nonvolatile_exact_match: true
+  candidate_executed_by_reviewer: false
+  validator_executed_by_reviewer: false
+  stageb_executed: false
+
+decision: PASS_RECOMMENDED
+quality_tier: TIER_B_Q2_VIABLE
+owner_tier_accepted: false
+owner_tier_reason: OWNER_TIER_A_EXCEEDS_CURRENT_EVIDENCE
+stagea_probe_support: PRELIMINARY_SUPPORT
+evidence_ceiling: FINITE_CONTRACT_FAITHFUL_COSTED_NONVACUITY_WITH_NATURAL_STRUCTURE_ONLY
+novelty_route: N2
+confidence: 0.88
+
+gate_closure:
+  formal_instance_count: 19440
+  exact_states_including_job: 404479
+  full_vector_optimum_mismatches: 0
+  compact_optimum_mismatches: 0
+  compact_equivalence_mismatches: 0
+  future_equivalence_counterexamples: 0
+  bound_checks: 404479
+  bound_overestimates: 0
+  full_vector_absorbed: true
+  compact_pivot_triggered: true
+  compact_pivot_attempts: 1
+  selected_representation: COMPACT_EQUIVALENT_CLASS_ID_ARRAY
+  compact_retained_residual_bytes: 601569
+  compact_retained_residual_fraction: 0.0287428433631643
+  compact_work_residual_units: -64616558
+  optimizer_speedup_supported: false
+  logical_work_reduction_supported: false
+  process_ram_reduction_supported: false
+  persistent_canonical_payload_reduction_supported: true
+
+natural_evidence:
+  workload: JOB_4A
+  exact_states: 29
+  compact_states: 24
+  exact_transitions: 44
+  compact_transitions: 41
+  exact_optimum_preserved: true
+  ceiling: NATURAL_GRAPH_AND_EQUIVALENCE_STRUCTURE_ONLY_NOT_NATURAL_COST_OR_PERFORMANCE
+
+stageb_kill_gates:
+  - UNBOUNDED_FUTURE_EQUIVALENCE_AND_ADMISSIBILITY
+  - DIRECT_OR_SCALABLE_COMPACT_CHARACTERIZATION_WITHOUT_ABSORPTIVE_FULL_VECTOR_CONSTRUCTION
+  - EXECUTABLE_DPOMEGA_SAME_OBJECT_FIDELITY
+  - NATURAL_JOB_TPCDS_SYNS_FULL_COST_TIME_PROCESS_MEMORY_AND_RETAINED_REPRESENTATION
+  - SCALE_TOPOLOGY_NO_GAIN_AND_LATEST_COLLISION_CLOSURE
+
+claim_ceiling:
+  supported:
+    - FINITE_FROZEN_NDV_OPTIMUM_PRESERVATION
+    - FINITE_COMPACT_FULL_VECTOR_EQUIVALENCE_REPRODUCTION
+    - ZERO_ENUMERATED_BOUND_OVERESTIMATES
+    - SMALL_DETERMINISTIC_CANONICAL_PERSISTENT_PAYLOAD_RESIDUAL
+    - JOB_4A_NATURAL_STRUCTURE_STATE_RESIDUAL
+  unsupported:
+    - OPTIMIZER_SPEEDUP
+    - LOGICAL_WORK_REDUCTION
+    - PROCESS_RSS_REDUCTION
+    - CHEAP_OR_USEFUL_BOUND
+    - DPOMEGA_EXECUTABLE_FIDELITY
+    - NATURAL_COST_OR_DBMS_PERFORMANCE
+    - UNBOUNDED_THEOREM
+    - GLOBAL_NOVELTY
+    - TIER_A_READINESS
+
+revision_usage:
+  stagea_revision_consumed: true
+  mechanism_pivot_consumed: true
+  additional_stagea_revision_allowed: false
+
+resource_status:
+  blocked_user_action_required: false
+  reviewer_request_timeout_was_scientific_blocker: false
+  blocker: null
+
+authorization:
+  recommended_mainline_state: PENDING_USER_STAGEB_REVIEW
+  pending_user_stageb_review_set_by_reviewer: false
+  stageb_user_approval_id: null
+  stageb_authorized: false
+  formal_large_scale_experiment_authorized: false
+  registry_mutation_authorized_for_reviewer: false
+
+lane_release:
+  state_after_mainline_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE
+  assignment_context_cleared_after_delivery: true
+  no_preread_of_next_assignment: true
+
+outputs:
+  gate_report:
+    path: GATE_REPORT.md
+    sha256: B2BC4AD0B7E8CF57AD2FEF454361BBC793CC5394E6BD5C0945C2371BCB91DD65
+  mechanical_intake:
+    path: MECHANICAL_INTAKE.md
+    sha256: D1E01D893E0A28F1DBDDE8CCA24F35E61EDCEAFB7B91D143E5AF287620807EA4
+  precommitment:
+    path: PRECOMMITMENT_AND_TRIGGER_MATRIX.md
+    sha256: 4831A1CE7D3AF1B3574D9D103E92F61E6F899171AA61875DC13D23C0B5753FB6
+  static_audit:
+    path: STATIC_REVISION_AND_COST_AUDIT.md
+    sha256: 9A4D34ACE29AAA54BFA26980CB44AA476320FD68E6AD015EC040199EB06A4729
+  user_packet:
+    path: USER_STAGEB_REVIEW_PACKET.md
+    sha256: 390B21B913AEF09B72ADD91F391486C6A149C88D39B154780D4F9ABECF0A7406
+  hash_manifest: HASH_MANIFEST.sha256
+
+mainline_actions_requested:
+  - VERIFY_CLOSING_MANIFEST
+  - ACCEPT_INDEPENDENT_GATE_HANDOFF
+  - REGISTER_PASS_RECOMMENDED_AT_TIER_B_Q2_VIABLE
+  - MOVE_TO_PENDING_USER_STAGEB_REVIEW_ONLY_AFTER_MECHANICAL_ACCEPTANCE
+  - KEEP_STAGEB_AUTHORIZED_FALSE_UNTIL_EXPLICIT_USER_APPROVAL
+  - RELEASE_LANE_AS_IDLE_REUSABLE_AWAITING_MAINLINE

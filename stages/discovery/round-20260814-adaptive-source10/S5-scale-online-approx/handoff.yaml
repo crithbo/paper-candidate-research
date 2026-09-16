@@ -1,0 +1,42 @@
+assignment_id: DISCOVERY-S5-20260814-ADAPTIVE-SOURCE10
+lane: S5_SCALE_ONLINE_APPROX
+method: V8_7_CANONICAL
+discovery_claim_pack_mode: OFF
+write_directory: stages/discovery/round-20260814-adaptive-source10/S5-scale-online-approx
+completed_at: '2026-08-14T00:00:00+08:00'
+result: COMPLETE_ZERO_PROPOSALS
+summary_zh: >-
+  本轮从固定检查器合同出发，完成六条对象的去重筛查和两条深审；Jasmin 与
+  Fiat-Crypto 均有潜在目标特定构造价值，但未能以当前一手源码闭合完整动作并集、
+  双合法输出与动作差异见证，故诚实保留为 UNFROZEN，未建议 Stage0。其余四条为
+  重复身份、缺固定语义检查器或通用求解器对象，未进入候选。
+canonical_dispositions:
+  - signature: JASMIN_CRYPTO_PROGRAM__FIXED_SOURCE_ASM_CT_CONTRACT__BOUNDED_RECOURSE_REGISTER_STACK_CONSTRUCTION__COMPILE_CHECK_COST
+    disposition: NOT_ADMITTED_UNFROZEN
+    reason: CURRENT_UNION_AND_NATIVE_TWO_OUTPUT_WITNESS_NOT_SOURCE_CLOSED
+  - signature: FIAT_CRYPTO_FIELD_ARITHMETIC__FIXED_MODULUS_OPERATION_C_API__PROOF_PRESERVING_JOINT_REWRITE_CARRY_CONSTRUCTION__GEN_COMPILE_PROOF_COST
+    disposition: NOT_ADMITTED_UNFROZEN
+    reason: CURRENT_WHOLE_CODEGEN_UNION_NOT_SOURCE_CLOSED
+  - signature: P4C_BMV2_PIPELINE__P4_TO_JSON_P4INFO__PIPELINE_CONSTRUCTION__COMPILE_TEST_COST
+    disposition: DROP_PRE_RAW__NO_FIXED_SEMANTIC_CHECKER
+  - signature: EVERPARSE_FORMAT_PARSER_FORMATTER__FSTAR_GENERATION
+    disposition: EXCLUDED_REPEAT_IDENTITY__SOURCE04
+  - signature: VALE_ASSEMBLY__FSTAR_VERIFIED_GENERATION
+    disposition: EXCLUDED_REPEAT_IDENTITY__SOURCE04
+  - signature: CRYPTOLINE_BITVECTOR_PROOF__SOLVER_PROOF_SEARCH
+    disposition: DROP_PRE_RAW__GENERIC_SOLVER_OBJECT
+counts:
+  scoped_families: 6
+  candidate_grade_deep_reviews: 2
+  propose_stage0: 0
+  briefs: 0
+scientific_boundary:
+  no_resource_or_readiness_negative_inference: true
+  no_current_absence_claim: true
+  no_stage0_created: true
+  no_experiment_or_build: true
+next_step_for_mainline: >-
+  No Stage0 action.  A future assignment may source-pin either retained project's full
+  action/configuration union before reopening a same-object construction question; that
+  would be a new finite closure task, not a claim that the action is currently absent.
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,15 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-P1A1-ABSOLUTE-COMPILER
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P1_handoff.yaml, sha256: 2144FEB2C7D093833DF598EEA7E4AC2308A82C2FDF7C71B0983D97E56C12B5D0}, {path: resources/src/probe/hnsw_minimal_probe.cpp, sha256: 338E83A6A73FCB37C01B24D4074352B65229D3A5E3FA4F343FC542307551C96D}]
+only_change: fresh_compile_budget_with_absolute_clang_path_and_assignment_working_directory
+working_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/HNSW
+compiler: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/HNSW/resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/clang++.exe
+allowed_command_sequence:
+  - {id: P1A1S0, command: absolute_clangxx_compile_existing_harness_once_from_frozen_assignment_cwd, stop_on_nonzero: true}
+  - {id: P1A1S1, command: run_existing_probe_cell_1_once, stop_on_nonzero: true}
+  - {id: P1A1S2, command: run_existing_probe_cell_2_once, stop_on_nonzero: true}
+  - {id: P1A1S3, command: run_existing_probe_cell_3_once, stop_on_nonzero: true}
+prohibitions: [harness_edit, author_source_edit, input_or_parameter_change, compiler_substitution, project_root_cwd, retry_after_failure, production_or_stageB_action]
+scientific_revision_consumed: false

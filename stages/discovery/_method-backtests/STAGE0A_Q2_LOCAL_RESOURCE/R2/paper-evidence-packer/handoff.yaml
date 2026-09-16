@@ -1,0 +1,12 @@
+schema: paper-evidence-packer-handoff-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+status: COMPLETE_READY_FOR_MAINLINE_ACCEPTANCE__OFFLINE_EVIDENCE_CEILING
+summary_cn: 已从冻结本地输入生成12个正控与4个预登记证据缺陷负控的capsule清单、conditional blind neutral packet及auditor-only gold key。所有论文页码/表图/定理定位均在本地输入中缺失，已诚实标为EVIDENCE_MISSING且未联网补抓。
+outputs:
+  capsules_manifest: PAPER_EVIDENCE_CAPSULES_MANIFEST.yaml
+  blind_packet: BLIND_PILOT_NEUTRAL_PACKET.yaml
+  auditor_key: AUDITOR_GOLD_KEY.yaml
+counts: {positive_capsules: 12, negative_capsules: 4, exact_locators: 0, missing_locators: 12, local_supplements: 4, packer_scores: 0, local_runs: 0, network_fetches: 0}
+evidence_ceiling: OFFLINE_LOCAL_LEDGER_AND_SUPPLEMENT_ONLY__NO_PAPER_PAGE_LOCATOR__NO_PROJECT_REPRODUCTION_CLAIM
+next_gate: MAINLINE_MECHANICAL_ACCEPTANCE_THEN_DECIDE_IF_EVIDENCE_MISSING_PERMITS_GATE_OR_REQUIRES_EXTERNAL_SOURCE_AUTHORIZATION
+forbidden_actions_observed: {build_probe_experiment: false, scoring: false, gold_reveal_to_gate: false, production_state_change: false, StageB: false}

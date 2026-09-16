@@ -1,0 +1,77 @@
+schema: v8-exact-build-cost-freeze-v1
+assignment_id: SAFE-PREFLIGHT-L3-20260815-V8-RESUME2
+exact_commit: c635f0d160b6e988b5ea5a907511a2929beb5d5e
+exact_tree: 98d4847ec4f1a50d0b1c0323e23d02db5d53d7e9
+platform: windows-x64-native
+source:
+  official_git: https://chromium.googlesource.com/v8/v8.git
+  exact_license_sha256: 6AB33AF8774A0F396EE3AEEB761E3229057682D6F9FA7F572E390C2CB3A6E509
+  license: V8_BSD_STYLE_PLUS_THIRD_PARTY_NOTICES
+  dependency_rule: EXACT_COMMIT_DEPS_CLOSURE__EVERY_THIRD_PARTY_REVISION_AND_LICENSE_TO_BE_INVENTORIED
+  mutable_current_documentation_is_not_an_exact_dependency_pin: true
+official_build_route:
+  status: FROZEN_COMMAND_PLAN_ONLY__NOT_EXECUTED
+  process_local_environment:
+    DEPOT_TOOLS_WIN_TOOLCHAIN: '0'
+    PATH: ASSIGNMENT_LOCAL_DEPOT_TOOLS_PREPENDED_FOR_CHILD_PROCESS_ONLY
+    TEMP: resources/tmp
+    TMP: resources/tmp
+    TMPDIR: resources/tmp
+    XDG_CACHE_HOME: resources/cache
+  commands_not_executed:
+    - fetch v8
+    - git -C resources/src/v8 checkout --detach c635f0d160b6e988b5ea5a907511a2929beb5d5e
+    - gclient sync -D
+    - gn gen resources/build/v8-win-x64 --args=<FROZEN_EFFECTIVE_ARGS>
+    - gn args resources/build/v8-win-x64 --list
+    - ninja -C resources/build/v8-win-x64 d8 mksnapshot cctest
+  required_outputs: [d8.exe, mksnapshot.exe, cctest.exe, snapshot_blob.bin]
+  required_effective_args_source: V8-20260811-R3F1/GN_ARGS_AND_DEPENDENCIES.yaml
+  required_exact_arg_audit: ALL_FORMAT_AFFECTING_AND_SNAPSHOT_TOOLCHAIN_ARGS
+windows_prerequisite_status:
+  official_current_route_metadata:
+    visual_studio: VS_2026_WITH_DESKTOP_CXX_AND_MFC_ATL
+    minimum_ram: 8_GIB__MORE_THAN_16_GIB_RECOMMENDED
+    minimum_ntfs_free_space: 100_GIB
+  r3f1_specific_sdk_record:
+    visual_studio: VS_2026
+    windows_sdk: 10.0.28000.2270
+    debugging_tools_min: 10.0.26100.3323
+  documentation_drift:
+    current_head_search_observation: VS_2026_GE_17_0_0__WINDOWS_SDK_10_0_26100_7705
+    disposition: DO_NOT_SELECT_SDK_FROM_MUTABLE_HEAD_DOC_ALONE__AUDIT_EXACT_CHECKOUT_BUILD_SCRIPTS_AND_EFFECTIVE_TOOLCHAIN
+  local_status: MISSING
+cost_request:
+  network_ceiling_bytes: 37580963840
+  network_ceiling_gib: 35
+  workspace_high_water_bytes: 128849018880
+  workspace_high_water_gib: 120
+  cpu_ceiling_seconds: 86400
+  cpu_ceiling_hours: 24
+  wall_ceiling_seconds: 21600
+  wall_ceiling_hours: 6
+  logical_processors_max: 32
+  estimate_basis:
+    - R3F1_OFFICIAL_ROUTE_AND_HOST_PREFLIGHT
+    - OFFICIAL_V8_FETCH_GCLIENT_GN_NINJA_WORKFLOW
+    - OFFICIAL_WINDOWS_100_GIB_MINIMUM_FREE_SPACE
+  exact_transfer_bytes_known_before_sync: false
+  reason: GCLIENT_DEPS_CLOSURE_AND_GIT_PACK_RESPONSE_SIZES_ARE_ROUTE_STATE_DEPENDENT
+automatic_threshold_comparison:
+  cumulative_download_limit_bytes: 536870912
+  persisted_data_limit_bytes: 2147483648
+  cpu_limit_seconds: 3600
+  wall_limit_seconds: 7200
+  cumulative_download_exceeded: true
+  persisted_data_exceeded: true
+  cpu_exceeded: true
+  wall_exceeded: true
+  single_response_under_256_mib_guaranteed: false
+decision:
+  route_feasible_on_host_capacity: true
+  route_authorized_in_this_assignment: false
+  must_stop_before_download_or_build: true
+  blocker_or_request: MAINLINE_REVIEW_OF_LARGE_RESOURCE_REQUEST
+  scientific_inference: none
+  claim_bearing_observations: 0
+  stageb_authorized: false

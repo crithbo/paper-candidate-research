@@ -1,0 +1,22 @@
+schema: phase-closeout-retention-v1
+assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-GUARD-COVER-CACHE-A0
+closeout_kind: A0_READY_HANDOFF
+lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+retain:
+  - {path: resources/downloads/torch-2.13.0-cp312-cp312-win_amd64.whl, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: exact artifact}
+  - {path: resources/env/t/torch/_C/_dynamo/eval_frame.pyi, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: source-pinned native hook interface}
+  - {path: resources/env/t/torch/include/torch/csrc/dynamo/extra_state.h, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: invalidation and MRU hook source}
+  - {path: resources/env/t/torch/include/torch/csrc/dynamo/cache_entry.h, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: CacheEntry invalidation source}
+  - {path: resources/build/packet, class: RESUME_CRITICAL_UNTIL_A1_DECISION, reason: exact cells certificates ownership and packet}
+  - {path: resources/build/control/schema/result.json, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: sole nonclaim control}
+  - {path: resources/env/t, class: RESUME_CRITICAL_UNTIL_A1_DECISION, reason: exact PyTorch environment}
+  - {path: resources/env/s, class: RESUME_CRITICAL_UNTIL_A1_DECISION, reason: exact solver environment}
+cleanup_candidates_after_accepted_handoff:
+  - {path: resources/cache, files: 156, logical_bytes: 132857123, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, metadata_index_sha256: A5FC5B3E189534669902DBD2F8B7674F05B431362BDCA9C6CD38FDDA96BE0378}
+  - {path: resources/tmp, files: 0, logical_bytes: 0, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/archives, files: 0, logical_bytes: 0, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+deletion_gate: MAINLINE_ACCEPTED_HANDOFF_PLUS_DOWNSTREAM_INPUT_ACCEPTANCE_CONTAINMENT_REPARSE_AND_ACTIVE_PROCESS_CHECKS
+scientific_state_effect: NONE
+

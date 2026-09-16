@@ -1,0 +1,30 @@
+schema: rule-audit-model-routing-handoff-v1
+audit_id: RULE-AUDIT-20260826-MODEL-REASONING-COST-ROUTING-R1
+created_at: '2026-08-26'
+from_role: RULE_AUDIT_SENTRY
+to_role: MAINLINE
+status: READY_FOR_IMMEDIATE_SAFE_BOUNDARY_APPLICATION
+user_authorization: USER_REPLAN_ALL_PAPER_PROJECT_SESSIONS_COST_20260826
+scope: <LOCAL_PROJECT_ROOT>_ONLY
+shared_files_modified: false
+production_scientific_gates_changed: false
+policy:
+  default: gpt-5.6-terra/medium
+  mechanical: gpt-5.6-luna/low
+  claim_critical: gpt-5.6-terra/high
+  final_independent_review: gpt-5.6-sol/high
+  xhigh_or_max_default_allowed: false
+rollout:
+  active_turns: DO_NOT_INTERRUPT__APPLY_NEXT_SAFE_FOLLOWUP
+  idle_or_not_loaded_threads: DO_NOT_WAKE__APPLY_ON_REAL_ASSIGNMENT
+  explicit_route_required: true
+  inherited_desktop_default_allowed: false
+requested_mainline_actions:
+  - patch model-routing sections in shared role rules
+  - add a registry routing revision and per-role next-assignment routes
+  - apply gpt-5.6-terra/medium to the next PACKER follow-up after its active A1 turn
+  - apply gpt-5.6-terra/medium to future MAINLINE control turns where an override is available
+  - never wake dormant lanes only to acknowledge this change
+  - preserve current double-blind forbidden-input boundaries
+next_gate: MAINLINE_MECHANICAL_ACCEPTANCE_AND_SAFE_PATCH
+

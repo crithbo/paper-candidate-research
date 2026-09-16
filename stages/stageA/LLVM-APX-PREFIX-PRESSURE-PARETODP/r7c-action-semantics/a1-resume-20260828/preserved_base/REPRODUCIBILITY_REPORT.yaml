@@ -1,0 +1,23 @@
+schema: reproducibility-report-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7C-ACTION-SEMANTICS-BASELINE-ORACLE-CORPUS-CLOSURE
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+context_sha256: 25B66A5E76CE61AC1ADB185A91B6A4E9B707FA7FB0C3BBC0C134403F43F37D9D
+bootstrap_ack_sha256: 102ACA217BD9A7DAC38BFF24AD06056554AAC8208DBAF0D27352988F445D48C3
+bootstrap_acceptance_sha256: E574C27084029FF98F8FF20234CA0FBB90AEECBFA0CC0FB3745073380B5CFC18
+start_authorization_sha256: CF5966A952343DDACAE9342FCA66A410CC6E802AD419F97E7829F1E3177EC325
+run_index:
+  - {id: C0_SIX_ROOT_COPY, classification: RESOURCE_COPY_SAME_TOPIC, attempts: 6_OF_6, child_launches: 0, result: PASS_CONTENT_TREE_EXACT}
+  - {id: C1_STATIC_COMPILE, classification: STATIC_COMPILE_NO_MODULE_EXECUTION, attempts: 1_OF_1, child_launches: 1, exit_code: 0, result: PASS}
+  - {id: C2_NATIVE_CATALOG, classification: PRECLAIM_CONTROL_NON_CLAIM_BEARING, attempts: 1_OF_1, child_launches: 1, exit_code: 0, result: PASS_14_ROWS_SOURCE_BACKED}
+  - {id: C2_HANDLER_COVERAGE, classification: PRECLAIM_METHOD_PIVOT_CONTROL, attempts: 1_OF_1, child_launches: 1, exit_code: 0, result: PASS_14_OF_14_AND_MUTATIONS}
+  - {id: C3_NATIVE_PARSER, classification: NOT_LAUNCHED, wrapper_attempts: 1_OF_1, child_launches: 0, result: FAIL_CLOSED_PRELAUNCH_WRAPPER_COMMAND_NOT_FOUND}
+  - {id: C4_R6_ORACLE_AND_TINY_GATE, classification: NOT_RUN, result: ORDERED_FIRST_FAILURE_STOP}
+  - {id: C5_CORPUS_FREEZE, classification: NOT_RUN, result: ORDERED_FIRST_FAILURE_STOP}
+  - {id: C6_R8_PLAN, classification: NOT_RUN, result: ORDERED_FIRST_FAILURE_STOP}
+pivot_audit: {budget: 1_OF_1_STAGEA, consumed: true, consumption_event: C2_HANDLER_COVERAGE_PROCESS_START, scientific_revision_consumed: false, second_pivot_or_retry: false}
+retry_audit: {automatic_retries: 0, child_command_retries: 0, source_edits_after_first_result: 0, result_based_edits: 0, result_based_exclusions: 0, reserve_backfills: 0}
+command_integrity: {changed_handler_commands_launched: 1, native_parser_commands_launched: 0, independent_oracle_commands_launched: 0, total_assignment_child_commands_launched: 3, wrapper_failures_before_child: 1}
+budgets: {network_bytes_used: 0, resource_root_logical_bytes: 512107220, resource_root_logical_bytes_max: 1610612736, max_parallel_processes_observed: 1, max_parallel_processes_allowed: 2, selected_or_reserve_tool_invocations: 0, claim_bearing_runs: 0, gpu_hours_used: 0, exact_cpu_and_wall: UNAVAILABLE__NOT_ESTIMATED}
+forbidden_actions: {modify_r7_or_upstream: NOT_RUN, natural_or_claim: NOT_RUN, selected_or_reserve_tool: NOT_RUN, scientific_revision: NOT_RUN, state_transition: NOT_RUN, cleanup: NOT_RUN, stageb: NOT_RUN}
+active_LLVM_processes_at_closeout: 0
+result: REPRODUCIBLE_C0_C2_PASS__C3_PRELAUNCH_FAIL__NO_RETRY_OR_SCIENTIFIC_INFERENCE

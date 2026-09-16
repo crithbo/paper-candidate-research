@@ -1,0 +1,33 @@
+schema: mlperf-rank-validity-a1-execution-binding-v1
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-A0
+start_sha256: FD07F541B9D598A6567A3E1A958C4E3931FD3F2EA42DE99D2485C1168CED09EE
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+runner: {path: resources/src/mlperf_rank_claim_runner.py, bytes: 17020, sha256: 106AF7A114F1E5E24E4B3EA79FDB0A77E01EA6A52718778E9C7B171EC229430A}
+frozen_inputs:
+  v5.1: {path: resources/downloads/v5.1-summary_results.json, sha256: 68C19B46CF5A87F535BEAE81154D61C3D981FE850AE3D09AF530C769B6E0CC68, role: DEVELOPMENT}
+  v6.0: {path: resources/downloads/v6.0-summary_results.json, sha256: 52FA813A27834E8DE38ECA9FD381688DF1CF9CD95020D2BD9E951F6CC16384AE, role: HELD_OUT_NO_REFIT}
+  contract: {path: A0_PRECLAIM_CONTRACT.yaml, sha256: 92140F68D925254464CFD038A4BB3178E352F5FB1BE0E5DC6E88E102223F4295}
+  source_lock: {path: OFFICIAL_SOURCE_LOCK.yaml, sha256: 48A01E71D14DC15157971A1DEAD919E3A44733BB2839E0188F8EBECECC64DE49}
+frozen_semantics:
+  pairing_key_order: [version, ID, Submitter, Availability, Category, Suite, System, Platform, UsedModel, Model, Accuracy, Software, operating_system, has_power]
+  missingness_buckets: [missing_required_field, ambiguous_inferred_flag, unsupported_scenario, unit_mismatch, duplicate_measured, duplicate_inferred, measured_without_inferred, inferred_without_measured, formula_source_statistic_unavailable]
+  materiality_threshold_relative_error: 0.02
+  denominator: all_edge_rows_and_all_exact_eligible_pairs_in_each_pinned_release
+  cross_release_pooling_or_refit: false
+  bootstrap: {seed: 20260830, reps: 2000, purpose: mean_absolute_relative_error_95ci}
+static_compile:
+  attempts: 1
+  bytecode_write: false
+  stdout: resources/logs/a1-static/stdout.txt
+  stderr: resources/logs/a1-static/stderr.txt
+claim_run:
+  processes: 1
+  retries: 0
+  argv: [<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, -B, resources/src/mlperf_rank_claim_runner.py, --v51, <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources/downloads/v5.1-summary_results.json, --v51-sha, 68C19B46CF5A87F535BEAE81154D61C3D981FE850AE3D09AF530C769B6E0CC68, --v60, <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources/downloads/v6.0-summary_results.json, --v60-sha, 52FA813A27834E8DE38ECA9FD381688DF1CF9CD95020D2BD9E951F6CC16384AE, --contract, <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/A0_PRECLAIM_CONTRACT.yaml, --contract-sha, 92140F68D925254464CFD038A4BB3178E352F5FB1BE0E5DC6E88E102223F4295, --source-lock, <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/OFFICIAL_SOURCE_LOCK.yaml, --source-lock-sha, 48A01E71D14DC15157971A1DEAD919E3A44733BB2839E0188F8EBECECC64DE49, --output-dir, <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources/logs/a1]
+  cwd: <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830
+  timeout_seconds: 600
+  stdout: resources/logs/a1-process/stdout.txt
+  stderr: resources/logs/a1-process/stderr.txt
+  outputs: [resources/logs/a1/claim_result.json, resources/logs/a1/pair_missingness_ledger.json, resources/logs/a1/formula_rank_summary.json, resources/logs/a1/process_receipt.json]
+env: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONNOUSERSITE: '1'}
+forbidden: [network, retry, backfill, result_aware_filter, formula_change, pair_key_change, missingness_change, threshold_change, denominator_change, cost_dimension_removal]

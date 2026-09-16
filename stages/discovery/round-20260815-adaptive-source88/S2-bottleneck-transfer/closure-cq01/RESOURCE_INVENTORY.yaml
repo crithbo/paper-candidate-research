@@ -1,0 +1,34 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+identity:
+  topic_id: JAVASCRIPTCORE_BYTECODE_OSR_STATE_MAP
+  assignment_id: SOURCE-CLOSURE-SOURCE88-S2-CQ01-JSC-BYTECODE-OSR-STATE-MAP-V1
+  stage_or_mode: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+  run_id: S2-88-CQ01
+  unique_write_directory: stages/discovery/round-20260815-adaptive-source88/S2-bottleneck-transfer/closure-cq01
+  resource_root: stages/discovery/round-20260815-adaptive-source88/S2-bottleneck-transfer/closure-cq01/resources
+  inventory_path: stages/discovery/round-20260815-adaptive-source88/S2-bottleneck-transfer/closure-cq01/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T10:26:00+08:00
+  finalized_at: 2026-08-15T10:32:00+08:00
+root_measurement: {logical_bytes: 222888, allocated_bytes: null, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true}
+required_directories: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+redirect_preflight:
+  status: PASS__PROCESS_LOCAL_REDIRECTS_VERIFIED_FOR_INVOKE_WEBREQUEST
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: powershell Invoke-WebRequest
+      process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+      explicit_output_root: resources/downloads
+      preflight_snapshot: resources/logs/resource-inventory/preflight-v1.yaml
+resource_envelope: {network_bytes_max: 50331648, stored_bytes_max: 16777216, cpu_hours_max: 0.25, gpu_hours_max: 0, wall_seconds_max: 1800, attempts_max: 6, network_bytes_used: 218352, stored_bytes_used: 222888, attempts_used: 6}
+entries:
+  - {relative_path: resources/downloads/01-webkit-repository.json, class: OFFICIAL_API_REPOSITORY_RESPONSE, logical_bytes: 5981, source_uri: https://api.github.com/repos/WebKit/WebKit, version_or_commit: main, sha256: B068DD1FBFD81EEC955D241AFC0A4CCD9423C1C6BD2D6BCBB033B830337944AC, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/downloads/02-webkit-main-commit.json, class: OFFICIAL_API_PIN_RESPONSE, logical_bytes: 20284, source_uri: https://api.github.com/repos/WebKit/WebKit/commits/main, version_or_commit: f157dd8681ebabd624b90a8069080b87c7938187, sha256: 6A951D08A6636BBCB25C1A1A65E0CCA61DC0A9A587D64D12E269B78417DC0A3C, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {relative_path: resources/downloads/04-CodeBlock.cpp, class: CURRENT_SOURCE_LOCUS__CODEBLOCK_PROFILE_TIERING, logical_bytes: 153629, source_uri: https://raw.githubusercontent.com/WebKit/WebKit/f157dd8681ebabd624b90a8069080b87c7938187/Source/JavaScriptCore/bytecode/CodeBlock.cpp, version_or_commit: f157dd8681ebabd624b90a8069080b87c7938187, sha256: 264CE45B1B31602F7511A6BA9ED343304DD0F91CA74D6F97468527D471D25ABD, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {relative_path: resources/downloads/05-DFGOSRExit.cpp, class: CURRENT_SOURCE_LOCUS__OSR_EXIT_STATE_RECONSTRUCTION, logical_bytes: 38458, source_uri: https://raw.githubusercontent.com/WebKit/WebKit/f157dd8681ebabd624b90a8069080b87c7938187/Source/JavaScriptCore/dfg/DFGOSRExit.cpp, version_or_commit: f157dd8681ebabd624b90a8069080b87c7938187, sha256: 74D048767344B6A66D18927BF1B9DA0F1A8D59D2A3184BA1AD4005B2909AEF48, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {relative_path: resources/logs/acquisition-attempt-ledger.yaml, class: ATTEMPT_LEDGER, logical_bytes: 2914, source_uri: local_assignment_log, sha256: A32C8E0EF74A3344EF94619194C1F21652E44271EB48CBD0855F41A90FD8A9F2, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+shared_assets_consumed: []
+external_system_dependencies: []
+cleanup: {owner: MAINLINE, authorized_descendants: [], performed: false, deleted_entries: [], deleted_logical_bytes: 0, performed_at: null, recoverability: null}
+validation: {resource_root_exact_match: true, root_under_workspace: true, forbidden_root_check: true, reparse_traversal_check: true, required_directories_present: true, persisted_resources_inventoried: true, envelope_within_limit: true, claim_critical_content_hashes_present: true, result: FINAL_PASS__SIX_BOUNDED_CALLS_WITH_PATH_DRIFT_TELEMETRY}

@@ -1,0 +1,31 @@
+topic_id: QCOMP-ERRREF
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: "TOSA/MLIR 量化 source-target lowering 在冻结 signedness、scale、zero-point、rounding、saturation、overflow、accumulator 和 requantization 下的 quantitative refinement"
+main_claim: "compositional error-contract algebra 可证明有意非 bit-exact 的量化 rewrite，并相对 monolithic SMT/conformance 基线降低长链求解成本且生成精确 witness"
+academic_value_score: 60
+ai_executability_score: 28
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.90
+strongest_baseline:
+  - "First-Class Verification Dialects for MLIR + artifact"
+  - "MLIR-TV"
+  - "Practical Formal Verification for MLIR Programs"
+  - "TOSA reference/conformance + monolithic bit-vector SMT"
+decisive_evidence:
+  - "冻结 4-5 个 quantized ops 与 contract 的 executable semantics"
+  - "Mechanism A 与 relational bit-vector baseline 的 proof/unknown/witness/query cost"
+  - "rounding、zero-point、clamp order、overflow、double-rounding fault coverage"
+unresolved_risks:
+  - "通用 verification dialect 可能已能以同等成本表达同一 contract"
+  - "saturation/rounding correlation 可能使局部 summary 过松"
+  - "小型 op 子集可能不足以形成可推广论文故事"
+next_killer_gate: "72 小时内用 B 建立 bit-vector oracle 并实现 A 的 4-op summary；若 A 无 headroom，保持对象/指标 pivot B+slicing/CEGAR；若仍只是小例 checker 则停止"
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: "Discovery/Stage0：CPU 上的正式语义、SMT proof/witness 与公开 MLIR/TOSA artifact；不含部署性能"
+execution_authority: "AI 可在公开源码与本地 CPU/solver 完成核心路径；升级和正式项目写入由主线/用户决定"
+file_hashes:
+  topic_brief.md: 60f9e123d3dba332a757c12658e14dbb7fa2f21e0e525169743cf113a12bc68a
+  source_log.md: 3427cdbdd41916fcd67c5fa00afa384c641c9178cd6780d9e007a39c4296e0fd

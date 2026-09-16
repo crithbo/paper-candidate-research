@@ -1,0 +1,31 @@
+schema: identity-blind-stage0a-packer-l2-assignment-v1
+assignment_id: BACKTEST-PACKER-L2-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+role: DISCOVERY_BACKTEST_PACKER
+lane_id: BACKTEST-PACKER-L2
+lane_thread_id: 01a034d0-e533-7d21-aeeb-ac8465688a7e
+role_isolation: {previous_role: BACKTEST_EXECUTOR, R3_reviewer_role_after_packing: forbidden, R3_stage0_or_stagea_reviewer_output: forbidden}
+topic_id: STAGE0A_IDENTITY_BLIND_EVIDENCE_BACKTEST_R3
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2
+resource_root: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/resources
+status: BOOTSTRAP_ACK_PENDING
+inputs:
+  r3_protocol: {path: stages/rule-audit/RULE-AUDIT-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-BACKTEST-R3/BACKTEST_PROTOCOL.md, sha256: 6E92420D4014D7A26D0E32382A3E56D19973245B1C9EA5A10FD4172336139C3E}
+  accepted_24_pool: {path: stages/rule-audit/RULE-AUDIT-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-BACKTEST-R3/CANDIDATE_SOURCE_POOL.yaml, sha256: 22CF0D0C9CC1C7DB1317DA085D323EDFBC1394C67E116B2FC1AD29A9F5E7D3AC}
+  request_contract: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer/PER_CANDIDATE_REQUEST_RESPONSE_CONTRACT.yaml, sha256: 31746DD752A601180254E552EC41CCCA426C7240E66E2894D26215F613C2E59D, reinterpret_log_root: resources/logs/preflight}
+  l1_release: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer/MAINLINE_LANE_RELEASE_RECEIPT.yaml}
+phase_A:
+  initialize_standard_assignment_local_resources_and_inventory: true
+  exact_requests: 24
+  query_open_max_calls: 48
+  output: CANDIDATE_PREFLIGHT_LEDGER.yaml
+phase_B:
+  selection_rule: REMOVE_ONLY_EXCLUSION_OR_PREFLIGHT_FAILURE__LOW_MEDIUM_HIGH_RISK__UPPERCASE_SHA256_NORMALIZED_KEY__LEXICAL_KEY__FIRST_3_QUALIFIED_PER_STRATUM__NEXT_SAME_STRATUM_ONLY
+  final_positive_count: 12
+  negative_controls: [SAME_OBJECT_DIRECT_ABSORPTION, PROXY_CHANGE_OBJECT, WEAK_COMPARATOR_OR_NONCANONICAL, FULL_COST_OMITTED]
+  official_evidence_attempts_after_phase_A_max: 48
+  output: [PACKER_SELECTION_LEDGER.yaml, PACKER_EVIDENCE_CAPSULE_MANIFEST.yaml, STAGE0_NEUTRAL_PACKET.yaml, STAGEA_ANONYMIZED_PACKET.yaml, AUDITOR_IDENTITY_COLLISION_AND_GOLD_KEY.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+resource_limits: {stored_bytes_max: 805306368, source_attempts_max: 96, code_or_artifact_downloads_max: 0}
+network_allowlist: [official_publisher, official_proceedings, author_page, arxiv, appendix, AE_metadata]
+forbidden_actions: [code_download, artifact_download, binary_download, build, probe, experiment, production_candidate_registration, StageB, result_aware_replacement]
+reviewer_secrecy: [identity, title, authors, venue, DOI, locator, gold_label, expected_disposition]
+model_route: {model: gpt-5.6-terra, thinking: medium}

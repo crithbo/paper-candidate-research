@@ -1,0 +1,36 @@
+assignment_id: STAGE0-P1-20260814-S4-DCGM-MLPERF-COUNTER-COMPATIBILITY-PRIMARY-V8.7
+mode: PRIMARY
+topic_id: S4-DCGM-MLPERF-COUNTER-COMPATIBILITY
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_QUEUED_AFTER_LLVM_GC_STATEPOINT
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source13-primary\S4-DCGM-MLPERF-COUNTER-COMPATIBILITY
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+quality_floor: TIER_B_Q2_VIABLE
+required_reads:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules\ROLE_STAGE0_REVIEW.md
+  - templates\STAGE0_REPORT.md
+  - templates\Q1_COMPARATOR_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source13\S4-objective-constraint\S4_DCGM_MLPERF_COUNTER_COMPATIBILITY.md
+  - stages\discovery\round-20260814-adaptive-source13\S4-objective-constraint\SOURCE_COLLISION_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source13\S4-objective-constraint\DISCOVERY_LOG.md
+  - stages\discovery\round-20260814-adaptive-source13\S4-objective-constraint\handoff.yaml
+input_hashes:
+  brief_sha256: B95C62AD4EDF75E1D9212C4753ED3C161AD71DA5D3E9F39B1B004D84057446CB
+  source_collision_matrix_sha256: 694D7E37411A38AF9ED7D995FC2580A0A119316C847863D49FB511EBF057E961
+  discovery_log_sha256: D491543492F733218C309F982D74CDA49CC17BF20069166B65E0F93F82D726E6
+  discovery_handoff_sha256: 84C2F7ABAA1594ED46CA6EB714872BCD97727CFCF3B109E3915D381753626C6F
+  discovery_manifest_sha256: BC6888B7F0DBE036C9F2DCCE40F7EA263E3B6B0C0D9107C15C4819A9E1B0777E
+independent_attack_requirements:
+  - Pin MLPerf workload, quality target, LoadGen scenario, SUT, GPU architecture, DCGM version and exact compatible-group versus automatic-multiplex measurement plans.
+  - Verify both plans are stock-native and preserve the same workload, quality and observation contract; account for host-engine, collection, analysis, wall energy, throughput and tail cost.
+  - Independently reconstruct current DCGM group-concurrency, multiplexing, sampling and zero-value behavior and determine whether current tools or CounterPoint already absorb the exact DCGM plus MLPerf claim.
+  - Require a versioned natural carrier, randomized repeated-window estimand, confound controls, held-out model-scenario-GPU falsifier and a consequence capable of changing a ranking, conclusion or benchmark design.
+  - Calibrate measurement-characterization or benchmark-dataset paper shape independently; no algorithmic-action requirement may be imposed merely because this is S4.
+forbidden: [implementation, experiment, benchmark_run, source_build, system_install, stageA, stageB, shared_control_write]
+required_outputs: [STAGE0_REPORT.md, Q1_COMPARATOR_MATRIX.md, SOURCE_AUDIT.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

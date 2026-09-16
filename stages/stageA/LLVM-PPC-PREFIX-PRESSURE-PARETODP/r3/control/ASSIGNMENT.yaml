@@ -1,0 +1,85 @@
+schema: candidate-preclaim-fidelity-assignment-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R3-PRECLAIM-F1-F5
+authorization_ids: [USER-PARALLEL-STAGEA-READY-CANDIDATES-20260825, USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825]
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+stage: STAGEA_PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r3
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r3/resources
+inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r3/RESOURCE_INVENTORY.yaml
+
+scientific_boundary:
+  exact_object: POWER10_PPC64LE_LINUX_ELFV2_MEDIUM_CODE_MODEL_PRE_FORM_MACHINEIR_DSO_LOCAL_OR_HIDDEN_NONPREEMPTIBLE_SYMBOL_FIXED_SEMANTICS_ALIASES_CALL_CLOBBERS_ABI_FRAME_UNWIND_AND_LINKER_INPUT
+  exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+  exact_contract_sha256: F36E8CD40E719A9CFEEFBB595EEE05A4FDEEDF490C0ABD6AF40C09D635895E82
+  candidate: PPC_TPD_TARGET_SPECIFIC_FUTURE_ACTION_QUOTIENT_AND_EXACT_BOUNDED_INTERFACE_PARETO_DP
+  guarantee: EXACT_PARETO_FRONTIER_FOR_FROZEN_BOUNDED_NATIVE_TRACE_GRAMMAR
+  claim_ceiling: PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY__NO_NATURAL_RUNTIME_OR_PERFORMANCE_CLAIM
+  claim_bearing_observation_allowed: false
+  scientific_revision_or_mechanism_pivot_authorized: false
+  owner_state_transition_authority: false
+  stageb_authorized: false
+
+upstream_resource_acceptance:
+  resource_assignment_id: STAGEA-L1-20260826-LLVM-PPC-R2-OFFICIAL-REDIRECT-COMPATIBLE-EXACT-TOOLCHAIN
+  handoff_sha256: 58C5608F87D089FCB989B32A609ED0A53E0427DC94FB2CCCFBDCDD1BDE1686D5
+  mainline_acceptance_sha256: 71367D87EA2D46C13FFBDA71F5B7A4720A78BAC06C88AAF54CD5955FDCE12261
+  cleanup_receipt_sha256: 0D2322BB88CCD37B18FBEC8550A16980E321CDC805A5486A0864EA6CDB53F0BF
+  postcleanup_inventory_sha256: B73B969F826BFB32FD403068419BAC23611A70A8A0E3F0A4A348D20FD8FD0F45
+  package_manifest_sha256: 39CF76C8DA10D645F26789C3FF1A4E3A47839C70DBDAC3D5A4AED73C6792094C
+  package_entries: 132
+  required_tools: 7
+  runtime_dlls: 2
+  nonclaim_smoke: PASS
+
+same_topic_input_transfer:
+  tool_bundle: {source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain, destination: resources/env/ppc-toolchain, files: 133, logical_bytes: 244073942, package_manifest_sha256: 39CF76C8DA10D645F26789C3FF1A4E3A47839C70DBDAC3D5A4AED73C6792094C}
+  r1_source_inputs:
+    source_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r1/resources/downloads
+    files:
+      - {filename: llvm-commit-f127b4c19c63b0492fb924934e37e032c17ea35b.json, bytes: 6641, sha256: E64F34464C58A1356359629FBBE629E40975B494A009AED5821CF0CDF7923492}
+      - {filename: llvm-project-f127b4c19c63b0492fb924934e37e032c17ea35b.tar.gz, bytes: 280166423, sha256: C7871896611513E3E850818A7E5C6B0C600BE60BA46260105602EB9BFBD651CF}
+  source_modify_or_delete_allowed: false
+  cross_topic_access_allowed: false
+  network_allowed: false
+  selective_source_extraction: EXACT_REQUIRED_PPC_LLD_CODEGEN_MC_RELOCATION_UNWIND_AND_FLAG_LOCI_ONLY
+
+ordered_preclaim_obligations:
+  F1_EXACT_DIRECT_WITNESS:
+    required: [dso_local_or_hidden_non_GOT_R_PPC64_PCREL34_direct_PLDpc, PADDI_plus_LD, frozen_call_and_memory_contract, exact_bytes_and_typed_relocation, two_deterministic_replays]
+  F2_NATIVE_VALIDATION:
+    required: [assembler, llvm_readobj_typed_relocation_and_addend, llvm_objdump_form, ld_lld_output, MachineVerifier, DWARF_and_unwind_audit, observable_semantics_equality]
+  F3_COMPLETE_NATIVE_UNION:
+    required: [current_LLVM_form_selection, greedy_and_PBQP_RA, coalescing_spills_frame, default_on_preemit_and_late_peepholes, MC_and_linker_relaxation, finite_legal_configuration_grid, equal_information_and_same_object]
+  F4_TINY_NATIVE_ORACLE:
+    required: [complete_assignment_local_PPC_TPD_action_grammar, exhaustive_legal_native_traces, labeled_successors_equal_quotient, frontier_and_merge_decision_equality, future_action_and_cost_preservation, certificate_checker, two_deterministic_replays]
+  F5_FULL_COST_CONTROL:
+    required: [tiny_witness_model_and_optimizer_CPU_wall_RSS, compile_link_verification_CPU_wall_RSS, object_and_text_bytes, typed_relocations, spills_copies_frame_CFI, static_uops, failures_and_fallback_costs]
+  pass_policy: ALL_F1_F5_PASS_BEFORE_ANY_SEPARATE_NATURAL_CLAIM_ASSIGNMENT
+
+strongest_fair_union: [LLVM_CURRENT_COMPLETE_AT_PIN, LLVM_LLD_FINITE_LEGAL_FORM_RA_CODING_LINK_GRID, FORM_FIXED_CURRENT_RA_ABLATION, FORM_AWARE_FIXED_CURRENT_RA_ABLATION, GENERIC_CP_ILP_UNISON_AUDIT_SUBTRACTOR, LABELED_EXACT_PARETO_DP, EXHAUSTIVE_MICRO_ORACLE_VALIDATION_ONLY]
+fairness_contract: SAME_MACHINEIR_INFORMATION_NATIVE_ACTIONS_ABI_CFI_UNWIND_LINKER_BUDGET_AND_FULL_COST
+forbidden_substitutes: [GOT_PLDPC_WITNESS, LOCAL_SWAP_PROXY, POSTLINK_EMITTER_PATCH, GENERIC_SOLVER_AS_CANDIDATE, CHANGED_ABI_BINDING_CODEMODEL_CFG_LINKER_OR_OBJECT_FORMAT, DERIVED_BYTE_PROXY]
+
+execution_contract:
+  assignment_local_complete_candidate_checker_and_harness_implementation_allowed: true
+  harness_build_attempts_max: 0
+  script_implementation_allowed: true
+  upstream_llvm_or_lld_source_patch_allowed: false
+  deterministic_replays: 2
+  automatic_retry: false
+  result_based_rerun_or_exclusion: false
+  natural_corpus_executed_count: 0
+  performance_or_full_cost_claim_comparison_allowed: false
+  F5_tiny_control_cost_measurement_allowed: true
+  run_monitoring: PROCESS_ALIVE_OUTPUT_GROWTH_TIMEOUT
+
+resource_localization: {policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97, required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs], every_write_under_resource_root: true, process_local_redirect_required: true, system_wsl_global_or_reparse_change_allowed: false}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, closeout_event: PPC_R3_PRECLAIM_HANDOFF_ACCEPTED, downstream_consumer: FUTURE_SEPARATE_PPC_NATURAL_CLAIM_ASSIGNMENT, post_close_retained_bytes_max: 805306368, cleanup_owner: MAINLINE, owner_cleanup_allowed: false}
+limits: {network_bytes_max: 0, resource_root_logical_bytes_max: 2147483648, cpu_seconds_max: 14400, wall_seconds_max: 28800, max_parallel_processes: 2, harness_build_attempts_max: 0, gpu_hours_max: 0}
+allowed_actions: [CREATE_STANDARD_RESOURCE_DIRS, COPY_AND_HASH_ACCEPT_ONLY_FROZEN_SAME_TOPIC_TOOL_AND_SOURCE_INPUTS, SAFE_SELECTIVE_EXTRACT_REQUIRED_SOURCE_LOCI, IMPLEMENT_COMPLETE_ASSIGNMENT_LOCAL_SCRIPT_CANDIDATE_AND_CHECKERS, RUN_ORDERED_F1_F5_CONTROL_NON_CLAIM_OBLIGATIONS, WRITE_CANONICAL_PRECLAIM_PACKAGE]
+forbidden_actions: [NETWORK, WSL, SYSTEM_OR_GLOBAL_CHANGE, REPARSE, CROSS_TOPIC_ACCESS, LLVM_OR_LLD_SOURCE_PATCH_OR_REBUILD, HARNESS_BINARY_BUILD, AUTOMATIC_RETRY, NATURAL_FUNCTION_OR_CORPUS, CANDIDATE_BASELINE_NATURAL_PERFORMANCE_OR_FULL_COST_CLAIM_RUN, SCIENTIFIC_PASS_STOP_RESERVE_INFERENCE, SCIENTIFIC_REVISION, MECHANISM_PIVOT, OWNER_STATE_TRANSITION, OWNER_CLEANUP, STAGEB]
+success_route: PRECLAIM_FIDELITY_PASS__WAIT_SEPARATE_NATURAL_CLAIM_ASSIGNMENT
+failure_route: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE__NEW_MAINLINE_DISPOSITION_REQUIRED
+expected_outputs: [BOOTSTRAP_ACK.yaml, SAME_TOPIC_PRECLAIM_INPUT_ACCEPTANCE.yaml, ENVIRONMENT_LOCK.yaml, PPC_NATIVE_ACTION_CATALOG.yaml, EXACT_DIRECT_WITNESS.yaml, NATIVE_VALIDATION.yaml, COMPLETE_NATIVE_UNION.yaml, TINY_NATIVE_ORACLE.yaml, FULL_COST_CONTROL.yaml, PRE_CLAIM_CONTRACT_FIDELITY_GATE.yaml, REPRODUCIBILITY_REPORT.yaml, RESOURCE_INVENTORY.yaml, PHASE_CLOSEOUT_RETENTION.yaml, RESUME_CAPSULE.yaml, handoff.yaml, HASH_MANIFEST.sha256]

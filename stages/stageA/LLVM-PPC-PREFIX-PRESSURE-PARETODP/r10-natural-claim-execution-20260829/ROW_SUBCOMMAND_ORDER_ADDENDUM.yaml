@@ -1,0 +1,18 @@
+schema: bounded-engineering-correction-addendum-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10-NATURAL-CLAIM-EXECUTION
+prior_handoff: handoff.yaml
+prior_handoff_sha256: 7648C74AACC45E711BE1317DD6080E697BC88C404CA79EAB56684B13F5AA1974
+prior_failure: EXECUTION_INTERFACE_MISSING_BLOCKER.yaml
+failure_class: ROW_SUBCOMMAND_ORDER_MISSING
+source_relocated_plan: RELOCATED_R10_EXECUTION_PLAN.json
+source_relocated_plan_sha256: C3087A086E4EE4EF5E5B6E14D15B04F38EF0D94E9397A3AC7E456CB668AE70E2
+source_contract: ../r10-natural-claim-contract-20260829/NATURAL_CLAIM_CONTRACT.yaml
+source_contract_sha256: 186EEEBD35CDCCC999014B1A59F8396A2977771C57BD5FB1827228303E451AC0
+preserved_resources: {files: 340, logical_bytes: 127698561, reparse_entries: 0, destination_copy_complete: true}
+authorized_actions:
+  - read only the frozen relocated row fields and referenced source implementation to derive their producer/consumer dependencies
+  - write ROW_SUBCOMMAND_ORDER_PLAN.yaml listing all 32 rows and every subcommand in one explicit dependency-respecting order per row
+  - write validation proving every referenced subcommand appears exactly once and checker/full_cost consume only produced outputs
+forbidden_actions: [resource_copy, resource_mutation, network, tool_run, natural_run, claim_run, retry, source_edit, command_or_input_substitution, result_based_exclusion]
+required_preservation: [RELOCATED_R10_EXECUTION_PLAN.json, EXECUTION_INPUT_COPY_MANIFEST.yaml, existing_340_file_resources, prior_handoff]
+next_action_after_acceptance: ADDENDUM_ACK_ONLY

@@ -1,0 +1,86 @@
+assignment_id: DISCOVERY-S3-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+master_assignment_id: DISCOVERY-V9-PROSPECTIVE-SHADOW-20260813-R16A
+lane: S3_NATURAL_STRUCTURE
+status: COMPLETE_ZERO_PROPOSALS
+terminal_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+mode_contract:
+  canonical_method: V8_7_AUTHORITATIVE
+  assignment_claim_pack_mode: SHADOW
+  shadow_method: DISCOVERY_CLAIM_PACK_V9_R0
+  shadow_changed_canonical_decision: false
+  shadow_changed_candidate_or_registry_state: false
+  shadow_changed_stage0_decision: false
+neutral_snapshot:
+  path: neutral-source-snapshot/SOURCE_SNAPSHOT.md
+  sha256: 8920ED1631295F899BAA62AA860311BFAB86EF75B59EBBF8B76FACE99236BEBA
+  captured_before_canonical: true
+canonical:
+  path: canonical-v8.7
+  manifest: canonical-v8.7/HASH_MANIFEST.sha256
+  canonical_completed_before_shadow: true
+  result: COMPLETE_ZERO_PROPOSALS
+shadow:
+  path: shadow-v9
+  manifest: shadow-v9/HASH_MANIFEST.sha256
+  noncanonical_only: true
+cross_lane_dedup:
+  callback_attempt: FAILED__TASK_IDENTIFIER_NOT_RESOLVABLE_IN_LOCAL_COLLABORATION_CHANNEL
+  required_mainline_check: true
+  accepted_unique_pending_mainline_confirmation:
+    - S3-R16A-F01-BIND-ZONE-JOURNAL
+    - S3-R16A-F04-TEX-FMT-MACRO-REGIME
+    - S3-R16A-F05-SYSTEMD-HWDB-CHURN
+    - S3-R16A-F06-SHARED-MIME-CACHE-CHURN
+families:
+  - id: S3-R16A-F01-BIND-ZONE-JOURNAL
+    signature: BIND9_DYNAMIC_ZONE__ZONEFILE_PLUS_JNL__STOCK_NAMED_REPLAY_TRANSFER_SEMANTICS__PREFIX_SUFFIX_UPDATE_LOCALITY__WHOLE_DUMP_RECONSTRUCTION__UPDATE_REPLAY_TRANSFER_STORAGE_CPU_RSS
+    canonical_disposition: STRUCTURAL_DROP_CONTROLLER_ONLY
+    shadow_disposition: STRUCTURAL_DROP_CONTROLLER_ONLY
+    source_action_correction: NONE
+    cost: update_replay_cpu_rss__ixfr_axfr_bytes__journal_zone_storage__dump_cpu_rss__lookup_transfer_latency
+    stability: 20_50_epoch_controlled_law_with_contiguous_heldout_falsifier
+    leakage_check: PASS__SAME_NEUTRAL_SNAPSHOT__NO_SHADOW_INPUT_IN_CANONICAL
+  - id: S3-R16A-F02-GETTEXT-CATALOG-CHURN
+    signature: GETTEXT_PO_TO_MO__STOCK_GETTEXT_LOOKUP_SEMANTICS__TRANSLATION_DOMAIN_CONTEXT_CHURN__WHOLE_CATALOG_CONSTRUCTION__BUILD_LOOKUP_STORAGE_CPU_RSS
+    canonical_disposition: EXCLUDED_REPEATED__CURRENT_UNION_ABSORPTION_KERNEL
+    shadow_disposition: EXCLUDED_REPEATED__CURRENT_UNION_ABSORPTION_KERNEL
+    source_action_correction: MAINLINE_WAVE260_WAVE266_ABSORPTION_KERNEL
+    counted_as_unique: false
+    leakage_check: PASS__SHADOW_DID_NOT_REVIVE_EXCLUDED_FAMILY
+  - id: S3-R16A-F03-GCC-PCH-INCLUDE-CHURN
+    signature: GCC_PCH_GCH__STOCK_GCC_PCH_ADMISSIBILITY_SEMANTICS__INCLUDE_GRAPH_CHURN__WHOLE_PCH_CONSTRUCTION__COMPILE_VALIDATION_STORAGE_CPU_RSS
+    canonical_disposition: EXCLUDED_REPEATED__CLANG_PCH_PCM_EQUIVALENT
+    shadow_disposition: EXCLUDED_REPEATED__CLANG_PCH_PCM_EQUIVALENT
+    source_action_correction: OBJECT_PROBLEM_ACTION_MECHANISM_GUARANTEE_EQUIVALENT_TO_CLANG_PCH_PCM
+    counted_as_unique: false
+    leakage_check: PASS__SHADOW_DID_NOT_REVIVE_EXCLUDED_FAMILY
+  - id: S3-R16A-F04-TEX-FMT-MACRO-REGIME
+    signature: WEB2C_TEX_FMT__STOCK_ENGINE_FORMAT_LOAD_SEMANTICS__MACRO_STATE_CHURN__WHOLE_FMT_CONSTRUCTION__BUILD_LOAD_CPU_RSS_STORAGE
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    source_action_correction: V9_EXPLICIT_LAW_ACTION_SEPARATION
+    cost: format_build_cpu_rss_temp__fmt_storage__engine_load_cpu_rss__typesetting_compatibility
+    stability: 20_50_release_controlled_law_with_heldout_tail
+    leakage_check: PASS__SAME_NEUTRAL_SNAPSHOT__NO_DECISION_CHANGE
+  - id: S3-R16A-F05-SYSTEMD-HWDB-CHURN
+    signature: SYSTEMD_HWDB_SOURCE_TO_BINARY__STOCK_UDEVADM_PROPERTY_LOOKUP__DEVICE_MODALIAS_PREFIX_CHURN__WHOLE_DATABASE_CONSTRUCTION__BUILD_LOOKUP_STORAGE_CPU_RSS
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    source_action_correction: REPLACEMENT_AFTER_CANONICAL_FREEZE__ACTION_UNION_UNCLOSED
+    cost: generator_cpu_rss_temp__binary_db_bytes__update_reload__property_lookup_cpu_rss__storage
+    stability: 20_50_tag_controlled_law_with_heldout_blocks
+    leakage_check: PASS__REPLACEMENT_CANONICAL_PRECEDES_SHADOW
+  - id: S3-R16A-F06-SHARED-MIME-CACHE-CHURN
+    signature: SHARED_MIME_XML_TO_MIME_CACHE__STOCK_MIME_MATCH_SEMANTICS__RULE_CONFLICT_CLUSTER_CHURN__WHOLE_DATABASE_CONSTRUCTION__BUILD_LOOKUP_STORAGE_CPU_RSS
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    source_action_correction: REPLACEMENT_AFTER_CANONICAL_FREEZE__ACTION_UNION_UNCLOSED
+    cost: merge_generation_cpu_rss_temp__cache_bytes__type_match_cpu_rss__storage
+    stability: 20_50_release_controlled_law_with_heldout_tail
+    leakage_check: PASS__REPLACEMENT_CANONICAL_PRECEDES_SHADOW
+root_outputs:
+  - neutral-source-snapshot/HASH_MANIFEST.sha256
+  - canonical-v8.7/HASH_MANIFEST.sha256
+  - shadow-v9/HASH_MANIFEST.sha256
+  - handoff.yaml
+mainline_action: Mechanical cross-lane signature dedup required; zero canonical briefs to route.

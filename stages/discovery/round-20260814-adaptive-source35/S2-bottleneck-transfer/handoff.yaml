@@ -1,0 +1,33 @@
+assignment_id: DISCOVERY-S2-20260814-ADAPTIVE-SOURCE35-BASE-RQ-NONPRODUCT-SHADOW-V1
+lane: S2_BOTTLENECK_TRANSFER
+status: COMPLETE_ZERO_PROPOSALS
+canonical_base:
+  path: CANONICAL_BASE_DECISION.yaml
+  sha256: E79719862B778C94AB6FA31FD1330B31E74B75B9A981958CC3048260227BBDF4
+  immutable_before_shadow: true
+  clean_briefs: 0
+shadow:
+  path: NON_PRODUCT_COUPLING_SHADOW.md
+  diagnostic_only: true
+  may_change_block_rescue_or_create_canonical_outcome: false
+  counts:
+    NOT_APPLICABLE: 3
+    SHADOW_SURVIVES: 0
+    SHADOW_NOT_READY_NON_PRODUCT_UNPROVEN: 0
+    SHADOW_COLLAPSES_GENERIC_PRODUCT: 0
+summary_zh: >-
+  canonical base 在 shadow 前已封存，三条 locator 均止于 raw 前：CUDA VMM 是当前
+  mapping/access API 组合，TensorRT 动态输出是现有 allocator/pool 策略，Unified
+  Memory 线只剩 placement/advice/runtime policy。shadow 只计三条不适用，未改变该结论。
+resource_boundary:
+  resource_producing_run: false
+  resource_inventory_required: false
+  resources_root_used: false
+dedup:
+  source25_through_34_exact_identity_reused: false
+  cooled_identity_reused: false
+next_action: >-
+  Mainline may mechanically accept this canonical-zero plus diagnostic-shadow package.
+  Reopen only upon external evidence of a distinct same-object target-specific action and guarantee.
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+manifest: HASH_MANIFEST.sha256

@@ -1,0 +1,21 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE107-SINGLE-GPU-LLM-SOFTWARE-V1
+topic_id: SOURCE107-PORTFOLIO-S1
+lane_id: DISCOVERY_S1
+lane_mode: S1_BOUNDARY_CONTRADICTION
+thread_id: 01a02e08-0dca-7291-9b4c-ae4e2720c9a3
+common_contract: stages/discovery/round-20260824-strategy-source107/control/CONTROL.yaml
+common_contract_sha256: F1BE6A196842A5F7EBF5856EDC9E0D3F1D7399CB8C59A14AE11D7B3EF206CC75
+write_directory: stages/discovery/round-20260824-strategy-source107/S1-boundary-contradiction
+resource_root: stages/discovery/round-20260824-strategy-source107/S1-boundary-contradiction/resources
+focus: PYTORCH_INDUCTOR_TRITON_LOW_BIT_DYNAMIC_SHAPE_OR_FALLBACK_SEMANTIC_BOUNDARY
+anchor_portfolio: [TORCH_COMPILE_TRITON_TORCHAO_CURRENT_SOURCE]
+forbidden_inputs: [CRFEPOCH_STAGE0_OUTPUTS, GROUP_REPOSITORY]
+forbidden_exact_repeats: SOURCE106_PORTFOLIO_NOTE_IDENTITIES
+model_route: {model: gpt-5.6-terra, reasoning: high}
+discovery_rq_frontend_mode: PRODUCTION
+discovery_claim_pack_mode: OFF
+discovery_quality_mode: OFF
+selective_depth: OFF
+next_action_before_start: WRITE_BOOTSTRAP_ACK_AND_WAIT_FOR_MAINLINE_ACCEPTANCE
+

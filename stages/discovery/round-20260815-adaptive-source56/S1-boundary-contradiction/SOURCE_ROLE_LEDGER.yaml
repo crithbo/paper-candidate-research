@@ -1,0 +1,25 @@
+sources:
+  - id: SRC01_ZAWRS_SPEC_V1_01
+    role: ANCHOR
+    url: https://docs.riscv.org/reference/isa/unpriv/zawrs.html
+    version_or_date: Zawrs Version 1.01; observed 2026-08-15
+    provenance: official RISC-V ratified specifications library
+    finding: WRS.NTO/WRS.STO operate with a valid reservation set, may stall in a low-power state, and are useful with LR polling loops.
+  - id: SRC02_LLVM_RISCV_USAGE_CURRENT
+    role: CURRENT
+    url: https://llvm.org/docs/RISCVUsage.html
+    version_or_date: current documentation observed 2026-08-15
+    provenance: official LLVM documentation
+    finding: Zawrs is listed as Assembly Support, whereas the target page separately describes code generation and atomic ABI mappings.
+  - id: SRC03_GCC_RISCV_OPTIONS_CURRENT
+    role: CONTRARY
+    url: https://gcc.gnu.org/onlinedocs/gcc/RISC-V-Options.html
+    version_or_date: current documentation observed 2026-08-15
+    provenance: official GCC documentation
+    finding: GCC exposes Zawrs as a supported ISA extension option.
+  - id: SRC04_LLVM_ZAWRS_REVIEW
+    role: CURRENT_SOURCE_LOCATOR
+    url: https://reviews.llvm.org/D128235?id=438509
+    version_or_date: historical review; not used for a current-absence claim
+    provenance: upstream LLVM review
+    finding: identifies the Zawrs instruction description/lowering locus only.

@@ -1,0 +1,31 @@
+assignment_id: STAGE0-P1-20260814-RUST-HISTORY-AWARE-CGU-PARTITION-REVISION1-V8.7
+mode: PRIMARY_REVISION1
+topic_id: RUST-HISTORY-AWARE-CGU-PARTITION
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_QUEUED_AFTER_ZCMP_REVISION1
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_revisions\RUST-HISTORY-AWARE-CGU-PARTITION\revision1
+scientific_revision_limit: 1
+scientific_revision_index: 1
+sole_gate: RUSTC_NATIVE_ITEM_TO_CGU_ACTION__NON_GENERIC_PREDECESSOR_COHORT_PARTITION_CERTIFICATE
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source12-primary\RUST-HISTORY-AWARE-CGU-PARTITION
+confirmation_directory: stages\stage0\_reviews\round-20260814-adaptive-source12-confirmation\RUST-HISTORY-AWARE-CGU-PARTITION
+frozen_inputs:
+  primary_report_sha256: 2C7E7456E501ED40EEBDD90C9C55AB44DC8F7F6FB2708840D2A70B0F8220880A
+  primary_q1_sha256: 3650C4520E574191CFDE5095EC3F73808176DCFD4F0DF0E0F0E2069C96C269EE
+  primary_source_sha256: 9F5DB9B6425FDE0FFB4EED7494CFD1C60AC402D971CC0BF75D6900783E050816
+  primary_handoff_sha256: CA5F7825939C16DFD0CCB56B46E14F6478566BC7CC9FA260AC37A3F232DAB511
+  primary_manifest_sha256: 6B08D98917AC80506F2F2FCE5AB98F577B3BD29D6A3B8F7A7DB8C3B4C3A3ACCF
+  confirmation_review_sha256: CD65E223C2CFE007E28D599128F0F852CD1A356AD048ABEC1E8A01FCC084698E
+  confirmation_handoff_sha256: 1EF8078532B5D53A3F4ACE818BCF4B19A4A6CCBB3BFFFEF7AA4F2CD92B58DD88
+  confirmation_manifest_sha256: 414B4B6D2E2FFAEFE69C8E8504D20B9DC3FA72DA413A5D45D42F1AF405ABDF2C
+mandatory_closure:
+  - Freeze one current crate and one current mono-item graph; adjacent releases may supply predecessor information only and may not replace the current object.
+  - Give two complete rustc-native legal whole mono-item to named-CGU partitions for that same current graph, preserving program semantics, linkage and symbol requirements.
+  - Enumerate the current union including item and linkage rules, named CGUs, inlining duplication, merge, internalization, distinct-symbol behavior, and rustc or Cargo codegen-units, incremental, LTO and profile branches.
+  - Define predecessor-cohort state and guarantee that are Rust-specific, future-action preserving and not generic graph partitioning, cache scheduling or future information.
+  - Give an exact, FPT or certified bounded frontier plus a finite same-contract Stage A falsifier, without executing it.
+failure_sentinel: BELOW_Q2_STOP__GENERIC_PARTITION_CACHE_OR_CURRENT_RUSTC_UNION_ABSORPTION
+forbidden: [new_topic, second_revision, implementation, build, experiment, benchmark, download, stageA, stageB, shared_control_write]
+required_outputs: [REVISION_REPORT.md, CURRENT_ACTION_AND_FRONTIER_AUDIT.md, CLAIM_MATRIX.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {next_if_gate_closed: INDEPENDENT_REVISION1_CLOSING, notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

@@ -1,0 +1,18 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A9-ABSOLUTE-PATH
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A8_NINJA_PATH_PARSE_BLOCKER.yaml, sha256: 071F988ABD1569004C0BC58EBAE8875140F2B7C9059D973131D09D0A97AA49E2}, {path: resources/build/pgm-ninja-a8, retention: FAILED_RELATIVE_NINJA_CACHE__DO_NOT_MODIFY}]
+only_change: fresh_build_directory_with_absolute_quoted_portable_clang_clangxx_and_ninja_paths
+fresh_build_directory: resources/build/pgm-ninja-a9
+absolute_paths:
+  C: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/PGM_INDEX/resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/clang.exe
+  CXX: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/PGM_INDEX/resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/clang++.exe
+  NINJA: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/PGM_INDEX/resources/env/ninja-1.13.2/ninja.exe
+allowed_command_sequence:
+  - {id: A9S0, command: fresh_directory_must_be_absent_then_create_once, stop_on_nonzero: true}
+  - {id: A9S1, command: portable_cmake -G Ninja -S <existing_source> -B resources/build/pgm-ninja-a9 -DCMAKE_C_COMPILER=<absolute_C> -DCMAKE_CXX_COMPILER=<absolute_CXX> -DCMAKE_MAKE_PROGRAM=<absolute_NINJA> -DBUILD_PGM_TUNER=OFF -DBUILD_PGM_BENCHMARK=OFF -DBUILD_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Release, stop_on_nonzero: true}
+  - {id: A9S2, command: portable_cmake --build resources/build/pgm-ninja-a9 --parallel 2, stop_on_nonzero: true}
+  - {id: A9S3, command: ctest --test-dir resources/build/pgm-ninja-a9 --output-on-failure, stop_on_nonzero: true}
+prohibitions: [modify_or_delete_pgm_ninja_a8, NMake_generator, redownload, reextract, alternate_toolchain, system_or_global_mutation, scientific_probe_before_fidelity]
+scientific_revision_consumed: false

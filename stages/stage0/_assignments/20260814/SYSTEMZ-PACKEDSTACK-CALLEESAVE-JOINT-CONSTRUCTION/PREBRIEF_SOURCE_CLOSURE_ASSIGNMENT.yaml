@@ -1,0 +1,66 @@
+assignment_id: STAGE0-P1-20260814-SYSTEMZ-PACKEDSTACK-CALLEESAVE-JOINT-CONSTRUCTION-PREBRIEF-CLOSURE-V8.7
+mode: PREBRIEF_SOURCE_CLOSURE
+topic_id: SYSTEMZ-PACKEDSTACK-CALLEESAVE-JOINT-CONSTRUCTION
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_READY_TO_DISPATCH
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source32-prebrief-closure\SYSTEMZ-PACKEDSTACK-CALLEESAVE-JOINT-CONSTRUCTION
+required_common_resource_rule: rules\RESOURCE_LOCALIZATION.md
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\round-20260814-adaptive-source32-prebrief-closure\SYSTEMZ-PACKEDSTACK-CALLEESAVE-JOINT-CONSTRUCTION
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\round-20260814-adaptive-source32-prebrief-closure\SYSTEMZ-PACKEDSTACK-CALLEESAVE-JOINT-CONSTRUCTION\resources
+  inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\round-20260814-adaptive-source32-prebrief-closure\SYSTEMZ-PACKEDSTACK-CALLEESAVE-JOINT-CONSTRUCTION\RESOURCE_INVENTORY.yaml
+  required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirect_required: [TEMP, TMP, TMPDIR, every_tool_specific_configurable_cache_or_temp]
+  redirect_preflight: REQUIRED_BEFORE_RESOURCE_PRODUCING_ACTION
+  inventory_snapshot_directory: resources\logs\resource-inventory
+  cleanup_owner: MAINLINE
+  lane_cleanup_authorized: false
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_rq_frontend_mode: PRODUCTION
+discovery_claim_pack_mode: OFF
+v9_output: false
+network_security_topic: false
+quality_floor_if_promoted: TIER_B_Q2_VIABLE
+purpose: INDEPENDENTLY_CLOSE_OR_FALSIFY_NON_PRODUCT_COUPLING_BEFORE_CLEAN_BRIEF
+upstream_directory: stages\discovery\round-20260814-adaptive-source32\S6-direct-algorithm-software
+frozen_inputs:
+  question_cards_sha256: BF0222DB509F6681AF3BFDBCE4A2F1ACA9D717B51A5414DBCE5A6048F5AC107E
+  non_product_note_sha256: E7787006B7D43737CE39905C6B646BAC8C8F3E6BBB9902A0C7724DFAB57B5340
+  source_role_ledger_sha256: 58B0481B90615EC2446557B77B2F1572F5C4B33A1E2FCB9BF8190659581DFE7C
+  collision_matrix_sha256: 9F8773EE4B7BF2FD5DE02ECD7AB3E9462AD7BCCF7F10382EC65705FE00C9C361
+  discovery_handoff_sha256: 24EE13D608BE9E97817C276AB96DCA4C5199F7B63ED48C38A569EE8129B02C53
+  discovery_manifest_sha256: 0E2735321EE3F37526ED15AC224ABE827BE3C9F33FF9D69EDD7744A593E9E603
+frozen_object:
+  object: ONE_PUBLIC_SYSTEMZ_ELF_MACHINEFUNCTION__FIXED_ABI_AND_OBJECT_SEMANTICS
+  proposed_joint_action: CALLEE_SAVE_RANGE_SELECTION_PLUS_PACKED_STACK_OBJECT_AND_OFFSET_REPRESENTATION
+  strongest_sequential_composition: CURRENT_CALLEE_SAVE_DETERMINATION_PLUS_ASSIGN_CALLEE_SAVED_SPILL_SLOTS_AND_FRAME_LAYOUT
+  proposed_shared_endogenous_state: SYSTEMZ_ELF_ABI_SAVED_GPR_RANGE_FIXED_OFFSETS_AND_PACKED_STACK_BASE_SHIFT
+bounded_questions:
+  - Pin the current LLVM commit, SystemZ target mode, exact call graph through callee-save determination, assignCalleeSavedSpillSlots, orderFrameObjects, usePackedStack, prologue and epilogue lowering, including default and nondefault entry points.
+  - Find or falsify one public in-tree fixed-ABI regression that admits two complete native-legal same-function plans differing in saved-range and packed-stack representation without changing ABI, unwind, object or program semantics.
+  - Perform a source-anchored state-erasure attack: after removing SystemZ fixed offsets/range semantics, determine whether any cross-term or target-specific guarantee survives beyond generic frame allocation/packing.
+  - Check bounded direct same-object collision and current-union absorption only far enough to decide whether a clean brief is attackable; SEARCH_BOUNDED_OPEN is allowed.
+decision_space:
+  - CLEAN_BRIEF_READY__ROUTE_FULL_STAGE0_PRIMARY
+  - STRUCTURAL_DROP__GENERIC_PRODUCT_OR_CURRENT_UNION_ABSORPTION
+  - NOT_ADMITTED_UNFROZEN__BOUNDED_SOURCE_OR_WITNESS_CLOSURE_INCOMPLETE
+no_overreach:
+  - This is not a full Stage0 PASS review and cannot authorize StageA/B.
+  - Do not require implementation, build, experiment, performance result or exhaustive literature proof.
+  - Do not change target, ABI, object, semantics, contribution route or exact family.
+  - If source closure remains finite but incomplete, return NOT_ADMITTED_UNFROZEN rather than STOP.
+public_source_acquisition:
+  authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+  allowed: official_read_only_source_blob_and_public_regression_retrieval
+  response_bytes_max: 33554432
+  storage_bytes_max: 67108864
+  attempts_max: 6
+  no_system_install_or_global_environment_change: true
+forbidden: [new_topic, candidate_implementation, build, claim_bearing_experiment, benchmark, stageA, stageB, shared_control_write, v9_output, network_security_topic]
+required_outputs: [SOURCE_CLOSURE_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

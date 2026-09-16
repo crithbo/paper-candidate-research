@@ -1,0 +1,64 @@
+schema: stagea-natural-corpus-freeze-v1
+assignment_id: RESOURCE-STAGEA-L3-20260814-RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP-RESUME1
+frozen_at: '2026-08-14T16:20:00+08:00'
+frozen_after_preclaim_pass: true
+frozen_before_any_corpus_compile_or_candidate_union_result: true
+corpus:
+  name: Embench-IoT
+  official_repository: https://github.com/embench/embench-iot
+  stable_tag: embench-1.0
+  commit: 0466a18e4f6b47e19598d7c6ba72916d54b68f65
+  archive_url: https://github.com/embench/embench-iot/archive/0466a18e4f6b47e19598d7c6ba72916d54b68f65.tar.gz
+  archive_bytes: 180876
+  archive_sha256: D836BB4AFC47BCCC5195FD00FAA0F1F2F1B608211DF74C35AA7985469E3C17F6
+  tag_ref_sha256: 4216B3ADFDE96D685E42B329D5852A66B98E4CBBF135BD939D5AE54956F7A7E4
+  license: GPL-3.0
+  benchmark_directories:
+    - aha-mont64
+    - crc32
+    - cubic
+    - edn
+    - huffbench
+    - matmult-int
+    - minver
+    - nbody
+    - nettle-aes
+    - nettle-sha256
+    - nsichneu
+    - picojpeg
+    - qrduino
+    - sglib-combined
+    - slre
+    - st
+    - statemate
+    - ud
+    - wikisort
+frontend_freeze:
+  compiler: llvm-mingw_clang_22.1.8
+  role: deterministic_frontend_to_frozen_LLVM_IR_only
+  target: riscv32-unknown-elf
+  flags: [-O2, -ffreestanding, -fno-builtin, -march=rv32imac_zcmp, -mabi=ilp32]
+  note: frontend_is_not_the_claimed_writer__each_successful_LLVM_module_is_hashed_and_shared_by_all_arms
+native_writer:
+  llvm_commit: ba5bccfe01368f76e74d6ff4c35f1330e155b4ba
+  target: riscv32-unknown-elf__rv32imac_zcmp__ilp32__O2
+selection_rule:
+  universe: all_functions_from_all_successfully_compiled_modules_in_the_19_directories
+  eligibility_before_candidate_or_union_result:
+    - one_machine_basic_block
+    - exactly_one_PseudoCALL
+    - scalar_GPR_virtual_values_live_across_call
+    - interface_width_between_1_and_4
+    - no_dynamic_alloca_stack_realign_shadow_stack_save_restore_libcall_or_dedicated_FP
+    - exact_native_continuation_and_MachineVerifier_available
+  compile_or_parse_failures: retained_with_reason_and_excluded_before_result
+  no_result_conditioning: true
+arms:
+  candidate: scripts/zcmp_frontier_planner.py_all_legal_native_actions_then_exact_native_Pareto
+  current_union: same_18_arm_grid_as_preclaim
+primary_metrics: [function_text_bytes, frame_bytes, spill_instruction_bytes, full_pipeline_cpu_wall_rss_temp, verification]
+primary_rule: strict_executable_candidate_native_benefit_outside_all_current_union_arms_under_full_cost
+statistics: [paired_p50, paired_p90, useful_residual_action_fraction]
+minimum_useful_residual_fraction: 0.10
+runtime_policy: unavailable_without_same_target_execution__do_not_estimate
+stageb_authorized: false

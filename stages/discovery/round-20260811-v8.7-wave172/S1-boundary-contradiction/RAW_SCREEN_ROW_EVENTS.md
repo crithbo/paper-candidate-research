@@ -1,0 +1,12 @@
+# RAW_SCREEN_ROW_EVENTS
+
+| ID | Native compiler -> artifact -> enforcer contract | Fixed semantics / current union | Status |
+|---|---|---|---|
+| R01 | [seccomp](https://docs.kernel.org/userspace-api/seccomp_filter.html): policy compiler emits BPF `sock_fprog`; kernel validates and evaluates `seccomp_data`. | Fixed syscall/argument/architecture decision and return action; install/layer/precedence/`no_new_privs`, verifier/JIT/enforcer all count. | `DEEP_DIVE_REQUIRED` |
+| R02 | [Landlock](https://docs.kernel.org/userspace-api/landlock.html): ruleset construction serializes rule/action/object handles; kernel ABI enforces domain. | Fixed handled rights and self-restriction semantics; ABI version, `TSYNC`, ruleset/rule calls, inherited domain and native errors count. | `DEEP_DIVE_REQUIRED` |
+| R03 | [OPA Wasm](https://www.openpolicyagent.org/docs/wasm): Rego compilation emits a Wasm policy artifact and evaluator ABI consumes structured input. | Fixed decision result and built-in/evaluator ABI; compiler, module, host ABI, evaluation/serialization all count. | `DEEP_DIVE_REQUIRED` |
+| R04 | [SELinux upstream](https://github.com/SELinuxProject/selinux): policy sources compile to a binary policy consumed by the kernel LSM. | Fixed type-enforcement decision under fixed policy version; checkpolicy/libsepol and kernel policy load/enforcement union. | `NOT_ADMITTED_UNFROZEN` |
+| R05 | [Wasm Component Model](https://component-model.bytecodealliance.org/): component metadata/adapter serialization consumed by validator/runtime. | Fixed component validation/interface contract; encoder, canonical ABI adapter, validator/runtime union. | `STRUCTURAL_DROP__NOT_POLICY_OBJECT` |
+| R06 | [Kubernetes ValidatingAdmissionPolicy](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/): CEL policy/binding serializes into API objects and API server enforces admission. | Fixed admission allow/deny and failure policy; API object schema, CEL evaluation, bindings and admission chain union. | `STRUCTURAL_DROP__CONTROLLER_CONFIGURATION` |
+
+Natural policy carriers: kernel `samples/seccomp`, Landlock `samples/landlock/sandboxer.c`, OPA's documented Wasm inputs, SELinux reference policies, component-model examples, and Kubernetes published policy manifests. Every full-cost denominator includes policy compilation, artifact/load size, verifier/enforcer CPU/RSS, serialization, install/load latency, and request/syscall/runtime impact.

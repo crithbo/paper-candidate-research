@@ -1,0 +1,30 @@
+schema_version: "stagea-reproducibility-v1"
+entrypoint: "scripts/exceptional_probe.py"
+aggregate_entrypoint: "scripts/aggregate_exceptional.py"
+python: "3.12.13"
+pythonpath: "stages/stageA/PARQUET-PAGE-COSEGMENT/assets/vendor"
+dependencies:
+  pyarrow: "25.0.0"
+  datafusion: "54.0.0"
+  thriftpy2: "0.7.0a1"
+  zstandard: "0.23.0"
+  psutil: "7.0.0"
+frozen_parent_script:
+  path: "stages/stageA/PARQUET-PAGE-COSEGMENT/scripts/parquet_stagea.py"
+  sha256: "38E7BC74352BFD235709BD383E087BF5CEDF978DE2017BBC65BD9764A083EFF6"
+inputs:
+  path: "stages/stageA/PARQUET-PAGE-COSEGMENT/resume1/inputs/replay2"
+  count: 20
+  exact_hashes: "artifacts/exact_hashes.tsv"
+commands:
+  preclaim: "python scripts/exceptional_probe.py preclaim --output-dir artifacts/preclaim"
+  replay1: "python scripts/exceptional_probe.py probe --corpus-dir <frozen-input-dir> --output-dir artifacts/replay1_complete --replay replay1"
+  replay2: "python scripts/exceptional_probe.py probe --corpus-dir <frozen-input-dir> --output-dir artifacts/replay2 --replay replay2"
+  aggregate: "python scripts/aggregate_exceptional.py --root <exceptional-r3g-dir>"
+determinism:
+  non_timing_pairs_equal: "20/20"
+  union_output_hash_pairs_equal: "20/20"
+  candidate_output_hash_pairs_equal: "20/20"
+timing_policy: "independent replay; Latin rotation; timing values need not hash-match"
+stageb: false
+

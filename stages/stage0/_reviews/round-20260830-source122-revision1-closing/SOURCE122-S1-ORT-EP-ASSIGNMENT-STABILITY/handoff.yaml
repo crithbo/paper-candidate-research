@@ -1,0 +1,99 @@
+schema: handoff-transport-envelope-v2
+topic_id: SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+assignment_id: STAGE0-CLOSING-20260830-ORT-EP-ASSIGNMENT-STABILITY-REVISION1
+lane_id: STAGE0_SENTRY
+role_id: STAGE0_REVISION_CLOSING
+source_stage: STAGE0_CLOSING
+assignment_state: FROZEN_AWAITING_MAINLINE
+input_freeze_sha256: E71751F28F601B4A904B02418FBF258D1419E14C59473DFBC7E494285AC0F02F
+cross_assignment_contamination_declared: false
+
+user_summary_cn:
+  outcome: "Revision 1/1 independent closing 为 PASS_RECOMMENDED；静态合同已关闭原子缺口，题目达到条件性 Tier-B/Q2 Stage 0 形状。"
+  main_reason: "exact object/RQ/ceiling 保持；单一 ORT 1.26.0 CUDA→CPU optimizer-level endpoint、relation-specific L1/L2、semantic-region quotient、all-cell denominator、Q2 breadth/strong baselines 和 Stage A killer 均已冻结且相互一致。"
+  next_step: "MAINLINE 可登记 Stage 0 PASS 并另建 Stage A assignment；首次 claim-bearing run 前必须冻结 exact artifacts/models/relations/holdouts/R/failure penalty/tolerances/provider options/cell IDs 并通过 PRE_CLAIM_CONTRACT_FIDELITY_GATE。"
+  user_action_required: false
+  user_action: null
+
+decision:
+  scientific_verdict: PASS_RECOMMENDED
+  operational_disposition: READY
+  quality_tier: TIER_B_Q2_VIABLE
+  evidence_ceiling: CONDITIONAL_PAPER_POTENTIAL_ONLY__STATIC_CONTRACT_CLOSED__ZERO_CANDIDATE_RESULT
+  claim_bearing_observation_obtained: false
+  scientific_revision_consumed: true
+  scientific_revision_usage: 1_of_1
+  second_revision_available: false
+
+closing_checks:
+  object_RQ_ceiling_preservation: FULLY_ADDRESSED
+  single_endpoint_closure: FULLY_ADDRESSED
+  relation_L1_preconditions_and_L2_oracle: FULLY_ADDRESSED
+  complete_semantic_region_quotient: FULLY_ADDRESSED
+  all_cell_denominator_no_failed_exclusion: FULLY_ADDRESSED
+  Q2_breadth_and_strongest_baselines: FULLY_ADDRESSED
+  StageA_killer: FULLY_ADDRESSED
+  revision_manifest_replay: 14_OF_14_MATCH
+
+future_stagea_preclaim_freeze:
+  mandatory: true
+  items: [exact_artifact_hashes, model_and_family_identities, source_and_heldout_relation_instances, holdout_split, repetition_count_R, failure_penalty, output_quality_threshold_and_numeric_tolerances, provider_options_hash, all_cell_ids]
+  failure_effect: FAIL_PRE_CLAIM_CONTRACT_FIDELITY_GATE__NO_CLAIM_INFERENCE
+  result_aware_change: forbidden
+
+execution_scope:
+  model_route: gpt-5.6-sol/high__TEMPORARY_USER_COMMAND_OVERRIDE
+  search_or_open_used: 0
+  search_or_open_max: 8
+  implementation: 0
+  build_or_experiment: 0
+  second_revision: 0
+  stagea_or_stageb_started: false
+  shared_write: false
+  current_cycle_usage_reset_confirmed: false
+
+artifact_pointers:
+  canonical_report:
+    path: stages/stage0/_reviews/round-20260830-source122-revision1-closing/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/STAGE0_CLOSING_REPORT.md
+    sha256: E4666AA7BC3214C765B44B37DC8F09F27A235A71D83C1D945BADF8CBCF6A5B7B
+  raw_or_decisive_evidence:
+    - "STAGE0_CLOSING_REPORT.md#revision-traceability-matrix"
+    - "STAGE0_CLOSING_REPORT.md#l1l2-legality-closure"
+    - "STAGE0_CLOSING_REPORT.md#semantic-region-quotient-closure"
+    - "STAGE0_CLOSING_REPORT.md#all-cell-denominator-closure"
+  comparator_or_full_cost:
+    - "STAGE0_CLOSING_REPORT.md#q2-breadth-and-baseline-closure"
+    - "STAGE0_CLOSING_REPORT.md#stage-a-killer-closure"
+  independent_review:
+    path: stages/stage0/_reviews/round-20260830-source122-revision1-closing/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/STAGE0_CLOSING_REPORT.md
+    sha256: E4666AA7BC3214C765B44B37DC8F09F27A235A71D83C1D945BADF8CBCF6A5B7B
+  resource_inventory: {path: null, sha256: null}
+  lifecycle_or_retention: {path: null, sha256: null}
+  capsule_or_resume: {path: null, sha256: null}
+
+blocker:
+  kind: null
+  user_blocker_packet: null
+  resume_directory: null
+  attempts_or_routes_exhausted: null
+
+next_gate:
+  proposed_stage_or_gate: STAGEA_NEW_ASSIGNMENT
+  exact_action: "MAINLINE registers Stage0 PASS and freezes a separate StageA preclaim assignment; no claim-bearing run before fidelity gate"
+  authority_required: MAINLINE
+  stageb_user_approval_id: null
+
+file_hashes:
+  ASSIGNMENT_CONTEXT.yaml: E71751F28F601B4A904B02418FBF258D1419E14C59473DFBC7E494285AC0F02F
+  REACK3_QUEUE_CLARIFICATION.yaml: 035F85051C62CE5F8032A497C6030D796A5DFE99EFCB4AE801664B0C407D7849
+  BOOTSTRAP_ACK.pass1_refuse.yaml: 5B7C9B334D23C6EF6304375F90DF71828AC9FED7C4985677D28A2BB66253384C
+  BOOTSTRAP_ACK.pass2_refuse.yaml: 23E868459F9F4E6C21D51D1DA09E6AC509918A7556D655145F6A30EB91B5C5F6
+  BOOTSTRAP_ACK.pass3_refuse.yaml: 19E26FAE0238A5AC814B50FBE0CDF171B96D2710FDE921735049EF515A3D58C6
+  BOOTSTRAP_ACK.yaml: F876216DD1521AD2DEE3F1859C773A9EB8002CDC80CF77BB3C449ABF7D2829CE
+  MAINLINE_BOOTSTRAP_ACCEPTANCE.yaml: 400B3706080AD676C2A6884D5079F40A1D71F7C47B3B602895B39A7DF8A9E62F
+  MAINLINE_START.yaml: 0B1E0DCA7EF4EC3C4758CCC57D9F12FA6849A69338C828B8B08F4D1C1A70E673
+  revision_handoff.yaml: 6BCB0C69C50EF5EC7EF21E11AA48FF27C800A99B3F8B705DB7F1AD5EE1E52985
+  revision_HASH_MANIFEST.sha256: A926992EE73AC34862CDCEA8C677B4A9461EE75D852D72BFB72E89D8A2591313
+  STAGE0_CLOSING_REPORT.md: E4666AA7BC3214C765B44B37DC8F09F27A235A71D83C1D945BADF8CBCF6A5B7B
+hash_manifest_file: HASH_MANIFEST.sha256
+

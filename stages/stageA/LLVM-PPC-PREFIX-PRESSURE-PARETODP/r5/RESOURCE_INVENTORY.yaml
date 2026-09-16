@@ -1,0 +1,15 @@
+schema_version: assignment-resource-inventory-v1
+identity: {topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP, assignment_id: STAGEA-L1-20260826-LLVM-PPC-R5-FUNCTION-MODIFIER-ORDER-CORRECTION, resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r5/resources}
+resource_policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, state: HANDOFF_OWNER_FINALIZED_WAITING_MAINLINE}
+root_measurement: {files: 4203, directories_including_root: 215, logical_bytes: 575955139, reparse_entries: 0, active_related_processes: 0}
+budget: {stored_bytes_max: 1073741824, network_bytes_used: 0, within_budget: true}
+entries:
+  - {path: resources/downloads, retention: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM}
+  - {path: resources/env/ppc-toolchain, retention: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM}
+  - {path: resources/src, retention: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM}
+  - {path: resources/build, retention: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF}
+  - {path: resources/logs, retention: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM}
+cleanup: {owner: MAINLINE, owner_cleanup_performed: false}
+validation: {result: PASS, all_persisted_entries_classified: true, envelope_within_limit: true}
+

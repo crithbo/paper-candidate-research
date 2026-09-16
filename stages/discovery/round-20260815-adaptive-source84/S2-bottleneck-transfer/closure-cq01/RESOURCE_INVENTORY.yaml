@@ -1,0 +1,47 @@
+schema: RESOURCE_INVENTORY_V1
+assignment_id: SOURCE-CLOSURE-SOURCE84-S2-CQ01-OPENXLA-BUFFER-COMMAND-GROUP-V1
+resource_root: stages/discovery/round-20260815-adaptive-source84/S2-bottleneck-transfer/closure-cq01/resources
+resource_localization_rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+status: ACQUISITION_CLOSED__SIX_CALL_CAP_REACHED
+limits:
+  max_acquisition_calls: 6
+  max_success_response_bytes_each: 8388608
+  max_persisted_bytes: 16777216
+process_local_redirects:
+  TEMP: resources/tmp
+  TMP: resources/tmp
+  TMPDIR: resources/tmp
+  XDG_CACHE_HOME: resources/cache
+artifacts:
+  - path: resources/downloads/01-xla-main-commit.json
+    kind: official_github_api_default_branch_commit
+    response_bytes: 27883
+    sha256: 86BECC234200A8B9FA1A99D66C2D1EC813FCA3FB7536FA83421535EC86C74049
+    retained_commit: 3527e1e6a5a82770e4ad8c8a2d9c64dd30ec91f6
+  - path: resources/downloads/02-xla-pinned-tree.json
+    kind: official_github_api_recursive_tree
+    response_bytes: 2403313
+    sha256: 49E847EBBAE55CE0C71CEB5978ECBF15A812109BF1FAC192682AB676D7F927A1
+    response_truncated: false
+  - path: resources/downloads/03-buffer_assignment.cc
+    kind: pinned_raw_upstream_source
+    response_bytes: 152685
+    sha256: 13C443B6E89B3899429DED8BDE09EDEA5D75DDF12061680FC1C71C1CC4232258
+  - path: resources/downloads/04-command_buffer_conversion_pass.cc
+    kind: pinned_raw_upstream_source
+    response_bytes: 28288
+    sha256: ADA7F6AAF79741C3418C74AF3793F236ED04FE9C028898761C04FA2273DD6532
+  - path: resources/downloads/05-debug_options_flags.cc
+    kind: pinned_raw_upstream_source
+    response_bytes: 190076
+    sha256: 48B6C66A04D55173187AF2EA29F3DF7D3722D7368A3F6F2CDEC14296125E446E
+  - path: resources/downloads/06-command_buffer_conversion_pass_test.cc
+    kind: pinned_raw_upstream_source
+    response_bytes: 55937
+    sha256: EE86E03B50254F1E3F152F43596BFC172B2D8B1DF7E44209761CB86AE361E18A
+attempts:
+  successful_calls: 6
+  unsuccessful_calls: 0
+  total_calls: 6
+  persisted_response_bytes: 2858182
+  within_persisted_limit: true

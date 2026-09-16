@@ -1,0 +1,561 @@
+--- |
+  ; ModuleID = '<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\resume1\results\natural_corpus_eligibility\floattixf.bc'
+  source_filename = "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins\\floattixf.c"
+  target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+  target triple = "x86_64-unknown-linux-gnu"
+  
+  ; Function Attrs: nounwind
+  define dso_local x86_fp80 @__floattixf(i128 noundef %a) local_unnamed_addr #0 !dbg !26 {
+  entry:
+    %fb.sroa.0 = alloca [12 x i8], align 16, !DIAssignID !63
+      #dbg_assign(i1 poison, !43, !DIExpression(DW_OP_LLVM_fragment, 0, 96), !63, ptr %fb.sroa.0, !DIExpression(), !64)
+      #dbg_assign(i1 poison, !43, !DIExpression(DW_OP_LLVM_fragment, 96, 32), !65, ptr poison, !DIExpression(), !64)
+      #dbg_value(i128 %a, !35, !DIExpression(), !64)
+    %cmp = icmp eq i128 %a, 0, !dbg !66
+    br i1 %cmp, label %return, label %if.end, !dbg !68
+  
+  if.end:                                           ; preds = %entry
+      #dbg_value(i32 128, !36, !DIExpression(), !64)
+    %shr = ashr i128 %a, 127, !dbg !69
+      #dbg_value(i128 %shr, !38, !DIExpression(), !64)
+    %xor = xor i128 %shr, %a, !dbg !70
+    %sub = sub nsw i128 %xor, %shr, !dbg !71
+      #dbg_value(i128 %sub, !35, !DIExpression(), !64)
+    %call = tail call i32 @__clzti2(i128 noundef %sub) #3, !dbg !72
+    %sub1 = sub i32 128, %call, !dbg !73
+      #dbg_value(i32 %sub1, !40, !DIExpression(), !64)
+    %sub2 = sub i32 127, %call, !dbg !74
+      #dbg_value(i32 %sub2, !42, !DIExpression(), !64)
+    %cmp3 = icmp sgt i32 %sub1, 64, !dbg !75
+    br i1 %cmp3, label %if.then4, label %if.else, !dbg !77
+  
+  if.then4:                                         ; preds = %if.end
+    switch i32 %sub1, label %sw.default [
+      i32 65, label %sw.bb
+      i32 66, label %sw.epilog
+    ], !dbg !78
+  
+  sw.bb:                                            ; preds = %if.then4
+    %shl = shl i128 %sub, 1, !dbg !80
+      #dbg_value(i128 %shl, !35, !DIExpression(), !64)
+    br label %sw.epilog, !dbg !82
+  
+  sw.default:                                       ; preds = %if.then4
+    %sub5 = sub i32 62, %call, !dbg !83
+    %sh_prom = zext nneg i32 %sub5 to i128, !dbg !84
+    %shr6 = lshr i128 %sub, %sh_prom, !dbg !84
+    %sub7 = add i32 %call, 66, !dbg !85
+    %sh_prom8 = zext nneg i32 %sub7 to i128, !dbg !86
+    %shr9 = lshr i128 -1, %sh_prom8, !dbg !86
+    %and = and i128 %shr9, %sub, !dbg !87
+    %cmp10 = icmp ne i128 %and, 0, !dbg !88
+    %conv11 = zext i1 %cmp10 to i128, !dbg !89
+    %or = or i128 %shr6, %conv11, !dbg !90
+      #dbg_value(i128 %or, !35, !DIExpression(), !64)
+    br label %sw.epilog, !dbg !91
+  
+  sw.epilog:                                        ; preds = %sw.default, %if.then4, %sw.bb
+    %a.addr.0 = phi i128 [ %or, %sw.default ], [ %shl, %sw.bb ], [ %sub, %if.then4 ], !dbg !64
+      #dbg_value(i128 %a.addr.0, !35, !DIExpression(), !64)
+    %0 = trunc i128 %a.addr.0 to i32, !dbg !92
+    %1 = lshr i32 %0, 2, !dbg !92
+    %conv14 = and i32 %1, 1, !dbg !92
+    %conv15 = zext nneg i32 %conv14 to i128, !dbg !93
+    %or16 = or i128 %a.addr.0, %conv15, !dbg !94
+      #dbg_value(i128 %or16, !35, !DIExpression(), !64)
+    %inc = add nsw i128 %or16, 1, !dbg !95
+      #dbg_value(i128 %inc, !35, !DIExpression(), !64)
+    %shr17 = lshr i128 %inc, 2, !dbg !96
+      #dbg_value(i128 poison, !35, !DIExpression(), !64)
+    %2 = and i128 %inc, 73786976294838206464, !dbg !97
+    %tobool.not = icmp eq i128 %2, 0, !dbg !97
+    %extract.t55 = trunc i128 %shr17 to i64, !dbg !99
+    br i1 %tobool.not, label %if.end26, label %if.then19, !dbg !99
+  
+  if.then19:                                        ; preds = %sw.epilog
+    %shr20 = lshr i128 %inc, 3, !dbg !100
+      #dbg_value(i128 poison, !35, !DIExpression(), !64)
+      #dbg_value(i32 %sub1, !42, !DIExpression(), !64)
+    %extract.t = trunc i128 %shr20 to i64, !dbg !102
+    br label %if.end26, !dbg !102
+  
+  if.else:                                          ; preds = %if.end
+    %sub23 = add i32 %call, -64, !dbg !103
+    %sh_prom24 = zext nneg i32 %sub23 to i128, !dbg !105
+    %shl25 = shl i128 %sub, %sh_prom24, !dbg !106
+      #dbg_value(i128 %shl25, !35, !DIExpression(), !64)
+    %extract.t56 = trunc i128 %shl25 to i64
+    br label %if.end26
+  
+  if.end26:                                         ; preds = %sw.epilog, %if.then19, %if.else
+    %a.addr.1.off0 = phi i64 [ %extract.t, %if.then19 ], [ %extract.t55, %sw.epilog ], [ %extract.t56, %if.else ]
+    %e.0 = phi i32 [ %sub1, %if.then19 ], [ %sub2, %sw.epilog ], [ %sub2, %if.else ], !dbg !64
+      #dbg_value(i32 %e.0, !42, !DIExpression(), !64)
+      #dbg_value(i128 poison, !35, !DIExpression(), !64)
+    call void @llvm.lifetime.start.p0(ptr nonnull %fb.sroa.0), !dbg !107
+    %conv27 = trunc nsw i128 %shr to i32, !dbg !108
+    %and28 = and i32 %conv27, 32768, !dbg !109
+    %add = add nsw i32 %e.0, 16383, !dbg !110
+    %or29 = or i32 %add, %and28, !dbg !111
+    %fb.sroa.0.8.low.sroa_idx = getelementptr inbounds nuw i8, ptr %fb.sroa.0, i64 8, !dbg !112
+    store i32 %or29, ptr %fb.sroa.0.8.low.sroa_idx, align 8, !dbg !112, !tbaa !113, !DIAssignID !114
+      #dbg_assign(i32 %or29, !43, !DIExpression(DW_OP_LLVM_fragment, 64, 32), !114, ptr %fb.sroa.0.8.low.sroa_idx, !DIExpression(), !64)
+    store i64 %a.addr.1.off0, ptr %fb.sroa.0, align 16, !dbg !115, !tbaa !113, !DIAssignID !116
+      #dbg_assign(i64 %a.addr.1.off0, !43, !DIExpression(DW_OP_LLVM_fragment, 0, 64), !116, ptr %fb.sroa.0, !DIExpression(), !64)
+    %fb.sroa.0.0.fb.sroa.0.0.fb.sroa.0.0.fb.sroa.0.0.fb.sroa.0.0. = load x86_fp80, ptr %fb.sroa.0, align 16, !dbg !117, !tbaa !113
+    call void @llvm.lifetime.end.p0(ptr nonnull %fb.sroa.0), !dbg !118
+    br label %return
+  
+  return:                                           ; preds = %entry, %if.end26
+    %retval.0 = phi x86_fp80 [ %fb.sroa.0.0.fb.sroa.0.0.fb.sroa.0.0.fb.sroa.0.0.fb.sroa.0.0., %if.end26 ], [ 0.000000e+00, %entry ], !dbg !64
+    ret x86_fp80 %retval.0, !dbg !119
+  }
+  
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+  declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+  
+  declare !dbg !120 i32 @__clzti2(i128 noundef) local_unnamed_addr #2
+  
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+  declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
+  
+  attributes #0 = { nounwind "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+  attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+  attributes #2 = { "frame-pointer"="all" "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+  attributes #3 = { nobuiltin nounwind "no-builtins" }
+  
+  !llvm.dbg.cu = !{!0}
+  !llvm.module.flags = !{!13, !14, !15, !16, !17, !18, !19}
+  !llvm.ident = !{!20}
+  !llvm.errno.tbaa = !{!21}
+  
+  !0 = distinct !DICompileUnit(language: DW_LANG_C11, file: !1, producer: "clang version 24.0.0git", isOptimized: true, runtimeVersion: 0, emissionKind: FullDebug, retainedTypes: !2, splitDebugInlining: false, nameTableKind: None)
+  !1 = !DIFile(filename: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/floattixf.c", directory: "<LEGACY_LOCAL_PROJECT_ROOT>", checksumkind: CSK_MD5, checksum: "53e0657b4fd8985f9b4eab9f683d00a4")
+  !2 = !{!3, !6, !10}
+  !3 = !DIDerivedType(tag: DW_TAG_typedef, name: "tu_int", file: !4, line: 85, baseType: !5)
+  !4 = !DIFile(filename: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/int_types.h", directory: "", checksumkind: CSK_MD5, checksum: "0cefa99f1024f3001da915c45d60c390")
+  !5 = !DIBasicType(name: "unsigned __int128", size: 128, encoding: DW_ATE_unsigned)
+  !6 = !DIDerivedType(tag: DW_TAG_typedef, name: "su_int", file: !4, line: 26, baseType: !7)
+  !7 = !DIDerivedType(tag: DW_TAG_typedef, name: "uint32_t", file: !8, line: 202, baseType: !9)
+  !8 = !DIFile(filename: "stages/stageA/LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY/resume1/build/lib/clang/24/include/stdint.h", directory: "<LEGACY_LOCAL_PROJECT_ROOT>", checksumkind: CSK_MD5, checksum: "e0d709cfd45c240304ff650668138b52")
+  !9 = !DIBasicType(name: "unsigned int", size: 32, encoding: DW_ATE_unsigned)
+  !10 = !DIDerivedType(tag: DW_TAG_typedef, name: "du_int", file: !4, line: 38, baseType: !11)
+  !11 = !DIDerivedType(tag: DW_TAG_typedef, name: "uint64_t", file: !8, line: 102, baseType: !12)
+  !12 = !DIBasicType(name: "unsigned long", size: 64, encoding: DW_ATE_unsigned)
+  !13 = !{i32 7, !"Dwarf Version", i32 5}
+  !14 = !{i32 2, !"Debug Info Version", i32 3}
+  !15 = !{i32 1, !"long-double-type", !"x86_fp80"}
+  !16 = !{i32 8, !"PIC Level", i32 2}
+  !17 = !{i32 7, !"PIE Level", i32 2}
+  !18 = !{i32 7, !"frame-pointer", i32 2}
+  !19 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+  !20 = !{!"clang version 24.0.0git"}
+  !21 = !{!22, !23, i64 0}
+  !22 = !{!"__libc_errno", !23, i64 0}
+  !23 = !{!"int", !24, i64 0}
+  !24 = !{!"omnipotent char", !25, i64 0}
+  !25 = !{!"Simple C/C++ TBAA"}
+  !26 = distinct !DISubprogram(name: "__floattixf", scope: !27, file: !27, line: 26, type: !28, scopeLine: 26, flags: DIFlagPrototyped | DIFlagAllCallsDescribed, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !34, keyInstructions: true)
+  !27 = !DIFile(filename: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins\\floattixf.c", directory: "", checksumkind: CSK_MD5, checksum: "53e0657b4fd8985f9b4eab9f683d00a4")
+  !28 = !DISubroutineType(types: !29)
+  !29 = !{!30, !32}
+  !30 = !DIDerivedType(tag: DW_TAG_typedef, name: "xf_float", file: !4, line: 173, baseType: !31)
+  !31 = !DIBasicType(name: "long double", size: 128, encoding: DW_ATE_float)
+  !32 = !DIDerivedType(tag: DW_TAG_typedef, name: "ti_int", file: !4, line: 84, baseType: !33)
+  !33 = !DIBasicType(name: "__int128", size: 128, encoding: DW_ATE_signed)
+  !34 = !{!35, !36, !38, !40, !42, !43}
+  !35 = !DILocalVariable(name: "a", arg: 1, scope: !26, file: !27, line: 26, type: !32)
+  !36 = !DILocalVariable(name: "N", scope: !26, file: !27, line: 29, type: !37)
+  !37 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !9)
+  !38 = !DILocalVariable(name: "s", scope: !26, file: !27, line: 30, type: !39)
+  !39 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !32)
+  !40 = !DILocalVariable(name: "sd", scope: !26, file: !27, line: 32, type: !41)
+  !41 = !DIBasicType(name: "int", size: 32, encoding: DW_ATE_signed)
+  !42 = !DILocalVariable(name: "e", scope: !26, file: !27, line: 33, type: !41)
+  !43 = !DILocalVariable(name: "fb", scope: !26, file: !27, line: 66, type: !44)
+  !44 = !DIDerivedType(tag: DW_TAG_typedef, name: "xf_bits", file: !4, line: 177, baseType: !45)
+  !45 = distinct !DICompositeType(tag: DW_TAG_union_type, file: !4, line: 174, size: 128, elements: !46)
+  !46 = !{!47, !62}
+  !47 = !DIDerivedType(tag: DW_TAG_member, name: "u", scope: !45, file: !4, line: 175, baseType: !48, size: 128)
+  !48 = !DIDerivedType(tag: DW_TAG_typedef, name: "uqwords", file: !4, line: 156, baseType: !49)
+  !49 = distinct !DICompositeType(tag: DW_TAG_structure_type, file: !4, line: 148, size: 128, elements: !50)
+  !50 = !{!51, !61}
+  !51 = !DIDerivedType(tag: DW_TAG_member, name: "low", scope: !49, file: !4, line: 150, baseType: !52, size: 64)
+  !52 = !DIDerivedType(tag: DW_TAG_typedef, name: "udwords", file: !4, line: 64, baseType: !53)
+  !53 = distinct !DICompositeType(tag: DW_TAG_union_type, file: !4, line: 53, size: 64, elements: !54)
+  !54 = !{!55, !56}
+  !55 = !DIDerivedType(tag: DW_TAG_member, name: "all", scope: !53, file: !4, line: 54, baseType: !10, size: 64)
+  !56 = !DIDerivedType(tag: DW_TAG_member, name: "s", scope: !53, file: !4, line: 63, baseType: !57, size: 64)
+  !57 = distinct !DICompositeType(tag: DW_TAG_structure_type, scope: !53, file: !4, line: 55, size: 64, elements: !58)
+  !58 = !{!59, !60}
+  !59 = !DIDerivedType(tag: DW_TAG_member, name: "low", scope: !57, file: !4, line: 57, baseType: !6, size: 32)
+  !60 = !DIDerivedType(tag: DW_TAG_member, name: "high", scope: !57, file: !4, line: 58, baseType: !6, size: 32, offset: 32)
+  !61 = !DIDerivedType(tag: DW_TAG_member, name: "high", scope: !49, file: !4, line: 151, baseType: !52, size: 64, offset: 64)
+  !62 = !DIDerivedType(tag: DW_TAG_member, name: "f", scope: !45, file: !4, line: 176, baseType: !30, size: 128)
+  !63 = distinct !DIAssignID()
+  !64 = !DILocation(line: 0, scope: !26)
+  !65 = distinct !DIAssignID()
+  !66 = !DILocation(line: 27, column: 9, scope: !67, atomGroup: 1, atomRank: 2)
+  !67 = distinct !DILexicalBlock(scope: !26, file: !27, line: 27, column: 7)
+  !68 = !DILocation(line: 27, column: 9, scope: !67, atomGroup: 1, atomRank: 1)
+  !69 = !DILocation(line: 30, column: 22, scope: !26, atomGroup: 4, atomRank: 2)
+  !70 = !DILocation(line: 31, column: 10, scope: !26)
+  !71 = !DILocation(line: 31, column: 15, scope: !26, atomGroup: 5, atomRank: 2)
+  !72 = !DILocation(line: 32, column: 16, scope: !26)
+  !73 = !DILocation(line: 32, column: 14, scope: !26, atomGroup: 6, atomRank: 2)
+  !74 = !DILocation(line: 33, column: 14, scope: !26, atomGroup: 7, atomRank: 2)
+  !75 = !DILocation(line: 34, column: 10, scope: !76, atomGroup: 8, atomRank: 2)
+  !76 = distinct !DILexicalBlock(scope: !26, file: !27, line: 34, column: 7)
+  !77 = !DILocation(line: 34, column: 10, scope: !76, atomGroup: 8, atomRank: 1)
+  !78 = !DILocation(line: 42, column: 5, scope: !79, atomGroup: 9, atomRank: 1)
+  !79 = distinct !DILexicalBlock(scope: !76, file: !27, line: 34, column: 27)
+  !80 = !DILocation(line: 44, column: 9, scope: !81, atomGroup: 10, atomRank: 2)
+  !81 = distinct !DILexicalBlock(scope: !79, file: !27, line: 42, column: 17)
+  !82 = !DILocation(line: 45, column: 7, scope: !81, atomGroup: 11, atomRank: 1)
+  !83 = !DILocation(line: 49, column: 29, scope: !81)
+  !84 = !DILocation(line: 49, column: 22, scope: !81)
+  !85 = !DILocation(line: 50, column: 59, scope: !81)
+  !86 = !DILocation(line: 50, column: 31, scope: !81)
+  !87 = !DILocation(line: 50, column: 15, scope: !81)
+  !88 = !DILocation(line: 50, column: 67, scope: !81)
+  !89 = !DILocation(line: 50, column: 11, scope: !81)
+  !90 = !DILocation(line: 49, column: 53, scope: !81, atomGroup: 12, atomRank: 2)
+  !91 = !DILocation(line: 51, column: 5, scope: !81)
+  !92 = !DILocation(line: 53, column: 18, scope: !79)
+  !93 = !DILocation(line: 53, column: 10, scope: !79)
+  !94 = !DILocation(line: 53, column: 7, scope: !79, atomGroup: 13, atomRank: 2)
+  !95 = !DILocation(line: 54, column: 5, scope: !79, atomGroup: 14, atomRank: 2)
+  !96 = !DILocation(line: 55, column: 7, scope: !79, atomGroup: 15, atomRank: 2)
+  !97 = !DILocation(line: 57, column: 11, scope: !98, atomGroup: 16, atomRank: 2)
+  !98 = distinct !DILexicalBlock(scope: !79, file: !27, line: 57, column: 9)
+  !99 = !DILocation(line: 57, column: 11, scope: !98, atomGroup: 16, atomRank: 1)
+  !100 = !DILocation(line: 58, column: 9, scope: !101, atomGroup: 17, atomRank: 2)
+  !101 = distinct !DILexicalBlock(scope: !98, file: !27, line: 57, column: 43)
+  !102 = !DILocation(line: 60, column: 5, scope: !101)
+  !103 = !DILocation(line: 63, column: 26, scope: !104)
+  !104 = distinct !DILexicalBlock(scope: !76, file: !27, line: 62, column: 10)
+  !105 = !DILocation(line: 63, column: 7, scope: !104)
+  !106 = !DILocation(line: 63, column: 7, scope: !104, atomGroup: 19, atomRank: 2)
+  !107 = !DILocation(line: 66, column: 3, scope: !26)
+  !108 = !DILocation(line: 67, column: 22, scope: !26)
+  !109 = !DILocation(line: 67, column: 32, scope: !26)
+  !110 = !DILocation(line: 68, column: 24, scope: !26)
+  !111 = !DILocation(line: 67, column: 42, scope: !26, atomGroup: 20, atomRank: 2)
+  !112 = !DILocation(line: 67, column: 19, scope: !26, atomGroup: 20, atomRank: 1)
+  !113 = !{!24, !24, i64 0}
+  !114 = distinct !DIAssignID()
+  !115 = !DILocation(line: 69, column: 16, scope: !26, atomGroup: 21, atomRank: 1)
+  !116 = distinct !DIAssignID()
+  !117 = !DILocation(line: 70, column: 13, scope: !26, atomGroup: 22, atomRank: 2)
+  !118 = !DILocation(line: 71, column: 1, scope: !26)
+  !119 = !DILocation(line: 71, column: 1, scope: !26, atomGroup: 23, atomRank: 1)
+  !120 = !DISubprogram(name: "__clzti2", scope: !121, file: !121, line: 114, type: !122, flags: DIFlagPrototyped, spFlags: DISPFlagOptimized)
+  !121 = !DIFile(filename: "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\\resume1\\src\\llvm-project-e72ba6cf366a3180cbf5a8690d9e50665880ab76\\compiler-rt\\lib\\builtins/int_lib.h", directory: "", checksumkind: CSK_MD5, checksum: "2ae4f081ccf66e66008a022af77dcec0")
+  !122 = !DISubroutineType(types: !123)
+  !123 = !{!41, !32}
+...
+---
+name:            __floattixf
+alignment:       1
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   true
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 18, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 19, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 20, class: rfp80, preferred-register: '', flags: [  ] }
+  - { id: 21, class: rfp80, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 23, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 24, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 25, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 26, class: rfp80, preferred-register: '', flags: [  ] }
+  - { id: 27, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 28, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 29, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 30, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 31, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 32, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 33, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 34, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 35, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 36, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 37, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 38, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 39, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 40, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 41, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 42, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 43, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 44, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 45, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 46, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 47, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 48, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 49, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 50, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 51, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 52, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 53, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 54, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 55, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 56, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 57, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 58, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 59, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 60, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 61, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 62, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 63, class: gr8, preferred-register: '', flags: [  ] }
+  - { id: 64, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 65, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 66, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 67, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 68, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 69, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 70, class: gr64_with_sub_8bit, preferred-register: '', flags: [  ] }
+  - { id: 71, class: gr64, preferred-register: '', flags: [  ] }
+  - { id: 72, class: gr32, preferred-register: '', flags: [  ] }
+  - { id: 73, class: rfp80, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$rdi', virtual-reg: '%22' }
+  - { reg: '$rsi', virtual-reg: '%23' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    16
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: all
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 4294967295
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:
+  - { id: 0, name: fb.sroa.0, type: default, offset: 0, size: 12, alignment: 16, 
+      stack-id: default, callee-saved-register: '', callee-saved-restored: true, 
+      debug-info-variable: '', debug-info-expression: '', debug-info-location: '' }
+entry_values:    []
+callSites:
+  - { bb: 1, offset: 14, fwdArgRegs: 
+      - { arg: 0, reg: '$rdi' }
+      - { arg: 1, reg: '$rsi' } }
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  amxProgModel:    None
+body:             |
+  bb.0.entry:
+    successors: %bb.11(0x30000000), %bb.1(0x50000000)
+    liveins: $rdi, $rsi
+  
+    DBG_PHI $rdi, 18
+    DBG_PHI $rsi, 17
+    %70:gr64_with_sub_8bit = COPY $rsi
+    %2:gr64_with_sub_8bit = COPY $rdi
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(17, 0), debug-location !64
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(18, 0), debug-location !64
+    %73:rfp80 = nofpexcept LD_Fp080 implicit-def dead $fpsw, implicit $fpcw
+    DBG_VALUE %stack.0.fb.sroa.0, $noreg, !43, !DIExpression(DW_OP_deref, DW_OP_LLVM_fragment, 0, 96), debug-location !64
+    %27:gr64 = COPY %2, debug-location !66
+    dead %27:gr64 = OR64rr %27, %70, implicit-def $eflags, debug-location !66
+    JCC_1 %bb.11, 4, implicit killed $eflags, debug-location !68
+    JMP_1 %bb.1, debug-location !68
+  
+  bb.1.if.end:
+    successors: %bb.2(0x40000000), %bb.9(0x40000000)
+  
+    DBG_VALUE 128, $noreg, !36, !DIExpression(), debug-location !64
+    %0:gr64_with_sub_8bit = COPY %70, debug-location !69
+    %0:gr64_with_sub_8bit = SAR64ri %0, 63, implicit-def dead $eflags, debug-instr-number 1, debug-location !69
+    DBG_INSTR_REF !38, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(1, 0), debug-location !64
+    DBG_INSTR_REF !38, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(1, 0), debug-location !64
+    %70:gr64_with_sub_8bit = XOR64rr %70, %0, implicit-def dead $eflags, debug-location !71
+    %2:gr64_with_sub_8bit = XOR64rr %2, %0, implicit-def dead $eflags, debug-location !71
+    %2:gr64_with_sub_8bit = SUB64rr %2, %0, implicit-def $eflags, debug-instr-number 2, debug-location !71
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(2, 0), debug-location !64
+    %70:gr64_with_sub_8bit = SBB64rr %70, %0, implicit-def dead $eflags, implicit killed $eflags, debug-instr-number 3, debug-location !71
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(3, 0), debug-location !64
+    ADJCALLSTACKDOWN64 0, 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !72
+    $rdi = COPY %2, debug-location !72
+    $rsi = COPY %70, debug-location !72
+    CALL64pcrel32 target-flags(x86-plt) @__clzti2, csr_64, implicit $rsp, implicit $ssp, implicit $rdi, implicit $rsi, implicit-def $rsp, implicit-def $ssp, implicit-def $eax, debug-location !72
+    ADJCALLSTACKUP64 0, 0, implicit-def dead $rsp, implicit-def dead $eflags, implicit-def dead $ssp, implicit $rsp, implicit $ssp, debug-location !72
+    %30:gr32 = COPY killed $eax, debug-location !72
+    %5:gr32 = MOV32ri 128, debug-location !73
+    %5:gr32 = SUB32rr %5, %30, implicit-def dead $eflags, debug-instr-number 4, debug-location !73
+    DBG_INSTR_REF !40, !DIExpression(DW_OP_LLVM_arg, 0), dbg-instr-ref(4, 0), debug-location !64
+    %72:gr32 = MOV32ri 127, debug-location !74
+    %72:gr32 = SUB32rr %72, %30, implicit-def dead $eflags, debug-instr-number 5, debug-location !74
+    DBG_INSTR_REF !42, !DIExpression(DW_OP_LLVM_arg, 0), dbg-instr-ref(5, 0), debug-location !64
+    CMP32ri %5, 65, implicit-def $eflags, debug-location !75
+    JCC_1 %bb.9, 12, implicit killed $eflags, debug-location !77
+    JMP_1 %bb.2, debug-location !77
+  
+  bb.2.if.then4:
+    successors: %bb.12(0x2aaaaaab), %bb.3(0x55555555)
+  
+    CMP32ri %5, 66, implicit-def $eflags, debug-location !78
+    JCC_1 %bb.3, 5, implicit killed $eflags, debug-location !78
+  
+  bb.12:
+    successors: %bb.6(0x80000000)
+  
+    JMP_1 %bb.6, debug-location !78
+  
+  bb.3.if.then4:
+    successors: %bb.4(0x40000001), %bb.5(0x3fffffff)
+  
+    CMP32ri %5, 65, implicit-def $eflags, debug-location !78
+    JCC_1 %bb.5, 5, implicit killed $eflags, debug-location !78
+    JMP_1 %bb.4, debug-location !78
+  
+  bb.4.sw.bb:
+    successors: %bb.6(0x80000000)
+  
+    %70:gr64_with_sub_8bit = SHLD64rri8 %70, %2, 1, implicit-def dead $eflags, debug-instr-number 7, debug-location !80
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(7, 0), debug-location !64
+    %2:gr64_with_sub_8bit = ADD64rr %2, %2, implicit-def dead $eflags, debug-instr-number 8, debug-location !80
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(8, 0), debug-location !64
+    JMP_1 %bb.6, debug-location !82
+  
+  bb.5.sw.default:
+    successors: %bb.6(0x80000000)
+  
+    %43:gr8 = MOV8ri 62, debug-location !84
+    %43:gr8 = SUB8rr %43, %30.sub_8bit, implicit-def dead $eflags, debug-location !84
+    %47:gr64 = COPY %2, debug-location !84
+    $cl = COPY %43, debug-location !84
+    %47:gr64 = SHRD64rrCL %47, %70, implicit-def dead $eflags, implicit $cl, debug-location !84
+    %10:gr64 = COPY %70, debug-location !84
+    $cl = COPY %43, debug-location !84
+    %10:gr64 = SHR64rCL %10, implicit-def dead $eflags, implicit $cl, debug-location !84
+    undef %48.sub_32bit:gr64_with_sub_8bit = MOV32r0 implicit-def dead $eflags
+    TEST8ri %43, 64, implicit-def $eflags, debug-location !84
+    %47:gr64 = CMOV64rr %47, %10, 5, implicit $eflags, debug-location !84
+    %10:gr64 = CMOV64rr %10, %48, 5, implicit killed $eflags, debug-instr-number 9, debug-location !84
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(9, 0), debug-location !64
+    %30.sub_8bit:gr32 = ADD8ri %30.sub_8bit, 66, implicit-def dead $eflags, debug-location !86
+    $cl = COPY %30.sub_8bit, debug-location !88
+    %70:gr64_with_sub_8bit = SHLD64rrCL %70, %2, implicit-def dead $eflags, implicit $cl, debug-location !88
+    $cl = COPY %30.sub_8bit, debug-location !88
+    %2:gr64_with_sub_8bit = SHL64rCL %2, implicit-def dead $eflags, implicit $cl, debug-location !88
+    TEST8ri %30.sub_8bit, 64, implicit-def $eflags, debug-location !88
+    %70:gr64_with_sub_8bit = CMOV64rr %70, %2, 5, implicit $eflags, debug-location !88
+    %2:gr64_with_sub_8bit = CMOV64rr %2, %48, 5, implicit killed $eflags, debug-location !88
+    undef %9.sub_32bit:gr64_with_sub_8bit = MOV32r0 implicit-def dead $eflags, debug-location !88
+    dead %2:gr64_with_sub_8bit = OR64rr %2, %70, implicit-def $eflags, debug-location !88
+    %9.sub_8bit:gr64_with_sub_8bit = SETCCr 5, implicit killed $eflags, debug-location !88
+    %9:gr64_with_sub_8bit = OR64rr %9, %47, implicit-def dead $eflags, debug-instr-number 10, debug-location !90
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(10, 0), debug-location !64
+    %2:gr64_with_sub_8bit = COPY %9
+    %70:gr64_with_sub_8bit = COPY %10
+  
+  bb.6.sw.epilog:
+    successors: %bb.7(0x40000000), %bb.8(0x40000000)
+  
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(15, 0), debug-location !64
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(11, 0), debug-location !64
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(11, 0), debug-location !64
+    undef %61.sub_32bit:gr64_with_sub_8bit = COPY %2.sub_32bit, debug-location !92
+    %61.sub_32bit:gr64_with_sub_8bit = SHR32ri %61.sub_32bit, 2, implicit-def dead $eflags, debug-location !92
+    %61.sub_32bit:gr64_with_sub_8bit = AND32ri %61.sub_32bit, 1, implicit-def dead $eflags, debug-location !92
+    %61:gr64_with_sub_8bit = OR64rr %61, %2, implicit-def dead $eflags, debug-instr-number 12, debug-location !94
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(12, 0), debug-location !64
+    %61:gr64_with_sub_8bit = ADD64ri32 %61, 1, implicit-def $eflags, debug-instr-number 13, debug-location !95
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(13, 0), debug-location !64
+    %70:gr64_with_sub_8bit = ADC64ri32 %70, 0, implicit-def dead $eflags, implicit killed $eflags, debug-instr-number 14, debug-location !95
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 64, 64), dbg-instr-ref(14, 0), debug-location !64
+    DBG_VALUE $noreg, $noreg, !35, !DIExpression(), debug-location !64
+    TEST8ri %70.sub_8bit, 4, implicit-def $eflags, debug-location !97
+    JCC_1 %bb.8, 5, implicit killed $eflags, debug-location !99
+  
+  bb.7:
+    successors: %bb.10(0x80000000)
+  
+    %61:gr64_with_sub_8bit = SHRD64rri8 %61, %70, 2, implicit-def dead $eflags, debug-location !DILocation(line: 0, scope: !79)
+    JMP_1 %bb.10, debug-location !99
+  
+  bb.8.if.then19:
+    successors: %bb.10(0x80000000)
+  
+    %61:gr64_with_sub_8bit = SHRD64rri8 %61, %70, 3, implicit-def dead $eflags, debug-location !100
+    DBG_VALUE $noreg, $noreg, !35, !DIExpression(), debug-location !64
+    DBG_INSTR_REF !42, !DIExpression(DW_OP_LLVM_arg, 0), dbg-instr-ref(4, 0), debug-location !64
+    %72:gr32 = COPY %5
+    JMP_1 %bb.10, debug-location !102
+  
+  bb.9.if.else:
+    successors: %bb.10(0x80000000)
+  
+    %30.sub_8bit:gr32 = ADD8ri %30.sub_8bit, -64, implicit-def dead $eflags, debug-location !106
+    $cl = COPY %30.sub_8bit, debug-location !106
+    %2:gr64_with_sub_8bit = SHL64rCL %2, implicit-def dead $eflags, implicit $cl, debug-location !106
+    undef %61.sub_32bit:gr64_with_sub_8bit = MOV32r0 implicit-def dead $eflags, debug-location !106
+    TEST8ri %30.sub_8bit, 64, implicit-def $eflags, debug-location !106
+    %61:gr64_with_sub_8bit = CMOV64rr %61, %2, 4, implicit killed $eflags, debug-instr-number 6, debug-location !106
+    DBG_INSTR_REF !35, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_fragment, 0, 64), dbg-instr-ref(6, 0), debug-location !64
+    DBG_VALUE $noreg, $noreg, !35, !DIExpression(DW_OP_LLVM_fragment, 64, 64), debug-location !64
+  
+  bb.10.if.end26:
+    successors: %bb.11(0x80000000)
+  
+    DBG_INSTR_REF !42, !DIExpression(DW_OP_LLVM_arg, 0), dbg-instr-ref(16, 0), debug-location !64
+    DBG_VALUE $noreg, $noreg, !35, !DIExpression(), debug-location !64
+    %0.sub_32bit:gr64_with_sub_8bit = AND32ri %0.sub_32bit, 32768, implicit-def dead $eflags, debug-location !109
+    %72:gr32 = nsw ADD32ri %72, 16383, implicit-def dead $eflags, debug-location !110
+    %72:gr32 = OR32rr %72, %0.sub_32bit, implicit-def dead $eflags, debug-location !111
+    MOV32mr %stack.0.fb.sroa.0, 1, $noreg, 8, $noreg, %72, debug-location !112 :: (store (s32) into %ir.fb.sroa.0.8.low.sroa_idx, align 8, !tbaa !113)
+    DBG_VALUE %stack.0.fb.sroa.0, $noreg, !43, !DIExpression(DW_OP_deref, DW_OP_LLVM_fragment, 0, 96), debug-location !64
+    MOV64mr %stack.0.fb.sroa.0, 1, $noreg, 0, $noreg, %61, debug-location !115 :: (store (s64) into %ir.fb.sroa.0, align 16, !tbaa !113)
+    %73:rfp80 = nofpexcept LD_Fp80m %stack.0.fb.sroa.0, 1, $noreg, 0, $noreg, implicit-def dead $fpsw, implicit $fpcw, debug-location !117 :: (dereferenceable load (s80) from %ir.fb.sroa.0, align 16, !tbaa !113)
+  
+  bb.11.return:
+    RET 0, %73, debug-location !119
+...

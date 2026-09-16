@@ -1,0 +1,40 @@
+schema_version: discovery-backtest-sealed-input-manifest-v2
+role: DISCOVERY-BACKTEST-PACKER
+source_session_id: DISCOVERY-S3-NATURAL-STRUCTURE
+opportunity_lens: O3_NATURAL_STRUCTURE
+method_revision: v2
+status: SEALED_PACKER_COMPLETE
+sealed_at: 2026-08-03T15:40:00+08:00
+packet_inventory:
+  - {packet_id: S3-POS-01, label: positive, cutoff_date: 2015-01-21, paper_count: 5}
+  - {packet_id: S3-POS-02, label: positive, cutoff_date: 2017-05-22, paper_count: 5}
+  - {packet_id: S3-POS-03, label: positive, cutoff_date: 2019-08-28, paper_count: 5}
+  - {packet_id: S3-NEG-01, label: negative_control, cutoff_date: 2016-12-31, paper_count: 3}
+sealed_material:
+  path: packer/sealed_packets.yaml
+  byte_length: 9984
+  sha256: 6F3288AF95306A1B2A2E4490F918FF2FE187D6E55F496EDC4232ED26649C95C2
+  integrity_scope: "Bytewise hash transitively freezes every source card, artifact card, cutoff, environment statement, and executor rule in the file."
+auditor_key:
+  path: packer/auditor_key.yaml
+  byte_length: 3820
+  sha256: A1B4B0A910DDA569650FE8AFF79F789F180C153DDD7721F905E4E62A7F701C08
+  access: PACKER_AND_FUTURE_AUDITOR_ONLY
+search_and_screen:
+  searched_at: 2026-08-03
+  source_families: [official_proceedings, publisher_doi, author_or_institution_page, official_source_repository, arxiv_for_earliest_public_date]
+  inclusion:
+    - "Three successful top-venue papers whose contribution uses measured natural structure rather than a forced anomaly."
+    - "For each positive, 3-8 cutoff-valid papers plus public artifact/environment where available."
+    - "A random-key control with the relevant natural regularities explicitly absent."
+  exclusion:
+    - "Hidden target content, post-cutoff work, cross-packet hidden targets, and unmeasured claims of structure."
+    - "Hardware evidence promoted beyond the labelled model/synthesis stage."
+contamination_controls:
+  hidden_target_text_in_sealed_material: false
+  post_cutoff_target_material_in_sealed_material: false
+  cross_packet_target_title_in_sealed_material: false
+  executor_answer_scaffold_in_sealed_material: false
+hardware_claim_ceiling_enforced: true
+scoring_performed: false
+method_executed: false

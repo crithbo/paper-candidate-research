@@ -1,0 +1,17 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+identity: {lane_id: BACKTEST-AUDITOR, lane_thread_id: 01a034d0-e86d-7ba0-ac31-1ca60477b3ce, role_id: DISCOVERY_BACKTEST_AUDITOR, assignment_id: BACKTEST-AUDITOR-20260827-IDENTITY-BLIND-R3-COLLISION, topic_id: STAGE0A_IDENTITY_BLIND_EVIDENCE_BACKTEST_R3, stage_or_mode: R3_HISTORICAL_COLLISION_ADJUSTMENT, status: BOOTSTRAP_ACK_PENDING, next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY}
+authority: {policy_authority: USER, shared_file_writer: MAINLINE, canonical_writer: BACKTEST-AUDITOR, allowed_actions: [after_start_historical_cutoff_collision_adjustment_only], forbidden_actions: [StageA_release_before_adjustment, production_candidate_registration, StageB, blind_nonblind_metric_merge, unbiased_recall_claim, threshold_75_claim]}
+boundaries: {unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/auditor-collision, write_allowed_paths: [<LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/auditor-collision], network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 87EC9E172959B337E7BFD38A41F1E01333394FE3DE7F162C8A441F133125F9DF}
+  registry_snapshot: {path: registry.yaml, sha256: A40B774D0FB5776692A2DD739B05E11284B99DBC3E0F5809CA1CC2B42F63369D}
+  role_rule: {path: rules/ROLE_DISCOVERY_BACKTEST.md, sha256: 74056A6BF3F6A1ABBFF56A13BA27DCD9656B39DD6673D046935C312D39033C23}
+  skills: [{path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+minimum_inputs:
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/auditor-collision/ASSIGNMENT.yaml, sha256: 18C0C24CC8820220851D4F804DE511B5F557B7BAC02292A03045E7AD1608A2D4}
+  - {path: stages/stage0/_compatibility/nonblind-r3/primary-a1/NONBLIND_STAGE0_NONCOLLISION_DECISION.yaml, sha256: E702E5D7CACD0E49A14163CB2397A04BAF7CB7D51697D7399B80BE7FEE7BED89}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/AUDITOR_IDENTITY_COLLISION_AND_GOLD_KEY.yaml, sha256: 10B72D5D2BDAD2CB4E744953842E1DE7C80BA169003958D3CA2F3DABC266ACF7}
+validation: {hashes_complete: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: VALIDATED}

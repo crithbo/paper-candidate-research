@@ -1,0 +1,13 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A7-INVOKE
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A6_TOOLCHAIN_INVOCATION_BLOCKER.yaml, sha256: 8252C4024FEA96A275B0ED496BB70BC77D87196021163291533D51732FAB1042}]
+only_change: prefix_frozen_relative_portable_executable_paths_with_PowerShell_call_operator
+allowed_command_sequence:
+  - {id: A7S0, command: '& resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/clang.exe --version', stop_on_nonzero: true}
+  - {id: A7S1, command: '& resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/clang++.exe --version', stop_on_nonzero: true}
+  - {id: A7S2, command: '& resources/env/ninja-1.13.2/ninja.exe --version', stop_on_nonzero: true}
+  - {id: A7S3, command: resume_A6_explicit_Ninja_clang_configure_build_ctest_once, stop_on_nonzero: true}
+prohibitions: [redownload, reextract, alternate_toolchain, system_install, PATH_or_registry_change, retry_after_failure, scientific_probe_before_fidelity]
+scientific_revision_consumed: false

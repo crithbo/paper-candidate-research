@@ -1,0 +1,44 @@
+assignment_id: DISCOVERY-S5-20260821-PATCHYIELD-STAGE0-REVISION1
+topic_id: PATCHYIELD-CALL
+lane: S5-scale-online-approx
+write_directory: stages/discovery/user-proposed-20260821/patchyield-stage0-revision1
+assignment_sha256: 4685B495024D68E57DB108446789A27669F7771247A08E4529BB529A77130B26
+skill:
+  name: research-topic-discovery
+  sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+scientific_revision: REVISE_ONCE__CONSUMED_BY_THIS_ASSIGNMENT
+revision_gate: REVISION_GATE_NOT_CLOSED__RETURN_TO_STAGE0_STOP_SENTINEL
+return_target: BELOW_Q2_STOP__GENERIC_PRIORITY_OR_EXISTING_FAIR_LLM_APPLICATION_SCHEDULING
+authority_ceiling:
+  no_pass_stop_decision: true
+  no_stageA_or_stageB_decision: true
+  static_mechanism_certificate_only: true
+frozen_contract_preserved:
+  object: one-H100 OpenHands SWE-bench-Verified complete nonpreemptive next-LLM-call scheduling
+  action: SELECT_NEXT_COMPLETE_NON_PREEMPTIVE_LLM_CALL_FROM_SIMULTANEOUSLY_READY_ADMITTED_SESSIONS
+  deadline: arrival_i + 30_59_90_minutes
+  fairness: bypass_i_less_than_or_equal_to_16__zero_violations_per_repo_fold_tier_load_seed
+  primary_evidence: deterministic_live_reexecution
+  replay_role: sensitivity_or_debug_only
+static_decisive_fact:
+  frozen_batch_capacity: 8
+  legal_ready_calls_in_witness: 25
+  unavoidable_bypass_for_one_call: 24
+  requested_bypass_cap: 16
+  result: >-
+    The all-legal-state cap is infeasible without an unapproved change to queue/admission semantics, action/bypass semantics, batch capacity, or preemption/routing.
+required_outputs:
+  revision_report: REVISION_REPORT.md
+  policy_certificate: PROGRESS_INCREMENTAL_POLICY_CERTIFICATE.yaml
+  action_grammar: ACTION_GRAMMAR_AND_NATIVE_MAPPING.md
+  leakage_audit: LEAKAGE_AUDIT.md
+  comparator_matrix: COMPARATOR_SEPARATION_MATRIX.md
+  same_object_witness: SAME_OBJECT_DIVERGENCE_WITNESS.md
+  full_cost_falsifier: FULL_COST_AND_STAGEA_FALSIFIER.md
+resource_inventory: RESOURCE_INVENTORY.yaml
+resource_status: NO_RESOURCE_ACTION__STATIC_TEXT_ONLY
+network_attempts: 0
+external_downloads: 0
+manifest: HASH_MANIFEST.sha256
+mainline_callback_required: true
+lane_status_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

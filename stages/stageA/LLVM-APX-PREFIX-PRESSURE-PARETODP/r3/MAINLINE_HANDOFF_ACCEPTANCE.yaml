@@ -1,0 +1,52 @@
+schema: mainline-resource-gate-handoff-acceptance-v1
+accepted_at: 2026-08-25T16:27:37+08:00
+accepted_by: MAINLINE
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L1-20260825-LLVM-APX-R3-SHORT-PATH-EXACT-BUILD
+decision: ACCEPT_EXACT_APX_TOOLCHAIN_RESOURCE_GATE__NO_CLAIM_START__NO_SCIENTIFIC_STATE_CHANGE
+resource_gate: PASS
+claim_bearing_observation: false
+scientific_revision_consumed: false
+scientific_state_changed: false
+claim_ceiling: RESOURCE_GATE_ONLY__NO_APX_NATURAL_OR_PERFORMANCE_CLAIM
+evidence_ceiling: EXACT_BUILD_AND_TOOL_CAPABILITY_VALIDATION_ONLY__NO_SCIENTIFIC_INFERENCE
+
+canonical_hashes:
+  handoff_sha256: 59C9CF13AB8023F9F110A61B2AA214D6C66592629025283D896BAED5750DDEC2
+  hash_manifest_sha256: B9DA257B5EBCCE0B8B9712604FDA6632946CDB3927F66374F62C36EF6094F006
+  resource_inventory_precleanup_sha256: 60A5C9E790284C0E6BEA8E489E26B6BBB0A4C99E23C830FDB1BDC33F6A5858AC
+  phase_closeout_retention_sha256: 52804127BEF8E89971730A6740E4E79C9243938445F66EE60138A0690B71BBBE
+  resume_capsule_sha256: A4EBE4F966F2479A1C5F2627D64F390087A766D98E23807175029B3BA2992344
+  tool_manifest_sha256: 0BE2C3F60A6F42886F7951D2887D1A3D936B0E1A26E0C6B9B0B89D421944FB91
+  smoke_summary_sha256: 3719C019438C1E0213300040CBFF14CDC2EE4E3A98BDBB9F1831959CF13D9C94
+
+independent_validation:
+  canonical_manifest_entries: 26_OF_26_PASS
+  tool_manifest_records: 96_OF_96_PASS
+  tool_bundle_files: 97
+  tool_bundle_logical_bytes: 321690391
+  tool_bundle_reparse_entries: 0
+  current_resource_tree_files_precleanup: 198252
+  current_resource_tree_logical_bytes_precleanup: 6020981552
+  resource_tree_reparse_entries: 0
+  active_processes_excluding_checker: 0
+  cleanup_targets: 9_OF_9_MATCH_FILES_BYTES_CONTAINMENT_AND_ZERO_REPARSE
+  cleanup_target_files: 198117
+  cleanup_target_logical_bytes: 5698815824
+  difference_from_owner_root_measurement:
+    classification: BENIGN_SELF_EXCLUDING_FINAL_MEASUREMENT_RECORD
+    files: 1
+    logical_bytes: 7117
+    exact_path: resources/logs/final_measurement.json
+    explanation: owner root measurement was taken before its own final measurement record was persisted; all canonical hashes and cleanup-target totals match
+
+downstream_lifecycle_acceptance:
+  exact_tool_bundle_accepted: true
+  exact_tool_bundle_path: resources/env/apx-toolchain
+  exact_tool_bundle_manifest_sha256: 0BE2C3F60A6F42886F7951D2887D1A3D936B0E1A26E0C6B9B0B89D421944FB91
+  downstream_consumer: STAGEA_APX_PRECLAIM_RESUME_AFTER_RESOURCE_PASS
+  capsule_sealed_by_this_acceptance: true
+  closeout_cleanup_gate: PASS
+  future_preclaim_start_authorized: false
+  future_preclaim_requires_separate_mainline_assignment: true
+

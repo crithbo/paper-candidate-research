@@ -1,0 +1,43 @@
+schema: R11A_R13B_AUDITOR_TRIGGER_CONTRACT_V1
+approval_id: R11A-MINIMUM-VIABLE-CALIBRATION-20260813-R13B
+owner: INDEPENDENT_AUDITOR
+public_seed: DISCOVERY-CLAIM-PACK-V9-R0-R11A-R13B-MVC-SEAL-20260813
+initial_core_count: 24
+initial_per_stratum: 4
+reserve_tranches:
+  - ordinal: 1
+    added_count: 6
+    added_per_stratum: 1
+    cumulative_count: 30
+  - ordinal: 2
+    added_count: 6
+    added_per_stratum: 1
+    cumulative_count: 36
+all_core_and_available_complete_reserve_frozen_before_first_executor: true
+partial_or_unbalanced_tranche: forbidden
+allowlisted_triggers:
+  - COVERAGE_TRIGGER
+  - UNCERTAINTY_TRIGGER
+  - DECISION_DISCORDANCE_TRIGGER
+  - OVERALL_INCONCLUSIVE_TRIGGER
+hard_stop_precedence:
+  - CONTAMINATION_UNKNOWN
+  - IDENTITY_OR_ANSWER_LEAK
+  - TERMINAL_STOP_REVIVAL
+  - E2_TO_ACADEMIC_EVIDENCE_LEAK
+  - INVALID_PAIRING_OR_FROZEN_HARD_GATE_FAILURE
+forbidden_triggers:
+  - TARGET_OR_ANSWER_CONTENT
+  - FAVORABLE_OR_UNFAVORABLE_DIRECTION_ALONE
+  - DESIRE_TO_IMPROVE_SCORE_OR_RESCUE_FAIL
+  - POST_HOC_THRESHOLD_OR_ENDPOINT_CHANGE
+  - DISCRETIONARY_CONFIDENCE_REQUEST
+no_trigger_at_24: SEAL_AND_SCORE_EXACTLY_24
+valid_trigger_at_24: RELEASE_PRESEALED_BALANCED_TRANCHE_1_TO_30
+valid_trigger_at_30: RELEASE_PRESEALED_BALANCED_TRANCHE_2_TO_36
+trigger_without_complete_presealed_tranche: PILOT_NOT_CALIBRATED_INCONCLUSIVE__PRESEALED_RESERVE_UNAVAILABLE
+expansion_beyond_36: forbidden
+packer_reentry_after_first_executor: forbidden
+canonical_mode: OFF
+production_cutover_authorized: false
+

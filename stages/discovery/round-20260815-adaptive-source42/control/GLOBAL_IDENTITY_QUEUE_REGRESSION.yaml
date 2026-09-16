@@ -1,0 +1,40 @@
+profile_id: GLOBAL_TERMINAL_IDENTITY_AND_CLOSURE_ACCOUNTABILITY_V1_REGRESSION
+effective_boundary: SOURCE42
+authority: RULE_AUDIT_R35__NO_NEW_USER_POLICY_APPROVAL_REQUIRED
+lookup_scope:
+  canonical_state_source: registry.yaml
+  artifact_roots:
+    - stages/discovery
+    - stages/stage0
+    - stages/stageA
+  search_semantics: ALL_HISTORY__FIVE_FIELD_EXACT_OR_TERMINAL_ONLY
+  fields: [exact_object, atomic_action_or_estimand, claim_endpoint, semantic_guarantee, full_cost_boundary]
+  related_only_is_not_identity: true
+  no_match_is_not_novelty_or_absence: true
+positive_regression:
+  query_identity: AARCH64_FPMR__FIXED_FP8_CALL_SEMANTICS__CALL_BOUNDARY_STATE_PRESERVATION
+  later_artifact: stages/discovery/round-20260815-adaptive-source40/S1-boundary-contradiction/IDENTITY_RECONCILIATION.md
+  later_artifact_sha256: 506638AB2C443E06504FCDB91417601F11B48D28D66A110C75386CC6F4FAB7E5
+  canonical_predecessor: stages/discovery/round-20260814-adaptive-source19/S1-boundary-contradiction/handoff.yaml
+  canonical_predecessor_sha256: A476921D38B37F04241BA8C30F0831A3A3C1639DBB608D082C67FAD08338ECA1
+  frozen_direct_collision_commit: 1886dfb27a296b31de46b44beae0f1db6c1584b6
+  expected_disposition: EXCLUDED_BEFORE_RAW__TERMINAL_IDENTITY_OR_DIRECT_CURRENT_COLLISION
+  result: PASS
+negative_control:
+  query_identity: AARCH64_FPMR__FIXED_FP8_CALL_SEMANTICS__CALL_BOUNDARY_STATE_PRESERVATION
+  adjacent_family: AARCH64_SME_ZA_STATE_OR_TILE_ABI_CONSTRUCTION
+  field_relation: {exact_object: RELATED_ONLY, atomic_action_or_estimand: RELATED_ONLY, claim_endpoint: RELATED_ONLY, semantic_guarantee: RELATED_ONLY, full_cost_boundary: RELATED_ONLY}
+  expected_disposition: RELATED_ONLY__DO_NOT_EXCLUDE_BY_IDENTITY
+  result: PASS
+queue_controls:
+  zero_attempt_with_executable_route: {expected_status: PENDING_UNEXECUTED, exhausted_allowed: false}
+  zero_attempt_all_routes_mechanically_unavailable: {expected_status: BLOCKED_OR_OPEN_BOUNDED__NO_SCIENTIFIC_INFERENCE, exhausted_allowed_only_with_per_route_proof: true}
+  attempted_route_remaining_fallback: {expected_status: OPEN_BOUNDED_OR_BLOCKED, exhausted_allowed: false}
+acceptance_metrics:
+  late_historical_identity_reconciliation: 0
+  zero_attempt_exhausted: 0
+  concrete_post_rq_gap_queue_coverage: 100_PERCENT
+  scientific_gate_relaxation: 0
+rollback:
+  trigger: RELATED_ONLY_FALSE_EXCLUSION
+  action: DISABLE_AUTOMATIC_CONTAINMENT__KEEP_WARNING_AND_MAINLINE_FIVE_FIELD_RECONCILIATION

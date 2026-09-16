@@ -1,0 +1,52 @@
+schema: RULE_AUDIT_HANDOFF_V1
+audit_id: RULE-AUDIT-20260813-R11A-R13B-BATCH01-RAW-CAP-RECOVERY-R14
+proposal_id: R11A-R13B-BATCH01-RAW-CAP-RECOVERY-PROPOSAL-20260813-R14
+status: USER_POLICY_DECISION_REQUIRED
+decision_label: USER_POLICY_DECISION_REQUIRED
+recommended_option: B
+shared_files_modified: false
+user_approval_already_present:
+  r13b_base: true
+  r14_raw_cap_exception: false
+exact_approval_id_requested: R11A-R13B-BATCH01-RAW-CAP-RECOVERY-20260813-R14A
+exact_approval_text_path: EXACT_USER_APPROVAL_WORDING.md
+main_finding: OPTION_A_UNSAFE_BECAUSE_FIRST24_IDENTITY_CHRONOLOGY_IS_NOT_MECHANICALLY_PROVABLE
+recommended_disposition: INVALIDATE_BATCH01__CHARGE_AND_QUARANTINE_ALL40__RESUME_AT_ORIGINAL_BATCH02
+frozen_inputs:
+  blocker_sha256: 01C22B29C05051925A9D508FD216F087679EE8D3B12760B2CE6C68B5CC1A6EB5
+  checkpoint_011_sha256: BC280D6E3D9D86841A1B889E308129DED101EF3FEDC4FD5072018E7DEE83A43B
+  r13b_audit_manifest_sha256: 185027D0FD75EB554C0EF7B0E72095F8FA7CAD7B788175C9DF2EFB46F5D36E79
+  r13b_implementation_manifest_sha256: 7586075114C2A766E4D4A2C919876A91BB51B830D705B29E99C221BA8AD2CBD1
+counter_reconciliation:
+  raw_used: 44
+  raw_remaining: 44
+  unique_used: 4
+  unique_remaining: 68
+resume:
+  same_phase1_assignment: true
+  resume_batch: R13B-02
+  replacement_or_fifth_batch: forbidden
+  mainline_mechanical_gate_required: true
+backtest_required: false
+scientific_state_change: false
+candidate_state_change: false
+canonical_mode: OFF
+proposed_mainline_files_if_approved:
+  - control/minimum-viable-calibration-r13b/R14_BATCH01_RAW_CAP_RECOVERY_AMENDMENT.yaml
+  - control/minimum-viable-calibration-r13b/R14_BATCH01_QUARANTINE_LEDGER.yaml
+  - control/minimum-viable-calibration-r13b/R14_PHASE1_RESUME_GATE.yaml
+  - control/minimum-viable-calibration-r13b/R14_HASH_MANIFEST.sha256
+  - plan.md
+  - registry.yaml
+forbidden:
+  - FIRST24_GUESS_OR_REPLAY
+  - FORGET_OVERAGE
+  - RESET_COUNTER
+  - NONPERSISTED_MEANS_FREE
+  - ANSWER_OR_CONTENT_AWARE_RETROSPECTIVE_SUBSET
+  - REPLACEMENT_OR_FIFTH_BATCH
+  - CAP_OR_BUDGET_EXPANSION
+  - PRIVATE_LEAKAGE
+  - DOWNSTREAM_DISPATCH
+communication_target: 019fd152-f791-7311-891f-bfa69c344a9e
+lane_return_state_after_handoff: IDLE_REUSABLE_AWAITING_USER_DIALOGUE

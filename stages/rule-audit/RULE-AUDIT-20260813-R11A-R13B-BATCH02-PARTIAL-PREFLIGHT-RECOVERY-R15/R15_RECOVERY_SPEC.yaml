@@ -1,0 +1,66 @@
+{
+  "schema": "R11A_R13B_BATCH02_PARTIAL_PREFLIGHT_RECOVERY_PROPOSAL_V1",
+  "audit_id": "RULE-AUDIT-20260813-R11A-R13B-BATCH02-PARTIAL-PREFLIGHT-RECOVERY-R15",
+  "proposal_id": "R11A-R13B-BATCH02-PARTIAL-PREFLIGHT-RECOVERY-PROPOSAL-20260813-R15",
+  "proposed_approval_id": "R11A-R13B-BATCH02-PARTIAL-PREFLIGHT-RECOVERY-20260813-R15A",
+  "status": "USER_POLICY_DECISION_REQUIRED",
+  "shared_files_modified": false,
+  "implementation_owner_if_approved": "MAINLINE_ONLY",
+  "anchors": {
+    "blocker_sha256": "D68E513B15293B0D535704E323E831122C484B6257A6FEA65AF9CD19A5BC7DCE",
+    "r14a_manifest_sha256": "A1382A6ED09F21A0018607790414D74973C041195F81635CC1142DD4571BE4ED",
+    "r14a_supplement_sha256": "05E426CA5E309564F929CF78B590AC3086D802513904667DB9CC7F5224FFB178",
+    "r13b_rolling_control_sha256": "2861E3D439BFCDDA8D9AB615D112FB9929C34F91C1D8B1BBCFBF082092A4D176"
+  },
+  "option_assessment": {
+    "continue_batch02_three_single_query_calls": "REJECT_NOT_PROVEN_STRUCTURED",
+    "direct_public_api_route": "POTENTIALLY_COMPATIBLE_BUT_NOT_FROZEN_OR_PROVEN_CALLABLE__NOT_AUTHORIZED",
+    "close_batch02_move_original_batch03": "RECOMMENDED_PENDING_USER_APPROVAL_AND_STRUCTURED_TRANSPORT_GATE",
+    "terminate_r13b": "SAFE_FALLBACK"
+  },
+  "batch02_disposition": {
+    "request1_slots_permanently_charged": 12,
+    "request1_quarantine": "WHOLE_TRANSACTION_AGGREGATE_ONLY__NO_IDENTITY_OR_CONTENT",
+    "request2_issued": false,
+    "request2_slots_consumed": 0,
+    "request2_reservation": "INVALIDATED__MAY_NOT_BE_ISSUED_REPLAYED_SUBSTITUTED_SPLIT_OR_REUSED",
+    "batch02_status": "INVALID_PARTIAL_PREFLIGHT__NO_COMMITMENT__NO_SCIENTIFIC_INFERENCE"
+  },
+  "counters": {
+    "total_raw_ceiling": 88,
+    "raw_used": 56,
+    "raw_remaining": 32,
+    "total_unique_ceiling": 72,
+    "unique_used": 4,
+    "unique_remaining": 68,
+    "eligible": 2,
+    "maximum_future_eligible_upper_bound": 34,
+    "blind_core_24_arithmetically_reachable": true,
+    "blind_30_arithmetically_reachable": true,
+    "blind_36_arithmetically_reachable": false,
+    "yield_guaranteed": false
+  },
+  "remaining_batches": [
+    {"batch_id": "R13B-03", "original_raw_cap": 24, "original_unique_cap": 20},
+    {"batch_id": "R13B-04", "original_raw_cap": 12, "original_unique_cap": 8}
+  ],
+  "future_effective_raw_cap": "MIN_ORIGINAL_BATCH_RAW_CAP_AND_GLOBAL_RAW_REMAINING_BEFORE_CALL",
+  "batch03_dispatch_status_after_policy_approval": "NOT_DISPATCHABLE_PENDING_STRUCTURED_TRANSPORT_GATE",
+  "structured_transport_gate": {
+    "one_literal_query_per_call": "REQUIRED_BUT_NOT_SUFFICIENT",
+    "precall_frozen_fields": ["provider_or_endpoint", "literal_query_and_sha256", "sort_and_order", "row_limit", "parser_version_and_sha256", "slot_reservation"],
+    "machine_observable_ordered_row_collection": "REQUIRED",
+    "raw_response_bytes_frozen_before_parsing_filtering_or_model_read": "REQUIRED",
+    "row_mapping": "REQUEST_ORDINAL_THEN_PROVIDER_ROW_ORDINAL",
+    "required_row_fields": ["stable_locator_or_provider_id", "title", "url"],
+    "prose_combined_or_unknown_result": "FAIL_CLOSED",
+    "official_api_endpoint_names_implicitly_authorized": false,
+    "any_live_probe_consumes_reserved_raw": true
+  },
+  "rollback": {
+    "before_future_call": "WITHHOLD_OR_REVOKE_BATCH03_RESUME_GATE_AND_REMAIN_BLOCKED_AT_RAW_56_32",
+    "after_future_call": "PRESERVE_BYTES_AND_COUNTERS__NO_CAPACITY_RESTORATION__RETURN_FOR_DECISION_ON_FAILURE"
+  },
+  "preserved": ["TOTAL_AND_PER_BATCH_CAPS", "RESOURCE_BUDGETS", "BLIND_AND_STATISTICAL_CONTRACT", "SCIENTIFIC_GATES", "SOURCE_QUALIFICATION", "BLIND_ISOLATION", "PACKER_EXECUTOR_AUDITOR_INDEPENDENCE", "TWO_SHADOW_WAVES", "CANONICAL_MODE_OFF", "PRODUCTION_NOT_AUTHORIZED"],
+  "not_authorized": ["PACKER_CONTACT_BY_RULE_AUDIT", "RETRIEVAL", "ROUTE_SUBSTITUTION", "NEW_EXTERNAL_SERVICE", "PHASE2", "EXECUTOR", "AUDITOR", "SHADOW", "DISCOVERY", "STAGE0", "STAGEA", "STAGEB", "E2", "EXPERIMENT", "DOWNLOAD", "AUTOMATION", "PRODUCTION"]
+}

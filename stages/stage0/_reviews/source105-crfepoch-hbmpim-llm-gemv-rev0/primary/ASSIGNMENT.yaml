@@ -1,0 +1,43 @@
+schema_version: stage0-assignment-v1
+assignment_id: STAGE0-PRIMARY-20260824-CRFEPOCH-HBMPIM-LLM-GEMV-REV0
+topic_id: CRFEPOCH-HBMPIM-LLM-GEMV-REV0
+lane_id: STAGE0_PRIMARY
+mode: PRIMARY
+thread_id: 01a02e0b-b609-7202-bda9-a2e8b08794b6
+source_stage: DISCOVERY_SOURCE105
+source_assignment_id: DISCOVERY-S1-20260824-SOURCE105-PUBLIC-NDP-ROTATION-V1
+write_directory: stages/stage0/_reviews/source105-crfepoch-hbmpim-llm-gemv-rev0/primary
+resource_root: stages/stage0/_reviews/source105-crfepoch-hbmpim-llm-gemv-rev0/primary/resources
+source_inputs:
+  brief: {path: stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/TOPIC_BRIEF_CRFEPOCH_HBMPIM_LLM_GEMV_REV0.md, sha256: 5B8ED00CBEE43D3EF67EC1B328B0B17D286A6FFFABBB92314E8630B983FB9640}
+  question_cards: {path: stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/DISCOVERY_QUESTION_CARDS.md, sha256: 8F2C3C1A1C32F7438136A398E23F611658B3C43D1DEF25A477C560584C5166D3}
+  screening_ledger: {path: stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/RAW_SCREENING_LEDGER.md, sha256: 8FF26EC495A451059F3744501483D6363DAF1BF00ABCFDB9E1A7A4C02F4609C1}
+  discovery_handoff: {path: stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/handoff.yaml, sha256: DE2225D80E5729DEF1F2862ED528B85C636AA4E97D5AFC06ED159E8D444B0980}
+  discovery_inventory: {path: stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/RESOURCE_INVENTORY.yaml, sha256: 2132C30746EA80EE5B90C64B177FCA456E8844D4D00A6C3A42096F8127F39D0B}
+  unindp_snapshot: {path: stages/discovery/round-20260824-strategy-source105/S1-boundary-contradiction/resources/src/UniNDP, commit: c8b21684358441d29fc81fa0866d07cec20582ed, license: MIT, tree_manifest_sha256: C35BDADA6F57B8B819D52DE254607BC8635FB43B5F8238B1A827716976863BEA, access: READ_ONLY}
+frozen_object:
+  exact_object: PIMSIMULATOR_HBM2_PIM_GEMV_COMMAND_CRF_PC_MODE_PROTOCOL_ON_PUBLIC_LLAMA2_MVM_SHAPES
+  research_question: Can a compiler partition dependent same-template Llama2 GEMV sub-operators into CRF-resident epochs that reduce legal CRF/mode transitions while preserving stock PIMSimulator command, PC, mode, and result semantics under a 32-instruction CRF bound?
+  contribution_type: COMPILER_TOOL
+  route: N2
+  carrier_kind: CANONICAL_BENCHMARK_ONLY
+  preliminary_quality: TIER_B_Q2_VIABLE__DISCOVERY_CONDITIONAL
+  claim_ceiling: CONDITIONAL_PAPER_POTENTIAL_ONLY__NO_MAIN_RESULT_OR_IMPLEMENTED_HARDWARE_CLAIM
+required_independent_checks:
+  - CURRENT_PIMSIMULATOR_COMMIT_AND_STOCK_EXECUTEGEMV_CRF_MODE_PC_SEMANTICS
+  - UNINDP_CURRENT_SOURCE_ACTION_COVERAGE
+  - DCC_ISCA2026_CURRENT_SOURCE_OR_FULLTEXT_CRf_RESIDENCY_MODE_PC_COVERAGE
+  - LLAMA2_PUBLIC_MVM_TEMPLATE_REUSE_AND_32_ENTRY_CAPACITY_ROUTE
+  - STOCK_SMALL_WITNESS_LEGALITY_OUTPUT_PC_MODE_ORACLE_FEASIBILITY
+  - FULL_COST_PROGRAM_MODE_BARRIER_COMMAND_DATA_MOVEMENT_HOST_COMPILER_TIME
+  - Q1_Q2_SHAPE_CALIBRATION_WITH_TWO_TO_THREE_REAL_PAPERS
+  - TERMINAL_IDENTITY_AND_DIRECT_FATAL_REBUILD
+stage0_atomic_repair_trace_mode: SHADOW
+discovery_claim_pack_mode: OFF
+allowed_decisions: [PASS_RECOMMENDED, BLOCKED_USER_ACTION_REQUIRED, RESERVE_RECOMMENDED, REVISE_ONCE, STOP]
+allowed_actions: [INDEPENDENT_PUBLIC_SEARCH, BOUNDED_PUBLIC_SOURCE_OR_PAPER_ACQUISITION_AFTER_RESOURCE_PREFLIGHT, STATIC_SOURCE_INSPECTION, Q1_Q2_CALIBRATION, WRITE_STAGE0_REPORT_MATRIX_HANDOFF_MANIFEST]
+forbidden_actions: [MODIFY_DISCOVERY_INPUTS_OR_UNINDP_SNAPSHOT, IMPLEMENT_CANDIDATE, RUN_CLAIM_BEARING_EXPERIMENT, BUILD_PIM_SIMULATOR, START_STAGEA_STAGEB_OR_FORMAL_PROJECT, USE_DISCOVERY_NOVELTY_CONCLUSION_AS_INDEPENDENT_VERDICT, READ_PARALLEL_DISCOVERY_OR_RULE_AUDIT_MEMORY, SYSTEM_INSTALL_OR_GLOBAL_ENVIRONMENT_MUTATION]
+resource_envelope: {network_bytes_max: 314572800, stored_bytes_max: 536870912, cpu_hours_max: 2, gpu_hours_max: 0, wall_seconds_max: 14400, attempts_max: 36, system_install_allowed: false, build_allowed: false, experiment_allowed: false}
+expected_outputs: [STAGE0_REPORT.md, Q1_COMPARATOR_MATRIX.md, CURRENT_COLLISION_LEDGER.md, handoff.yaml, HASH_MANIFEST.sha256, RESOURCE_INVENTORY.yaml]
+next_gate: MAINLINE_ACCEPTANCE_THEN_STAGE0_CONFIRMATION_SENTRY_FOR_PASS_OR_REVISE
+

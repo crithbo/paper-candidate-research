@@ -1,0 +1,37 @@
+schema: mainline-start-authorization-v1
+issued_at: 2026-08-25T17:28:54+08:00
+issued_by: MAINLINE
+decision: START_AUTHORIZED
+authorization_id: USER-PARALLEL-STAGEA-READY-CANDIDATES-20260825
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L3-20260825-LLVM-APX-R4-PRECLAIM-FIDELITY
+lane_id: CANDIDATE_EXECUTION_LANE_3
+lane_thread_id: 01a034d0-d67f-7f32-ab5f-54454407cb22
+context_sha256: F27084138F24B5A3A65A9BAA8D6F476C24240ED62019ED84582754F713468E27
+bootstrap_ack_sha256: 8C652DC907D0FE4594E5026C5C0FD322F437C8E31AF5E61C04B21329C9EB89DF
+bootstrap_acceptance: {disposition: ACCEPTED_READY, frozen_hashes: PASS_26_OF_26, differences_or_ambiguities: [], resource_root_absent: true, scientific_or_resource_action_started: false, prior_v8_state_preserved: true}
+allowed_after_start:
+  - create eight standard topic-local resource directories
+  - copy and hash-accept the exact r3 APX tool bundle and resume2 exact source inputs
+  - safe-extract exact source loci within the assignment resource root
+  - implement the complete assignment-local candidate and certificate/oracle checkers
+  - use at most one assignment-local harness build
+  - run F0 through F4 in order with two deterministic replays
+  - write the canonical preclaim fidelity package and wait for MAINLINE
+scientific_boundary:
+  claim_bearing_observation_allowed: false
+  natural_performance_or_full_cost_claim_run_allowed: false
+  all_F0_F4_required_for_pass: true
+  automatic_retry: false
+  llvm_rebuild: forbidden
+  scientific_revision_or_mechanism_pivot_authorized: false
+  owner_state_transition_authority: false
+  stageb_authorized: false
+budgets: {network_bytes_max: 0, stored_bytes_max: 4294967296, cpu_seconds_max: 14400, wall_seconds_max: 28800, parallel_processes_max: 2, harness_build_attempts_max: 1, gpu_hours_max: 0}
+monitoring: {process_alive: required, output_growth: required, timeout: required, hard_timeout_seconds: 28800, monitored_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r4/resources}
+failure_policy:
+  resource_or_tool: BLOCKED_USER_ACTION_REQUIRED__RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  construct_or_fidelity: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_PASS_STOP_RESERVE_INFERENCE
+lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, cleanup_owner: MAINLINE, owner_cleanup_allowed: false, downstream_consumer: FUTURE_SEPARATE_APX_CLAIM_ASSIGNMENT, post_close_retained_bytes_max: 1073741824}
+next_action: COPY_ACCEPT_INPUTS__RUN_F0_F4_PRECLAIM__HANDOFF
+

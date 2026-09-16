@@ -1,0 +1,157 @@
+schema: handoff-transport-envelope-v2
+topic_id: SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET
+assignment_id: STAGE0-SENTRY-20260830-VLLM-CUDAGRAPH-CAPTURESET
+lane_id: STAGE0_SENTRY
+role_id: STAGE0_SENTRY
+source_stage: STAGE0
+assignment_state: FROZEN_AWAITING_MAINLINE
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+
+control:
+  accepted_ack_sha256: 50785D150B56A417D3EA35FD6383AC0D6392417786B574F49431711D7AC1D257
+  mainline_bootstrap_acceptance_sha256: 7955E6D5662F0115887F0F648D709222F3DE184D23D3925B77340157BB505177
+  mainline_start_sha256: CB8F437E0C7364F9593265EBE895602CC9986710BF6C720B3FE57718D3309ED7
+  current_cycle_usage_reset_confirmed: false
+
+decision:
+  sentry_disposition: CONFIRM
+  scientific_verdict: PASS_RECOMMENDED
+  operational_disposition: NONE
+  quality_tier: TIER_B_Q2_VIABLE
+  q1_supported: false
+  evidence_ceiling: CURRENT_OFFICIAL_SOURCE_AND_PRIMARY_SYSTEMS_EVIDENCE__ZERO_CANDIDATE_RESULT
+  direct_fatal: false
+  current_absence_classification: SEARCH_BOUNDED_OPEN
+  scientific_revision_consumed: false
+  claim_bearing_observation_obtained: false
+
+user_summary_cn:
+  outcome: "独立 SENTRY 确认 PASS_RECOMMENDED / TIER_B_Q2_VIABLE；这不是性能结论。"
+  main_reason: "vLLM v0.28.0 已有 manual/default/interactivity/throughput grids、native padding/eager dispatch 和完整 legality controls；Lazy RFC、Medusa、Foundry、TensorRT-LLM fixed-grid study 与 generic sequential DP 显著扣减贡献，但没有同一 exact object、同一信息条件、同一 dual-budget action 与 held-out full-cost endpoint 的 implemented selector。"
+  next_step: "MAINLINE 验收；未来 Stage A 必须先另冻 Linux/CUDA resource 与 PRE_CLAIM_CONTRACT_FIDELITY_GATE，不得直接实现或运行。"
+  user_action_required_now: false
+
+exact_object:
+  upstream: vLLM
+  tag: v0.28.0
+  commit: 2cf0a69
+  object: V1_single_GPU_text_backbone_cudagraph_capture_size_portfolio
+  action: choose_legal_ordered_cudagraph_capture_sizes_before_serving
+  unchanged_semantics: [model, requests, sampling, outputs, scheduler, cudagraph_mode, lora_and_speculation_config, native_dispatcher]
+
+current_union:
+  - balanced_default_grid
+  - performance_mode_interactivity_dense_1_through_32_then_standard_grid
+  - throughput_mode
+  - manual_cudagraph_capture_sizes_override
+  - full_piecewise_full_decode_only_full_and_piecewise_none_modes
+  - upward_padding_and_none_eager_fallback
+  - lora_uniform_decode_speculation_sequence_parallel_attention_backend_legality
+  - enforce_eager_warmups_copy_inputs_compile_sizes_graph_partition_controls
+  - different_object_multimodal_encoder_budget_manager
+
+collision:
+  strongest_subtractors:
+    - vllm_lazy_capture_RFC_20098
+    - Medusa_ASPLOS_2025_materialization
+    - Foundry_2026_context_materialization
+    - TensorRT_LLM_fixed_grid_tradeoff_study
+    - generic_one_dimensional_sequential_DP
+  failed_direct_coverage_predicates:
+    - same_scenario_and_heldout_horizon
+    - same_or_weaker_information
+    - implemented_atomic_dual_budget_action
+    - same_guarantee_under_same_assumptions
+    - same_nonworse_full_cost_endpoint
+  generic_collapse_gate: TARGET_NATIVE_POLICY_MUST_BEAT_FREQUENCY_AND_GENERIC_ORDERED_DP
+  plain_DP_or_frequency_selector_is_publishable: false
+
+strongest_baselines:
+  deployable:
+    - vllm_v0_28_balanced
+    - vllm_v0_28_interactivity
+    - vllm_v0_28_throughput
+    - equal_cardinality_and_equal_measured_memory_manual_grids
+    - enforce_eager
+    - equal_budget_frequency_topk
+    - generic_ordered_DP
+    - faithful_source_pinned_lazy_capture_if_available
+  conditional_system:
+    - TensorRT_LLM_fixed_grids_when_legality_isomorphic
+    - Medusa_under_offline_materialization_assumptions
+    - Foundry_under_archive_and_deterministic_context_assumptions
+  ceiling_only:
+    - exhaustive_subset_oracle_on_frozen_small_domain
+
+full_cost:
+  required_dimensions:
+    - observer_and_profiler
+    - selector
+    - warmup_capture_and_dry_run
+    - server_ready_wall_time
+    - graph_count_metadata_and_resident_memory
+    - KV_capacity_and_concurrency_loss
+    - padding_and_eager_fallback
+    - TTFT_TPOT_ITL_P99_and_throughput
+    - storage_or_archive_when_applicable
+    - OOM_failures_and_exact_finite_horizon
+
+q2_shape:
+  minimum_models: 8
+  minimum_families: 3
+  carriers: [BurstGPT_natural, one_official_canonical_carrier]
+  minimum_horizons: 3
+  minimum_budget_regimes: 3
+  required_holdouts: [chronological_trace, model]
+  required_regimes: [positive, negative]
+  claim_ceiling: single_GPU_no_cross_architecture_or_production_scale_claim
+
+stagea_killer:
+  preclaim_gate: PRE_CLAIM_CONTRACT_FIDELITY_GATE
+  first_probe: one_small_public_model_one_authorized_Linux_CUDA_GPU_two_budgets_chronological_calibration_heldout
+  required_controls: [exact_commit, real_dispatcher, real_descriptors, legality_checker, hook_off_on, complete_cost_units, exhaustive_1_to_64_witness]
+  kill_conditions:
+    - no_at_least_5_percent_cumulative_full_cost_advantage_in_any_preregistered_cell
+    - native_or_simple_or_generic_within_5_percent_of_oracle_in_all_cells
+    - no_target_native_gain_over_generic_DP
+    - heldout_reversal_or_result_dependent_selection
+    - full_cost_reversal_after_KV_capacity_profiling_capture_or_failures
+    - any_semantic_or_dispatch_legality_change
+  positive_ceiling: PRELIMINARY_NON_FALSIFICATION_ONLY
+
+resource_science_separation:
+  future_stagea_resource_classification: BLOCKED_USER_ACTION_REQUIRED
+  reason: OFFICIAL_VLLM_GPU_ROUTE_REQUIRES_LINUX_AND_DOES_NOT_NATIVELY_SUPPORT_WINDOWS
+  resource_failure_implies_scientific_stop: false
+  resource_availability_implies_scientific_pass: false
+  immediate_user_action_required: false
+  stagea_authorized: false
+
+review_scope:
+  search_or_open_items_used: 15
+  search_or_open_items_max: 16
+  build_or_experiment: 0
+  implementation: 0
+  resource_action: 0
+  stagea_or_stageb_started: false
+  shared_write: false
+
+isolation:
+  historical_metadata_only_exposure_disposed_by_mainline: true
+  excluded_topic_role_permanent: true
+  excluded_topic_scientific_inputs_opened: false
+  excluded_topic_inference_made: false
+
+artifact_pointers:
+  canonical_report:
+    path: stages/stage0/_reviews/round-20260830-source123-sentry/SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET/SENTRY_STAGE0_REPORT.md
+    sha256: EA27B18EB4E9ABFB41964EB58C605F591811C0CFF520403EF6021579E650DD4C
+  handoff:
+    path: stages/stage0/_reviews/round-20260830-source123-sentry/SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET/handoff.yaml
+  manifest:
+    path: stages/stage0/_reviews/round-20260830-source123-sentry/SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET/HASH_MANIFEST.sha256
+
+next_gate:
+  authority: MAINLINE
+  action: MECHANICAL_ACCEPTANCE_THEN_CONDITIONAL_STAGEA_RESOURCE_AND_FIDELITY_FREEZE
+  direct_candidate_execution_allowed: false

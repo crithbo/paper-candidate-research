@@ -1,0 +1,133 @@
+schema_version: rvv-r5-independent-preclaim-gate-handoff-v1
+created_at: 2026-08-26T15:33:00+08:00
+assignment_id: STAGEA-GATE-20260826-LLVM-RVV-R5-SPLIT-CLOSURE-PRECLAIM
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+lane_id: STAGEA_GATE
+lane_thread_id: 01a034d0-d990-7d50-9d9f-a6d05a81bf11
+owner_assignment_id: STAGEA-L1-20260826-LLVM-RVV-R5-SPLIT-PROVENANCE-CLOSURE-PRECLAIM
+owner_lane_id: CANDIDATE_EXECUTION_LANE_1
+owner_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+reviewer_owner_independence: PASS
+
+decision: REJECT_PRECLAIM_FIDELITY__BOUNDED_ENGINEERING_CORRECTION_EXISTS
+soft_blocker_class: SOFT_ENGINEERING_BLOCKER
+evidence_ceiling: INDEPENDENT_PRECLAIM_CONTROL_FIDELITY_ONLY__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+quality_tier: TIER_B_Q2_VIABLE_CARRIED_NOT_REEVALUATED
+confidence: HIGH_ON_STATIC_DEPENDENCY_AND_PROVENANCE_FINDINGS
+
+control_freeze:
+  context_sha256: 6F7661F1A444DD6DADCFD2889412AAA63D2B83DDCC4940B9714BAB437BB9945B
+  control_sha256: 3DCB89598E41D986F40D73F075D2B62BEABBEEA5FCC2E28D4D417AFE5422BBBA
+  bootstrap_ack_sha256: 24C9E14426BF7B932F9AA41D2C8873CE1B652F68ED02F668738863263948DD77
+  bootstrap_acceptance_sha256: 37F90E69DD047B86640F84C2287D33B3FAE584699A251672819A6244412EC881
+  start_authorization_sha256: CCFF45E3D0A5350843FD3155A57EECC4C1726A5D913073499F406D64AE0E770B
+  gate_precommit_sha256: EF538B588891A1705BB4D4896022409F736E580FD998D82886147E51C491DDB1
+  soft_blocker_rule_sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74
+
+frozen_owner_packet:
+  mainline_acceptance_sha256: 2366384A4E148A87A0D8B29E561277590F1C334A0DB84AD382A49C35B8A6737A
+  owner_handoff_sha256: 967B53E77BA847710B2BFBAD9F1BD119CF004D4DFBE30B7067D634FD3B806A93
+  owner_manifest_sha256: 481FB226432012B26E78C348B397AF9741637C0B31FD404CA3DA7877591219FE
+  owner_preclaim_gate_sha256: 37CE6DF42B5A1A9B273DD4DA357F9D5A62826E51827E87B3FD5447E1475343DF
+  split_checker_sha256: BCD8EA3581F401E4ACEA07EF64D2556E31826D3764E3C10D2B6A3D6B256A84E4
+  replay_R1_sha256: 52F7303BBD8CF4A16C888FC6BD36C630D3EBE2D6A27C31D90530D442E4CC4044
+  replay_R2_sha256: 52F7303BBD8CF4A16C888FC6BD36C630D3EBE2D6A27C31D90530D442E4CC4044
+  split_closure_result_sha256: F5A11857B07764B47FB1C2D6666E81E8F185BDDB1CE20CF16B77EEC0DCEC968B
+  F3_sha256: 7A43FE1DBA3D0FC64680878BB41D29C9DAB6FA3F0C6EF16AA12152753FB6748D
+  F4_sha256: 5064BCC2F2F911520B8E3645D2C52D9CED49280E1B0CBABF722873FA366378EF
+  F5_sha256: 6D513C683C526719A507A47104BE72A77E8C6AB08248D44406793E49655BF881
+
+gate_results:
+  G0_IDENTITY_AND_PIVOT_BOUNDARY:
+    decision: PASS
+    pivot_budget: 1_OF_1_STAGEA
+    pivot_consumed: true
+    second_pivot_or_revision_authorized: false
+  G1_SPLIT_PROVENANCE_COMPLETENESS:
+    decision: FAIL
+    kernel: HARDCODED_IMMEDIATE_PARENT_SUMMARY_WITHOUT_TRANSITIVE_FUTURE_ACTION_COST_QUOTIENT
+  G2_NO_SPLIT_ESCAPE_LOWERING:
+    decision: PASS_REQUIRED_FIVE_CONTROLS_ONLY
+    negative_controls: 5_OF_5_FAIL_CLOSED
+  G3_NATIVE_REPLAY_FIDELITY:
+    decision: PROVENANCE_FAIL
+    kernel: BYTE_EXACT_REPLAYS_WITHOUT_COMMAND_EXIT_RECEIPTS_AND_CONTRADICTORY_CANONICAL_REPRODUCIBILITY_REPORT
+  G4_F3_F5_AND_QUOTIENT:
+    decision: FAIL
+    kernel: F3_F5_DO_NOT_CONSUME_SPLIT_CLOSURE_ARTIFACT_OR_OBLIGATIONS
+  G5_NEXT_ROUTE:
+    decision: BOUNDED_ENGINEERING_CORRECTION_EXISTS
+    route_id: RVV_R5C_SPLIT_GRAPH_TO_QUOTIENT_DEPENDENCY_AND_REPLAY_RECEIPT_CLOSURE_V1
+
+decisive_independent_findings:
+  hardcoded_parent_set: ['%4', '%11']
+  recursive_transitive_ancestry: false
+  quotient_successor_relation_compared: false
+  split_closure_consumed_by_F4: false
+  split_closure_consumed_by_F5: false
+  canonical_reproducibility_report_sha256: 77CC8659B06B43FDD3E0F76EC44E78069C4BB4DFECCFECED9AD95CD4F1DA5F05
+  reproducibility_report_fresh_llc_commands_started: 0
+  reproducibility_report_exit_code: 1
+  fresh_replay_audit_claimed_commands: 2
+  independent_command_receipts_present: false
+
+bounded_correction:
+  classification: ENGINEERING_CORRECTION_IN_CONTRACT
+  same_object_mechanism_action_baselines_gate: unchanged
+  permitted_existing_source_files:
+    - resources/src/split_closure/split_closure.py
+    - resources/src/harness/rvv_preclaim.py
+  new_receipt_wrapper_or_schema_files_max: 1
+  required_closure:
+    - GENERIC_TRANSITIVE_SPLIT_ANCESTRY_AND_ALL_FROZEN_OBLIGATIONS_FROM_RAW_MIR
+    - SPLIT_CLOSURE_HASH_AND_STATE_CONSUMED_BY_F4_F5_LABELED_QUOTIENT_AND_BASELINES
+    - EXPANDED_FAIL_CLOSED_NEGATIVE_CONTROLS
+    - TWO_FRESH_LLC_MACHINEVERIFIER_COMMAND_EXIT_RECEIPTS_AND_FINAL_REPRODUCIBILITY_REPORT
+    - ACTUAL_RESOURCE_COUNT_AND_DECISIVE_SOURCE_RECEIPT_MANIFEST_RESEAL
+  consumes_second_pivot: false
+  consumes_scientific_revision: false
+  natural_or_claim_actions_before_new_independent_acceptance: forbidden
+  execution_authorized_by_this_handoff: false
+
+resource_and_lifecycle:
+  owner_resource_files_actual: 141
+  owner_resource_directories_including_root: 26
+  owner_resource_logical_bytes_actual: 198380512
+  reparse_entries: 0
+  active_related_processes: 0
+  inventory_matches_actual: true
+  owner_handoff_resource_files: 133
+  owner_handoff_resource_bytes: 198343802
+  handoff_metadata_delta_files: 8
+  handoff_metadata_delta_bytes: 36710
+  metadata_corrigendum_required: true
+  cleanup_candidates: 0
+  cleanup_actions_by_reviewer: 0
+
+scientific_boundary:
+  natural_or_selected_tool_invocations: 0
+  claim_bearing_observations: 0
+  scientific_inference: NONE
+  stageA_scientific_revision_consumed: false
+  stageA_mechanism_pivot_consumed: true
+  formal_state_transition: false
+  stageb_authorized: false
+
+canonical_outputs:
+  GATE_PRECOMMIT_sha256: EF538B588891A1705BB4D4896022409F736E580FD998D82886147E51C491DDB1
+  INDEPENDENT_PRECLAIM_FIDELITY_REVIEW_sha256: F9D0B2F7C7D4F39C89B0D9B4E85C602C1F9EF8C3B462FC4E089CBC967A77E066
+  SPLIT_CLOSURE_ROUTE_AUDIT_sha256: AF88FBA44D8F0BBF8C36414F98C43ADCBD83C79B2165C6C38C608849B0C08F55
+  RESOURCE_AND_LIFECYCLE_AUDIT_sha256: CF020AFE2B40B096D4C9E9C96EAB0E1905E38E6A99E2897161830201F197B183
+
+compliance:
+  owner_or_shared_files_written: false
+  compiler_checker_natural_or_claim_runs: 0
+  resources_created_or_copied: 0
+  second_pivot_or_revision_actions: 0
+  state_cleanup_or_stageb_actions: 0
+
+mainline_recommendation:
+  natural_or_claim_start: REJECT
+  next_action: MAINLINE_MAY_FREEZE_BOUNDED_ENGINEERING_CORRECTION_UNDER_SOFT_BLOCKER_RULE
+  user_action_required: false
+next_owner: MAINLINE

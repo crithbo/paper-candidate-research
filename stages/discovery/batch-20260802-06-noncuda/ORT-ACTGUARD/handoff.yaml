@@ -1,0 +1,21 @@
+topic_id: ORT-ACTGUARD
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: "固定 ONNX 模型在 ONNX Runtime CPU EP 的 INT8 QDQ 图；选择 activation 子图保留在线 scale/zero-point 计算。"
+main_claim: "风险合同驱动的局部动态参数路径可在完整 QDQ/参数/回退成本下产生准确率–延迟非支配点。"
+academic_value_score: 54
+ai_executability_score: 25
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.80
+strongest_baseline: ["ORT static QDQ (MinMax/Entropy/Percentile)", "ORT dynamic quantization", "static per-channel QDQ"]
+decisive_evidence: ["公开模型的 held-out 风险合同", "端到端 P50/P99 与完整转换/回退账本"]
+unresolved_risks: ["mixed-precision/PTQ 文献可能缩小 residual", "局部 fallback 可能被端点支配"]
+next_killer_gate: "同配置下至少一个公开模型出现纯 static 与 pure dynamic 均不能支配的点；否则 DROP。"
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: "CPU EP executable prototype; no accelerator claim"
+execution_authority: "Discovery only; no Stage 0 creation or formal experiments"
+file_hashes:
+  topic_brief.md: d115070dde60c4a7fab1506be6da3c9c30258ca9b63281272d69169d82e5d578
+  source_log.md: 54be4c4d5da30050b84c30452e7572f398160feff1ad045a2bc660198db55ee7

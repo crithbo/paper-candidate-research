@@ -1,0 +1,23 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: STAGE0-PRIMARY-20260830-EXECUTORCH-QFALLBACK-RANK-VALIDITY, topic_id: SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY, lane_id: STAGE0_PRIMARY, thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c, role: STAGE0_PRIMARY}
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+frozen_control:
+  agents: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655
+  plan: 3B8BF3C9787B6D3B020E8FE65829A4DC83D60F588CCA95AA51B0390005280B5C
+  registry: E695B3C5730A39FF872F922610324F39853AA37FE6155D319C8A3ED63044B0C2
+  role: BC4A6D6D5DE5CEC3DD69A1F8556276F95B405E81773FFC7F4A860B5769CAF2FE
+  academic_skill: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F
+  deep_research_workflow: 055E902187665C2437D0F41F35E2CC9C11FB5D62A736CF3ED23E44193BD4F029
+minimum_inputs:
+  control: {path: stages/stage0/_reviews/round-20260830-source121-primary/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/control/ASSIGNMENT.yaml, sha256: 0EBD7F22E89AAA3F668558EF26BD90529776F37547AE5F4338C2B9B4015C47BC}
+  brief: {path: stages/discovery/round-20260830-strategy-source121/S1-boundary-contradiction/TOPIC_BRIEF_SOURCE121_S1_EXECUTORCH_QFALLBACK_RANK_VALIDITY.md, sha256: 5F1E985E9318C52415B4C6397A2FD94B03D309E013F33F09AF36C15CFDCC7FF4}
+  handoff: {path: stages/discovery/round-20260830-strategy-source121/S1-boundary-contradiction/handoff.yaml, sha256: 5AEFEA9C620938884E1F29E1E335EDCEB60151FB9D5F756568B5C6D290D03ADC}
+  manifest: {path: stages/discovery/round-20260830-strategy-source121/S1-boundary-contradiction/HASH_MANIFEST.sha256, sha256: B44A67BE3A89608376B35C70A4EE43CBFDB260F19F57FD4A78FD698E6E3C4840}
+unique_write_directory: stages/stage0/_reviews/round-20260830-source121-primary/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY
+resource_root: stages/stage0/_reviews/round-20260830-source121-primary/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/resources
+bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+forbidden: [network_before_start, judgment_before_start, candidate_implementation, stagea, stageb, shared_write]
+pause_signal: finish_current_primary_review_and_handoff_then_no_successor_if_reset_signal_arrives
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP
+

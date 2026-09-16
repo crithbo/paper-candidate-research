@@ -1,0 +1,71 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA}
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED
+  artifact_state: ARTIFACT_CLOSED_BLOCKER
+  closeout_event: CORRECTION2_NONCLAIM_CONTROL_FIRST_FAILURE
+  downstream_consumer: MAINLINE_PRECLAIM_DISPOSITION
+  post_close_retained_bytes_max: 1073741824
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: RESUME_CAPSULE.yaml
+identity:
+  topic_id: TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+  assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-A0-CORRECTION2
+  stage_or_mode: A0_ENGINEERING_CORRECTION_BATCH_2_OF_2
+  run_id: CORRECTION2_CONTROL_ATTEMPT_1_FIRST_FAILURE
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/TORCHDYNAMO-GUARD-COVER-CACHE-REV0/a0-correction2-packet-completion-20260830
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/TORCHDYNAMO-GUARD-COVER-CACHE-REV0/a0-correction2-packet-completion-20260830/resources
+  finalized_at: 2026-08-30T08:10:33+08:00
+root_measurement: {files: 16, logical_bytes: 917345, allocated_bytes: null, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true, reparse_points: 0}
+required_directories: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+redirect_preflight: {status: PASS, process_local_only: true, system_or_user_environment_modified: false, tools: [primary_python, owner_A0_torch_env_read_only, owner_A0_solver_env_read_only]}
+resource_envelope: {network_bytes_max: 0, stored_bytes_max: 1073741824, cpu_hours_max: 4, attempts_max: 1, network_bytes_used: 0, stored_bytes_used: 917345, attempts_used: 1}
+entries:
+  - {path: resources/build/control/integrated/cases/CASE_MANIFEST.json, bytes: 860917, sha256: B14799D30811DC9951F74750F80D10E895430FC7D20E13808DA73E8B281F4209, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/control/integrated/solver/certificate-0.input.json, bytes: 544, sha256: 24498B6B1D5E523C29566616AC9C59B58E8B1EBCBA42798CC5A44A00E0B93676, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/control/integrated/solver/certificate-1.input.json, bytes: 549, sha256: F9A93863B5F117F15708569BA24EA7DCA745C43C1CC1AF37F6403A375487C608, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/control/integrated/solver/SOLVER_RECEIPT.json, bytes: 646, sha256: B0ABBDF11C052A800A441E017B76D7562616CB807D2AE01E1BB78532ADFF3394, retention_class: CLAIM_CRITICAL_BLOCKER_EVIDENCE_KEEP}
+  - {path: resources/logs/control/integrated.stderr.txt, bytes: 4103, sha256: D32F08A7F8716204AC014CC65AA47E4F5B9693A3A6CBE174A02D4C604166FAA2, retention_class: CLAIM_CRITICAL_BLOCKER_EVIDENCE_KEEP}
+  - {path: resources/logs/control/integrated.stdout.txt, bytes: 0, sha256: E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855, retention_class: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF}
+  - {path: resources/src/runtime/baseline_fullcost.py, bytes: 5836, sha256: FA021858222CA6B5FE015E4A7E60A299457EE996E3E9AC9E09B664907A6831A2, retention_class: RESUME_CRITICAL_KEEP}
+  - {path: resources/src/runtime/candidate_runner.py, bytes: 9971, sha256: 72A196F21072DB920804544E584FFC88008ABC1D42B8EB6F282A826F8685F458, retention_class: RESUME_CRITICAL_KEEP}
+  - {path: resources/src/runtime/case_producer.py, bytes: 4312, sha256: 8C3A35408C003C0E106AA807E524F14B1952A6574A2B932A0DB6EAE1F813B422, retention_class: RESUME_CRITICAL_KEEP}
+  - {path: resources/src/runtime/common.py, bytes: 726, sha256: D2F28547291D7174192C171E90D5230E76D03CE091097C9637CCDE7CAA22EC49, retention_class: RESUME_CRITICAL_KEEP}
+  - {path: resources/src/runtime/compatibility_checker.py, bytes: 2210, sha256: D247653EB25DB72A4450B94C1AD76638CEFA0092349B470C3D9B43109CEBE682, retention_class: RESUME_CRITICAL_KEEP}
+  - {path: resources/src/runtime/dag_builder.py, bytes: 11718, sha256: 69AE810E593492621BDD2B6B1ED11FB1B9AC7C317F0E357585168EF68F901FED, retention_class: RESUME_CRITICAL_KEEP}
+  - {path: resources/src/runtime/integrated_control.py, bytes: 7709, sha256: 6960B433812D282E24661D4DFB67757366D415B4342EDC908ABE0BFEF3B39FE5, retention_class: RESUME_CRITICAL_KEEP}
+  - {path: resources/src/runtime/quotient_extractor.py, bytes: 1904, sha256: 3522858BD8419626C00452544D17486199BD9F0981AB41367C5B4FC6D579E807, retention_class: RESUME_CRITICAL_KEEP}
+  - {path: resources/src/runtime/solver_worker.py, bytes: 2900, sha256: 772ABFD7FD236D7789D440CEA05522BA538E4A9444E933C738E5FE012EBA2BE5, retention_class: RESUME_CRITICAL_KEEP}
+  - {path: resources/src/runtime/solver_wrapper.py, bytes: 3300, sha256: DF931E8672854F485A3FCB312C0D3D5C13676FC560A5C2F2EF5AC4DC92E9D444, retention_class: RESUME_CRITICAL_KEEP}
+shared_assets_consumed: []
+external_system_dependencies:
+  - {path: <LOCAL_PROJECT_ROOT>/stages/stageA/TORCHDYNAMO-GUARD-COVER-CACHE-REV0/a0-execution-readiness-20260830/resources, mode: READ_ONLY, modified: false}
+cleanup:
+  owner: MAINLINE
+  allowed_automatic_retention_classes: [REACQUIRABLE_DELETE_AFTER_HANDOFF, SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF]
+  closeout_plan_accepted: false
+  downstream_inputs_accepted: false
+  capsule_sealed: true
+  active_owner_or_process_count: 0
+  process_check: GET_PROCESS_NO_RELEVANT_PYTHON_TORCH_SYMPY_PROCESS; WMI_COMMANDLINE_ENUMERATION_ACCESS_DENIED
+  performed: false
+  deleted_entries: []
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: true
+  deterministic_recovery_routes_complete: false
+  closeout_budget_or_exception_pass: true
+  cleanup_receipt_valid: false
+  result: VALID_BLOCKER_CLOSEOUT_NO_CLEANUP

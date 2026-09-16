@@ -1,0 +1,34 @@
+schema: reproducibility-report-v1
+assignment_id: STAGEA-L3-20260825-LLVM-APX-R4-PRECLAIM-FIDELITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+start_authorization_sha256: 18DED995CF648E64DC651403270609C82A2E4B153EB52493D4784FA6B1B726B5
+run_index:
+  - {id: INPUT_COPY_AND_HASH_ACCEPTANCE, classification: CONTROL_NON_CLAIM_BEARING, result: PASS}
+  - {id: ARCHIVE_MEMBER_SAFETY_PREFLIGHT, classification: CONTROL_NON_CLAIM_BEARING, result: PASS_197178_MEMBERS_ZERO_UNSAFE}
+  - {id: F0_LLVM_MC_CAPABILITY, classification: CONTROL_NON_CLAIM_BEARING, result: PASS, output_sha256: FE392549F6E4573405FDEAD1969EFE18173EAB937C0A0F725E98B1C78D41761F}
+  - {id: F2_LLC_MACHINEVERIFIER_MATERIALIZATION_REPLAY1, classification: CONTROL_NON_CLAIM_BEARING, result: FAIL_CLOSED_X86_ASSEMBLY_PRINTER_ASSERT, output_sha256: 5C6E194A5FD3839789CB789151FB552295936C98399702CAE5DC9D8C176561CF}
+  - {id: F2_REPLAY2, classification: NOT_RUN, result: SUPPRESSED_BY_NO_AUTOMATIC_RETRY}
+  - {id: F3_CERTIFICATE, classification: NOT_RUN, result: ORDERED_GATE_STOP}
+  - {id: F4_ORACLE, classification: NOT_RUN, result: ORDERED_GATE_STOP}
+retry_audit:
+  resource_transfer_retries: 0
+  llvm_tool_run_retries: 0
+  harness_build_retries: 0
+  scientific_run_retries: 0
+  host_shell_parse_corrections_before_subprocess_launch: 2
+  archive_safety_predicate_correction_before_extraction: 1
+  interpretation: HOST_SHELL_AND_PREFLIGHT_CHECKER_CORRECTIONS_DID_NOT_REEXECUTE_A_FAILED_RESOURCE_OR_F0_F4_RUN
+monitoring: {process_alive: observed_by_synchronous_process_exit, output_growth: captured_to_assignment_local_logs, hard_timeout_seconds: 28800, timeout_triggered: false}
+budgets:
+  network_bytes_used: 0
+  resource_root_logical_bytes: 613551030
+  resource_root_logical_bytes_max: 4294967296
+  harness_build_attempts_used: 0
+  harness_build_attempts_max: 1
+  max_parallel_processes_observed: 1
+  max_parallel_processes_allowed: 2
+  gpu_hours_used: 0
+  exact_cpu_and_assignment_wall: UNAVAILABLE__NOT_ESTIMATED
+forbidden_actions: {network: NOT_RUN, llvm_rebuild: NOT_RUN, upstream_patch: NOT_RUN, natural_function: NOT_RUN, performance_full_cost_claim: NOT_RUN, scientific_revision_or_pivot: NOT_RUN, cleanup: NOT_RUN, stageb: NOT_RUN}
+result: REPRODUCIBLE_FAILURE_LOG_SEALED__NO_SECOND_REPLAY_AUTHORIZED

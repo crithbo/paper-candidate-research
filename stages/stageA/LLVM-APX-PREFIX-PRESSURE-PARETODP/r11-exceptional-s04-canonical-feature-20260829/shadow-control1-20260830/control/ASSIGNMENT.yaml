@@ -1,0 +1,37 @@
+schema: stagea-a0-prospective-shadow-control-v1
+assignment_id: STAGEA-L1-20260830-APX-R11-SHADOW-CONTROL1
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+mode: SHADOW
+internal_mode: A0_EXECUTION_READINESS
+parent_packet: {path: ../APX_R11_EXECUTABLE_PACKET.yaml, sha256: EB0D364071F195D12472F2079CFC6C4A4D84E415AB9FBCD12E91D243F9EAF0E4}
+parent_driver: {path: ../APX_R11_EXCEPTIONAL_DRIVER.py, sha256: B5684CC37B1769050705DD1EA0D63BB92BB035F9886984E04868F359C5924F87}
+parent_input_manifest: {path: ../EXACT_INPUT_COPY_MANIFEST.yaml, sha256: 177CA91F9C4E0DEAB5F76E0A948BC3501F2CD8F721312AF09DEA6173EEEE3A5D}
+shared_asset: {id: ASSET-LLVM-APX-A1194BE1, record: projects/_assets/ASSET-LLVM-APX-A1194BE1/ASSET_RECORD.yaml, record_sha256: D199BB024D254BC30322B52D302A13B04C2C99A1AEB92773929B62B1E5813A5D, mode: EXECUTE_IN_PLACE_READ_ONLY}
+unique_write_directory: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r11-exceptional-s04-canonical-feature-20260829/shadow-control1-20260830
+resource_root: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r11-exceptional-s04-canonical-feature-20260829/shadow-control1-20260830/resources
+resource_envelope: {network_bytes_max: 0, stored_bytes_max: 67108864, cpu_hours_max: 0.5, wall_seconds_max: 1800, attempts_max: 1}
+allowed:
+  - create_eight_resource_subdirectories_and_inventory
+  - copy_exact_minimal_driver_and_S04_input_only
+  - execute_registered_shared_llc_read_only_in_place
+  - one_nonclaim_control_attempt
+  - redirect_stdout_stderr_without_reading_relative_effect_values
+  - validate_exit_required_outputs_schema_missing_metric_and_path_only
+  - write_mechanical_receipt_inventory_handoff_targeted_manifest
+forbidden:
+  - network
+  - shared_asset_mutation
+  - more_than_one_attempt
+  - natural_or_claim_row
+  - relative_effect_visibility
+  - result_aware_change
+  - exception_consumption
+  - scientific_revision_consumption
+  - baseline_denominator_action_or_claim_change
+  - shared_write
+  - cleanup
+  - stageb
+success: CONTROL_ROW_PASS__A0_READY_FOR_NEXT_AUTHORIZED_A1_OR_EXCEPTIONAL_PRECLAIM_GATE
+failure: EXECUTION_CONTRACT_HOLD__CONTROL_ROW_FAIL__NO_SCIENTIFIC_INFERENCE
+stop_after: CONTROL_HANDOFF
+

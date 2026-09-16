@@ -1,0 +1,25 @@
+schema_version: rule-audit-assignment-v1
+audit_id: RULE-AUDIT-20260824-SOURCE103-104-CARRIER-FIRST-A3
+assignment_id: RULE-AUDIT-20260824-SOURCE104-CARRIER-FIRST-EVALUATION-A3
+lane_id: RULE_AUDIT
+thread_id: 01a02e08-0b16-7ed2-bfc4-f37b5ad86992
+trigger: SOURCE104_COMPLETE_ZERO_CLEAN_BRIEF_AFTER_EXACT_PUBLIC_CARRIER_FIRST_DIVERSIFICATION
+trigger_cycles: [SOURCE103, SOURCE104]
+mode: PROPOSAL_ONLY
+write_directory: stages/rule-audit/RULE-AUDIT-20260824-SOURCE103-104-CARRIER-FIRST-A3
+question: Evaluate whether Source104 exact-public-carrier-first allocation changed the first failed conversion or reduced carrier/generic/current-union failure, declare the allocation RETAIN/DOWNGRADE/REMOVE, and recommend at most one future bounded behavior change while Source105 proceeds independently.
+minimum_inputs:
+  - accepted A2 report/proposal/handoff
+  - Source103 and Source104 accepted control/handoffs/manifests
+  - registry funnel records and current rules
+allowed_actions: [READ_MINIMUM_REGISTERED_INPUTS, COMPARE_SOURCE103_SOURCE104_TRANSITIONS, EVALUATE_CARRIER_FIRST_ALLOCATION, WRITE_PROPOSAL_ONLY_OUTPUTS]
+forbidden_actions:
+  - MODIFY_SHARED_OR_CANDIDATE_FILES
+  - READ_OR_USE_SOURCE105_RESULTS_OR_BACKWRITE_SOURCE105
+  - START_NETWORK_SEARCH_DOWNLOAD_BUILD_EXPERIMENT_QUEUE_BACKTEST_AUTOMATION_OR_STAGE
+  - RELAX_SCIENTIFIC_GATES_OR_CREATE_QUOTA_BROAD_COOLDOWN_STOP_REVIVAL
+required_analysis: [FIRST_FAILED_CONVERSION_COMPARISON, CARRIER_FIRST_RETAIN_DOWNGRADE_REMOVE, SOURCE_SATURATION_VS_RULE_TEMPLATE_EXECUTION_RESOURCE, MINIMUM_FUTURE_CHANGE_OR_NO_CHANGE, BACKTEST_SHADOW_ROLLBACK]
+expected_outputs: [RULE_AUDIT_REPORT.md, RULE_CHANGE_PROPOSAL.md, handoff.yaml, HASH_MANIFEST.sha256]
+resource_actions_allowed: false
+candidate_or_state_authority: false
+source105_may_continue_without_waiting: true

@@ -1,0 +1,45 @@
+assignment_id: DISCOVERY-S6-20260814-ADAPTIVE-SOURCE28-RQ-PRODUCTION-V1
+sources:
+  - card_id: QC01
+    source_role: CURRENT_UNION
+    url_or_deterministic_selection_rule: https://llvm.org/doxygen/X86PreTileConfig_8cpp_source.html
+    version_commit_or_date: LLVM_23.0.0git__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    bytes_and_sha_when_persisted: NOT_PERSISTED__本次运行环境没有提供精确统计，未作估算
+    plain_chinese_disposition: 预配置pass计算支配/调用后的ldtilecfg插入点；跨块shape提升仍有明确未处理路径。
+  - card_id: QC01
+    source_role: CURRENT_UNION
+    url_or_deterministic_selection_rule: https://llvm.org/doxygen/X86TileConfig_8cpp_source.html
+    version_commit_or_date: LLVM_current__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    bytes_and_sha_when_persisted: NOT_PERSISTED__本次运行环境没有提供精确统计，未作估算
+    plain_chinese_disposition: 配置pass在寄存器分配后从VirtRegMap读取物理TMM绑定并写八个tile shape。
+  - card_id: QC01
+    source_role: ANCHOR
+    url_or_deterministic_selection_rule: https://www.llvm.org/docs/LangRef.html
+    version_commit_or_date: LLVM_current__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    bytes_and_sha_when_persisted: NOT_PERSISTED__本次运行环境没有提供精确统计，未作估算
+    plain_chinese_disposition: x86_amx类型只允许有限intrinsic操作，锁定同对象语义边界。
+  - card_id: QC01
+    source_role: CONTRARY
+    url_or_deterministic_selection_rule: https://mlir.llvm.org/docs/Dialects/X86/
+    version_commit_or_date: current_docs__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    bytes_and_sha_when_persisted: NOT_PERSISTED__本次运行环境没有提供精确统计，未作估算
+    plain_chinese_disposition: 官方MLIR AMX操作及其对应tile指令证明候选不得改变load/store/multiply语义；未发现直接同对象联合构造器，结论为BOUNDED_SEARCH_OPEN而非全局absence。
+  - card_id: QC03
+    source_role: ANCHOR
+    url_or_deterministic_selection_rule: https://docs.riscv.org/reference/isa/unpriv/zfa.html
+    version_commit_or_date: Zfa_v1.0__crawled_2026-08
+    license_or_provenance: RISC_V_International__ratified_specification
+    bytes_and_sha_when_persisted: NOT_PERSISTED__本次运行环境没有提供精确统计，未作估算
+    plain_chinese_disposition: 锁定Zfa的合法浮点指令形式和语义。
+  - card_id: QC03
+    source_role: CURRENT_UNION
+    url_or_deterministic_selection_rule: https://llvm.org/doxygen/RISCVISelLowering_8cpp_source.html
+    version_commit_or_date: LLVM_current__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    bytes_and_sha_when_persisted: NOT_PERSISTED__本次运行环境没有提供精确统计，未作估算
+    plain_chinese_disposition: current lowering has explicit hasStdExtZfa legality/custom-action branches; initial proposal is ordinary instruction-form selection.
+runtime_telemetry: 本次运行环境没有提供精确统计，未作估算

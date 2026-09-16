@@ -1,0 +1,37 @@
+schema: mainline-static-correction-disposition-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R12-STATIC-CORRECTION3-FINAL
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+decision: EXECUTION_CONTRACT_HOLD__UNAUTHORIZED_PREACK_STATIC_ACTION__STATIC_BUDGET_EXHAUSTED__NO_SCIENTIFIC_INFERENCE
+decided_at: 2026-08-29T21:55:00+08:00
+evidence:
+  unauthorized_action_handoff:
+    path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/UNAUTHORIZED_PREACK_ACTION_HANDOFF.yaml
+    sha256: E974BD6D90D4DF6562429E5C28A74F8CB79C1F2CEE35888377CBD8C81200511D
+  correction3_ack:
+    path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/CORRECTION3_BOOTSTRAP_ACK.yaml
+    sha256: 19812F4B7A729ABF72715C506DA7D34B99673ADCEECCE641A5EB0FF5BD9648C8
+  observed_order:
+    dag_last_write_utc: 2026-08-29T13:46:10Z
+    packet_last_write_utc: 2026-08-29T13:48:08Z
+    ack_last_write_utc: 2026-08-29T13:49:26Z
+  resource_root_absent: true
+  resource_files: 0
+  tool_execution: false
+  control_execution: false
+  claim_execution: false
+  network: false
+  scientific_inference: NONE
+disposition:
+  correction3_outputs_accepted: false
+  correction3_outputs_classification: QUARANTINED_UNAUTHORIZED_PREACK_STATIC_OUTPUTS
+  earlier_accepted_correction2_evidence_and_declared_hashes_preserved: true
+  earlier_accepted_correction2_packet_and_dag_currently_present: false
+  prior_lane_stall_reassignment_disposition: SUPERSEDED_BY_LATE_UNAUTHORIZED_PREACK_ACTION
+  replacement_lane_execution_started: false
+  scientific_revision_consumed: false
+  stageb_authorized: false
+resume_boundary:
+  ordinary_same_assignment_static_correction_budget_remaining: 0
+  automatic_continuation_allowed: false
+  allowed_next_route: NEW_CLEAN_SAME_OBJECT_INTEGRATED_PACKET_ASSIGNMENT_ONLY_IF_SEPARATELY_AUTHORIZED
+  forbidden: [accept_or_execute_quarantined_packet, silent_repair, result_aware_change, denominator_change, baseline_relaxation, retry, stageb]

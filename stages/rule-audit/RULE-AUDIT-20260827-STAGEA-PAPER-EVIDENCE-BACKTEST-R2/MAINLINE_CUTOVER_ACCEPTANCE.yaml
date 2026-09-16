@@ -1,0 +1,18 @@
+schema: mainline-rule-audit-cutover-acceptance-v1
+audit_id: RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+manifest: {path: HASH_MANIFEST.sha256, sha256: AF41267D3C85E33CD74A875B49FDAB30EEA20A694220AB7A335C01A6A6600D0D}
+handoff: {path: handoff.yaml, sha256: 3C3BBF169E4F788E432DAB4B674E3D2E2BA671E014A0313141AEEF3231C22569}
+specification: {path: BACKTEST_ASSIGNMENT_SPEC.md, sha256: 4DFB6C2F538E69F26BEC4B91D58200ABA895D173B29D62F0AA86C5BB01553658}
+user_authorization: USER_CONTINUE_UNTIL_STAGEA_PAPER_EVIDENCE_BACKTEST_REPORT_20260827
+decision: ACCEPTED__R2_PAPER_EVIDENCE_BACKTEST_CONTINUOUS_EXECUTION
+effects:
+  local_redo_stopped: true
+  R1_packer_superseded_without_deletion: true
+  local_results_preserved_as_PROJECT_LOCAL_SUPPLEMENT: true
+  population: 12_positive_plus_4_evidence_defect_negatives
+  blind_pilot_conditional: true
+  no_new_per_case_threads: true
+  production_candidate_state_changed: false
+  StageB_changed: false
+  metric_merges_forbidden: true
+next_route: R2_BACKTEST_PACKER_FREEZE

@@ -1,0 +1,163 @@
+schema: candidate-owner-handoff-v1
+created_at: 2026-08-26T09:40:00Z
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9D-COMMAND-COST-PRECLAIM
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+role: CANDIDATE_OWNER
+context_sha256: 10AD82CFAFA3529BD0EBF1A071E2E3E7E88CA0B93190849655C57FE3C22F856E
+control_sha256: EE637D1E6B9DF8FF8CA5B50D0989BB3131F492981743C993C458453EA2BC565A
+bootstrap_ack_sha256: 62C039345BA1C0454A755F1354B69001856A5DA4D898CD9C3DAED930A8B4E5C5
+bootstrap_acceptance_sha256: 4F8797EC71503A00853F2512D24A368244D405BA359A21910202A29987213A85
+start_authorization_sha256: 313591BD9135E92A0FF56639D6AB832EFF52D2B614A09099DF74D744019C9D5A
+
+decision: PPC_R9D_PRECLAIM_ENGINEERING_FIDELITY_PASS__RETURN_SAME_INDEPENDENT_GATE
+evidence_ceiling: PRECLAIM_ENGINEERING_FIDELITY_ONLY__NO_SELECTED_OR_SCIENTIFIC_INFERENCE
+preclaim_engineering_fidelity_ready_for_independent_gate: true
+natural_selected_or_claim_ready: false
+
+gate_results:
+  C0_INPUT_ACCEPTANCE: PASS_329_FILES_61459088_BYTES_ZERO_MISMATCH_ZERO_REPARSE
+  C1_COMMAND_COST_EDGE_MODEL: PASS_56_OF_56_PER_REPLAY_SHARED_COMPILE_ONCE_ZERO_ORPHAN
+  C2_NEGATIVE_CONTROLS: PASS_3_OF_3_EXPECTED_FAIL
+  C3_R10_PRODUCER_PRECEDENCE: PASS_32_OF_32_BASELINE_GRAPH_IS_PRODUCER_OUTPUT
+  C4_R10_FULL_COST_DEPENDENCY: PASS_896_OF_896_PER_FUTURE_PROCESS_NOT_EXECUTED
+  C5_TWO_REPLAY_CONTROL_AUDIT: PASS_EXISTING_RAW_AND_METRICS_ONLY
+  C6_CANONICAL_RESEAL: PASS_HANDOFF_AND_MANIFEST_AFTER_THIS_RECORD
+
+input_acceptance:
+  path: SAME_TOPIC_INPUT_ACCEPTANCE.yaml
+  sha256: 24272EA5554888597B5BA3247F82F85E19C5C7B95C0AC4BAFD7F3247AA28BE98
+  copy_attempts: 10
+  files: 329
+  logical_bytes: 61459088
+  mismatches: 0
+  reparse_entries: 0
+  source_r9c_modified_or_deleted: false
+
+source_and_static_compile:
+  existing_source_files_modified: 2
+  new_source_files: 2
+  total_source_files: 6
+  source_edits_after_first_controller_tool: 0
+  static_compile_commands: 1
+  static_compile_result: PASS
+  materializer_harness_sha256: C504250677F59E3B2EE2C054E51D160EE632D3E9E84688BA93C20C0236525C53
+  r10_plan_source_sha256: 188A38302710FFA076EB32DBB20638FB7A95B02C68A44A931B32E3218C3DAA54
+  controller_sha256: B8B159709DADF17A1F2716C2DD28E8490EC486E584BFA1FF6F0578BC72CB1259
+  r10_fixture_sha256: 6610908E0A9D071FC10FD21DF213D294CF8D289B0B020295AC7BBBC6BBC54CA6
+
+command_cost_edge_closure:
+  replay_1:
+    metrics_rows_total: 59
+    baseline_metric_ids: 56
+    referenced_metric_ids: 56
+    shared_compile_unique_counted_once: 8
+    shared_compile_bundle_references: 16
+    unknown_metric_ids: 0
+    orphan_metric_ids: 0
+    cpu_seconds_sum_unique: 2.09375
+    wall_seconds_sum_unique: 4.910944799999925
+    peak_rss_bytes_max: 24887296
+    audit_sha256: AA6AFC579462BE01F8F7E93FABA660CF68E10CC5E8D7B37362373060B1CAB0D0
+  replay_2:
+    metrics_rows_total: 59
+    baseline_metric_ids: 56
+    referenced_metric_ids: 56
+    shared_compile_unique_counted_once: 8
+    shared_compile_bundle_references: 16
+    unknown_metric_ids: 0
+    orphan_metric_ids: 0
+    cpu_seconds_sum_unique: 2.28125
+    wall_seconds_sum_unique: 4.380197100001169
+    peak_rss_bytes_max: 24887296
+    audit_sha256: 66A980689FF6AF7763A91A71D67310E2C68BBB9F5EAD9AB13A277A9FAB103509
+  cross_replay_audit_sha256: A69713556661301759AE685CA155CA23EAADE793D260584F544B37D06203254F
+  aggregate_command_metric_ids_closed: 112
+  aggregate_unknown_metric_ids: 0
+  aggregate_orphan_metric_ids: 0
+
+negative_controls:
+  remove_one_command_cost_edge: PASS_EXPECTED_FAIL
+  add_one_unknown_metric_id_edge: PASS_EXPECTED_FAIL
+  mutate_one_exit_status_or_cost_value: PASS_EXPECTED_FAIL
+  total: 3
+  passed: 3
+  tolerance_filter_or_exclusion_added: false
+  raw_sha256: C3F3B6DC71A841E9C4C6B84FDAA31061CCF3C29CA9FEAFECC9064B7BFEE7F75E
+
+r10_structural_plan:
+  rows: 32
+  plan_sha256: 2ECFD29D11B8BC5C3DD0572BCF78A319E6F1DF8D2AEEC49A670FAC89BDF91DB3
+  validation_sha256: A3FC72946D6C36D9589AC33B0F3C67F0B9B288AD0689E4E253E7030D222C8FDD
+  producer_precedence_rows: 32
+  baseline_graph_is_candidate_input: false
+  compile_command_costs_per_process: 128
+  link_command_costs_per_process: 256
+  inspection_command_costs_per_process: 512
+  unique_command_costs_per_process: 896
+  consumed_command_costs_per_process: 896
+  unresolved_variables_or_labels: 0
+  nonabsolute_execution_paths: 0
+  execution_performed: false
+
+execution_accounting:
+  copy_attempts: 10
+  source_edit_transactions: 1
+  static_compile_commands: 1
+  controller_or_generator_python_commands: 5
+  compiler_linker_readobj_objdump_checker_commands: 0
+  selected_or_reserve_corpus_tool_invocations: 0
+  natural_processes: 0
+  claim_bearing_runs: 0
+  network_bytes: 0
+  automatic_retries: 0
+  result_based_edits_or_exclusions: 0
+  controller_python_cpu_seconds: NOT_AVAILABLE_FROM_RUNNER
+  assignment_wall_seconds: NOT_CANONICALLY_RECORDED
+  max_parallel_processes_observed: 1
+
+scientific_boundary:
+  r10_directory_created: false
+  natural_or_selected_tool_observation: false
+  claim_bearing_observation: false
+  scientific_inference: NONE
+  scientific_revision_consumed: false
+  mechanism_pivot_consumed: false
+  scientific_state_changed: false
+  state_transition_proposed_by_owner: false
+  stageb_authorized: false
+  owner_cleanup_actions: 0
+
+canonical_outputs:
+  COMMAND_COST_EDGE_AUDIT_sha256: 8CBEA5A2AC3AA5E8F8E5B08AC224B08CC7340354BCA57A086D695F9E0133125A
+  NEGATIVE_CONTROL_RESULTS_sha256: 36D5EA7F32120034136D8AF8DCC2EC2C0C215A3EE84FD5AEC13744DC300219AE
+  R10_PLAN_VALIDATION_sha256: 0A09E5F158E772C46E23ED8EE5A2CC6616455C8513E5EA85B0BC37FE31A026B3
+  PRE_CLAIM_COMMAND_COST_AND_R10_GATE_sha256: 5BB7503A208F40ACDB6E28276C89892CC45F09EADF7EE1668CC733B1318BB495
+  STAGEA_REPORT_sha256: 767DB45F2E82D4E3CB013C236F35FAD78161D2AA1AD7AD9AD7F2B31ED5B16431
+  RESOURCE_INVENTORY_sha256: 4654DFFC4E6404F0466F71062ECF373B07C9C13B4D29B32C82F91FEDE11EA33C
+  PHASE_CLOSEOUT_RETENTION_sha256: 2543B2B2D5ACCF83EF1E2863430FE48A452394E23BC5A1F51B022A34B2EDF216
+  RESUME_CAPSULE_sha256: 39440405CAE28F876AA4DE35D5D5612A93C84EB81F33B5FB3C47AA7ECC491759
+
+resource_inventory:
+  files: 340
+  logical_bytes: 127698561
+  directories_including_root: 37
+  reparse_entries: 0
+  active_exact_native_processes: 0
+  active_bundled_python_processes: 0
+  budget_pass: true
+
+lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  cleanup_owner: MAINLINE
+  owner_cleanup_allowed: false
+  exact_cleanup_candidate_leaves: [resources/downloads, resources/archives, resources/cache, resources/tmp]
+  cleanup_candidate_count: 4
+  cleanup_candidate_files: 3
+  cleanup_candidate_logical_bytes: 135527
+  owner_cleanup_actions: 0
+
+next_gate: SAME_INDEPENDENT_STAGEA_GATE
+manifest_path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim/HASH_MANIFEST.sha256
+manifest_generated_after_handoff: true

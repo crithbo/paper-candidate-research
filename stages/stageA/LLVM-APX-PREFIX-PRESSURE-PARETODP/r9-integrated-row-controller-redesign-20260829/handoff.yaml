@@ -1,0 +1,31 @@
+schema: candidate-stagea-handoff-v1
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L2-20260829-LLVM-APX-R9-NATURAL-CLAIM
+lane_id: CANDIDATE_EXECUTION_LANE_2
+unique_write_directory: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829
+handoff_kind: NATURAL_CLAIM_FIRST_FAILURE__INDEPENDENT_STAGEA_GATE_REQUIRED
+decision: FAIL_CLOSED__INCOMPLETE_FROZEN_DENOMINATOR__NO_OWNER_PASS_OR_STOP
+scientific_state_change_authority: MAINLINE_ONLY
+execution_summary:
+  attempts_used: 1
+  retries_used: 0
+  frozen_rows_expected: 8
+  frozen_commands_expected: 72
+  commands_started: 19
+  complete_rows: 2
+  partial_rows: 1
+  not_started_rows: 5
+  first_failure: {row_id: APX-R8-S02-R1, selected_id: S02, function_or_test_id: neg8r, command_id: prepare_same_object_trace, exit_code: 2, timeout: false, action_options_count: 0}
+evidence_ceiling: INCOMPLETE_FROZEN_DENOMINATOR__NO_DIRECTIONAL_CLAIM
+supported_observation: FROZEN_S02_ROW_HAS_ZERO_ACTION_OPTIONS_WITH_SAME_PROGRAM_SEMANTICS_AND_ABI
+unsupported_claims: [candidate_advantage, baseline_relative_effect, directional_full_cost, Pareto_relation, StageA_PASS, scientific_STOP, StageB_readiness]
+preservation:
+  control_snapshot: {path: CONTROL_ROW_SNAPSHOT_MANIFEST.yaml, sha256: 611ED92D634E6FDB5F77C86B9695DDFD0BF8B975718D5275F9BCB3DE38986DC8, files: 30, bytes: 278243}
+  claim_ledger: {path: resources/logs/claim/controller/outer_full_cost_ledger.json, sha256: 2D07D2A2442CCCD070270FE2E99F4C3E88181BFA56570A925BF413A9CAB8BEC9}
+  first_failure: {path: resources/logs/claim/controller/first_failure.json, sha256: 7E17FDE5ECF4BD86C96090E5F36AB064FECBDDEBF903EBA928222ECE3922600B}
+  inventory: {path: RESOURCE_INVENTORY.yaml, sha256: BA762357FEE3A870068C809205004417FF326B7A01517402E200F08E82E25455}
+  retention: {path: PHASE_CLOSEOUT_RETENTION.yaml, sha256: 167956EDBFAA6CF57F10886BF8F5CCFFEFC3A448565F074B57C8EF72230747D2}
+  claim_result: {path: APX_R9_CLAIM_RESULT.yaml, sha256: F485BEBAFA1AFC3D984F02B21CF90FE73564B4A5C922291010C4913C6340D82E}
+  stagea_report: {path: STAGEA_REPORT.md, sha256: 01BADA44680895F2173DBE3656A82FFBC077B010DF3319A9D3A1DE3DA76A36D0}
+resource_status: {network_bytes: 0, root_files: 120, root_logical_bytes: 1308868, reparse_points: 0, cleanup_performed: false}
+next_action: INDEPENDENT_STAGEA_GATE_REVIEW__NO_OWNER_FURTHER_EXECUTION

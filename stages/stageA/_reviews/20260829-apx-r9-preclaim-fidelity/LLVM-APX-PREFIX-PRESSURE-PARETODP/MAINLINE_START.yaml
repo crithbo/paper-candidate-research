@@ -1,0 +1,9 @@
+schema: independent-stagea-review-start-v1
+assignment_id: STAGEA-GATE-20260829-APX-R9-CONTROL-AND-FULL-COST-FIDELITY
+model_route: gpt-5.6-terra
+thinking: high
+allowed_outputs: [INDEPENDENT_REVIEW_REPORT.md, handoff.yaml, HASH_MANIFEST.sha256]
+required_judgments: [atomic_action_coverage, baseline_semantics, native_arm_separation, producer_consumer_schema, directional_full_cost_observability, claim_packet_readiness, bounded_next_route]
+effect_firewall: do_not_report_frontier_values_or_relative_effect_from_control
+forbidden_actions: [modify_owner_files, resource_copy, tool_replay, experiment, claim_run, report_control_effect_values, network, shared_write, state_change, stageb]
+stop_after: IMMUTABLE_REVIEW_HANDOFF

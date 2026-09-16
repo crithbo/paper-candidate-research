@@ -1,0 +1,38 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE110-EDGE-CPU-RUNTIME-COMPILER-V1
+cutoff: '2026-08-24'
+queries:
+  - {query_id: Q110-01, text: OpenVINO GenAI current KV attention low-bit stateful source, purpose: current first-party closure, executed_at: '2026-08-24', read_depth: SOURCE}
+  - {query_id: Q110-02, text: OpenVINO GenAI stateful KV cache continuous batching PagedAttention test, purpose: native carrier/contrary closure, executed_at: '2026-08-24', read_depth: SOURCE}
+sources:
+  - {source_id: S110-01, title_or_artifact: OpenVINO GenAI repository overview, canonical_version: main viewed 2026-08-24, locator: https://github.com/openvinotoolkit/openvino.genai, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE, repository_commit_config_or_dataset_hash: main current view}
+  - {source_id: S110-02, title_or_artifact: OpenVINO KV cache management in stateful model, canonical_version: master viewed 2026-08-24, locator: https://github.com/openvinotoolkit/openvino/blob/master/src/plugins/intel_gpu/docs/dynamic_shape/kv_cache.md, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE, repository_commit_config_or_dataset_hash: master source locus src/plugins/intel_gpu/docs/dynamic_shape/kv_cache.md}
+  - {source_id: S110-03, title_or_artifact: OpenVINO GenAI KV cache eviction algorithm, canonical_version: master viewed 2026-08-24, locator: https://github.com/openvinotoolkit/openvino.genai/blob/master/site/docs/concepts/optimization-techniques/kvcache-eviction-algorithm.md, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE, repository_commit_config_or_dataset_hash: master documentation locus}
+  - {source_id: S110-04, title_or_artifact: OpenVINO GenAI test matrix/release notes, canonical_version: main/release views 2026-08-24, locator: https://github.com/openvinotoolkit/openvino.genai/releases, source_role: CONTRARY, read_depth: SOURCE, repository_commit_config_or_dataset_hash: current release view}
+  - {source_id: S110-05, title_or_artifact: OpenVINO INT4 KV cache support, canonical_version: master viewed 2026-08-24, locator: https://github.com/openvinotoolkit/openvino/blob/master/src/plugins/intel_gpu/docs/blog/int4_kv_cache_support_in_2026_2.md, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE, repository_commit_config_or_dataset_hash: master source view}
+claims:
+  - claim_id: C110-01
+    text: OpenVINO distinguishes CB PagedAttention from non-CB stateful plugin-managed KV, so generic stateful conversion and paged-KV claims require a fixed pipeline object.
+    priority: HIGH
+    source_links: [{source_id: S110-02, relation: DIRECT, locator: Description and pipeline sections, evidence_status: DIRECT_OBSERVATION, conflict: none, permitted_conclusion: no mixed-pipeline semantic claim without same-object carrier}]
+  - claim_id: C110-02
+    text: Current OpenVINO GenAI already exposes KV eviction, sparse attention, prefix caching and continuous batching; current test/release material includes cache E2E coverage.
+    priority: HIGH
+    source_links: [{source_id: S110-01, relation: DIRECT, locator: optimization overview, evidence_status: DIRECT_OBSERVATION, conflict: none, permitted_conclusion: generic cache/state action is current}, {source_id: S110-03, relation: DIRECT, locator: algorithm configuration and stage scope, evidence_status: DIRECT_OBSERVATION, conflict: none, permitted_conclusion: generic eviction formulation is not a residual}, {source_id: S110-04, relation: OPPOSE, locator: release/test entries, evidence_status: DIRECT_OBSERVATION, conflict: none, permitted_conclusion: routine test/benchmark extension not raw-admissible}]
+  - claim_id: C110-03
+    text: INT4 KV support has an explicit current OpenVINO route; no named implementation-only eligibility gap was found.
+    priority: HIGH
+    source_links: [{source_id: S110-05, relation: DIRECT, locator: INT4 KV support documentation, evidence_status: DIRECT_OBSERVATION, conflict: none, permitted_conclusion: no low-bit configuration/format wrapper is admitted}]
+stopping:
+  high_impact_items_bounded: true
+  latest_and_current_union_checked: true
+  first_party_depth_sufficient: true
+  heterogeneous_independent_path_complete: true
+  contrary_search_complete: true
+  natural_or_canonical_carrier_frozen: false
+  full_cost_frozen: false
+  marginal_sources_no_longer_decision_changing: true
+  decisive_contradictions_resolved_or_bounded: true
+  disposition: NOT_ADMITTED_UNFROZEN
+execution_readiness: {state: E0, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: NO_RAW_ADMISSION__NO_CLAIM

@@ -1,0 +1,254 @@
+schema_version: rocksdict-stagea-contract-v1
+contract_status: FROZEN_PRECLAIM__EXECUTION_BLOCKED_DURING_INPUT_ACQUISITION
+topic_id: ROCKSDB-DICT-COVER
+lane_id: CANDIDATE-EXECUTION-LANE-1
+assignment_id: STAGEA-L1-20260809-ROCKSDB-DICT-COVER-INITIAL
+frozen_before_claim_bearing_observation: true
+claim_bearing_observation_obtained: false
+scientific_revision_consumed: false
+stageB: false
+stageb_user_approval_id: null
+
+authority_and_scope:
+  stage: STAGEA_RESTRICTED_REAL_RISK_PILOT
+  write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\ROCKSDB-DICT-COVER
+  exact_object: >-
+    One production-equivalent bottommost-compaction standard BlockBasedTable SST
+    from one frozen sorted KV manifest. Each manifest is an independent exact
+    object instance. SstFileWriter is excluded from claim-bearing execution.
+  allowed_candidate_action: >-
+    Finite-train-byte deterministic single-pass bounded-memory pre-trainer
+    retained-fragment coreset followed by the unchanged pinned Zstd
+    ZDICT_trainFromBuffer/FastCover trainer.
+  prohibited_actions:
+    - seed_scan
+    - order_scan
+    - prefix_scan
+    - stratum_scan
+    - trainer_parameter_scan
+    - selector_or_policy_wrapper
+    - codec_or_decoder_change
+    - record_reordering
+    - cross_sst_dictionary
+    - external_sst_fixture_substitution
+  mechanism_pivot_authorized: false
+
+versions:
+  rocksdb_commit: 1dfa7297933df05237ac11376d6cb69d32591b1d
+  zstd_commit: 82d322c4973d9e2968d94047a40892bc6d9a9bdf
+  zstd_reported_version: 1.6.0
+  compiler: llvm_mingw_20260616_clang_22.1.8_ucrt_x86_64
+  cmake: 4.4.2
+  ninja: 1.13.2
+  build_type: Release
+  build_parallelism: 2
+  compression_libraries_other_than_zstd: disabled
+
+natural_manifest_freeze:
+  converter_file: scripts/prepare_manifests.py
+  converter_sha256: E93D8D7A7AB47B2A65751064F5114FCD9E919813F2A7F810123FDCAF7FD7E244
+  format: KVMAN1_little_endian_length_prefixed_sorted_unique_KV
+  selection_before_sort: >-
+    Rank natural records by SHA256(key), retain records until the next record
+    would exceed 4,194,304 logical key+value bytes, then sort by key. No
+    compression, selector, trainer, or RocksDB result is observed during this
+    construction.
+  manifest_count_required: 20
+  family_count_required: 2
+  minimum_data_blocks_per_sst: 16
+  sources:
+    - family: NVD_JSON_2_0
+      ids: [nvd-2015, nvd-2016, nvd-2017, nvd-2018, nvd-2019, nvd-2020, nvd-2021, nvd-2022, nvd-2023, nvd-2024]
+      url_pattern: https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-{year}.json.gz
+      authority: NIST_NVD_OFFICIAL_DATA_FEEDS
+      license_note: US_government_data_source_with_attribution_retained
+    - family: PYPI_JSON_API
+      ids: [pypi-boto3, pypi-botocore, pypi-django, pypi-pandas, pypi-numpy, pypi-scipy, pypi-tensorflow, pypi-torch, pypi-matplotlib, pypi-scikit-learn]
+      url_pattern: https://pypi.org/pypi/{package}/json
+      authority: PYPI_OFFICIAL_JSON_API
+      license_note: package_declared_open_source_license_metadata_retained
+  completed_before_blocker:
+    - id: nvd-2015
+      raw_bytes: 4190045
+      raw_sha256: 36D62C93A5F15ACDCBA69513F3CA86D44A35E10ACD44258E5A49AFE1EB24B0C0
+      manifest_records: 996
+      manifest_bytes: 4198525
+      manifest_sha256: 2D3CC2D0F4024C78C033C5427AD85F056FC5850E95B1AE45F07B3A545F28FE76
+    - id: nvd-2016
+      raw_bytes: 5159096
+      raw_sha256: E3A4B0B68C30065FB24417DDF1240E8149B3F99F433F4A262B776090A24E930F
+      manifest_records: 954
+      manifest_bytes: 4200397
+      manifest_sha256: 5D0D1C16FDE026E8FA96F739F5C2A0E91A72F5CF05003F6A9722E7033C73A80D
+  blocked_asset:
+    id: nvd-2017
+    expected_get_content_length: 7706425
+    received_bytes: 7686831
+    missing_bytes: 19594
+    partial_sha256: 972E334A0D7B2B8F97B95A7ACD4DEB7ED4F8F370F41ED88DE244F015ECD82E32
+    partial_is_admissible_input: false
+
+production_object_configuration:
+  db_path_rule: fresh_per_manifest_method_grid_and_replay
+  compaction_style: level
+  num_levels: 2
+  input_creation: sorted_manifest_put_then_flush_to_L0
+  claim_sst_creation: manual_full_range_compaction_to_level_1
+  required_creation_reason: kCompaction
+  required_is_bottommost: true
+  required_live_sst_count: 1
+  target_file_size_base: 16777216
+  write_buffer_size: 8388608
+  max_background_jobs: 1
+  threads: 1
+  table_factory: BlockBasedTable
+  block_size: 4096
+  table_format_version: 6
+  checksum: kCRC32c
+  index_type: kBinarySearch
+  filter_policy: none
+  verify_compression: true
+  compression: kZSTD
+  bottommost_compression: kZSTD
+  zstd_level: 3
+  block_cache_bytes: 33554432
+  direct_io: false
+  mmap_reads: false
+  mmap_writes: false
+
+finite_legal_grid:
+  - cell_id: G1
+    max_dict_bytes: 4096
+    zstd_max_train_bytes: 65536
+    max_dict_buffer_bytes: 262144
+  - cell_id: G2
+    max_dict_bytes: 8192
+    zstd_max_train_bytes: 131072
+    max_dict_buffer_bytes: 524288
+  invariants_across_cells:
+    - unchanged_ZDICT_trainFromBuffer
+    - use_zstd_dict_trainer_true_for_trained_methods
+    - same_manifest_order_backend_reader_cache_and_compression_level
+
+baseline_union:
+  - B0_NO_DICT
+  - B1_RAW_CURRENT_MIDPOINT_PRIME_STRIDE_WHOLE_BLOCK
+  - B2_TRAINED_CURRENT_MIDPOINT_PRIME_STRIDE_WHOLE_BLOCK
+  - B3_PREFIX_SAME_BYTES
+  - B4_SEEDED_RESERVOIR_WHOLE_BLOCK_SEED_0x52444331
+  - B5_DETERMINISTIC_KEY_RANGE_STRATIFIED_8_EQUAL_COUNT_STRATA
+  - B6_EACH_APPLICABLE_MEMBER_OF_G1_G2_INDIVIDUALLY
+  union_interpretation: individually_runnable_members_not_a_fictional_super_system
+
+candidate_constructor:
+  name: C1_STREAMING_MARGINAL_REPEATED_MINIMIZER_CORESET
+  fragment_bytes: 256
+  minimum_tail_fragment_bytes: 64
+  dmer_bytes: 8
+  minimizer_window_dmers: 16
+  hash: fixed_splitmix64_over_little_endian_8_byte_token
+  count_min_sketch:
+    depth: 4
+    width: 4096
+    counter_bits: 32
+    fixed_row_salts: [0x243F6A8885A308D3, 0x13198A2E03707344, 0xA4093822299F31D0, 0x082EFA98EC4E6C89]
+  retained_budget: identical_to_zstd_max_train_bytes_in_grid_cell
+  pass_rule: each_buffered_uncompressed_block_is_visited_exactly_once_in_natural_order
+  score_rule: >-
+    Update the fixed sketch for a fragment, then score its unique minimizers by
+    estimated repeated frequency divided by current retained multiplicity;
+    normalize by fragment bytes. Re-score only the bounded retained set before
+    a replacement comparison. All sketch, scan, hash, heap, copy, and retained
+    memory work is charged.
+  replacement_rule: retain_if_space_else_replace_strictly_lowest_score_per_byte_with_digest_tie_break
+  trainer_input_order: original_block_and_fragment_offset_order
+  downstream_trainer: unchanged_ZDICT_trainFromBuffer_at_pinned_zstd_commit
+
+correctness_and_parity_gate:
+  required:
+    - kCompaction_creation_reason_and_bottommost_level_1_trace
+    - standard_self_contained_BlockBasedTable
+    - table_open_and_verify_checksums
+    - table_properties_parse
+    - full_ordered_key_value_byte_equality_and_count
+    - point_lookup_for_every_key
+    - 32_deterministic_range_probes_against_manifest
+    - identical_comparator_format_block_size_level_trainer_budget_and_cache_within_cell
+  any_failure_disposition: STOP_RECOMMENDED_only_after_a_claim_bearing_same_object_run
+  current_status: NOT_EXECUTED_RESOURCE_BLOCKED
+
+mechanism_trace_and_action_gate:
+  raw_delta_denominator: all_candidate_retained_fragments
+  raw_delta_numerator: candidate_fragment_digest_absent_from_every_corresponding_current_prefix_reservoir_and_stratified_retained_set
+  useful_residual_numerator: >-
+    Raw-delta fragments having at least one repeated 8-byte token that occurs in
+    the final candidate dictionary and in a compressed data-block match trace,
+    while absent from every corresponding baseline dictionary for the same
+    manifest and grid cell.
+  floor: 0.10
+  required_on: pooled_ratio_and_per_manifest_p50
+  trainer_absorption_if: useful_residual_ratio_below_0.10_or_final_dictionary_and_match_effect_absent
+
+full_cost_ledger:
+  include:
+    - raw_acquisition_and_manifest_conversion_bytes_and_time
+    - block_buffering
+    - selector_scan_hash_compare_lookup_heap_copy_and_retained_bytes
+    - sketch_and_precompute_CPU_and_peak_RSS
+    - unchanged_trainer_CPU_and_memory
+    - compression_and_end_to_end_build_write_CPU_and_wall_time
+    - SST_total_bytes_dictionary_meta_index_filter_footer_and_properties
+    - temporary_IO_and_fallback
+    - reader_open_checksum_full_scan_point_and_range_cost
+    - cold_and_warm_cache_protocol
+    - CDict_DDict_and_block_cache_effects
+  forbidden_conversion: uncalibrated_work_to_byte_scalarization
+  measurement_process: one_method_manifest_grid_cell_per_process
+  peak_memory_sampling_interval_ms: 10
+  deterministic_replays: 2
+  nonvolatile_replay_fields_must_match: true
+
+claim_bearing_frontier_predicate:
+  population: all_20_frozen_manifests
+  quantiles: [p50, p90]
+  lower_is_better_metrics:
+    - total_sst_bytes
+    - end_to_end_build_write_cpu_ns
+    - peak_working_set_bytes
+    - cold_full_scan_ns
+    - warm_point_lookup_ns
+    - warm_range_probe_ns
+  candidate_point_required: >-
+    At both p50 and p90, no applicable individually runnable baseline point may
+    weakly dominate the candidate vector, and the candidate must be strictly
+    better on at least one listed metric while remaining inside the frozen
+    resource envelope.
+  positive_ceiling: PRELIMINARY_SUPPORT_ONLY
+  stop_recommended_if_executed_and_valid:
+    - production_object_or_equality_failure
+    - useful_residual_action_below_10_percent
+    - unchanged_trainer_erases_retained_set_delta
+    - no_p50_and_p90_frontier_extension
+    - full_cost_absorbs_all_residual
+    - mechanism_reduces_to_seed_order_prefix_stratum_grid_or_trainer_wrapper
+
+resource_envelope:
+  workspace_bytes_max: 4294967296
+  cpu_hours_max: 4
+  gpu: false
+  exclusive_device: false
+  formal_large_scale_experiment: false
+
+execution_status:
+  input_manifest_count_completed: 2
+  input_manifest_count_required: 20
+  candidate_implemented: false
+  baseline_executed: false
+  candidate_executed: false
+  trainer_executed_on_natural_manifest: false
+  sst_created: false
+  equality_executed: false
+  performance_measured: false
+  scientific_disposition: BLOCKED_USER_ACTION_REQUIRED
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+

@@ -1,0 +1,34 @@
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+checkpoint_status: IN_PROGRESS_CHECKPOINT
+checkpoint_ordinal: 0
+cumulative_from: IN_PROGRESS_CHECKPOINT_000_CUMULATIVE_003.yaml
+eligible_families: 0
+family_updates:
+  q7m2:
+    frozen_commit_record:
+      tag: v0.2.4
+      url: https://api.github.com/repos/facebookresearch/CompilerGym/commits/697d012bc977b533b6907b4e91fe5677e3072bd6
+      date: '2022-05-25T00:04:00Z'
+      bytes: 881355
+      sha256: 3C8ED251FEB3E846B53E986579A748C509622AC53FAA689E970ABD99738B91BB
+    decision: 'Rejected as pre-cutoff evidence because the verified commit date is after the 2021 target anchor.'
+    earlier_tag_attempt:
+      tag: v0.1.7
+      url: https://api.github.com/repos/facebookresearch/CompilerGym/commits/c72807322783aa6d18b66eb30bd9dd9f042e2ac5
+      result: 'IncompleteRead; 229376 bytes read; response not accepted or saved.'
+    remaining: 'Obtain an independently complete older-tag commit record and a small raw artifact at that commit, then close auxiliary locators/exclusion.'
+  n4x8:
+    status: 'Unchanged partial; target PDF transport recovery remains pending.'
+resource_ledger:
+  accepted_frozen_response_bytes_cumulative: 2851962
+  network_bytes: NOT_DIRECTLY_OBSERVABLE__AT_LEAST_2851962_ACCEPTED_RESPONSE_BYTES__REJECTED_SHORT_READS_SEPARATELY_LOGGED
+  temporary_plus_sealed_bytes: 2851962
+  cpu_hours_cumulative_estimate: 0.06
+  wall_hours_cumulative_estimate: 0.19
+  envelope_remaining: true
+next_routes:
+  - 'Use GitHub commits API with an explicit until before the target date, then retrieve a date-verified small raw artifact at that commit.'
+  - 'Use the allowed one-time strict Range continuation for n4x8 PDF only if HTTP 206 plus exact Content-Range can be verified.'
+  - 'Continue current two families before opening new locator breadth.'
+failure_status: NOT_APPLICABLE__CONTINUE_SAME_ASSIGNMENT
+no_scientific_inference: true

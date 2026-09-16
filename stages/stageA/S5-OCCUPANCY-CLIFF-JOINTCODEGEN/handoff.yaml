@@ -1,0 +1,114 @@
+topic_id: "S5-OCCUPANCY-CLIFF-JOINTCODEGEN"
+source_stage: "STAGEA"
+proposed_next_stage: "STAGEA_GATE_REVIEW"
+decision: "REVISE_ONCE"
+quality_tier: "TIER_B_Q2_VIABLE"
+structural_paper_potential: "CONDITIONAL_CONFIRMED_BUT_STAGEA_MINIMUM_EVIDENCE_NOT_MET"
+evidence_acquisition_readiness: "BOUNDED_TOOLCHAIN_AND_NATURAL_CORPUS_REQUEST_REQUIRED"
+stage_semantics: "STAGEA_RISK_PILOT"
+opportunity_origins:
+  - "O5_SCALE_ONLINE_OR_APPROXIMATION"
+domain_tags:
+  - "CUDA_GPU"
+  - "COMPILER_RUNTIME_SYSTEM"
+  - "ALGORITHM_DATA_STRUCTURE"
+paper_genealogy:
+  - "Unison / ACM TOPLAS 2019"
+  - "Register Allocation for Intel Processor Graphics / CGO 2018"
+  - "RL4ReAl / CC 2023"
+  - "GPU minimum-register scheduling / arXiv 2023"
+discovery_method_revision: "v2"
+discovery_backtest_reference: "stages/discovery/_method-backtests/O5_SCALE_ONLINE_APPROXIMATION/v2/backtest_review.md"
+exact_object: "LLVM AMDGPU MachineScheduler plus greedy RA at commit 1f112d62e1fa2c4f1a04887abd72da1ed61cf791, subtarget amdgpu11.00, fixed budget, legal MIR, SGPR/VGPR/AGPR occupancy tiers"
+main_claim: "A fixed-budget tier-frontier joint scheduling/allocation algorithm can return legal non-dominated occupancy-tier/spill/compile-cost points over the current staged LLVM pipeline on natural cliff regions."
+novelty_route: "N2"
+evidence_route:
+  - "PERFORMANCE"
+  - "PARETO_APPROXIMATION"
+mechanism_signature: "Gains should concentrate on natural regions at occupancy cliffs and increase monotonically with search budget; far-from-cliff regions should show no systematic gain."
+seed_distance: "Explicit multi-bank occupancy-tier feasibility and an anytime boundary-state certificate, not generic joint scheduling/allocation or occupancy-aware heuristics."
+nearest_prior_facet_matrix: "stages/discovery/round-20260803-v8/S5-scale-online-approx/S5-OCCUPANCY-CLIFF-JOINTCODEGEN.md"
+q1_venue_family: "PLDI / CGO / ACM TOPLAS compiler optimization"
+q1_calibration_status: "PARITY_NOT_PLAUSIBLE"
+q1_reference_set:
+  - "Combinatorial Register Allocation and Instruction Scheduling (Unison), ACM TOPLAS 2019"
+  - "Register Allocation for Intel Processor Graphics, CGO 2018"
+  - "RL4ReAl, CC 2023"
+  - "Scheduling Instructions to Minimize Register Pressure, arXiv 2023 (boundary anchor)"
+q1_comparator_matrix: "Q1_COMPARATOR_MATRIX.md"
+q1_evidence_gap:
+  - "actual current LLVM+greedy same-object baseline"
+  - "complete natural-kernel-derived MIR corpus"
+  - "verifier-legal candidate and allocator/spill results"
+  - "full compile/fallback/memory/code-size cost"
+  - "corpus-scale statistics and orthogonal validation"
+q2_viability_basis: "Conditional bounded N2 compiler result remains structurally possible only if the Stage A revision finds a legal same-budget natural cliff residual."
+non_relaxable_quality_gates:
+  same_object: "PARTIAL_COMMIT_AND_SUBTARGET_FROZEN_BUT_NO_ACTUAL_LLVM_EXECUTION"
+  latest_collision: "SEARCH_BOUNDED_OPEN_WITH_DIRECT_SUBTRACT"
+  fair_strong_baseline: "FAIL_ACTUAL_LLVM_GCNSCHEDSTRATEGY_GREEDY_NOT_RUN"
+  natural_input_and_evidence: "FAIL_REGRESSION_MIR_ONLY"
+  full_cost: "FAIL_MODEL_SEARCH_COST_ONLY"
+  reproducibility: "PASS_FOR_EXECUTED_STATIC_PROBE"
+  evidence_claim_honesty: "PASS"
+academic_value_score: 48
+ai_executability_score: 18
+ai_executability_class: "AI_CORE_CONDITIONAL"
+ai_core_fraction: 0.60
+strongest_baseline:
+  - "CURRENT_LLVM_GCNSCHEDSTRATEGY_GREEDY"
+  - "SAME_ALLOCATOR_PRESSURE_LIST"
+  - "MIN_REGISTER_RECONSTRUCTION"
+  - "UNISON"
+baseline_contract: "Actual LLVM baseline named but unavailable; executed proxies share only the parsed DAG and evaluator and are not substitutes for baseline parity."
+same_function_contract: "Same LLVM commit, subtarget, legal MIR semantics, wave mode, register banks, allocator, information, and wall-clock budget; output must pass LLVM verifier."
+algorithmic_delta: "Tier-indexed bounded frontier over schedule prefixes with bank-pressure feasibility; current probe implements only the scheduling abstraction, not allocation/spill decisions or certificates."
+full_cost_ledger_scope: "compile wall time, peak solver memory, fallback, code size, spill/reload, SGPR/VGPR/AGPR use, occupancy, estimated cycles, and kernel time when hardware evidence is claimed"
+generality_hypothesis: "Natural AMDGPU regions near discrete register-resource occupancy cliffs; no claim for arbitrary CPU/IR or non-register-limited kernels."
+why_not_routine_tuning: "The proposed contribution changes state representation, feasibility constraints, and returned certificate; however this Stage A probe has not yet demonstrated that contribution in LLVM."
+decisive_evidence:
+  - "results/probe.json: two deterministic modeled non-dominated orderings but zero tier/spill delta"
+  - "results/replay/replay-1.json and replay-2.json: identical deterministic projection hash 77d5c089e284b455f19cb08737e8c3e9743658f8347a59671afcf64bf255c61f"
+  - "RESULTS.md: static model is not a valid natural occupancy-cliff witness"
+orthogonal_validation: "Not reached; revision must first add actual LLVM verifier/RA and a second natural region family."
+unresolved_risks:
+  - "LLVM current staged strategy may already match the small-instance tier ceiling on natural regions"
+  - "candidate schedules may be illegal or lose after greedy RA"
+  - "normalized model omits aliases, regmasks, hazards, live-ins, and physical allocation"
+  - "no natural cliff prevalence or end-to-end relevance measurement"
+  - "latest direct-fatal collision search remains open"
+next_killer_gate: "Using an immutable candidate-local LLVM AMDGPU build at the frozen commit, run current GCNSchedStrategy+greedy and a verifier-legal minimal tier-frontier candidate under the same wall-clock budget on 8-16 complete public natural-kernel-derived amdgpu11.00 MIR regions; require at least one reproducible non-dominated tier/spill/compile-cost point or recommend STOP."
+mechanism_pivot_remaining: "AVAILABLE_BUT_NOT_USED"
+reserve_reason: null
+evidence_ceiling: "ANALYTICAL_SOFTWARE_MIR_EXCERPT_MODEL; TRACE_ABSENT; GPU_ABSENT; HARDWARE_ABSENT"
+stagea_probe_support: "NOT_FALSIFIED"
+pending_user_stageb_review: false
+stageb_user_approval_id: null
+execution_authority:
+  stagea: true
+  stagea_revision: "REQUIRES_MAINLINE_ACCEPTANCE_AND_BOUNDED_RESOURCE_PROVISION"
+  stageb: false
+  formal_large_scale_experiment: false
+resource_request:
+  purpose: "Run actual current LLVM baseline, verify legal candidate MIR, and measure real tier/spill/compile-cost deltas."
+  resource: "Immutable candidate-local LLVM AMDGPU build at commit 1f112d62e1fa2c4f1a04887abd72da1ed61cf791 with llc, FileCheck, llvm-calc-occupancy; 8-16 complete public natural-kernel-derived amdgpu11.00 MIR regions with manifest."
+  maximum_size: "4 GiB"
+  maximum_time: "4 CPU-hours"
+  exclusivity: "none"
+  amd_gpu_required: false
+  rollback: "Delete only the candidate-local tool bundle and corpus."
+  failure_consequence: "Stage A cannot PASS because baseline, legality, and natural-cliff gates remain untestable."
+file_hashes:
+  COMMAND_LOG.md: "2b800a0580068d5b07ed001bb0d012b3a939eb0980839e21e6c8d689bf702c73"
+  EXPERIMENT_CONTRACT.yaml: "1aa5914c8e06e07379e68d5505fdd069f2e9572638c5f04307ee958ff6810aab"
+  Q1_COMPARATOR_MATRIX.md: "3e9ce0477659b02edab8c48d494844e70b2da276b34e05eb34f2904e92e8db0c"
+  RESULTS.md: "73d5210a27c39bf3bbb46cc8d9a0e07f9900b862d458263edcdd76eb00824908"
+  STAGEA_REPORT.md: "0a211a8f280eaeb977c04512c2a82577e4dbd444b099ffc6c4fc5442bdc14704"
+  USER_REVIEW_PACKET.md: "3bc2b3d072c24642c56a7b87afdcdb429b8d1493ec83ce191f2cdef438c94f67"
+  inputs/schedule-regpressure-ilp-metric-spills.excerpt.mir: "f02df218f4789e6376947470f7c23e41eef0730e6e7cac321ef4fc6d76f8be40"
+  inputs/schedule-regpressure-no-unclustered-regions.excerpt.mir: "b9b0b29d83281415362a88d7b49e1dda2f58ce1db8e8ee0fd2394a7580dfef5a"
+  results/probe.json: "7fb162056f63fe0ab8877bad7b5e53754e93d84bf8878b04ad0aa09f177a312f"
+  results/replay/replay-1.json: "47c14ff8348452bc68833bcfee40b78091e5d638c6a0f0fcb24e66fd908e7606"
+  results/replay/replay-2.json: "9e7e04d2448c1a5e5ea83c45e5e8a7006bbb8f63788972f5dc00814b3bd56332"
+  scripts/run_probe.py: "1c7fcceded53462d1a4a6bb6df46657f0fa312cb71b0e3fef8dcb88e8ed7b255"
+  scripts/validate_replay.py: "2c59ef4cac45c45f0e3db651cb08ea05cef0fe3476deee6aee3ee1ae131c79e9"

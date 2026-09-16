@@ -1,0 +1,12 @@
+# SOURCE_COLLISION_MATRIX
+
+| family | primary current source / version point | source and configuration reality | direct collision / strongest-union conclusion | outcome |
+|---|---|---|---|---|
+| SVE PCS | [Arm ABI-AA AAPCS64 main](https://github.com/ARM-software/abi-aa/blob/main/aapcs64/aapcs64.rst), current 2025Q4/2026 history | ABI source is current; LLVM/GCC commits, PCS attributes, linker and runtime paths were not fully pinned. | No novelty/absence conclusion; union not closed. | `NOT_ADMITTED_UNFROZEN` |
+| x86 PKRU | [Intel hardware behavior guidance](https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/technical-documentation/hardware-behavior-related-to-speculative-execution.html) | PKRU changes are architecturally meaningful. The required same-access policy freezes the only native transition primitive. | Any retained action is placement of `WRPKRU`; any new accessibility changes guarantee. | `DROP` |
+| Arm GCS | [Arm ABI-AA](https://github.com/ARM-software/abi-aa) and [Arm GCC 15 GCS material](https://developer.arm.com/community/arm-community-blogs/b/tools-software-ides-blog/posts/gcc-15-continuously-improving) | GCS is official; compiler/linker/unwinder/libc union and flags were not completely enumerated. | No current-absence claim allowed. | `NOT_ADMITTED_UNFROZEN` |
+| Wasm stack switching | [Wasm component-model concurrency design](https://github.com/WebAssembly/component-model/blob/main/design/mvp/Concurrency.md) | First-party design has current-thread/stack-switching semantics, but a complete engine feature and runtime union is unfrozen. | Could be generic runtime work or absorbed; no brief. | `NOT_ADMITTED_UNFROZEN` |
+| RISC-V `fcsr` | [RISC-V ELF psABI](https://riscv-non-isa.github.io/riscv-elf-psabi-doc/) | Fixed `fenv` semantics and ABI boundary leave no independent same-contract construction. | Changing the state changes numerical contract; otherwise ordinary lowering. | `DROP` |
+| Wasm EH | [WebAssembly 3.0 validation algorithm](https://webassembly.github.io/spec/core/appendix/algorithm.html) and [EH proposal](https://github.com/WebAssembly/exception-handling) | Validation controls stack/effect semantics. | Generic emitter/runtime patch or changed handler guarantee. | `DROP` |
+
+Latest-collision scope is deliberately bounded to first-party current sources above. No `SEARCH_BOUNDED_OPEN` statement is used as a novelty conclusion. No 2025–2026 paper was treated as evidence of implementation absence.

@@ -1,0 +1,102 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: X264_LOOKAHEAD_ROUTE_RECOVERY
+  assignment_id: SAFE-ROUTE-RECOVERY-S6-20260815-X264-RESUME1-OFFICIAL-API
+  stage_or_mode: DISCOVERY_ROUTE_RECOVERY__NO_CLAIM_AUTHORITY
+  run_id: S6-X264-RESUME1
+  unique_write_directory: stages/discovery/route-recovery-20260815/S6-x264-resume1
+  resource_root: stages/discovery/route-recovery-20260815/S6-x264-resume1/resources
+  inventory_path: stages/discovery/route-recovery-20260815/S6-x264-resume1/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T00:00:00+08:00
+  finalized_at: 2026-08-15T00:00:00+08:00
+root_measurement:
+  logical_bytes: 144318
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools: [PowerShell_Invoke-WebRequest]
+resource_envelope:
+  network_bytes_max: 4194304
+  stored_bytes_max: 8388608
+  cpu_hours_max: 0.1
+  gpu_hours_max: 0
+  wall_seconds_max: 1800
+  attempts_max: 5
+  network_bytes_used: 144318
+  stored_bytes_used: 144318
+  attempts_used: 5
+entries:
+  - path: resources/downloads/commit-master.json
+    source_url: https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/commits/master
+    source_role: OFFICIAL_COMMIT_METADATA
+    provenance: VideoLAN official GitLab API
+    version_or_commit: 0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee
+    license_or_provenance: upstream metadata response; official-source provenance only
+    logical_bytes: 1234
+    sha256: 946D6D9C24CB1F2320EA8BC8703BDDC7F63BD21444D5E5DE8D6707F95BBE0347
+    disposition: RETAIN_FOR_CURRENT_UNION_PIN
+  - path: resources/downloads/encoder-lookahead.c
+    source_url: https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/files/encoder%2Flookahead.c/raw?ref=0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee
+    source_role: OFFICIAL_RAW_FILE__CORE_LOOKAHEAD_IMPLEMENTATION
+    provenance: VideoLAN official GitLab API
+    version_or_commit: 0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee
+    license_or_provenance: upstream x264 source; official-source provenance only
+    logical_bytes: 9813
+    sha256: 7714EB93B66CD4EB8FC016ABD967BED33524083CBFDA8F4282476F2C9A9AFAA3
+    disposition: RETAIN_FOR_CURRENT_UNION_PIN
+  - path: resources/downloads/encoder-slicetype.c
+    source_url: https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/files/encoder%2Fslicetype.c/raw?ref=0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee
+    source_role: OFFICIAL_RAW_FILE__CORE_SLICETYPE_IMPLEMENTATION
+    provenance: VideoLAN official GitLab API
+    version_or_commit: 0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee
+    license_or_provenance: upstream x264 source; official-source provenance only
+    logical_bytes: 84137
+    sha256: 4B2F72BCD582B347338FBBDB3E9BC056987924B9CF390D772038B64E4D667ACC
+    disposition: RETAIN_FOR_CURRENT_UNION_PIN
+  - path: resources/downloads/x264.h
+    source_url: https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/files/x264.h/raw?ref=0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee
+    source_role: OFFICIAL_RAW_FILE__PUBLIC_PARAMETER_SURFACE
+    provenance: VideoLAN official GitLab API
+    version_or_commit: 0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee
+    license_or_provenance: upstream x264 source; official-source provenance only
+    logical_bytes: 49134
+    sha256: D1AE732DC908AB97BC55DA5B8EB6D8C2CB610951A91FE7B0C7C21607FF0A8F85
+    disposition: RETAIN_FOR_CURRENT_UNION_PIN
+shared_assets_consumed: []
+external_system_dependencies:
+  - official GitLab API at code.videolan.org
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: LOCAL_ASSIGNMENT_RESOURCES__MAINLINE_DECIDES
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: PASS__OFFICIAL_API_RESOURCES_LOCALIZED

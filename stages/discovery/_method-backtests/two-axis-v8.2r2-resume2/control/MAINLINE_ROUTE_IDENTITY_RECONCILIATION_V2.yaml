@@ -1,0 +1,65 @@
+schema: two-axis-v8.2r2-mainline-route-identity-reconciliation-v2
+authorization_id: USER_AUTONOMOUS_SAFE_BLOCKER_RECOVERY_20260815
+supersedes_for_future_attempts_only: MAINLINE_FIRST_PARTY_ROUTE_MAP.yaml
+superseded_file_sha256: AA664F97BF42C106E011752D51CE8267BCDAEF20E9EDD68B71B1CA7F50C4A2A9
+immutability_note: PRIOR_MAP_AND_ATTEMPT_LOGS_ARE_PRESERVED_UNCHANGED
+purpose: CORRECT_HISTORICAL_IDENTITY_AND_ROUTE_METADATA_BEFORE_ANY_NEW_PACKER_DISPATCH
+scope_ceiling: ROUTE_AND_PROVENANCE_RECONCILIATION_ONLY__NO_METHOD_EXECUTION_OR_SCIENTIFIC_INFERENCE
+decision: BLOCKED_USER_ACTION_REQUIRED__ONE_LICENSED_PRIMARY_FULLTEXT_MISSING
+
+reconciled_routes:
+  l1_s2:
+    identity: Naiad__A_Timely_Dataflow_System
+    correct_publication: SOSP_2013
+    exact_public_url: https://www.microsoft.com/en-us/research/wp-content/uploads/2013/11/naiad_sosp2013.pdf
+    provenance: MICROSOFT_RESEARCH_AUTHOR_INSTITUTIONAL_COPY
+    prior_error: INCORRECTLY_MAPPED_TO_UNRELATED_USENIX_NSDI13_ARTIFACT
+    status: ANONYMOUS_PUBLIC_ROUTE_AVAILABLE
+  l4_s3:
+    identity: Heron__Stream_Processing_at_Scale
+    correct_publication: SIGMOD_2015
+    exact_public_url: https://sands.kaust.edu.sa/classes/CS390G/S17/papers/Heron.pdf
+    provenance: UNIVERSITY_HOSTED_EXACT_PAPER_COPY
+    prior_error: INCORRECTLY_MAPPED_TO_UNRELATED_USENIX_ATC15_ARTIFACT
+    status: ANONYMOUS_PUBLIC_ROUTE_AVAILABLE
+  l5_s1:
+    identity: Space_Time_Tradeoffs_in_Hash_Coding_with_Allowable_Errors__Burton_H_Bloom
+    correct_publication: Communications_of_the_ACM_13_7_1970
+    doi: 10.1145/362686.362692
+    exact_public_url: https://www.cs.princeton.edu/courses/archive/spr05/cos598E/bib/p422-bloom.pdf
+    provenance: PRINCETON_UNIVERSITY_COURSE_ARCHIVE_EXACT_PAPER_COPY
+    status: ANONYMOUS_PUBLIC_ROUTE_AVAILABLE__COPYRIGHT_RETAINED
+  l5_s2:
+    identity: A_Survey_of_Stream_Processing__Robert_Stephens
+    correct_publication: Acta_Informatica_34_7_1997_491_541
+    correct_doi: 10.1007/s002360050095
+    publisher_record_url: https://link.springer.com/article/10.1007/s002360050095
+    publisher_pdf_url: https://link.springer.com/content/pdf/10.1007/s002360050095.pdf
+    provenance: SPRINGER_NATURE_PUBLISHER_RECORD
+    prior_error: INCORRECT_ACM_DOI_AND_2005_DATE_IN_FROZEN_LEDGER
+    anonymous_access_result: SUBSCRIPTION_PREVIEW_ONLY__FULL_ARTICLE_USD_39_95_OR_INSTITUTION_LOGIN
+    status: BLOCKED_LICENSED_PRIMARY_FULLTEXT_REQUIRED
+  l5_s3:
+    identity: The_Count_Min_Sketch_and_its_Applications__Cormode_Muthukrishnan
+    exact_public_url: https://dimacs.rutgers.edu/~graham/pubs/papers/cm-full.pdf
+    provenance: AUTHOR_PAGE_AT_DIMACS_RUTGERS_UNIVERSITY
+    status: ANONYMOUS_PUBLIC_ROUTE_AVAILABLE
+  l6_s1:
+    identity: Halide__A_Language_and_Compiler_for_Optimizing_Parallelism_Locality_and_Recomputation
+    exact_public_url: https://people.csail.mit.edu/sparis/publi/halide-pldi13.pdf
+    provenance: AUTHOR_PAGE_AT_MIT_CSAIL
+    status: ANONYMOUS_PUBLIC_ROUTE_AVAILABLE
+  l6_s2:
+    identity: Equality_Saturation__A_New_Approach_to_Optimization
+    exact_public_url: https://homes.cs.washington.edu/~ztatlock/pubs/eqsat-tate-popl09.pdf
+    provenance: AUTHOR_PAGE_AT_UNIVERSITY_OF_WASHINGTON
+    status: ANONYMOUS_PUBLIC_ROUTE_AVAILABLE
+
+dispatch_gate:
+  all_seven_exact_primary_artifacts_available: false
+  packer_redispatch_authorized: false
+  reason: L5_S2_FULLTEXT_NOT_ANONYMOUSLY_PUBLIC_AND_OLD_LEDGER_IDENTITY_IS_INCORRECT
+  minimum_user_actions:
+    - PROVIDE_LEGALLY_ACCESSED_EXACT_PDF_FOR_DOI_10_1007_S002360050095
+    - OR_AUTHORIZE_REMOVAL_OR_SAME_ROLE_SUBSTITUTION_AND_REPACK_FROM_A_NEW_BACKTEST_ASSIGNMENT
+  forbidden_without_user_action: [PAYMENT, INSTITUTION_LOGIN, CREDENTIAL_USE, SOURCE_SUBSTITUTION, TARGET_OR_CUTOFF_CHANGE]

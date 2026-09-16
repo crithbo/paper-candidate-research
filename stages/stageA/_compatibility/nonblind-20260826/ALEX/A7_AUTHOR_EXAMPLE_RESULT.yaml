@@ -1,0 +1,8 @@
+schema: author-artifact-windows-example-preclaim-v1
+assignment_id: NONBLIND-STAGEA-20260826-ALEX-A7-BUILD-DIR
+decision: PASS_AUTHOR_WINDOWS_COMPATIBLE_EXAMPLE_PRECLAIM_ONLY__AWAIT_FIDELITY_GATE
+build_directory: {path: resources/build, assignment_local: true, reparse: false}
+compile: {compiler: absolute_assignment_local_clangxx, flags: [-std=c++14, -O2, -mpopcnt], source: src/examples/main.cpp, output: resources/build/alex_author_example.exe, result: PASS_WITH_TWO_CXX17_EXTENSION_WARNINGS}
+run: {path: resources/build/alex_author_example.exe, result: PASS, stdout_stderr: EMPTY}
+evidence_ceiling: AUTHOR_ARTIFACT_WINDOWS_COMPATIBLE_EXAMPLE_PRECLAIM_ONLY__NOT_NATURAL_CLAIM
+scientific_boundary: {fidelity_gate_passed: false, natural_or_claim_probe: false, scientific_inference: NONE, production: false, stageB: false}

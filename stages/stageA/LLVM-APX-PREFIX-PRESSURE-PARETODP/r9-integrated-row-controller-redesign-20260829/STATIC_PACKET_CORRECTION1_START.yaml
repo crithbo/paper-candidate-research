@@ -1,0 +1,13 @@
+schema: stagea-static-packet-correction-start-v1
+assignment_id: STAGEA-L1-20260829-LLVM-APX-R9-INTEGRATED-ROW-CONTROLLER-REDESIGN
+correction_ordinal: 1
+static_lint_edits_after_success: 1_of_3
+allowed_files: [APX_R9_EXECUTABLE_PACKET.yaml, APX_R9_COMMAND_DAG.json, APX_R9_CONTROLLER.py, APX_R9_STATIC_VALIDATION.yaml]
+required_changes:
+  - replace every symbolic argv token with literal argv arrays for control and all frozen row commands
+  - implement a non-executed controller with an immutable command table, shell_false subprocess launch, cwd/env/timeout/stdout/stderr capture, cpu/wall/rss/exit/persisted-byte receipts, first-failure stop and required-output/schema assertions
+  - statically prove every command input and output path is bound by EXACT_RESOURCE_COPY_MANIFEST or a prior DAG producer
+  - mark static validation PASS only when placeholder_count is zero and controller execution entrypoint is implemented
+forbidden_changes: [selected_rows, baselines, denominator, object, mechanism, guarantee, metrics, result_visibility]
+forbidden_actions: [resource_create_or_copy, tool_execution, control_row, claim_row, network, shared_write, shared_install, cleanup, stageb]
+stop_after: CORRECTED_STATIC_OUTPUTS_SEALED__WAIT_MAINLINE

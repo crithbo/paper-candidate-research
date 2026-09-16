@@ -1,0 +1,46 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE29-RQ-PRODUCTION-V1
+sources:
+  - source_id: SRC-S01-ANCHOR
+    url: https://docs.riscv.org/reference/isa/unpriv/zfinx.html
+    role: ANCHOR_AND_CONTRARY
+    title: Zfinx extension, Version 1.0
+    version_or_date: "v1.0; accessed 2026-08-14"
+    selection_rule: Official ISA specification for the frozen extension and ABI compatibility premise.
+    provenance: official RISC-V International documentation
+    license_or_terms: official public documentation; no payload persisted
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_APPLICABLE__NO_PAYLOAD_PERSISTED
+    disposition: decisive_for_structural_exclusion
+  - source_id: SRC-S01-CURRENT
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/docs/RISCVUsage.rst
+    role: CURRENT_UNION_LOCUS
+    title: LLVM RISC-V Usage documentation
+    version_or_date: "main; accessed 2026-08-14"
+    selection_rule: Upstream LLVM documentation locating current Zfinx support.
+    provenance: official LLVM upstream repository
+    license_or_terms: Apache-2.0 with LLVM exception repository; no payload persisted
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_APPLICABLE__NO_PAYLOAD_PERSISTED
+    disposition: confirms current support; does not rescue same-object failure
+  - source_id: SRC-S02-ANCHOR
+    url: https://webassembly.github.io/memory64/core/
+    role: ANCHOR
+    title: WebAssembly memory64 core specification
+    version_or_date: "Draft 2024-11-07; accessed 2026-08-14"
+    selection_rule: Official core specification for memory64 semantic boundary.
+    provenance: official WebAssembly specification site
+    license_or_terms: public specification; no payload persisted
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_APPLICABLE__NO_PAYLOAD_PERSISTED
+    disposition: host ABI remains outside frozen core object
+  - source_id: SRC-S02-CURRENT
+    url: https://github.com/bytecodealliance/wasmtime
+    role: CURRENT_UNION_ATTEMPT
+    title: Wasmtime upstream repository
+    version_or_date: "current repository landing page; accessed 2026-08-14"
+    selection_rule: Nominated official engine source for memory64 host-boundary closure.
+    provenance: official Bytecode Alliance upstream repository
+    license_or_terms: Apache-2.0 repository; no payload persisted
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_APPLICABLE__NO_PAYLOAD_PERSISTED
+    disposition: insufficiently pinned in bounded read-only route; locator-only

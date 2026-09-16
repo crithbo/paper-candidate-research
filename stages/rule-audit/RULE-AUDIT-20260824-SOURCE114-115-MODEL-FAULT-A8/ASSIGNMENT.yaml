@@ -1,0 +1,18 @@
+schema_version: rule-audit-assignment-v1
+audit_id: RULE-AUDIT-20260824-SOURCE114-115-MODEL-FAULT-A8
+assignment_id: RULE-AUDIT-20260824-SOURCE114-115-MODEL-FAULT-A8
+lane_id: RULE_AUDIT
+thread_id: 01a02e08-0b16-7ed2-bfc4-f37b5ad86992
+trigger: SOURCE114_AND_SOURCE115_CONSECUTIVE_COMPLETE_ZERO_BRIEF
+mode: PROPOSAL_ONLY
+write_directory: stages/rule-audit/RULE-AUDIT-20260824-SOURCE114-115-MODEL-FAULT-A8
+resource_root: null
+question: Compare performance-model/theory and current-upstream fault/negative-replication rotations, locate the first failed conversion, evaluate whether exact merged-patch/test lineage is a useful source-ordering change, declare prior pilots RETAIN/DOWNGRADE/REMOVE, and recommend at most one bounded change or NO_CHANGE while Source116 proceeds independently.
+allowed_actions: [READ_REGISTERED_SOURCE114_SOURCE115_AND_A7_INPUTS, DIAGNOSE_TRANSITIONS, WRITE_PROPOSAL_ONLY_OUTPUTS]
+forbidden_actions: [READ_SOURCE116_RESULTS, MODIFY_SHARED_OR_CANDIDATE_FILES, NETWORK_SEARCH_DOWNLOAD_BUILD_EXPERIMENT_QUEUE_BACKTEST_AUTOMATION_STAGE, RELAX_GATES_QUOTA_COOLDOWN_STOP_REVIVAL]
+forbidden_inputs: [SOURCE116_RESULTS, UNREGISTERED_CHAT_MEMORY, PRIVATE_MATERIAL]
+claim_ceiling: PROCESS_DIAGNOSIS_AND_CHANGE_PROPOSAL_ONLY
+evidence_ceiling: REGISTERED_SOURCE114_SOURCE115_A7_ARTIFACTS_ONLY
+expected_outputs: [RULE_AUDIT_REPORT.md, RULE_CHANGE_PROPOSAL.md, handoff.yaml, HASH_MANIFEST.sha256]
+resource_actions_allowed: false
+source116_may_continue_without_waiting: true

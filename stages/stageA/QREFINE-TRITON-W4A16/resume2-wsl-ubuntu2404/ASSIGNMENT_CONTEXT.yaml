@@ -1,0 +1,83 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+generated_at: 2026-08-23T18:10:36+08:00
+context_mode: DUAL_READ_SHADOW
+mainline_task_or_contact: 01a02e08-06de-7281-89ab-eb4965cccc92
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_ACTION
+thread_mapping: {new_thread_id: 01a02e0c-2a04-7063-b397-c3cf8970b9f9, old_thread_id: 019fe4d8-a26f-7d92-98ee-36ae922b8637}
+
+identity:
+  lane_id: CANDIDATE-EXECUTION-LANE-1
+  role_id: CANDIDATE_OWNER
+  assignment_id: STAGEA-L1-20260822-QREFINE-TRITON-W4A16-RESUME2-WSL-UBUNTU2404
+  topic_id: QREFINE-TRITON-W4A16
+  stage_or_mode: STAGE_A_RESUME_FROM_BLOCKER
+  status: BLOCKED_USER_ACTION_REQUIRED__APPROVED_REBOOT_PENDING
+  resume_point: ONE_COORDINATED_WINDOWS_RESTART_THEN_NEW_IMMUTABLE_POST_RESTART_RESUME
+  next_action: WRITE_BOOTSTRAP_ACK_THEN_WAIT_FOR_COORDINATED_RESTART_AND_NEW_MAINLINE_CONTEXT
+  source_assignment_path: stages/stageA/QREFINE-TRITON-W4A16/control/STAGEA_L1_QREFINE_RESUME2_WSL_UBUNTU2404_ASSIGNMENT.yaml
+  source_assignment_sha256: 008D1FA2B834BA0A8FBF5CBD593A9400576F4FEC28F4C3A3D5B44B0DC796AA8D
+
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: null
+  user_approval_ids: [USER_EXPLICIT_WSL_VIRTUAL_MACHINE_PLATFORM_UBUNTU2404_SYSTEM_AUTHORITY_20260822]
+  allowed_actions: [read_context, write_bootstrap_ack, wait_for_user_coordinated_restart]
+  forbidden_actions: [trigger_restart, install_ubuntu_before_restart, download, build, experiment, claim_bearing_run, docker, hyper_v_feature_change, driver_change, registry_change, global_path_change, stageb]
+  forbidden_inputs: [other_candidate_results, unregistered_post_reboot_state]
+
+boundaries:
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/QREFINE-TRITON-W4A16/resume2-wsl-ubuntu2404
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/QREFINE-TRITON-W4A16/resume2-wsl-ubuntu2404/resources
+  read_only_paths:
+    - stages/stageA/QREFINE-TRITON-W4A16/control/STAGEA_L1_QREFINE_RESUME2_WSL_UBUNTU2404_ASSIGNMENT.yaml
+    - stages/stageA/QREFINE-TRITON-W4A16/resume2-wsl-ubuntu2404/handoff.yaml
+  write_allowed_paths:
+    - stages/stageA/QREFINE-TRITON-W4A16/resume2-wsl-ubuntu2404/BOOTSTRAP_ACK.yaml
+  network_allowed: false
+  experiment_allowed: false
+  state_transition_allowed: false
+
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 665A557A6C8AD8030F97B1767D06B500D658674681FFBF021A276C5B31DBC61B}
+  plan: {path: plan.md, sha256: BFC72BAB2492AB44330EC6091E4159944D750D437AC4FACE323BA2FFDC593A9C}
+  registry_snapshot: {path: registry.yaml, sha256: 7E0199903CF4C2105F2444A2E07F230437835A6A3CFABE228041FF7C978E7DA2}
+  role_rule: {path: rules/ROLE_CANDIDATE_OWNER.md, sha256: 0486BBDA5D35526268B82474DCCC9BF376F45724C6EF9E2B7435F18670CD75A4}
+  conditional_protocols:
+    - {path: rules/RESOURCE_LOCALIZATION.md, sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+  skills:
+    - {name: academic-research-suite, path: '<LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md', sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F, mode: BLOCKED_NO_EXECUTION}
+  templates:
+    - {path: templates/STAGEA_REPORT.md, sha256: DEF37897F8A64A0C7F0822FE629BBB2B78B91A787CE594165CC29B1F14CE15B1}
+    - {path: templates/RESOURCE_INVENTORY.yaml, sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63}
+    - {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+
+minimum_inputs:
+  - {path: stages/stageA/QREFINE-TRITON-W4A16/resume2-wsl-ubuntu2404/handoff.yaml, sha256: 79EE6699B7665D13114AEC698131BE98553E7874C79D0506A43DE4CDB647BB1A}
+expected_outputs: [BOOTSTRAP_ACK.yaml]
+budget: {network_bytes: 0, cpu_seconds: 0, experiment_runs: 0, approved_restarts_remaining: 1}
+claim_ceiling: STAGE0_PASS_CONFIRMED__NO_STAGEA_CLAIM_BEARING_OBSERVATION
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_revision: {allowed_total: 1, consumed: 0, remaining: 1, exceptional_revision_authorized: false}
+mechanism_pivot: {allowed: 0, consumed: 0, remaining: 0}
+identity_and_collision:
+  exact_identity_digest: QREFINE_TRITON_W4A16_MAKE_LLIR_POST_PM_RUN_PRE_LLVM_TO_MODULE
+  terminal_identity_digest: null
+  current_collision_digest: SEARCH_BOUNDED_OPEN_UNCHANGED
+  terminal_stop_non_revival_asserted: true
+user_and_blocker_state:
+  user_action_required: true
+  blocker_state: APPROVED_REBOOT_PENDING
+  blocker_packet_path: null
+  resource_policy_path: rules/RESOURCE_LOCALIZATION.md
+  resource_policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+stop_and_escalation_conditions: [restart_not_yet_completed, any_resource_or_scientific_action_before_post_reboot_context, any_prohibited_system_change]
+handoff_requirements: [ack_only, preserve_checkpoint_and_system_change_ledger, require_new_immutable_post_reboot_directory]
+validation:
+  source_plan_registry_consistent: true
+  hashes_complete: true
+  paths_resolved_under_workspace: true
+  context_is_sufficient_for_cold_start: true
+  full_registry_comparison_result: PASS__QREFINE_REBOOT_BLOCKER_MATCH
+  result: PASS__ACK_REQUIRED_NO_START_AUTHORITY

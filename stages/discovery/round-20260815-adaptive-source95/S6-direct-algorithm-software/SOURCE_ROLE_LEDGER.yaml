@@ -1,0 +1,70 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE95-R40-ORDINARY-BREADTH-V1
+network_actions: 2
+source_policy: official_or_first_party_public_only
+records:
+  - source_id: SRC-01
+    role: ANCHOR_CURRENT
+    subject: Bazel Skyframe
+    url: https://bazel.build/versions/8.2.0/reference/skyframe
+    version_or_date: Bazel documentation 8.2.0
+    selection_rule: precommitted_primary_anchor_for_S95-RQ01
+    decisive_observation: SkyFunctions form a dependency DAG and Bazel performs bottom-up invalidation.
+    disposition_effect: generic_dependency_invalidation_subtractor
+  - source_id: SRC-02
+    role: CURRENT
+    subject: Bazel Skyframe source
+    url: https://github.com/bazelbuild/bazel/tree/master/src/main/java/com/google/devtools/build/skyframe
+    version_or_date: master_tree_observed_2026-08-15
+    selection_rule: precommitted_current_source_locus_for_S95-RQ01
+    decisive_observation: source-tree locus confirmed; no source absence claim made.
+    disposition_effect: confirms_current_locus_only
+  - source_id: SRC-03
+    role: ANCHOR_CURRENT
+    subject: Mercurial revlog
+    url: https://book.mercurial-scm.org/read/concepts.html
+    version_or_date: official_book_currently_served_2026-08-15
+    selection_rule: precommitted_primary_anchor_for_S95-RQ02
+    decisive_observation: append-only revlog with periodic snapshots and deltas reconstructs revisions.
+    disposition_effect: generic_delta_representation_subtractor
+  - source_id: SRC-04
+    role: ANCHOR_CURRENT
+    subject: Pango rendering pipeline
+    url: https://gnome.pages.gitlab.gnome.org/gtk/Pango/pango_rendering.html
+    version_or_date: Pango_1.58_documentation
+    selection_rule: precommitted_primary_anchor_for_S95-RQ03
+    decisive_observation: documented break/shaping/layout/justification phases; PangoLayout performs breaking and justification.
+    disposition_effect: generic_line_layout_subtractor
+  - source_id: SRC-05
+    role: ANCHOR_CURRENT
+    subject: OpenJPEG opj_compress
+    url: https://github.com/uclouvain/openjpeg/blob/master/src/bin/jp2/opj_compress.c
+    version_or_date: master_observed_2026-08-15
+    selection_rule: precommitted_primary_anchor_for_S95-RQ04
+    decisive_observation: current source documents default and nondefault progression, POC, tile, code-block, precinct and rate/quality actions.
+    disposition_effect: current_union_absorption
+  - source_id: SRC-06
+    role: CONTRARY
+    subject: OpenJPEG official codec documentation
+    url: https://github.com/uclouvain/openjpeg/wiki/DocJ2KCodec
+    version_or_date: current_wiki_observed_2026-08-15
+    selection_rule: current_action_union_cross_check_for_S95-RQ04
+    decisive_observation: default progression is LRCP and POC is an exposed codec option.
+    disposition_effect: corroborates_explicit_current_controls
+  - source_id: SRC-07
+    role: ANCHOR
+    subject: musl mallocng
+    url: https://git.musl-libc.org/cgit/musl/log/src/malloc?h=v1.2.1
+    version_or_date: official_history_route_observed_2026-08-15
+    selection_rule: seed_anchor_only_S95-05_not_selected
+    decisive_observation: mallocng is present in official source history.
+    disposition_effect: seed_only_no_scientific_disposition
+  - source_id: SRC-08
+    role: ANCHOR_CURRENT
+    subject: Libevent dispatch
+    url: https://libevent.org/doc/
+    version_or_date: official_docs_2.2.2_observed_2026-08-15
+    selection_rule: seed_anchor_only_S95-06_not_selected
+    decisive_observation: event_base tracks pending and active events and dispatches callbacks.
+    disposition_effect: seed_only_no_scientific_disposition
+unattempted_roles: [ESCAPE]
+reason: No evidence-qualified raw survived the cheapest generic-kernel falsifier, so an escape search would not be decision-changing.

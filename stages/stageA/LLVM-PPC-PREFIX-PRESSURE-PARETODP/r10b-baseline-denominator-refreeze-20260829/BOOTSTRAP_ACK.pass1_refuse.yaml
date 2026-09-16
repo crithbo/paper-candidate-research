@@ -1,0 +1,48 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-29
+lane_id: CANDIDATE_EXECUTION_LANE_2
+role_id: CANDIDATE_OWNER
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10B-BASELINE-DENOMINATOR-REFREEZE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_context_path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r10b-baseline-denominator-refreeze-20260829/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: 2CB8D4451E96169DBC909C97392D065623FD5B6AA9DC1F52699A876AD33940D2
+old_chat_memory_required: false
+frozen_hash_ack:
+  AGENTS_sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75
+  plan_sha256: 956394A537CC862C23DECD6BF8D6D20AB6C1680AA0F5149BD5C286D23D578FA7
+  registry_snapshot_sha256: AEDE1D09253B7618F91266BDE662ABC6C543F2FA0609501215B931472C8A2546
+  role_rule_sha256: 4373A320D7EF96FB5EB1683872FEC9CDCB9EA6D16ACDF893CA997C5FB2745A1A
+  skill_hashes: [A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F]
+  template_hashes: [DF9AA27111D303600FD4C7F81DEB1FF52FFD6C308973D33B8A9EC59CA4542D7F]
+  source_assignment_sha256: 7648C74AACC45E711BE1317DD6080E697BC88C404CA79EAB56684B13F5AA1974
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: true
+boundary_ack:
+  unique_write_directory_exact: true
+  resource_root_exact: true
+  resource_root_absent: true
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: none
+  contamination_detected: false
+execution_ack:
+  current_status: BOOTSTRAP_PENDING
+  resume_point: R10_ROW_COST_CARDINALITY_MISMATCH
+  next_action: BOOTSTRAP_ACK_ONLY
+  user_gate_or_blocker: USER_PPC_R10B_REFREEZE_THEN_ABANDON_ON_FAILURE_20260829
+  scientific_or_resource_action_started: false
+differences_or_ambiguities:
+  - field: frozen_control.plan
+    expected_sha256: 956394A537CC862C23DECD6BF8D6D20AB6C1680AA0F5149BD5C286D23D578FA7
+    actual_sha256: F40E89DA8593307E2C64794EFF5B96B76535A9253FAABE12DCFF1EEA6E9CA99A
+    disposition: FAIL_CLOSED
+ack_disposition: REFUSE_MISSING_OR_CONFLICTING_CONTEXT
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

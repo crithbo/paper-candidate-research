@@ -1,0 +1,26 @@
+schema: mainline-stagea-vhlo-binary-distribution-redesign1-start-v1
+assignment_id: STAGEA-L2-20260830-VHLO-BINARY-DISTRIBUTION-REDESIGN1
+topic_id: SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+same_object_method_redesign: 1_of_1
+consumption_point: first_pip_download_process_launch
+resource_init: standard_assignment_local_resources_only
+acquisition:
+  attempts: 1
+  python: <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+  argv: [-m, pip, download, '--only-binary=:all:', '--no-deps', '--dest', resources/downloads, 'PRIVATE_TOOLCHAIN-base-compiler==3.11.0', 'jaxlib==0.11.1']
+  expected:
+    - {file: resources/downloads/PRIVATE_TOOLCHAIN_base_compiler-3.11.0-cp312-abi3-win_amd64.whl, sha256: 67B3656C473D6DD3059B9AD9676190591F11B77C6E2F785D55E79730BE677BE7}
+    - {file: resources/downloads/jaxlib-0.11.1-cp312-cp312-win_amd64.whl, sha256: EEF943B42D6D42A2B2F3DC2A66E7A3DC89AEB1541F5A13AD8E1E94001BB590EC}
+local_install:
+  network: forbidden
+  target: resources/env/vhlo-redesign
+  mode: pip_--no-index_--no-deps_--target_from_exact_local_wheels
+nonclaim_control:
+  attempts: 1
+  required: [import_PRIVATE_TOOLCHAIN_compiler, import_jaxlib_StableHLO_dialect, bind_literal_versions_paths_argv_cwd_env_outputs_schema, validate_4_witness_4_oracle_2_version_3_executor_24_cell_12_cost_contract]
+  relative_or_compatibility_effect_visibility: false
+frozen_unchanged: [same_object, 2_versions, 4_witness_classes, 4_oracle_classes, 24_claim_cells, 12_full_cost_fields, claim_ceiling]
+forbidden: [retry, alternate_package_or_version, source_build, system_or_user_environment_change, claim_matrix, result_visibility, StageB, shared_write]
+current_cycle_usage_reset_confirmed: false
+stop: after_A0_redesign_handoff

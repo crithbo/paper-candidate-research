@@ -1,0 +1,45 @@
+schema_version: rule-audit-assignment-v1
+audit_id: RULE-AUDIT-20260824-SOURCE102-103-ZERO-BRIEF-A2
+assignment_id: RULE-AUDIT-20260824-SOURCE102-103-FIRST-FAILED-CONVERSION-A2
+lane_id: RULE_AUDIT
+thread_id: 01a02e08-0b16-7ed2-bfc4-f37b5ad86992
+trigger: TWO_CONSECUTIVE_COMPLETE_SIX_LANE_CYCLES_WITH_ZERO_CLEAN_STAGE0_BRIEF
+trigger_cycles: [SOURCE102, SOURCE103]
+mode: PROPOSAL_ONLY
+write_directory: stages/rule-audit/RULE-AUDIT-20260824-SOURCE102-103-ZERO-BRIEF-A2
+authority:
+  user_continuous_pipeline: USER_CONTINUOUS_LLM_VLA_PIPELINE_UNTIL_USAGE_RESET_20260824
+  automatic_zero_yield_audit_rule: AGENTS_ZERO_YIELD_DIAGNOSIS
+  shared_file_writer: MAINLINE_ONLY
+question: Locate the first failed funnel conversion in Source102 and Source103, distinguish source-allocation saturation from rule/template/execution defects, and recommend at most one bounded future change after declaring prior pilots RETAIN/DOWNGRADE/REMOVE.
+minimum_inputs:
+  - registry.yaml source102/source103 records and registered terminal identities
+  - stages/discovery/round-20260815-adaptive-source102/control/CONTROL.yaml
+  - stages/discovery/round-20260824-strategy-source103/control/CONTROL.yaml
+  - six accepted Source103 handoffs and manifests
+  - AGENTS.md zero-yield and Discovery rules
+allowed_actions:
+  - READ_MINIMUM_REGISTERED_INPUTS
+  - COMPUTE_FUNNEL_DENOMINATORS_AND_FIRST_FAILED_CONVERSION
+  - WRITE_RULE_AUDIT_REPORT_RULE_CHANGE_PROPOSAL_HANDOFF_AND_MANIFEST
+forbidden_actions:
+  - MODIFY_ANY_SHARED_CONTROL_RULE_TEMPLATE_CANDIDATE_OR_DISCOVERY_FILE
+  - START_SEARCH_DOWNLOAD_BUILD_EXPERIMENT_QUEUE_BACKTEST_OR_AUTOMATION
+  - USE_SOURCE104_RESULTS_OR_BACKWRITE_SOURCE104
+  - RELAX_Q2_SAME_OBJECT_COLLISION_BASELINE_NATURAL_EVIDENCE_FULL_COST_OR_CLAIM_CEILING
+  - CREATE_BROAD_CATEGORY_COOLDOWN_OR_PROPOSAL_QUOTA
+  - REVIVE_STOPPED_TOPICS
+required_analysis:
+  - FIRST_FAILED_CONVERSION_PER_CYCLE_AND_AGGREGATE
+  - RETAIN_DOWNGRADE_REMOVE_FOR_PRIOR_BEHAVIOR_PILOTS
+  - RULE_DEFECT_VS_EXECUTION_DEFECT_VS_SOURCE_SATURATION_VS_RESOURCE_EVENT
+  - MINIMUM_CHANGE_AND_SMALLER_OPERATIONAL_ALTERNATIVE
+  - BACKTEST_SHADOW_AND_ROLLBACK_REQUIREMENTS
+expected_outputs:
+  - RULE_AUDIT_REPORT.md
+  - RULE_CHANGE_PROPOSAL.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+resource_actions_allowed: false
+candidate_or_state_authority: false
+source104_may_continue_without_waiting: true

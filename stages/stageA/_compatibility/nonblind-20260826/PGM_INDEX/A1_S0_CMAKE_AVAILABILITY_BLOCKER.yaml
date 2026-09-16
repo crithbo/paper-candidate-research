@@ -1,0 +1,50 @@
+schema: nonblind-stagea-compatibility-start-failure-v1
+created_at: 2026-08-26T13:08:00Z
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A1-LAYOUT
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+start_authorization: {path: MAINLINE_START_AUTHORIZATION.yaml, sha256: 9E22B81A26A319EEDD1B23B7EE5D15A9D38E8916B6B5E8C7138B8F5021823840}
+A1_correction: {path: A1_RESOURCE_LAYOUT_CORRECTION.yaml, sha256: 56C209346E46E92E50BF927141A567A21053B92D529A8A48D887BB36CAF9CF05}
+decision: FAIL_CLOSED__S0_CMAKE_NOT_AVAILABLE__NO_RETRY_OR_ALTERNATE_TOOL
+failure_class: TOOL_AVAILABILITY_ENGINEERING_BLOCKER
+A1_directory_creation:
+  result: PASS_8_OF_8_LITERAL_NEW_ITEM_PATH_CALLS
+  directories: [resources/downloads, resources/archives, resources/src, resources/build, resources/env, resources/cache, resources/tmp, resources/logs]
+  reparse_entries: 0
+S0:
+  command: cmake --version
+  result: COMMAND_NOT_FOUND
+  error: "The term 'cmake' is not recognized as a name of a cmdlet, function, script file, or executable program."
+  retry_attempted: false
+  alternative_path_or_tool_attempted: false
+S1:
+  command: tar --version
+  result: COMPLETED
+  observed_tool: bsdtar_3.8.4
+  note: EXECUTED_IN_THE_SAME_SERIAL_SHELL_BATCH_AFTER_S0_NONTERMINATING_FAILURE__NO_RESOURCE_FILE_CREATED
+S2_through_S7:
+  started: false
+  download_attempts: 0
+  archive_hash_attempts: 0
+  extraction_attempts: 0
+  configure_attempts: 0
+  build_attempts: 0
+  test_attempts: 0
+resource_state:
+  root_exists: true
+  resource_layout_action_started: true
+  files: 0
+  logical_bytes: 0
+  network_bytes: 0
+  archive_exists: false
+scientific_boundary:
+  scientific_action_started: false
+  author_artifact_preclaim_fidelity_started: false
+  natural_or_canonical_probe_started: false
+  claim_bearing_observation: false
+  scientific_inference: NONE
+  production_candidate_registration: false
+  production_state_transition: false
+  stageB: false
+  gold_or_blind_input_read: false
+  cleanup_actions: 0
+required_mainline_disposition: EXACT_TOOL_AVAILABILITY_CORRECTION_OR_TERMINAL_FAIL_CLOSED_HANDOFF

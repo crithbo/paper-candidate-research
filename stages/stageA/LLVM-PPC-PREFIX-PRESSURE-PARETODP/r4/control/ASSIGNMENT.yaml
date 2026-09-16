@@ -1,0 +1,85 @@
+schema: candidate-preclaim-ir-syntax-correction-assignment-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R4-GLOBAL-MODIFIER-ORDER-CORRECTION
+authorization_ids: [USER-PARALLEL-STAGEA-READY-CANDIDATES-20260825, USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825]
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+stage: STAGEA_PRECLAIM_ENGINEERING_CORRECTION_AND_FRESH_F1_F5
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r4
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r4/resources
+inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r4/RESOURCE_INVENTORY.yaml
+
+scientific_boundary:
+  exact_object: POWER10_PPC64LE_LINUX_ELFV2_MEDIUM_CODE_MODEL_PRE_FORM_MACHINEIR_DSO_LOCAL_OR_HIDDEN_NONPREEMPTIBLE_SYMBOL_FIXED_SEMANTICS_ALIASES_CALL_CLOBBERS_ABI_FRAME_UNWIND_AND_LINKER_INPUT
+  exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+  exact_contract_sha256: F36E8CD40E719A9CFEEFBB595EEE05A4FDEEDF490C0ABD6AF40C09D635895E82
+  claim_ceiling: PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY__NO_NATURAL_RUNTIME_OR_PERFORMANCE_CLAIM
+  claim_bearing_observation_allowed: false
+  scientific_revision_or_mechanism_pivot_authorized: false
+  owner_state_transition_authority: false
+  stageb_authorized: false
+
+parent_r3:
+  assignment_id: STAGEA-L1-20260826-LLVM-PPC-R3-PRECLAIM-F1-F5
+  handoff_sha256: 21B5D10F4D4D783A656481471E07B585A4F11CE187829D359C809DE55C3B7C3A
+  manifest_sha256: 770996CB3B8A5876DFD61A67B6713A4A12B385B4803AE46D6B7C2A9C1D2345C6
+  mainline_acceptance_sha256: 314FC836C50266FB959D40E24A316F4EF5FE071C0C0FF2CDB513213A66EA2228
+  accepted_result: F1_PARTIAL_REPLAY1_NOT_PASS__F2_IR_PARSE_BLOCKED__F3_F4_F5_NOT_STARTED
+  claim_bearing_observation_count: 0
+  scientific_revision_consumed: false
+  cleanup_deferred_until_r4_handoff_acceptance: true
+
+same_topic_input_transfer:
+  source_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r3/resources
+  inputs:
+    - {source: resources/downloads, destination: resources/downloads, files: 2, logical_bytes: 280173064}
+    - {source: resources/env/ppc-toolchain, destination: resources/env/ppc-toolchain, files: 133, logical_bytes: 244073942, package_manifest_sha256: 39CF76C8DA10D645F26789C3FF1A4E3A47839C70DBDAC3D5A4AED73C6792094C}
+    - {source: resources/src, destination: resources/src, files: 3619, logical_bytes: 50773273}
+    - {source: resources/logs, destination: resources/logs/upstream_r3, files: 18, logical_bytes: 24294}
+    - {source: resources/build, destination: resources/build/upstream_r3_partial, files: 2, logical_bytes: 2384}
+  source_modify_or_delete_allowed: false
+  r4_may_modify_only_assignment_local_ppc_union_input_copy: true
+  cross_topic_access_allowed: false
+  network_allowed: false
+
+single_engineering_correction:
+  file: resources/src/harness/ppc_union_input.ll
+  original_sha256: D2EC9F564FBAE963A0515E6028EF2FD10E436CC8EAADF5F14EB0068A227BAD19
+  exact_substitutions:
+    - {from: '@target_value_ir = hidden dso_local', to: '@target_value_ir = dso_local hidden', occurrences: 1}
+    - {from: '@target_array_ir = hidden dso_local', to: '@target_array_ir = dso_local hidden', occurrences: 1}
+  expected_corrected_sha256: 77A92601566F1CD5190B0FD5892EE62C295E00F64AC018BF5782B965DC268F3E
+  all_other_bytes_unchanged: true
+  function_modifier_order_occurrences_unchanged: 5
+  source_edits_max: 1
+  tool_source_contract_or_semantic_change_allowed: false
+
+fresh_ordered_preclaim_obligations:
+  F1_EXACT_DIRECT_WITNESS: [two_fresh_replays, exact_dso_local_or_hidden_non_GOT_R_PPC64_PCREL34_PLDpc, PADDI_plus_LD, fixed_call_memory_contract]
+  F2_NATIVE_VALIDATION: [llc_MIR_emission, MachineVerifier, assembler, readobj_typed_relocation_addend, objdump_forms, ld_lld_output, DWARF_unwind_audit, observable_semantics]
+  F3_COMPLETE_NATIVE_UNION: [current_LLVM_form_selection, greedy_and_PBQP_RA, coalescing_spills_frame, default_on_peepholes, MC_linker_relaxation, finite_legal_grid, equal_information_same_object]
+  F4_TINY_NATIVE_ORACLE: [complete_PPC_TPD_grammar, exhaustive_native_traces, labeled_successor_equals_quotient, frontier_merge_backpointer_equality, future_action_and_cost_preservation]
+  F5_FULL_COST_CONTROL: [tiny_model_optimizer_compile_link_verification_CPU_wall_RSS, bytes, typed_relocations, spills_copies_frame_CFI, static_uops, failures_and_fallback]
+  pass_policy: ALL_F1_F5_PASS_BEFORE_SEPARATE_NATURAL_CLAIM_ASSIGNMENT
+  parent_partial_F1_may_not_count_as_r4_pass: true
+
+execution_contract:
+  assignment_local_script_candidate_and_checker_implementation_allowed: true
+  harness_binary_build_attempts_max: 0
+  upstream_LLVM_or_lld_patch_or_rebuild_allowed: false
+  deterministic_replays: 2
+  automatic_retry: false
+  result_based_rerun_or_exclusion: false
+  natural_corpus_executed_count: 0
+  F5_tiny_control_cost_measurement_allowed: true
+  natural_performance_or_full_cost_claim_allowed: false
+  run_monitoring: PROCESS_ALIVE_OUTPUT_GROWTH_TIMEOUT
+
+resource_localization: {policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97, required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs], every_write_under_resource_root: true, process_local_redirect_required: true, system_wsl_global_or_reparse_change_allowed: false}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, closeout_event: PPC_R4_PRECLAIM_HANDOFF_ACCEPTED, downstream_consumer: FUTURE_SEPARATE_PPC_NATURAL_CLAIM_ASSIGNMENT, post_close_retained_bytes_max: 805306368, cleanup_owner: MAINLINE, owner_cleanup_allowed: false}
+limits: {network_bytes_max: 0, resource_root_logical_bytes_max: 1073741824, cpu_seconds_max: 14400, wall_seconds_max: 28800, max_parallel_processes: 2, source_edits_max: 1, harness_build_attempts_max: 0, gpu_hours_max: 0}
+allowed_actions: [CREATE_STANDARD_RESOURCE_DIRS, COPY_AND_HASH_ACCEPT_ONLY_FROZEN_R3_SAME_TOPIC_INPUTS, WRITE_CORRECTION_PRECOMMIT, APPLY_EXACT_TWO_GLOBAL_MODIFIER_ORDER_SUBSTITUTIONS_IN_ONE_FILE_EDIT, RUN_FRESH_ORDERED_F1_F5_CONTROL_NON_CLAIM_OBLIGATIONS, WRITE_CANONICAL_PRECLAIM_PACKAGE]
+forbidden_actions: [NETWORK, MODIFY_R3, ADDITIONAL_SOURCE_EDIT, FUNCTION_MODIFIER_OR_OTHER_BYTE_CHANGE, LLVM_OR_LLD_SOURCE_PATCH_OR_REBUILD, HARNES_BINARY_BUILD, AUTOMATIC_RETRY, NATURAL_FUNCTION_OR_CORPUS, CANDIDATE_BASELINE_NATURAL_PERFORMANCE_OR_FULL_COST_CLAIM, SCIENTIFIC_PASS_STOP_RESERVE_INFERENCE, SCIENTIFIC_REVISION, MECHANISM_PIVOT, OWNER_STATE_TRANSITION, OWNER_CLEANUP, STAGEB]
+success_route: PRECLAIM_FIDELITY_PASS__WAIT_SEPARATE_NATURAL_CLAIM_ASSIGNMENT
+failure_route: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE__NO_SAME_ASSIGNMENT_RETRY
+expected_outputs: [BOOTSTRAP_ACK.yaml, SAME_TOPIC_INPUT_ACCEPTANCE.yaml, IR_SYNTAX_CORRECTION_PRECOMMIT.yaml, EXACT_DIRECT_WITNESS.yaml, NATIVE_VALIDATION.yaml, COMPLETE_NATIVE_UNION.yaml, TINY_NATIVE_ORACLE.yaml, FULL_COST_CONTROL.yaml, PRE_CLAIM_CONTRACT_FIDELITY_GATE.yaml, REPRODUCIBILITY_REPORT.yaml, RESOURCE_INVENTORY.yaml, PHASE_CLOSEOUT_RETENTION.yaml, RESUME_CAPSULE.yaml, handoff.yaml, HASH_MANIFEST.sha256]

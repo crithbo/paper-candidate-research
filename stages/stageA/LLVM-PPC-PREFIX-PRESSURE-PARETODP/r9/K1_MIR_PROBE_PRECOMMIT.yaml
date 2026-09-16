@@ -1,0 +1,24 @@
+schema: ppc-r9-k1-mir-probe-precommit-v1
+recorded_at: 2026-08-26T07:45:09.6513813+08:00
+recorded_before_run: true
+classification: CONTROL_NON_CLAIM_BEARING_CONSTRUCTION_PROBE
+command_id: K1_00_LLC_FINALIZE_ISEL_MIR_PROBE
+argv:
+  - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources/env/ppc-toolchain/bin/llc.exe
+  - -mtriple=powerpc64le-unknown-linux-gnu
+  - -mcpu=pwr10
+  - -code-model=medium
+  - -verify-machineinstrs
+  - -stop-after=finalize-isel
+  - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources/src/r6_input/src/preclaim_harness/ppc_union_input.ll
+  - -o
+  - <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources/build/k1_probe/control.original.mir
+working_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources/build/k1_probe
+stdout: resources/logs/k1_probe/K1_00.stdout.txt
+stderr: resources/logs/k1_probe/K1_00.stderr.txt
+timeout_seconds: 180
+automatic_retry: false
+input_function_allowed: ir_pressure_control
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_runs: 0
+scientific_inference: NONE

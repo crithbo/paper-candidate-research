@@ -1,0 +1,69 @@
+schema: rvv-r5-a1-register-parser-correction-ack-v1
+ack_disposition: READY
+A1_start_authorized: false
+A1_action_started: false
+identity:
+  cwd: '<LOCAL_PROJECT_ROOT>'
+  lane_id: CANDIDATE_EXECUTION_LANE_1
+  lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+  assignment_id: STAGEA-L1-20260826-LLVM-RVV-R5-SPLIT-PROVENANCE-CLOSURE-PRECLAIM-A1
+  topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+base:
+  context_sha256: 763634A28BF214BA13C0B03DACFC50C1672E963A0991BF2485B01F448F8258C2
+  control_sha256: 25881E56BE6B8457CB22C02892E5023969273DD3C2799FC7AC1C3D3D44805902
+  soft_blocker_policy_sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74
+  pass1_handoff_sha256: 3DC2640E80F191CFFE0AAF1AD85AF8296F6020AF6ECA159FABBD95DF46DC3C2E
+  pass1_manifest_sha256: 6E0887BF8A185F47FD05AC5FE6AC7EA04A7FAEAE14F8002673FA7BC31D77792D
+  addendum_sha256: CFE7CA6498456690B5F967C116FE65273060D64868A686ABFB6A7530E532D9EE
+current_shared_dual_read:
+  plan_sha256: 7C08FDA8158E55799AC2FE522B516706525C1B66C7310264C5C46F26BA309BFE
+  registry_sha256: 466F61F05B15833A3B8F1435C489590917460E88B77E5530035E02E4A5EB2B19
+  base_assignment_state: ACTIVE_SPLIT_PROVENANCE_CLOSURE_MECHANISM_PIVOT__NO_NATURAL_OR_CLAIM
+  LLVM_queue_RVV: R5_SPLIT_PROVENANCE_CLOSURE_MECHANISM_PIVOT_ACTIVE__NO_NATURAL_OR_CLAIM
+  current_lane: ACTIVE__RVV_R5_SPLIT_PROVENANCE_CLOSURE__NO_NATURAL_OR_CLAIM
+  same_assignment_addendum_compatible: true
+resource_and_decisive_inputs:
+  resource_files: 133
+  resource_bytes: 198343802
+  reparse_entries: 0
+  checker_path: resources/src/split_closure/split_closure.py
+  checker_original_sha256: 677116E77E1905E96E37D370F78BB93A31EA8720BB98A6B8F4D104547BEE2699
+  checker_original_bytes: 4108
+  replay_R1_sha256: 7992C346456BCE4B58B6891FE35E68C5D229FA5C5E5614AB1A6E6D1E9881DDDC
+  replay_R2_sha256: 7992C346456BCE4B58B6891FE35E68C5D229FA5C5E5614AB1A6E6D1E9881DDDC
+  replay_exact: true
+correction_understood:
+  source_edit_transactions_max: 1
+  registers_section_anchor: LINE_ANCHORED_REGISTERS_TO_LIVEINS
+  registers_section_count_required: EXACTLY_ONE
+  existing_id_class_split_from_assigned_phys_parser_scope: ONLY_THE_UNIQUE_REGISTERS_SECTION
+  stack_or_unknown_block_heuristic_ignore_allowed: false
+  old_pattern_occurrences_required: 1
+  expected_corrected_sha256: BCD8EA3581F401E4ACEA07EF64D2556E31826D3764E3C10D2B6A3D6B256A84E4
+  expected_corrected_bytes: 4272
+  all_other_bytes_unchanged: true
+  split_graph_or_quotient_semantics_changed: false
+  parent_child_LMUL_mask_interference_physreg_spill_reload_future_use_backpointer_obligations_changed: false
+pivot_and_revision:
+  pivot: SPLIT_PROVENANCE_CLOSED_QUOTIENT_STATE
+  pivot_consumed: true
+  pivot_budget: CONSUMED_1_OF_1_STAGEA
+  A1_is_second_pivot: false
+  A1_is_scientific_revision: false
+  scientific_revision_consumed: false
+fresh_gate:
+  preserve_pass1_required: true
+  negative_controls_required: 5
+  fresh_llc_commands_max: 2
+  automatic_retry: false
+  first_failure_stops: true
+  natural_or_selected_tool_invocations: 0
+  claim_bearing_observations: 0
+  science_state_cleanup_actions: 0
+actions_before_A1_START:
+  source_modified: false
+  tool_run: false
+  cleanup_or_state_transition: false
+  A1_action_started: false
+differences_or_ambiguities: []
+next_action: WAIT_FOR_MAINLINE_A1_START

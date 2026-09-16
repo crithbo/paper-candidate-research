@@ -1,0 +1,33 @@
+schema: apx-r7-a23-actual-dp-preclaim-audit-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM-A2
+obligation: A23_ACTUAL_DP_STRONG_BASELINE_ORACLE
+output_path: resources/logs/control/a2/actual_dp_preclaim.json
+output_sha256: 8D4654A176681E154882D4C56E9A8C4F0A7760C361C97500DB1FEE684BCBB309
+argv_record_sha256: 33AC46D5E716B5C2F4C87E90BCA5B54063E3760E2DBEC4DDB4CC0ECB40F7EEF5
+exit_code: 0
+attempts: 1_OF_1
+input_digest_sha256: A94315266509A577BB8B63D87246ADE147729F74824589616C7B8165FDC1BA39
+input_hashes: {catalog: CF406685A11968882608273C9D86B9B1806C562B3B4DD64B933926EDB2F677FC, trace: AD7F2DBE3F19DFFCD1EB0C3B4FDF80DCDDA7DCC71BACC769FCF40AF022F57910, r6_control: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966, current_mir: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A, tuning_mir: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A}
+actual_catalog: {action_count: 14, evidence_files: 9, complete_enough_categories: 12, current_llvm_fallback_present: true}
+candidate: {algorithm: ORBIT_CANONICAL_PER_ACTION_DP, total_states: 3, transition_rows_consumed: 4, frontier_points: 2, backpointer_reconstruction_pass: true}
+labeled_baseline: {algorithm: LABELED_PER_ACTION_DP, total_states: 6, transition_rows_consumed: 8, frontier_points: 2, consumed_by_checker: true}
+generic_baseline: {algorithm: GENERIC_EXACT_PRODUCT_ENUMERATION, enumerated_plans: 6, frontier_points: 2, consumed_by_checker: true}
+micro_oracle: {algorithm: INDEPENDENT_RECURSIVE_MICRO_ORACLE, enumerated_plans: 6, frontier_points: 2, consumed_by_checker: true}
+native_baselines: {current_consumed_by_checker_and_full_cost: true, tuning_consumed_by_checker_and_full_cost: true, points_covered: true}
+r6_formal_control: {scenarios: 64, successor_mismatches: 0, semantic_tests: 64, semantic_failures: 0, consumed_by_checker: true}
+checks:
+  catalog_complete_enough: true
+  per_action_recurrence: true
+  backpointer_reconstruction: true
+  certified_future_action_cost_rows: true
+  nontrivial_certified_orbit: true
+  candidate_labeled_generic_oracle_exact_frontier: true
+  candidate_distinct_state_reduction: true
+  current_and_tuning_outputs_consumed: true
+  current_and_tuning_points_covered: true
+  r6_value_eflags_control: true
+  two_state_proxy_absent: true
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_observations: 0
+scientific_inference: NONE
+result: PASS_ALL_11_CHECKS

@@ -1,0 +1,34 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE42-GLOBAL-IDENTITY-CLOSURE-V1
+lookup:
+  roots: [registry.yaml, stages/discovery, stages/stage0, stages/stageA]
+  check_date: 2026-08-15
+  rule: all five fields must be exact or terminal-contained for automatic exclusion; RELATED_ONLY never excludes.
+families:
+  - id: S42-01
+    signature: LLVM_AMDGPU_AGPR_VGPR_SPILL_AND_SCHEDULE__OCCUPANCY_TIER_ENDPOINT__COMPILE_PLUS_CODEGEN_COST
+    fields:
+      exact_object: TERMINAL_CONTAINS
+      atomic_action_or_estimand: TERMINAL_CONTAINS
+      claim_endpoint: TERMINAL_CONTAINS
+      semantic_guarantee: TERMINAL_CONTAINS
+      full_cost_boundary: TERMINAL_CONTAINS
+    certificate: stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/handoff.yaml
+    relation: TERMINAL_CONTAINS
+    disposition: EXCLUDED_BEFORE_RAW__ACTIVE_TERMINAL_CONTAINMENT
+  - id: S42-02
+    signature: QNN_MULTIGRAPH_SHARED_WEIGHT_CONTEXT_BINARY__SAME_GRAPH_OUTPUTS__ROM_RAM_SETUP_EXECUTION_COST
+    fields: {exact_object: NONE, atomic_action_or_estimand: NONE, claim_endpoint: NONE, semantic_guarantee: NONE, full_cost_boundary: NONE}
+    relation: NO_MATCH
+    disposition: NO_MATCH__PROCEED_TO_CURRENT_SOURCE_CHECK
+  - id: S42-03
+    signature: XLA_GPU_COLLECTIVE_PIPELINE_AND_BUFFER_CONSTRUCTION__SAME_STABLEHLO_OUTPUTS__COMPILE_MEMORY_COMMUNICATION_COST
+    fields: {exact_object: NONE, atomic_action_or_estimand: RELATED_ONLY, claim_endpoint: RELATED_ONLY, semantic_guarantee: NONE, full_cost_boundary: RELATED_ONLY}
+    related_record: stages/discovery/round-20260814-adaptive-source13/S1-boundary-contradiction/CANDIDATE_GRADE_DEEP_REVIEWS.md#D2
+    relation: RELATED_ONLY
+    disposition: RELATED_ONLY_DO_NOT_EXCLUDE__PROCEED_TO_CURRENT_SOURCE_CHECK
+  - id: S42-04
+    signature: ONEDNN_GRAPH_COMPILED_PARTITION_SCRATCHPAD_LAYOUT__SAME_LOGICAL_TENSORS__BUILD_EXECUTE_MEMORY_COST
+    fields: {exact_object: NONE, atomic_action_or_estimand: NONE, claim_endpoint: NONE, semantic_guarantee: NONE, full_cost_boundary: NONE}
+    relation: NO_MATCH
+    disposition: NO_MATCH__PROCEED_TO_CURRENT_SOURCE_CHECK
+claim_ceiling: A no-match is neither novelty evidence nor absence evidence.

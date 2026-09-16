@@ -1,0 +1,43 @@
+schema: resource-acquisition-ledger-v1
+assignment_id: STAGE0-P1-20260814-RUST-HISTORY-AWARE-CGU-PARTITION-REVISION1-RESUME1
+authorization_id: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+write_root: stages/stage0/_revisions/RUST-HISTORY-AWARE-CGU-PARTITION/revision1/resume1
+status: RESOURCE_PACKAGE_CLOSED
+selection:
+  crate: smallvec
+  current_rule: LATEST_NON_YANKED_STABLE_CRATES_IO_VERSION_AT_FIRST_SUCCESSFUL_INDEX_SNAPSHOT
+  current: { version: 1.15.2, sha256: 8ED6A63F02C8539C91A8685A86F4099661BA3DA017932F6EBBEA6DE3F0FA7C90 }
+  predecessor: { version: 1.15.1, sha256: 67B1B7A3B5FE4F1376887184045FCF45C69E92AF734B7AADDC05FB777B6FBD03 }
+  predecessor_role: COHORT_INFORMATION_ONLY
+  crate_api: https://crates.io/api/v1/crates/smallvec
+toolchain:
+  selection: nightly-2026-08-14
+  rustc_commit: ba28ff76f353a722f31c4f3dd2ac4e437d36411b
+  target: x86_64-pc-windows-msvc
+  channel_manifest:
+    url: https://static.rust-lang.org/dist/2026-08-14/channel-rust-nightly.toml
+    bytes: 975620
+    sha256: DF868BDBFFC95EA7FE932E97FE953BA7B5FC89BCDE97F449997F97A88C180C3C
+  components:
+    - { name: rustc, url: https://static.rust-lang.org/dist/2026-08-14/rustc-nightly-x86_64-pc-windows-msvc.tar.gz, bytes: 135799771, sha256: DE2582D9137A73ABD3B2BDDD735E501AA550240DD083E479E2C43E3CB17FEC35 }
+    - { name: rust-std, url: https://static.rust-lang.org/dist/2026-08-14/rust-std-nightly-x86_64-pc-windows-msvc.tar.xz, bytes: 23586948, sha256: 72A79897902516044678FB851889B9B1034CBA06DD16E6C8486D5823674AA036 }
+  installation: PORTABLE_PREFIX_ONLY__NO_GLOBAL_PATH_MUTATION
+sources:
+  - { name: rustc_partitioning, url: https://raw.githubusercontent.com/rust-lang/rust/ba28ff76f353a722f31c4f3dd2ac4e437d36411b/compiler/rustc_monomorphize/src/partitioning.rs, bytes: 58726, sha256: E7C5BBBA84FC3531C7A9CB861778A028544A56FB211318D925C05B24D1AD30E4 }
+attempts:
+  - { kind: HEAD_connectivity, result: SUCCESS, endpoints: [crates.io, static.rust-lang.org] }
+  - { kind: crate_archive_download, result: SUCCESS_AFTER_403_RETRY_WITH_USER_AGENT, bytes_total: 73015 }
+  - { kind: rust_component_download, result: SUCCESS, bytes_total: 159386719 }
+  - { kind: metadata_test_compile, result: SUCCESS, claim_bearing: false }
+  - { kind: test_link, result: ENVIRONMENT_LIMITATION_LINK_EXE_ABSENT, claim_bearing: false, scientific_inference: none }
+budget_observation:
+  downloaded_bytes_confirmed: 160608080
+  contract_successful_response_bytes_max: 2147483648
+  toolchain_install_attempts: 1
+  crate_build_commands: 3
+  gpu_used: false
+incomplete_transport_artifact:
+  path: acquired/rust-std-nightly-x86_64-pc-windows-msvc.tar.gz
+  bytes: 2625536
+  status: INCOMPLETE_LOCKED_TRANSFER__EXCLUDED_FROM_EVIDENCE_AND_MANIFEST
+  scientific_inference: none

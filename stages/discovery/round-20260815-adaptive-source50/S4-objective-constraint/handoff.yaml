@@ -1,0 +1,32 @@
+assignment_id: DISCOVERY-S4-20260815-ADAPTIVE-SOURCE50-TYPED-PORTFOLIO-SELECTIVE-DEPTH-V1
+lane: S4_OBJECTIVE_CONSTRAINT
+write_directory: stages/discovery/round-20260815-adaptive-source50/S4-objective-constraint
+frozen_inputs:
+  common_control_sha256: 01AA2A634EF395589A1A1FA9520150E919198DFCBF6B9E96C4EE684BF59AF26E
+  assignment_sha256: B2CBF63FDE8FB4F4D3AEF98078CFCAD62CEF8142795A8E39D3A3678ACE2930C5
+  role_discovery_sha256: 1A5E750718D589F0654B1867BC4ACC6B61BCE505E445CDD571FAA28A4B596C37
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+method:
+  canonical: V8_7_POTENTIAL_READINESS_SEPARATED
+  rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  profile: R37_TYPED_PORTFOLIO_PLUS_SELECTIVE_DEPTH_SAFE_BOUNDARY_V1
+  model_route: gpt-5.6-terra__high
+  modes_off: [V9, DISCOVERY_CLAIM_PACK, SHADOW, SOL_PACKET]
+typed_role: MEASUREMENT_OR_BENCHMARK_VALIDITY
+funnel: {pre_evidence_frames: 3, exact_answerable_typed_rqs: 0, evidence_qualified_raw: 0, briefs: 0}
+selective_depth:
+  eligibility_packets_emitted: 0
+  global_slots_consumed: 0
+  disposition: NO_INFORMATION_GAIN__NO_PACKET
+  reason: no_exact_same_object_RQ_public_identity_and_more_than_one_triplet_gap
+identity_preflight:
+  excluded_without_external_delta:
+    - SOURCE45_MLPERF_INFERENCE_V5X_OFFICIAL_RULES_RESULT_SOURCE
+    - SOURCE44_RVV_VXRM_INTERPROCEDURAL
+  related_only_is_not_exclusion: true
+closure_queue: {path: SOURCE_CLOSURE_QUEUE.yaml, concrete_items: 0, attempts: 0, exhausted: false}
+resources: {inventory: RESOURCE_INVENTORY.yaml, attempts: 0, status: PASS__NO_RESOURCE_ACTION}
+final_disposition: COMPLETE_ZERO_PROPOSALS__NO_INFORMATION_GAIN__NO_PACKET
+summary_zh: Source50未满足选择性深审的精确RQ/公开身份前提，且三元组缺件超过一个；因此不封存packet、不占全局slot、不进行targeted closure，保留canonical零提案。
+notify_mainline: required_on_completion
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

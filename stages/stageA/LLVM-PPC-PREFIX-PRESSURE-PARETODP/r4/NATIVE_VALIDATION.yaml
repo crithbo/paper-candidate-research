@@ -1,0 +1,40 @@
+schema: ppc-r4-native-validation-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R4-GLOBAL-MODIFIER-ORDER-CORRECTION
+obligation: F2_NATIVE_VALIDATION
+status: PARTIAL__FRESH_REPLAY_1_BLOCKED_AT_MIR_PARSE_BEFORE_MACHINEVERIFIER__NOT_PASS
+global_modifier_correction:
+  result: PASS
+  corrected_sha256: 77A92601566F1CD5190B0FD5892EE62C295E00F64AC018BF5782B965DC268F3E
+  bytes: 2972
+  function_modifier_occurrences_preserved: 5
+completed_fresh_replay_1:
+  assembler: PASS
+  llvm_readobj_typed_relocation_addend: PASS_2_X_R_PPC64_PCREL34_ADDEND_0
+  llvm_objdump_forms: PASS_PLD_AND_PADDI_PLUS_LD
+  ld_lld_output: PASS
+  linked_relocations: 0
+  DWARF_unwind_audit: PASS_EH_FRAME_CIE_AND_TWO_FDES
+  observable_semantics_static_audit: BOTH_LEAF_FUNCTIONS_LOAD_SAME_HIDDEN_8_BYTE_TARGET_AND_RETURN_IN_R3__NO_CALLS_OR_STORES
+not_completed:
+  llc_MIR_emission: FAIL_INPUT_PARSE
+  MachineVerifier: NOT_STARTED
+  fresh_replay_2: NOT_STARTED
+first_failure:
+  tag: replay1.llc.mir_emit
+  exit_code: 1
+  timed_out: false
+  location: resources/src/harness/ppc_union_input.ll:6:15
+  exact_error: "error: expected type"
+  failing_text: "define hidden dso_local i64 @ir_direct_load() local_unnamed_addr nounwind uwtable {"
+  mechanical_cause: INVALID_LLVM_IR_FUNCTION_MODIFIER_ORDER__HIDDEN_PRECEDED_DSO_LOCAL
+  affected_occurrences: 5
+  r4_correction_contract_allows_function_modifier_change: false
+  same_assignment_correction_or_retry_permitted: false
+  stderr_path: resources/logs/preclaim/replay1.llc.mir_emit.stderr.txt
+  stderr_sha256: 350DCE0E25BCD34AC1850867C642817043133E2F9A989CCBE0BF2A608C652B93
+automatic_retry_performed: false
+additional_source_edit_performed: false
+scientific_revision_consumed: false
+claim_bearing_observation: false
+scientific_inference: NONE
+

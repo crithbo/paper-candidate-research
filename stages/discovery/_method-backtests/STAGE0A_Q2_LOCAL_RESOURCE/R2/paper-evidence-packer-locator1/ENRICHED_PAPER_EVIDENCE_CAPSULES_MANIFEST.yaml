@@ -1,0 +1,19 @@
+schema: paper-evidence-locator-enrichment-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-R2-LOCATOR1
+base_capsules: ../paper-evidence-packer/PAPER_EVIDENCE_CAPSULES_MANIFEST.yaml
+source_policy: OFFICIAL_PAPER_PUBLISHER_ARXIV_AUTHOR_AE_LOCATORS_ONLY
+positive_locators:
+  - {id: HNSW, locator: "TPAMI p.835, Fig.15 and Table 3", source: author_paper_copy, status: LOCATOR_CAPTURED, supports: recall_query_time_build_memory}
+  - {id: ANN_BENCHMARKS, locator: EVIDENCE_MISSING__OFFICIAL_LOCATOR_NOT_OBTAINED_WITHIN_BUDGET, status: EVIDENCE_MISSING}
+  - {id: EGG, locator: "arXiv:2004.03082 abstract; Fig.3 equality-saturation workflow", source: arXiv, status: LOCATOR_CAPTURED, supports: rebuilding_and_eclass_analysis}
+  - {id: CVC5, locator: "TACAS 2022 pp.415-442; abstract states SMT-LIB comparison against CVC4 and Z3", source: author_paper_page, status: LOCATOR_CAPTURED, supports: benchmark_comparator_scope}
+  - {id: CARCARA, locator: "§3.2 Elaborating Alethe proofs; TACAS 2023 pp.367-386", source: author_pdf, status: LOCATOR_CAPTURED, supports: checker_elaborator_mechanism}
+  - {id: WEBGRAPH_LLP, locator: "§3 Our Contribution; §6 Layered Label Propagation; Table 7", source: author_pdf, status: LOCATOR_CAPTURED, supports: graph_ordering_and_compression_comparison}
+  - {id: PGM_INDEX, locator: "§§2-3 recursive PGM construction; §§4-6 compressed/adaptive/autotuned variants", source: author_pdf, status: LOCATOR_CAPTURED, supports: error_bounded_segments_and_costs}
+  - {id: ALEX, locator: EVIDENCE_MISSING__OFFICIAL_LOCATOR_NOT_OBTAINED_WITHIN_BUDGET, status: EVIDENCE_MISSING}
+  - {id: PYTHIA, locator: "§3.1 RL formulation; Fig.5 QVStore; Results Summary", source: author_pdf, status: LOCATOR_CAPTURED, supports: system_aware_RL_and_area_cost}
+  - {id: BERTI, locator: "conclusion reports SPEC CPU2017/GAP, 2.55KB storage, accuracy/timeliness", source: author_pdf, status: LOCATOR_CAPTURED, supports: local_delta_timeliness_and_full_cost}
+  - {id: BOLT, locator: EVIDENCE_MISSING__OFFICIAL_LOCATOR_NOT_OBTAINED_WITHIN_BUDGET, status: EVIDENCE_MISSING}
+  - {id: A_MESS, locator: "abstract; MICRO 2024 pp.136-152", source: author_open_access_record, status: LOCATOR_CAPTURED, supports: bandwidth_latency_curves_benchmark_simulator_profile}
+negative_defects_preserved: [N-A_PROXY_OBJECT, N-B_UNFAIR_COMPARATOR, N-C_NONCANONICAL_ONLY, N-D_FULL_COST_OMITTED]
+counts: {positive: 12, locator_captured: 9, evidence_missing: 3, negative: 4, network_attempts: 12, code_or_artifact_downloads: 0, build_probe_experiment: 0, scoring: 0}

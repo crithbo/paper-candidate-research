@@ -1,0 +1,87 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260824-SOURCE102-103-ZERO-BRIEF-A2
+assignment_id: RULE-AUDIT-20260824-SOURCE102-103-FIRST-FAILED-CONVERSION-A2
+lane_id: RULE_AUDIT
+source_thread_id: 01a02e08-0b16-7ed2-bfc4-f37b5ad86992
+target: MAINLINE
+status: COMPLETE_PROPOSAL_ONLY__AWAITING_MAINLINE_ACCEPTANCE
+decision_label: NO_CHANGE
+shared_files_modified: false
+candidate_or_scientific_states_modified: false
+scientific_or_resource_action_started: false
+network_search_download_build_experiment_queue_backtest_automation_started: false
+source104_results_read: false
+source104_backwrite_or_influence: false
+
+authorization:
+  start_authorization_path: MAINLINE_START_AUTHORIZATION.yaml
+  start_authorization_sha256: 3BC1C86B986536259AA84D6114F0DA28BBC3811E79EA157701BA0AEF00370AF8
+  bootstrap_ack_path: BOOTSTRAP_ACK.yaml
+  bootstrap_ack_sha256: 7DC34951A31CE4DB9B16768490E90DBF69B7F8437940D906D99CF74B9E82E483
+
+inputs:
+  source102_control_sha256: B1DADA5F2EB883F5AB8DE61C4D117941CF76B4A5B6CC8A5E9D7659D5BFEFC840
+  source103_control_sha256: 99521CA4E743F87A5B6FA0FA492DBBE4B7F70709E5512813E016699E9AA1EA2C
+  source103_handoff_sha256:
+    S1: 0402041E1FBE30340FA381F4DF6D264689B94C437D5D319AEB65FD403576CD39
+    S2: 28ED0DA96F78BF7D74DCA97EEF1B80640D94B5B0B66CDA4211C2A138848B903F
+    S3: 8617E21F402535C0AE8A9A2CE3B590717BDBE8032668E087088AE2CB28DB5CA0
+    S4: 4A0F015E7C8B2A1E995F28C6F18CA4F205326697C36D71ECE1A31743D2FBADBD
+    S5: 84E3DA813D3A5DECAAF18E1A78B84A53BBF589C870710CF985C50DFA6FA7AB66
+    S6: 208B6DAD2A0EFEB936BB9EBA0A41AC0661DB88D35C8F28F2971BC17623BCFF33
+
+funnel:
+  source102: {seed: 36, primary_rq: 5, evidence_qualified_raw: 0, deep: 0, clean_brief: 0}
+  source103: {seed: 56, normalized_selected_rq_locator_or_closure: 32, evidence_qualified_raw: 0, deep: 0, clean_brief: 0}
+  first_failed_conversion_source102: PRIMARY_RQ_OR_SOURCE_CLOSURE_TO_EVIDENCE_QUALIFIED_RAW
+  first_failed_conversion_source103: SELECTED_RQ_OR_PRE_RQ_SOURCE_CLOSURE_TO_EVIDENCE_QUALIFIED_RAW
+  aggregate_first_failed_conversion: PRIMARY_RQ_OR_PRE_RQ_SOURCE_CLOSURE_TO_EVIDENCE_QUALIFIED_RAW
+  normalization_caveat: SOURCE103_SELECTED_COUNT_SUMS_HETEROGENEOUS_LANE_FIELDS_FOR_TRANSITION_LOCALIZATION_ONLY
+
+classification:
+  primary: SOURCE_FAMILY_AND_CURRENT_UNION_SATURATION
+  secondary: EXACT_PUBLIC_SAME_OBJECT_CARRIER_CLOSURE_GAP
+  rule_defect: NOT_SHOWN
+  template_defect: NOT_DECISION_CAUSAL
+  execution_defect: NOT_SHOWN
+  aggregate_resource_event: NOT_SUPPORTED
+  bounded_resource_or_source_events: [S2_EXACT_COMMIT_SOURCE_CLOSURE_BLOCKED_NO_SCIENTIFIC_INFERENCE, S4_COMMIT_RESOLUTION_BOUNDED_NO_SCIENTIFIC_INFERENCE]
+
+prior_pilots:
+  r40_canonical_funnel_and_raw_gate: RETAIN
+  rq_refinement_staged_evidence_production: RETAIN
+  ordinary_breadth_in_named_saturated_families: DOWNGRADE_AS_ASSIGNMENT_ALLOCATION_ONLY
+  source103_50_30_20_strategy:
+    advisor_and_resource_alignment: RETAIN
+    yield_hypothesis: DOWNGRADE
+  group_repository_snapshot: RETAIN_LOCATOR_AND_RESOURCE_ALIGNMENT_ONLY
+  claim_pack_quality_selective_depth_off: RETAIN
+  outcome_aware_backfill_proposal_quota_broad_cooldown: REMOVE_KEEP_FORBIDDEN
+  honest_zero_brief_abstention: RETAIN
+
+recommendation:
+  shared_patch: NONE
+  future_bounded_change: NONE_NOW
+  reason: SOURCE104_ALREADY_HAS_ONE_INDEPENDENTLY_FROZEN_ALLOCATION_ONLY_CHANGE__DO_NOT_STACK_OR_BACKWRITE
+  source104_change_evaluated_by_this_audit: false
+  source104_may_continue_without_waiting: true
+  next_evaluation_unit: SOURCE104_ACTUAL_CLEAN_STAGE0_BRIEFS_AND_INDEPENDENT_STAGE0_FEEDBACK
+  backtest_required_now: false
+  rollback_required: false
+
+safety:
+  q2_and_q1_targets_unchanged: true
+  same_object_collision_baseline_natural_evidence_full_cost_reproducibility_claim_ceiling_unchanged: true
+  terminal_non_revival_preserved: true
+  broad_category_cooldown_created: false
+  proposal_quota_created: false
+  existing_blockers_changed: false
+
+canonical_outputs:
+  report: {path: RULE_AUDIT_REPORT.md, sha256: A5F69B49C84D2952F303B50F97EA2AA1C8DACADBBAE25E8008C75A954F6AC97F}
+  proposal: {path: RULE_CHANGE_PROPOSAL.md, sha256: D218749C82385E18AED23E3413897A161292854D13F7202E7644C3943D9FA625}
+
+mainline_next_action:
+  - ACCEPT_OR_REJECT_CANONICAL_HANDOFF
+  - IF_ACCEPTED_CLOSE_AUDIT_AS_NO_CHANGE_AND_RETURN_LANE_IDLE_REUSABLE
+  - DO_NOT_MODIFY_SOURCE104_OR_SHARED_RULES_TEMPLATES_SKILLS_FROM_THIS_AUDIT

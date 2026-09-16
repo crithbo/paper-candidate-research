@@ -1,0 +1,47 @@
+schema_version: stage0-revision-handoff-v8.7
+assignment_id: STAGE0-P1-20260810-UST-SEGMENTED-FORMAT-COVER-REVISION1-V8.7
+topic_id: UST-SEGMENTED-FORMAT-COVER
+role: STAGE0-BATCH-GATE_PRIMARY
+stage: STAGE0_REVISION1
+atomic_gate: NONPRODUCT_UST_COVER_RESIDUAL_BEYOND_CONTIGUOUS_PARTITION_AND_HYBRID_SPMM
+decision: RECOMMEND_BELOW_Q2_STOP
+quality_tier: BELOW_Q2_STOP
+terminal_sentinel: BELOW_Q2_STOP__HYBRID_ROW_PARTITION_PLUS_UST_WRAPPER_ABSORPTION
+structural_paper_potential: BELOW_Q2_STOP
+current_evidence_readiness: SUFFICIENT_FOR_STRUCTURAL_STOP
+confidence: 0.93
+revision_budget:
+  consumed: 1
+  total: 1
+  further_same_id_revision_allowed: false
+stageA_authorized: false
+stageB_authorized: false
+resource_failure: false
+scientific_basis:
+  - frozen candidate plans are contiguous row-segment action sequences over a finite pinned UST catalog
+  - K, reuse, memory, plan/cache state, ordinary transitions and all additive full-cost are expressible in a fair finite-state comparator
+  - candidate covers and comparator DAG paths have a legality- and cost-preserving bijection
+  - no legal candidate-only action or non-product guarantee remains after 1D-VBR, Yang2018, HR-SpMM, GeneralSparse, RSH-SpMM and current UST subtraction
+not_stop_reasons:
+  - no implementation or performance result
+  - no GPU run
+  - network availability
+  - absence of one exact-identical paper
+input_integrity:
+  discovery_brief_sha256: 32D09E23FE190E3D4B3EDFC022D4D05DB65090666956E3435444E37B30AC07E0
+  discovery_handoff_sha256: 00704C3760DBFB3F9C603F74966244D0890AAE8329D4A8C3FB52CAA264BFA182
+  discovery_manifest_self_sha256: 3D51BAD84512C9B6EC05C8B1882D990A30F0FDDDE21B2F0901CA4683641BE946
+  primary_report_sha256: 7145BA2CE15FF012CDB89671186038F0098CB0F8C836D8DB9862B208D2F41355
+  primary_handoff_sha256: E6FE6BD47229FCCEA9B59CB2C2B6B881E61586F4D4C59C97CB9D5A9DB275E47E
+  primary_manifest_self_sha256: A2B023143D87E29FAAB7CDB871A33EA3F6444DCB9FB97FF45071BD460B106A48
+  confirmation_report_sha256: 92C68FA500C730159DEF0FA6C6FC2B3E8C7097C9C967950432421D06977DB346
+  confirmation_handoff_sha256: B67753769E9FBE7D0C7E2FBB74A5B2D4CACD1D02478067B48B94E70865919ED3
+  confirmation_manifest_self_sha256: A61D6F582C4FDFF58504428C332AE5EA326D7A7712567AE8A3799327775A564B
+deliverables:
+  - REVISION_REPORT.md
+  - ACTION_CATALOG_AND_NONPRODUCT_AUDIT.md
+  - CLAIM_MATRIX.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+next_route: LONG_LIVED_CONFIRMATION_SENTRY__REVISION_FINAL
+lane_state_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE

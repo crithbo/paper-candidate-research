@@ -1,0 +1,101 @@
+schema_version: stage0-assignment-v1
+assignment_id: STAGE0-P1-20260821-USER-QREFINE-PATCHYIELD-PRIMARY
+mode: PRIMARY
+lane: STAGE0-BATCH-GATE
+authority: USER_EXPLICIT_QREFINE_AND_PATCHYIELD_INDEPENDENT_STAGE0_20260821
+status_on_dispatch: ACTIVE
+
+independence:
+  discovery_lanes_must_not_review_their_own_topics: true
+  primary_reviewer_must_reconstruct_the_decision: true
+  discovery_ready_labels_are_not_binding: true
+  topics_are_scored_and_decided_separately: true
+  cross_topic_evidence_or_score_substitution: forbidden
+
+frozen_rules:
+  project_rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__research-topic-discovery-r1-r40-20260815
+  role_stage0_sha256: BC58D2A365AFF6A0F82290CC3CC4E16177DBFDA69D1B28260084E9BE6B56E48C
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  stage0_report_template_sha256: 321DB6FEF1838EAA4759F3662C27721F2131441DAB8EBF5E58DFCF9DD3004CE7
+  q1_comparator_matrix_template_sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87
+  topic_brief_template_sha256: F1EF88AFE26DB2949E86CD66187821E5331AA3081DF5C76D6D271530CAC87637
+  discovery_claim_pack_mode: OFF
+  quality_target: Q2_MINIMUM_Q1_PRIORITY
+
+topics:
+  - topic_id: QREFINE-TRITON-W4A16
+    upstream_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260821\qrefine-repair
+    upstream_handoff: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260821\qrefine-repair\handoff.yaml
+    upstream_handoff_sha256: DDFA275A3FC6AB1D353608342B408A4AD112744CA5DFF273CFC766126BBA9191
+    upstream_manifest_sha256: CCC147D553DD60F0F5BADC2ABF2E6A93166C3D7220BFE74C79B9D6F0EC1B730E
+    required_checks:
+      - Verify exact same-object proof boundary and that the captured LLVM-dialect MLIR is observable/reproducible without changing the compiler object.
+      - Independently audit current Triton verification/testing mechanisms, translation-validation literature, mixed bit-vector/IEEE semantics, and the strongest direct or partial collisions.
+      - Decide whether a non-generic target-aware contribution survives after excluding tl.dot, tensor cores, WMMA, MFMA, and binary-level claims.
+      - Freeze fair legal comparators and a finite Stage A fidelity/killer route; no proof or performance result is required at Stage 0.
+    output_subdirectory: QREFINE-TRITON-W4A16
+
+  - topic_id: PATCHYIELD-CALL
+    upstream_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260821\patchyield-repair
+    upstream_handoff: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260821\patchyield-repair\handoff.yaml
+    upstream_handoff_sha256: E08EA73212F809B0CFD9130523BFC077101439587254923981374854FD5A22B7
+    upstream_manifest_sha256: C12C70EA1DAE715116C26DFB26A76BF0ED380A2919FDB17916B1CB3AECD136D7
+    required_checks:
+      - Independently audit the current agent-serving, deadline-aware scheduling, progress/value prediction, vLLM batching/KV management, and task-success optimization literature and implementations.
+      - Verify that deterministic live re-execution can isolate the scheduler while preserving the same agent/model/task object and that replay is not used as unsupported primary causal evidence.
+      - Assess whether READY_CALL_BOUNDED_BYPASS_16 is a defensible fairness contract or needs one bounded revision without changing the research object.
+      - Check full-cost accounting, repository-held-out generalization, leakage controls, deadline-from-arrival semantics, and a finite H100 Stage A killer/resource gate.
+    output_subdirectory: PATCHYIELD-CALL
+
+excluded_topic:
+  topic_id: QNN-KV-HANDOFF-CLOSURE
+  rule: DO_NOT_READ_OR_REVIEW__NOT_A_STAGE0_INPUT
+
+write_boundary:
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-primary
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-primary\resources
+  resource_inventory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-primary\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+allowed_actions:
+  - Read the two accepted upstream repair directories and the Stage 0 role/templates.
+  - Retrieve bounded official/current source, documentation, and public papers needed for independent collision, comparator, and paper-shape review.
+  - Persist small source excerpts, paper metadata, and logs under resource_root.
+  - Write per-topic reports and one batch handoff only inside unique_write_directory.
+
+forbidden_actions:
+  - Read or review QNN materials.
+  - Execute supplied scripts, clone/build Triton, run solvers/kernels, download model weights/containers/datasets, book H100/NPU, run agents/simulators/benchmarks, or perform Stage A/claim-bearing work.
+  - Modify Discovery outputs, plan.md, registry.yaml, rules, templates, or any other assignment directory.
+  - Treat missing implementation, hardware, proof, or positive result as a scientific rejection by itself.
+
+resource_envelope:
+  official_or_primary_routes_max_per_topic: 32
+  accepted_persisted_bytes_total_max: 268435456
+  cpu_time_max: 1h
+  wall_time_max: 2h
+  system_install: false
+  global_environment_change: false
+  failure_consequence: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+
+required_outputs_per_topic:
+  - STAGE0_REPORT.md
+  - Q1_COMPARATOR_MATRIX.md
+  - CURRENT_SOURCE_AND_COLLISION_AUDIT.md
+  - SOURCE_LOG.md
+  - HANDOFF.yaml
+
+required_batch_outputs:
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+allowed_decisions_per_topic:
+  - PASS_RECOMMENDED
+  - RESERVE_RECOMMENDED
+  - REVISE_ONCE
+  - STOP
+
+next_step:
+  rule: PRIMARY completes both separate decisions, then mainline routes only PASS, REVISE_ONCE, or boundary-sensitive STOP to STAGE0-CONFIRMATION-SENTRY-D.
+

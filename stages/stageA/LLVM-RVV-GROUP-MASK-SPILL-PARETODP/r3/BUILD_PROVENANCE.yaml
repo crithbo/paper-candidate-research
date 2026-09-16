@@ -1,0 +1,107 @@
+schema_version: build-provenance-v1
+assignment_id: STAGEA-L1-20260825-LLVM-RVV-R3-LONG-PATH-AWARE-EXACT-TOOLCHAIN
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+result: PASS_EXACT_RISCV_TOOLCHAIN_RESOURCE_GATE__NO_SCIENTIFIC_INFERENCE
+network_bytes_used: 0
+exact_source:
+  commit: 5bb2565693f062a9e99929db1814a7a076d4dc76
+  tree_sha: 05f29dac4871a84a3b04ef10892beca7b4007912
+  commit_metadata: {bytes: 14428, sha256: 7104CB0CA8DCDF6C5A9AC89A31C8F65F45CDEA336C938E21DA483A405D2605E3, signature_verified: true}
+  source_archive: {bytes: 280166923, sha256: BC0E5CC6B7F4978242749E0FF666DDA851994EFFC178BD782C4799D7C2B52695}
+  source_root: resources/src/s
+  source_regular_files: 181551
+  source_logical_bytes: 2265353834
+  license: Apache-2.0 WITH LLVM-exception
+  contained_archive_links_omitted: 19
+input_transfer:
+  source: SAME_TOPIC_R2_READ_ONLY_HASH_PINNED_DOWNLOADS
+  destination: resources/downloads
+  exact_assets_accepted: 5/5
+  pre_and_post_copy_hash_match: true
+  network_bytes: 0
+  parent_modified_or_deleted: false
+long_path_extraction:
+  capability_preflight: PASS_474_CHARACTER_LOGICAL_PATH
+  source_extraction_attempts: 1
+  tool_extraction_attempts: 1
+  process_local_api: WIN32_EXTENDED_LENGTH_PREFIX
+  api_prefix_persisted_in_logical_paths: false
+  prior_260_character_failure_member_present: true
+  max_source_logical_path_characters: 260
+  source_extraction_result: PASS
+  tool_extraction_result: PASS
+  subst_junction_symlink_reparse_flatten_rename_or_patch_used: false
+bootstrap_tools:
+  llvm_mingw_archive: {version: 20260616, sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35}
+  clang: {version: 22.1.8, commit: ca7933e47d3a3451d81e72ac174dcb5aa28b59d1, target: x86_64-w64-windows-gnu, sha256: A8B7A614EEADD9105F814BE3701A7F312CDA4CEA51751B75B408C16100C94E85}
+  llvm_windres: {sha256: 255FC12528B80CADE02A4F8393065221DBD1F3A7FDF930A4E21C3076399750F5}
+  cmake: {version: 4.4.2, executable_sha256: 414AD2A5DCABBB2A49BA1514E6651523865AE306B73A0E769F18E14CAB1570E8}
+  ninja: {version: 1.13.0.git.kitware.jobserver-pipe-1, executable_sha256: CB4590BAD18F01607E819908D536FBA71AFBE36EB0F1D5A13C60D88D635CA959}
+  python_external: {version: 3.12.13, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA, disposition: EXTERNAL_SYSTEM_MANAGED_ORCHESTRATION_ONLY}
+path_contract:
+  source_root: resources/src/s
+  portable_tool_root: resources/env/t
+  build_root: resources/build
+  build_root_windows_characters: 94
+  projected_long_object_directory_characters: 225
+  actual_longest_object_directory_from_graph: 179
+  threshold_exclusive: 240
+  result: PASS
+configure:
+  generator: Ninja
+  build_type: Release
+  assertions: true
+  targets_to_build: RISCV
+  enabled_projects: NONE
+  include_tests: false
+  build_utils: true
+  configure_attempts: 1
+  started_at: '2026-08-25T18:41:23.8480000+08:00'
+  ended_at: '2026-08-25T18:42:47.7240000+08:00'
+  wall_seconds: 83.876
+  exit_code: 0
+  cache_sha256: 78A4770AC29C3139ABDB09CCCCA1AF5507B37A2840DC0453BB7CD17E08BEEBEF
+  build_ninja_sha256: A59D060468FE9365029BDC002DE10940020657A1F863438E2A100CBB83E79166
+  omitted_source_link_build_graph_hits: 0
+  result: PASS
+build:
+  clean_build_ordinal: 1
+  jobs: 2
+  targets: [llc, llvm-mc, llvm-objdump, llvm-readobj, opt, FileCheck]
+  progress: 1905/1905
+  started_at: '2026-08-25T18:44:07.8890000+08:00'
+  ended_at: '2026-08-25T19:00:23.5130000+08:00'
+  wall_seconds: 975.624
+  hard_timeout_seconds: 10800
+  exit_code: 0
+  retry_performed: false
+  result: PASS
+required_outputs:
+  - {name: llc.exe, bytes: 78790144, sha256: 65A9EAE8B026DF2328B3A75048959CBF8F9F9AC7F86E854C7DDAC8F86485C643}
+  - {name: llvm-mc.exe, bytes: 8186368, sha256: 74FCA6CA90F5472CEA8A50065071A8A72DDC440A9EF5DF28FCF11B3E7B9514B6}
+  - {name: llvm-objdump.exe, bytes: 15398400, sha256: 329FA1D2BCF52E0FBE3F481A68F79DDEB979908084574D61B6FE23DF160E8F66}
+  - {name: llvm-readobj.exe, bytes: 10743296, sha256: 0359BC9944AD26F1655010547E0B203E0603C01C32B17FFA24FE0CAD629AD8E8}
+  - {name: opt.exe, bytes: 78552576, sha256: 5583672702C3E633C00EAB74B5131F9BF65497ED2EDD87BA501B060C99531959}
+  - {name: FileCheck.exe, bytes: 1054720, sha256: A598D5C1A3EEFDB1D69839F4E28AD0BDB6B23241BF0263B6B26C933575E008AF}
+runtime_dlls:
+  - {name: libc++.dll, bytes: 2095104, sha256: 952B41B1370DDB5E7299CC9FCEFCE2AD8C2021409948B057EC4D903C03760B6C}
+  - {name: libunwind.dll, bytes: 204288, sha256: 8D9F60801F50C0A6CB7BEB7FD2E121F98BF39EBE40E6C7E07A8A39FCCB817C03}
+bundle:
+  path: resources/env/rvv-toolchain
+  logical_bytes: 195813113
+  file_count: 102
+  license_notice_file_count: 93
+  manifest: resources/env/rvv-toolchain/TOOL_MANIFEST.json
+  manifest_sha256: 5E6599C5EEC88D09B6D1623BD6BD889E6DAC943C792029D71B632D8C1693138D
+smokes:
+  classification: NON_CLAIM_RESOURCE_SMOKE_ONLY
+  version_and_registered_targets: PASS
+  llvm_version: 24.0.0git
+  optimized_with_assertions: true
+  registered_targets: [riscv32, riscv32be, riscv64, riscv64be]
+  generic_tiny_riscv_mir_machineverifier: PASS
+  smoke_summary_sha256: 8501B4A7CAFFAFD308128D3A2841F441E2F05FE7E5DC9F19812C503E8FB8D963
+rvv_f1_f5_started: false
+forced_pressure_typed_replay_quotient_baseline_natural_performance_full_cost_or_claim_run_started: false
+scientific_or_claim_bearing_action_started: false
+

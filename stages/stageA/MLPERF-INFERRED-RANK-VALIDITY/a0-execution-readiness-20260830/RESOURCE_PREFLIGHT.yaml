@@ -1,0 +1,15 @@
+schema: mlperf-rank-validity-a0-resource-preflight-v1
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-A0
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources
+policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA}
+lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED, cleanup_owner: MAINLINE}
+tools:
+  curl: {path: C:/Windows/System32/curl.exe, version: 8.21.0, transport: Schannel, redirect_max: 0}
+  python: {path: <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe, version: 3.12.13, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA}
+redirect_map: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONNOUSERSITE: '1'}
+writable_surfaces: [resources/downloads, resources/archives, resources/src, resources/build, resources/env, resources/cache, resources/tmp, resources/logs]
+network_budget: {attempts_max: 16, planned: 8, bytes_max: 268435456}
+stored_bytes_max: 536870912
+network_hosts: [api.github.com, raw.githubusercontent.com]
+result_firewall: {full_corpus_formula_error_read: false, rank_or_correlation_read: false, candidate_directional_result_read: false}
+preflight: PASS

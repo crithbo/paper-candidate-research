@@ -1,0 +1,72 @@
+schema_version: stage0-handoff-v8.7
+assignment_id: STAGE0-P1-20260810-HNSW-LAYER-BMATCH-PRIMARY-V8.7
+topic_id: HNSW-LAYER-BMATCH
+role: PRIMARY
+review_cutoff: '2026-08-10'
+decision: REVISE_ONCE
+decision_status: PENDING_CONFIRMATION
+tier_if_revision_closes: TIER_B_Q2_VIABLE
+structural_paper_potential: CONDITIONAL_Q2_N2
+current_evidence_readiness: LOW_BUT_FINITE
+confidence: 0.95
+evidence_ceiling: SOURCE_VERIFIED_CONDITIONAL_POTENTIAL_ONLY__NO_MAIN_RESULT
+collision_status: SEARCH_BOUNDED_OPEN
+revision:
+  consumed: 0
+  budget: 1
+  atomic_gate: CONNECTED_DEGREE_BOUNDED_HNSW_ACTION_DIVERGENCE_BEYOND_FASTHNSW_AND_GENERIC_BMATCHING
+  proposition: >-
+    Under one frozen native HNSW contract and one frozen same-information
+    per-layer candidate graph, define a deterministic integrated edge selector
+    that respects degree caps and entry reachability/connectivity, cannot be
+    expressed by native local pruning, FastHNSW/FastKCNA, or generic b-matching
+    followed by ordinary repair, and has one nontrivial legality, complexity,
+    or approximation property plus a finite same-object Stage A killer.
+  required:
+    - complete finite action catalog for native, FastHNSW, generic b-matching, and ordinary repair
+    - realizable six-vector metric/layer/candidate-edge action-divergence witness
+    - deterministic capacity-respecting integrated repair or augmentation rule
+    - one nontrivial legality, complexity, feasibility, or approximation property
+    - finite GIST plus additional natural-corpus native/full-cost Stage A route
+  forbidden:
+    - parameter or insertion-order tuning
+    - FastHNSW rename
+    - generic b-matching plus MST/DFS/component wrapper
+    - extra candidate, complete-KNN, or oracle information denied to comparators
+    - noncandidate edges or hidden degree-cap violations
+    - changed layers, vectors, ANN graph, search, or serialization object
+  terminal_if_not_closed: BELOW_Q2_STOP__FASTHNSW_GLOBAL_CONSTRUCTION_PLUS_GENERIC_BMATCHING_REPAIR_ABSORPTION
+direct_subtractor:
+  name: FastHNSW/FastKCNA
+  venue: PVLDB_2025
+  effect: ABSORBS_GLOBAL_LAYERWISE_HNSW_CONSTRUCTION_CLAIM
+same_object:
+  vectors_metric_layers_entry: FROZEN_REQUIRED
+  degree_and_candidate_budget: FROZEN_REQUIRED
+  common_candidate_graph: FROZEN_REQUIRED_WITH_PROVENANCE
+  native_serialization_search: UNCHANGED_REQUIRED
+baseline_minimum:
+  - current hnswlib legal finite construction grid
+  - current Faiss legal finite construction grid
+  - FastHNSW/FastKCNA same-object global construction
+  - generic b-matching without repair
+  - generic b-matching with strongest ordinary capacity-respecting repair
+  - small exact optimizer as ceiling only
+future_stageA_killer:
+  datasets:
+    - GIST
+    - at_least_one_of_SIFT_DEEP_GLOVE_CRAWL_MSONG
+  stop_if:
+    - eligible_action_coverage_below_10_percent
+    - any_same_object_or_native_serialization_failure
+    - six_vector_divergence_collapses_under_fair_comparator
+    - no_p50_p90_full_cost_pareto_advantage
+    - optimization_or_repair_overhead_consumes_benefit
+    - candidate_uses_extra_information
+authorization:
+  stageA: false
+  stageB: false
+  experiments: false
+  registry_edit: false
+next_route: LONG_LIVED_STAGE0_CONFIRMATION_SENTRY
+lane_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE

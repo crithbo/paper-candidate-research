@@ -1,0 +1,17 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A11-AUTHOR-EXAMPLES
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A10_AUTHOR_TEST_MMAP_BLOCKER.yaml, sha256: B4147BC228AA7BB7CB05656A796E407A77D5562A48D9CDD8C9649C5414A4660F}]
+author_source_analysis:
+  excluded_POSIX_targets: [example_mapped, tests]
+  selected_author_examples: [example_simple, example_updates]
+  selected_semantics: [in_memory_one_million_random_integer_PGMIndex_query, DynamicPGMIndex_bulkload_insert_erase_range]
+only_change: build_and_run_two_existing_author_windows_compatible_examples_in_existing_A9_configured_tree
+allowed_command_sequence:
+  - {id: A11S0, command: portable_cmake --build resources/build/pgm-ninja-a9 --target example_simple example_updates --parallel 2, stop_on_nonzero: true}
+  - {id: A11S1, command: resources/build/pgm-ninja-a9/examples/example_simple.exe, stop_on_nonzero: true}
+  - {id: A11S2, command: resources/build/pgm-ninja-a9/examples/example_updates.exe, stop_on_nonzero: true}
+evidence_ceiling: AUTHOR_ARTIFACT_WINDOWS_COMPATIBLE_EXAMPLE_PRECLAIM_ONLY__NOT_NATURAL_CLAIM
+prohibitions: [source_or_CMake_edit, build_POSIX_mmap_targets, reconfigure, redownload, reextract, alternate_toolchain, natural_or_claim_probe_before_fidelity]
+scientific_revision_consumed: false

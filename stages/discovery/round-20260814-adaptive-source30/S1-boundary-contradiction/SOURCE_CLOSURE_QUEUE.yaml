@@ -1,0 +1,23 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE30-RQ-PRODUCTION-V1
+queue:
+  - rq_id: RQ-S01-B
+    signature: SPIRV_COOPERATIVE_MATRIX__FIXED_SHADER_CONTRACT__CROSS_REGION_LAYOUT_CONSTRUCTION
+    status: LOCATOR_ONLY__CURRENT_COMPILER_RUNTIME_UNION_UNCLOSED
+    finding: >-
+      The current SPIR-V specification defines cooperative-matrix layout literals,
+      but the bounded route did not pin one public compiler/runtime, its defaults and
+      nondefault feature/configuration union, and a native layout-transition locus.
+    closure_debt:
+      - PIN_ONE_COMPILER_AND_RUNTIME_REVISION
+      - ENUMERATE_LAYOUT_LOWERING_AND_FEATURE_CONFIGURATION
+      - FREEZE_CANONICAL_SHADER_CARRIER
+    canonical_disposition: LOCATOR_ONLY__PUBLIC_EVIDENCE_UNCLOSED
+  - rq_id: RQ-S02-B
+    signature: MLIR_GPU_ASYNC_TOKEN__FIXED_DEPENDENCY_SEMANTICS__WHOLE_REGION_OWNERSHIP
+    status: CLOSED_BEFORE_RAW__GENERIC_KERNEL
+    finding: >-
+      Current MLIR defines gpu.async.token as an SSA token and ships generic GPU
+      async-region rewriting. The proposed ownership/materialization selection has
+      no target-specific discriminator beyond generic async optimization.
+    closure_debt: NONE
+    canonical_disposition: EXCLUDED_BEFORE_RAW__GENERIC_WRAPPER_OR_SOLVER

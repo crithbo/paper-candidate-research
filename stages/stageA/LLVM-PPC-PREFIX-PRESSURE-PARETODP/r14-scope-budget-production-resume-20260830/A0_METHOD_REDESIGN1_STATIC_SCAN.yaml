@@ -1,0 +1,61 @@
+schema: stagea-a0-method-redesign1-static-scan-v1
+assignment_id: STAGEA-L2-20260830-LLVM-PPC-R14-A0-PRODUCTION-RESUME
+authorization:
+  path: MAINLINE_A0_METHOD_REDESIGN1_START.yaml
+  sha256: 4334D4F8E8E4677546030ABDB1EA54940FDB8780D70F1111F5D6DB718AEDAC00
+classification: PRE_RESULT_STATIC_EXACT16_INTERFACE_SCAN
+visible_interface_definition: per_function_PLDpc_action_count_plus_unique_base_symbol_count
+absolute_cap_max: 64
+input_selection_changed: false
+source_manifest_sha256: 3C40C107A7D312CB74623C13F9018F38C4E411AB537A39E54019ED43C3381A4A
+prelaunch_wrapper_correction:
+  failure_class: POWERSHELL_SORT_OBJECT_PARSE_ERROR
+  llc_processes_started: 0
+  files_created: 0
+  engineering_correction_batch_consumed: 1_of_2
+actual_scan:
+  attempts_per_input_max: 1
+  retry: 0
+  command: llc -mtriple=powerpc64le-unknown-linux-gnu -mcpu=pwr10 -code-model=medium -verify-machineinstrs -stop-after=finalize-isel INPUT -o OUTPUT
+  rows:
+    - {input: selected-00, exit_code: 0, wall_ms: 93, mir_present: true}
+    - {input: selected-01, exit_code: 0, wall_ms: 62, mir_present: true}
+    - {input: selected-02, exit_code: 0, wall_ms: 63, mir_present: true}
+    - {input: selected-03, exit_code: 0, wall_ms: 62, mir_present: true}
+    - {input: selected-04, exit_code: 0, wall_ms: 64, mir_present: true}
+    - {input: selected-05, exit_code: 0, wall_ms: 62, mir_present: true}
+    - {input: selected-06, exit_code: 0, wall_ms: 64, mir_present: true}
+    - {input: selected-07, exit_code: 0, wall_ms: 68, mir_present: true}
+    - {input: selected-08, exit_code: 0, wall_ms: 69, mir_present: true}
+    - {input: selected-09, exit_code: 0, wall_ms: 61, mir_present: true}
+    - {input: selected-10, exit_code: 0, wall_ms: 72, mir_present: true}
+    - {input: selected-11, exit_code: -1073741795, wall_ms: 205, mir_present: false}
+  stopped_after_first_nonzero: true
+  selected_12_through_15_started: false
+first_failure:
+  input: selected-11
+  function_visible_in_stderr: h
+  mechanical_class: LLVM_MACHINE_VERIFIER_UNDEFINED_PHYSICAL_REGISTER__EXCEPTION_C000001D
+  stderr: {path: resources/build/redesign1/static-scan/selected-11.stderr.txt, bytes: 5925, sha256: FB499D2031AD250038704475AD09016009EC2B995C624E316F7936B96EC364F4}
+scan_artifacts:
+  root: resources/build/redesign1/static-scan
+  files: 35
+  logical_bytes: 137994
+  deterministic_content_manifest_sha256: A43D2218B27BAC9804A63552CE3DAC5608777EEB0B9F220951C58145FF65ED27
+contract_result:
+  all_16_inputs_scanned: false
+  frozen_max_visible_interface_established: false
+  max_le_64_proven: false
+  partial_max_used: false
+  cap_patch_applied: false
+  source_sha256_before_and_after: 3DDA6A7574D9FC0F0222213BDC3EAF6D3D361A528592052DDFCDF911BE7207B9
+  additional_DP_exploration_started: false
+  DP_full_cost_requirement: NOT_APPLICABLE__DP_NOT_STARTED
+  redesign_N01_control_replay_started: false
+  result: EXECUTION_CONTRACT_HOLD
+firewall:
+  relative_effect_values_read: false
+  claim_execution: false
+  valid_claim_rows_observed: 0
+  scientific_revision_consumed: false
+  scientific_inference: NONE

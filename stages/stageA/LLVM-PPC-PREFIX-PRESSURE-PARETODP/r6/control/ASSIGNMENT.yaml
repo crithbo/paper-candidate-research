@@ -1,0 +1,175 @@
+schema: candidate-corpus-freeze-assignment-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R6-NATURAL-CORPUS-FREEZE
+authorization_ids:
+  - USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+stage: STAGEA_NATURAL_CORPUS_PRECOMMIT_FREEZE_ONLY
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r6
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r6/resources
+inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r6/RESOURCE_INVENTORY.yaml
+
+scientific_boundary:
+  exact_object: POWER10_PPC64LE_LINUX_ELFV2_MEDIUM_CODE_MODEL_PRE_FORM_MACHINEIR_DSO_LOCAL_OR_HIDDEN_NONPREEMPTIBLE_SYMBOL_FIXED_SEMANTICS_ALIASES_CALL_CLOBBERS_ABI_FRAME_UNWIND_AND_LINKER_INPUT
+  exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+  exact_contract_sha256: F36E8CD40E719A9CFEEFBB595EEE05A4FDEEDF490C0ABD6AF40C09D635895E82
+  quality_tier_carried: TIER_B_Q2_VIABLE
+  claim_ceiling: PUBLIC_LLVM_PPC_CORPUS_IDENTITY_AND_HARNESS_GAP_FREEZE_ONLY__NO_COMPILER_CANDIDATE_BASELINE_OR_PERFORMANCE_OBSERVATION
+  claim_bearing_observation_allowed: false
+  scientific_revision_or_mechanism_pivot_authorized: false
+  owner_state_transition_authority: false
+  stageb_authorized: false
+
+parent_r5:
+  assignment_id: STAGEA-L1-20260826-LLVM-PPC-R5-FUNCTION-MODIFIER-ORDER-CORRECTION
+  handoff_sha256: 517D8611CDCF71D5D7E4AC43F8E992D6DE12B570659D52D5E80F080D73B5BFD5
+  manifest_sha256: C9742F747DE7E7F257ACE96ADC322DBC7922A858017F312FFAD742C7C9B4DB8F
+  mainline_acceptance_sha256: 9AFD9AE7B24E726348051AAA89FE5764B0024268E38E984B12B51ADC0FFCBE24
+  cleanup_receipt_sha256: 7265B553DFB2E73886BA1A5AE01ECCE9D934B3B82BE469785C5C4B2428FA58A3
+  post_gc_inventory_sha256: 31E40293BB0702EAF5639302754D5FC7AFC53054BAF4B54C94E8B19A7DA70615
+  accepted_result: PRECLAIM_FIDELITY_PASS_F1_F5__NO_SCIENTIFIC_INFERENCE
+  corrected_ir_sha256: 1124F15D99EC0CF7F1688CD20E21416A17C1A075F46419FE95A9E35C262BD939
+  claim_bearing_observation_count: 0
+  scientific_revision_consumed: false
+
+same_topic_read_only_inputs:
+  source_archive:
+    path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r1/resources/downloads/llvm-project-f127b4c19c63b0492fb924934e37e032c17ea35b.tar.gz
+    sha256: C7871896611513E3E850818A7E5C6B0C600BE60BA46260105602EB9BFBD651CF
+    logical_bytes: 280166423
+    license: Apache-2.0-WITH-LLVM-exception
+    source_modify_or_delete_allowed: false
+  commit_metadata:
+    path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r1/resources/downloads/llvm-commit-f127b4c19c63b0492fb924934e37e032c17ea35b.json
+    sha256: E64F34464C58A1356359629FBBE629E40975B494A009AED5821CF0CDF7923492
+    logical_bytes: 6641
+  accepted_preclaim_harness:
+    root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r5/resources/src/harness
+    copy_destination: resources/src/preclaim_harness
+    files:
+      - {name: check_tiny_oracle.py, bytes: 2363, sha256: 5E68A2C8D90C3B0141F91FEB9755D9099834E6BABDEB04414A84FCDD0B2CFDFD}
+      - {name: ppc_exact_witness.s, bytes: 698, sha256: 94343AB218377B6D3A7736F3E280299C6AB80A2751386BD0CC0441B3174F88C5}
+      - {name: ppc_union_input.ll, bytes: 2972, sha256: 1124F15D99EC0CF7F1688CD20E21416A17C1A075F46419FE95A9E35C262BD939}
+      - {name: run_preclaim.py, bytes: 22588, sha256: 4915D5A53DAA5D91A5014ADA8F531ECDB2F4E57AAAFD03B654FE63D5284117BD}
+      - {name: tiny_oracle.py, bytes: 5840, sha256: FD9AAB1FC7B6613C3764D55BC88DD2DA0E2DEA54D3BAE82893D17C123B810078}
+    source_modify_or_delete_allowed: false
+
+corpus_precommit:
+  carrier: PUBLIC_PINNED_LLVM_POWERPC_REGRESSION_FUNCTIONS
+  archive_member_scope: '*/llvm/test/CodeGen/PowerPC/**/*.ll'
+  excluded_path_component: Inputs
+  decoding: UTF8_STRICT
+  function_parser: TOP_LEVEL_LLVM_IR_DEFINE_WITH_BALANCED_BRACES
+  eligibility_all_required:
+    - FUNCTION_DEFINITION_PRESENT
+    - FUNCTION_BODY_HAS_AT_LEAST_ONE_LOAD
+    - FUNCTION_BODY_HAS_AT_LEAST_ONE_CALL
+    - FUNCTION_BODY_REFERENCES_AT_LEAST_ONE_NON_LLVM_INTRINSIC_GLOBAL_OR_SYMBOL
+    - NO_INLINE_ASM_INVOKE_CALLBR_LANDINGPAD_CATCHPAD_CLEANUPPAD_GC_NAKED_OPTNONE_MUSTTAIL
+  ordering: ORDINAL_LEXICOGRAPHIC_ARCHIVE_MEMBER_PATH_THEN_EXACT_FUNCTION_SYMBOL
+  denominator_count: 16
+  lower_validity_bound: 10
+  result_or_tool_output_may_influence_selection: false
+  reserve_entries_after_denominator: 4
+  insufficient_eligible_route: FAIL_CLOSED_CORPUS_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+  extraction:
+    safe_member_validation_required: true
+    output_root: resources/src/corpus
+    exact_selected_source_files_only: true
+    attempts_max: 1
+    flatten_or_rename_allowed: false
+
+harness_gap_audit:
+  read_only: true
+  inspect_only_paths:
+    - resources/src/preclaim_harness
+    - resources/src/corpus
+  required_questions:
+    - WHETHER_ACCEPTED_R5_HARNESS_ACCEPTS_EXACT_CORPUS_FUNCTION_IDENTITIES
+    - WHETHER_COMPLETE_PPC_TPD_CANDIDATE_ACTIONS_EXIST_FOR_NATURAL_MACHINEIR
+    - WHETHER_STRONG_CURRENT_UNION_AND_FORM_FIXED_CURRENT_RA_AND_FORM_AWARE_FIXED_RA_ABLATIONS_HAVE_RUNNABLE_ENTRYPOINTS
+    - WHETHER_DIRECTIONAL_FULL_COST_COLLECTION_HAS_UNITS_AND_PATHS_FOR_EACH_FROZEN_DIMENSION
+  implementation_build_or_tool_execution_allowed: false
+  output: CLAIM_HARNESS_GAP_AUDIT.yaml
+
+execution_contract:
+  network_allowed: false
+  archive_scan_attempts_max: 1
+  safe_selective_extraction_attempts_max: 1
+  source_edits_max: 0
+  compiler_or_linker_tool_invocations_max: 0
+  harness_build_attempts_max: 0
+  candidate_or_baseline_runs_max: 0
+  claim_bearing_runs_max: 0
+  automatic_retry: false
+  result_based_rerun_exclusion_or_backfill: false
+  bundled_python_static_archive_scan_allowed: true
+  run_monitoring: PROCESS_ALIVE_OUTPUT_GROWTH_TIMEOUT
+
+resource_localization:
+  mode: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  every_write_under_resource_root: true
+  process_local_redirect_required: true
+  system_wsl_global_or_reparse_change_allowed: false
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: PPC_R6_CORPUS_FREEZE_HANDOFF_ACCEPTED
+  downstream_consumer: SEPARATE_EXACT_PPC_NATURAL_CLAIM_ASSIGNMENT
+  post_close_retained_bytes_max: 134217728
+  cleanup_owner: MAINLINE
+  owner_cleanup_allowed: false
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY, SAFE_TO_DELETE_NOW, SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF]
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: RESUME_CAPSULE.yaml
+  cleanup_receipt_path: CLEANUP_RECEIPT.yaml
+
+limits:
+  network_bytes_max: 0
+  resource_root_logical_bytes_max: 134217728
+  cpu_seconds_max: 3600
+  wall_seconds_max: 7200
+  max_parallel_processes: 1
+  archive_scan_attempts_max: 1
+  selective_extraction_attempts_max: 1
+  gpu_hours_max: 0
+allowed_actions:
+  - CREATE_STANDARD_RESOURCE_DIRS
+  - HASH_ACCEPT_EXACT_SAME_TOPIC_READ_ONLY_INPUTS
+  - COPY_EXACT_FIVE_R5_PRECLAIM_HARNESS_FILES
+  - STATIC_SCAN_ONE_EXACT_SOURCE_ARCHIVE_WITH_BUNDLED_PYTHON
+  - APPLY_FROZEN_RESULT_INDEPENDENT_CORPUS_SELECTION_RULE
+  - SAFE_EXTRACT_ONLY_EXACT_SELECTED_PUBLIC_LLVM_IR_FILES
+  - WRITE_CORPUS_AND_HARNESS_GAP_FREEZE_PACKAGE
+forbidden_actions:
+  - NETWORK
+  - MODIFY_OR_DELETE_R1_R2_R3_R4_R5
+  - LLVM_TOOLCHAIN_COPY_OR_EXECUTION
+  - SOURCE_EDIT
+  - COMPILER_LINKER_MACHINEVERIFIER_MC_OR_RUNTIME_RUN
+  - CANDIDATE_BASELINE_ABLATION_OR_PERFORMANCE_RUN
+  - CLAIM_BEARING_OR_NATURAL_RESULT_OBSERVATION
+  - RESULT_BASED_SELECTION_EXCLUSION_BACKFILL_OR_RETRY
+  - SCIENTIFIC_PASS_STOP_RESERVE_INFERENCE
+  - SCIENTIFIC_REVISION_OR_MECHANISM_PIVOT
+  - OWNER_STATE_TRANSITION_OR_CLEANUP
+  - STAGEB
+success_route: CORPUS_FREEZE_READY_FOR_SEPARATE_EXACT_NATURAL_CLAIM_ASSIGNMENT
+failure_route: FAIL_CLOSED_CORPUS_OR_HARNESS_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+expected_outputs:
+  - BOOTSTRAP_ACK.yaml
+  - SAME_TOPIC_INPUT_ACCEPTANCE.yaml
+  - CORPUS_SELECTION_PRECOMMIT.yaml
+  - CORPUS_SELECTION_LEDGER.yaml
+  - NATURAL_CORPUS_FREEZE.yaml
+  - CLAIM_HARNESS_GAP_AUDIT.yaml
+  - RESOURCE_INVENTORY.yaml
+  - PHASE_CLOSEOUT_RETENTION.yaml
+  - RESUME_CAPSULE.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256

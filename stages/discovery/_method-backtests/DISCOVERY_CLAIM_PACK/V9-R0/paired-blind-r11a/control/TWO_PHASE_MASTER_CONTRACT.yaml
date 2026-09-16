@@ -1,0 +1,100 @@
+authorization_id: DISCOVERY-CLAIMPACK-V9-PACKER-TWO-PHASE-20260813-R11A
+authorization_status: USER_APPROVED
+authorized_at: 2026-08-13T12:11:37+08:00
+workspace_root: <LEGACY_LOCAL_PROJECT_ROOT>
+method_under_test: DISCOVERY-CLAIM-PACK-V9-R0
+canonical_mode_during_sequence: OFF
+sequence_kind: TWO_PHASE_PACKER_THEN_EXISTING_SERIAL_BACKTEST
+
+immutable_sequence:
+  - PHASE1_PUBLIC_ELIGIBILITY_INDEX
+  - MAINLINE_MECHANICAL_AND_COVERAGE_ACCEPTANCE
+  - PHASE2_DETERMINISTIC_STRATIFIED_SEAL
+  - MAINLINE_PACKER_ACCEPTANCE
+  - EXECUTOR
+  - MAINLINE_EXECUTOR_ACCEPTANCE
+  - AUDITOR
+  - TWO_NONCANONICAL_SHADOW_WAVES_ONLY_IF_CALIBRATED
+  - SAFE_BOUNDARY_PRODUCTION_CUTOVER_ONLY_IF_ALL_GATES_PASS
+
+phase_boundaries:
+  phase1_assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+  phase1_write_directory: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\index
+  phase2_assignment_id_reserved: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE2-SEAL
+  phase2_write_directory_reserved: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\packer
+  phase2_dispatch_before_phase1_mainline_acceptance: forbidden
+  executor_dispatch_before_phase2_mainline_acceptance: forbidden
+  auditor_dispatch_before_executor_mainline_acceptance: forbidden
+
+identity_and_contamination_controls:
+  index_visibility: PACKER_AND_LATER_AUDITOR_ONLY
+  executor_index_access: forbidden
+  executor_target_identity_access: forbidden
+  executor_later_outcome_access: forbidden
+  prior_v8_8_case_identity_reuse: forbidden
+  r10_failed_case_reuse: forbidden
+  old_material_use: IDENTITY_HASH_DEDUP_AND_EXCLUSION_ONLY
+  development_blind_overlap: forbidden
+  answer_key_hardcoding: forbidden
+  post_hoc_threshold_change: forbidden
+
+phase2_selection_rule:
+  eligible_index_minimum: 60
+  eligible_index_target: 72
+  eligible_index_maximum: 80
+  development_cases: 12
+  development_selection: TWO_PER_STRATUM_BY_ASCENDING_DETERMINISTIC_HASH_RANK
+  blind_initial_cases: 24
+  blind_initial_selection: FOUR_PER_STRATUM_FROM_REMAINING_BY_ASCENDING_DETERMINISTIC_HASH_RANK
+  blind_expansion_tranche_1: 8
+  blind_expansion_tranche_2: 8
+  blind_maximum_cases: 40
+  blind_expansion_selection: BALANCE_UNDERREPRESENTED_STRATA_AND_CONTRIBUTION_TYPES_THEN_ASCENDING_HASH_RANK
+  deterministic_rank_input: SHA256_FAMILY_IDENTITY_HASH_PLUS_PUBLIC_SEED_PLUS_PHASE1_ACCEPTED_MANIFEST_SHA256
+  public_seed: DISCOVERY-CLAIM-PACK-V9-R0-R11A-STRATIFIED-SEAL-20260813
+  all_40_blind_identities_frozen_before_executor: true
+  blind_reveal_rule: 24_THEN_8_THEN_8
+
+preserved_r10_statistical_contract:
+  endpoints_unchanged: true
+  hard_gate_leak_count: EXACTLY_0
+  terminal_stop_revival_count: EXACTLY_0
+  e2_to_academic_evidence_leak_count: EXACTLY_0
+  contamination_or_identity_leak: NONE
+  critical_source_recall_difference_v9_minus_legacy:
+    interval: ONE_SIDED_90_PERCENT_PAIRED_BOOTSTRAP_OR_EXACT_MATCHED_INTERVAL
+    noninferiority_margin: -0.10
+  false_structural_drop_rate_difference_v9_minus_legacy:
+    interval: ONE_SIDED_90_PERCENT_PAIRED_BOOTSTRAP_OR_EXACT_MATCHED_INTERVAL
+    noninferiority_margin: 0.05
+  decision_ready_facet_completeness_difference_v9_minus_legacy:
+    point_estimate_minimum: 0.10
+    lower_bound_minimum: -0.05
+  audit_cost_ratio_v9_over_legacy: MEDIAN_RATIO_AT_MOST_2_5_AND_NO_UNDISCLOSED_COST
+  inconclusive_at_24: EXPAND_TO_32
+  inconclusive_at_32: EXPAND_TO_40
+  inconclusive_at_40: PILOT_NOT_CALIBRATED_INCONCLUSIVE
+
+global_prohibitions:
+  e2: forbidden
+  discovery_production: forbidden_until_all_gates
+  candidate_experiment: forbidden
+  claim_bearing_stagea: forbidden_by_this_authorization
+  stageb: forbidden_by_this_authorization
+  source_build: forbidden
+  package_or_system_install: forbidden
+  global_environment_change: forbidden
+  automation: forbidden
+  external_communication: forbidden
+  new_per_case_thread: forbidden
+  seventh_discovery_lane: forbidden
+  terminal_stop_revival: forbidden
+
+failure_policy:
+  phase1_eligible_below_60_after_true_envelope_exhaustion: FAILED_NOT_DISPATCHABLE__INDEX_COVERAGE_UNCLOSED__NO_SCIENTIFIC_INFERENCE
+  phase1_eligible_below_60_while_budget_remains: IN_PROGRESS_CHECKPOINT__CONTINUE_SAME_ASSIGNMENT
+  contamination_unknown: FAILED_NOT_DISPATCHABLE_CONTAMINATION_UNKNOWN
+  transport_or_permission_block: FAILED_NOT_DISPATCHABLE_RESOURCE_BLOCKER
+  automatic_second_revision_or_repack: forbidden
+  candidate_scientific_inference_from_failure: forbidden
+

@@ -1,0 +1,50 @@
+schema: mainline-a2-start-authorization-v1
+authorized_at: 2026-08-26T06:26:00+08:00
+authorized_by: MAINLINE
+authorization_id: MAINLINE-START-20260826-PPC-R8-A2-ELF-SYMBOL-RANGE-PARSER
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+addendum_id: PPC-R8-A2-ELF-SYMBOL-RANGE-PARSER-CORRECTION
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+A2_addendum_sha256: 68B90C1601EFF92BD74DC2086FA55FB2185A799DC14496BB9C601844CB924C7A
+A2_ack_sha256: BF5090144C5E3CEC195C138468D248167D055F15309948DDC43B11B4A4EB307C
+A1_acceptance_sha256: CC01B6B4D7593FEF7D509793A538700FC7130093A7979C73919A8A8C79DDBE99
+start_scope: TRACE_MODEL_ELF_FUNCTION_SYMBOL_RANGE_CORRECTION_AND_TWO_FRESH_SYNTHETIC_REPLAYS
+first_actions:
+  - WRITE_A2_SYMBOL_RANGE_CORRECTION_PRECOMMIT
+  - PRESERVE_A1_HANDOFF_AND_MANIFEST_AS_PASS1
+single_file_scope:
+  file: resources/src/actual_claim_harness/trace_model.py
+  original_sha256: BDA3B305DFD8A17CC723BD62D72C901608EFA33DAD0F396E878F1F54CE0ACB2F
+  source_edit_operations_max: 1
+  semantic_change: PARSE_UNIQUE_ELF_FUNCTION_VALUE_AND_SIZE__FILTER_OBJDUMP_INSTRUCTIONS_BY_HALF_OPEN_ADDRESS_RANGE__FAIL_CLOSED_ON_INVALID_SYMBOL_OR_CROSSING_INSTRUCTION
+  opcode_based_padding_filter_forbidden: true
+fresh_execution:
+  old_replay_1: INVALIDATED_NON_EVIDENCE_RETAIN_RAW
+  corrected_replays: [1, 2]
+  native_tool_commands_per_replay_expected: 11
+  additional_total_command_records_max: 24
+  cumulative_total_command_records_max: 36
+  automatic_retry: false
+  J1_must_pass_before_J2_J6: true
+limits:
+  selected_or_reserve_corpus_tool_invocations_max: 0
+  claim_runs_max: 0
+  network_bytes_max: 0
+forbidden_actions:
+  - RERUN_J0_COPY_OR_HASH_ACCEPTANCE
+  - MODIFY_ANY_OTHER_IMPLEMENTATION_OR_INPUT_FILE
+  - OPCODE_BASED_NOP_OR_PADDING_FILTER
+  - ANY_SELECTED_OR_RESERVE_CORPUS_TOOL_OR_RESULT_OBSERVATION
+  - CLAIM_RUN
+  - NETWORK_NEW_COPY_EXTRACTION_LLVM_SOURCE_PATCH_OR_REBUILD
+  - RETRY_RESULT_BASED_EXCLUSION_BACKFILL_OR_COMMAND_CHANGE
+  - SCIENTIFIC_INFERENCE_REVISION_PIVOT_STATE_TRANSITION_CLEANUP_OR_STAGEB
+shared_control_drift_after_start:
+  disposition: EXPECTED_MAINLINE_STATUS_UPDATE_ONLY
+  retain_frozen_A2_snapshot: true
+r9_start_authorized: false
+scientific_revision_consumed: false
+scientific_state_effect: NONE
+next_owner: CANDIDATE_EXECUTION_LANE_2

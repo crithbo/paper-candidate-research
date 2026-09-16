@@ -1,0 +1,17 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE81-R40-ORDINARY-BREADTH-V1
+preflight_date: '2026-08-15'
+lookup_surface: registry.yaml
+families:
+  - signature: LLVM_BOLT_PROFILE_GUIDED_BINARY_LAYOUT__FIXED_ELF_PROFILE__POSTLINK_LAYOUT
+    result: EXACT_HISTORICAL_MATCH
+    registry_record: discovery_v8_7_wave237
+    disposition: EXCLUDED_BEFORE_LOCATOR__HISTORICAL_EXACT_FAMILY_NO_EXTERNAL_DELTA
+  - signature: RISCV_GP_WINDOW_DATA_GROUP_LAYOUT__FIXED_MEDLOW_STATIC_ELF__STOCK_LLD_RELAX_GP
+    five_field_comparison:
+      exact_object: "RELATED_ONLY to prior LLVM RVC register-allocation/compression/relaxation; this one fixes ELF object and chooses post-codegen GP/data layout."
+      atomic_action_or_estimand: RELATED_ONLY
+      claim_endpoint: RELATED_ONLY
+      semantic_guarantee: RELATED_ONLY
+      full_cost_boundary: RELATED_ONLY
+    result: NO_EXACT_MATCH_IN_REGISTRY
+    interpretation: "No match does not establish novelty or current absence."

@@ -1,0 +1,57 @@
+assignment_id: STAGE0-P1-20260814-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-REVISION1-V8.7
+topic_id: LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+role: PRIMARY_REVISION1
+sole_gate: SAME_MIR_TWO_PLAN_CLOBBER_WITNESS__TARGET_SPECIFIC_CALLSITE_FRONTIER
+revision_budget:
+  scientific_limit: 1
+  scientific_index: 1
+  consumed: true
+decision: RECOMMEND_STAGE0_PASS_FOR_CLOSING_REVIEW
+quality_tier: TIER_B_Q2_VIABLE
+confidence: 0.76
+evidence_ceiling: E1_STATIC_PREFLIGHT__STATIC_CERTIFICATE_ONLY
+stageA_authorized: false
+stageB_authorized: false
+next_required_review: INDEPENDENT_REVISION1_CLOSING
+static_gate_result:
+  status: CLOSED_FOR_DECLARED_BOUNDED_CLASS
+  pinned_llvm_main: e72ba6cf366a3180cbf5a8690d9e50665880ab76
+  target: x86_64-unknown-linux-gnu SysV
+  compatible_mode: O2_g_instruction_reference_LiveDebugValues
+  witness:
+    call_block: non_entry_bb1
+    entry_value_fallback: disabled_by_current_source_for_non_entry_block
+    plan_a: caller_saved_RAX_computed_source_forwarded_to_RDI__unavailable
+    plan_b: callee_saved_RBX_with_save_restore_CFI_forwarded_to_RDI__DW_OP_breg
+    semantic_relation: same_argument_value_and_call_abi
+    pareto_relation: B_has_reconstruction_and_higher_native_CSR_CFI_cost
+  guarantee: exact_frontier_for_bounded_debug_critical_call_cut_class__FPT_in_w
+  no_gain_boundary: current_union_reproduces_coordinate_or_no_legal_debug_critical_divergence
+strongest_union:
+  - pinned_x86_allocator_coalescing_copy_spill_reload_CSR_policy
+  - compatible_LiveDebugVariables_and_instruction_reference_lifecycle
+  - fixed_mode_LiveDebugValues
+  - DwarfDebug_call_site_parameter_and_entry_value_actions
+  - legal_fixed_configuration_grid
+  - generic_exact_RA_oracle_as_ceiling_only
+stageA_preclaim_contract_if_closing_confirms:
+  must_close_before_first_measurement:
+    - materialize_and_verify_the_declared_MIR_witness
+    - enumerate_tiny_native_action_catalog
+    - verify_executable_ABI_unwind_and_dwarfdump_output
+    - compare_complete_current_union_grid_and_generic_ceiling
+    - bind_full_cost_and_natural_30_function_denominator
+  killer: >-
+    Stop if Plan B is invalid, a current union point reproduces every coordinate,
+    Plan A becomes currently expressible, or residual points are full-cost dominated.
+claim_ceiling: >-
+  Static bounded-class certificate only; no natural-corpus prevalence, code-quality
+  improvement, general register-allocation theorem or empirical result is asserted.
+failure_sentinel: BELOW_Q2_STOP__METADATA_ONLY_OR_GENERIC_RA_OR_CURRENT_UNION_ABSORPTION
+frozen_input_integrity:
+  primary_manifest: 699F5C28DBC96C6BBB756896F556AD99D7E85555AC380D0E400640883FFC8EF1
+  confirmation_manifest: 282BD7617CF6412B0579AD09FD1344C78B91ABC5F89B7225F8824EE3932872F3
+  confirmation_review: A2D0D0C829420FC700172D67F24B8B8E6396C12231FCE625307DE6F160942B6A
+  confirmation_handoff: 595BD5BE4370FF0653148ED37248A39760682549A3964C6531371859D2C80D45
+cross_assignment_contamination: none
+lane_disposition: IDLE_REUSABLE_AWAITING_MAINLINE

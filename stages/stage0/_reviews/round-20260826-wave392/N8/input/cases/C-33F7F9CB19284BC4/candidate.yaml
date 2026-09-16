@@ -1,0 +1,20 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-33F7F9CB19284BC4
+cutoff_date: 2020-04-07
+contribution_type: COMPILER_TOOL
+exact_object: reusable equality-saturation engine for symbolic and compiler workloads
+natural_scenario: many interacting rewrites with domain analyses and cost-based extraction
+problem: prior engines couple rewrite application, congruence restoration, and domain logic, limiting scale and reuse
+atomic_action: defer and batch invariant restoration while maintaining extensible per-class analyses
+mechanism: amortized rebuilding separates rewrite throughput from canonicalization and composes domain facts with congruence
+information_condition: rewrite rules, equivalence classes, analysis lattice, and extraction cost model
+comparators: [earlier_equality_saturation_engine, domain_specific_symbolic_optimizer, direct_term_rewriting]
+claim_endpoint: runtime-memory-result-quality envelope on canonical symbolic tasks
+full_cost: [runtime, peak_memory, rewrite_count, rebuild_cost, extraction_cost, result_quality]
+minimum_falsifier: no scaling or reuse advantage over prior engines at matched result quality
+source_cards:
+  - {id: S01, year: 2009, role: original_equality_saturation_architecture}
+  - {id: S02, year: 2015, role: domain_specific_numerical_rewrite_application}
+  - {id: S03, year: 1980, role: congruence_closure_foundation}
+local_resource_envelope: WINDOWS_NATIVE_CPU__RUST_TOOLCHAIN_LOCALIZED__BOUNDED_SYMBOLIC_TESTS
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

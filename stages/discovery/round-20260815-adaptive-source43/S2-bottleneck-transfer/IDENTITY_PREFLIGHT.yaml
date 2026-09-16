@@ -1,0 +1,27 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE43-GLOBAL-IDENTITY-CLOSURE-CONTINUATION-V1
+lookup_roots: [registry.yaml, stages/discovery, stages/stage0, stages/stageA]
+check_date: 2026-08-15
+five_field_rule: automatic exclusion requires EXACT, TERMINAL_CONTAINS, or frozen direct collision; RELATED_ONLY remains eligible for source checking.
+families:
+  - id: S43-01
+    signature: LLVM_AMDGPU_GFX12_GLOBAL_LOAD_TO_LDS_LOWERING__SAME_KERNEL_MEMORY_ORDER__COMPILE_TRANSFER_OCCUPANCY_COST
+    fields: {exact_object: RELATED_ONLY, atomic_action_or_estimand: RELATED_ONLY, claim_endpoint: RELATED_ONLY, semantic_guarantee: RELATED_ONLY, full_cost_boundary: RELATED_ONLY}
+    related_evidence: stages/discovery/round-20260805-amd-cdna5-tdm-open-source/DIRECTION_MATRIX.md
+    relation: RELATED_ONLY
+    disposition: RELATED_ONLY_DO_NOT_EXCLUDE
+  - id: S43-02
+    signature: ONEVPL_DECODE_VPP_SURFACE_LIFETIME__SAME_FRAME_OUTPUTS_AND_ACCESS_RULES__COPY_MEMORY_LATENCY_COST
+    fields: {exact_object: NONE, atomic_action_or_estimand: NONE, claim_endpoint: NONE, semantic_guarantee: NONE, full_cost_boundary: NONE}
+    relation: NO_MATCH
+    disposition: NO_MATCH__PROCEED_TO_CURRENT_SOURCE_CHECK
+  - id: S43-03
+    signature: ONEDNN_GROUPED_MEMORY_VALUES_OFFSETS_LAYOUT__SAME_GROUPED_TENSOR_OUTPUTS__BUILD_MEMORY_EXECUTION_COST
+    fields: {exact_object: RELATED_ONLY, atomic_action_or_estimand: RELATED_ONLY, claim_endpoint: RELATED_ONLY, semantic_guarantee: RELATED_ONLY, full_cost_boundary: RELATED_ONLY}
+    related_evidence: stages/discovery/round-20260815-adaptive-source42/S2-bottleneck-transfer/QUESTION_CARDS.md
+    relation: RELATED_ONLY
+    disposition: RELATED_ONLY_DO_NOT_EXCLUDE
+  - id: S43-05
+    signature: PIM_COMMAND_ENCODING_LAYOUT__UNFROZEN_PROJECT_OBJECT_VERSION
+    relation: UNKNOWN
+    disposition: LOCATOR_ONLY__RQ_BACKLOG__NO_EXACT_PROJECT_OBJECT_VERSION
+claim_ceiling: NO_MATCH and RELATED_ONLY neither establish novelty nor current implementation absence.

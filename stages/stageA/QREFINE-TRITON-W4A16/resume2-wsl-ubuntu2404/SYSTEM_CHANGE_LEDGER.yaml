@@ -1,0 +1,61 @@
+schema_version: qrefine-system-change-ledger-v1
+assignment_id: STAGEA-L1-20260822-QREFINE-TRITON-W4A16-RESUME2-WSL-UBUNTU2404
+authority: USER_EXPLICIT_WSL_VIRTUAL_MACHINE_PLATFORM_UBUNTU2404_SYSTEM_AUTHORITY_20260822
+assignment_sha256: 008D1FA2B834BA0A8FBF5CBD593A9400576F4FEC28F4C3A3D5B44B0DC796AA8D
+host:
+  edition: Windows_11_Home_Chinese
+  version: 10.0.26200
+  image_version: 10.0.26200.9168
+  architecture: x86_64
+  last_boot_before_changes: 2026-08-21T20:49:19+08:00
+phase_order:
+  - {phase: READ_ONLY_PREFLIGHT, status: PASS_WITH_ADMIN_TOKEN_REQUIRED_FOR_FEATURE_AUDIT}
+  - {phase: ENABLE_WSL_AND_VIRTUAL_MACHINE_PLATFORM, status: PASS_RESTART_REQUIRED}
+  - {phase: INSTALL_UBUNTU_24_04_LTS, status: NOT_STARTED_RESTART_GATE}
+  - {phase: PROVE_LINUX_X86_64_EXECUTOR, status: NOT_STARTED_RESTART_GATE}
+  - {phase: ACQUIRE_ASSIGNMENT_LOCAL_RESEARCH_RESOURCES, status: NOT_STARTED_RESTART_GATE}
+  - {phase: PRE_CLAIM_CONTRACT_FIDELITY_GATE, status: NOT_STARTED_RESTART_GATE}
+  - {phase: CLAIM_BEARING_MUTANTS_IF_GATE_PASS, status: NOT_STARTED_RESTART_GATE}
+pre_audit:
+  Microsoft-Windows-Subsystem-Linux: Disabled
+  VirtualMachinePlatform: Enabled
+  Microsoft-Hyper-V-All: FEATURE_UNKNOWN_0x800f080c
+  Microsoft-Hyper-V: FEATURE_UNKNOWN_0x800f080c
+  Containers: FEATURE_UNKNOWN_0x800f080c
+  pending_component_servicing_reboot: false
+  pending_windows_update_reboot: false
+  pending_file_rename_operations: true
+authorized_actions:
+  - command: dism.exe /English /Online /Enable-Feature /FeatureName:Microsoft-Windows-Subsystem-Linux /All /NoRestart
+    exit_code: 3010
+    state_delta: Disabled_to_Enabled
+    restart_required: true
+  - command: dism.exe /English /Online /Enable-Feature /FeatureName:VirtualMachinePlatform /All /NoRestart
+    exit_code: 3010
+    state_delta: Enabled_to_Enabled
+    restart_required: true
+post_audit:
+  Microsoft-Windows-Subsystem-Linux: Enabled
+  VirtualMachinePlatform: Enabled
+  Microsoft-Hyper-V-All: FEATURE_UNKNOWN_0x800f080c
+  Microsoft-Hyper-V: FEATURE_UNKNOWN_0x800f080c
+  Containers: FEATURE_UNKNOWN_0x800f080c
+prohibited_actions:
+  hyper_v_or_containers_enable_commands_run: false
+  docker_or_podman_installed: false
+  driver_change: false
+  registry_change: false
+  global_user_machine_path_or_environment_change: false
+  reboot_initiated_by_lane: false
+  ubuntu_install_started: false
+restart:
+  approved_maximum: 1
+  initiated: 0
+  required_by_dism_exit_3010: true
+  coordination_owner: MAINLINE_AND_USER
+artifacts:
+  script: {path: resources/src/enable_wsl_vmp_norestart.ps1, bytes: 1478, sha256: 0246851DD8E4F89ED379A10A0391D59721902932A0E2EE59609651F0BEBBF60E}
+  transcript: {path: resources/logs/enable_wsl_vmp_norestart.log, bytes: 7496, sha256: 3CB162E706E39491DE7BF1A982C4CC285F44D30ECB0E6DC35B79930345BA2B4C}
+scientific_revision_consumed: false
+claim_bearing_observation: false
+stageb_authorized: false

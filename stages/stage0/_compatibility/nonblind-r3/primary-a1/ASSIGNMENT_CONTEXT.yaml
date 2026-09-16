@@ -1,0 +1,19 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+identity: {lane_id: STAGE0-PRIMARY, lane_thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c, role_id: STAGE0_PRIMARY, assignment_id: STAGE0-PRIMARY-20260827-NONBLIND-R3-A1-CORRECTED-PACKET, topic_id: STAGE0A_IDENTITY_BLIND_EVIDENCE_BACKTEST_R3, stage_or_mode: NONBLIND_STAGE0_NONCOLLISION_CORRECTED_PACKET, status: BOOTSTRAP_ACK_PENDING, next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY}
+authority: {policy_authority: USER, shared_file_writer: MAINLINE, canonical_writer: STAGE0_PRIMARY, allowed_actions: [after_start_nonblind_noncollision_review_only], forbidden_actions: [gold_label_read, expected_disposition_read, auditor_gold_key_read, network_search, external_lookup, collision_adjustment, StageA, production_candidate_registration, StageB, blind_metric_merge]}
+boundaries: {unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stage0/_compatibility/nonblind-r3/primary-a1, write_allowed_paths: [<LOCAL_PROJECT_ROOT>/stages/stage0/_compatibility/nonblind-r3/primary-a1], network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 2BD4B16A4D1422503A88DF865428FDB6BB640EA112433E50E4D590C596D6F387}
+  registry_snapshot: {path: registry.yaml, sha256: 445F5E70C724441A0E594F70C2984B89217486CC94EDDF6E82FFCAB9144DB788}
+  role_rule: {path: rules/ROLE_STAGE0_REVIEW.md, sha256: 71D2E972A7C46812C49E78693AC24E00752D653C42AD0F6664DAD731DE82623C}
+  skills: [{path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+  templates: [{path: templates/STAGE0_REPORT.md, sha256: 2C72A46D7385A4DFE0D0981E4BDF4AB2A3BF6F19674BC94B14A1596386A2B809}]
+minimum_inputs:
+  - {path: stages/stage0/_compatibility/nonblind-r3/primary-a1/ASSIGNMENT.yaml, sha256: 8591870A2A8FC5192E4C98F58615544F6D47775161D53E9536E52FA1C6B64F44}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/a1-packet-map/STAGE0_NEUTRAL_PACKET.corrected.yaml, sha256: 0ED7C96436A22FA76B37465B9146A1D8A77DAEA3E4F0019CA31C0D1E5529DD3F}
+  - {path: stages/stage0/_compatibility/nonblind-r3/primary/NONBLIND_IDENTITY_CONTEXT.yaml, sha256: A5847D2794A1FFDB261E33362731D0AECA00AFB891086D2DFC9F8A685151C1F6}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/a1-packet-map/MAINLINE_HANDOFF_ACCEPTANCE.yaml, sha256: D4BA8E760D004C5D4042A7F8FE6AE16655B482D7152309ECA7524B63E3B1C878}
+validation: {hashes_complete: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: VALIDATED}

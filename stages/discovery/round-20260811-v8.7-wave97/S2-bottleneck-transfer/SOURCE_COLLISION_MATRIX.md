@@ -1,0 +1,16 @@
+# Six-object end-to-end source / collision matrix
+
+**Assignment:** `DISCOVERY-S2-20260811-V8.7-WAVE97-ENDTOEND-BOTTLENECK-TRANSFER-DEEP` · **cutoff:** 2026-08-11.
+
+| Deep object | Optimization → transferred full-cost stage | Current official / primary anchor | Same-object action witness and strongest union | Natural carrier + finite 72h killer | Final |
+|---|---|---|---|---|---|
+| DuckDB | vectorized execution → chunk compaction/materialization | [DuckDB upstream](https://github.com/duckdb/duckdb), [releases](https://github.com/duckdb/duckdb/releases), [SIGMOD’25 compaction artifact](https://github.com/embryo-labs/Chunk-Compaction-in-Vectorized-Execution) | logical compaction action is reported merged into DuckDB; union includes vector/chunk materialization | selection-heavy public query set; show same action equals current implementation | `DROP_DIRECT_ABSORPTION` |
+| Spark | task compute → shuffle serialization/merge/index | [Spark current configuration](https://github.com/apache/spark/blob/master/docs/configuration.md) | serializer, compression, direct buffers, merge/index, push shuffle and thresholds; frozen action is selection over union | shuffle-heavy public query; show existing config expresses it or semantics fail | `DROP_CONTROLLER` |
+| Ray | task compute → object store serialization/materialization | [Ray upstream](https://github.com/ray-project/ray) | serialization/object-store/reference paths; no whole value/ownership-preserving construction fixed | upstream producer-consumer task test; test output/reference/fault equivalence | `DROP_UNFROZEN_WHOLE_ACTION` |
+| FFmpeg | decode → frame copy/conversion | [FFmpeg upstream](https://github.com/FFmpeg/FFmpeg), [current AVCodec header](https://github.com/FFmpeg/FFmpeg/blob/master/libavcodec/avcodec.h), [CLI documentation](https://github.com/FFmpeg/FFmpeg/blob/master/doc/ffmpeg.texi) | ref/copy path is native; required conversion changes output representation | official media/regression sample; distinguish no-conversion vs required conversion | `DROP_CARRIER_CHANGE_OR_NATIVE_PATH` |
+| Redis | command compute → object/dict/allocator metadata | [Redis upstream](https://github.com/redis/redis) | encoding, eviction, allocator and expiry policy union; no whole persistence/replication-safe structure fixed | upstream command trace; verify RDB/AOF/replica semantics | `DROP_CONTROLLER` |
+| Clang modules | front-end reuse → PCM/cache validation/materialization | [Clang modules documentation](https://clang.llvm.org/docs/Modules.html), [LLVM upstream](https://github.com/llvm/llvm-project) | module cache/validation/PCM load union; frozen action is cache policy | public Clang module tests with header change; check invalidation/diagnostics | `DROP_CONTROLLER_OR_CONTRACT_CHANGE` |
+
+## Deduplication and reality boundary
+
+All six objects are new relative to this lane’s Wave55–92 reviewed objects; Wave-specific exclusions (Arrow, parser/validator, allocator, storage index/format, active/terminal registry objects) remain excluded. The matrix does not treat an API as automatic absorption. It records a direct collision only for DuckDB’s reported merged logical compaction; other drops follow from the frozen action being a controller/path choice or from failure to name a full same-contract action.

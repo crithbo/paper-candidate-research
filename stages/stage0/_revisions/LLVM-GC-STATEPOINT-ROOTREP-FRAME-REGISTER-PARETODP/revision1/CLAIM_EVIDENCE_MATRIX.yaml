@@ -1,0 +1,31 @@
+assignment_id: STAGE0-P1-20260814-LLVM-GC-STATEPOINT-ROOTREP-FRAME-REGISTER-PARETODP-REVISION1-V8.7
+atomic_gate: SAME_STOCK_COLLECTOR_TWO_PLAN_ACCEPTANCE__ROOT_UPDATE_PRESERVING_BOUNDED_FRONTIER_CERTIFICATE
+scientific_revision_consumed: true
+claims:
+  - claim: LLVM statepoints are a compiler/runtime interface, not a stock collector.
+    evidence: https://llvm.org/docs/GarbageCollection.html
+    status: verified
+  - claim: explicit alloca regions lack a corresponding base-pointer declaration and require generator spill/fill.
+    evidence: https://llvm.org/docs/Statepoints.html
+    status: verified
+  - claim: a same-reader two-plan equality cannot be inferred from StackMap physical locations.
+    evidence: LLVM Statepoints plus frozen confirmation review
+    status: verified_inference
+  - claim: statepoint-example is not an acceptable collector/runtime oracle.
+    evidence: LLVM GarbageCollection documentation; frozen confirmation review
+    status: verified
+  - claim: public llvm-statepoint-utils supplies a complete relocating collector accepting both plans.
+    evidence: https://github.com/kavon/llvm-statepoint-utils
+    status: contradicted
+  - claim: this frozen candidate has a finite same-object target-specific N2 frontier.
+    evidence: no named reader/ABI/source blobs in frozen input
+    status: fail
+decision_predicates:
+  same_object_defined: false
+  same_reader_two_plan_acceptance: false
+  root_base_order_update_preserved: false
+  target_specific_non_generic_N2: false
+  resource_failure_only: false
+failure_sentinel: BELOW_Q2_STOP__NO_SINGLE_STOCK_COLLECTOR_TWO_PLAN_ACCEPTANCE_OR_GENERIC_ROOT_FRAME_PACKAGING
+claim_ceiling: documentation-level interface observation only
+

@@ -1,0 +1,24 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE113-SERVING-TRACE-CHARACTERIZATION-V1
+cutoff: '2026-08-24'
+sources:
+  - {source_id: S113-01, title_or_artifact: BurstGPT, canonical_version: Release v2.0/main viewed 2026-08-24, locator: https://github.com/HPMLL/BurstGPT/blob/main/README.md, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S113-02, title_or_artifact: Mooncake traces, canonical_version: public repository viewed 2026-08-24, locator: https://github.com/liwei-rk/Mooncake, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S113-03, title_or_artifact: Vidur metrics, canonical_version: main viewed 2026-08-24, locator: https://github.com/microsoft/vidur/blob/main/docs/metrics.md, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+  - {source_id: S113-04, title_or_artifact: Vidur simulator, canonical_version: public repository viewed 2026-08-24, locator: https://github.com/microsoft/vidur, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE}
+claims:
+  - claim_id: C113-01
+    text: BurstGPT explicitly defines submission timestamp, Session ID and full elapsed time, so arrival/session/time semantics are not unspecified in the current trace.
+    priority: HIGH
+    source_links: [{source_id: S113-01, relation: DIRECT, locator: schema section, evidence_status: DIRECT_OBSERVATION, conflict: elapsed time is not TTFT, permitted_conclusion: use explicit field semantics; no generic trace-schema critique}]
+  - claim_id: C113-02
+    text: Mooncake supplies arrival time, token lengths and remapped block hash IDs, making prefix/cache counterfactual inputs explicit for its trace.
+    priority: HIGH
+    source_links: [{source_id: S113-02, relation: DIRECT, locator: open source trace section, evidence_status: DIRECT_OBSERVATION, conflict: privacy-remapped identifiers, permitted_conclusion: no missing-prefix-schema claim without a distinct decision action}]
+  - claim_id: C113-03
+    text: Vidur defines arrival, schedule, completion, execution, preemption and full-cost latency metrics, and accepts trace length plus arrival generators for configuration decisions.
+    priority: HIGH
+    source_links: [{source_id: S113-03, relation: DIRECT, locator: metric definitions, evidence_status: DIRECT_OBSERVATION, conflict: simulator-model fidelity remains scoped, permitted_conclusion: generic time/arrival/full-cost characterization is current}, {source_id: S113-04, relation: DIRECT, locator: trace-driven simulator usage, evidence_status: DIRECT_OBSERVATION, conflict: no new action identified, permitted_conclusion: no generic simulator calibration route}]
+stopping: {high_impact_items_bounded: true, latest_and_current_union_checked: true, first_party_depth_sufficient: true, heterogeneous_independent_path_complete: true, contrary_search_complete: true, natural_or_canonical_carrier_frozen: false, full_cost_frozen: false, marginal_sources_no_longer_decision_changing: true, decisive_contradictions_resolved_or_bounded: true, disposition: NOT_ADMITTED_UNFROZEN}
+execution_readiness: {state: E0, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: NO_RAW_ADMISSION__NO_CLAIM

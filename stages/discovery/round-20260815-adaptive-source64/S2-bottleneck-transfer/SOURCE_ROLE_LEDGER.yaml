@@ -1,0 +1,42 @@
+ledger_version: v1
+network_search_calls: 3
+sources:
+  - id: SRC-S64-01
+    role: CURRENT
+    url: https://openmp.llvm.org/design/Runtimes.html
+    title: LLVM/OpenMP Runtimes
+    version_or_date: current documentation retrieved 2026-08-15
+    provenance: official_project_documentation
+    source_finding: libomp/libomptarget/plugin/device-runtime layers and public runtime feature variables
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - id: SRC-S64-02
+    role: CURRENT
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/include/llvm/Frontend/OpenMP/OMPIRBuilder.h
+    title: OMPIRBuilder.h
+    version_or_date: llvm-project main, browser snapshot retrieved 2026-08-15
+    provenance: official_upstream_source
+    source_finding: target-region registration and target/offload configuration, GPU and requires-state representation
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - id: SRC-S64-03
+    role: CURRENT
+    url: https://openxla.org/xla/hlo_to_thunks
+    title: From HLO to Thunks
+    version_or_date: published 2026-03, retrieved 2026-08-15
+    provenance: official_project_documentation
+    source_finding: current schedule, latency hiding, rematerialization, dataflow/alias, buffer assignment, thunk, and command-buffer pipeline
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - id: SRC-S64-04
+    role: CURRENT_AND_CONTRARY
+    url: https://llvm.org/docs/ORCv2.html
+    title: ORC Design and Implementation
+    version_or_date: LLVM 24.0.0git documentation, retrieved 2026-08-15
+    provenance: official_project_documentation
+    source_finding: layers, materialization units/responsibilities, eager/lazy compilation, reexports, concurrency and dispatcher composition
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+notes:
+  - All retrieval was bounded, official, and read-only; no artifact, source checkout, build, or benchmark was acquired.
+  - No primary-paper collision search was required after all selected RQs closed before raw; no novelty claim is emitted.

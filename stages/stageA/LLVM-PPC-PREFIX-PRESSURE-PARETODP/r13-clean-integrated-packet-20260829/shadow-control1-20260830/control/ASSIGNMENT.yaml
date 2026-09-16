@@ -1,0 +1,37 @@
+schema: stagea-a0-prospective-shadow-control-v1
+assignment_id: STAGEA-L2-20260830-PPC-R13-SHADOW-CONTROL1
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+mode: SHADOW
+internal_mode: A0_EXECUTION_READINESS
+parent_packet: {path: ../PPC_R13_EXECUTABLE_PACKET.yaml, sha256: 1D739F651766024EE03090A139A009AD6E2702AFA277655748892362FA62AC4F}
+parent_dag: {path: ../PPC_R13_COMMAND_DAG.json, sha256: 4DDA1580A830A91717A87479493E31C52DD73029A7DBD82449E70845A80D3714}
+parent_copy_manifest: {path: ../EXACT_RESOURCE_COPY_MANIFEST.yaml, sha256: 3C40C107A7D312CB74623C13F9018F38C4E411AB537A39E54019ED43C3381A4A}
+shared_asset: {id: ASSET-LLVM-PPC-F127B4C, record: projects/_assets/ASSET-LLVM-PPC-F127B4C/ASSET_RECORD.yaml, record_sha256: 060595813C17FCE769C449D19F6702286EAB9A8D68FE535A9A76BA2EB680E665, mode: EXECUTE_IN_PLACE_READ_ONLY}
+unique_write_directory: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830
+resource_root: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/shadow-control1-20260830/resources
+resource_envelope: {network_bytes_max: 0, stored_bytes_max: 134217728, cpu_hours_max: 1.0, wall_seconds_max: 3600, attempts_max: 1}
+allowed:
+  - create_eight_resource_subdirectories_and_inventory
+  - copy_exact_minimal_inputs_and_runner_files_from_parent_copy_manifest
+  - execute_registered_shared_tools_read_only_in_place
+  - execute_exact_N00_through_N04_for_control_00_once
+  - redirect_stdout_stderr_without_reading_relative_effect_values
+  - validate_exit_required_outputs_schema_metric_counts_missing_metric_and_path_only
+  - write_mechanical_receipt_inventory_handoff_targeted_manifest
+forbidden:
+  - network
+  - quarantined_r12_packet_or_dag_reuse
+  - shared_asset_mutation
+  - more_than_one_attempt
+  - natural_or_claim_row_beyond_control_00
+  - relative_effect_visibility
+  - result_aware_change
+  - scientific_revision_consumption
+  - baseline_denominator_action_or_claim_change
+  - shared_write
+  - cleanup
+  - stageb
+success: CONTROL_ROW_PASS__A0_READY_FOR_NEXT_AUTHORIZED_A1
+failure: EXECUTION_CONTRACT_HOLD__CONTROL_ROW_FAIL__NO_SCIENTIFIC_INFERENCE
+stop_after: CONTROL_HANDOFF
+

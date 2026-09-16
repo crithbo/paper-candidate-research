@@ -1,0 +1,71 @@
+schema_version: 1
+audit_id: RULE-AUDIT-20260814-GLOBALISEL-INCONCLUSIVE-COST-CORRECTION-R19
+proposal_id: GLOBALISEL-EXCEPTIONAL-STATIC-COST-CORRECTION-20260814-R19A
+topic_id: GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+role: RULE_AUDIT_SENTRY
+workspace_root: '<LEGACY_LOCAL_PROJECT_ROOT>'
+write_directory: 'stages\rule-audit\RULE-AUDIT-20260814-GLOBALISEL-INCONCLUSIVE-COST-CORRECTION-R19'
+status: USER_POLICY_DECISION_REQUIRED
+recommendation: AUTHORIZE_ONE_BOUNDED_EXCEPTIONAL_STATIC_COST_CORRECTION_THEN_INDEPENDENT_CLOSING
+shared_files_modified: false
+candidate_files_modified: false
+lanes_contacted: false
+execution_performed: false
+current_topic_state: INCONCLUSIVE_POLICY_HOLD__WITNESS_DECLARED_COST_NOT_NATIVE_ACTION_COST
+ordinary_revision_budget: 1_of_1_consumed
+scientific_stop_established: false
+stageA_authorized: false
+stageB_authorized: false
+decisive_correction:
+  native_call: 'copyCost(DesiredRegBank=FPR, CurRegBank=GPR)'
+  submitted_copy_cost: 5
+  corrected_copy_cost: 4
+  submitted_costs: {P_local: 9, P_joint: 4}
+  corrected_costs: {P_local: 8, P_joint: 4}
+  corrected_strict_margin: 4
+unchanged_findings:
+  restricted_gpr_fpr_mapping_alternatives: PRESENT_EQUAL_COST_GPR_FIRST
+  greedy_tie_behavior: STRICT_IMPROVEMENT_ONLY
+  current_union_direct_absorption: NOT_FOUND_SEARCH_BOUNDED_OPEN
+  action_difference: REMAINS_PLAUSIBLE_REQUIRES_CORRECTED_CERTIFICATE
+recommended_exception:
+  count: 1_of_1_exceptional_static_correction
+  atomic_gate: CORRECTED_NATIVE_DIRECTIONAL_COPYCOST__DECLARED_FRONTIER_REDERIVATION
+  evidence_ceiling: STATIC_NATIVE_ACTION_AND_COST_CERTIFICATE_ONLY__NO_BUILD_NO_PERFORMANCE_CLAIM
+  correction_directory: 'stages\stage0\_revisions\GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN\exceptional-static-cost-correction-r19a'
+  closing_directory: 'stages\stage0\_reviews\round-20260814-globalisel-exceptional-cost-r19a-closing\GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN'
+  construction_owner: MAINLINE_ASSIGNED_STAGE0_PRIMARY_LANE
+  closing_owner: INDEPENDENT_STAGE0_LANE_NOT_INVOLVED_IN_CORRECTION_CONSTRUCTION
+  overwrite_old_artifacts: false
+  additional_exception_after_failure: false
+prohibited:
+  - shared_file_write_by_rule_audit
+  - candidate_state_change_before_independent_closing
+  - new_target_witness_action_cost_model_or_mechanism
+  - implementation_build_run_experiment_or_benchmark
+  - download_network_retrieval_stageA_or_stageB
+  - silent_rewrite_of_revision1_or_closing
+  - automatic_reserve_withdraw_stop_or_further_revision
+rollback: SEAL_NEW_ASSIGNMENT_LOCAL_ARTIFACTS_AND_RETAIN_INCONCLUSIVE_POLICY_HOLD
+input_hashes:
+  agents_sha256: 772FAF07F28F45CA26E6617C39FFD95AE316759CD4DEAFB7FD4D331719C3D700
+  plan_sha256: D2B019C27DC383736666255DBB46FA5D7D1E19E338139B2FC117DDC9CF4A94D9
+  registry_sha256: D8798712E0D902B6E17718B044A6FADC0269DD3057FAC0525010FCAE1970CA91
+  role_rule_audit_sha256: D952A706080ED5DE1CFB2E007D8C4672539D9152580F6CA61516E185A52E41ED
+  role_stage0_sha256: 9BD18454A98DB3C97A57F715F853795D9442E7E80BE902F708570296CAD6EB15
+  primary_assignment_sha256: AD52C8DB7C534A599F99A08DD1F0CCFE29772997A5C7D8382ED2275958F040F2
+  primary_manifest_sha256: 62EF07ABD3B2AAE0509EA2D3E2D2C81C25847885ABF1137ECB51B57D98CED43C
+  confirmation_assignment_sha256: 82396C413260F026D951506044C8EC4A3559CB73514A32F51A1B8A2FEE33C07F
+  confirmation_manifest_sha256: 8A0B6EE32D7DCD159B04406AD39669F2EC7505517ED4E7D6D977223691C4F7D0
+  revision1_assignment_sha256: 39D9F5556A3264D5554FFAF4C3CBDABB91782668558ADFEDDF3D8FD8AD639AB1
+  revision1_report_sha256: 3ED65E6E0C0B3F5757ABC707CFC6F4343B74BA1CAA23679F7DCE52F08598F5A7
+  revision1_action_audit_sha256: 3684C9A1F3C03536FD34DCBEAB4871D793B69B2D025626853A9B48AB1BA7A61E
+  revision1_claim_matrix_sha256: 53903F8EEA84A5F87BF18B69C8A9121C24F4639960618190DA1FDF5212671815
+  revision1_manifest_sha256: 2F19DED180AFECAF72E0DE830CDA1869EF04E4529C1A25E636D55405A556489A
+  closing_assignment_sha256: FBFA3085EDB7A05B38ADFC943FBC12E7011F8A1F77069A850DA9F4A2B36B053F
+  closing_report_sha256: C85AA96C7981879CE25EEB31D02EA228501988568961D625B1F17C108505E264
+  closing_handoff_sha256: 924E2EEC6B170162BB468AE83CCB885C0A4B6A3599CA44D8DD93981F74A2BEAC
+  closing_manifest_sha256: AC85F3166B023EDE03634042EC99F14D7D9AC2A6134CB976A633AE90DFB86073
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_USER_DIALOGUE

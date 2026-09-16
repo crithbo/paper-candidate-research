@@ -1,0 +1,7 @@
+# Unique opportunity families
+
+No family survived raw.
+
+`LLVM_MEMORYSSA_ALIAS_ASSISTED_CLOBBER_CONSTRUCTION__FIXED_LLVM_IR_FUNCTION_AND_ALIAS_SEMANTICS__MEMORY_DEPENDENCE_QUERY_AND_OPTIMIZATION_LEGALITY__MEMORYDEF_USE_PHI_WALKER_CACHE` — `EXCLUDED_BEFORE_RAW__STRUCTURAL_DROP__CURRENT_MEMORYSSA_UNION_PLUS_GENERIC_SSA_ALIAS_KERNEL`.
+
+The exclusion is a direct mechanism subtraction; it does not infer anything from implementation availability, results, resources, or AI readiness.

@@ -1,0 +1,10 @@
+schema: discovery-source-ledger-v1
+assignment_id: DISCOVERY-S4-20260830-SOURCE119-OBJECTIVE-CONSTRAINT
+sources:
+  - {role: ANCHOR, locator: https://docs.pytorch.org/executorch/stable/backends/xnnpack/xnnpack-arch-internals.html, supports: ExecuTorch_delegate_and_profiling_surface}
+  - {role: CURRENT, locator: https://onnxruntime.ai/docs/execution-providers/, supports: GetCapability_partitioning__ordered_EP_priority__CPU_fallback}
+  - {role: CURRENT, locator: https://github.com/ggml-org/llama.cpp/blob/master/tools/rpc/README.md, supports: RPC_devices__tensor_split__cache__TCP_RDMA}
+  - {role: ANCHOR, locator: https://docs.mlcommons.org/inference/index_gh/, supports: current_MLPerf_Inference_release_and_reporting_surface}
+  - {role: CONTRARY, locator: https://github.com/ggml-org/llama.cpp/issues/25890, supports: RPC_load_full_cost_can_be_dominated_by_current_serial_load_path__issue_is_not_novelty_evidence}
+  - {role: CONTRARY, locator: https://github.com/ggml-org/llama.cpp/issues/22850, supports: RPC_latency_and_synchronization_bottleneck_report__issue_is_not_canonical_proof}
+search_boundary: First-party current docs/repository and current first-party issue loci only; no downloads or execution.

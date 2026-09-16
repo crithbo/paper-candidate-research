@@ -1,0 +1,42 @@
+schema_version: assignment-resource-inventory-v1
+assignment_id: STAGE0-P1-20260815-MLCOMMONS-MLPERF-INFERENCE-V5X-FULLCOST-VALIDITY-PREBRIEF-CLOSURE-V8.7
+topic_id: MLCOMMONS-MLPERF-INFERENCE-V5X-FULLCOST-VALIDITY
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\round-20260815-adaptive-source45-prebrief-closure\MLCOMMONS-MLPERF-INFERENCE-V5X-FULLCOST-VALIDITY\resources
+required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+resource_root_logical_bytes: 15245426
+size_measurement: POWERSHELL_RECURSIVE_FILE_LENGTH_SUM_AFTER_ACQUISITION
+redirect_preflight:
+  status: READY_BEFORE_ACQUISITION
+  process_local_variables: [TEMP, TMP, TMPDIR, XDG_CACHE_HOME]
+resource_envelope:
+  authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+  response_bytes_max: 50331648
+  storage_bytes_max: 100663296
+  attempts_max: 8
+  attempts_used: 8
+  gpu: forbidden
+selection_commitment:
+  release_rule: LATEST_OFFICIAL_STABLE_V5_X_RELEASE_LISTED_AT_CUTOFF
+  artifact_rule: LEXICOGRAPHIC_FIRST_PUBLIC_DATACENTER_SUBMISSION_ARTIFACT_WITHOUT_RESULT_AWARE_FILTER
+  outcome_files_forbidden_until_selection_recorded: true
+planned_attempts:
+  - {attempt: 1, purpose: official_v5x_repository_release_listing, status: PLANNED_COUNTED_BEFORE_CALL}
+  - {attempt: 2, purpose: selected_release_repository_tree_metadata_only, status: PLANNED_COUNTED_BEFORE_CALL}
+  - {attempt: 3, purpose: selected_system_description, status: PLANNED_COUNTED_BEFORE_CALL}
+  - {attempt: 4, purpose: selected_measurement_metadata, status: PLANNED_COUNTED_BEFORE_CALL}
+  - {attempt: 5, purpose: selected_official_result_metadata, status: PLANNED_COUNTED_BEFORE_CALL}
+  - {attempt: 6, purpose: selected_quality_metadata, status: PLANNED_COUNTED_BEFORE_CALL}
+  - {attempt: 7, purpose: selected_power_metadata_or_rules, status: PLANNED_COUNTED_BEFORE_CALL}
+  - {attempt: 8, purpose: official_rules_checker_or_schema, status: PLANNED_COUNTED_BEFORE_CALL}
+entries:
+  - {path: resources/downloads/attempt01-repo-search.json, class: official_repository_metadata, bytes: 17555, sha256: 96fa622d3aadeee488682c92c22edeeaea5173f462cfaab6f9e4224c4411b3b5, source: https://api.github.com/search/repositories?q=org%3Amlcommons+inference_results_v5, license: METADATA_ONLY, retention: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {path: resources/downloads/attempt02-v5.1-tree.json, class: official_git_tree_metadata, bytes: 14963826, sha256: cc751fad98d64cfbaac3fed10230dcf25b25b694e4daf8ba18a0b813db8da79a, source: https://api.github.com/repos/mlcommons/inference_results_v5.1/git/trees/main?recursive=1, version: tree_5ea4f62ef62536e6bf4d78a9b440fb9035ddfb4a, license: Apache-2.0, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources/downloads/attempt03-system.json, class: selected_system_description, bytes: 1912, sha256: 8f0a8b090c535ba47e824662a4d685898054064cf1bbb0e626d877aae418c518, source: https://raw.githubusercontent.com/mlcommons/inference_results_v5.1/main/closed/AMD/systems/8xMI300X_2xEPYC_9575F.json, version: git_blob_85bf95624eedc241010fd7561c013b80a70e30ce, license: Apache-2.0, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources/downloads/attempt04-measurement-README.md, class: selected_measurement_procedure, bytes: 2575, sha256: fe93b44fc79af870f45554a29d264b5feddead5cea06fd85d3693e011c85891a, source: https://raw.githubusercontent.com/mlcommons/inference_results_v5.1/main/closed/AMD/measurements/8xMI300X_2xEPYC_9575F/llama2-70b-99.9/Interactive/README.md, license: Apache-2.0, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources/downloads/attempt05-performance-summary.txt, class: selected_official_performance_metadata, bytes: 3120, sha256: 5fd29cf3d80f008b7b47c2d85d499f2c6e24d1a0c53eae5cd18463698f4a8a3f, source: https://raw.githubusercontent.com/mlcommons/inference_results_v5.1/main/closed/AMD/results/8xMI300X_2xEPYC_9575F/llama2-70b-99.9/Interactive/performance/run_1/mlperf_log_summary.txt, license: Apache-2.0, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources/downloads/attempt06-accuracy-summary.txt, class: selected_official_quality_validation_metadata, bytes: 74, sha256: b4d08c3c804a0edac3a937c6d04ccb2dd62ff0e3d3a1d8cd001aacfe5ab3db47, source: https://raw.githubusercontent.com/mlcommons/inference_results_v5.1/main/closed/AMD/results/8xMI300X_2xEPYC_9575F/llama2-70b-99.9/Interactive/accuracy/mlperf_log_summary.txt, license: Apache-2.0, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources/downloads/attempt07-inference-v5.1-tree.json, class: official_rules_checker_tree_metadata, bytes: 247849, sha256: 5fb64bacab2625c75f4e1305cef232354a33a5fe8032077a12468d9eccb907fe, source: https://api.github.com/repos/mlcommons/inference/git/trees/v5.1?recursive=1, version: tree_75f297d44c5e68d24a2f7643fe1eb11e49313238, license: Apache-2.0, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources/downloads/attempt08-Submission_Guidelines.md, class: official_submission_rule_summary_and_schema, bytes: 6388, sha256: 4b27d108f02dbc5da64c343bcd029af9943a938ab57b52aba11209f166c3d167, source: https://raw.githubusercontent.com/mlcommons/inference/v5.1/Submission_Guidelines.md, version: v5.1, license: Apache-2.0, retention: RETAIN_CLAIM_CRITICAL}

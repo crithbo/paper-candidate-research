@@ -1,0 +1,28 @@
+schema: mainline-start-authorization-v1
+issued_at: 2026-08-26T03:50:00+08:00
+issued_by: MAINLINE
+decision: START_AUTHORIZED
+authorization_ids: [USER-PARALLEL-STAGEA-READY-CANDIDATES-20260825, USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825]
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R4-GLOBAL-MODIFIER-ORDER-CORRECTION
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+context_sha256: CAC7488E0DDBA6C217DF2678444076D0F10B550B51F96662E0BC40CC1C41B5EC
+bootstrap_ack_sha256: 1557F58D85807E13D84412DFE8D79088337802B1E9758CDEE267D0EE214C6373
+pass1_superseded_ack_sha256: 39E62727A35187AF764967BF6334C10202E950281591FD78DEE835024369A98C
+bootstrap_acceptance: {disposition: ACCEPTED_READY, frozen_hashes: PASS_23_OF_23, stale_plan_backlog_absent: true, substitution_counts: PASS_2_OF_2, simulated_corrected_hash: PASS, differences_or_ambiguities: [], resource_root_absent: true, scientific_or_resource_action_started: false}
+allowed_after_start:
+  - create eight r4 standard resource directories
+  - copy and hash-accept only frozen r3 same-topic downloads, tool bundle, source, logs and partial raw evidence
+  - write IR_SYNTAX_CORRECTION_PRECOMMIT before editing
+  - apply one assignment-local source-file edit containing exactly the two frozen global modifier-order substitutions
+  - require corrected file SHA-256 77A92601566F1CD5190B0FD5892EE62C295E00F64AC018BF5782B965DC268F3E, 2972 bytes and five unchanged function modifier occurrences
+  - run F1 through F5 fresh from replay1; r3 partial F1 does not count
+  - use two planned deterministic replays and no automatic retry
+  - finalize canonical preclaim handoff and wait
+correction_boundary: {source_files_edited_max: 1, exact_substitutions: 2, all_other_bytes_unchanged: true, additional_edit_or_variant: forbidden, LLVM_or_lld_source_patch_or_rebuild: false}
+scientific_boundary: {claim_bearing_action_allowed: false, natural_function_or_corpus_allowed: false, natural_performance_or_full_cost_claim_allowed: false, F5_tiny_control_cost_allowed: true, scientific_revision_authorized: false, owner_state_transition_authority: false, stageb_authorized: false}
+budgets: {network_bytes_max: 0, stored_bytes_max: 1073741824, cpu_seconds_max: 14400, wall_seconds_max: 28800, max_parallel_processes: 2, source_edits_max: 1, gpu_hours_max: 0}
+failure_policy: {any_edit_hash_or_F1_F5_failure: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE, same_assignment_retry: forbidden}
+lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, cleanup_owner: MAINLINE, owner_cleanup_allowed: false, r3_cleanup_deferred_until_r4_acceptance: true, post_close_retained_bytes_max: 805306368}
+next_action: COPY_ACCEPT__PRECOMMIT__ONE_EXACT_EDIT__FRESH_F1_F5__HANDOFF

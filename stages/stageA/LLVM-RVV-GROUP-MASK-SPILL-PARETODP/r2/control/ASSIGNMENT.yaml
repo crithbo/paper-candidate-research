@@ -1,0 +1,112 @@
+schema: candidate-resource-recovery-assignment-v2
+assignment_id: STAGEA-L1-20260825-LLVM-RVV-R2-E-ROOT-EXACT-TOOLCHAIN
+authorization_id: USER-NO-WSL-TOPIC-LOCALIZED-RESOURCE-RECOVERY-20260825
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+stage: STAGEA_RESOURCE_GATE_RESUME_FROM_BLOCKER
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r2
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r2/resources
+inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r2/RESOURCE_INVENTORY.yaml
+
+exact_object: LLVM_RISCV_RVV_GROUP_MASK_SPILL_PARETO_DP_AT_PINNED_COMMIT
+exact_commit: 5bb2565693f062a9e99929db1814a7a076d4dc76
+scope: EXACT_LLVM_RISCV_TOOLCHAIN_RESOURCE_GATE_ONLY
+claim_ceiling: RESOURCE_GATE_ONLY
+evidence_ceiling: EXACT_BUILD_AND_TOOL_CAPABILITY_VALIDATION_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: false
+claim_bearing_or_natural_action_allowed: false
+preclaim_f1_f5_action_allowed: false
+stage_state_transition_authority: false
+stageb_authorized: false
+
+upstream_blocker:
+  parent_assignment_id: STAGEA-L2-20260811-LLVM-RVV-GROUP-MASK-SPILL-PARETODP-INITIAL-V8.7
+  parent_handoff_sha256: 730482D1AEA5D3303A70D899C96EB98E24DC01E68FACFAD387BEB71EF5645660
+  parent_manifest_sha256: 4BE6DF0A9C0FC4B4D1DDB3A74CD5D10562C35E2BAB2FDAA16645A09D374EBEB4
+  parent_contract_sha256: EE8ECEDB26DDB36BE26CE572434AC14313967885330D007303F7D4D835D8FD2E
+  blocker_packet_sha256: 59A44BA8491C2223924766973DBB88C7C27BD382C2CF695F8C7930674A2EC37E
+  blocker: EXACT_LLVM_RISCV_MACHINEVERIFIER_TOOLCHAIN_UNAVAILABLE
+  claim_bearing_observation_before_blocker: false
+
+official_asset_contract:
+  source_access: OFFICIAL_NETWORK_ONLY__ONE_ATTEMPT_PER_ASSET
+  assets:
+    - {id: LLVM_COMMIT_METADATA, filename: llvm-commit-5bb2565693f062a9e99929db1814a7a076d4dc76.json, url: 'https://api.github.com/repos/llvm/llvm-project/commits/5bb2565693f062a9e99929db1814a7a076d4dc76', max_bytes: 1048576, license: METADATA}
+    - {id: LLVM_EXACT_SOURCE, filename: llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76.tar.gz, url: 'https://codeload.github.com/llvm/llvm-project/tar.gz/5bb2565693f062a9e99929db1814a7a076d4dc76', max_bytes: 335544320, license: APACHE_2_WITH_LLVM_EXCEPTION}
+    - {id: LLVM_MINGW_BOOTSTRAP, filename: llvm-mingw-20260616-ucrt-x86_64.zip, url: 'https://github.com/mstorsjo/llvm-mingw/releases/download/20260616/llvm-mingw-20260616-ucrt-x86_64.zip', max_bytes: 268435456, license: MULTI_LICENSE_RETAIN_INCLUDED_NOTICES}
+    - {id: CMAKE_PYPI, filename: cmake-4.4.2-py3-none-win_amd64.whl, url: 'https://files.pythonhosted.org/packages/06/9e/3e572a9a8966eec43b6d75b8b8d9543ca2182ec4006a538fb239e004a3cf/cmake-4.4.2-py3-none-win_amd64.whl', max_bytes: 67108864, license: INCLUDED_NOTICES_RETAIN}
+    - {id: NINJA_PYPI, filename: ninja-1.13.0-py3-none-win_amd64.whl, url: 'https://files.pythonhosted.org/packages/29/45/c0adfbfb0b5895aa18cec400c535b4f7ff3e52536e0403602fc1a23f7de9/ninja-1.13.0-py3-none-win_amd64.whl', max_bytes: 1048576, license: INCLUDED_NOTICE_RETAIN}
+  redirects_allowed: OFFICIAL_FINAL_RESPONSE_ONLY__RECORD_CHAIN__NO_EXTRA_ASSET_ATTEMPT
+  exact_commit_verification_required: true
+  per_file_sha256_required: true
+  source_archive_safe_member_preflight_required: true
+
+path_contract:
+  source_extract_root: resources/src/s
+  portable_tool_root: resources/env/t
+  build_root: resources/build
+  nested_assignment_or_extra_build_prefix_forbidden: true
+  path_length_preflight_required_before_configure: true
+  predicted_longest_object_directory_must_be_below: 240
+  exfat_detect_and_record: true
+
+resource_localization:
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  every_resource_write_under_resource_root: true
+  process_local_redirect_required: true
+  cross_topic_resource_access_allowed: false
+  system_wsl_or_global_change_allowed: false
+
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  closeout_event: EXACT_RVV_TOOLCHAIN_RESOURCE_GATE_HANDOFF_ACCEPTED
+  downstream_consumer: STAGEA_RVV_PRECLAIM_RESUME_AFTER_RESOURCE_PASS
+  post_close_retained_bytes_max: 2147483648
+  cleanup_owner: MAINLINE
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY]
+
+build_contract:
+  generator: Ninja
+  configuration: Release
+  assertions: true
+  llvm_targets_to_build: RISCV
+  llvm_enable_projects: NONE
+  llvm_build_utils: true
+  source_patch_allowed: false
+  configure_attempts: 1
+  clean_build_attempts: 1
+  build_jobs: 2
+  required_outputs: [llc.exe, llvm-mc.exe, llvm-objdump.exe, llvm-readobj.exe, opt.exe, FileCheck.exe]
+  required_capabilities: [RISCV_REGISTERED_TARGET, MIR_PARSE, MACHINE_VERIFIER, FILECHECK]
+  stock_smokes_only: [VERSION_AND_REGISTERED_TARGETS, GENERIC_TINY_RISCV_MIR_PARSE_MACHINEVERIFIER]
+  success_tool_bundle: resources/env/rvv-toolchain
+
+limits: {network_bytes_max: 671088640, max_single_response_bytes: 335544320, total_network_attempts_max: 5, attempts_per_asset: 1, resource_root_logical_bytes_max: 10737418240, cpu_seconds_max: 28800, wall_seconds_max: 28800, max_parallel_build_jobs: 2, clean_build_attempts: 1, gpu_hours_max: 0}
+allowed_actions:
+  - CREATE_EIGHT_STANDARD_RESOURCE_SUBDIRECTORIES
+  - DOWNLOAD_HASH_AND_VALIDATE_ONLY_FIVE_FROZEN_OFFICIAL_ASSETS
+  - EXTRACT_TO_FROZEN_SHORT_SOURCE_AND_TOOL_PATHS_AFTER_SAFE_MEMBER_CHECK
+  - CONFIGURE_ONCE_AND_RUN_ONE_CLEAN_TWO_JOB_BUILD_AT_EXACT_COMMIT
+  - COPY_REQUIRED_TOOL_OUTPUTS_RUNTIME_DLLS_LICENSES_AND_BUILD_PROVENANCE_TO_RESOURCES_ENV_RVV_TOOLCHAIN
+  - RUN_ONLY_NON_CLAIM_VERSION_TARGET_AND_GENERIC_TINY_MIR_MACHINEVERIFIER_SMOKES
+  - WRITE_ASSET_ACCEPTANCE_PATH_AUDIT_PROVENANCE_ENVIRONMENT_INVENTORY_CLOSEOUT_CAPSULE_HANDOFF_AND_MANIFEST
+forbidden_actions:
+  - WSL_SYSTEM_INSTALL_GLOBAL_PATH_REGISTRY_OR_SUBST_DRIVE
+  - JUNCTION_SYMLINK_REPARSE_OR_WRITE_OUTSIDE_RESOURCE_ROOT
+  - CROSS_TOPIC_RESOURCE_ACCESS
+  - UNLISTED_NETWORK_ASSET_MIRROR_OR_EXTRA_ATTEMPT
+  - SECOND_CONFIGURE_OR_SECOND_BUILD_OR_SILENT_RETRY
+  - SOURCE_PATCH_COMMIT_CHANGE_OR_BUILD_OPTION_SEMANTIC_CHANGE
+  - RVV_F1_F5_FORCED_PRESSURE_TYPED_REPLAY_QUOTIENT_BASELINE_OR_NATURAL_TRACE_ACTION
+  - CANDIDATE_BASELINE_BENCHMARK_FULL_COST_OR_CLAIM_BEARING_RUN
+  - SCIENTIFIC_PASS_STOP_RESERVE_OR_STAGE_TRANSITION
+  - OWNER_CLEANUP
+
+success_route: EXACT_RVV_TOOLCHAIN_RESOURCE_GATE_READY_FOR_MAINLINE_ACCEPTANCE_AND_SEPARATE_PRECLAIM_ASSIGNMENT
+failure_route: BLOCKED_USER_ACTION_REQUIRED__RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+handoff_requirements: [OFFICIAL_ASSET_ACCEPTANCE.yaml, PATH_LENGTH_AUDIT.yaml, BUILD_PROVENANCE.yaml, ENVIRONMENT_LOCK.yaml, RESOURCE_INVENTORY.yaml, RESOURCE_GATE_REPORT.md, COMMAND_LOG.md, PHASE_CLOSEOUT_RETENTION.yaml, RESUME_CAPSULE.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+

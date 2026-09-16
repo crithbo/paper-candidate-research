@@ -1,0 +1,32 @@
+assignment_id: STAGE0-C2-20260814-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-REVISION1-CLOSING-V8.7
+topic_id: LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+role: INDEPENDENT_REVISION1_CLOSING
+atomic_gate: SAME_MIR_TWO_PLAN_CLOBBER_WITNESS__TARGET_SPECIFIC_CALLSITE_FRONTIER
+decision: CONFIRM_STAGE0_PASS
+quality_tier: TIER_B_Q2_VIABLE
+confidence: 0.82
+evidence_ceiling: E1_STATIC_PREFLIGHT__STATIC_CERTIFICATE_ONLY__SEARCH_BOUNDED_OPEN
+revision_budget:
+  scientific_limit: 1
+  scientific_index: 1
+  consumed: true
+  further_revision_authorized: false
+frozen_revision_integrity:
+  revision_report_sha256: 0D62FB5D6C9016E08840C7FBFEC75210FDD6BAF9AE7B74CCCB06FC71BEA2BA8A
+  current_action_and_frontier_audit_sha256: 3D0D7BBC76B72E85015EE2C0A71578750244740CF63B8419D1288C10A147F07F
+  claim_matrix_sha256: 573F58ED800E064AFBFDBB51EFCE9E79624F0F1D57929A69C31B34DA508CFB17
+  revision_handoff_sha256: 8A764825650646B17FD63DB6FC109D97E9EF42DD535F90B53C607BDF83167B91
+  revision_manifest_sha256: 761A34243F211E3F24B10F99B07AD72CD627C997B67C20B6E36B0214F5B17C93
+independent_closing_findings:
+  - The non-entry bb.1 witness mechanically excludes current entry-value fallback, and the computed value is not an unchanged formal.
+  - The RAX branch correctly ends unavailable under the current loaded-value path; the saved RBX branch is a same-MIR native CSR/CFI plan with a legal breg-style call-value route.
+  - The mandatory current debug/RA union absorbs propagation and emission only, not the declared allocation-time bounded frontier; union-equivalent points are excluded from the denominator.
+  - The target-specific state preserves future action, legality and declared cost for the stated bounded-call-cut class only; its FPT guarantee is not generalized to full RA.
+  - The static certificate has a finite Stage A fidelity/killer route, but has no implementation, natural-corpus result or empirical performance claim.
+next_if_mainline_accepts: DISPATCH_STAGEA_PRECLAIM_CONTRACT_FIDELITY_GATE_ONLY
+stagea_authorized_by_this_review: false
+stageb_authorized_by_this_review: false
+search_boundary: SEARCH_BOUNDED_OPEN
+failure_sentinel: BELOW_Q2_STOP__METADATA_ONLY_OR_GENERIC_RA_OR_CURRENT_UNION_ABSORPTION
+mainline_notification_required: true
+lane_state_after_mainline_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE

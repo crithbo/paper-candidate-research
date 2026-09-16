@@ -1,0 +1,47 @@
+assignment_id: DISCOVERY-S5-20260815-ADAPTIVE-SOURCE96-R40-ORDINARY-BREADTH-V1
+lane: S5-scale-online-approx
+status: COMPLETE_ZERO_CLEAN_BRIEFS
+write_directory: stages/discovery/round-20260815-adaptive-source96/S5-scale-online-approx
+rule_freeze:
+  assignment_sha256: 61207AA14AFA0EFE857EECF3D2258B3967F9BED259A65BDE699BB03B5141AB31
+  control_sha256: 30D418598943E2F8146241CAF7A33FD3130E9B5CF504AC24495939AB92A36A89
+  skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  model: gpt-5.6-terra
+  reasoning: high
+  modes:
+    rq_frontend: PRODUCTION
+    claim_pack: OFF
+    v9: OFF
+    selective_depth: OFF
+    anchor_first: OFF
+counts:
+  divergence_seeds: 6
+  selected_primary_rq: 1
+  official_source_checks: 2
+  evidence_qualified_raw: 1
+  candidate_grade_deep_reviews: 0
+  clean_stage0_briefs: 0
+families:
+  - signature: ERLANG_OTP_PERSISTENT_TERM_EXACT_CONSTANT_LOOKUP__VERSIONED_LITERAL_RECLAMATION
+    disposition: EVIDENCE_QUALIFIED_RAW__OPEN_BOUNDED_CLOSURE_DEBT
+    contribution_hypothesis: METHOD_ALGORITHM/N2
+    object: fixed Erlang/OTP persistent_term API with exact constant-time lookup semantics
+    current_anchor: official OTP 29.0.3 ERTS persistent_term documentation
+    primary_contrary: documented global process GC after non-immediate replacement/deletion
+    strongest_current_union_ceiling: DOCUMENTED_ONLY__SOURCE_SYMBOL_CLOSURE_PENDING
+    carrier: IMPLEMENTATION_CARRIER_ONLY
+    full_cost: [update_cpu_latency, process_scan_or_deferred_work, retained_literal_memory, peak_rss, literal_area, lookup_cost, recovery_termination_semantics]
+    finite_closure: S5-96-CQ01 in SOURCE_CLOSURE_QUEUE.yaml
+    clean_brief: false
+    claim_ceiling: >-
+      Raw mechanism hypothesis only. No novelty/current-absence/Q2/performance/guarantee
+      claim and no authorization for Stage 0 are made.
+queue_reconciliation:
+  status: PENDING_UNEXECUTED
+  count: 1
+  reason: one project/tag/source-symbol closure is finite but was not executed in this ordinary breadth assignment
+resource_reconciliation: RESOURCE_INVENTORY.yaml; no local resources and two non-persisted official source checks
+mainline_action: >-
+  Mechanically accept the canonical packet. Do not treat SC96-01 as a clean brief;
+  only a separately frozen closure assignment may consume S5-96-CQ01.
+canonical_manifest: HASH_MANIFEST.sha256

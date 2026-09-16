@@ -1,0 +1,15 @@
+# Same-object action and collision matrix
+
+| Deep family | Current first-party reality | Fair strongest subtractor / full cost | Why the law does not yield a surviving non-controller action | Finite falsifier | Disposition |
+|---|---|---|---|---|---|
+| Go compiler export data | Go documents current Unified IR export data as a serialized object graph with an index for lazy decoding. The same compiler writes object code and export data; export data includes exported declarations, inline candidate bodies, generic bodies and escape summaries. | Current `cmd/compile` export writer/reader and package archive construction; compare build CPU/RSS/temp bytes, archive/export bytes, import compile CPU and lazy-read CPU/RSS, with identical source, GOOS/GOARCH and information. | The proposed predecessor-aware serialization/index action is already the kind of indexed/lazy export representation described by the official implementation. No target-specific new algorithm/guarantee was identified outside this action space; merely choosing an order is generic packing/tuning. | Pin 20–50 release-tagged packages; fail immediately if a static two-layout witness cannot retain identical import/type/inline semantics or if the current writer already expresses the candidate action. | `STRUCTURAL_DROP__CURRENT_UNION_ABSORPTION`. |
+| CPython `.pyc` | Official `py_compile`/`compileall` documentation fixes stock compile behavior, `TIMESTAMP`, `CHECKED_HASH`, `UNCHECKED_HASH` modes, optimization levels and runtime invalidation semantics. | Current `py_compile`/`compileall` modes plus stock import reader; compare full compile CPU/RSS/temp/storage, cold import/startup and validation/read costs on identical source tree. | A version-locality law cannot alter compilation layout without becoming a cache/invalidation policy, while stock modes already expose the only relevant validity selection. A different bytecode layout would require a different reader/object. | Pin 20–50 CPython tags/package strata; reject if legality requires reader change, or if candidate collapses to documented invalidation/optimization knobs. | `STRUCTURAL_DROP__SAME_OBJECT_ACTION_UNAVAILABLE`. |
+
+## Source pins
+
+- Go compiler current architecture/export data: <https://go.dev/src/cmd/compile/README>; command/flags and archive output: <https://go.dev/cmd/compile/>; public export-data reader/writer: <https://pkg.go.dev/golang.org/x/tools/go/gcexportdata>.
+- CPython stock compile modes: <https://docs.python.org/3/library/py_compile.html>, <https://docs.python.org/3/library/compileall.html>; import/bytecode behavior: <https://docs.python.org/3/faq/programming.html>.
+- GCC testsuite limitation evidence: <https://gcc.gnu.org/onlinedocs/libstdc++/manual/test.html>.
+- Wikidata dump and incremental-dump route: <https://www.wikidata.org/wiki/Wikidata:Database_download>.
+
+The source check is current and bounded; it does not assert global novelty. The Go and CPython decisions are structural because current documented mechanisms absorb or make the desired same-object action unavailable, not because a natural law has not been measured.

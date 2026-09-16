@@ -1,0 +1,15 @@
+schema: torchdynamo-a0-solver-freeze-v1
+assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-GUARD-COVER-CACHE-A0
+solver: SymPy
+version: 1.14.0
+dependency: {name: mpmath, version: 1.3.0}
+wheels:
+  - {path: resources/downloads/sympy-1.14.0-py3-none-any.whl, sha256: E091CC3E99D2141A0BA2847328F5479B05D94A6635CB96148CCB3F34671BD8F5}
+  - {path: resources/downloads/mpmath-1.3.0-py3-none-any.whl, sha256: A0B2B9FE80BBCD81A6647FF13108738CFB482D481D826CC0E02F5B35E5C88D2C}
+options: {api: sympy.logic.inference.satisfiable, use_lra_theory: true, all_models: false}
+timeout_seconds: 2
+cover_orientation: A_COVERS_B_IFF_B_IMPLIES_A
+certificate_required_fields: [normalized_A, normalized_B, symbol_source_map, implication_direction, counterexample_query_B_and_not_A, solver_result, solver_version, solver_options, timeout_seconds, replay_hash]
+unknown_timeout_unsupported_noncheckable: INCOMPARABLE
+sampled_truth_table_is_proof: false
+

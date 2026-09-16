@@ -1,0 +1,24 @@
+assignment_id: STAGE0-C2-20260814-RUST-HISTORY-AWARE-CGU-PARTITION-CONFIRM-V8.7
+mode: INDEPENDENT_CONFIRMATION
+topic_id: RUST-HISTORY-AWARE-CGU-PARTITION
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_READY_TO_DISPATCH
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source12-confirmation\RUST-HISTORY-AWARE-CGU-PARTITION
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source12-primary\RUST-HISTORY-AWARE-CGU-PARTITION
+primary_decision: REVISE_ONCE
+atomic_gate: RUSTC_NATIVE_ITEM_TO_CGU_ACTION__NON_GENERIC_PREDECESSOR_COHORT_PARTITION_CERTIFICATE
+primary_hashes:
+  report_sha256: 2C7E7456E501ED40EEBDD90C9C55AB44DC8F7F6FB2708840D2A70B0F8220880A
+  q1_sha256: 3650C4520E574191CFDE5095EC3F73808176DCFD4F0DF0E0F0E2069C96C269EE
+  source_sha256: 9F5DB9B6425FDE0FFB4EED7494CFD1C60AC402D971CC0BF75D6900783E050816
+  handoff_sha256: CA5F7825939C16DFD0CCB56B46E14F6478566BC7CC9FA260AC37A3F232DAB511
+  manifest_sha256: 6B08D98917AC80506F2F2FCE5AB98F577B3BD29D6A3B8F7A7DB8C3B4C3A3ACCF
+independent_attack_requirements:
+  - Reconstruct current rustc and Cargo whole mono-item to named-CGU union, including stable and volatile split, codegen-units, incremental, LTO and profile modes.
+  - Decide whether checksum-pinned adjacent versions supply two same-crate, same-program legal whole partitions rather than scalar tuning, cache policy, PGO or a changed object.
+  - Attack whether predecessor cohort state and guarantee are Rust-specific and future-action preserving, rather than generic graph partitioning or cache scheduling.
+  - Confirm or narrow the single atomic revision gate and finite Stage A falsifier; do not execute the revision.
+forbidden: [revision_execution, implementation, experiment, benchmark, build, stageA, stageB, shared_control_write]
+required_outputs: [CONFIRMATION_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

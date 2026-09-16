@@ -1,0 +1,39 @@
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+checkpoint_status: IN_PROGRESS_CHECKPOINT
+checkpoint_ordinal: 0
+cumulative_from: IN_PROGRESS_CHECKPOINT_000_CUMULATIVE_002.yaml
+eligible_families: 0
+actual_frozen_artifacts:
+  - family: q7m2
+    files: [repo_meta.json, preprint_abs.html, target_anchor.pdf, tags.json]
+    accepted_bytes: 1961535
+    status: 'Partial qualification only: target anchor and repository metadata frozen; pre-cutoff tag/release artifact, two auxiliary locators, cutoff and exclusion closure remain.'
+  - family: n4x8
+    files: [repo_meta.json, preprint_abs.html]
+    accepted_bytes: 9072
+    status: 'Partial qualification only: target PDF rejected after IncompleteRead; no primary anchor accepted.'
+request_results:
+  independent_try_catch: true
+  accepted_requests: 5
+  rejected_requests: 1
+  rejected_detail: 'https://arxiv.org/pdf/1804.07461: IncompleteRead(373273 bytes read, 9166 more expected); no partial bytes saved.'
+  first_party_metadata_confirmed:
+    - 'facebookresearch/CompilerGym repository metadata and tags endpoint'
+    - 'nyu-mll/GLUE-baselines repository metadata'
+resource_ledger:
+  accepted_frozen_response_bytes: 1970607
+  network_bytes: NOT_DIRECTLY_OBSERVABLE__AT_LEAST_1970607_ACCEPTED_RESPONSE_BYTES__REQUEST_LOG_RECORDS_ONE_REJECTED_PARTIAL_TRANSFER
+  temporary_plus_sealed_bytes: 1970607
+  cpu_hours_cumulative_estimate: 0.05
+  wall_hours_cumulative_estimate: 0.15
+  envelope_remaining: true
+unresolved_qualification_facets:
+  - q7m2: 'Find a date-verifiable pre-target release/tag artifact and two dated authoritative locators; then verify identity exclusion before promotion.'
+  - n4x8: 'Use a separate allowed official route for the rejected PDF and then complete pre-cutoff repository/history closure.'
+  - global: 'No family may be marked eligible before all family-qualification fields close.'
+next_routes:
+  - 'Parse the frozen tags metadata for a pre-target tag; retrieve only an exact small raw README/source file at that verified tag.'
+  - 'Attempt the independent official arXiv export/PDF route for n4x8 with a per-artifact strict range recovery only if server behavior supports it.'
+  - 'Add one verified release-history seed for stale-document/current-feature and unfinished-nonstructural strata.'
+failure_status: NOT_APPLICABLE__CONTINUE_SAME_ASSIGNMENT
+no_scientific_inference: true

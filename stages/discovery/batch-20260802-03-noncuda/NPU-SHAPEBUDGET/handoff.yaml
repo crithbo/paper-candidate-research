@@ -1,0 +1,19 @@
+topic_id: NPU-SHAPEBUDGET
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: Dynamic-shape NPU graph region/variant/guard selection under compile and buffer-reservation budgets
+main_claim: Reservation-aware specialization portfolios expose a non-dominated latency-memory-compile tradeoff.
+academic_value_score: 58
+ai_executability_score: 23
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.72
+strongest_baseline: DISC plus generic graph, per-shape JIT, and LRU specialization-cache combinations
+decisive_evidence: One dynamic-shape workload trace where the baseline cannot reproduce the same portfolio and Pareto point under identical accounting.
+unresolved_risks: DISC may be equivalent; NPU cost model may be insufficiently calibrated.
+next_killer_gate: Audit DISC/runtime code for variant cache and buffer-reservation semantics, then construct a one-model deterministic portfolio table.
+mechanism_pivot_remaining: 1
+reserve_reason: ''
+evidence_ceiling: Compiler/model-level unless an open NPU backend is measured.
+execution_authority: Discovery only; no formal experiment.
+file_hashes: {topic_brief.md: B6542E5150A42BA3FB47F23CE47DDE9A779DFAF687CD616E9B5E864A5C0E7002, source_log.md: D7F5CB2CFF78B7C9AEBBB867E0B1FA65440EFE9685696C261AE84EB9B26A03F4}

@@ -1,0 +1,54 @@
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ Stage A semantics
++Stage A keeps the formal pipeline unchanged and uses internal scheduling modes A0_EXECUTION_READINESS, A1_DECISIVE_PILOT and A2_INDEPENDENT_GATE. A0 is non-claim-bearing; only A1 may create scientific observations. New assignment IDs do not reset topic-level engineering or redesign budgets.
+
+--- a/rules/ROLE_MAINLINE.md
++++ b/rules/ROLE_MAINLINE.md
+@@ Stage A dispatch
++Before dispatch, freeze a topic-level STAGEA_EXECUTION_READINESS_LEDGER. Across all assignments for the same topic, A0 has one initial round plus at most two engineering-correction batches and one legal same-object method redesign. Queue wait and hard external-blocker wait do not count as A0 execution rounds. Once A0 is READY, the next eligible action must be A1_DECISIVE_PILOT or an explicit blocker; no new static/preclaim successor may expand the packet. Budget exhaustion yields hold/blocker routing, never scientific STOP, and a new assignment does not reset the ledger.
+
+--- a/rules/ROLE_CANDIDATE_OWNER.md
++++ b/rules/ROLE_CANDIDATE_OWNER.md
+@@ Stage A minimum evidence
+-Freeze 2-4 baselines and complete all listed evidence items as a uniform minimum.
++A1 requires one current strongest same-function baseline. Add at most one simple or attribution baseline only when needed to rule out ordinary tuning. Run 1-4 result-independent natural/formal cases. Complete atomic semantics on the minimal instance is mandatory; full workload matrices, platforms, statistics, complete baseline grids and full ablations belong to Stage B.
+
+--- a/rules/ROLE_STAGEA_REVIEW.md
++++ b/rules/ROLE_STAGEA_REVIEW.md
+@@ Required checks
++Treat one strongest fair baseline as the Stage A minimum. Reuse the frozen Stage 0 Q1/collision matrix and update only version drift, new collisions or claims affected by execution. Do not require Stage B evidence breadth for an A1 preliminary-support decision.
+
+--- a/rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md
++++ b/rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md
+@@ Scheduling
++The existence of another finite same-object route is insufficient after the topic cumulative Stage A budget is exhausted. Route to execution hold, external blocker, human reserve, or an explicitly user-approved exceptional continuation. Never reset the budget through a successor assignment.
+
+--- a/templates/STAGEA_REPORT.md
++++ b/templates/STAGEA_REPORT.md
+@@ Identity and execution status
++- Stage A internal mode: A0_EXECUTION_READINESS / A1_DECISIVE_PILOT / A2_INDEPENDENT_GATE
++- Topic formal state:
++- Assignment execution substate:
++- Engineering correction batches used/max:
++- Same-object redesigns used/max:
++- A0 execution rounds used/max:
++- A0 READY next eligible action:
++- Valid claim rows / planned:
++- Decisive Stage A observation:
+
+--- /dev/null
++++ b/templates/STAGEA_EXECUTION_READINESS_LEDGER.yaml
+@@
++schema: stagea-execution-readiness-ledger-v1
++topic_id: null
++topic_formal_state: null
++assignment_execution_substate: null
++internal_mode: A0_EXECUTION_READINESS
++engineering_correction_batches: {used: 0, max: 2}
++same_object_method_redesigns: {used: 0, max: 1}
++a0_execution_rounds: {used: 0, max: 3}
++a0_ready_next_eligible_action: A1_DECISIVE_PILOT_OR_BLOCKER
++valid_claim_rows: {observed: 0, planned: null}
++decisive_stagea_observation: false
++new_assignment_resets_budget: false

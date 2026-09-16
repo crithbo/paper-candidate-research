@@ -1,0 +1,98 @@
+schema_version: rvv-r5c-a3-independent-replay-negative-control-audit-v1
+created_at: 2026-08-26T17:57:45+08:00
+assignment_id: STAGEA-GATE-20260826-LLVM-RVV-R5C-A3-TRANSITIVE-SPLIT-PRECLAIM
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+decision: PASS_G3_AND_MECHANICAL_G5__DEPENDENCY_SEMANTICS_REMAIN_G2_G4_FAILURE
+scientific_inference: NONE
+
+manifest_audit:
+  manifest_sha256: 779FB2138E2F841F11C941A2690CDB3F187C80F648E605695DFE0F6C562B50F8
+  entries_declared: 87
+  entries_rehashed: 87
+  hash_matches: 87
+  missing: 0
+  mismatch: 0
+
+command_receipt_audit:
+  index_sha256: 2629B29074B3A624DFCDF13222B1A8A2B512EB06C4302BA393BA82BD32308528
+  declared_count: 14
+  observed_count: 14
+  receipt_json_equal_to_index_record: 14_OF_14
+  exact_CWD: 14_OF_14
+  stdout_hash_match: 14_OF_14
+  stderr_hash_match: 14_OF_14
+  output_hash_match: 14_OF_14
+  timestamps_ordered: 14_OF_14
+  retry_zero: 14_OF_14
+  exit_expectation_match: 14_OF_14
+  positive_exit_zero_ids:
+    - C2_PYCOMPILE_1
+    - C2_PYCOMPILE_2
+    - C2_PYCOMPILE_3
+    - C3_GRAPH_NEGATIVES
+    - C4_FRESH_LLC_R1
+    - C5_FRESH_LLC_R2
+    - C6_SPLIT_CLOSURE
+    - C7_F3
+    - C7_F4
+    - C7_F5
+  expected_negative_exit_nonzero_ids:
+    - C7_NEG_MUTATED_GRAPH
+    - C7_NEG_MUTATED_FUTURE
+    - C7_NEG_F4_NO_CLOSURE
+    - C7_NEG_F5_BAD_HASH
+
+G3_NATIVE_REPLAY_RECEIPTS:
+  decision: PASS
+  exact_argv_contains:
+    executable: resources/env/rvv-toolchain/bin/llc.exe
+    target: -mtriple=riscv64
+    feature: -mattr=+v
+    pass: -run-pass=greedy
+    verifier: -verify-machineinstrs
+    witness: resources/src/harness/forced-pressure.mir
+  fresh_llc_commands: 2
+  C4_exit_code: 0
+  C5_exit_code: 0
+  replay_R1_sha256: AE30D1243442F787A117EBBD708F9CC1E75DF96975E505B4EA015FC14238799B
+  replay_R2_sha256: AE30D1243442F787A117EBBD708F9CC1E75DF96975E505B4EA015FC14238799B
+  byte_exact: true
+  automatic_retry: false
+  result_based_exclusion: false
+
+G5_NEGATIVE_CONTROLS:
+  decision: PASS_WITH_SCOPE_CAVEAT
+  required_count: 12
+  observed_count: 12
+  exact_key_set_equal: true
+  all_required_values_true: true
+  names_count_generators_values_and_expected_polarity_changed: false
+  serialization_order_decisive: false
+  cases:
+    CROSS_CLASS_OR_LMUL: true
+    CYCLE: true
+    F4_WITHOUT_CLOSURE: true
+    F5_WITH_MUTATED_CLOSURE: true
+    MISSING_LEAF: true
+    MISSING_RELOAD_OR_FUTURE_USE: true
+    MISSING_SPILL: true
+    MULTIROOT_DESCENDANT: true
+    MUTATED_FUTURE_ACTION_OR_COST_SIGNATURE: true
+    MUTATED_TRANSITIVE_GRAPH_HASH: true
+    ORPHAN_DESCENDANT: true
+    UNKNOWN_PARENT: true
+  dependency_negative_scope:
+    graph_mutation_stderr: split closure internal dependency mismatch
+    future_mutation_stderr: split closure internal dependency mismatch
+    missing_closure_stderr: split closure path and expected hash are required
+    bad_hash_stderr: split closure hash mismatch
+    proves_exact_hash_and_internal_integrity_fail_closed: true
+    proves_self_consistent_semantic_dependency_into_quotient_or_baselines: false
+
+reviewer_execution:
+  native_tool_runs: 0
+  corpus_runs: 0
+  natural_or_selected_runs: 0
+  claim_bearing_runs: 0
+  retries: 0
+

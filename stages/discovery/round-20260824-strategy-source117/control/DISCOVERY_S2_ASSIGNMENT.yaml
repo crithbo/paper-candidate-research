@@ -1,0 +1,18 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S2-20260824-SOURCE117-LOW-BIT-CONFORMANCE-INTEROP-V1
+topic_id: SOURCE117-PORTFOLIO-S2
+lane_id: DISCOVERY_S2
+lane_mode: S2_BOTTLENECK_TRANSFER
+thread_id: 01a02e08-1076-7df0-83cf-74b2844a3507
+common_contract: stages/discovery/round-20260824-strategy-source117/control/CONTROL.yaml
+common_contract_sha256: 61A36513F3ED42BCD0536A2182494E114917E3617389D275E2214BF9557C23D0
+write_directory: stages/discovery/round-20260824-strategy-source117/S2-bottleneck-transfer
+resource_root: stages/discovery/round-20260824-strategy-source117/S2-bottleneck-transfer/resources
+focus: CONFORMANCE_MOVING_COST_TO_CONVERSION_DEQUANT_COPY_OR_HOST
+anchor_portfolio: [GGUF_KQUANTS_EXECUTORCH_OPENVINO_TORCHAO_CONVERSION_PATH]
+mandatory_current_reality_check: EXACT_SPEC_CURRENT_SOURCE_DEFAULT_NONDEFAULT_FLAGS
+forbidden_inputs: [GROUP_REPOSITORY, CRFEPOCH_STAGE0, SOURCE117_FUTURE_AUDIT]
+model_route: {model: gpt-5.6-terra, reasoning: high}
+modes: {rq_frontend: PRODUCTION, claim_pack: OFF, quality: OFF, selective_depth: OFF}
+next_action_before_start: WRITE_BOOTSTRAP_ACK_AND_WAIT
+

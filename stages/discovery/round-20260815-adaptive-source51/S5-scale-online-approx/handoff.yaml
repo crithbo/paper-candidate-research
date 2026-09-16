@@ -1,0 +1,39 @@
+assignment_id: DISCOVERY-S5-20260815-ADAPTIVE-SOURCE51-CANONICAL-ROLLBACK-V1
+lane: S5_SCALE_ONLINE_APPROX
+write_directory: stages/discovery/round-20260815-adaptive-source51/S5-scale-online-approx
+control_sha256: F12ACC25D62DA4DAAB3371A576E6DEA0C73ECC34F0298CD82D021B0F5CD406EC
+assignment_sha256: F6864BB501BA6B3CAD3966D7AF20A2E11A74471C4367CDD8898196D0A9006CC2
+method:
+  canonical: v8.7
+  rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  claim_pack: OFF
+  v9: OFF
+  typed_portfolio_source49: OFF
+  selective_depth_source50: OFF
+result:
+  disposition: COMPLETE_ZERO_PROPOSALS
+  funnel: {seed: 6, selected_rq: 3, excluded_before_locator: 2, rq_backlog: 2, raw: 0, c0: 0, d1: 0, deep: 0, clean_brief: 0}
+  structural_drops:
+    - OPENROAD_ECO_INCREMENTAL_RELEGALIZATION__CURRENT_NATIVE_UNION
+    - OPENSTA_EXACT_INCREMENTAL_TIMING_UPDATE__CURRENT_NATIVE_UNION
+  locator_only:
+    - LLD_LINK_RETAINED_STATE__NO_FIXED_CARRIER_OR_NON_GENERIC_ACTION
+identity_and_reopen:
+  source49_50_exact_terminal_or_absorbed_reopened: false
+  related_only_not_used_as_exclusion: true
+  no_match_not_used_as_novelty_evidence: true
+queue:
+  file: SOURCE_CLOSURE_QUEUE.yaml
+  status: EMPTY_NOT_EXHAUSTED
+  attempts: 0
+resources:
+  file: RESOURCE_INVENTORY.yaml
+  persistent_actions: 0
+  scientific_inference: NONE
+communication:
+  mainline_callback_required: true
+  lane_return_state: IDLE_REUSABLE_AWAITING_MAINLINE
+plain_chinese_summary: >-
+  本轮恢复 Source48 的 canonical 基线后，没有形成可送 Stage0 的题目。OpenROAD 与 OpenSTA
+  的两个具体在线动作已被当前原生 union 覆盖；lld-link 路线没有冻结同对象的版本化载体和非通用动作，
+  仅保留为 locator backlog。没有把相关领域相似或“未命中”当作排除或新颖性结论。

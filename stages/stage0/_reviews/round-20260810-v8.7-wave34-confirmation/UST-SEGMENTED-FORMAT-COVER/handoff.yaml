@@ -1,0 +1,160 @@
+schema: stage0-confirmation-handoff-v8.7
+assignment_id: STAGE0-C1-20260810-UST-SEGMENTED-FORMAT-COVER-CONFIRM-V8.7
+topic_id: UST-SEGMENTED-FORMAT-COVER
+role: STAGE0_CONFIRMATION_SENTRY
+mode: SENTRY
+cutoff_date: 2026-08-10
+
+decision:
+  protocol_disposition: CONFIRM
+  stage0_disposition: CONFIRM_REVISE_ONCE
+  primary_revise_once_confirmed: true
+  quality_tier_if_gate_closes: TIER_B_Q2_VIABLE
+  current_evidence_readiness: SOURCE_READY__MECHANISM_RESIDUAL_UNDERFROZEN
+  direct_same_object_fatal_collision_found: false
+  search_status: SEARCH_BOUNDED_OPEN
+  confidence: 0.89
+
+exact_object:
+  input: fixed_canonical_sparse_A_and_preregistered_dense_B_sequence
+  output: same_original_row_order_C_r_equals_alpha_A_B_r_plus_beta_C_r
+  deployment: pinned_nvmath_python_UST_v1_0_0_native_Tensor_and_Matmul
+  permitted_action: at_most_K_contiguous_row_intervals_each_with_one_legal_UST_format_and_native_plan
+  required_invariants:
+    - coordinates_values_and_original_row_order_unchanged
+    - every_output_row_owned_exactly_once
+    - same_dtype_transpose_alpha_beta_R_and_memory_limit
+    - native_in_place_output_semantics_or_fully_charged_temporary_and_copy
+    - conversion_directory_plan_JIT_workspace_launch_output_and_peak_memory_charged
+  prohibited_drift:
+    - row_reordering
+    - approximate_or_pruning_specific_product
+    - new_custom_kernel_family_as_candidate_object
+    - different_sparse_operation
+
+current_ust_boundary:
+  one_tensor_binds_one_tensor_format: true
+  convert_creates_one_target_tensor: true
+  stateful_matmul_plan_execute_and_operand_reset_are_native: true
+  multi_tensor_multi_plan_user_composition_is_possible: true
+  native_first_class_complete_cover_found: false
+  missing_one_click_cover_is_novelty: false
+
+atomic_revision_gate:
+  id: NONPRODUCT_UST_COVER_RESIDUAL_BEYOND_CONTIGUOUS_PARTITION_AND_HYBRID_SPMM
+  necessary: true
+  atomic: true
+  sufficient_for_conditional_stage0_potential: true
+  proposition: >-
+    Under the frozen same-SpMM UST contract, one pre-named legal action,
+    cross-segment coupling, or formal guarantee must have feasible or optimal
+    behavior that the complete strengthened contiguous-segmentation comparator
+    and named hybrid-SpMM family cannot reproduce.
+  evidence_obligations:
+    - fixed_mathematical_model_over_complete_finite_UST_action_catalog
+    - one_named_nonproduct_action_interaction_or_guarantee
+    - one_minimal_legal_same_object_action_divergence_witness
+    - one_nontrivial_algorithm_complexity_approximation_or_formal_property_statement
+    - explicit_subtraction_against_1D_VBR_Yang2018_HR_SpMM_GeneralSparse_and_RSH_SpMM
+    - finite_stageA_preclaim_route_and_failure_predicate
+  not_required_at_revision:
+    - implementation
+    - benchmark_or_positive_natural_result
+    - full_theorem_proof
+    - main_claim_validation
+
+comparator_normalization:
+  additive_labelled_segmentation_must_include:
+    - K_state
+    - fixed_R_and_reuse_state
+    - memory_budget_state
+    - ordinary_finite_state_label_transition_costs
+    - all_additive_plan_setup_conversion_directory_launch_and_output_costs
+  implication: >-
+    A budget dimension, reuse state, transition penalty, wider label catalog, or
+    additional estimator feature alone is standard segmentation and fails the gate.
+
+decisive_subtractors:
+  - id: UST_V1_0_0_COMPLETE_ACTION_FAMILY
+    class: DIRECT_SUBTRACT_AND_DEPLOYMENT_BASELINE
+  - id: AHRENS_BOMAN_1D_VBR
+    class: ALGORITHM_KERNEL_COLLISION
+  - id: YANG_LI_LI_2018_OPTIMAL_HYBRID_CSR_ELL
+    class: CLASSIC_METHOD_SUBTRACTOR
+  - id: HR_SPMM_ICS_2025
+    class: SAME_OPERATION_HYBRID_PARTITION_SUBTRACTOR
+  - id: GENERALSPARSE_ATC_2025
+    class: STRONG_SAME_OPERATION_METHOD_SUBTRACTOR
+  - id: RSH_SPMM_ARXIV_2603_08734
+    class: CURRENT_FINE_GRAINED_HYBRID_METHOD_SUBTRACTOR_WITH_OBJECT_DRIFT
+
+strongest_fair_baselines:
+  - B0_COMPLETE_UST_GLOBAL_FORMAT_DISPATCH_ALGORITHM_GRID
+  - B1_STRENGTHENED_FINITE_STATE_RESOURCE_AWARE_LABELLED_SEGMENTATION
+  - B2_CURRENT_HYBRID_SPMM_METHOD_FAMILY_WHERE_OBJECT_FAITHFUL
+  - B3_BOUNDED_EXHAUSTIVE_SMALL_INSTANCE_CEILING_ONLY
+
+revision_failure:
+  terminal_disposition: CONFIRM_STOP
+  terminal_quality_tier: BELOW_Q2_STOP
+  terminal_reason: HYBRID_ROW_PARTITION_PLUS_UST_WRAPPER_ABSORPTION
+  triggers:
+    - only_more_formats_features_weights_thresholds_K_or_reuse_values
+    - ordinary_resource_or_transition_augmented_segmentation
+    - multi_tensor_multi_plan_controller_directory_emitter_or_postprocessor
+    - local_byte_or_time_heuristic_without_global_property
+    - action_equivalent_to_named_hybrid_SpMM_family
+    - changed_row_order_approximation_new_kernel_or_different_operation
+
+stage_a_preclaim_route:
+  exists: true
+  authorized: false
+  corpus: at_least_20_preregistered_SuiteSparse_matrices
+  required_fidelity:
+    - pinned_UST_source_commit_and_complete_action_catalog
+    - exact_order_safe_and_floating_small_witnesses
+    - row_ownership_conversion_in_place_output_alpha_beta_tolerance_and_memory_checks
+    - frozen_R_dense_widths_formats_K_budget_and_baseline_settings
+    - full_cold_warm_cost_and_p50_p90_ledger
+  killer:
+    - no_faithful_witness
+    - accepted_action_divergence_on_less_than_10_percent_of_eligible_natural_matrices
+    - no_preregistered_stratum_with_nondominated_full_cost_point
+    - all_actions_or_gains_reproduced_by_B0_B1_or_B2
+  positive_probe_ceiling: PRELIMINARY_SUPPORT_OR_NONFALSIFICATION_ONLY
+
+input_integrity:
+  discovery_manifest_sha256: 3D51BAD84512C9B6EC05C8B1882D990A30F0FDDDE21B2F0901CA4683641BE946
+  discovery_entries_verified: 4
+  discovery_entries_total: 4
+  primary_manifest_sha256: A2B023143D87E29FAAB7CDB871A33EA3F6444DCB9FB97FF45071BD460B106A48
+  primary_entries_verified: 4
+  primary_entries_total: 4
+  provenance_conflict: false
+
+claim_ceiling:
+  permitted_now: >-
+    One scientific revision may test for a nonproduct same-object UST cover
+    algorithm or formal guarantee beyond the complete current action family,
+    strengthened segmentation comparator, and current hybrid-SpMM subtractors.
+  prohibited_now:
+    - first_segmented_sparse_format_or_first_hybrid_SpMM
+    - innovation_from_missing_API
+    - demonstrated_natural_headroom_or_performance
+    - established_algorithm_or_theorem
+    - Stage_A_or_Stage_B_authorization
+
+permissions:
+  stage_a_authorized: false
+  stage_b_authorized: false
+  experiments_authorized: false
+  benchmarks_authorized: false
+  implementation_authorized: false
+  control_files_modified: false
+
+deliverables:
+  - CONFIRMATION_REVIEW.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

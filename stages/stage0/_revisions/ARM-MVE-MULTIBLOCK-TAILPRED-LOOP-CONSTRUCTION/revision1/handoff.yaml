@@ -1,0 +1,42 @@
+assignment_id: STAGE0-P1-20260814-ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION-REVISION1-V8.7
+topic_id: ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION
+mode: PRIMARY_REVISION1
+decision: RECOMMEND_BELOW_Q2_STOP
+quality_tier: BELOW_Q2_STOP
+sentinel: BELOW_Q2_STOP__SINGLE_BLOCK_BOUNDARY_WITHOUT_NATIVE_TWO_PLAN_OR_TARGET_SPECIFIC_FRONTIER
+confidence: 0.91
+scientific_revision:
+  limit: 1
+  index: 1
+  consumed: true
+  reason: gate_bearing_static_reconstruction_completed
+sole_gate:
+  id: NATIVE_TWO_BLOCK_MVE_PLAN_DIVERGENCE__FUTURE_PRESERVING_VPT_VCTP_FRONTIER_CERTIFICATE
+  result: FAIL
+  decisive_failures:
+    - no_pinned_public_two_block_same_function_complete_native_two_plan_witness
+    - no_union_external_native_action_beyond_current_component_union
+    - no_future_native_action_legality_full_cost_preserving_MVE_specific_frontier
+    - no_target_specific_exact_fpt_or_certified_recurrence
+current_source:
+  llvm_commit: 81ac5c7c26efb70ffaffb91b26053437093ee085
+  decisive_boundary: ARMLowOverheadLoops_IsTailPredicationLegal_requires_ML_getNumBlocks_equals_1
+  interpretation: current_pipeline_eligibility_condition_not_global_MVE_ISA_absence
+fair_union:
+  - llvm_vectorizer_MVETailPredication_ARMLowOverheadLoops
+  - all_tail_predication_modes
+  - VCTP_reaching_definition_VPT_VPST_repair_and_validation
+  - DLSTP_WLSTP_LETP_selection_and_ordinary_revert_fallback
+evidence_ceiling: E1_STATIC_SOURCE_AND_SEMANTIC_AUDIT_ONLY
+claim_ceiling: no_correctness_performance_code_size_compile_time_runtime_or_energy_claim
+stageA_authorized: false
+stageB_authorized: false
+closing_review_requested: false
+resource_status: NO_RESOURCE_BLOCKER
+contamination_declaration: PPC_MMA_facts_not_read_or_used
+repair_vector:
+  - ATOMIC_ACTION_UNCLEAR
+  - CLAIM_MECHANISM_UNCLEAR
+  - Q2_SHAPE_GAP
+next_action_for_mainline: REGISTER_SCIENTIFIC_STOP_NO_SAME_ID_REVISION
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,121 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: ONNXRUNTIME_EP_PARTITION_MEMORY_PATTERN
+  assignment_id: SOURCE-CLOSURE-SOURCE86-S2-CQ01-ONNXRUNTIME-PARTITION-MEMORY-PATTERN-V1
+  stage_or_mode: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+  run_id: S2-86-CQ01
+  unique_write_directory: stages/discovery/round-20260815-adaptive-source86/S2-bottleneck-transfer/closure-cq01
+  resource_root: stages/discovery/round-20260815-adaptive-source86/S2-bottleneck-transfer/closure-cq01/resources
+  inventory_path: stages/discovery/round-20260815-adaptive-source86/S2-bottleneck-transfer/closure-cq01/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T09:52:57+08:00
+  finalized_at: 2026-08-15T10:08:00+08:00
+root_measurement:
+  logical_bytes: 3608314
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS__PROCESS_LOCAL_REDIRECTS_VERIFIED_FOR_INVOKE_WEBREQUEST
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: powershell Invoke-WebRequest
+      process_local_redirects:
+        TEMP: resources/tmp
+        TMP: resources/tmp
+        TMPDIR: resources/tmp
+        XDG_CACHE_HOME: resources/cache
+      explicit_output_root: resources/downloads
+      preflight_snapshot: resources/logs/resource-inventory/preflight-v1.yaml
+resource_envelope:
+  network_bytes_max: 50331648
+  stored_bytes_max: 16777216
+  cpu_hours_max: 0.25
+  gpu_hours_max: 0
+  wall_seconds_max: 1800
+  attempts_max: 6
+  network_bytes_used: 3603382
+  stored_bytes_used: 3608314
+  attempts_used: 6
+entries:
+  - relative_path: resources/downloads/01-ort-main-commit.json
+    class: OFFICIAL_API_PIN_RESPONSE
+    logical_bytes: 69217
+    source_uri: https://api.github.com/repos/microsoft/onnxruntime/commits/main
+    version_or_commit: c5300b71ec44aee30ba0d18190f29372568a8e07
+    license: GitHub API metadata; upstream repository provenance
+    sha256: 8C5EC7BF63FF8CBB75EA04C3B9AE93AD36EBE1EA1B0B565A751E89783969A011
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources/downloads/02-ort-pinned-tree.json
+    class: OFFICIAL_API_PINNED_TREE_RESPONSE
+    logical_bytes: 3301143
+    source_uri: https://api.github.com/repos/microsoft/onnxruntime/git/trees/c5300b71ec44aee30ba0d18190f29372568a8e07?recursive=1
+    version_or_commit: c5300b71ec44aee30ba0d18190f29372568a8e07
+    license: GitHub API metadata; upstream repository provenance
+    sha256: CB589208353F3FBCFF8D01C49AE943FA54C06E191553F79D4A79F44321012DD0
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources/downloads/03-graph_partitioner.cc
+    class: CURRENT_SOURCE_LOCUS__EP_PARTITION
+    logical_bytes: 75283
+    source_uri: https://raw.githubusercontent.com/microsoft/onnxruntime/c5300b71ec44aee30ba0d18190f29372568a8e07/onnxruntime/core/framework/graph_partitioner.cc
+    version_or_commit: c5300b71ec44aee30ba0d18190f29372568a8e07
+    license: MIT (upstream repository)
+    sha256: BEDFF8B6A8D77235A86A56474AD01B620635C39E5D165B8E8FB18429CE551B81
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: resources/downloads/04-session_state.cc
+    class: CURRENT_SOURCE_LOCUS__MEMORY_PATTERN_SESSION_STATE
+    logical_bytes: 95066
+    source_uri: https://raw.githubusercontent.com/microsoft/onnxruntime/c5300b71ec44aee30ba0d18190f29372568a8e07/onnxruntime/core/framework/session_state.cc
+    version_or_commit: c5300b71ec44aee30ba0d18190f29372568a8e07
+    license: MIT (upstream repository)
+    sha256: 2068155A1D130550CD74D707AFDE3968FEF14CE0520A69545D472D60AA432226
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: resources/downloads/05-bfc_arena.cc
+    class: CURRENT_SOURCE_LOCUS__ARENA
+    logical_bytes: 32576
+    source_uri: https://raw.githubusercontent.com/microsoft/onnxruntime/c5300b71ec44aee30ba0d18190f29372568a8e07/onnxruntime/core/framework/bfc_arena.cc
+    version_or_commit: c5300b71ec44aee30ba0d18190f29372568a8e07
+    license: MIT (upstream repository)
+    sha256: 7FEF472C147E0452F3B1584B0C448E06B73E46653D9121C110C1D72F9C2BD356
+    deletion_status: RETAIN_CLAIM_CRITICAL
+  - relative_path: resources/downloads/06-internal_testing_partitioning_tests.cc
+    class: CURRENT_SOURCE_LOCUS__FIXED_IN_TREE_PARTITION_CARRIER
+    logical_bytes: 30097
+    source_uri: https://raw.githubusercontent.com/microsoft/onnxruntime/c5300b71ec44aee30ba0d18190f29372568a8e07/onnxruntime/test/internal_testing_ep/internal_testing_partitioning_tests.cc
+    version_or_commit: c5300b71ec44aee30ba0d18190f29372568a8e07
+    license: MIT (upstream repository)
+    sha256: 8B1A3EB0F1109B72A60F444F64D7171FB5C1583691BF733DB440E4FA01888800
+    deletion_status: RETAIN_CLAIM_CRITICAL
+shared_assets_consumed: []
+external_system_dependencies: []
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: FINAL_PASS__SIX_BOUNDED_OFFICIAL_CALLS_WITHIN_STORED_BYTE_CAP

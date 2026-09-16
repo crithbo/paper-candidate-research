@@ -1,0 +1,41 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE43-GLOBAL-IDENTITY-CLOSURE-CONTINUATION-V1
+retrieval_date: 2026-08-15
+entries:
+  - id: SRC01
+    role: ANCHOR_AND_CURRENT_SEMANTICS
+    title: Swift Evolution SE-0296 Async/Await
+    url: https://github.com/swiftlang/swift-evolution/blob/main/proposals/0296-async-await.md
+    provenance: official_swift_evolution_repository
+    observation: Async functions have an ABI distinct from synchronous functions; task execution and task-local concepts are specified separately.
+    disposition: supports RQ01 boundary only; not current-source absence evidence.
+  - id: SRC02
+    role: CURRENT_UNION
+    title: Wasmtime canonical ABI information
+    url: https://docs.wasmtime.dev/api/wasmtime_environ/component/struct.CanonicalAbiInfo.html
+    provenance: official_wasmtime_api_documentation
+    observation: The current canonical-ABI data structure carries size and alignment information for both memory32 and memory64 types.
+    disposition: RQ02's proposed representation difference is not a frozen non-generic residual.
+  - id: SRC03
+    role: CURRENT_CONFIGURATION
+    title: Wasmtime WebAssembly proposal support
+    url: https://docs.wasmtime.dev/stability-wasm-proposals.html
+    provenance: official_wasmtime_documentation
+    observation: memory64 and component-model support are listed as enabled/supported in current Wasmtime documentation.
+    disposition: contrary to any premise that the proposed boundary is absent merely because of feature configuration.
+  - id: SRC04
+    role: CURRENT_SEMANTICS_AND_CONTRARY
+    title: LLVM Language Reference Manual
+    url: https://www.llvm.org/docs/LangRef.html
+    provenance: official_llvm_documentation
+    observation: Operand bundles are defined on call and invoke and form part of call-site semantics; invoke explicitly accepts an operand-bundle list.
+    disposition: current locus for RQ03; the required byref-specific source locus remains a bounded queue debt.
+  - id: SRC05
+    role: CURRENT_UNION
+    title: MLIR Transform Dialect
+    url: https://mlir.llvm.org/docs/Dialects/Transform/
+    provenance: official_mlir_documentation
+    observation: Transform operations declare payload and mapping effects; consuming a handle has explicit invalidation rules, with optional infrastructure use checks.
+    disposition: RQ04 reduces to generic transform sequencing/checking rather than a frozen target-specific constructor.
+notes:
+  - Search and page metadata were inspected only; no downloaded source/artifact was persisted.
+  - No source is used as a claim of literature absence.

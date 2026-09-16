@@ -1,0 +1,63 @@
+topic_id: QREFINE-TRITON-W4A16
+user_summary_cn:
+  outcome: WSL与VMP已启用，DISM_3010要求一次协调重启
+  main_reason: 合同要求lane不得自行重启，Ubuntu与科研资源阶段尚未开始
+  next_step: 主线或用户执行一次已批准重启后，新建immutable post-restart resume
+  user_action_required: true
+  user_action: 协调并执行一次Windows重启，然后按REBOOT_CHECKPOINT继续
+lane_id: CANDIDATE-EXECUTION-LANE-1
+assignment_id: STAGEA-L1-20260822-QREFINE-TRITON-W4A16-RESUME2-WSL-UBUNTU2404
+assignment_state: IDLE_REUSABLE_AWAITING_MAINLINE
+input_freeze_sha256: 008D1FA2B834BA0A8FBF5CBD593A9400576F4FEC28F4C3A3D5B44B0DC796AA8D
+cross_assignment_contamination_declared: false
+source_stage: STAGEA_RESUME_FROM_BLOCKER
+proposed_next_stage: STAGEA_POST_RESTART_RESUME
+decision: APPROVED_REBOOT_PENDING
+quality_tier: TIER_B_Q2_VIABLE
+structural_paper_potential: UNCHANGED_NOT_REASSESSED
+evidence_acquisition_readiness: EB_SYSTEM_RESTART_PENDING
+stage_semantics: STAGEA_SYSTEM_RESOURCE_RECOVERY_ONLY
+contribution_type: COMPILER_TOOL
+novelty_route: N2
+preclaim_contract_fidelity_gate_actual_status: NOT_STARTED_REBOOT_CHECKPOINT
+exact_object: w4a16_decode_gemv_m1_g128_uint4b8_fp16__triton_v3_7_1__post_make_llir_pre_llvm_to_module__sm89_gfx1100
+main_claim: NOT_TESTED
+decisive_evidence:
+  - WSL_DISABLED_TO_ENABLED__DISM_EXIT_3010
+  - VMP_ENABLED__DISM_EXIT_3010
+  - HYPER_V_AND_CONTAINERS_NOT_TARGETED_AND_PRE_POST_UNCHANGED
+  - LANE_INITIATED_RESTART_FALSE
+unresolved_risks: [post_restart_executor, Ubuntu_24_04, exact_resources, preclaim, mutants, composition, schedule_witness]
+blocker_status: APPROVED_REBOOT_PENDING
+blocker_kind: AUTHORIZED_RESTART_REQUIRED_BEFORE_NEXT_PHASE
+claim_bearing_observation_obtained_before_failure: false
+scientific_revision_consumed: false
+resource_attempt_recorded: true
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/QREFINE-TRITON-W4A16/resume2-wsl-ubuntu2404
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/QREFINE-TRITON-W4A16/resume2-wsl-ubuntu2404/resources
+  resource_inventory_path: RESOURCE_INVENTORY.yaml
+  persisted_resource_bytes: 8974
+  redirect_preflight_status: PASS_PROJECT_PATHS__NO_LINUX_CHILD_YET
+  external_system_caches_used: [WINDOWS_WSL_AND_VMP_SYSTEM_MANAGED]
+  shared_assets_consumed: []
+  cleanup_owner: MAINLINE
+  cleanup_status: NOT_REQUESTED
+user_blocker_packet: null
+resume_contract_sha256: 008D1FA2B834BA0A8FBF5CBD593A9400576F4FEC28F4C3A3D5B44B0DC796AA8D
+resume_directory: NEW_IMMUTABLE_POST_RESTART_DIRECTORY_TO_BE_ASSIGNED_BY_MAINLINE
+evidence_ceiling: RESOURCE_RECOVERY_AND_REBOOT_CHECKPOINT_ONLY__NO_SCIENTIFIC_INFERENCE
+stagea_probe_support: NOT_APPLICABLE
+pending_user_stageb_review: false
+stageb_user_approval_id: null
+stageb_authorized: false
+execution_authority: USER_EXPLICIT_WSL_VIRTUAL_MACHINE_PLATFORM_UBUNTU2404_SYSTEM_AUTHORITY_20260822
+file_hashes:
+  SYSTEM_CHANGE_LEDGER.yaml: B0AAC56C26EF536A60C5196D9A7DE791C74231615F3A2BBD1AE67F6D984B0983
+  REBOOT_CHECKPOINT.yaml: F900463CED7909B71BE20D59699FA1304DC08A20A309A8B3FD9A9055F249F8F6
+  STAGEA_REPORT.md: 49BC99208DD4BB489CA1BF8A63591362B8EA5DBAA832702297DCB1F7B4A3668D
+  RESOURCE_INVENTORY.yaml: 47ADDA7887439519C31E2FC473546FFB209CFCC7EF0AD8D04D58248CFBCC0B98
+  PRE_CLAIM_CONTRACT_FIDELITY_GATE.yaml: 022B3C2C27E68E7A543819A43699BF8E42892DA09DC8841110F93EE718B9E961
+hash_manifest_file: HASH_MANIFEST.sha256

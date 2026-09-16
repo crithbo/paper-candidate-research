@@ -1,0 +1,91 @@
+assignment_id: STAGE0-P1-20260810-KNATIVE-DRAIN-CREDIT-PRIMARY-V8.7
+topic_id: KNATIVE-DRAIN-CREDIT
+role: STAGE0_PRIMARY
+cutoff: '2026-08-10'
+decision: STOP
+quality_tier: BELOW_Q2_STOP
+terminal_sentinel: STOP_SPLIT_COMMIT_POINTS_AND_UNSAFE_REQUEST_MIGRATION
+same_id_revision_allowed: false
+confirmation_recommended: false
+confidence: 0.91
+evidence_ceiling: CURRENT_SOURCE_AND_CONTRACT_STRUCTURAL_NEGATIVE
+search_status: SEARCH_BOUNDED_OPEN
+stageA_authorized: false
+stageB_authorized: false
+structural_paper_potential: >-
+  Broad drain-risk problem is important, but the frozen mechanism has no one
+  legal same-object action under unchanged general HTTP semantics.
+current_evidence_readiness: PUBLIC_CPU_SOURCE_AND_TRACE_AVAILABLE__NOT_STOP_CAUSE
+canonical_failure:
+  - ingress fixes revision identity before activator
+  - activator queues and selects capacity only within the fixed revision
+  - queue_proxy admission and drain occur later at pod scope
+  - arbitrary accepted HTTP requests cannot be transparently replayed or migrated
+  - removing migration leaves a native route/drain controller without frozen nontrivial N2
+current_upstream:
+  tag: knative-v1.23.0
+  commit: 7ed4aa2ab601e3a33c6552285f6e0d910747351d
+  commit_date: '2026-07-29'
+  checked_on: '2026-08-10'
+  source_paths:
+    - pkg/reconciler/route/resources/ingress.go
+    - pkg/activator/handler/context_handler.go
+    - pkg/activator/handler/handler.go
+    - pkg/activator/net/throttler.go
+    - pkg/queue/sharedmain/handlers.go
+    - pkg/queue/sharedmain/main.go
+    - pkg/queue/constants.go
+    - pkg/autoscaler/config/config.go
+    - config/core/configmaps/autoscaler.yaml
+native_pipeline:
+  ingress: chooses revision and appends revision headers
+  activator: buffers and selects a backend for that same revision
+  queue_proxy: enforces concurrency, queues, proxies and drains per pod
+fair_baselines:
+  - B0_KNATIVE_V1_23_DEFAULT_PIPELINE
+  - B1_FINITE_NATIVE_CONFIG_AND_ROUTE_GRID
+  - B2_SAME_INFORMATION_LEGAL_DYNAMIC_CONTROL
+azure_trace:
+  classification: NATURAL_ARRIVAL_DURATION_INPUT_ONLY
+  missing_semantics:
+    - knative revision transitions and route state
+    - activator versus direct path
+    - pod readiness and termination
+    - queue_proxy admission and queue state
+    - HTTP method body idempotency streaming and response commit
+full_cost_missing_in_brief:
+  - request body buffering and replay
+  - duplicate side effects
+  - partial response handling
+  - route propagation and endpoint convergence
+  - retry and failure semantics
+scores:
+  academic: 34
+  ai: 21
+  total: 55
+  ai_core_fraction: 0.68
+new_id_only_conditions:
+  option_a:
+    object: PRE_ASSIGNMENT_REVISION_ROLLOUT
+    conditions:
+      - all actions precede revision-header commitment
+      - no request replay
+      - general HTTP semantics preserved
+      - actual Knative rollout and route propagation logged
+  option_b:
+    object: SAME_REVISION_POD_DRAIN
+    conditions:
+      - activator selects only among pods of one fixed revision
+      - no cross-revision migration claim
+      - native throttler readiness and backend selection are strongest baseline
+  common:
+    - nontrivial online algorithm or guarantee beyond quantile threshold
+    - real Knative transition state
+    - Azure trace used only for arrival and duration input
+source_package:
+  brief_sha256: B837EEBE2AFB876512A0E469C7F9B6DB1BEADDBB900BEC8A6964ECA38BAA17FD
+  discovery_log_sha256: 2A8FE1DB4EAEB8F1E3D91F08E976EE23F53E8FD26C709A82937EFD9BD1D94504
+  collision_matrix_sha256: F219667CE4E6A22D68A7FE124D1330513F0F26FC1E04982260FFAEAE64B9D5F1
+  handoff_sha256: 0D55B3686F1063847C0E2F9AE03B67502FA2F3293EFFC20F0733D76FF8731BE0
+  manifest_self_sha256: C45CE37BB9580978F05BB4754DBC7E7FFA72474159E1CA0CFAE4F5C978C38426
+lane_next: IDLE_REUSABLE_AWAITING_MAINLINE

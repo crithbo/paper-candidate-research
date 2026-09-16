@@ -1,0 +1,149 @@
+topic_id: CVC5-ALETHE-SHAREMAP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+assignment_id: STAGEA-L1-20260809-CVC5-ALETHE-SHAREMAP-INITIAL-V8.7
+assignment_state: IDLE_REUSABLE
+input_freeze_sha256: 27CDF36933F93B0C096AA73DA6A9DC49505872B0D0A7A565EE959F5EF7331FA3
+cross_assignment_contamination_declared: false
+source_stage: STAGEA
+proposed_next_stage: STAGEA_RESUME_FROM_BLOCKER
+decision: BLOCKED_USER_ACTION_REQUIRED
+quality_tier: TIER_B_Q2_VIABLE
+quality_tier_status: INHERITED_CONDITIONAL__NO_NEW_SCIENTIFIC_ADJUDICATION
+structural_paper_potential: TIER_B_Q2_VIABLE_CONDITIONAL
+evidence_acquisition_readiness: TOOLCHAIN_BLOCKED_AFTER_NATIVE_THRESHOLD_REPLAY
+stage_semantics: STAGEA_RISK_PILOT
+opportunity_origins:
+  - O7_DIRECT_ALGORITHM_OR_SOFTWARE_ADVANCE
+domain_tags:
+  - FORMAL_VERIFICATION
+  - SMT_SOLVING
+  - COMPILER_RUNTIME_SYSTEM
+paper_genealogy:
+  - CVC5_TACAS_2022
+  - ALETHE_PXTP_2021
+  - CARCARA_TACAS_2023
+discovery_method_revision: v8.6_fidelity_plan_plus_v8.7_current_upstream_reality_check
+discovery_backtest_reference: FIDELITY_PLAN_V8_6_ACCEPTED_6TP_0FN_6TN_0FP
+fidelity_closure_plan_status: RESOURCE_BLOCKED_FIDELITY_GAP
+fidelity_closure_plan: >-
+  Resume with an exact cvc5-capable C/C++ build chain and a runnable pinned
+  Carcara 1.1.0; build and execute the same-printer-side candidate, validate
+  expanded AST and Carcara fidelity plus global coupling, and only then freeze
+  and run the 60-instance natural corpus.
+current_upstream_reality_check:
+  applicable: true
+  upstream_commit_or_tag: f3b21c4483d3b88dc63cb7cd3e5eb092eee5e341
+  checked_at: 2026-08-09
+  official_current_documentation:
+    - https://cvc5.github.io/docs/cvc5-1.3.4/proofs/output_alethe.html
+    - https://github.com/cvc5/cvc5/releases/tag/cvc5-1.3.4
+  source_symbols_or_paths:
+    - src/proof/alethe/alethe_printer.cpp
+    - src/proof/alethe/alethe_let_binding.cpp
+  default_and_nondefault_flags_thresholds_configs:
+    - dag-thresh=0_sharing_disabled
+    - complete_integer_threshold_boundaries_from_realized_counts
+  absence_claim_disposition: NARROWED
+  remaining_non_tuning_residual: SCOPE_FOREST_WEIGHTED_GLOBAL_SELECTION_OUTSIDE_COMPLETE_NATIVE_THRESHOLD_FAMILY
+preclaim_contract_fidelity_gate_actual_status: FAIL_CLOSED
+preclaim_subgates:
+  native_threshold_family_replay:
+    status: PASS
+    thresholds_per_replay: 65
+    replay_count: 2
+    distinct_raw_outputs: 7
+    p10_count: 3
+    p12_count: 2
+    nonvolatile_mismatch_count: 0
+  candidate_build: UNESTABLISHED_TOOLCHAIN_BLOCKED
+  carcara_check: UNESTABLISHED_TOOLCHAIN_BLOCKED
+  exact_expanded_ast_and_step_rule_fidelity: UNESTABLISHED
+  coupling_or_nondecomposition: UNESTABLISHED
+  full_preclaim_gate: FAIL_CLOSED
+  natural_60_instance_run: NOT_STARTED_PROHIBITED_BEFORE_PASS
+exact_object: CVC5_1_3_4_FIXED_ALETHE_REFUTATION__SAME_THEOREM_RULES_STEPS_EXPANDED_ASTS_AND_CARCARA_CONTRACT
+main_claim: >-
+  Conditional hypothesis only: scope-forest weighted global named-term
+  selection may expose a full-cost legal residual outside the complete native
+  threshold family on natural supported proofs.
+novelty_route: N2
+evidence_route: PERFORMANCE_AND_ALGORITHMIC_STRUCTURE
+mechanism_signature: SCOPE_FOREST_WEIGHTED_GLOBAL_SELECTION
+seed_distance: CURRENT_NATIVE_SHARING_AND_GENERIC_ALETHE_SHARING_SUBTRACTED
+nearest_prior_facet_matrix: Q1_COMPARATOR_MATRIX.md
+q1_venue_family: FORMAL_METHODS_TOOL_AND_SOLVER_ENGINEERING
+q1_calibration_status: PARITY_CONDITIONAL_WITH_EXECUTABLE_GAP__RESOURCE_BLOCKED
+q1_reference_set:
+  - CVC5_TACAS_2022
+  - ALETHE_PXTP_2021
+  - CARCARA_TACAS_2023
+q1_comparator_matrix: Q1_COMPARATOR_MATRIX.md
+q1_evidence_gap:
+  - PRINTER_SIDE_CANDIDATE_BUILD
+  - PINNED_CARCARA_EXECUTION
+  - EXACT_EXPANSION_AND_GLOBAL_COUPLING
+  - NATURAL_60_INSTANCE_FULL_COST_P50_P90
+q2_viability_basis: CONDITIONAL_STAGE0_POTENTIAL_ONLY__NO_STAGEA_SCIENTIFIC_RESULT
+non_relaxable_quality_gates:
+  same_object: FROZEN_BUT_CANDIDATE_UNEXECUTED
+  latest_collision: PASS_CURRENT_NATIVE_SHARING_SUBTRACTED
+  fair_strong_baseline: PASS_FIXED_PROOF_NATIVE_FAMILY_ONLY__CORPUS_UNEXECUTED
+  natural_input_and_evidence: NOT_RUN
+  full_cost: NOT_RUN
+  reproducibility: PASS_NATIVE_SUBGATE_ONLY
+  evidence_claim_honesty: PASS_BLOCKER_ONLY_NO_SCIENTIFIC_INFERENCE
+academic_value_score: null
+ai_executability_score: null
+ai_executability_class: AI_CORE_CONDITIONAL
+ai_core_fraction: null
+strongest_baseline:
+  - PER_PROOF_BEHAVIORALLY_COMPLETE_CVC5_ALETHELETBINDING_DAG_THRESH_ENVELOPE
+  - NATIVE_SHARING_DISABLED_ABLATION
+baseline_contract: SAME_PROOF_RULES_STEPS_FORMAT_CHECKER_INFORMATION_AND_COMPLETE_THRESHOLD_BEHAVIORS
+same_function_contract: SAME_INPUT_UNSAT_THEOREM_PROOF_STEP_ORDER_PREMISES_RULES_EXPANDED_TERM_ASTS_ALETHE_AND_CARCARA
+algorithmic_delta: EXACT_BOUNDED_FRONTIER_SCOPE_FOREST_DP_WITH_AUDITABLE_CERTIFICATE__UNEXECUTED
+full_cost_ledger_scope: SOLVER_PROOF_NATIVE_ENUMERATION_CANDIDATE_CONSTRUCTION_SERIALIZATION_BYTES_DISK_CARCARA_TIME_RSS_FAILURE_TIMEOUT_FALLBACK
+generality_hypothesis: PUBLIC_SUPPORTED_SMT_COMP_OR_SMT_LIB_UNSAT_PROOFS
+why_not_routine_tuning: MUST_CHOOSE_GLOBALLY_COUPLED_LEGAL_SELECTION_OUTSIDE_EVERY_NATIVE_THRESHOLD_OUTPUT
+decisive_evidence:
+  - NATIVE_THRESHOLD_0_TO_64_DUAL_REPLAY_7_DISTINCT_OUTPUTS_ZERO_NONVOLATILE_MISMATCHES
+  - P10_COUNT_3_GT_P12_COUNT_2_ON_RELEASE_MATCHED_FIXED_OUTPUT
+orthogonal_validation: null
+unresolved_risks:
+  - CANDIDATE_MAY_DECOMPOSE_TO_INDEPENDENT_LOCAL_RANKING
+  - CANDIDATE_OR_ASTAR_MAY_FAIL_EXACT_OR_CARCARA_FIDELITY
+  - OUTSIDE_FAMILY_ACTION_RATE_MAY_BE_LT_10_PERCENT
+  - FULL_COST_MAY_BE_ABSORBED_BY_NATIVE_ENVELOPE
+next_killer_gate: RESUME_AND_COMPLETE_PRECLAIM_BEFORE_ANY_60_INSTANCE_RUN
+mechanism_pivot_remaining: 1
+reserve_reason: null
+blocker_status: BLOCKED_USER_ACTION_REQUIRED
+blocker_kind: TOOLCHAIN
+claim_bearing_observation_obtained_before_failure: false
+scientific_revision_consumed: false
+resource_attempt_recorded: true
+user_blocker_packet: USER_BLOCKER_PACKET.md
+resume_contract_sha256: 27CDF36933F93B0C096AA73DA6A9DC49505872B0D0A7A565EE959F5EF7331FA3
+resume_directory: stages\stageA\CVC5-ALETHE-SHAREMAP\resume1
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NATIVE_THRESHOLD_FAMILY_REPLAY_ESTABLISHED__CANDIDATE_BUILD_CARCARA_FULL_PRECLAIM_UNESTABLISHED__NO_SCIENTIFIC_INFERENCE
+stagea_probe_support: NOT_APPLICABLE
+pending_user_stageb_review: false
+stageb_user_approval_id: null
+execution_authority: STAGEA_ONLY__BLOCKER_CLOSING_COMPLETE__STAGEB_FALSE
+scientific_stop_or_pass_recommended: false
+topic_archive_allowed: false
+lane_recommendation: IDLE_REUSABLE_AWAITING_MAINLINE
+file_hashes:
+  EXPERIMENT_CONTRACT.yaml: 27CDF36933F93B0C096AA73DA6A9DC49505872B0D0A7A565EE959F5EF7331FA3
+  COMMAND_LOG.md: 237FE45E13F1295BDF6431DFA836FF5657A10FCD9AAC47DA7DC787C306F50E4E
+  RESULTS.md: B37A04B94F00AFD538FCAC2AD2D0CAE452D967AFDFC6730F71D85CD87C2A467A
+  STAGEA_REPORT.md: CB710BF9538F019604F5938A68AD08472F44FEC50D559A6F528DFB2AF4C86454
+  Q1_COMPARATOR_MATRIX.md: 5E472D497576EF05F7791F6FDE9DCD9BE2AF7F9D5FFCA9EBD797AFFAA1FBD508
+  USER_REVIEW_PACKET.md: 1482F2C472485D2416212EDAE4C688FDECA302EECA157A80EF4F1248DE1E936E
+  USER_BLOCKER_PACKET.md: B0AEC3AF9E198AEF0710D8BA5AAE00B0FA48B4A75220D7610F40A6E2D161C47D
+  scripts/enumerate_fixed_native_family.mjs: 7E22BFD1E03F30E110454E1273D5D4B37A79A1BD35E2FD69831475D16E574D55
+  scripts/validate_native_family_replay.mjs: DEC4A7CC4B090DC0B6D0D5DFD66E0218753CFA57496CBE1EEBB92496EF53B67B
+  results/preclaim/native-family-primary_v2.json: DF7646C8D7C53B337B830D098568EE133B9A8978F689C7A933D015572A84CD36
+  results/preclaim/native-family-replay_v2.json: 395C833BBF4FA1E76C084C114973EEAC1219BE2079CD3E8F1E47E90103702A2B
+  results/preclaim/native-family-replay-validation.json: 8DC7D3E5C1428E3F5403082B3A50D96F5D647904EBF0DE2445BBFEC062276B39
+hash_manifest_file: HASH_MANIFEST.sha256

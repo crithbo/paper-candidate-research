@@ -1,0 +1,40 @@
+{
+  "schema_version": "coh-rl-source-bounded-domain-v1",
+  "object": "GH200 ATS/NUMA, CUDA 12.4, R550.54.14, 64 KiB system pages",
+  "primary_source_observations": {
+    "nvlink_c2c_aggregate_interface_gbps_vendor": 900.0,
+    "nvlink_c2c_theoretical_per_direction_gbps_author_paper": 450.0,
+    "h2d_measured_gbps_author_paper": 375.0,
+    "d2h_measured_gbps_author_paper": 297.0,
+    "hbm3_measured_gbps_author_paper": 3400.0,
+    "lpddr5x_measured_gbps_author_paper": 486.0,
+    "system_page_bytes": 65536,
+    "managed_gpu_page_bytes": 2097152,
+    "access_counter_threshold_default": 256
+  },
+  "identified_semantics": {
+    "system_memory_remote_access": "cacheline-granular coherent NVLink-C2C access",
+    "system_memory_migration": "delayed access-counter-based and workload dependent",
+    "managed_memory": "on-demand migration with possible speculative prefetch",
+    "explicit_copy": "explicit data movement action retained as B3"
+  },
+  "unidentified_numeric_terms": [
+    "allocation_and_deallocation_time",
+    "PTE_initialization_and_fault_replay",
+    "page_amplification_for_each_program_region",
+    "access_counter_delay_in_program_passes",
+    "overlap_and_contention",
+    "metadata_and_synchronization_cost",
+    "candidate_or_selector_planner_wall_time"
+  ],
+  "admissible_completion": {
+    "all_shared_action_costs": "finite and nonnegative",
+    "same_region_and_coefficient_information_for_candidate_and_selector": true,
+    "same_action_cost_function_for_candidate_and_selector": true,
+    "arbitrary_original_grid_frequency_is_platform_evidence": false,
+    "positive_hardware_performance_claim_allowed": false
+  },
+  "decision_method": "universal selector-identity check over the inherited finite grid plus algebraic guard valid for every admissible completion",
+  "interpretation": "Primary sources partially identify the transfer envelope and semantics but do not calibrate a full-cost coefficient box. Unknown terms remain unidentified; the selector absorption result is valid independently of their values."
+}
+

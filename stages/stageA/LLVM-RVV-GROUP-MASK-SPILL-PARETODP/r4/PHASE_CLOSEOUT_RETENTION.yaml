@@ -1,0 +1,24 @@
+schema_version: phase-closeout-retention-v1
+created_at: 2026-08-26T00:35:33.1028272+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-RVV-R4-PRECLAIM-F1-F5
+decision: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE
+artifact_lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+resource_root: {files: 190, logical_bytes: 480234196, reparse_count: 0, active_related_processes: 0}
+mandatory_retention:
+  - resources/src/llvm-loci
+  - resources/src/harness
+  - resources/env/rvv-toolchain
+  - resources/logs
+cleanup_candidates_exact_leaves:
+  - {path: resources/archives/llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76.tar.gz, files: 1, bytes: 280166923, class: TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY}
+  - {path: resources/downloads/llvm-commit-5bb2565693f062a9e99929db1814a7a076d4dc76.json, files: 1, bytes: 14428, class: TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY}
+  - {path: resources/cache, files: 56, bytes: 1713151, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+cleanup_candidate_count: 3
+cleanup_candidate_files: 58
+cleanup_candidate_logical_bytes: 281894502
+projected_retained_logical_bytes: 198339694
+post_close_retained_bytes_max: 1073741824
+projected_budget_pass: true
+deletion_gate: MAINLINE_ACCEPTED_HANDOFF__DOWNSTREAM_DISPOSITION__LITERAL_CONTAINMENT__ZERO_REPARSE__ZERO_ACTIVE_PROCESS__R2_HASH_RECHECK

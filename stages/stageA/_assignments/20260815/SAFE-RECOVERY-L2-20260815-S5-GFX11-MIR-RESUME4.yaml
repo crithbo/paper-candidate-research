@@ -1,0 +1,25 @@
+schema: candidate-resource-recovery-assignment-v1
+assignment_id: SAFE-RECOVERY-L2-20260815-S5-GFX11-MIR-RESUME4
+topic_id: S5-OCCUPANCY-CLIFF-JOINTCODEGEN
+task_id: 019fe4e4-71b8-7b60-887f-3bca8e8d8471
+role_rule: rules/ROLE_CANDIDATE_OWNER.md
+control: stages/stageA/_assignments/20260815/AUTONOMOUS_SAFE_BLOCKER_RECOVERY_CONTROL.yaml
+read_only_inputs:
+  - stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume3-r3d
+write_directory: stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume4-safe-recovery
+frozen_object:
+  llvm_commit: 1f112d62e1fa2c4f1a04887abd72da1ed61cf791
+objective: >-
+  First inspect existing local exact-commit tools and official public GFX11 source/example
+  routes. Autonomously close a provenance-complete set of at least eight natural GFX11 MIR
+  instances only if it can be generated or acquired inside the global safe limits without
+  changing the frozen object. Otherwise produce an exact size/toolchain/input request before
+  any large download or heavy build.
+prohibited:
+  - SYNTHETIC_INSTANCES_COUNTED_AS_NATURAL
+  - PLATFORM_OR_COMMIT_SUBSTITUTION
+  - SOURCE_PATCH
+  - CLAIM_BEARING_OBSERVATION_BEFORE_THE_FROZEN_PRECLAIM_GATE
+success_route: RESUME_EXISTING_STAGEA_ONLY_AFTER_NATURAL_SET_AND_PRECLAIM_PASS
+failure_route: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+

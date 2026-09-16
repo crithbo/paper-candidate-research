@@ -1,0 +1,19 @@
+schema: stage0-sentry-assignment-v1
+assignment_id: STAGE0-SENTRY-20260830-SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+topic_id: SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+mode: SENTRY
+lane_id: STAGE0_SENTRY
+thread_id: 01a034d0-cda0-74b3-a099-b4b711d9d8a8
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+unique_write_directory: stages/stage0/_reviews/round-20260830-source120-sentry/SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+resource_root: stages/stage0/_reviews/round-20260830-source120-sentry/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/resources
+primary_inputs:
+  report: {path: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/STAGE0_REPORT.md, sha256: 9DC16734A1297EC301C9D4AD85AD4A86F84D837DD6E916C78BD7F416A2F53872}
+  q1_matrix: {path: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/Q1_COMPARATOR_MATRIX.md, sha256: DF1C04C1D98EA6B1255E3B7010576F05561114D9A8EA10ECAE773D3ADE51D648}
+  handoff: {path: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/handoff.yaml, sha256: 24F75E9A1B9DA457EE54E99939D1364CA9A64368AD506040DF47EAD37D934342}
+  manifest: {path: stages/stage0/_reviews/round-20260830-source120-primary/SOURCE120-S1-VHLO-SEMANTIC-COMPAT/HASH_MANIFEST.sha256, sha256: DA76AF0BEF007C35A50A19CE07CB7FC156D626BB0D919A4037D70EBB83507096}
+required: [heavy_direct_subtraction, nonfatal_residual, tier_B_shape, StageA_glue_harness_killer]
+budget: {search_or_open_calls_max: 16, build_or_experiment: 0}
+forbidden: [repeat_full_primary, candidate_implementation, stagea, stageb, shared_write]
+pause_signal: finish_current_sentry_and_handoff_then_no_successor
+

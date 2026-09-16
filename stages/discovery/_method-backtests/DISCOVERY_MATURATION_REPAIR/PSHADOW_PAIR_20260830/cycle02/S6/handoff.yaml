@@ -1,0 +1,24 @@
+schema: discovery-handoff-v1
+assignment_id: DMR-V1-PSHADOW-CYCLE-02-S6
+lane_id: DISCOVERY_S6_DIRECT_ALGORITHM_SOFTWARE
+cycle_id: DMR-V1-PSHADOW-CYCLE-02
+disposition: HONEST_ABSTENTION__SOURCE_CLOSURE_QUEUE_BLOCKED
+summary_zh: 'seed 与 primary RQ 已在首个来源调用前冻结。6/6 官方来源调用后，官方文档定位了 paged pool 的分配、共享和归还语义，但当前源码路径调用失败，无法闭合 relocation/compaction action；因此停在 SOURCE_CLOSURE_QUEUE，不进入 raw、brief 或 nomination。'
+source_budget: {consumed: 6, maximum: 6}
+source_actions:
+  - {ordinal: 1, role: ANCHOR, action: search, target: 'official mistral.rs paged-attention/prefix-cache scheduler locator'}
+  - {ordinal: 2, role: CURRENT, action: search, target: 'official PagedAttentionScheduler/block locator'}
+  - {ordinal: 3, role: CURRENT, action: open, target: 'guessed official paged_attention.rs source path', outcome: internal_error}
+  - {ordinal: 4, role: ANCHOR, action: open, target: 'official mistral.rs repository'}
+  - {ordinal: 5, role: CONTRARY, action: open, target: 'official mistralrs API surface'}
+  - {ordinal: 6, role: ESCAPE, action: open, target: 'official paged-attention documentation'}
+canonical_artifacts: [CANONICAL_SEED_POOL.md, RQ_CANDIDATE_S6-02-RQ01.md, DISCOVERY_QUESTION_CARD_S6-02-RQ01.md]
+shadow_artifact: SHADOW_NOMINATION.yaml
+scientific_conclusion: NONE
+candidate_or_stage_effect: NONE
+repair_execution: NONE
+resource_action: NONE
+shared_write: NONE
+manifest: HASH_MANIFEST.sha256
+stop_condition: HANDOFF_SEALED__WAIT_SIX_LANE_BARRIER
+mainline_action_requested: record source-closure abstention; no repair selection or candidate-state inference

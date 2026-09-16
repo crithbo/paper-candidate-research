@@ -1,0 +1,20 @@
+schema: mainline-stagea-static-redesign-hold-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R12-INTEGRATED-COST-LEDGER-REDESIGN
+decision: EXECUTION_CONTRACT_HOLD__STATIC_CORRECTION1_INCOMPLETE
+accepted_facts:
+  exact16_manifest_frozen: true
+  full_cost_producer_source_present: true
+  denominator: 71
+  baseline_bundles: 16
+remaining_defects:
+  - corrected DAG candidate argv still points to superseded V2 runner source
+  - corrected DAG baseline argv still points to superseded V2 collector source
+  - packet full-cost argv input still points to original r6 source rather than r12 copied selected-00
+  - validation reports those cross-file path checks true despite the mismatches
+static_lint_edits_consumed: 1_of_3
+static_lint_edits_remaining: 2
+resource_or_tool_action: false
+scientific_inference: NONE
+scientific_stop: false
+lane_effect: RELEASE_L2_FOR_RVV
+resume_condition: REASSIGN_TO_AN_EXISTING_IDLE_CANDIDATE_LANE_WITH_CORRECTION2_CONTRACT

@@ -1,0 +1,39 @@
+schema: post-gc-resource-inventory-v1
+measured_at: 2026-08-26T09:47:00+08:00
+measured_by: MAINLINE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources
+artifact_state: GC_COMPLETE__R10_DOWNSTREAM_INPUTS_RETAINED
+cleanup_receipt_path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/CLEANUP_RECEIPT.yaml
+measurement:
+  logical_bytes: 251885919
+  file_count: 1070
+  directory_count_including_root: 234
+  reparse_entry_count: 0
+  active_related_processes: 0
+  method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+deleted_targets_absent:
+  resources/cache: true
+  resources/tmp: true
+  resources/downloads: true
+  resources/archives: true
+retained_downstream_inputs:
+  - {path: resources/src/r6_input, role: EXACT_SELECTED_CORPUS_PACKAGE}
+  - {path: resources/env/ppc-toolchain, role: EXACT_PPC_TOOLCHAIN}
+  - {path: resources/src/natural_materializer, role: CLAIM_HARNESS_AND_PLAN_GENERATOR}
+  - {path: resources/src/replay_equality_auditor, role: REPLAY_AUDITOR}
+  - {path: resources/build/a3_retained_audit, role: PRECLAIM_EQUALITY_ACCEPTANCE}
+  - {path: resources/build/a3_r10_plan, role: EXACT_32_ROW_R10_PLAN}
+retained_reproducibility_evidence:
+  - resources/build/k1_probe
+  - resources/build/a1_gate
+  - resources/build/a2_truth_table
+  - resources/build/a2_retained
+  - resources/build/a2_replay_1
+  - resources/build/a2_replay_2
+  - resources/build/a3_auditor_controls
+  - resources/logs
+post_close_budget_bytes: 536870912
+budget_pass: true
+scientific_effect: NONE

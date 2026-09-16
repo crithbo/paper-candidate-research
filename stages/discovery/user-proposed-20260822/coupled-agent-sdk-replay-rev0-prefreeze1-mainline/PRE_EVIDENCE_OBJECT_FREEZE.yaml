@@ -1,0 +1,59 @@
+schema_version: coupled-agent-sdk-replay-pre-evidence-object-freeze-v1
+assignment_id: MAINLINE-20260822-COUPLED-AGENT-SDK-REPLAY-PREFREEZE1
+topic_id: COUPLED-AGENT-SDK-REPLAY-REV0
+disposition: PRE_EVIDENCE_EXACT_OBJECT_FREEZE_SEALED
+sealed_at: 2026-08-22T11:56:04.9692374+08:00
+scientific_inference_allowed: false
+stage0_authority: false
+
+selection_integrity:
+  new_topic_after_different_object_failure: true
+  no_status_evidence_score_or_revision_inheritance: true
+  agent_selector_frozen_before_official_request: true
+  model_dataset_tasks_retained_without_change: true
+  collision_or_novelty_material_used_for_selection: false
+
+agent:
+  project: OpenHands Software Agent SDK
+  official_repository: https://github.com/OpenHands/software-agent-sdk
+  branch_selector: refs/heads/main resolved exactly once by official GitHub API
+  commit_sha: ddac55697c5d15cf8a34495b5ed6d46c86db092a
+  tree_sha: ee9887e03ede5fb4b8fba7c6f65f228afe99c51f
+  object_role: official source of truth for agents, tools, workspaces and Agent Server
+
+model:
+  repository_id: Qwen/Qwen2.5-Coder-7B-Instruct
+  revision: c03e6d358207e414f1eca0bb1891e29f1db0e242
+  tokenizer_revision: c03e6d358207e414f1eca0bb1891e29f1db0e242
+  license: apache-2.0
+  architecture: Qwen2ForCausalLM
+  weight_downloaded: false
+
+benchmark:
+  dataset_id: princeton-nlp/SWE-bench_Verified
+  revision: c104f840cc67f8b6eec6f759ebc8b2693d585d4a
+  split: test
+  selected_task_count: 16
+  selected_task_file: FIXED_TASK_LIST.txt
+  selected_task_file_sha256: 32729224C6BA9EF3A2D47AD86FBB7E7993350D3C0B0A88D0F684A015A0EC240D
+  selection_rule: retained exactly from the prior clean pre-evidence freeze; no replacement or filtering
+
+state_boundary:
+  definition: Immediately after the first native SDK tool action has completed and its observation event is incorporated into conversation state, before the next model call.
+  tasks_without_boundary: retain and mark structurally unexecutable; do not replace
+
+interventions:
+  I0:
+    canonical_text: "Continue with the frozen native OpenHands SDK policy and context unchanged."
+    utf8_bytes: 75
+    sha256: 8352E16D054453079070735656A91DF06C0D1838F1FF6E90034603800EF99D18
+  I1:
+    canonical_text: "Before finishing, run the repository's relevant tests, inspect every failure, and revise the patch when a failure is attributable to the patch. Do not use hidden evaluator information."
+    utf8_bytes: 184
+    sha256: 5A593F28B4AFDDCEC69581DE412F3B1986B430AE57B1EA1CC6233231C0590A4A
+
+decoding: {temperature: 0.6, top_p: 0.95, top_k: 0, max_new_tokens_per_model_call: 4096}
+native_terminal_semantics: absorbing
+evaluator_online_visibility: forbidden
+next_permitted_step: FRESH_INDEPENDENT_DISCOVERY_COLLISION_AND_MECHANISM_REVIEW
+

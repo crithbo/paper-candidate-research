@@ -1,0 +1,42 @@
+assignment_id: DISCOVERY-S4-20260814-ADAPTIVE-SOURCE25-DIVERGENCE-V1R1
+lane: S4_OBJECTIVE_CONSTRAINT
+write_directory: stages/discovery/round-20260814-adaptive-source25/S4-objective-constraint
+method:
+  canonical: v8.7
+  discovery_claim_pack_mode: OFF
+  v9_shadow: OFF
+  control_profile: DIVERGENCE_SEED_POOL_V1R1__EVIDENCE_GATED_QUESTION_CARD_V7R2
+frozen_inputs:
+  assignment_sha256: F57C2D1107FA122FCAC63AD4F532B34B422CAE450F9BD8A0591E372C8B16D434
+  control_sha256: DCDA2A6346ED41B74997811B504828D54BF270EF9FF948F13B5E23A1E8E13C07
+  access_cutoff: '2026-08-14'
+scope:
+  network_security_excluded: true
+  external_sources: first_party_official_only
+  prohibited_work_not_run: [experiment, benchmark, build, install, E2, stage0, stageA, stageB, automation]
+funnel:
+  divergence_seeds: 12
+  engines_used: 8
+  selected_locators: 3
+  fresh_raw_opportunities: 0
+  C0: 0
+  deep_reviews: 0
+  grounded_briefs: 0
+  propose_stage0: 0
+family_records:
+  - signature: S4_MLPERF_AUTOMOTIVE_V05_TAIL_RESOURCE_VALIDITY
+    canonical_disposition: LOCATOR_ONLY__UNFROZEN_EXPORT_AND_COMPARATOR
+    reason: official page fixes scenario/quality/tail semantics, but bounded sources did not close a versioned export and a full resource comparator.
+  - signature: S4_MLPERF_INFERENCE_V51_POWER_COVERAGE_RANKING
+    canonical_disposition: LOCATOR_ONLY__UNFROZEN_PANEL_SCHEMA
+    reason: official v5.1 release confirms power submissions but not the full pinned panel/schema and hold-out comparator.
+  - signature: S4_MLPERF_RELEASE_CHANGELOG_REPLICATION_SENSITIVITY
+    canonical_disposition: LOCATOR_ONLY__UNFROZEN_ORIGINAL_PANEL
+    reason: official log establishes changes but not a reconstructible original panel plus held-out release.
+final_disposition: COMPLETE_ZERO_PROPOSALS
+plain_chinese_summary: >-
+  本轮先完成了12条离线发散种子，再只核验3个覆盖不同角度的官方定位器。
+  三者均有真实公开问题锚点，但都缺少进入科学分母所必需的版本化完整结果载体、同对象比较器或有限反证闭合；因此零提案，未把猜想包装成 brief。
+next_step: >-
+  如主线认为有价值，可另立有界 source-only closure 获取相应官方规则和结果导出；不得把本轮 LOCATOR_ONLY 直接送入 Stage 0。
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

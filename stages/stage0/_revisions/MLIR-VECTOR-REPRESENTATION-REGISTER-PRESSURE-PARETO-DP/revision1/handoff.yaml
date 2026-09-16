@@ -1,0 +1,40 @@
+assignment_id: STAGE0-P1-20260814-MLIR-VECTOR-REPRESENTATION-REGISTER-PRESSURE-PARETO-DP-REVISION1-V8.7
+topic_id: MLIR-VECTOR-REPRESENTATION-REGISTER-PRESSURE-PARETO-DP
+mode: PRIMARY_REVISION
+revision_budget: 1_of_1_consumed
+atomic_gate: PINNED_MLIR_REPRESENTATION_ACTIONS__VPLAN_SEPARATED_BOUNDED_FRONTIER_CERTIFICATE
+decision: RECOMMEND_STAGE0_PASS_FOR_CLOSING_REVIEW
+tier: TIER_B_Q2_VIABLE
+confidence: 0.71
+structural_paper_potential: CONDITIONAL_N2__TARGET_SPECIFIC_MIXED_VECTOR_REPRESENTATION_CUT_FRONTIER
+current_evidence_readiness: STATIC_CERTIFICATE_COMPLETE__STAGEA_PRECLAIM_FIDELITY_UNRUN
+evidence_ceiling: STATIC_STOCK_LOWERABILITY_AND_FRONTIER_CERTIFICATE__NO_BUILD_NO_PERFORMANCE_CLAIM
+immutable_source_pin:
+  llvm_project_commit: ba5bccfe01368f76e74d6ff4c35f1330e155b4ba
+  target: x86_64-unknown-linux-gnu
+  features: [+avx2]
+  abi: SysV_x86_64
+same_object_witness:
+  operation: vector.interleave
+  plans: [P_N_nested, P_M_mixed_2x4_to_2x8, P_F_full_linearization]
+  semantics: same_ordered_16_f32_values_no_mask_no_memory_no_fastmath
+method:
+  name: AVX2-Representation-Frontier-DP
+  guarantee: exact_declared_representation_shape_cast_target_width_frontier_on_bounded_grammar
+  excluded: [VPlan_VF_UF, pass_order, physical_RA_spill, generic_ILP]
+strongest_current_union:
+  - stock_nested_vector_to_llvm
+  - current_VectorLinearize_full_flatten_action
+  - current_LowerVectorShapeCast_decomposition
+  - complete_semantics_preserving_conversion_option_grid
+  - identical_downstream_VPlan_RA_scheduling_MC
+collision_status: SEARCH_BOUNDED_OPEN
+direct_fatal_found: false
+stageA_authorized: false
+stageB_authorized: false
+stageA_preclaim_killer:
+  corpus: up_to_20_pinned_static_AVX2_vector_functions
+  oracle: independent_small_N_M_F_catalog_enumerator
+  stop_if: [legality_or_semantic_failure, stock_union_duplicate, omitted_action, no_full_cost_nondominated_point]
+next_route: INDEPENDENT_REVISION1_CLOSING_ONLY
+lane_terminal_state: IDLE_REUSABLE_AWAITING_MAINLINE

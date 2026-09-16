@@ -1,0 +1,31 @@
+assignment_id: STAGE0-P2-20260821-PATCHYIELD-REVISION1-CLOSING
+topic_id: PATCHYIELD-CALL
+mode: PRIMARY_REVISION_CLOSING
+decision: STOP__REVISION_GATE_NOT_CLOSED__BELOW_Q2_GENERIC_OR_INFEASIBLE_FAIRNESS_CONTRACT
+revision_consumed: true
+revision_gate: READY_CALL_BOUNDED_BYPASS_16__PROGRESS_INCREMENTAL_FAIR_POLICY_CERTIFICATE
+independent_reconstruction:
+  legal_ready_calls: 25
+  batch_capacity: 8
+  minimum_batches: 4
+  unavoidable_other_session_dispatches_before_one_call: 24
+  fairness_cap: 16
+  contradiction: '24 > 16'
+same_object_preserved: true
+forbidden_contract_changes_required_to_evade_proof:
+  - ready_or_admitted_queue_bound
+  - admission_or_rejection_change
+  - bypass_or_complete_call_semantics_change
+  - increased_batch_capacity
+  - pause_preemption_routing
+  - active_subset_fairness
+stageA_authorized: false
+stageB_authorized: false
+resource_actions: none
+evidence_ceiling: STATIC_CONTRACT_FEASIBILITY__NO_LIVE_CLAIM
+independence_disclosure: >-
+  Closing reviewer did not construct revision1 but participated in the preceding
+  PRIMARY; it independently reconstructed the counting proof and did not inherit
+  the revision owner disposition.
+next_step: independent_confirmation_sentry_before_mainline_final_state_transition
+return_lane_state: IDLE_REUSABLE

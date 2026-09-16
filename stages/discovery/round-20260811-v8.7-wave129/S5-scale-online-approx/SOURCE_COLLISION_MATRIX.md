@@ -1,0 +1,11 @@
+# Scale-breakpoint current-union matrix
+
+All sources are official current documentation/API records checked 2026-08-11. No implementation-absence claim is made; the current-upstream check is positive documentation/source/config coverage.
+
+| Constructor | Breakpoint and complete native action | Current upstream reality/configs checked | Deep disposition |
+|---|---|---|---|
+| Redis Cluster | [Atomic slot migration](https://redis.io/docs/latest/commands/cluster-migration/) and [live reshard state machine](https://redis.io/docs/latest/commands/cluster-setslot/). | Task `IMPORT`/`CANCEL`/`STATUS`; source/destination, retry, write-pause, `cluster-slot-migration-handoff-max-lag-bytes`; migrating/importing/stable/node slot states; current cluster specification. | `DROP`: current union directly expresses transfer. |
+| Elasticsearch | [Shard allocation/relocation/recovery](https://www.elastic.co/docs/deploy-manage/distributed-architecture/shard-allocation-relocation-recovery), [recovery settings](https://www.elastic.co/guide/en/elasticsearch/reference/current/recovery.html), and [recovery source layout](https://artifacts.elastic.co/javadoc/org/elasticsearch/elasticsearch/8.19.7/org.elasticsearch.server/org/elasticsearch/indices/recovery/package-summary.html). | `ShardRouting`/`RecoverySource`/cluster state actions; `indices.recovery.max_bytes_per_sec` default 40MiB in stated cases, allocation/rebalance and retry settings. | `DROP`: relocation/recovery state machine is complete. |
+| Apache Cassandra | [Rebuild command](https://cassandra.apache.org/doc/latest/cassandra/managing/tools/nodetool/rebuild.html), [streaming architecture](https://cassandra.apache.org/doc/latest/cassandra/architecture/streaming.html), [stream-throughput controls](https://cassandra.apache.org/doc/latest/cassandra/managing/tools/nodetool/setstreamthroughput.html). | `--exclude-local-dc`, `--keyspace`, `--sources`, `--tokens`; bootstrap resume; whole-SSTable/normal throughput caps; current Netty streaming. | `DROP`: complete rebuild/streaming action. |
+
+The bounded collision review does not assert global novelty absence. The stated finite killers are Stage-A plans only; none supports a proposed paper claim because no residual action survives.

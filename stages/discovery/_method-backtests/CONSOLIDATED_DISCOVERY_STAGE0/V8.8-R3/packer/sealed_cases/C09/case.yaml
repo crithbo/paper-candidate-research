@@ -1,0 +1,26 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C09
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-02T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [DATABASE, JOIN_ORDERING, EXACT_ALGORITHM, NON_CUDA]
+raw_opportunity: >-
+  Exact and heuristic join-order algorithms traverse connected relation subsets
+  under cost models, and recent work changes the dynamic-programming or search
+  kernel. Look for a source-grounded, nontrivial exact pruning or lower-bound
+  structure on natural join graphs while retaining the same optimum contract.
+required_analysis:
+  - audit exact DP, heuristic search and faster-convolution genealogy
+  - freeze information parity, admissibility and exact-optimum semantics
+  - name worst-case/no-gain graph families and complete planning cost
+  - implementation and positive runtime are not prerequisites for deep review
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C09/sources/S01_dpomega.pdf, sha256: 8BAE9224D9AF4CF72FFF95BDF8B1650CF95530ECAA0B1A90855F2C0D329E265B, bytes: 1498989, url: "https://link.springer.com/content/pdf/10.1007/s00778-025-00906-y.pdf", available_by: "2025-12-31", role: CLOSEST_EXACT_DP_AND_SORT_ORDER_PAPER}
+  - {source_id: S02, path: sealed_cases/C09/sources/S02_heuristic-join-order.pdf, sha256: 2DD2E78D8666DB2EC6A586F07A7A4E7D169E32C4B58CBE9510A6623814B058C3, bytes: 1426089, url: "https://bigdata.uni-saarland.de/publications/Haffner%2C%20Dittrich%20-%20Efficiently%20Computing%20Join%20Orders%20with%20Heuristic%20Search%20%40SIGMOD2023.pdf", available_by: "2023-05-30", role: CLOSEST_HEURISTIC_SEARCH_PAPER}
+  - {source_id: S03, path: sealed_cases/C09/sources/S03_dpconv.pdf, sha256: 2E94CE9D82364DAE0C5D9C534894C5FB8D4359236E7455F9DAB2B1A470E93147, bytes: 1605832, url: "https://arxiv.org/pdf/2409.08013", available_by: "2024-09-12", role: CLOSEST_COMPLEXITY_KERNEL_PAPER}
+exclusions:
+  - local candidate title, proposed recurrence and every later review/result
+  - post-cutoff join-order work
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL
+

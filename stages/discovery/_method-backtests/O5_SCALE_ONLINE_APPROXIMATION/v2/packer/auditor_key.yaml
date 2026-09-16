@@ -1,0 +1,52 @@
+schema_version: discovery-backtest-auditor-key-v2
+confidentiality: PACKER_AND_FUTURE_AUDITOR_ONLY
+executor_must_not_read: true
+opportunity_lens: O5_SCALE_ONLINE_OR_APPROXIMATION
+anchors:
+  S5-POS-01:
+    hidden_target:
+      title: "BlinkDB: Queries with Bounded Errors and Bounded Response Times on Very Large Data"
+      venue: EuroSys 2013
+      earliest_public_date: 2012-03-25
+      doi: 10.1145/2465351.2465355
+      canonical_url: https://doi.org/10.1145/2465351.2465355
+    expected_problem_shape:
+      - "Interactive analytics at cluster scale can trade exact full scans for query-aware sampling under either time or error bounds."
+      - "Recover offline sample-family selection plus online sample choice and statistically meaningful error estimates."
+    expected_decision_structure: "sample columns/resolution/budget, workload-aware materialization, per-query sample size, latency/error constraint"
+    contribution_route: N2_NEW_ALGORITHM_OR_OPTIMIZATION
+    evidence_entry: "error coverage/calibration; latency; storage/build/maintenance ledger; workload skew; exact and prior-AQP baselines"
+  S5-POS-02:
+    hidden_target:
+      title: "Ray: A Distributed Framework for Emerging AI Applications"
+      venue: OSDI 2018
+      earliest_public_date: 2017-12-16
+      canonical_url: https://www.usenix.org/conference/osdi18/presentation/moritz
+    expected_problem_shape:
+      - "Online AI workloads need both fine-grained stateless tasks and long-lived stateful actors in dynamic nested graphs."
+      - "Recover a unified API with distributed scheduling and fault-tolerant object/control state."
+    expected_decision_structure: "task versus actor semantics, dependency/object placement, local/global scheduling, lineage/reconstruction, control-state distribution"
+    contribution_route: N1_NEW_RUNTIME_ABSTRACTION
+    evidence_entry: "task-rate scalability; end-to-end RL/simulation workloads; fault recovery; control-plane ablation; specialized-system comparison"
+  S5-POS-03:
+    hidden_target:
+      title: "Scaling Distributed Machine Learning with the Parameter Server"
+      venue: OSDI 2014
+      publication_date: 2014-10-06
+      canonical_url: https://www.usenix.org/conference/osdi14/technical-sessions/presentation/li_mu
+    expected_problem_shape:
+      - "At large data/model scale, globally shared parameters, sparse accesses, synchronization, elasticity, and faults should be managed by a reusable systems layer."
+      - "Recover partitioned server/worker state with flexible consistency and communication."
+    expected_decision_structure: "key partitioning, push/pull aggregation, bounded/asynchronous consistency, replication/recovery, elasticity"
+    contribution_route: N1_NEW_SYSTEM_ABSTRACTION
+    evidence_entry: "multiple ML algorithms; scale in data/parameters/nodes; network traffic; convergence-quality parity; failure and elasticity cost"
+  S5-NEG-01:
+    hidden_target: null
+    expected_result: ABSTAIN
+    reason: "The control explicitly lacks scale, online updates, deadlines, or approximation permission; classical exact same-object baselines dominate."
+cutoff_exclusions:
+  - "All hidden-target title/method/result text, same-system precursor disclosures, artifacts, talks, reviews, and follow-on papers."
+  - "The visible corpus is strictly no later than each packet cutoff."
+hardware_claim_ceiling:
+  status: NOT_APPLICABLE_TO_PRIMARY_CLAIMS
+  rule: "No architecture, FPGA, PPA, or silicon claim is licensed by these software/system packets."

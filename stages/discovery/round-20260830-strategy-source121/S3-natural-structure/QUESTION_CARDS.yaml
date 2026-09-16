@@ -1,0 +1,29 @@
+schema: discovery-question-cards-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE121
+cards:
+  - id: QC01
+    carrier: C01
+    rq_id: RQ01
+    disposition: EVIDENCE_QUALIFIED_RAW
+    exact_identity: LeRobot_commit_4aaff99be4a1d81568c08c8f0296b41b40c99ec4_distributed_async_inference
+    same_object_problem: Queue-threshold dispatch can execute actions whose generating observation is old under variable network/inference latency; the current source records the needed clocks but exposes no explicit age SLO.
+    claim_endpoint: Tail action-observation age violations and safe no-idle execution under the same policy/action protocol.
+    counterfactual_consequence: If age rather than queue occupancy predicts unsafe or ineffective decisions, the runtime should dispatch earlier or reject/trim late chunks despite identical queue size.
+    non_generic_discriminant: Two states with equal queue occupancy but different observed latency/observation age must receive different dispatch or admission decisions.
+    current_source_locus: robot_client.py::_ready_to_send_observation plus TimedObservation/TimedAction paths and configs.py::RobotClientConfig
+    minimum_falsifier: No Pareto improvement over a fully tuned fixed-threshold controller under matched policy task success inference calls network bytes and safe-stop/idle accounting, or direct current-work coverage of the same AoI-SLO action.
+    finite_closure_route: Source-level controller preflight; deterministic timestamp/queue witness; canonical RoboCasa or LeRobot episode replay; variable measured latency traces; same-policy comparison against tuned threshold and RTC where semantically applicable.
+    full_cost_initial_boundary: Inference calls, transmitted bytes, control-loop time, queue occupancy, action discards, idle/safe-stop events, task success, and tail observation age.
+  - {id: QC02, carrier: C02, rq_id: RQ02, disposition: CURRENT_UNION_COMPARATOR_NOT_SEPARATE_RAW, reason: RTC is a mandatory closest mechanism/baseline; broad asynchronous continuity is already absorbed}
+  - {id: QC03, carrier: C03, rq_id: RQ03, disposition: SUPPORTING_CANONICAL_CARRIER_ONLY, reason: timestamps support replay but do not establish natural distributed latency or a standalone benchmark contribution}
+  - {id: QC04, carrier: C04, rq_id: RQ04, disposition: LOCATOR_ONLY, reason: exact common clock and policy-fixed failure estimand were not established within the bound}
+  - {id: QC05, carrier: C05, rq_id: RQ05, disposition: EXCLUDED_BEFORE_RAW__INSUFFICIENT_RUNTIME_CLOCK_IDENTITY, reason: demonstrations do not freeze a distributed observation-to-action age contract}
+  - {id: QC06, carrier: C06, rq_id: RQ06, disposition: EXCLUDED_BEFORE_RAW__OBJECT_MISMATCH, reason: environment replay is not the same object as distributed async inference timing}
+  - {id: QC07, carrier: C07, rq_id: RQ07, disposition: LOCATOR_ONLY, reason: natural trajectory availability does not establish transport/inference timing identity}
+  - {id: QC08, carrier: C08, rq_id: RQ08, disposition: SUPPORTING_CANONICAL_CARRIER_ONLY, reason: simulator replay may support disturbances but is not natural evidence for distributed latency}
+raw_count: 1
+supporting_carrier_count: 2
+locator_only_count: 2
+structural_exclusion_count: 3
+result_aware_backfill: false
+

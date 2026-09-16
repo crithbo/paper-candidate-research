@@ -1,0 +1,73 @@
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:78:5: error: unknown type name 'hipError_t'
+   78 |     HIP_CHECK(hipMalloc(&a, sizeof(*a) * N));
+      |     ^
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:30:11: note: expanded from macro 'HIP_CHECK'
+   30 |     const hipError_t err = expression;                       \
+      |           ^
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:78:15: error: use of undeclared identifier 'hipMalloc'
+   78 |     HIP_CHECK(hipMalloc(&a, sizeof(*a) * N));
+      |               ^~~~~~~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:78:5: error: use of undeclared identifier 'hipSuccess'
+   78 |     HIP_CHECK(hipMalloc(&a, sizeof(*a) * N));
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:31:15: note: expanded from macro 'HIP_CHECK'
+   31 |     if(err != hipSuccess)                                    \
+      |               ^~~~~~~~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:81:22: error: no matching conversion for functional-style cast from 'const int' to 'dim3' (aka 'struct dim3')
+   81 |     example_kernel<<<dim3(gridSize), dim3(blockSize), 0/*example doesn't use shared memory*/, 0/*default stream*/>>>(a, N);
+      |                      ^~~~~~~~~~~~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\artifacts\rocm-sysroot/include/hip/amd_detail/amd_hip_runtime.h:223:16: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'const int' to 'const dim3' for 1st argument
+  223 | typedef struct dim3 {
+      |                ^~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\artifacts\rocm-sysroot/include/hip/amd_detail/amd_hip_runtime.h:223:16: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'const int' to 'dim3' for 1st argument
+  223 | typedef struct dim3 {
+      |                ^~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\artifacts\rocm-sysroot/include/hip/amd_detail/amd_hip_runtime.h:228:24: note: candidate constructor not viable: call to __device__ function from __host__ function
+  228 |   constexpr __device__ dim3(__hip_uint32_t _x = 1, __hip_uint32_t _y = 1, __hip_uint32_t _z = 1)
+      |                        ^
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:81:38: error: no matching conversion for functional-style cast from 'const int' to 'dim3' (aka 'struct dim3')
+   81 |     example_kernel<<<dim3(gridSize), dim3(blockSize), 0/*example doesn't use shared memory*/, 0/*default stream*/>>>(a, N);
+      |                                      ^~~~~~~~~~~~~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\artifacts\rocm-sysroot/include/hip/amd_detail/amd_hip_runtime.h:223:16: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'const int' to 'const dim3' for 1st argument
+  223 | typedef struct dim3 {
+      |                ^~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\artifacts\rocm-sysroot/include/hip/amd_detail/amd_hip_runtime.h:223:16: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'const int' to 'dim3' for 1st argument
+  223 | typedef struct dim3 {
+      |                ^~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\artifacts\rocm-sysroot/include/hip/amd_detail/amd_hip_runtime.h:228:24: note: candidate constructor not viable: call to __device__ function from __host__ function
+  228 |   constexpr __device__ dim3(__hip_uint32_t _x = 1, __hip_uint32_t _y = 1, __hip_uint32_t _z = 1)
+      |                        ^
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:81:19: error: use of undeclared identifier __hipPushCallConfiguration
+   81 |     example_kernel<<<dim3(gridSize), dim3(blockSize), 0/*example doesn't use shared memory*/, 0/*default stream*/>>>(a, N);
+      |                   ^
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:84:5: error: unknown type name 'hipError_t'
+   84 |     HIP_CHECK(hipDeviceSynchronize());
+      |     ^
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:30:11: note: expanded from macro 'HIP_CHECK'
+   30 |     const hipError_t err = expression;                       \
+      |           ^
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:84:15: error: use of undeclared identifier 'hipDeviceSynchronize'
+   84 |     HIP_CHECK(hipDeviceSynchronize());
+      |               ^~~~~~~~~~~~~~~~~~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:84:5: error: use of undeclared identifier 'hipSuccess'
+   84 |     HIP_CHECK(hipDeviceSynchronize());
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:31:15: note: expanded from macro 'HIP_CHECK'
+   31 |     if(err != hipSuccess)                                    \
+      |               ^~~~~~~~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:87:5: error: unknown type name 'hipError_t'
+   87 |     HIP_CHECK(hipFree(a));
+      |     ^
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:30:11: note: expanded from macro 'HIP_CHECK'
+   30 |     const hipError_t err = expression;                       \
+      |           ^
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:87:15: error: use of undeclared identifier 'hipFree'
+   87 |     HIP_CHECK(hipFree(a));
+      |               ^~~~~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:87:5: error: use of undeclared identifier 'hipSuccess'
+   87 |     HIP_CHECK(hipFree(a));
+      |     ^~~~~~~~~~~~~~~~~~~~~
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S5-OCCUPANCY-CLIFF-JOINTCODEGEN\resume3-r3d\natural\rocm-examples-269e9068d6fd6e68b1cc5a76eb77744f88af42ec\HIP-Doc\Programming-Guide\HIP-C++-Language-Extensions\calling_global_functions\main.hip:31:15: note: expanded from macro 'HIP_CHECK'
+   31 |     if(err != hipSuccess)                                    \
+      |               ^~~~~~~~~~
+12 errors generated when compiling for gfx1100.

@@ -1,0 +1,20 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-6D9B50D69A8F4CA3
+cutoff_date: 2024-02-01
+contribution_type: COMPILER_TOOL
+exact_object: insertion and scheduling of existing software-prefetch operations in a compiler pipeline
+natural_scenario: loops whose memory accesses are already recognized by existing analyses
+problem: current fixed heuristics choose one existing transformation poorly across workloads
+atomic_action: wrap existing analysis and transformation passes with a selector over their exposed parameters
+mechanism: a generic cost function chooses among unchanged downstream actions
+information_condition: the same loop features and cost estimates already exposed by the existing passes
+comparators: [current_fixed_heuristic, exhaustive_parameter_search, existing_pass_union]
+claim_endpoint: runtime at matched compile time and code size
+full_cost: [runtime, compile_time, code_size, analysis_time, tuning_cost]
+minimum_falsifier: no target-specific action or information remains beyond generic selection of existing operations
+source_cards:
+  - {id: S01, year: 2024, role: existing_pass_with_all_candidate_actions}
+  - {id: S02, year: 2022, role: generic_cost_model_selector}
+  - {id: S03, year: 2021, role: parameter_search_wrapper}
+local_resource_envelope: STATIC_REVIEW_FIRST
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

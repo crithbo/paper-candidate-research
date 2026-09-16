@@ -1,0 +1,33 @@
+schema: rule-audit-stagea-paper-evidence-backtest-r2-handoff-v1
+audit_id: RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+created_at: '2026-08-27'
+from_role: RULE_AUDIT_SENTRY
+to_role: MAINLINE
+status: READY_FOR_CONTINUOUS_EXECUTION
+user_authorization: USER_CONTINUE_UNTIL_STAGEA_PAPER_EVIDENCE_BACKTEST_REPORT_20260827
+scope: CURRENT_STAGEA_BACKTEST_ONLY
+shared_files_modified: false
+positive_case_count: 12
+negative_control_count: 4
+local_redo_stopped: true
+existing_local_results: PRESERVE_AS_SUPPLEMENT
+blind_pilot:
+  sample_count: 4
+  only_if_fresh_reviewer_exists: true
+  contamination_or_no_reviewer: FALLBACK_NONBLIND
+nonblind_main_analysis: true
+new_large_download_build_experiment_allowed: false
+paper_appendix_AE_lookup_allowed: true
+production_candidate_state_change_allowed: false
+StageB_allowed: false
+requested_mainline_actions:
+  - freeze and start Backtest PACKER for 12 positive and 4 negative paper-evidence capsules
+  - assess fresh-reviewer eligibility without revealing case identities
+  - run one four-case blind pilot only if eligible
+  - otherwise or on contamination run nonblind independent StageA gate
+  - freeze gate outputs before auditor gold reveal
+  - run independent Backtest AUDITOR and produce the canonical final report
+  - continue autonomously until report acceptance or a true external blocker
+final_report: stages/stageA/_compatibility/paper-evidence-20260827/FINAL_STAGEA_BACKTEST_REPORT.md
+next_gate: MAINLINE_ACCEPTANCE_AND_PACKER_START
+

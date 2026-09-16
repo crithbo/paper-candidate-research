@@ -1,0 +1,19 @@
+schema: mainline-bootstrap-reack-addendum-v1
+assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-GUARD-COVER-CACHE-A0
+topic_id: TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+reason: MECHANICAL_PLAN_DASHBOARD_RECONCILIATION_ONLY
+preserved_pass1:
+  path: stages/stageA/TORCHDYNAMO-GUARD-COVER-CACHE-REV0/a0-execution-readiness-20260830/BOOTSTRAP_ACK.pass1_refuse.yaml
+  sha256: CB10D4C790F095CEC25F4774C170D209CEC53F41D08DEAFD968BC5A19E6D1284
+corrected_chain:
+  context: {path: stages/stageA/TORCHDYNAMO-GUARD-COVER-CACHE-REV0/a0-execution-readiness-20260830/ASSIGNMENT_CONTEXT.yaml, sha256: 2529A3255F742D7CF666781BBE5939E8326D87D40826FA4E77A8B506F32B33F4}
+  plan: {path: plan.md, sha256: 1CDF41E9703B05C03106A18A58D77EACE61EBD2181A9392A2D149941B257887C}
+  registry: {path: registry.yaml, sha256: 69781D0AFF863FD648FB390DF835F975986E6AA4068436CF47FDE7DCB01FCB91}
+correction:
+  old_plan_lane_semantics: TORCHDYNAMO_REVISION1_CLOSING_ACTIVE
+  new_plan_lane_semantics: TORCHDYNAMO_REVISION1_CLOSING_COMPLETE__IDLE_REUSABLE
+  scientific_behavior_delta: NONE
+authorization: [full_reread_corrected_chain, overwrite_canonical_BOOTSTRAP_ACK_with_new_full_ack]
+forbidden: [resource_action, network, build, control, claim, scientific_judgment, StageB, shared_write]
+next_action: WRITE_NEW_CANONICAL_BOOTSTRAP_ACK_AND_STOP
+

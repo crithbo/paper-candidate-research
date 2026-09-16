@@ -1,0 +1,53 @@
+schema: stagea-experiment-contract-v1
+assignment_id: RESOURCE-STAGEA-L3-20260814-RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP-RESUME1
+topic_id: RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP
+contract_status: FROZEN__PRECLAIM_GATE_PASS__NATURAL_PROBE_NOT_YET_STARTED
+same_object:
+  llvm_commit: ba5bccfe01368f76e74d6ff4c35f1330e155b4ba
+  target: riscv32-unknown-elf
+  features: rv32imac_zcmp
+  abi: ilp32
+  optimization: O2
+  exact_object: SAME_RV32_MACHINEFUNCTION__BEHAVIOR__PSABI__CFI_AND_UNWIND
+  native_reader_writer_only: true
+candidate:
+  name: WL_ZCMP_PARETO_DP
+  novelty_route: N2
+  interface_bound_w: 4
+  atomic_action: JOINT_PRE_RA_COLORING__FIXED_ZCMP_PREFIX_AND_STACK_ADJUST__NATIVE_SPILL_REALIZATION
+  state: [value_identity, liveness_at_call_cut, native_location, fixed_prefix, list_adjust, residual_slot, cfa_cfi_restore, future_call_clobber, cost_vector]
+  guarantee: EXACT_ENUMERATION_AND_PARETO_RETENTION_FOR_FROZEN_ONE_CALL_SCALAR_BOUND_W_INTERFACE_ONLY
+  no_claim: [general_register_allocation_optimality, arbitrary_cfg_optimality, unbounded_frame_packing]
+strongest_current_union:
+  grid: runs/preclaim/current_union_grid/results.json
+  native_paths: [greedy_default, greedy_explicit, basic, fast]
+  controls: [riscv_regalloc_hints, riscv_cost_per_use, csr_cost_scale_0_80_160, csr_first_time_cost_0_1_8_32, shrink_wrap_on_off]
+  downstream: [FrameLowering_fixed_CSR_map, pushability, legal_rlist_stackadj, ordinary_spill_reload, CFI, PushPop_POPRET, pseudo_expansion, llvm_mc, ld_lld, objdump, readobj]
+  exclusions_for_same_witness: [frame_pointer, dynamic_alloca, stack_realign, shadow_stack, save_restore_libcall]
+  generic_exact_oracle: ceiling_only
+metrics:
+  function_text_bytes: complete_native_symbol_bytes
+  frame_bytes: complete_native_frame_after_push_and_residual_slots
+  spill_bytes: complete_static_store_and_load_instruction_bytes
+  dynamic_spill_ops: all_cross_call_store_and_load_actions
+  cfi: complete_eh_frame_bytes_and_rules
+  construction_cpu_wall_rss: candidate_precompute_planner_materializer_plus_native_continuation
+  comparator_cpu_wall_rss: identical_IR_to_llc_mc_link_reader_boundary
+  artifact_temp_bytes: per_arm_all_generated_bytes
+  verification: MachineVerifier_mc_link_objdump_readobj_exit_and_rule_checks
+  fallback_failure: rejected_actions_count_and_current_union_fallback_cost
+primary_rule:
+  required_positive: executable_candidate_point_with_strict_native_text_or_frame_spill_primary_benefit_outside_complete_union
+  full_cost_required: true
+  candidate_is_not_pareto_only_because_more_expensive: true
+  summaries: [paired_p50, paired_p90]
+stop_rules:
+  - SAME_OBJECT_MACHINEVERIFIER_ASSEMBLY_LINK_OR_CFI_FAILURE
+  - CURRENT_UNION_COVERS_ALL_CANDIDATE_EXECUTABLE_POINTS
+  - MECHANISM_REDUCES_TO_GENERIC_RA_FRAME_PACKING_OR_HINT_SWEEP
+  - NATURAL_ELIGIBLE_RESIDUAL_BELOW_10_PERCENT
+  - NO_NONDOMINATED_EXECUTABLE_POINT_UNDER_FULL_COST_AT_P50_AND_P90
+evidence_ceiling_positive: PRELIMINARY_SUPPORT__STAGEA_DIRECTIONAL_RISK_PILOT_ONLY
+scientific_revision_consumed_at_freeze: false
+stageb_authorized: false
+

@@ -1,0 +1,43 @@
+schema: witness-replay-v3
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R6-UINT32-CHECKER-PORTABILITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+obligation: F2_CORRECTED_WITNESS_REPLAY_EQUIVALENCE
+exact_object: FIXED_LLVM_MACHINEIR_LIVENESS_X86_64_ABI_UNWIND_APX_TARGET_AND_PROGRAM_SEMANTICS
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+immutable_inputs:
+  witness_mir: {path: resources/src/harness/apx_witness.mir, sha256: 4E26F556BAEAA981D2EFCF80DFCD4B0D46655D9780F81496D60B8BF1402ED243, modified_in_r6: false}
+  witness_asm: {path: resources/src/harness/apx_witness.s, sha256: 523522869EED8CF3A6093360CDD0E1753C21CD5FD6CA8CD5B86313E65999B3CD, modified_in_r6: false}
+  corrected_mir: {path: resources/src/harness/replay_after_x86_compress_evex.mir, sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A, modified_in_r6: false}
+carried_forward_llc_pair:
+  source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r5/WITNESS_REPLAY.yaml
+  source_sha256: BB12D7496E8E89B45FA913BE0BF1DF5A2228A2C7EB34B6680B3B9528A4FAE5F3
+  replay_1: {exit_code: 0, output_sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A}
+  replay_2: {exit_code: 0, output_sha256: FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A}
+  deterministic_exact_match: true
+  r6_llc_or_mc_rerun_count: 0
+  disposition: PASS_CARRIED_WITHOUT_REINTERPRETATION
+assignment_local_checker:
+  correction_precommit: CHECKER_CORRECTION_PRECOMMIT.yaml
+  original_sha256: 4A195725C28A2BC9F5AFD9C2B59C4F68540599C9526C7BD337E419A4AE74BDD0
+  corrected_sha256: C8662B3F0FBE3AC4F371D972F75371300EB847CD969B69A06110E8E47BDBCB26
+  correction_class: NUMERIC_PORTABILITY_AND_TERMINATING_EXIT_DETECTION_ONLY
+  checker_source_edit_count: 1
+  sample_set_changed: false
+  flag_set_changed: false
+  witness_mir_tool_contract_action_grammar_or_cost_changed: false
+value_and_eflags_equivalence:
+  replay_1: {exit_code: 0, result: PASS, output: resources/logs/checker/checker_replay1.json, output_sha256: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966}
+  replay_2: {exit_code: 0, result: PASS, output: resources/logs/checker/checker_replay2.json, output_sha256: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966}
+  deterministic_exact_match: true
+  semantic_tests: 64
+  semantic_failures: 0
+  source_values_preserved_by_ndd: true
+  compared_flags: [CF, PF, AF, ZF, SF, OF]
+  corrected_witness: {eflags_live: true, both_sources_live: true, destination_distinct: true, registers: [EAX, EDX, ECX]}
+pair_audit: {path: resources/logs/checker/checker_pair_result.json, sha256: 4C37345A71E40DD984D58F07B4501E889D23D37154A161453D62D41E46A6BAA2, result: PASS}
+automatic_retry: false
+extra_variant: false
+complete_F2_result: PASS_PRECLAIM_CONTROL
+claim_bearing_observation: false
+scientific_inference: NONE
+

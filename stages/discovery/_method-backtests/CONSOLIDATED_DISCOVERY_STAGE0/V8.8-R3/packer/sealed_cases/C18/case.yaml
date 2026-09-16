@@ -1,0 +1,31 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C18
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-09T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [COMPILER, BITCODE, COMPRESSION, NON_CUDA]
+raw_opportunity: >-
+  LLVM bitcode blocks define abbreviation records and physical offsets consumed
+  by native readers. Examine whether abbreviation planning can be a nontrivial
+  same-bitcode construction rather than local frequency tuning.
+runtime_event:
+  phase: PRECLAIM_NATIVE_FIDELITY
+  raw_observation: >-
+    Native identity re-emission succeeded, but an un-abbreviated control rewrite
+    was rejected because physical offset fields were not reconstructed. Work was
+    paused before a complete candidate action or claim-bearing comparison.
+  claim_bearing_observation: false
+required_analysis:
+  - freeze writer, reader, block, abbreviation and physical-offset semantics
+  - distinguish an invalid control construction from a scientific negative
+  - require a complete action certificate before candidate-grade packaging
+  - do not use pause status or missing implementation as structural failure
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C18/sources/S01_BitcodeWriter.cpp, sha256: 15F6FA36A3D9E988461305CEBDF881E863C4595567EE1844BFBB29F55CED644A, bytes: 241385, url: "https://raw.githubusercontent.com/llvm/llvm-project/c4a3c977f1f9138fb69bf936e532c94f0bb8a3cd/llvm/lib/Bitcode/Writer/BitcodeWriter.cpp", available_by: "2026-08-09", role: CURRENT_NATIVE_WRITER_ACTION}
+  - {source_id: S02, path: sealed_cases/C18/sources/S02_BitCodeFormat.md, sha256: 0E30658450FC3D2051FF41C629EC0B477ED53B48DBA75F58A34BF16D948B2319, bytes: 45431, url: "https://raw.githubusercontent.com/llvm/llvm-project/c4a3c977f1f9138fb69bf936e532c94f0bb8a3cd/llvm/docs/BitCodeFormat.md", available_by: "2026-08-09", role: FORMAT_AUTHORITY}
+  - {source_id: S03, path: sealed_cases/C18/sources/S03_llvm-as.rst, sha256: DF597530949CDFFCCB7E5F0DC5B1B3D58EC502C23D6404EFFF9AD740DAEFBA8D, bytes: 1594, url: "https://raw.githubusercontent.com/llvm/llvm-project/c4a3c977f1f9138fb69bf936e532c94f0bb8a3cd/llvm/docs/CommandGuide/llvm-as.rst", available_by: "2026-08-09", role: NATIVE_ASSEMBLER_READER_ROUTE}
+exclusions:
+  - local candidate title, proposed planner and all paused-assignment metadata
+  - any output generated after the historical cutoff
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL

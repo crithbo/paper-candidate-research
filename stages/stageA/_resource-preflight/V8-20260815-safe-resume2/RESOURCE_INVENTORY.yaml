@@ -1,0 +1,94 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: V8-SNAPSHOT-CONSTRAINT-SCHEDULER
+  assignment_id: SAFE-PREFLIGHT-L3-20260815-V8-RESUME2
+  stage_or_mode: RESOURCE_PREFLIGHT_ONLY
+  run_id: v8-safe-resume2
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/_resource-preflight/V8-20260815-safe-resume2
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/_resource-preflight/V8-20260815-safe-resume2/resources
+  inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/_resource-preflight/V8-20260815-safe-resume2/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T23:24:41+08:00
+  finalized_at: 2026-08-15T23:31:42+08:00
+root_measurement:
+  logical_bytes: 695
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  redirect_map:
+    TEMP: resources/tmp
+    TMP: resources/tmp
+    TMPDIR: resources/tmp
+    XDG_CACHE_HOME: resources/cache
+  tools:
+    - POWERSHELL_READ_ONLY_LOCAL_PREFLIGHT
+resource_envelope:
+  network_bytes_max: 536870912
+  stored_bytes_max: 2147483648
+  cpu_hours_max: 1
+  gpu_hours_max: 0
+  wall_seconds_max: 7200
+  attempts_max: 0
+  network_bytes_used: 0
+  stored_bytes_used: 695
+  attempts_used: 0
+entries:
+  - id: resource_inventory_snapshot
+    path: resources/logs/resource-inventory/v8-safe-resume2-final.yaml
+    absolute_path: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/_resource-preflight/V8-20260815-safe-resume2/resources/logs/resource-inventory/v8-safe-resume2-final.yaml
+    kind: IMMUTABLE_INVENTORY_SNAPSHOT
+    logical_bytes: 695
+    sha256: 2C56D04301BD2BD8F3EE0A480D043E951609CDEAC8F2D31862E77F8087B2781E
+    created_by: APPLY_PATCH_AFTER_READ_ONLY_PREFLIGHT
+    retention_reason: RESOURCE_LOCALIZATION_AUDIT
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+shared_assets_consumed: []
+external_system_dependencies:
+  - path: C:/Program Files/Git/cmd/git.exe
+    version: 2.53.0.windows.3
+    sha256: C53279919FDEA03474BB23B465B3A82287157491F1BD69A5EB82DD9831582333
+    status: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED
+  - path: C:/Program Files/nodejs/node.exe
+    version: 24.15.0__V8_13.6.233.17-node.48
+    sha256: 3331E1FFE19874215472217C5E94F5A0C6D8E18C4AC7111D3937AA0AD5E9B4A5
+    status: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED__CONTROL_ONLY
+  - path: C:/Windows/py.exe
+    version: 3.12.9__NO_INSTALLED_INTERPRETER
+    sha256: 88A0183AC1172A98E0242310B66E23B45523161354173E9FBEC2459D24EB27EB
+    status: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: [resources/tmp]
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  network_payload_persisted: false
+  source_or_build_payload_persisted: false
+  result: PASS

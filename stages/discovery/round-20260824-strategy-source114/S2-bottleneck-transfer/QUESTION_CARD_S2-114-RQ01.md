@@ -1,0 +1,3 @@
+# Question Card
+
+Vidur current README models workloads/configurations and outputs TTFT, TPOT, request E2E, throughput, batch size and simulator chrome traces; `docs/metrics.md` defines request E2E as completion minus arrival. Full cost requires queue delay, host/scheduler, memory/KV and GPU execution. Current source expresses the frozen estimand and deployment decision endpoint. The open current-backend issue is version/fidelity debt, not a distinct model action. Search stopped at first-party source, metrics documentation and issue locus. `EXCLUDED_BEFORE_RAW__CURRENT_VIDUR_SIMULATOR_ESTIMAND_AND_DECISION_ENDPOINT_COVERAGE`.

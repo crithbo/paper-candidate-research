@@ -1,0 +1,39 @@
+schema: DISCOVERY_SOURCE_CLOSURE_HANDOFF_V1
+assignment_id: SOURCE-CLOSURE-SOURCE85-S2-CQ01-TVM-RELAX-FUSION-LIFETIME-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source85/S2-bottleneck-transfer/closure-cq01
+disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+state_authority: NONE
+forbidden_inference:
+  - No clean-brief, Q2, candidate, PASS, STOP, or stage-state conclusion is made here.
+  - Current-source inspection establishes no global novelty or absence claim.
+frozen_identity:
+  project: apache/tvm
+  commit: 27c2e019d0ce6182158020c7534dda4a3ce981ae
+  exact_object: one fixed Relax or TensorIR IRModule lowered through the stock default pipeline to the same stock VMExecutable, with fusion boundaries and static block-memory lifetimes jointly considered under unchanged semantics
+closed_current_union:
+  fusion: FuseOps_postdominator_path_checks_and_union_find_grouping
+  static_memory: StorageToken_reference_count_reuse_and_later_kill_lowering
+  vm_contract: VM_codegen_explicit_alloc_storage_alloc_tensor_and_kill_object
+carrier:
+  path: tests/python/relax/test_transform_static_plan_block_memory.py
+  status: FIXED_STATIC_MEMORY_LIFECYCLE_ORACLE__NOT_JOINT_TWO_PLAN_WITNESS
+bounded_result:
+  union_external_tvm_specific_joint_action: NOT_FROZEN
+  target_specific_guarantee: NOT_FROZEN
+  reason: Current axes are present, while the frozen paths do not show two complete same-IR fusion/lifetime plans or a non-generic guarantee.
+resource_summary:
+  acquisition_calls: 6
+  persisted_response_bytes: 1164536
+  localization_status: CLOSED_WITHIN_CAP
+resume_debt:
+  required: one same-IR/two-plan action-divergence witness and a TVM-specific guarantee/falsifier tied to fusion-interface lifetime state
+canonical_files:
+  - ASSIGNMENT.yaml
+  - RESOURCE_INVENTORY.yaml
+  - CURRENT_UPSTREAM_AUDIT.md
+  - SOURCE_CLOSURE_REPORT.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+next_owner: MAINLINE_ONLY
+lane_status_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

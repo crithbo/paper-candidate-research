@@ -1,0 +1,68 @@
+schema: mainline-preclaim-a2-handoff-rejection-v1
+rejected_at: 2026-08-26T05:20:00+08:00
+rejected_by: MAINLINE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R7-NATURAL-CLAIM-HARNESS-FIDELITY
+decision: REJECT_NATURAL_CLAIM_HARNESS_FIDELITY_PASS__PLAN_AND_EXECUTION_INTERFACE_NOT_RUNNABLE__NO_SCIENTIFIC_INFERENCE
+submitted_hashes:
+  handoff_sha256: 018D94F0FD8A994C92ABC8E308C40947962659CDCBE64B69B9AD2371F235BA15
+  manifest_sha256: 2380876424A8D415BFF0988570279F9BADA817F83587E89F785944B1C7276857
+  r8_processes_sha256: 192A0A811F8F5CEBD70B590654CC7EBCE4E89842CBAA993E2E0C8C110AA2B0D4
+validation:
+  manifest: PASS_48_OF_48
+  resource_files: 594
+  resource_logical_bytes: 245215805
+  reparse_entries: 0
+  plan_rows: 32
+  reserve_rows: 0
+  plan_executed: false
+  selected_or_reserve_tool_invocations: 0
+  claim_runs: 0
+accepted_mechanical_A2_result:
+  exact_edit: 'R=H.parents[2] -> R=H.parents[1]'
+  corrected_sha256: A26B4B680DF3413049D1D640BB0A507078AE44AE30E1E8504FB526F4E329AAF2
+  corrected_bytes: 1556
+  generator_attempts: 1
+  generated_rows: 32
+rejection_findings:
+  candidate_cli_mismatch:
+    affected_rows: 32
+    plan_argv: [--input, --function, --output]
+    actual_claim_harness_cli: REQUIRED_ONLY_REPLAY_ARGUMENT
+    actual_supports_input_or_check: false
+  checker_cli_mismatch:
+    affected_rows: 32
+    plan_argv_contains: --check
+    actual_claim_harness_supports_check: false
+  baseline_not_exactly_expanded:
+    affected_rows: 32
+    observed: GENERATOR_COMPLETE_UNION_LABEL_PLUS_ONE_UNION_JSON_OUTPUT_ONLY
+    missing: EXACT_16_COMPILE_ARGV_AND_32_LINK_ARGV_PER_PROCESS
+  ablations_not_exactly_expanded:
+    form_fixed_rows_with_generator_label_only: 32
+    form_aware_rows_with_generator_label_only: 32
+  checker_not_native:
+    source: resources/src/claim_harness/checkers.py
+    observed: MACHINEVERIFIER_RELOCATION_DISASSEMBLY_LLD_DWARF_UNWIND_AND_SEMANTICS_SET_TRUE_WITHOUT_TOOL_OUTPUT
+  candidate_not_natural_input_driven:
+    source: resources/src/claim_harness/claim_harness.py
+    observed: NORMALIZED_SYNTHETIC_TRACE_CONSTANT_ONLY__NO_INPUT_OR_FUNCTION_PARSER
+  full_cost_not_natural_command_driven:
+    source: resources/src/claim_harness/full_cost.py
+    observed: SYNTHETIC_TRACE_AND_WITNESS_SIZE_ONLY
+rejected_subgates:
+  H1: FAIL_NO_RUNNABLE_NATURAL_INPUT_CLI_OR_INPUT_DRIVEN_CANDIDATE
+  H2: FAIL_NO_EXACT_EXPANDED_BASELINE_OR_ABLATION_COMMANDS
+  H4: FAIL_NO_NATURAL_COMMAND_METRICS_COLLECTION_PATH
+  H6: FAIL_32_ROWS_STRUCTURALLY_PRESENT_BUT_NOT_EXECUTABLE
+retained_control_evidence:
+  H0: PASS_INPUT_COPY
+  H3: PASS_STATIC_CORPUS_IDENTITY
+  H5: PASS_SYNTHETIC_TOY_CONTROL_ONLY
+accepted_evidence_ceiling: SYNTHETIC_EXECUTABLE_TOY_AND_STATIC_32_ROW_IDENTITY_SHELL_ONLY__NO_NATURAL_CLAIM_FIDELITY
+r8_claim_start_allowed: false
+claim_bearing_observation_count: 0
+scientific_revision_consumed: false
+scientific_state_effect: NONE
+owner_lane_disposition: RELEASE_LANE_1__MOVE_FRESH_REBUILD_TO_INDEPENDENT_CANDIDATE_LANE_2
+next_action: FREEZE_NEW_IMMUTABLE_R8_ACTUAL_NATURAL_HARNESS_ASSIGNMENT_WITH_NATIVE_CLI_CHECKERS_FULL_COST_AND_EXPANDED_COMMANDS

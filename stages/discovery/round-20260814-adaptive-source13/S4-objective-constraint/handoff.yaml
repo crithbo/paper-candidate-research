@@ -1,0 +1,31 @@
+assignment_id: DISCOVERY-S4-20260814-ADAPTIVE-SOURCE13
+lane: S4_OBJECTIVE_CONSTRAINT
+state: IDLE_REUSABLE_AWAITING_MAINLINE
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+write_directory: stages/discovery/round-20260814-adaptive-source13/S4-objective-constraint
+counts:
+  raw_screen_row_event: 6
+  unique_opportunity_family: 4
+  candidate_grade_deep_review: 1
+  stage0_brief: 1
+  propose_stage0: 1
+conclusion: PROPOSE_STAGE0
+briefs:
+  - S4_DCGM_MLPERF_COUNTER_COMPATIBILITY.md
+summary_zh: >-
+  保留一项 Tier B 的独立测量刻画题：在同一 MLPerf workload/质量/SUT 下，检验 DCGM
+  原生 counter-group 兼容性与自动 multiplex 是否改变 accelerator utilization/bottleneck 结论，且完整计入
+  wall energy、tail/throughput、监控与分析成本。它不是 dashboard、field selector 或 runtime controller。
+  当前资料仅证明可检验的测量风险，不宣称已观察到排名反转；CounterPoint 为最新广义扣减，Stage 0 应独立核验其
+  是否已直接吸收该 DCGM+MLPerf 同对象合同。
+readiness: FINITE_FIDELITY_GAP
+next_step_zh: >-
+  请主线按常规 Stage 0 独立审查 exact collision、MLPerf 自然载体和 full-cost contract；若通过，Stage A
+  的首个门应为同 workload 的 native multiplex 与 compatible-group 小 witness 及其 held-out killer。
+manifest: HASH_MANIFEST.sha256
+required_files:
+  - DISCOVERY_LOG.md
+  - SOURCE_COLLISION_MATRIX.md
+  - S4_DCGM_MLPERF_COUNTER_COMPATIBILITY.md
+  - HASH_MANIFEST.sha256

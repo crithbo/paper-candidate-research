@@ -1,0 +1,22 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S4-20260824-SOURCE109-EXPLICIT-DENYLIST-ALTERNATE-RUNTIME-V1
+topic_id: SOURCE109-PORTFOLIO-S4
+lane_id: DISCOVERY_S4
+lane_mode: S4_OBJECTIVE_CONSTRAINT
+thread_id: 01a02e08-1606-71b0-89d9-3fc204478b08
+common_contract: stages/discovery/round-20260824-strategy-source109/control/CONTROL.yaml
+common_contract_sha256: 94EB3B8F3CB62D20F770AD5757E0594F7BBF831F5207B75FA175D62A6A190541
+predecessor_identity_denylist: stages/discovery/round-20260824-strategy-source109/control/PREDECESSOR_IDENTITY_DENYLIST.yaml
+predecessor_identity_denylist_sha256: 1AC56E95A1859818EFB3E4DB853B1B4DF13D081F3AB7C780E381CA553A0FFB01
+write_directory: stages/discovery/round-20260824-strategy-source109/S4-objective-constraint
+resource_root: stages/discovery/round-20260824-strategy-source109/S4-objective-constraint/resources
+focus: TGI_OR_TENSORRT_LLM_EXACT_PUBLIC_BENCHMARK_CLAIM_REPLICATION
+anchor_portfolio: [TGI_TENSORRT_LLM_VERSIONED_PUBLIC_RESULT_ARTIFACT]
+mandatory_pre_rq_check: RECORD_EXACT_OR_CONTAINS_RELATED_ONLY_OR_DISTINCT_FOR_EVERY_SEED_AND_RQ
+forbidden_inputs: [CRFEPOCH_STAGE0_OUTPUTS, GROUP_REPOSITORY]
+model_route: {model: gpt-5.6-terra, reasoning: high}
+discovery_rq_frontend_mode: PRODUCTION
+discovery_claim_pack_mode: OFF
+discovery_quality_mode: OFF
+selective_depth: OFF
+next_action_before_start: WRITE_BOOTSTRAP_ACK_AND_WAIT_FOR_MAINLINE_ACCEPTANCE

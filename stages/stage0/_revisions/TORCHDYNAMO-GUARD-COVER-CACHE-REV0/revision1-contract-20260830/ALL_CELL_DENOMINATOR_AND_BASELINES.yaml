@@ -1,0 +1,107 @@
+schema: torchdynamo-stage0-denominator-baselines-v1
+assignment_id: STAGE0-REVISION1-20260830-TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+topic_id: TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+
+minimum_q2_panel:
+  public_models_min: 12
+  workload_families_min: 3
+  platforms: [PUBLIC_CPU, SINGLE_PUBLIC_CUDA_GPU]
+  result_independent_positive_streams: mandatory
+  result_independent_negative_streams: mandatory
+  recomputation_negative_if_training_scope_retained: mandatory
+  heldout_models_or_frames: mandatory
+
+primary_denominator:
+  cartesian_product:
+    - MODEL
+    - FRAME
+    - SIGNATURE_STREAM
+    - POLICY
+    - CACHE_TEMPERATURE
+    - PROCESS_CONTROL_ARM
+  cache_temperatures: [COLD, WARM]
+  process_control_arms: [POLICY_HOOK_ON, POLICY_HOOK_OFF]
+  cell_id: hash_of_exact_PyTorch_commit_and_all_dimension_values
+  every_planned_cell_included: true
+  all_failure_and_ownership_unknown_cells_included: true
+  result_dependent_stream_cell_or_model_selection: forbidden
+  denominator_redefinition_after_results: forbidden
+
+required_stream_strata:
+  - CERTIFIED_OVERLAP_POSITIVE
+  - FULLY_STATIC_NEGATIVE
+  - FULLY_DYNAMIC_OR_DISJOINT_NEGATIVE
+  - GENERALIZED_KERNEL_NO_SLOWDOWN_NEGATIVE
+  - OWNERSHIP_UNKNOWN_OR_SHARED_ARTIFACT_NEGATIVE
+  - ACTIVATION_CHECKPOINT_RECOMPUTE_NEGATIVE
+  signature_order_frozen_before_any_future_run: true
+  signatures_per_stagea_killer_frame: 4_to_8
+
+cell_status_vocabulary:
+  - COMPLETE_COMPATIBLE
+  - NO_CERTIFIED_COVER
+  - NON_SHAPE_QUOTIENT_MISMATCH
+  - SHAPE_SOLVER_UNKNOWN_OR_TIMEOUT
+  - COMPATIBILITY_MISMATCH
+  - NO_SAFE_LOGICAL_HOOK
+  - OWNERSHIP_UNKNOWN
+  - PHYSICAL_RECLAMATION_NOT_ALLOWED
+  - EAGER_FALLBACK
+  - COMPILE_OR_EXECUTION_FAIL
+  - FULL_COST_UNOBSERVABLE
+  - NEGATIVE_CONTROL_FAIL
+
+native_baseline_union:
+  PYTORCH_2_13_DEFAULT:
+    components: [dynamic_None, automatic_dynamic, local_PGO, MRU, default_recompile_limits, default_multilayer_caches]
+  DYNAMIC_GRID:
+    components: [dynamic_true, dynamic_false, mark_dynamic, shapes_spec]
+  ISOLATION_AND_LIMIT_GRID:
+    components: [isolate_recompiles_on_off, per_call_recompile_limit_grid, accumulated_limit]
+  EAGER_STANCES:
+    components: [eager_on_recompile, eager_then_compile, aot_eager_then_compile, fail_on_recompile]
+  ORDERING:
+    components: [MRU_move_to_front, insertion_order]
+  EXACT_GUARD_EVALUATION:
+    components: [default_exact_guard_evaluation, semantically_safe_guard_optimization_only]
+    unsafe_filter_as_primary: forbidden
+  SIMPLE_CACHE:
+    components: [count_cutoff, simple_LRU_or_frequency_admission_without_shape_cover]
+  OFFLINE_FULL_COST_ORACLE:
+    information: entire_frozen_stream
+    deployable_online_baseline: false
+  ADJACENT_DYNAMIC_COMPILER_BASELINES:
+    components: [DyPARS, DISC, Vortex]
+    include_as_direct_baseline_only_if_same_function_information_platform_and_full_cost_are_fair: true
+    otherwise_role: contextual_subtractor_only
+
+fairness_contract:
+  same_frame_stream_order_backend_options_and_cache_temperature: mandatory
+  same_exact_semantics_and_compatibility_oracle: mandatory
+  same_failure_and_ownership_denominator: mandatory
+  policy_solver_hook_and_ownership_overhead_charged: true
+  offline_oracle_not_presented_as_online: true
+  unsafe_guard_removal_not_used_to_win_primary_comparison: true
+  physical_bytes_not_credited_without_ownership_proof: true
+
+full_cost_per_cell:
+  - compilation_and_recompilation
+  - execution
+  - guard_dispatch_and_failed_guard_traversal
+  - eager_fallback
+  - policy_and_solver
+  - logical_entry_state
+  - generated_loaded_and_persistent_artifact_bytes_where_observable
+  - host_device_and_CUDAGraph_residency_where_observable
+  - ownership_proof_and_reacquisition
+  - failure_time_and_failure_class
+
+q2_failure_conditions:
+  - fewer_than_12_models_or_3_workload_families
+  - missing_CPU_or_single_public_CUDA_route
+  - missing_positive_or_negative_stream_strata
+  - failed_or_ownership_unknown_cells_removed
+  - incomplete_PyTorch_2_13_native_baseline_grid
+  - no_nontrivial_gain_over_native_or_simple_baselines
+  - residual_collapses_to_generic_caching_or_set_cover
+

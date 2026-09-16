@@ -1,0 +1,83 @@
+schema_version: stage0-primary-handoff-v8.7
+assignment_id: STAGE0-P2-20260811-AARCH64-SVE-SME-JOINT-STATEFUL-CODEGEN-PRIMARY-V8.7
+topic_id: AARCH64-SVE-SME-JOINT-STATEFUL-CODEGEN
+role: PRIMARY
+status: COMPLETE_AWAITING_INDEPENDENT_CONFIRMATION
+decision: REVISE_ONCE
+quality_tier: TIER_B_Q2_VIABLE__CONDITIONAL_ON_ATOMIC_GATE
+confidence: 0.86
+novelty_route: N2
+evidence_ceiling: CURRENT_SOURCE_AND_STATIC_CERTIFICATE_ROUTE_ONLY
+search_status: SEARCH_BOUNDED_OPEN
+stage_authorization:
+  stage_a: false
+  stage_b: false
+current_source_finding: >-
+  PSTATE.SM and ZA interfaces are controlled by ACLE/LLVM IR attributes and
+  AAPCS64 ABI obligations. Current LLVM already lowers required transitions and
+  includes MachineSMEABI and SMEPeepholeOpt; a free mode/ZA-lifetime claim is
+  not a same-object residual.
+atomic_revision_gate:
+  id: NATIVE_SME_ABI_ACTION_COMPLETE__SAME_INTERFACE_TRANSITION_LAZYSAVE_PREDICATE_FRONTIER_CERTIFICATE
+  allowance: 1
+  required_closure:
+    - concrete_llvm_commit_acle_aapcs64_features_attributes_and_pass_controls
+    - same_interface_native_MIR_two_action_witness_with_ABI_legal_SM_ZA_TPIDR2_behavior
+    - complete_current_llvm_SME_ABI_peephole_RA_spill_frame_and_flag_union
+    - future_native_action_and_declared_cost_preserving_bounded_state
+    - target_specific_exact_FPT_or_certified_pareto_recurrence_with_visible_cap
+    - finite_stageA_native_oracle_union_replay_natural_carrier_and_full_cost_killer
+  failure_sentinel: >-
+    BELOW_Q2_STOP_IF_CHANGED_ATTRIBUTES_OR_ABI__ONLY_MANDATORY_CURRENT_PASS_ACTIONS__
+    UNION_ABSORPTION__GENERIC_RA_ILP_OR_SCALAR_TRANSITION_WRAPPER__OR_UNSOUND_STATE_MERGE
+same_object_contract:
+  preserved:
+    - fixed_llvm_IR_and_callsite_attributes
+    - fixed_AAPCS64_SM_and_ZA_interfaces
+    - fixed_SVE_SME_features_and_vector_length_dependent_semantics
+    - stock_assembler_linker_and_abi_visible_behavior
+  excluded:
+    - changed_function_or_callsite_attributes
+    - inline_asm_managed_mode_changes
+    - SME2_ZT0_first_object
+    - custom_runtime_or_abi
+    - profile_information
+    - generic_register_allocator_as_method
+current_union:
+  - LLVM_attribute_and_call_lowering
+  - MachineSMEABI
+  - SMEPeepholeOpt
+  - standard_AArch64_RA_scavenging_spill_frame_and_postRA_scheduling
+  - legal_feature_optimization_and_pass_controls
+  - same_information_local_transition_spill_rules
+  - tiny_exhaustive_MIR_oracle_validator
+stagea_preclaim_plan:
+  fidelity:
+    - compile_exact_typed_MIR_two_action_witnesses
+    - assembler_linker_unwind_and_semantic_abi_oracles
+    - complete_current_union_replay
+    - tiny_exhaustive_state_merge_and_frontier_check
+  natural_route: named_public_LLVM_SVE_SME_IR_MIR_carriers_after_revision
+  full_cost:
+    - planner_and_model_build
+    - compiler_CPU_wall_RSS_temp
+    - object_text_unwind
+    - ZP_ZA_save_spill_and_transition_counts
+    - verification_fallback_and_runtime_when_available
+  killer:
+    - witness_illegality_or_abi_mismatch
+    - current_union_reproduces_all_actions_or_guarantee
+    - cap_only_frontier
+    - no_full_cost_pareto_residual
+frozen_controls:
+  AGENTS.md: 66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063
+  plan.md: E53BDC7CD6EF5AD9C83874DD1BCE8BC70D1811F424C58E4BB336A2BD772BF6BF
+  registry.yaml: 444A49FA4CF0406AC806F87FA949CD55A53D287FE689E04C9F2B3061DFFDF354
+  ROLE_STAGE0_REVIEW.md: 741EC3544797FF8A5BF337E1E3448B5F683823E5229F818F162834400581626E
+upstream_discovery:
+  topic_brief: CD919F49D4BF2836532C1BBDA5B892D2E54DE95E8D97F7283637EA45AA20D135
+  handoff: 96F424FD70ECC39810FB979154323C9BA4AA3C8F72C64E476A8FA5C3203D5C43
+  manifest: B8C7C37622CBE1AD5D8052E3281C53FF2D1E6A74D08E6B1E102AFFD103B09ADA
+  manifest_verification: 8_of_8_PASS
+next_action: ROUTE_TO_AN_UNINVOLVED_STAGE0_CONFIRMATION_SENTRY_FOR_ATOMIC_GATE_REVIEW
+lane_state_after_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE

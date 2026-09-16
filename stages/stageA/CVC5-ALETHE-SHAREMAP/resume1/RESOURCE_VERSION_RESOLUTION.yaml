@@ -1,0 +1,44 @@
+schema: resource-version-resolution-v1
+assignment_id: RESOURCE-UNBLOCK-L1-20260810-CVC5-R1
+authorization_id: UNBLOCK-AUTH-20260810-R1
+resolved_at: 2026-08-10T15:18:00+08:00
+resolution_point: AFTER_SIGNED_REPOSITORY_DATABASE_SYNC_BEFORE_TARGET_PACKAGE_DOWNLOAD
+repository_environment: MSYS2_CLANG64
+repository_validation: PACMAN_SHA256_AND_SIGNATURE
+
+exact_target_versions:
+  mingw-w64-clang-x86_64-clang: 22.1.8-2
+  mingw-w64-clang-x86_64-cmake: 4.4.2-1
+  mingw-w64-clang-x86_64-ninja: 1.13.2-1
+  mingw-w64-clang-x86_64-gmp: 6.3.0-2
+  mingw-w64-clang-x86_64-rust: 1.97.0-1
+  mingw-w64-clang-x86_64-python: 3.14.7-1
+  make: 4.4.1-3
+  zip: 3.0-5
+  m4: 1.4.21-1
+  diffutils: 3.12-1
+
+preflight_delta:
+  mingw-w64-clang-x86_64-cmake:
+    initial_web_metadata_version: 4.4.0-1
+    signed_repository_version: 4.4.2-1
+    disposition: EXPLICITLY_FROZEN_BEFORE_PACKAGE_DOWNLOAD__ACCEPT_ONLY_IF_ALL_UNMODIFIED_SMOKES_PASS
+  mingw-w64-clang-x86_64-python:
+    initial_constraint: 3.14_SERIES_EXACT_REVISION_FROM_SIGNED_TRANSACTION
+    signed_repository_version: 3.14.7-1
+    disposition: EXACTLY_FROZEN_BEFORE_PACKAGE_DOWNLOAD
+
+install_policy:
+  exact_version_arguments_required: true
+  dependency_versions_recorded_after_transaction: true
+  package_cache_inside_resume1: true
+  candidate_or_claim_bearing_execution: false
+  system_modification: false
+
+bounded_build_dependency_correction:
+  observed_failure: GMP_MPFR_SYS_CONFIGURE_MISSING_M4_CMP_DIFF
+  observed_before_first_carcara_binary: true
+  added_exact_packages:
+    m4: 1.4.21-1
+    diffutils: 3.12-1
+  policy: ONE_IDENTICAL_LOCKED_CARCARA_BUILD_RETRY_ONLY__BLOCK_IF_ANY_FURTHER_TOOLCHAIN_GAP

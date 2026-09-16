@@ -1,0 +1,95 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  artifact_state: ARTIFACT_OPEN
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: ROCKSDB_MULTISST_REDESIGN_DISCOVERY_HANDOFF_ACCEPTED
+  downstream_consumer: STAGE0_ONLY_IF_CLEAN_BRIEF
+  post_close_retained_bytes_max: 67108864
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: RESUME_CAPSULE.yaml
+  cleanup_receipt_path: null
+identity:
+  topic_id: ROCKSDB-MULTISST-DICT-TRACE-COVERAGE
+  assignment_id: DISCOVERY-S6-20260826-ROCKSDB-MULTISST-DICT-TRACE-REDESIGN
+  stage_or_mode: DISCOVERY_S6_TARGETED_NEW_ID_REDESIGN
+  run_id: DISCOVERY-S6-ROCKSDB-MULTISST-20260826-R1
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/discovery/round-20260826-soft-redesign/S6-direct-algorithm-software
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/discovery/round-20260826-soft-redesign/S6-direct-algorithm-software/resources
+  inventory_path: <LOCAL_PROJECT_ROOT>/stages/discovery/round-20260826-soft-redesign/S6-direct-algorithm-software/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-26T13:26:00+08:00
+  finalized_at: 2026-08-26T13:50:00+08:00
+root_measurement:
+  logical_bytes: 11334
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS
+  path: RESOURCE_PREFLIGHT.yaml
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools: [PowerShell-7.6.4, Invoke-WebRequest, Expand-Archive, git-2.53.0]
+resource_envelope:
+  network_bytes_max: 67108864
+  stored_bytes_max: 134217728
+  cpu_hours_max: null
+  gpu_hours_max: 0
+  wall_seconds_max: null
+  attempts_max: 20
+  network_bytes_used: null
+  network_bytes_note: CONNECTOR_DID_NOT_EXPOSE_EXACT_BYTES__NOT_ESTIMATED__NO_PERSISTED_NETWORK_RESPONSE
+  stored_bytes_used: 11334
+  attempts_used: 17
+entries:
+  - {path: resources/logs/NETWORK_ATTEMPT_LEDGER.yaml, logical_bytes: 6906, sha256: 4939A4B15F91D5103BA7DC074C71A8459865C452AA4BDB23E63DA37E2DC93FC1, creating_run: DISCOVERY-S6-ROCKSDB-MULTISST-20260826-R1, claim_critical: true, reproducibility_minimum: true, provenance: assignment_generated, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {path: resources/logs/A01_GIT_LS_REMOTE_FAILURE.txt, logical_bytes: 270, sha256: 702F462D3AB403A59A7BB25B0C7A673D3846C6DE1DA3EBA7D35D01B27A8392AA, creating_run: A01, claim_critical: false, reproducibility_minimum: true, provenance: assignment_generated, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {path: resources/logs/A03_OFFICIAL_SEARCH_LOCATORS.md, logical_bytes: 922, sha256: C5A9F2E9CD63222D5850650B1C43612D8731FF00354D0C063FC4D7C2D16A7E9B, creating_run: A03, claim_critical: true, reproducibility_minimum: true, provenance: assignment_generated_from_transient_connector, retention_class: KEEP_CAPSULE_CLAIM_CRITICAL, delete_after_gate: NEVER_AUTOMATIC}
+  - {path: resources/logs/A04_CURRENT_DOCS_READ.md, logical_bytes: 1308, sha256: AEF55198167C95C62EA0163DF19ADDCE2E1254E7479BCBE49FEB5F723872BDE9, creating_run: A04, claim_critical: true, reproducibility_minimum: true, provenance: assignment_generated_from_transient_connector, retention_class: KEEP_CAPSULE_CLAIM_CRITICAL, delete_after_gate: NEVER_AUTOMATIC}
+  - {path: resources/logs/A06_A09_CURRENT_BUILDER_FINDINGS.md, logical_bytes: 1478, sha256: B003EFFC74E064736CBB8C1317B3640B5B2CD9E604D277026FA405B796F4E087, creating_run: A06_A09, claim_critical: true, reproducibility_minimum: true, provenance: assignment_generated_from_official_current_source, retention_class: KEEP_CAPSULE_CLAIM_CRITICAL, delete_after_gate: NEVER_AUTOMATIC}
+  - {path: resources/logs/A10_VERSION_PIN.md, logical_bytes: 450, sha256: 91C6E05FDA9D3EDF916923A9817FF6F70C9B308CE04537F9540A25AA66305308, creating_run: A10, claim_critical: true, reproducibility_minimum: true, provenance: assignment_generated_from_official_release_page, retention_class: KEEP_CAPSULE_CLAIM_CRITICAL, delete_after_gate: NEVER_AUTOMATIC}
+shared_assets_consumed: []
+external_system_dependencies:
+  - {name: Codex_web_connector, disposition: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED, exact_network_bytes: UNAVAILABLE__NOT_ESTIMATED}
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY]
+  closeout_plan_accepted: false
+  downstream_inputs_accepted: false
+  capsule_sealed: false
+  active_owner_or_process_count: 0
+  performed: false
+  deleted_entries: []
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  lifecycle_mode_and_hash_match: true
+  claim_critical_content_hashes_present: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: true
+  deterministic_recovery_routes_complete: true
+  closeout_budget_or_exception_pass: true
+  result: PASS_FINALIZED__NO_DOWNLOAD_ARCHIVE_SOURCE_BUILD_ENV_CACHE_OR_TMP_FILES

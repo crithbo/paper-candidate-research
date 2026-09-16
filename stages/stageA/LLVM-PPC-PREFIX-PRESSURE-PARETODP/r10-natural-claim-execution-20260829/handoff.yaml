@@ -1,0 +1,33 @@
+schema_version: stagea-candidate-handoff-v1
+identity:
+  topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+  assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10-NATURAL-CLAIM-EXECUTION
+  lane_id: CANDIDATE_L2
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r10-natural-claim-execution-20260829
+status: FAIL_CLOSED__EXECUTION_INTERFACE_AMBIGUITY
+decision: RETURN_TO_MAINLINE_WITHOUT_SCIENTIFIC_INFERENCE
+evidence_ceiling: INVALID_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: false
+claim_bearing_observation_started: false
+natural_claim_rows:
+  planned: 32
+  completed: 0
+  first_failure: ROW_SUBCOMMAND_ORDER_MISSING
+  detail: "Only global row order is frozen; no row contains an ordered command sequence."
+resource_copy:
+  attempts_used: 1
+  files: 340
+  logical_bytes: 127698561
+  missing: 0
+  sha256_mismatch: 0
+  reparse_count: 0
+required_mainline_action:
+  - Freeze an explicit ordered command sequence for every row.
+  - Issue a new hash-pinned authorization before any natural process is started.
+retained_artifacts:
+  - RESOURCE_INVENTORY.yaml
+  - RELOCATED_R10_EXECUTION_PLAN.json
+  - EXECUTION_INPUT_COPY_MANIFEST.yaml
+  - resources/**
+  - STAGEA_REPORT.md
+owner_cleanup_performed: false

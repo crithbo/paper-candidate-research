@@ -1,0 +1,28 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+mainline_task_or_contact: 01a034d0-af48-72a1-a311-7495db80d90f
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_ACTION
+identity: {lane_id: STAGE0_PRIMARY, role_id: STAGE0_REVIEW, assignment_id: STAGE0-PRIMARY-20260829-CAUSECASE-PREFETCH-REV0-PROVENANCE-ROUTE-REVIEW, topic_id: CAUSECASE-PREFETCH-REV0, stage_or_mode: SOURCE_ROUTE_CLOSED_RETURN_TO_STAGE0_REVIEW, status: BOOTSTRAP_PENDING, resume_point: REV1_SOURCE_BLOCKER_REPLACED_BY_MOP_V2_FULL_TEXT, next_action: BOOTSTRAP_ACK_ONLY}
+authority: {policy_authority: USER, shared_file_writer: MAINLINE, canonical_writer: STAGE0_PRIMARY, user_approval_ids: [USER_MOP_PUBLIC_DISCLOSURE_ROUTE_20260829], allowed_actions: [read_frozen_inputs, bounded_primary_source_check, write_stage0_report_handoff_manifest], forbidden_actions: [build, experiment, trace_download, stagea, stageb, shared_state_change], forbidden_inputs: [pasted_text_as_evidence, unverified_private_artifact]}
+boundaries: {unique_write_directory: stages/stage0/_reviews/user-proposed-20260828-causecase-prefetch/provenance-addendum-20260829, resource_root: stages/stage0/_reviews/user-proposed-20260828-causecase-prefetch/provenance-addendum-20260829/resources, read_only_paths: [stages/stage0/_reviews/user-proposed-20260828-causecase-prefetch/revision1], write_allowed_paths: [stages/stage0/_reviews/user-proposed-20260828-causecase-prefetch/provenance-addendum-20260829], network_allowed: true, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 342F19D73FB8A6CD04B2E3F321503A9E79F98F92021F24785E53D50533AF3D6C}
+  registry_snapshot: {path: registry.yaml, sha256: F1AD8286073A70DA53CF3C95304C80E5CAFFAF90AA000D830CB70A63225A5AA3}
+  role_rule: {path: rules/ROLE_STAGE0_REVIEW.md, sha256: 71D2E972A7C46812C49E78693AC24E00752D653C42AD0F6664DAD731DE82623C}
+  skills: [{path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+  templates: [{path: templates/STAGE0_REPORT.md, sha256: 2C72A46D7385A4DFE0D0981E4BDF4AB2A3BF6F19674BC94B14A1596386A2B809}]
+minimum_inputs:
+  - {path: control/ASSIGNMENT.yaml, sha256: 2B3055EB60784FD81434D66459F6F3BEEC46F380285B91B6A579E38C8BE2987A}
+  - {path: MOP_PUBLIC_DISCLOSURE_ROUTE.yaml, sha256: CF12D3B74885B132C8F121D1450ED4EB4DF847272C23EBDFEDF8C9610798B21A}
+  - {path: ../revision1/STAGE0_REPORT.md, sha256: 91B314BA1BEFC0F2037773B32673A3EEDACDADAA02739CC251CB387916ACA344}
+  - {path: ../revision1/handoff.yaml, sha256: 1EA97CDADE65229E2A2DFF1B1361729B3C34005B338AD9228789C88E1FB30828}
+expected_outputs: [STAGE0_REPORT.md, handoff.yaml, HASH_MANIFEST.sha256]
+budget: {official_primary_source_requests_max: 8, code_or_trace_downloads_max: 0, build_or_experiment_runs_max: 0}
+claim_ceiling: STAGE0_CONDITIONAL_ONLY
+evidence_ceiling: PUBLIC_DISCLOSURE_ROUTE_ONLY__NO_PRIVATE_IMPLEMENTATION_INFERENCE
+scientific_revision: {allowed_total: 0, consumed: 1, remaining: 0, exceptional_revision_authorized: false}
+mechanism_pivot: {allowed: false, consumed: 0, remaining: 0}
+handoff_requirements: [independent_stage0_decision, explicit_mop_subtraction, no_stagea_start]
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: PASS}

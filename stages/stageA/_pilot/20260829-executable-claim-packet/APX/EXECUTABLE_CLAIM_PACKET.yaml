@@ -1,0 +1,30 @@
+schema: executable-claim-packet-v1
+pilot_assignment: PILOT-APX-20260829-EXECUTABLE-CLAIM-PACKET
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+stage: STAGEA_NATURAL_CLAIM_EXECUTION_PACKET
+asset_binding: ASSET-LLVM-APX-A1194BE1
+scientific_contract:
+  exact_object: LLVM_X86_64_APX_prefix_pressure_on_same_IR_functions
+  primary_RQ: whether labeled per-action prefix-pressure DP yields a non-dominated cost point under same-object LLVM APX lowering
+  atomic_action: select_and_apply_APX_prefix_lowering_actions_under_pressure_with_legal_EVEX_encoding
+  mechanism: labeled_action_state_DP_with_successor_backpointer_and_full_cost_accounting
+  comparator_union: [llvm_current, llvm_finite_tuning, generic_exact_subtractor, independent_micro_oracle]
+  natural_or_canonical_workload: exact_public_APX_LLVM_test_functions
+  metric_denominator: EXACT_4_APX_PILOT_ROWS_X_TWO_REPLAYS
+  guarantee: preliminary_support_only__no_production_claim
+  claim_ceiling: STAGEA_DIRECTIONAL_ONLY__NO_STAGEB
+  unchanged_invariants: [exact_object, primary_RQ, atomic_action, mechanism, comparator_union, natural_or_canonical_workload, metric_denominator, guarantee]
+rows:
+  control: {row_id: APX-E1-CONTROL, type: ENGINEERING_CONTROL_NON_CLAIM_BEARING, source: ASSET-LLVM-APX-A1194BE1}
+  pilot:
+    - {row_id: APX-R8-S01-R1, input: src/corpus/S01/and.ll, function: and8rr, replay: 1, input_sha256: 8FCB0455C1F2D73F992C67003B1A03B1D2EE024005DF5D0FC79EBB8425E32861}
+    - {row_id: APX-R8-S01-R2, input: src/corpus/S01/and.ll, function: and8rr, replay: 2, input_sha256: 8FCB0455C1F2D73F992C67003B1A03B1D2EE024005DF5D0FC79EBB8425E32861}
+    - {row_id: APX-R8-S02-R1, input: src/corpus/S02/neg.ll, function: neg8rr, replay: 1, input_sha256: FFB56115E7895DFD6404939FC59E8DA71D93BACF36F5B8D7211F9A96FFB08037}
+    - {row_id: APX-R8-S02-R2, input: src/corpus/S02/neg.ll, function: neg8rr, replay: 2, input_sha256: FFB56115E7895DFD6404939FC59E8DA71D93BACF36F5B8D7211F9A96FFB08037}
+  reserve_frozen_before_results:
+    - {row_id: APX-R8-S03-R1, input: src/corpus/S03/ctest.ll, replay: 1, input_sha256: 4293426EBB97473D4A56499CB3F18A3C9A6300170E4DA7F9ECBFDB1F1726BBA1}
+    - {row_id: APX-R8-S03-R2, input: src/corpus/S03/ctest.ll, replay: 2, input_sha256: 4293426EBB97473D4A56499CB3F18A3C9A6300170E4DA7F9ECBFDB1F1726BBA1}
+full_cost_dimensions: [prepare_wall, llvm_current_wall, llvm_tuning_wall, candidate_wall, labeled_dp_wall, generic_wall, oracle_wall, checker_wall, full_cost_wall, peak_rss, output_bytes, compile_or_transform_cost, storage_cost]
+legality_witness: [same_object_identity, exact_input_hash, replay_pair_identity, APX_EVEX_legality, checker_status, denominator_membership]
+result_firewall: {performance_fields_hidden_until_independent_gate: true, result_based_exclusion: false, packet_change_after_claim_visibility: invalidates_affected_rows}
+execution_authorized_now: false

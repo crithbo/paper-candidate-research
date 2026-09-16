@@ -1,0 +1,72 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: PATCHVALUE-COUNTERFACTUAL-REV0
+  assignment_id: STAGE0-C2-20260822-PATCHVALUE-COUNTERFACTUAL-CONFIRMATION
+  stage_or_mode: STAGE0_SENTRY_CONFIRMATION
+  run_id: STAGE0-C2-20260822-PATCHVALUE-COUNTERFACTUAL-CONFIRMATION
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchvalue-confirmation
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchvalue-confirmation\resources
+  inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchvalue-confirmation\RESOURCE_INVENTORY.yaml
+  created_at: '2026-08-22T00:18:29+08:00'
+  finalized_at: '2026-08-22T00:18:29+08:00'
+root_measurement:
+  logical_bytes: 0
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: NOT_APPLICABLE_TRANSIENT_CONNECTOR_NO_PERSIST
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - web transient search/open connector
+resource_envelope:
+  network_bytes_max: null
+  stored_bytes_max: 134217728
+  cpu_hours_max: 1
+  gpu_hours_max: 0
+  wall_seconds_max: 7200
+  attempts_max: 12
+  network_bytes_used: null
+  stored_bytes_used: 0
+  attempts_used: 9
+entries: []
+shared_assets_consumed: []
+external_system_dependencies:
+  - name: transient web connector
+    purpose: independent current-source and primary-paper verification
+    persistence: none
+    exact_transfer_bytes_available: false
+cleanup:
+  owner: MAINLINE
+  authorized_descendants:
+    - <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchvalue-confirmation\resources
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: EMPTY_RESOURCE_ROOT__NO_CLEANUP_NEEDED
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: PASS
+

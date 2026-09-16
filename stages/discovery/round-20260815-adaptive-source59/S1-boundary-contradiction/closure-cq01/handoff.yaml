@@ -1,0 +1,35 @@
+schema: DISCOVERY_SOURCE_CLOSURE_HANDOFF_V1
+assignment_id: SOURCE-CLOSURE-SOURCE59-S1-CQ01-GLIBC-TLSDESC-DSO-LIFETIME-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source59/S1-boundary-contradiction/closure-cq01
+disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+state_authority: NONE
+forbidden_inference:
+  - No clean-brief, Q2, candidate, PASS, STOP, or stage-state conclusion is made here.
+  - The HTTP 429 response is not evidence of source absence, action absence, or a scientific negative.
+frozen_identity:
+  project: sourceware/glibc
+  resolved_master_commit: e2789c46e3bfdcd67a82bea9946b315c179e83d3
+  exact_object: current x86-64 TLSDESC dynamic resolver/relocation and direct TLS-descriptor dlopen/dlclose test paths under the frozen ABI and DSO-lifetime semantics
+closure_status:
+  current_union: NOT_INSPECTED__SOURCEWARE_TREE_RATE_LIMITED
+  natural_carrier: NOT_FROZEN
+  same_abi_two_state_trace: NOT_FROZEN
+  reason: The official pinned-tree route returned HTTP 429 before target content was persisted.
+resource_summary:
+  acquisition_calls: 2
+  acquisition_cap: 6
+  persisted_response_bytes: 34382
+  localization_status: RATE_LIMITED__NO_SCIENTIFIC_INFERENCE
+resume_requirement:
+  required: explicit resumed source-closure assignment with a rate-limit-safe official Sourceware request window
+  fixed_commit_to_reuse: e2789c46e3bfdcd67a82bea9946b315c179e83d3
+  next_scope: immediate _dl_tlsdesc_dynamic resolver/relocation/lifetime guard and direct tst-gnu2-tls test path only
+canonical_files:
+  - ASSIGNMENT.yaml
+  - RESOURCE_INVENTORY.yaml
+  - SOURCE_CLOSURE_REPORT.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+next_owner: MAINLINE_ONLY
+lane_status_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

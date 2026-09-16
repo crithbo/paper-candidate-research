@@ -1,0 +1,5 @@
+# Question Card — Source31
+
+`QC31-01`: MLPerf Client v1.6 fixed base component/model/quality/result contract; canonical-only, no deployment claim.
+
+Official v1.6 pages distinguish base from extended components, state which components contribute to official score, expose TTFT and quality thresholds, note repeated internal runs, and add memory-utilization/power-efficiency tooling. Same-object question: whether a predeclared official responsiveness/throughput ordering remains identified after conditioning only on disclosed quality/resource coverage. A held-out component with no conclusion change, or insufficient native fields, falsifies it. Existing native base/extended rules and tested-config semantics are strongest union and absorb re-statements, score changes, selectors and controllers. Full cost is native validation, repeated runs, start-up and disclosed memory/power fields only. Current content-addressable export and held-out comparator remain finite closure debt. `INCOMPLETE`; `LOCATOR_ONLY__PUBLIC_EVIDENCE_UNCLOSED`; no raw.

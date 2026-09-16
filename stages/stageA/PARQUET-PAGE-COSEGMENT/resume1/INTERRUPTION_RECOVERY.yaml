@@ -1,0 +1,36 @@
+schema_version: 1
+assignment_id: STAGEA-L1-20260811-PARQUET-PAGE-COSEGMENT-RESUME1-V8.7
+cause: APPLICATION_CLOSE_INTERRUPTED_ACTIVE_TURN
+new_assignment_created: false
+old_root_modified: false
+active_process_after_restart: false
+last_verified_safe_boundary: green_tripdata_2024-08
+verified_complete_resume_results:
+  - file: green_tripdata_2024-06
+    result_sha256: 0EC9269B112192D4597E230D68020A1A545F32BCE78B291964A09BDB7A294FAC
+    union_sha256: D100AB559AF53D4C108243937673D613D51B301845BC05DD56564BE4F829CF08
+    candidate_sha256: 3BDD8E68241139E4784D318E03F1EA9BE134BB1C7C28103B2E0013A1767EF6C9
+    equivalence_all_true: true
+  - file: green_tripdata_2024-07
+    result_sha256: 92C57EF863D35742EA8E659AF660B1A0FF76C760ED834CB028AFC574FC61B064
+    union_sha256: EB00E2974AEE5308D299691C53E5B7F2F017CEDA02D475E774C34A554E776ACE
+    candidate_sha256: 2DA236F5593FC74B9A881821CC3AEA86880B954BF46BF711FF1AEAE8AC3F56BC
+    equivalence_all_true: true
+  - file: green_tripdata_2024-08
+    result_sha256: 240E19C9AFED76DD859835ECD9E84C98BC708BAA51F7594FDD53A2682CD23FC5
+    union_sha256: 7278344DE1F263506E5A75E9DADDDF7D55B1FD73DFDD973A2537CCE7A8B14BE6
+    candidate_sha256: 1E74E5F97A6CBED06F8E3E2EC82F74A666C26123536F3F63373E99DBF32E5B8C
+    equivalence_all_true: true
+interrupted_file:
+  file: green_tripdata_2024-09
+  boundary_oracle_files: 15
+  strongest_union_exists: false
+  candidate_exists: false
+  result_exists: false
+  scientific_observation: false
+recovery_path:
+  preserve_interrupted_tree: artifacts/replay1_remaining/green_tripdata_2024-09
+  revalidate_oracles_before_copy: true
+  new_tail_tree: artifacts/replay1_tail
+  resume_first_file: green_tripdata_2024-09
+  rewrite_verified_results: false

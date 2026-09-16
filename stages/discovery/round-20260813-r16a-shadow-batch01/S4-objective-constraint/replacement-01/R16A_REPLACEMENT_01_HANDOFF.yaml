@@ -1,0 +1,27 @@
+assignment_id: DISCOVERY-S4-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+replacement_id: replacement-01
+purpose: DEDUPLICATION_ONLY_REPLACEMENT
+state: IDLE_REUSABLE_AWAITING_MAINLINE
+original_package_preserved_unchanged: true
+dedup_resolution_file: DEDUP_RESOLUTION.md
+original_exclusions:
+  - {id: S4-R16A-F01-KALLSYMS, disposition: EXCLUDED_REPEATED}
+  - {id: S4-R16A-F02-ELF-GNUHASH, disposition: EXCLUDED_REPEATED}
+  - {id: S4-R16A-F04-JOURNAL, disposition: CROSS_LANE_DUPLICATE__S2_RETAINS}
+retained_original_family: S4-R16A-F03-ZIPIMPORT
+replacement_unique_families:
+  - {id: S4-R16A-R01-LUCENE-BLOCKTREE, signature: LUCENE_BLOCKTREE_TERMS_CONSTRUCTOR__TERM_POSTINGS_SET__STOCK_TERMS_READER__INDEX_BYTES_BUILD_CPU_RSS_SEEK_MEMORY_COST, canonical_disposition: NOT_ADMITTED_UNFROZEN, shadow_disposition: NOT_ADMITTED_UNFROZEN, stability: STABLE}
+  - {id: S4-R16A-R02-CCACHE-MANIFEST, signature: CCACHE_MANIFEST_RESULT_CONSTRUCTOR__COMPILATION_INPUT_OUTPUT_SEMANTICS__STOCK_CCACHE_VALIDATION__CACHE_BYTES_HASH_CPU_RSS_HIT_LATENCY_COST, canonical_disposition: NOT_ADMITTED_UNFROZEN, shadow_disposition: NOT_ADMITTED_UNFROZEN, stability: STABLE}
+  - {id: S4-R16A-R03-MODULESYMVER, signature: LINUX_MODULE_SYMVERS_CONSTRUCTOR__EXPORTED_SYMBOL_ABI_SET__STOCK_MODPOST_MODULE_LOADER__BYTES_BUILD_CPU_RSS_ABI_CHECK_COST, canonical_disposition: NOT_ADMITTED_UNFROZEN, shadow_disposition: NOT_ADMITTED_UNFROZEN, stability: STABLE}
+canonical_first:
+  canonical_manifest_sha256: 64499F12AA4818FD0D6EDE81D0D70994E2C5791086E8B697A705BC24BCDFB82A
+  shadow_manifest_sha256: 00C6A5D8E0C9BB8530E325958E30C695AEBBCC476B0D0071E36013578A25E2A6
+  leakage_check: PASS__CANONICAL_FROZEN_BEFORE_SHADOW__NO_SHADOW_TO_CANONICAL
+counts:
+  dedup_only_replacements: 3
+  replacement_briefs: 0
+  replacement_propose_stage0: 0
+compliance:
+  experiments_or_e2: false
+  shared_control_write: false
+  resource_readiness_scientific_inference: false

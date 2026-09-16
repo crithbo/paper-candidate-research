@@ -1,0 +1,16 @@
+schema_version: mainline-stagea-paper-evidence-gate-start-authorization-v1
+assignment_id: PAPER-EVIDENCE-STAGEA-GATE-20260827-R2
+issued_at: 2026-08-27
+cwd: <LOCAL_PROJECT_ROOT>
+bootstrap_acceptance_path: stages/stageA/_compatibility/paper-evidence-20260827/gate/MAINLINE_BOOTSTRAP_ACCEPTANCE.yaml
+bootstrap_acceptance_sha256: DB2E9AEEFB63EEC4DE85F791B4228134D3AB5D92DA0D75D5DD7E7C29A71CB5F3
+start_authorized: true
+model_route: {model: gpt-5.6-terra, thinking: high}
+allowed_actions: [read_enriched_paper_capsules, read_accepted_local_supplements, write_gate_report_and_handoff]
+scope: [paper_only_per_12_positive, paper_plus_existing_local_supplement_per_12_positive, negative_specificity_per_4, missing_locator_attribution]
+required_rule: THREE_EVIDENCE_MISSING_LOCATORS_ARE_PACKER_SOURCE_EVIDENCE_MISSING_UNLESS_REMAINING_CAPSULE_SUFFICES
+forbidden_inputs: [AUDITOR_GOLD_KEY, expected_labels, gold_qualification, blind_metrics]
+forbidden_actions: [network, new_experiment, new_probe, resource_creation, production_candidate_registration, StageB]
+output_paths: [PAPER_EVIDENCE_STAGEA_GATE_REPORT.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+scientific_state_transition: false
+context_plan_registry_mutation_during_run: false

@@ -1,0 +1,129 @@
+schema_version: "stagea-contract-v1"
+assignment_id: STAGEA-L2-20260809-PB-DELETE-SCHEDULE-INITIAL
+topic_id: PB-DELETE-SCHEDULE
+frozen_at: "2026-08-09T17:18:58.6968344+08:00"
+role: CANDIDATE_EXECUTION_LANE_2
+mode: INITIAL_STAGEA
+scientific_revision_consumed: false
+stagea_authorized: true
+stageb_authorized: false
+pending_user_stageb_review: false
+stageb_user_approval_id: null
+
+object:
+  exact: MAXPRE_STYLE_FIXED_NATURAL_WCNF_PREPROCESSING_TRACE__DEPENDENCY_SCHEDULED_EXISTING_CHECKED_CORE_DELETIONS__FIXED_OUTPUT_WCNF_OBJECTIVE_AND_VERIPB_CAKEPB_EQUIOPTIMAL_CONTRACT
+  input: natural_MaxSAT_Evaluation_WCNF_instances
+  trace: fixed_MaxPre_style_proof_producing_preprocessing_trace
+  decision_variable: legal_ordered_partition_batching_order_of_existing_checked_core_deletions
+  fixed:
+    - input_WCNF
+    - output_WCNF
+    - objective
+    - checked_deletion_set
+    - per_deletion_existing_rederivation_obligations
+    - VeriPB_CakePB_equioptimal_contract
+    - sequential_checked_deletion_semantics
+  prohibited_claims:
+    - parallel_deletion_semantics
+    - new_deletion_rule
+    - new_checker
+    - new_emitter
+    - unchecked_deletion_as_equal_guarantee_baseline
+
+source_freeze:
+  upstream_discovery_brief_sha256: 633291801204CD813728331051BFBA1E2FCDF6159A81FCD89471FEBAE81F734A
+  upstream_discovery_handoff_sha256: 0B2A06DA6B25972213C352B9463669711D010BCA1882C7CF5D18FD5A7990DFED
+  upstream_discovery_manifest_sha256: FD232683C16C4A59094E1774B9C650EDD5CFD2B21C62126704EE5E98C965A7E4
+  upstream_primary_report_sha256: 622050348EECF4FDC2DA06949C1B55CC4DD8D67A1C1C9359A8B6E829A862A2E7
+  upstream_primary_handoff_sha256: E1B9A901C93FF34AA5D981746153E197C8ABE33163C3F429916F52A03BADFDF4
+  upstream_primary_manifest_sha256: 8BFA469EDE4F4E123E65ACC557D020A10CE50ECE6BF0A5BB4FFDA4D63A8D7C61
+  upstream_confirmation_report_sha256: 3D148EC03CCF92355579953650D9371A90C260BEE0A4E40FE091A88F3153AD38
+  upstream_confirmation_handoff_sha256: B5815F327972566F0916EB11B4001287F103FBDB200DFBB93247E6EF39557654
+  upstream_confirmation_manifest_sha256: DAB73ED3DBAEE12DA5FB74D39B12DB2840B6490A1453B51355F974EF908918E1
+  official_experiment_artifact:
+    record: https://zenodo.org/records/10630852
+    doi: 10.5281/zenodo.10630852
+    version: v1
+    published: "2024-02-10"
+    license: CC-BY-4.0
+    asset_url: https://zenodo.org/api/records/10630852/files/certified_maxpre_experimental_data.zip/content
+    asset_name: certified_maxpre_experimental_data.zip
+    expected_bytes: 30547369
+    publisher_checksum: md5:6d3eb8bdac6d2ae347e178e6d4e49551
+    local_sha256: 4FC61DBED2881BED29D59F4B790E96153051F6CC2873432F231BCFE705014716
+    component_revisions: PENDING_VERIFIED_EXTRACTION
+  live_MaxPre_repository_reference:
+    url: https://bitbucket.org/coreo-group/maxpre2
+    observed_head_before_execution: 0ec2599ceeac7513da130f4688e6efe0cb3181a3
+    treatment: provenance_only_not_execution_input_unless_artifact_is_incomplete
+
+corpus:
+  minimum_natural_traces: 30
+  minimum_checked_deletions_per_trace: 2
+  source_family: MaxSAT_Evaluation_2023_natural_instances_as_packaged_or_referenced_by_official_IJCAR_artifact
+  selection_rule: canonical_lexicographic_trace_id_after_all_same_contract_eligibility_gates
+  canonical_extraction: >-
+    Parse the exact augmented VeriPB proof emitted by the frozen MaxPre source; identify only
+    checked core-deletion commands and their explicit ordered rederivation subproof slices;
+    canonicalize UTF-8/LF, preserve proof line IDs, and hash WCNF/output/augmented proof/kernel
+    proof/extracted trace separately. No synthetic trace may enter the frozen corpus.
+
+probe_order:
+  - acquire_and_verify_official_artifact
+  - inspect_frozen_source_and_examples_without_claim_bearing_measurement
+  - establish_executable_MaxPre_VeriPB_CakePB_toolchain
+  - freeze_at_least_30_eligible_natural_traces_and_all_hashes
+  - measure_legal_scheduling_choice_rate
+  - if_not_killed_run_candidate_and_fair_baselines
+  - verify_legality_output_objective_and_checker_acceptance
+  - run_full_cost_and_two_clean_replays
+
+baselines:
+  - ORIGINAL_TRACE_ORDER
+  - STABLE_LEGAL_ORDER_WITH_FIXED_TRACE_ID_TIE_BREAK
+  - GREEDY_EARLIEST_READY_LEGAL_ORDER
+  - SMALL_TRACE_EXACT_CEILING_IF_WITHIN_BUDGET
+weaker_guarantee_reference: UNCHECKED_DELETION_ONLY_NOT_EQUAL_QUALITY
+
+killer_rules:
+  legal_choice_rate: "<0.20"
+  fixed_contract_mismatch_or_equivalence_failure: true
+  full_cost_pareto: >-
+    Candidate must retain a nonempty Pareto residual at both p50 and p90 against every fair
+    same-information baseline. Absence at either percentile is a scientific negative for the
+    frozen mechanism core.
+
+full_cost_fields:
+  - dependency_graph_and_extraction_time_ns
+  - order_and_batch_construction_time_ns
+  - proof_or_certificate_bytes
+  - VeriPB_checker_time_ns
+  - CakePB_checker_time_ns
+  - preprocessing_time_ns
+  - peak_RSS_bytes
+  - disk_IO_bytes
+  - fallback_and_failure_cost
+  - output_WCNF_hash_equality
+  - objective_equality
+
+resource_ceiling:
+  disk_bytes: 4294967296
+  cpu_hours: 4
+  gpu: false
+  exclusive_device: false
+
+evidence_policy:
+  ars_protocol: deterministic_exact_replay_and_hash_closed_artifacts
+  stagea_positive_ceiling: PRELIMINARY_SUPPORT_OR_NOT_FALSIFIED
+  pre_observation_resource_failure_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  resource_failure_action: BLOCKED_USER_ACTION_REQUIRED
+  no_stageb: true
+
+acquisition_gate:
+  extract_only_if_exact_byte_count_and_publisher_md5_match: true
+  compute_sha256_before_extraction: true
+  asset_gate_result: PASS_EXACT_30547369_BYTES_AND_MD5_MATCH
+  executable_gate: >-
+    If no legal executable route for the frozen MaxPre, VeriPB, and CakePB toolchain exists on
+    this host before the first claim-bearing observation, stop as a resource blocker; do not
+    replace natural checked-deletion traces with synthetic proof graphs.

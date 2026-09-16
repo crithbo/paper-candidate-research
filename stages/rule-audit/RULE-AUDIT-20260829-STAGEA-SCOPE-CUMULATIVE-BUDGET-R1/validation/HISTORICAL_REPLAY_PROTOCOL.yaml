@@ -1,0 +1,24 @@
+schema: stagea-scope-budget-historical-replay-protocol-v1
+mode: SHADOW
+frozen_before_replay: true
+purpose: CONTROL_POLICY_COMPATIBILITY_NOT_SCIENTIFIC_REJUDGMENT
+registry_snapshot_sha256: E1040F7257D3CBCB080FDCDA58E4991F072B2B114B567D0C10D099680BFB1BA3
+cases:
+  negative_zero_observation_chains:
+    - LLVM-APX-PREFIX-PRESSURE-PARETODP
+    - LLVM-PPC-PREFIX-PRESSURE-PARETODP
+    - LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+  positive_control:
+    - S6-JS-PREFIXBOUND
+rules:
+  scientific_decisions_are_immutable: true
+  no_experiment_or_reexecution: true
+  no_result_relabeling: true
+  invalid_construction_never_scientific_stop: true
+  topic_budget_does_not_reset_by_assignment: true
+acceptance:
+  - three_zero_observation_chains_close_earlier_without_scientific_state_change
+  - positive_control_can_reach_A1_and_preserve_independent_PASS
+  - no_strongest_baseline_or_decision_reversing_full_cost_removed
+  - exhaustive_formal_family_not_miscounted_as_individual_workload_cases
+

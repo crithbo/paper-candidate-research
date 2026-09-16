@@ -1,0 +1,26 @@
+namespace StageATiny;
+
+table Leaf {
+  key:int (key);
+  payload:long;
+}
+
+table AliasRoot {
+  left:Leaf;
+  right:Leaf;
+  alias_left:Leaf;
+}
+
+table StringRoot {
+  hot:string;
+  cold:string;
+  hot_alias:string;
+}
+
+table VectorRoot {
+  keyed:[Leaf];
+  values:[int] (force_align: 16);
+}
+
+root_type AliasRoot;
+file_identifier "FBLT";

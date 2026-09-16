@@ -1,0 +1,35 @@
+assignment_id: STAGE0-P1-20260814-AARCH64-SME-JOINT-TILE-ABI-CONSTRUCTION-PRIMARY-V8.7
+topic_id: AARCH64-SME-JOINT-TILE-ABI-CONSTRUCTION
+review_role: PRIMARY
+decision: STOP_RECOMMENDED
+quality_tier: BELOW_Q2_STOP
+confidence: 0.90
+evidence_ceiling: E1_STATIC_STAGE0_ONLY__NO_IMPLEMENTATION_NO_RESULT_CLAIM
+scientific_basis:
+  terminal_sentinel: BELOW_Q2_STOP__CURRENT_SME_ABI_TILE_ACTION_FACTORISATION_OR_GENERIC_ALLOCATION
+  same_object_failure: false
+  current_union_absorption: true
+  residual_reduces_to_generic: true
+  resource_or_readiness_basis: false
+current_upstream:
+  repository: https://github.com/llvm/llvm-project.git
+  commit: 81ac5c7c26efb70ffaffb91b26053437093ee085
+  check_date: '2026-08-14'
+key_findings:
+  - MachineSMEABI already constructs CFG edge-bundle ZA states and emits lazy-save/restore transitions.
+  - MLIR TileAllocation handles virtual tile IDs separately at CF/function level.
+  - Fixed ABI call/lazy-save actions do not depend on virtual tile binding, and binding does not alter ABI transition legality.
+  - No same-object two-tile/one-call native action-divergence witness exists without changing representation or ABI.
+stage_authorization:
+  stage_a: false
+  stage_b: false
+  revision: false
+  reason: structural factorization and generic-allocation collapse are terminal for this topic ID.
+claims_not_made:
+  - no candidate implementation
+  - no build or compiler run
+  - no benchmark/GPU/hardware result
+  - no inference from paper-search absence
+required_confirmation: false
+next_action: MAINLINE_RECORD_SCIENTIFIC_STOP
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

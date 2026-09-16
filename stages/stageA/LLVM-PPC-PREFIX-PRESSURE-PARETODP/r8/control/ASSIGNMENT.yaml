@@ -1,0 +1,231 @@
+schema: candidate-actual-natural-harness-rebuild-assignment-v1
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+authorization_ids:
+  - USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+stage: STAGEA_ACTUAL_NATURAL_CLAIM_HARNESS_REBUILD_AND_FIDELITY_ONLY
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources
+inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/RESOURCE_INVENTORY.yaml
+
+scientific_boundary:
+  exact_object: POWER10_PPC64LE_LINUX_ELFV2_MEDIUM_CODE_MODEL_PRE_FORM_MACHINEIR_DSO_LOCAL_OR_HIDDEN_NONPREEMPTIBLE_SYMBOL_FIXED_SEMANTICS_ALIASES_CALL_CLOBBERS_ABI_FRAME_UNWIND_AND_LINKER_INPUT
+  exact_commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+  exact_contract_sha256: F36E8CD40E719A9CFEEFBB595EEE05A4FDEEDF490C0ABD6AF40C09D635895E82
+  quality_tier_carried: TIER_B_Q2_VIABLE
+  claim_ceiling: ACTUAL_NATURAL_HARNESS_FIDELITY_AND_R9_FULLY_EXPANDED_COMMAND_PRECOMMIT_ONLY__NO_SELECTED_CORPUS_TOOL_OR_CLAIM_OBSERVATION
+  claim_bearing_observation_allowed: false
+  selected_or_reserve_corpus_tool_observation_allowed: false
+  scientific_revision_or_mechanism_pivot_authorized: false
+  owner_state_transition_authority: false
+  stageb_authorized: false
+
+accepted_upstream:
+  r5_preclaim_acceptance_sha256: 9AFD9AE7B24E726348051AAA89FE5764B0024268E38E984B12B51ADC0FFCBE24
+  r6_corpus_acceptance_sha256: 24428A52B6D7717C0DB5F255A7FD03D479C530EBF7DB76CF3DE94B0990823E3A
+  r6_handoff_sha256: 895CEC27C9EB3ED2DFE71304805D7937D8190D3B595A94B2B678FF21257CDA81
+  r6_manifest_sha256: 0F04A9539412671F13B9ACDA0A4C54CBCE676F622A69271B466BE3EC0CE609B5
+  r6_natural_corpus_freeze_sha256: 5234EF67CA8B67599B2C0AF0C4279985B5119CDD26A25F7FA4285A629BE8BC96
+  selected_functions: 16
+  reserve_functions: 4
+  r2_toolchain_acceptance_sha256: 71367D87EA2D46C13FFBDA71F5B7A4720A78BAC06C88AAF54CD5955FDCE12261
+  r2_package_manifest_sha256: 39CF76C8DA10D645F26789C3FF1A4E3A47839C70DBDAC3D5A4AED73C6792094C
+
+rejected_upstream_negative_input:
+  r7_A2_rejection_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r7/MAINLINE_A2_HANDOFF_REJECTION.yaml
+  r7_A2_rejection_sha256: C56090966349AAFA64A5C34D4A4AA008A06FFB9684D5686740B1710E13086531
+  rejected_handoff_sha256: 018D94F0FD8A994C92ABC8E308C40947962659CDCBE64B69B9AD2371F235BA15
+  rejected_manifest_sha256: 2380876424A8D415BFF0988570279F9BADA817F83587E89F785944B1C7276857
+  rejected_code_copy_or_reuse_allowed: false
+  prohibited_patterns:
+    - CONSTANT_SYNTHETIC_TRACE_INSTEAD_OF_INPUT_FUNCTION_PARSER
+    - CHECKER_NATIVE_GATES_HARDCODED_TRUE
+    - CANDIDATE_OR_CHECKER_ARGV_NOT_SUPPORTED_BY_ACTUAL_CLI
+    - GENERATOR_LABEL_WITHOUT_EXPANDED_ARGV
+    - SYNTHETIC_SIZE_ONLY_FULL_COST
+
+same_topic_input_transfer:
+  corpus_package:
+    source_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r6/resources
+    destination_root: resources/src/r6_input
+    files: 26
+    logical_bytes: 134206
+    tree_digest: 3CA86BD1AE32C004731C4081354D67FE104C35647C29E79C2A02CF46C5441167
+    copy_attempts_max: 1
+    source_modify_or_delete_allowed: false
+  toolchain_package:
+    source_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain
+    destination_root: resources/env/ppc-toolchain
+    files: 133
+    logical_bytes: 244073942
+    package_manifest_sha256: 39CF76C8DA10D645F26789C3FF1A4E3A47839C70DBDAC3D5A4AED73C6792094C
+    copy_attempts_max: 1
+    source_modify_or_delete_allowed: false
+
+fresh_implementation:
+  root: resources/src/actual_claim_harness
+  maximum_total_files: 20
+  binary_build_allowed: false
+  rejected_r7_code_copy_allowed: false
+  required_actual_cli:
+    modes: [synthetic_fidelity, claim_plan, claim_run]
+    claim_run_executable_in_r8: false
+    required_arguments: [--mode, --input, --function, --method, --output-root, --replay, --check]
+    unsupported_argument_or_mode_must_fail_nonzero: true
+  required_input_driven_candidate:
+    - READ_EXACT_INPUT_FILE_AND_FUNCTION_IDENTITY
+    - PRODUCE_ACTUAL_LLVM_MIR_OR_NATIVE_TOOL_ARTIFACT_FOR_SYNTHETIC_FIXTURE
+    - PARSE_FUNCTION_SPECIFIC_OPCODE_DEF_USE_REGISTER_ROLE_RELOCATION_AND_FRAME_EVIDENCE_FROM_ACTUAL_ARTIFACT
+    - RUN_PPC_TPD_RECURRENCE_ON_PARSED_TRACE_NOT_CONSTANT_TRACE
+    - EMIT_ACTION_TRACE_BACKPOINTER_OR_INTERFACE_CAP
+    - MATERIALIZE_OR_EXPLICITLY_VALIDATE_SELECTED_NATIVE_PLAN_WITH_REAL_TOOL_OUTPUT
+  required_native_checkers:
+    - MACHINEVERIFIER_FROM_REAL_COMMAND_EXIT_AND_OUTPUT
+    - TYPED_RELOCATION_AND_ADDEND_FROM_LLVM_READOBJ_OUTPUT
+    - DISASSEMBLY_FORM_FROM_LLVM_OBJDUMP_OUTPUT
+    - LLD_OUTPUT_FROM_REAL_LINK_COMMAND
+    - DWARF_UNWIND_FROM_REAL_OUTPUT_OR_EXPLICIT_NOT_APPLICABLE_WITH_CONTRACT_JUSTIFICATION
+    - OBSERVABLE_SEMANTICS_FROM_REAL_STATIC_ORACLE_INPUTS
+    - ACTION_TRACE_AND_COST_BACKPOINTER_FROM_CANDIDATE_OUTPUT
+  checker_boolean_without_evidence_path_forbidden: true
+  required_full_cost:
+    - READ_REAL_COMMAND_METRICS
+    - DEFINE_UNITS_AND_PROCESS_BOUNDARIES
+    - AGGREGATE_MODEL_OPTIMIZER_COMPILE_LINK_VERIFY_CPU_WALL_RSS
+    - COLLECT_TEXT_OBJECT_RELOCATION_SPILL_COPY_FRAME_STATIC_UOPS_FAILURE_CAP_FALLBACK
+    - NO_TARGET_RUNTIME_OR_HARDWARE_PERFORMANCE_CLAIM
+
+synthetic_fidelity:
+  input_ir: resources/src/r6_input/src/preclaim_harness/ppc_union_input.ll
+  functions: [ir_direct_load, ir_materialized_load]
+  witness_asm: resources/src/r6_input/src/preclaim_harness/ppc_exact_witness.s
+  exact_target: {triple: powerpc64le-unknown-linux-gnu, cpu: pwr10, abi: elfv2, code_model: medium}
+  deterministic_replays: 2
+  tool_command_records_max: 200
+  all_native_checker_outputs_required: true
+  exact_replay_equality_required: true
+  selected_or_reserve_corpus_path_mention_in_tool_argv_max: 0
+
+r9_expanded_plan_contract:
+  future_assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-EXACT-NATURAL-CLAIM
+  future_unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9
+  future_resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources
+  output: resources/src/actual_claim_harness/r9_processes.json
+  process_count: 32
+  denominator: EXACT_16_SELECTED
+  reserve_rows: 0
+  order: SELECTED_ROW_ORDINAL_THEN_REPLAY_1_THEN_REPLAY_2
+  every_process_must_expand:
+    - ABSOLUTE_PYTHON_AND_TOOL_PATHS
+    - CANDIDATE_ARGV_SUPPORTED_BY_ACTUAL_CLI
+    - ALL_16_BASELINE_COMPILE_ARGV
+    - ALL_32_BASELINE_LINK_ARGV
+    - FORM_FIXED_CURRENT_RA_EXACT_ARGV
+    - FORM_AWARE_FIXED_RA_EXACT_ARGV
+    - NATIVE_CHECKER_EXACT_ARGV_AND_EVIDENCE_OUTPUTS
+    - FULL_COST_INPUT_METRICS_AND_OUTPUT
+    - WORKING_DIRECTORY_AND_ALL_OUTPUT_PATHS_UNDER_FUTURE_R9_RESOURCE_ROOT
+    - INVALID_CONSTRUCTION_STOP
+  generator_labels_or_unresolved_variables_allowed: false
+  actual_execution_in_r8: false
+
+ordered_gate:
+  J0_INPUT_ACCEPTANCE: EXACT_R6_26_OF_26_AND_R2_133_OF_133
+  J1_ACTUAL_CLI_AND_INPUT_DRIVEN_CANDIDATE: PASS_REQUIRED
+  J2_EXPANDED_UNION_AND_ABLATION_COMMANDS: PASS_REQUIRED
+  J3_NATIVE_CHECKERS_WITH_EVIDENCE_PATHS: PASS_REQUIRED
+  J4_REAL_COMMAND_FULL_COST_COLLECTOR: PASS_REQUIRED
+  J5_SYNTHETIC_NATIVE_TWO_REPLAY: PASS_REQUIRED
+  J6_R9_EXACT_32_PROCESS_FULLY_EXPANDED_PLAN: PASS_REQUIRED_NOT_EXECUTED
+  pass_policy: ALL_J0_J6_PASS_BEFORE_SEPARATE_R9_CLAIM_ASSIGNMENT
+
+execution_contract:
+  network_allowed: false
+  corpus_copy_attempts_max: 1
+  toolchain_copy_attempts_max: 1
+  implementation_files_max: 20
+  binary_build_attempts_max: 0
+  synthetic_tool_command_records_max: 200
+  selected_or_reserve_corpus_tool_invocations_max: 0
+  claim_bearing_runs_max: 0
+  automatic_retry: false
+  result_based_rerun_exclusion_or_backfill: false
+  run_monitoring: PROCESS_ALIVE_OUTPUT_GROWTH_TIMEOUT__RECORD_COMMAND_BEFORE_RUN
+
+resource_localization:
+  mode: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  every_write_under_resource_root: true
+  process_local_redirect_required: true
+  system_wsl_global_or_reparse_change_allowed: false
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: PPC_R8_ACTUAL_HARNESS_HANDOFF_ACCEPTED
+  downstream_consumer: SEPARATE_R9_EXACT_PPC_NATURAL_CLAIM_ASSIGNMENT
+  post_close_retained_bytes_max: 536870912
+  cleanup_owner: MAINLINE
+  owner_cleanup_allowed: false
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY, SAFE_TO_DELETE_NOW, SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF]
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: RESUME_CAPSULE.yaml
+  cleanup_receipt_path: CLEANUP_RECEIPT.yaml
+
+limits:
+  network_bytes_max: 0
+  resource_root_logical_bytes_max: 536870912
+  cpu_seconds_max: 14400
+  wall_seconds_max: 28800
+  max_parallel_processes: 2
+  corpus_copy_attempts_max: 1
+  toolchain_copy_attempts_max: 1
+  implementation_files_max: 20
+  synthetic_tool_command_records_max: 200
+  selected_or_reserve_corpus_tool_invocations_max: 0
+  claim_bearing_runs_max: 0
+  gpu_hours_max: 0
+allowed_actions:
+  - CREATE_STANDARD_RESOURCE_DIRS
+  - COPY_AND_HASH_ACCEPT_EXACT_R6_CORPUS_PACKAGE
+  - COPY_AND_HASH_ACCEPT_EXACT_R2_PPC_TOOLCHAIN_PACKAGE
+  - IMPLEMENT_FRESH_ACTUAL_INPUT_DRIVEN_NATURAL_CLAIM_HARNESS
+  - RUN_ORDERED_J0_J6_WITH_SYNTHETIC_FIXTURE_ONLY
+  - GENERATE_FULLY_EXPANDED_R9_32_PROCESS_PLAN_WITHOUT_EXECUTION
+  - WRITE_CANONICAL_PRECLAIM_PACKAGE
+forbidden_actions:
+  - NETWORK
+  - COPY_OR_REUSE_R7_REJECTED_CLAIM_HARNESS_CODE
+  - MODIFY_OR_DELETE_R1_R2_R3_R4_R5_R6_R7
+  - LLVM_OR_LLD_SOURCE_PATCH_OR_REBUILD
+  - COMPILE_LINK_VERIFY_OR_INSPECT_ANY_R6_SELECTED_OR_RESERVE_CORPUS_FUNCTION
+  - CANDIDATE_BASELINE_ABLATION_PERFORMANCE_OR_CLAIM_RUN_ON_SELECTED_OR_RESERVE_CORPUS
+  - HARDCODE_NATIVE_CHECKER_PASS_WITHOUT_EVIDENCE
+  - CONSTANT_SYNTHETIC_TRACE_AS_NATURAL_INPUT_ADAPTER
+  - GENERATOR_LABEL_OR_UNSUPPORTED_CLI_IN_FUTURE_PLAN
+  - SCIENTIFIC_INFERENCE_REVISION_PIVOT_STATE_TRANSITION_CLEANUP_OR_STAGEB
+  - AUTOMATIC_RETRY_RESULT_BASED_EXCLUSION_BACKFILL_OR_COMMAND_CHANGE
+success_route: ACTUAL_NATURAL_CLAIM_HARNESS_FIDELITY_PASS__WAIT_SEPARATE_R9_EXACT_CLAIM_ASSIGNMENT
+failure_route: FAIL_CLOSED_ACTUAL_NATURAL_HARNESS_FIDELITY__NO_SELECTED_CORPUS_OR_SCIENTIFIC_INFERENCE
+expected_outputs:
+  - BOOTSTRAP_ACK.yaml
+  - SAME_TOPIC_INPUT_ACCEPTANCE.yaml
+  - ENVIRONMENT_LOCK.yaml
+  - ACTUAL_CLI_AUDIT.yaml
+  - INPUT_DRIVEN_CANDIDATE_AUDIT.yaml
+  - EXPANDED_UNION_ABLATION_AUDIT.yaml
+  - NATIVE_CHECKER_EVIDENCE_AUDIT.yaml
+  - REAL_COMMAND_FULL_COST_AUDIT.yaml
+  - SYNTHETIC_NATIVE_FIDELITY_SMOKE.yaml
+  - R9_EXPANDED_COMMAND_PRECOMMIT.yaml
+  - PRE_CLAIM_ACTUAL_HARNESS_FIDELITY_GATE.yaml
+  - REPRODUCIBILITY_REPORT.yaml
+  - RESOURCE_INVENTORY.yaml
+  - PHASE_CLOSEOUT_RETENTION.yaml
+  - RESUME_CAPSULE.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256

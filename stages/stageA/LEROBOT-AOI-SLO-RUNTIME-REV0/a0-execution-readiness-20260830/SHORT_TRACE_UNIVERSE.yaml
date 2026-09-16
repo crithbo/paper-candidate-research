@@ -1,0 +1,13 @@
+schema: lerobot-aoi-complete-short-trace-universe-v1
+queue_length: {min: 0, max: 4}
+chunks: {count: 2, lengths: [1, 2, 3, 4], start_timesteps: [0, 1, 2, 3], require_overlap_and_nonoverlap_cases: true}
+observation_timestep: {duplicates: [false, true], wall_timestamp_exact_distinguishes_duplicate_timestep: true}
+return_order: [chunk1_then_chunk2, chunk2_then_chunk1]
+aggregators: [weighted_average, latest_only, average, conservative]
+empty_queue: [false, true]
+must_go: [false, true]
+wall_clock_jump_seconds: [-10.0, 0.0, 10.0]
+client_monotonic_order: nondecreasing_only
+reference_oracle: full_event_history
+candidate: compressed_origin_and_action_contributor_sidecar
+claim_execution_in_A0: false

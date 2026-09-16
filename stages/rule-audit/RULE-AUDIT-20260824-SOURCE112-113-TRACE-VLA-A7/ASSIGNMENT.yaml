@@ -1,0 +1,19 @@
+schema_version: rule-audit-assignment-v1
+audit_id: RULE-AUDIT-20260824-SOURCE112-113-TRACE-VLA-A7
+assignment_id: RULE-AUDIT-20260824-SOURCE112-113-TRACE-VLA-A7
+lane_id: RULE_AUDIT
+thread_id: 01a02e08-0b16-7ed2-bfc4-f37b5ad86992
+trigger: SOURCE112_AND_SOURCE113_CONSECUTIVE_COMPLETE_ZERO_BRIEF
+mode: PROPOSAL_ONLY
+write_directory: stages/rule-audit/RULE-AUDIT-20260824-SOURCE112-113-TRACE-VLA-A7
+resource_root: null
+question: Compare VLA/multimodal and serving/agent trace rotations, locate first failed conversion, evaluate evidence ceiling and source rotations, declare pilots RETAIN/DOWNGRADE/REMOVE, and recommend at most one bounded change or NO_CHANGE while Source114 proceeds independently.
+allowed_actions: [READ_REGISTERED_SOURCE112_SOURCE113_AND_A6_INPUTS, DIAGNOSE_TRANSITIONS, WRITE_PROPOSAL_ONLY_OUTPUTS]
+forbidden_actions: [READ_SOURCE114_RESULTS, MODIFY_SHARED_OR_CANDIDATE_FILES, NETWORK_SEARCH_DOWNLOAD_BUILD_EXPERIMENT_QUEUE_BACKTEST_AUTOMATION_STAGE, RELAX_GATES_QUOTA_COOLDOWN_STOP_REVIVAL]
+forbidden_inputs: [SOURCE114_RESULTS, UNREGISTERED_CHAT_MEMORY, PRIVATE_MATERIAL]
+claim_ceiling: PROCESS_DIAGNOSIS_AND_CHANGE_PROPOSAL_ONLY
+evidence_ceiling: REGISTERED_SOURCE112_SOURCE113_A6_ARTIFACTS_ONLY
+expected_outputs: [RULE_AUDIT_REPORT.md, RULE_CHANGE_PROPOSAL.md, handoff.yaml, HASH_MANIFEST.sha256]
+resource_actions_allowed: false
+source114_may_continue_without_waiting: true
+

@@ -1,0 +1,34 @@
+schema: apx-r10-revision-claim-result-v1
+assignment_id: STAGEA-L2-20260829-LLVM-APX-R10-REVISION1-CLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+classification: CLAIM_BEARING_REVISION_RUN__FAIL_CLOSED__RAW_RETAINED
+revision: {kind: REVISE_ONCE, ordinal: 1_of_1, consumed: true, consumption_record: REVISION_CONSUMPTION.yaml}
+preclaim_fidelity: {decision: ACCEPT_PRECLAIM_FIDELITY, report_path: stages/stageA/_reviews/20260829-apx-r10-revision1-preclaim/LLVM-APX-PREFIX-PRESSURE-PARETODP/INDEPENDENT_REVIEW_REPORT.md, sha256: 36257A4F36A7A50355C211144F625FE050C94ABFBAE7C9879E8DF78F1ED19841}
+input_copy: {receipt_path: REVISION_COPY_RECEIPT.yaml, copy_count: 10, total_bytes: 216618, network_bytes: 0}
+frozen_denominator: {selected_inputs: 4, replays_each: 2, rows_expected: 8, commands_per_row: 9, commands_expected: 72, result_based_exclusion: false, reserve_backfill: false}
+execution:
+  attempts_used: 1
+  retries_used: 0
+  commands_started: 55
+  complete_rows: 6
+  partial_rows: 1
+  not_started_rows: 1
+  first_failure: {row_id: APX-R8-S04-R1, selected_id: S04, function_or_test_id: asmconstraint, command_id: prepare_same_object_trace, exit_code: 2, timeout: false, reason: PREPARE_LLC_FAILED__TRACE_OUTPUT_MISSING}
+revision_semantic_evidence:
+  positive_action_rows: {completed_replays: 4, native_action_applicable: true, no_action_identity: false}
+  no_action_identity_rows: {completed_replays: 2, native_action_applicable: false, no_action_identity: true, failure_region_retained: true, action_options_count: 1, candidate_gain_count: 0}
+  completed_checker_rows: {count: 6, candidate_labeled_generic_oracle_exact: true, native_current_tuning_separation: true}
+raw_evidence:
+  controller_ledger: {path: resources/logs/claim/controller/outer_full_cost_ledger.json, sha256: 91E55A88103D3EC5BB8213D7E006D4694EA08DCEA47EFCC48BA086D4B48BE2A5}
+  first_failure: {path: resources/logs/claim/controller/first_failure.json, sha256: ADC637982B244735AF3BC5F2B2F91675263AAA6DC0126F9F0B9651398E51A955}
+  revision_consumption: {path: REVISION_CONSUMPTION.yaml, sha256: 256F0AD5A4AE08E17A36DE91826F26D1C00C852CC6E041A94727CAF99E8171E3}
+claim_interpretation:
+  no_action_identity_is_candidate_gain: false
+  directional_effect: WITHHELD__INCOMPLETE_FROZEN_DENOMINATOR
+  full_cost_directional_claim: WITHHELD__INCOMPLETE_FROZEN_DENOMINATOR
+  stagea_pass_supported: false
+  scientific_stop_supported: false
+  evidence_ceiling: REVISION_CONSUMED__INCOMPLETE_FROZEN_DENOMINATOR__INDEPENDENT_GATE_REQUIRED
+  second_revision_allowed: false
+  stageb_authorized: false
+scientific_inference: NONE_BEYOND_NO_ACTION_IDENTITY_AND_S04_PREPARE_FAILURE_OBSERVATIONS

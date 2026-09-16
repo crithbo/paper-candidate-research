@@ -1,0 +1,17 @@
+schema: stagea-paper-evidence-packer-assignment-v2
+assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+role: DISCOVERY_BACKTEST_PACKER
+method: STAGEA_PAPER_EVIDENCE_BACKTEST_R2
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer
+resource_root: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer/resources
+user_authorization: USER_CONTINUE_UNTIL_STAGEA_PAPER_EVIDENCE_BACKTEST_REPORT_20260827
+positive_controls: [HNSW, ANN_BENCHMARKS, EGG, CVC5, CARCARA, WEBGRAPH_LLP, PGM_INDEX, ALEX, PYTHIA, BERTI, BOLT, A_MESS]
+negative_controls: [N-A_PROXY_OBJECT, N-B_UNFAIR_COMPARATOR, N-C_NONCANONICAL_ONLY, N-D_FULL_COST_OMITTED]
+fixed_order: hash_sorted_case_ids_before_any_review_output
+allowed_actions_after_start: [small_paper_appendix_AE_metadata_acquisition, paper_evidence_capsule_extraction, preregistered_negative_defect_injection]
+forbidden: [local_build_probe_experiment, case_replacement, scoring, production_candidate_registration, StageB, gold_reveal_to_gate, blind_or_stage0_nonblind_metric_merge]
+required_capsule_fields: [paper_identity_version_year_cutoff, object_action_mechanism, StageA_premise, page_section_figure_table_theorem_locator, natural_canonical_workload, comparator_fairness, full_cost, legality_witness, boundary_unreported, artifact_AE, evidence_label]
+blind_pilot: {eligible_reviewer_candidate: BACKTEST_EXECUTOR, sample_count: 4, order: fixed_hash_sorted, contamination_disposition: BLINDING_CONTAMINATION__FALLBACK_NONBLIND, no_new_per_case_threads: true}
+expected_outputs: [PAPER_EVIDENCE_CAPSULES_MANIFEST.yaml, BLIND_PILOT_NEUTRAL_PACKET.yaml, AUDITOR_GOLD_KEY.yaml]
+next_gate: MAINLINE_CAPSULE_ACCEPTANCE_THEN_CONDITIONAL_BLIND_OR_NONBLIND_GATE
+model_route: {model: gpt-5.6-terra, thinking: medium}

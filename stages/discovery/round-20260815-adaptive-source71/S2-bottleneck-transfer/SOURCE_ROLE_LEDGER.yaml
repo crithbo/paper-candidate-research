@@ -1,0 +1,36 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE71-R40-ORDINARY-BREADTH-V1
+network_search_calls: 1
+sources:
+  - rq: RQ-S71-01
+    roles: [ANCHOR, CURRENT, CONTRARY]
+    url: https://docs.oracle.com/javase/10/tools/jlink.htm
+    version_or_date: Oracle_JDK_tool_guide__checked_2026-08-15
+    provenance: official_Oracle_documentation
+    finding: `jlink` creates an image from modules and dependencies; current options include compression, string sharing, endianness, services and plugins.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - rq: RQ-S71-02
+    roles: [ANCHOR, CURRENT, CONTRARY]
+    url: https://rustc-dev-guide.rust-lang.org/serialization.html
+    version_or_date: current_rustc_development_guide__checked_2026-08-15
+    provenance: official_rust_project_documentation
+    finding: crate metadata/query outputs are serialized into rlib/rmeta; cached values can be represented by byte offset and rustc_metadata owns the specialised encoder/decoder surface.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - rq: RQ-S71-03
+    roles: [ANCHOR, CURRENT, CONTRARY]
+    url: https://rocm.docs.amd.com/projects/HIP/en/latest/how-to/hip_porting_guide.html
+    version_or_date: HIP_7_2_current_page__checked_2026-08-15
+    provenance: official_AMD_HIP_documentation
+    finding: HIP-Clang bundles per-target code objects, registers fatbinary once at load, binds stubs/functions, and does not use JIT compilation options on the HIP-Clang code-object path.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - rq: RQ-S71-03
+    roles: [CURRENT]
+    url: https://rocm.docs.amd.com/projects/HIP/en/latest/.doxygen/docBin/html/group___module.html
+    version_or_date: HIP_7_2_53210__checked_2026-08-15
+    provenance: official_AMD_API_reference
+    finding: module/library file/data load, unload and function extraction are explicit current API actions.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+yield: {anchorable: 3, exact_history: 0, current_union_or_generic_kernel: 3, raw_eligible: 0}

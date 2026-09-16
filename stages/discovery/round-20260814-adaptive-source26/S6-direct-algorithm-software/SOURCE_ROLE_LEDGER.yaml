@@ -1,0 +1,173 @@
+assignment_id: DISCOVERY-S6-20260814-ADAPTIVE-SOURCE26-EVIDENCE-CLOSURE-TRIAD-V1
+retrieval_policy:
+  max_attempts_per_locator: 2
+  successful_response_bytes_per_attempt_max: 8388608
+  persisted_bytes_per_locator_max: 16777216
+  lane_successful_response_bytes_max: 67108864
+  storage_bytes_per_lane_max: 134217728
+  execution: READ_ONLY_SMALL_PUBLIC_SOURCES
+  persisted_source_payloads: 0
+  response_byte_accounting: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+precommit_before_lookup:
+  - locator_id: L01
+    seed_id: S01
+    exact_object_hypothesis: LLVM_AARCH64_LOAD_STORE_PAIR_AND_ADDRESS_MATERIALIZATION__FIXED_MACHINE_FUNCTION_AND_AARCH64_SEMANTICS
+    target_specific_counterfactual: A bounded live-offset state construction could produce a legal distinct paired-versus-unpaired output with a certificate on instruction-size/register-materialization cost.
+    primary_order:
+      ANCHOR: [LLVM_AARCH64_LOADSTORE_OFFICIAL_SOURCE, LLVM_TEST_SUITE_OR_OFFICIAL_TESTS]
+      CURRENT_UNION: [LLVM_AARCH64LOADSTOREOPTIMIZER_CURRENT_SOURCE, LLVM_AARCH64_BACKEND_OPTIONS]
+      CONTRARY: [LLVM_PRIMARY_CODEGEN_OR_INSTRUCTION_SELECTION_LITERATURE, LLVM_CURRENT_SOURCE_DIRECT_ABSORPTION]
+    fallback_order:
+      ANCHOR: [LLVM_OFFICIAL_DOCS]
+      CURRENT_UNION: [LLVM_GITHUB_OFFICIAL_MIR_TESTS]
+      CONTRARY: [OFFICIAL_LLVM_COMMIT_HISTORY]
+    disposition_before_lookup: PRECOMMITTED
+  - locator_id: L02
+    seed_id: S02
+    exact_object_hypothesis: LLVM_AARCH64_SME_INTRA_FUNCTION_STREAMING_ZA_TRANSITION_CONSTRUCTION__FIXED_IR_AND_ABI_SEMANTICS
+    target_specific_counterfactual: A legal region constructor might minimize streaming-state transitions while preserving all fixed SME ABI and observable ZA semantics.
+    primary_order:
+      ANCHOR: [LLVM_AARCH64SME_OFFICIAL_DOCS]
+      CURRENT_UNION: [LLVM_AARCH64_SME_CURRENT_SOURCE_AND_ATTRIBUTES]
+      CONTRARY: [ARM_ACLE_SME_OFFICIAL_ABI_SEMANTICS, LLVM_DOCS]
+    fallback_order:
+      ANCHOR: [LLVM_AARCH64SME_MIR_TESTS]
+      CURRENT_UNION: [LLVM_AARCH64_TARGET_FEATURE_DOCS]
+      CONTRARY: [LLVM_RELEASE_DOCS]
+    disposition_before_lookup: PRECOMMITTED
+  - locator_id: L03
+    seed_id: S04
+    exact_object_hypothesis: LLVM_AARCH64_SVE_PREDICATE_TAIL_STATE_CONSTRUCTION__FIXED_LOOP_IR_AND_VLA_SEMANTICS
+    target_specific_counterfactual: A bounded predicate/tail-state construction could give a fixed-cost frontier without changing vector-length-agnostic loop semantics.
+    primary_order:
+      ANCHOR: [LLVM_AARCH64SVE_OFFICIAL_DOCS]
+      CURRENT_UNION: [LLVM_LOOP_VECTORIZE_CURRENT_SOURCE_AND_OPTIONS]
+      CONTRARY: [LLVM_VECTORIZATION_DOCS_AND_PRIMARY_SVE_LITERATURE]
+    fallback_order:
+      ANCHOR: [LLVM_TEST_SUITE_OFFICIAL_METADATA]
+      CURRENT_UNION: [LLVM_COMMAND_GUIDE]
+      CONTRARY: [LLVM_RELEASE_NOTES]
+    disposition_before_lookup: PRECOMMITTED
+  - locator_id: L04
+    seed_id: S05
+    exact_object_hypothesis: MLIR_SPIRV_COOPERATIVE_MATRIX_LEGAL_FRAGMENT_CONSTRUCTION__FIXED_KERNEL_AND_SPIRV_VALIDATION_SEMANTICS
+    target_specific_counterfactual: A legal fragment-state constructor could jointly select layout and memory-space transitions with a target-specific frontier guarantee.
+    primary_order:
+      ANCHOR: [SPIRV_COOPERATIVE_MATRIX_OFFICIAL_SPEC]
+      CURRENT_UNION: [MLIR_SPIRV_CURRENT_SOURCE_AND_GPU_OPTIONS]
+      CONTRARY: [SPIRV_VALIDATOR_SEMANTICS_AND_PRIMARY_COOPERATIVE_MATRIX_WORK]
+    fallback_order:
+      ANCHOR: [MLIR_OFFICIAL_DIALECT_DOCS]
+      CURRENT_UNION: [SPIRV_TOOLS_OFFICIAL_SOURCE]
+      CONTRARY: [KHRONOS_EXTENSION_REGISTRY]
+    disposition_before_lookup: PRECOMMITTED
+source_records:
+  - locator_id: L01
+    source_role: ANCHOR
+    url_or_deterministic_rule: https://llvm.org/doxygen/AArch64LoadStoreOptimizer_8cpp_source.html
+    selection_rule: official_current_source_for_precommitted_AArch64_load_store_pair_constructor
+    version_or_date: LLVM_23.0.0git__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: CONFIRMS_POST_RA_PEEPHOLE_SCOPE_AND_UNWIND_ORDER_CONSTRAINT
+  - locator_id: L01
+    source_role: CURRENT_UNION
+    url_or_deterministic_rule: https://llvm.org/doxygen/AArch64LoadStoreOptimizer_8cpp_source.html
+    selection_rule: official_current_source__default_and_hidden_nondefault_flags
+    version_or_date: LLVM_23.0.0git__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: CONFIRMS_PAIR_SCAN_UPDATE_FOLD_UMOV_FOLD_AND_RENAMING__LIMITS_100_10_16__RENAMING_DEFAULT_TRUE
+  - locator_id: L01
+    source_role: CONTRARY
+    url_or_deterministic_rule: https://llvm.org/doxygen/AArch64LoadStoreOptimizer_8cpp.html
+    selection_rule: official_current_pass_contract_as_direct_skeptic
+    version_or_date: LLVM_23.0.0git__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: CURRENT_UNION_CLOSED_BUT_PRIMARY_ALGORITHMIC_COLLISION_NOT_CLOSED_WITHIN_TWO_SMALL_ROUTES
+  - locator_id: L02
+    source_role: ANCHOR
+    url_or_deterministic_rule: https://llvm.org/docs/AArch64SME.html
+    selection_rule: official_current_SME_semantics_for_precommitted_intra_function_transition_constructor
+    version_or_date: LLVM_23.0.0git__published_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: CONFIRMS_SM_MODE_AND_ZA_SEMANTIC_CONSTRAINTS
+  - locator_id: L02
+    source_role: CURRENT_UNION
+    url_or_deterministic_rule: https://www.llvm.org/docs/AArch64SME.html
+    selection_rule: official_current_docs__function_attributes_SMEABIPass_and_transition_behavior
+    version_or_date: LLVM_23.0.0git__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: CONFIRMS_PSTATE_SM_IS_FUNCTION_ATTRIBUTE_NOT_FEATURE_FLAG__SMSTOP_AROUND_NONCOMPATIBLE_CALLS
+  - locator_id: L02
+    source_role: CONTRARY
+    url_or_deterministic_rule: registry.yaml#discovery_v8_7_wave280
+    selection_rule: bounded_project_dedup_check_required_before_family_count
+    version_or_date: current_registry_read_2026-08-14
+    license_or_provenance: project_control_plane__read_only
+    response_bytes: 0
+    sha256: NOT_APPLICABLE__LOCAL_CONTROL_REFERENCE
+    disposition: REPEAT__AARCH64_SME_ZA_CURRENT_PCS_LLVM_GCC_UNION_ABSORPTION
+  - locator_id: L03
+    source_role: ANCHOR
+    url_or_deterministic_rule: https://llvm.org/docs/Vectorizers.html
+    selection_rule: official_current_loop_vectorizer_semantics_and_natural_test_suite_route
+    version_or_date: LLVM_24.0.0git__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: CONFIRMS_FIXED_LOOP_SEMANTICS_AND_ORDERED_REDUCTION_BOUNDARY
+  - locator_id: L03
+    source_role: CURRENT_UNION
+    url_or_deterministic_rule: https://www.llvm.org/doxygen/LoopVectorize_8cpp.html
+    selection_rule: official_current_source__tail_fold_and_epilogue_default_nondefault_union
+    version_or_date: LLVM_24.0.0git__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: CONFIRMS_NONE_PREFER_MUST_TAIL_FOLDING_AND_COST_LEGALITY_DECISION_PATH
+  - locator_id: L03
+    source_role: CONTRARY
+    url_or_deterministic_rule: https://www.llvm.org/doxygen/AArch64TargetTransformInfo_8cpp_source.html
+    selection_rule: official_AArch64_target_union_including_default_and_nondefault_sve_tail_options
+    version_or_date: LLVM_current__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: CONFIRMS_SIMPLE_ALL_REDUCTIONS_RECURRENCES_REVERSE_AND_DISABLE_CONTROLS__NO_NON_GENERIC_RESIDUAL_SPECIFIED
+  - locator_id: L04
+    source_role: ANCHOR
+    url_or_deterministic_rule: https://registry.khronos.org/SPIR-V/specs/unified1/SPIRV.html
+    selection_rule: official_SPIRV_spec_for_cooperative_matrix_legality
+    version_or_date: unified_spec__published_2026-03
+    license_or_provenance: Khronos_registry__authoritative_specification
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: CONFIRMS_TARGET_LAYOUT_AND_SCOPE_LEGALITY_IS_SEMANTICALLY_CONSTRAINED
+  - locator_id: L04
+    source_role: CURRENT_UNION
+    url_or_deterministic_rule: https://mlir.llvm.org/docs/Dialects/SPIR-V/
+    selection_rule: official_current_MLIR_SPIRV_dialect_surface
+    version_or_date: current_docs__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: CONFIRMS_COOPERATIVE_MATRIX_OPS_BUT_NOT_A_FIXED_TARGET_OR_COMPLETE_PRODUCER_UNION
+  - locator_id: L04
+    source_role: CONTRARY
+    url_or_deterministic_rule: https://mlir.llvm.org/python-bindings/autoapi/mlir/dialects/spirv/index.html
+    selection_rule: official_generated_API_semantics_for_load_layout_stride_and_scope_uniformity
+    version_or_date: current_docs__crawled_2026-08
+    license_or_provenance: LLVM_Project__Apache-2.0_WITH_LLVM_exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    disposition: SHOWS_LAYOUT_AND_STRIDE_ARE_EXPLICIT_SEMANTIC_OPERANDS__CANDIDATE_NOT_SAME_OBJECT_CLOSED
+ledger_status: FOUR_PRECOMMITTED_LOCATORS_PROCESSED__NO_SOURCE_PAYLOAD_PERSISTED

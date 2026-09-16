@@ -1,0 +1,25 @@
+schema: ort-a0-provider-schema-lineage-control-status-v1
+assignment_id: STAGEA-L2-20260830-ORT-EP-ASSIGNMENT-STABILITY-A0
+classification: CONTROL_NON_CLAIM_BEARING__PROVIDER_SCHEMA_AND_LINEAGE_WIRING
+attempt: 1_of_1
+started_at_utc: 2026-08-29T22:37:59.2717559Z
+ended_at_utc: 2026-08-29T22:38:03.7716359Z
+process_exit_code: 0
+timeout: false
+cpu_milliseconds: 3328.125
+peak_rss_bytes: UNAVAILABLE__RUNTIME_DID_NOT_EXPOSE__NOT_ESTIMATED
+raw_result: {path: resources/build/control/provider-schema-lineage/result.json, bytes: 2452, sha256: BA3C0BC3E097D6CFEB62E5D307E27DD105BC9394202838D80CA90EB923C8E38D}
+raw_stderr: {path: resources/logs/control/provider-schema-lineage.stderr.txt, bytes: 4124, sha256: 06A2E5E70727923BFD95E56657C06A2C95820156F5EEC17222C977C3F6A38748}
+mechanical_passes: {onnxruntime_import: true, distribution_version: 1.26.0, available_providers_include: [CUDAExecutionProvider, CPUExecutionProvider], exact_models_loaded: 2, model_schemas_match_frozen_class_axes: true, relation_instance_count: 8, cell_count: 144, cell_ids_unique: true, semantic_region_quotient_bound: true, native_assignment_evidence_bound: true, optimizer_grid_count: 3, full_cost_field_count: 11}
+invalidated_script_verdict: {raw_wiring_complete_value: true, reason: checker did not assert actual session provider order}
+canonical_gate:
+  status: FAIL_CLOSED
+  actual_session_providers_for_both_models: [CPUExecutionProvider]
+  required_session_provider_order: [CUDAExecutionProvider, CPUExecutionProvider]
+  failure_class: CUDA_PROVIDER_NOT_INSTANTIATED__MISSING_CUBLASLT64_12_DLL
+  missing_dependency_from_stderr: cublasLt64_12.dll
+  system_install_authorized: false
+  assignment_local_dependency_route_frozen: false
+firewall: {model_run_calls: 0, claim_cells_executed: 0, heldout_regret_or_winner_or_change_rate_read: false, candidate_vs_baseline_full_cost_read: false, scientific_direction_read: false, scientific_inference: NONE}
+retry_performed: false
+

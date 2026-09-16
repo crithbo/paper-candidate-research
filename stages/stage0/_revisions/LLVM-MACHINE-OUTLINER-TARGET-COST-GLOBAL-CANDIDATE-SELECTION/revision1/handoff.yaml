@@ -1,0 +1,36 @@
+assignment_id: STAGE0-P1-20260814-LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION-REVISION1-V8.7
+topic_id: LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION
+mode: PRIMARY_REVISION1
+sole_gate: PINNED_MACHINEOUTLINER_GLOBAL_CANDIDATE_CATALOG__TARGET_COST_CONFLICT_COMPONENT_PARETO_CERTIFICATE
+decision: STOP
+quality_disposition: BELOW_Q2_STOP__CURRENT_MACHINE_OUTLINER_GLOBAL_SELECTION_ABSORPTION_OR_GENERIC_CONFLICT_GRAPH_PACKING
+confidence: 0.90
+scientific_revision:
+  limit: 1
+  consumed: true
+  reason: Gate-bearing catalogue, multi-candidate witness, and frontier-degeneration audit submitted.
+source_pin:
+  project: LLVM
+  release: 22.1.8
+  commit: ca7933e47d3a3451d81e72ac174dcb5aa28b59d1
+findings:
+  current_union: >-
+    CGData already provides global candidate discovery; current outline selection
+    is scalar-priority greedy after local overlap pre-pruning.
+  structural_failure: >-
+    Retained candidate groups have independent native frame/call legality and
+    fixed target costs. Selecting compatible groups is generic interval/conflict
+    packing; recovering pruned occurrences changes candidate discovery.
+  resource_inference: none
+authorization:
+  stageA: false
+  stageB: false
+  independent_closing: false
+  same_id_second_revision: false
+next_action: Mainline may register the pre-registered scientific STOP. Any successor needs a new ID/object and a genuine shared target semantic action.
+written_files:
+  - REVISION_REPORT.md
+  - CURRENT_ACTION_AND_FRONTIER_AUDIT.md
+  - CLAIM_MATRIX.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256

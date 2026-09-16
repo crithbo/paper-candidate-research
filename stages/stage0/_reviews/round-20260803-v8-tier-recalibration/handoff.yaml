@@ -1,0 +1,46 @@
+schema_version: stage0-tier-recalibration-v8.1
+round: round-20260803-v8
+role: STAGE0_CONFIRMATION_SENTRY
+status: COMPLETE_ADVISORY
+quality_policy: Q2_MINIMUM_Q1_PRIORITY
+input_manifests:
+  primary_sha256: BEABF1C94B761DEBE1BC7345181DE545C160F589C6CA2A29C970F36440395A18
+  confirmation_sha256: B9A7DE659EF933DA46ED75C770E39FA49ED4562F614F373552386F5109F66C95
+scope:
+  terminal_candidates_reopened: false
+  revision_executed: false
+  stagea_created: false
+  stageb_created: false
+  experiments_run: false
+decisions:
+  S1-O6-MOBILE-TRAFFIC-CRITICALITY:
+    quality_tier: BELOW_Q2_STOP
+    revise_once_gate_necessary: true
+    revise_once_gate_executable_as_registered: false
+    routing: DECISIVE_GATE_ATOMICITY_ONLY
+    stage_a_authorized: false
+  COH-REGION-LIFECYCLE:
+    quality_tier: TIER_B_Q2_VIABLE
+    revise_once_gate_necessary: true
+    stage_a_authorized: false
+  O4-DYNCACHE-PGM:
+    quality_tier: TIER_A_Q1_POTENTIAL
+    revise_once_gate_necessary: true
+    stage_a_authorized: false
+  S5-OCCUPANCY-CLIFF-JOINTCODEGEN:
+    quality_tier: TIER_B_Q2_VIABLE
+    revise_once_gate_necessary: true
+    stage_a_authorized: false
+  S6-EGRAPH-LIVEEXTRACT:
+    quality_tier: TIER_A_Q1_POTENTIAL
+    revise_once_gate_necessary: true
+    stage_a_authorized: false
+  S6-JS-PREFIXBOUND:
+    quality_tier: TIER_A_Q1_POTENTIAL
+    revise_once_gate_necessary: true
+    stage_a_authorized: false
+mainline_actions_recommended:
+  - Route S1-O6-MOBILE-TRAFFIC-CRITICALITY to DECISIVE_GATE_ATOMICITY_ONLY.
+  - Preserve all other REVISE_ONCE gates as unexecuted and mandatory.
+  - Do not infer Stage A authorization from this advisory tier classification.
+next_owner: mainline

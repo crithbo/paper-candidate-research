@@ -1,0 +1,84 @@
+diff --git a/rules/ROLE_STAGE0_REVIEW.md b/rules/ROLE_STAGE0_REVIEW.md
+--- a/rules/ROLE_STAGE0_REVIEW.md
++++ b/rules/ROLE_STAGE0_REVIEW.md
+@@ 结论与输出
++当 PRIMARY 建议且 SENTRY 独立确认 `REVISE_ONCE` 时，按 assignment 冻结的
++`STAGE0_ATOMIC_REPAIR_TRACE_MODE` 输出 `ATOMIC_REPAIR_TRACE_V1`。它只编码现有门：
++无 direct fatal、same-object/RQ/claim endpoint 不变、一个可证伪原子缺口、有限闭合路线、
++revision 额度可用。记录 initial defect、allowed/forbidden delta、证据/falsifier、full-cost、
++repair participants 与独立 closer 排除集合。`SHADOW` 缺字段不改变裁决；任何 mandatory
++fail-closed 语义必须先通过独立 backtest。每阶段一次 revision 与 STOP non-revival 不变。
+
+diff --git a/templates/STAGE0_REPORT.md b/templates/STAGE0_REPORT.md
+--- a/templates/STAGE0_REPORT.md
++++ b/templates/STAGE0_REPORT.md
+@@ Decision
++## Atomic repair trace, required for confirmed REVISE_ONCE when mode is non-OFF
++- Repair id / cohort id / cutoff:
++- Eligibility predicates and exact object/RQ/claim-endpoint digests:
++- Initial defect; allowed delta; forbidden delta:
++- Required evidence type, evidence locations, falsifier and claim ceiling:
++- Full-cost dimensions and failure/no-gain region:
++- Repair participant task ids; independent closer exclusion set:
+
+diff --git a/rules/ROLE_CANDIDATE_OWNER.md b/rules/ROLE_CANDIDATE_OWNER.md
+--- a/rules/ROLE_CANDIDATE_OWNER.md
++++ b/rules/ROLE_CANDIDATE_OWNER.md
+@@ Stage A preclaim gate
++若题目携带 Stage 0 `repair_id`，首次 claim-bearing observation 前必须逐项映射
++initial defect -> accepted patch -> implementation/comparator/metric/full-cost path -> evidence hash。
++未映射或与 allowed delta 不一致的 run 为 `INVALIDATED_NON_EVIDENCE`，不得支持 PASS/STOP。
++这不新增 revision；工程纠错与科学 revision 仍按现行边界计数。
+
+diff --git a/templates/STAGEA_REPORT.md b/templates/STAGEA_REPORT.md
+--- a/templates/STAGEA_REPORT.md
++++ b/templates/STAGEA_REPORT.md
+@@ Pre-claim contract fidelity gate
++## Upstream Stage 0 atomic-repair traceability
++- Repair id / trace hash / cohort id:
++- Item matrix: initial defect | accepted patch | implementation path | evidence hash | status
++- Deviations and invalidated runs:
++- Repair participant identities supplied to independent closer:
+
+diff --git a/rules/ROLE_STAGEA_REVIEW.md b/rules/ROLE_STAGEA_REVIEW.md
+--- a/rules/ROLE_STAGEA_REVIEW.md
++++ b/rules/ROLE_STAGEA_REVIEW.md
+@@ 必查
++对带 `repair_id` 的题，reviewer 必须不属于 repair participant set，并逐项独立验证
++`FULLY_ADDRESSED / PARTIALLY_ADDRESSED / NOT_ADDRESSED / MADE_WORSE / CANNOT_VERIFY`。
++author claim 不能替代实际 artifact/evidence；无法验证的 P1 项不得形成 PASS。
+
+diff --git a/templates/INDEPENDENT_REVIEW_REPORT.md b/templates/INDEPENDENT_REVIEW_REPORT.md
+--- a/templates/INDEPENDENT_REVIEW_REPORT.md
++++ b/templates/INDEPENDENT_REVIEW_REPORT.md
+@@ Reviewer non-participation
++## Atomic repair verification matrix
++- Repair id / trace hash:
++- Repair participant set / closer non-participation attestation:
++| Item | Initial defect | Author claim | Artifact/evidence | Independent verdict | Residual |
+
+diff --git a/rules/ROLE_MAINLINE.md b/rules/ROLE_MAINLINE.md
+--- a/rules/ROLE_MAINLINE.md
++++ b/rules/ROLE_MAINLINE.md
+@@ 每个调度控制周期登记
++对独立确认的 Stage 0 `REVISE_ONCE` 冻结 append-only cohort：原始分母不因后续 STOP/HOLD
++或资源等待删除。主要分子只计独立 Stage A gate PASS；owner self-pass 不计；资源失败、
++policy hold、invalid construct 和未成熟分别报告；不可测用 `NOT_YET_MEASURABLE`，禁止补零。
++该 conversion 是描述性 pipeline telemetry，不是接受概率或录取配额。
+
+diff --git a/templates/HANDOFF.yaml b/templates/HANDOFF.yaml
+--- a/templates/HANDOFF.yaml
++++ b/templates/HANDOFF.yaml
+@@ scientific_revision_consumed
++atomic_repair_trace:
++  mode: null
++  repair_id: null
++  trace_sha256: null
++  cohort_id: null
++  repair_participant_task_ids: []
++  independent_closer_exclusion_set: []
++  item_status_counts: {}
++conversion_telemetry_link:
++  cohort_record_path: null
++  maturity: null
++  censoring: null

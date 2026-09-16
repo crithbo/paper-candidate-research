@@ -1,0 +1,43 @@
+assignment_id: STAGE0-P1-20260814-QEMU-TCG-BOUNDED-RECOURSE-CODE-CACHE-REVISION1-V8.7
+topic_id: QEMU-TCG-BOUNDED-RECOURSE-CODE-CACHE
+mode: PRIMARY_REVISION1
+sole_gate: PINNED_QEMU_REGION_ALLOCATION_AND_TB_REFERENCE_CATALOG__LIVE_TB_RELOCATION_CERTIFICATE
+decision: PASS_RECOMMENDED
+quality_tier: TIER_B_Q2_VIABLE
+evidence_ceiling: E1_STATIC_CURRENT_SOURCE_AND_CERTIFICATE_AUDIT
+confidence: 0.79
+scientific_revision:
+  limit: 1
+  consumed: true
+  reason: Gate-bearing QEMU reference-closure, two-plan witness, and bounded-frontier certificate submitted.
+immutable_source_pin:
+  project: QEMU
+  release: v11.1.0
+  commit: 84f07211cc5b4fc6a371559bf8a5de4fb068e648
+result:
+  structural_paper_potential: >-
+    A conditional Q2 N2 remains: QEMU-labelled reference-closure planning
+    for quiescent bounded live-TB rebuild, with full flush as an explicit fallback.
+  current_union_boundary: >-
+    Dynamic regions, destructive capacity flush, granular invalidation,
+    direct-jump/cache/QHT/page repair and configuration settings are all
+    mandatory baseline actions; no equivalent live capacity relocation was found.
+  claim_ceiling: Static certificate only; no performance, memory, correctness, or theorem result beyond the finite stated guarantee.
+authorization:
+  stageA: false
+  stageB: false
+  independent_closing_required: true
+  same_id_second_revision: false
+preclaim_fidelity_gate:
+  required: true
+  first_observation: source-level two-TB direct-chain replay plus page-invalidation control
+  killer: >-
+    Missing same-page chain, unrepairable reference, existing equivalent current action,
+    no legal slack admission, or no full-cost Pareto point against the frozen union.
+written_files:
+  - REVISION_REPORT.md
+  - CURRENT_ACTION_AND_REFERENCE_AUDIT.md
+  - CLAIM_MATRIX.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+next_action: Route only to an independent Stage 0 revision closing reviewer; do not authorize Stage A/B here.

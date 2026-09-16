@@ -1,0 +1,47 @@
+assignment_id: DISCOVERY-S5-20260810-V8.7-WAVE36-ALGORITHMIC-RESIDUAL
+lane: DISCOVERY-S5-SCALE-ONLINE-APPROX
+status: IDLE_REUSABLE
+completion: COMPLETE_ZERO_PROPOSALS
+cutoff_date: '2026-08-10'
+write_scope: stages/discovery/round-20260810-v8.7-wave36/S5-scale-online-approx
+method:
+  production_discovery: v2/v8.1
+  fidelity_admission: v8.6
+  current_upstream_reality_check: v8.7
+  two_axis_v8_2r2: NOT_USED_TLS_BLOCKED
+scope:
+  selected_wave31_near_threshold_lines:
+    - PolarStore
+    - SPLIDT
+    - HCDN
+  review_dimensions:
+    - decision_rule
+    - information
+    - complexity_resource
+    - quality_guarantee
+    - full_cost
+    - generalization_no_gain
+proposals: []
+briefs: []
+outcomes:
+  polarstore: DROP_CONTROLLER_OR_ACTION_SELECTION_ONLY
+  splidt: NOT_PROPOSED__RESOURCE_BOUNDED_CURRENT_SOURCE_CHECK
+  hcdn: DROP_CONTROLLER_ONLY
+v8_7_reality_check:
+  splidt:
+    upstream: SpliDT-Decision-Trees/SpliDT-Artifact-NSDI26:main
+    visible_artifact_refs:
+      - dse-and-training-framework@712f49d
+      - hypermapper@3dfa8a7
+    status: SOURCE_CONTENT_UNAVAILABLE_TO_READ_ONLY_FETCH__NO_ABSENCE_CLAIM
+decision_summary:
+  - Existing action spaces were treated as baselines, not automatic disqualifiers.
+  - PolarStore and HCDN reduce to excluded controller/selector actions under same-object and full-cost contracts.
+  - SPLIDT was not dropped for source-access limits; it was not proposed because v8.7 source/config inspection has not closed the action gap.
+  - No experiment, benchmark, download, Stage0/A/B creation, master-control edit, or terminal-topic revival occurred.
+artifacts:
+  - DISCOVERY_LOG.md
+  - SOURCE_COLLISION_MATRIX.md
+  - HASH_MANIFEST.sha256
+mainline_action: ACCEPT_COMPLETE_ZERO_PROPOSALS_AND_REUSE_LANE
+next_lane_state: IDLE_REUSABLE

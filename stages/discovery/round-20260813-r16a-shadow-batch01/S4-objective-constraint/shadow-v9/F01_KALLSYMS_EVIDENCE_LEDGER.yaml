@@ -1,0 +1,47 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S4-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+opportunity_family_id: S4-R16A-F01-KALLSYMS
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+cutoff: 2026-08-13
+opportunity_family:
+  canonical_signature: LINUX_KALLSYMS_CONSTRUCTOR__VMLINUX_SYMBOL_SET__STOCK_KERNEL_KALLSYMS_LOOKUP__SIZE_BUILD_COST_LOOKUP_FULL_COST
+  relations: []
+queries:
+  - query_id: Q001
+    text: current Linux kallsyms generator options base-relative all-symbols official source
+    purpose: current-source/action reality check
+    source_or_search_engine: official Linux upstream
+    executed_at: 2026-08-13
+    filters: [current-official-source]
+    read_depth: SOURCE
+    key_result_ids: [S001]
+    exclusions_with_reasons: [no-benchmark-run]
+    state_change: union remains incomplete
+sources:
+  - source_id: S001
+    title_or_artifact: Linux upstream kallsyms source snapshot
+    canonical_version: master
+    locator: https://github.com/torvalds/linux
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [vmlinux-symbol-set]
+    repository_commit_config_or_dataset_hash: 3d6d817622b0a9721e3cc404df3469171582be13
+claims:
+  - claim_id: C001
+    text: no stock-legal whole constructor is frozen outside the current generator/configuration union
+    priority: HIGH
+    priority_rationale: admission-critical action gap
+    source_links:
+      - source_id: S001
+        relation: IMPLEMENTS
+        locator: scripts/kallsyms.c
+        evidence_status: SYSTEM_INFERENCE
+        conflict: complete option/source closure not obtained
+        permitted_conclusion: NOT_ADMITTED_UNFROZEN only
+direct_coverage:
+  target_source_or_union: current Linux kallsyms generator plus stock lookup
+  predicates: {same_object_function_protocol: UNKNOWN, same_scenario_workload: UNKNOWN, same_or_weaker_information: UNKNOWN, atomic_action_covered: UNKNOWN, same_or_stronger_legality_quality_guarantee: UNKNOWN, same_nonworse_full_cost: UNKNOWN, comparable_scale_platform_version_config: UNKNOWN, sufficient_read_or_reproduction_depth: UNKNOWN}
+independent_prior_current_audit: {owner_or_lane: S4, query_ids: [Q001], completed: false}
+stopping: {high_impact_items_bounded: false, latest_and_current_union_checked: false, first_party_depth_sufficient: false, heterogeneous_independent_path_complete: false, contrary_search_complete: false, natural_or_canonical_carrier_frozen: true, full_cost_frozen: true, marginal_sources_no_longer_decision_changing: false, decisive_contradictions_resolved_or_bounded: false, disposition: NOT_ADMITTED_UNFROZEN}
+execution_readiness: {state: E1, e1_evidence: [public-versioned-kernel-image-route], e2_authorization_id: '', e2_allowlist: {}, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: static route only; no phenomenon or action claim

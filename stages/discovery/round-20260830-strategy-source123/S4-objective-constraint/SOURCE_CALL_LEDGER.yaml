@@ -1,0 +1,39 @@
+schema: discovery-source-call-ledger-v1
+assignment_id: DISCOVERY-S4-20260830-SOURCE123
+lane_id: DISCOVERY_S4
+frozen_before_first_call: true
+call_limit_search_or_open: 24
+search_or_open_calls_used: 24
+search_or_open_budget_exhausted: true
+supplemental_find_operations: 3
+result_aware_backfill: forbidden
+result_aware_backfill_performed: false
+official_primary_sources_required_for_claims: true
+network_bytes_exact_telemetry_available: false
+stored_project_bytes_from_network: 0
+entries:
+  - {id: C01, type: search, role: CURRENT, route: 'docs.vllm.ai cudagraph_capture_sizes CompilationConfig CUDA graph'}
+  - {id: C02, type: search, role: CURRENT, route: 'github.com/vllm-project/vllm cudagraph_capture_sizes CompilationConfig'}
+  - {id: C03, type: search, role: CARRIER, route: 'docs.vllm.ai official serving benchmark'}
+  - {id: C04, type: open, role: CURRENT, target: 'vllm/config/compilation.py at main'}
+  - {id: C05, type: open, role: CURRENT, target: 'vllm/v1/cudagraph_dispatcher.py at main'}
+  - {id: C06, type: open, role: ANCHOR, target: 'docs/design/torch_compile.md'}
+  - {id: C07, type: open, role: CURRENT, target: 'docs/configuration/conserving_memory.md'}
+  - {id: C08, type: open, role: CURRENT, target: 'docs/design/cuda_graphs.md'}
+  - {id: C09, type: search, role: VERSION, route: 'official vLLM releases'}
+  - {id: C10, type: search, role: CARRIER, route: 'official vLLM benchmark serving datasets'}
+  - {id: C11, type: search, role: CARRIER, route: 'official upstream benchmark_serving source'}
+  - {id: C12, type: open, role: VERSION, target: 'vllm-project/vllm releases'}
+  - {id: C13, type: open, role: HISTORICAL_VERSION, target: 'v0.23.0 compilation.py'}
+  - {id: C14, type: open, role: HISTORICAL_VERSION, target: 'v0.23.0 cudagraph_dispatcher.py'}
+  - {id: C15, type: open, role: CURRENT_PIN, target: 'v0.28.0 compilation.py'}
+  - {id: C16, type: open, role: CURRENT_PIN, target: 'v0.28.0 cudagraph_dispatcher.py', result: TRANSPORT_INTERNAL_ERROR}
+  - {id: C17, type: search, role: CURRENT_PIN_FALLBACK, route: 'v0.28.0 dispatcher exact-locus fallback', result: MAIN_CURRENT_SOURCE_RETURNED}
+  - {id: C18, type: search, role: CONTRARY, route: 'upstream capture-size workload-aware optimization'}
+  - {id: C19, type: search, role: CONTRARY, route: 'upstream lazy CUDA graph capture'}
+  - {id: C20, type: search, role: CONTRARY, route: 'upstream capture-size profiling/padding'}
+  - {id: C21, type: search, role: ESCAPE, route: 'arXiv CUDA graph size selection dynamic batch serving'}
+  - {id: C22, type: search, role: ESCAPE, route: 'arXiv vLLM CUDA graph startup memory capture sizes'}
+  - {id: C23, type: open, role: CONTRARY, target: 'vllm issue 20098 Lazy CUDA Graph capture'}
+  - {id: C24, type: open, role: STRONG_SUBTRACTOR, target: 'arXiv:2604.06664 Foundry'}
+stop_reason: FROZEN_SEARCH_OR_OPEN_LIMIT_REACHED

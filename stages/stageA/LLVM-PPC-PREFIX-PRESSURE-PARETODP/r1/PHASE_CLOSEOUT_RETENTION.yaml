@@ -1,0 +1,27 @@
+schema_version: phase-closeout-retention-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R1-E-ROOT-EXACT-TOOLCHAIN
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+closeout_state: BLOCKER_HANDOFF_PENDING_MAINLINE_ACCEPTANCE
+scientific_state_effect: NONE
+current_resource_root_bytes: 281845866
+post_close_retained_bytes_max: 2147483648
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+active_owner_or_process_count_at_closeout: 0
+keep:
+  - {path: resources/downloads, bytes: 280173064, files: 2, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: complete exact commit metadata and source archive}
+  - {path: resources/tmp, bytes: 10728, files: 2, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: exact downloader and measurement scripts}
+  - {path: resources/logs, bytes: 15076, files: 6, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: request redirect failure and inventory evidence}
+exact_cleanup_candidates:
+  - {path: resources/cache, bytes: 1646998, files: 74, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: MAINLINE_ACCEPTS_BLOCKER_AND_ZERO_ACTIVE_PROCESS, recovery: deterministic regeneration}
+exact_cleanup_candidate_count: 1
+exact_cleanup_candidate_file_count: 74
+exact_cleanup_candidate_bytes: 1646998
+projected_post_close_retained_bytes: 280198868
+projected_budget_result: PASS
+downstream_inputs_accepted: false
+capsule_sealed: false
+cleanup_receipt_path: CLEANUP_RECEIPT.yaml
+cleanup_receipt_exists: false
+never_delete_automatically: [assignment root, resource root, control files, resources/downloads, resources/tmp, resources/logs]
+

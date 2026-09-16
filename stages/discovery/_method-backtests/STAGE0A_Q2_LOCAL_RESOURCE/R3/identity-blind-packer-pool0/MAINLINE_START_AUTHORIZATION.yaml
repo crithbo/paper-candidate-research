@@ -1,0 +1,12 @@
+schema_version: mainline-r3-pool0-start-authorization-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3-POOL0
+bootstrap_acceptance_sha256: BF7C33DE9FA0AB7F9F824FE02AA0D6ADD6AF38108B1F997BAAEC801AB47D98E4
+start_authorized: true
+model_route: {model: gpt-5.6-terra, thinking: medium}
+allowed_actions: [official_metadata_and_fulltext_availability_check, derive_reviewer_contact_exclusion_union, construct_20_candidate_pool, derive_identity_risk_and_key_preimage]
+network_allowlist: [official_publisher, official_proceedings, author_page, arxiv, openreview]
+resource_limits: {stored_bytes_max: 67108864, source_attempts_max: 64, code_or_artifact_downloads_max: 0}
+forbidden_actions: [final_12_selection, paper_pdf_download, code_download, artifact_download, build, probe, experiment, scoring, packet_creation, production_candidate_registration, StageB]
+required_outputs: [CANDIDATE_SOURCE_POOL.yaml, REVIEWER_CONTACTED_IDENTITY_EXCLUSION.yaml, IDENTITY_RISK_AND_KEY_PREIMAGE_LEDGER.yaml, POOL0_HANDOFF.yaml, HASH_MANIFEST.sha256]
+scientific_state_transition: false
+context_plan_registry_mutation_during_run: false

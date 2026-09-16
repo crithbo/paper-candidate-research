@@ -1,0 +1,53 @@
+schema: ppc-r13-static-packet-validation-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R13-CLEAN-INTEGRATED-PACKET
+status: PASS_STATIC_PACKET_SHADOW_ONLY
+mode: SHADOW
+source_inputs:
+  exact16_manifest: {path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/EXACT16_INPUT_MANIFEST.yaml, sha256: D278BD508A192186115D337048C44E7DACC7B259ADE1FB114EEE6067378F3F7D, entries: 16}
+  checker_argv_source: {path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/COMMAND_DAG.json, sha256: E3D5771953345AE0DF79A09E0E080504C8EB49AEE94E561C181DB534DA24A4EE, field: control_row.checker_argv}
+  full_cost_producer_source: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/PPC_R12_FULL_COST_LEDGER_PRODUCER.py, sha256: AD7A61FF5C75E8B4EE95287DFC2E55CB1CC663DAE5A78137435EE48E38F77E34}
+artifacts:
+  packet: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/PPC_R13_EXECUTABLE_PACKET.yaml, sha256: 1D739F651766024EE03090A139A009AD6E2702AFA277655748892362FA62AC4F}
+  dag: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/PPC_R13_COMMAND_DAG.json, sha256: 4DDA1580A830A91717A87479493E31C52DD73029A7DBD82449E70845A80D3714}
+  producer: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/PPC_R13_FULL_COST_LEDGER_PRODUCER.py, sha256: AD7A61FF5C75E8B4EE95287DFC2E55CB1CC663DAE5A78137435EE48E38F77E34}
+  copy_manifest: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829/EXACT_RESOURCE_COPY_MANIFEST.yaml, sha256: 3C40C107A7D312CB74623C13F9018F38C4E411AB537A39E54019ED43C3381A4A}
+actual_parse:
+  dag_nodes: 5
+  dag_topological_order: [N00_INPUT_BIND, N01_CANDIDATE_REPLAY, N02_BASELINE_COLLECTOR, N03_NATIVE_CHECKER, N04_FULL_COST_LEDGER]
+  checker_node_id: N03_NATIVE_CHECKER
+  checker_old_v2_executable_argv_refs: 0
+  checker_inputs_are_prior_outputs: true
+  checker_output: resources/build/control/checker/native_checkers.json
+  full_cost_node_id: N04_FULL_COST_LEDGER
+  full_cost_depends_on_checker: true
+  packet_dag_full_cost_argv_tokens: 16
+  packet_dag_full_cost_argv_byte_identical: true
+  candidate_metrics: 15
+  baseline_metrics: 56
+  unique_scientific_denominator: 71
+  baseline_bundles: 16
+  runner_copy_rows: 3
+  selected_copy_rows: 16
+  placeholders: 0
+  exact16_selection_unchanged: true
+  strongest_baseline_grid_unchanged: true
+  same_function_witness_unchanged: true
+  r12_packet_or_dag_reused: false
+checks:
+  result_visibility: NONE
+  full_cost_verification_overhead_included: true
+  full_cost_verification_overhead_excluded_from_71: true
+  producer_consumer_edges_closed: true
+  execution_performed: false
+  resource_copy: false
+  tool_execution: false
+  control_execution: false
+  claim_execution: false
+  network: false
+  shared_write: false
+  cleanup: false
+  stageb: false
+scientific_behavior_delta: NONE
+scientific_revision_consumed: false
+scientific_inference: NONE
+result: PASS_STATIC_PACKET_READY_FOR_MAINLINE_REVIEW

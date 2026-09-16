@@ -1,0 +1,38 @@
+schema: ppc-r9c-per-action-dp-ledger-v1
+created_at: 2026-08-26T05:30:00Z
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9C-PER-ACTION-TPD-BASELINE-CLOSURE
+scope: CONTROL_NON_CLAIM_IR_PRESSURE_CONTROL_ONLY
+input_sha256: 1124F15D99EC0CF7F1688CD20E21416A17C1A075F46419FE95A9E35C262BD939
+function: ir_pressure_control
+visible_interface: 13
+interface_cap: 16
+decision_order: INPUT_LOAD_ORDINAL
+action_count: 12
+transitions_per_action: [KEEP_DIRECT_PLDPC, MATERIALIZE_OR_REUSE_PADDI8PC_BASE_THEN_LD]
+recurrence: INITIALIZE__TRANSITION_EACH_ACTION__MERGE_ONLY_FUTURE_ACTION_EQUIVALENT_SIGNATURES__PARETO_PRUNE__TERMINATE_OR_INTERFACE_CAP_EXCEEDED
+backpointer: PARENT_STATE_ID_PLUS_ACTION_ORDINAL_PLUS_ACTION_KIND
+ppc_tpd:
+  method_branch_id: PPC_TPD_PER_ACTION_RA_SENSITIVE
+  ra_term_mode: RA_AND_SPILL_FRAME_SENSITIVE_TRANSITIONS
+  terminal_states: 4096
+  frontier_states: 12
+  transition_records: 8190
+  transition_ledger_sha256: CB63991578752DE56BA21EE83A3F464495B5AE8A18335AED78F303F87BCAE256
+  replay_1_result_sha256: 5F2E0293172BB27200A71C89DC8CBF34E44CC56694EB5B0D3901A5341D734B33
+  replay_2_result_sha256: 5F2E0293172BB27200A71C89DC8CBF34E44CC56694EB5B0D3901A5341D734B33
+form_aware_fixed_ra:
+  method_branch_id: FORM_AWARE_FIXED_CURRENT_RA
+  ra_term_mode: CURRENT_RA_TERMS_FROZEN
+  terminal_states: 4096
+  frontier_states: 12
+  transition_records: 8190
+  transition_ledger_sha256: 935E75B4DBD1460E7821E593F79E8715A3C75BE87D53838C3D58B6754DBA224F
+  replay_1_result_sha256: 52858802B9C321D0E911FB19B656B8A79650451C5C54AB2FDAC60705DD249ADD
+  replay_2_result_sha256: 52858802B9C321D0E911FB19B656B8A79650451C5C54AB2FDAC60705DD249ADD
+state_signature_includes: [action_ordinal, direct_value_live_ports, materialized_base_live_ports_and_symbol_reuse, call_crossing_and_ELFV2_register_role_signature, interference_and_coalescing_obligations, spill_reload_and_frame_unwind_obligations_or_exact_auditable_surrogate, typed_relocation_and_link_status, exact_Pareto_cost_vector]
+physical_register_identity_enumeration: false
+heuristic_frontier_truncation: false
+status: PASS_CONTROL_ONLY
+claim_bearing_observation: false
+scientific_inference: NONE
+

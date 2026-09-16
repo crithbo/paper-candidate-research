@@ -1,0 +1,226 @@
+schema_version: RULE_AUDIT_Q2_BACKTEST_CASE_POOL_V1
+audit_id: RULE-AUDIT-20260826-STAGE0A-Q2-LOCAL-RESOURCE-BACKTEST-R1
+date_frozen: '2026-08-26'
+status: PROPOSED_FOR_PACKER_VERIFICATION__NO_EXECUTION_STARTED
+selection_policy:
+  stage0_positive_count: 12
+  stage0_negative_count: 4
+  stagea_primary_positive_count: 8
+  local_resource_priority: true
+  platform: WINDOWS_NATIVE_NO_WSL
+  compute: PUBLIC_SINGLE_GPU_CPU_FIRST
+  max_assignment_local_bytes: 20000000000
+  max_build_hours: 2
+  max_single_probe_hours: 6
+  post_selection_rule: NO_OUTCOME_AWARE_REPLACEMENT
+  executor_success_concealment: STRICT_DOUBLE_BLIND
+  qualification_note: >-
+    Publication is necessary but not sufficient. PACKER must independently freeze
+    exact identity, publication-year Q2-or-higher/equivalent basis, historical cutoff,
+    same-object status, evidence route, full-cost, and reproducibility before a case
+    becomes a qualified positive.
+
+positive_controls:
+  - case_id: P01_HNSW
+    paper: Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs
+    publication: IEEE TPAMI 42(4), 2020; DOI 10.1109/TPAMI.2018.2889473
+    contribution_type: METHOD_ALGORITHM
+    stage0: INCLUDE
+    stagea: PRIMARY_LOCAL
+    quality_basis: JOURNAL_Q1_OR_HIGHER__YEAR_EVIDENCE_TO_BE_PINNED_BY_PACKER
+    paper_url: https://arxiv.org/abs/1603.09320
+    artifact_url: https://github.com/nmslib/hnswlib
+    local_route: header-only C++ and Python; public small ANN datasets; CPU sufficient
+    resource_risk: LOW
+
+  - case_id: P02_ANN_BENCHMARKS
+    paper: Benchmarking Nearest Neighbors — Automated Reproducible Search for Algorithmic Evaluation
+    publication: Information Systems, DOI 10.1016/j.is.2019.02.006
+    contribution_type: BENCHMARK_DATASET
+    stage0: INCLUDE
+    stagea: PRIMARY_LOCAL
+    quality_basis: JOURNAL_Q1_Q2__PUBLICATION_YEAR_EVIDENCE_TO_BE_PINNED_BY_PACKER
+    paper_url: https://arxiv.org/abs/1807.05614
+    artifact_url: https://github.com/erikbern/ann-benchmarks
+    local_route: anonymous small public dataset and direct Python runner; Docker path forbidden
+    resource_risk: MEDIUM
+
+  - case_id: P03_EGG
+    paper: egg — Fast and Extensible Equality Saturation
+    publication: POPL 2021
+    contribution_type: COMPILER_TOOL
+    stage0: INCLUDE
+    stagea: PRIMARY_LOCAL
+    quality_basis: TOP_CONFERENCE_EQUIVALENT
+    paper_url: https://arxiv.org/abs/2004.03082
+    artifact_url: https://github.com/egraphs-good/egg
+    local_route: Rust library tests and bounded benchmark; CPU sufficient
+    resource_risk: LOW
+
+  - case_id: P04_CVC5
+    paper: cvc5 — A Versatile and Industrial-Strength SMT Solver
+    publication: TACAS 2022; DOI 10.1007/978-3-030-99524-9_24
+    contribution_type: COMPILER_TOOL
+    stage0: INCLUDE
+    stagea: PRIMARY_LOCAL
+    quality_basis: TOP_CONFERENCE_OR_Q2_EQUIVALENT
+    paper_url: https://cvc5.github.io/publications.html
+    artifact_url: https://github.com/cvc5/cvc5
+    local_route: Windows binary or bounded native build; small public SMT-LIB instances
+    resource_risk: MEDIUM
+
+  - case_id: P05_CARCARA
+    paper: Carcara — An Efficient Proof Checker and Elaborator for SMT Proofs in the Alethe Format
+    publication: TACAS 2023; DOI 10.1007/978-3-031-30823-9_19
+    contribution_type: COMPILER_TOOL
+    stage0: INCLUDE
+    stagea: PRIMARY_LOCAL_CONDITIONAL_PREFLIGHT
+    quality_basis: TOP_CONFERENCE_OR_Q2_EQUIVALENT
+    paper_url: https://link.springer.com/chapter/10.1007/978-3-031-30823-9_19
+    artifact_url: https://github.com/ufmg-smite/carcara
+    local_route: Rust checker; small Alethe proof corpus; no full competition run
+    resource_risk: MEDIUM
+
+  - case_id: P06_SOURCE_COMPRESSION
+    paper: On the Compressibility of Large-Scale Source Code Datasets
+    publication: Journal of Systems and Software 227, 2025, 112429; DOI 10.1016/j.jss.2025.112429
+    contribution_type: MEASUREMENT_CHARACTERIZATION
+    stage0: INCLUDE
+    stagea: PRIMARY_LOCAL
+    quality_basis: JOURNAL_Q1_Q2__PUBLICATION_YEAR_EVIDENCE_TO_BE_PINNED_BY_PACKER
+    paper_url: https://www.sciencedirect.com/science/article/pii/S0164121225000974
+    artifact_url: https://github.com/acubeLab/PPC_utils4BigData
+    local_route: public Software Heritage/GitHub-derived small sample; CPU compressors; full 50 GiB corpus forbidden
+    resource_risk: MEDIUM
+
+  - case_id: P07_PGM_INDEX
+    paper: The PGM-index — A Fully-Dynamic Compressed Learned Index with Provable Worst-Case Bounds
+    publication: PVLDB 13(8), 2020; DOI 10.14778/3389133.3389135
+    contribution_type: METHOD_ALGORITHM
+    stage0: INCLUDE
+    stagea: PRIMARY_LOCAL
+    quality_basis: JOURNAL_Q1_Q2_OR_TOP_DATABASE_EQUIVALENT
+    paper_url: https://pgm.di.unipi.it/
+    artifact_url: https://github.com/gvinciguerra/PGM-index
+    local_route: header-only C++ with bounded synthetic plus public real-key subset; CPU sufficient
+    resource_risk: LOW
+
+  - case_id: P08_ALEX
+    paper: ALEX — An Updatable Adaptive Learned Index
+    publication: ACM SIGMOD 2020
+    contribution_type: METHOD_ALGORITHM
+    stage0: INCLUDE
+    stagea: PRIMARY_LOCAL
+    quality_basis: TOP_CONFERENCE_EQUIVALENT
+    paper_url: https://arxiv.org/abs/1905.08898
+    artifact_url: https://github.com/microsoft/ALEX
+    local_route: repository explicitly documents Visual Studio/CMake; downsampled public keys; CPU sufficient
+    resource_risk: LOW
+
+  - case_id: P09_PYTHIA
+    paper: Pythia — A Customizable Hardware Prefetching Framework Using Online Reinforcement Learning
+    publication: MICRO 2021
+    contribution_type: SYSTEM_ARCHITECTURE
+    stage0: INCLUDE
+    stagea: ROUTING_CONTROL_ONLY__EXCLUDED_FROM_OPERATIONAL_DENOMINATOR
+    quality_basis: TOP_CONFERENCE_EQUIVALENT
+    paper_url: https://github.com/CMU-SAFARI/Pythia
+    artifact_url: https://github.com/CMU-SAFARI/Pythia
+    local_route: Linux/ChampSim/trace-heavy; should survive academically but route out of local Stage A
+    resource_risk: HIGH
+
+  - case_id: P10_BERTI
+    paper: Berti — An Accurate Local-Delta Data Prefetcher
+    publication: MICRO 2022
+    contribution_type: SYSTEM_ARCHITECTURE
+    stage0: INCLUDE
+    stagea: ROUTING_CONTROL_ONLY__EXCLUDED_FROM_OPERATIONAL_DENOMINATOR
+    quality_basis: TOP_CONFERENCE_EQUIVALENT
+    paper_url: https://github.com/agusnt/Berti-Artifact
+    artifact_url: https://github.com/agusnt/Berti-Artifact
+    local_route: Linux/large trace and long multicore runs; no Windows-native primary route
+    resource_risk: HIGH
+
+  - case_id: P11_BOLT
+    paper: BOLT — A Practical Binary Optimizer for Data Centers and Beyond
+    publication: CGO 2019
+    contribution_type: COMPILER_TOOL
+    stage0: INCLUDE
+    stagea: ROUTING_CONTROL_ONLY__EXCLUDED_FROM_OPERATIONAL_DENOMINATOR
+    quality_basis: TOP_CONFERENCE_EQUIVALENT
+    paper_url: https://arxiv.org/abs/1807.06735
+    artifact_url: https://github.com/llvm/llvm-project/tree/main/bolt
+    local_route: ELF/Linux profiling workflow; scientifically valid but outside Windows-native envelope
+    resource_risk: HIGH
+
+  - case_id: P12_MESS
+    paper: A Mess of Memory System Benchmarking, Simulation and Application Profiling
+    publication: MICRO 2024
+    contribution_type: MEASUREMENT_CHARACTERIZATION
+    stage0: INCLUDE
+    stagea: ROUTING_CONTROL_ONLY__EXCLUDED_FROM_OPERATIONAL_DENOMINATOR
+    quality_basis: TOP_CONFERENCE_EQUIVALENT
+    paper_url: https://arxiv.org/abs/2405.10170
+    artifact_url: https://github.com/bsc-mem/Mess-2.0
+    local_route: cross-platform hardware counters and Linux-oriented tooling; outside primary local envelope
+    resource_risk: HIGH
+
+stagea_replacement_order:
+  policy: >-
+    Replacement is permitted only for a documented resource-preflight or gold-label
+    failure before blind assignment. No replacement after an executor decision.
+  alternates:
+    - case_id: ALT01_WEBGRAPH_LLP
+      paper: Layered Label Propagation — A Multiresolution Coordinate-Free Ordering for Compressing Social Networks
+      publication: WWW 2011
+      artifact_url: https://github.com/vigna/webgraph
+      local_route: Java implementation and small public graph; CPU sufficient
+    - case_id: ALT02_ALIVE2
+      paper: Alive2 — Bounded Translation Validation for LLVM
+      publication: PLDI 2021
+      artifact_url: https://github.com/AliveToolkit/alive2
+      local_route: only if exact Windows LLVM/Z3 inputs are pre-existing or can be localized within the envelope
+
+negative_controls:
+  - case_id: N01_CURRENT_UNION_DIRECT_ABSORPTION
+    source_kernel: O4-DYNCACHE-PGM historical failure family
+    hidden_fault: same-object action already present in cutoff current union
+    expected: SCIENTIFIC_STOP_OR_MATERIAL_SCOPE_CONTRACTION
+  - case_id: N02_GENERIC_WRAPPER
+    source_kernel: LLVM Zicbop generic prefetch scheduling failure family
+    hidden_fault: wrapper/controller without non-generic mechanism or distinct claim endpoint
+    expected: SCIENTIFIC_STOP
+  - case_id: N03_SAME_INFORMATION_SELECTOR
+    source_kernel: COH-REGION-LIFECYCLE historical failure family
+    hidden_fault: selector is absorbed under the same information set and comparator
+    expected: SCIENTIFIC_STOP_OR_MATERIAL_SCOPE_CONTRACTION
+  - case_id: N04_GENERIC_PARTITION_SOLVER
+    source_kernel: ROCKSDB-MULTISST historical failure family
+    hidden_fault: generic segmentation/facility-location restatement without a new mechanism
+    expected: SCIENTIFIC_STOP
+
+forbidden_for_executor:
+  - the fact that this is a backtest or calibration case
+  - positive-control or negative-control label
+  - expected decision or known publication success
+  - paper titles
+  - authors
+  - venues
+  - DOI and URLs
+  - final quantitative results
+  - acceptance or award status
+  - source_kernel identifiers for negative controls
+  - post-cutoff papers, issues, releases, and adoption evidence
+  - author method implementation and author reproduction scripts
+  - CASE_POOL.yaml, SOURCE_LEDGER.md, and all auditor-only materials
+executor_visible_pack_requirements:
+  - random neutral case id unrelated to paper, venue, or audit id
+  - path outside the visible RULE_AUDIT directory
+  - rewritten technical description with no searchable verbatim paper phrases
+  - frozen pre-publication source universe for independent collision review
+  - neutralized canonical inputs and comparator interface
+  - no git remote, citation metadata, paper filenames, license headers, or comments that reveal identity
+contamination_rule:
+  signal: BLINDING_CONTAMINATION
+  action: STOP_CASE_WITHOUT_SCIENTIFIC_DECISION_AND_USE_PREREGISTERED_ALTERNATE
+  denominator_effect: EXCLUDE_AND_REPORT

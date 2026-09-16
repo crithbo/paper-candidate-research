@@ -1,0 +1,32 @@
+cycle: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE72-R40-ORDINARY-BREADTH-V1
+retrieval_date: '2026-08-15'
+resource_actions: NONE
+sources:
+  - id: SRC01
+    role: ANCHOR_CURRENT
+    title: LLVM AArch64Features.td
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/lib/Target/AArch64/AArch64Features.td
+    provenance: official_upstream_source
+    version_or_date: main snapshot accessed 2026-08-15
+    decision_relevance: confirms current feature exposure for sme-tmop.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC02
+    role: CURRENT_INSTRUCTION_LOCUS
+    title: LLVM AArch64SMEInstrInfo.td
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/lib/Target/AArch64/AArch64SMEInstrInfo.td
+    provenance: official_upstream_source
+    version_or_date: main snapshot accessed 2026-08-15
+    decision_relevance: current instruction-definition locus; does not by itself define high-level compiler lowering.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+  - id: SRC03
+    role: CONTRARY_SCOPE_CHECK
+    title: GNU assembler NEWS
+    url: https://github.com/bminor/binutils-gdb/blob/master/gas/NEWS
+    provenance: official_upstream_source
+    version_or_date: master snapshot accessed 2026-08-15
+    decision_relevance: separates assembler support from a compiler-construction claim.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+source_role_outcome: INSTRUCTION_EXPOSURE_ONLY__NO_TYPED_COMPILER_ACTION

@@ -1,0 +1,78 @@
+schema_version: stage0-revision-closing-confirmation-assignment-v1
+assignment_id: STAGE0-C2-20260821-PATCHYIELD-REVISION1-CLOSING-CONFIRMATION
+mode: SENTRY_REVISION_CLOSING_CONFIRMATION
+lane: STAGE0-CONFIRMATION-SENTRY-D
+authority: USER_EXPLICIT_PATCHYIELD_REPAIR_AND_INDEPENDENT_STAGE0_20260821
+topic_id: PATCHYIELD-CALL
+status_on_dispatch: ACTIVE
+
+independence:
+  sentry_did_not_construct_revision1: true
+  sentry_did_not_perform_primary_closing: true
+  sentry_must_reconstruct_decisive_proof: true
+  primary_closing_decision_is_not_binding: true
+
+frozen_rules:
+  project_rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__research-topic-discovery-r1-r40-20260815
+  role_stage0_sha256: BC58D2A365AFF6A0F82290CC3CC4E16177DBFDA69D1B28260084E9BE6B56E48C
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  quality_target: Q2_MINIMUM_Q1_PRIORITY
+
+frozen_inputs:
+  revision_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260821\patchyield-stage0-revision1
+  revision_handoff_sha256: DAF7EEE0FB7F65B2BF2597AB970C08AC2A046B4CAF2A076DF63B21F1A5BE81D3
+  revision_manifest_sha256: 4B53017ADF32BBCA8BC1FE255508FDED6D995F1B7F8ACEF22C63F6680A250ACD
+  primary_closing_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchyield-revision1-closing
+  primary_closing_handoff_sha256: 736E839A748EA30BFBEC396C082EBD1B8926CCC27986249998803DA9F4198520
+  primary_closing_manifest_sha256: A1ED2DC8B969E81C44335EFCA0927F494E54D622F247DBB2D957AD1C3A5D8DEE
+  primary_closing_decision: STOP__REVISION_GATE_NOT_CLOSED__BELOW_Q2_GENERIC_OR_INFEASIBLE_FAIRNESS_CONTRACT
+  revision_consumed: true
+
+decisive_question: >-
+  Does the frozen object legally permit 25 simultaneously ready admitted complete calls with batch capacity eight, making an all-legal-state bypass cap of sixteen impossible without a prohibited object or action change?
+
+required_checks:
+  - Independently verify the legal-state premise and the exact definition of bypass from the frozen revision inputs.
+  - Independently reconstruct the four-batch counting proof and the lower bound of 24 other-session dispatches before at least one call.
+  - Check every proposed escape against the frozen forbidden changes: admission/queue bound, action or bypass semantics, capacity, pause/preemption/routing, or active-subset fairness.
+  - Decide whether any non-generic progress-incremental action and Q2-level paper residual survives under the unchanged contract.
+  - Confirm that resource absence, lack of experiments, and lack of positive results played no role in the closing decision.
+
+write_boundary:
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchyield-revision1-closing-confirmation
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchyield-revision1-closing-confirmation\resources
+  resource_inventory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-patchyield-revision1-closing-confirmation\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+allowed_actions:
+  - Read only the revision and primary closing inputs listed above plus the Stage0 role.
+  - Write a confirmation report, handoff, resource inventory, and manifest under unique_write_directory.
+
+forbidden_actions:
+  - Change the frozen object, fairness cap, ready-set legality, action grammar, batch capacity, or revision.
+  - Run H100, vLLM, agents, replay, simulation, benchmark, builds, installation, or downloads.
+  - Read QRefine or QNN materials.
+  - Modify plan.md, registry.yaml, rules, templates, or any other assignment directory.
+
+resource_envelope:
+  official_routes_max: 0
+  accepted_persisted_bytes_max: 0
+  cpu_time_max: 20m
+  wall_time_max: 1h
+  system_install: false
+  global_environment_change: false
+
+allowed_decisions:
+  - CONFIRM_STOP
+  - DISAGREE
+  - PROVENANCE_FAIL
+
+required_outputs:
+  - CONFIRMATION_REPORT.md
+  - HANDOFF.yaml
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+
+next_step:
+  rule: Only mainline applies the final topic state after accepting this confirmation handoff.

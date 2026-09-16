@@ -1,0 +1,43 @@
+schema: ppc-r8-input-identity-correction-precommit-v1
+created_at: 2026-08-26T05:55:00+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+addendum_id: PPC-R8-A1-HASH-PINNED-WITNESS-IDENTITY-CORRECTION
+addendum_sha256: B4A58692078F4373AB93C62E81795491C907EA818D16346C6ECC2211A5379F22
+addendum_ack_sha256: B9A10C00627B818E6E86E21C49A2A95B7C822F5C9B56D5F53141DF60F819FA53
+addendum_start_sha256: 0878A08A9F9106176AF1307399B68A2114D35E8E147F7F61E409A98E1D1BB068
+recorded_before_implementation_or_tool_run: true
+J0:
+  disposition: REUSE_ACCEPTED_INPUTS_WITHOUT_RERUN
+  input_acceptance_sha256: 0A99A7E92E374425C5ABE8F6D8B8D78F03D205A66C31D2FB760BB18F5A644995
+  copy_or_hash_acceptance_rerun_allowed: false
+pass1_preservation:
+  source_handoff: handoff.yaml
+  source_handoff_sha256: 30F7C757412C4D16966D094EE2C8CADB29C7B10AC3E90CCF889C1F0516B52EEA
+  preserved_handoff: handoff.pass1_j1_input_identity_blocker.yaml
+  source_manifest: HASH_MANIFEST.sha256
+  source_manifest_sha256: F87F362F9C4BEF2971B9D28ACCFB806C2989F26E5844219E0F5273FB1BD14C68
+  preserved_manifest: HASH_MANIFEST.pass1_j1_input_identity_blocker.sha256
+  operation: EXACT_BYTE_COPY_ONCE_BEFORE_CANONICAL_RESEAL
+identity:
+  ir_input: resources/src/r6_input/src/preclaim_harness/ppc_union_input.ll
+  ir_input_sha256: 1124F15D99EC0CF7F1688CD20E21416A17C1A075F46419FE95A9E35C262BD939
+  required_ir_function: ir_direct_load
+  assembly_input: resources/src/r6_input/src/preclaim_harness/ppc_exact_witness.s
+  assembly_input_sha256: 94343AB218377B6D3A7736F3E280299C6AB80A2751386BD0CC0441B3174F88C5
+  direct_symbol: witness_direct
+  materialized_symbol: witness_materialized
+  shared_target_symbol: target_value
+  ir_indexed_load_is_substitute: false
+  input_edit_alias_rename_or_generation_allowed: false
+execution:
+  ordered_gates: [J1, J2, J3, J4, J5, J6]
+  actual_cli_arguments: [--mode, --input, --function, --asm-input, --direct-symbol, --materialized-symbol, --method, --output-root, --replay, --check]
+  deterministic_replays: 2
+  synthetic_tool_command_records_max: 200
+  selected_or_reserve_corpus_tool_invocations_max: 0
+  claim_bearing_runs_max: 0
+  automatic_retry: false
+  network_allowed: false
+  r9_plan_rows: 32
+  r9_plan_execute: false
+scientific_inference: NONE

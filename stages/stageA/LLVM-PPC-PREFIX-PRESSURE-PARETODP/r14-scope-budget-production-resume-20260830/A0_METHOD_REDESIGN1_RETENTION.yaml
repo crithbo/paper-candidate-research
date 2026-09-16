@@ -1,0 +1,38 @@
+schema: phase-closeout-retention-v1
+assignment_id: STAGEA-L2-20260830-LLVM-PPC-R14-A0-PRODUCTION-RESUME
+closeout_kind: A0_METHOD_REDESIGN1_EXACT_HOLD
+lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+retain:
+  - {path: resources/src/inputs, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: frozen exact16 identity}
+  - {path: resources/src/runner/materializer_harness.py, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: unchanged cap-16 source proves no patch}
+  - {path: resources/build/redesign1/static-scan/selected-11.stderr.txt, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: decisive static pre-result failure}
+  - {path: resources/build/redesign1/static-scan/selected-00.mir, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: same input reference for prior N01 and redesign scan}
+  - {path: A0_METHOD_REDESIGN1_STATIC_SCAN.yaml, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: command/status/accounting}
+  - {path: STAGEA_EXECUTION_READINESS_LEDGER.yaml, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: cumulative redesign and correction budget}
+cleanup_candidates_after_accepted_handoff:
+  - {path: resources/build/redesign1/static-scan/selected-01.mir, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/redesign1/static-scan/selected-02.mir, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/redesign1/static-scan/selected-03.mir, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/redesign1/static-scan/selected-04.mir, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/redesign1/static-scan/selected-05.mir, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/redesign1/static-scan/selected-06.mir, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/redesign1/static-scan/selected-07.mir, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/redesign1/static-scan/selected-08.mir, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/redesign1/static-scan/selected-09.mir, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/redesign1/static-scan/selected-10.mir, class: REACQUIRABLE_DELETE_AFTER_HANDOFF}
+  - {path: resources/build/redesign1/static-scan/selected-00.stdout.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/build/redesign1/static-scan/selected-01.stdout.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/build/redesign1/static-scan/selected-02.stdout.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/build/redesign1/static-scan/selected-03.stdout.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/build/redesign1/static-scan/selected-04.stdout.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/build/redesign1/static-scan/selected-05.stdout.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/build/redesign1/static-scan/selected-06.stdout.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/build/redesign1/static-scan/selected-07.stdout.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/build/redesign1/static-scan/selected-08.stdout.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/build/redesign1/static-scan/selected-09.stdout.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+  - {path: resources/build/redesign1/static-scan/selected-10.stdout.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT}
+deletion_gate: MAINLINE_ACCEPTED_HANDOFF_PLUS_CONTAINMENT_REPARSE_ACTIVE_PROCESS_AND_RESUME_CHECKS
+scientific_state_effect: NONE
+

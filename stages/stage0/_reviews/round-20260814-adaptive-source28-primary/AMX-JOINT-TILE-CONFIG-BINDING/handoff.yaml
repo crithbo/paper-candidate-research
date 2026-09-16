@@ -1,0 +1,34 @@
+assignment_id: STAGE0-P1-20260814-AMX-JOINT-TILE-CONFIG-BINDING-PRIMARY-V8.7
+topic_id: AMX-JOINT-TILE-CONFIG-BINDING
+review_role: PRIMARY
+decision: REVISE_ONCE
+quality_tier: TIER_B_Q2_VIABLE
+decision_confidence: 0.78
+evidence_ceiling: E1_STATIC_STAGE0_ONLY__NO_IMPLEMENTATION_NO_RESULT_CLAIM
+scientific_revision:
+  authorized: true
+  consumed: false
+  sole_atomic_gate: SAME_MANAGEDRA_MF_TWO_PLAN__UNION_EXTERNAL_CONFIG_BINDING_FRONTIER_CERTIFICATE
+  proposition: >-
+    On pinned current LLVM and one fixed ManagedRA AMX MachineFunction, a target-specific
+    finite frontier must produce two complete native-legal plans and one union-external Pareto
+    point while preserving all future call, shape, configuration, frame and TMM legality/cost.
+  fail_closed_sentinel: BELOW_Q2_STOP__CURRENT_AMX_SEQUENTIAL_UNION_OR_GENERIC_RA_WRAPPER
+stage_authorization:
+  stage_a: false
+  stage_b: false
+  reason: Primary REVISE_ONCE requires independent confirmation and a sole static revision.
+current_upstream:
+  repository: https://github.com/llvm/llvm-project.git
+  commit: 3de6fef89d9f9eb602a5bdaa2a3fe2a75a468030
+  check_date: '2026-08-14'
+key_findings:
+  - Current LLVM already covers component-level config placement/reload and post-RA physical TMM shape rewriting.
+  - The optimized and fast pipelines are both required fair same-object union baselines.
+  - No verified direct source establishes a global joint AMX config-binding frontier algorithm; this remains SEARCH_BOUNDED_OPEN.
+  - No candidate implementation, benchmark, compiler build, GPU use, or claim-bearing run occurred.
+required_confirmation: true
+confirmation_focus:
+  - Verify current-source action union and the distinction between component absorption and global-joint residual.
+  - Decide whether the sole static gate is truly atomic and finite without changing the object or baseline.
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE

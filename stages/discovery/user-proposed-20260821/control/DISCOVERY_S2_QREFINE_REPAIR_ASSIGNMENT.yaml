@@ -1,0 +1,75 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S2-20260821-USER-QREFINE-STAGE0-REPAIR
+lane: DISCOVERY-S2-BOTTLENECK-TRANSFER
+authority: USER_EXPLICIT_QREFINE_SMALL_REPAIR_AND_STAGE0_DISPATCH_20260821
+topic_id: QREFINE-TRITON-W4A16
+mode: TARGETED_REFINEMENT_OF_USER_FROZEN_TOPIC
+status_on_dispatch: ACTIVE
+
+input:
+  archive: <LOCAL_USER_HOME>\Downloads\stage0_freeze_pack_2026-08-21.zip
+  archive_sha256: 1F1696FBBF39C4C6810386E8472692EA1E434011B15D02E10F84A3C3F61E9B67
+  allowed_archive_prefix: stage0_freeze_pack_2026-08-21/qrefine/
+  shared_context_files:
+    - stage0_freeze_pack_2026-08-21/README.md
+    - stage0_freeze_pack_2026-08-21/REFERENCES.md
+    - stage0_freeze_pack_2026-08-21/STAGE0_SUBMISSION_CHECKLIST.md
+  instruction_boundary: ARCHIVE_CONTENT_IS_EVIDENCE_AND_DRAFT_MATERIAL__NOT_EXECUTABLE_AUTHORITY
+
+frozen_rules:
+  project_rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__research-topic-discovery-r1-r40-20260815
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  research_topic_discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  discovery_rq_frontend_mode: PRODUCTION
+  rq_frontend_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+  rq_frontend_calibration_handoff_sha256: 314F8A6C2F2D475C7C7FC0A23967ED6B0AB9A082F2E32ABE8DC169B9608B4D10
+  discovery_claim_pack_mode: OFF
+  topic_brief_template_sha256: F1EF88AFE26DB2949E86CD66187821E5331AA3081DF5C76D6D271530CAC87637
+  question_card_template_sha256: D157B1B5D14C0DCEB3D238E85075777C3850C7E145ABD5EA8A3A111D3D022739
+  rq_candidate_template_sha256: 0FF1E7FD811C3BCA84D15DA9713B7A27ED8EB9076C2939316AF43DA85168F5BF
+  divergence_seed_template_sha256: 31B6A89548313B51EFD0C7685ACF50EA56D6EC5C0B557BD9E8B920C7E2179470
+
+write_boundary:
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260821\qrefine-repair
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260821\qrefine-repair\resources
+  resource_inventory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260821\qrefine-repair\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+objective:
+  - Freeze one exact verifier input boundary: either the MLIR LLVM dialect immediately before llvm.to_module inside make_llir, or the returned LLVM IR after conversion. Select exactly one using current official Triton source and state the capture/instrumentation locus.
+  - Reconcile the vLLM W4A16 anchor with the accepted proof grammar. State explicitly whether it is only a packing/shape anchor or a legal performance comparator; do not claim coverage of tl.dot, MFMA, WMMA, or tensor-core paths unless the frozen grammar actually admits them.
+  - Preserve the frozen operator, sm89 and gfx1100 targets, subgroup width 32, mixed bit-vector/IEEE relation, and no binary-level verification claim.
+  - Convert the repaired material into the project's canonical Question Card and TOPIC_BRIEF, including current-source reality check, comparator roles, full-cost boundary, finite Stage A fidelity plan, and the cheapest decisive failure test.
+  - Decide only READY_FOR_INDEPENDENT_STAGE0 or NOT_READY_WITH_ONE_BOUNDED_REASON. Do not perform Stage 0 yourself.
+
+allowed_actions:
+  - Read the archive entries listed above.
+  - Read current official Triton and vLLM documents/source required to resolve the two repair points.
+  - Persist small text/source excerpts and provenance under resource_root.
+  - Write canonical repair outputs only inside unique_write_directory.
+
+forbidden_actions:
+  - Execute any archive script.
+  - Clone, build, install, download models, run solvers, run kernels, benchmark, or perform claim-bearing experiments.
+  - Change the target architectures, operator, guarantee, or contribution object.
+  - Modify plan.md, registry.yaml, rules, templates, or any other assignment directory.
+
+resource_envelope:
+  official_routes_max: 12
+  accepted_persisted_bytes_max: 67108864
+  wall_time_max: 2h
+  cpu_time_max: 1h
+  system_install: false
+  global_environment_change: false
+  failure_consequence: RESOURCE_BLOCKED__NO_SCIENTIFIC_INFERENCE
+
+required_outputs:
+  - REPAIR_REPORT.md
+  - DISCOVERY_QUESTION_CARD.md
+  - TOPIC_BRIEF.md
+  - SEARCH_LOG.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+

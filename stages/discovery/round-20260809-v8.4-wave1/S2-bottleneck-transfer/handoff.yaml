@@ -1,0 +1,48 @@
+schema_version: discovery-source-handoff-v8.4
+assignment_id: DISCOVERY-S2-20260809-V8.4-WAVE1
+source_lane: DISCOVERY-S2-BOTTLENECK-TRANSFER
+method:
+  production_revision: v2/v8.1
+  opportunity_lens: O2_BOTTLENECK_TRANSFER
+  calibration_status: CALIBRATED
+  calibration_evidence: registry.yaml#pipeline.discovery_method.historical_backtest.calibration_state_by_lens
+  prohibited_method: two-axis-v8.2r2
+  prohibited_reason: BLOCKED_USER_ACTION_REQUIRED_TLS_CREDENTIAL_CHAIN__NOT_PRODUCTION_AUTHORIZED
+generated_at: 2026-08-09
+cutoff_date: 2026-08-09
+write_directory: 'stages\discovery\round-20260809-v8.4-wave1\S2-bottleneck-transfer'
+status: COMPLETE_ZERO_PROPOSALS
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE
+quality_result: BELOW_Q2_STOP
+grounded_brief_count: 0
+stage0_recommendation_count: 0
+decision_basis:
+  - Same-object current first-party work absorbs CXL object/metadata and SDM ownership leads.
+  - Current GPU communication scheduling/overlap works absorb the generic MoE scheduling lead.
+  - Current compiler/scheduling works absorb the generic decode launch/synchronization lead.
+  - No finite, fair, natural-input and full-cost residual reached TIER_B_Q2_VIABLE.
+negative_leads:
+  - id: CXL-OBJECT-METADATA-TRANSFER
+    disposition: DROP_DIRECT_FATAL_OR_SUBTRACT
+    sources: [OBASE_OSDI26, MAC_OSDI26, NEMO_OSDI26]
+  - id: SDM-SHUFFLE-OWNERSHIP
+    disposition: DROP_DIRECT_FATAL
+    sources: [DUHU_OSDI26]
+  - id: MOE-COMM-SCHEDULE-TRANSFER
+    disposition: DROP_DIRECT_FATAL
+    sources: [FAST_NSDI26, PIPEMORPH_NSDI26, RESOURCE_AWARE_OVERLAP_2026]
+  - id: DECODE-LAUNCH-SCHEDULE-TRANSFER
+    disposition: DROP_DIRECT_SUBTRACT
+    sources: [DATAFLOW_MLSYS26, EVENT_TENSOR_MLSYS26, DYNAFLOW_MLSYS26]
+scope_compliance:
+  primary_or_official_sources_only: true
+  artifacts_downloaded_or_executed: false
+  experiments_run: false
+  gpu_or_npu_used: false
+  stage0_a_b_created: false
+  mainline_files_modified: false
+  writes_outside_assignment_directory: false
+recommended_mainline_action:
+  state_transition_requested: false
+  lane_status_after_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE
+  action: Accept zero-proposal delivery; do not create downstream stages from this wave.

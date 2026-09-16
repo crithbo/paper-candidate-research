@@ -1,0 +1,51 @@
+schema: ppc-r9-a1-k3-native-checker-failure-v1
+recorded_at: 2026-08-26T08:22:18.6721734+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+addendum_id: PPC-R9-A1-EXPLICIT-SHORT-CFILE-AND-NO-IMPLICIT-BYTECODE
+gate: K3_NATIVE_CHECKERS_CONSUME_CANDIDATE_OUTPUTS
+route: FAIL_CLOSED_SAME_FUNCTION_MATERIALIZER_FIDELITY
+evidence_ceiling: CONTROL_NON_CLAIM_IR_PRESSURE_CONTROL_ENGINEERING_EVIDENCE_ONLY__INVALID_CLAIM_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+first_failure:
+  command_id: 16_candidate_output_consuming_native_check
+  phase: CANDIDATE_NATIVE_CHECK
+  exit_code: 1
+  timed_out: false
+  automatic_retry: false
+  stderr: resources/build/a1_gate/logs/16_candidate_output_consuming_native_check.stderr.txt
+  raw_record: resources/build/a1_gate/logs/first_failure.json
+  command_metrics: resources/build/a1_gate/logs/command_metrics.json
+  command_metrics_sha256: 9F0AB35179BF53431DC3820A1AFB95CDF746AB580B8A385170D428751019517E
+checker_output: {path: resources/build/a1_gate/native_checkers.json, bytes: 4874, sha256: DDB782036926F659C9F0959ED574B3A6A08C0FF48B93C59D555D747E25E7398E, all_pass: false}
+checker_outcomes:
+  checks_total: 7
+  passed: 6
+  failed: 1
+  failing_check: same_function_and_load_identity
+mechanical_failure_localization:
+  frozen_source: resources/src/natural_materializer/materializer_harness.py
+  frozen_source_sha256: A28B269C522A96B81AA79C7F907864BA2277C0E6ABCA1108BACA9010F4C01D80
+  source_lines: 345-353
+  observed_trace_status: MATERIALIZED
+  observed_function: ir_pressure_control
+  observed_offsets_equal: true
+  observed_control_offsets_exact: true
+  observed_positive_identity_invariants: {same_function: true, same_load_destinations: true, same_load_symbols_and_offsets: true, cfg_labels_equal: true, call_lines_equal: true, return_lines_equal: true, source_function_count_unchanged: true, candidate_generated_from_actual_function_mir: true}
+  observed_required_negative_invariant: {fixed_synthetic_assembly_witness_used: false}
+  frozen_evaluator: all(bool(value) for value in invariant_values)
+  contradiction: REQUIRED_FALSE_NO_SYNTHETIC_WITNESS_INDICATOR_IS_AGGREGATED_AS_IF_TRUE_WERE_REQUIRED
+  correction_performed: false
+completed_before_failure:
+  nested_commands_completed: 15
+  materialized_mir: {path: resources/build/a1_gate/artifacts/materialized.mir, sha256: 5BE899B33F82E343CB8F7C94C88FFED6BEBE4BF5F0B76C83642A672A358E2E4E}
+  candidate_object: {path: resources/build/a1_gate/artifacts/candidate.o, sha256: DA6417380F2898627E95DA0D09485915D20BD17B1385930BD12F2DF9A1054CDC}
+  candidate_trace: {path: resources/build/a1_gate/candidate_trace.json, sha256: 86F608ED50B8FB078BC58AE917CAC136A8B204C2C5E27F7FD82EA986C39D1D74}
+  candidate_result: {path: resources/build/a1_gate/candidate_result.json, sha256: 96840FDE2E21D4A2BF561CB52CD289D081DA97D6C83CB74A182C9B55CDB4DA82}
+not_started_after_failure: [17_real_command_full_cost, K5_REPLAY_1, K5_REPLAY_2, K6_R10_PLAN_GENERATION, R10_PLAN_EXECUTION]
+immutable_sources_modified: false
+command_changed_after_failure: false
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_runs: 0
+claim_bearing_observations: 0
+scientific_revision_consumed: false
+scientific_inference: NONE
+

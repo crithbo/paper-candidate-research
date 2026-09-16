@@ -1,0 +1,31 @@
+schema: discovery-start-authority-reconciliation-v1
+assignment_id: DISCOVERY-S5-20260830-SOURCE121
+topic_id: SOURCE121-PORTFOLIO-S5
+canonical_correction_start:
+  path: stages/discovery/round-20260830-strategy-source121/control/MAINLINE_CORRECTION1_ACCEPTANCE_AND_START.yaml
+  sha256: DD4F2678086976F9710B2B5B7B3969D2C8EAC4975E83889787028F98966EB4B5
+  s5_ack_sha256: 6042A3049CAF63D9539DB52F41B63AC867A0A7D4FE7391006D3F580D5F8F737E
+  s5_ack_decision: ACCEPTED_READY
+prior_lane_local_start:
+  path: stages/discovery/round-20260830-strategy-source121/S5-scale-online-approx/MAINLINE_START.yaml
+  sha256: F8A615CE4647EDEE5CCAE321EDAF1BF75D9665DE5ADF9D6460E8FE869CFE1115
+contract_equivalence:
+  assignment_identity: SAME
+  canonical_funnel: EXACT_CARRIER_FIRST__SAME
+  source_calls_max: 24__SAME
+  clean_brief_ceiling: 2__SAME
+  build_or_experiment: 0__SAME
+  result_aware_backfill: FORBIDDEN__SAME
+  pause_signal: FINISH_CURRENT_WAVE_THEN_NO_SUCCESSOR__SAME
+existing_execution:
+  source_calls_used: 24_of_24
+  build_or_experiment: 0
+  result_aware_backfill: 0
+  outcome: HONEST_ABSTENTION__ZERO_CLEAN_BRIEF
+mechanical_disposition: >-
+  Bind the corrected canonical START to the already completed same-assignment
+  execution and handoff. Do not rerun or add source calls because the frozen
+  24-call budget is exhausted and outcome-aware backfill is forbidden.
+scientific_or_resource_delta: NONE
+candidate_or_shared_state_effect: NONE
+

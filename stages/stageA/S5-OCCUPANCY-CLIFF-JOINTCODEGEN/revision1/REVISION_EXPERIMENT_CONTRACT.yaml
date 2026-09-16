@@ -1,0 +1,137 @@
+contract_version: "revision1-v1"
+candidate_id: "S5-OCCUPANCY-CLIFF-JOINTCODEGEN"
+stage: "STAGEA_REVISION1"
+frozen_at: "2026-08-09T12:34:01+08:00"
+revision_budget: "UNIQUE_AND_CONSUMED_ON_EXECUTION"
+
+authorization:
+  stagea_revision_authorized: true
+  stageb_authorized: false
+  formal_large_scale_experiment_authorized: false
+  exclusive_hardware_authorized: false
+  nvidia_gpu_as_amdgpu_evidence: false
+  writable_root: "<LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/revision1"
+
+source_lock:
+  manifest: "SOURCE_MANIFEST.yaml"
+  manifest_sha256: "8c27d3187494e443e43d84797f3b221f73ff36f24c80582f45f92c1ce1258a18"
+  llvm_commit: "1f112d62e1fa2c4f1a04887abd72da1ed61cf791"
+  natural_corpus_repository: "https://github.com/ROCm/rocm-examples.git"
+  natural_corpus_commit: "269e9068d6fd6e68b1cc5a76eb77744f88af42ec"
+
+build_contract:
+  evaluated_tools: ["llc", "FileCheck", "llvm-calc-occupancy"]
+  evaluated_tools_must_be_built_from_exact_commit: true
+  bootstrap_is_evidence: false
+  build_targets: "AMDGPU only"
+  build_type: "Release with LLVM assertions enabled"
+  parallel_compile_jobs: 2
+  parallel_link_jobs: 1
+  maximum_wall_time_seconds: 7200
+  maximum_cpu_hours: 4
+  maximum_revision_storage_bytes: 4294967296
+  no_retry_rule: "A crashed acquisition/configure/build is recorded and not silently retried."
+
+exact_experiment_object:
+  input: "complete public natural-kernel-derived Machine IR immediately before machine-scheduler"
+  llvm_commit: "1f112d62e1fa2c4f1a04887abd72da1ed61cf791"
+  target_triple: "amdgpu11.00"
+  cpu: "generic GFX11 family implied by the frozen target spelling"
+  wave: "wave32 explicitly requested with +wavefrontsize32,-wavefrontsize64"
+  ir_optimization_level: "O3 during natural-source-to-IR derivation"
+  mir_replay_optimization_level: "not applicable; start-before=machine-scheduler and stop-after=greedy,2"
+  register_allocator: "greedy"
+  same_function: "identical pre-scheduler MIR bytes for baseline and all candidate variants"
+  verifier: "-verify-machineinstrs on every baseline/candidate output; exit code must be zero"
+
+natural_input_gate:
+  required_source_directories: 8
+  required_complete_legal_mir_count_min: 8
+  required_complete_legal_mir_count_max: 16
+  derivation_frontend: "llvm-mingw 20260616 bootstrap clang is allowed only to emit LLVM IR; exact-commit llc must create and replay every MIR object"
+  provenance_rule: "each MIR record carries source repository commit, source path, source SHA-256, derived IR SHA-256, pre-scheduler MIR SHA-256, and kernel name"
+  forbidden_substitute: "LLVM synthetic/regression MIR"
+
+methods:
+  current_staged_baseline:
+    name: "exact-commit LLVM GCNSchedStrategy plus greedy register allocator"
+    flags: "-mtriple=amdgpu11.00 -mattr=+wavefrontsize32,-wavefrontsize64 -start-before=machine-scheduler -stop-after=greedy,2 -verify-machineinstrs"
+  tier_frontier_candidate:
+    description: "bounded frontier over exact LLVM staged configurations, each followed by the same greedy allocator; select by actual post-RA occupancy tier, spill count, then compile cost"
+    includes_safe_fallback: true
+    variants:
+      - id: "default_fallback"
+        flags: []
+      - id: "occupancy_only_bias"
+        flags: ["-amdgpu-schedule-metric-bias=100"]
+      - id: "amdgpu_pressure_trackers"
+        flags: ["-amdgpu-use-amdgpu-trackers=1"]
+      - id: "joint_bias_trackers"
+        flags: ["-amdgpu-schedule-metric-bias=100", "-amdgpu-use-amdgpu-trackers=1"]
+    honesty_limit: "This wrapper is a minimal deployable Stage A mechanism. Because it uses existing LLVM knobs, a positive result would still require a later non-routine algorithmic implementation; routine tuning alone cannot support a paper."
+
+budget_and_fairness:
+  baseline_wall_budget_ms_per_region: 2000
+  candidate_wall_budget_ms_per_region: 2000
+  candidate_variant_order: ["default_fallback", "occupancy_only_bias", "amdgpu_pressure_trackers", "joint_bias_trackers"]
+  timeout_action: "stop evaluating further variants and return the best verifier-legal incumbent"
+  warmup_runs_per_method: 1
+  measured_runs_per_method: 3
+  timing_statistic: "median wall milliseconds; cold acquisition/build excluded but separately reported"
+  same_allocator: true
+  same_wave: true
+  same_information: true
+
+metrics:
+  primary:
+    - "post-greedy machineFunctionInfo occupancy tier (higher is better)"
+    - "post-greedy SI_SPILL_* save/restore instruction count (lower is better)"
+    - "median compile wall time including all candidate variants and selection (lower is better)"
+  secondary:
+    - "post-greedy SGPR/VGPR/AGPR usage when emitted"
+    - "selected variant and fallback rate"
+    - "output MIR byte size"
+  full_cost:
+    - "download bytes and time"
+    - "source checkout bytes and time"
+    - "configure/build wall time, observed process CPU time when available, and peak candidate-directory bytes"
+    - "per-region derivation, baseline, candidate, verifier, and selection cost"
+
+pass_rule:
+  required: "At least one natural region yields a replayable verifier-legal candidate point that strictly improves occupancy tier or spill count over the exact current staged baseline, stays inside the same 2000 ms budget, and is not dominated in (tier, spills, compile cost)."
+  insufficient: "cycle proxy alone, regression MIR, proxy LLVM version, verifier failure, or a point differing only by existing knob timing"
+  positive_claim_ceiling: "PRELIMINARY_SUPPORT for the Stage A premise only"
+
+stop_rules:
+  - "exact LLVM commit cannot be fetched or built within 4 GiB and 4 CPU-hours"
+  - "llc/FileCheck/llvm-calc-occupancy are not executable and attributable to the exact commit"
+  - "fewer than 8 complete natural-source-derived MIR regions pass exact-commit verifier"
+  - "baseline and candidate do not share commit, triple, wave, allocator, input bytes, and budget"
+  - "no candidate point strictly improves actual tier or spill count"
+  - "current LLVM already supplies the same selected behavior such that the wrapper is only routine knob tuning"
+  terminal_disposition: "STOP unless academic potential remains high but execution is human-only, in which case RESERVE_RECOMMENDED"
+
+randomness_and_replay:
+  stochastic: false
+  seed: null
+  replay_count: 2
+  equality_rule: "exact equality of source/input hashes, exit status, selected variant, tier, spills, legality, and output MIR hash; timing excluded"
+
+collision_update:
+  current_source_blob: "5816559fcc8992c05627e233cb88099e0036d42d"
+  status: "SEARCH_BOUNDED_OPEN_WITH_DIRECT_SUBTRACT"
+  bounded_scan_required_after_run: true
+
+mandatory_outputs:
+  - "REVISION_STAGEA_REPORT.md"
+  - "REVISION_RESULTS.md"
+  - "REVISION_Q1_COMPARATOR_MATRIX.md"
+  - "REVISION_USER_REVIEW_PACKET.md"
+  - "handoff.yaml"
+  - "HASH_MANIFEST.sha256"
+  - "COMMAND_LOG.md"
+
+authority_boundary:
+  pending_user_stageb_review: false
+  stageb_user_approval_id: null
+  stageb_authorized: false

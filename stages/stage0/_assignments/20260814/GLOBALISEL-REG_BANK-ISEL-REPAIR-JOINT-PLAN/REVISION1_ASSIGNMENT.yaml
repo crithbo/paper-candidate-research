@@ -1,0 +1,41 @@
+assignment_id: STAGE0-P1-20260814-GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN-REVISION1-V8.7
+mode: PRIMARY_REVISION
+topic_id: GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_READY_TO_DISPATCH
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_revisions\GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN\revision1
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+revision_budget: 1_of_1
+atomic_gate: PINNED_RBI_ACTION_CATALOG__NONLOCAL_BOUNDED_REGION_CERTIFICATE
+required_inputs:
+  primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source01-primary\GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+  confirmation_directory: stages\stage0\_reviews\round-20260814-adaptive-source01-confirmation\GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+input_hashes:
+  primary_report_sha256: CC7CC2F2D8E7A2240AB671F87D1C506B3D5FC5FD30FE1767F887B806890EA4D7
+  primary_handoff_sha256: 29AF8C3395167562EAADFAB476F48BD437FCA7F0EA202E7D7665D2FE671B6810
+  primary_manifest_sha256: 62EF07ABD3B2AAE0509EA2D3E2D2C81C25847885ABF1137ECB51B57D98CED43C
+  confirmation_report_sha256: 5644A2529362BD56A6AB56DA09E7D9EDE900B372B4D18CB64EE1AAD812F1F304
+  confirmation_handoff_sha256: C31A4289071BE085BA8B28F3DAA0804599DC6B07FC58C0E28F17F5A85A26F002
+  confirmation_manifest_sha256: 8A0B6EE32D7DCD159B04406AD39669F2EC7505517ED4E7D6D977223691C4F7D0
+revision_must_close:
+  - Pin one immutable LLVM target, pipeline, RBI implementation, ABI and complete default/nondefault action catalog.
+  - Give one same-MIR bounded region with two complete target-legal plans, including all edge repairs and copies.
+  - Prove the candidate plan is outside and not dominated by Fast, Greedy, RepairingPlacement and their current configuration union.
+  - Define a finite future-action, legality and full-cost preserving state with an exact/FPT recurrence or certified Pareto frontier.
+  - Freeze a finite same-contract Stage A preclaim killer including downstream RA, scavenging, frame, scheduling and MC cost.
+forbidden_solutions:
+  - local cost-weight tuning
+  - existing RepairingPlacement relabeling
+  - copy-count-only objective
+  - generic ILP CP or identity enumeration
+  - changed target RBI ABI GMIR or downstream contract
+forbidden_execution: [implementation, experiment, benchmark, build, install, stageA, stageB, shared_control_write]
+decision_boundary:
+  pass_route: RECOMMEND_STAGE0_PASS_FOR_CLOSING_REVIEW
+  fail_route: BELOW_Q2_STOP_IF_NO_UNION_EXTERNAL_LEGAL_NONLOCAL_PLAN_OR_FULL_UNION_DOMINATES
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  next_route: INDEPENDENT_REVISION1_CLOSING_ONLY
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

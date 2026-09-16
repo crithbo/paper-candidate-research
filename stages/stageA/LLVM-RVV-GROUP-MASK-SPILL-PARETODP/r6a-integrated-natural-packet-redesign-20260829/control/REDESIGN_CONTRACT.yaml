@@ -1,0 +1,28 @@
+schema: stagea-same-object-evaluation-redesign-v1
+assignment_id: STAGEA-L2-20260829-LLVM-RVV-R6A-INTEGRATED-NATURAL-PACKET-REDESIGN
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+classification: SOFT_METHOD_INTERFACE_BLOCKER__SAME_OBJECT_PREEXECUTION_REDESIGN
+identity_preserved: [exact_object, transitive_split_closure, quotient_semantics, legality_guarantee, natural_denominator]
+purpose: freeze_result_independent_natural_inputs_baselines_argv_schema_and_full_cost_before_any_execution
+frozen_inputs:
+  asset_record: {path: projects/_assets/ASSET-LLVM-RVV-5BB2565/ASSET_RECORD.yaml, sha256: 9DFD2B90E269F107734037263972CCD5B1A0EED1E8269A33AF1E0A4AB1B89D1E}
+  r5d_handoff: {path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/handoff.yaml, sha256: 13F86B8EE9C755009F0997E78114A89E75FBB79B4B6AF1C8A153BF59455EB740}
+  source_archive: {path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r2/resources/downloads/llvm-project-5bb2565693f062a9e99929db1814a7a076d4dc76.tar.gz, bytes: 280166923, sha256: BC0E5CC6B7F4978242749E0FF666DDA851994EFFC178BD782C4799D7C2B52695}
+result_independent_selected_functions:
+  - {ordinal: 0, member: llvm/test/CodeGen/RISCV/rvv/allone-masked-to-unmasked.mir, function: vcpop.m, file_sha256: 50761EF7C895D41E89EFAC48A6E6E5DE297689B1E99383B4E35010123DC519B1}
+  - {ordinal: 1, member: llvm/test/CodeGen/RISCV/rvv/mask-reg-alloc.mir, function: mask_reg_alloc, file_sha256: 4694DA0F8052C1F03D616FD5187C028BDA05EC52C728E2EC3E5181F10D0C528B}
+  - {ordinal: 2, member: llvm/test/CodeGen/RISCV/rvv/zvlsseg-spill.mir, function: zvlsseg_spill_0, file_sha256: 3F9E463228A1D73F7EBA7A8E623830C4C9204F9B5F8C90CC0CD5225D64B6CE9B}
+  - {ordinal: 3, member: llvm/test/CodeGen/RISCV/rvv/zvlsseg-spill.mir, function: zvlsseg_spill_1, file_sha256: 3F9E463228A1D73F7EBA7A8E623830C4C9204F9B5F8C90CC0CD5225D64B6CE9B}
+reserve_functions: []
+required_static_outputs: [RVV_R6A_SELECTED_MANIFEST.yaml, RVV_R6A_EXECUTABLE_PACKET.yaml, RVV_R6A_COMMAND_DAG.json, RVV_R6A_CONTROLLER.py, RVV_R6A_STATIC_VALIDATION.yaml]
+packet_requirements:
+  - selection order and four-function denominator are immutable before results
+  - candidate implements the accepted r5d transitive split closure without reducing obligations
+  - baseline set includes current default, greedy and pbqp paths when supported by the pinned tool and records unsupported paths fail-closed
+  - every argv, cwd, env, timeout, stdout, stderr, output and schema field is literal
+  - full cost consumes compile or pass execution, checker, closure, oracle and persisted-byte receipts with explicit units
+  - legality witness checks labeled and quotient keys, successors, backpointers, shared cost tensor and all baselines
+  - control row remains non-claim-bearing and hides relative effects
+allowed_actions: [read_frozen_inputs, write_required_static_outputs, static_lint_max_3]
+forbidden_actions: [archive_extract, resource_copy, tool_execution, control_row, claim_row, network, result_aware_change, shared_install, stageb]
+next_gate: MAINLINE_STATIC_PACKET_ACCEPTANCE

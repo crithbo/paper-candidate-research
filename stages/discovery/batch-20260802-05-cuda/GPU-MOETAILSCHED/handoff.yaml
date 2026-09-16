@@ -1,0 +1,19 @@
+topic_id: GPU-MOETAILSCHED
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: GPU-resident routed MoE grouped GEMM scheduling with expert permutation, tile ownership, and complete routing/metadata accounting
+main_claim: Dispatcher-visible scheduling yields end-to-end MoE tail Pareto points unavailable to documented CUTLASS scheduler modes plus sorting.
+academic_value_score: 59
+ai_executability_score: 24
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.76
+strongest_baseline: CUTLASS grouped GEMM kDeviceOnly/kHostPrecompute, sorting, and per-expert launch under identical ledgers
+decisive_evidence: One public routed MoE layer where a scheduler point survives routing, sorting, restoration, workspace, and synchronization accounting against the best CUTLASS combination.
+unresolved_risks: Production MoE runtimes may already contain an equivalent policy; benefits may be ordinary histogram-sensitive tuning.
+next_killer_gate: Freeze an open MoE histogram, implement occupancy-bucket assignment, and compare to both CUTLASS modes plus sorting with end-to-end timing.
+mechanism_pivot_remaining: 1
+reserve_reason: ''
+evidence_ceiling: Architecture-specific GPU kernel evidence until replayed on more than one compatible platform.
+execution_authority: Discovery only; no formal experiment.
+file_hashes: {topic_brief.md: 330BB3253A49EB022C536BDC63001A23846B881C0EFA797EA5D18B62BA875BAB, source_log.md: 64198D7C99476378E4F29D4EAD06ACE9ED4023C1F1F4DA871A7AEEBDE021C232}

@@ -1,0 +1,57 @@
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+approval_id: R11A-R13B-BATCH01-RAW-CAP-RECOVERY-20260813-R14A
+status: FAILED_NOT_DISPATCHABLE__R14A_BATCH02_PROVIDER_RETURN_ORDER_UNOBSERVABLE__NO_SCIENTIFIC_INFERENCE
+gate: PROVIDER_ORDER_FREEZE_BEFORE_SEMANTIC_FILTERING
+specification_supplement:
+  path: control/minimum-viable-calibration-r13b/R14A_BATCH02_PREFLIGHT_SPECIFICATION_SUPPLEMENT_001.yaml
+  sha256: 05E426CA5E309564F929CF78B590AC3086D802513904667DB9CC7F5224FFB178
+  required_mapping: REQUEST_ORDINAL_THEN_QUERY_ORDINAL_THEN_PROVIDER_ROW_ORDINAL
+  required_fields: [request_ordinal, query_ordinal, provider_row_ordinal, ref_id, title, url]
+attempt:
+  request_ordinal: 1
+  reserved_slots: 12
+  tool_call_shape: ONE_SEARCH_QUERY_CALL_WITH_THREE_QUERY_OBJECTS
+  literal_queries_submitted: 3
+  result: 'The existing public web search route returned one combined unstructured text stream rather than an inspectable per-query result collection.'
+  missing_observable_fields: [query_ordinal_boundary, provider_row_ordinal_per_query, machine-readable_ref_id_title_url_rows]
+  order_freeze_written: false
+  semantic_filtering_started: false
+  candidate_identity_hashes_written: false
+  commitment_written: false
+  private_intersection_started: false
+  source_qualification_started: false
+  request_ordinal_2_issued: false
+why_fail_closed:
+  - 'The supplement requires an append-only exact return order with fields before semantic filtering.'
+  - 'Assigning combined-stream results to query ordinal or selecting a presumed first four rows would invent the required mapping.'
+  - 'Issuing request 2 cannot repair an already unfreezable request 1 and would consume further slots without restoring the missing order evidence.'
+counter_accounting:
+  raw_used_before_batch02: 44
+  request_ordinal_1_issued: true
+  request_ordinal_1_reserved_slots_consumed: 12
+  request_ordinal_2_issued: false
+  request_ordinal_2_reserved_slots_consumed: 0
+  raw_used_after_attempt: 56
+  raw_remaining_after_attempt: 32
+  unique_used: 4
+  unique_remaining: 68
+  eligible_count: 2
+preserved_boundaries:
+  batch01_quarantine_referenced_or_reconstructed: false
+  no_private_denylist_or_historical_plaintext_read: true
+  canonical_mode: OFF
+  no_scientific_inference: true
+resource_ledger:
+  prior_frozen_artifact_bytes: 3524441
+  new_frozen_artifact_bytes: 0
+  public_search_transport_bytes: NOT_DIRECTLY_OBSERVABLE
+  accepted_frozen_response_bytes_on_disk_actual: 3524441
+  network_bytes: NOT_DIRECTLY_OBSERVABLE__AT_LEAST_3626270_PRIOR_RESPONSE_BYTES_PLUS_ONE_UNPERSISTED_SEARCH_RESPONSE
+  cpu_hours_cumulative_estimate: 0.25
+  wall_hours_cumulative_estimate: 0.83
+  external_resource_envelope_remaining: true
+minimum_user_action:
+  required: 'Provide a bounded additive disposition for the partially consumed R13B-02 reservation and, if continuation is authorized, a public retrieval mechanism whose returned data exposes a deterministic per-query ordered row collection with ref_id, title, and url before any filtering.'
+  constraints: 'PACKER cannot infer query-row boundaries, replay request 1, restore its consumed slots, issue a substitute query, or use the combined response as candidate evidence.'
+  not_requested: [threshold_change, identity_guessing, private_intersection, source_qualification, Phase2, executor_or_auditor_run, scientific_reclassification]
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

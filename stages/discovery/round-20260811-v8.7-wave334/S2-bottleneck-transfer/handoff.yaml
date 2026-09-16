@@ -1,0 +1,44 @@
+assignment_id: DISCOVERY-S2-20260811-V8.7-WAVE334-TOP-WAVE327-VERIFIED-PIPELINE-CLOSURE-DEPTH
+lane: S2-bottleneck-transfer
+status: IDLE_REUSABLE_AWAITING_MAINLINE
+completion: COMPLETE_ZERO_PROPOSALS
+authoritative_method: v8.7+R5-P0
+discovery_quality_mode: OFF
+cutoff_date: '2026-08-11'
+write_boundary: stages/discovery/round-20260811-v8.7-wave334/S2-bottleneck-transfer
+rule_freeze:
+  AGENTS.md: 66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063
+  plan.md: 2560CF847C3390A40F218D09CFEA0652BEC7BA31AF220952A0C3B35A3B870363
+  registry.yaml: 494E58B07EC49BF29A231B19DB8BE83E2AACD3B5969F89DE0723A1264E257DE6
+  rules/ROLE_DISCOVERY.md: FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3
+funnel:
+  raw_row_events: 2
+  repeat_rescreens: 2
+  unique_opportunity_families: 0
+  candidate_grade_deep_reviews: 2
+  grounded_briefs: 0
+deep_reviews:
+  - family: ANDROID_APEX_VERIFIED_MOUNT
+    decision: NOT_ADMITTED_UNFROZEN
+    immutable_contract: Exact signed APEX bytes/signers plus stock verification/mount outcome.
+  - family: TCG_RIM_EVENT_LOG_REPLAY
+    decision: NOT_ADMITTED_UNFROZEN
+    immutable_contract: Ordered measurements/digests, PCR quote and stock RIM verifier outcome.
+falsification_control: SIGNED_JAR_WHOLE_MANIFEST_HASH__EXISTING_UNION_OPTIMIZATION
+fidelity_closure:
+  natural_carrier: Version-pinned AOSP APEX or public TCG conformance artifacts; 20-50 bounded cases.
+  stock_oracle: apexd verification/mount or verifier replay/PCR/RIM comparison.
+  full_cost: Producer/signing/log build, bytes, verification/replay/mount CPU-RSS and cold-warm access.
+  killer_within_72h: Fail if representation/ordering/signer/verifier/guarantee changes or only packing/cache/wrapper remains.
+non_reasons:
+  - missing implementation
+  - missing positive result
+  - data/resource availability
+  - AI readiness
+terminal_stop: false
+manifest: HASH_MANIFEST.sha256
+artifacts:
+  - DISCOVERY_LOG.md
+  - SOURCE_COLLISION_MATRIX.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256

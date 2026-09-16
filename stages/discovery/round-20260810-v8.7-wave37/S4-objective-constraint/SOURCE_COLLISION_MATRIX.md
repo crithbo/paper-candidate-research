@@ -1,0 +1,20 @@
+# Source and action-space collision matrix
+
+Frozen cutoff: `2026-08-09`. Retrieval was completed on `2026-08-10`. All entries below are first-party official USENIX FAST '26 proceedings material; URLs are direct official records, not secondary summaries.
+
+| Seed / exact object | First-party anchor and factual mechanism | Minimal action-divergence witness | Strongest fair union | Six-dimensional result | Collision / decision |
+|---|---|---|---|---|---|
+| OdinANN / on-disk graph ANNS insert with native recall | [FAST '26: OdinANN](https://www.usenix.org/conference/fast26/technical-sessions) — direct rather than batch insertion to stabilize search during inserts | immediate forward edge + deferred reverse-edge repair | direct insert + buffered/batch merge; same graph/update semantics | Decision and information are existing edge updates; a legal deferred repair is bounded direct insert, otherwise recall/connectivity timing changes; durable repair and interference are charged | `DIRECT_SUBTRACT`; `DROP` |
+| DMTree / DM range index, point+range semantics | [FAST '26: DMTree](https://www.usenix.org/conference/fast26/technical-sessions) — compute-side locate/lock collaboration offloads from memory servers | peer compute-side locate/lock for one hot key | DMTree offload + private-cache alternatives | Same locate/lock rule, data and RDMA resources; cost/guarantee stay native; a new lease primitive changes the protocol object | `DIRECT_SUBTRACT`; `DROP` |
+| RASK / cloud block-store range-key tree | [FAST '26: RASK](https://www.usenix.org/conference/fast26/technical-sessions) — log-structured leaves, range search/GC, range split/merge | cap-aware adjacent-range coalescing | RASK leaf/GC/split/merge union | Same merge decision/information/semantics; full maintenance charged; only thresholds change | `DIRECT_SUBTRACT`; `DROP` |
+| HATS / Cassandra reads plus compaction | [FAST '26: HATS](https://www.usenix.org/conference/fast26/technical-sessions) — replica selection and adaptive compaction-rate control | queue-gated compaction plus replica choice | HATS + native Cassandra actions | Same decision pair and information; no new complexity/guarantee; full queue debt and load cost unchanged | `DIRECT_FATAL` for proposed rule; `DROP` |
+| LESS / fixed RS-compatible HDFS repair | [FAST '26: LESS](https://www.usenix.org/conference/fast26/technical-sessions) — configurable layered sub-stripes balance accessed data and seeks | choose layering under simultaneous seek/data caps | LESS family + I/O-optimal code baselines | Same construction/information and fixed-code guarantee; full encoding/layout/repair cost charged; online change changes the code object | `DIRECT_SUBTRACT`; `DROP` |
+| DPAS / native SSD completion under CPU contention | [FAST '26: DPAS](https://www.usenix.org/conference/fast26/technical-sessions) — dynamic polling/interrupt/PAS switching from recent I/Os | CPU-capped choice among interrupt, poll, sleep-poll | DPAS/PAS + native interrupt/poll | Identical completion action and information; CPU/context-switch/I/O denominator unchanged; only policy criterion varies | `DIRECT_FATAL` for proposed rule; `DROP` |
+
+## Reality-check note
+
+None of the six decisions relies on an assertion that a mutable upstream source lacks an interface or flag. The records instead collide against mechanisms explicitly described in the frozen official proceedings. Accordingly, an absence-oriented current-source audit would not establish the alleged residual and is not presented as evidence.
+
+## Fairness contract applied to all rows
+
+The union is limited to compatible same-object actions, uses no oracle/future information, preserves the native function/quality contract, and charges construction/maintenance plus foreground execution. It is not a hypothetical universal union. The two `DIRECT_FATAL` rows are fatal because the proposed candidate rule itself is an extensional replay; the remaining rows are direct subtraction outcomes because a materially different protocol/object would be required.

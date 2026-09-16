@@ -1,0 +1,55 @@
+assignment_id: SOURCE-CLOSURE-SOURCE93-S2-CQ01-POSTGRESQL-EXPRESSION-TUPLE-DEFORM-JIT-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+write_owner: ASSIGNED_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source93/S2-bottleneck-transfer/closure-cq01
+parent_assignment: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE93-R40-ORDINARY-BREADTH-V1
+parent_handoff_sha256: 83B032B8FECD7B44EF63466AD49AC95048441BF42E6F5F6D6A1DF8B612460914
+parent_queue_sha256: 152764F3444BBBCDD82DDCE2D3E5AE63C9A04057634101F6C1E0003531368468
+parent_question_card_sha256: 1F0C3443C24E054DC92C1AC12C797AE13A36ECFB50D7EA841D51B6109C40B4B7
+queue_item: S2-93-CQ01
+queue_status_at_freeze: PENDING_UNEXECUTED__ATTEMPTS_0__NOT_EXHAUSTED
+exact_project: postgres/postgres
+deterministic_version_rule: resolve official refs/heads/master or repository-default commit SHA at the first counted bounded attempt and pin every retained source to that one SHA
+exact_object: one fixed PostgreSQL schema, tuples, SQL query and result executed with stock LLVM JIT and unchanged SQL, transaction, expression, tuple-deform and result semantics and the same full-cost endpoint
+primary_routes:
+  - https://api.github.com/repos/postgres/postgres
+  - https://api.github.com/repos/postgres/postgres/commits/master
+  - https://raw.githubusercontent.com/postgres/postgres/<resolved_commit_sha>/src/backend/jit/llvm/llvmjit_expr.c
+  - https://raw.githubusercontent.com/postgres/postgres/<resolved_commit_sha>/src/backend/jit/llvm/llvmjit_deform.c
+  - https://raw.githubusercontent.com/postgres/postgres/<resolved_commit_sha>/src/backend/jit/llvm/llvmjit.c
+  - https://raw.githubusercontent.com/postgres/postgres/<resolved_commit_sha>/src/test/regress/sql/jit.sql
+route_selection_rule: resolve repository default branch once, then use only the four precommitted direct postgres/postgres raw paths; retain 404 or renamed-path telemetry without substituting an unbounded search and without absence inference
+required_outputs:
+  - immutable current postgres/postgres commit and exact retained source loci
+  - bounded stock expression JIT, tuple deforming JIT, LLVM context/code generation and relevant threshold/setting union visible in retained loci
+  - one fixed stock-legal in-tree SQL carrier and two complete legal expression-plus-deform JIT plans if source exposes them
+  - whether a union-external PostgreSQL-specific joint action and finite exact/FPT/approximation/certified guarantee can be frozen
+  - strongest direct current collision and generic IR/code-block/layout/controller objection
+  - full-cost dimensions and finite falsifier route
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_CHANGED_SEMANTICS_OR_GENERIC_JIT_LAYOUT_CONTROLLER__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide_clean_brief_Q2_PASS_STOP_or_stage_state
+  - change_fixed_schema_tuples_query_result_SQL_transaction_expression_deform_or_full_cost_endpoint
+  - run_build_install_experiment_or_claim_bearing_observation
+  - clone_repository_or_download_archives
+  - search_outside_exact_project_source_scope
+  - treat_404_zero_match_transport_failure_or_missing_tool_as_absence
+  - read_or_use_Source94_or_later_Discovery_outcomes
+  - read_or_use_R84_R85_Ruby_CPython_Swift_Rustc_JSC_OpenXLA_TVM_ONNX_GraalVM_or_other_closure_outputs
+resource_localization:
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source93/S2-bottleneck-transfer/closure-cq01/resources
+  inventory: stages/discovery/round-20260815-adaptive-source93/S2-bottleneck-transfer/closure-cq01/RESOURCE_INVENTORY.yaml
+  max_acquisition_calls: 6
+  max_success_response_bytes_each: 8388608
+  max_persisted_bytes: 16777216
+  max_wall_seconds: 1800
+  pre_call_monotonic_attempt_counter: required
+  eight_standard_subdirectories: required
+model_route: {model: gpt-5.6-terra, reasoning: high}
+notify_mainline_on_finish_or_blocker: true

@@ -1,0 +1,27 @@
+schema: rule-surface-consolidation-plan-v1
+status: FROZEN_PLAN__WAIT_TEMP_MAINLINE_LEASE_RELEASE
+principle: UPDATE_REPLACE_MERGE_RETIRE__DO_NOT_APPEND_PARALLEL_MICRORULES
+phases:
+  - id: C0
+    name: discovery_live_surface_cleanup
+    actions: [keep_claim_pack_single_owner, archive_dormant_R7, merge_bounded_repair_into_question_card_after_test, remove_split_repair_files, move_portfolio_to_plan_or_source_portfolio]
+  - id: C1
+    name: global_rule_governance
+    requires_lease_release: true
+    actions: [add_one_canonical_owner_invariant_to_AGENTS, add_overlap_and_reference_migration_check_to_MAINLINE, add_canonical_owner_fields_to_RULE_AUDIT_and_RULE_CHANGE_PROPOSAL]
+  - id: C2
+    name: role_deduplication
+    requires_lease_release: true
+    actions: [compress_mainline_discovery_candidate_stage0_stagea_stageb_roles, remove_operational_state, replace_cross_role_gate_copies_with_protocol_pointers]
+  - id: C3
+    name: resource_and_lifecycle_reconciliation
+    requires_user_choice_only_if_ephemeral_vs_mainline_cleanup_cannot_be_preserved: true
+    actions: [resource_owns_paths_inventory, lifecycle_owns_retention_closeout_gc, define_inrun_ephemeral_vs_recursive_gc]
+  - id: C4
+    name: template_transport_slimming
+    actions: [shared_stage_envelope, independent_stage_judgment_retained, handoff_transport_only, readiness_ledger_absorbs_engineering_status]
+  - id: C5
+    name: regression
+    actions: [cold_start_role_reads, frozen_assignment_compatibility, state_transition, blocker_routes, terminal_identity_lookup, evidence_ceiling, lifecycle_permission]
+do_not_change: [Q1_Q2_threshold, same_object, current_collision, strongest_baseline, natural_or_canonical_evidence, full_cost, reproducibility, claim_ceiling, revision_limits, stageb_user_gate]
+

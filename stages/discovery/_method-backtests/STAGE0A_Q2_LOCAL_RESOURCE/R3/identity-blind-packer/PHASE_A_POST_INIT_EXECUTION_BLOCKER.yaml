@@ -1,0 +1,10 @@
+schema: phase-a-post-init-execution-blocker-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+resource_init_receipt: {path: MAINLINE_RESOURCE_INIT_RECEIPT.yaml, sha256: A51331F24A8E0EEE91A6B935CFBC76D5C83E8B2B9F9501954D4BEE8B9B7E52D6}
+phase_a_start: {path: MAINLINE_RESOURCE_INIT_PHASE_A_START.yaml, sha256: 67F10A29F5488A52036A5696D623189896C8356DBD0A9E75709B4A933CE1555B}
+first_unmet_requirement: R3A01_EXACT_TITLE_DOMAIN_RESTRICTED_SEARCH_NOT_EXECUTED
+expected_log_path: resources/logs/preflight/1.yaml
+observed_log_exists: false
+action_counts: {R3A01_search: 0, R3A01_open: 0, phase_A_total_calls: 0, phase_B_selection: 0, evidence_extraction: 0, packet_creation: 0, build_probe_experiment: 0}
+reason: Resource initialization is complete, but the first explicitly authorized contract action has not been performed.
+next_action: EXECUTE_R3A01_PER_CONTRACT_OR_MAINLINE_STOP

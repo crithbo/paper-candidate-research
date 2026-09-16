@@ -1,0 +1,32 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE101-R40-ORDINARY-BREADTH-V1
+method: all_history_five_field_identity_preflight
+fields: [exact_object, native_action_or_estimator, endpoint, mechanism, full_cost]
+results:
+  - seed: S101-01
+    signature: BAZEL_SKYFRAME_INCREMENTAL_EVALUATION__FIXED_WORKSPACE_TARGET_EDIT_TRACE__CLEAN_REBUILD_EQUIVALENCE__UPDATE_EVALUATION_IO_MEMORY_COST
+    status: NO_EXACT_MATCH_FOUND__NOT_NOVELTY_INFERENCE
+    related: [general_incremental_build_systems]
+  - seed: S101-02
+    signature: GHC_NONMOVING_OLDGEN_COLLECTION__FIXED_PROGRAM_RTS_HEAP_TRACE__LANGUAGE_RUNTIME_EQUIVALENCE__PAUSE_CPU_RSS_COST
+    status: NO_EXACT_MATCH_FOUND__NOT_NOVELTY_INFERENCE
+    related: [managed_runtime_gc]
+  - seed: S101-03
+    signature: SPIDERMONKEY_WARP_SPECIALIZATION_DEOPT__FIXED_SCRIPT_FEEDBACK__JS_SEMANTIC_EQUIVALENCE__COMPILE_CODE_BAILOUT_COST
+    status: NO_EXACT_MATCH_FOUND__NOT_NOVELTY_INFERENCE
+    related: [jit_compilers]
+  - seed: S101-04
+    signature: DART_VM_AOT_TYPE_FLOW__FIXED_PROGRAM_OPTIONS__AOT_SEMANTICS__ANALYSIS_COMPILE_MEMORY_COST
+    status: NO_EXACT_MATCH_FOUND__NOT_NOVELTY_INFERENCE
+    related: [aot_type_flow]
+  - seed: S101-05
+    signature: LLVM_MACHINE_OUTLINER_TARGET_COST_GLOBAL_SELECTION__FIXED_MACHINEFUNCTION_TARGET_COST__CODE_SEMANTICS__COMPILE_SIZE_COST
+    status: TERMINAL_CONTAINS__EXCLUDED_BEFORE_RQ
+    certificate: registry terminal Stage0 identity LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION
+  - seed: S101-06
+    signature: FFMPEG_DECODER_ERROR_RECOVERY__FIXED_STREAM_BYTES__FRAME_OUTPUT__DECODE_RECOVERY_COST
+    status: NO_EXACT_MATCH_FOUND__NOT_NOVELTY_INFERENCE
+    related: [multimedia_decoder_resilience]
+notes:
+  - RELATED_ONLY never excludes a seed.
+  - No-match is not evidence of novelty or current-union absence.
+  - S101-05 is the only identity-based exclusion in this cycle.

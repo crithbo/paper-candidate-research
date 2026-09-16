@@ -1,0 +1,313 @@
+*** Begin Patch
+*** Update File: rules/ROLE_CANDIDATE_OWNER.md
+@@
+ ## Stage B：最小论文原型
+ 
+ 日历估计只作非规范规划提示。只有主线验收 Stage A gate PASS、用户逐题查阅并明确批准、registry 写入与本题和 assignment 匹配的非空 `stageb_user_approval_id` 后启动；否则必须拒绝 Stage B 初始化和执行。
+ 
++### 冻结执行合同
++
++逐题用户批准必须由主线编译为 `STAGEB_EXECUTION_CONTRACT.yaml`，冻结 topic/assignment/lane、输入与规则哈希、exact object、主要/次要 claim、evidence ceiling、按信息增益排序的 kill gates、唯一写目录、资源与 timeout、允许的获取/构建/替代/恢复路线、每路 attempt 上限、用户专属门和停止条件。generic 规则批准不等于逐题 Stage B 批准；合同、registry 与 assignment 的 `stageb_user_approval_id` 不一致时拒绝初始化。
++
++在首个 claim-bearing observation 前还必须生成：
++
++- `STAGEB_WORK_BREAKDOWN.yaml`：work package、依赖、owner/scratch 目录、预期输出和 gate；
++- `ENVIRONMENT_LOCK.yaml`：OS、硬件、driver、toolchain、package、commit、数据与 license/hash；
++- `AUTONOMOUS_RECOVERY_LEDGER.yaml`：获批路线、attempt、成本、错误、结果和 resume point；
++- `CLAIM_EVIDENCE_MATRIX.yaml`：每条 claim 对应的实现、workload、baseline、metric、evidence 与 unsupported 状态；
++- `RUN_INDEX.yaml`：每次 run 的 `SMOKE / CONTROL_NON_CLAIM_BEARING / CLAIM_BEARING / INVALIDATED_NON_EVIDENCE / REPLAY` 分类、命令、输入/输出 hash 和替代关系。
++
++缺任一 mandatory 工件或关键字段时停在 preclaim，不得用临时聊天计划替代冻结合同。
++
++### B0–B6 自主执行状态机
++
++1. `B0_CONTRACT_FREEZE`：核对逐题批准、写边界、claim ceiling、kill-gate order、资源/恢复 envelope 与停止条件；不完整即拒绝初始化。
++2. `B1_PRECLAIM_PREFLIGHT`：锁定环境，复核 current upstream/latest collision，复现最强基线，映射完整原子动作，运行小 witness legality/equivalence，验证 full-cost 采集与 smoke/replay 入口；所有 hard predicate 通过前不得 claim-bearing。
++3. `B2_CORE_IMPLEMENTATION`：完成 reference/oracle、完整候选机制、checker、强基线、natural-workload harness 与 deterministic replay；局部代理只能标 control。
++4. `B3_KILL_GATE_LADDER`：按低成本高否决力依次执行 direct collision/形式反证、合法性与 same-object fidelity、strong-union absorption、最小自然 decisive probe、full-cost；早期科学 gate 决定性失败时停止无必要的昂贵工作。
++5. `B4_PAPER_GRADE_EVIDENCE`：补齐主自然 workload、正交验证、正式 comparator parity、主要消融、统计/重复、paper-grade full-cost、scale/robustness/no-gain/failure region 和主要 claim 最新碰撞。
++6. `B5_INTERNAL_REPLAY`：由未编写被重放组件的子代理或父 lane 的隔离路径，从 raw result 重建关键表格/统计并复核 hash。deterministic 要求 exact；stochastic/environment-sensitive 必须使用合同预注册的容差、环境字段和不比较项，不得事后调 tolerance。
++7. `B6_FREEZE_AND_HANDOFF`：冻结 prototype、baseline、harness、immutable runs、负证据、`REPRODUCE.md`、报告、handoff 与严格 manifest，只投递未参与实现的 Stage B 独立复审 lane。
++
++每个子阶段在 ledger 中登记 `NOT_STARTED / ACTIVE / PASS / SCIENTIFIC_FAIL / RESOURCE_BLOCKED / NOT_APPLICABLE`。不能用 `NOT_APPLICABLE` 跳过影响主要 claim 的 gate。
++
++### 自主恢复与低用户中断
++
++逐题 `AUTONOMOUS_RECOVERY_ENVELOPE` 是用户对有限执行路线的事先授权。范围内 owner 可自行生成、登记并运行完成冻结 work package 所需的命令，无需逐命令重复请求；每条命令、timeout、进程结果、stderr 和输出 hash 必须留痕，禁止静默 retry。
++
++默认恢复顺序为：日志/hash/版本/磁盘/缓存检查 → 题目目录内隔离环境重建 → 获批 portable toolchain 或 exact-commit clean build → 获批次数内的官方获取路线 → hash 一致的官方镜像或预先批准的同语义替代 → 不改变对象/保证/ceiling 的小规模 smoke → immutable checkpoint resume。任一路线成功即继续，失败则登记 attempt；只有全部获批路线耗尽或需要扩大权限时才请求用户。
++
++hard timeout、资源 ceiling 或安全边界触发时必须终止当前进程并保存日志。不得使用任意非官方镜像、覆盖失败目录、修改共享/系统环境、换对象、降保证、删强基线、改变分母或把控制实现当 claim 实现。
++
++私有数据/密钥/许可证、课题组未公开所有权、系统级安装或全局环境修改、超预算大型下载、排他 GPU/EDA/设备、付费资源、外部通信及会改变主要 claim 的路线必须暂停并交主线/用户。
++
++### 工程纠错、科学 revision 与并行写边界
++
++`ENGINEERING_CORRECTION_IN_CONTRACT` 仅适用于 exact object、原子动作、机制、比较器、主要 workload、指标、保证、claim 和证据路线均不改变的 build/parser/timer/checker/实现/报告生成缺陷。它不消费 scientific revision，但必须记录 defect 和修复 hash，把全部受影响 run 标为 `INVALIDATED_NON_EVIDENCE`，并从最近可信 checkpoint 在原 envelope 内完整重跑。
++
++改变机制、模型、比较器、主要 workload、指标、保证、claim 或证据路线属于 `SCIENTIFIC_REVISION`，仍受本阶段 `REVISE_ONCE` 限制。换对象、删强基线、改分母或降保证不是工程纠错。
++
++每题只有一个父候选 lane，父 lane 唯一写 canonical 合同、矩阵、报告、handoff 和 manifest。最多三个一层子代理分别优先承担机制、baseline/full-cost、replay/collision，只写预分配 scratch/run 子目录；不得并发编辑 canonical 文件，不得以多数投票代替证据判断。
++
+ 必交付：
+@@
+ ## 执行失败与用户解阻
+@@
+ 用户解阻后由主线在新 resume 子目录重新投递同一冻结合同；lane 不得自行重试高成本获取、改变对象或覆盖失败记录。只有已经运行的同对象、公平强基线、自然/形式化目标和 full-cost probe 给出决定性负结果时，才可建议 STOP。`HUMAN_RESEARCH_RESERVE` 仅用于长期人工核心研究或用户明确暂存。
+ 
++若资源失败发生在已经取得部分有效 claim-bearing observation 之后，仍可登记 `BLOCKED_USER_ACTION_REQUIRED`，但不得套用“尚无科学证据”的 ceiling。owner 必须冻结已支持 claim 与 evidence hash、未闭合/不支持 claim、当前 evidence ceiling、未执行 gate、可继续的其他获批 work package 和精确 resume point。资源失败既不能否定已有有效证据，也不能把部分证据升级为 Stage B PASS；缺失 gate 若决定论文充分性，则保持未闭合。
++
+ 若 assignment 明确携带题目级 `USER_DIRECTED_RESERVE_FALLBACK`，owner 仍不得自行转 reserve。owner 只负责逐条执行获批的有限路线，并在全部失败后交付 `ROUTES_EXHAUSTED` 证据：每条路线的 attempt、错误、字节/哈希/版本、成本、未执行内容与 resume point。只有主线可据此登记带 `NO_SCIENTIFIC_INFERENCE` 或 `NO_SCIENTIFIC_STOP` 后缀的可逆人工储备；任一路线尚未执行或失败证据不完整时必须继续报 blocker。
+
+*** Update File: rules/ROLE_MAINLINE.md
+@@
+ 高价值 Stage A/B 活跃时，应减少浅层 Discovery 并发。
++
++Stage B 顶层 active WIP 默认最多 1 题。只有两题均已有独立逐题 `stageb_user_approval_id`、两个候选执行 lane ready、写目录/数据/build/设备互不冲突，且共享 GPU、LLVM build、EDA 或大数据路径已显式串行化时，才可 burst 到 2；任一资源冲突、未验收 handoff 或 blocker 立即回到 1。优先在单题内部使用最多三个隔离子代理，不为实验或 work package 新建顶层会话。
+ 
+ 六个 Discovery 来源 `S1`–`S6` 必须直接并行；完成并经主线验收后，各自接收下一份与自身及其他 active assignment 去重的冻结任务，不再执行 least-recently-served 轮转。M1 按周期或明确触发运行，不计入六来源上限。consolidated v8.8/R3R1 的结果只能改变方法语义，不能自行改变六来源并发。六路并发不得阻塞已完成 Stage0/StageA handoff 的下一控制周期验收。
+@@
+ - 独立 Stage A gate PASS 后，主线只能登记 `PENDING_USER_STAGEB_REVIEW`；没有用户针对该题的明确批准，不得创建或启动 Stage B。
++- 逐题 Stage B 批准包必须冻结 `STAGEB_EXECUTION_CONTRACT` 所需的 exact object、claim ceiling、按信息增益排序的 kill gates、唯一写目录、输入/规则 hash、资源/timeout、允许的官方获取/构建/同语义替代/恢复路线及 attempt 上限。generic 规则批准不能生成具体题目的 `stageb_user_approval_id`。
++- 主线投递 Stage B 前必须确认 candidate lane 单题独占，并要求 B0–B6 状态机、mandatory contract artifacts、`RUN_INDEX` 分类、`ENGINEERING_CORRECTION_IN_CONTRACT`/`SCIENTIFIC_REVISION` ledger 和 internal replay。获批 envelope 内的普通恢复由 owner 自主执行；只有路线耗尽或权限扩大时打断用户。
+ - Stage B PASS 必须投递给未参与该题实现的长期独立复审 lane；不要求为该题新建会话。
+@@
+ 每次转换至少检查：
+@@
+ - 没有未登记的对象变化或第二次 revision。
++- 对新规则 Stage B assignment，`STAGEB_EXECUTION_CONTRACT.yaml`、`STAGEB_WORK_BREAKDOWN.yaml`、`ENVIRONMENT_LOCK.yaml`、`AUTONOMOUS_RECOVERY_LEDGER.yaml`、`CLAIM_EVIDENCE_MATRIX.yaml` 与 `RUN_INDEX.yaml` 存在且互相引用的 approval/topic/assignment/hash 一致；
++- 所有 claim-bearing 数字均来自未 invalidated 的 run；工程纠错已使受影响 run 失效并重跑；实际命令、资源、retry 和替代路线没有超出用户 envelope；
++- B0–B6 ledger 与 internal replay 完整，未完成的 kill gate 没有被 `NOT_APPLICABLE` 隐藏。
+ 
+ handoff 至少覆盖：
+@@
+ 本机 CPU、RTX 4070、公开源码、公开 trace、开源模拟器和保持同语义的替代栈默认可用于前期验证。缺少商品硬件、多 GPU、NPU、FPGA 或闭源工具只降低证据 ceiling，不自动 STOP。
++
++逐题 Stage B 用户包应把可预见的本地构建、官方获取、隔离环境、retry、timeout 和非排他设备路线编译为有限 `AUTONOMOUS_RECOVERY_ENVELOPE`。该 envelope 只减少重复确认，不扩大科学对象或资源权限；owner 必须记录每次 attempt，超出字节/时间/设备/来源/安装/所有权边界时仍按下列用户门暂停。主线不得把通用“尽量自主”解释为无限 retry、系统修改或任意下载授权。
+ 
+ 以下必须请求用户：
+
+*** Update File: rules/ROLE_STAGEB_INDEPENDENT_REVIEW.md
+@@
+ 13. AI 重放比例、人工边界和资源请求是否诚实；
+ 14. 组内所有权和未公开贡献边界是否需要用户裁决。
++15. `STAGEB_EXECUTION_CONTRACT`、work breakdown、environment lock、recovery ledger、claim-evidence matrix 与 run index 是否存在，且 topic/assignment/approval/hash 一致；
++16. B0–B6 是否按冻结 kill-gate 顺序执行，是否有影响主要 claim 的 gate 被错误标为 `NOT_APPLICABLE`；
++17. claim-bearing 数字是否全部来自未 invalidated 的 run；`ENGINEERING_CORRECTION_IN_CONTRACT` 是否保持对象/机制/比较器/workload/指标/保证/claim 不变并完整重跑，科学变化是否正确计入 `REVISE_ONCE`；
++18. 实际下载、build、retry、timeout、设备与替代路线是否位于逐题 `AUTONOMOUS_RECOVERY_ENVELOPE`，postclaim blocker 是否诚实保留部分证据与未闭合 gate。
+ 
+ 对 implementation-absence 型贡献，必须重新核验 current upstream commit/tag、官方 current 文档、源码路径与全部相关 flag/threshold/config；不得以旧文档、旧版本或关闭现有能力制造贡献和弱基线。
+@@
+ Reviewer 可以重放候选提供的入口、做只读源码核验和独立计算检查；不得新增主要机制、修复候选实现或生成唯一正结果。
++
++新规则 Stage B 包必须至少独立 clean-replay 一个 claim-critical deterministic subset，或对 stochastic/environment-sensitive 结果按预注册 tolerance、环境字段和不比较项重算。Reviewer 不得为了让 replay 通过而修改命令、实现或 tolerance；无法重放时返回明确的 `CANNOT_VERIFY` 与影响 ceiling。若只缺机械工件或 hash，可请求不改变科学语义的 bounded corrigendum；若需要改变机制、比较器、workload、指标、保证或主要 claim，则必须按 scientific `REVISE_ONCE` 处理，不能由 reviewer 直接修复。
+
+*** Update File: templates/STAGEB_REPORT.md
+@@
+ - Mandatory Stage B entry approval id/time:
+ - Approval scope and user-reviewed Stage A packet:
+ - Refuse execution if approval is absent.
++- `STAGEB_EXECUTION_CONTRACT.yaml` SHA-256:
++- Current/final B substage: `B0 / B1 / B2 / B3 / B4 / B5 / B6`:
++- Approved resource envelope:
++- Approved autonomous recovery envelope:
++- Ordered kill gates:
++- Canonical writer and subagent scratch ownership:
++
++## Execution-state ledger
++
++| Substage | Status | Inputs/outputs | Gate result | Evidence ceiling | Hash |
++|---|---|---|---|---|---|
++| B0 contract freeze | | | | | |
++| B1 preclaim preflight | | | | | |
++| B2 core implementation | | | | | |
++| B3 kill-gate ladder | | | | | |
++| B4 paper-grade evidence | | | | | |
++| B5 internal replay | | | | | |
++| B6 freeze/handoff | | | | | |
++
++## Mandatory execution artifacts
++
++- Work breakdown SHA-256:
++- Environment lock SHA-256:
++- Autonomous recovery ledger SHA-256:
++- Claim-evidence matrix SHA-256:
++- Run index SHA-256:
+ 
+ ## Prototype and reproducibility
++
++- Reference/oracle:
++- Complete candidate mechanism:
++- Legality/equivalence checkers:
++- Clean replay command and verdict:
++- Determinism class and preregistered tolerance/non-comparable metrics:
++
++## Run classification and invalidation
++
++| Run id | Class | Command/input hash | Output hash | Supersedes/is superseded by | Claim use allowed |
++|---|---|---|---|---|---|
+@@
+ ## Robustness and failure modes
++
++## Engineering correction and scientific revision ledger
++
++| Event | Classification | Frozen semantics changed? | Affected runs invalidated? | Rerun/revision id | Evidence impact |
++|---|---|---:|---:|---|---|
++
++## Autonomous recovery ledger summary
++
++- Routes approved/attempted/exhausted:
++- Attempts resolved without user action:
++- Resource/time/download/device cost:
++- Any envelope expansion requested:
+ 
+ ## Latest collision audit
+@@
+ ## User-action blocker, if applicable
+ 
+ - Claim-bearing observation obtained before failure: yes/no
+- Evidence ceiling: `RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE`
++- Valid evidence already obtained and hashes, if yes:
++- Claims supported so far:
++- Claims/gates still unresolved or unsupported:
++- Current evidence ceiling: `RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE / PARTIAL_VALID_EVIDENCE__MISSING_STAGEB_GATE / other exact ceiling`
+ - Scientific revision consumed: yes/no
+ - Immutable failure directory and resume contract:
+ - Blocker packet: `USER_BLOCKER_PACKET.md`
++- Approved work that continued despite blocker:
+
+*** Update File: templates/USER_BLOCKER_PACKET.md
+@@
+ - Exact failure and timestamp:
+- Claim-bearing observation obtained before failure: `no`
+- Scientific inference allowed: `none`
+- Evidence ceiling: `RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE`
++- Claim-bearing observation obtained before failure: `yes / no`
++- Valid evidence already obtained and hashes, if yes:
++- Claims supported so far, if any:
++- Claims/gates still unresolved or unsupported:
++- Scientific inference allowed: `none / only the listed partial valid evidence`
++- Evidence ceiling: `RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE / PARTIAL_VALID_EVIDENCE__MISSING_STAGE_GATE / exact other ceiling`
+ - Scientific revision consumed: `no`
+ - Immutable failure directory and hashes:
+@@
+ ## Approved finite recovery envelope
+ 
+ - User authorization ID:
+ - Approved routes, ordered and bounded:
+ - Attempt count and budget per route:
+ - Routes already exhausted with mechanical evidence:
+ - Approved routes not yet attempted:
++- Routes that succeeded and work resumed:
++- Total network/storage/CPU/GPU/device cost versus envelope:
++- Exact envelope expansion now requested, if any:
+ - `USER_DIRECTED_RESERVE_FALLBACK` authorized: `yes / no`
+@@
+ ## Work already performed and cost
+ 
+ - Network bytes/time:
+ - CPU/storage/device use:
+ - What was explicitly not executed:
++- Other approved work packages continuing/completed while blocked:
++- Missing gate's consequence for Stage B paper sufficiency:
+
+*** Add File: templates/STAGEB_EXECUTION_CONTRACT.yaml
++schema_version: stageb-execution-contract-v1
++topic_id: null
++assignment_id: null
++lane_id: null
++stageb_user_approval_id: null
++approval_timestamp: null
++unique_write_directory: null
++
++input_freeze:
++  AGENTS_sha256: null
++  plan_sha256: null
++  registry_sha256: null
++  role_sha256: null
++  stagea_gate_handoff_sha256: null
++  stagea_gate_manifest_sha256: null
++
++scientific_contract:
++  exact_object: null
++  same_function_and_guarantee: null
++  novelty_route: null
++  main_claims: []
++  secondary_claims: []
++  unsupported_do_not_claim: []
++  entry_evidence_ceiling: null
++  strongest_named_baselines: []
++  primary_natural_workload: null
++  orthogonal_validation: null
++  full_cost_dimensions: []
++  ordered_kill_gates: []
++  scientific_stop_conditions: []
++
++execution_contract:
++  stages:
++    - B0_CONTRACT_FREEZE
++    - B1_PRECLAIM_PREFLIGHT
++    - B2_CORE_IMPLEMENTATION
++    - B3_KILL_GATE_LADDER
++    - B4_PAPER_GRADE_EVIDENCE
++    - B5_INTERNAL_REPLAY
++    - B6_FREEZE_AND_HANDOFF
++  canonical_writer: null
++  subagent_scratch_assignments: []
++  claim_bearing_allowed_after: B1_PRECLAIM_PREFLIGHT_PASS
++  maximum_scientific_revision: 1
++  engineering_correction_requires_invalidation_and_rerun: true
++
++resource_envelope:
++  network_bytes_max: null
++  workspace_bytes_max: null
++  cpu_hours_max: null
++  gpu_hours_max: null
++  device_exclusive_allowed: false
++  hard_timeout_seconds: null
++  allowed_sources_and_tools: []
++  system_install_allowed: false
++  global_environment_modification_allowed: false
++  paid_or_controlled_resource_allowed: false
++
++autonomous_recovery_envelope:
++  route_order: []
++  max_attempts_per_route: {}
++  official_mirror_hash_identity_required: true
++  approved_same_semantics_substitutes: []
++  allow_isolated_environment_rebuild: true
++  allow_clean_exact_commit_build: false
++  allow_smaller_non_claim_smoke: true
++  allow_object_or_guarantee_change: false
++  immutable_failure_directories_required: true
++  user_interrupt_only_after_routes_exhausted_or_scope_expansion: true
++
++run_and_replay:
++  mandatory_run_classes:
++    - SMOKE
++    - CONTROL_NON_CLAIM_BEARING
++    - CLAIM_BEARING
++    - INVALIDATED_NON_EVIDENCE
++    - REPLAY
++  determinism_class: null
++  stochastic_or_environment_tolerance: null
++  timing_metrics_comparable_across_environment: null
++  internal_replay_owner_must_not_author_component: true
++
++user_only_gates:
++  - PRIVATE_DATA_OR_SECRET
++  - LICENSE_OR_UNPUBLISHED_OWNERSHIP
++  - SYSTEM_OR_GLOBAL_ENVIRONMENT_CHANGE
++  - RESOURCE_ENVELOPE_EXPANSION
++  - EXCLUSIVE_DEVICE_OR_EDA
++  - PAID_OR_CONTROLLED_RESOURCE
++  - OBJECT_GUARANTEE_OR_MAIN_CLAIM_CHANGE
++  - EXTERNAL_COMMUNICATION
++  - FORMAL_PROJECT_ACTIVATION
++
++authorization_assertions:
++  generic_rule_approval_is_not_topic_stageb_approval: true
++  formal_project_or_submission_authorized: false
++  candidate_may_self_promote: false
++  independent_reviewer_may_fix_candidate: false
+*** End Patch

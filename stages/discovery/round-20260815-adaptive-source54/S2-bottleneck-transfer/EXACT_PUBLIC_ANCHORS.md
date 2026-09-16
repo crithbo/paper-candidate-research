@@ -1,0 +1,9 @@
+# Exact public anchors and one primary RQ per selected seed
+
+| Seed | Exact public anchor (pre-evidence) | Stable same-object envelope | Primary RQ | Precommitted source roles / stop |
+|---|---|---|---|---|
+| S54-01 | PRIVATE_TOOLCHAIN current VM bytecode/module format and runtime documentation, accessed 2026-08-15 | Same compiled module, exported entry-point ABI, inputs/outputs and stock PRIVATE_TOOLCHAIN runtime result | Is there a target-specific whole archive-to-runtime metadata constructor that reduces compile+load full cost while preserving stock VMFB reader/runtime behavior? | ANCHOR/CURRENT: PRIVATE_TOOLCHAIN official format/runtime docs and source locus. Stop if format/reader makes remaining action generic packing or reader-changing. |
+| S54-02 | LLVM/OpenMP current target offloading mapper and runtime documentation, accessed 2026-08-15 | Same host/device values, mapping semantics, target-region result and stock `libomptarget` behavior | Can a target-specific joint mapper/lifetime constructor reduce mapping+transfer+runtime full cost without changing OpenMP mapping semantics? | ANCHOR/CURRENT: Clang OpenMP mapper docs and libomptarget source/docs. Stop if proposed selection is a native map/async/present configuration or runtime controller. |
+| S54-04 | MLIR current SparseTensor dialect/runtime documentation, accessed 2026-08-15 | Same tensor dimensions/values, sparse semantic result and stock runtime/consumer behavior | Does a target-specific level-conversion plus iteration-plan algorithm improve construction+access full cost without changing tensor values or reader semantics? | ANCHOR/CURRENT: MLIR SparseTensor docs/source. Stop if it is existing conversion/pass composition, generic packing, or changes consumer semantics. |
+
+No optional alternatives were created because no selected RQ has genuine same-object scope ambiguity.

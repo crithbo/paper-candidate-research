@@ -1,0 +1,49 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE53-R40-SKILL-CONSOLIDATED-V1
+access_date: 2026-08-15
+entries:
+  - id: GDS_CURRENT_API
+    role: CURRENT_AND_CONTRARY
+    selected_for: S53-01 identity confirmation
+    url: https://docs.nvidia.com/gpudirect-storage/api-reference-guide/index.html
+    publisher: NVIDIA
+    version_or_date: current documentation, search index crawled 2026-07
+    provenance: official documentation
+    decisive_observation: batch setup-submit-status-cancel-destroy; batch entries hold file handle, offset, size and CPU/GPU pointer choices; operations can mix files/locations and may reorder within a batch.
+    disposition_effect: confirms Source37 exact action-surface match; no new-source delta.
+  - id: OMPI_PSEND_CURRENT
+    role: ANCHOR_AND_CURRENT
+    selected_for: S53-02
+    url: https://docs.open-mpi.org/en/main/man-openmpi/man3/MPI_Psend_init.3.html
+    publisher: Open MPI
+    version_or_date: main documentation, accessed 2026-08-15
+    provenance: official project documentation
+    decisive_observation: request initialization fixes buffer, partitions, count, datatype, peer, tag and communicator; notes the current implementation is an early prototype.
+    disposition_effect: exposes initialization action and limits any claim to the documented semantics.
+  - id: OMPI_PARTITIONED_INDEX
+    role: CURRENT_AND_CONTRARY
+    selected_for: S53-02
+    url: https://docs.open-mpi.org/en/main/man-openmpi/man3/index.html
+    publisher: Open MPI
+    version_or_date: main documentation, accessed 2026-08-15
+    provenance: official project documentation
+    decisive_observation: current API inventory contains Pready, Pready_list, Pready_range, Precv_init and Psend_init.
+    disposition_effect: directly absorbs a proposed readiness/boundary action stated only as native partition declaration.
+  - id: LLVM_OFFLOADING_DESIGN
+    role: ANCHOR_AND_CURRENT
+    selected_for: S53-03
+    url: https://clang.llvm.org/docs/OffloadingDesign.html
+    publisher: LLVM Project
+    version_or_date: Clang 24.0.0git documentation, current page accessed 2026-08-15
+    provenance: official project documentation
+    decisive_observation: device images are embedded in `.llvm.offloading`, extracted/linked by the linker wrapper, and then wrapped for stock libomptarget registration.
+    disposition_effect: fixes stock writer/reader/loader boundary.
+  - id: LLVM_OFFLOAD_BINARY_CURRENT
+    role: CURRENT_AND_CONTRARY
+    selected_for: S53-03
+    url: https://llvm.org/docs/CommandGuide/llvm-offload-binary.html
+    publisher: LLVM Project
+    version_or_date: LLVM 24.0.0git documentation, current page accessed 2026-08-15
+    provenance: official project documentation
+    decisive_observation: offload binary is a serialization of a string map and image buffer with entry/string/image offsets and arbitrary key-value metadata.
+    disposition_effect: makes a generic layout/packing proposal insufficient; no target-specific algorithmic residual frozen.
+retrieval_note: Browser-only bounded public documentation search; no downloads, local source copies, installations, or resource-producing actions.

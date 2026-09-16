@@ -1,0 +1,86 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+generated_at: 2026-08-25T18:46:22+08:00
+regenerated_at: 2026-08-25T19:27:39+08:00
+supersedes_context_sha256: 60D629815C070D46E0B9C1AB8C5478043048A70A60DE7932D6DD6C1537902EA1
+mechanical_correction: UPDATE_LIVE_R7_INVENTORY_HASH_TO_FINAL_AND_CLAIM_PROCESSES_STARTED_TO_344__PRESERVE_PASS1_REFUSE
+pass1_superseded_ack: {path: stages/stageA/_reviews/round-20260825-rocksdb-r7-invalid-construction/ROCKSDB-DICT-COVER/BOOTSTRAP_ACK.pass1_superseded.yaml, sha256: A3D4E51D130A3A8D3CF32B3E673410DD05ED9F25CBFDAD1A8DDDDB0606AE570C, disposition: REFUSE_MISSING_OR_CONFLICTING_CONTEXT}
+context_mode: DUAL_READ_SHADOW
+mainline_task_or_contact: 01a034d0-af48-72a1-a311-7495db80d90f
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_REVIEW_DECISION_OR_OWNER_ACTION
+required_read_order: [AGENTS.md, plan.md, ASSIGNMENT_CONTEXT.yaml, rules/ROLE_STAGEA_REVIEW.md, frozen_review_skill_agents_template, minimum_inputs]
+identity:
+  lane_id: STAGEA_GATE
+  role_id: STAGEA_INDEPENDENT_REVIEW
+  assignment_id: STAGEA-GATE-20260825-ROCKSDB-R7-INVALID-CONSTRUCTION-REVISION-ELIGIBILITY
+  topic_id: ROCKSDB-DICT-COVER
+  owner_assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-R7-NATURAL-CLAIM-PILOT
+  status: BOOTSTRAP_REACK_PENDING
+  next_action: WRITE_BOOTSTRAP_ACK_THEN_WAIT_FOR_MAINLINE_START_AUTHORIZATION
+  source_assignment_path: stages/stageA/_reviews/round-20260825-rocksdb-r7-invalid-construction/ROCKSDB-DICT-COVER/control/ASSIGNMENT.yaml
+  source_assignment_sha256: 4CA8D3443DDBE4442A622C73118AA18B21309FD2C7F07A73DD225E8933F5F52A
+independence:
+  reviewer_thread_id: 01a034d0-d990-7d50-9d9f-a6d05a81bf11
+  owner_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+  reviewer_participated_in_owner_implementation_or_run: false
+  owner_material_read_only: true
+  reviewer_may_not_fix_or_rerun_candidate: true
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: STAGEA_GATE_WITHIN_UNIQUE_REVIEW_DIRECTORY_ONLY
+  allowed_before_start: [read_frozen_chain, hash_and_identity_check, compare_related_registry, write_bootstrap_ack]
+  forbidden_before_start: [review_judgment, revision_recommendation, create_review_outputs_other_than_ack, owner_file_write, experiment, cleanup]
+  post_start_allowed_actions_source: stages/stageA/_reviews/round-20260825-rocksdb-r7-invalid-construction/ROCKSDB-DICT-COVER/control/ASSIGNMENT.yaml
+  always_forbidden: [modify_owner_files, continue_216, rerun_failure_pair, exclude_django_or_G2, lower_16_block_gate, create_positive_evidence, network, copy_or_build_resources, cleanup, formal_state_transition, stageb]
+boundaries:
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/_reviews/round-20260825-rocksdb-r7-invalid-construction/ROCKSDB-DICT-COVER
+  owner_material_root: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/r7
+  write_allowed_paths: [<LOCAL_PROJECT_ROOT>/stages/stageA/_reviews/round-20260825-rocksdb-r7-invalid-construction/ROCKSDB-DICT-COVER]
+  network_allowed: false
+  resource_or_experiment_action_allowed: false
+  cleanup_allowed: false
+  state_transition_allowed: false
+  full_registry_read_required: true
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: AD70E26C184B8932EC4A929D756EF64C4A77567232E2D75B7A52701A289C17C4}
+  plan: {path: plan.md, sha256: 3C4A160D061D28294D18BA15BA844E244DB51B32F62161CD0ECB0944A01E3F67}
+  registry_snapshot: {path: registry.yaml, sha256: D7787BD18E14747D00791081828D18280E98B233D6E333524ADACE5FDB5297C2}
+  role_rule: {path: rules/ROLE_STAGEA_REVIEW.md, sha256: 06035805AF23EAA430ABB2511363A1AC733EBC6D67440F672FB364D725C0FFDB}
+  skills:
+    - {path: '<LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md', sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F, mode: INDEPENDENT_REVIEW}
+    - {path: '<LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/academic-paper-reviewer/WORKFLOW.md', sha256: 5469CDABFEB6FAC7CCBE88CAF1A85C55E9F46977F9DC3AEFC84EFF1CE93E1672, mode: PROJECT_STAGEA_METHODOLOGY_FOCUS_ROLE_OVERRIDE}
+    - {path: '<LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/academic-paper-reviewer/agents/eic_agent.md', sha256: CC7CAEFBAD6E005A18A4CE9643E3F9E24DFBAEC76EAB32169267CFD168550F80, mode: INDEPENDENT_EIC_CARD}
+    - {path: '<LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/academic-paper-reviewer/agents/methodology_reviewer_agent.md', sha256: 504A64A622FA230BFA6F3EA550EFE87310EFB995C72B36D0F57C24236C1A001B, mode: INDEPENDENT_METHODOLOGY_CARD}
+  templates:
+    - {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+    - {path: templates/INDEPENDENT_REVIEW_REPORT.md, sha256: 248B94097ECA6B39072A5056BA4EE3ABB47F1D30960621792403D0A43FA8B01C}
+minimum_inputs:
+  - {path: stages/stageA/_reviews/round-20260825-rocksdb-r7-invalid-construction/ROCKSDB-DICT-COVER/control/ASSIGNMENT.yaml, sha256: 4CA8D3443DDBE4442A622C73118AA18B21309FD2C7F07A73DD225E8933F5F52A}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/MAINLINE_HANDOFF_ACCEPTANCE.yaml, sha256: F17E4E1FC516B4D7BBF82A2C471C8A79C755BFDB5E4671A42C266FBDD252385C}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/handoff.yaml, sha256: D3A94B13470A19F2C1714D6BE418B2DF310DA476E3FE8F9130EA76EAA5FF910C}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/HASH_MANIFEST.sha256, sha256: 159CC99191A8A4E19A6E83A342CF71635B1B74A7169D7242E8F609186A66CD38}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/RESOURCE_INVENTORY.yaml, sha256: 1E1F8E3B638DD59025D6993D0D4364ADBAE16F2B06F9240BED6DA14493201538}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/PHASE_CLOSEOUT_RETENTION.yaml, sha256: 7A70DD23E8A095AA626EB50099ACD0857703866A0C850FAFA0E5B735F26002D4}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/RESUME_CAPSULE.yaml, sha256: B308B62997716E2EA07949212A8E56DCA8443E5851890292A506489D85E46734}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/STAGEA_REPORT.md, sha256: 7C2BC67EEEF7CF5FEA36CD0169CFEC61AC58FACEA3CF764234EC4C7A2676337B}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/RUN_MATRIX.yaml, sha256: 8ED949CD94246F56657089D66839E680E25E79B74243D218D8533443BE682B9B}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/CLAIM_MATRIX.yaml, sha256: 2683B9A860C7F9F1DCD8AF309320985684DFE7746C1678DDE285BB18305A6F5B}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/FULL_COST_LEDGER.csv, sha256: 24137BF25BA517294B531F29B47C84FC8D709C80D82B05C90AF4D436698EE377}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/MECHANISM_TRACE_SUMMARY.yaml, sha256: 6EFB9BCC86BFEC58827FE6A32193D1299ABD1204E56BA43F8A25544043E3B873}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/REPRODUCIBILITY_REPORT.yaml, sha256: 4C4FC732DE5335D71CCF30C44967153CC6A7575E12D3546078BB8B952496A2FD}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/RESULTS.md, sha256: 7D9CEFDFF654F3046D2833B1242F9593DFE7D7E91E5A467C16517C0711A2AF5E}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/resources/logs/claim-runner-summary.json, sha256: E30E8468A29F5379BEA123AA57CFB0E25FEEB02CEE4B30826A5DE88A7C7C2FA1}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/resources/build/claim-runs/pypi-django-B1-G2-R1/result.json, sha256: C3E5628E71F6307B02F35F645014276495EF131C0C8AA6B8EA08B25124FAC019}
+  - {path: stages/stageA/ROCKSDB-DICT-COVER/r7/resources/build/claim-runs/pypi-django-B1-G2-R2/result.json, sha256: EBC1E67E2FC66D80F610A3436C15A110BB0AD383F20F086F1C4C2F1DEFA35D89}
+review_contract:
+  owner_result: INVALID_CLAIM_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+  expected_completed_pass_fail_not_started: [344, 342, 2, 216]
+  no_owner_retry_or_exclusion: true
+  scientific_revision_available: 1
+  cleanup_deferred: true
+  project_role_rule_overrides_generic_manuscript_decision_labels: true
+  precommit_required_before_result_interpretation_after_start: true
+expected_outputs: [BOOTSTRAP_ACK.yaml, GATE_PRECOMMIT.yaml, EIC_REVIEW.md, METHODOLOGY_REVIEW.md, INDEPENDENT_STAGEA_REVIEW.md, REVISION_ELIGIBILITY.yaml, LIFECYCLE_ACCEPTANCE.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+stop_and_escalation_conditions: [cwd_not_E_root, hash_or_status_conflict, reviewer_owner_conflict, owner_file_write_requested, experiment_or_rerun_requested, cleanup_requested, unsupported_revision_shape, stageb_requested]
+validation: {source_plan_registry_consistent: true, hashes_complete: true, owner_tree_read_only: true, live_r7_inventory_sha256: 1E1F8E3B638DD59025D6993D0D4364ADBAE16F2B06F9240BED6DA14493201538, live_claim_processes_started: 344, pass1_refuse_preserved: true, result: PASS__FULL_REACK_REQUIRED_NO_REVIEW_START_AUTHORITY}

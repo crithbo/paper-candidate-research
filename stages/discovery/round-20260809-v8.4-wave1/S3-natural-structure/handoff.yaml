@@ -1,0 +1,50 @@
+schema: discovery_wave_handoff_v8_4
+assignment_id: DISCOVERY-S3-20260809-V8.4-WAVE1
+lane: DISCOVERY-S3-NATURAL-STRUCTURE
+opportunity_lens: O3_NATURAL_STRUCTURE
+completed_at: "2026-08-09T16:25:25+08:00"
+
+method:
+  allowed: "production discovery method v2/v8.1"
+  o3_backtest_status: CALIBRATED
+  backtest_handoff: "stages/discovery/_method-backtests/O3_NATURAL_STRUCTURE/v2/handoff.yaml"
+  explicitly_not_used: "two-axis v8.2r2 (TLS-blocked)"
+
+result:
+  status: COMPLETE_ZERO_PROPOSALS__IDLE_REUSABLE_AWAITING_MAINLINE
+  candidate_brief_count: 0
+  propose_stage0_count: 0
+  quality_tier_reaching_minimum: 0
+  stage0_created: false
+  stagea_created: false
+  stageb_created: false
+  experiment_started: false
+
+scientific_screening:
+  - scout: LOCAL_DYNAMIC_CHOLESKY_REORDERING
+    disposition: DIRECT_FATAL
+    source: "Parth / SIGGRAPH 2025"
+    reason: "Localized ordering reuse for temporally coherent sparsity is already the core same-object action."
+  - scout: CROSS_LAYER_SPARSE_ATTENTION_ROUTING
+    disposition: DIRECT_FATAL
+    source: "IndexCache; You Only Index Once; LongCat Sparse Attention"
+    reason: "Cross-layer routing-index reuse and its quality/full-cost treatment are already directly covered."
+  - scout: SDDMM_BLOCK_STRUCTURED_REORDERING
+    disposition: DIRECT_FATAL
+    source: "BSMR / Journal of Supercomputing 2026"
+    reason: "Bidirectional reordering, tile representation, and hybrid dense/sparse execution already cover the core action."
+
+authority_and_scope:
+  only_write_directory: "stages/discovery/round-20260809-v8.4-wave1/S3-natural-structure/"
+  shared_state_modified: false
+  terminal_topic_revived: false
+  resource_blocker: null
+  file_conflict: null
+
+outputs:
+  discovery_log: DISCOVERY_LOG.md
+  source_collision_matrix: SOURCE_COLLISION_MATRIX.md
+  handoff: handoff.yaml
+  manifest: MANIFEST.sha256
+
+mainline_action: "Accept zero-proposal delivery, clear this lane assignment, and return lane to IDLE_REUSABLE_AWAITING_MAINLINE."

@@ -1,0 +1,144 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-30T07:47:50+08:00
+lane_id: STAGE0_PRIMARY
+role_id: STAGE0_PRIMARY
+assignment_id: STAGE0-PRIMARY-20260830-VLLM-PREFIX-FUTURE-KV-RESERVATION
+topic_id: VLLM-PREFIX-FUTURE-KV-RESERVATION-REV0
+assignment_context_path: stages/stage0/_reviews/round-20260830-source123-primary/VLLM-PREFIX-FUTURE-KV-RESERVATION-REV0/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: D6E0E35986F2CA7C6A3FA8F964B17569E20421531EE03352056EC85344EE6B17
+old_chat_memory_required: false
+
+thread_mapping:
+  assigned_thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c
+  current_thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c
+  mainline_source_thread_id: 01a034d0-af48-72a1-a311-7495db80d90f
+  mapping_consistent: true
+
+model_and_usage_ack:
+  model: gpt-5.6-sol
+  thinking: high
+  temporary_user_command_override: true
+  current_cycle_usage_reset_confirmed: false
+  usage_reset_soft_pause_understood: true
+
+frozen_hash_ack:
+  AGENTS_sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655
+  plan_sha256: DAB1D1511C6DBFB82676F8FA184851038A0C14715F76646726674F04441F1CF2
+  registry_snapshot_sha256: 2E9698888AA643049DFDDC7194DDEC8CB55772BAAB62D88927FC496F9D61E421
+  role_rule_sha256: BC4A6D6D5DE5CEC3DD69A1F8556276F95B405E81773FFC7F4A860B5769CAF2FE
+  skill_hashes:
+    - path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md
+      sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F
+    - path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/deep-research/WORKFLOW.md
+      sha256: 055E902187665C2437D0F41F35E2CC9C11FB5D62A736CF3ED23E44193BD4F029
+  template_hashes:
+    - path: templates/BOOTSTRAP_ACK.yaml
+      sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B
+    - path: templates/STAGE0_REPORT.md
+      sha256: 0A4066F6A4BD9683BC9D9D2C2001DA5E6DEBBC1A8AD90185485FC78E39D20F55
+    - path: templates/Q1_COMPARATOR_MATRIX.md
+      sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87
+  source_assignment_sha256: D6C18E62908DE86564C1E815D970AD8751B48F81949BBBC71693FEE5DB8E23D2
+
+minimum_input_ack:
+  - path: stages/stage0/_reviews/round-20260830-source123-primary/VLLM-PREFIX-FUTURE-KV-RESERVATION-REV0/control/ASSIGNMENT.yaml
+    sha256: D6C18E62908DE86564C1E815D970AD8751B48F81949BBBC71693FEE5DB8E23D2
+    readable_and_hash_matched: true
+  - path: stages/discovery/round-20260830-strategy-source123/S5-scale-online-approx/TOPIC_BRIEF.md
+    sha256: 10D928CD6322BC82B7BC575704D22C39523E0FEA897C8C858BFD509ADC7B64AC
+    readable_and_hash_matched: true
+  - path: stages/discovery/round-20260830-strategy-source123/S5-scale-online-approx/handoff.yaml
+    sha256: A30D7739FD779442F1E8F2D20BD7F6FE154B68D42AF1FD7EE84A68DDAEA15F36
+    readable_and_hash_matched: true
+  - path: stages/discovery/round-20260830-strategy-source123/S5-scale-online-approx/HASH_MANIFEST.sha256
+    sha256: 6006B383D9AC9768D0B28F8EAABDC78A1EF561BA103DFE4434A881A344CC1BE3
+    readable_and_hash_matched: true
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: true
+
+plan_registry_reconciliation:
+  context_mode: DUAL_READ_SHADOW
+  candidate_formal_state: PENDING_STAGE0_PRIMARY
+  candidate_preliminary_quality_tier: TIER_B_Q2_VIABLE
+  assignment_registry_state: BOOTSTRAP_PENDING
+  plan_lane_state: VLLM_PREFIX_KV_RESERVATION_BOOTSTRAP_PENDING__SOL_HIGH
+  assignment_identity_consistent: true
+  topic_identity_consistent: true
+  thread_identity_consistent: true
+  write_directory_consistent: true
+  model_route_consistent: true
+  predecessor_or_successor_material_used: false
+
+boundary_ack:
+  cwd_exact: <LOCAL_PROJECT_ROOT>
+  authoritative_project_root_exact: <LOCAL_PROJECT_ROOT>
+  unique_write_directory_exact: stages/stage0/_reviews/round-20260830-source123-primary/VLLM-PREFIX-FUTURE-KV-RESERVATION-REV0
+  resource_root_exact: stages/stage0/_reviews/round-20260830-source123-primary/VLLM-PREFIX-FUTURE-KV-RESERVATION-REV0/resources
+  resource_root_exists_at_bootstrap: false
+  bootstrap_write_allowlist: [BOOTSTRAP_ACK.yaml]
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: none
+  contamination_detected: false
+
+future_start_gates_acknowledged_without_judgment:
+  current_upstream_union:
+    - current_vLLM_source_and_flags
+    - current_SGLang_source_and_flags
+    - scheduler_KV_prefix_cache_and_output_cap_semantics
+  collision_union:
+    - TOPAS
+    - Preble
+    - Sarathi
+    - FastServe
+    - output_length_admission
+  exact_object_and_guarantee:
+    - same_object_active_set_prefill_chunk_and_finite_declared_caps
+    - hard_no_KV_capacity_preemption_for_admitted_requests
+    - identical_output_semantics
+  first_fatal_gate:
+    - generic_knapsack_or_static_worst_case_collapse
+    - direct_same_information_action_guarantee_scale_and_full_cost_absorption
+  comparator_and_evidence_gates:
+    - native_vLLM_and_SGLang
+    - paper_system_baselines
+    - simple_cap_sum_and_static_worst_case
+    - offline_oracle
+    - natural_or_canonical_trace_without_output_length_leakage
+    - full_cost_including_reserved_stranded_queue_lookup_preemption_and_recompute_costs
+    - Q2_breadth
+    - StageA_killer
+  linux_resource_separation:
+    Linux_CUDA_availability_is_resource_only: true
+    Linux_CUDA_unavailability_cannot_substitute_for_scientific_verdict: true
+    scientific_Q2_gate_not_started: true
+
+forbidden_action_ack:
+  search_or_network_started: false
+  scientific_judgment_started: false
+  candidate_implementation_started: false
+  build_or_experiment_started: false
+  resource_action_started: false
+  StageA_started: false
+  StageB_started: false
+  shared_write_performed: false
+
+execution_ack:
+  current_status: BOOTSTRAP_PENDING
+  resume_point: FROZEN_CHAIN_READ_AND_RECONCILED
+  next_action: STOP_AND_WAIT_FOR_MAINLINE_ACK_ACCEPTANCE_AND_EXPLICIT_START
+  user_gate_or_blocker: MAINLINE_BOOTSTRAP_ACCEPTANCE_AND_START_REQUIRED
+  scientific_or_resource_action_started: false
+
+differences_or_ambiguities: []
+ack_disposition: READY
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

@@ -1,0 +1,69 @@
+schema: independent-ppc-r9c-natural-route-audit-v1
+assignment_id: STAGEA-GATE-20260826-LLVM-PPC-R9C-PER-ACTION-PRECLAIM
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+review_mode: STATIC_ROUTE_AND_VALIDATOR_AUDIT_ONLY
+natural_selected_or_claim_commands_executed: 0
+
+G6_NEXT_ROUTE:
+  disposition: FAIL__FINITE_ROUTE_EXISTS_BUT_CURRENT_PLAN_VALIDATOR_AND_COMMAND_COST_DEPENDENCIES_REQUIRE_BOUNDED_ENGINEERING_CORRECTION
+  r10_directory_absent: true
+  r10_plan_output_absent: true
+  r10_plan_validation_output_absent: true
+  scientific_revision_consumed: false
+  mechanism_pivot_consumed: false
+  route_identity_preservation:
+    exact_commit_preserved: true
+    target_ABI_code_model_preserved: true
+    object_action_endpoint_and_guarantee_preserved: true
+    strong_current_union_preserved: true
+  frozen_corpus_scan:
+    source_sha256: F44B605A5713A0D083B18E3458B685EF005D753DF9AACFD8F7F3E008265CCC74
+    rows: 20
+    selected: 16
+    reserve: 4
+    selection_method: STATIC_LEXICOGRAPHIC_FROM_PUBLIC_PINNED_LLVM_POWERPC_IR_FUNCTIONS_WITH_LOAD_CALL_AND_EXTERNAL_SYMBOL_FILTER
+    result_or_candidate_output_used_for_selection: false
+  finite_plan_generator:
+    source_path: resources/src/natural_materializer/r10_plan.py
+    source_sha256: 13CBE0D3EDAAE8A573526B3BF97A67D590640FCE05A783BE041728CCCED8281C
+    process_rows: 32
+    selected_rows: 16
+    replays_per_selected: 2
+    baseline_compile_commands_per_process: 128
+    baseline_link_commands_per_process: 256
+    baseline_inspection_commands_per_process: 512
+    baseline_bundles_per_process: 256
+    candidate_ablations_per_process: 2
+    execution_performed_in_r9c: false
+  validator_defect:
+    checker_inputs_include_baseline_dependency_graph: true
+    full_cost_inputs_include_baseline_dependency_graph: true
+    baseline_dependency_graph_is_candidate_output: false
+    validator_requires_checker_inputs_subset_of_candidate_outputs: true
+    validator_requires_full_cost_inputs_subset_of_candidate_outputs: true
+    affected_rows_if_generated_without_fix: 32
+    source_pointer: resources/src/natural_materializer/r10_plan.py:344-360
+    finding: VALIDATOR_REJECTS_ITS_OWN_LEGITIMATE_EXTERNAL_BASELINE_GRAPH_INPUT
+  propagated_G4_defect:
+    current_union_command_cost_consumption_in_r10_closed: false
+    reason: RUN_FULL_COST_SUMMARIZES_ONLY_FOCUS_CANDIDATE_AND_DIRECT_BASELINE_METRICS_WHILE_GRAPH_AUDIT_DOES_NOT_CONSUME_THE_128_COMPILE_256_LINK_512_INSPECTION_COMMAND_COSTS
+
+bounded_engineering_route:
+  route_id: PPC_R9D_COMMAND_COST_EDGE_AND_R10_VALIDATOR_CLOSURE_V1
+  route_type: ENGINEERING_CORRECTION_IN_CONTRACT__NO_SCIENTIFIC_REVISION
+  same_object_preserved: true
+  finite: true
+  required_changes:
+    - RESOLVE_EACH_BUNDLE_COMMAND_METRIC_ID_TO_EXACT_METRIC_RECORD_AND_ADD_CPU_WALL_RSS_STATUS_EXIT_TO_FULL_COST_WITH_NO_DOUBLE_COUNTING
+    - VALIDATE_COMMAND_METRIC_FILE_HASH_EXPECTED_56_CONTROL_COMMANDS_AND_ZERO_COMMAND_COST_ORPHANS_FOR_BOTH_EXISTING_REPLAYS
+    - ADD_NEGATIVE_CONTROL_FOR_REMOVED_OR_MUTATED_COMMAND_COST_EDGE
+    - CHANGE_R10_VALIDATOR_ALLOWED_INPUT_SET_TO_CANDIDATE_OUTPUTS_UNION_BASELINE_GRAPH_OUTPUT_AND_REQUIRE_GRAPH_PRODUCER_PRECEDENCE
+    - MAKE_R10_FULL_COST_CONSUME_ALL_128_COMPILE_256_LINK_512_INSPECTION_COMMAND_COSTS_PER_PROCESS_WITH_SHARED_COMPILE_ACCOUNTING_EXPLICIT
+  compiler_linker_checker_natural_or_claim_execution_required_to_define_route: false
+  existing_raw_replay_metrics_reusable_after_hash_pin: true
+  selected_or_claim_execution_in_correction: 0
+  evidence_ceiling: PRECLAIM_ENGINEERING_FIDELITY_ONLY__NO_SCIENTIFIC_INFERENCE
+  user_action_required: false
+
+scientific_or_claim_effect: NONE
+

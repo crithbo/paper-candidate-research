@@ -1,0 +1,139 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+  assignment_id: STAGEA-L3-20260815-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-RESUME2-NONSECURITY-CORPUS
+  stage_or_mode: StageA_interruption_recovery
+  run_id: resume2-natural-corpus
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY/resume2
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY/resume2/resources
+  inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY/resume2/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T00:00:00+08:00
+  finalized_at: 2026-08-15T01:08:23+08:00
+root_measurement:
+  logical_bytes: 63572241
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  redirect_map:
+    TEMP: resources/tmp
+    TMP: resources/tmp
+    TMPDIR: resources/tmp
+    XDG_CACHE_HOME: resources/cache
+    PYTHONPYCACHEPREFIX: resources/cache/pycache
+  tools:
+    - exact_resume1_LLVM_tools_read_only
+    - bundled_Python_runtime_read_only
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 4294967296
+  cpu_hours_max: 6
+  gpu_hours_max: 0
+  wall_seconds_max: 43200
+  attempts_max: 0
+  network_bytes_used: 0
+  stored_bytes_used: 63572241
+  attempts_used: 0
+entries:
+  - id: frozen_nonsecurity_corpus
+    path: resources/src/frozen_corpus
+    kind: IMMUTABLE_INPUT_COPY
+    files: 16
+    logical_bytes: 203250
+    freeze_sha256: 373D25F5238185F82B51225B00BA8058483CC44C9AD9AC27828D8AA23F7477EA
+    bitcode_sha256:
+      n01_atomic.bc: 7C274C2D15FCDC192256FCBF9CC534995FDBC82B7978DA29217D99EA18F2C469
+      n02_crtbegin.bc: 3ACA0BFAD12EB308A44C1F236169C3B173045011C9DD4AD9425C86BA6567D141
+      n03_divtc3.bc: B81E83BF5421685316235761B1463D382F25D5D519675F39E1690E19E84CA410
+      n04_divxc3.bc: 1A9AB16C0A7674CAA20999713662E0D73885CA66179BD7B40698500F3900553C
+      n05_floattidf.bc: 8BB520F4746A23BC2C71334CAE3191DCE7B8B9DB300C03A494B0D181331FFF8E
+      n06_floattisf.bc: CE5AD6FA61065C4E5A33C02075DA97391E3927A35F4D594A2466680F8CC3F76E
+      n07_floattitf.bc: 0E8629A1A302B93E1493D3E8AD4B46C1C423556D25E7B882A23C34DBF11674EE
+      n08_floattixf.bc: 7CE8854D690D539DEFBFEE27B2456EA95AF740123E46DED53565F0040D2302B7
+      n09_floatuntidf.bc: 9A4AD0F8BD7F9B3EFA819FE89C7070318E7F8C740210C78DB5B5A118EA36255C
+      n10_floatuntisf.bc: 9BE04A85D9D82067DF87E0FA40FEAEE4D1D3CE6CE71BB4BAB9717BD500AF7EB5
+      n11_floatuntitf.bc: 6E313E81253F0781464282516E37F69679954305D5FF27FF0E7996CA53976C36
+      n12_floatuntixf.bc: CF4A70EC8EE092097A8949892BBA02823D7EF67B55E33FFA26546641C6822938
+      n13_gcc_personality_v0.bc: 75B11C82E3C3ACCA90B6812AE50A69F9B7165DAD6134B2128DC5C80AF65F971F
+      n14_muloti4.bc: E6E625E64D6A00FC62880FB009DC00CBED30D3EAEBC7E8A9CFF66E1B1832F829
+      n15_mulvti3.bc: 426FB91D9FFC2154772A34E180D077CD53467A402E3A00803BEA0388FF2A2AB8
+  - id: native_build_artifacts
+    path: resources/build
+    kind: GENERATED_EXPERIMENT_ARTIFACTS
+    files: 705
+    logical_bytes: 61915393
+    canonical_run: resources/build/natural_run04
+    invalidated_runs_retained: [resources/build/natural, resources/build/natural_run02, resources/build/natural_run03]
+  - id: invalidated_run_logs
+    path: resources/logs
+    kind: AUDIT_LOGS_NON_EVIDENCE
+    files: 4
+    logical_bytes: 364739
+    sha256:
+      run01: 9D672511A57806C615E1302379BFB3F6820D0B00EF61DC2A20E9E782BDC780EC
+      run02: AF27D8A7C86189A922ACDD1A37AE150BFF61F5EAFEA7996C1E5A2F40817F0EB4
+      run03: 1F7ABA031BB4ADA7FA4CABA5FEFEB77C20DBF672CDB9A1E15452B9B6DA6ACBF3
+      resource_inventory_snapshot: 846C7FFF77D428C82BE6AED57C807611EE5E20E559B8CBFFA3085444746FCB61
+  - id: process_local_cache
+    path: resources/cache
+    kind: PYTHON_BYTECODE_CACHE
+    files: 46
+    logical_bytes: 1088859
+    claim_critical: false
+    note: One early py_compile created scripts/__pycache__ before PYTHONPYCACHEPREFIX was added; it is retained and does not carry evidence.
+  - id: redirected_tmp
+    path: resources/tmp
+    kind: PROCESS_LOCAL_TEMP
+    files: 1
+    logical_bytes: 0
+    claim_critical: false
+shared_assets_consumed:
+  - id: exact_resume1_llvm_toolchain
+    mode: READ_ONLY_HASH_VERIFIED
+    llvm_commit: e72ba6cf366a3180cbf5a8690d9e50665880ab76
+    hashes_recorded_in: RESUME1_EVIDENCE_REUSE.yaml
+  - id: resume1_current_union_results
+    mode: READ_ONLY_HASH_VERIFIED__NOT_RERUN
+    sha256: CEAA705F518B885BB59CAE1D4F1DF2FE251A7E08D8E4432D4570CBFDAB122B96
+  - id: blinkenlights_linux_sysv_runner
+    mode: READ_ONLY_HASH_VERIFIED
+    sha256: D8D5E09AA71EAD72D30FAA92167C79F0B8F107FC3624432942F27CD9738B9F69
+external_system_dependencies:
+  - path: <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+    status: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: [resources/tmp]
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  network_acquisition_performed: false
+  excluded_corpus_read_or_enumerated: false
+  result: PASS

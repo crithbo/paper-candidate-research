@@ -1,0 +1,82 @@
+schema: handoff-transport-envelope-v2
+topic_id: SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+assignment_id: DISCOVERY-S1-20260830-SOURCE120-EXACT-CARRIER
+lane_id: DISCOVERY_S1
+role_id: DISCOVERY-S1-BOUNDARY-CONTRADICTION
+source_stage: DISCOVERY
+assignment_state: FROZEN_AWAITING_MAINLINE
+input_freeze_sha256: 8DD80279C726A9FEB25547FB9139D2D7BD0ADEC7A2D4F7EB6E1AD830A0F6F296
+cross_assignment_contamination_declared: false
+
+user_summary_cn:
+  outcome: "形成 1 个保守 clean Stage 0 brief：用版本化可执行 witness、规范分层 oracle 与跨 consumer 判定补足 StableHLO 语义兼容测试；其余 7 个 RQ 均被合并或淘汰。"
+  main_reason: "官方保证是语义一致而当前套件记录语法一致，但官方 #1245 已吸收简单的解释器接入，因此只保留严格的三件套 residual，并把独立碰撞审查留给 Stage 0。"
+  next_step: "MAINLINE 机械验收后，如接受则投递独立 Stage 0；本 lane 因 usage-reset soft-pause 不接 successor。"
+  user_action_required: false
+  user_action: null
+
+decision:
+  scientific_verdict: PROPOSE_STAGE0
+  operational_disposition: HANDOFF_AND_SOFT_PAUSE_NO_SUCCESSOR
+  quality_tier: TIER_B_Q2_VIABLE
+  evidence_ceiling: "Discovery-only; zero build/experiment/result; novelty and empirical effect unproven"
+  claim_bearing_observation_obtained: false
+  scientific_revision_consumed: false
+
+execution_accounting:
+  model: gpt-5.6-sol
+  thinking: high
+  temporary_user_command_override_only: true
+  source_calls_used: 24
+  source_calls_max: 24
+  build_or_experiment_count: 0
+  downloads_or_resource_actions: 0
+  result_aware_backfill: false
+  clean_brief_count: 1
+  clean_brief_ceiling: 2
+  pause_signal_understood: USAGE_RESET_CONFIRMED__SOFT_PAUSE_AFTER_CURRENT_ITEM__NO_NEW_DISCOVERY_WAVE
+  successor_permitted: false
+
+artifact_pointers:
+  canonical_report:
+    path: stages/discovery/round-20260830-strategy-source120/S1-boundary-contradiction/TOPIC_BRIEF_SOURCE120_S1_VHLO_SEMANTIC_COMPAT.md
+    sha256: 4FC97D89CA74105CF2543ED506CA0545DF0E8C2E4481833C5C4D4E2658D55C3B
+  raw_or_decisive_evidence:
+    - {path: stages/discovery/round-20260830-strategy-source120/S1-boundary-contradiction/SOURCE_LEDGER.md, sha256: A31A7D7BECF4AD928EA670503714C613A9EAFD2FBFC96144EA49F447DE7FFF30}
+    - {path: stages/discovery/round-20260830-strategy-source120/S1-boundary-contradiction/DISCOVERY_EVIDENCE_LEDGER.yaml, sha256: 3089692316EBBDB51BFB72DE284576693D4EE5D52ED3134B8A7E2BDE20A2F588}
+    - {path: stages/discovery/round-20260830-strategy-source120/S1-boundary-contradiction/QUESTION_CARDS.md, sha256: 7A8C9671AA1F171DB8CF7EC33012503806BF401B589599C9E55688BC3529EB73}
+    - {path: stages/discovery/round-20260830-strategy-source120/S1-boundary-contradiction/DEEP_REVIEWS.md, sha256: 73A60B7F55BBC84203752C30B5C8FD874D359E8571976A15FB40B5BB840EE163}
+  comparator_or_full_cost:
+    - {path: stages/discovery/round-20260830-strategy-source120/S1-boundary-contradiction/TOPIC_BRIEF_SOURCE120_S1_VHLO_SEMANTIC_COMPAT.md, section: "Named fair baselines / Canonical research claim package"}
+  independent_review: {path: null, sha256: null}
+  resource_inventory:
+    path: stages/discovery/round-20260830-strategy-source120/S1-boundary-contradiction/RESOURCE_INVENTORY.yaml
+    sha256: 892FCB58B130B701620C4CA2F9FB2A56FD9ABFBE194CDE6AAF18E308DCDE9563
+  lifecycle_or_retention:
+    path: stages/discovery/round-20260830-strategy-source120/S1-boundary-contradiction/PHASE_CLOSEOUT_RETENTION.yaml
+    sha256: 47F3709E4357E16BD8463C5AB8B17C41EF18CEC5E4744B4A7C40300CF2465087
+  capsule_or_resume: {path: null, sha256: null}
+
+blocker:
+  kind: null
+  user_blocker_packet: null
+  resume_directory: null
+  attempts_or_routes_exhausted: "official-source budget consumed 24/24 by design; no scientific blocker inferred"
+
+next_gate:
+  proposed_stage_or_gate: INDEPENDENT_STAGE0
+  exact_action: "Audit same-object current papers/tools for the full witness-generation + spec-typed-oracle + cross-consumer conjunction; if not directly covered, validate Q2 benchmark/tool shape and pre-claim fidelity route."
+  authority_required: MAINLINE
+  stageb_user_approval_id: null
+
+file_hashes:
+  DIVERGENCE_SEED_POOL.md: 7081D024E2FBFA14D9B000DB967F7CC3AE8DDB2A76D25390D2587AD899E9E8A1
+  RQ_CANDIDATES.md: CB4E88BBBD09DDC80C091DF892B35C4AFBD07DD1A907F052913C448C3464161F
+  SOURCE_LEDGER.md: A31A7D7BECF4AD928EA670503714C613A9EAFD2FBFC96144EA49F447DE7FFF30
+  DISCOVERY_EVIDENCE_LEDGER.yaml: 3089692316EBBDB51BFB72DE284576693D4EE5D52ED3134B8A7E2BDE20A2F588
+  QUESTION_CARDS.md: 7A8C9671AA1F171DB8CF7EC33012503806BF401B589599C9E55688BC3529EB73
+  DEEP_REVIEWS.md: 73A60B7F55BBC84203752C30B5C8FD874D359E8571976A15FB40B5BB840EE163
+  TOPIC_BRIEF_SOURCE120_S1_VHLO_SEMANTIC_COMPAT.md: 4FC97D89CA74105CF2543ED506CA0545DF0E8C2E4481833C5C4D4E2658D55C3B
+  RESOURCE_INVENTORY.yaml: 892FCB58B130B701620C4CA2F9FB2A56FD9ABFBE194CDE6AAF18E308DCDE9563
+  PHASE_CLOSEOUT_RETENTION.yaml: 47F3709E4357E16BD8463C5AB8B17C41EF18CEC5E4744B4A7C40300CF2465087
+hash_manifest_file: HASH_MANIFEST.sha256

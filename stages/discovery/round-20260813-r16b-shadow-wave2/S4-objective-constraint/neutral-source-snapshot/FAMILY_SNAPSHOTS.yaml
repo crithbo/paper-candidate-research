@@ -1,0 +1,42 @@
+schema_version: r16b-neutral-source-snapshot-v1
+assignment_id: DISCOVERY-S4-20260813-R16B-V9-PROSPECTIVE-SHADOW-WAVE2
+snapshot_frozen_at: '2026-08-13T12:21:03Z'
+dedup_scope: registry.yaml, history.md, R16A_SAMPLE24_LEDGER.yaml, R16A exclusions, active R16B assignment contracts
+families:
+  - opportunity_family_id: S4_GLIBC_LOCALE_ARCHIVE_CONSTRUCTOR
+    canonical_signature: 'object=glibc locale-archive; function=localedef-produced locale data accepted by stock glibc setlocale; action=whole archive construction; cost=bytes+producer CPU/RSS+load latency/RSS'
+    neutral_object: 'GNU libc locale-archive, with locale names and category semantics fixed.'
+    first_party_snapshot:
+      accessed_at: '2026-08-13'
+      docs: https://sourceware.org/glibc/manual/latest/html_node/Running-make-install.html
+      source_paths: 'locale/programs/locarchive.c; locale/programs/localedef.c (current upstream paths; commit unavailable in this runtime)'
+      defaults_and_nondefaults: 'archive default versus localedef --no-archive; installed locale set and LC_* selection held fixed.'
+    dedup_result: UNIQUE_WITHIN_RECORDED_SCOPE
+  - opportunity_family_id: S4_MANDB_WHATIS_INDEX_CONSTRUCTOR
+    canonical_signature: 'object=man-db whatis/index database; function=stock apropos/whatis lookup semantics; action=whole index construction; cost=bytes+mandb CPU/RSS+query latency/RSS'
+    neutral_object: 'man-db index over a fixed man-page corpus and matching stock apropos/whatis reader.'
+    first_party_snapshot:
+      accessed_at: '2026-08-13'
+      docs: https://man7.org/linux/man-pages/man1/apropos.1.html
+      source_paths: 'src/mandb.c and database writer/reader paths in upstream man-db (commit unavailable in this runtime)'
+      defaults_and_nondefaults: 'standard regex lookup; global index cache locations; no reader or query-semantic change allowed.'
+    dedup_result: UNIQUE_WITHIN_RECORDED_SCOPE
+  - opportunity_family_id: S4_PLOCATE_DATABASE_CONSTRUCTOR
+    canonical_signature: 'object=plocate locate database; function=stock plocate pathname lookup semantics; action=whole database construction; cost=bytes+updatedb CPU/RSS+query latency/RSS'
+    neutral_object: 'plocate database over a fixed public filesystem-tree listing and matching stock plocate reader.'
+    first_party_snapshot:
+      accessed_at: '2026-08-13'
+      docs: https://plocate.sesse.net/
+      source_paths: 'plocate updatedb/database-builder/reader source paths (current commit unavailable in this runtime)'
+      defaults_and_nondefaults: 'updatedb database build and stock query semantics; pruning/options are enumerated controls, not a proposed action.'
+    dedup_result: UNIQUE_WITHIN_RECORDED_SCOPE
+  - opportunity_family_id: S4_KMOD_MODULE_DEPENDENCY_INDEX_CONSTRUCTOR
+    canonical_signature: 'object=kmod modules.dep dependency index; function=stock modprobe resolution for fixed module tree; action=whole dependency-index construction; cost=bytes+depmod CPU/RSS+resolution latency/RSS'
+    neutral_object: 'depmod output for a fixed kernel-module tree and matching stock modprobe resolution semantics.'
+    first_party_snapshot:
+      accessed_at: '2026-08-13'
+      docs: https://www.kernel.org/pub/linux/utils/kernel/kmod/
+      source_paths: 'tools/depmod.c and libkmod index/lookup paths in current kmod upstream (commit unavailable in this runtime)'
+      defaults_and_nondefaults: 'depmod output forms and modprobe resolution controls; module bytes, aliases and dependency semantics held fixed.'
+    dedup_result: UNIQUE_WITHIN_RECORDED_SCOPE
+source_transport_note: 'Read-only git ls-remote for official endpoints failed with schannel SEC_E_NO_CREDENTIALS. This is a runtime transport limitation, not absence evidence; all action-union conclusions remain bounded.'

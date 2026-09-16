@@ -1,0 +1,66 @@
+assignment_id: DISCOVERY-S4-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+master_assignment: DISCOVERY-V9-PROSPECTIVE-SHADOW-20260813-R16A
+lane: S4_OBJECTIVE_CONSTRAINT
+state: IDLE_REUSABLE_AWAITING_MAINLINE
+mode:
+  canonical: V8_7_AUTHORITATIVE
+  discovery_claim_pack: SHADOW
+  shadow_noncanonical: true
+  shadow_can_change_canonical_decision: false
+  shadow_can_change_candidate_registry_or_stage0: false
+execution_order:
+  neutral_snapshot_frozen_before_canonical: true
+  canonical_manifest_frozen_before_shadow: true
+  shadow_derived_from_same_snapshot: true
+counts:
+  target_unique_families: 4
+  accepted_unique_families: 4
+  cross_lane_duplicates_known_at_completion: 0
+  canonical_briefs: 0
+  canonical_propose_stage0: 0
+control_provenance:
+  master_assignment_sha256: 0F63DB562E04A3D90F3D058A070D271C9C707553E5A321F5DC35193D5671F471
+  control_manifest_sha256: 3681B20701DCEADE21761275135446C20E957913190FA4BCC984EE30CB120824
+families:
+  - id: S4-R16A-F01-KALLSYMS
+    signature: LINUX_KALLSYMS_CONSTRUCTOR__VMLINUX_SYMBOL_SET__STOCK_KERNEL_KALLSYMS_LOOKUP__SIZE_BUILD_COST_LOOKUP_FULL_COST
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    source_action_correction: V9 ledger records unresolved current generator/config predicates; no action correction changes canonical result
+    cost_boundary: generator_cpu_rss_temp__vmlinux_bytes__stock_lookup_stack_symbolization_cpu_rss_latency
+    leakage_check: PASS__canonical_manifest_precedes_shadow__no_shadow_content_in_canonical
+    stability: STABLE__same_disposition
+  - id: S4-R16A-F02-ELF-GNUHASH
+    signature: ELF_GNU_HASH_CONSTRUCTOR__DYNAMIC_SYMBOL_SET__STOCK_GLIBC_LOADER__IMAGE_BYTES_LINK_COST_LOOKUP_LOAD_COST
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    source_action_correction: V9 makes current sysv_gnu_both hash-style union explicit; no decision change
+    cost_boundary: link_cpu_rss_temp__image_bytes__loader_relocation_lookup_cpu_rss_latency
+    leakage_check: PASS__canonical_manifest_precedes_shadow__same_neutral_snapshot_only
+    stability: STABLE__same_disposition
+  - id: S4-R16A-F03-ZIPIMPORT
+    signature: CPYTHON_ZIPIMPORT_ARCHIVE__PY_PYC_MODULE_SET__STOCK_ZIPIMPORTER__ARCHIVE_BYTES_IMPORT_CPU_RSS_STARTUP_COST
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    source_action_correction: V9 separates static importer contract from unclosed producer/flag union; no decision change
+    cost_boundary: archive_build_cpu_rss_temp__archive_bytes__import_decompress_read_cpu_rss_latency__invalidation
+    leakage_check: PASS__canonical_manifest_precedes_shadow__no_shadow_to_canonical_reference
+    stability: STABLE__same_disposition
+  - id: S4-R16A-F04-JOURNAL
+    signature: SYSTEMD_JOURNAL_FILE_CONSTRUCTOR__ENTRY_FIELD_STREAM__STOCK_JOURNAL_API__BYTES_APPEND_CPU_RSS_SEEK_QUERY_COST
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    source_action_correction: V9 records native hash_table_rotation mechanisms as partial coverage rather than absence; no decision change
+    cost_boundary: append_cpu_rss_temp__file_index_bytes__rotation_seal__seek_query_cpu_rss_latency
+    leakage_check: PASS__canonical_manifest_precedes_shadow__same_neutral_snapshot_only
+    stability: STABLE__same_disposition
+manifests:
+  canonical_v8_7_sha256: A000A9DF9A99B3C7EDC028E210922E9B7664366795C0A5F2CAC3ADE16D73C6D3
+  shadow_v9_sha256: 0A9BFD319C86E76D3958132CC8A2938709D3766EFA1A024DFD87317F15647176
+scientific_integrity:
+  no_experiment_benchmark_or_e2: true
+  no_resource_readiness_scientific_inference: true
+  no_stop_revival: true
+  no_shared_control_write: true
+  no_external_communication_except_mandatory_mainline_callback: true
+completion: COMPLETE_ZERO_CANONICAL_BRIEFS__FOUR_UNIQUE_FAMILIES__CANONICAL_SHADOW_STABLE

@@ -1,0 +1,48 @@
+assignment_id: DISCOVERY-S6-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+lane: S6-direct-algorithm-software
+state: COMPLETE__IDLE_REUSABLE_AWAITING_MAINLINE
+neutral_snapshot_date: 2026-08-13
+canonical_sealed_before_shadow: true
+accepted_unique_family_count: 4
+canonical_propose_stage0_count: 0
+families:
+  - id: S6-R16A-RR_TRACE_EVENT_CONSTRUCTION
+    signature: fixed_linux_user_program_input_and_rr_replay_semantics__recorded_event_stream_and_checkpoint_trace_construction__stock_rr_replay_oracle__record_replay_cpu_rss_trace_bytes_cost
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: DEEP_DIVE_REQUIRED
+    source_action_delta: shadow separates event and checkpoint action facets; no new source fact or canonical inference
+    cost: record_replay_cpu_rss_trace_bytes_latency
+    leakage_check: PASS__canonical_manifest_sealed_before_shadow_generation
+    stability: STABLE__NO_CANONICAL_STATUS_CHANGE
+  - id: S6-R16A-RUSTC_CGU_PARTITION_CONSTRUCTION
+    signature: fixed_rust_crate_features_target_and_incremental_semantics__monomorphization_to_codegen_unit_partition__codegen_unit_assignment_and_linkage_constructor__stock_rustc_behavior_oracle__compile_incremental_link_memory_bytes_cost
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: DEEP_DIVE_REQUIRED
+    source_action_delta: shadow records partition-linkage coupling; no new source fact or canonical inference
+    cost: compile_incremental_link_cpu_rss_temp_bytes
+    leakage_check: PASS__canonical_manifest_sealed_before_shadow_generation
+    stability: STABLE__NO_CANONICAL_STATUS_CHANGE
+  - id: S6-R16A-SOUFFLE_RELATION_INDEX_CONSTRUCTION
+    signature: fixed_souffle_datalog_program_and_fact_relation_semantics__relation_index_selection_and_data_structure_construction__stock_result_oracle__compile_evaluate_memory_bytes_cost
+    canonical_disposition: STRUCTURAL_DROP
+    shadow_disposition: C1_PARTIALLY_COVERED_NARROWED__SHADOW
+    source_action_delta: shadow makes official automatic combinatorial index selection an explicit coverage predicate
+    cost: compile_evaluate_cpu_rss_memory_bytes
+    leakage_check: PASS__canonical_manifest_sealed_before_shadow_generation
+    stability: STABLE__NO_CANONICAL_STATUS_CHANGE
+  - id: S6-R16A-OPENJDK_C2_IR_CONSTRUCTION
+    signature: fixed_java_bytecode_profile_target_and_jvm_semantics__c2_ideal_graph_transform_and_schedule_construction__stock_jvm_behavior_oracle__compile_cpu_rss_codecache_bytes_runtime_cost
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: DEEP_DIVE_REQUIRED
+    source_action_delta: shadow makes transform-schedule coupling explicit; no absence claim or canonical inference
+    cost: compile_cpu_rss_codecache_bytes_runtime
+    leakage_check: PASS__canonical_manifest_sealed_before_shadow_generation
+    stability: STABLE__NO_CANONICAL_STATUS_CHANGE
+excluded_non_counted:
+  - family: Tree-sitter parse-table construction
+    status: EXCLUDED_REPEATED__CURRENT_UNION_ABSORPTION_KERNEL
+  - family: mold ELF layout construction
+    status: EXCLUDED_POTENTIAL_IMPLEMENTATION_RELABEL__GNU_LD_LLD_LAYOUT_FAMILY
+cross_lane_dedup: no_exact_signature_duplicate_observed_in_available_R16A_control_snapshot
+shadow_isolation: PASS
+mainline_notification_required: true

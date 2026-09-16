@@ -1,0 +1,135 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-30T03:09:25.8563698+08:00
+lane_id: DISCOVERY_S5
+role_id: DISCOVERY-S5-SCALE-ONLINE-APPROX
+assignment_id: DISCOVERY-S5-20260830-SOURCE121
+topic_id: SOURCE121_PORTFOLIO_WAVE__NO_CANDIDATE_TOPIC_ASSIGNED
+assignment_context_path: stages/discovery/round-20260830-strategy-source121/S5-scale-online-approx/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: CB3C0BD89E0EB2EE0C30583C9BE05FAA5616C241A2C6E86B7A696F428B802CF8
+old_chat_memory_required: false
+
+thread_mapping_ack:
+  mainline_source_thread_id: 01a034d0-af48-72a1-a311-7495db80d90f
+  lane_thread_id: 01a034d0-c201-7c03-ab03-4c6a2b886820
+  context_thread_id_matches_lane: true
+  lane_assignment_thread_id_matches_context: true
+
+model_route_ack:
+  model: gpt-5.6-sol
+  thinking: high
+  temporary_user_command_override: true
+  applies_only_to_this_user_command: true
+  expires_on_next_user_command: true
+  future_commands_restore_rule_default_routing: true
+
+frozen_hash_ack:
+  AGENTS_sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655
+  plan_sha256: EA46D6BC0CFCED44844B8108183E1428FC05D2B6D1F8E2941DF751BC17DEF170
+  registry_snapshot_sha256: B7BE57A3A930751B1A242F960663EDFFD7C8D40B7F2876B8FC7A5A88A94D64EE
+  shared_freeze:
+    path: stages/discovery/round-20260830-strategy-source121/control/SHARED_FREEZE.yaml
+    sha256: 21B8CF8040DF7E4FED64960CB2A5F49F3E1363E25194C6225740CD6E87B4C6B1
+  lane_assignment:
+    path: stages/discovery/round-20260830-strategy-source121/control/LANE_ASSIGNMENTS.yaml
+    key: lanes.S5
+    sha256: 369C2FE19B42F04C210EABCDBD5AC427550CFE6598B9E0464972022AF0F761D8
+  role_rule:
+    path: rules/ROLE_DISCOVERY.md
+    sha256: 4583C7A555AF03E8365D74FFCB9B890107EB877A35059E3BA7CFDCE45E593EBD
+  skill_hashes:
+    - path: .agents/skills/research-topic-discovery/SKILL.md
+      sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+    - path: .agents/skills/research-topic-discovery/references/source-portfolios.md
+      sha256: FE3BC9503F70ED4BD729B338A7729BFA5CA3A3747312D63AF83D59B93FFE1F4D
+    - path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md
+      sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F
+  resource_and_lifecycle_rules:
+    - path: rules/RESOURCE_LOCALIZATION.md
+      sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA
+    - path: rules/ARTIFACT_LIFECYCLE.md
+      sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED
+  template_hashes:
+    - path: templates/BOOTSTRAP_ACK.yaml
+      sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B
+    - path: templates/TOPIC_BRIEF.md
+      sha256: 4AB3144E0E9D366D702C37CAD4377A25E18DFEA746CA65224A18CAA2745E8FE4
+    - path: templates/DISCOVERY_DIVERGENCE_SEED_POOL.md
+      sha256: 31B6A89548313B51EFD0C7685ACF50EA56D6EC5C0B557BD9E8B920C7E2179470
+    - path: templates/DISCOVERY_RQ_CANDIDATE.md
+      sha256: 0FF1E7FD811C3BCA84D15DA9713B7A27ED8EB9076C2939316AF43DA85168F5BF
+    - path: templates/DISCOVERY_QUESTION_CARD.md
+      sha256: D157B1B5D14C0DCEB3D238E85075777C3850C7E145ABD5EA8A3A111D3D022739
+  minimum_input_hashes:
+    - path: stages/control/user-authorizations/USER_CONTINUOUS_DISCOVERY_STAGEA_SOLHIGH_UNTIL_USAGE_RESET_20260830.yaml
+      sha256: 8200079139F02DDBB32358EE247D6760480D56AA6971C810D769B9E9F5641A74
+    - path: stages/discovery/round-20260830-strategy-source121/control/CONTROL.yaml
+      sha256: 463C248D4D0036CE216FA099C2F6990F88C6E7586E588B4AE70ED24572C59CF4
+    - path: stages/discovery/round-20260830-strategy-source121/control/PORTFOLIO_NOTE.yaml
+      sha256: C9BC8034CC305C97B82EB76E269555308A6143B4089CDE95697C2C4DB3BD9737
+    - path: stages/discovery/round-20260830-strategy-source121/control/LANE_ASSIGNMENTS.yaml
+      sha256: 369C2FE19B42F04C210EABCDBD5AC427550CFE6598B9E0464972022AF0F761D8
+  all_frozen_hashes_match: true
+  new_rules_hashes_read: true
+
+mode_ack:
+  context_mode: DUAL_READ_SHADOW
+  discovery_rq_frontend_mode: PRODUCTION
+  discovery_claim_pack_mode: OFF
+  discovery_quality_mode: OFF
+  discovery_maturation_repair: OFF_NOT_CALIBRATED
+  artifact_lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+
+read_ack:
+  cwd_actual: '<LOCAL_PROJECT_ROOT>'
+  cwd_is_authoritative_E_root: true
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  assignment_context_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: true
+  related_registry_record: discovery_source121_20260830
+  related_registry_consistency: PASS
+  plan_registry_context_lane_mapping_consistency: PASS
+
+boundary_ack:
+  unique_write_directory_exact: '<LOCAL_PROJECT_ROOT>\stages\discovery\round-20260830-strategy-source121\S5-scale-online-approx'
+  resource_root_exact: '<LOCAL_PROJECT_ROOT>\stages\discovery\round-20260830-strategy-source121\S5-scale-online-approx\resources'
+  resource_root_existed_before_ack: false
+  resource_root_created: false
+  bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: NONE
+  contamination_detected: false
+  shared_write_performed: false
+
+usage_reset_soft_pause_ack:
+  signal: USAGE_RESET_CONFIRMED__SOFT_PAUSE_AFTER_CURRENT_ITEM__NO_NEW_DISCOVERY_WAVE
+  understood: true
+  discovery_effect: finish_current_wave_then_no_successor
+  hard_interrupt_running_process: forbidden
+  bootstrap_effect: remain_stopped_awaiting_mainline_acceptance_and_START
+
+execution_ack:
+  current_status: SOURCE121_BOOTSTRAP_PENDING__SOL_HIGH
+  resume_point: AFTER_MAINLINE_ACCEPTS_BOOTSTRAP_ACK_AND_ISSUES_START
+  next_action: WAIT_FOR_MAINLINE_ACCEPTANCE_AND_START
+  user_gate_or_blocker: MAINLINE_BOOTSTRAP_ACCEPTANCE_REQUIRED
+  source_lookup_started: false
+  network_started: false
+  resource_action_started: false
+  raw_started: false
+  brief_started: false
+  stage0_started: false
+  stagea_started: false
+  stageb_started: false
+  scientific_or_resource_action_started: false
+
+differences_or_ambiguities: []
+ack_disposition: READY
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

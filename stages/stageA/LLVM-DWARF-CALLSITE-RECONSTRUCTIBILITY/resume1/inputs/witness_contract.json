@@ -1,0 +1,34 @@
+{
+  "schema": "llvm-dwarf-callsite-tiny-contract-v1",
+  "llvm_commit": "e72ba6cf366a3180cbf5a8690d9e50665880ab76",
+  "target": "x86_64-unknown-linux-gnu",
+  "abi": "SysV_AMD64",
+  "call_block": "bb.1",
+  "semantic_value": "sum_i32(a,b)",
+  "call_argument_register": "RDI",
+  "call_regmask": "csr_64",
+  "actions": [
+    {
+      "id": "A_CALLER_SAVED_RAX",
+      "location": "RAX",
+      "source_class": "computed_caller_saved_unrecognized",
+      "csr_save_restore": false,
+      "expected_reconstructible": false
+    },
+    {
+      "id": "B_CALLEE_SAVED_RBX",
+      "location": "RBX",
+      "source_class": "callee_saved_direct",
+      "csr_save_restore": true,
+      "expected_reconstructible": true
+    }
+  ],
+  "fixed": {
+    "module_ir": true,
+    "machine_semantics": true,
+    "call_argument_value": true,
+    "call_regmask": true,
+    "reader_and_format": true,
+    "debug_mode": "DWARF5_LLD_TUNE_CALL_SITE_INFO"
+  }
+}

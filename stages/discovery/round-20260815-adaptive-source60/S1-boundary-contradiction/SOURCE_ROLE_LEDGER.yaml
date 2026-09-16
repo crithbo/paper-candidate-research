@@ -1,0 +1,25 @@
+sources:
+  - id: SRC01_RISCV_ZICOND_V1
+    role: ANCHOR
+    url: https://docs.riscv.org/reference/isa/unpriv/zicond.html
+    version_or_date: Version 1.0.0; observed 2026-08-15
+    provenance: official RISC-V ratified specification
+    finding: Zicond provides `czero.eqz`/`czero.nez` and explicit branchless conditional-select sequences.
+  - id: SRC02_LLVM_RISCV_USAGE_CURRENT
+    role: CURRENT
+    url: https://llvm.org/docs/RISCVUsage.html
+    version_or_date: current documentation observed 2026-08-15
+    provenance: official LLVM documentation
+    finding: Zicond is currently supported by LLVM's RISC-V target.
+  - id: SRC03_LLVM_ZICOND_FP_SELECT_COMMIT
+    role: CONTRARY_DIRECT_COLLISION
+    url: https://lists.llvm.org/pipermail/all-commits/Week-of-Mon-20251201/265023.html
+    version_or_date: upstream commit b20d35, 2025-12-01
+    provenance: upstream LLVM all-commits archive
+    finding: `RISCVTargetLowering::lowerSELECT` uses Zicond for Zfinx/Zdinx floating-point selects when the condition is integer and Zicond is available.
+  - id: SRC04_LLVM_RISCV_SOURCE_ROUTE
+    role: CURRENT_SOURCE_LOCATOR
+    url: https://github.com/llvm/llvm-project/blob/main/llvm/lib/Target/RISCV/RISCVISelLowering.cpp
+    version_or_date: current default branch route observed 2026-08-15
+    provenance: LLVM upstream source
+    finding: named current source locus; no absence is asserted.

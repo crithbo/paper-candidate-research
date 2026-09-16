@@ -1,0 +1,85 @@
+topic_id: CVC5-ALETHE-SHAREMAP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+assignment_id: RESOURCE-UNBLOCK-L1-20260810-CVC5-R1
+authorization_id: UNBLOCK-AUTH-20260810-R1
+assignment_state: IDLE_REUSABLE
+input_freeze_sha256: 27CDF36933F93B0C096AA73DA6A9DC49505872B0D0A7A565EE959F5EF7331FA3
+cross_assignment_contamination_declared: false
+source_stage: STAGEA_RESOURCE_RECOVERY
+proposed_next_stage: STAGEA_RESUME_FROM_BLOCKER_RESOURCE_ONLY
+decision: BLOCKED_USER_ACTION_REQUIRED
+quality_tier: TIER_B_Q2_VIABLE
+quality_tier_status: INHERITED_CONDITIONAL__NO_NEW_SCIENTIFIC_ADJUDICATION
+structural_paper_potential: TIER_B_Q2_VIABLE_CONDITIONAL
+evidence_acquisition_readiness: PARTIAL_RESOURCE_RECOVERY__CARCARA_UNAVAILABLE
+stage_semantics: RESOURCE_UNBLOCK_ONLY__NOT_SCIENTIFIC_EXPERIMENT
+preclaim_contract_fidelity_gate_actual_status: FAIL_CLOSED
+resource_ready: false
+component_readiness:
+  portable_cxx_toolchain: READY_SMOKE_PASS
+  portable_rust_toolchain: READY_SMOKE_PASS
+  cvc5_1_3_4: READY_VERSION_AND_MINIMAL_UNSAT_SMOKE_PASS
+  carcara_1_1_0: NOT_READY__UNMODIFIED_LOCKED_BUILD_DEPENDENCY_TEST_FAILURE
+  candidate_build: NOT_RUN_PROHIBITED
+  natural_60_instance_corpus: NOT_RUN_PROHIBITED
+exact_resource_failure:
+  component: gmp-mpfr-sys_1_6_1__MPFR_4_2_1
+  command: cargo_build_release_locked_p_carcara_cli
+  cargo_exit_code: 101
+  mpfr_total: 198
+  mpfr_pass: 194
+  mpfr_skip: 3
+  mpfr_fail: 1
+  mpfr_error: 0
+  failing_test: tsprintf.exe
+  failing_test_exit_code: 127
+  diagnostic: "../../gmp-src/printf/repl-vsnprintf.c:388: GNU MP assertion failed: len < total_width"
+  carcara_executable_produced: false
+blocker_status: BLOCKED_USER_ACTION_REQUIRED
+blocker_kind: PORTABLE_CHECKER_BUILD_TOOLCHAIN
+claim_bearing_observation_obtained_before_failure: false
+scientific_revision_consumed: false
+resource_attempt_recorded: true
+user_blocker_packet: USER_BLOCKER_PACKET.md
+resume_contract_sha256: 27CDF36933F93B0C096AA73DA6A9DC49505872B0D0A7A565EE959F5EF7331FA3
+resume_directory: stages\stageA\CVC5-ALETHE-SHAREMAP\resume1
+future_resume_directory: stages\stageA\CVC5-ALETHE-SHAREMAP\resume2
+evidence_ceiling: RESOURCE_RECOVERY_PARTIAL__PORTABLE_TOOLCHAIN_AND_CVC5_SMOKE_ESTABLISHED__CARCARA_1_1_0_UNAVAILABLE__NO_SCIENTIFIC_INFERENCE
+stagea_probe_support: NOT_APPLICABLE
+pending_user_stageb_review: false
+stageb_user_approval_id: null
+stageb: false
+claim_bearing: false
+system_modification: false
+global_path_registry_service_modification: false
+wsl_vm_container_modification: false
+writes_outside_resume1: false
+candidate_executed: false
+natural_corpus_executed: false
+scientific_stop_or_pass_recommended: false
+topic_archive_allowed: false
+resource_accounting:
+  approximate_network_bytes: 383044231
+  network_limit_bytes: 2147483648
+  resume1_files_before_manifest: 73778
+  resume1_bytes_before_manifest: 2951832851
+  topic_files_before_manifest: 81163
+  topic_bytes_before_manifest: 3255590365
+  topic_limit_bytes: 4294967296
+  cumulative_cpu_hours: BELOW_4__NO_FALSE_PRECISION_PROCESS_TREE_TOTAL_NOT_RETAINED
+  gpu_or_exclusive_device: false
+minimum_user_action: PROVIDE_CHECKSUM_FROZEN_UNMODIFIED_CARCARA_1_1_0_WINDOWS_X86_64_BINARY_WITH_BUILD_PROVENANCE_OR_NEWLY_AUTHORIZE_EQUIVALENT_VERIFIABLE_ROUTE
+lane_recommendation: IDLE_REUSABLE_AWAITING_MAINLINE
+file_hashes:
+  RESOURCE_AUTHORIZATION_FREEZE.yaml: 5016F153B74F3B8C2716BF2DE5D43AB589B5F263537D1DBE4BFC246D13F9CA6B
+  RESOURCE_VERSION_RESOLUTION.yaml: C6EEF2D32F9EB3A3928CCF163F44931DB8837AA639249769624AD9CB9BB85FFE
+  RESOURCE_UNBLOCK_REPORT.md: 1BE66F2376B1E5D77C6FE8DB81E59450584BC8E5B955B6112809800CFE49F474
+  USER_BLOCKER_PACKET.md: 89814864BD406A5DA7538EBED63110C334AD802CF8C6E90306AC410119FE95E2
+  SOURCE_ASSET_MANIFEST.tsv: 0F1928473F7980780F7C51327A4EEF6C492A7669B2E0EDBCEA3618C5A2286949
+  COMMAND_LOG.md: 8E07D913FED6D76FB1016588C99089A1961F2D57C6C746E648939A83FF826F42
+  smoke/CVC5_SMOKE_RESULT.md: BB65B85EC6B2C3E6BA66E05932BAF57CFBFCE571BE90E53499F849B9B81E958A
+  scripts/build_manifest.mjs: C282C761FCC1E9ADDD326960C8FFB83B484CAD2E70F48A0C1562AEE1AF29DFFC
+  scripts/validate_manifest.mjs: 92B715F8AAA9F7926A9A29A572F34E3FFA6026C31DE8DD2386BC0AB0D73CA4D1
+  mpfr_test_suite_log: 8DEBBD556FFE1766F89E03E35F8A57ABF3039777BBE81564F0D26B2624A38703
+  mpfr_tsprintf_log: 0CD13B186FFF6F88761EA05448C9E0FD91B2BBDBCF7B3E3B9D4948BC34AFF968
+hash_manifest_file: HASH_MANIFEST.sha256

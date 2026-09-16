@@ -1,0 +1,162 @@
+schema_version: rocksdict-preclaim-operation-inventory-v1
+created_at: 2026-08-25T14:40:00+08:00
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-RESUME6-E-ROOT-PRECLAIM-FIDELITY
+topic_id: ROCKSDB-DICT-COVER
+scope: PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY
+run_class: CONTROL_NON_CLAIM_BEARING
+claim_bearing_action: false
+natural_manifest_run: false
+performance_comparison: false
+scientific_inference: NONE
+
+F0_input_and_object_identity:
+  upstream_acceptance_path: UPSTREAM_MANIFEST_INPUT_ACCEPTANCE.yaml
+  upstream_acceptance_sha256: B72DB74C03782DAF792E8D32CC91C9CD41F7CFA302C2F67DA5063AC793F47F31
+  accepted_manifest_count: 20
+  accepted_manifest_bytes: 61951583
+  source_and_destination_hash_equal: 20_OF_20
+  exact_manifest_format: KVMAN1_little_endian_length_prefixed_sorted_unique_KV
+  rocksdb_commit: 1dfa7297933df05237ac11376d6cb69d32591b1d
+  zstd_commit: 82d322c4973d9e2968d94047a40892bc6d9a9bdf
+  production_object_unchanged: true
+  manifests_used_by_control_run: false
+
+F1_candidate_atomic_action:
+  method_id: C1_STREAMING_MARGINAL_REPEATED_MINIMIZER_CORESET
+  implementation_path: resources/src/rocksdb/table/block_based/block_based_table_builder.cc
+  implementation_sha256: 9BB41C3A169E3EC2BF7865C3D1BE135A3EE5F0774C7D88AE096D2B55242AE323
+  source_line_loci:
+    minimizer_tokenization: 137-161
+    candidate_constructor: 264-407
+    process_local_selector_dispatch: 3304-3347
+  exact_actions:
+    fragment_bytes: 256
+    minimum_tail_fragment_bytes: 64
+    dmer_bytes: 8
+    minimizer_window_dmers: 16
+    token_hash: splitmix64_over_little_endian_8_byte_token
+    count_min_sketch: {depth: 4, width: 4096, counter_bits: 32, row_salts: [0x243F6A8885A308D3, 0x13198A2E03707344, 0xA4093822299F31D0, 0x082EFA98EC4E6C89]}
+    pass_rule: each_buffered_uncompressed_block_once_in_original_order
+    score_rule: sum_unique_minimizer_estimated_frequency_divided_by_current_retained_multiplicity_then_divide_by_fragment_bytes
+    replacement_rule: eligible_strictly_lowest_score_per_byte_then_smaller_fixed_fragment_digest_tie_break
+    retained_budget: exact_grid_zstd_max_train_bytes_ceiling
+    trainer_input_order: original_block_then_fragment_offset
+    downstream_trainer: unchanged_ZDICT_trainFromBuffer
+  control_trace_fields: [mode, blocks_visited, block_bytes_visited, fragments_considered, minimizer_windows, cms_updates, retained_rescores, replacements, retained_fragments, retained_bytes, emitted_sample_bytes]
+  proxy_or_subset_used: false
+
+F2_comparator_native_parity:
+  shared_invariants: [same_control_witness, stock_BlockBasedTable, BytewiseComparator, ZSTD_level_3, block_size_4096, format_version_6, CRC32c, no_filter, block_cache_33554432, same_grid_cell, unchanged_Zstd_trainer_and_format]
+  methods:
+    B0: {name: NO_DICTIONARY, selector: current_not_entered, dictionary_enabled: false, trained: false}
+    B1: {name: RAW_CURRENT_MIDPOINT_PRIME_STRIDE, selector: native_current, dictionary_enabled: true, zstd_max_train_bytes: 0, trainer: raw_content_dictionary}
+    B2: {name: TRAINED_CURRENT_MIDPOINT_PRIME_STRIDE, selector: native_current, dictionary_enabled: true, trainer: unchanged_ZDICT_trainFromBuffer}
+    B3: {name: PREFIX_SAME_BYTE_CAP, selector: prefix_natural_block_order_with_final_byte_cap, trainer: unchanged_ZDICT_trainFromBuffer}
+    B4: {name: FIXED_SEED_WHOLE_BLOCK_RESERVOIR, selector: splitmix64_bottom_k_priority_seed_0x52444331_then_original_order, trainer: unchanged_ZDICT_trainFromBuffer}
+    B5: {name: DETERMINISTIC_8_EQUAL_COUNT_KEY_RANGE_STRATA, selector: per_stratum_midpoint_center_out_then_stratum_round_robin_whole_blocks, trainer: unchanged_ZDICT_trainFromBuffer}
+    B6: {name: EACH_APPLICABLE_G1_G2_MEMBER_INDIVIDUALLY, realization: every_B0_B5_and_C1_method_executed_in_separate_process_for_G1_and_G2}
+  grid:
+    G1: {max_dict_bytes: 4096, zstd_max_train_bytes: 65536, max_dict_buffer_bytes: 262144}
+    G2: {max_dict_bytes: 8192, zstd_max_train_bytes: 131072, max_dict_buffer_bytes: 524288}
+  native_current_semantic_clarification:
+    upstream_shorthand: midpoint_prime_stride_whole_block
+    exact_pinned_source_behavior: midpoint_prime_stride_block_order_with_final_sample_truncated_at_exact_byte_cap
+    evidence: B1_G1_emitted_4096_from_first_4175_byte_buffer_and_B2_G1_emitted_65536_from_16_buffers
+    disposition: CODE_BACKED_PRECISION_CLARIFICATION__NO_BASELINE_WEAKENING_OR_FUNCTION_CHANGE
+    future_claim_requirement: use_exact_native_behavior_not_the_shorthand
+
+F3_small_witness_legality_equivalence:
+  witness_kind: DETERMINISTIC_SYNTHETIC_CONTROL_ONLY
+  record_count: 1024
+  key_schema: control/key/8_digit_decimal
+  value_bytes_each: 1024
+  value_structure: repeated_alpha_and_beta_motifs_with_record_identity
+  input_creation: two_identical_sorted_flushes_to_create_overlapping_L0_files_without_changing_final_KV_object
+  compaction: CompactRange_manual_L0_to_L1_then_forced_bottommost_L1_rewrite
+  table_creation_reason: kCompaction
+  final_live_sst_count: 1
+  final_level: 1
+  minimum_data_blocks: 16
+  observed_data_block_range_across_controls: [130, 256]
+  reader_checks: [DB_reopen, whole_file_CRC32c, block_checksums, table_properties, full_ordered_scan, every_key_point_lookup, 32_deterministic_range_probes]
+  equality_counts: {full_scan: 1024, point: 1024, range_probes: 32}
+  SstFileWriter_used: false
+  control_matrix_root: resources/build/control_runs_final7
+  run_count: 28
+  pass_count: 28
+
+F4_denominator_and_full_cost_paths:
+  no_work_to_byte_scalarization: true
+  future_claim_process_boundary: one_method_manifest_grid_cell_per_process
+  acquisition_conversion:
+    units: [response_body_bytes, stored_bytes, process_cpu_seconds, wall_seconds]
+    path: resume5_RESOURCE_LEDGER_and_resource_gate_handoff
+  selector_and_buffering:
+    units: [blocks, block_bytes, fragments, minimizer_windows, cms_updates, rescores, replacements, retained_fragments, retained_bytes, emitted_sample_bytes]
+    path: ROCKSDICT_TRACE_PATH_per_process
+  trainer_compression_build_write:
+    units: [process_cpu_seconds, wall_seconds, peak_working_set_bytes, run_directory_logical_bytes]
+    boundary: full_fresh_process_including_unchanged_trainer_compression_compaction_and_write
+    path: assignment_local_process_monitor_10ms_poll
+  sst_storage:
+    units: [live_sst_file_bytes, data_size, uncompressed_data_size, index_size, filter_size, raw_key_size, raw_value_size, num_data_blocks, dictionary_meta_properties]
+    path: LiveFileMetaData_plus_TableProperties
+  temporary_io_and_fallback:
+    units: [run_directory_logical_bytes, file_count, fallback_flag]
+    path: before_after_literal_run_directory_inventory
+  reader:
+    cold_protocol: new_process_reopen_new_block_cache_verify_checksums_full_scan_fill_cache_false
+    warm_protocol: same_process_explicit_unmeasured_warmup_then_point_and_range_with_fixed_cache
+    units: [process_cpu_seconds, wall_seconds, peak_working_set_bytes, equality_counts]
+  CDict_DDict_cache:
+    path: frozen_compression_options_plus_separate_cold_warm_process_protocol
+  collection_path_smoke:
+    path: resources/logs/full_cost_collection_path_smoke.json
+    sha256: 9AF9EBDFAA33022476F806C40BFA24F86F94E1F5FCEDB4562071D9AE41BAD18A
+    mode_cell: C1_G1
+    process_poll_interval_ms: 10
+    exit_code: 0
+    measured_fields_present: [wall_seconds, process_cpu_seconds, peak_working_set_bytes, run_directory_logical_bytes, result_sha256, selector_trace_sha256]
+    performance_inference: NONE
+
+F5_reproducibility_and_classification:
+  environment_lock_path: ENVIRONMENT_LOCK.yaml
+  harness_executable_sha256: 22A57C80065AC0883AA62678DB7BAD7546BDC08A51064EBDA9721DE991DC34D4
+  harness_source_sha256: 3155101C727F6FF76AA262C1C7E0663B77E6CDF18832DA7C3F3B3EC59D39D0D2
+  run_class: CONTROL_NON_CLAIM_BEARING
+  matrix_summary_path: resources/logs/control_matrix_summary.json
+  matrix_summary_sha256: 66719333E215EE3F23946FCFADCC0402F5283965E375F0B87EF461B6FF9904D3
+  replay_verification_path: resources/logs/replay_verification.json
+  replay_verification_sha256: C3D58031711DC614D16820F2F483B4CB05196E883B703BB9FBF8620AF798713D
+  replay_pairs: 14
+  replay_pairs_pass: 14
+  compared_nonvolatile_fields: all_result_fields_except_run_id_plus_selector_trace_content
+  frozen_runtime_smoke: PASS_WITH_ONLY_libcxx_and_libunwind_assignment_local_runtime
+  natural_manifest_used: false
+  claim_bearing_observation: false
+
+engineering_corrections:
+  classification: ENGINEERING_CORRECTION_IN_CONTRACT__NO_SCIENTIFIC_REVISION
+  invalidated_non_evidence:
+    - {path: resources/build/rocksdb-preclaim, reason: malformed_initial_CMake_argument_vector}
+    - {path: resources/build/control_runs, reason: file_checksum_factory_missing}
+    - {path: resources/build/control_runs_valid, reason: compaction_orchestration_did_not_force_kCompaction}
+    - {path: resources/build/control_runs_final, reason: pre_final_harness_revision}
+    - {path: resources/build/control_runs_final2, reason: pre_final_harness_revision}
+    - {path: resources/build/control_runs_final3, reason: selector_trace_C_runtime_environment_not_visible}
+    - {path: resources/build/control_runs_final4, reason: compaction_trace_gate_too_strict}
+    - {path: resources/build/control_runs_final5, reason: compaction_trace_gate_too_strict}
+    - {path: resources/build/control_runs_final6, reason: selector_trace_C_runtime_environment_not_visible}
+  canonical_build_root: resources/build/rocksdb-preclaim-r1
+  canonical_control_root: resources/build/control_runs_final7
+  scientific_revision_consumed: false
+
+validation:
+  F0: PASS
+  F1: PASS
+  F2: PASS_WITH_NATIVE_CURRENT_SEMANTIC_PRECISION_PIN
+  F3: PASS_CONTROL_NON_CLAIM_ONLY
+  F4: PASS_COLLECTION_PATH_ONLY
+  F5: PASS
+  claim_start_authorized: false
+  scientific_inference: NONE

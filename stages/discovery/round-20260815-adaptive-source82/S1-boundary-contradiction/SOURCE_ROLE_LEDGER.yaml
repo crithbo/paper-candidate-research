@@ -1,0 +1,31 @@
+sources:
+  - id: SRC01
+    role: ANCHOR_AND_CURRENT_CONTRACT
+    url: https://www.openmp.org/spec-html/5.2/openmpse73.html
+    project_object_version: OpenMP API 5.2 task construct
+    selection_rule: official specification for detachable task completion
+    provenance: OpenMP Architecture Review Board specification
+    license: public specification
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: detachable task completes only after its block and allow-completion event are complete
+  - id: SRC02
+    role: CURRENT_AND_CONTRARY
+    url: https://www.openmp.org/spec-html/5.1/openmpsu187.html
+    project_object_version: OpenMP omp_fulfill_event routine
+    selection_rule: official event operation and nonconformance boundary
+    provenance: OpenMP Architecture Review Board specification
+    license: public specification
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: fulfillment destroys event; repeat or non-detach event use is non-conforming
+  - id: SRC03
+    role: CURRENT_SOURCE
+    url: https://openmp.llvm.org/doxygen/kmp__tasking_8cpp_source.html
+    project_object_version: LLVM libomp current kmp_tasking.cpp source view
+    selection_rule: current runtime implementation locus for detached task proxy/fulfillment behavior
+    provenance: LLVM OpenMP project source documentation
+    license: Apache-2.0 with LLVM exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: current path suspends/proxifies unfinished detachable task and fulfillment can subsequently free task data

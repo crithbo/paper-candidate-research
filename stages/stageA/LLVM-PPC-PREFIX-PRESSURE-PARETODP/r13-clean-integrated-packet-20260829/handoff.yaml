@@ -1,0 +1,20 @@
+schema: ppc-r13-static-handoff-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R13-CLEAN-INTEGRATED-PACKET
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+unique_write_directory: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r13-clean-integrated-packet-20260829
+mode: SHADOW
+handoff_kind: STATIC_PACKET_ONLY__WAIT_INDEPENDENT_CLEAN_PACKET_PRECLAIM_FIDELITY_GATE
+decision: PASS_STATIC_PACKET__NO_SCIENTIFIC_INFERENCE
+source_boundary: CLEAN_V2_INPUTS_CHECKER_ARGV_AND_ACCEPTED_FULL_COST_PRODUCER_ONLY
+quarantined_r12_packet_or_dag_reused: false
+static_outputs:
+  packet: {path: PPC_R13_EXECUTABLE_PACKET.yaml, sha256: 1D739F651766024EE03090A139A009AD6E2702AFA277655748892362FA62AC4F}
+  dag: {path: PPC_R13_COMMAND_DAG.json, sha256: 4DDA1580A830A91717A87479493E31C52DD73029A7DBD82449E70845A80D3714}
+  producer: {path: PPC_R13_FULL_COST_LEDGER_PRODUCER.py, sha256: AD7A61FF5C75E8B4EE95287DFC2E55CB1CC663DAE5A78137435EE48E38F77E34}
+  validation: {path: PPC_R13_STATIC_VALIDATION.yaml, sha256: 779149D4165D00780486118902E687C23A05203E0C419579EB1F2CD18D486FF9}
+  copy_manifest: {path: EXACT_RESOURCE_COPY_MANIFEST.yaml, sha256: 3C40C107A7D312CB74623C13F9018F38C4E411AB537A39E54019ED43C3381A4A}
+targeted_manifest: {path: TARGETED_STATIC_MANIFEST.yaml, sha256: 458BEF531A2F228F4381555C830487335481AC8013A8BF121D84DE2C1D2052B9}
+static_closure: {dag_nodes: 5, candidate_metrics: 15, baseline_metrics: 56, unique_scientific_denominator: 71, baseline_bundles: 16, checker_verification_overhead: INCLUDED_AND_NOT_HIDDEN_OUTSIDE_71, checker_depends_on_prior_outputs: true, full_cost_depends_on_checker: true, placeholders: 0, packet_dag_full_cost_argv_byte_identical: true, runner_copy_rows: 3, selected_copy_rows: 16}
+execution_status: {resource_copy_performed: false, tool_execution: false, control_execution: false, claim_execution: false, network: false, result_visibility: NONE, scientific_revision_consumed: false, stageb: false, cleanup: false}
+next_action: WAIT_MAINLINE_AND_INDEPENDENT_CLEAN_PACKET_PRECLAIM_GATE

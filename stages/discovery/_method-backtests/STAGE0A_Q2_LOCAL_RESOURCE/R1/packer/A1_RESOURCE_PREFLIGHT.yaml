@@ -1,0 +1,73 @@
+schema: stage0a-packer-a1-resource-preflight-v1
+created_at: 2026-08-26T19:26:00+08:00
+assignment_id: BACKTEST-PACKER-20260826-STAGE0A-Q2-LOCAL-RESOURCE-R1-A1
+alternate_evaluated: ALT02_ALIVE2
+only_predeclared_alternate_evaluated: true
+source_ledger: resources/src/A1_ALT02_SOURCE_LEDGER.yaml
+source_ledger_sha256: 390D9E8C235989E9275AC9EB5296D3A75B565193869C2D5F61B35D1717258822
+
+qualification:
+  identity: "Alive2: Bounded Translation Validation for LLVM"
+  publication: ACM_SIGPLAN_PLDI_2021
+  doi: 10.1145/3453483.3454030
+  contribution_type: COMPILER_TOOL
+  gates:
+    REAL_PEER_REVIEWED_Q2_OR_EQUIVALENT: PASS__TOP_CONFERENCE_EQUIVALENT
+    HISTORICAL_CUTOFF_VALID: PASS__2021_06_01
+    NO_DIRECT_ABSORPTION_AT_CUTOFF: PASS
+    NATURAL_OR_CANONICAL_EVIDENCE_ROUTE: PASS__REAL_COMPILER_IR_TRANSFORMATIONS_AND_UNIT_TESTS
+    FAIR_BASELINES: PASS
+    FULL_COST_NOT_DECISIVELY_OMITTED: PASS
+    REPRODUCIBLE_ROUTE: PASS__PUBLIC_MIT_SOURCE_TESTS_AND_BUILD_DOCUMENTATION
+    RESOURCE_ROUTE_CLASSIFIED: PASS__ROUTING_CONTROL_ONLY
+  academic_result: QUALIFIED_CONTROL
+
+same_object_check:
+  exact_object: bounded_refinement_check_between_source_and_target_typed_compiler_IR
+  cutoff_current_union:
+    - general_translation_validation
+    - declarative_single_rewrite_verification
+    - compiler_language_semantics_and_unit_testing
+    - general_SMT_solver_backend
+  direct_absorption: false
+  residual: executable_IR_semantics_plus_bounded_symbolic_refinement_for_real_optimization_pairs
+
+static_local_resource_check:
+  stagea_primary_platform: WINDOWS_NATIVE_NO_WSL
+  public_artifact_required: true
+  exact_preexisting_stack_present: false
+  missing_from_PATH: [cmake, ninja, clang, clang_cl, llvm_config, opt, z3, re2c]
+  official_artifact_route:
+    build_system: CMAKE_AND_NINJA
+    dependencies: [recent_C_or_CXX_compiler, re2c, Z3, LLVM]
+    LLVM_contract: CUSTOM_LATEST_MAIN_BUILD_WITH_RTTI_AND_EXCEPTIONS
+    frozen_reproduction_recipe: UBUNTU_24_04_DOCKER
+    official_windows_native_command_documented: false
+    Docker_or_WSL_allowed: false
+  expected_download_and_extract_bytes: NOT_ESTABLISHED_FOR_AN_EXACT_MATCHING_WINDOWS_STACK
+  build_wall_seconds_within_7200_proven: false
+  public_canonical_small_input: COMPILER_IR_UNIT_TEST_PAIR_EXISTS_BUT_NOT_LOCALIZED_OR_EXECUTED
+  reacquire_route: PUBLIC_REPOSITORY_AND_PUBLIC_DEPENDENCIES
+  primary_local_result: FAIL__ROUTE_NOT_CLOSED__NO_SCIENTIFIC_INFERENCE
+  classified_route: ROUTING_CONTROL_ONLY__EXCLUDED_FROM_OPERATIONAL_DENOMINATOR
+
+replacement_eligibility:
+  contaminated_case_original_route: ROUTING_CONTROL_ONLY
+  alternate_route: ROUTING_CONTROL_ONLY
+  operational_denominator_changed: false
+  all_addendum_qualification_fields_pass: true
+  result: ELIGIBLE_AS_THE_ONLY_PREDECLARED_REPLACEMENT
+
+actions:
+  network_attempts_additional: 15
+  network_attempts_assignment_total: 84
+  exact_network_bytes: UNAVAILABLE_SYSTEM_TOOL_TELEMETRY__NOT_ESTIMATED
+  downloaded_or_cloned: false
+  extracted: false
+  installed: false
+  built: false
+  experiment_run: false
+  tested_method_run: false
+  score_run: false
+  system_or_user_environment_modified: false
+result: PASS_ALT02_QUALIFIED_ROUTING_CONTROL_ONLY

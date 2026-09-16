@@ -1,0 +1,41 @@
+schema_version: discovery-backtest-sealed-input-manifest-v2
+role: DISCOVERY-BACKTEST-PACKER
+source_session_id: DISCOVERY-S1-BOUNDARY-CONTRADICTION
+opportunity_lens: O1_ASSUMPTION_BREAK_PLUS_O6_CONTRADICTION_ANOMALY_OR_PRIMITIVE_MISMATCH
+method_revision: v2
+status: SEALED_PACKER_COMPLETE
+sealed_at: 2026-08-03T15:40:00+08:00
+packet_inventory:
+  - {packet_id: S1-POS-01, label: positive, cutoff_date: 2022-05-26, paper_count: 5}
+  - {packet_id: S1-POS-02, label: positive, cutoff_date: 2023-06-19, paper_count: 5}
+  - {packet_id: S1-POS-03, label: positive, cutoff_date: 2017-12-03, paper_count: 5}
+  - {packet_id: S1-NEG-01, label: negative_control, cutoff_date: 2021-12-31, paper_count: 3}
+sealed_material:
+  path: packer/sealed_packets.yaml
+  byte_length: 10313
+  sha256: BC0B45285F6BB77BB122605AB4F8DDA98BD988CB5D3A3ECEFADAC89E0CA27A72
+  integrity_scope: "Bytewise hash transitively freezes every source card, artifact card, cutoff, environment statement, and executor rule in the file."
+auditor_key:
+  path: packer/auditor_key.yaml
+  byte_length: 3908
+  sha256: 1F9E22953D49C37F7CD889621191934A795880C050E38D88D19229EFF6459562
+  access: PACKER_AND_FUTURE_AUDITOR_ONLY
+search_and_screen:
+  searched_at: 2026-08-03
+  source_families: [official_proceedings, publisher_doi, author_or_institution_page, official_source_repository, arxiv_for_earliest_public_date]
+  inclusion:
+    - "Three successful Q1-equivalent/top-venue papers in project scope."
+    - "For each positive, 3-8 independently citable papers public no later than cutoff plus any cutoff-valid artifact/environment card."
+    - "A credible negative slice with strong same-object baselines and no evidenced lens trigger."
+  exclusion:
+    - "Hidden target title, abstract, method, conclusions, repository, project page, review, talk, and result."
+    - "All sources after cutoff and all cross-packet hidden targets."
+    - "Secondary summaries when a primary or official source was available."
+contamination_controls:
+  hidden_target_text_in_sealed_material: false
+  post_cutoff_target_material_in_sealed_material: false
+  cross_packet_target_title_in_sealed_material: false
+  executor_answer_scaffold_in_sealed_material: false
+  note: "Problem-era facts and precursor limitations are intentionally visible; expected recovery is confined to auditor_key."
+scoring_performed: false
+method_executed: false

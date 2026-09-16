@@ -1,0 +1,42 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE63-R40-ORDINARY-BREADTH-V1
+lane: S2_BOTTLENECK_TRANSFER
+write_directory: stages/discovery/round-20260815-adaptive-source63/S2-bottleneck-transfer
+method:
+  canonical: v8.7
+  rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  claim_pack: OFF
+  v9: OFF
+  selective_depth: OFF
+  model_route: gpt-5.6-terra/high
+freeze:
+  assignment_sha256: BC1F455CDE7E77EC2DE5186D96048E6E0F7580A6137BD3C883495F1AF3198909
+  control_sha256: 829E1CCFD98A3F32C4473AA65146B2580624FF4DA966B97DF540F37AC806268B
+result:
+  disposition: COMPLETE_ZERO_PROPOSALS
+  clean_stage0_briefs: 0
+  raw_count: 0
+  deep_count: 0
+  reason: >-
+    All three selected same-object QEMU RQs were resolved before raw: official
+    current action/state unions either expressed the claimed move or reduced it
+    to generic packing, a controller, a scheduler, or configuration selection.
+families:
+  - signature: QEMU_DIRTY_BITMAP__FIXED_QCOW2_NODE_AND_BITMAP__PERSIST_MIGRATE_MERGE__STOCK_QMP_BACKUP_ENDPOINT
+    canonical_disposition: EXCLUDED_BEFORE_RAW__CURRENT_NATIVE_UNION_OR_GENERIC_METADATA_CONFIGURATION
+  - signature: QEMU_VFIO__FIXED_VM_DEVICE__DMA_DIRTY_LOG_STATE_SYNC__STOCK_MIGRATION_ENDPOINT
+    canonical_disposition: EXCLUDED_BEFORE_RAW__CURRENT_STATE_MACHINE_CONTROLLER
+  - signature: QEMU_MIGRATION__FIXED_VM_STATE__DIRTY_STREAM_STATE_CONSTRUCTION__STOCK_QMP_DESTINATION
+    canonical_disposition: EXCLUDED_BEFORE_RAW__CURRENT_FEATURE_CONFIGURATION_UNION
+identity_and_scope:
+  five_field_preflight: completed
+  related_is_not_exclusion: true
+  no_match_is_not_novelty: true
+  parallel_R46_used: false
+  held_or_terminal_identities_reopened: false
+  network_security_excluded: true
+resources:
+  resource_actions: 0
+  precise_runtime_statistics: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+manifest: HASH_MANIFEST.sha256
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE
+next_action: mainline_minimal_acceptance_only

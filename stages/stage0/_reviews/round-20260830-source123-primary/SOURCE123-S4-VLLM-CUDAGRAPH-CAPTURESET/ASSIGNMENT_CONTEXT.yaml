@@ -1,0 +1,23 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: STAGE0-PRIMARY-20260830-VLLM-CUDAGRAPH-CAPTURESET, topic_id: SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET, lane_id: STAGE0_PRIMARY, thread_id: 01a034d0-cab5-7de1-8f42-4805bc71b74c, role: STAGE0_PRIMARY}
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+frozen_control:
+  agents: {path: AGENTS.md, sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655}
+  plan: {path: plan.md, sha256: 53A76B471892939E22CF2BD319D7757B5C77BBD63F2E7CFF9DBECD1C64CB45BE}
+  registry: {path: registry.yaml, sha256: AD46E46A5962BFBC755217779B3D1D2166277DA3301FE09832E836452F36A45B}
+  role: {path: rules/ROLE_STAGE0_REVIEW.md, sha256: BC4A6D6D5DE5CEC3DD69A1F8556276F95B405E81773FFC7F4A860B5769CAF2FE}
+  academic_skill: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  deep_research_workflow: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/deep-research/WORKFLOW.md, sha256: 055E902187665C2437D0F41F35E2CC9C11FB5D62A736CF3ED23E44193BD4F029}
+minimum_inputs:
+  control: {path: stages/stage0/_reviews/round-20260830-source123-primary/SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET/control/ASSIGNMENT.yaml, sha256: 857F7EF2EDACEF8141877249A7C3FA6E07A18A9C7C8BDD52266B68AA63DE3759}
+  brief: {path: stages/discovery/round-20260830-strategy-source123/S4-objective-constraint/TOPIC_BRIEF.md, sha256: C8BEE524107DA42554A24DB79843CD3A000E9A14FCC97231DF4DDD0A854EB09E}
+  handoff: {path: stages/discovery/round-20260830-strategy-source123/S4-objective-constraint/handoff.yaml, sha256: 28D3B3FF826AD5007450CE130FF94D34A0528A038BBCD293EA526D1C02DE8E22}
+  manifest: {path: stages/discovery/round-20260830-strategy-source123/S4-objective-constraint/HASH_MANIFEST.sha256, sha256: 524D994EFFA03BF56BCA31AEE04D9F12E9A919BC069D8360727992B6733DEA2C}
+unique_write_directory: stages/stage0/_reviews/round-20260830-source123-primary/SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET
+resource_root: stages/stage0/_reviews/round-20260830-source123-primary/SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET/resources
+bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+forbidden: [search_before_start, judgment_before_start, candidate_implementation, StageA, StageB, shared_write, read_second_queue_topic]
+current_cycle_usage_reset_confirmed: false
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP
+

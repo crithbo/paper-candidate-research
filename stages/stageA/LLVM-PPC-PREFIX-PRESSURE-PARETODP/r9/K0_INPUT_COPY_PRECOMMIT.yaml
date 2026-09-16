@@ -1,0 +1,36 @@
+schema: ppc-r9-k0-input-copy-precommit-v1
+recorded_at: 2026-08-26T07:40:04.7562347+08:00
+recorded_before_copy: true
+copy_attempts_total_max: 3
+automatic_retry: false
+packages:
+  - id: R6_EXACT_CORPUS_PACKAGE
+    source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r6/resources
+    destination: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources/src/r6_input
+    files_expected: 26
+    logical_bytes_expected: 134206
+    accepted_tree_digest: 3CA86BD1AE32C004731C4081354D67FE104C35647C29E79C2A02CF46C5441167
+    attempts_max: 1
+    tool_selected_or_reserve_members_after_copy: false
+  - id: R2_EXACT_PPC_TOOLCHAIN_PACKAGE
+    source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r2/resources/env/ppc-toolchain
+    destination: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources/env/ppc-toolchain
+    files_expected: 133
+    logical_bytes_expected: 244073942
+    package_manifest_sha256: 39CF76C8DA10D645F26789C3FF1A4E3A47839C70DBDAC3D5A4AED73C6792094C
+    attempts_max: 1
+  - id: R8_EXACT_SYNTHETIC_CONTROL_BASE
+    source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r8/resources/src/actual_claim_harness
+    destination: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources/src/r8_synthetic_base
+    files_expected: 5
+    file_hashes:
+      actual_claim_harness.py: B4155CD20EDE6E2F994B69E61B6FC796D70848E4902E1FC1FCAEAA000673A2FE
+      common.py: AE3D836E262DCE667926786688FCAC311CA2C200A08C396CF317BD578C035743
+      r9_plan.py: 01737905323150571777F3AF0BB9BA68BAA6726B89A4A8FC7D109A1472D99F9B
+      run_j1_j6.py: 0369B8E7A9862735D48CE76BC672B8CA55C6E5BCD1B2B81112C5A37BCE4D03AD
+      trace_model.py: BDDCD0D45E925D4913A8F9A85FB197FEECB6454D87B17C0846603610412E86C1
+    attempts_max: 1
+source_modify_or_delete_allowed: false
+selected_or_reserve_corpus_tool_invocations_max: 0
+claim_bearing_runs_max: 0
+network_bytes_max: 0

@@ -1,0 +1,48 @@
+schema_version: build-provenance-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R1-E-ROOT-EXACT-TOOLCHAIN
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+result: FAILED_OFFICIAL_ASSET_REDIRECT_POLICY__NO_SCIENTIFIC_INFERENCE
+exact_source:
+  commit: f127b4c19c63b0492fb924934e37e032c17ea35b
+  tree_sha: 88d475fab6207e256bf6203c6ea0a197e3eedc5e
+  commit_metadata: {bytes: 6641, sha256: E64F34464C58A1356359629FBBE629E40975B494A009AED5821CF0CDF7923492, signature_verified: true, signature_reason: valid}
+  source_archive: {bytes: 280166423, sha256: C7871896611513E3E850818A7E5C6B0C600BE60BA46260105602EB9BFBD651CF}
+  source_archive_safe_member_preflight: NOT_RUN_AFTER_FIRST_BLOCKER
+official_assets:
+  attempts_used: 3/5
+  network_bytes_persisted: 280173064
+  network_bytes_max: 671088640
+  automatic_retry_performed: false
+  commit_metadata: PASS_1_OF_1
+  exact_source_archive: PASS_1_OF_1
+  llvm_mingw: FAIL_1_OF_1_HTTP_302_NOT_FOLLOWED
+  cmake: NOT_ATTEMPTED_AFTER_FIRST_BLOCKER
+  ninja: NOT_ATTEMPTED_AFTER_FIRST_BLOCKER
+  followed_redirects_max: 0
+  redirects_followed: 0
+  observed_unfollowed_redirect_host: release-assets.githubusercontent.com
+long_path_preflight:
+  result: PASS
+  logical_probe_path_characters: 473
+  probe_persisted: false
+  reparse_created: false
+source_extraction: {attempts_used: 0, attempts_allowed: 1, status: NOT_STARTED_PRIOR_ASSET_BLOCKER}
+tool_extraction: {attempts_used: 0, attempts_allowed: 1, status: NOT_STARTED_PRIOR_ASSET_BLOCKER}
+configure: {attempts_used: 0, attempts_allowed: 1, status: NOT_STARTED_PRIOR_ASSET_BLOCKER}
+build: {attempts_used: 0, attempts_allowed: 1, jobs_used: 0, jobs_allowed: 2, status: NOT_STARTED}
+required_outputs:
+  llc.exe: NOT_BUILT
+  llvm-mc.exe: NOT_BUILT
+  llvm-objdump.exe: NOT_BUILT
+  llvm-readobj.exe: NOT_BUILT
+  opt.exe: NOT_BUILT
+  FileCheck.exe: NOT_BUILT
+  ld.lld.exe: NOT_BUILT
+smokes:
+  version_and_registered_targets: NOT_RUN_REQUIRED_OUTPUTS_MISSING
+  generic_ppc64le_mir_machineverifier: NOT_RUN_REQUIRED_OUTPUTS_MISSING
+  generic_power10_mc_object_readobj_objdump_lld: NOT_RUN_REQUIRED_OUTPUTS_MISSING
+ppc_f1_f5_or_direct_witness_started: false
+natural_performance_full_cost_or_claim_run_started: false
+scientific_or_claim_bearing_action_started: false
+

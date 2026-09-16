@@ -1,0 +1,43 @@
+schema_version: discovery-source-handoff-v8.4
+assignment_id: DISCOVERY-S2-20260809-V8.4-WAVE2
+source_lane: DISCOVERY-S2-BOTTLENECK-TRANSFER
+generated_at: 2026-08-09
+cutoff_date: 2026-08-09
+write_directory: 'stages\discovery\round-20260809-v8.4-wave2\S2-bottleneck-transfer'
+method:
+  production_revision: v2/v8.1
+  opportunity_lens: O2_BOTTLENECK_TRANSFER
+  calibration_status: CALIBRATED
+  disallowed_method: two-axis-v8.2r2
+  disallowed_reason: TLS_BLOCKED__NOT_CALIBRATED_FOR_PRODUCTION
+status: COMPLETE_ZERO_PROPOSALS
+lane_status: IDLE_REUSABLE_AWAITING_MAINLINE
+quality_result: BELOW_Q2_STOP
+grounded_brief_count: 0
+stage0_recommendation_count: 0
+examined_lines:
+  - id: NPU-SCHEDULE-LAYOUT-OVERLAP
+    disposition: DROP_DIRECT_FATAL
+    strongest_collision: DAN-Scheduler_2026
+  - id: NPU-RUNTIME-LIFECYCLE
+    disposition: DROP_DIRECT_SUBTRACT
+    strongest_collision: SynapticOS_2026
+  - id: STORAGE-IO-TASK-SCHEDULING
+    disposition: DROP_DIRECT_FATAL
+    strongest_collision: HATS_FAST26_and_CLOUD_BLOCKSTORE_NSDI26
+  - id: MULTITENANT-INFERENCE-OWNERSHIP
+    disposition: DROP_DIRECT_FATAL
+    strongest_collision: Punica_LAPS_SuperInfer_TriInfer
+  - id: PIM-NDP-IO-BOUNDARY
+    disposition: DROP_DIRECT_SUBTRACT
+    strongest_collision: RosenBridge_FAST26
+scope_compliance:
+  primary_or_official_sources_only: true
+  experiments_run: false
+  artifacts_downloaded_or_executed: false
+  stage0_a_b_created: false
+  mainline_files_modified: false
+  writes_outside_assignment_directory: false
+recommended_mainline_action:
+  state_transition_requested: false
+  action: Accept zero-proposal Wave 2; do not create downstream stages.

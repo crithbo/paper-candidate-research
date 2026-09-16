@@ -1,0 +1,29 @@
+schema_version: discovery-handoff-v1
+assignment_id: DISCOVERY-S3-20260824-SOURCE107-SINGLE-GPU-LLM-SOFTWARE-V1
+topic_id: SOURCE107-PORTFOLIO-S3
+lane_id: DISCOVERY_S3
+status: COMPLETE_ZERO_CLEAN_BRIEFS
+canonical_disposition: ZERO_CLEAN_BRIEFS__NO_STAGE0_DISPATCH
+completed_at: 2026-08-24T04:42:00+08:00
+frozen_inputs: {context_sha256: B912FB3D407501C8A37EAE6E539F95219958C197E2F727139E7C45DAC91BD647, bootstrap_ack_sha256: 09BB74669146E866300C7B99D2A6E44334F7ABFE2A9314306DCFBA0CC2A76AAC, control_sha256: F1BE6A196842A5F7EBF5856EDC9E0D3F1D7399CB8C59A14AE11D7B3EF206CC75, assignment_sha256: A4906591EF3946A3C08F9174CB39505429F9DC266342ECF3A8E462F5464D75D4}
+funnel: {non_evidence_seed: 6, selected_rq_candidate: 3, selected_locator: 3, evidence_qualified_raw: 0, candidate_grade_deep_review: 0, clean_stage0_brief: 0, stage0_dispatch: false}
+result_summary:
+  - Existing public routing-locality telemetry/residency work covers the frozen transition-aware placement action.
+  - Current SGLang FusedMoE covers top-k routing, dispatch, permute, grouped GEMM, quantization and runner backends.
+  - Current MoE-Gen/MoE-CAP cover route-aware single-GPU batching and route-dependent cost benchmarking.
+search_boundary:
+  source_policy: PUBLIC_FIRST_PARTY_OR_VERIFIABLE_OPEN_ACADEMIC_ONLY
+  sources: [https://github.com/sgl-project/sglang/blob/main/docs/advanced_features/expert_parallelism.md, https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/layers/fused_moe/routed_experts.py, https://arxiv.org/abs/2608.18261, https://arxiv.org/abs/2503.09716, https://proceedings.neurips.cc/paper_files/paper/2025/file/74bd547997917a20331d6df5e6049d6a-Paper-Datasets_and_Benchmarks_Track.pdf]
+resource_and_scope:
+  crfepoch_stage0_output_or_chat_read: false
+  group_repository_read: false
+  resource_actions: NONE
+  resource_inventory: PRECREATED_EMPTY__NO_RESOURCE_ACTION
+  resource_inventory_path: RESOURCE_INVENTORY.yaml
+  resource_inventory_sha256: 09C9325736BB791DE44089933A6BB630F959296632F44100E2A776CB54590E62
+  system_install: false
+  build_or_candidate_experiment: false
+  claim_bearing_observation: false
+mainline_notification_reason: FINAL_HANDOFF
+next_action: MAINLINE_MECHANICAL_ACCEPTANCE_THEN_LANE_IDLES_OR_RECEIVES_NEW_ASSIGNMENT
+canonical_manifest: HASH_MANIFEST.sha256

@@ -1,0 +1,79 @@
+schema: candidate-preclaim-engineering-correction-assignment-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R5-F2-STOP-AFTER-CORRECTION
+authorization_ids: [USER-PARALLEL-STAGEA-READY-CANDIDATES-20260825, USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825]
+lane_id: CANDIDATE_EXECUTION_LANE_3
+lane_thread_id: 01a034d0-d67f-7f32-ab5f-54454407cb22
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+stage: STAGEA_PRE_CLAIM_CONTRACT_FIDELITY_ENGINEERING_CORRECTION
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r5
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r5/resources
+inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r5/RESOURCE_INVENTORY.yaml
+
+scientific_boundary:
+  exact_object: FIXED_LLVM_MACHINEIR_LIVENESS_X86_64_ABI_UNWIND_APX_TARGET_AND_PROGRAM_SEMANTICS
+  exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+  exact_contract_sha256: 2E96E2FEA58149BD0A73A4AADF359DA642143321D2F740D07CB664A94B865D47
+  candidate: APX_PREFIX_PRESSURE_ORBIT_CANONICAL_PARETO_DP
+  atomic_action: COMPLETE_FINITE_NATIVE_APX_FORM_ALLOCATION_COPY_SPILL_SAVE_FRAME_SCHEDULE_OVER_ONE_BOUNDED_ACYCLIC_TRACE
+  guarantee: EXACT_PARETO_FRONTIER_FOR_FROZEN_BOUNDED_TRACE_GRAMMAR
+  claim_ceiling: PRE_CLAIM_CONTRACT_FIDELITY_GATE_ONLY__NO_NATURAL_OR_PERFORMANCE_CLAIM
+  claim_bearing_observation_allowed: false
+  scientific_revision_consumed_before_assignment: false
+  scientific_revision_or_mechanism_pivot_authorized: false
+  owner_state_transition_authority: false
+  stageb_authorized: false
+
+parent_r4:
+  assignment_id: STAGEA-L3-20260825-LLVM-APX-R4-PRECLAIM-FIDELITY
+  handoff_sha256: C68702A2F8BE7E78B676A8BF31611C52DEE02709DAA02CB3C2432DE95D0E15E3
+  mainline_acceptance_sha256: AB3EC6A7815EFE7DAA8ED9B30A003B4C4B89EEB6741F45ABEC007DDE51398BAF
+  cleanup_receipt_sha256: 3D10EB571F173367F73478A7FAE6CD731CDAC27ACE94791E0B5F78A4DE56C6D5
+  postcleanup_inventory_sha256: 116B9DCFBF1705FB6771080ABD745A2EC660D1E5AE1B55F3E53B3E83A1AAF5C8
+  accepted_result: F0_PASS__F1_PASS__F2_FAIL_CLOSED_ASMPRINTER__F3_F4_NOT_RUN
+  evidence_ceiling: PRECLAIM_CONTROL_ONLY__NO_SCIENTIFIC_INFERENCE
+  claim_bearing_observation_count: 0
+  scientific_revision_consumed: false
+
+same_topic_input_transfer:
+  source_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r4/resources
+  sources:
+    - {source: resources/env/apx-toolchain, destination: resources/env/apx-toolchain, files: 97, logical_bytes: 321690391, manifest_sha256: 0BE2C3F60A6F42886F7951D2887D1A3D936B0E1A26E0C6B9B0B89D421944FB91}
+    - {source: resources/archives/llvm-project-a1194be1baefa99d20a09bd04b16056be0ab7225.tar.gz, destination: resources/archives/llvm-project-a1194be1baefa99d20a09bd04b16056be0ab7225.tar.gz, bytes: 278674752, sha256: F90FFC22BF3B220B726C2E4D7953076520C4188ED4409213AFB9829B98254747}
+    - {source: resources/archives/llvm-commit-a1194be1baefa99d20a09bd04b16056be0ab7225.json, destination: resources/archives/llvm-commit-a1194be1baefa99d20a09bd04b16056be0ab7225.json, bytes: 8174, sha256: 21813151E583064407035F9194C4E85A91ACC41776456803F2B85D8076415E6F}
+    - {source: resources/src/harness, destination: resources/src/harness, files: 3, logical_bytes: 12980, hashes: [523522869EED8CF3A6093360CDD0E1753C21CD5FD6CA8CD5B86313E65999B3CD, 4E26F556BAEAA981D2EFCF80DFCD4B0D46655D9780F81496D60B8BF1402ED243, 4A195725C28A2BC9F5AFD9C2B59C4F68540599C9526C7BD337E419A4AE74BDD0]}
+  source_modify_or_delete_allowed: false
+  cross_topic_access_allowed: false
+  network_allowed: false
+
+immutable_upstream_gate_acceptance:
+  carry_forward_F0: PASS
+  carry_forward_F1: PASS_STATIC_PREFLIGHT
+  r4_native_action_catalog_sha256: 8138129B1C9A90050D25E5B279CEF6231DEC6590331A5371A7F58248236A9C22
+  input_hash_reacceptance_required: true
+  semantic_reinterpretation_of_F0_F1_forbidden: true
+
+single_engineering_correction:
+  classification: COMMAND_MATERIALIZATION_CORRECTION_WITHOUT_WITNESS_OR_SCIENTIFIC_CONTRACT_CHANGE
+  r4_failed_command: llc.exe apx_witness.mir -mtriple=x86_64-unknown -mattr=+ndd,+egpr -start-before=x86-compress-evex -verify-machineinstrs -show-mc-encoding -o -
+  corrected_replay_command: llc.exe apx_witness.mir -mtriple=x86_64-unknown -mattr=+ndd,+egpr -start-before=x86-compress-evex -stop-after=x86-compress-evex -verify-machineinstrs -o replay_after_x86_compress_evex.mir
+  rationale: STOP_AFTER_MIR_PASS_PREVENTS_LATER_ASMPRINTER_MATERIALIZATION__MC_ENCODING_REMAINS_SEPARATE_EXACT_CONTROL
+  witness_content_change_allowed: false
+  target_feature_or_pass_change_allowed: false
+  upstream_source_or_tool_change_allowed: false
+  planned_deterministic_replays: 2
+  automatic_retry: false
+
+ordered_obligations_after_input_reacceptance:
+  F2: [two_fresh_corrected_llc_replays, explicit_MachineVerifier_result, replay_semantic_and_trace_equality, separate_exact_MC_encoding_control, value_and_eflags_equivalence, ABI_CFI_unwind_exception_audit]
+  F3: [complete_candidate_atomic_action, certified_suffix_boundary, cost_multiset_equivalence, complete_native_action_grammar, certificate_checker]
+  F4: [tiny_identical_grammar, labeled_successor_set_equals_quotient, frontier_and_backpointer_exact_equality, two_deterministic_replays, MachineVerifier_for_materialized_outputs]
+  pass_policy: F0_F1_CARRIED_AND_REACCEPTED__F2_F3_F4_ALL_PASS_BEFORE_SEPARATE_CLAIM_ASSIGNMENT
+
+resource_localization: {policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97, required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs], every_write_under_resource_root: true, process_local_redirect_required: true, system_wsl_global_or_reparse_change_allowed: false}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, closeout_event: APX_R5_PRECLAIM_HANDOFF_ACCEPTED, downstream_consumer: FUTURE_SEPARATE_APX_CLAIM_ASSIGNMENT, post_close_retained_bytes_max: 536870912, cleanup_owner: MAINLINE, owner_cleanup_allowed: false}
+limits: {network_bytes_max: 0, resource_root_logical_bytes_max: 2147483648, cpu_seconds_max: 7200, wall_seconds_max: 14400, max_parallel_processes: 2, harness_build_attempts_max: 0, gpu_hours_max: 0}
+allowed_actions: [CREATE_STANDARD_RESOURCE_DIRS, COPY_AND_HASH_ACCEPT_ONLY_FROZEN_R4_SAME_TOPIC_INPUTS, RUN_EXACT_F2_COMMAND_CORRECTION_TWICE_AS_PLANNED, RUN_F3_F4_CONTROL_NON_CLAIM_OBLIGATIONS_IF_F2_PASSES, WRITE_CANONICAL_PRECLAIM_PACKAGE]
+forbidden_actions: [NETWORK, WSL, SYSTEM_OR_GLOBAL_CHANGE, REPARSE, CROSS_TOPIC_ACCESS, SOURCE_OR_TOOL_PATCH, WITNESS_SEMANTIC_EDIT, EXTRA_COMMAND_VARIANT, AUTOMATIC_RETRY, NATURAL_FUNCTION, PERFORMANCE_OR_FULL_COST_CLAIM, SCIENTIFIC_PASS_STOP_RESERVE_INFERENCE, SCIENTIFIC_REVISION, MECHANISM_PIVOT, OWNER_STATE_TRANSITION, OWNER_CLEANUP, STAGEB]
+success_route: PRECLAIM_FIDELITY_PASS__WAIT_SEPARATE_CLAIM_ASSIGNMENT
+failure_route: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE__NEW_MAINLINE_DISPOSITION_REQUIRED
+expected_outputs: [SAME_TOPIC_PRECLAIM_INPUT_ACCEPTANCE.yaml, CORRECTION_PRECOMMIT.yaml, WITNESS_REPLAY.yaml, CERTIFICATE_AUDIT.yaml, ORACLE_EQUIVALENCE.yaml, PRE_CLAIM_CONTRACT_FIDELITY_GATE.yaml, REPRODUCIBILITY_REPORT.yaml, RESOURCE_INVENTORY.yaml, PHASE_CLOSEOUT_RETENTION.yaml, RESUME_CAPSULE.yaml, handoff.yaml, HASH_MANIFEST.sha256]

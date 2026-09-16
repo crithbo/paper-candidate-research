@@ -1,0 +1,83 @@
+schema_version: resume-capsule-v1
+created_at: 2026-08-25T13:29:58+08:00
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-RESUME5-E-ROOT-OFFICIAL-ASSETS
+topic_id: ROCKSDB-DICT-COVER
+stage: STAGEA_RESOURCE_GATE_RESUME_FROM_RESERVE
+capsule_state: RESOURCE_GATE_HANDOFF_READY__MAINLINE_ACCEPTANCE_PENDING
+
+decision: RESOURCE_GATE_READY_FOR_MAINLINE_ACCEPTANCE_AND_SEPARATE_PRECLAIM_ASSIGNMENT
+resource_ready: true
+evidence_ceiling: RESOURCE_VALIDATION_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_inference: NONE
+scientific_revision_consumed: false
+stage_transition_by_owner: false
+
+frozen_control:
+  assignment_context:
+    path: ASSIGNMENT_CONTEXT.yaml
+    sha256: 702F888EC2F0B5C3C7D7529A14D5D6CD1D378E1E3B49D53608C1470ECDF8E631
+  assignment:
+    path: control/ASSIGNMENT.yaml
+    sha256: 56DD67CAE002B23BB161831F645C52A1D27F0F5D7F7462CBD4533B1E28DBF8C3
+  expansion_addendum:
+    path: control/RESOURCE_EXPANSION_ADDENDUM_NVD_2015_2022.yaml
+    sha256: 2441B0DDC597E829E9FAA5175D6E3EA49C93D4C0AD9FB1516E84CDEBA3044C7C
+  frozen_converter:
+    path: resources/src/prepare_manifests.py
+    sha256: E93D8D7A7AB47B2A65751064F5114FCD9E919813F2A7F810123FDCAF7FD7E244
+
+resource_closure:
+  official_asset_count: 20
+  official_asset_complete_count: 20
+  nvd_years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  pypi_projects: [boto3, botocore, django, pandas, numpy, scipy, tensorflow, torch, matplotlib, scikit-learn]
+  attempts: 20
+  retries: 0
+  followed_redirects: 0
+  network_body_bytes: 151659365
+  resource_root_logical_bytes: 213840717
+  manifest_count: 20
+  manifest_closure:
+    path: resources/build/manifest_closure_final.json
+    sha256: 673B96BB41B667111061E9DAB888C4AAF1E3017A28D1196ADD0B546BB3F38EEE
+  final_validation:
+    path: resources/logs/final_validation_summary.json
+    sha256: 9E1A7EAA27EA121D9D44E9B50F03B04ACA6643D7080CCBB6467DC8535F4CE465
+  full_response_metadata:
+    - {path: resources/logs/acquisition_summary.json, sha256: 66940A29A1B772C6620D7E9C5248E8EC0B96261AE055F5C34A1449E7F858155A}
+    - {path: resources/logs/expansion_acquisition_summary.json, sha256: AA8B7B75B0B73C9448E625D6FB9B318C5CB599100633E8600A97F92C86E6666E}
+
+downstream_resume:
+  consumer: STAGEA_ROCKSDB_PRECLAIM_RESUME_AFTER_RESOURCE_PASS
+  next_gate: MAINLINE_ACCEPT_RESOURCE_GATE_AND_FREEZE_SEPARATE_PRECLAIM_ASSIGNMENT
+  exact_input_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/resume5-e-root-official-assets/resources/build/manifests
+  exact_input_index: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/resume5-e-root-official-assets/resources/build/manifest_closure_final.json
+  input_count: 20
+  source_copy_deletion_before_downstream_acceptance_forbidden: true
+  claim_bearing_action_authorized_by_this_capsule: false
+  rocksdb_or_zstd_action_authorized_by_this_capsule: false
+
+lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  post_close_retained_bytes_max: 1610612736
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  cleanup_owner: MAINLINE
+  cleanup_candidate_count: 31
+  cleanup_candidate_bytes: 83835585
+  owner_cleanup_performed: false
+  cleanup_receipt_path: CLEANUP_RECEIPT.yaml
+  cleanup_receipt_exists: false
+  mainline_must_verify: [HANDOFF_ACCEPTED, DOWNSTREAM_INPUTS_ACCEPTED_WHERE_REQUIRED, LITERAL_CONTAINMENT, ZERO_REPARSE, ZERO_ACTIVE_PROCESS, RETAINED_HASHES]
+
+explicitly_not_executed:
+  - ROCKSDB
+  - ZSTD
+  - CANDIDATE
+  - BASELINE_OR_COMPARATOR
+  - SST_CREATION
+  - PRE_CLAIM_GATE
+  - CLAIM_BEARING_RUN
+  - SCIENTIFIC_DECISION
+  - STAGE_TRANSITION
+  - STAGE_B
+  - OWNER_CLEANUP

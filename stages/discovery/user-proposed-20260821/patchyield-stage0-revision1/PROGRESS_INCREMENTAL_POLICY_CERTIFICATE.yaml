@@ -1,0 +1,48 @@
+certificate_id: PATCHYIELD-CALL-REV1-PI-FAIRNESS-FEASIBILITY
+assignment_id: DISCOVERY-S5-20260821-PATCHYIELD-STAGE0-REVISION1
+status: REVISION_GATE_NOT_CLOSED__RETURN_TO_STAGE0_STOP_SENTINEL
+scientific_revision: REVISE_ONCE__CONSUMED_BY_THIS_ASSIGNMENT
+frozen_contract:
+  object: one-H100 OpenHands SWE-bench-Verified complete nonpreemptive next-LLM-call scheduling
+  action: SELECT_NEXT_COMPLETE_NON_PREEMPTIVE_LLM_CALL_FROM_SIMULTANEOUSLY_READY_ADMITTED_SESSIONS
+  batch_capacity_B: 8
+  bypass_cap: 16
+  scope: every_legal_queue_state
+  forbidden_repairs:
+    - change admission or rejection semantics
+    - bound the ready queue by a new external policy
+    - change complete-call or bypass semantics
+    - raise batch capacity
+    - pause_preempt_resume_or_route
+    - relax fairness to an active subset
+legal_state_certificate:
+  state: 25 distinct admitted sessions each have one complete call ready at the same scheduler epoch
+  public_state: identical arrival and ready times; no in-flight call; no sealed result used
+  why_legal: The frozen action grammar permits an arbitrary finite ready set and limits only dispatch-batch membership to B=8.
+counting_proof:
+  dispatch_batches_required: 4
+  first_three_batch_capacity: 24
+  last_call_lower_bound_on_other_calls_dispatched_first: 24
+  required_cap: 16
+  contradiction: 24 > 16
+  conclusion: >-
+    For every policy mapping the frozen state to batches of at most eight calls, at least one of the 25 calls is dispatched only after 24 other-session calls. Its bypass count exceeds sixteen. The result holds before any choice of priority, predictor, progress feature, or tie breaker.
+progress_incremental_mechanism_assessment:
+  permitted_shape: >-
+    A valid mechanism would have needed an explicit public-progress state transition that changes a feasible dispatch reservation, not a scalar score, while preserving the cap.
+  attempted_safe_class: progress-triggered escrow/reservation automaton with a deterministic companion obligation
+  failure_reason: >-
+    A reservation state can choose which calls occupy the first three batches but cannot place 25 complete calls into three batches of capacity eight. It therefore cannot meet the all-legal-state cap without a forbidden contract change.
+  generic_priority_or_aging_not_accepted: true
+checker_specification:
+  input: ready call records and B=8
+  deterministic_check: >-
+    Enumerate all selected batches from a policy trace; for each ready call count calls in prior batches. Reject if any count exceeds 16.
+  finite_counterexample: 25 identical ready calls; any trace with batches of size at most 8 is rejected for the final batch.
+  executable_but_not_run: true
+guarantee_status:
+  bounded_bypass_all_legal_states: IMPOSSIBLE_UNDER_FROZEN_CONTRACT
+  monotonic_progress_claim: NOT_ADMISSIBLE
+  feasibility_or_competitive_or_regret_claim: NOT_ADMISSIBLE
+return_target: BELOW_Q2_STOP__GENERIC_PRIORITY_OR_EXISTING_FAIR_LLM_APPLICATION_SCHEDULING
+claim_ceiling: static_contract_feasibility_only__no_PASS_STOP_or_stage_transition

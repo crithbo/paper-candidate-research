@@ -1,0 +1,24 @@
+schema: assignment-resource-preflight-v1
+assignment_id: DISCOVERY-S6-20260822-COUPLED-AGENT-REPLAY-DISCOVERY2
+resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-replay-rev0-discovery2\resources
+required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+process_local_redirection:
+  TEMP: resources/tmp
+  TMP: resources/tmp
+  TMPDIR: resources/tmp
+  global_environment_modified: false
+planned_resource_actions:
+  - bounded public official/primary metadata and source-locus lookup
+prohibited_resource_actions:
+  - model_weights
+  - task_images_or_containers
+  - source_clone
+  - build
+  - experiment
+  - system_install
+result: PASS__READY_FOR_BOUNDED_READ_ONLY_RETRIEVAL
+validation_after_directory_creation:
+  resource_root_under_workspace: true
+  reparse_points_found: 0
+  required_directories_present: true
+  persisted_resources_inventoried: true

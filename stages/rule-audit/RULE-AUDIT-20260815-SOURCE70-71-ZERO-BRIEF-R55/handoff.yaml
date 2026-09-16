@@ -1,0 +1,38 @@
+audit_id: RULE-AUDIT-20260815-SOURCE70-71-CONSECUTIVE-ZERO-BRIEF-R55
+role: RULE-AUDIT-SENTRY
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+decision: NO_CHANGE
+recommendation: RETAIN_ORDINARY_R40__NO_SUCCESSOR_MICRO_RULE__KEEP_CURRENT_UNION_PAPER_OWNED_AND_GENERIC_ABSTRACTION_SEPARATION
+contract:
+  path: stages/rule-audit/_assignments/RULE_AUDIT_SOURCE70_71_ZERO_BRIEF_R55.yaml
+  sha256: AC82B4F7A467A0D9353FBFB23C29BD92AFE9C025CF98B287A885C365D7D7A377
+scope:
+  included: [Source70 canonical control and telemetry, Source71 canonical control and telemetry, current shared rules]
+  explicitly_excluded: [Source72 files outcomes and state, external retrieval download and queue execution, experiments automation and all Stage work]
+canonical_inputs:
+  source70_control_sha256: 9EC541B9F54282A740CB0B90516706C1AF844AC8C8F74E6395B98BE85A68CC0D
+  source71_control_sha256: 58B5718474926B1CFED59EBB2116BB6F8C1B5D355BBB62ECC784C977C2905067
+funnel_counts:
+  source70: {admitted_raw: 0, clean_stage0_brief: 0}
+  source71: {admitted_raw: 0, clean_stage0_brief: 0}
+findings:
+  source71_new_attributable_rule_evidence: false
+  healthy_abstentions: [no exact anchor, current union, changed guarantee, paper-owned constructor, generic packing, generic abstract-interpretation kernel]
+  rule_defect_observed: false
+authorization:
+  user_policy_approval_required: false
+  backtest_required: false
+  mainline_shared_patch_required: false
+  shared_files_modified: false
+  source72_read: false
+  queue_or_external_action_authorized: false
+mainline_action:
+  - Continue ordinary R40 only at a later safe assignment boundary.
+  - Do not add a successor micro-rule from Source70–71 zero-brief evidence.
+resource_localization: {inventory: RESOURCE_INVENTORY.yaml, resource_action: NONE, validation: PASS__EMPTY_ROOT_NO_RESOURCE_ACTION}
+validation:
+  required_files_present: PASS
+  key_counts_consistent: PASS__SOURCE70_0_0__SOURCE71_0_0
+  scope_respected: PASS__SOURCE72_NOT_READ
+  prohibited_actions_absent: PASS
+  manifest_replay: PASS__5_OF_5

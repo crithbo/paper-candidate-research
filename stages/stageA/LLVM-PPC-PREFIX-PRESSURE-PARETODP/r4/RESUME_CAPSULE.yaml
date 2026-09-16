@@ -1,0 +1,47 @@
+schema: ppc-r4-preclaim-resume-capsule-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R4-GLOBAL-MODIFIER-ORDER-CORRECTION
+capsule_state: OWNER_FINALIZED_WAITING_MAINLINE_ACCEPTANCE
+immutable_failure_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r4
+authorized_r4_correction_completed:
+  global_substitutions: 2/2
+  corrected_sha256: 77A92601566F1CD5190B0FD5892EE62C295E00F64AC018BF5782B965DC268F3E
+  bytes: 2972
+  additional_edit_allowed: false
+first_failure:
+  stage: F2_LLC_MIR_EMISSION
+  tag: replay1.llc.mir_emit
+  exact_error: "ppc_union_input.ll:6:15: error: expected type"
+  failing_construct: "define hidden dso_local"
+  observed_occurrences: 5
+  retry_performed: false
+completed_before_failure:
+  - exact r3 same-topic copy/hash acceptance 3774/3774
+  - one authorized source edit with two exact global substitutions
+  - corrected hash/bytes/function-count gate
+  - fresh replay1 F1 assembler/readobj/objdump/lld/linked-readobj/linked-objdump
+not_started:
+  - MachineVerifier
+  - fresh replay2
+  - F3 complete equal-information union
+  - F4 tiny oracle execution and checking
+  - F5 complete tiny full-cost control
+minimum_resume_inputs:
+  - SAME_TOPIC_INPUT_ACCEPTANCE.yaml
+  - IR_SYNTAX_CORRECTION_PRECOMMIT.yaml
+  - resources/src/harness/ppc_union_input.ll
+  - resources/src/harness/run_preclaim.py
+  - resources/env/ppc-toolchain/PACKAGE_MANIFEST.json
+  - resources/logs/preclaim/first_failure.json
+  - resources/logs/preclaim/replay1.llc.mir_emit.stderr.txt
+potential_mechanical_route_requiring_new_mainline_freeze: reorder_exact_five_function_modifiers_from_define_hidden_dso_local_to_define_dso_local_hidden
+potential_route_executed_or_hash_simulated_in_r4: false
+resume_constraints:
+  new_assignment_and_new_directory_required: true
+  overwrite_or_retry_r4_forbidden: true
+  exact_new_edit_and_expected_hash_must_be_frozen_by_mainline: true
+  network: 0
+  no_natural_or_claim_run: true
+  no_state_transition_or_stageb: true
+next_owner: MAINLINE
+scientific_inference: NONE
+

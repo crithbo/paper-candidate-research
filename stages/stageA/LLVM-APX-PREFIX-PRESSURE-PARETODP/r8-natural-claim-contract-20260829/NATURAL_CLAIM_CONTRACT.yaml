@@ -1,0 +1,75 @@
+schema: apx-r8-natural-claim-contract-freeze-v1
+assignment_id: STAGEA-L3-20260829-LLVM-APX-R8-NATURAL-CLAIM-CONTRACT-FREEZE
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_3
+contract_status: FROZEN_CONTRACT_ONLY__NOT_EXECUTION_AUTHORIZATION
+exact_object: FIXED_LLVM_MACHINEIR_LIVENESS_X86_64_ABI_UNWIND_APX_TARGET_AND_PROGRAM_SEMANTICS
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+claim_ceiling: CONTRACT_FREEZE_ONLY
+evidence_ceiling: NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+authorization:
+  bootstrap_acceptance_sha256: 5C438C71174E57794F6610A41A07CF0785FDABAD72EEA3DCE923512B39C17762
+  start_authorization_sha256: 0EB3975068501013AB3C25E39315CC17762CDE26BFECDE45C4C388C72045246E
+  permitted_in_this_assignment: [freeze_exact_natural_claim_contract_and_plan, write_assignment_local_handoff_manifest]
+  prohibited_in_this_assignment: [network, resource_creation, tool_run, selected_or_reserve_run, natural_run, claim_run, stageb, shared_state_change]
+upstream_preclaim:
+  a4_handoff_sha256: 52681F08A555FDF32FEAE33A9EFAA839EB88F58834485D4ED8D8F28D0EE68750
+  independent_gate_sha256: 3A9CD7B16385896604C6353FB287E61992CEA59F539D36B20F73E8EFD6878186
+  preclaim_gate_sha256: FA63765D5184EF19D4766851F1B5AA3E92FEDE29906E158BEEA063F98958D3B3
+  result: ACCEPT_PRECLAIM_FIDELITY_ONLY
+candidate_and_semantics:
+  candidate: {path: A4/resources/src/apx_tpd/apx_tpd_r7c.py, sha256: FC1E6CB729A5F6693A6264C5B0DDFD24C73129638419278E879705C676C10FF1, algorithm: ORBIT_CANONICAL_PER_ACTION_DP}
+  row_driver: {path: A4/resources/src/apx_tpd/apx_r8_row_driver.py, sha256: B042EC1F1C1EDF993DE57EE6C28A34F4766252941D6AB7BF1041E51819DA750E}
+  action_contract: {path: A4/resources/src/apx_tpd/catalog_contract.json, sha256: BC129B73FC7FABC488C3B4A52C41737EFBE398000542AC2CDCD382E5337CC6CA}
+  tiny_legality_witness: {path: A4/resources/src/apx_tpd/tiny_trace.json, sha256: AD7F2DBE3F19DFFCD1EB0C3B4FDF80DCDDA7DCC71BACC769FCF40AF022F57910}
+  independent_oracle: {path: A4/resources/logs/control/r7c/independent_oracle.json, sha256: 72CCF48830B7A2D73BA888BD86AC979A46F7094E6B022DAB8FBE4D26D886329A, result: PASS, unique_rows: 26}
+  tiny_preclaim: {path: A4/resources/logs/control/r7c/preclaim.json, sha256: B0BFB908A15D34430C9EF18CAF0270B2AD11FDCF3719D526EEF03F49108BD1A3, result: PASS}
+frozen_corpus:
+  freeze_receipt: {path: A4/resources/logs/corpus/r7c_same_object_freeze.json, sha256: 6BA23BBF400EE7AB3D04B0313E9493DC6C559B33DDF73B770648879721E7CEB3}
+  precommit_sha256: DC91F3EB503875F7142A9B5FE26C17D7552C7B7215AD5DBAF60E81B7AD0C9D53
+  selector_sha256: FC1E6CB729A5F6693A6264C5B0DDFD24C73129638419278E879705C676C10FF1
+  eligible_static_candidates: 44
+  result_independent: true
+  selected:
+    - {id: S01, member: llvm/test/CodeGen/X86/apx/and.ll, sha256: 8FCB0455C1F2D73F992C67003B1A03B1D2EE024005DF5D0FC79EBB8425E32861, identity: and8rr, eligibility_receipt_sha256: F9508016EA9A40028A7F919D18E95EA59AF5A3960C342A793A106507D2D22779}
+    - {id: S02, member: llvm/test/CodeGen/X86/apx/neg.ll, sha256: FFB56115E7895DFD6404939FC59E8DA71D93BACF36F5B8D7211F9A96FFB08037, identity: neg8r, eligibility_receipt_sha256: 26A7359512B652535B1CB0E97C3585F831E94A8A27CB6AFB76F2A78BA701526F}
+    - {id: S03, member: llvm/test/CodeGen/X86/apx/ctest.ll, sha256: 4293426EBB97473D4A56499CB3F18A3C9A6300170E4DA7F9ECBFDB1F1726BBA1, identity: ctest8rr_zf, eligibility_receipt_sha256: E5970DDF5E7394D73C9EC6691F7D9950429A45175A1EDB4166124F1B08C0F605}
+    - {id: S04, member: llvm/test/CodeGen/X86/apx/asm-constraint.ll, sha256: A44D49A47C34CCE86BB4952F42F6C557230A669BEC950DACDD856F9D133E0776, identity: q, eligibility_receipt_sha256: 4C82F46E21A402018E95329D286CAB347CF8EBC7F6852EC76AC2C0EFAEAC9D4F}
+    - {id: S05, member: llvm/test/CodeGen/X86/apx/long-instruction-fixup.ll, sha256: F54194215D5CAAF12592860E2A7D531386E18E538BC2F58ED1218253EEC052EE, identity: add32mi_GS, eligibility_receipt_sha256: 6B0C172C3114452651EBD2C50AAB8054AD42CC79AEEC78554079B36E598E755C}
+    - {id: S06, member: llvm/test/CodeGen/X86/apx/shr.ll, sha256: 547A63172E06DE069E64A111F28C6BBAD2E98A25A5451A99825C1F58B9B25DD0, identity: shr8m1, eligibility_receipt_sha256: 4FDF4472531D4F57825EFA08F521150D358122F5147EEE4096C47F711732E48C}
+    - {id: S07, member: llvm/test/CodeGen/X86/apx/tls.ll, sha256: 3E4BA071D90EB9D034654AD6B56B08A4D3BBB7716500D6CA7AEC39D2143F00BD, identity: f2, eligibility_receipt_sha256: 02990FB6C1BCAF56ED899FCB04DFAB1134355B0ACEA38FC2F3A49ACB9056D14A}
+    - {id: S08, member: llvm/test/CodeGen/X86/apx/inc.ll, sha256: BE4562E198B6C2D3D886454E4D9BBEF362ED54DD3595B4C8C5CC5CA0FE44E2CD, identity: inc8r, eligibility_receipt_sha256: 9A7D4BB2A80ADB5F16A0030E711185A9E5C73906BB59896FA68987237953997E}
+    - {id: S09, member: llvm/test/CodeGen/X86/apx/asm-constraint-2-jR.ll, sha256: 6573E274E0E927A942A6A8D67AA0E252BAF1E652B970978F4B5AA3B4ECC2515A, identity: constraint_jR_test, eligibility_receipt_sha256: 640953A95E92D86A939731F941A70AE82291DA7828097E36CDA382BF3C90DE53}
+    - {id: S10, member: llvm/test/CodeGen/X86/apx/asm-constraint-1-jr.ll, sha256: CDC47F8BA78F77C66A0B1A0DDB284991C962DC8633CC7EDC7D3E6790BBEAF6D2, identity: constraint_jr_test, eligibility_receipt_sha256: 27FC0D5A8C738F14792F9ABE4697D74BADCEB271AF86D669F778FFC552998197}
+    - {id: S11, member: llvm/test/CodeGen/X86/apx/add.ll, sha256: 957CE7DA0206D91867D7B282FBA01DA192FE3C870A36FE3D3268A839EFEDE7B9, identity: add8rr, eligibility_receipt_sha256: D11842E44BE42E8244CBBFE711946188BD7FE16D9E2ECFB99A33FDD959EFCE45}
+    - {id: S12, member: llvm/test/CodeGen/X86/apx/pr190557.ll, sha256: 089A45E870ED277867F87EDD93748932F2E8D0641561AF497C4CCD638BA4A7B0, identity: ndd_fold_twoaddr, eligibility_receipt_sha256: DBC50244010ED718E5255E58C0860576320EC684831F094EF351F2DA50A4A322}
+    - {id: S13, member: llvm/test/CodeGen/X86/apx/shift-eflags.ll, sha256: 19BB973C3E728E64332CE9DEA36D0B0C3FFB67F1B279A5ED9E0417F064FA267B, identity: ashr_const, eligibility_receipt_sha256: 853D06C3B9817605256FBB0CE286813278369E789EA4BA9DD42BD032982C18FA}
+    - {id: S14, member: llvm/test/CodeGen/X86/apx/adc.ll, sha256: CB4FDCEBE338CA3EEA7EFC7832C1E406EB951E0EDE1D9C719C4E4AB0C136A297, identity: adc8rr, eligibility_receipt_sha256: 06B5C6F3B1A4F95B74EC4B4B957CC8768A85BEE995358B1384E4717895E3DB1D}
+    - {id: S15, member: llvm/test/CodeGen/X86/apx/long-instruction-fixup-x32.ll, sha256: 170DFE7F79F3C6299996D8FFB6A911A330DA2EE5421140EC8E8E28AB427DAF6E, identity: add32mi_SIB_ADSIZE, eligibility_receipt_sha256: 22242A63757FC81DE00BE3624E92C84F52A11BFBC98AA3A54FF811036E6B4582}
+    - {id: S16, member: llvm/test/CodeGen/X86/apx/sub.ll, sha256: 20D04522933DFA9FD543F9BAE17C266339A8C94953A61787ED696A588E4A314D, identity: sub8rr, eligibility_receipt_sha256: 2DB6E011B040DA2AA8C70875B84AD5AD169DA233C84E2212289533C053EBC0ED}
+  reserve:
+    - {id: R01, member: llvm/test/CodeGen/X86/apx/ndd-neg-addr-index.ll, sha256: 1DF5C89974EE3567A0BCB43FE66CDD7947C589039A03DAB8D71130E0C075BFBF, identity: neg_8bit_1, eligibility_receipt_sha256: 8618E999F40588C7EC03FAB91EAA9DE38153BB20D635981A15FDD9B2605A6284}
+    - {id: R02, member: llvm/test/CodeGen/X86/apx/kmov-isel.ll, sha256: 88808844000B1DE80A57092DF8DF2E548C5978FFE3EC6FC596DC66F2CD560E38, identity: bitcast_16i8_store, eligibility_receipt_sha256: D9C5D83BC25D2172AFCDBEE2B046DEE0188E060B0138FD2218CDAF4C78A6BCBA}
+    - {id: R03, member: llvm/test/CodeGen/X86/apx/shrd.ll, sha256: 788519414D0333C92CC64C578F6443FC7F58B3729BECB51B7641715EF518CCAA, identity: shrd16rrcl, eligibility_receipt_sha256: AFEA4457E8CEA8D1B63946C99819F11C8C8530F372EC5239A8BC724C72695B85}
+    - {id: R04, member: llvm/test/CodeGen/X86/apx/no-rex2-pseudo-amx.ll, sha256: 6BBB3546D2D324C48299A92237DC5ACDE61691AE3FE2C229F83CBC93A439C7A0, identity: amx, eligibility_receipt_sha256: A84CA19FD0FF8CA4CA042ED2A48D7F703C59077FC3054902D59EA34DEB054409}
+baseline_and_full_cost_contract:
+  native_baselines: [llvm_current_complete, llvm_finite_tuning_grid]
+  exact_algorithmic_comparators: [labeled_pareto_dp, generic_exact_subtractor, independent_micro_oracle]
+  candidate: orbit_candidate
+  per_row_check: checker
+  full_cost_dimensions: [bytes, prefix_bytes, copies, spill_reloads, save_restores, frame_cfi, persisted_files, persisted_bytes, cpu_seconds, peak_rss, compile_and_verification_cost]
+  comparator_omission_allowed: false
+  denominator: EXACT_16_SELECTED_X_TWO_REPLAYS
+  reserve_backfill_allowed: false
+  automatic_retry_allowed: false
+legal_witness:
+  required_per_row: [same_object_trace, input_hash, function_or_test_identity, eligibility_receipt, checker_equal_candidate_labeled_generic_oracle, native_arms_separate]
+  frozen_tiny_witness_result: PASS
+execution_preconditions_for_future_assignment:
+  - mainline_must_issue_separate_execution_assignment_and_start
+  - exact_A4_inputs_must_be_copied_or_hash-accepted_into_future_resource_root
+  - toolchain_and_llc_path_must_be_hash-accepted_without_substitution
+  - all_32_rows_must_retain_byte-identical_argv_from_NATURAL_CLAIM_PLAN
+  - first_nonzero_or_contract_mismatch_stops_without_retry_or_reserve_backfill
+scientific_or_resource_action_started: false
+scientific_inference: NONE

@@ -1,0 +1,25 @@
+schema: checker-correction-precommit-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R6-UINT32-CHECKER-PORTABILITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+written_at: 2026-08-26T01:09:37.1845212+08:00
+start_authorization_sha256: B75A772DC2804120F3DD638D34B968D4A8D7F274A94E93FABE1C70C31C5A25C0
+control_sha256: F7586EF9A4BF6FEF8CCF18FDC747BA22F895A0400E78BBD627682D7E00806E28
+classification: ASSIGNMENT_LOCAL_UINT32_PORTABILITY_AND_RUNNER_EXIT_DETECTION_ONLY
+checker:
+  path: resources/src/harness/orbit_pareto.ps1
+  original_sha256: 4A195725C28A2BC9F5AFD9C2B59C4F68540599C9526C7BD337E419A4AE74BDD0
+  edit_count_max: 1
+exact_patch_scope:
+  - replace signed hexadecimal UInt32 casts with decimal positive constants 4294967295, 2147483648, 255 and 16
+  - preserve exactly semantic samples [0,1,2,2147483647,2147483648,4294967295,1431655765,2863311530]
+  - implement overflow as sign_x_equals_sign_y_and_sign_result_differs
+  - add explicit terminating-error trap with nonzero process exit
+  - add exit-detection negative-control switch returning fixed nonzero code 73 before checker logic
+  - add a fixed assignment-local runner that captures child exit code, requires first result PASS before second planned replay, and checks exact hashes
+forbidden_patch_scope: [sample_change, flag_change, action_grammar_change, cost_change, contract_change, witness_or_mir_change, tool_change, llc_or_mc_rerun, second_checker_edit]
+negative_control_expected_exit: 73
+planned_checker_replays: 2
+second_replay_gate: FIRST_EXIT_ZERO_AND_FIRST_OUTPUT_RESULT_PASS
+automatic_retry: false
+extra_variant: false
+result: PRECOMMITTED_BEFORE_PATCH

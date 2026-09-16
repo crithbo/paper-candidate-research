@@ -1,0 +1,31 @@
+schema: DIVERGENCE_SEED_V1_PACKER_BLOCKER_V1
+assignment_id: BACKTEST-PACKER-L1-20260814-DIVERGENCE-SEED-FRONTEND-V1
+status: FAILED_NOT_DISPATCHABLE__CONTROL_VERSION_MISMATCH__NO_SCIENTIFIC_INFERENCE
+detected_at: 2026-08-14T00:00:00+08:00
+trigger:
+  corrigendum_path: ../control/CONTROL_CORRIGENDUM_001.yaml
+  corrigendum_sha256: CA44734AF26E1C3CE79B82B674E5E9B0849C056F3472B8ECC195B3167864CB16
+  instruction: FAIL_CLOSED_IF_ANY_PACKET_OR_SEMANTIC_CASE_SELECTION_WAS_FROZEN_UNDER_OLD_HASHES
+pre_corrigendum_state:
+  semantic_case_selection_existed: true
+  selected_case_count: 4
+  intended_positive_count: 3
+  intended_negative_control_count: 1
+  executor_packet_sealed: false
+  executor_case_cards_written: false
+  manifest_written: false
+  frozen_primary_or_official_artifact_files: 15
+  frozen_metadata_files: 12
+  frozen_file_bytes_before_blocker: 17164991
+  source_freeze_status: PRESERVED_UNCHANGED
+old_control_hashes_used_when_selection_began:
+  divergence_seed_pool_template: 095D60B4977D3AE9047BC94891C692CCD0498D28541217A3760C4FEBCB3A7422
+  source_review: 12912C9CCE102F68E49DA3CF018991DC1E718A24AE05E6A2D4171A9C1E02E759
+required_user_or_mainline_action: CREATE_A_CLEAN_REPLACEMENT_ASSIGNMENT_OR_EXPLICITLY_AUTHORIZE_A_FRESH_SELECTION_BOUNDARY
+prohibited_hereafter:
+  - do_not_modify_pre_corrigendum_artifacts
+  - do_not_mix_old_and_new_template_hashes
+  - do_not_seal_or_dispatch_executor_packet
+  - do_not_execute_or_score_method
+scientific_interpretation: NONE__CONTROL_PLANE_VERSION_BOUNDARY_ONLY
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

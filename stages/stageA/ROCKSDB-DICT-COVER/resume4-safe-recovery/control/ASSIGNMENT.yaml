@@ -1,0 +1,69 @@
+schema: candidate-safe-resource-recovery-assignment-v1
+assignment_id: SAFE-RECOVERY-L3-20260815-ROCKSDB-NVD-PYPI-RESUME4
+authorization_id: USER_AUTONOMOUS_SAFE_BLOCKER_RECOVERY_20260815
+lane_id: CANDIDATE_EXECUTION_LANE_3
+task_id: 019fe603-a460-71d0-9631-2a0665780ce5
+topic_id: ROCKSDB-DICT-COVER
+stage: STAGEA_RESOURCE_GATE_RESUME
+write_directory: stages/stageA/ROCKSDB-DICT-COVER/resume4-safe-recovery
+prior_handoff: stages/stageA/ROCKSDB-DICT-COVER/resume3/handoff.yaml
+prior_blocker: stages/stageA/ROCKSDB-DICT-COVER/resume3/USER_BLOCKER_PACKET.md
+role_rule: rules/ROLE_CANDIDATE_OWNER.md
+role_rule_sha256: A703F21B9F33EE341A942501948BC313FACC9D0BAB15F3EE943FC590B65BF519
+resource_policy: rules/RESOURCE_LOCALIZATION.md
+resource_policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+exact_object: FIXED_SORTED_KV_MANIFEST_TO_ONE_STANDARD_DICTIONARY_COMPRESSED_ROCKSDB_BLOCKBASEDTABLE_SST
+scope: RESOURCE_ACQUISITION_HASH_SCHEMA_AND_UNMODIFIED_CONVERTER_SMOKE_ONLY
+scientific_revision_consumed: false
+claim_bearing_execution_allowed: false
+stage_state_transition_authority: false
+stageb_authorized: false
+
+resource_localization:
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\ROCKSDB-DICT-COVER\resume4-safe-recovery\resources
+  inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\ROCKSDB-DICT-COVER\resume4-safe-recovery\RESOURCE_INVENTORY.yaml
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirect_required: true
+  prior_resource_directories: READ_ONLY
+
+official_nvd_assets:
+  - id: NVD_2023_CVE_JSON_2_0
+    url: https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2023.json.gz
+  - id: NVD_2024_CVE_JSON_2_0
+    url: https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2024.json.gz
+official_pypi_projects: [boto3, botocore, django, pandas, numpy, scipy, tensorflow, torch, matplotlib, scikit-learn]
+pypi_url_rule: https://pypi.org/pypi/{project}/json
+
+transport:
+  allowed_tools: [DOTNET_SYSTEM_NET_HTTP_HTTPCLIENT, POWERSHELL_INVOKE_WEBREQUEST, BUNDLED_WORKSPACE_PYTHON_HTTPS_IF_AVAILABLE]
+  tls_policy: PLATFORM_DEFAULT__NO_CERTIFICATE_OR_PROTOCOL_BYPASS
+  per_asset_attempt_limit: 1
+  total_network_attempt_limit: 12
+  persist_only_complete_responses: true
+  required_validation: [HTTP_SUCCESS, CONTENT_LENGTH_IF_PRESENT, SHA256, GZIP_FULL_STREAM_FOR_NVD, JSON_PARSE, SCHEMA_AND_IDENTITY_CHECK]
+
+limits:
+  max_single_download_bytes: 67108864
+  max_cumulative_download_bytes: 134217728
+  max_new_persisted_bytes: 536870912
+  max_cpu_seconds: 1800
+  max_wall_seconds: 3600
+  max_parallel_heavy_processes: 1
+
+allowed_actions:
+  - READ_PRIOR_IMMUTABLE_RESOURCE_PACKAGES
+  - ACQUIRE_THE_TWELVE_EXACT_OFFICIAL_ASSETS
+  - HASH_AND_VALIDATE_ASSETS
+  - COPY_UNMODIFIED_FROZEN_CONVERTER_INTO_NEW_ASSIGNMENT_RESOURCES
+  - RUN_NON_CLAIM_BEARING_CONVERTER_READ_SMOKE_AND_20_MANIFEST_CLOSURE
+  - WRITE_RESOURCE_LEDGER_REPORT_HANDOFF_AND_MANIFEST
+forbidden:
+  - OVERWRITE_PRIOR_DIRECTORIES
+  - UNOFFICIAL_MIRROR
+  - TLS_CERTIFICATE_OR_ACCESS_BYPASS
+  - SYSTEM_INSTALL_OR_GLOBAL_ENVIRONMENT_CHANGE
+  - ROCKSDB_OR_ZSTD_CANDIDATE_BASELINE_OR_SST_EXPERIMENT
+  - CLAIM_BEARING_OBSERVATION
+  - SCIENTIFIC_PASS_STOP_RESERVE_OR_STAGE_TRANSITION
+success_route: RESOURCE_GATE_READY_FOR_SEPARATE_MAINLINE_REVIEW__NO_AUTOMATIC_CLAIM_RUN
+failure_route: BLOCKED_USER_ACTION_REQUIRED__RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE

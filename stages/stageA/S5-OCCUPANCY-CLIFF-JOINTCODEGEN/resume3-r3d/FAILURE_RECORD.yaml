@@ -1,0 +1,30 @@
+schema_version: s5-r3d-failure-record-v1
+failure_class: PRECLAIM_TOOLCHAIN_DATA_COMPATIBILITY
+status: BLOCKED_USER_ACTION_REQUIRED
+occurred_before_claim: true
+claim_bearing_observations: 0
+scientific_revision_consumed: false
+scientific_inference_allowed: false
+primary_failure:
+  gate: NATURAL_COMPLETE_MIR_SET
+  required: 8_TO_16_COMPLETE_NATURAL_AMDGPU11_PRE_SCHEDULER_MIR_WITH_AT_LEAST_8_NATURAL_SOURCE_DIRECTORIES
+  achieved_device_ir_directories: 5
+  achieved_complete_mir_witnesses: 1
+  exact_error_classes:
+    - Windows MinGW LLP64 conflicts with upstream HIP non-MSVC LP64 static assertions in amd_warp_functions.h
+    - MSVC target requires unavailable vcruntime_exception.h and MSVC SDK headers
+    - Linux target cannot use the registered Windows C/C++ bootstrap ABI
+    - HIP RTC route intentionally omits host runtime API and cannot compile full examples containing unguarded host code
+forbidden_workarounds_not_used:
+  - patching HIP or ROCm example source
+  - defining fake MSVC or HIP API macros
+  - removing host code from full examples
+  - splitting one natural example to inflate the trace count
+  - using LLVM regression MIR as natural input
+resource_successes:
+  exact_llc: true
+  exact_filecheck: true
+  exact_llvm_calc_occupancy: true
+  exact_clang: true
+  official_rocm_examples_commit: true
+  small_witness_legality: true

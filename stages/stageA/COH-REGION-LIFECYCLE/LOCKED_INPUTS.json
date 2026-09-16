@@ -1,0 +1,101 @@
+{
+  "schema_version": "coh-rl-analytical-input-v1",
+  "contract_id": "COH-RL-A1-ATS-TRACE-20260809",
+  "normalization": "copy-equivalent byte units; unchanged compute excluded",
+  "grid": {
+    "remote_per_byte": [0.2, 0.4, 0.8, 1.6],
+    "migration_per_byte": [0.7, 1.0, 1.3],
+    "prefetch_per_byte": [0.7, 0.9, 1.1],
+    "explicit_copy_per_byte": [0.8, 1.0, 1.2],
+    "system_alloc_per_byte": [0.002, 0.01],
+    "managed_alloc_per_byte": [0.01, 0.03],
+    "device_alloc_per_byte": [0.01, 0.03],
+    "fixed_action_overhead_bytes": [6553.6, 65536.0],
+    "planner_overhead_fraction": [0.0005, 0.005]
+  },
+  "system_access_counter_delay_passes": 4,
+  "programs": [
+    {
+      "id": "ALTIS_PATHFINDER_SIZE1",
+      "source_commit": "042e2926d1fe9a5ea5b3e2d659b75bf925b152cc",
+      "regions": [
+        {
+          "id": "wall_immutable",
+          "bytes": 268402688,
+          "cpu_initialized": true,
+          "gpu_initializer_legal": false,
+          "gpu_passes": 1.0,
+          "hot_fraction": 0.0,
+          "final_cpu_fraction": 0.0,
+          "cpu_gpu_round_trips": 0
+        },
+        {
+          "id": "seed_row",
+          "bytes": 32768,
+          "cpu_initialized": true,
+          "gpu_initializer_legal": false,
+          "gpu_passes": 1.0,
+          "hot_fraction": 0.0,
+          "final_cpu_fraction": 0.0,
+          "cpu_gpu_round_trips": 0
+        },
+        {
+          "id": "ping_pong_state",
+          "bytes": 65536,
+          "cpu_initialized": false,
+          "gpu_initializer_legal": true,
+          "gpu_passes": 4095.5,
+          "hot_fraction": 1.0,
+          "final_cpu_fraction": 0.5,
+          "cpu_gpu_round_trips": 1
+        }
+      ]
+    },
+    {
+      "id": "ALTIS_BFS_65536",
+      "source_commit": "042e2926d1fe9a5ea5b3e2d659b75bf925b152cc",
+      "regions": [
+        {
+          "id": "graph_nodes_immutable",
+          "bytes": 524288,
+          "cpu_initialized": true,
+          "gpu_initializer_legal": false,
+          "gpu_passes": 1.0,
+          "hot_fraction": 0.0,
+          "final_cpu_fraction": 0.0,
+          "cpu_gpu_round_trips": 0
+        },
+        {
+          "id": "graph_edges_immutable",
+          "bytes": 1311060,
+          "cpu_initialized": true,
+          "gpu_initializer_legal": false,
+          "gpu_passes": 1.0,
+          "hot_fraction": 0.0,
+          "final_cpu_fraction": 0.0,
+          "cpu_gpu_round_trips": 0
+        },
+        {
+          "id": "frontier_visited_cost",
+          "bytes": 458752,
+          "cpu_initialized": true,
+          "gpu_initializer_legal": true,
+          "gpu_passes": 16.0,
+          "hot_fraction": 1.0,
+          "final_cpu_fraction": 0.5714285714,
+          "cpu_gpu_round_trips": 1
+        },
+        {
+          "id": "continuation_flag",
+          "bytes": 1,
+          "cpu_initialized": true,
+          "gpu_initializer_legal": false,
+          "gpu_passes": 16.0,
+          "hot_fraction": 1.0,
+          "final_cpu_fraction": 16.0,
+          "cpu_gpu_round_trips": 16
+        }
+      ]
+    }
+  ]
+}

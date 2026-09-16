@@ -1,0 +1,44 @@
+schema: discovery-backtest-packer-resource-route-blocker-v1
+assignment_id: SAFE-RECOVERY-PACKER-20260815-TWO-AXIS-V8_2R2-TLS
+status: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+decision: FAILED_NOT_DISPATCHABLE__SEVEN_ARTIFACT_CLOSURE_UNMET
+route_map:
+  path: stages/discovery/_method-backtests/two-axis-v8.2r2-resume2/control/MAINLINE_FIRST_PARTY_ROUTE_MAP.yaml
+  sha256: AA664F97BF42C106E011752D51CE8267BCDAEF20E9EDD68B71B1CA7F50C4A2A9
+attempt_results_path: resources/logs/route_attempt_results_001.yaml
+failed_routes:
+  - artifact_id: l1_s2
+    exact_url: https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final142.pdf
+    error: HTTP 404 Not Found
+    accepted_artifact_bytes: 0
+  - artifact_id: l4_s3
+    exact_url: https://www.usenix.org/system/files/conference/atc15/atc15-paper-kulkarni.pdf
+    error: HTTP 404 Not Found
+    accepted_artifact_bytes: 0
+  - artifact_id: l5_s1
+    exact_url: https://dl.acm.org/doi/pdf/10.1145/362686.362692
+    error: HTTP 403 Forbidden
+    accepted_artifact_bytes: 0
+    route_policy_effect: ACM_ACCESS_GATE_REQUIRES_FAIL_CLOSED
+remaining_unattempted_exact_route_ids: [l5_s2, l5_s3, l6_s1, l6_s2]
+performed:
+  - validated exact mainline route map before transport
+  - used bundled Python standard-library urllib with only process-local temp redirects
+  - preserved no response body or partial artifact after rejection
+not_performed:
+  - replacement or alternate URLs
+  - retry of any exact URL
+  - remaining routes after ACM access-gate failure
+  - source qualification, repacking, or contact with EXECUTOR/AUDITOR
+minimum_user_or_mainline_action: >-
+  Supply a new immutable route-map amendment with a public anonymous first-party,
+  publisher, or author artifact route for every still-missing ID; it must not alter
+  the frozen target identity, cutoff, source role, or evidence requirements.
+resource_ledger:
+  accepted_persisted_artifact_bytes: 0
+  network_bytes: NOT_DIRECTLY_OBSERVABLE__NO_RESPONSE_BODY_PERSISTED
+  attempts_used: 3
+  attempts_limit_per_artifact: 2
+  system_or_global_changes: false
+scientific_interpretation: NONE__RESOURCE_ROUTE_FAILURE_ONLY
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

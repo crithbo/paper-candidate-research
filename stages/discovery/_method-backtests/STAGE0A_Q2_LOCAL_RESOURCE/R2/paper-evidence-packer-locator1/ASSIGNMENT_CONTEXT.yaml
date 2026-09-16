@@ -1,0 +1,25 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+identity: {lane_id: BACKTEST-PACKER, lane_thread_id: 01a034d0-e1e2-7921-bb72-a675ff98d5b0, role_id: DISCOVERY_BACKTEST_PACKER, assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-R2-LOCATOR1, topic_id: STAGEA_PAPER_EVIDENCE_BACKTEST_R2_LOCATOR1, stage_or_mode: PAPER_EVIDENCE_LOCATOR_ENRICHMENT, status: BOOTSTRAP_ACK_PENDING, resume_point: R2_P1_OFFLINE_LOCATOR_MISSING_12_OF_12, next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY}
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: BACKTEST-PACKER
+  user_approval_ids: [USER_CONTINUE_UNTIL_STAGEA_PAPER_EVIDENCE_BACKTEST_REPORT_20260827]
+  allowed_actions: [after_mainline_start: official_paper_publisher_arxiv_author_AE_locator_acquisition_and_capsule_enrichment]
+  forbidden_actions: [code_or_artifact_download, build, probe, experiment, local_redo, case_replacement, scoring, gold_reveal_to_gate, production_candidate_registration, StageB]
+boundaries: {unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1, resource_root: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/resources, write_allowed_paths: [<LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1], network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 31E5216CD9AC58B282111B0856DC71A5FBE70F38710C802F105A9E256E9B69B0}
+  registry_snapshot: {path: registry.yaml, sha256: A904E18B74C08D6D86AD408C0695320A320D0252E3569BD22F899BAFF49A9234}
+  role_rule: {path: rules/ROLE_DISCOVERY_BACKTEST.md, sha256: 74056A6BF3F6A1ABBFF56A13BA27DCD9656B39DD6673D046935C312D39033C23}
+  conditional_protocols: [{path: rules/RESOURCE_LOCALIZATION.md, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}, {path: rules/ARTIFACT_LIFECYCLE.md, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6}]
+  skills: [{path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+minimum_inputs:
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/ASSIGNMENT.yaml, sha256: 873793D9D9DB5BC536A9D586D23E1F8AAEE01C5FD96B49F172FA2D8B8F0779E4}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer/MAINLINE_P1_OFFLINE_ACCEPTANCE.yaml, sha256: E5ABC196FF4A73821BB1EC2E22D1D8D3BEAD29E41BF85BA9780ED0F88DAE2B71}
+evidence_ceiling: PAPER_REPORTED_OR_AUTHOR_ARTIFACT_REPORTED__LOCATOR_ENRICHMENT__NO_PROJECT_REPRODUCTION_CLAIM
+budget: {stored_bytes_max: 536870912, source_attempts_max: 48, code_or_artifact_downloads_max: 0}
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: VALIDATED}

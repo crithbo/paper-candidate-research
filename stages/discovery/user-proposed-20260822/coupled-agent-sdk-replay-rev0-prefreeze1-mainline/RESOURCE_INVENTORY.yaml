@@ -1,0 +1,71 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: COUPLED-AGENT-SDK-REPLAY-REV0
+  assignment_id: MAINLINE-20260822-COUPLED-AGENT-SDK-REPLAY-PREFREEZE1
+  stage_or_mode: DISCOVERY_PRE_EVIDENCE_IDENTITY_FREEZE_ONLY
+  run_id: prefreeze1-mainline
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-sdk-replay-rev0-prefreeze1-mainline
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-sdk-replay-rev0-prefreeze1-mainline\resources
+  inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\coupled-agent-sdk-replay-rev0-prefreeze1-mainline\RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-22T11:55:00+08:00
+  finalized_at: 2026-08-22T11:56:04.9692374+08:00
+root_measurement:
+  logical_bytes: 4033
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources\downloads
+  archives: resources\archives
+  src: resources\src
+  build: resources\build
+  env: resources\env
+  cache: resources\cache
+  tmp: resources\tmp
+  logs: resources\logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: <LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe
+      role: official GitHub API retrieval only
+resource_envelope:
+  network_bytes_max: 1048576
+  stored_bytes_max: 1048576
+  cpu_hours_max: 0.1667
+  gpu_hours_max: 0
+  wall_seconds_max: 1800
+  attempts_max: 3
+  network_bytes_used: 2851
+  stored_bytes_used: 4033
+  attempts_used: 2
+entries:
+  - {path: resources\downloads\software-agent-sdk-ref.json, class: official_metadata, bytes: 354, sha256: 175CA27DD75C5E21224DA1DC80581EB5AE2FB22358FE35A16256DEF6674E1EB5, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources\downloads\software-agent-sdk-commit.json, class: official_metadata, bytes: 2497, sha256: 3C05FFC8D4877311ED356262F65B82A48983DC7836A7DD3E5D3EB449419F64D7, retention: RETAIN_CLAIM_CRITICAL}
+  - {path: resources\scripts\fetch-sdk-identity.js, class: local_retrieval_script, bytes: 1182, sha256: ACD53E6D34A78C8E525102281ACFFAFB30D6771D4CD2BA9660EE7786B308D0E1, retention: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+shared_assets_consumed: []
+external_system_dependencies:
+  - <LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: [resources\tmp]
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: NOT_APPLICABLE
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: PASS

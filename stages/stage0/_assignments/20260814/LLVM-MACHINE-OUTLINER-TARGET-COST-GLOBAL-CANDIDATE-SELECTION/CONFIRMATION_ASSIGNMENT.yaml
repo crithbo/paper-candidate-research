@@ -1,0 +1,20 @@
+assignment_id: STAGE0-C2-20260814-LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION-CONFIRM-V8.7
+mode: INDEPENDENT_CONFIRMATION
+topic_id: LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_QUEUED_AFTER_QEMU_REVISION1_CLOSING
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source21-confirmation\LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION
+primary_directory: stages\stage0\_reviews\round-20260814-adaptive-source21-primary\LLVM-MACHINE-OUTLINER-TARGET-COST-GLOBAL-CANDIDATE-SELECTION
+primary_decision: REVISE_ONCE
+atomic_gate: PINNED_MACHINEOUTLINER_GLOBAL_CANDIDATE_CATALOG__TARGET_COST_CONFLICT_COMPONENT_PARETO_CERTIFICATE
+primary_hashes: {report: 6E448B9DF9A58FEFD5E23E603A67BBB9F3D37981D7FE8D06CCDB4D4B1E0B9B9D, q1: E4AF8E54ED680EF4C8736141E9D302F5B7C5E1BEDABF59CF712B3CC43C872285, source: 25F7F492376F609B2AECADF383EDA4F533BFDE3947E2624B90051962CE384619, handoff: 21CE3FA6DB46D040CC6088983E186D2ECB56844719A5594236678980071C343F, manifest: 1842EEE2F83E7F902D499CCF336ACE212DCF902686EFE7E0DF72F2727EB157A0}
+independent_attack_requirements:
+  - Verify LLVM 22.1.8 commit ca7933e47d3a3451d81e72ac174dcb5aa28b59d1 and reconstruct current suffix-tree, target-hook, scalar-priority, overlap-pruning, CGData and flag union.
+  - Confirm that CGData already absorbs global candidate discovery and that any surviving claim is only target-cost conflict-component selection.
+  - Require one pinned target/ABI and a native-legal same-MachineIR multi-candidate conflict witness preserving object, call-frame, unwind, relocation and MachineInstr semantics.
+  - Attack whether the proposed recurrence/guarantee is target-specific or merely generic weighted conflict-graph/set packing.
+  - Require a finite degeneration map, full-cost coordinates and StageA fidelity killer; confirm, narrow or reject the sole gate without executing revision or experiments.
+forbidden: [revision_execution, implementation, experiment, benchmark, build, install, stageA, stageB, shared_control_write]
+required_outputs: [CONFIRMATION_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

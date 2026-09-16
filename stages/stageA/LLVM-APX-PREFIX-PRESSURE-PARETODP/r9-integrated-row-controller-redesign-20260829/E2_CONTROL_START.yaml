@@ -1,0 +1,32 @@
+schema: stagea-engineering-control-start-v1
+assignment_id: STAGEA-L2-20260829-LLVM-APX-R9-E2-CONTROL
+classification: CONTROL_NON_CLAIM_BEARING__EXCLUDED_FROM_SCIENTIFIC_DENOMINATOR
+model_route: gpt-5.6-luna
+thinking: xhigh
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources
+inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/RESOURCE_INVENTORY.yaml
+resource_init: {standard_dirs: [downloads, archives, src, build, env, cache, tmp, logs], network_bytes_max: 0, stored_bytes_max: 67108864}
+copy_attempts_max: 1
+copy_rows:
+  - {source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/apx_tpd/apx_r8_row_driver.py, destination: resources/src/apx_tpd/apx_r8_row_driver.py, sha256: B042EC1F1C1EDF993DE57EE6C28A34F4766252941D6AB7BF1041E51819DA750E}
+  - {source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/apx_tpd/apx_tpd_r7c.py, destination: resources/src/apx_tpd/apx_tpd_r7c.py, sha256: FC1E6CB729A5F6693A6264C5B0DDFD24C73129638419278E879705C676C10FF1}
+  - {source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/apx_tpd/apx_tpd.py, destination: resources/src/apx_tpd/apx_tpd.py, sha256: 5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086}
+  - {source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/apx_tpd/catalog_contract.json, destination: resources/src/apx_tpd/catalog_contract.json, sha256: BC129B73FC7FABC488C3B4A52C41737EFBE398000542AC2CDCD382E5337CC6CA}
+  - {source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/apx_tpd/independent_oracle.py, destination: resources/src/apx_tpd/independent_oracle.py, sha256: 7BD2FB476C912621320021238AE458C63F62B5DDC34F5368C783C176489EA205}
+  - {source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/apx_tpd/tiny_trace.json, destination: resources/src/apx_tpd/tiny_trace.json, sha256: AD7F2DBE3F19DFFCD1EB0C3B4FDF80DCDDA7DCC71BACC769FCF40AF022F57910}
+  - {source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/llvm_subset/llvm/test/CodeGen/X86/apx/and.ll, destination: resources/src/corpus/S01/and.ll, sha256: 8FCB0455C1F2D73F992C67003B1A03B1D2EE024005DF5D0FC79EBB8425E32861}
+  - {source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/llvm_subset/llvm/test/CodeGen/X86/apx/neg.ll, destination: resources/src/corpus/S02/neg.ll, sha256: FFB56115E7895DFD6404939FC59E8DA71D93BACF36F5B8D7211F9A96FFB08037}
+  - {source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/llvm_subset/llvm/test/CodeGen/X86/apx/ctest.ll, destination: resources/src/corpus/S03/ctest.ll, sha256: 4293426EBB97473D4A56499CB3F18A3C9A6300170E4DA7F9ECBFDB1F1726BBA1}
+  - {source: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r8-natural-claim-execution-20260829/resources/src/llvm_subset/llvm/test/CodeGen/X86/apx/asm-constraint.ll, destination: resources/src/corpus/S04/asm-constraint.ll, sha256: A44D49A47C34CCE86BB4952F42F6C557230A669BEC950DACDD856F9D133E0776}
+control_runner:
+  path: APX_R9_CONTROL_RUNNER.py
+  creation_allowed_once: true
+  required_behavior: load_and_validate_full_dag_then_execute_only_rows_index_0_using_controller_run_command_and_write_control_receipts_outer_cost_and_first_failure
+  static_compile_attempts: 1
+control_attempts_max: 1
+control_row: APX-R8-S01-R1
+expected_command_count: 9
+visible_fields: [exit_code, timeout, required_outputs_present, schema_valid, missing_paths, cpu_seconds, wall_seconds, peak_rss_bytes, input_bytes, output_bytes, persisted_bytes, first_failure]
+hidden_fields: [candidate_frontier, baseline_frontier, speedup, pareto_rank, relative_effect, instruction_difference]
+forbidden_actions: [execute_rows_1_to_7, natural_claim, inspect_or_summarize_effect_fields, result_aware_change, retry, network, shared_write, cleanup, stageb]
+stop_after: CONTROL_STATUS_AND_RAW_RECEIPTS_SEALED__WAIT_MAINLINE

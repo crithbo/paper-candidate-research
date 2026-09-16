@@ -1,0 +1,31 @@
+assignment_id: RESOURCE-STAGEA-L2-20260811-AIGER-DELTA-SCHEDULE-RESUME1-R3E
+gate: PRE_CLAIM_CONTRACT_FIDELITY_GATE
+status: FAIL_CLOSED_RESOURCE_GATE
+claim_bearing_run_started: false
+claim_bearing_observation_obtained: false
+scientific_revision_consumed: false
+subgates:
+  official_exact_sources_and_licenses:
+    status: PASS
+  aiger_unmodified_build:
+    status: PASS_ATTEMPT_2
+  aiger_stock_binary_reader_writer_smoke:
+    status: FAIL
+    reason: WINDOWS_TEXT_MODE_CRLF_IN_STANDARD_BINARY_AIGER_OUTPUT
+  abc_unmodified_build:
+    status: FAIL_ROUTES_EXHAUSTED_2_OF_2
+  yosys_unmodified_build:
+    status: NOT_STARTED_AFTER_TERMINAL_CONJUNCTIVE_RESOURCE_FAILURE
+  six_and_native_replay:
+    status: PROHIBITED_BY_RESOURCE_FAILURE
+  complete_native_union:
+    status: NOT_AVAILABLE
+  whole_dag_candidate_action:
+    status: NOT_EXECUTED
+  full_cost_paths:
+    status: CONTRACT_ONLY
+  natural_hwmcc_killer:
+    status: PROHIBITED_BY_FAILED_PRECLAIM_GATE
+fail_closed_reason: required exact native Windows toolchain did not pass build and stock binary smoke within the two-clean-build limit and no source patch was authorized
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+

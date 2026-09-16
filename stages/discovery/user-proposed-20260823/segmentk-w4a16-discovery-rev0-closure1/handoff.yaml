@@ -1,0 +1,73 @@
+schema_version: discovery-pre-topic-handoff-v1
+assignment:
+  assignment_id: DISCOVERY-S6-20260823-SEGMENTK-W4A16-DISCOVERY-REV0
+  assignment_sha256: 77D0F4ED65820E809FC3F2A06A2BEA8BA35AF4A37C213CF4A1501006F7B09F47
+  lane: S6-direct-algorithm-software
+  write_directory: stages/discovery/user-proposed-20260823/segmentk-w4a16-discovery-rev0-closure1
+  discovery_quality_mode: OFF
+  discovery_claim_pack_mode: OFF
+  discovery_rq_frontend_mode: OFF
+frozen_identity:
+  runtime: vLLM_v0.26.0
+  commit: 568afb3a13806beb53bb2e6bd518269357b237c0
+  target: AMD_gfx1151
+  operator: DENSE_LINEAR__M1_DECODE_GEMV
+  representation: uint4b8__GPTQ_SEQUENTIAL__G32__FP16_ACT_SCALE_OUTPUT__FP32_ACCUMULATION
+  shapes:
+    - [2048, 6144]
+    - [2048, 2048]
+    - [2048, 16384]
+    - [8192, 2048]
+  candidate_action: SEGMENT_STAGED_MULTI_GROUP_METADATA_PIPELINE__q_2_OR_4__BLOCK_K_q_times_G
+counts:
+  seeds: 1
+  rq_candidates: 1
+  raw_created: 0
+  topic_ids_created: 0
+  clean_stage0_briefs: 0
+  source_closure_attempts: 2
+  persisted_resources: 0
+disposition:
+  canonical: UNRESOLVED_BACKLOG__NO_SCIENTIFIC_INFERENCE
+  topic_creation: NOT_AUTHORIZED_AND_NOT_RECOMMENDED_UNTIL_HIP_CURRENT_UNION_IS_CLOSED
+  raw_or_stage0: NOT_CREATED
+  decisive_reason: Production M1 dispatches to wvSplitK_int4_g; its official frozen HIP body was unavailable, so direct absorption versus residual cannot be distinguished.
+current_union:
+  dense_triton_group_boundary_clamp: ESTABLISHED
+  rdna_wrapper_m1_hip_dispatch: ESTABLISHED
+  hip_wvSplitK_int4_g_inner_action: UNRESOLVED_SOURCE_CLOSURE_DEBT
+  moe_direct_adaptation: UNRESOLVED_SOURCE_CLOSURE_DEBT
+local_invariant:
+  semantic_two_schedule_witness: ESTABLISHED
+  automatic_scale_byte_reduction: REFUTED_BY_STATIC_ACCOUNTING
+  only_plausible_remaining_frontier: TARGET_SPECIFIC_METADATA_STAGING_LATENCY_OCCUPANCY_TRADEOFF__UNPROVEN
+bounded_next_route:
+  required: true
+  route: official_vllm_v0.26.0__csrc/rocm/skinny_gemms_int4.cu__wvSplitK_int4_g
+  scope: source_only_current_union_closure
+  forbidden_in_next_route:
+    - topic_creation_without_new_assignment
+    - raw_or_stage0
+    - kernel_or_model_execution
+    - performance_experiment
+source_telemetry:
+  official_inspected:
+    - https://github.com/vllm-project/vllm/blob/v0.26.0/vllm/model_executor/kernels/linear/mixed_precision/triton_w4a16.py
+    - https://github.com/vllm-project/vllm/blob/v0.26.0/vllm/model_executor/kernels/linear/mixed_precision/rdna_hybrid_w4a16.py
+  failed_official_routes:
+    - github_contents_api__authentication_failed_before_transfer
+    - raw_githubusercontent__schannel_SEC_E_NO_CREDENTIALS_before_transfer
+  scientific_interpretation: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+artifacts:
+  - DIVERGENCE_SEED_POOL.md
+  - RQ_CANDIDATE.md
+  - CURRENT_UNION_MATRIX.md
+  - MOE_DIRECT_ADAPTATION_AUDIT.md
+  - LOCAL_INVARIANT_AND_COST_SKETCH.md
+  - INVESTIGATION_REPORT.md
+  - RESOURCE_INVENTORY.yaml
+  - HASH_MANIFEST.sha256
+integrity:
+  manifest: HASH_MANIFEST.sha256
+  manifest_style: sha256sum_strict_relative_path__manifest_excludes_itself
+completion_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,15 @@
+schema: backtest-packer-reack3-addendum-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+purpose: FINAL_ACK_FREEZE_BEFORE_PACKING
+preserve_round2_ready_ack: {path: BOOTSTRAP_ACK.round2_superseded.yaml, sha256: 97D04B299383BFC02D0DE1F34B00F7EA9780641E39BE4D6788D6ACD7BAB2BE9D}
+frozen_current:
+  context: {path: ASSIGNMENT_CONTEXT.yaml, sha256: 6673EDF11BB411FF48B350EAF0F6063329B0FA77EEFC6DAF0A217AC2062EF844}
+  plan: {path: plan.md, sha256: 312B1298F8AFB0A7CDF20926EEE67757B7D4DB1B8EF59293C40B457CC0408E72}
+  registry: {path: registry.yaml, sha256: 781A0A4EE9D696333AF0A64FF3464494F0D1C5D5A5BF6CD44567D80571DC1D3A}
+  start_authorization: {path: MAINLINE_START_AUTHORIZATION.yaml, sha256: 80FC502BDF701AF6858C494A24BD7B45E6576869DA185C50F37313363FE09C85}
+rules: [new_canonical_BOOTSTRAP_ACK_must_bind_all_four_hashes, no_source_or_capsule_action_before_MAINLINE_acceptance]
+post_acceptance_immutability: [ASSIGNMENT_CONTEXT, plan.md, registry.yaml, MAINLINE_START_AUTHORIZATION.yaml]
+allowed_actions_after_start: [small_paper_appendix_AE_metadata_acquisition, 12_plus_4_capsule_extraction, capsule_manifest_handoff]
+forbidden_actions: [local_build_probe_experiment, scoring, gold_reveal_to_gate, blind_or_nonblind_metric_merge, production_candidate_registration, StageB]
+model_route: {model: gpt-5.6-terra, thinking: medium}
+next_action: FULL_REACK_ROUND3_ONLY

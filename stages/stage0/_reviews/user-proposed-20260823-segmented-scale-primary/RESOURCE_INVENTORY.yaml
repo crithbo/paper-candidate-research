@@ -1,0 +1,82 @@
+schema_version: resource-inventory-v1
+assignment:
+  assignment_id: STAGE0-PRIMARY-20260823-SEGMENTED-SCALE-W4A16-REV0
+  stage_or_mode: STAGE0_PRIMARY
+  run_id: static-source-audit-20260823
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260823-segmented-scale-primary
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260823-segmented-scale-primary\resources
+  inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260823-segmented-scale-primary\RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-23T00:00:00+08:00
+  finalized_at: 2026-08-23T00:00:00+08:00
+root_measurement:
+  logical_bytes: 2455324
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: false
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: curl.exe
+      expected_writable_surfaces: [output_file, temporary_files]
+      redirect: output under resources/downloads; TEMP/TMP/TMPDIR under resources/tmp
+      evidence: explicit output paths and process-local variables
+      result: PASS
+resource_envelope:
+  network_bytes_max: 33554432
+  stored_bytes_max: 33554432
+  cpu_seconds_max: 3600
+  wall_seconds_max: 7200
+  attempts_max: 32
+  network_bytes_used: 2329065
+  stored_bytes_used: 2455324
+  attempts_used: 10
+entries:
+  - {path: resources/downloads/vllm-commit.json, class: official_api_response, bytes: 4912, sha256: D8271518D8F699C4C0711B1ACB3AE2439A23B2C89960F0A1C4C5D8CC3DBFB8F5}
+  - {path: resources/downloads/vllm-tree.json, class: official_api_response, bytes: 2159745, sha256: E395D698C4E19CCEC0E66B99580EB88028987C3DFDA8C162C44325E83056DDF1}
+  - {path: resources/downloads/triton_blob.json, class: official_api_response, bytes: 24942, sha256: 1C76A9C3BA0F95BA2E0AB8891B4FF78C717028DCCBA656ABA79BF586286273D2}
+  - {path: resources/downloads/triton_w4a16.py, class: decoded_official_source, bytes: 17877, sha256: 88E3676DBAB481EA21360D24359315E86B454548BE06F552A08694EB7B0A0FE3}
+  - {path: resources/downloads/rdna_blob.json, class: official_api_response, bytes: 28670, sha256: FB4636EB020BAD8C8F40F0980210A64E12FB2AF12B4C5CE3BD1F6A5A5572FEDE}
+  - {path: resources/downloads/rdna_hybrid_w4a16.py, class: decoded_official_source, bytes: 20581, sha256: A136168A08484C2B3E9D18BA2FCFBD9C067A5A70DC1EBB9E319B89DDB1E5A48E}
+  - {path: resources/downloads/skinny_blob.json, class: official_api_response, bytes: 44108, sha256: CC777AF99FAD1375BB1BC64187978689814C97550A22F8882D26234ADB51E64D}
+  - {path: resources/downloads/skinny_gemms_int4.cu, class: decoded_official_source, bytes: 31786, sha256: 869427BD3F2AF44B01165BCBF5C41514D0EF3B6443F9C206A3BD36FC994CF519}
+  - {path: resources/downloads/selection_test_blob.json, class: official_api_response, bytes: 25532, sha256: 02E7A20CD2D35E4FC1D955C0F008216762EAA7F7D8A5CD02DB3E295D074F056D}
+  - {path: resources/downloads/test_rdna_hybrid_w4a16.py, class: decoded_official_source, bytes: 18305, sha256: 001E270251475452E9D71DAFDC190AA84F0E04AEF5AE6251709D5091E28220A5}
+  - {path: resources/downloads/marlin_blob.json, class: official_api_response, bytes: 12839, sha256: 1138123CCD333C211B660F6D8F2375601269CCCCFAE196687248752CD565AF5A}
+  - {path: resources/downloads/marlin.py, class: decoded_official_source, bytes: 9093, sha256: B131A4F187ADF0D8E8D3555B770CFCCFEC37863C9600DD60A1B09BACFB401EE0}
+  - {path: resources/downloads/rdna3_blob.json, class: official_api_response, bytes: 10589, sha256: EE17FE0F1D9CC7766C073F9B9052C0423B1973CD5465FB736210128ABF0C3B0E}
+  - {path: resources/downloads/rdna3_w4a16.py, class: decoded_official_source, bytes: 7460, sha256: 037C54E54DC2AB2892DAC3B10DA5A6A9DAE3E3A87373B2C3625A688DD589ECC6}
+  - {path: resources/downloads/moe_w4a16_blob.json, class: official_api_response, bytes: 17728, sha256: 97171EE022E1E5A8F1FBD8D016C28A9DBDD926C4655CD4B340FDD3AC5749FD21}
+  - {path: resources/downloads/compressed_tensors_moe_w4a16_flydsl.py, class: decoded_official_source, bytes: 12641, sha256: ACDFE79742D9F197C2D4E1A64B086AB8CB9C5F1DB58BBDA813E77B9389882C72}
+  - {path: resources/logs/SOURCE_ATTEMPT_LEDGER.md, class: command_and_transport_ledger, bytes: 3327, sha256: 6C6F7E447EE68AD3AFDA8D97450365F7C2390499A55F281A77C9B3E9A1BED975}
+  - {path: resources/logs/resource-inventory/static-source-audit-20260823.yaml, class: immutable_inventory_snapshot, bytes: 5189, sha256: 7F6B938416B9FE3D9A05634E204B577573C92E1E0CF87BDEDB4DBA48D1A728FE}
+shared_assets_consumed: []
+external_system_dependencies: [Windows curl.exe (preinstalled; not a project asset)]
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: assignment-local files removable by mainline under frozen root
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: PASS

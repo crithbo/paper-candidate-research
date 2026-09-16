@@ -1,0 +1,36 @@
+schema: r3-source-closure-patch-a3-v1
+audit_id: RULE-AUDIT-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-BACKTEST-R3
+purpose: PRE_SELECTION_METADATA_CORRECTION_TO_CLOSE_TWO_STRATUM_DEFICITS
+timing: BEFORE_FINAL_SELECTION_AND_BEFORE_ANY_REVIEWER_PACKET
+scientific_or_gate_outcome_seen: false
+corrections:
+  - ordinal: 9
+    stratum: COMPILER_FORMAL
+    prior_title: 'Tensat: Tensor Graph Superoptimization via Equality Saturation'
+    canonical_title: 'Equality Saturation for Tensor Graph Superoptimization'
+    year: 2021
+    venue: MLSys
+    identity_risk: MEDIUM
+    exact_source: 'https://proceedings.mlsys.org/paper_files/paper/2021/file/cc427d934a7f6c0663e5923f49eba531-Paper.pdf'
+    correction_basis: OFFICIAL_MLSYS_PAPER_TITLE
+  - ordinal: 14
+    stratum: MEASUREMENT_BENCHMARK
+    prior_title: 'DeathStarBench: A Benchmark Suite for Cloud Microservices'
+    canonical_title: 'An Open-Source Benchmark Suite for Cloud and IoT Microservices'
+    year: 2019
+    venue: ASPLOS
+    identity_risk: HIGH
+    exact_source: 'https://arxiv.org/abs/1905.11055'
+    correction_basis: AUTHOR_PUBLIC_PREPRINT_TITLE_AND_IDENTITY
+execution_contract:
+  - open each exact_source once
+  - require canonical title and year match
+  - write resources/logs/preflight_a3/<ordinal>.yaml
+  - merge only these two rows into preserved A2 ledger
+  - recompute normalized identity key and SHA order using canonical title
+  - stop for MAINLINE acceptance before Phase B
+retries: 0
+cross_candidate_changes: forbidden
+result_aware_replacement: false
+reviewer_identity_visibility: forbidden
+

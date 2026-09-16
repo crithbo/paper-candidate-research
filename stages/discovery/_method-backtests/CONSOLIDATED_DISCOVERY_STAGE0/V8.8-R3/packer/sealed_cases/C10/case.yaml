@@ -1,0 +1,27 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C10
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-08T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [COLUMNAR_STORAGE, QUERY_ENGINE, COMPRESSION, NON_CUDA]
+raw_opportunity: >-
+  A columnar file writer controls row groups, data-page boundaries, page indexes
+  and per-column encoding/compression properties, while readers increasingly
+  use page pruning and late materialization. Examine whether a same-format
+  joint page-boundary construction can improve the filtered-read/full-cost
+  surface without changing native reader semantics.
+required_analysis:
+  - audit the format, current writer properties and current query-engine knobs
+  - compare every legal current configuration under identical information
+  - freeze decoder/index compatibility, full write cost and read denominator
+  - treat implementation and measured gain as later fidelity/evidence work
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C10/sources/S01_parquet.thrift, sha256: B086B13F0AE01ECA5190D297D01C0640028E424A7A895CBC1A7BBC29C474C377, bytes: 52703, url: "https://raw.githubusercontent.com/apache/parquet-format/2076361bb64e2de9ca6a8d06eda025a6fa4e9df6/src/main/thrift/parquet.thrift", available_by: "2026-07-30", role: FORMAT_AUTHORITY}
+  - {source_id: S02, path: sealed_cases/C10/sources/S02_arrow-writer-properties.rs, sha256: 41A5BF7DD3676F059EF1A0F93CE8ED0B0C0C1CF3AF270A12820ACD8F1A84E2E8, bytes: 97002, url: "https://raw.githubusercontent.com/apache/arrow-rs/f2476ab9409368afb660b789ea84436abc396eb7/parquet/src/file/properties.rs", available_by: "2026-08-08", role: CURRENT_FIRST_PARTY_WRITER_ACTION}
+  - {source_id: S03, path: sealed_cases/C10/sources/S03_datafusion-parquet-config.rs, sha256: E9D2F9356BEFA3D9CB262AE40E3B4957A480389D1C4F5F3F7C4EA401F529CE55, bytes: 3902, url: "https://raw.githubusercontent.com/apache/datafusion/eec8b947c71a916385a28a3723753f4ffc7cd8d0/datafusion/common/src/parquet_config.rs", available_by: "2026-08-08", role: CURRENT_READER_QUERY_CONFIGURATION}
+exclusions:
+  - local candidate title, mechanism and downstream evaluation
+  - post-cutoff papers including any August 2026 preprint not demonstrably public by cutoff
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL
+

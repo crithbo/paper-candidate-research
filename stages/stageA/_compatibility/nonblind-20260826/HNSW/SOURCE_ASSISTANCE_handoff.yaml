@@ -1,0 +1,20 @@
+schema: nonblind-stagea-compatibility-source-assisted-handoff-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW
+mode: NONBLIND_STAGEA_COMPATIBILITY
+result: FAIL_CLOSED_RESOURCE_OR_ENGINEERING_BLOCKER
+decision: RETURN_MAINLINE_FOR_SAME_ARCHIVE_EXTRACTION_CLASSIFICATION
+summary: Mainline-provided exact HNSW source archive was independently hash-verified, then the one authorized local tar extraction failed because python_bindings/setup.py could not be created. A partial source tree remains; configure, build, author test, fidelity gate, and probe never started.
+source_archive: {sha256: D7E12EA0604BD6D6753AAB403E8CB177B95697968722E0154E8F68A31278F26E, bytes: 67545}
+partial_source: {file_count: 64, bytes: 344894, required_member_missing: python_bindings/setup.py}
+source_extraction_attempts: 1
+configure_build_test_probe_started: [false, false, false, false]
+retry_count: 0
+alternate_extractor: false
+production_candidate_registration: false
+production_state_transition: false
+stageB: false
+gold_or_blind_input_read: false
+scientific_inference: NONE
+scientific_revision_consumed: false
+owner_cleanup_performed: false
+next_authority: MAINLINE

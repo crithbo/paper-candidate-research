@@ -1,0 +1,704 @@
+--- |
+  ; ModuleID = '<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\runs\natural\modules\picojpeg__picojpeg_test.ll'
+  source_filename = "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\\resume1\\resources\\corpus\\embench\\src\\picojpeg\\picojpeg_test.c"
+  target datalayout = "e-m:e-p:32:32-i64:64-n32-S128"
+  target triple = "riscv32-unknown-unknown-elf"
+  
+  %struct.pjpeg_image_info_t = type { i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
+  
+  @jpeg_data = dso_local constant [570 x i8] c"\FF\D8\FF\E0\00\10JFIF\00\01\01\01\00H\00H\00\00\FF\DB\00C\00P7<F<2PFAFZUP_x\C8\82xnnx\F5\AF\B9\91\C8\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\DB\00C\01UZZxix\EB\82\82\EB\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\C0\00\11\08\00@\003\03\01\11\00\02\11\01\03\11\01\FF\C4\00\18\00\00\03\01\01\00\00\00\00\00\00\00\00\00\00\00\00\01\02\03\00\04\FF\C4\00&\10\00\02\02\01\03\03\04\03\01\00\00\00\00\00\00\00\01\02\00\11\03\12!1Aaq\04\22S\91\13#Qb\FF\C4\00\15\01\01\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\FF\C4\00\14\11\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\DA\00\0C\03\01\00\02\11\03\11\00?\00\C7\88\0B(Mf\E1\02\CFX\05E\88\00\A9\104\0E\AFohT3d\03a\02jI\DBI\84YP\91P\A0=\A4\80|\88\18\D5H\05\09C\EB\FF\00+\F5\02x\D4\1C\ACH\10\8E\B5U\A8\0C\A5/\DBR*\19S\F6\82\04\A1\0EE\F8\84\0D\AD~! \D00\04\93\\\99C\E2\C6W \D4\D7} :\E1@\F6I\F1 \A3\8B\17\C5\09G&5\05\B5\1E u\02\95\C0\FA\81\CFR\0Cl\0D\A0%\BD\DD\D1\F3*(C\B0\04\0E:\DC)\B2\13\F8j\11%S\22\A9}\E0.\A8\06\C1\DA\A0)!M05*(\B9\17\85\06\15P\97\8C\D8\EF \E5\01\F9\D3R\A1\B5\0E\B0\14\9092(\E2`\D9\17\CC\A2\D9\B1\025X\1E`\0CX\95\06\A6 \F8\90;gA\B0\B3\02O\9CU@\8E\B5\FE\09Q\12\D7\01\FD;\11\99{\98U}K\BBd\00\EC\BD\04\05Eb6\B2;B\1B*\1C@t\B8\11\06\00\B8\1F\FF\D9", align 1
+  @verify_benchmark.r_ref = internal constant [64 x i8] c"!!!!!!!!        \1D\1D\1D\1D\1D\1D\1D\1D\19\19\19\19\19\19\19\19\15\15\15\15\15\15\15\15\11\11\11\11\11\11\11\11\0E\0E\0E\0E\0E\0E\0E\0E\0D\0D\0D\0D\0D\0D\0D\0D", align 1
+  @verify_benchmark.g_ref = internal constant [64 x i8] c"555555554444444411111111--------))))))))%%%%%%%%\22\22\22\22\22\22\22\22!!!!!!!!", align 1
+  @verify_benchmark.b_ref = internal constant [64 x i8] c"CCCCCCCCBBBBBBBB????????;;;;;;;;777777773333333300000000////////", align 1
+  @_MergedGlobals = private global <{ i32, %struct.pjpeg_image_info_t }> zeroinitializer, align 4, !guid !0
+  
+  @jpeg_off = alias i32, ptr @_MergedGlobals
+  @pInfo = alias %struct.pjpeg_image_info_t, getelementptr inbounds (<{ i32, %struct.pjpeg_image_info_t }>, ptr @_MergedGlobals, i32 0, i32 1)
+  
+  ; Function Attrs: nounwind
+  define dso_local noundef zeroext i8 @pjpeg_need_bytes_callback(ptr noundef %0, i8 noundef zeroext %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2, ptr readnone captures(none) %3) #0 {
+    %5 = load i32, ptr @_MergedGlobals, align 4, !tbaa !7
+    %6 = sub i32 570, %5
+    %7 = zext i8 %1 to i32
+    %8 = tail call i32 @llvm.umin.i32(i32 %6, i32 %7)
+    %9 = getelementptr inbounds nuw i8, ptr @jpeg_data, i32 %5
+    %10 = tail call ptr @memcpy(ptr noundef %0, ptr noundef nonnull %9, i32 noundef %8) #5
+    %11 = trunc nuw i32 %8 to i8
+    store i8 %11, ptr %2, align 1, !tbaa !11
+    %12 = load i32, ptr @_MergedGlobals, align 4, !tbaa !7
+    %13 = add i32 %12, %8
+    store i32 %13, ptr @_MergedGlobals, align 4, !tbaa !7
+    ret i8 0
+  }
+  
+  declare dso_local ptr @memcpy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+  
+  ; Function Attrs: nounwind
+  define dso_local range(i32 0, 2) i32 @verify_benchmark(i32 noundef %0) local_unnamed_addr #0 {
+    %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, %struct.pjpeg_image_info_t }>, ptr @_MergedGlobals, i32 0, i32 1), i32 32), align 4, !tbaa !12
+    %3 = tail call i32 @memcmp(ptr noundef %2, ptr noundef nonnull @verify_benchmark.r_ref, i32 noundef 64) #5
+    %4 = icmp eq i32 %3, 0
+    br i1 %4, label %5, label %14
+  
+  5:                                                ; preds = %1
+    %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, %struct.pjpeg_image_info_t }>, ptr @_MergedGlobals, i32 0, i32 1), i32 36), align 4, !tbaa !16
+    %7 = tail call i32 @memcmp(ptr noundef %6, ptr noundef nonnull @verify_benchmark.g_ref, i32 noundef 64) #5
+    %8 = icmp eq i32 %7, 0
+    br i1 %8, label %9, label %14
+  
+  9:                                                ; preds = %5
+    %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, %struct.pjpeg_image_info_t }>, ptr @_MergedGlobals, i32 0, i32 1), i32 40), align 4, !tbaa !17
+    %11 = tail call i32 @memcmp(ptr noundef %10, ptr noundef nonnull @verify_benchmark.b_ref, i32 noundef 64) #5
+    %12 = icmp eq i32 %11, 0
+    %13 = zext i1 %12 to i32
+    br label %14
+  
+  14:                                               ; preds = %9, %5, %1
+    %15 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %13, %9 ]
+    ret i32 %15
+  }
+  
+  declare dso_local i32 @memcmp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+  
+  ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
+  define dso_local void @initialise_benchmark() local_unnamed_addr #2 {
+    ret void
+  }
+  
+  ; Function Attrs: nounwind
+  define dso_local void @warm_caches(i32 noundef %0) local_unnamed_addr #0 {
+    tail call fastcc void @benchmark_body(i32 noundef %0) #6
+    ret void
+  }
+  
+  ; Function Attrs: noinline nounwind
+  define internal fastcc void @benchmark_body(i32 noundef %0) unnamed_addr #3 {
+    %2 = icmp sgt i32 %0, 0
+    br i1 %2, label %.preheader, label %12
+  
+  .preheader:                                       ; preds = %1
+    br label %3
+  
+  3:                                                ; preds = %.preheader, %9
+    %4 = phi i32 [ %10, %9 ], [ 0, %.preheader ]
+    store i32 0, ptr @_MergedGlobals, align 4, !tbaa !7
+    %5 = tail call zeroext i8 @pjpeg_decode_init(ptr noundef nonnull getelementptr inbounds (<{ i32, %struct.pjpeg_image_info_t }>, ptr @_MergedGlobals, i32 0, i32 1), ptr noundef nonnull @pjpeg_need_bytes_callback, ptr noundef null, i8 noundef zeroext 0) #5
+    br label %6
+  
+  6:                                                ; preds = %6, %3
+    %7 = tail call zeroext i8 @pjpeg_decode_mcu() #5
+    %8 = icmp eq i8 %7, 1
+    br i1 %8, label %9, label %6
+  
+  9:                                                ; preds = %6
+    %10 = add nuw nsw i32 %4, 1
+    %11 = icmp eq i32 %10, %0
+    br i1 %11, label %12, label %3, !llvm.loop !18
+  
+  12:                                               ; preds = %9, %1
+    ret void
+  }
+  
+  ; Function Attrs: noinline nounwind
+  define dso_local noundef i32 @benchmark() local_unnamed_addr #3 {
+    tail call fastcc void @benchmark_body(i32 noundef 6) #6
+    ret i32 0
+  }
+  
+  declare dso_local zeroext i8 @pjpeg_decode_init(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
+  
+  declare dso_local zeroext i8 @pjpeg_decode_mcu() local_unnamed_addr #1
+  
+  ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+  declare i32 @llvm.umin.i32(i32, i32) #4
+  
+  attributes #0 = { nounwind "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #1 = { "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #3 = { noinline nounwind "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) "target-features"="+m,+a,+c,+zcmp" }
+  attributes #5 = { nobuiltin nounwind "no-builtins" }
+  attributes #6 = { nobuiltin "no-builtins" }
+  
+  !llvm.module.flags = !{!1, !2, !3, !5}
+  !llvm.ident = !{!6}
+  !llvm.errno.tbaa = !{!7}
+  
+  !0 = !{i64 6868382131211706166}
+  !1 = !{i32 1, !"wchar_size", i32 4}
+  !2 = !{i32 1, !"target-abi", !"ilp32"}
+  !3 = !{i32 6, !"riscv-isa", !4}
+  !4 = !{!"rv32i2p1_m2p0_a2p1_c2p0_zmmul1p0_zaamo1p0_zalrsc1p0_zca1p0_zcmp1p0"}
+  !5 = !{i32 8, !"SmallDataLimit", i32 0}
+  !6 = !{!"clang version 22.1.8 (https://github.com/llvm/llvm-project.git ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"}
+  !7 = !{!8, !8, i64 0}
+  !8 = !{!"int", !9, i64 0}
+  !9 = !{!"omnipotent char", !10, i64 0}
+  !10 = !{!"Simple C/C++ TBAA"}
+  !11 = !{!9, !9, i64 0}
+  !12 = !{!13, !14, i64 32}
+  !13 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28, !14, i64 32, !14, i64 36, !14, i64 40}
+  !14 = !{!"p1 omnipotent char", !15, i64 0}
+  !15 = !{!"any pointer", !9, i64 0}
+  !16 = !{!13, !14, i64 36}
+  !17 = !{!13, !14, i64 40}
+  !18 = distinct !{!18, !19}
+  !19 = !{!"llvm.loop.mustprogress"}
+...
+---
+name:            pjpeg_need_bytes_callback
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%0' }
+  - { reg: '$x11', virtual-reg: '%1' }
+  - { reg: '$x12', virtual-reg: '%2' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.4):
+    successors: %bb.1(0x40000000), %bb.2(0x40000000)
+    liveins: $x10, $x11, $x12
+  
+    %2:gpr = COPY $x12
+    %1:gpr = COPY $x11
+    %4:gpr = LUI target-flags(riscv-hi) @_MergedGlobals
+    %5:gpr = LW %4, target-flags(riscv-lo) @_MergedGlobals :: (dereferenceable load (s32) from @_MergedGlobals, !tbaa !7)
+    %6:gpr = ADDI $x0, 570
+    %15:gpr = SUB %6, %5
+    %0:gpr = COPY $x10
+    BLTU %15, %1, %bb.2
+  
+  bb.1 (%ir-block.4):
+    successors: %bb.2(0x80000000)
+  
+    %15:gpr = COPY %1
+  
+  bb.2 (%ir-block.4):
+    %9:gpr = PseudoMovAddr target-flags(riscv-hi) @jpeg_data, target-flags(riscv-lo) @jpeg_data
+    %10:gpr = nuw ADD %9, %5
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY %0
+    $x11 = COPY %10
+    $x12 = COPY %15
+    PseudoCALL target-flags(riscv-call) @memcpy, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit $x12, implicit-def $x2, implicit-def dead $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    SB %15, %2, 0 :: (store (s8) into %ir.2, !tbaa !11)
+    %12:gpr = LW %4, target-flags(riscv-lo) @_MergedGlobals :: (dereferenceable load (s32) from @_MergedGlobals, !tbaa !7)
+    %13:gpr = ADD %12, %15
+    $x10 = COPY $x0
+    SW %13, %4, target-flags(riscv-lo) @_MergedGlobals :: (store (s32) into @_MergedGlobals, !tbaa !7)
+    PseudoRET implicit $x10
+...
+---
+name:            verify_benchmark
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 18, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 19, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 20, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 21, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gpr, preferred-register: '', flags: [  ] }
+liveins:         []
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    successors: %bb.2(0x30000000), %bb.1(0x50000000)
+  
+    %4:gpr = PseudoMovAddr target-flags(riscv-hi) @_MergedGlobals, target-flags(riscv-lo) @_MergedGlobals
+    %5:gpr = LW %4, 36 :: (dereferenceable load (s32) from `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, %struct.pjpeg_image_info_t }>, ptr @_MergedGlobals, i32 0, i32 1), i32 32)`, !tbaa !12)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    %6:gpr = PseudoMovAddr target-flags(riscv-hi) @verify_benchmark.r_ref, target-flags(riscv-lo) @verify_benchmark.r_ref
+    $x12 = ADDI $x0, 64
+    $x10 = COPY %5
+    $x11 = COPY %6
+    PseudoCALL target-flags(riscv-call) @memcmp, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit killed $x12, implicit-def $x2, implicit-def $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %8:gpr = COPY $x10
+    BEQ %8, $x0, %bb.2
+  
+  bb.1:
+    successors: %bb.5(0x80000000)
+  
+    %22:gpr = COPY $x0
+    PseudoBR %bb.5
+  
+  bb.2 (%ir-block.5):
+    successors: %bb.4(0x30000000), %bb.3(0x50000000)
+  
+    %12:gpr = LW %4, 40 :: (dereferenceable load (s32) from `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, %struct.pjpeg_image_info_t }>, ptr @_MergedGlobals, i32 0, i32 1), i32 36)`, !tbaa !16)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    %13:gpr = PseudoMovAddr target-flags(riscv-hi) @verify_benchmark.g_ref, target-flags(riscv-lo) @verify_benchmark.g_ref
+    $x12 = ADDI $x0, 64
+    $x10 = COPY %12
+    $x11 = COPY %13
+    PseudoCALL target-flags(riscv-call) @memcmp, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit killed $x12, implicit-def $x2, implicit-def $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %15:gpr = COPY $x10
+    BEQ %15, $x0, %bb.4
+  
+  bb.3:
+    successors: %bb.5(0x80000000)
+  
+    %22:gpr = COPY $x0
+    PseudoBR %bb.5
+  
+  bb.4 (%ir-block.9):
+    successors: %bb.5(0x80000000)
+  
+    %18:gpr = LW %4, 44 :: (dereferenceable load (s32) from `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, %struct.pjpeg_image_info_t }>, ptr @_MergedGlobals, i32 0, i32 1), i32 40)`, !tbaa !17)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    %19:gpr = PseudoMovAddr target-flags(riscv-hi) @verify_benchmark.b_ref, target-flags(riscv-lo) @verify_benchmark.b_ref
+    $x12 = ADDI $x0, 64
+    $x10 = COPY %18
+    $x11 = COPY %19
+    PseudoCALL target-flags(riscv-call) @memcmp, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit killed $x12, implicit-def $x2, implicit-def $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %21:gpr = COPY $x10
+    %22:gpr = SLTIU %21, 1
+  
+  bb.5 (%ir-block.14):
+    $x10 = COPY %22
+    PseudoRET implicit $x10
+...
+---
+name:            initialise_benchmark
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:       []
+liveins:         []
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.0):
+    PseudoRET
+...
+---
+name:            warm_caches
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%0' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     true
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    liveins: $x10
+  
+    %0:gpr = COPY $x10
+    $x10 = COPY %0
+    PseudoTAIL target-flags(riscv-call) @benchmark_body, csr_ilp32_lp64, implicit $x2, implicit $x10
+...
+---
+name:            benchmark_body
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%2' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    successors: %bb.1(0x50000000), %bb.5(0x30000000)
+    liveins: $x10
+  
+    %2:gpr = COPY $x10
+    BGE $x0, %2, %bb.5
+    PseudoBR %bb.1
+  
+  bb.1..preheader:
+    successors: %bb.2(0x80000000)
+  
+    %13:gpr = COPY $x0
+    %6:gpr = PseudoMovAddr target-flags(riscv-hi) @_MergedGlobals, target-flags(riscv-lo) @_MergedGlobals
+    %8:gpr = nuw ADDI %6, 4
+    %9:gpr = PseudoMovAddr target-flags(riscv-hi) @pjpeg_need_bytes_callback, target-flags(riscv-lo) @pjpeg_need_bytes_callback
+    %12:gpr = ADDI $x0, 1
+  
+  bb.2 (%ir-block.3):
+    successors: %bb.3(0x80000000)
+  
+    SW $x0, %6, 0 :: (store (s32) into @_MergedGlobals, !tbaa !7)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY %8
+    $x11 = COPY %9
+    $x12 = COPY $x0
+    $x13 = COPY $x0
+    PseudoCALL target-flags(riscv-call) @pjpeg_decode_init, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit killed $x11, implicit killed $x12, implicit killed $x13, implicit-def $x2, implicit-def dead $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+  
+  bb.3 (%ir-block.6):
+    successors: %bb.4(0x04000000), %bb.3(0x7c000000)
+  
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    PseudoCALL target-flags(riscv-call) @pjpeg_decode_mcu, csr_ilp32_lp64, implicit-def dead $x1, implicit-def $x2, implicit-def $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %11:gpr = COPY $x10
+    BNE %11, %12, %bb.3
+    PseudoBR %bb.4
+  
+  bb.4 (%ir-block.9):
+    successors: %bb.5(0x04000000), %bb.2(0x7c000000)
+  
+    %13:gpr = nuw nsw ADDI %13, 1
+    BNE %13, %2, %bb.2
+    PseudoBR %bb.5
+  
+  bb.5 (%ir-block.12):
+    PseudoRET
+...
+---
+name:            benchmark
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+liveins:         []
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.0):
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = ADDI $x0, 6
+    PseudoCALL target-flags(riscv-call) @benchmark_body, csr_ilp32_lp64, implicit-def dead $x1, implicit killed $x10, implicit-def $x2
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = COPY $x0
+    PseudoRET implicit killed $x10
+...

@@ -1,0 +1,45 @@
+resume_assignment_id: BACKTEST-PACKER-L1-20260811-CONSOLIDATED-V8.8-R3R1-RESUME1
+parent_assignment_id: BACKTEST-PACKER-L1-20260811-CONSOLIDATED-V8.8-R3R1
+approval_id: V8_8-R3R1-BOUNDED-CALIBRATION-20260810
+state: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+dispatch_status: FAILED_NOT_DISPATCHABLE
+transport:
+  executable: <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+  mechanism: Python standard-library urllib.request.urlopen with default bundled OpenSSL
+  prohibited_actions_not_taken:
+    - pip_or_package_install
+    - system_or_global_environment_change
+    - certificate_or_proxy_override
+    - retry_or_source_substitution_after_failure
+attempt:
+  retrieval_timestamp: '2026-08-11T00:00:00+08:00'
+  stop_on_failure: true
+  accepted_complete_artifacts: 1
+  required_complete_artifacts: 30
+  total_accepted_bytes: 32447
+  completed:
+    - token: k4p7/s01
+      requested_url: https://raw.githubusercontent.com/redis/redis/7.4.0/src/evict.c
+      final_url: https://raw.githubusercontent.com/redis/redis/7.4.0/src/evict.c
+      redirected: false
+      http_status: 200
+      content_type: text/plain
+      bytes: 32447
+      sha256: 6B5A4CF6AEF65F6CC263DF52ADAEC17ADADCE2B26CDBF5DC58DA0BEF4D848D91
+      artifact_date: '2024-07-18'
+      provenance: Redis source repository; BSD-3-Clause
+      relative_path: auditor_key/artifacts/k4p7/s01.artifact
+  rejected_failure:
+    requested_url: https://raw.githubusercontent.com/redis/redis/7.4.0/src/server.c
+    stage: response_body_read
+    exact_error: 'IncompleteRead(293963 bytes read, 3046 more expected)'
+    accepted_bytes: 0
+    accepted_artifact: false
+resource_limits:
+  network_download_cap_bytes: 52428800
+  temporary_plus_sealed_storage_cap_bytes: 104857600
+  accepted_network_bytes: 32447
+write_scope_check:
+  only_assignment_write_root: true
+  initial_blocker_modified: false
+  control_files_modified: false

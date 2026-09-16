@@ -1,0 +1,36 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE73-R40-ORDINARY-BREADTH-V1
+lane: S2_BOTTLENECK_TRANSFER
+status: COMPLETE_ZERO_PROPOSALS
+return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+write_directory: stages/discovery/round-20260815-adaptive-source73/S2-bottleneck-transfer
+rule_freeze: RULE_FREEZE.md
+funnel:
+  seed: 6
+  rq_candidate: 4
+  selected_locator: 4
+  evidence_qualified_raw: 0
+  C0: 0
+  D1: 0
+  deep: 0
+  clean_stage0_brief: 0
+families:
+  - signature: S73-L01-AARCH64-MOPS-COPY-LOWERING
+    disposition: EXCLUDED_BEFORE_RAW__GENERIC_FLAG_OR_COST_MODEL
+  - signature: S73-L02-OPENMP-TARGET-DATA-MAPPING
+    disposition: EXCLUDED_BEFORE_RAW__NATIVE_MAP_DEPEND_UNION_AND_CONTROLLER_SHELL
+  - signature: S73-L03-OPENJDK-APPCDS-ARCHIVE-CONSTRUCTION
+    disposition: LOCATOR_ONLY__RQ_BACKLOG
+  - signature: S73-L04-LLVM-RISCV-ZICBOP-PREFETCH
+    disposition: EXCLUDED_BEFORE_RAW__GENERIC_PREFETCH_SCHEDULING
+identity_preflight: IDENTITY_PREFLIGHT.yaml
+source_ledger: SOURCE_ROLE_LEDGER.yaml
+source_collision_matrix: SOURCE_COLLISION_MATRIX.md
+source_closure_queue: SOURCE_CLOSURE_QUEUE.yaml
+resource_inventory: RESOURCE_INVENTORY.yaml
+forbidden_inputs_used: false
+blocker: NONE
+identity_ambiguity: NONE
+canonical_manifest: HASH_MANIFEST.sha256
+plain_chinese_summary: >-
+  本轮没有形成可送 Stage0 的题目。MOPS、OpenMP mapping 与 Zicbop 分别收束为现有动作面上的调参、controller 或通用调度；AppCDS 只有可固定的入口，没有非通用完整构造动作。未因缺实现、结果或资源而淘汰，也没有真实资源阻塞。
+

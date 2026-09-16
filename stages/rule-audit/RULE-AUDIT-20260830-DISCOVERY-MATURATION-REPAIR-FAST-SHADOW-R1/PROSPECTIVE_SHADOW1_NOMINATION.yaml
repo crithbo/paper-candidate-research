@@ -1,0 +1,28 @@
+schema: discovery-repair-nomination-v1
+mode: SHADOW
+assignment_id: FAST-SHADOW-R1-PROSPECTIVE-MICRO-1
+lane_id: INLINE_RULE_VALIDATION__NOT_PRODUCTION_DISCOVERY
+opportunity_family_id: CACHE_TRACE_SEMANTIC_INTEGRITY_ORACLE_VALIDITY_SEED
+canonical_output_frozen_first: true
+exact_anchor: {id: pelikan-io/cachesim, version_or_commit: UNRESOLVED_CURRENT_MAIN, source: https://github.com/pelikan-io/cachesim}
+frozen_identity:
+  exact_object: cache-trace CSV to Parquet conversion and offline oracle evaluation in pelikan-io/cachesim
+  primary_rq: Does unavailable or stale next-access metadata invalidate Belady or BeladySize ceilings and cache-policy ranking conclusions after trace conversion or windowing?
+  contribution_type: MEASUREMENT_CHARACTERIZATION_WITH_POSSIBLE_EXTERNAL_MEMORY_RECONSTRUCTION_N2
+  claim_endpoint: trace_conversion_validity_and_oracle_ranking_stability
+  semantic_guarantee: exact_next_access_semantics_or_explicit_oracle_unavailable_status
+  information_contract: trace_fields_available_at_conversion_time_only
+  initial_full_cost_boundary: conversion_cpu_wall_rss_disk_io_temp_bytes_output_bytes_and_simulation_cost
+  minimum_falsifier: current source already rejects oracle use when next_access_vtime is unavailable or an existing exact reconstruction certificate fully covers the object
+eligibility:
+  non_generic_mechanism_skeleton: true
+  no_known_direct_fatal: true
+  finite_public_carrier_route: true
+  one_bounded_vector_only: true
+  at_most_two_named_primary_sources: true
+  candidate_experiment_not_required: true
+repair_vector: CURRENT_UNION_EXACT_QUESTION
+named_primary_sources: [pelikan-io/cachesim current source, libCacheSim current trace-format and oracle documentation]
+pre_result_nomination_order: 1
+disposition: REPAIR_BLOCKED__SOURCE_OR_RESOURCE
+

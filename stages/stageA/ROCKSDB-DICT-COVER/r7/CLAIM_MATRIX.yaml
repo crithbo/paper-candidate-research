@@ -1,0 +1,32 @@
+schema_version: rocksdict-stagea-claim-matrix-v1
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-R7-NATURAL-CLAIM-PILOT
+matrix_contract: 20_MANIFESTS_X_7_METHODS_X_2_CELLS_X_2_REPLAYS
+expected_processes: 560
+completed_processes: 344
+pass_processes: 342
+failed_processes: 2
+not_started_processes: 216
+automatic_retry: false
+result_based_rerun_or_exclusion: false
+failure_pair:
+  manifest_id: pypi-django
+  mode: B1
+  cell: G2
+  replays: [R1, R2]
+  exact_error: SST has fewer than 16 data blocks
+  deterministic_error_match: true
+  frozen_minimum_data_blocks_per_sst: 16
+  exclusion_or_threshold_reduction_allowed: false
+validity:
+  executed_prefix_replay_pairs: 172
+  replay_pairs_exact_nonvolatile_match: 172
+  global_matrix_complete: false
+  denominator_preserved: true
+  construction_gate: FAIL_CLOSED
+aggregation:
+  p50_p90_frontier: NOT_COMPUTED_INCOMPLETE_FROZEN_DENOMINATOR
+  useful_residual_gate: NOT_COMPUTED_INCOMPLETE_FROZEN_DENOMINATOR
+  scientific_pass_or_stop: NOT_PERMITTED
+evidence_ceiling: INVALID_CLAIM_CONSTRUCTION__NO_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: false
+future_revision_requires: SEPARATE_MAINLINE_AND_INDEPENDENT_GATE_DISPOSITION

@@ -1,0 +1,29 @@
+schema_version: assignment-resource-inventory-v1
+assignment_id: STAGE0-P3-20260821-PATCHVALUE-COUNTERFACTUAL-PRIMARY
+resource_root: stages/stage0/_reviews/user-proposed-20260821-patchvalue-primary/resources
+required_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+localization_preflight:
+  status: PASS
+  process_local_redirects: [TEMP, TMP, TMPDIR, XDG_CACHE_HOME]
+  no_global_environment_change: true
+resource_envelope:
+  official_or_primary_routes_max: 40
+  persisted_bytes_max: 201326592
+  calls_used: 2
+  persisted_bytes: 31331
+entries:
+  - id: openhands-sdk-conversation-state
+    type: official_pinned_source
+    uri: https://raw.githubusercontent.com/OpenHands/software-agent-sdk/43376f1868ffd702746080714a59c16d3f69ec12/openhands-sdk/openhands/sdk/conversation/state.py
+    local_path: resources/src/openhands_state_43376f.py
+    bytes: 25947
+    sha256: 6C477B58F5936385BC6FD3B741C1A1CA0024AF48B0F70C332887A9AA074E4826
+    retention: claim-critical
+  - id: openhands-sdk-workspace-base
+    type: official_pinned_source
+    uri: https://raw.githubusercontent.com/OpenHands/software-agent-sdk/43376f1868ffd702746080714a59c16d3f69ec12/openhands-sdk/openhands/sdk/workspace/base.py
+    local_path: resources/src/openhands_workspace_base_43376f.py
+    bytes: 5384
+    sha256: 02A75BB8D0850725443FCF075634877AC49E10495F75F5F99529A7F3851942F5
+    retention: claim-critical
+scientific_inference_from_resource_failure: prohibited

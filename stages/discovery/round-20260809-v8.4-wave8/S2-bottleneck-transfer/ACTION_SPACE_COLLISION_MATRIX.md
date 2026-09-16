@@ -1,0 +1,17 @@
+# Action-space / latest-collision matrix — S2 Wave 8
+
+| Exact final object and transferred bottleneck | Strongest current same-object union: semantics, actions, guarantee, full cost | Residual tested | Classification and decision |
+|---|---|---|---|
+| Demand-aware configuration of parallel optical circuit switches for a fixed rack traffic matrix. Faster OCS reconfiguration transfers the bottleneck from physical switching to demand-aware control. | [DistroMatch](https://doi.org/10.1145/3797905.3800555) preserves weighted-`k`-disjoint-matchings semantics and optimizes demand weight using distributed matching algorithms, with stated approximation guarantees. Its full cost includes distributed control computation and communication; public natural traffic matrices are supplied. | A cross-stage distributed topology/reconfiguration planner. | **DIRECT_FATAL.** This is the exact DistroMatch research problem and action class. Renaming its controller as a planner violates the no-controller rule. |
+| Collective completion on reconfigurable optical networks, where topology updates add pause/reconfiguration cost after matching control has been accelerated. | [Bridge](https://arxiv.org/abs/2605.12766) preserves collective semantics and jointly selects reusable connected subrings across present/future communication steps, explicitly amortizing reconfiguration, propagation, and transmission cost. [Spectra](https://arxiv.org/abs/2603.07373) covers matrix decomposition, parallel-switch assignment, controlled permutation splitting, and makespan with delay. | A joint topology-transition-and-collective schedule. | **DIRECT_FATAL.** Bridge and Spectra already cover the apparent new constraint/action structure. A generic union is not used as a baseline; each is independently a same-object direct subtractor for its frozen collective/model. |
+| FPGA dataflow accelerator compilation after local dataflow correction shifts the critical path to on/off-chip movement and resource-balanced scheduling. | [CODO](https://arxiv.org/abs/2604.12618) transforms the same input program to a legal dataflow accelerator; it detects/eliminates coarse/fine violations, optimizes on/off-chip movement, and automatically schedules resource-aware parallelism. Full cost includes compiler, resource, and on-board execution measurements in its artifact. | A compiler algorithm jointly choosing buffer/data movement and task schedule after lowering. | **DIRECT_FATAL.** CODO's core contribution is already precisely that cross-stage joint compilation mechanism. A changed cost weight or a new backend is routine tuning/object drift. |
+| Current storage/database metadata leads, screened after compute/data-movement optimizations. | Existing Wave 8 registry contains the independent `ROCKSDB-DICT-COVER` candidate under review; assignment boundary prohibits its reuse. Other bounded primary searches did not yield a new frozen same-object union plus atomic residual. | Metadata policy/controller. | **DROP—ASSIGNMENT_EXCLUSION_OR_NO_FINITE_ROUTE.** No new candidate may be constructed by renaming or extending the in-flight RocksDB object, and generic metadata policies are controllers. |
+
+## Two-layer result
+
+There are no retained briefs:
+
+- `structural_paper_potential`: `NOT_APPLICABLE__NO_RETAINED_CANDIDATE`;
+- `current_evidence_readiness`: `NOT_APPLICABLE__NO_RETAINED_CANDIDATE`.
+
+This is not a resource, implementation, missing-result, or AI-readiness rejection. It is a collision/action-space finding. `SEARCH_BOUNDED_OPEN` is not used as a novelty conclusion.

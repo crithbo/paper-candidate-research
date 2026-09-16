@@ -1,0 +1,21 @@
+topic_id: GPU-L2LEASE
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: Concurrent CUDA-Graph-node persisting-L2 windows, hit ratios, and explicit leases under a shared cache budget
+main_claim: Lease-aware graph allocation can improve a modeled reuse/traffic frontier over independent manual windows while accounting for update and reset cost
+academic_value_score: 55
+ai_executability_score: 24
+ai_executability_class: AI_CORE_EXECUTABLE
+ai_core_fraction: 0.74
+strongest_baseline: CUDA accessPolicyWindow manual tuning plus single-kernel static window sizing
+decisive_evidence: Public graph traces showing conflict-sensitive reuse and a post-cost non-dominated interval-packing plan
+unresolved_risks: Primary verification of the static-profiler collision; undocumented cache randomness; group ownership
+next_killer_gate: Audit direct equivalent work and test whether 15+ traces contain a conflict-sensitive regime
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: CPU/static cache-accounting model; no measured GPU speedup
+execution_authority: DISCOVERY_ONLY
+file_hashes:
+  topic_brief.md: acaa7bffc3e01d024d9658b18f23d6157b97cd4c0229fdc08c2ee819fbb9b291
+  source_log.md: fd5e4dd96748b61504a2a3511429bd43ba964c210e602fcdb164d80cb44218d3

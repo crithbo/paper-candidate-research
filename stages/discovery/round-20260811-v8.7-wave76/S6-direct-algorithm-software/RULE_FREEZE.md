@@ -1,0 +1,3 @@
+# Wave76 rule freeze
+
+`DISCOVERY-S6-20260811-V8.7-WAVE76-DATABASE-STORAGE-ENCODING-CONSTRUCTORS`; cutoff `2026-08-11`; `DISCOVERY_QUALITY_MODE=OFF`; authoritative v8.7/R5-P0. Applied v2/v8.1, v8.6, v8.7 and R5-P0 only.

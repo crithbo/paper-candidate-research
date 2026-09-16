@@ -1,0 +1,21 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+opportunity_family_id: S1-R16A-F02
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+cutoff: 2026-08-13
+opportunity_family: {canonical_signature: GLIBC_DLOPEN__GLOBAL_SCOPE_RESERVE_UPDATE__CONSTRUCTOR_BOUNDARY__FIXED_DSO_GRAPH__ELF_SEMANTICS__LOADER_UNION__CPU_RSS_RELOC, relations: []}
+queries:
+  - {query_id: Q02, text: "site:sourceware.org glibc dlopen global scope update constructors", purpose: current-source genealogy and contrary route, source_or_search_engine: Sourceware official, executed_at: 2026-08-13, filters: [official], read_depth: SECTIONS, key_result_ids: [S02], exclusions_with_reasons: ["No loader execution permitted."], state_change: neutral snapshot frozen}
+sources:
+  - {source_id: S02, title_or_artifact: "glibc elf: Avoid late failure in dlopen in global scope update", canonical_version: "commit 440b7f8653e4ed8f6e1425145208050b795e9a6c", locator: "https://sourceware.org/pipermail/glibc-cvs/2019q4/068152.html", source_role: CURRENT_FIRST_PARTY, read_depth: SECTIONS, normalized_variants: [], repository_commit_config_or_dataset_hash: glibc-source-route}
+claims:
+  - claim_id: C02
+    text: glibc split global-scope preparation into throwable resize before constructors and non-throwing update after constructors.
+    priority: HIGH
+    priority_rationale: fixes partial-publication boundary
+    source_links: [{source_id: S02, relation: DIRECT, locator: commit rationale, evidence_status: AUTHOR_CLAIM, conflict: "", permitted_conclusion: neutral implementation fact only}]
+direct_coverage: {target_source_or_union: glibc dl-open/link-map/global-scope union, predicates: {same_object_function_protocol: UNKNOWN, same_scenario_workload: UNKNOWN, same_or_weaker_information: UNKNOWN, atomic_action_covered: UNKNOWN, same_or_stronger_legality_quality_guarantee: UNKNOWN, same_nonworse_full_cost: UNKNOWN, comparable_scale_platform_version_config: UNKNOWN, sufficient_read_or_reproduction_depth: UNKNOWN}}
+independent_prior_current_audit: {owner_or_lane: S1, query_ids: [Q02], completed: false}
+stopping: {high_impact_items_bounded: false, latest_and_current_union_checked: false, first_party_depth_sufficient: false, heterogeneous_independent_path_complete: false, contrary_search_complete: false, natural_or_canonical_carrier_frozen: true, full_cost_frozen: false, marginal_sources_no_longer_decision_changing: false, decisive_contradictions_resolved_or_bounded: false, disposition: SEARCH_BOUNDED_OPEN}
+execution_readiness: {state: E1, e1_evidence: [official-source-route], e2_authorization_id: "", e2_allowlist: {}, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: Neutral source snapshot only.

@@ -1,0 +1,116 @@
+schema: handoff-transport-envelope-v2
+topic_id: SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET
+assignment_id: STAGE0-PRIMARY-20260830-VLLM-CUDAGRAPH-CAPTURESET
+lane_id: STAGE0_PRIMARY
+role_id: STAGE0_PRIMARY
+source_stage: STAGE0
+assignment_state: FROZEN_AWAITING_MAINLINE
+input_freeze_sha256: 149135C8F92E7FF76926BE9A5DC519C4D07C3880A840D19CBB95EAA1DA55D64B
+cross_assignment_contamination_declared: false
+
+user_summary_cn:
+  outcome: "PRIMARY 建议 PASS_RECOMMENDED / TIER_B_Q2_VIABLE；不是性能结论，也不得直接 Stage A。"
+  main_reason: "vLLM v0.28.0 已有 manual portfolio、performance_mode=interactivity、native padding/eager dispatch 和丰富 legality flags；Lazy RFC、Medusa/Foundry、TensorRT-LLM fixed-grid study 与 generic 1-D facility/segmentation 强烈收窄贡献，但没有同一 vLLM object 上的 result-independent dual-budget selector + held-out finite-horizon full-cost conjunction。"
+  next_step: "MAINLINE 验收后交独立 SENTRY；若确认，再单独冻结 Linux/CUDA Stage A resource/fidelity assignment。"
+  user_action_required: false
+  user_action: "No action before SENTRY; a compatible Linux/CUDA route is required before any future Stage A execution."
+
+decision:
+  scientific_verdict: PASS_RECOMMENDED
+  operational_disposition: NONE
+  quality_tier: TIER_B_Q2_VIABLE
+  evidence_ceiling: CURRENT_OFFICIAL_SOURCE_AND_PRIMARY_PAPERS__ZERO_CANDIDATE_RESULT
+  claim_bearing_observation_obtained: false
+  scientific_revision_consumed: false
+
+review_scope:
+  search_or_open_items_used: 32
+  search_or_open_items_max: 32
+  supplemental_in_page_find_operations: 22
+  build_or_experiment: 0
+  implementation: 0
+  resource_action: 0
+  stagea_or_stageb_started: false
+  shared_write: false
+  second_queue_topic_scientific_inputs_read: false
+  current_cycle_usage_reset_confirmed: false
+  temporary_model_override: gpt-5.6-sol/high__THIS_COMMAND_ONLY
+
+decisive_findings:
+  direct_fatal: false
+  exact_upstream:
+    tag: v0.28.0
+    discovery_declared_short_commit: 2cf0a69
+    exact_tag_config_and_dispatcher_source_read: true
+    tag_ref_API_final_check: TRANSPORT_SAFETY_ERROR__NO_SCIENTIFIC_INFERENCE
+  current_native_union:
+    - "balanced dense default portfolio and manual cudagraph_capture_sizes override"
+    - "performance_mode=interactivity captures every size through 32 before the standard grid"
+    - "FULL/PIECEWISE/FULL_DECODE_ONLY/FULL_AND_PIECEWISE modes and attention-backend downgrade"
+    - "native upward-padding map and eager fallback above max/no matching mode"
+    - "LoRA specialization, speculative-token and sequence-parallel legality/multiplicity"
+    - "max capture caps, warmups, copy-input, compile-size and graph-partition controls"
+  literature_and_system_subtraction:
+    - "Lazy RFC #20098: unused eager graphs and first-use capture; closed not planned"
+    - "Medusa ASPLOS 2025: materializes CUDA graphs/KV init across 10 models and ShareGPT"
+    - "Foundry 2026: offline context materialization and template restoration, up to 99% cold-start reduction"
+    - "TensorRT-LLM 2026 study: fixed capture-set padding/memory/startup/throughput frontier; auto log-based tuning remains future work"
+    - "generic one-dimensional facility location/sequential segmentation: plain DP is not a publishable algorithmic residual"
+  failed_direct_coverage_predicates: [same_information, atomic_action, same_guarantee_under_same_assumptions, same_full_cost_endpoint]
+  residual_kernel: "source-pinned vLLM profiler/legality model plus result-independent dual-budget capture-set selector and chronological held-out finite-horizon full-cost evidence"
+  strongest_new_native_baseline: v0_28_0_performance_mode_interactivity
+  generic_collapse_gate: target_native_features_must_beat_frequency_plus_generic_ordered_DP
+  q2_minimum: "at least 8 public models, 3 architecture families, BurstGPT plus one canonical carrier, 3 horizons, 3 budget regimes, full native/simple/conditional-system/oracle baselines"
+  stagea_killer: "one small public model, native descriptors 1..64, two fixed budgets, chronological calibration/heldout split, default/interactivity/manual/eager/frequency/oracle; kill on no >=5% full-cost gain anywhere, native/simple within 5% of oracle everywhere, heldout reversal, semantic drift, full-cost reversal, or no target-native gain over generic DP"
+
+resource_science_separation:
+  scientific_gate: PASS_RECOMMENDED_PENDING_SENTRY
+  future_stagea_resource_classification: BLOCKED_USER_ACTION_REQUIRED
+  resource_reason: OFFICIAL_VLLM_REQUIRES_LINUX__WINDOWS_NOT_NATIVE__CURRENT_POLICY_DOES_NOT_AUTHORIZE_WSL
+  resource_failure_implies_scientific_STOP: false
+  resource_availability_implies_scientific_PASS: false
+  immediate_user_action_before_sentry: false
+
+artifact_pointers:
+  canonical_report:
+    path: stages/stage0/_reviews/round-20260830-source123-primary/SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET/STAGE0_REPORT.md
+    sha256: 8FF8A29934EC68A6C0F6E729B6067380BA798155905A7B5C244CB1F20CAD1210
+  raw_or_decisive_evidence:
+    - "STAGE0_REPORT.md#independent-current-upstream-reality-check"
+    - "STAGE0_REPORT.md#collision-analysis"
+    - "STAGE0_REPORT.md#stage-a-highest-risk-probe-plan"
+  comparator_or_full_cost:
+    - path: stages/stage0/_reviews/round-20260830-source123-primary/SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET/q1_calibration.md
+      sha256: 44506E681E0ACE64218790A4E8E9E1FCD0E66CF63852802C610E4007299B55F6
+    - "STAGE0_REPORT.md#named-baselines-and-fairness-contract"
+    - "STAGE0_REPORT.md#performance-optimization-admissibility"
+  independent_review: {path: null, sha256: null}
+  resource_inventory: {path: null, sha256: null}
+  lifecycle_or_retention: {path: null, sha256: null}
+  capsule_or_resume: {path: null, sha256: null}
+
+blocker:
+  kind: FUTURE_STAGEA_LINUX_CUDA_RESOURCE_GATE__NOT_CURRENT_STAGE0_BLOCKER
+  user_blocker_packet: null
+  resume_directory: null
+  attempts_or_routes_exhausted: false
+
+next_gate:
+  proposed_stage_or_gate: STAGE0_SENTRY
+  exact_action: "independently verify exact v0.28 current union, performance_mode baseline, direct-fatal predicates, generic-collapse gate, Tier-B breadth, StageA killer and resource/science separation"
+  authority_required: MAINLINE
+  stageb_user_approval_id: null
+
+stage0_repair_vector:
+  codes: [OMITTED_CURRENT_SAME_OBJECT, OMITTED_FIRST_PARTY_FEATURE, OMITTED_GENERIC_KERNEL, FULL_COST_GAP, Q2_SHAPE_GAP]
+  available_before_cutoff: true
+  decision_effect: NONE_NONDECISIONAL_FEEDBACK
+
+file_hashes:
+  ASSIGNMENT_CONTEXT.yaml: 149135C8F92E7FF76926BE9A5DC519C4D07C3880A840D19CBB95EAA1DA55D64B
+  BOOTSTRAP_ACK.yaml: BFC4C5765197348C5FA3AC7CF817F176185F329B6BA3D93AE4CC19D2E74AA6E6
+  MAINLINE_BOOTSTRAP_ACCEPTANCE.yaml: F3B2C74EC9EE384F9FADB1CA684B768BFA32106F930444B13D6941238E81FE89
+  MAINLINE_START.yaml: 4B20F5D53101B61EBA1A910EABD92C88C9585681ABDB9D8BAA57785E887EBAEB
+  STAGE0_REPORT.md: 8FF8A29934EC68A6C0F6E729B6067380BA798155905A7B5C244CB1F20CAD1210
+  q1_calibration.md: 44506E681E0ACE64218790A4E8E9E1FCD0E66CF63852802C610E4007299B55F6
+hash_manifest_file: HASH_MANIFEST.sha256

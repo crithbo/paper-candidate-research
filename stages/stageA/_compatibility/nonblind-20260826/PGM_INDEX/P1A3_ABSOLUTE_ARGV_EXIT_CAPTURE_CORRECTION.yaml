@@ -1,0 +1,13 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-P1A3-ARGV-EXIT
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P1A2_JSON_OUTPUT_MISSING_BLOCKER.yaml, sha256: C20D9DC566FC8CE75A1A8D541A6DF7C47AEBE5BC93DF5CAD9A4489E9AF471DE3}, {path: resources/src/probe/pgm_minimal_probe.cpp, retention: P1A1_EDITED_HARNESS__DO_NOT_MODIFY}]
+only_change: invoke_existing_harness_with_absolute_executable_epsilon_output_file_argv_and_explicit_LASTEXITCODE_check
+absolute_paths:
+  executable: <LOCAL_PROJECT_ROOT>\stages\stageA\_compatibility\nonblind-20260826\PGM_INDEX\resources\build\pgm_minimal_probe.exe
+  outputs: [<LOCAL_PROJECT_ROOT>\stages\stageA\_compatibility\nonblind-20260826\PGM_INDEX\resources\build\probe\epsilon-4.json, <LOCAL_PROJECT_ROOT>\stages\stageA\_compatibility\nonblind-20260826\PGM_INDEX\resources\build\probe\epsilon-16.json, <LOCAL_PROJECT_ROOT>\stages\stageA\_compatibility\nonblind-20260826\PGM_INDEX\resources\build\probe\epsilon-64.json, <LOCAL_PROJECT_ROOT>\stages\stageA\_compatibility\nonblind-20260826\PGM_INDEX\resources\build\probe\epsilon-256.json]
+runner_rule: each_native_call_must_be_followed_by_if_LASTEXITCODE_ne_0_then_exit_LASTEXITCODE
+fresh_command_budget: {compile: 1, run: 4, retry: 0}
+prohibitions: [harness_edit, input_or_epsilon_change, relative_output_argv, project_root_cwd, nonterminating_native_exit, production_or_stageB_action]
+scientific_revision_consumed: false

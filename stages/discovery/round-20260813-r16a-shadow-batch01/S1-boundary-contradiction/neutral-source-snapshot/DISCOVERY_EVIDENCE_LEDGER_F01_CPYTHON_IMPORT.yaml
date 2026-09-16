@@ -1,0 +1,47 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+opportunity_family_id: S1-R16A-F01
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+cutoff: 2026-08-13
+opportunity_family:
+  canonical_signature: CPYTHON_IMPORT__PREEXEC_SYSMODULES_PUBLICATION__FAILURE_REMOVAL__FIXED_MODULE_TRACE__IMPORT_SEMANTICS__LOADER_UNION__CPU_RSS_LATENCY
+  relations: []
+queries:
+  - query_id: Q01
+    text: "site:docs.python.org importlib sys.modules load fails removed"
+    purpose: current import publication/recovery contract
+    source_or_search_engine: official Python documentation
+    executed_at: 2026-08-13
+    filters: [official]
+    read_depth: SECTIONS
+    key_result_ids: [S01]
+    exclusions_with_reasons: ["No implementation run; assignment forbids E2/experiments."]
+    state_change: neutral snapshot frozen
+sources:
+  - source_id: S01
+    title_or_artifact: Python 3.14 importlib documentation
+    canonical_version: 3.14.6
+    locator: https://docs.python.org/3/library/importlib.html
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SECTIONS
+    normalized_variants: []
+    repository_commit_config_or_dataset_hash: CPython-main-unpinned-route
+claims:
+  - claim_id: C01
+    text: Loader inserts a new module before loading and removes its own insertion on failure.
+    priority: HIGH
+    priority_rationale: fixes observable partial-publication contract
+    source_links:
+      - source_id: S01
+        relation: DIRECT
+        locator: importlib loader protocol section
+        evidence_status: DIRECT_OBSERVATION
+        conflict: ""
+        permitted_conclusion: neutral contract fact only
+direct_coverage:
+  target_source_or_union: CPython importlib loader union
+  predicates: {same_object_function_protocol: UNKNOWN, same_scenario_workload: UNKNOWN, same_or_weaker_information: UNKNOWN, atomic_action_covered: UNKNOWN, same_or_stronger_legality_quality_guarantee: UNKNOWN, same_nonworse_full_cost: UNKNOWN, comparable_scale_platform_version_config: UNKNOWN, sufficient_read_or_reproduction_depth: UNKNOWN}
+independent_prior_current_audit: {owner_or_lane: S1, query_ids: [Q01], completed: false}
+stopping: {high_impact_items_bounded: false, latest_and_current_union_checked: false, first_party_depth_sufficient: false, heterogeneous_independent_path_complete: false, contrary_search_complete: false, natural_or_canonical_carrier_frozen: true, full_cost_frozen: false, marginal_sources_no_longer_decision_changing: false, decisive_contradictions_resolved_or_bounded: false, disposition: SEARCH_BOUNDED_OPEN}
+execution_readiness: {state: E1, e1_evidence: [official-doc-route], e2_authorization_id: "", e2_allowlist: {}, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: Neutral source snapshot only.

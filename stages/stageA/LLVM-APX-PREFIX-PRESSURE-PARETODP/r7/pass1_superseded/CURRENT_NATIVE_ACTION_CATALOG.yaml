@@ -1,0 +1,24 @@
+schema: current-native-action-catalog-audit-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+obligation: P1_SOURCE_AND_CURRENT_ACTION_CATALOG
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+catalog_contract: {path: resources/src/apx_tpd/catalog_contract.json, sha256: BC129B73FC7FABC488C3B4A52C41737EFBE398000542AC2CDCD382E5337CC6CA}
+catalog_output: {path: resources/logs/control/current_native_action_catalog.json, sha256: CF406685A11968882608273C9D86B9B1806C562B3B4DD64B933926EDB2F677FC, result: PASS}
+source_evidence:
+  - {category: NDD_NF_LEGACY_FORMS, path: llvm/lib/Target/X86/X86InstrArithmetic.td, sha256: 1B8BA77073CE30C94F05D1C39B8063DA533F6530E440F9BD12905240C6059A20, bytes: 75071, matched: [NDD, ADD]}
+  - {category: LATE_COMPRESSION_FLAGS_RELOCATION, path: llvm/lib/Target/X86/X86CompressEVEX.cpp, sha256: C14BE28C53C01FD8A1ECB78DFCE5F5ADC7E0087AFB36DB07D2E72484ED6A8F44, bytes: 20877, matched: [EFLAGS, NDD]}
+  - {category: REGISTER_FAMILY_ALIAS_NOREX_EGPR, path: llvm/lib/Target/X86/X86RegisterInfo.td, sha256: EE539479EB2E3E8B6E38167112DBBBD3584130B73F97581D37E19697F4738F44, bytes: 36722, matched: [GR32_NOREX]}
+  - {category: TARGET_PASS_ALLOCATOR_PIPELINE, path: llvm/lib/Target/X86/X86TargetMachine.cpp, sha256: 6EFB2A39AE2127E2EC628751B832C39B011930A314C090EDEE6C715CCC665D72, bytes: 24227, matched: [RegAlloc, register]}
+  - {category: SPILL_RELOAD_CALLEE_SAVE, path: llvm/lib/Target/X86/X86RegisterInfo.cpp, sha256: EC035BD740DD4C42EF4E94D74AD72AE191FEAA474E7AD70D55EF0491BDF0AE9D, bytes: 46324, matched: [spill, CalleeSaved]}
+  - {category: FRAME_CFI_UNWIND, path: llvm/lib/Target/X86/X86FrameLowering.cpp, sha256: 5C7F8A51260803331EB6AAF8AEE3F43DC662D09B55A61B45FBF1C6344F2D3C2D, bytes: 188781, matched: [CFI, frame]}
+  - {category: RELOCATION_FALLBACK, path: llvm/lib/Target/X86/X86SuppressAPXForReloc.cpp, sha256: C450C1E775B56634D1CCB28ED22D54854C0C918E05DE564C6A9D3C672953DE4C, bytes: 10637, matched: [reloc, APX]}
+  - {category: OFFICIAL_MC_ENCODING, path: llvm/test/MC/X86/apx/add-att.s, sha256: 627369D2B24D2A96CFD0BC8D5638F2215CA8F9A592B8502585D89C26AA33B4AF, bytes: 15533, matched: [addl, encoding]}
+  - {category: CURRENT_CODEGEN_ROUTE, path: llvm/test/CodeGen/X86/apx/add.ll, sha256: 957CE7DA0206D91867D7B282FBA01DA192FE3C870A36FE3D3268A839EFEDE7B9, bytes: 49949, matched: [add, apx]}
+catalog_summary: {actions: 14, evidence_files: 9, missing_evidence: 0, uncovered_actions: 0, current_LLVM_fallback_present: true, two_state_proxy_used: false}
+complete_enough_categories: [instruction_forms, register_alias_units, ties_commutation_coalescing, split_spill_reload_rematerialization, eflags, fixed_reserved_inline_asm, caller_callee_save, frame_cfi_unwind, relocation_fallback, late_compression, current_llvm_fallback, finite_tuning_grid]
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_observations: 0
+result: PASS_P1_ACTUAL_SOURCE_EVIDENCE_AND_14_ROW_CATALOG
+scientific_inference: NONE
+

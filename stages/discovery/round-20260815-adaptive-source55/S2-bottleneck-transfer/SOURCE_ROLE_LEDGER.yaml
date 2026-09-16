@@ -1,0 +1,28 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE55-R40-ORDINARY-BREADTH-V1
+access_date: 2026-08-15
+entries:
+  - id: ORC_JITLINK_CURRENT
+    role: ANCHOR_AND_CURRENT
+    url: https://www.llvm.org/docs/JITLink.html
+    publisher: LLVM Project
+    version_or_date: current documentation, published/crawled 2026-08
+    provenance: official documentation
+    decisive_observation: LinkGraph represents symbols/content/relocations; current passes run across pruning/allocation/fixup phases, and JITLink context handles allocation, symbol resolution and transfer.
+    disposition_effect: claimed graph-to-stub/layout action is current native pass/action surface.
+  - id: ORC_JITLINK_SOURCE
+    role: CURRENT_AND_CONTRARY
+    url: https://llvm.org/doxygen/JITLink_8h_source.html
+    publisher: LLVM Project
+    version_or_date: current Doxygen source, accessed 2026-08-15
+    provenance: upstream source rendering
+    decisive_observation: post-prune pass use cases include GOT/stub construction; later phases construct address-dependent structures and allow late link-time GOT/stub optimization.
+    disposition_effect: refutes an absent adjacent construction premise.
+  - id: ORC_GOT_STUB_SOURCE
+    role: CURRENT_AND_CONTRARY
+    url: https://llvm.org/doxygen/PerGraphGOTAndPLTStubsBuilder_8h_source.html
+    publisher: LLVM Project
+    version_or_date: LLVM 22.0.0git source rendering, accessed 2026-08-15
+    provenance: upstream source rendering
+    decisive_observation: per-graph builder already constructs GOT entries and PLT stubs, while target code has access optimizations.
+    disposition_effect: a free-standing GOT/PLT layout sketch is current composition or a generic graph-layout problem.
+retrieval_boundary: bounded official-documentation/source browser review only; no source download, build, resource action, or audit input.

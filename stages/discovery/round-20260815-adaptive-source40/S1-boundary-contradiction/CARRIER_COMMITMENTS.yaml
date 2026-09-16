@@ -1,0 +1,12 @@
+assignment_id: DISCOVERY-S1-20260815-ADAPTIVE-SOURCE40-CARRIER-COMMITMENT-CLOSURE
+commitments:
+  - signature: AARCH64_FPMR__FIXED_FP8_CALL_SEMANTICS__CALL_BOUNDARY_STATE_PRESERVATION
+    tentative_public_origin: Arm AAPCS64/ACLE specification plus LLVM AArch64 source/test carrier
+    deterministic_first_eligible_carrier_rule: >-
+      Use the newest Arm-published AAPCS64 revision that names FPMR and the LLVM upstream
+      AArch64 test/source locus corresponding to that ABI state; do not substitute a different ISA or ABI.
+  - signature: CUDA_THREAD_BLOCK_CLUSTER__FIXED_KERNEL_RESULT__CLUSTER_BARRIER_COMMITMENT
+    tentative_public_origin: NVIDIA CUDA Programming Guide cluster-group semantics and CUDA samples
+    deterministic_first_eligible_carrier_rule: >-
+      Use the current NVIDIA guide section defining thread-block clusters and an official public
+      sample only if its kernel preserves the fixed cluster synchronization contract.

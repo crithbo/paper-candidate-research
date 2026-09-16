@@ -1,0 +1,69 @@
+schema_version: discovery-canonical-handoff-v1
+assignment:
+  assignment_id: DISCOVERY-S6-20260823-SEGMENTED-SCALE-W4A16-PROMOTION-CLOSURE
+  assignment_sha256: 66F1472A28BE021AED3B6F7C12A4AE84B41A5D23D153671F29D74D4B6A4F5363
+  lane: S6-direct-algorithm-software
+  write_directory: stages/discovery/user-proposed-20260823/segmented-scale-w4a16-rev0-promotion-closure
+  modes: OFF__OFF__OFF
+identity:
+  reserved_topic_id: SEGMENTED-SCALE-W4A16-REV0
+  runtime_commit: 568afb3a13806beb53bb2e6bd518269357b237c0
+  target: AMD_gfx1151
+  operator: DENSE_LINEAR__M16_SMALL_BATCH_GEMM
+  representation: GPTQ_SEQUENTIAL__UINT4B8__G32__FP16_IN_OUT__FP32_ACCUM
+  candidate_action: REGISTER_STAGED_SEGMENT_SCALE_TILE_FOR_MULTI_GROUP_K_TILE
+disposition:
+  canonical: PROPOSE_STAGE0__CLEAN_STAGE0_BRIEF__TIER_B_Q2_VIABLE_OR_HIGHER
+  scientific_claim_ceiling: CONDITIONAL_STRUCTURAL_POTENTIAL__NO_EXECUTED_PERFORMANCE_OR_CORRECTNESS_RESULT
+  reason: M16 is routed to current Triton path, which explicitly clamps one-scale BLOCK_K to G=32. The q-group scale tile plus segment mapping is not expressed by this selected producer and has a finite same-function/full-cost Stage 0 closure route.
+counts:
+  divergence_seeds: 1
+  rq_candidates: 1
+  evidence_qualified_raw: 1
+  deep_reviews: 1
+  clean_stage0_briefs: 1
+  source_connector_calls: 5
+  persisted_resources: 0
+current_union:
+  status: CLOSED_FOR_ASSIGNMENT_REQUIRED_M16_LOCI
+  M16_selected_route: rdna_hybrid_to_triton_w4a16_skinny_fmt_gemm
+  hip_skinny_exclusion: M_LE_5_ONLY
+  current_block_k: G32_AFTER_CLAMP
+  direct_current_absorption: NOT_FOUND_WITHIN_FROZEN_SOURCE_BOUND
+static_certificate:
+  same_function_witness: PASS__SYMBOLIC
+  automatic_scale_byte_reduction: NOT_CLAIMED
+  plausible_frontier: M16_ACCUMULATOR_LIVE_STATE_VERSUS_Q_GROUP_SCALE_TILE_AND_K_LOOP_CONTROL
+  mandatory_no_gain_costs:
+    - scale_tile_register_pressure
+    - extra_N_programs_for_current_64_wide_N_override
+    - LDS_occupancy_spill_tradeoff
+stage0_debt:
+  - strongest_same_object_paper_and_implementation_collision
+  - compiler_automatic_hoisting_or_equivalent_lowering
+  - frozen_M16_carrier_frequency
+  - executable_correctness_witness
+  - full_cost_measurement
+  - direct_M16_HIP_extension_dominance_check
+execution_boundary:
+  performed:
+    - official_current_source_inspection
+    - static_semantic_witness
+    - static_full_cost_accounting
+  not_performed:
+    - build_or_compilation
+    - kernel_or_model_execution
+    - performance_experiment
+    - stage0_dispatch
+resource_status: TRANSIENT_SOURCE_CONNECTOR_ONLY__NO_PERSISTED_RESOURCE
+artifacts:
+  - DIVERGENCE_SEED_POOL.md
+  - RQ_CANDIDATE.md
+  - DISCOVERY_QUESTION_CARD.md
+  - CURRENT_UPSTREAM_REALITY_CHECK.md
+  - CURRENT_UNION_MATRIX.md
+  - CORRECTNESS_AND_FULL_COST_CERTIFICATE.md
+  - TOPIC_BRIEF.md
+  - RESOURCE_INVENTORY.yaml
+  - HASH_MANIFEST.sha256
+completion_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,9 @@
+# Rule freeze
+
+- Assignment: `DISCOVERY-S4-20260811-V8.7-WAVE354-FRESH-NATURAL-REGIME-STOCK-ACTION-BREADTH`.
+- Frozen controls: `AGENTS.md=66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063`; `plan.md=D7D7C45F775D274346F8BD6E547B2A489952D387F0BEFC46173014F051EF91FC`; `registry.yaml=ED449D1120430F683A8C5108E4A7C229A888D926B5F3DBAD79756CC04464E527`; `ROLE_DISCOVERY.md=FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3`.
+- Rules: v8.7/R5-P0; `DISCOVERY_QUALITY_MODE=OFF`.
+- Exclusions: ext4 HTree, Tree-sitter, JSC, BTF, GIN and all previous closed/terminal objects.
+- No experiments, benchmarks, downloads, Stage0/A/B, automation, shared edits or E: references.
+
+An unmeasured regime or incomplete current union remains `NOT_ADMITTED_UNFROZEN`, never a readiness/resource inference.

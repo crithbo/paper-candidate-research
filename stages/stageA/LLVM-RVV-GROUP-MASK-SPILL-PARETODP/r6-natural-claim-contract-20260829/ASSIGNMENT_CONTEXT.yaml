@@ -1,0 +1,26 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+mainline_task_or_contact: 01a034d0-af48-72a1-a311-7495db80d90f
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_ACTION
+identity: {lane_id: CANDIDATE_EXECUTION_LANE_1, role_id: CANDIDATE_OWNER, assignment_id: STAGEA-L1-20260829-LLVM-RVV-R6-NATURAL-CLAIM-CONTRACT-FREEZE, topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP, stage_or_mode: NATURAL_CLAIM_CONTRACT_FREEZE_ONLY, status: BOOTSTRAP_PENDING, resume_point: R5D_PRECLAIM_GATE_ACCEPTED, next_action: BOOTSTRAP_ACK_ONLY}
+authority: {policy_authority: USER, shared_file_writer: MAINLINE, canonical_writer: CANDIDATE_L1, user_approval_ids: [USER_CONTINUE_APX_PPC_RVV_NEXT_STAGE_20260829], allowed_actions: [read_frozen_inputs, write_assignment_local_contract], forbidden_actions: [network, resource_creation, native_tool_run, natural_run, claim_run, stageb, shared_state_change], forbidden_inputs: [auditor_gold, terminated_backtest_outputs]}
+boundaries: {unique_write_directory: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6-natural-claim-contract-20260829, resource_root: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6-natural-claim-contract-20260829/resources, read_only_paths: [stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828, stages/stageA/_reviews/nonblind-20260828-rvv-r5d-preclaim/LLVM-RVV-GROUP-MASK-SPILL-PARETODP], write_allowed_paths: [stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r6-natural-claim-contract-20260829], network_allowed: false, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 8BC0CFF6D6E19530FCD0ABAF31159B3E12A992D5B03A0B14FB765CCA5421F380}
+  registry_snapshot: {path: registry.yaml, sha256: FD45F2689580B88753CBE0C4603D58A78AAF2916CD7C6BCEBDC26F731FE40658}
+  role_rule: {path: rules/ROLE_CANDIDATE_OWNER.md, sha256: 4373A320D7EF96FB5EB1683872FEC9CDCB9EA6D16ACDF893CA997C5FB2745A1A}
+  skills: [{path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+  templates: [{path: templates/STAGEA_REPORT.md, sha256: DF9AA27111D303600FD4C7F81DEB1FF52FFD6C308973D33B8A9EC59CA4542D7F}]
+minimum_inputs:
+  - {path: control/ASSIGNMENT.yaml, sha256: 6253547DEC2FAC344BDD4FC5D6307E369E51E4C0564239E02A7EA92D2A846568}
+  - {path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/handoff.yaml, sha256: 13F86B8EE9C755009F0997E78114A89E75FBB79B4B6AF1C8A153BF59455EB740}
+  - {path: stages/stageA/_reviews/nonblind-20260828-rvv-r5d-preclaim/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/INDEPENDENT_PRECLAIM_GATE_REPORT.yaml, sha256: 63C574CA9482BF75D92A7E785F6F1386132C23B39A7BC0FD3AA9ADEE5CC846FA}
+expected_outputs: [NATURAL_CLAIM_CONTRACT.yaml, NATURAL_CLAIM_PLAN.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+budget: {network_bytes_max: 0, natural_claim_runs_max: 0, scientific_revision_max: 0}
+claim_ceiling: CONTRACT_FREEZE_ONLY
+evidence_ceiling: NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+scientific_revision: {allowed_total: 0, consumed: 0, remaining: 0, exceptional_revision_authorized: false}
+mechanism_pivot: {allowed: false, consumed: 1, remaining: 0}
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: PASS}

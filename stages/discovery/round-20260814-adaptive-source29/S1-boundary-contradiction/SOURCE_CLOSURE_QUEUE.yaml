@@ -1,0 +1,28 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE29-RQ-PRODUCTION-V1
+closure_queue:
+  - rq_id: RQ-S01-B
+    family_signature: RISCV_ZFINX__FIXED_ABI__INTERPROCEDURAL_VALUE_PLACEMENT
+    status: CLOSED_BEFORE_RAW__SAME_OBJECT_FAILURE_OR_GENERIC_KERNEL
+    decisive_primary_evidence:
+      - "RISC-V Zfinx v1.0: F-extension and Zfinx software are incompatible; Zfinx arithmetic uses integer registers."
+      - "LLVM current RISCVUsage documents Zfinx support."
+    conclusion: >-
+      Retaining an existing F ABI while switching to Zfinx changes the ABI/object.
+      Freezing a Zfinx-native ABI instead leaves ordinary integer-register allocation,
+      spilling, and interprocedural placement, not a target-specific residual.
+    closure_debt: NONE
+    canonical_disposition: EXCLUDED_BEFORE_RAW__CHANGED_OBJECT_OR_GENERIC_KERNEL
+  - rq_id: RQ-S02-B
+    family_signature: WASM_MEMORY64__FIXED_HOST_ABI__CROSS_BOUNDARY_REPRESENTATION
+    status: LOCATOR_ONLY__PUBLIC_EVIDENCE_UNCLOSED
+    decisive_primary_evidence:
+      - "WebAssembly memory64 core draft (2024-11-07) defines the core extension, not a host/embedder ABI."
+      - "Bounded Wasmtime current-repository inspection did not locate a pinned memory64 host-ABI locus and default/nondefault configuration union."
+    conclusion: >-
+      The proposed exact host-ABI object is not frozen by the public core specification.
+      No absence claim is made. A later source-only closure would first pin a Wasmtime
+      commit, configuration entry points, and a canonical component/module carrier.
+    closure_debt:
+      - PIN_ENGINE_COMMIT_AND_MEMORY64_CONFIG
+      - FREEZE_HOST_BOUNDARY_AND_CANONICAL_CARRIER
+    canonical_disposition: LOCATOR_ONLY__PUBLIC_EVIDENCE_UNCLOSED

@@ -1,0 +1,31 @@
+sources:
+  - id: SRC01
+    role: ANCHOR_AND_CURRENT_CONTRACT
+    url: https://docs.oracle.com/en/java/javase/26/docs/specs/jni/functions.html
+    project_object_version: Java SE 26 JNI functions / GetPrimitiveArrayCritical and ReleasePrimitiveArrayCritical
+    selection_rule: official versioned JNI contract for the exact anchor
+    provenance: Oracle Java SE specification
+    license: public documentation terms
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: defines matching acquire/release API and critical-region use boundary
+  - id: SRC02
+    role: CURRENT_AND_CONTRARY
+    url: https://docs.oracle.com/en/java/javase/26/docs/specs/jni/design.html
+    project_object_version: Java SE 26 JNI design overview
+    selection_rule: official rationale and semantic constraints for primitive-array native access
+    provenance: Oracle Java SE specification
+    license: public documentation terms
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: specifies pin-or-copy compromise, simultaneous access semantics, and alternative region/copy mechanisms
+  - id: SRC03
+    role: CURRENT_SOURCE
+    url: https://github.com/openjdk/jdk/blob/master/src/hotspot/share/prims/jni.cpp
+    project_object_version: OpenJDK master / HotSpot JNI critical-array implementation locus
+    selection_rule: official upstream source path for acquire/release implementation
+    provenance: OpenJDK upstream repository
+    license: GPL-2.0 with Classpath Exception
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: acquire pins or enters GCLocker; release unpins or unlocks the same critical permission window

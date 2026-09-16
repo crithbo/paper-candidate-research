@@ -1,0 +1,21 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-537C3ADA58FF4BAF
+cutoff_date: 2024-01-01
+contribution_type: METHOD_ALGORITHM
+exact_object: assigning data blocks from several immutable files to a bounded set of shared compression dictionaries
+natural_scenario: multiple related immutable files with sampled blocks and fixed dictionary capacity
+problem: one dictionary per file misses cross-file redundancy while one global dictionary loses local fit
+atomic_action: cluster block samples and choose representative dictionaries under assignment and capacity costs
+mechanism: formulate the unchanged assignment as generic facility location or medoid selection
+information_condition: pairwise sample distance, dictionary capacity, and per-block assignment cost
+comparators: [current_multi_dictionary_facility, generic_k_medoids, dynamic_program_segmentation, per_file_dictionary]
+claim_endpoint: compressed bytes and access time at matched training, metadata, and dictionary count
+full_cost: [compressed_bytes, training_time, metadata, dictionary_bytes, random_access, solver_time]
+minimum_falsifier: no domain-specific action remains after subtracting generic clustering and current multi-dictionary support
+source_cards:
+  - {id: S01, year: 2024, role: current_multi_dictionary_facility}
+  - {id: S02, year: 2022, role: generic_facility_location_solver}
+  - {id: S03, year: 2021, role: generic_k_medoids}
+  - {id: S04, year: 2020, role: generic_segmentation_dynamic_program}
+local_resource_envelope: STATIC_REVIEW_FIRST
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

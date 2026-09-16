@@ -1,0 +1,37 @@
+schema_version: phase-closeout-retention-v1
+identity:
+  topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+  assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10-NATURAL-CLAIM-EXECUTION
+  stage: STAGE_A
+  closeout_event: FAIL_CLOSED_HANDOFF
+  generated_at: 2026-08-29
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  artifact_state: FROZEN_AWAITING_MAINLINE
+budget:
+  post_close_retained_bytes_max: 2147483648
+  measured_retained_bytes: 127698561
+  exception_required: false
+downstream:
+  consumer_id: MAINLINE
+  accepted: false
+entries:
+  - path: resources/**
+    files: 340
+    logical_bytes: 127698561
+    retention_class: RETAINED_FOR_MAINLINE_HANDOFF
+    reason: Exact copied input tree required to resume only after an explicit ordered execution interface is frozen.
+  - path: RELOCATED_R10_EXECUTION_PLAN.json
+    retention_class: RESUME_CRITICAL
+  - path: EXECUTION_INPUT_COPY_MANIFEST.yaml
+    retention_class: RESUME_CRITICAL
+proposed_delete_targets: []
+cleanup_owner: MAINLINE
+validation:
+  all_persisted_entries_classified: true
+  claim_critical_extracted_and_hashed: true
+  downstream_gate_satisfied: false
+  budget_or_exception_pass: true
+  result: AWAITING_MAINLINE

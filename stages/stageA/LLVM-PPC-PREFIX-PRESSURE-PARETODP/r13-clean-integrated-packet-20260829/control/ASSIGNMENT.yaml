@@ -1,0 +1,26 @@
+schema: stagea-clean-integrated-packet-contract-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R13-CLEAN-INTEGRATED-PACKET
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+phase: BOOTSTRAP_THEN_STATIC_PACKET_ONLY
+user_authorization_id: USER_APX_EXCEPTIONAL_S04_AND_PPC_CLEAN_PACKET_20260829
+clean_source_inputs:
+  exact16_manifest: {path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/EXACT16_INPUT_MANIFEST.yaml, sha256: D278BD508A192186115D337048C44E7DACC7B259ADE1FB114EEE6067378F3F7D}
+  v2_checker_dag: {path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/COMMAND_DAG.json, sha256: E3D5771953345AE0DF79A09E0E080504C8EB49AEE94E561C181DB534DA24A4EE, field: control_row.checker_argv}
+  full_cost_producer: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/PPC_R12_FULL_COST_LEDGER_PRODUCER.py, sha256: AD7A61FF5C75E8B4EE95287DFC2E55CB1CC663DAE5A78137435EE48E38F77E34}
+  exact_copy_manifest: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/EXACT_RESOURCE_COPY_MANIFEST.yaml, sha256: CD7499964BDE21072465FC7026BA331668E076058FF7A054FBB435F4AB92F9D7}
+  correction2_validation: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/PPC_R12_STATIC_VALIDATION.yaml, sha256: 6F3C2A4B1D0CAE5DF0D887D7BB659DFB394DAA3E0736B11B9C1A4531AC06C223}
+quarantined_inputs:
+  disposition: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/MAINLINE_CORRECTION3_FINAL_DISPOSITION.yaml, sha256: BC8EEFDA0EA2C0A0A954E4A62BAA4CB47097AD1B6461C38FF3A0A47A550EA3C2}
+  forbidden_as_implementation_source: [r12/PPC_R12_EXECUTABLE_PACKET.yaml, r12/PPC_R12_COMMAND_DAG.json]
+required_fresh_outputs: [PPC_R13_EXECUTABLE_PACKET.yaml, PPC_R13_COMMAND_DAG.json, PPC_R13_FULL_COST_LEDGER_PRODUCER.py, PPC_R13_STATIC_VALIDATION.yaml, EXACT_RESOURCE_COPY_MANIFEST.yaml]
+required_dag:
+  ordered_nodes: [candidate_15_metric_run, baseline_56_metric_collector, native_checker, full_cost_71_metric_ledger]
+  native_checker_cost: separate_verification_overhead_outside_71_but_not_hidden
+  full_cost_depends_on: [candidate, baseline, native_checker]
+  metrics: {candidate: 15, baseline: 56, unique_scientific_denominator: 71}
+  baseline_bundles: 16
+  placeholders: 0
+invariants: [exact_object, exact16_selection, strongest_baseline_grid, same_function_witness, denominator_71, units, claim_endpoint, guarantee]
+forbidden_actions: [resource_copy, tool_execution, control_execution, claim_execution, network, retry, result_aware_change, denominator_change, baseline_relaxation, quarantined_packet_reuse, shared_write, cleanup, stageb]
+next_gate: INDEPENDENT_CLEAN_PACKET_PRECLAIM_FIDELITY_GATE
+

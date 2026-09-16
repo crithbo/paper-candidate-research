@@ -1,0 +1,23 @@
+schema: mainline-stagea-executorch-method-redesign1-start-v1
+assignment_id: STAGEA-L3-20260830-EXECUTORCH-QFALLBACK-METHOD-REDESIGN1
+topic_id: SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+same_object_method_redesign: 1_of_1
+consumption_point: first_network_call_by_acquisition_controller
+acquisition:
+  outer_controller_processes: 1
+  remaining_after: 0
+  package_resolution: pip_internal_download_with_only_binary_all_and_no_binary_antlr4_python3_runtime
+  antlr_sdist: {filename: antlr4-python3-runtime-4.9.3.tar.gz, sha256: F224469B4168294902BB1EFA80A8BF7855F24C99AEF99CBEFC1BCD3CCE77881B}
+  executorch_wheel: {filename: executorch-1.4.1-cp312-cp312-win_amd64.whl, sha256: 5BBB6CF3D8DBDC9CAB6F0E3BB2E83618E26D776B7365845B284BB01FBA219AD5}
+  model: HuggingFaceTB/SmolLM2-135M@93efa2f097d58c2a74874c7e644dbc9b0cee75a2
+  model_download: direct_HuggingFace_revision_HTTP_inside_same_outer_controller
+  freeze_before_claim: [all_package_and_model_files_versions_hashes_licenses, resolver_report, model_manifest]
+  stored_bytes_max: 2147483648
+local_install: no_index_assignment_local_only
+pre_effect_gate: [executorch_import_and_runtime_binding, at_least_2_legal_distinct_topologies, same_source_edge_runtime_quality, no_double_counting_features]
+claim_panel: {variants: [portable_only, xnnpack_standard, xnnpack_extended_if_legal], profiling_arms: [off, on], warmup: 3, measured_repetitions: 10, retries: 0, held_out: 0, refit: 0, backfill: 0}
+frozen_unchanged: [model_revision, variant_rules, quality_thresholds, feature_schema, full_cost_fields, repetitions, claim_ceiling]
+forbidden: [second_network_process, alternate_model_or_executorch_version, result_aware_variant_selection, retry, system_install, proprietary_backend, StageB, shared_write]
+current_cycle_usage_reset_confirmed: false
+stop: after_safe_handoff

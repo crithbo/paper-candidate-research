@@ -1,0 +1,18 @@
+schema: pilot-v2-topic-disposition-v1
+topic: PPC
+decision: ABANDON_CURRENT_EXECUTION_ROUTE__NO_MORE_MICRO_ASSIGNMENTS
+initial_failure: REQUIRED_RUNNER_AND_BASELINE_COLLECTOR_NOT_BOUND
+correction1_failure: FULL_COST_LEDGER_PRODUCER_ARGV_MISSING
+engineering_corrections_consumed: 1
+control_rows_attempted: 0
+replay_after_correction_used: 0
+valid_claim_rows: 0
+scientific_inference: NONE
+scientific_stop: false
+shared_install_effect: NONE
+next_state: EXECUTION_CONTRACT_HOLD__RELEASE_LANE
+reason: >-
+  The single authorized correction bound the runner and baseline collector, but
+  the immutable packet still supplied no executable argv for the 71-metric
+  full-cost ledger producer. Inferring or adding that command after E1 would be
+  command substitution outside the frozen packet and is therefore prohibited.

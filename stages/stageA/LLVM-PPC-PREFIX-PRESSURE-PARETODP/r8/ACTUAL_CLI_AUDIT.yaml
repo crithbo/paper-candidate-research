@@ -1,0 +1,30 @@
+schema: ppc-r8-actual-cli-audit-v4
+gate: J1_ACTUAL_CLI_AND_INPUT_DRIVEN_CANDIDATE
+status: PASS_TWO_A3_FRESH_REPLAYS
+stable_mir_path_correction:
+  source: resources/src/actual_claim_harness/actual_claim_harness.py
+  before_sha256: 6593C28CFF8021D85A3B95721FBCC4125B93F301DF6DA414BCD69DEEC14B343B
+  after_sha256: B4155CD20EDE6E2F994B69E61B6FC796D70848E4902E1FC1FCAEAA000673A2FE
+  bytes: 21929
+  logical_edit_location: MachineVerifier_command_02_argv_only
+  argv_input: input.mir
+  source_edit_audit: A3_SOURCE_EDIT_AUDIT.yaml
+machineverifier_execution:
+  replay_1_cwd: resources/build/actual_harness_a3/replay_1/artifacts
+  replay_2_cwd: resources/build/actual_harness_a3/replay_2/artifacts
+  cwd_isolated: true
+  input_mir_path_isolated: true
+  input_mir_sha256_both: 1091A6679AF952BE99AD400C2E39C83C59307760CCDC810D144239247CACF85F
+  posthoc_normalization_or_shared_overwrite: false
+symbol_ranges:
+  witness_direct: {type: Function, value: 0x0, size: 12, interval: '[0x0,0xC)', opcodes: [pld, blr]}
+  witness_materialized: {type: Function, value: 0x10, size: 16, interval: '[0x10,0x20)', opcodes: [paddi, ld, blr]}
+  opcode_based_padding_filter: false
+fresh_replays:
+  replay_1: {native_commands: 11, all_exit_zero: true, all_native_checkers_pass: true}
+  replay_2: {native_commands: 11, all_exit_zero: true, all_native_checkers_pass: true}
+selected_or_reserve_corpus_tool_invocations: 0
+claim_bearing_runs: 0
+automatic_retry: false
+scientific_inference: NONE
+

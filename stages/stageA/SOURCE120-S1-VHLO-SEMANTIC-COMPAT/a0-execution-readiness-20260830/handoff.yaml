@@ -1,0 +1,57 @@
+schema: vhlo-stagea-a0-handoff-v1
+assignment_id: STAGEA-L2-20260830-VHLO-SEMANTIC-COMPAT-A0
+topic_id: SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+lane_id: CANDIDATE_EXECUTION_LANE_2
+decision: A0_EXECUTION_CONTRACT_HOLD__NATIVE_SOURCE_AND_CONSUMER_BINDINGS_UNRESOLVED
+evidence_ceiling: RESOURCE_AND_EXECUTION_BINDING_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+bootstrap:
+  ack_sha256: 8669E677FC6E88A511020E6E0B1E0B2FB8E820CC4AD5267F1B988ADEB0650092
+  acceptance_sha256: 791A3BA31D45378652E65EADC1BA421C0B1982B97633DBCC9346D91BFBCF580A
+  start_sha256: 718C9808AE50F44ACEBD59FE786AB60CFAF46E2082578DD676C10A29D50BE788
+static_freeze:
+  source_freeze: {path: OFFICIAL_SOURCE_FREEZE.yaml, sha256: EF3F8826B2EFA9F1329CD441E245588F47DB01C92B66FE1160B1699E5F8E85FE}
+  packet: {path: VHLO_A0_PACKET.json, sha256: 09CCF51D95604947F67E71EB3399A1AF363E24ECBCC739FB159D43642831C10A}
+  exact_commits: {stablehlo: 6a5902c7c0f7b3085a502d148b846a62eaa20501, PRIVATE_TOOLCHAIN: ee89ff3011fb5bfb952d1471fd3b745c8b06b916, xla_supported_witness: 5ce7908a2d32a9f91fd99380435cda1b645c8cc7}
+  xla_current_head_asserted: false
+  reference_version_window: ['0.9.0', '1.20.0']
+  consumer_embedded_version_intersection_closed: false
+  witness_classes_frozen: 4
+  oracle_classes_frozen: [EXACT, TOLERANCE, IMPLEMENTATION_DEFINED, UNSUPPORTED]
+  planned_matrix_cells: 24
+  executed_matrix_cells: 0
+  full_cost_fields_frozen: 12
+  exact_literal_argv_bound: false
+transport:
+  ledger: {path: NETWORK_TRANSPORT_LEDGER.yaml, sha256: 096D67AB86D56AD9C6AAA206E4853DB483508ACE9F0CD1B0A3FBF0B973E51997}
+  attempts_used_conservative: 23_of_24
+  native_persisted_source_bytes: 0
+  web_connector_exact_bytes: UNAVAILABLE__NOT_ESTIMATED
+  engineering_corrections_used: 2_of_2
+  no_additional_network_route_started: true
+nonclaim_control:
+  kind: MANUAL_TRACE_SCHEMA_CONTROL
+  attempts: 1_of_1
+  process_exit_code: 0
+  packet_schema_valid: true
+  binding_complete: false
+  missing_executor_bindings: [REFERENCE, PRIVATE_TOOLCHAIN, XLA]
+  control_status: {path: A0_CONTROL_STATUS.yaml, sha256: 1A0AD5F178130618CF9820A9DEB821C715EFCDE01C7DD109EC32D7D722F3EB83}
+readiness:
+  executable_packet_ready: false
+  control_row_pass: true
+  ledger: {path: STAGEA_EXECUTION_READINESS_LEDGER.yaml, sha256: C7FB4C70ED3C37642BA3125F3B64106E892E1DA3D8B9A3816A9049FA68730A05}
+  inventory: {path: RESOURCE_INVENTORY.yaml, sha256: B5605FCE550F2D4E8DC7AF92C0981797920170341CC3E1D67ADE9DA37C316F34}
+resource_summary: {files: 6, logical_bytes: 4466, reparse_points: 0, active_related_processes: 0, cleanup_performed: false}
+firewall:
+  compatibility_or_relative_results_read: false
+  result_aware_witness_or_consumer_change: false
+  valid_claim_rows_observed: 0
+  decisive_stagea_observation: false
+  scientific_revision_consumed: false
+  scientific_inference: NONE
+  claim_matrix_execution: false
+  stageb: false
+  shared_write: false
+lifecycle: {retention_path: PHASE_CLOSEOUT_RETENTION.yaml, resume_capsule_path: RESUME_CAPSULE.yaml, manifest_path: TARGETED_MANIFEST.yaml}
+pause_signal_state: CURRENT_2026_08_30_RESET_CYCLE_NOT_CONFIRMED
+next_action: WAIT_MAINLINE_DISPOSITION__NO_SUCCESSOR_OR_ADDITIONAL_ROUTE

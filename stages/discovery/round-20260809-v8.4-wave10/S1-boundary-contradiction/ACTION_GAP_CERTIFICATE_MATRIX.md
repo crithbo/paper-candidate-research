@@ -1,0 +1,19 @@
+# S1 Wave10 oracle-rich action-gap certificate matrix
+
+- Assignment: `DISCOVERY-S1-20260809-V8.4-WAVE10`
+- Cutoff: 2026-08-09.
+- Method: accepted `v2/v8.1`, v8.4 two-layer judgment, baseline-residual-first, and action-gap certificates. TLS-blocked `v8.2r2` excluded.
+- Result: `COMPLETE_ZERO_PROPOSALS`.
+
+| Oracle-rich object (ranking prior) | Natural carrier and deterministic oracle | Frozen strongest union | Action-gap certificate | Outcome |
+|---|---|---|---|---|
+| WebAssembly binary lowering/optimization | [Binaryen](https://github.com/WebAssembly/binaryen) supports parse/emit, `wasm-opt`, interpreter/spec tests and a maintained test suite; [WABT](https://github.com/WebAssembly/wabt) provides `wasm-validate`. Natural carriers are upstream WebAssembly test modules and real toolchain output. | Binaryen IR passes, automatic validation fixups, wasm-opt pipeline/pass choices, WABT/spec validation, and module-size/runtime accounting. | No action gap: a validity repair, pass ordering, or lowering tweak is within the optimizer/validator union; a tool wrapper/checker is prohibited. Binaryen’s documented temporary-IR versus emitted-binary distinction is an implementation fact, not a new paper mechanism. | `DROP`—no union-external atomic N1/N2/N3. |
+| DIMACS CNF with DRAT/LRAT unsatisfiability certificates | [DRAT-trim](https://github.com/marijnheule/drat-trim) deterministically checks clause-addition/deletion proof sequences and includes binary encoding, LRAT checker, and examples. Natural carriers are SAT-competition DIMACS/certificate instances. | DRAT/LRAT formats, validation algorithms, binary encoding, core-first/backward checking, clause additions/deletions, and full proof-size/check-time costs. | No action gap: a deletion/reordering/scheduling mechanism belongs to the excluded PB deletion object; compression/format transforms are established format-level actions and require a separate semantics/guarantee residual not identified here. | `DROP`—assignment exclusion plus no independent residual. |
+| SQLite database file format and integrity preservation | [SQLite PRAGMA documentation](https://sqlite.org/pragma.html) exposes `integrity_check`; the public file-format/specification and test ecosystem provide deterministic consistency checks for natural SQLite databases. | SQLite format invariants, `integrity_check`, normal VACUUM/backup/checkpoint and documented format-preserving operations, with full rewrite/I/O/space costs. | No action gap established: a page-layout, compaction, or dictionary selection policy would be a selector/controller unless it introduces a new format-valid operation with a defined semantic invariant; no such operation was found in current primary-source screening. | `DROP`—no frozen union-external legal action. |
+| ELF/LLVM link and post-link layout | [LLVM BOLT upstream documentation](https://github.com/llvm/llvm-project/tree/main/bolt) describes profile-guided code/function reordering under linker constraints; LLVM/lld supplies the executable-format/linkage contract and natural open-source binaries. | Linker legality, relocation/symbol/COMDAT semantics, lld/LLVM layout actions, BOLT function/basic-block reordering, profile collection, binary-size/runtime/build-cost ledger. | No action gap: link order, ICF, function placement, and post-link reordering are within the established linker/BOLT union. A heuristic scoring arrangement would be ordinary tuning without a changed legality/equivalence contract. | `DROP`—strong union absorbs action space. |
+
+## Oracle-rich ordering result
+
+All four leads meet at least part of the oracle-rich ranking prior, but none supplies a same-object residual action gap after the union is fixed. Oracle availability and a ≤4 CPU-hour probe are therefore not used as negative evidence; they only made these leads efficient to eliminate.
+
+No retained topic exists, so no Tier A/B claim, readiness label, or finite Stage A killer is emitted.

@@ -1,0 +1,25 @@
+assignment_id: DISCOVERY-S6-20260811-V8.7-WAVE233-YOSYS-MEMORY-BANKING-MAP-JOINT-DEPTH
+lane: S6-direct-algorithm-software
+rules_revision: v8.7+R5-P0
+discovery_quality_mode: OFF
+frozen_control_hashes:
+  plan: FDBE210D977CFCB13C03636779F680105817E044FF10A776B2F8F7DBB9D9DE6C
+  registry: 8AB9420D0E1886A6FB2D3BE953971455BEC3A951A540706F0868E39EF0FB6B69
+  role_discovery: FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3
+final_disposition: COMPLETE_ZERO_PROPOSALS
+deep_reviews: 1
+grounded_briefs: 0
+candidate_status:
+  - id: F1_YOSYS_MEMORY_BANKING_MAP_JOINT
+    disposition: NOT_ADMITTED_UNFROZEN
+    reason: >-
+      Known native memory mapping actions can validly support a joint N2, and a same-contract
+      FF-versus-RAM/banked witness exists. But current Yosys pass/library composition and
+      direct FPGA mapping/vendor collision are unclosed, so no distinct joint algorithm or
+      guarantee is frozen.
+fidelity_closure_if_reopened:
+  - Pin current Yosys passes, default and nondefault flows, public memory library rules, and target constraints.
+  - Close primary FPGA memory-banking/technology-mapping and fair vendor-tool collision.
+  - Freeze a non-generic joint algorithm and formal guarantee under the same timing semantics.
+prohibited_actions_performed: []
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

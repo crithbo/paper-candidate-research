@@ -1,0 +1,71 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: SEGMENTED-SCALE-W4A16-REV0
+  assignment_id: DISCOVERY-S6-20260823-SEGMENTED-SCALE-W4A16-PROMOTION-CLOSURE
+  stage_or_mode: DISCOVERY_SOURCE_ONLY
+  run_id: segmented-scale-w4a16-rev0-promotion-closure
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260823\segmented-scale-w4a16-rev0-promotion-closure
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260823\segmented-scale-w4a16-rev0-promotion-closure\resources
+  inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260823\segmented-scale-w4a16-rev0-promotion-closure\RESOURCE_INVENTORY.yaml
+  created_at: '2026-08-23T00:00:00+08:00'
+  finalized_at: '2026-08-23T00:00:00+08:00'
+root_measurement:
+  logical_bytes: 0
+  allocated_bytes: 0
+  measurement_method: NO_RESOURCE_ROOT_CREATED__NO_PERSISTED_RESOURCE_ACTION
+  measurement_complete: true
+required_directories:
+  downloads: NOT_CREATED__NO_RESOURCE_PRODUCING_ACTION
+  archives: NOT_CREATED__NO_RESOURCE_PRODUCING_ACTION
+  src: NOT_CREATED__NO_RESOURCE_PRODUCING_ACTION
+  build: NOT_CREATED__NO_RESOURCE_PRODUCING_ACTION
+  env: NOT_CREATED__NO_RESOURCE_PRODUCING_ACTION
+  cache: NOT_CREATED__NO_RESOURCE_PRODUCING_ACTION
+  tmp: NOT_CREATED__NO_RESOURCE_PRODUCING_ACTION
+  logs: NOT_CREATED__NO_RESOURCE_PRODUCING_ACTION
+redirect_preflight:
+  status: NOT_RUN__NO_RESOURCE_PRODUCING_ACTION
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools: []
+resource_envelope:
+  network_bytes_max: 16777216
+  stored_bytes_max: 16777216
+  cpu_hours_max: 0.5
+  gpu_hours_max: 0
+  wall_seconds_max: 3600
+  attempts_max: 24
+  network_bytes_used: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  stored_bytes_used: 0
+  attempts_used: 5
+entries: []
+shared_assets_consumed: []
+external_system_dependencies:
+  - kind: GITHUB_CONNECTOR_TRANSIENT_PUBLIC_SOURCE
+    persistence: NO_PROJECT_FILE_PERSISTED
+    sources:
+      - vllm-project/vllm@568afb3a__triton_w4a16.py
+      - vllm-project/vllm@568afb3a__rdna_hybrid_w4a16.py
+      - vllm-project/vllm@568afb3a__skinny_gemms_int4.cu
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: NOT_APPLICABLE__NO_RESOURCE_ROOT_CREATED
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: NOT_APPLICABLE__NO_RESOURCE_PRODUCING_ACTION
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: NOT_APPLICABLE__NO_PERSISTED_CLAIM_RESOURCE
+  result: PASS__SOURCE_CONNECTOR_TRANSIENT_ONLY

@@ -1,0 +1,14 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S4-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+opportunity_family_id: S4-R16A-R03-MODULESYMVER
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+cutoff: 2026-08-13
+opportunity_family: {canonical_signature: LINUX_MODULE_SYMVERS_CONSTRUCTOR__EXPORTED_SYMBOL_ABI_SET__STOCK_MODPOST_MODULE_LOADER__BYTES_BUILD_CPU_RSS_ABI_CHECK_COST, relations: []}
+queries: [{query_id: Q001, text: current Linux Module.symvers modpost module versioning genksyms gendwarfksyms official, purpose: current union and guarantee check, source_or_search_engine: kernel docs/source, executed_at: 2026-08-13, filters: [current-first-party], read_depth: SOURCE, key_result_ids: [S001], exclusions_with_reasons: [no-kernel-build], state_change: versioning union surfaced}]
+sources: [{source_id: S001, title_or_artifact: Linux module versioning documentation/source snapshot, canonical_version: master, locator: https://docs.kernel.org/next/kbuild/modules.html, source_role: CURRENT_FIRST_PARTY, read_depth: SOURCE, normalized_variants: [basic-extended-genksyms-gendwarfksyms], repository_commit_config_or_dataset_hash: 3d6d817622b0a9721e3cc404df3469171582be13}]
+claims: [{claim_id: C001, text: ABI-preserving union-external constructor unclosed, priority: HIGH, priority_rationale: exact ABI guarantee gate, source_links: [{source_id: S001, relation: IMPLEMENTS, locator: Module.symvers and CONFIG_MODVERSIONS, evidence_status: AUTHOR_CLAIM, conflict: complete current union not closed, permitted_conclusion: NOT_ADMITTED_UNFROZEN}]}]
+direct_coverage: {target_source_or_union: current Linux module symbol-version union, predicates: {same_object_function_protocol: UNKNOWN, same_scenario_workload: UNKNOWN, same_or_weaker_information: UNKNOWN, atomic_action_covered: UNKNOWN, same_or_stronger_legality_quality_guarantee: UNKNOWN, same_nonworse_full_cost: UNKNOWN, comparable_scale_platform_version_config: UNKNOWN, sufficient_read_or_reproduction_depth: UNKNOWN}}
+independent_prior_current_audit: {owner_or_lane: S4, query_ids: [Q001], completed: false}
+stopping: {high_impact_items_bounded: false, latest_and_current_union_checked: false, first_party_depth_sufficient: false, heterogeneous_independent_path_complete: false, contrary_search_complete: false, natural_or_canonical_carrier_frozen: true, full_cost_frozen: true, marginal_sources_no_longer_decision_changing: false, decisive_contradictions_resolved_or_bounded: false, disposition: NOT_ADMITTED_UNFROZEN}
+execution_readiness: {state: E1, e1_evidence: [versioned-kernel-module-route], e2_authorization_id: '', e2_allowlist: {}, e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0, scientific_inference_permitted: false}
+claim_ceiling: static route only

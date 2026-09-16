@@ -1,0 +1,144 @@
+schema_version: patchvalue-static-certificate-v1
+assignment_id: STAGE0-P3R1-20260822-PATCHVALUE-COUNTERFACTUAL-REVISION1
+topic_id: PATCHVALUE-COUNTERFACTUAL-REV0
+sole_gate: FROZEN_SAME_STATE_BRANCH_FIDELITY__NONATTRIBUTION_CONTINUATION_VALUE_CERTIFICATE
+revision_consumed: true
+exact_object:
+  state_boundary: completed_native_llm_call_and_required_tool_boundary
+  treatment_control: A0_absorbing_stop
+  treatment_arm: Ah_grant_h_future_native_complete_llm_call_slots
+  terminal_before_h: retained_predeclared_terminal_arm_outcome_with_full_cost
+  outcome: offline_hidden_evaluator_label_after_branch_freeze
+  excluded_claims: [historical_action_blame, model_routing, restart_policy, terminal_success_classifier, generic_budget_allocator]
+
+C1_CURRENT_NATIVE_FORK_CATALOG:
+  pin: OpenHands_SDK_43376f1868ffd702746080714a59c16d3f69ec12
+  current_union_map:
+    conversation_fork:
+      copied: [events, agent, agent_state]
+      shared: [workspace]
+      interpretation: native_conversation_fork_is_baseline_not_candidate_action
+    local_conversation_fork:
+      shared_workspace_expression: workspace=self.workspace
+      consequence: insufficient_for_whole_mutable_environment_SUTVA
+    persisted_state_surface:
+      source: conversation/state.py
+      fields: [conversation_state, event_log, agent_state, prompt_and_hook_configuration, workspace_reference]
+  required_action_catalog:
+    deep_copy: [conversation_events, agent_serialized_state, agent_state]
+    reset_from_manifest: [workspace_root, filesystem_container_state, process_state, tool_service_state, evaluator_state]
+    read_only_shared: [immutable_model_weights, immutable_image_layers, pinned_task_base]
+    prohibited_aliases: [writable_worktree, mutable_container_layer, tool_cache, evaluator_cache, mutable_model_server_session]
+  static_checker:
+    input: branch_manifest.yaml
+    pass_conditions:
+      - native_fork_is_declared_as_baseline
+      - every_shared_item_is_explicitly_read_only
+      - every_writable_item_has_distinct_branch_identity_and_reset_or_copy_rule
+    failure: CURRENT_FORK_MISREPRESENTED_OR_WRITABLE_ALIAS
+
+C2_WHOLE_MUTABLE_ENVIRONMENT_SUTVA:
+  clone_schema:
+    repository:
+      identity: [task_id, base_revision, tracked_tree_hash, patch_hash, untracked_manifest_hash]
+      branch_rule: distinct_copy_on_write_worktree_id
+    environment:
+      identity: [image_digest, filesystem_manifest_hash, process_reset_transcript_hash, public_tool_state_hash]
+      branch_rule: no_reused_mutable_container_or_process
+    conversation:
+      identity: [event_log_hash, agent_serialized_config_hash, agent_state_hash, prompt_hash, tool_output_transcript_hash, call_index, context_tokenizer_hash]
+      branch_rule: native_fork_plus_manifest_verified_state_reconstruction
+    inference_runtime:
+      identity: [model_identity_hash, server_configuration_hash, decoding_distribution_hash, assigned_seed_schedule_hash]
+      branch_rule: independent_seed_schedule_and_no_mutable_session_alias
+    evaluator:
+      identity: [harness_revision_hash, evaluator_image_digest, sealed_label_policy_hash]
+      branch_rule: fresh_or_reset_per_arm_after_branch_freeze
+  sufficiency_proposition: >-
+    If every identity field equals the common-prefix manifest and every mutable
+    branch field has distinct identity or an auditable reset transcript, then the
+    two arms are alternative continuations of the registered state rather than
+    continuations contaminated by an unregistered mutable parent.
+  static_checker:
+    input: [common_prefix_manifest, arm_zero_manifest, arm_h_manifest]
+    expected_pass: PREFIX_EQUAL__MUTABLE_IDENTITIES_DISJOINT__READ_ONLY_IDENTITIES_EQUAL
+    expected_failures: [PREFIX_MISMATCH, WRITABLE_ALIAS, MISSING_RESET_TRANSCRIPT, UNSEALED_EXTERNAL_TOOL]
+
+C3_TREATMENT_AND_EVALUATOR_FIREWALL:
+  treatment_grammar:
+    A0: freeze_common_prefix_then_no_further_agent_or_tool_transition
+    Ah: >-
+      apply exactly h registered native call slots, each using the pinned decoder
+      distribution and causally required native tools; a registered terminal-before-h
+      is retained as TERMINAL_BEFORE_H, not omitted or replaced by restart/routing.
+  randomization:
+    seed_schedule: precommitted_before_snapshot_sampling_and_branch_creation
+    assignment: independent_of_state_features_repository_public_test_and_final_label
+    common_random_numbers: allowed_only_if_marginal_distribution_and_pairing_rule_are_logged
+  evaluator_firewall:
+    allowed_time: after_arm_manifest_freeze_only
+    forbidden_inputs: [snapshot_selection, features, allocation, stopping, restart, branch_execution]
+    required_log: evaluator_access_log_hash
+  static_checker:
+    expected_pass: TREATMENT_PRECOMMITTED__SEEDS_PRECOMMITTED__EVALUATOR_OFFLINE_ONLY
+    expected_failures: [POST_TREATMENT_SEED, OUTCOME_GUIDED_SELECTION, EVALUATOR_LEAK, DROPPED_CENSORING]
+
+C4_CAR_RESIDUAL_AND_GUARANTEE:
+  facet_matrix:
+    CAR:
+      treatment: intervention_on_historical_action_observation_context_or_policy
+      target: causal_attribution_or_point_of_commitment
+      output: attribution_or_counterfactual_failure_explanation
+    PatchValue_narrow_claim:
+      treatment: absorbing_stop_vs_registered_future_complete_call_dose
+      target: conditional_value_of_future_compute_from_fixed_coding_state
+      output: simultaneous_lower_confidence_frontier_with_full_branch_cost
+    non_equivalence_condition: >-
+      No historical action is changed or blamed; all decisions occur strictly after
+      the common prefix, and the accepted result remains invalid unless the
+      whole-environment branch contract and offline-evaluator firewall hold.
+  estimator:
+    registered_states: S = [s_1, '...', s_n]
+    per_seed_outcome: Z_i_r_h = H(F_h(s_i,omega_r)) - H(F_0(s_i))
+    estimate: D_i_h = mean_r(Z_i_r_h)
+    bound: >-
+      for bounded Z in [-1,1] and independently registered seeds, L_i_h(alpha)
+      = D_i_h - sqrt(2*ln(2*n*|H|/alpha)/R) is a simultaneous Bonferroni lower
+      bound for the registered state-dose family, conditional on C1-C3.
+    property: >-
+      A state may be admitted to the optional fixed-total-call frontier only when
+      its registered lower effect is positive after comparing matched all-arm cost;
+      the frontier reports no-gain and harm states rather than assuming monotonic
+      progress or terminal-success classification.
+  not_allowed_as_core: [difference_in_means_without_contract, generic_bandit, generic_budget_allocation, CAR_action_blame, routing, restart]
+  static_checker:
+    expected_pass: FUTURE_DOSE_ONLY__TARGET_TRIAL_ASSUMPTIONS_DECLARED__SIMULTANEOUS_BOUND_DECLARED
+    expected_failures: [HISTORICAL_ACTION_ATTRIBUTION, GENERIC_ALLOCATOR_CORE, UNREGISTERED_STATE_SELECTION]
+
+C5_FINITE_FIDELITY_AND_FULL_COST_KILLER:
+  tiny_static_oracle:
+    name: PV_STATIC_CERT_V1
+    inputs: [common_prefix_manifest, arm_zero_manifest, arm_h_manifest, evaluator_policy_manifest, cost_ledger_schema]
+    outputs:
+      pass: [prefix_equal, writable_disjoint, seed_precommitted, evaluator_offline, treatment_grammar_complete, censoring_retained, cost_fields_complete]
+      fail: [one_or_more_named_contract_violation]
+    scope: static_manifest_and_hash_validation_only_no_agent_or_evaluator_execution
+  natural_route:
+    carrier: pinned_public_SWE_bench_task_and_OpenHands_call_boundary
+    split: repository_disjoint_snapshot_sampling_and_calibration
+  same_information_union:
+    - fixed_continue
+    - fixed_stop
+    - CAR_adapter_with_same_prefix_information
+    - same_information_failure_restart_policy
+    - SWE_Router_style_public_prefix_router
+    - rollout_reuse
+    - value_process_reward_model
+    - preregistered_random_or_uniform_extra_call_allocation
+  full_cost_fields: [common_prefix_separately_reported, all_arm_llm_tokens_gpu_cpu, tool_time, clone_reset_worktree_container, storage, evaluator, predictor_allocator, timeout_failure_cancelled_branch]
+  stageA_preclaim_failures: [any_static_oracle_failure, any_writable_alias, any_evaluator_leak, CAR_relabel_only, missing_all_arm_cost, no_comparator_parity]
+  gate_result: CLOSED_STATIC_SPECIFICATION_ONLY
+
+claim_ceiling: SAME_STATE_RANDOMIZED_CONTINUATION_EFFECT_ESTIMATION_ON_FIXED_AGENT_MODEL_DECODER_BENCHMARK
+stageA_authorized: false
+stageB_authorized: false

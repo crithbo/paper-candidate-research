@@ -1,0 +1,33 @@
+schema: DIVERGENCE_SEED_V1R1_SOURCE_LEDGER_V1
+assignment_id: BACKTEST-PACKER-L1-20260814-DIVERGENCE-SEED-FRONTEND-V1-R1
+visibility: AUDITOR_ONLY
+reuse_policy: V1_COMPLETE_PRIMARY_OFFICIAL_BYTES_ONLY__REHASHED_AND_REQUALIFIED
+cases:
+  CASE-A:
+    cutoff: 2023-07-16
+    target_anchor: {path: AUDITOR_KEY/target_anchors/A.pdf, arxiv_id: '2307.08691', first_public_date: '2023-07-17', sha256: 4AA8935DFACAF6AE8C68F772CA92F730154A0DD0E1BCEEB59C7BC56C512D5868, bytes: 1660578}
+    sources:
+      - {path: EXECUTOR_INPUT/CASE-A/sources/E01.pdf, arxiv_id: '1706.03762', date: '2017-06-12', role: primary_baseline_semantics, sha256: BDFAA68D8984F0DC02BEACA527B76F207D99B666D31D1DA728EE0728182DF697, bytes: 2215244}
+      - {path: EXECUTOR_INPUT/CASE-A/sources/E02.pdf, arxiv_id: '2001.04451', date: '2020-01-13', role: primary_alternative_cost_tradeoff, sha256: F86F29116EA4A04321F4AB8727283096C544255BD31F7EFBC10E56390A8B5E8B, bytes: 658515}
+      - {path: EXECUTOR_INPUT/CASE-A/sources/E03.pdf, arxiv_id: '2205.14135', date: '2022-05-27', role: primary_exact_predecessor, sha256: CA7F9FDA10B90FC05DD291A3ACCC85E9C1A4A860B99B31928DAB03ED3FCB14E4, bytes: 2630825}
+  CASE-B:
+    cutoff: 2022-01-13
+    target_anchor: {path: AUDITOR_KEY/target_anchors/B.pdf, arxiv_id: '2201.05596', first_public_date: '2022-01-14', sha256: DA4727A1FE4341231ED4DCCB0C1B417EA7A55F114AC9E60B0D4DC997A09F1EBC, bytes: 1349543}
+    sources:
+      - {path: EXECUTOR_INPUT/CASE-B/sources/E01.pdf, arxiv_id: '1811.06965', date: '2018-11-16', role: primary_pipeline_baseline, sha256: 697F257E85667829053707594800447F3A75482226DDB6EB24374905C5AF6D44, bytes: 539195}
+      - {path: EXECUTOR_INPUT/CASE-B/sources/E02.pdf, arxiv_id: '1909.08053', date: '2019-09-17', role: primary_parallel_decomposition, sha256: FA89E54E23C0CEA5CBD9D24720DB7647C61AF299AFDB9A170C7119160E6D207A, bytes: 3850425}
+      - {path: EXECUTOR_INPUT/CASE-B/sources/E03.pdf, arxiv_id: '1910.02054', date: '2019-10-04', role: primary_memory_state_subtractor, sha256: C531734C7D9EE647FDA9B4F0E1A6ABD6D58AD34E862BC945451B09032BE3167E, bytes: 779206}
+  CASE-C:
+    cutoff: 2022-07-08
+    target_anchor: {path: AUDITOR_KEY/target_anchors/C.pdf, arxiv_id: '2207.04296', first_public_date: '2022-07-09', sha256: 426F317BDA0CAEA5F6D46A441C14ACAD6F59CD31AB94622F33C0DFBF1AD5CE43, bytes: 1117871}
+    sources:
+      - {path: EXECUTOR_INPUT/CASE-C/sources/E01.pdf, arxiv_id: '1512.01274', date: '2015-12-03', role: primary_heterogeneous_framework, sha256: 02E13D29CFAB6C42D3A0509F33341E12F68F2BC46FC0241EFED942F5ED8ECBF8, bytes: 311455}
+      - {path: EXECUTOR_INPUT/CASE-C/sources/E02.pdf, arxiv_id: '1603.04467', date: '2016-03-14', role: primary_execution_stack_baseline, sha256: 49FB080DD2DDDB433478C4000B71D23C1391056D79CC16FADCBA01819E3FBA3C, bytes: 992339}
+      - {path: EXECUTOR_INPUT/CASE-C/sources/E03.pdf, arxiv_id: '1802.04799', date: '2018-02-12', role: primary_portable_compiler_subtractor, sha256: 6032D5A54DB0EC552168A5F5295A954EDEA6A24D91AE03BED1E0DA0D858C9FA9, bytes: 1224692}
+  CASE-D:
+    cutoff: 2017-11-30
+    sources:
+      - {path: EXECUTOR_INPUT/CASE-D/sources/E01.md, date: '2017-11-02', role: official_project_documentation, sha256: 78B6130590E73CACCEFBD2FAFD07EF48CC8CB32BFD1A2E49EA2FE41CB8FDB8B4, bytes: 9041}
+      - {path: EXECUTOR_INPUT/CASE-D/sources/E02.py, date: '2017-11-02', role: official_current_source_direct_coverage, sha256: E910CEAB8C7736218F30FB360772A0852C36480D1EB81CF0A9733A50B39A7455, bytes: 4433}
+      - {path: EXECUTOR_INPUT/CASE-D/sources/E03.json, date: '2017-11-02', role: official_release_metadata, sha256: 9D69C09D29BC89BE92E3AFBFD805EF371578E187F7548B0778E0AADB1A5C2117, bytes: 10143}
+requalification_result: PASS__ALL_POSITIVE_SOURCES_STRICTLY_PRE_CUTOFF__NEGATIVE_DIRECT_COVERAGE_AT_CUTOFF

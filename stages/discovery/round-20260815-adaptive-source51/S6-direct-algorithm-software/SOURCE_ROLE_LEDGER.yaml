@@ -1,0 +1,28 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE51-CANONICAL-ROLLBACK-V1
+sources:
+  - id: SRC01
+    role: CURRENT_UPSTREAM_DOCS_AND_FLAGS
+    url: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
+    accessed_utc: 2026-08-15
+    provenance: GNU Project official GCC manual
+    decisive_facets: [fipa_cp, fipa_cp_clone, O2_O3_Os_defaults, profile_modes, clone_size_tradeoff]
+    observation: The current documentation names both IPA constant propagation and clone creation, including defaults and profile-enabled paths.
+  - id: SRC02
+    role: CURRENT_OFFICIAL_SOURCE_LOCUS
+    url: https://gcc.gnu.org/git/?p=gcc.git;a=blob_plain;f=gcc/ipa-cp.cc;hb=master
+    accessed_utc: 2026-08-15
+    provenance: GNU Project official GCC Git service
+    selection_rule: exact upstream source locus for the documented IPA CP producer
+    disposition: ATTEMPTED_BROWSER_ROUTE_REJECTED_AS_UNSAFE__NO_ABSENCE_INFERENCE
+    observation: The bounded browser route could not open this semicolon-form Git URL.  This is telemetry only; it neither exhausts source closure nor supports a scientific conclusion.
+  - id: SRC03
+    role: CURRENT_OPTION_INDEX
+    url: https://gcc.gnu.org/onlinedocs/gcc/Option-Index.html
+    accessed_utc: 2026-08-15
+    provenance: GNU Project official GCC manual
+    decisive_facets: [fipa_cp_clone, fno_ipa_cp_clone]
+    observation: Confirms named positive and disabling option forms.
+primary_collision_status: NOT_REQUIRED_FOR_RAW_REJECTION__KNOWN_GENERIC_REMAINDER
+notes:
+  - A paper limitation, issue, or source-access failure was not used as absence evidence.
+  - No source acquisition, download, copy, build, install, cache, or experiment occurred.

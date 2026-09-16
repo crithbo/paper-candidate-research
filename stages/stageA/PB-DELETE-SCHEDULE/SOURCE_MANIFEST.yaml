@@ -1,0 +1,136 @@
+schema_version: "stagea-source-manifest-v2"
+assignment_id: STAGEA-L2-20260809-PB-DELETE-SCHEDULE-INITIAL
+status: CLOSED_FIRST_PARTY_ONLY
+all_paths_rooted_at: "<LEGACY_LOCAL_PROJECT_ROOT>"
+
+official_sources:
+  ijcar_2024_artifact:
+    title: Certified MaxSAT Preprocessing experimental data
+    record: https://zenodo.org/records/10630852
+    doi: 10.5281/zenodo.10630852
+    version: v1
+    license: CC-BY-4.0
+    asset_url: https://zenodo.org/api/records/10630852/files/certified_maxpre_experimental_data.zip/content
+    expected_bytes: 30547369
+    actual_bytes: 30547369
+    publisher_md5: 6D3EB8BDAC6D2AE347E178E6D4E49551
+    local_sha256: 4FC61DBED2881BED29D59F4B790E96153051F6CC2873432F231BCFE705014716
+    extracted_entries: 5358
+    extracted_files: 5318
+    extracted_bytes: 86425731
+    unsafe_paths: 0
+    source_tree_hashes_manifest_sha256: 402FB2B1349A46BAE7ACE73E84A1AE9120D0C18D46A758C2977A4088D283E7ED
+    maxpre_source_tree_sha256: 385FB66564411C8A913028ADD35B11E8369867E45DAFA87560FD02A59BF84168
+    veripb2_source_tree_sha256: 59F613DAD3B77D1DDB819F6FA7FC4C09492BD4576AEFB7C0CB94FE17C221F950
+    cakepb_source_tree_sha256: 6B0D2FDD97D3EAB65E5AAE4BA058FDFE8530DB1F68C89E8E8677418A454926E1
+    role: frozen_source__ten_complete_natural_traces__official_raw_cost_measurements
+
+  maxpre_upstream_provenance:
+    url: https://bitbucket.org/coreo-group/maxpre2
+    observed_head: 0ec2599ceeac7513da130f4688e6efe0cb3181a3
+    execution_input: false
+
+  mse_2023_exact_weighted:
+    official_page: https://maxsat-evaluations.github.io/2023/benchmarks.html
+    official_drive_file_id: 1pKuQkuTZr7CO3GXmOGRvrMeLTOaw9Fl6
+    download_url: https://drive.usercontent.google.com/download?id=1pKuQkuTZr7CO3GXmOGRvrMeLTOaw9Fl6&export=download&confirm=t
+    archive_name: mse23-exact-weighted-benchmarks.zip
+    archive_bytes_from_http: 3140560006
+    accept_ranges: bytes
+    central_directory_start: 3140474296
+    central_directory_bytes: 85688
+    central_directory_entries: 559
+    tail_range_1: "3140428934-3140559999"
+    tail_range_1_bytes: 131066
+    tail_range_1_sha256: CF4481524A180620444375DB5A69FBCE671F1C15A1397FCEA3B1407D72F6A03D
+    tail_range_2: "3140560000-3140560005"
+    tail_range_2_bytes: 6
+    tail_range_2_sha256: B6C74B08171CB656C06A6285430EC696B8BFAFCDE4C11EECA0416AB8DD300014
+    bounded_subset_rule: "50 smallest stored .wcnf.xz members by (compressed_bytes, canonical member name)"
+    actual_member_transfer_bytes: 162548
+    subset_manifest_sha256: 64E86F1313E0B3CAB561D3080E665BB4180E332EF9A34BE532D7719F1CF7C9F3
+    per_member_gate: exact_HTTP_206__exact_Content_Range__exact_bytes__central_CRC32__XZ_decode__SHA256
+    role: twenty_additional_complete_natural_traces_after_eligibility
+
+  veripb_3_0_2:
+    release: https://gitlab.com/MIAOresearch/software/VeriPB/-/releases/3.0.2
+    commit: c648bac06be995b82bd218e248f005140fc8ce11
+    gitlab_release_evidence_sha: 5e12574b15c1f220e10ecbacb3bf327d2d62afe5102d
+    archive_bytes: 307689
+    archive_sha256: ACED5C32D18119DA9CCDE5DAFDC9B8A831923187644C427B466A4945EA279138
+    official_source_tree_sha256: AFE90E3C320F0A7D7BF155713D45698ADBB799716D8BD733C7578DC8202D09B4
+    derived_source_tree_sha256: A9258446DCF70FB13383110B10CB528CBC80B675754A10FFF613F37A2B9BF994
+    binary_sha256: 2E38A50D8D85CD3D1AC4D870F449A53CB42A177D37E2A3FAA9876A0EE1B5D9F4
+    binary_bytes: 3034653
+    portability_delta: remove_mimalloc_global_allocator_only__system_allocator_used
+    semantics_delta: none
+
+  cakepb:
+    repository: https://gitlab.com/MIAOresearch/software/cakepb
+    commit: 6edb2f3585f1c3e1b925964c4f33e133f7279d02
+    commit_url: https://gitlab.com/MIAOresearch/software/cakepb/-/commit/6edb2f3585f1c3e1b925964c4f33e133f7279d02
+    archive_bytes: 10868794
+    archive_sha256: 2C8CB2BAD5F9627E99C5BFF956866B3EC3FE77634C7972EA7DCC70D202E09392
+    official_source_tree_sha256: F22DEEC9CCD53E66019F8AECFED8D9A09D0DAECC152282BE0BBA76ED0E0C243A
+    upstream_hol4_commit: f18e6e7277c2648d40c2491d87f09083c909e6e9
+    upstream_cakeml_commit: 9b353e8d240d0a5ad1090ddf2c15acc9304affcf
+    binary_sha256: 19B0820803CBD6274B9A4712BA0D74AE35C6BCAF28AF0CAF12A226B5AE336953
+    binary_bytes: 1104896
+    portability_delta: windows_calling_convention_wrapper_only
+    semantics_delta: none
+
+build_tool_assets:
+  zig_0_16_0:
+    url: https://ziglang.org/download/0.16.0/zig-x86_64-windows-0.16.0.zip
+    bytes: 97217739
+    sha256: 68659EB5F1E4EB1437A722F1DD889C5A322C9954607F5EDCF337BC3684A75A7E
+  rust_stable_manifest:
+    url: https://static.rust-lang.org/dist/channel-rust-stable.toml
+    bytes: 845916
+    sha256: 03569B1886CEB5C05276B50C8431AB111DE944CD6140FE1FA7D821DD8E0F29CF
+    publisher_sidecar_match: true
+    rustc_version: 1.97.1
+    rustc_commit: 8bab26f4f68e0e26f0bb7960be334d5b520ea452
+    cargo_version: 1.97.1
+    cargo_commit: c980f4866141969fab6254a680546a277789d6f0
+  rustc:
+    bytes: 101980832
+    sha256: 11DE14FA7EE410E9BAAA070CE0CDA44E155C0E9E32329DB0B5F20EFC0F2FA5E4
+  cargo:
+    bytes: 12235580
+    sha256: 7809B05EABDA3205167A8BDE739E93A76DED00D65FE8984666130B1034C18B4C
+  rust_std:
+    bytes: 27028872
+    sha256: 513ED4875D5A3726D02C5872034F0673593AE343EA62A70939213E894C274BE3
+  rust_mingw:
+    bytes: 5473092
+    sha256: AA257E5F8354BD1BC1CACBCBCDEDE3EBB89A100BEF504D72DA56DB8527807AD2
+
+executed_binaries:
+  maxpre:
+    bytes: 1736192
+    sha256: 8B1C5CD5752A69CC2A0D949173C53E6586756675872F28E585593BC82E2BABF9
+  veripb:
+    bytes: 3034653
+    sha256: 2E38A50D8D85CD3D1AC4D870F449A53CB42A177D37E2A3FAA9876A0EE1B5D9F4
+  cakepb_wcnf:
+    bytes: 1104896
+    sha256: 19B0820803CBD6274B9A4712BA0D74AE35C6BCAF28AF0CAF12A226B5AE336953
+
+corpus:
+  complete_trace_count: 30
+  split_examples_count: 0
+  minimum_checked_deletions: 153
+  corpus_manifest_sha256: 3A1F4255B3EAAE7A02EB948EAF2E4BB409B42D2BB07C1585684B33C166A8C705
+  canonical_selection: all_10_complete_ijcar_examples_then_20_lexicographic_eligible_members_from_frozen_range_pool
+
+excluded_acquisitions:
+  - id: HELSINKI_BTW_BNSL_INTEGER_WEIGHTED
+    url: https://www.cs.helsinki.fi/group/coreo/benchmarks/btwbnsl_int.tar.gz
+    bytes: 29357907
+    sha256: 09A4488BBC813B9825E1AC7974F66F6D82EC56E05FD494616A68F79615EA5E8E
+    reason: not_used_after_exact_MSE_2023_range_subset_closed_the_frozen_corpus
+  - id: CAKEPB_TRUNCATED_FIRST_ATTEMPT
+    bytes: 604098
+    sha256: 6EFF5BFBF605F9FA521A43F6729C3F31AC11D3D10942E4C19FDE8D8BC0CF672A
+    reason: truncated_archive__never_extracted_or_executed

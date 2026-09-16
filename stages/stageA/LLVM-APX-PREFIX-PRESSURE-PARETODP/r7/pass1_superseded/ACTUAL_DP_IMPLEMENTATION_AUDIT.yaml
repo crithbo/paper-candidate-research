@@ -1,0 +1,21 @@
+schema: actual-dp-implementation-audit-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+obligation: P2_ACTUAL_PER_ACTION_DP_IMPLEMENTATION
+implementation_freeze: {path: ACTUAL_DP_IMPLEMENTATION_FREEZE.yaml, files: 3, maximum_files: 20}
+implementation:
+  script: {path: resources/src/apx_tpd/apx_tpd.py, sha256: 5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086, bytes: 30406}
+  catalog_contract: {path: resources/src/apx_tpd/catalog_contract.json, sha256: BC129B73FC7FABC488C3B4A52C41737EFBE398000542AC2CDCD382E5337CC6CA, bytes: 6097}
+  tiny_trace: {path: resources/src/apx_tpd/tiny_trace.json, sha256: AD7F2DBE3F19DFFCD1EB0C3B4FDF80DCDDA7DCC71BACC769FCF40AF022F57910, bytes: 1799, W: 3, W_max: 4}
+static_structure_present: [PER_BOUNDARY_STATE, SIGMA, SPILLS, SAVES, FRAME, CFI, FLAGS, RELOCATION, ABI, BOUNDARY_OBLIGATIONS, FUTURE_ACTION_COST_ROW_CERTIFICATION, PER_ACTION_RECURRENCE, PARETO_DOMINANCE, RECONSTRUCTION_BACKPOINTERS, LABELED_DP, GENERIC_PRODUCT_ENUMERATION, RECURSIVE_MICRO_ORACLE]
+prohibited_two_state_proxy_present: false
+implementation_edits_after_freeze: 0
+runtime_execution:
+  status: NOT_RUN_DUE_TO_ORDERED_P3_PRELAUNCH_FAILURE
+  candidate_output_created: false
+  per_action_recurrence_observed: false
+  backpointer_reconstruction_observed: false
+  state_reduction_distinctness_observed: false
+result: FROZEN_IMPLEMENTATION_PRESENT__NOT_VALID_RUNTIME_EVIDENCE
+scientific_inference: NONE
+

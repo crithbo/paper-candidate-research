@@ -1,0 +1,64 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-26T20:33:00+08:00
+lane_id: CANDIDATE-L1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+role_id: CANDIDATE_OWNER
+assignment_id: NONBLIND-STAGEA-20260826-CVC5
+topic_id: NONBLIND_STAGEA_COMPATIBILITY__CVC5
+assignment_context_path: stages/stageA/_compatibility/nonblind-20260826/CVC5/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: BF54F8A0EFE3229C52F23805885F67AD91947DC4F88D012B99B5AE436E2AFD01
+old_chat_memory_required: false
+
+frozen_hash_ack:
+  AGENTS_sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75
+  plan_sha256: 2934D15DF761FE6C57D30CC29417A01F6353B4CC68227DD5C35A0249B24DD5BB
+  registry_snapshot_sha256: 31D1ED7A60A50517292EE90E16292BB77CEEFF8AB3612BAEDF36BC7A69E3D66F
+  role_rule_sha256: 4373A320D7EF96FB5EB1683872FEC9CDCB9EA6D16ACDF893CA997C5FB2745A1A
+  conditional_protocol_hashes:
+    RESOURCE_LOCALIZATION: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+    ARTIFACT_LIFECYCLE: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  skill_hashes:
+    - {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  templates_read: [templates/BOOTSTRAP_ACK.yaml, templates/STAGEA_REPORT.md, templates/STAGEB_REPORT.md, templates/Q1_COMPARATOR_MATRIX.md]
+  source_assignment_sha256: 9571E22D89B27CF6E746DC35506EE4C3304C4A575D7C92726E896A2B94B7B46C
+  resource_preflight_sha256: 6356234F690AC4A5FCC5F954D6ED17C3CD37EE47588FF399D16E6596FC2D4C0D
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: true
+
+boundary_ack:
+  cwd_exact: <LOCAL_PROJECT_ROOT>
+  unique_write_directory_exact: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/CVC5
+  resource_root_exact: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/CVC5/resources
+  resource_root_exists: false
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  forbidden_inputs_not_read: [auditor_key_v2, gold_expected_gate_disposition, final_gold_values, blind_outputs]
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: NONE
+  contamination_detected: false
+
+execution_ack:
+  current_status_context: BOOTSTRAP_ACK_PENDING
+  current_status_registry: QUEUED
+  resume_point: READ_ONLY_BOOTSTRAP_ACK_ONLY
+  next_action: WAIT_FOR_MAINLINE_CONTEXT_OR_REGISTRY_RECONCILIATION
+  user_gate_or_blocker: MAINLINE_BOOTSTRAP_ACCEPTANCE_REQUIRED
+  scientific_or_resource_action_started: false
+  network_download_copy_extract_build_run_scientific_state_cleanup: [false, false, false, false, false, false, false, false]
+
+differences_or_ambiguities:
+  - field: status
+    context_value: BOOTSTRAP_ACK_PENDING
+    registry_value: QUEUED
+    related_registry_locus: nonblind_stagea_compatibility_20260826.cases.CVC5
+    disposition: FAIL_CLOSED
+ack_disposition: REFUSE_MISSING_OR_CONFLICTING_CONTEXT
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

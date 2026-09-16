@@ -1,0 +1,26 @@
+schema_version: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+assignment_id: STAGEA-GATE-20260829-APX-R10-REVISION1-NO-ACTION-IDENTITY-PRECLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+lane_id: STAGEA_GATE_REVIEW_LANE_1
+role: INDEPENDENT_STAGEA_REVIEW
+model_route: gpt-5.6-terra
+thinking: high
+unique_write_directory: stages/stageA/_reviews/20260829-apx-r10-revision1-preclaim/LLVM-APX-PREFIX-PRESSURE-PARETODP
+resource_root: stages/stageA/_reviews/20260829-apx-r10-revision1-preclaim/LLVM-APX-PREFIX-PRESSURE-PARETODP/resources
+current_state: BOOTSTRAP_PENDING__READ_ONLY_REVISION_PRECLAIM_FIDELITY
+user_authorization: USER_CONTINUOUS_STAGEA_ECP_AUTONOMY_20260829
+frozen_control:
+  agents: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 86CCCEBE666D9B94A02C524E364DE777EEBCA78CC7640A7A52A1B6405532BE77}
+  registry: {path: registry.yaml, sha256: 020B2018B22A78864E3AD46020ECFF82E535A33617FF1ABD7F75DC2474E3BD39}
+  role_rule: {path: rules/ROLE_STAGEA_REVIEW.md, sha256: 3F625031306861248D817C36905E3D0AB0DCDB3B8B6B959673975BDB6128FF01}
+  academic_skill: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  reviewer_workflow: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/academic-paper-reviewer/WORKFLOW.md, sha256: 5469CDABFEB6FAC7CCBE88CAF1A85C55E9F46977F9DC3AEFC84EFF1CE93E1672}
+  assignment: {path: stages/stageA/_reviews/20260829-apx-r10-revision1-preclaim/LLVM-APX-PREFIX-PRESSURE-PARETODP/control/ASSIGNMENT.yaml, sha256: A1CA4760DCD0BD02147CB0936F0C9D3BDA0D09DEC7F5FEF81D731F1AA3E488F7}
+minimum_inputs:
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_PATCHED_ROW_DRIVER.py, sha256: B4783E43EFB5A43C7212E8B64BFE554E3D430848396CDE04407AF163A1803133}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r10-revision1-no-action-identity-20260829/APX_R10_STATIC_VALIDATION.yaml, sha256: 9B4E0F75EBA3331F87E5899758232DC736311A8A24DD7E9CF810289CD08CD969}
+allowed_action: WRITE_BOOTSTRAP_ACK_ONLY
+forbidden_actions: [review_judgment_before_start, modify_owner_files, resource_copy, execute_patched_driver, tool_replay, experiment, claim_run, network, shared_write, state_change, stageb]
+next_action: FULL_READ_AND_WRITE_BOOTSTRAP_ACK_THEN_WAIT

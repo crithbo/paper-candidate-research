@@ -1,0 +1,44 @@
+schema: discovery-route-recovery-resource-preflight-v1
+assignment_id: SAFE-ROUTE-RECOVERY-S6-20260815-X264-RESUME1-OFFICIAL-API
+purpose: official-api-only current-source/action-union route recovery
+write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\route-recovery-20260815\S6-x264-resume1
+resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\route-recovery-20260815\S6-x264-resume1\resources
+resource_root_under_workspace: true
+resource_root_reparse_point: false
+required_subdirectories:
+  downloads: PRESENT__NOT_REPARSE
+  archives: PRESENT__NOT_REPARSE
+  src: PRESENT__NOT_REPARSE
+  build: PRESENT__NOT_REPARSE
+  env: PRESENT__NOT_REPARSE
+  cache: PRESENT__NOT_REPARSE
+  tmp: PRESENT__NOT_REPARSE
+  logs: PRESENT__NOT_REPARSE
+redirect_preflight:
+  status: PASS
+  process_local_only: true
+  planned_environment:
+    TEMP: resources/tmp
+    TMP: resources/tmp
+    TMPDIR: resources/tmp
+  global_environment_modified: false
+  downloads_target: resources/downloads
+  no_clone_build_or_experiment: true
+frozen_envelope:
+  network_attempts_max: 5
+  expected_download_bytes: BELOW_4_MIB_TOTAL
+  stored_bytes_max: 8388608
+  cpu_hours_max: 0.1
+  wall_seconds_max: 1800
+allowed_network_routes:
+  - https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/commits/master
+  - https://code.videolan.org/api/v4/projects/videolan%2Fx264/repository/files/{percent_encoded_path}/raw?ref={resolved_commit_sha}
+forbidden_routes_or_actions:
+  - ROBOTS_OR_ANUBIS_BYPASS
+  - UNOFFICIAL_MIRROR
+  - CLONE
+  - BUILD
+  - EXPERIMENT
+  - NEW_RQ
+  - NOVELTY_OR_ABSENCE_INFERENCE
+result: READY_FOR_ATTEMPT_1

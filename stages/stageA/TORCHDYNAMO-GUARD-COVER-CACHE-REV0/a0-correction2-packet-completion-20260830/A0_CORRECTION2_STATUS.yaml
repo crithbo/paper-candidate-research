@@ -1,0 +1,37 @@
+schema: torchdynamo-a0-correction2-status-v1
+assignment_id: STAGEA-L2-20260830-TORCHDYNAMO-A0-CORRECTION2
+topic_id: TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+status: EXECUTION_CONTRACT_HOLD
+reason: FINAL_ORDINARY_A0_CORRECTION_NONCLAIM_CONTROL_FIRST_FAILURE
+control:
+  attempt: 1_of_1
+  process_exit_code: 1
+  started: true
+  completed_successfully: false
+  final_integrated_status_emitted: false
+first_failure_classification:
+  first_observed_in_execution_order: HARD_CHILD_SOLVER_DEADLINE_EXCEEDED__2_OF_2_INCOMPARABLE
+  terminating_exception: OWNER_LOCAL_TORCH_RUNTIME_DEPENDENCY_MISSING__FILELOCK
+  terminating_location: candidate_runner.py:157 torch.compile backend registry import
+  raw_stderr: {path: resources/logs/control/integrated.stderr.txt, sha256: D32F08A7F8716204AC014CC65AA47E4F5B9693A3A6CBE174A02D4C604166FAA2}
+  solver_receipt: {path: resources/build/control/integrated/solver/SOLVER_RECEIPT.json, sha256: B0ABBDF11C052A800A441E017B76D7562616CB807D2AE01E1BB78532ADFF3394}
+partial_outputs:
+  case_manifest: {cells: 1792, bytes: 860917, sha256: B14799D30811DC9951F74750F80D10E895430FC7D20E13808DA73E8B281F4209}
+  solver_children: {launched: 2, certified: 0, hard_timeout: 2, incomparable: 2}
+  native_cache_entries: 0
+  command_dag_emitted: false
+budget:
+  correction_batches_consumed: 2_of_2
+  ordinary_correction_batches_remaining: 0
+  nonclaim_control_attempts_consumed: 1_of_1
+  retries: 0
+firewall:
+  network: 0
+  claim_cells_executed: 0
+  effect_fields_visible: false
+  scientific_inference: NONE
+  scientific_revision_consumed: false
+  owner_resource_modified: false
+  shared_write: false
+  StageB: false
+next_action: WAIT_MAINLINE_POLICY_DISPOSITION__NO_RETRY_OR_THIRD_A0_CORRECTION

@@ -1,0 +1,48 @@
+schema_version: discovery-source-closure-route-addendum-v1
+addendum_id: SOURCE99-S5-OPENJDK-CDS-CQ01-ROUTE-ADDENDUM-1
+status: READY_FOR_RESUME
+authority:
+  user_batch_retry: USER_PENDING_RAW_BATCHED_RETRY_20260815
+  public_acquisition: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+  shared_writer: MAINLINE
+classification: MECHANICAL_ROUTE_COMPLETION_ONLY__NO_SCIENTIFIC_REVISION
+parent_assignment:
+  path: stages/discovery/round-20260815-adaptive-source99/S5-scale-online-approx/closure-cq01/ASSIGNMENT.yaml
+  sha256: 153A68A486EBDA6C9F5C4BC16C15A9512946D44F7ED590BB1B154B0B72C982DE
+blocker: BLOCKED_USER_ACTION_REQUIRED__FROZEN_DIRECT_CDS_LOCUS_LIST_MISSING
+immutable_pin:
+  project: openjdk/jdk
+  version: jdk-24+36
+  commit: 6705a9255d28f351950e7fbca9d05e73942a4e27
+consumed_envelope: {calls: 1, network_bytes: 4180, persisted_bytes: 4180}
+remaining_envelope: {calls: 9, network_bytes_max_total: 50331648, persisted_bytes_max_total: 50331648, wall_seconds_total: 2700}
+exact_official_routes:
+  - order: 2
+    url: https://api.github.com/repos/openjdk/jdk/contents/src/hotspot/share/cds?ref=6705a9255d28f351950e7fbca9d05e73942a4e27
+    purpose: pinned source-directory listing
+  - order: 3
+    url: https://api.github.com/repos/openjdk/jdk/contents/test/hotspot/jtreg/runtime/cds?ref=6705a9255d28f351950e7fbca9d05e73942a4e27
+    purpose: pinned test-directory listing
+deterministic_source_selection:
+  directory: src/hotspot/share/cds
+  explicit_priority_allowlist:
+    - archiveBuilder.cpp
+    - dynamicArchive.cpp
+    - filemap.cpp
+    - cdsConfig.cpp
+    - metaspaceShared.cpp
+    - heapShared.cpp
+  rule: retain returned download_url entries in the allowlist order until the remaining call budget permits; skip a name only when absent from the pinned directory listing and record that fact without absence inference
+deterministic_test_selection:
+  directory: test/hotspot/jtreg/runtime/cds
+  filename_tokens_in_priority_order: [DynamicArchive, SharedArchiveFile, AutoCreateSharedArchive, ArchiveClassesAtExit]
+  rule: among direct files returned by the pinned directory listing, choose the lexicographically first path containing the first token with any match; use its returned pinned download_url for at most one call
+forbidden:
+  - general GitHub tree traversal
+  - repository clone or archive download
+  - different directory, project, tag, branch or commit
+  - issue, pull request, paper, mirror or web search
+  - a replacement route after 404, empty listing, rate limit or transport failure
+  - changing the scientific object, endpoint, full-cost, claim ceiling or allowed dispositions
+resume_rule: continue the same assignment and existing monotonic ledger; do not reset attempts, overwrite the blocker evidence or start Batch2 Item2
+

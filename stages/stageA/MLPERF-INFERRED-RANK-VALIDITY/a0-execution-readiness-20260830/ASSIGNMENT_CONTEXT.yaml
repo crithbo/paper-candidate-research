@@ -1,0 +1,26 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-A0, topic_id: MLPERF-INFERRED-RANK-VALIDITY, lane_id: CANDIDATE_EXECUTION_LANE_1, thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620, phase: A0_EXECUTION_READINESS}
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+frozen_control:
+  agents: {path: AGENTS.md, sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655}
+  plan: {path: plan.md, sha256: 5BFD760AF1BD8D6997BF177A6AD2CEA73AAEDB01FA210594DEDFD218CC1D8E31}
+  registry: {path: registry.yaml, sha256: 27EAFA0B5C18C348ACC5FFDF2B78C3E6872434AC43E05A771532C770362D049A}
+  role: {path: rules/ROLE_CANDIDATE_OWNER.md, sha256: A015EF2474D741BABA566339A3F1571074CE2423615FDCFFE1DD15749E523938}
+  recovery: {path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, sha256: 243BFCFAD28A116C743AF42567AC4FA2B024E433B8D5B91F61E543E5E02BB1CE}
+  resource: {path: rules/RESOURCE_LOCALIZATION.md, sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA}
+  lifecycle: {path: rules/ARTIFACT_LIFECYCLE.md, sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED}
+  academic_skill: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  pipeline_workflow: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/academic-pipeline/WORKFLOW.md, sha256: 379E642FD2C65BDA54938D3EF8B2C678BA92DDCB715C949954E7563076159F79}
+  hardware_reference: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/academic-paper/references/hardware_design_papers.md, sha256: 905C303795D55A749F704F3490172A3C0193D7CD281FC90244DC24D01044ED98}
+minimum_inputs:
+  control: {path: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/control/ASSIGNMENT.yaml, sha256: E4F191D2CE5311662FC17ED297705C2F38869E0E39DE800233E88AB601CDDC2A}
+  readiness: {path: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/STAGEA_EXECUTION_READINESS_LEDGER.yaml, sha256: 63179A882E89DBE23F7EB02E67753A69AE25A481F6DD09887C873CD16A2C81F9}
+  stage0_primary: {path: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY/handoff.yaml, sha256: 8A103741D122203D5C7B0213D4816EE325779C7E4740BCBD570F9C3AEFA348B3}
+  stage0_sentry: {path: stages/stage0/_reviews/round-20260830-source120-sentry/MLPERF-INFERRED-RANK-VALIDITY/handoff.yaml, sha256: 7135BB0C64F66F479D73D3962B94B4E3A63ED2917A410BF5AAE9429BD8A6AC8F}
+unique_write_directory: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830
+resource_root: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources
+bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+forbidden: [network_before_start, resource_action_before_start, claim_analysis, stageb, shared_write]
+pause_signal: finish_current_A0_and_handoff_then_no_successor
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP

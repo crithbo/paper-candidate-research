@@ -1,0 +1,59 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE55-R40-ORDINARY-BREADTH-V1
+lane: S2_BOTTLENECK_TRANSFER
+status: COMPLETE_ZERO_PROPOSALS
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+write_directory: stages/discovery/round-20260815-adaptive-source55/S2-bottleneck-transfer
+rule_freeze:
+  canonical: v8.7
+  rq_frontend: RQ_REFINEMENT_STAGED_EVIDENCE_V1__PRODUCTION
+  claim_pack: OFF
+  v9: OFF
+  skill_revision: RESEARCH_TOPIC_DISCOVERY_R1_R40_20260815
+  skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  model: gpt-5.6-terra
+  reasoning: high
+  selective_depth: OFF
+  nomination_or_strong_packet_started: false
+  parallel_rule_audit_input_used: false
+frozen_controls:
+  assignment_sha256: C6C5288AB62F9A0548AEDB3ACA9D8FA77BF2B7C3AA94D403B96032662D5CA6D3
+  control_sha256: 3F0CB1B1269A78E112A27DBB0DA7478DB840AC045705215D55F6844AC35BE006
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+funnel:
+  non_evidence_seeds: 6
+  selected_anchors_and_primary_rqs: 3
+  exact_history_exclusions: 2
+  ordinary_current_closures: 1
+  evidence_qualified_raw: 0
+  deep_reviews: 0
+  clean_stage0_briefs: 0
+identity_preflight:
+  exact_excluded:
+    - WASM_COMPONENT_CANONICAL_ABI__LIFT_LOWER_ALLOCATION_COPY_ADAPTER__COMPONENT_VALUES_AND_TRAPS
+    - ELF_DT_RELR__DYNAMIC_RELOCATION_PACKING_DECODE__STOCK_DYNAMIC_LOADER_RELOCATION_RESULT
+  related_only_continued:
+    - LLVM_ORC_JITLINK__LINKGRAPH_GOT_PLT_STUB_LAYOUT__RUNTIME_SYMBOL_RESOLUTION
+  no_match_or_related_not_novelty: true
+ordinary_closure:
+  signature: LLVM_ORC_JITLINK__LINKGRAPH_GOT_PLT_STUB_LAYOUT__RUNTIME_SYMBOL_RESOLUTION
+  disposition: NOT_ADMITTED__DIRECT_CURRENT_UNION_OR_GENERIC_GRAPH_LAYOUT
+  rationale: >-
+    Current JITLink exposes LinkGraph passes across pruning/allocation/fixup phases,
+    builds GOT/PLT entries and stubs, and has target-specific relaxation. No distinct
+    target-specific atomic action plus guarantee was frozen beyond current composition
+    or generic graph layout.
+integrity:
+  implementation_result_resource_hardware_or_ai_readiness_used_as_negative: false
+  network_security_scope: excluded
+  resource_producing_actions: false
+  search_ceiling: SEARCH_BOUNDED_OPEN__NO_GLOBAL_NOVELTY_OR_ABSENCE_CLAIM
+summary_zh: >-
+  Source55 按 ordinary R40 漏斗封存六条离线 seed 和三条锚点/RQ；selective depth 关闭，且未读取
+  并行规则审计。Canonical ABI 与 RELR 分别是既有 exact identity。ORC JITLink 仅属相关历史，
+  但当前 LinkGraph pass、GOT/PLT stub builder 与 target relaxation 已覆盖所述动作；未冻结新算法
+  或保证。故零 raw、零 deep、零 brief，不以实现、结果或资源缺失作判断。
+next_action: >-
+  Mainline may minimally accept the canonical zero package. Any new review needs a
+  distinct exact action/guarantee and external evidence delta; broad LLVM/ABI/loader
+  similarity cannot itself exclude or revive a family.
+manifest: HASH_MANIFEST.sha256

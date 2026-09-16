@@ -1,0 +1,1 @@
+`COMPLETE_ZERO_CLEAN_BRIEFS__ONE_EVIDENCE_QUALIFIED_RAW_PENDING_DETERMINISTIC_SOURCE_CLOSURE`. PostgreSQL already has both JIT actions; only a same-result target-specific joint JIT constructor could survive. No absence, novelty, result, Q2 or resource claim.

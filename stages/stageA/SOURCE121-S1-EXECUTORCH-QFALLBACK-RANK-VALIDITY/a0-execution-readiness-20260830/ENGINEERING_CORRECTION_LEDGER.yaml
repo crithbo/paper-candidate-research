@@ -1,0 +1,43 @@
+schema: stagea-engineering-correction-ledger-v1
+assignment_id: STAGEA-L3-20260830-EXECUTORCH-QFALLBACK-RANK-VALIDITY-A0
+topic_id: SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY
+engineering_correction_batches_max: 2
+engineering_correction_batches_used: 2
+corrections:
+  - batch: 1
+    stage: OFFICIAL_METADATA_ACQUISITION
+    defect: WINDOWS_CURL_SCHANNEL_SEC_E_NO_CREDENTIALS
+    failed_route: curl.exe HTTPS official GitHub API
+    attempts_affected: [1]
+    response_bytes_persisted: 0
+    scientific_effect: NONE
+    contract_fields_changed: []
+    correction: SWITCH_TRANSPORT_TO_POWERSHELL_INVOKE_WEBREQUEST_SAME_OFFICIAL_URLS
+    retry_semantics: NEW_PREAUTHORIZED_TRANSPORT_ROUTE_NOT_SILENT_RETRY
+  - batch: 2
+    stage: OFFICIAL_METADATA_ACQUISITION
+    defect: POWERSHELL_HTTPS_AUTHENTICATION_FAILED
+    failed_route: Invoke-WebRequest HTTPS same official APIs
+    attempts_affected: [2]
+    response_bytes_persisted: 0
+    scientific_effect: NONE
+    contract_fields_changed: []
+    correction: SWITCH_TO_READ_ONLY_WEB_CONNECTOR_SAME_OFFICIAL_URLS
+    retry_semantics: FINAL_PREAUTHORIZED_TRANSPORT_ROUTE
+forbidden_changes_observed: []
+scientific_revision_consumed: false
+result_visibility: HIDDEN
+final_transport_result: PARTIAL_SUCCESS_OFFICIAL_METADATA_FIELDS_CLOSED__NO_WEIGHT_DOWNLOAD
+final_packet_effect: A0_STATIC_READINESS_COMPLETE
+additional_correction_available: false
+scientific_inference: NONE
+a1_attempts:
+  - network_process: 1
+    command_class: PIP_DOWNLOAD_EXACT_RELEASE_AND_RESOLVED_BINARY_DEPENDENCIES
+    exit_code: 1
+    error: RESOLUTION_IMPOSSIBLE__ANTLR4_PYTHON3_RUNTIME_4_9_BINARY_UNAVAILABLE
+    retry: false
+    affected_results: NONE_PRE_EFFECT
+    network_process2_started: false
+    disposition: FAIL_CLOSED_AND_STOP
+a1_owner_retry_allowed: false

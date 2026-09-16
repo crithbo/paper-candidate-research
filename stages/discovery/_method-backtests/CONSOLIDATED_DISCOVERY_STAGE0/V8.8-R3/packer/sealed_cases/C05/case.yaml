@@ -1,0 +1,25 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C05
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-09T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [STREAM_PROCESSING, CHECKPOINT_RECOVERY, NON_CUDA]
+raw_opportunity: >-
+  Checkpointing under backpressure can align barriers or capture channel state.
+  Explore a selective per-edge capture cut coupled to recovery materialization,
+  while retaining exactly the same completed-checkpoint and recovery contract.
+required_analysis:
+  - include aligned, unaligned and timeout/hybrid configurations
+  - prove a selective cut is legal before describing an optimizer
+  - account for alignment delay, state bytes, recovery time, throughput and CPU
+  - abstain when no same-guarantee finite action trace can be frozen
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C05/sources/S01_checkpoint-backpressure.html, sha256: 98EA4326157B961A9FAF203F58D80BB9B72F58977E2C380A426355D1D10E1FB8, bytes: 110204, url: "https://nightlies.apache.org/flink/flink-docs-release-2.1/docs/ops/state/checkpointing_under_backpressure/", available_by: "2025-12-31", role: VERSIONED_DEPLOYMENT_DOCUMENTATION}
+  - {source_id: S02, path: sealed_cases/C05/sources/S02_CheckpointCoordinator.java, sha256: D114635007548A3ED32B94DD5F1B98CC2A0DC6CFC4E13D5DBB21DBC0D29AB438, bytes: 110528, url: "https://raw.githubusercontent.com/apache/flink/13e17094a556d933520ac1febb464c993c1a81ef/flink-runtime/src/main/java/org/apache/flink/runtime/checkpoint/CheckpointCoordinator.java", available_by: "2026-08-08", role: CURRENT_UPSTREAM_SOURCE}
+  - {source_id: S03, path: sealed_cases/C05/sources/S03_flip-76.html, sha256: C3CA9B80D472F714CDECD655919121C689C2FC1FC634C4DD4997ADEEE25ADFC0, bytes: 74792, url: "https://cwiki.apache.org/confluence/display/FLINK/FLIP-76%3A+Unaligned+Checkpoints", available_by: "2020-12-31", role: FIRST_PARTY_DESIGN_CONTRACT}
+exclusions:
+  - local Discovery disposition and all downstream candidate material
+  - post-cutoff implementation changes
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL
+

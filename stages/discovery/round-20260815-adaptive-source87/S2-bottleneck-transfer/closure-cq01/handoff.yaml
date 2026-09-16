@@ -1,0 +1,46 @@
+schema_version: discovery-source-closure-handoff-v1
+assignment_id: SOURCE-CLOSURE-SOURCE87-S2-CQ01-GRAALVM-CLASS-INIT-IMAGE-HEAP-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+topic_id: GRAALVM_NATIVE_IMAGE_CLASS_INIT_IMAGE_HEAP
+disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+authority_boundary:
+  no_clean_brief_decision: true
+  no_Q2_or_candidate_grade_decision: true
+  no_PASS_or_STOP_decision: true
+  no_stage_state_authority: true
+immutable_source_pin:
+  project: oracle/graal
+  default_branch: master
+  commit: f3c130e4d5345b81968f0f9d94fedb87c7143b8c
+current_union_closed_within_bounded_loci:
+  class_initialization:
+    - build-time/runtime policy insertion before analysis sealing
+    - class/superclass/default-method-interface safety propagation
+    - runtime-default and explicit policy behavior
+  image_heap:
+    - layouter-owned final layout boundary
+    - deterministic field order and phased object worklists
+    - late interned-string placement for locality
+carrier:
+  path: substratevm/src/com.oracle.svm.test/src/com/oracle/svm/test/clinit/TestClassInitialization.java
+  status: CURRENT_IN_TREE_TEST_LOCUS_ONLY__NO_FIXED_NATIVE_IMAGE_BUILD_RECEIPT
+unclosed_debt:
+  - one pinned closed-world application build carrier
+  - two complete same-object legal class-init-plus-layout plans
+  - an explicit union-external GraalVM-specific joint action
+  - finite safety/layout guarantee and direct-current collision judgment
+  - complete option/config action surface and full-cost replay oracle
+resource_accounting:
+  calls_used: 6
+  calls_max: 6
+  network_response_bytes: 7766032
+  persisted_bytes_cap: 16777216
+  inventory: RESOURCE_INVENTORY.yaml
+  ledger: resources/logs/acquisition-attempt-ledger.yaml
+next_owner_action: >-
+  Retain solely as bounded unresolved source closure. Any later authorized
+  route must freeze a complete fixed application and two legal plans before
+  candidate-grade, generic-objection or collision inference.
+notifications:
+  mainline_required: true
+  lane_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

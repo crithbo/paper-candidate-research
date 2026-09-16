@@ -1,0 +1,56 @@
+schema_version: 1
+assignment_id: STAGEA-L1-20260811-ARROW-IPC-STREAM-JOINT-DICTIONARY-EVOLUTION-REVISION1-V8.7
+topic_id: ARROW-IPC-STREAM-JOINT-DICTIONARY-EVOLUTION
+revision_gate_id: STATEWISE_SIGNATURE_AWARE_COMPONENT_DOMINANCE_AND_DEDUP_EXACTNESS_GATE
+original_contract_file: ORIGINAL_EXPERIMENT_CONTRACT.yaml
+original_contract_sha256: EF1286412421F8AEE3E5FE6C0322DA1FE268D829B3B0C32CCD4D932F83E6A37C
+mechanism_pivot: forbidden
+corpus_configuration_object_threshold_cost_change: forbidden
+allowed_code_change:
+  - statewise deterministic signature-aware component dominance
+  - statewise cost_and_full_plan_signature deduplication
+  - direct all-boundary exactness tests for the observed delta-disabled tie
+  - one frozen minimal delta-enabled equal-cost tie with live no-event_prefix_and_replacement branches
+dominance_contract:
+  relation: >-
+    For every materialized state and every label of component B, component A
+    must contain a strictly cost-dominating label or an equal-cost label whose
+    deterministic full plan signature is lexicographically no larger.
+  equal_cost_without_signature_order: cannot_dominate
+  component_structural_signature_as_statewise_substitute: forbidden
+dedup_contract:
+  fingerprint: sorted_statewise_cost_and_full_plan_signature_projection
+  cost_only_fingerprint: forbidden
+  incomparable_signature_tradeoffs: preserve_both_components
+exactness_contract:
+  compare_every_relevant_boundary: true
+  compare_every_materialized_state: true
+  compare_full_pareto_cost_and_deterministic_signature_labels: true
+  final_optimum_only_substitution: forbidden
+mandatory_preclaim_order:
+  - freeze_delta_enabled_tie_with_uncorrected_solver
+  - record_scientific_revision_1_of_1_consumed_immediately_before_first_corrected_execution
+  - observed_delta_disabled_tie_exactness
+  - frozen_delta_enabled_tie_exactness
+  - complete_original_preclaim_suite
+unchanged_natural_contract:
+  windows: 40
+  carrier_allocation: 16_16_8
+  both_delta_arms: true
+  original_window_offsets: true
+  complete_reduced_catalog_and_all_internal_cuts: true
+  exact_product_caps: unchanged
+  rank_definition_and_thresholds: unchanged
+  strongest_union: unchanged
+  full_cost_dimensions_repetitions_warmup_latin_rotation: unchanged
+  primary_from_scratch: required
+  replay2_from_scratch: required
+success_rule: ORIGINAL_CONTRACT_PLUS_GATE_REVISION_GATE_MD_ALL_CLAUSES
+failure_rule: NARROW_SCIENTIFIC_NEGATIVE_AFTER_CORRECTED_FIDELITY_VALID_EXECUTION
+scientific_revision_budget: 1_of_1
+scientific_revision_consumed: true
+scientific_revision_consumed_at: '2026-08-11T06:17:02+08:00'
+first_corrected_execution: scripts/revision_exactness.py
+scientific_revision_consumption_trigger: FIRST_EXECUTION_OF_CORRECTED_SOLVER_ON_ANY_ADVERSARY_PRECLAIM_OR_NATURAL_INPUT
+stageb_authorized: false
+stageb_user_approval_id: null

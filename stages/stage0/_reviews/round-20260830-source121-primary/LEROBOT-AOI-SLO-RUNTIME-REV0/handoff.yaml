@@ -1,0 +1,100 @@
+schema: handoff-transport-envelope-v2
+topic_id: LEROBOT-AOI-SLO-RUNTIME-REV0
+assignment_id: STAGE0-PRIMARY-20260830-LEROBOT-AOI-SLO-RUNTIME-REV0
+lane_id: STAGE0_PRIMARY
+role_id: STAGE0_PRIMARY
+source_stage: STAGE0
+assignment_state: FROZEN_AWAITING_MAINLINE
+input_freeze_sha256: 85F7897BA21CF57AEA2A2FF0895E2F7F29E6BB96E398925DDF325FEC420A1993
+cross_assignment_contamination_declared: false
+
+user_summary_cn:
+  outcome: "PRIMARY 建议条件性通过，维持 Tier B/Q2；未得到候选效果结果。"
+  main_reason: "当前 LeRobot 仍是 occupancy-only 发送门；现有 RTC/FutureRTC/A2C2/RAPID/ActFovea 等虽大量覆盖相邻动作，但没有单一来源满足同 LeRobot 协议、低信息、显式 age-SLO、同保证/scale/full-cost 的全部八谓词。可保留残余仅限 client-local monotonic contributor-age 的联合 dispatch/admission。"
+  next_step: "MAINLINE 机械验收后交独立 SENTRY；若确认，再由 Stage A 先闭合 provenance/clock 小状态 witness 和 equal-occupancy trace killer。"
+  user_action_required: false
+  user_action: null
+
+decision:
+  scientific_verdict: PASS_RECOMMENDED
+  operational_disposition: READY
+  quality_tier: TIER_B_Q2_VIABLE
+  evidence_ceiling: STATIC_CURRENT_SOURCE_AND_FULLTEXT_UNION__NO_EFFECTIVENESS_RESULT__CANONICAL_ONLY_UNTIL_MEASURED_NATURAL_TRACE
+  claim_bearing_observation_obtained: false
+  scientific_revision_consumed: false
+
+review_scope:
+  search_or_open_calls_used: 21
+  search_or_open_calls_max: 32
+  build_or_experiment: 0
+  implementation: 0
+  stagea_or_stageb_started: false
+  shared_write: false
+  queued_source122_assignment_or_source_packets_read: false
+  current_cycle_usage_reset_confirmed: false
+  temporary_model_override: gpt-5.6-sol/high__THIS_COMMAND_ONLY
+
+decisive_findings:
+  current_native_behavior: "queue_size/action_chunk_size threshold dispatch; latest-observation server queue; timestep stale filtering; overlap aggregation; no explicit age budget"
+  first_semantics_gate: "never subtract server and client wall clocks; map echoed origin timestamp+timestep to client monotonic capture time and propagate all nonzero contributors through aggregation"
+  direct_fatal: false
+  direct_subtract:
+    - "RTC: generic no-idle/delay robustness/chunk continuity"
+    - "A2C2/FutureRTC: stale observation/state correction and execution-age framing"
+    - "StreamingVLA/FlashVLA: streaming/early-observation/fast asynchronous decoding"
+    - "RAPID: dynamic trigger, chunk preemption/discard, fresh query and queue overwrite"
+    - "ActFovea: timestamp/freshness monitoring, adaptive re-query/short horizon, verification and bounded hold/safe failure"
+  residual_kernel: "same LeRobot distributed protocol; timestamp/queue/latency-only information; explicit contributor-age SLO; joint send/admission; full-cost contract"
+  strongest_static_baseline: "jointly tuned current LeRobot configuration with g grid 0.0:0.1:1.0, disjoint validation, matched fps/actions_per_chunk/aggregation/request budget"
+  natural_carrier: "actual same-host client/server inference timing joined to public canonical tasks; LAN/real robot raises claim ceiling; episode data or injected delay alone is insufficient"
+  stagea_killer: "exhaustive short-trace provenance legality oracle, then equal-occupancy measured-trace replay; any ambiguity/protocol change/hidden stale execution/no incremental value kills"
+
+artifact_pointers:
+  canonical_report:
+    path: stages/stage0/_reviews/round-20260830-source121-primary/LEROBOT-AOI-SLO-RUNTIME-REV0/STAGE0_REPORT.md
+    sha256: 1F72DF1A2648C6DA79F60D6DC5886AF42B072228122D61E827BF9304CEB7E6C5
+  raw_or_decisive_evidence:
+    - "STAGE0_REPORT.md#independent-current-upstream-reality-check"
+    - "STAGE0_REPORT.md#clock-and-age-semantics-audit"
+    - "STAGE0_REPORT.md#collision-analysis"
+  comparator_or_full_cost:
+    - path: stages/stage0/_reviews/round-20260830-source121-primary/LEROBOT-AOI-SLO-RUNTIME-REV0/q1_calibration.md
+      sha256: 769220284BAEE503CFC78704283DDF292E045C545C41403A280337F87D98B864
+  independent_review:
+    path: null
+    sha256: null
+  resource_inventory:
+    path: null
+    sha256: null
+  lifecycle_or_retention:
+    path: null
+    sha256: null
+  capsule_or_resume:
+    path: null
+    sha256: null
+
+blocker:
+  kind: null
+  user_blocker_packet: null
+  resume_directory: null
+  attempts_or_routes_exhausted: null
+
+next_gate:
+  proposed_stage_or_gate: STAGE0_SENTRY
+  exact_action: "independently verify the residual low-information LeRobot protocol claim, direct-subtract boundary, clock/provenance closure route, Tier-B calibration and Stage-A killer"
+  authority_required: MAINLINE
+  stageb_user_approval_id: null
+
+stage0_repair_vector:
+  codes: [OMITTED_GENERIC_KERNEL, ATOMIC_ACTION_UNCLEAR, NATURAL_CARRIER_GAP, FULL_COST_GAP, Q2_SHAPE_GAP]
+  available_before_cutoff: true
+  decision_effect: NONE_NONDECISIONAL_FEEDBACK
+
+file_hashes:
+  ASSIGNMENT_CONTEXT.yaml: 85F7897BA21CF57AEA2A2FF0895E2F7F29E6BB96E398925DDF325FEC420A1993
+  BOOTSTRAP_ACK.yaml: 7FF67BB372F3738924E2FB7FCBE391F548D7D0C3AAEAFA32E0B8822741A1C707
+  MAINLINE_BOOTSTRAP_ACCEPTANCE.yaml: 802A20D153EEA78B40CCE16D83CBCE974A03F52F710F79712479C4FE11CB8278
+  MAINLINE_START.yaml: 6EEEA482DC5A30E4E8A151F5E7E731A84CCEC173E72CA5FB66E9B4D9A4023FA1
+  STAGE0_REPORT.md: 1F72DF1A2648C6DA79F60D6DC5886AF42B072228122D61E827BF9304CEB7E6C5
+  q1_calibration.md: 769220284BAEE503CFC78704283DDF292E045C545C41403A280337F87D98B864
+hash_manifest_file: HASH_MANIFEST.sha256

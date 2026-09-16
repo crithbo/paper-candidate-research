@@ -1,0 +1,20 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-1B61273411BF4421
+cutoff_date: 2019-10-17
+contribution_type: METHOD_ALGORITHM
+exact_object: exact predecessor and range lookup over ordered keys with updates and a bounded positional error
+natural_scenario: large sorted numeric key collections with nonuniform distributions
+problem: learned indexes trade model size, search correction, updates, and worst-case guarantees without a unified optimal construction
+atomic_action: build a minimum-segment error-bounded piecewise linear approximation and recursively index its segments
+mechanism: optimal segmentation converts distribution regularity into explicit space and correction-search bounds
+information_condition: sorted keys, error budget, update sequence, and exact correction search
+comparators: [balanced_tree, earlier_learned_index, error_bounded_piecewise_index, binary_search]
+claim_endpoint: lookup-update-space frontier while preserving the stated worst-case correction bound
+full_cost: [build_time, lookup_time, update_time, memory_bytes, correction_window]
+minimum_falsifier: no frontier gain or guarantee loss relative to strong tree and learned comparators
+source_cards:
+  - {id: S01, year: 2018, role: learned_index_origin}
+  - {id: S02, year: 2019, role: error_bounded_piecewise_index}
+  - {id: S03, year: 2019, role: benchmark_and_real_key_corpus}
+local_resource_envelope: WINDOWS_NATIVE_CPU__HEADER_ONLY_CPP__GENERATED_AND_SMALL_PUBLIC_KEYS
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

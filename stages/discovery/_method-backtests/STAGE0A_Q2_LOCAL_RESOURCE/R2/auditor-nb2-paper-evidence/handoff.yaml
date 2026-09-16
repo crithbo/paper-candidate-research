@@ -1,0 +1,54 @@
+schema: paper-evidence-backtest-auditor-handoff-v1
+assignment_id: BACKTEST-AUDITOR-20260827-STAGEA-PAPER-EVIDENCE-R2-NB2
+topic_id: STAGEA_PAPER_EVIDENCE_BACKTEST_R2
+role: BACKTEST_AUDITOR
+result: COMPLETE__NONBLIND_GOLD_COMPARISON__NO_PRODUCTION_STATE_CHANGE
+evidence_ceiling: PAPER_REPORTED_OR_AUTHOR_ARTIFACT_REPORTED__NO_PROJECT_REPRODUCTION_CLAIM
+
+summary:
+  conclusion: 已捕获 locator 的 9 个正控全部 compatibility pass；没有证据显示 Stage A gate 在可评估论文证据上过严。
+  full_population_boundary: 12 个正控中另有 3 个为 source-evidence-missing，未被记为通过、失败或 wrongful STOP。
+  next_step: MAINLINE 机械验收；如需扩大全体覆盖，只能冻结来源定位补齐后重新 gate。
+  user_action_required: false
+
+positive_results:
+  population_total: 12
+  paper_only: {compatibility_pass: 9, source_evidence_missing: 3, missing_ids: [ANN_BENCHMARKS, ALEX, BOLT]}
+  paper_plus_existing_local_supplement: {compatibility_pass: 9, source_evidence_missing: 3, delta_from_paper_only: 0}
+  immediate_population_view: {confirmed_compatibility_pass: 9, source_evidence_missing_unassessed: 3}
+  conditional_evaluable_view: {evaluable: 9, compatibility_pass: 9}
+  after_evidence_only_clarification: {observed_evaluable: 9, compatibility_pass: 9, full_population_12_not_observed: true}
+
+negative_results:
+  total: 4
+  nonpass: 4
+  specificity: 4_OF_4
+  false_pass_count: 0
+
+attribution:
+  first_unclosed_gate: P1_PACKER_SOURCE_LOCATOR_CAPTURE
+  rule_overstrictness_observed_among_evaluable: false
+  contribution_type_mismatch_observed_among_evaluable: false
+  source_evidence_missing_is_wrongful_stop: false
+  minimal_rule_patch_recommended: false
+  allowed_followup: source_locator_acquisition_and_regate_only
+  prohibited_followup: [lower_scientific_gates, infer_missing_cases_as_pass, blind_nonblind_metric_merge, independent_reproduction_claim, unbiased_recall_claim, threshold_75_claim]
+
+blind_and_local_boundary:
+  blind_disposition: BLIND_UNAVAILABLE__NO_FRESH_REVIEWER
+  blind_nonblind_metrics_merged: false
+  local_redo_run: false
+  local_supplement_raised_evidence_ceiling: false
+  local_work_saved: no_new_download_build_or_probe; existing_supplements_did_not_change_outcomes
+
+outputs:
+  final_report: {path: stages/stageA/_compatibility/paper-evidence-20260827/FINAL_STAGEA_BACKTEST_REPORT.md, sha256: 86EC569F5E9617E1881072749034C97CFE46552065B8BD7B6FFAEDDA72ADF670}
+
+frozen_inputs:
+  start_authorization: {path: MAINLINE_START_AUTHORIZATION.yaml, sha256: 3DC454FCEBDD01101B4D17533E0DAE4D46CDD03305F2CE2C1235F9EFD832F312}
+  gate_report: {path: stages/stageA/_compatibility/paper-evidence-20260827/gate/PAPER_EVIDENCE_STAGEA_GATE_REPORT.yaml, sha256: 089C34B34E796598BD7E91A2696946B990697B9A49B1A0D8F134FABD3BAD4569}
+  enriched_locator_manifest: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/ENRICHED_PAPER_EVIDENCE_CAPSULES_MANIFEST.yaml, sha256: 152E118F169F43DAA7316C19F6EE2745425FE3CF72F7E579B7A29E9643050061}
+  auditor_gold_key: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/AUDITOR_GOLD_KEY.yaml, sha256: C3F813395CDB4AF93FFDF7DC89E77973FEA24749C3E36FDA6A2CACEB55043D82}
+  blind_disposition: {path: stages/rule-audit/RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2/BLIND_PILOT_DISPOSITION.yaml, sha256: 3F1D8B9A4A4F7263DBE5F52A9F65B6ED6F219C354758BDDAAD90FBDE5F36312D}
+
+forbidden_actions_executed: {network: false, experiment: false, probe: false, build: false, download: false, resource_creation: false, production_registration: false, StageB: false, state_transition: false}

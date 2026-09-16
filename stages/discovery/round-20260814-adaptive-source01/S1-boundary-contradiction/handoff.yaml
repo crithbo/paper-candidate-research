@@ -1,0 +1,45 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE01
+lane: S1_BOUNDARY_CONTRADICTION
+write_directory: stages/discovery/round-20260814-adaptive-source01/S1-boundary-contradiction
+completion_state: COMPLETE_ZERO_PROPOSALS
+lane_state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE
+rules:
+  revision: v8.7-authoritative__adaptive-source-zero-yield-audit-20260814
+  canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+  discovery_quality_mode: OFF
+  discovery_claim_pack_mode: OFF
+  v9_output_generated: false
+funnel:
+  raw_screen_row_events: 7
+  accepted_unique_opportunity_families: 5
+  candidate_grade_deep_reviews: 2
+  stage0_briefs: 0
+near_misses:
+  - signature: LLVM_COROUTINE__FRAME_LAYOUT__SUSPEND_RESUME_DESTROY_EXCEPTION_CLEANUP__FIXED_CPP20_SEMANTICS
+    status: NOT_ADMITTED_UNFROZEN
+    fidelity_status: FINITE_FIDELITY_GAP
+    next_gate: pin LLVM implementation union and a forced same-object witness; drop if current composition/direct prior absorbs the joint algorithm
+  - signature: WASM_EXCEPTION_TAG__THROW_CATCH_UNWIND__ENGINE_VALIDATOR_RUNTIME_BOUNDARY
+    status: NOT_ADMITTED_UNFROZEN
+    fidelity_status: FINITE_FIDELITY_GAP
+    next_gate: pin one engine's validator/compiler/runtime union and define a non-generic representation action
+structural_drops:
+  - LLVM_EH__CLEANUP_SCOPE__LANDINGPAD_FUNCLET_UNWIND_TABLE__SAME_LANGUAGE_SEMANTICS
+  - AARCH64_GCS__CALL_RETURN_STATE__DEBUGGER_UNWIND_CONTEXT_RESTORE
+  - LINUX_FUTEX2_WAITV__MULTIADDRESS_COMPARE_BLOCK__WAKE_PUBLICATION_ORDER
+historical_exclusions:
+  - AARCH64_PAUTH__LANGUAGE_ABI_POINTER_PUBLICATION__AUTHENTICATION_BOUNDARY
+  - LLVM_SHADOWCALLSTACK__CALL_RETURN_SHADOW_STATE__UNWIND_COMPATIBILITY
+canonical_files:
+  - RULE_FREEZE.md
+  - RAW_SCREEN_ROW_EVENTS.md
+  - UNIQUE_OPPORTUNITY_FAMILIES.md
+  - CANDIDATE_GRADE_DEEP_REVIEWS.md
+  - SOURCE_COLLISION_MATRIX.md
+  - DISCOVERY_LOG.md
+manifest: HASH_MANIFEST.sha256
+minimal_validation:
+  required_files_present_and_readable: true
+  identity_and_counts_consistent: true
+  no_topic_brief_for_zero_proposals: true
+  no_shared_control_write: true

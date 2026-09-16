@@ -1,0 +1,35 @@
+schema: ppc-r4-ir-syntax-correction-precommit-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R4-GLOBAL-MODIFIER-ORDER-CORRECTION
+recorded_before_edit: true
+source_file: resources/src/harness/ppc_union_input.ll
+source_file_sha256: D2EC9F564FBAE963A0515E6028EF2FD10E436CC8EAADF5F14EB0068A227BAD19
+source_file_bytes: 2972
+source_file_content_hash_matches_r3: true
+immutable_related_inputs:
+  ppc_exact_witness_s_sha256: 94343AB218377B6D3A7736F3E280299C6AB80A2751386BD0CC0441B3174F88C5
+  run_preclaim_py_sha256: 4915D5A53DAA5D91A5014ADA8F531ECDB2F4E57AAAFD03B654FE63D5284117BD
+  tiny_oracle_py_sha256: FD9AAB1FC7B6613C3764D55BC88DD2DA0E2DEA54D3BAE82893D17C123B810078
+  check_tiny_oracle_py_sha256: 5E68A2C8D90C3B0141F91FEB9755D9099834E6BABDEB04414A84FCDD0B2CFDFD
+edit_contract:
+  source_files_edited_max: 1
+  edit_operations_max: 1
+  exact_substitutions:
+    - {from: '@target_value_ir = hidden dso_local', to: '@target_value_ir = dso_local hidden', required_occurrences: 1}
+    - {from: '@target_array_ir = hidden dso_local', to: '@target_array_ir = dso_local hidden', required_occurrences: 1}
+  total_required_occurrences: 2
+  expected_corrected_sha256: 77A92601566F1CD5190B0FD5892EE62C295E00F64AC018BF5782B965DC268F3E
+  expected_corrected_bytes: 2972
+  function_modifier_order_occurrences_before: 5
+  function_modifier_order_occurrences_after_required: 5
+  all_other_bytes_unchanged: true
+read_only_simulation:
+  target_value_occurrences: 1
+  target_array_occurrences: 1
+  simulated_corrected_sha256: 77A92601566F1CD5190B0FD5892EE62C295E00F64AC018BF5782B965DC268F3E
+  simulated_corrected_bytes: 2972
+  function_modifier_occurrences: 5
+  result: PASS
+source_edit_started_at_record_write: false
+tool_or_checker_started: false
+fresh_F1_F5_started: false
+scientific_inference: NONE

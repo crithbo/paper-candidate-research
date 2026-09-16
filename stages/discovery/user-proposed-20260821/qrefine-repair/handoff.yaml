@@ -1,0 +1,34 @@
+assignment_id: DISCOVERY-S2-20260821-USER-QREFINE-STAGE0-REPAIR
+topic_id: QREFINE-TRITON-W4A16
+lane: DISCOVERY-S2-BOTTLENECK-TRANSFER
+status: READY_FOR_INDEPENDENT_STAGE0
+lane_state: IDLE_REUSABLE
+inputs_verified:
+  assignment_sha256: D0343BD92C15699455B98A680ABF1254A311448ED87752EBB72C82FF8EC1E118
+  archive_sha256: 1F1696FBBF39C4C6810386E8472692EA1E434011B15D02E10F84A3C3F61E9B67
+repairs_completed:
+  verifier_boundary: LLVM_DIALECT_MLIR_AFTER_MAKE_LLIR_BEFORE_LLVM_TO_MODULE
+  capture_locus: CUDABackend_and_HIPBackend_make_llir__post_pm_run_pre_llvm_to_module
+  vllm_anchor_role: PACKING_SHAPE_AND_NATURAL_KERNEL_ANCHOR_ONLY__NOT_LEGAL_PERFORMANCE_COMPARATOR
+preserved_contract:
+  targets: [sm89, gfx1100]
+  logical_subgroup_width: 32
+  relation: mixed_bitvector_ieee_trace_exact_v1
+  binary_level_verification: false
+  excluded_paths: [tl_dot, tensor_cores, wmma, mfma]
+counts:
+  repair_points: 2
+  archive_scripts_executed: 0
+  experiments: 0
+  stage0_reviews: 0
+  resource_attempts: 3
+decision_reason: "Exact input boundary and anchor/comparator roles are now unambiguous; independent Stage 0 retains collision, paper-shape, and full legal performance-comparator assessment."
+resource_note: "Raw-source TLS failures are recorded only as resource failures and do not lower the scientific disposition."
+required_next_owner: INDEPENDENT_STAGE0
+canonical_outputs:
+  - REPAIR_REPORT.md
+  - DISCOVERY_QUESTION_CARD.md
+  - TOPIC_BRIEF.md
+  - SEARCH_LOG.md
+  - RESOURCE_INVENTORY.yaml
+manifest: HASH_MANIFEST.sha256

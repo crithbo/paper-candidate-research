@@ -1,0 +1,113 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  artifact_state: GC_COMPLETE__RAW_AND_REPRODUCIBILITY_CAPSULE_RETAINED
+  closeout_event: R7_INVALID_CLAIM_CONSTRUCTION_BLOCKER_HANDOFF_ACCEPTED_BY_MAINLINE
+  downstream_consumer: MAINLINE_POLICY_DISPOSITION__NO_AUTOMATIC_SCIENTIFIC_TRANSITION
+  post_close_retained_bytes_max: 1610612736
+  cleanup_owner: MAINLINE
+identity:
+  topic_id: ROCKSDB-DICT-COVER
+  assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-R7-NATURAL-CLAIM-PILOT
+  addendum_id: ROCKSDB-R7-NATURAL-KVMAN1-CLAIM-HARNESS-A1
+  stage_or_mode: STAGEA_RESTRICTED_REAL_RISK_PILOT_CLAIM_BEARING_FAIL_CLOSED
+  run_id: R7_PARTIAL_344_OF_560_BLOCKER_CLOSEOUT
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/r7
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/r7/resources
+  inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/r7/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-25T17:11:36+08:00
+  finalized_at: 2026-08-25T18:33:56.8775107+08:00
+root_measurement:
+  logical_bytes: 515241582
+  file_count: 8490
+  measurement_method: POST_GC_LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+  reparse_count: 0
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS_PROCESS_LOCAL_ONLY
+  process_local_only: true
+  system_or_user_environment_modified: false
+  redirects: [TEMP, TMP, TMPDIR, PYTHONPYCACHEPREFIX, PYTHONNOUSERSITE, PIP_CACHE_DIR, PATH_PROCESS_LOCAL]
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 4294967296
+  cpu_seconds_max: 14400
+  wall_seconds_max: 21600
+  max_concurrent_claim_processes: 2
+  gpu_hours_max: 0
+  network_bytes_used: 0
+  stored_bytes_used: 515241582
+  claim_processes_expected: 560
+  claim_processes_completed: 344
+  claim_processes_pass: 342
+  claim_processes_fail: 2
+  claim_processes_not_started: 216
+  claim_process_cpu_seconds: 122.765625
+  claim_matrix_wall_seconds: 652.5779999999977
+entries:
+  - id: SAME_TOPIC_TOOL_ARCHIVES
+    path: resources/archives
+    file_count: 3
+    logical_bytes: 242201621
+    provenance: HASH_PINNED_SAME_TOPIC_RESUME6_ARCHIVES
+    retention_class: TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY
+    delete_after_gate: MAINLINE_ACCEPTED_HANDOFF_AND_SOURCE_ARCHIVE_HASH_RECHECK
+  - {id: ACCEPTED_MANIFESTS_PATCHED_SOURCE_AND_PRECLAIM_HARNESS, path: resources/src, file_count_excluding_claim_harness: 3009, logical_bytes_excluding_claim_harness: 120924595, accepted_tree_sha256: BB422A956D525172FEEE0D4D608F081213632B29296825E90DA64791F7A2498C, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: CLAIM_HARNESS_SOURCE, path: resources/src/claim_harness, file_count: 6, logical_bytes: 70184, source_sha256: 709D415C82A602C55215AE1352F0F08AEDFC7AE4D06B827EE91BF4A1CA9BC288, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: FROZEN_PRECLAIM_BINARY_AND_STATIC_LIBRARIES, path: resources/build/frozen, file_count: 3, logical_bytes: 47943324, accepted_tree_sha256: 6BED3634B5D5194F6CAEAAC0DB54F42F2F83035F1BEEB8465A1ABC727AA7B6D5, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: CLAIM_HARNESS_BUILD, path: resources/build/claim-harness, file_count: 18, logical_bytes: 11990799, executable_bytes: 11099136, executable_sha256: 41CBC5D3E5CF79DCC314076A0B2AABC8E8C3506D4DA6816869C7A12087B5DB42, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM_WITH_REACQUIRABLE_BUILD_METADATA, delete_after_gate: MAINLINE_EXACT_LEAF_SELECTION_ONLY}
+  - {id: PARTIAL_NATURAL_MATRIX_RAW_EVIDENCE, path: resources/build/claim-runs, file_count: 5452, logical_bytes: 331806359, completed_processes: 344, pass_results: 342, fail_results: 2, retention_class: RESUME_CRITICAL_UNTIL_MAINLINE_AND_INDEPENDENT_GATE_DISPOSITION, delete_after_gate: NEVER_AUTOMATIC_BEFORE_DISPOSITION}
+  - {id: ASSIGNMENT_RUNTIME, path: resources/env/runtime, file_count: 2, logical_bytes: 2299392, accepted_tree_sha256: 6DC336C15FD5F13AE2E95531A294A4A87946259C4ED07ED38762C64FB8F21A23, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: NEVER_AUTOMATIC}
+  - {id: EXTRACTED_LLVM_MINGW, path: resources/env/llvm-mingw, file_count: 9483, logical_bytes: 740825211, upstream_tree_sha256: 03C9CE69E4014D9EBF2858D7BE84188002086B5CA86B5E4DEFD5E93D4FCDC915, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF_ZERO_ACTIVE_PROCESS_RETAINED_ARCHIVE_HASH_PASS}
+  - {id: EXTRACTED_CMAKE, path: resources/env/cmake, file_count: 8819, logical_bytes: 143269940, upstream_tree_sha256: 48E212F267997BF06B6F1780FD2305E17ECB3D92C1FC8F64165FF23D2F271EA5, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF_ZERO_ACTIVE_PROCESS_RETAINED_ARCHIVE_HASH_PASS}
+  - {id: EXTRACTED_NINJA, path: resources/env/ninja, file_count: 1, logical_bytes: 603648, upstream_tree_sha256: 18BE58BA30F1D214D2E2F07E32797C889262A6266A195DC6596C074F7E29D9DF, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF_ZERO_ACTIVE_PROCESS_RETAINED_ARCHIVE_HASH_PASS}
+  - {id: ASSIGNMENT_CACHE, path: resources/cache, file_count: 39, logical_bytes: 962593, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF}
+  - {id: BUILD_SMOKE_AND_RUNNER_LOGS, path: resources/logs, file_count: 37, logical_bytes: 1389394, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM_WITH_EPHEMERAL_SMOKE_DBS, delete_after_gate: MAINLINE_EXACT_LEAF_SELECTION_ONLY}
+shared_assets_consumed: []
+external_system_dependencies:
+  - BUNDLED_WORKSPACE_PYTHON_3_12_13__EXTERNAL_SYSTEM_MANAGED_LOCATION_NOT_GUARANTEED
+cleanup:
+  owner: MAINLINE
+  owner_cleanup_allowed: false
+  performed: true
+  active_owner_or_process_count: 0
+  proposed_exact_leaf_count: 15
+  proposed_logical_bytes: 1129045478
+  projected_retained_logical_bytes: 515241582
+  downstream_inputs_accepted: true
+  capsule_sealed: true
+  deleted_entries: [resources/env/llvm-mingw, resources/env/cmake, resources/env/ninja, resources/archives/llvm-mingw-20260616-ucrt-x86_64.zip, resources/archives/cmake-4.4.2-windows-x86_64.zip, resources/archives/ninja-win-1.13.2.zip, resources/build/claim-harness/CMakeFiles, resources/build/claim-harness/CMakeCache.txt, resources/build/claim-harness/build.ninja, resources/build/claim-harness/cmake_install.cmake, resources/build/claim-harness/.ninja_deps, resources/build/claim-harness/.ninja_log, resources/cache/pycache, resources/logs/claim_harness_build_and_smoke/synthetic-R1/db, resources/logs/claim_harness_build_and_smoke/synthetic-R2/db]
+  deleted_file_count: 18382
+  deleted_logical_bytes: 1129045478
+  postdelete_file_count: 8490
+  postdelete_logical_bytes: 515241582
+  cleanup_receipt_sha256: 9AF7C57FE2C837FDB716CBA9E23FB826C93FA8992F3A782A9491A11689FE013E
+  performed_at: 2026-08-26T00:20:00+08:00
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  all_persisted_entries_classified: true
+  claim_critical_content_hashes_present: true
+  cleanup_performed_by_owner: false
+  cleanup_receipt_valid: true
+  result: GC_COMPLETE__RAW_344_RESULTS_AND_REPRODUCIBILITY_CAPSULE_RETAINED__NO_SCIENTIFIC_INFERENCE

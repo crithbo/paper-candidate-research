@@ -1,0 +1,68 @@
+schema: torchdynamo-retirement-ownership-v1
+assignment_id: STAGE0-REVISION1-20260830-TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+topic_id: TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+
+logical_retirement:
+  object: Dynamo_dispatch_entry
+  action: invalidate_or_disable_entry_from_future_guarded_dispatch
+  native_baseline: PyTorch_2_13_CacheEntry_invalidate_and_move_to_back_behavior
+  required_effect_check:
+    - retired_entry_no_longer_dispatches
+    - other_entries_and_bucket_state_remain_valid
+    - recompile_limit_and_accumulated_limit_accounting_is_reported
+    - active_forward_backward_or_recompute_users_are_absent_or_safely_pinned
+  claim_ceiling: logical_dispatch_entry_compaction_only
+  physical_bytes_freed_inference: forbidden
+
+physical_reclamation:
+  status: SEPARATE_OPTIONAL_ACTION
+  prerequisites:
+    - stable_artifact_identity_from_Dynamo_entry_to_every_downstream_artifact
+    - complete_reference_graph
+    - sole_owner_refcount_proof
+    - no_active_execution_autograd_recompute_or_CUDAGraph_capture_user
+    - reacquire_or_recompile_semantics_and_cost_accounted
+    - observed_post_action_byte_or_residency_change
+  no_prerequisite_shortcut_from_logical_retirement: true
+  ownership_unknown_means: RETAIN_AND_COUNT_FULL_COST
+
+artifact_reference_graph:
+  layers:
+    - Dynamo_CacheEntry_and_transformed_Python_code
+    - FX_Graph_and_FxGraphCache_record
+    - AOTAutograd_graph_partition_and_runtime_wrapper
+    - Inductor_generated_source_and_loaded_module
+    - Triton_or_native_binary_and_autotuning_record
+    - PGO_and_megacache_metadata
+    - CUDAGraph_capture_and_memory_pool_when_enabled
+  ownership_statuses: [SOLE_OWNER_PROVED, SHARED_OWNER_PROVED, EXTERNAL_OWNER, UNKNOWN]
+  physical_delete_allowed_only_for: SOLE_OWNER_PROVED
+  shared_external_or_unknown_action: RETAIN
+
+full_cost_accounting:
+  logical_entry_count_and_lookup_cost: mandatory
+  generated_and_loaded_code_bytes: mandatory_where_observable
+  persistent_cache_bytes: mandatory_where_observable
+  host_and_device_residency: mandatory_where_observable
+  CUDAGraph_record_and_pool_cost: mandatory_when_enabled
+  recompile_or_reacquire_cost_after_retirement: mandatory
+  ownership_proof_and_policy_overhead: mandatory
+  unavailable_exact_measurement: report_unavailable_without_estimate
+
+claim_rules:
+  logical_entry_reduction_may_be_claimed_without_physical_reclamation: true
+  physical_memory_or_disk_saving_requires_observed_change_and_sole_owner_proof: true
+  no_independent_gain_without_physical_reclamation_kills_entire_direction: false
+  physical_saving_required_for_primary_endpoint: false
+  primary_endpoint_still_counts_retained_physical_residency: true
+
+failure_outcomes:
+  - OWNERSHIP_UNKNOWN
+  - SHARED_ARTIFACT_NOT_RECLAIMABLE
+  - ACTIVE_USER_OR_PIN
+  - ARTIFACT_IDENTITY_UNSTABLE
+  - RECLAMATION_EFFECT_UNOBSERVABLE
+  - REACQUIRE_COST_DOMINATES
+  - RETIREMENT_CHANGES_SEMANTICS
+  all_remain_in_denominator: true
+

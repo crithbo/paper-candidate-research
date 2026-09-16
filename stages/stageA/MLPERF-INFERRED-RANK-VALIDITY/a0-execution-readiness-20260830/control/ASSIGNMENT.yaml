@@ -1,0 +1,26 @@
+schema: stagea-a0-assignment-v1
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-A0
+topic_id: MLPERF-INFERRED-RANK-VALIDITY
+lane_id: CANDIDATE_EXECUTION_LANE_1
+mode: A0_EXECUTION_READINESS
+stagea_scope_budget_mode: PRODUCTION
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+unique_write_directory: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830
+resource_root: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/resources
+stage0_inputs:
+  primary_handoff: {path: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY/handoff.yaml, sha256: 8A103741D122203D5C7B0213D4816EE325779C7E4740BCBD570F9C3AEFA348B3}
+  sentry_handoff: {path: stages/stage0/_reviews/round-20260830-source120-sentry/MLPERF-INFERRED-RANK-VALIDITY/handoff.yaml, sha256: 7135BB0C64F66F479D73D3962B94B4E3A63ED2917A410BF5AAE9429BD8A6AC8F}
+claim_ceiling: CANONICAL_MLPERF_BENCHMARK_VALIDITY_ONLY
+a0_objective:
+  - freeze official v5.1 and v6.0 result summary identities and hashes
+  - freeze official inference formulas, scenario metrics and unit conversions
+  - freeze exact pairing key and measured/inferred/missingness rules
+  - freeze deterministic output schema, full-cost collectors and held-out release logic
+  - run one nonclaim parser/schema control on a hand-checked witness without reading corpus effects
+a1_plan: {canonical_cases: [MLPerf_v5.1_release, MLPerf_v6.0_release], case_count: 2, claim_run_requires_separate_start: true}
+budget: {network_attempts_max: 16, network_bytes_max: 268435456, stored_bytes_max: 536870912, cpu_hours_max: 4, gpu_hours_max: 0, a0_initial_round: 1, engineering_correction_batches_max: 2}
+firewall_hidden_until_a1: [formula_error_distribution, rank_correlation, rank_reversal, candidate_directional_result]
+allowed_after_start: [official_source_acquisition, assignment_local_parser_and_schema, one_nonclaim_control, readiness_ledger, inventory_retention_handoff]
+forbidden: [claim_corpus_analysis, result_visibility, formula_or_pairing_change_after_results, stageb, shared_write, system_install]
+pause_signal: finish_current_A0_and_handoff_then_no_successor
+

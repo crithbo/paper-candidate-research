@@ -1,0 +1,38 @@
+schema: ppc-r13-shadow-control1-handoff-v1
+assignment_id: STAGEA-L2-20260830-PPC-R13-SHADOW-CONTROL1
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+mode: SHADOW
+decision: EXECUTION_CONTRACT_HOLD__CONTROL_ROW_FAIL__NO_SCIENTIFIC_INFERENCE
+attempt: 1_of_1
+control_row: control-00
+node_order: [N00_INPUT_BIND, N01_CANDIDATE_REPLAY, N02_BASELINE_COLLECTOR, N03_NATIVE_CHECKER, N04_FULL_COST_LEDGER]
+completed_nodes: 2
+expected_nodes: 5
+first_failure:
+  node: N01_CANDIDATE_REPLAY
+  exit_code: 1
+  timeout: false
+  required_outputs_present: false
+  schema_valid: true
+  missing_paths: [resources/build/control/candidate/candidate_command_metrics.json]
+  mechanical_failure_class: FRESH_REPLAY_OUTPUT_ROOT_ALREADY_EXISTS
+  raw_stderr: resources/logs/control/nodes/N01_CANDIDATE_REPLAY.stderr
+  raw_stderr_sha256: 2E9A0AD42A5F8033B4C0581E9A853D5BDDD6832550700979F85545A28C49F16A
+engineering_status:
+  N00_INPUT_BIND: {exit_code: 0, timeout: false, required_outputs_present: true, schema_valid: true}
+  N01_CANDIDATE_REPLAY: {exit_code: 1, timeout: false, required_outputs_present: false, schema_valid: true}
+  N02_BASELINE_COLLECTOR: NOT_STARTED
+  N03_NATIVE_CHECKER: NOT_STARTED
+  N04_FULL_COST_LEDGER: NOT_STARTED
+raw_outputs:
+  status: {path: resources/logs/control/CONTROL1_STATUS.json, sha256: 572B42A23215C8F7DAAA831AFA067FD794A942BDB4D8ED5059417A14048CDE9B}
+  N00: {path: resources/logs/control/nodes/N00_INPUT_BIND.json, sha256: 076EC68D2986DE750ED5F83928A028254C47CFCF1902ED7579C9863B582431BF}
+  N01: {path: resources/logs/control/nodes/N01_CANDIDATE_REPLAY.json, sha256: 92BDCAFD34AC15DFC1EAF202E5719837C065991CECFA8CD81C7494815496989A}
+  candidate_failure: {path: resources/build/control/candidate/first_failure.json, sha256: 7B3B97192E38DF50FA862110FE421F7D7938490DA3695203FB7B7301016F8E62}
+  copy_receipt: {path: CONTROL1_COPY_RECEIPT.yaml, sha256: AD5924563BB7CF06316DA50903DDD7C9524145FF8540CFC3AD776531D5762C1C}
+  inventory: {path: RESOURCE_INVENTORY.yaml, sha256: 5232E0193E6FE1058D4AE4E7DD130514630858E1A7F18D00B2B7E9A766A09653}
+resource_status: {network_bytes: 0, resource_files: 26, resource_logical_bytes: 195540, reparse_points: 0, cleanup_performed: false}
+firewall: {result_visibility: NONE, relative_effect_values_read: false, natural_or_claim_row_beyond_control_00: false, scientific_revision_consumed: false, scientific_inference: NONE}
+targeted_manifest: {path: TARGETED_CONTROL_MANIFEST.yaml, sha256: 22321609317A961677A3A1059A9C35F57C00ECACFCBDEF1ACEC36166EF1E0041}
+retention_proposal: {path: PHASE_CLOSEOUT_RETENTION.yaml, sha256: AD1BF66DE5232FE9DB901EAFDABBDCD98A85ADA0096CB805E5F678948433EA1B}
+next_action: STOP_AFTER_CONTROL_HANDOFF__TEMP_MAINLINE_DISPOSITION_REQUIRED

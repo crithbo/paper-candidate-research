@@ -1,0 +1,27 @@
+schema: mainline-start-authorization-v1
+issued_at: 2026-08-26T02:08:00+08:00
+issued_by: MAINLINE
+decision: START_AUTHORIZED
+authorization_ids: [USER-PARALLEL-STAGEA-READY-CANDIDATES-20260825, USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825]
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R3-PRECLAIM-F1-F5
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+context_sha256: DBB24FB56E77836E144A1C0ADD29A6465B0503CFCCEFFAE2AFC3C03F576D7537
+bootstrap_ack_sha256: 10C0F61BCE21C63C52573055E5A68265B0E00D5885FD75FAB2D63ADA2BE93F05
+pass1_superseded_ack_sha256: 52AF1AE03F6D2F0C29512A0791ECE4EEF648B45D9C1C28E2907F9349013BE5AD
+bootstrap_acceptance: {disposition: ACCEPTED_READY, frozen_hashes: PASS_25_OF_25, stale_plan_backlog_absent: true, differences_or_ambiguities: [], resource_root_absent: true, scientific_or_resource_action_started: false}
+allowed_after_start:
+  - create eight r3 standard resource directories
+  - copy and hash-accept only r2 exact ppc-toolchain and r1 exact source/commit inputs
+  - safe-selectively extract only frozen PPC/lld codegen, MC, relocation, unwind and flag loci
+  - implement the complete assignment-local script candidate, baseline union and checkers without LLVM/lld source patch or rebuild
+  - run F1 exact non-GOT direct PCREL34 witness, then F2 native validation, F3 complete equal-information union, F4 tiny exhaustive native oracle, and F5 tiny full-cost control in order
+  - use exactly two planned deterministic replays where frozen and no automatic retry
+  - finalize canonical preclaim handoff and wait
+scientific_boundary: {claim_bearing_action_allowed: false, natural_function_or_corpus_allowed: false, natural_performance_or_full_cost_claim_allowed: false, F5_tiny_control_cost_allowed: true, scientific_revision_authorized: false, owner_state_transition_authority: false, stageb_authorized: false}
+attempt_limits: {harness_binary_builds: 0, deterministic_replays: 2, automatic_retry: false, result_based_rerun_or_exclusion: false}
+budgets: {network_bytes_max: 0, stored_bytes_max: 2147483648, cpu_seconds_max: 14400, wall_seconds_max: 28800, max_parallel_processes: 2, gpu_hours_max: 0}
+failure_policy: {any_F1_F5_construct_or_fidelity_failure: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE, same_assignment_retry: forbidden}
+lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, cleanup_owner: MAINLINE, owner_cleanup_allowed: false, post_close_retained_bytes_max: 805306368}
+next_action: COPY_ACCEPT__SELECTIVE_SOURCE__IMPLEMENT_AND_RUN_ORDERED_F1_F5__HANDOFF

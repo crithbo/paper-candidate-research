@@ -1,0 +1,9 @@
+# Assignment-local non-product coupling survival note
+
+- Applicability: `APPLICABLE` — candidate is a whole constructor with allocation/placement factors.
+- Factor A / B / strongest sequential composition: A = callee-save set/range selected by current frame/RA information; B = packed-stack frame object ordering and offsets. Baseline composes current callee-save determination with `assignCalleeSavedSpillSlots` / frame layout.
+- Shared endogenous variable/cross-term: `SystemZ ELF ABI frame-state`: selected saved GPR range occupies fixed ABI save-area offsets, while `usePackedStack(MF)` shifts the current frame base and changes the correspondence of save offsets, stack object representation and prologue/epilogue range actions.
+- Source-anchored dependency trace (two loci): current `SystemZFrameLowering.cpp` records the low/high GPR spill/restore range, fixed spill offsets and packed-stack-dependent offset; `SystemZFrameLowering.h` exposes `assignCalleeSavedSpillSlots`, `orderFrameObjects`, `getRegSpillOffset` and `usePackedStack` in the same target frame interface.
+- State-erasure result: `UNRESOLVED_BOUNDED`. Erasing SystemZ ABI offsets/packed-stack mode risks collapsing the formulation to generic frame layout; however, this cycle has not reconstructed enough current source or a legal witness to decide whether the ABI range/offset transition sustains a non-product target-specific mechanism.
+- Disposition: `NOT_READY_FOR_CLEAN_BRIEF__NON_PRODUCT_UNPROVEN`. It remains raw/debt and is not a scientific DROP.
+- Next finite closure: one Stage0 source review must pin the current selection/order call graph and test whether distinct ABI-legal saved-range/layout plans exist for a single public SystemZ regression. If no cross-term survives, narrow/drop structurally; no implementation/result is needed for the decision.

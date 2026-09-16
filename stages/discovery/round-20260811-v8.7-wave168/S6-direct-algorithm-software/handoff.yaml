@@ -1,0 +1,15 @@
+assignment_id: DISCOVERY-S6-20260811-V8.7-WAVE168-MACHO-CHAINED-FIXUPS-GLOBAL-CONSTRUCTOR-DEPTH-REDTEAM
+lane: S6-direct-algorithm-software
+rules_revision: v8.7-authoritative-plus-r3-p0-clarity-compatibility__r5-p0-funnel-clarity__r7-p0-repair-vector-dormant-off__discovery-six-lanes-direct-20260811__p1-shadow-not-authoritative
+discovery_quality_mode: OFF
+frozen_date: '2026-08-11'
+result: COMPLETE_ZERO_PROPOSALS
+briefs: []
+deep_reviewed:
+  - family: MachO-LC_DYLD_CHAINED_FIXUPS-global-constructor
+    disposition: STRUCTURAL_DROP__FIXED_LAYOUT_FORCES_CHAIN_GRAPH__CURRENT_LINKER_COVERS_ENCODING_BRANCHES
+    exact_object: fixed Mach-O pointer locations/bind-rebase targets to same dyld/LLVM-parser semantics
+    reason: page/range constraints force the chain graph for fixed layout; lld covers chain/classic and import encoding branches; remaining variants alter layout or are emitter/packing work
+    evidence_ceiling: STATIC_CURRENT_SOURCE_AND_PRIMARY_SPEC_REVIEW__NO_EXPERIMENT_RUN
+lane_final_state: IDLE_REUSABLE_AWAITING_MAINLINE
+next_action: mainline mechanical acceptance only; do not create Stage0/A/B

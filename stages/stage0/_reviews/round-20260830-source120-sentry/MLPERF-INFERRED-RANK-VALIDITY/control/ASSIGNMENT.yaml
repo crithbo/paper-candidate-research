@@ -1,0 +1,19 @@
+schema: stage0-sentry-assignment-v1
+assignment_id: STAGE0-SENTRY-20260830-MLPERF-INFERRED-RANK-VALIDITY
+topic_id: MLPERF-INFERRED-RANK-VALIDITY
+mode: SENTRY
+lane_id: STAGE0_SENTRY
+thread_id: 01a034d0-cda0-74b3-a099-b4b711d9d8a8
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+unique_write_directory: stages/stage0/_reviews/round-20260830-source120-sentry/MLPERF-INFERRED-RANK-VALIDITY
+resource_root: stages/stage0/_reviews/round-20260830-source120-sentry/MLPERF-INFERRED-RANK-VALIDITY/resources
+primary_inputs:
+  report: {path: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY/STAGE0_REPORT.md, sha256: 35DFA9AAB21CFB54990AC8122083B64D89B294DDE2340A0F20E447EF299B0661}
+  q1_matrix: {path: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY/Q1_COMPARATOR_MATRIX.md, sha256: 7B6B88F29FA2813A15E922C923A62F4EB81AE46DD2C3DFAAAF559EC4B42D8B8D}
+  handoff: {path: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY/handoff.yaml, sha256: 8A103741D122203D5C7B0213D4816EE325779C7E4740BCBD570F9C3AEFA348B3}
+  manifest: {path: stages/stage0/_reviews/round-20260830-source120-primary/MLPERF-INFERRED-RANK-VALIDITY/HASH_MANIFEST.sha256, sha256: 43F8EF6FDB3BD63279E0FDBA8199745F3ABDD2FA0C7E9424279CA3275E5B8653}
+required: [independent_formula_source_check, exact_object, strongest_baseline, q2_tier, bounded_stagea_killer]
+budget: {search_or_open_calls_max: 16, network_bytes_max: 33554432, stored_bytes_max: 67108864, build_or_experiment: 0}
+forbidden: [repeat_full_primary, candidate_implementation, stagea, stageb, shared_write]
+pause_signal: finish_current_sentry_and_handoff_then_no_successor
+

@@ -1,0 +1,122 @@
+schema_version: assignment-context-v2-platform-profiles
+generated_by: MAINLINE
+generated_at: null
+context_mode: DUAL_READ_SHADOW # DUAL_READ_SHADOW | PRODUCTION_SLICE
+mainline_task_or_contact: null
+fail_closed_fallback: RETURN_TO_MAINLINE_WITHOUT_ACTION
+
+identity:
+  lane_id: null
+  role_id: null
+  assignment_id: null
+  topic_id: null
+  stage_or_mode: null
+  status: null
+  resume_point: null
+  next_action: null
+  source_assignment_path: null
+  source_assignment_sha256: null
+
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: null
+  user_approval_ids: []
+  allowed_actions: []
+  forbidden_actions: []
+  forbidden_inputs: []
+
+execution_platform:
+  profile: null # WINDOWS_NATIVE_V1 | WSL2_UBUNTU2404_X86_64_V1
+  profile_path: null
+  profile_sha256: null
+  host_or_distro: null
+  os_version: null
+  kernel_or_build: null
+  architecture: null
+  shell: null
+  codex_surface: null # DESKTOP_WINDOWS | DESKTOP_WSL_PROJECT | CLI
+  codex_version: null
+  native_workspace_root: null
+  native_repo_branch: null
+  native_repo_commit: null
+  backing_store_path: null
+  path_mapping: []
+  gpu_required: false
+  gpu_identity: null
+  discovery_allowed: null
+  stage0_allowed: null
+  stagea_allowed: null
+  stageb_user_approval_required: true
+  shared_file_write_allowed: false
+
+boundaries:
+  unique_write_directory: null
+  resource_root: null
+  read_only_paths: []
+  write_allowed_paths: []
+  network_allowed: false
+  experiment_allowed: false
+  state_transition_allowed: false
+
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: null}
+  plan: {path: plan.md, sha256: null}
+  registry_snapshot: {path: registry.yaml, sha256: null}
+  role_rule: {path: null, sha256: null}
+  execution_platform_profile: {path: null, sha256: null}
+  conditional_protocols: []
+  skills: []
+  templates: []
+
+minimum_inputs: []
+expected_outputs: []
+budget: {}
+claim_ceiling: null
+evidence_ceiling: null
+scientific_revision:
+  allowed_total: null
+  consumed: null
+  remaining: null
+  exceptional_revision_authorized: false
+mechanism_pivot:
+  allowed: null
+  consumed: null
+  remaining: null
+identity_and_collision:
+  exact_identity_digest: null
+  terminal_identity_digest: null
+  current_collision_digest: null
+  terminal_stop_non_revival_asserted: false
+user_and_blocker_state:
+  user_action_required: false
+  blocker_state: null
+  blocker_packet_path: null
+  resource_policy_path: rules/RESOURCE_LOCALIZATION.md
+  resource_policy_sha256: null
+artifact_lifecycle:
+  mode: OFF # OFF | DRY_RUN | PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_sha256: null
+  cutover_id: null
+  legacy_disposition: NOT_APPLICABLE
+  post_close_retained_bytes_max: null
+  closeout_event: null
+  downstream_consumer: null
+  allowed_automatic_retention_classes: []
+  phase_closeout_retention_path: null
+  capsule_path: null
+  cleanup_receipt_path: null
+stop_and_escalation_conditions: []
+handoff_requirements: []
+
+validation:
+  source_plan_registry_consistent: false
+  hashes_complete: false
+  paths_resolved_under_workspace: false
+  execution_platform_profile_matches_host: false
+  native_repo_branch_and_commit_match: false
+  platform_role_boundary_complete: false
+  context_is_sufficient_for_cold_start: false
+  full_registry_comparison_result: NOT_RUN
+  result: NOT_VALIDATED

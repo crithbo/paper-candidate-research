@@ -1,0 +1,10 @@
+schema_version: r3-preflight-resume1-addendum-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3
+parent_incomplete_ledger: {path: CANDIDATE_PREFLIGHT_LEDGER.pass1_time_exhausted.yaml, sha256: 0A9753140CC4A38FA71BED8E815EECBBB38060630FF80CEC55128B705AB74DD1, network_attempts: 0}
+authorized_action: REPLACE_CANONICAL_PREFLIGHT_LEDGER_WITH_ONE_COMPLETE_24_ROW_PHASE_A_RUN
+phase_A_only: true
+candidate_pool_sha256: 22CF0D0C9CC1C7DB1317DA085D323EDFBC1394C67E116B2FC1AD29A9F5E7D3AC
+network: {official_sources_only: true, attempts_max: 24, stored_bytes_max: 67108864}
+required_complete_ledger_fields: [candidate_identity_key, source_url, metadata_match, identity_excluded, public_evidence_route, year_stratum_valid, static_hard_gate_preflight, disposition_reason]
+forbidden: [phase_B_selection, evidence_extraction, packet_creation, gold_or_expected_label_access, code_artifact_binary_download, build, probe, experiment, production_candidate_registration, StageB]
+after_complete_phase_A: STOP_AND_SEAL_PREFLIGHT_HANDOFF_FOR_MAINLINE_ACCEPTANCE

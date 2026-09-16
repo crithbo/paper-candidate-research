@@ -1,0 +1,34 @@
+schema_version: r3-nonblind-stage0-noncollision-decision-v1
+assignment_id: STAGE0-PRIMARY-20260827-NONBLIND-R3-A1-CORRECTED-PACKET
+scope: CORRECTED_PACKET_TO_REDACTED_IDENTITY_COMPATIBILITY_ONLY
+scientific_stage0_decision: NOT_EMITTED
+current_collision_assessment: NOT_PERFORMED
+gold_or_expected_label_read: false
+network_or_external_lookup: false
+collision_adjustment: false
+blind_nonblind_metric_merge: false
+positive_cases:
+  R3P01: PACKET_IDENTITY_COMPATIBLE
+  R3P02: PACKET_IDENTITY_COMPATIBLE
+  R3P03: PACKET_IDENTITY_COMPATIBLE
+  R3P04: PACKET_IDENTITY_COMPATIBLE
+  R3P05: PACKET_IDENTITY_COMPATIBLE
+  R3P06: PACKET_IDENTITY_COMPATIBLE
+  R3P07: PACKET_IDENTITY_COMPATIBLE
+  R3P08: PACKET_IDENTITY_COMPATIBLE
+  R3P09: PACKET_IDENTITY_COMPATIBLE
+  R3P10: PACKET_IDENTITY_COMPATIBLE
+  R3P11: PACKET_IDENTITY_COMPATIBLE
+  R3P12: PACKET_IDENTITY_COMPATIBLE
+negative_controls:
+  R3N01: {disposition: PACKET_NONCOMPATIBLE, failed_gate: SAME_OBJECT_DIRECT_ABSORPTION}
+  R3N02: {disposition: PACKET_NONCOMPATIBLE, failed_gate: PROXY_CHANGE_OBJECT}
+  R3N03: {disposition: PACKET_NONCOMPATIBLE, failed_gate: WEAK_COMPARATOR_OR_NONCANONICAL}
+  R3N04: {disposition: PACKET_NONCOMPATIBLE, failed_gate: FULL_COST_OMITTED}
+summary:
+  positive_packet_identity_compatible: 12
+  positive_packet_identity_incompatible: 0
+  negative_controls_noncompatible: 4
+  stagea_production_stageb_route: FORBIDDEN
+  next_action: STOP_FOR_AUDITOR_COLLISION_ADJUSTMENT
+

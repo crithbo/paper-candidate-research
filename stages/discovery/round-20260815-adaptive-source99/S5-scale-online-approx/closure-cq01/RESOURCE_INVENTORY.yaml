@@ -1,0 +1,31 @@
+schema_version: assignment-resource-inventory-v1
+assignment_id: SOURCE-CLOSURE-RESUME-BATCH02-ITEM01-SOURCE99-S5-OPENJDK-CDS-V1
+resource_root: stages/discovery/round-20260815-adaptive-source99/S5-scale-online-approx/closure-cq01/resources
+localization:
+  eight_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+  preflight: resources/logs/resource-inventory/preflight-v1.yaml
+envelope:
+  calls_max: 10
+  calls_used: 10
+  network_bytes_max: 50331648
+  retained_network_bytes: 501073
+  persisted_bytes_max: 50331648
+  persisted_bytes: 501073
+provenance:
+  project: openjdk/jdk
+  version: jdk-24+36
+  immutable_commit: 6705a9255d28f351950e7fbca9d05e73942a4e27
+  source_license: GPL-2.0-only WITH Classpath-exception-2.0
+artifacts:
+  - {path: resources/downloads/01-tag.json, bytes: 4180, sha256: 63226A8E7BCD9E9F89E8705C58B3F863ADF026274BA45C22E8CD0BC0286AD1E4}
+  - {path: resources/downloads/02-cds-source-list.json, bytes: 66788, sha256: 52556130085D9EF25FEE2F3459803046CEC9CBB5CE2B501847C86FCAD06E68C8}
+  - {path: resources/downloads/03-cds-test-list.json, bytes: 37336, sha256: 95823BC51011D79E18E20AD48FABE78C5A62AD9849DBFAFCAF1104A9A1D1CAEE}
+  - {path: resources/downloads/04-archiveBuilder.cpp, bytes: 66545, sha256: 976FF40C66267D086ED9EF9EB7C0E56662D52DFDA305267BE30B4C841B08F8A2}
+  - {path: resources/downloads/05-dynamicArchive.cpp, bytes: 21326, sha256: 9CF79F99A8411692B28E8E9CAE40D1F84307F7679A258696C9784FC6382D09AE}
+  - {path: resources/downloads/06-filemap.cpp, bytes: 111003, sha256: CC98CCF2A1CFFD4BD079A7FDBAA6DA5C6F49C5E5A85E290E8E463D6F15660FA9}
+  - {path: resources/downloads/07-cdsConfig.cpp, bytes: 23440, sha256: 94329E42DBCDAEE76F06EC9B168149D67C11DB82A213371602A965C9D4BF7C5D}
+  - {path: resources/downloads/08-metaspaceShared.cpp, bytes: 74227, sha256: E09E594A050E8C5E71BD64F744B23AB0D2E33E2C8C259EF2B4F7AB24C8B15DBF}
+  - {path: resources/downloads/09-heapShared.cpp, bytes: 94211, sha256: 9C858B5CB0A8393A827BFFB36AD428F555E7E17A4331587808748A4C6BD5609C}
+  - {path: resources/downloads/10-SharedArchiveFile.java, bytes: 2017, sha256: 8C5938AE4AB7794BC848C9BB40BE96D48D51E9522D59762F08AB96A71778B121}
+validation: {resource_root_exact_match: true, result: PASS}

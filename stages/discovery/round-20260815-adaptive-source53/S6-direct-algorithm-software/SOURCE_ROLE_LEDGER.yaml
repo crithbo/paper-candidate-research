@@ -1,0 +1,29 @@
+assignment_id: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE53-R40-SKILL-CONSOLIDATED-V1
+query_role_summary:
+  ANCHOR: {core: 1, adjacent: 0, off_topic: 0, exact_history: 0, current_fatal: 0, anchorable_unresolved: 0}
+  CURRENT: {core: 2, adjacent: 0, off_topic: 0, exact_history: 0, current_fatal: 1, anchorable_unresolved: 0}
+  CONTRARY: {core: 1, adjacent: 0, off_topic: 0, exact_history: 0, current_fatal: 1, anchorable_unresolved: 0}
+sources:
+  - id: SRC01
+    role: ANCHOR_AND_CURRENT_DOCS
+    url: https://ghc.gitlab.haskell.org/ghc/doc/users_guide/using-optimisation.html
+    accessed_utc: 2026-08-15
+    provenance: official GHC User's Guide 9.15.20260306
+    decisive_facets: [fspec_constr, recursive_argument_shapes, SPEC, fspec_constr_keen, fspec_constr_count, fspec_constr_threshold]
+    observation: Current docs define recursive call-pattern specialisation and its bounded/aggressive configuration paths.
+  - id: SRC02
+    role: CURRENT_SOURCE
+    url: https://ghc.gitlab.haskell.org/ghc/doc/libraries/ghc-9.15-inplace/src/GHC.Core.Opt.SpecConstr.html
+    accessed_utc: 2026-08-15
+    provenance: official GHC source documentation
+    decisive_facets: [specConstrProgram, recursive_specialisation_limit, pattern_trimming]
+    observation: Current producer locus exposes the SpecConstr implementation and recursive/pattern-limit mechanics.
+  - id: SRC03
+    role: CONTRARY_DIRECT_COLLISION
+    url: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/07/spec-constr.pdf
+    accessed_utc: 2026-08-15
+    provenance: original ICFP 2007 paper by Simon Peyton Jones
+    decisive_facets: [recursive_call_pattern_specialisation, GHC_implementation, heuristic_choice]
+    observation: The primary work covers the same action, same recursive-program object, and the heuristic selection issue.
+collision: {classification: DIRECT_FATAL, reason: current GHC producer plus original same-object SpecConstr transformation absorb the proposed atomic action; the remaining selection framing is generic.}
+resource_actions: []

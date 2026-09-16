@@ -1,0 +1,68 @@
+assignment_id: BACKTEST-AUDITOR-L1-20260814-RQ-REFINEMENT-STAGED-EVIDENCE-V1
+role: DISCOVERY_BACKTEST_AUDITOR_LANE
+task_id: 019fe65a-07d2-7161-ba29-27ff00da26bc
+method_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+write_directory: stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/auditor
+write_policy: ADDITIVE_ONLY__NO_PACKER_EXECUTOR_OR_SHARED_FILE_WRITE
+serial_gate:
+  packer_status: ACCEPTED
+  packer_sealed_input_manifest_sha256: 9B81E99CD7A4419D8B1EB3C6244D2ED050927F31655B28A473F9143A367C4F94
+  packer_handoff_sha256: B72DF684DCFB6CCA22EBA2B65CDAD99CAB2CDF82A6628B3393F7015AA76F45E9
+  packer_manifest_sha256: 2DD51833674D76178E8E800810A5501E877A542CA7F05AD8C08D4DBE87B78359
+  executor_status: ACCEPTED
+  executor_handoff_sha256: 269825C0C39E5C98C85916D579F111FEC896D36B2BEDCE502D5AFF1E1C6C0211
+  executor_method_output_sha256: AAB99D52D8816FD34FEEFAEBA0B428E0712EB19F5E20739CDB2B5A83198285ED
+  executor_manifest_sha256: A8F59AC48B754748DF027A5EA1CAF1CF43ED5CE70F0CA04712538ADD34931C0D
+  executor_targeted_manifest_validation: PASS__6_OF_6
+allowed_reads:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules/ROLE_DISCOVERY_BACKTEST.md
+  - stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/control/MASTER_CONTRACT.yaml
+  - stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/packer/AUDITOR_KEY
+  - stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/packer/AUDITOR_KEY.yaml
+  - stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/packer/SOURCE_LEDGER.yaml
+  - stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/packer/CONTAMINATION_AUDIT.md
+  - stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/packer/sealed_input_manifest.yaml
+  - stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/executor
+audit_obligations:
+  - VERIFY_ROLE_AND_BLIND_SEPARATION
+  - VERIFY_NEW_CASE_IDENTITIES_AND_CUTOFF_INTEGRITY
+  - MAP_OPAQUE_CASES_TO_AUDITOR_KEY_ONLY_AFTER_EXECUTOR_FREEZE
+  - COUNT_POSITIVE_PROBLEM_SHAPES_RECOVERED
+  - VERIFY_AT_LEAST_ONE_BOUNDED_DEBT_POSITIVE_NOT_FALSELY_REJECTED_BEFORE_RAW
+  - VERIFY_NEGATIVE_CONTROL_NOT_PACKAGED_AS_CLEAN_BRIEF
+  - VERIFY_KNOWN_DIRECT_FATAL_DID_NOT_CROSS_RAW_OR_BRIEF
+  - VERIFY_RQ_VERSIONS_REMAIN_SAME_OBJECT_AND_GUARANTEE
+  - VERIFY_CLOSURE_DEBT_HAS_OWNER_MAX_THREE_QUESTIONS_FINITE_ROUTE_AND_FAILURE
+  - VERIFY_DISCOVERY_DID_NOT_PRETEND_TO_COMPLETE_STAGE0_UNION_COLLISION_OR_Q2_VERDICT
+  - REJECT_GENERIC_NOUN_SWAP_OR_PURE_LIMITATION_RESTATEMENT_AS_RECOVERY
+  - VERIFY_RQ_RAW_DEBT_BRIEF_ACCOUNTING
+  - ASSESS_DECISIVE_LEAKAGE_OR_TARGET_MEMORIZATION_RISK
+  - STATE_LIMITATIONS_OF_FOUR_CASE_HISTORICAL_CALIBRATION
+pass_conditions:
+  positive_problem_shapes_recovered_minimum: 2
+  bounded_debt_positive_not_rejected_before_raw_minimum: 1
+  negative_controls_packaged_as_clean_brief_maximum: 0
+  known_direct_fatal_crossing_raw_or_brief_maximum: 0
+  changed_object_or_guarantee_rq_rewrite_maximum: 0
+  unbounded_closure_debt_maximum: 0
+  decisive_leakage_allowed: false
+  pure_limitation_restatement_allowed: false
+  rq_to_raw_accounting_required: true
+  stage_boundary_compliance_required: true
+allowed_decisions: [CALIBRATED, NOT_CALIBRATED, CONTAMINATION_UNKNOWN]
+activation_authority:
+  production_cutover_requires_separate_mainline_safe_boundary_record: true
+  automatic_discovery_resume: false
+  automatic_v9_or_stage_action: false
+  scientific_gate_change: false
+required_outputs:
+  - AUDIT_REPORT.md
+  - CALIBRATION_DECISION.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+network_search_install_build_experiment_allowed: false
+stage0_stagea_stageb_candidate_action_allowed: false
+return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,32 @@
+schema_version: resume-capsule-v1
+created_at: 2026-08-26T00:35:33.1028272+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-RVV-R4-PRECLAIM-F1-F5
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+capsule_state: F2_FIDELITY_FAIL_CLOSED_HANDOFF_READY
+decision: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE
+evidence_ceiling: PRECLAIM_CONTROL_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: false
+completed:
+  F1: PASS
+  F2_llc_replays: PASS_2_OF_2_EXIT_ZERO_EXACT_BYTES
+  F2_fidelity_checker: FAIL_CLOSED_SPLIT_ESCAPE
+  F3: NOT_RUN
+  F4: NOT_RUN
+  F5: NOT_RUN
+failure_kernel:
+  noVRegs: false
+  split_from_pairs: ['%4→%14,%15', '%11→%12,%13']
+  virtual_register_records_retained: true
+  reason: WITNESS_DID_NOT_EXCLUDE_SPLIT_ESCAPE
+forbidden_resume_actions:
+  - modify_checker_or_witness_in_r4
+  - rerun_F2
+  - start_F3_F4_F5
+  - natural_or_claim_run
+  - owner_cleanup
+  - owner_state_transition
+  - stageb
+future_resume_gate:
+  authority: MAINLINE
+  requirement: SEPARATE_HASH_PINNED_ASSIGNMENT_OR_TERMINAL_PRECLAIM_DISPOSITION
+  scientific_revision_status: UNCONSUMED

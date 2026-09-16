@@ -1,0 +1,87 @@
+schema_version: bootstrap-ack-v1
+round: 3
+created_at: 2026-08-27T13:35:00+08:00
+identity:
+  lane_id: BACKTEST-PACKER
+  lane_thread_id: 01a034d0-e1e2-7921-bb72-a675ff98d5b0
+  role_id: DISCOVERY_BACKTEST_PACKER
+  assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+  topic_id: STAGEA_PAPER_EVIDENCE_BACKTEST_R2
+  stage_or_mode: PAPER_EVIDENCE_BACKTEST
+  authoritative_project_root: <LOCAL_PROJECT_ROOT>
+  actual_cwd: <LOCAL_PROJECT_ROOT>
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer/resources
+  model_route: {model: gpt-5.6-terra, thinking: medium}
+
+reack3_addendum:
+  path: REACK3_ADDENDUM.yaml
+  sha256: 6C2B9C6464AD5EC46DEB4CE3A480B042E880C7F81C61CC6354DAF19862FC0AFB
+  accepted: true
+  round1_refuse: {path: BOOTSTRAP_ACK.pass1_refuse.yaml, sha256: B221DEB281FA15FBE2032589EA558238DF2A2A23D4236FC8FD4A8E494EB29D27, preserved: true}
+  round2_ready: {path: BOOTSTRAP_ACK.round2_superseded.yaml, sha256: 97D04B299383BFC02D0DE1F34B00F7EA9780641E39BE4D6788D6ACD7BAB2BE9D, byte_exact_preserved: true}
+
+read_order_completed:
+  - AGENTS.md
+  - plan.md
+  - stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer/ASSIGNMENT_CONTEXT.yaml
+  - rules/ROLE_DISCOVERY_BACKTEST.md
+  - stages/rule-audit/RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2/BACKTEST_ASSIGNMENT_SPEC.md
+  - <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md
+  - minimum_inputs
+  - registry_dual_read
+
+final_frozen_hash_checks:
+  AGENTS: {expected: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75, actual: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75, match: true}
+  plan: {expected: 312B1298F8AFB0A7CDF20926EEE67757B7D4DB1B8EF59293C40B457CC0408E72, actual: 312B1298F8AFB0A7CDF20926EEE67757B7D4DB1B8EF59293C40B457CC0408E72, match: true}
+  registry: {expected: 781A0A4EE9D696333AF0A64FF3464494F0D1C5D5A5BF6CD44567D80571DC1D3A, actual: 781A0A4EE9D696333AF0A64FF3464494F0D1C5D5A5BF6CD44567D80571DC1D3A, match: true}
+  context: {expected: 6673EDF11BB411FF48B350EAF0F6063329B0FA77EEFC6DAF0A217AC2062EF844, actual: 6673EDF11BB411FF48B350EAF0F6063329B0FA77EEFC6DAF0A217AC2062EF844, match: true}
+  start_authorization: {expected: 80FC502BDF701AF6858C494A24BD7B45E6576869DA185C50F37313363FE09C85, actual: 80FC502BDF701AF6858C494A24BD7B45E6576869DA185C50F37313363FE09C85, match: true}
+  role_rule: {expected: 74056A6BF3F6A1ABBFF56A13BA27DCD9656B39DD6673D046935C312D39033C23, actual: 74056A6BF3F6A1ABBFF56A13BA27DCD9656B39DD6673D046935C312D39033C23, match: true}
+  r2_spec: {expected: 4DFB6C2F538E69F26BEC4B91D58200ABA895D173B29D62F0AA86C5BB01553658, actual: 4DFB6C2F538E69F26BEC4B91D58200ABA895D173B29D62F0AA86C5BB01553658, match: true}
+  academic_skill: {expected: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F, actual: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F, match: true}
+  assignment: {expected: 2D058490689345CA68C61054E2A9AABDD059D6426BA4722E368FCD05558C2080, actual: 2D058490689345CA68C61054E2A9AABDD059D6426BA4722E368FCD05558C2080, match: true}
+  cutover_acceptance: {expected: 16CC45BF067D84918C90D6EFAC4C7A5A9028C8D6D83233018A29883F5342790F, actual: 16CC45BF067D84918C90D6EFAC4C7A5A9028C8D6D83233018A29883F5342790F, match: true}
+
+strict_dual_read:
+  plan_status: R2_START_AUTHORIZED__PACKING
+  plan_assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+  plan_context_path: R2/paper-evidence-packer/ASSIGNMENT_CONTEXT.yaml
+  registry_key: stagea_paper_evidence_backtest_r2_20260827
+  registry_status: START_AUTHORIZED__PACKING
+  registry_assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+  registry_topic_id: STAGEA_PAPER_EVIDENCE_BACKTEST_R2
+  registry_population: 12_positive_plus_4_evidence_defect_negatives
+  registry_local_redo_stopped: true
+  registry_new_large_download_build_experiment_allowed: false
+  registry_next_action: PAPER_EVIDENCE_CAPSULE_EXTRACTION_ONLY
+  semantic_consistency: true
+
+permissions_and_prohibitions:
+  shared_file_writer: MAINLINE
+  branch_write_scope: ONLY_UNIQUE_WRITE_DIRECTORY
+  preacceptance_source_or_network_action: false
+  preacceptance_capsule_action: false
+  local_build_probe_experiment: NEVER_ALLOWED
+  case_replacement: false
+  scoring: false
+  blind_or_nonblind_metric_merge: false
+  production_candidate_registration: false
+  StageB: false
+  gold_reveal_to_gate: false
+  state_transition: false
+
+action_ledger:
+  source_acquisition_started: false
+  network_started: false
+  capsule_extraction_or_generation_started: false
+  blind_or_nonblind_execution_started: false
+  local_build_probe_experiment_started: false
+  scoring_started: false
+  gold_comparison_or_reveal_started: false
+  resource_action_started: false
+  state_transition_started: false
+
+differences_or_ambiguities: []
+decision: READY
+next_action: WAIT_FOR_MAINLINE_FINAL_ACK_ACCEPTANCE_THEN_PAPER_EVIDENCE_CAPSULE_EXTRACTION_ONLY

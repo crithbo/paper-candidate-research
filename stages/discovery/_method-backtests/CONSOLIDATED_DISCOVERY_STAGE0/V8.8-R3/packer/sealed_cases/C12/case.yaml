@@ -1,0 +1,25 @@
+schema_version: sealed-historical-case-v8.8-r3
+case_id: C12
+visibility: EXECUTOR_READABLE
+historical_cutoff: "2026-08-08T23:59:59+08:00"
+cutoff_rule: ONLY_MATERIAL_DEMONSTRABLY_PUBLIC_BEFORE_CUTOFF
+domain_tags: [MEMORY_SYSTEM, RUNTIME, CONSTRAINED_OPTIMIZATION, NON_CUDA]
+raw_opportunity: >-
+  Object-level hot/cold reorganization improves page homogeneity, while an
+  independent memory policy maximizes reclaimed bytes under a slowdown/SLO.
+  Examine whether object placement itself can be a same-object constrained
+  construction when migration, pointer safety and page costs are all charged.
+required_analysis:
+  - subtract the strongest sequential composition of layout and SLO policies
+  - freeze object semantics, mobility, page size and SLO denominator
+  - distinguish a construction from a threshold/controller wrapper
+  - defer native trace results to the authorized evidence stage
+source_set_complete: true
+sources:
+  - {source_id: S01, path: sealed_cases/C12/sources/S01_obase.pdf, sha256: 4C5B9F87D15B421ED03C543D60BCC0382E6D3AFE7AC80F92D5E25B5C4E084A30, bytes: 3604579, url: "https://www.usenix.org/system/files/osdi26-banakar.pdf", available_by: "2026-07-31", role: CLOSEST_OBJECT_LAYOUT_PAPER}
+  - {source_id: S02, path: sealed_cases/C12/sources/S02_mdk.pdf, sha256: 47186CDA22C770C8A59CCF697EC8AFFA155C6F349113F60EA2F3F460028B1F08, bytes: 1318725, url: "https://www.usenix.org/system/files/osdi26-patel.pdf", available_by: "2026-07-31", role: CLOSEST_SLO_OBJECTIVE_PAPER}
+  - {source_id: S03, path: sealed_cases/C12/sources/S03_dimes.pdf, sha256: 9CE5BD5B352DCBE52D973100F0919D0E60ACCF8B789B2D3312E7C61A580C2E86, bytes: 1589748, url: "https://research.cs.wisc.edu/adsl/Publications/dimes25-banakar.pdf", available_by: "2025-12-31", role: OBJECT_REORGANIZATION_GENEALOGY}
+exclusions:
+  - local candidate title, proposed solver and later Stage-A observations
+  - post-cutoff papers, talks or artifacts
+contamination_status: PASS_NO_HIDDEN_TARGET_OR_DOWNSTREAM_LABEL

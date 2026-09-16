@@ -1,0 +1,55 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: QREFINE-TRITON-W4A16
+  assignment_id: STAGEA-L1-20260821-QREFINE-TRITON-W4A16-INITIAL
+  stage_or_mode: STAGEA_PRECLAIM_RESOURCE_AND_FIDELITY_GATE
+  run_id: qrefine-stagea-initial-preclaim-1
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/QREFINE-TRITON-W4A16/initial
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/QREFINE-TRITON-W4A16/initial/resources
+  created_at: 2026-08-21T20:28:18+08:00
+  finalized_at: 2026-08-21T20:36:00+08:00
+root_measurement:
+  logical_bytes: 29812748
+  file_count: 1478
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+required_directories: [resources/downloads, resources/archives, resources/src, resources/build, resources/env, resources/cache, resources/tmp, resources/logs]
+redirect_preflight:
+  status: PASS_PROCESS_LOCAL_REDIRECTS_AND_REQUIRED_DIRECTORIES
+  process_local_only: true
+  system_or_user_environment_modified: false
+resource_envelope:
+  network_bytes_max: 268435456
+  stored_bytes_max: 2147483648
+  cpu_hours_max: 2
+  wall_seconds_max: 14400
+  attempts_max: 24
+  network_body_bytes_used: 7709169
+  stored_resource_bytes_used: 29812748
+  official_route_attempts_used: 6
+  threshold_probe:
+    url: https://oaitriton.blob.core.windows.net/public/llvm-builds/llvm-1f126a6d-ubuntu-x64-1.tar.gz
+    content_length: 356721745
+    disposition: STOPPED_BEFORE_DOWNLOAD
+entries:
+  - {id: frozen_input_archive_copy, relative_path: resources/archives/stage0_freeze_pack_2026-08-21.zip, logical_bytes: 27634, sha256: 1F1696FBBF39C4C6810386E8472692EA1E434011B15D02E10F84A3C3F61E9B67}
+  - {id: qrefine_frozen_contract_extract, relative_path: resources/src/freeze-pack-qrefine, logical_bytes: 14168, file_count: 7}
+  - {id: triton_pypi_metadata, relative_path: resources/downloads/pypi-triton-3.7.1.json, logical_bytes: 13033, sha256: C0C4F500E6250A207D3C707E278DAF156B60A009965D7E2CD33EB49493346287, finding: NO_WINDOWS_WHEEL}
+  - {id: frozen_vllm_anchor, relative_path: resources/downloads/vllm-triton_w4a16-568afb3.py, logical_bytes: 17877, sha256: 88E3676DBAB481EA21360D24359315E86B454548BE06F552A08694EB7B0A0FE3, git_blob_sha1: bc0a587b676309da6c3c4d63e092086ee7a5f78e}
+  - {id: triton_v3_7_1_source_archive, relative_path: resources/downloads/triton-v3.7.1-source.zip, logical_bytes: 7678259, sha256: 8E2B504B54166C4878678B4612C4267C40759ACAB2BB06B729C1E5D1AC0BABCE}
+  - {id: triton_v3_7_1_source_tree, relative_path: resources/src/triton-v3.7.1, logical_bytes: 22060822, file_count: 1466, llvm_pin: 1f126a6dea50d185c0781743a667390037ae88bd}
+external_system_dependencies:
+  - {id: CODEX_BUNDLED_PYTHON_3_12_13, mode: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED}
+  - {id: NVIDIA_RTX_4070_LAPTOP_SM89_DRIVER_591_74, mode: EXISTING_LOCAL_HARDWARE_READ_ONLY_PROBE}
+shared_assets_consumed: []
+cleanup: {owner: MAINLINE, performed: false}
+validation:
+  resource_root_exact_match: true
+  reparse_traversal_check: PASS_ZERO_REPARSE_POINTS
+  required_directories_present: true
+  envelope_within_limit: PASS_STOPPED_BEFORE_ESCALATION_BOUNDARY
+  result: RESOURCE_BLOCKED_BEFORE_PRECLAIM_GATE

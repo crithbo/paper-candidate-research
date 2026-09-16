@@ -1,0 +1,14 @@
+schema: mlperf-rank-validity-unit-alias-map-v1
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-METHOD-REDESIGN1
+frozen_before_claim: true
+source_rules:
+  - {release: v5.1, path: resources/downloads/v5.1-inference_rules.adoc, sha256: 97BA3FB891A444FBFB2ED88408BA2C737B5FC94F8E59F980D4D7DD1ECEDDD43E, loci: [scenario_table, edge_inference_formulas]}
+  - {release: v6.0, path: resources/downloads/v6.0-inference_rules.adoc, sha256: 9BDEAB837746D896CE36BB977BE39E55B713618637B94BA77BDD01D1E1C725C0, loci: [scenario_table, edge_inference_formulas]}
+normalization: {rule_id: ASCII_CASEFOLD_STRIP_REMOVE_ASCII_SPACES, steps: [strip, lower, remove_ASCII_space], punctuation_preserved: true}
+aliases:
+  - {scenario: SingleStream, raw_literal: 'Latency (ms)', normalized_token: 'latency(ms)', canonical_class: LATENCY_MILLISECONDS, rule_id: MLPERF_SINGLESTREAM_LATENCY_MS, observed_rows: {v5.1: 290, v6.0: 19}}
+  - {scenario: MultiStream, raw_literal: 'Latency (ms)', normalized_token: 'latency(ms)', canonical_class: LATENCY_MILLISECONDS, rule_id: MLPERF_MULTISTREAM_LATENCY_MS, observed_rows: {v5.1: 281, v6.0: 15}}
+  - {scenario: Offline, raw_literal: 'Samples/s', normalized_token: 'samples/s', canonical_class: THROUGHPUT_PER_SECOND__SAMPLES, rule_id: MLPERF_OFFLINE_SAMPLES_PER_SECOND, observed_rows: {v5.1: 289, v6.0: 20}}
+  - {scenario: Offline, raw_literal: 'Tokens/s', normalized_token: 'tokens/s', canonical_class: THROUGHPUT_PER_SECOND__TOKENS, rule_id: MLPERF_OFFLINE_TOKENS_PER_SECOND, observed_rows: {v5.1: 2, v6.0: 1}}
+unknown_alias_policy: REJECT_AND_EMIT_RAW_NORMALIZED_RULE_REASON
+formula_pair_key_missingness_threshold_denominator_releases_cost_dimensions_ceiling_changed: false

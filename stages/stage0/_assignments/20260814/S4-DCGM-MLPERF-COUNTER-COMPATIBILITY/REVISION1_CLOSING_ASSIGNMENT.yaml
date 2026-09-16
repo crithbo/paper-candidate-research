@@ -1,0 +1,20 @@
+assignment_id: STAGE0-C2-20260814-S4-DCGM-MLPERF-COUNTER-COMPATIBILITY-REVISION1-CLOSING-V8.7
+mode: INDEPENDENT_REVISION1_CLOSING
+topic_id: S4-DCGM-MLPERF-COUNTER-COMPATIBILITY
+task_id: 019feaf7-dba0-7752-a840-db1fea688d69
+status: FROZEN_READY_TO_DISPATCH
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_reviews\round-20260814-dcgm-mlperf-revision1-closing\S4-DCGM-MLPERF-COUNTER-COMPATIBILITY
+revision_directory: stages\stage0\_revisions\S4-DCGM-MLPERF-COUNTER-COMPATIBILITY\revision1
+atomic_gate: PINNED_DCGM_NATIVE_GROUP_CONTRACT__MLPERF_PAIRED_WINDOW_CONCLUSION_STABILITY_CERTIFICATE
+revision_hashes: {report: 86B239B6CF21561731B69B8596A12932F8C4C672A023AD9C3F8BDF47244F10E4, audit: 5485919F7C9B63BE566D8140AA0F7FCB3131C1CBCFE545F204AEB9668CF1FCF7, claim_matrix: 763932CAD17E565FDB91A1035678540882617A0F85095FC108BB69706933E646, handoff: A04CB15EC1656D31021405FEB3D4FA0B5E36971D877636B2A416575E605D6AD6, manifest: 90DC0BD59B8DF4352CA0D47A11358EDB707DAB596791714DAC6A28EDDA2785CD}
+independent_closing_requirements:
+  - Verify T4 non-GPM status and exact DCGM 4.6.1 plus R450.80.02 field catalogue and automatic multiplex contract.
+  - Reconstruct complete native partition G1={1002,1003,1004,1005}, G2={1008}; same fields and 100-ms delay; not selector/controller.
+  - Verify MLPerf v5.1 closed ResNet50 edge Offline/QSL 0..49999, quality and request stream are identical across plans.
+  - Check randomized paired windows, conclusion function, blank/zero/exclusion, materiality interval, held-out BERT/T4 falsifier and full wall-energy/tail/throughput/quality/shared-host-engine/analysis cost.
+  - Re-run DCGM and CounterPoint subtraction; reject kernel attribution or observed-result claims.
+evidence_ceiling: E1_STATIC_MEASUREMENT_CONTRACT_AND_FALSIFIER_ONLY
+forbidden: [revision_execution, hardware_run, experiment, benchmark, build, install, stageA, stageB, shared_control_write]
+required_outputs: [CLOSING_REVIEW.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion: {notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e, return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE}

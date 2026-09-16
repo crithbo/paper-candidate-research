@@ -1,0 +1,40 @@
+schema: resource-inventory-v1
+created_at: 2026-08-26T05:30:00Z
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9C-PER-ACTION-TPD-BASELINE-CLOSURE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/resources
+measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+measurement:
+  logical_bytes: 305797209
+  file_count: 483
+  directory_count_including_root: 179
+  reparse_entry_count: 0
+  exact_tool_processes_active: 0
+  bundled_python_processes_active: 0
+budget:
+  logical_bytes_max: 805306368
+  logical_bytes_pass: true
+  network_bytes: 0
+  network_bytes_max: 0
+  control_tool_command_records: 118
+  control_tool_command_records_max: 500
+  measured_subprocess_cpu_seconds: 4.28125
+  measured_subprocess_wall_seconds: 8.38830240000334
+  controller_python_cpu_seconds: NOT_AVAILABLE_FROM_RUNNER
+  assignment_wall_seconds: NOT_CANONICALLY_RECORDED
+  max_parallel_processes_observed: 1
+  max_parallel_processes_allowed: 2
+input_roots:
+  - {path: resources/src/r6_input, files: 26, bytes: 134206, tree_sha256: 3CA86BD1AE32C004731C4081354D67FE104C35647C29E79C2A02CF46C5441167, retention: RETAIN_EXACT_INPUT}
+  - {path: resources/env/ppc-toolchain, files: 133, bytes: 244073942, tree_sha256: B239497200A09A452388360CB5B326158B2B9167E0BB8DC2254D4ED3F9095402, retention: RETAIN_EXACT_TOOLCHAIN}
+  - {path: resources/src/natural_materializer, copied_files: 3, current_files: 4, retention: RETAIN_CORRECTED_SOURCE_AND_FIXTURE}
+evidence_roots:
+  - {path: resources/build/control_replay_1, retention: CLAIM_CRITICAL_CONTROL_FAILURE_EVIDENCE}
+  - {path: resources/build/control_replay_2, retention: CLAIM_CRITICAL_CONTROL_FAILURE_EVIDENCE}
+resource_root_within_assignment: true
+wsl_used: false
+system_or_global_environment_changed: false
+registry_changed: false
+owner_cleanup_actions: 0
+scientific_inference: NONE
+

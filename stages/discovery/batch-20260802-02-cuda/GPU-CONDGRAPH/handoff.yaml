@@ -1,0 +1,21 @@
+topic_id: GPU-CONDGRAPH
+source_stage: DISCOVERY
+proposed_next_stage: STAGE0
+decision: PROPOSE_STAGE0
+exact_object: CUDA conditional-graph-body specialization that jointly changes body structure and resource lifetime under device-side control
+main_claim: A bounded transform can preserve conditional-graph semantics while lowering modeled host-edge or peak-lifetime cost
+academic_value_score: 53
+ai_executability_score: 20
+ai_executability_class: AI_CORE_CONDITIONAL
+ai_core_fraction: 0.68
+strongest_baseline: Unchanged conditional graph, host-dispatched alternatives, generic bodies, and GraCE where applicable
+decisive_evidence: Safe graph-IR transform with a non-dominated static resource/host-edge point on two natural patterns
+unresolved_risks: GraCE-equivalent conditional specialization; conditional-node implementation restrictions; calibration need
+next_killer_gate: Full-text GraCE subtraction and a conditional-node semantic checker on public patterns
+mechanism_pivot_remaining: 1
+reserve_reason: null
+evidence_ceiling: CPU event semantics and static model; device measurement needed for performance calibration
+execution_authority: DISCOVERY_ONLY
+file_hashes:
+  topic_brief.md: 6ac03ced57541be7d27bd07accce05071c389b12e65fc6b5223de7c2c66c1d75
+  source_log.md: f32f39587c5fd102a5572c5358c6636ac76c1614f79eb12ac1fbcc1a054ed8ad

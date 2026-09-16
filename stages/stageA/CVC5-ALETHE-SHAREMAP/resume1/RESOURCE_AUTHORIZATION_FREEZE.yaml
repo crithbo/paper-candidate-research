@@ -1,0 +1,134 @@
+schema: resource-unblock-authorization-freeze-v1
+topic_id: CVC5-ALETHE-SHAREMAP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+assignment_id: RESOURCE-UNBLOCK-L1-20260810-CVC5-R1
+authorization_id: UNBLOCK-AUTH-20260810-R1
+frozen_at: 2026-08-10T15:05:00+08:00
+unique_write_directory: stages\stageA\CVC5-ALETHE-SHAREMAP\resume1
+cross_assignment_contamination: false
+
+input_freeze:
+  experiment_contract_sha256: 27CDF36933F93B0C096AA73DA6A9DC49505872B0D0A7A565EE959F5EF7331FA3
+  blocker_packet_sha256: B0AEC3AF9E198AEF0710D8BA5AAE00B0FA48B4A75220D7610F40A6E2D161C47D
+  prior_stagea_report_sha256: CB710BF9538F019604F5938A68AD08472F44FEC50D559A6F528DFB2AF4C86454
+  prior_handoff_sha256: 438BF3B07F2EDD822B5D75D1F96738D6D296E23B9739B57D4D523B685B6675C3
+  prior_manifest_sha256: F25A38B7B149C40C4DCA073323DFA81E4810D0DEB55C8988489859750E043908
+  prior_manifest_entries_verified: 7384
+  cvc5_release: cvc5-1.3.4
+  cvc5_full_commit: f3b21c4483d3b88dc63cb7cd3e5eb092eee5e341
+  carcara_release: carcara-1.1.0
+
+authority:
+  resource_recovery_only: true
+  system_install_allowed: false
+  global_path_registry_service_mutation_allowed: false
+  wsl_vm_container_install_allowed: false
+  candidate_build_or_execution_allowed: false
+  natural_corpus_allowed: false
+  claim_bearing_run_allowed: false
+  scientific_revision_consumption_allowed: false
+  stageb_allowed: false
+  automation_allowed: false
+  permitted_execution:
+    - PORTABLE_TOOLCHAIN_VERSION_AND_COMPILE_SMOKE
+    - UNMODIFIED_CVC5_1_3_4_VERSION_AND_FIXED_INPUT_SMOKE
+    - UNMODIFIED_CARCARA_1_1_0_BUILD_VERSION_AND_MINIMAL_CHECKER_SMOKE
+
+resource_limits:
+  network_download_bytes_max: 2147483648
+  total_topic_directory_bytes_max: 4294967296
+  cpu_hours_max: 4
+  gpu_allowed: false
+  exclusive_device_allowed: false
+  download_staging_directory: stages\stageA\CVC5-ALETHE-SHAREMAP\resume1\downloads\temporary
+  verified_asset_directory: stages\stageA\CVC5-ALETHE-SHAREMAP\resume1\downloads\verified
+  portable_toolchain_root: stages\stageA\CVC5-ALETHE-SHAREMAP\resume1\toolchain
+
+source_allowlist:
+  domains:
+    - github.com
+    - api.github.com
+    - objects.githubusercontent.com
+    - release-assets.githubusercontent.com
+    - msys2.org
+    - repo.msys2.org
+    - mirror.msys2.org
+    - packages.msys2.org
+    - rust-lang.org
+    - static.rust-lang.org
+    - crates.io
+    - static.crates.io
+    - index.crates.io
+  projects:
+    - msys2/msys2-installer
+    - msys2/MSYS2-packages
+    - msys2/MINGW-packages
+    - rust-lang/rust
+    - rust-lang/cargo
+    - ufmg-smite/carcara
+    - cvc5/cvc5
+
+target_assets:
+  msys2_base:
+    version: 2026-03-22
+    asset: msys2-base-x86_64-20260322.sfx.exe
+    url: https://github.com/msys2/msys2-installer/releases/download/2026-03-22/msys2-base-x86_64-20260322.sfx.exe
+    checksum_source: SAME_RELEASE_GITHUB_DIGEST_OR_SHA256_SIDECAR
+    expected_download_bytes_max: 104857600
+    license_family: GPL_AND_PACKAGE_SPECIFIC_OPEN_SOURCE
+  msys2_clang64_packages:
+    package_set:
+      - mingw-w64-clang-x86_64-clang=22.1.8-2
+      - mingw-w64-clang-x86_64-cmake=4.4.0-1
+      - mingw-w64-clang-x86_64-ninja=1.13.2-1
+      - mingw-w64-clang-x86_64-gmp=6.3.0-2
+      - mingw-w64-clang-x86_64-rust=1.97.0-1
+      - mingw-w64-clang-x86_64-python=3.14_SERIES_EXACT_REVISION_FROM_SIGNED_TRANSACTION
+      - make=4.4.1-3
+      - zip=3.0-5
+    dependency_policy: PACMAN_RESOLVES_ALL_TRANSITIVE_PACKAGES_THEN_RECORDS_EXACT_NAME_VERSION_AND_LOCAL_PACKAGE_DB
+    verification: PACMAN_REPOSITORY_DATABASE_AND_PACKAGE_SIGNATURE_REQUIRED_BEFORE_EXTRACTION
+    expected_download_bytes_max: 1610612736
+    license_family: PACKAGE_SPECIFIC_OPEN_SOURCE_RECORDED_FROM_LOCAL_PACKAGE_METADATA
+  carcara_source:
+    version: carcara-1.1.0
+    source_archive_sha256: FCD42C4ED6501B690E3F363E980B2B1403A1A7C9DF262FECC0A4C831B8960F30
+    source_mode: COPY_IMMUTABLE_VERIFIED_PRIOR_SOURCE_INTO_RESUME1
+    license: Apache-2.0
+  cvc5_binary:
+    version: cvc5-1.3.4
+    executable_sha256: FC71384CB2DBA76AD775CD6088DE76C3F4DB10BB1CC594FA4CFCD3110B576C3B
+    mode: READ_ONLY_EXECUTION_OF_PRIOR_VERIFIED_OFFICIAL_BINARY__OUTPUT_ONLY_IN_RESUME1
+    license: BSD-3-Clause
+
+acceptance:
+  version_variance_disposition: >-
+    Clang 22.1.8 and Rust 1.97.0 differ from the blocker's preferred Clang
+    19.1.4 and Rust 1.72.x. They are acceptable only if exact executable and
+    package hashes are frozen and all unmodified compile/version/checker smokes
+    pass. Any silent package-version substitution must be recorded before use.
+  required:
+    - ALL_DOWNLOADED_ARCHIVES_STAGED_AS_TEMPORARY_AND_VERIFIED_BEFORE_EXTRACTION
+    - ALL_PACKAGE_SIGNATURE_CHECKS_PASS
+    - ALL_REQUIRED_EXECUTABLE_VERSIONS_AND_SHA256_RECORDED
+    - PORTABLE_CXX_HELLO_WORLD_COMPILE_AND_RUN_PASS
+    - PORTABLE_RUST_HELLO_WORLD_COMPILE_AND_RUN_PASS
+    - UNMODIFIED_CVC5_1_3_4_VERSION_AND_FIXED_INPUT_SMOKE_PASS
+    - UNMODIFIED_CARCARA_1_1_0_VERSION_AND_MINIMAL_CHECKER_SMOKE_PASS
+    - NO_WRITES_OUTSIDE_RESUME1
+    - NO_SYSTEM_OR_GLOBAL_ENVIRONMENT_CHANGE
+
+kill_boundary:
+  - STOP_BEFORE_EXTRACTION_ON_MISSING_OR_MISMATCHED_SHA256_OR_SIGNATURE
+  - STOP_ON_ANY_WRITE_OR_INSTALL_TARGET_OUTSIDE_RESUME1
+  - STOP_BEFORE_CANDIDATE_OR_NATURAL_CORPUS_OR_CLAIM_BEARING_EXECUTION
+  - STOP_IF_DOWNLOADS_EXCEED_2_GIB
+  - STOP_IF_TOPIC_DIRECTORY_WOULD_EXCEED_4_GIB
+  - STOP_IF_CUMULATIVE_SMOKE_OR_BUILD_CPU_EXCEEDS_4_CPU_HOURS
+  - STOP_ON_LICENSE_INCOMPATIBILITY_OR_UNVERIFIED_EXECUTABLE
+  - STOP_AND_EMIT_NEW_USER_BLOCKER_IF_RESOURCE_CLOSURE_FAILS
+
+claim_bearing: false
+scientific_revision_consumed: false
+stageb: false
+system_modification_expected: false

@@ -1,0 +1,29 @@
+schema: mainline-topic-state-update-request-v1
+audit_id: RULE-AUDIT-20260830-UNRESOLVED-TOPIC-STATE-RECONCILIATION
+requested_shared_updates:
+  plan.md:
+    - record_corrected_unresolved_count_24_and_reason_distribution
+    - state_no_candidate_assignment_currently_running
+  registry.yaml:
+    - terminalize_APX_in_canonical_candidate_surface
+    - terminalize_PARQUET_in_canonical_candidate_surface
+    - replace_S5_stale_blocker_with_READY_UNSCHEDULED_STAGEA
+    - replace_ROCKSDB_stale_resource_reserve_with_POLICY_HOLD_NO_VALID_REVISION_ROUTE
+    - add_or_reconcile_six_new_nonterminal_topic_records
+  history.md:
+    - append_compact_state_reconciliation_note_after_acceptance
+must_preserve:
+  - terminal_STOP_non_revival
+  - all_scientific_decisions
+  - StageB_user_gate
+  - blocker_resume_points
+  - candidate_artifacts
+forbidden:
+  - new_scientific_judgment
+  - automatic_resume_or_dispatch
+  - resource_or_tool_action
+  - Stage0_A_B_action
+  - rule_change
+expected_post_update_count: 24
+shared_files_modified_by_auditor: false
+

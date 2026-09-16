@@ -1,0 +1,6 @@
+# RULE_FREEZE — DISCOVERY-S1-20260811-V8.7-WAVE158-VORTEX-VOLT-COMPILER-RUNTIME-BOUNDARY-DEPTH-REDTEAM
+
+- Frozen date: 2026-08-11; authority: `v8.7+R5-P0`; `DISCOVERY_QUALITY_MODE=OFF`.
+- Full inputs: `AGENTS.md` `66231f71ef6ab250a1ad9ff576d5840978f09efc03bf5d2f0527d47f4d82b063`; `plan.md` `c1a95f4e769ca77e0ba3daaeaf1de40f180f3e3eaae42c8ffa26dab992c95fb4`; `registry.yaml` `947bf35d4153566edaa2f50bb8063a0f72bab68ecd8541164f83b06ddd3db1b7`; `ROLE_DISCOVERY.md` `fcb9bd73c39f39d31f6c8154e6b48ea23187ff28bdf2bb3d9c59e3d28fa518a3`; `TOPIC_BRIEF.md` `41d7b1977c6c467e31762b097c3f53c4314900e5c69ad8351ebb709f3963a130`.
+- This is a finite closure of Wave149's `NOT_ADMITTED_UNFROZEN`, not a revival of a terminal candidate. No claim rests on a paper limitation/future-work statement.
+- Source freeze: [VOLT master](https://github.com/vortexgpgpu/Volt), accessed 2026-08-11, displayed short tip `799891e`, with pinned submodules `llvm@bb85f7e`, `pocl@f613f42`, `vortex@a4b6543`; [Vortex master](https://github.com/vortexgpgpu/vortex), accessed 2026-08-11; [current configuration](https://raw.githubusercontent.com/vortexgpgpu/vortex/master/VX_config.toml), accessed 2026-08-11. A local `git ls-remote` exact-ref attempt failed before data transfer with Windows Schannel credential error; no absence claim is inferred from that failure.

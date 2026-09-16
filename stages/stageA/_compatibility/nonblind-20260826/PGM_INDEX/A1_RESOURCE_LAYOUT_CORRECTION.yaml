@@ -1,0 +1,19 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A1-LAYOUT
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: START_FAILURE_BLOCKER.yaml, sha256: 7EE4A1E06E4D13A338C43CB17E5E0856129AE6F6D81A5151112F9BBD37571C3F}]
+only_change: replace_invalid_precommand_with_eight_literal_New-Item_Path_calls
+allowed_precommand_sequence:
+  - New-Item -ItemType Directory -Path resources/downloads
+  - New-Item -ItemType Directory -Path resources/archives
+  - New-Item -ItemType Directory -Path resources/src
+  - New-Item -ItemType Directory -Path resources/build
+  - New-Item -ItemType Directory -Path resources/env
+  - New-Item -ItemType Directory -Path resources/cache
+  - New-Item -ItemType Directory -Path resources/tmp
+  - New-Item -ItemType Directory -Path resources/logs
+then: resume_parent_MAINLINE_START_AUTHORIZATION_S0_THROUGH_S7_exactly_once
+stop_conditions: [any_precommand_failure_fail_closed_no_retry, any_parent_command_failure_fail_closed_no_retry, no_alternate_layout_or_tool]
+unchanged: [author_commit, author_archive_route, artifact_replay_mode, comparator_contract, probe_budget, evidence_ceiling, production_and_stageB_prohibitions]
+scientific_revision_consumed: false

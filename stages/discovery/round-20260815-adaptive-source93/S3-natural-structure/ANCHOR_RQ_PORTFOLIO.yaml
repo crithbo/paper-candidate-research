@@ -1,0 +1,67 @@
+assignment_id: DISCOVERY-S3-20260815-ADAPTIVE-SOURCE93-R40-ORDINARY-BREADTH-V1
+generation_completed_before_evidence_lookup: true
+network_security_exclusion: PASS
+seed_count: 6
+selected_locator_count: 1
+primary_rq_count: 1
+seeds:
+  - id: S3-93-SEED-01
+    engine: NEGATION_OR_INVERSION
+    perspective: COMPILER_OR_BACKEND_ENGINEER
+    sketch: "若版本化 C/C++ 代码中的重复不是只用于减小单版体积，而能形成同语义的跨版本 constructor，必须先区分 stock identical-code folding 与真正的 recourse action。"
+    anchor_candidate: "GCC current Optimize Options and GCC internals IPA documentation"
+    disposition: SELECTED_LOCATOR
+  - id: S3-93-SEED-02
+    engine: PROBLEM_REFRAMING
+    perspective: MAINTAINER
+    sketch: "把 release 中重复编译单元从 build-cache 命中率改写为 layout-independent representation-churn estimand；只有改变 emitted same-program action 才可继续。"
+    anchor_candidate: "immutable official release series with verifier"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-93-SEED-03
+    engine: CONSTRAINT_MANIPULATION
+    perspective: HARDWARE_ARCHITECT
+    sketch: "固定 accelerator backend 后，交换 register pressure 与 shared-memory lifetime 的约束，寻找由自然 operator evolution 驱动的 whole offline schedule，而不是 tuning policy。"
+    anchor_candidate: "version-pinned public operator-release panel"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-93-SEED-04
+    engine: ABSTRACTION_LADDER
+    perspective: MEASUREMENT_REVIEWER
+    sketch: "从版本化 compiler trace 的长尾资源事件提升为可证伪 phase-law，再下落到固定 IR 的 representation action。"
+    anchor_candidate: "immutable public compiler trace release"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-93-SEED-05
+    engine: BISOCIATION_STRUCTURAL_TRANSFER
+    perspective: THEORIST
+    sketch: "将相邻版本的局部语义等价区域映射为参数化 edit frontier，检验是否存在 target-specific exact/FPT constructor 而非 generic packing。"
+    anchor_candidate: "officially versioned semantics-preserving artifact family"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-93-SEED-06
+    engine: COMPOSE_DECOMPOSE_SIMPLIFY
+    perspective: OPERATOR
+    sketch: "分离图拓扑重复、shape regime 与 device placement，只有三者联合改变同一离线 compiler action 时才构成自然结构机会。"
+    anchor_candidate: "public release-pinned graph-and-device artifact"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+clusters:
+  - id: C1_CODE_IDENTITY_AND_RECOURSE
+    seed_ids: [S3-93-SEED-01, S3-93-SEED-02, S3-93-SEED-05]
+    representative: S3-93-SEED-01
+  - id: C2_ACCELERATOR_RESOURCE_REGIME
+    seed_ids: [S3-93-SEED-03, S3-93-SEED-04, S3-93-SEED-06]
+    representative: S3-93-SEED-03
+rq_candidates:
+  - id: S3-93-RQ01
+    seed: S3-93-SEED-01
+    exact_anchor: "GCC current Optimize Options plus current GCC internals Regular IPA passes; checked 2026-08-15"
+    exact_object: "one GCC compilation under a fixed program and observable executable semantics/size contract"
+    primary_rq: "Does an immutable versioned natural source carrier justify a same-object constructor beyond stock identical-code folding for repeated functions without changing unwind/name observables?"
+    contribution_hypothesis: N2_OR_N3
+    primary_source: "https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html"
+    fallback_transport_only: "https://gcc.gnu.org/onlinedocs/gccint/Regular-IPA-passes.html"
+    null_hypothesis: "The action is ordinary identical-code folding, already controlled by GCC's IPA ICF pass."
+    identity_preflight: "No exact `IPA_ICF`, `IDENTICAL_CODE_FOLDING`, or `FIPA_ICF` label found in current registry lookup; no-match is not novelty evidence."
+    disposition: EXCLUDED_BEFORE_RAW__CURRENT_UNION_DIRECT_SUBTRACT
+portfolio_advisory:
+  engines_used: 6
+  perspectives_used: 6
+  note_zh: "种子先完整生成再检索。五条无exact public anchor的构想是非证据backlog，不作为机会族、raw或brief分母。"
+

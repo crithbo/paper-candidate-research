@@ -1,0 +1,14 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A5-TOOLCHAIN
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A4_handoff.yaml, sha256: EC4E7586EB117CE745D361D25169F23B6CE738EA42E07FBDB5B7BE7DB4FFB9C6}, {path: A4_HASH_MANIFEST.sha256, sha256: 21D3242586F3346788923B2D151A98B4547B07AE2E71D29920C2E17E92D0C6F6}]
+only_change: assignment_local_official_LLVM_MinGW_and_Ninja_with_explicit_CMake_generator_and_compilers
+assets:
+  - {url: https://github.com/mstorsjo/llvm-mingw/releases/download/20260616/llvm-mingw-20260616-ucrt-x86_64.zip, archive: resources/archives/llvm-mingw-20260616-ucrt-x86_64.zip, sha256: b9b68a4d276e16fa25802aaba458e4638f64b3884c290aaccdc2d87083b6ca35, extract: resources/env/llvm-mingw-20260616-ucrt-x86_64}
+  - {url: https://github.com/ninja-build/ninja/releases/download/v1.13.2/ninja-win.zip, archive: resources/archives/ninja-win-v1.13.2.zip, sha256: 07fc8261b42b20e71d1720b39068c2e14ffcee6396b76fb7a795fb460b78dc65, extract: resources/env/ninja-1.13.2}
+mainline_transport_assistance_allowed: true
+cmake_generator: Ninja
+compiler_paths: {CXX: resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/clang++.exe, NINJA: resources/env/ninja-1.13.2/ninja.exe}
+prohibitions: [NMake_generator, system_install, PATH_or_registry_change, alternate_toolchain, retry_after_failure, scientific_probe_before_fidelity]
+scientific_revision_consumed: false

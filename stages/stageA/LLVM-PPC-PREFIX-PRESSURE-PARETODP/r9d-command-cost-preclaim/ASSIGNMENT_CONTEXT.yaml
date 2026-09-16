@@ -1,0 +1,57 @@
+schema_version: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+created_at: 2026-08-26T17:22:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+
+identity: {lane_id: CANDIDATE_EXECUTION_LANE_2, lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279, old_lane_thread_id: 01a02e0d-74ca-78c2-b027-83b0335c35e3, role_id: CANDIDATE_OWNER, assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9D-COMMAND-COST-AND-R10-VALIDATOR-CLOSURE, topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP, stage: STAGEA_PRECLAIM_ENGINEERING_CORRECTION, authoritative_project_root: <LOCAL_PROJECT_ROOT>, unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim, resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim/resources, old_chat_memory_required: false}
+
+frozen_shared_snapshots:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 9364328C4CF460A142C510210C8D6DB17738C0AE0E96291EA83572C7F11C2EAE}
+  registry: {path: registry.yaml, sha256: 94D79389A3D70E31E422145D87C59C4E08331674937356CCB97320ED442BF617}
+  related_registry_records: [soft_blocker_recovery_policy_20260826, autonomous_stagea_wave_20260826.ppc_r9, stagea_gate_ppc_r9c_preclaim_queue_20260826, ppc_r9d_command_cost_preclaim_20260826, no_wsl_localized_resource_recovery_20260825.llvm_queue.PPC, candidates.stagea_llvm_ppc_prefix_pressure_paretodp_initial, role_threads.candidate_execution_lane_2]
+
+rules_and_skills:
+  role_rule: {path: rules/ROLE_CANDIDATE_OWNER.md, sha256: 880008B9B042D29198B1A8941E8FB7DB2212181675718DA99BEF7BDF95F1A3C5}
+  soft_blocker_recovery: {path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74}
+  resource_localization: {path: rules/RESOURCE_LOCALIZATION.md, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+  artifact_lifecycle: {path: rules/ARTIFACT_LIFECYCLE.md, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6}
+  academic_skill: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  experiment_workflow: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/experiment-agent/WORKFLOW.md, sha256: 389747B305FFA4160D1B2CEAF97B98A61EF9583CD45C473EFED5B4B414E27889}
+  code_runner_reference: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/experiment-agent/agents/code_runner_agent.md, sha256: E50C1303EBCB451304D427CE063651AF5D6FA5AB9CC9249E399353714B8BBFE1}
+
+templates: {bootstrap_ack: {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}, stagea_report: {path: templates/STAGEA_REPORT.md, sha256: DF9AA27111D303600FD4C7F81DEB1FF52FFD6C308973D33B8A9EC59CA4542D7F}, resource_inventory: {path: templates/RESOURCE_INVENTORY.yaml, sha256: E859CE19DC3EB906EF391B1D8039E7B02A762EB74D7421454E40BB4539FEEEC7}}
+assignment_control: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim/control/ASSIGNMENT.yaml, sha256: EE637D1E6B9DF8FF8CA5B50D0989BB3131F492981743C993C458453EA2BC565A}
+
+minimum_inputs:
+  - {path: stages/stageA/_reviews/round-20260826-ppc-r9c-preclaim/LLVM-PPC-PREFIX-PRESSURE-PARETODP/MAINLINE_HANDOFF_ACCEPTANCE.yaml, sha256: 7CD1ED5BDE21EB1F786E667CAF9A25B01860BF34B64DC616CE0FECE0AE93D1BA, purpose: R9C_GATE_ACCEPTANCE_AND_BOUNDED_ROUTE}
+  - {path: stages/stageA/_reviews/round-20260826-ppc-r9c-preclaim/LLVM-PPC-PREFIX-PRESSURE-PARETODP/handoff.yaml, sha256: 78C87206CDCBE8FFDD0FFFBEA13BAA459350B193F2E3CE7D5F291B69BD5361A8, purpose: INDEPENDENT_GATE_FINDINGS}
+  - {path: stages/stageA/_reviews/round-20260826-ppc-r9c-preclaim/LLVM-PPC-PREFIX-PRESSURE-PARETODP/HASH_MANIFEST.sha256, sha256: 995156E74438E4A927C6BE05601A5AF3585924E21A1BA780C32C52523DCB38D4, purpose: INDEPENDENT_GATE_MANIFEST}
+  - {path: stages/stageA/_reviews/round-20260826-ppc-r9c-preclaim/LLVM-PPC-PREFIX-PRESSURE-PARETODP/PER_ACTION_DP_AND_BASELINE_AUDIT.yaml, sha256: CC93863960101C018801DF53E9C96CCA31F56954345F04F345EA7705C675B0F7, purpose: COMMAND_COST_EDGE_DEFECT}
+  - {path: stages/stageA/_reviews/round-20260826-ppc-r9c-preclaim/LLVM-PPC-PREFIX-PRESSURE-PARETODP/NATURAL_ROUTE_AUDIT.yaml, sha256: 417C7B2844B581EDB3287F0BE8D810B329F67F46C0F27CDEBC5038DCA9E92801, purpose: R10_PRODUCER_AND_FULL_COST_DEFECT}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/MAINLINE_A1_HANDOFF_ACCEPTANCE.yaml, sha256: 2F9F23FDB9569595626D68A1A38092ED95264DE400C9305BD4416033D461A0E1, purpose: R9C_OWNER_ACCEPTANCE}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/handoff.yaml, sha256: FDBC8EB59AA86D6309746CD6FDBE1C5075A16CA9E4934D683AF6E9090B236B57, purpose: R9C_OWNER_PACKET}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/HASH_MANIFEST.sha256, sha256: 378F4C3C655F5128A7F19839AC560981A7EC5F09B58688EFCD74FE6669F8C233, purpose: R9C_OWNER_MANIFEST}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/resources/src/natural_materializer/materializer_harness.py, sha256: 88A16180356B4515F850D1B63AD09DB0A5B293E11288C5E0E8F9D861E505D9A4, purpose: ALLOWED_EXISTING_SOURCE}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/resources/src/natural_materializer/r10_plan.py, sha256: 13CBE0D3EDAAE8A573526B3BF97A67D590640FCE05A783BE041728CCCED8281C, purpose: ALLOWED_EXISTING_SOURCE}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/A1_STRONG_BASELINE_DEPENDENCY_GRAPH.yaml, sha256: 42113DBDFD3AEC08752DACA29554F606C2EFDDD7784FF44BE33B5BBFAED52C1F, purpose: EXISTING_GRAPH_AUDIT}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/FULL_COST_CONSUMER_AUDIT.yaml, sha256: 44D02A1896724144B597E24F86654B064AC3AE75EF56F421F1DE4B5CFA00F486, purpose: EXISTING_FULL_COST_AUDIT}
+  - {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim/A14_RAW_INSPECTION_AUDIT.yaml, sha256: 77FF9CEAB0D12A0460A52DBA3D5CD9830CBCB1415F61B225053FE5CCDC6324CF, purpose: RAW_REPLAY_EXACTNESS}
+
+current_status: {assignment_state: BOOTSTRAP_ACK_PENDING, resource_root_absent: true, r9c_raw_and_metrics_reusable: true, compiler_linker_checker_commands_required: 0, selected_or_natural_tool_invocations: 0, claim_bearing_observations: 0, scientific_revision_consumed: false, mechanism_pivot_consumed: false, start_authorized_by_mainline: false}
+permissions: {write_scope: ONLY_UNIQUE_WRITE_DIRECTORY, r9c_or_gate_write_allowed: false, accepted_subtree_copy_after_start_only: true, existing_source_files_modify_max: 2, new_source_files_max: 3, compiler_linker_checker_execution_allowed: false, selected_natural_or_claim_allowed: false, scientific_revision_or_pivot_allowed: false, owner_cleanup_allowed: false, stageb_allowed: false}
+budgets: {network_bytes_max: 0, resource_root_logical_bytes_max: 805306368, cpu_seconds_max: 7200, wall_seconds_max: 14400, max_parallel_processes: 1, copy_attempts_max: 10, static_compile_commands_max: 4, candidate_controller_or_auditor_python_commands_max: 40, compiler_linker_checker_commands_max: 0, selected_or_reserve_tool_invocations_max: 0, claim_bearing_runs_max: 0, automatic_retry: false}
+forbidden_actions: [ANY_ACTION_BEFORE_ACK_ACCEPTANCE_AND_START, RUN_COMPILER_LINKER_READOBJ_OBJDUMP_CHECKER_SELECTED_NATURAL_OR_CLAIM, MODIFY_OR_DELETE_R9C_OR_GATE, CHANGE_OBJECT_RQ_ACTION_GUARANTEE_BASELINES_OR_DENOMINATOR, ADD_COST_TOLERANCE_OR_IGNORE_COMMAND_METRICS, RESULT_BASED_EDIT_RETRY_OR_EXCLUSION, SCIENTIFIC_REVISION_OR_SECOND_PIVOT, SHARED_WRITE_STATE_TRANSITION_CLEANUP_OR_STAGEB]
+
+bootstrap_instructions:
+  read_order: [AGENTS.md, plan.md, THIS_CONTEXT, ROLE_CANDIDATE_OWNER, AUTONOMOUS_SOFT_BLOCKER_RECOVERY, RESOURCE_AND_LIFECYCLE, ACADEMIC_SKILL_AND_EXPERIMENT_WORKFLOW, TEMPLATES, ASSIGNMENT_CONTROL, MINIMUM_INPUTS, FULL_REGISTRY_AND_RELATED_DUAL_READ]
+  bootstrap_only: true
+  unique_ack_path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim/BOOTSTRAP_ACK.yaml
+  ack_must_confirm: [CWD_E_ROOT, THREAD_MAPPING, ALL_HASHES_STATUS_PERMISSIONS, RESOURCE_ROOT_ABSENT, R9C_REPLAY_ROOTS_AND_METRICS_UNCHANGED, ZERO_COMPILER_LINKER_CHECKER_SELECTED_CLAIM_SCIENCE, COMMAND_COST_EDGE_NEGATIVE_CONTROL_R10_PRODUCER_AND_FULL_COST_CONTRACT, DIFFERENCES_EMPTY, SCIENTIFIC_OR_RESOURCE_ACTION_STARTED_FALSE]
+  ready_condition: ALL_MATCH
+  refuse_condition: ANY_DIFFERENCE_OR_DRIFT
+
+resume_point: WRITE_BOOTSTRAP_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE
+next_action_after_start: COPY_EXACT_R9C_SUBTREES_THEN_EXECUTE_C0_C6_WITHOUT_NATIVE_TOOL_RERUN
+user_gate: NONE_UNLESS_HARD_EXTERNAL_OR_USER_GATE

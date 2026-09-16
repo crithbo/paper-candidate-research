@@ -1,0 +1,35 @@
+schema: user-authorized-transport-retry-ack-v1
+created_at: 2026-08-26T15:35:34Z
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A3-CURL
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+lane_id: CANDIDATE-L2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+role: CANDIDATE_OWNER
+authority: USER-RETRY-AND-NONBLOCKING-QUEUE-20260826
+retry_contract: {path: A3_CURL_TRANSPORT_RETRY.yaml, sha256: CF44DD23403F7F9148A30BBB5ADE6D36A5FAB220F6DDEFFC40F7437EEC2D1EF5}
+preserved_blocker: {path: A2_PORTABLE_CMAKE_TRANSPORT_BLOCKER.yaml, sha256: B1F3F3D16B0F322705B5CE293A685279735C2A221EF1C20D6E8FC92177072D9C}
+route:
+  official_url: https://cmake.org/files/v3.31/cmake-3.31.6-windows-x86_64.zip
+  archive_path: resources/archives/cmake-3.31.6-windows-x86_64.zip
+  required_sha256: d163cd3ab4959b0a53fa8988f2ddbd2e6c501658201e6a154386bad9dbe4f836
+  client: curl.exe
+  redirects_allowed: 0
+  attempts_max: 1
+  alternate_artifact_or_mirror_forbidden: true
+  retry_after_failure_forbidden: true
+  then: SHA256_VALIDATE_THEN_RESUME_A2S2_THROUGH_PARENT_S7_ONCE
+prestart_state:
+  archive_exists: false
+  curl_attempts: 0
+  network_bytes: 0
+  scientific_or_resource_action_started_after_A3_authorization: false
+unchanged_boundaries:
+  scientific_revision_consumed: false
+  production_candidate_registration: false
+  production_state_transition: false
+  stageB: false
+  gold_or_blind_input_read: false
+  cleanup: false
+differences_or_ambiguities: []
+ack_disposition: READY
+next_action: WAIT_FOR_MAINLINE_A3_ACCEPTANCE_AND_START

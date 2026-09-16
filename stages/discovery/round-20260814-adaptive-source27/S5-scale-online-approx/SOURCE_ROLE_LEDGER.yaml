@@ -1,0 +1,88 @@
+assignment_id: DISCOVERY-S5-20260814-ADAPTIVE-SOURCE27-ORIGIN-GROUNDED-V1
+status: EXECUTION_TELEMETRY_LIMITED__NO_SCIENTIFIC_INFERENCE
+capsule_source_provenance:
+  - capsule_id: S5_HERDTOOLS7_ARCH_MEMORY_MODEL_LITMUS
+    origin_url: https://github.com/herd/herdtools7
+    deterministic_selection_rule: LATEST_NON_PRERELEASE_RELEASE_OR_MAIN_COMMIT_AT_2026_08_14__FREEZE_ONE_ARCH_CAT_MODEL_AND_PUBLIC_LITMUS_SET
+    provenance_license: HERDTOOLS7_OFFICIAL_PUBLIC_REPOSITORY__LICENSE_TO_BE_RECORDED_BY_LANE
+  - capsule_id: S5_RISCV_SAIL_FORMAL_SPEC
+    origin_url: https://github.com/riscv/sail-riscv
+    deterministic_selection_rule: LATEST_OFFICIAL_RELEASE_OR_MAIN_COMMIT_AT_2026_08_14__FREEZE_CONFIG_SCHEMA_MODEL_AND_ONE_PUBLIC_TEST_ID
+    provenance_license: RISC_V_OFFICIAL_PUBLIC_REPOSITORY__BSD_2_CLAUSE
+runtime_limit:
+  official_search_attempt: HTTP_401_TOKEN_EXPIRED_BEFORE_SOURCE_RESPONSE
+  official_raw_fallback_attempt: SCHANNEL_SEC_E_NO_CREDENTIALS_BEFORE_RESPONSE_OR_FILE_WRITE
+  persisted_source_bytes: 0
+  no_build_install_experiment_e2: true
+locators:
+  - card_id: QC27-01
+    capsule_id: S5_HERDTOOLS7_ARCH_MEMORY_MODEL_LITMUS
+    signature: HERDTOOLS7_FIXED_CAT_INCREMENTAL_RELATION_REANALYSIS
+    attempts_used: 2
+    required_roles: [ANCHOR, CURRENT_UNION, CONTRARY]
+    source_attempts:
+      - url_or_deterministic_rule: https://github.com/herd/herdtools7
+        selection_rule: capsule-mandated official repository/current-source route
+        source_role: [ANCHOR, CURRENT_UNION]
+        version_or_date: main/release selection required at 2026-08-14; not observable
+        license_or_provenance: capsule-pinned official public repository
+        response_bytes_when_observable: 0
+        sha256_when_bytes_persisted: NOT_CREATED__HTTP_401_TOKEN_EXPIRED
+        disposition: FAILED_BEFORE_SOURCE_RESPONSE
+      - url_or_deterministic_rule: https://raw.githubusercontent.com/herd/herdtools7/master/README.md
+        selection_rule: bounded official raw fallback (<=1 MiB), then exact cat/litmus route only if source pin succeeds
+        source_role: [CONTRARY]
+        version_or_date: master requested 2026-08-14; not observable
+        license_or_provenance: official upstream raw-source endpoint
+        response_bytes_when_observable: 0
+        sha256_when_bytes_persisted: NOT_CREATED__SCHANNEL_SEC_E_NO_CREDENTIALS
+        disposition: FAILED_BEFORE_RESPONSE_OR_FILE_WRITE
+  - card_id: QC27-02
+    capsule_id: S5_HERDTOOLS7_ARCH_MEMORY_MODEL_LITMUS
+    signature: HERDTOOLS7_VERSIONED_LITMUS_RELATION_OUTCOME_LAW
+    attempts_used: 2
+    required_roles: [ANCHOR, CURRENT_UNION, CONTRARY]
+    source_attempts:
+      - url_or_deterministic_rule: https://github.com/herd/herdtools7
+        selection_rule: capsule-mandated repository plus exact public litmus locator
+        source_role: [ANCHOR, CURRENT_UNION]
+        version_or_date: main/release and corpus version required; not observable
+        license_or_provenance: capsule-pinned official public repository
+        response_bytes_when_observable: 0
+        sha256_when_bytes_persisted: NOT_CREATED__HTTP_401_TOKEN_EXPIRED
+        disposition: FAILED_BEFORE_SOURCE_RESPONSE
+      - url_or_deterministic_rule: https://raw.githubusercontent.com/herd/herdtools7/master/Makefile
+        selection_rule: bounded official raw fallback for current tool surface; <=1 MiB
+        source_role: [CONTRARY]
+        version_or_date: master requested 2026-08-14; not observable
+        license_or_provenance: official upstream raw-source endpoint
+        response_bytes_when_observable: 0
+        sha256_when_bytes_persisted: NOT_CREATED__SCHANNEL_SEC_E_NO_CREDENTIALS
+        disposition: FAILED_BEFORE_RESPONSE_OR_FILE_WRITE
+  - card_id: QC27-03
+    capsule_id: S5_RISCV_SAIL_FORMAL_SPEC
+    signature: RISCV_SAIL_FIXED_CONFIGURATION_PARTIAL_STATE_TRANSITION
+    attempts_used: 2
+    required_roles: [ANCHOR, CURRENT_UNION, CONTRARY]
+    source_attempts:
+      - url_or_deterministic_rule: https://github.com/riscv/sail-riscv
+        selection_rule: capsule-mandated official repository/config/test route
+        source_role: [ANCHOR, CURRENT_UNION]
+        version_or_date: release/main configuration and test ID required; not observable
+        license_or_provenance: capsule-pinned official public repository; BSD-2-Clause
+        response_bytes_when_observable: 0
+        sha256_when_bytes_persisted: NOT_CREATED__HTTP_401_TOKEN_EXPIRED
+        disposition: FAILED_BEFORE_SOURCE_RESPONSE
+      - url_or_deterministic_rule: https://raw.githubusercontent.com/riscv/sail-riscv/main/README.md
+        selection_rule: bounded official raw fallback (<=1 MiB), before selecting configuration/test
+        source_role: [CONTRARY]
+        version_or_date: main requested 2026-08-14; not observable
+        license_or_provenance: official upstream raw-source endpoint
+        response_bytes_when_observable: 0
+        sha256_when_bytes_persisted: NOT_CREATED__SCHANNEL_SEC_E_NO_CREDENTIALS
+        disposition: FAILED_BEFORE_RESPONSE_OR_FILE_WRITE
+interpretation:
+  no_current_absence_claim: true
+  no_direct_absorption_claim: true
+  no_resource_or_readiness_scientific_inference: true
+  reentry_minimum: restore official-search authentication or Schannel TLS credentials, then freeze exact source bytes/commit and one carrier before new disposition.

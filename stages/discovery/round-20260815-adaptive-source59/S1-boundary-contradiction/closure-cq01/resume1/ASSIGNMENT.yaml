@@ -1,0 +1,41 @@
+assignment_id: SOURCE-CLOSURE-SOURCE59-S1-CQ01-GLIBC-TLSDESC-DSO-LIFETIME-RESUME1-RATE-LIMIT-SAFE
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY__RESUME_FROM_TRANSPORT_RATE_LIMIT
+status_at_freeze: READY_FOR_DISPATCH
+write_owner: ASSIGNED_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source59/S1-boundary-contradiction/closure-cq01/resume1
+parent_assignment_sha256: 05A7FA1AA0E9F8A22C6E6D59C9542DE8FD14092213EE90ECFAC08379005AB562
+parent_handoff_sha256: F6D0D19563AF720C1FF623466516AC8BA1807E484F11142F8984DAE96D557CFF
+pinned_project: sourceware/glibc
+pinned_commit: e2789c46e3bfdcd67a82bea9946b315c179e83d3
+exact_object: x86-64 TLSDESC dynamic resolver/relocation and direct TLS-descriptor dlopen/dlclose tests under fixed ABI and DSO-lifetime semantics
+rate_limit_safe_routes:
+  - https://sourceware.org/cgit/glibc/plain/sysdeps/x86_64/dl-tlsdesc.S?id=e2789c46e3bfdcd67a82bea9946b315c179e83d3
+  - https://sourceware.org/cgit/glibc/plain/elf/tlsdesc.c?id=e2789c46e3bfdcd67a82bea9946b315c179e83d3
+  - https://sourceware.org/cgit/glibc/plain/elf/tst-gnu2-tls2.c?id=e2789c46e3bfdcd67a82bea9946b315c179e83d3
+  - https://sourceware.org/cgit/glibc/plain/elf/tst-gnu2-tls2mod0.c?id=e2789c46e3bfdcd67a82bea9946b315c179e83d3
+route_rule: direct pinned blobs only; no recursive tree, clone, retry loop, fallback mirror, or path substitution; each call counted before execution
+required_outputs:
+  - current resolver/relocation/module-lifetime action union from retained official blobs
+  - strongest same-object current-union or changed-object objection
+  - fixed test trace and stock oracle if the named official paths exist
+  - whether two complete same-ABI same-lifetime native descriptor schedules can be frozen
+allowed_dispositions:
+  - CLOSED_TO_EVIDENCE_QUALIFIED_RAW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_CHANGED_OBJECT__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide clean_brief_Q2_PASS_STOP_or_stage_state
+  - run experiment_build_install_or_claim_bearing_observation
+  - treat 404_429_zero_match_transport_failure_or_missing_path_as_absence
+  - read Source60_Source61_Source62_or_rule_audit_outputs
+resource_localization:
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  resource_root: stages/discovery/round-20260815-adaptive-source59/S1-boundary-contradiction/closure-cq01/resume1/resources
+  inventory: stages/discovery/round-20260815-adaptive-source59/S1-boundary-contradiction/closure-cq01/resume1/RESOURCE_INVENTORY.yaml
+  max_acquisition_calls: 4
+  max_success_response_bytes_each: 4194304
+  max_persisted_bytes: 12582912
+  pre_call_monotonic_attempt_counter: required
+  eight_standard_subdirectories: required
+model_route: {model: gpt-5.6-terra, reasoning: high}
+notify_mainline_on_finish_or_blocker: true

@@ -1,0 +1,25 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE54-R40-ORDINARY-BREADTH-V1
+lookup_surface:
+  - registry.yaml
+  - bounded historical handoffs/collision matrices under stages/discovery
+results:
+  - seed: S54-01
+    signature: PRIVATE_TOOLCHAIN_VMFB_MODULE__ARCHIVE_RUNTIME_METADATA_LAYOUT__STOCK_VM_RUNTIME_LOAD
+    relation: RELATED_ONLY
+    prior_locators:
+      - Source46 PRIVATE_TOOLCHAIN HAL fixed queue transfer
+    rationale: prior objects/actions/endpoints do not match VMFB module serialization/load exactly; no novelty inference follows.
+  - seed: S54-02
+    signature: LLVM_OPENMP_TARGET_DATA__MAPPER_LIFETIME_CONSTRUCTION__TARGET_REGION_RESULT
+    relation: EXACT
+    prior_locator: stages/discovery/round-20260814-adaptive-source27/S1-boundary-contradiction/SOURCE_COLLISION_MATRIX.md
+    disposition: EXCLUDE_EXACT_OR_TERMINAL
+    rationale: same target-data mapping semantics and mapper/lifetime action endpoint, with no external evidence delta.
+  - seed: S54-04
+    signature: MLIR_SPARSE_TENSOR__LEVEL_CONVERSION_ITERATION_CONSTRUCTION__TENSOR_VALUE_ACCESS
+    relation: RELATED_ONLY
+    prior_locator: stages/discovery/batch-20260802-18-noncuda/TENSOR-FIBER-DELTAORDER/handoff.yaml
+    rationale: prior dynamic ordered-fiber insert/delete trace differs from fixed sparse tensor conversion/iteration endpoint.
+mechanical_rules:
+  related_only_does_not_exclude: true
+  no_match_or_related_is_not_novelty_evidence: true

@@ -1,0 +1,38 @@
+assignment_id: STAGE0-P1-20260814-X86-STACKCLASH-FRAME-PROBE-REGISTER-PARETO-FPT-PRIMARY-V8.7
+mode: PRIMARY
+topic_id: X86-STACKCLASH-FRAME-PROBE-REGISTER-PARETO-FPT
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_QUEUED_AFTER_LLVM_DWARF_CALLSITE
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source08-primary\X86-STACKCLASH-FRAME-PROBE-REGISTER-PARETO-FPT
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+quality_floor: TIER_B_Q2_VIABLE
+required_reads:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules\ROLE_STAGE0_REVIEW.md
+  - templates\STAGE0_REPORT.md
+  - templates\Q1_COMPARATOR_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source08\S2-bottleneck-transfer\TOPIC_BRIEF_X86_STACKCLASH_FRAME_PROBE_REGISTER_PARETO_FPT.md
+  - stages\discovery\round-20260814-adaptive-source08\S2-bottleneck-transfer\SOURCE_COLLISION_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source08\S2-bottleneck-transfer\DISCOVERY_LOG.md
+  - stages\discovery\round-20260814-adaptive-source08\S2-bottleneck-transfer\handoff.yaml
+input_hashes:
+  brief_sha256: 98E3D06CC5E553F784F5CE538FEFB573FEB9C7CF6394FEC3911DD4B871551733
+  source_collision_matrix_sha256: 1112A5339682BB204903595B81CC9A5F6628683867E1375F2F92B31E23F9E116
+  discovery_log_sha256: 483F898C602AAC574A67FB8BF3DE47E10798125ABC9969229A9DAA223880688D
+  discovery_handoff_sha256: FBBC556491622EFD960DDB2C6E557C0A0692168C75CEEAFACEC047DBCEB012D9
+  discovery_manifest_sha256: 369D88DDB6BF7E7E7059151DBFA086BE652D24ED093F8A1578DEF505B9407E0B
+independent_attack_requirements:
+  - Pin current LLVM commit, x86-64 Linux SysV target, stack-clash flags and guard model, register-allocation options, X86 frame lowering/probe emitter, PrologEpilogInserter, unwind and assembler/linker union.
+  - Require one fixed MachineFunction with two complete native-legal plans preserving output, ABI, unwind and page-by-page probe safety while differing jointly in frame placement, callee-save, probe boundary and scratch-or-spill realization.
+  - Decide whether current RA/frame/probe composition or exposed options already realize the proposed action/frontier, and whether the remainder is merely generic frame packing or register allocation.
+  - Attack target-specific bounded state, FPT parameterization or certified frontier, strongest collision, natural compiler corpus and compile/text/frame/probe/spill/runtime full cost.
+  - Missing implementation or positive results is not a scientific failure; direct absorption, illegal probe/unwind plan, generic remainder or changed security/ABI contract is.
+forbidden: [implementation, experiment, benchmark, source_build, system_install, stageA, stageB, shared_control_write]
+required_outputs: [STAGE0_REPORT.md, Q1_COMPARATOR_MATRIX.md, SOURCE_AUDIT.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

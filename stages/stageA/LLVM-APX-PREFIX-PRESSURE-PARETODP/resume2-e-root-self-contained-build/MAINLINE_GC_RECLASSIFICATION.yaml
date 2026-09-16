@@ -1,0 +1,45 @@
+schema: mainline-gc-reclassification-v1
+accepted_at: 2026-08-25T16:40:28+08:00
+accepted_by: MAINLINE
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L1-20260825-LLVM-APX-RESUME2-E-ROOT-SELF-CONTAINED-BUILD
+decision: ACCEPT_FRESH_EXACT_ROOT_MEASUREMENT__AUTHORIZE_ONLY_FROZEN_3_ROOT_GC
+scientific_effect: NONE
+upstream_blocker_acceptance_sha256: 9A42B0149E9C221D88BB4C4B2DB9CFDBC0C1BF7A3435BBA3E291D7DE931D1FA2
+downstream_r3_acceptance_sha256: EBA5EA2B98638712D947DADD7E263FE8C324409346C520A3D9E25334D1BD466F
+downstream_r3_cleanup_receipt_sha256: 210935DC259C21F02F81CC6D0FFFDF57042367B3FE4A1745BD6592C93E53107C
+downstream_exact_tool_bundle_manifest_sha256: 0BE2C3F60A6F42886F7951D2887D1A3D936B0E1A26E0C6B9B0B89D421944FB91
+preconditions:
+  r3_exact_tool_bundle_accepted: true
+  r3_tool_bundle_retained_after_gc: true
+  resume2_official_download_hashes: 5_OF_5_PASS
+  resume2_reparse_entries: 0
+  resume2_active_processes: 0
+  recovery_archive_retained: true
+  failure_capsule_and_logs_retained: true
+fresh_measurement:
+  resource_root_files: 197448
+  resource_root_logical_bytes: 4704536468
+  target_count: 3
+  target_files: 183727
+  target_logical_bytes: 3336065266
+  targets:
+    - {path: resources/src/llvm, files: 180546, logical_bytes: 2248796855, reparse_entries: 0}
+    - {path: resources/build/llvm-apx, files: 3116, logical_bytes: 1085557685, reparse_entries: 0}
+    - {path: resources/cache, files: 65, logical_bytes: 1710726, reparse_entries: 0}
+owner_summary_difference:
+  target_files_delta: 20
+  target_logical_bytes_delta: 544703
+  source_delta: {files: 16, logical_bytes: 30588}
+  failed_build_delta: {files: 4, logical_bytes: 514115}
+  cache_delta: {files: 0, logical_bytes: 0}
+  classification: BENIGN_POST_SUMMARY_CONTENT_WITHIN_ALREADY_CLASSIFIED_WHOLE_ROOTS
+  deletion_scope_changed: false
+  scientific_effect: NONE
+authorization_boundary:
+  exact_roots_only: [resources/src/llvm, resources/build/llvm-apx, resources/cache]
+  forbidden: [assignment root, resource root, resources/downloads, resources/env, resources/logs, resources/tmp, any cross-topic path]
+  projected_postdelete_logical_bytes: 1368471202
+  post_close_budget_bytes: 2147483648
+  budget_pass: true
+

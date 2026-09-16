@@ -1,0 +1,106 @@
+schema_version: 1
+audit_id: RULE-AUDIT-20260814-MLIR-VECTOR-INCONCLUSIVE-NATIVE-LEGALITY-CORRECTION-R20
+proposal_id: MLIR-VECTOR-EXCEPTIONAL-STATIC-NATIVE-LEGALITY-CORRECTION-20260814-R20A
+topic_id: MLIR-VECTOR-REPRESENTATION-REGISTER-PRESSURE-PARETO-DP
+role: RULE_AUDIT_SENTRY
+workspace_root: '<LEGACY_LOCAL_PROJECT_ROOT>'
+write_directory: 'stages\rule-audit\RULE-AUDIT-20260814-MLIR-VECTOR-INCONCLUSIVE-NATIVE-LEGALITY-CORRECTION-R20'
+status: USER_POLICY_DECISION_REQUIRED
+recommendation: AUTHORIZE_ONE_BOUNDED_EXCEPTIONAL_STATIC_NATIVE_LEGALITY_CORRECTION_THEN_INDEPENDENT_CLOSING
+global_rule_patch_required: false
+shared_files_modified: false
+candidate_files_modified: false
+lanes_contacted: false
+execution_performed: false
+current_topic_state: INCONCLUSIVE_POLICY_HOLD__INTERLEAVE_WITNESS_NOT_NATIVE_LEGAL
+ordinary_revision_budget: 1_of_1_consumed
+scientific_stop_established: false
+stageA_authorized: false
+stageB_authorized: false
+frozen_failure:
+  operation: vector.interleave
+  submitted_inputs: vector_2x1x4xf32_pair
+  submitted_result: vector_2x2x4xf32
+  native_result_for_submitted_inputs: vector_2x1x8xf32
+  impact: NO_LEGAL_COMMON_N_M_F_PLAN_OR_ACTION_PATH_CERTIFICATE
+recommended_exception:
+  count: 1_of_1_exceptional_static_native_legality_correction
+  atomic_gate: SAME_EXTERNAL_OBJECT__NATIVE_TYPED_N_M_F_PLANS__REBUILT_FRONTIER_CERTIFICATE
+  evidence_ceiling: STATIC_NATIVE_LEGALITY_VALUE_ORDER_AND_REBUILT_FRONTIER_CERTIFICATE__NO_BUILD_NO_PERFORMANCE_CLAIM
+  correction_directory: 'stages\stage0\_revisions\MLIR-VECTOR-REPRESENTATION-REGISTER-PRESSURE-PARETO-DP\exceptional-static-native-legality-r20a'
+  closing_directory: 'stages\stage0\_reviews\round-20260814-mlir-vector-exceptional-native-legality-r20a-closing\MLIR-VECTOR-REPRESENTATION-REGISTER-PRESSURE-PARETO-DP'
+  construction_owner: MAINLINE_ASSIGNED_STAGE0_PRIMARY_LANE
+  closing_owner: INDEPENDENT_STAGE0_LANE_NOT_INVOLVED_IN_R20A_CONSTRUCTION
+  overwrite_old_artifacts: false
+  additional_exception_after_failure: false
+same_object_contract:
+  source_commit: ba5bccfe01368f76e74d6ff4c35f1330e155b4ba
+  target: x86_64-unknown-linux-gnu
+  features: [+avx2]
+  abi: SysV_x86_64
+  external_inputs: [vector_2x1x4xf32, vector_2x1x4xf32]
+  external_result: vector_2x2x4xf32
+  observable_semantics: ordered_16_f32_no_mask_memory_or_fastmath_change
+  mechanism: AVX2_Representation_Frontier_DP
+typed_plans:
+  P_N:
+    operand_casts: [2x1x4_to_2x2x2, 2x1x4_to_2x2x2]
+    native_interleave: 2x2x2_to_2x2x4
+    result_cast: none
+  P_M:
+    operand_casts: [2x1x4_to_2x4, 2x1x4_to_2x4]
+    native_interleave: 2x4_to_2x8
+    result_cast: 2x8_to_2x2x4
+  P_F:
+    operand_casts: [2x1x4_to_8, 2x1x4_to_8]
+    native_interleave: 8_to_16
+    result_cast: 16_to_2x2x4
+required_rebuild:
+  - native_type_and_stock_lowerability_certificate
+  - index_level_value_order_equivalence
+  - typed_action_catalog_and_O_Q_H_C
+  - action_path_bijection
+  - frozen_cost_vector_frontier_membership
+  - old_to_new_claim_delta
+provenance_precondition:
+  closing_manifest_sha256: CCA293B1CE40919BA26470AAF96AC5763CB7C339D4E43815B94E93655148FAFA
+  manifest_bound_actual_handoff_sha256: 175F9ACE249F4C166EEF598D6641BA144AD0EB0D02F92911A0E5DCDEA3A5D362
+  registry_recorded_handoff_sha256: 175F9ACEFD0060058A6647680337103739B4406CCF32AA4A941A7F3DB0F4D362
+  disposition: MAINLINE_MUST_RESOLVE_AND_FREEZE_BEFORE_DISPATCH
+prohibited:
+  - target_pipeline_external_signature_or_value_contract_change
+  - new_operation_action_cost_model_mechanism_or_witness_family
+  - implementation_build_verifier_run_experiment_benchmark_or_download
+  - network_retrieval_stageA_or_stageB
+  - silent_rewrite_of_revision1_or_closing
+  - automatic_reserve_withdraw_stop_or_further_revision
+failure_route:
+  non_scientific_unclosed: INCONCLUSIVE_POLICY_HOLD__EXCEPTIONAL_NATIVE_LEGALITY_CORRECTION_UNCLOSED
+  user_options_after_unclosed:
+    - HUMAN_RESEARCH_RESERVE__USER_DIRECTED_POLICY_HOLD__NO_SCIENTIFIC_STOP
+    - REVERSIBLE_WITHDRAWAL_NO_SCIENTIFIC_STOP
+  scientific_stop_only_if: [direct_absorption, native_illegality_of_closed_table, fair_union_dominance, formal_bijection_counterexample]
+rollback: SEAL_R20A_ARTIFACTS_AND_RETAIN_CURRENT_POLICY_HOLD
+input_hashes:
+  agents_sha256: 772FAF07F28F45CA26E6617C39FFD95AE316759CD4DEAFB7FD4D331719C3D700
+  plan_sha256: 47D3B72A96663A68EA1E6D8BC065812C25F5BFF284C04B1B42D3CE5EB5D17476
+  registry_sha256: A39E7847144235E5C935D4AE7CF2E419856995D92B09279835F1BDE752BDAC63
+  role_rule_audit_sha256: D952A706080ED5DE1CFB2E007D8C4672539D9152580F6CA61516E185A52E41ED
+  role_stage0_sha256: 9BD18454A98DB3C97A57F715F853795D9442E7E80BE902F708570296CAD6EB15
+  primary_assignment_sha256: 8ABD01BA4D85601CE8216C8007B81B47BD48459E40BB1E8A2DF46967BB5D8BD2
+  primary_manifest_sha256: 4F1993BE6A4B66CBCB4904384F441548BB3F1BB8B45496453158ED621D86B2B5
+  confirmation_assignment_sha256: 696A0998CC5684E06349262F46897E54A97C75F6F9794F3F30BC327ED98617ED
+  confirmation_manifest_sha256: 48C6F5472A559205E0BCBD9F9F58E09E40313DE2A5D3F0F2DF9B156BED608F6B
+  revision1_assignment_sha256: FFE632C79300699C5CEC12506D697980F362260D812DB054DF6A1BDC4975037D
+  revision1_report_sha256: 090DBCEE3357593818C0C37CF37F1D342715939983D7777F3E1BD819C3DDD024
+  revision1_action_audit_sha256: 91377251862721A99925ACFE6852A79C646DDE15F2A99CB6A87C54F676CEE658
+  revision1_claim_matrix_sha256: 62DEB382D6D37314A973574272D1CD00B69DB03128E7A6017A75E3C02328B097
+  revision1_handoff_sha256: AD41D4FB0F5EFC2A7D066795766580CC2873AC915A466D1207405F7216F623D1
+  revision1_manifest_sha256: 37430ECF3036E6AF905CBB0A51F8690655B8C9E61ABFA7F15606AC33A1236E09
+  closing_assignment_sha256: 4C543DBC5036360A894BB231FDC75F3FA116641F7ED14116DD45B2FFC5F113E0
+  closing_report_sha256: 747DE88F1998349DF1F1B2440B2DC1D6D05A7D6D3638C62839BEA191E67D97B1
+  closing_handoff_sha256: 175F9ACE249F4C166EEF598D6641BA144AD0EB0D02F92911A0E5DCDEA3A5D362
+  closing_manifest_sha256: CCA293B1CE40919BA26470AAF96AC5763CB7C339D4E43815B94E93655148FAFA
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_USER_DIALOGUE

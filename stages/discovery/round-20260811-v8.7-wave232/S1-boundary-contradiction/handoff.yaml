@@ -1,0 +1,34 @@
+assignment_id: DISCOVERY-S1-20260811-V8.7-WAVE232-LLVM-APX-N2-ALGORITHM-GUARANTEE-CLOSURE
+lane: S1-boundary-contradiction
+status: PROPOSE_STAGE0
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+rule_revision: v8.7+R5-P0
+discovery_quality_mode: OFF
+frozen_control_hashes:
+  plan_sha256: FDBE210D977CFCB13C03636779F680105817E044FF10A776B2F8F7DBB9D9DE6C
+  registry_sha256: 8AB9420D0E1886A6FB2D3BE953971455BEC3A951A540706F0868E39EF0FB6B69
+  role_discovery_sha256: FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3
+evidence_cutoff: '2026-08-11'
+pinned_llvm_revision: de8cb59
+briefs:
+  - id: S1-W232-APX-P3
+    status: PROPOSE_STAGE0
+    contribution: N2
+    structural_paper_potential: TIER_B_Q2_VIABLE
+    current_evidence_readiness: READY_TO_CLOSE_IN_STAGEA
+    exact_object: LLVM APX bounded hot trace under fixed MachineIR/liveness/ABI/target semantics
+    direct_subtractor: LLVM NDD-first + RA-hint + post-RA compression composition
+    finite_stagea_killer: Validate encoding/unwind and require a strict Pareto residual on 10-20 public LLVM test-suite functions.
+    stop_conditions:
+      - candidate encoding fails legality or ABI/unwind oracle
+      - all candidate Pareto points match current LLVM on bytes/uops/spills
+      - direct independent review finds APX-P3 reducible to current scalar cost tuning or generic solver
+funnel:
+  raw_screen_row_events: 1
+  unique_opportunity_families: 1
+  candidate_grade_deep_reviews: 1
+  propose_stage0: 1
+  structural_drop: 0
+  not_admitted_unfrozen: 0
+next_action: Mainline may independently review this proposed Stage0 package; this lane must not create Stage0/A/B.
+write_boundary: stages/discovery/round-20260811-v8.7-wave232/S1-boundary-contradiction

@@ -1,0 +1,51 @@
+schema_version: stage0-confirmation-handoff-v8.7
+assignment_id: STAGE0-C2-20260811-QUIC-0RTT-REPLAY-CERTIFICATE-INDEX-CONFIRM-V8.7
+topic_id: QUIC-0RTT-REPLAY-CERTIFICATE-INDEX
+role: INDEPENDENT_CONFIRMATION_SENTRY
+status: COMPLETE_AWAITING_MAINLINE_ACCEPTANCE
+decision: CONFIRM_STOP
+quality_tier: BELOW_Q2_STOP__BACKEND_ANTI_REPLAY_INDEX_OR_GENERIC_CACHE
+confidence: 0.95
+scientific_reason: >-
+  OpenSSL automatic TLS 1.3 anti-replay implements ticket single-use by a
+  stateful internal session cache at the exact backend accept/reject boundary.
+  Ticket epoch/identity/context indexing is either the same membership-expiry
+  cache, redundant under ticket-wide rejection, or weaker/different-object.
+revision:
+  allowed: false
+  atomic_gate_found: false
+stage_authorization:
+  stage_a: false
+  stage_b: false
+evidence_ceiling: CURRENT_OFFICIAL_SOURCE_RFC_AND_STATIC_SAME_OBJECT_AUDIT_ONLY
+same_object_union:
+  - OpenSSL_automatic_TLS13_anti_replay_and_stateful_session_cache
+  - OpenSSL_default_nondefault_anti_replay_control_and_available_accept_policy
+  - ngtcp2_ticket_plus_transport_parameter_0RTT_path
+  - RFC8446_TLS_replay_boundary
+  - RFC9001_QUIC_0RTT_and_application_semantics_boundary
+independent_checks:
+  ticket_single_use_backend_absorption: PASS_DIRECT_ABSORPTION
+  quic_context_nonproduct_residual: NOT_FOUND
+  context_key_without_weakened_ticket_wide_rejection: REDUNDANT
+  callback_wrapper_as_N2: NOT_ADMISSIBLE
+  distributed_or_application_pivot: DIFFERENT_OBJECT
+  search_status: SEARCH_BOUNDED_OPEN__NO_ABSENCE_INFERENCE
+api_note: >-
+  OpenSSL documents different early-data APIs for OpenSSL-owned QUIC SSL
+  objects and third-party QUIC TLS integrations. This does not supply a
+  union-external candidate action under the frozen ngtcp2/OpenSSL endpoint.
+frozen_inputs:
+  controls:
+    AGENTS.md: 66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063
+    plan.md: 41DA0FA8FEB2E2A0EC2D80129686BFD5C64C0F2D9D1AD02BC5806BFDFED06E08
+    registry.yaml: 340DB5BBB8647009282AC54C3842E185EC82E0223B890F018EA03C46842AF6C0
+    ROLE_STAGE0_REVIEW.md: 741EC3544797FF8A5BF337E1E3448B5F683823E5229F818F162834400581626E
+  primary:
+    report: 59DA5D426B81865083011785FD5EAE4AC8564A585F838CE1E6A58E8F4EC3D1E4
+    q1: 6298D589CA30F1ACFF306205ABEF41DCBC164A411A72D2EBE9C09DE45951BAC6
+    source_audit: 58E3BC6D0A3A537E9410838AAC37D909AC9832B469F012A4D93FCD47C8048910
+    handoff: A11B8708F9E7F037D78662B775411F67A1B1A778EDA1049AD40138A9962A9008
+    manifest: 3FFA6F392C28C5A925A86D8CE4B157D59A9564D2D2621EA493F58656615AFAA0
+next_action: MAINLINE_RECORD_SCIENTIFIC_STOP__NO_REVISION_OR_STAGEA_B
+lane_state_after_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE

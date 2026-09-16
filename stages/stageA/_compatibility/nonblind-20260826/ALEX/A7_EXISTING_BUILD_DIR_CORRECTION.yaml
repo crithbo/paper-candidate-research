@@ -1,0 +1,13 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-ALEX-A7-BUILD-DIR
+parent_assignment: NONBLIND-STAGEA-20260826-ALEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A6_BUILD_DIRECTORY_EXISTS_BLOCKER.yaml, sha256: E75B1316D590E0B43CD5963B29C58F44026617C0B99E03F6034AAD3E07E1EFEC}]
+only_change: verify_existing_assignment_local_resources_build_directory_instead_of_creating_it
+build_directory: <LOCAL_PROJECT_ROOT>\stages\stageA\_compatibility\nonblind-20260826\ALEX\resources\build
+allowed_command_sequence:
+  - {id: A7S0, command: verify_existing_literal_build_directory_is_under_assignment_resources_and_no_reparse, stop_on_nonzero: true}
+  - {id: A7S1, command: same_absolute_clangxx_author_main_compile_with_mpopcnt_once, stop_on_nonzero: true}
+  - {id: A7S2, command: run_existing_author_example_once, stop_on_nonzero: true}
+prohibitions: [directory_delete_or_move, project_root_cwd, author_source_or_CMake_edit, alternate_compiler, redownload, system_or_global_mutation, fidelity_or_probe_before_preclaim]
+scientific_revision_consumed: false

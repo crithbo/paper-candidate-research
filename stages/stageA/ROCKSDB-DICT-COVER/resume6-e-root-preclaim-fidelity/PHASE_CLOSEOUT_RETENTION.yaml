@@ -1,0 +1,80 @@
+schema_version: phase-closeout-retention-v1
+created_at: 2026-08-25T14:53:14+08:00
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-RESUME6-E-ROOT-PRECLAIM-FIDELITY
+topic_id: ROCKSDB-DICT-COVER
+event: PRECLAIM_GATE_HANDOFF_ACCEPTED
+status: OWNER_PROPOSAL__MAINLINE_ACCEPTANCE_AND_GC_REQUIRED
+
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  artifact_state: ARTIFACT_OPEN
+  cleanup_owner: MAINLINE
+  owner_cleanup_performed: false
+
+boundaries:
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources
+  resource_root_file_count: 22218
+  resource_root_logical_bytes: 1411017177
+  resource_root_reparse_count: 0
+  active_owner_or_process_count: 0
+  post_close_retained_bytes_max: 1073741824
+  current_over_post_close_budget_bytes: 337275353
+
+downstream:
+  consumer: FUTURE_CLAIM_BEARING_STAGEA_ASSIGNMENT_ONLY_AFTER_SEPARATE_MAINLINE_START
+  inputs_accepted: false
+  required_retained_inputs:
+    - resources/src/manifests
+    - resources/src/rocksdb
+    - resources/src/zstd
+    - resources/src/harness
+    - resources/build/frozen
+    - resources/env/runtime
+    - resources/archives
+    - resources/build/control_runs_final7
+    - resources/logs
+  claim_start_authorized_by_closeout: false
+
+cleanup_candidates:
+  candidate_count: 15
+  candidate_file_count: 18835
+  candidate_logical_bytes: 970511118
+  owner_may_delete: false
+  preconditions_complete: false
+  exact_leaves:
+    - {path: resources/env/llvm-mingw-20260616-ucrt-x86_64, files: 9483, bytes: 740825211, tree_sha256: 03C9CE69E4014D9EBF2858D7BE84188002086B5CA86B5E4DEFD5E93D4FCDC915, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: ACCEPTED_HANDOFF_ZERO_ACTIVE_PROCESS_RETAINED_ARCHIVE_HASH_PASS}
+    - {path: resources/env/cmake-4.4.2-windows-x86_64, files: 8819, bytes: 143269940, tree_sha256: 48E212F267997BF06B6F1780FD2305E17ECB3D92C1FC8F64165FF23D2F271EA5, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: ACCEPTED_HANDOFF_ZERO_ACTIVE_PROCESS_RETAINED_ARCHIVE_HASH_PASS}
+    - {path: resources/env/ninja-1.13.2, files: 1, bytes: 603648, tree_sha256: 18BE58BA30F1D214D2E2F07E32797C889262A6266A195DC6596C074F7E29D9DF, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: ACCEPTED_HANDOFF_ZERO_ACTIVE_PROCESS_RETAINED_ARCHIVE_HASH_PASS}
+    - {path: resources/env/zstd-prefix, files: 4, bytes: 1077646, tree_sha256: DCC2538CCB1D3DEBC183B83CF71A91DED9624A18DCEDC9F5DA759DB20884A37C, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: ACCEPTED_HANDOFF_FROZEN_LIBZSTD_HASH_PASS}
+    - {path: resources/build/rocksdb-preclaim, files: 4, bytes: 8362, tree_sha256: 50FE1E6280252B751E70A641428D5721504298E61A9A7416A60F6EA1F4DF6A4F, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: ACCEPTED_HANDOFF_INVALIDATION_LEDGER_RETAINED}
+    - {path: resources/build/rocksdb-preclaim-r1, files: 391, bytes: 82917375, tree_sha256: EE843B45BCA15BCE5A6E13CE4150C329E53DA1734DE832B5C27CA76FBE36FA45, class: REACQUIRABLE_DELETE_AFTER_HANDOFF, gate: ACCEPTED_HANDOFF_FROZEN_EXE_LIB_AND_PATCHED_SOURCE_HASH_PASS}
+    - {path: resources/build/control_runs, files: 11, bytes: 149748, tree_sha256: 1E05616D58BD4C8A3016462E44121784782FFDC456D3FBE6E3D9A4C1F0D2EC6F, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: ACCEPTED_HANDOFF_OPERATION_INVENTORY_HASH_PASS}
+    - {path: resources/build/control_runs_valid, files: 11, bytes: 150357, tree_sha256: D0270261D4CA6EE37851B41E55E1F95D06D12DEC26FD099F58CE2C8016F70BC0, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: ACCEPTED_HANDOFF_OPERATION_INVENTORY_HASH_PASS}
+    - {path: resources/build/control_runs_final, files: 11, bytes: 155521, tree_sha256: 95B4AF216F31207C1AE6A5A83C798DB3AFA58D3A1D9D6E37C37E96BE29E3B39F, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: ACCEPTED_HANDOFF_OPERATION_INVENTORY_HASH_PASS}
+    - {path: resources/build/control_runs_final2, files: 55, bytes: 762472, tree_sha256: E7009B5401262B2BCC79B4ECE0CDD057253078845EB3C4C2C8CC6D1699A1B2FD, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: ACCEPTED_HANDOFF_OPERATION_INVENTORY_HASH_PASS}
+    - {path: resources/build/control_runs_final3, files: 11, bytes: 143988, tree_sha256: 9644F98DFC6324F0CA0C42620D07FEB7907BE1F698A75B0FCD15108996DD28C6, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: ACCEPTED_HANDOFF_OPERATION_INVENTORY_HASH_PASS}
+    - {path: resources/build/control_runs_final4, files: 11, bytes: 149021, tree_sha256: 9EDF7BF0A94A32BCFB5E4BC0E2B58D43D90F291A1E3FBDD18AAB3B79E02DBE18, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: ACCEPTED_HANDOFF_OPERATION_INVENTORY_HASH_PASS}
+    - {path: resources/build/control_runs_final5, files: 11, bytes: 148901, tree_sha256: 3B0D359F3118B25552503B03AEC7E3A59DBDB8854A61938CBA79DB1886C7D349, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: ACCEPTED_HANDOFF_OPERATION_INVENTORY_HASH_PASS}
+    - {path: resources/build/control_runs_final6, files: 11, bytes: 148888, tree_sha256: 2B95D308325B4880A6DD859BF413F2785B5FC89A36B6BD5D01AE77A31DB571E5, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: ACCEPTED_HANDOFF_OPERATION_INVENTORY_HASH_PASS}
+    - {path: resources/tmp/redirect-preflight-fe8a20j7.tmp, files: 1, bytes: 40, sha256: 8EFA414D328091B7D5004D3CD6CA76BED99D7D6E5440BA88C20F21307407F32F, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, gate: ACCEPTED_HANDOFF_ZERO_ACTIVE_PROCESS}
+
+post_cleanup_projection:
+  projected_file_count: 3383
+  projected_logical_bytes: 440506059
+  under_post_close_budget: true
+  retained_reproducibility_minimum_preserved: true
+  future_claim_resume_inputs_preserved: true
+
+cleanup_gate_status:
+  handoff_accepted: false
+  downstream_inputs_accepted: false
+  capsule_sealed: false
+  retained_hashes_verified_by_mainline: false
+  containment_verified_by_mainline: false
+  reparse_verified_by_mainline: false
+  zero_active_process_verified_by_mainline: false
+  receipt_written: false
+  result: MAINLINE_GC_REQUIRED__OWNER_DELETION_FORBIDDEN

@@ -1,0 +1,9 @@
+# Source / collision matrix — Source25
+
+| Family / card | Exact same-object identity | Official/current source pin | Prior or current collision check | Strongest current union / subtraction | Disposition |
+|---|---|---|---|---|---|
+| `S4_MLPERF_AUTOMOTIVE_V05_TAIL_RESOURCE_VALIDITY` | MLPerf Automotive v0.5, fixed model/dataset/scenario/quality semantics | MLCommons Automotive suite page, accessed 2026-08-14 | Bounded registry/stages text search found no exact prior Automotive v0.5 family; generic MLPerf lines do not establish novelty. | Native scenarios, latency metric, quality targets, result table and change log already cover the disclosed official measurement union. Resource-complete comparator not closed. | `LOCATOR_ONLY__UNFROZEN_EXPORT_AND_COMPARATOR` |
+| `S4_MLPERF_INFERENCE_V51_POWER_COVERAGE_RANKING` | MLPerf Inference v5.1 fixed result release/scenario/quality semantics | MLCommons v5.1 official release, 2025-09-09, accessed 2026-08-14 | Bounded search found prior general MLPerf families, but no exact v5.1 power-coverage identity. No novelty claim from that absence. | Native release/results/power reporting is strongest same-object comparator; a new scalar or selector would be absorbed. Complete panel not closed. | `LOCATOR_ONLY__UNFROZEN_PANEL_SCHEMA` |
+| `S4_MLPERF_RELEASE_CHANGELOG_REPLICATION_SENSITIVITY` | Named MLPerf Inference release, original versus official corrected result panel | MLCommons Results Change Log, accessed 2026-08-14 | Exact release-sensitive estimand not found in bounded local search; related generic benchmark-validity lines remain contrary context. | Native result pages plus change log are the direct comparator. Merely describing invalidations is fully absorbed. Original frozen panel/hold-out absent. | `LOCATOR_ONLY__UNFROZEN_ORIGINAL_PANEL` |
+
+The matrix is collision-aware rather than a novelty certificate. None of these rows is a candidate, brief, or requested Stage 0 action.

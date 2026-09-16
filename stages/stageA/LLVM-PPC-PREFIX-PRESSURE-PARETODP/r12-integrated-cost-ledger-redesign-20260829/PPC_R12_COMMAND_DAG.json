@@ -1,0 +1,168 @@
+{
+  "schema": "ppc-r12-command-dag-v1",
+  "assignment_id": "STAGEA-L2-20260829-LLVM-PPC-R12-INTEGRATED-COST-LEDGER-REDESIGN",
+  "execution_performed": false,
+  "natural_or_claim_execution": false,
+  "nodes": [
+    {
+      "id": "N00_INPUT_BIND",
+      "kind": "EXACT16_INPUT_MANIFEST",
+      "manifest_path": "<LOCAL_PROJECT_ROOT>/stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/EXACT16_INPUT_MANIFEST.yaml",
+      "manifest_sha256": "D278BD508A192186115D337048C44E7DACC7B259ADE1FB114EEE6067378F3F7D",
+      "entries": 16
+    },
+    {
+      "id": "N01_CANDIDATE_REPLAY",
+      "kind": "CANDIDATE_METRIC_PRODUCER",
+      "depends_on": [
+        "N00_INPUT_BIND"
+      ],
+      "argv": [
+        "<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/runner/materializer_harness.py",
+        "--mode",
+        "claim_run",
+        "--input",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/inputs/selected-00.ll",
+        "--function",
+        "bar",
+        "--method",
+        "ppc_tpd",
+        "--output-root",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate",
+        "--replay",
+        "1",
+        "--defer-checker-full-cost",
+        "--check"
+      ],
+      "produces": [
+        "candidate_command_metrics.json"
+      ],
+      "metric_count": 15
+    },
+    {
+      "id": "N02_BASELINE_COLLECTOR",
+      "kind": "SINGLE_BASELINE_COST_PRODUCER",
+      "depends_on": [
+        "N00_INPUT_BIND"
+      ],
+      "argv": [
+        "<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/runner/baseline_cost_collector.py",
+        "--input",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/inputs/selected-00.ll",
+        "--output-root",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/baseline"
+      ],
+      "produces": [
+        "baseline_cost_ledger.json",
+        "strong_baseline_dependency_graph.json",
+        "baseline/logs/command_metrics.json"
+      ],
+      "metric_count": 56,
+      "bundle_count": 16
+    },
+    {
+      "id": "N03_NATIVE_CHECKER",
+      "kind": "NATIVE_CHECKER",
+      "depends_on": [
+        "N01_CANDIDATE_REPLAY",
+        "N02_BASELINE_COLLECTOR"
+      ],
+      "argv": [
+        "<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/runner/materializer_harness.py",
+        "--mode",
+        "native_check",
+        "--function",
+        "bar",
+        "--candidate-trace",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/candidate_trace.json",
+        "--transformed-mir",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/artifacts/materialized.mir",
+        "--candidate-object",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/artifacts/candidate.o",
+        "--candidate-readobj",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/logs/09_candidate_readobj.stdout.txt",
+        "--candidate-objdump",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/logs/10_candidate_objdump.stdout.txt",
+        "--candidate-linked",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/artifacts/candidate.elf",
+        "--candidate-linked-readobj",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/logs/13_candidate_linked_readobj.stdout.txt",
+        "--candidate-command-metrics",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/candidate_command_metrics.json",
+        "--candidate-result",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/candidate_result.json",
+        "--baseline-dependency-graph",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/baseline/strong_baseline_dependency_graph.json",
+        "--output",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/checker/native_checkers.json"
+      ],
+      "cwd": "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/checker",
+      "env": {
+        "TEMP": "resources/tmp",
+        "TMP": "resources/tmp",
+        "TMPDIR": "resources/tmp",
+        "PYTHONNOUSERSITE": "1"
+      },
+      "timeout_seconds": 1800,
+      "produces": [
+        "resources/build/control/checker/native_checkers.json"
+      ],
+      "metric_count": 0,
+      "verification_overhead_receipt_required": true,
+      "denominator_inclusion": "EXCLUDED_FROM_71_METRIC_DENOMINATOR"
+    },
+    {
+      "id": "N04_FULL_COST_LEDGER",
+      "kind": "FULL_COST_LEDGER_CONSUMER",
+      "depends_on": [
+        "N01_CANDIDATE_REPLAY",
+        "N02_BASELINE_COLLECTOR",
+        "N03_NATIVE_CHECKER"
+      ],
+      "argv": [
+        "<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/PPC_R12_FULL_COST_LEDGER_PRODUCER.py",
+        "--candidate-metrics",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/candidate/candidate_command_metrics.json",
+        "--baseline-metrics",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/baseline/logs/command_metrics.json",
+        "--baseline-ledger",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/baseline/baseline_cost_ledger.json",
+        "--baseline-graph",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/baseline/strong_baseline_dependency_graph.json",
+        "--input",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/inputs/selected-00.ll",
+        "--row-id",
+        "control-00",
+        "--output",
+        "<LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/build/control/full_cost/full_cost_ledger.json"
+      ],
+      "consumes_unique_metrics": 71,
+      "consumes_bundles": 16,
+      "produces": [
+        "full_cost_ledger.json"
+      ],
+      "verification_overhead_consumed": true,
+      "metric_denominator": 71
+    }
+  ],
+  "topological_order": [
+    "N00_INPUT_BIND",
+    "N01_CANDIDATE_REPLAY",
+    "N02_BASELINE_COLLECTOR",
+    "N03_NATIVE_CHECKER",
+    "N04_FULL_COST_LEDGER"
+  ],
+  "placeholders": 0,
+  "relative_effect_fields_hidden": true,
+  "scientific_inference": "NONE",
+  "verification_overhead": {
+    "native_checker_node": "N03_NATIVE_CHECKER",
+    "cost_receipt_required": true,
+    "included_in_full_cost": true,
+    "excluded_from_metric_denominator": 71
+  }
+}

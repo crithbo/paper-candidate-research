@@ -1,0 +1,146 @@
+{
+  "schema": "zcmp-frontier-plans-v1",
+  "input": "runs\\preclaim\\witness_pregreedy.mir",
+  "interface_values": [
+    "%0",
+    "%1"
+  ],
+  "interface_width": 2,
+  "legal_plan_count": 5,
+  "abstract_pareto_count": 2,
+  "plans": [
+    {
+      "assignment": [
+        [
+          "%0",
+          "$x8"
+        ],
+        [
+          "%1",
+          "$x9"
+        ]
+      ],
+      "csr_count": 2,
+      "rlist": "{ra,s0-s1}",
+      "frame_bytes": 16,
+      "spill_values": [],
+      "static_spill_bytes": 0,
+      "dynamic_spill_ops": 0,
+      "cfi": [
+        "CFA=sp+16",
+        "ra@-12",
+        "s0@-8",
+        "s1@-4"
+      ],
+      "mir": "plan_0000.mir",
+      "abstract_pareto": true
+    },
+    {
+      "assignment": [
+        [
+          "%0",
+          "$x9"
+        ],
+        [
+          "%1",
+          "$x8"
+        ]
+      ],
+      "csr_count": 2,
+      "rlist": "{ra,s0-s1}",
+      "frame_bytes": 16,
+      "spill_values": [],
+      "static_spill_bytes": 0,
+      "dynamic_spill_ops": 0,
+      "cfi": [
+        "CFA=sp+16",
+        "ra@-12",
+        "s0@-8",
+        "s1@-4"
+      ],
+      "mir": "plan_0001.mir",
+      "abstract_pareto": true
+    },
+    {
+      "assignment": [
+        [
+          "%0",
+          "$x8"
+        ],
+        [
+          "%1",
+          "spill"
+        ]
+      ],
+      "csr_count": 1,
+      "rlist": "{ra,s0}",
+      "frame_bytes": 32,
+      "spill_values": [
+        "%1"
+      ],
+      "static_spill_bytes": 8,
+      "dynamic_spill_ops": 2,
+      "cfi": [
+        "CFA=sp+32",
+        "ra@-8",
+        "s0@-4"
+      ],
+      "mir": "plan_0002.mir",
+      "abstract_pareto": false
+    },
+    {
+      "assignment": [
+        [
+          "%0",
+          "spill"
+        ],
+        [
+          "%1",
+          "$x8"
+        ]
+      ],
+      "csr_count": 1,
+      "rlist": "{ra,s0}",
+      "frame_bytes": 32,
+      "spill_values": [
+        "%0"
+      ],
+      "static_spill_bytes": 8,
+      "dynamic_spill_ops": 2,
+      "cfi": [
+        "CFA=sp+32",
+        "ra@-8",
+        "s0@-4"
+      ],
+      "mir": "plan_0003.mir",
+      "abstract_pareto": false
+    },
+    {
+      "assignment": [
+        [
+          "%0",
+          "spill"
+        ],
+        [
+          "%1",
+          "spill"
+        ]
+      ],
+      "csr_count": 0,
+      "rlist": "{ra}",
+      "frame_bytes": 32,
+      "spill_values": [
+        "%0",
+        "%1"
+      ],
+      "static_spill_bytes": 16,
+      "dynamic_spill_ops": 4,
+      "cfi": [
+        "CFA=sp+32",
+        "ra@-4"
+      ],
+      "mir": "plan_0004.mir",
+      "abstract_pareto": false
+    }
+  ]
+}

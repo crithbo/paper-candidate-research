@@ -1,0 +1,183 @@
+topic_id: SOURCE109-PORTFOLIO-S1
+user_summary_cn:
+  outcome: "本轮 alternate-runtime/explicit-denylist 筛选完成，未形成可送 Stage 0 的题目。"
+  main_reason: "所有 seed/RQ 在检索前完成 denylist 判定。TensorRT-LLM 的相关 feature 是当前显式支持契约，未找到同语义的 implementation-only 缺口；ORT 的 GQA windowed-KV staging 虽有精确源码张力，但当前原生公开 carrier 使用不同的 PagedAttention 对象，phase metadata 只构成例行接口修补。"
+  next_step: "MAINLINE 机械验收后将 S1 置回 IDLE_REUSABLE；不预读 successor。"
+  user_action_required: false
+  user_action: null
+lane_id: DISCOVERY_S1
+assignment_id: DISCOVERY-S1-20260824-SOURCE109-EXPLICIT-DENYLIST-ALTERNATE-RUNTIME-V1
+assignment_state: FROZEN_AWAITING_MAINLINE
+input_freeze_sha256: 37D0FE4264948242081F16A09EB4B5D8CDE56B0CD771C8A29E7A5548C6EDCE2F
+cross_assignment_contamination_declared: false
+source_stage: DISCOVERY
+proposed_next_stage: null
+decision: COMPLETE_ZERO_PROPOSALS__NO_EVIDENCE_QUALIFIED_RAW
+quality_tier: BELOW_Q2_STOP
+structural_paper_potential: NO_ADMISSIBLE_FAMILY
+evidence_acquisition_readiness: NOT_REQUIRED
+stage_semantics: STAGE0_POTENTIAL_SCREEN
+opportunity_origins: [SOURCE109_EXPLICIT_DENYLIST_ALTERNATE_RUNTIME_FAMILY_ROTATION_V1]
+domain_tags: [TENSORRT_LLM, ONNX_RUNTIME, ONNX_RUNTIME_GENAI, ATTENTION, PAGED_KV, PLUGIN_CONTRACT, REPLICATION_NEGATIVE]
+paper_genealogy:
+  - source: ONNXRUNTIME_GQA_CURRENT_SOURCE
+    relation: SOURCE_CONTRADICTION_BUT_NO_SAME_OBJECT_NATIVE_CARRIER
+discovery_method_revision: RESEARCH_TOPIC_DISCOVERY_R1_R40_20260815
+discovery_claim_pack_mode: OFF
+discovery_claim_pack_protocol_sha256: null
+opportunity_family_id: null
+opportunity_family_signature: null
+opportunity_family_relations: []
+contribution_type: null
+contribution_type_contract_verdict: NO_RAW_ADMISSION
+discovery_local_coordinates:
+  academic_maturity: A0
+  collision: C0
+  evidence: D0
+  execution_readiness: E0
+discovery_evidence_ledger: DISCOVERY_EVIDENCE_LEDGER.yaml
+denylist_compliance:
+  path: stages/discovery/round-20260824-strategy-source109/control/PREDECESSOR_IDENTITY_DENYLIST.yaml
+  sha256: 1AC56E95A1859818EFB3E4DB853B1B4DF13D081F3AB7C780E381CA553A0FFB01
+  seed_checks_before_lookup: 8
+  rq_checks_before_lookup: 7
+  exact_or_contains_selected_locators: 0
+  exact_or_contains_replacements: 0
+  related_only_selected: 2
+  related_only_discriminators_recorded: 2
+  result: PASS
+independent_prior_current_audit:
+  owner_or_lane: DISCOVERY_S1
+  scope: bounded current/contrary closure; independent Stage0 audit not invoked
+  completed: false
+direct_coverage_eight_predicates:
+  same_object_function_protocol: UNFROZEN
+  same_scenario_workload: UNFROZEN
+  same_or_weaker_information: UNFROZEN
+  atomic_action_covered: UNFROZEN
+  same_or_stronger_legality_quality_guarantee: UNFROZEN
+  same_nonworse_full_cost: UNFROZEN
+  comparable_scale_platform_version_config: UNFROZEN
+  sufficient_read_or_reproduction_depth: NOT_APPLICABLE_NO_RAW
+decision_ready_stopping_check: PASS__NO_RAW_ADMISSION
+nonterminal_reopen_triggers:
+  - future assignment freezes a distinct same-object native carrier, non-routine action, exact versioned source locus and finite full-cost route
+fidelity_closure_plan_status: STRUCTURALLY_UNCLOSABLE
+fidelity_closure_plan: no eligible raw package exists to transfer a Stage0/StageA plan
+current_upstream_reality_check:
+  applicable: true
+  upstream_commit_or_tag: TensorRT-LLM and ONNX Runtime/ORT GenAI current main/documentation views accessed 2026-08-24; no source acquired because no raw admitted
+  checked_at: '2026-08-24'
+  official_current_documentation:
+    - https://github.com/NVIDIA/TensorRT-LLM/blob/main/docs/source/legacy/advanced/gpt-attention.md
+    - https://onnxruntime.ai/docs/genai/
+    - https://onnxruntime.ai/docs/genai/reference/config.html
+    - https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/contrib_ops/cuda/bert/group_query_attention.cc
+  source_symbols_or_paths:
+    - TensorRT-LLM GPT attention FP8/paged-context feature contract
+    - ORT GroupQueryAttention windowed-cache staging path
+    - ORT GenAI builder replacement of GQA with PagedAttention
+    - ORT GenAI paged engine pinned Qwen integration artifact
+  default_and_nondefault_flags_thresholds_configs:
+    - TensorRT-LLM use_fp8_context_fmha plus use_paged_context_fmha requirement
+    - ORT past_present_share_buffer and paged-attention builder options
+    - ORT GQA windowed cache staging eligibility
+  absence_claim_disposition: NARROWED
+  remaining_non_tuning_residual: none evidenced on a frozen same-object public carrier; do not infer global absence
+preclaim_contract_fidelity_gate_actual_status: NOT_YET_APPLICABLE_IN_DISCOVERY
+exact_object: null
+main_claim: null
+novelty_route: null
+evidence_route: null
+mechanism_signature: null
+seed_distance: null
+nearest_prior_facet_matrix: current feature/support contracts or different-object GQA/PagedAttention paths; no non-generic residual
+q1_venue_family: null
+q1_calibration_status: NOT_APPLICABLE_NO_RAW
+q1_reference_set: []
+q1_comparator_matrix: null
+q1_evidence_gap: [same-object native carrier, non-routine atomic action, exact full-cost route]
+q2_viability_basis: null
+non_relaxable_quality_gates:
+  same_object: FAIL_NO_FROZEN_CARRIER_AND_ACTION
+  latest_collision: PASS_AS_BOUNDED_CURRENT_AND_CONTRARY_CHECK
+  fair_strong_baseline: FAIL_NO_NON_GENERIC_DELTA
+  natural_input_and_evidence: FAIL_NO_FROZEN_NATIVE_OR_CANONICAL_CARRIER
+  full_cost: FAIL_NO_ADMISSIBLE_ACTION
+  reproducibility: NOT_APPLICABLE_NO_RAW
+  evidence_claim_honesty: PASS__ABSTENTION
+academic_value_score: null
+ai_executability_score: null
+ai_executability_class: null
+ai_core_fraction: null
+strongest_baseline: [TensorRT-LLM current attention feature contract, ORT GenAI PagedAttention current integration artifact, ORT GQA current correctness staging]
+baseline_contract: no candidate survived to freeze a fair comparator
+same_function_contract: null
+algorithmic_delta: null
+full_cost_ledger_scope: null
+generality_hypothesis: null
+why_not_routine_tuning: no non-routine action survived; phase metadata branch or plugin configuration is insufficient
+decisive_evidence: [RAW_GATE_DECISION.md]
+orthogonal_validation: TensorRT-LLM and ORT/ORT GenAI first-party source/docs plus issue-derived contrary only
+unresolved_risks: [do not generalize explicit-denylist alternate-runtime abstention to all runtime/compiler research]
+next_killer_gate: null
+mechanism_pivot_remaining: null
+reserve_reason: null
+blocker_status: null
+blocker_kind: null
+claim_bearing_observation_obtained_before_failure: false
+scientific_revision_consumed: false
+atomic_repair_trace:
+  mode: OFF
+  repair_id: null
+  trace_sha256: null
+  cohort_id: null
+  cutoff: null
+  repair_participant_task_ids: []
+  independent_closer_exclusion_set: []
+  item_status_counts: {}
+  legacy_or_unobservable_disposition: NOT_APPLICABLE_MODE_OFF
+conversion_telemetry_link:
+  cohort_record_path: null
+  maturity: null
+  censoring: null
+  full_cost_status: null
+  p0_decision_effect: NONE
+resource_attempt_recorded: false
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/discovery/round-20260824-strategy-source109/S1-boundary-contradiction
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/discovery/round-20260824-strategy-source109/S1-boundary-contradiction/resources
+  resource_inventory_path: RESOURCE_INVENTORY.yaml
+  resource_inventory_sha256: 6BA749CAF2275BED5F03849F9A8C495272785A2C191927031CAE203801E61441
+  root_logical_bytes: 0
+  persisted_resource_bytes: 0
+  redirect_preflight_status: NOT_RUN_REQUIRED_BEFORE_FIRST_RESOURCE_ACTION
+  external_system_caches_used: [EXTERNAL_SYSTEM_MANAGED__CODEX_BROWSER_OR_WEB_CONNECTOR]
+  shared_assets_consumed: []
+  cleanup_owner: MAINLINE
+  cleanup_status: NOT_REQUESTED
+user_blocker_packet: null
+resume_contract_sha256: null
+resume_directory: null
+evidence_ceiling: NO_RAW_ADMISSION__NO_SCIENTIFIC_CLAIM
+e1_static_preflight: null
+e2_engineering_smoke:
+  status: NOT_RUN_NOT_REQUIRED_FOR_STAGE0
+  authorization_id: null
+  allowlist: null
+  scientific_inference_permitted: false
+stagea_probe_support: NOT_APPLICABLE
+pending_user_stageb_review: false
+stageb_user_approval_id: null
+execution_authority: MAINLINE_ACCEPTED_BOOTSTRAP_ACK_33356DAFE49FB10552AB240FF7094799B8D1081ADB6F30CFB0498DF9AC42CEC3
+file_hashes:
+  ASSIGNMENT_CONTEXT.yaml: 37D0FE4264948242081F16A09EB4B5D8CDE56B0CD771C8A29E7A5548C6EDCE2F
+  BOOTSTRAP_ACK.yaml: 33356DAFE49FB10552AB240FF7094799B8D1081ADB6F30CFB0498DF9AC42CEC3
+  DIVERGENCE_SEED_POOL.md: 2499AA3F3A0CFCA6FD86C03C241AC6E30BA86DA2BC1EFC067EDC6B3053B2C1CE
+  RQ_CANDIDATES.md: 1C2F54974324D68F25AC82614DD9D3C7F7E64E243B4722791F93E208A2ADFA7A
+  DISCOVERY_EVIDENCE_LEDGER.yaml: 9614D852B931CDAE8F0E91BD4703D1C952E369F4328FE300761097E439BB57C9
+  RAW_GATE_DECISION.md: 46ED18BB2BACE0B915E8909B0BF453E32FB5190167B4FE8502BC7875A9E45E4B
+  RESOURCE_INVENTORY.yaml: 6BA749CAF2275BED5F03849F9A8C495272785A2C191927031CAE203801E61441
+hash_manifest_file: HASH_MANIFEST.sha256

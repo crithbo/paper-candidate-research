@@ -1,0 +1,125 @@
+schema_version: consolidated-discovery-stage0-method-contract-v8.8-r3
+visibility: EXECUTOR_READABLE
+assignment_id: BACKTEST-PACKER-20260810-CONSOLIDATED-V8.8-R3
+mode: SEALED_HISTORICAL_REPLAY
+production_semantics_allowed: false
+method_execution_by_packer: false
+frozen_proposal_inputs:
+  r1:
+    report_sha256: C418468339E248F05D13D78B987DC8603202EFF57EA7314E6A5E5C468E7BFD57
+    proposal_sha256: 01779E730B0FFBEF25AAF635EF21CAD95B0BF2C846941B9ADA517C2E51A6AAC1
+    handoff_sha256: ED364E7A4DBCDDC12FE825E349A75AD0B50D08BCCA7A34DE33446C0F6937E70C
+  r2:
+    report_sha256: F578966D68901A5E95A723E63DC14F568DDB2F54ADAE09CF3EEAA4E6062C3FCF
+    proposal_sha256: 6EF8795ADF0A8593B17CA2AD3B788E7A25F5E7DA2F413A465D491034E9C92EB5
+    handoff_sha256: A19000903DDEC388CC91A2E2DD88798EA3A29793959BBAD89DC7DB40C5EF607F
+  r3_user_directive_sha256: 69E8EF141E0EA63D0B8D091558DDF04BA42129215F97DE6B83822825BBDE0D7B
+
+executor_runs:
+  - run_id: CONTROL_V8_7
+    behavior: APPLY_FROZEN_V8_7_DISCOVERY_AND_STAGE0_RULES_TO_EACH_CASE
+  - run_id: PROPOSED_V8_8
+    behavior: APPLY_THE_CONSOLIDATED_R1_PLUS_R2_BEHAVIOR_BELOW_TO_EACH_CASE
+independence:
+  run_order: CONTROL_V8_7_THEN_PROPOSED_V8_8
+  no_cross_case_hidden_labels: true
+  no_auditor_key_access: true
+  no_external_search: true
+  no_candidate_execution: true
+
+proposed_v8_8_behavior:
+  ordering:
+    - ACADEMIC_HARD_GATES_BEFORE_READINESS_OR_YIELD
+    - CURRENT_COLLISION_MINIMUM_SET_BEFORE_SEARCH_BOUNDED_OPEN
+    - ATOMIC_ACTION_CERTIFICATE_BEFORE_PACKAGING
+    - STRUCTURAL_DISPOSITION_BEFORE_EXECUTION_PRIORITY
+  current_collision_minimum_set:
+    - NEAREST_CURRENT_SAME_OBJECT_PAPER_OR_ARTIFACT
+    - ALL_KNOWN_FIRST_PARTY_IMPLEMENTATION_FAMILY_INCLUDING_SIBLING_REPO_PACKAGE_AND_CLI
+    - GENERIC_ALGORITHM_OR_OPTIMIZATION_KERNEL
+    - STRONGEST_DEPLOYED_AND_CONFIGURABLE_UNION_INCLUDING_DEFAULT_AND_NONDEFAULT_ACTIONS
+  collision_rules:
+    - ACTION_SPACE_OVERLAP_ALONE_IS_NOT_ALGORITHM_ABSORPTION
+    - ABSORPTION_REQUIRES_SAME_INFORMATION_SAME_CONTRACT_REPLAY_AT_FULL_COST
+    - SEARCH_BOUNDED_OPEN_IS_ALLOWED_ONLY_AFTER_THE_MINIMUM_SET_IS_COMPLETE
+    - CURRENT_SOURCE_OVERRIDES_STALE_DOCUMENTATION_FOR_IMPLEMENTED_ACTIONS
+  atomic_action_certificate:
+    O: exact object, function and guarantee
+    I: information available equally to candidate and baselines
+    A_b: strongest-baseline legal action and decision rule
+    A_c: candidate legal action and decision rule
+    P: nontrivial algorithmic, formal or complexity property
+    W_m: model-level legal action trace showing conditional divergence
+    C: full-cost dimensions and denominator
+    F_n: finite native realization or replay falsifier
+  six_dimensional_residual:
+    - DECISION_RULE
+    - INFORMATION
+    - COMPLEXITY_AND_RESOURCES
+    - SOLUTION_QUALITY_OR_GUARANTEE
+    - FULL_COST
+    - GENERALIZATION_AND_NO_GAIN_REGION
+  model_native_boundary:
+    discovery_and_stage0_require:
+      - COHERENT_MODEL_LEVEL_CERTIFICATE
+      - SOURCE_GROUNDED_NATURAL_OR_FORMAL_OPPORTUNITY_HYPOTHESIS
+      - FINITE_NATIVE_FALSIFIER
+    discovery_and_stage0_do_not_require:
+      - CANDIDATE_IMPLEMENTATION
+      - NATIVE_CANDIDATE_OUTPUT
+      - POSITIVE_NATURAL_RESULT
+    first_native_realization_gate: STAGE_A_PRE_CLAIM_CONTRACT_FIDELITY_GATE
+    abstract_witness_is_not_native_or_natural_evidence: true
+  raw_dispositions:
+    - STRUCTURAL_DROP
+    - NOT_ADMITTED_UNFROZEN
+    - RESOURCE_BLOCKED
+    - DEEP_DIVE_REQUIRED
+    - EXCLUDED
+  resource_rule:
+    before_claim_bearing_observation: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+    invalid_control_or_proxy_result: CANNOT_SUPPORT_PASS_OR_STOP
+    missing_implementation_alone_is_structural_stop: false
+  immutable_hard_gates:
+    - SAME_OBJECT
+    - CURRENT_COLLISION
+    - FAIR_CURRENT_STRONG_BASELINE
+    - NATURAL_OBJECT_AND_EVENTUAL_NATURAL_EVIDENCE
+    - FULL_COST
+    - REPRODUCIBILITY_AND_PROVENANCE
+    - CLAIM_CEILING
+    - STOP_NON_REVIVAL
+    - STAGE_B_USER_APPROVAL
+
+required_case_output:
+  case_id: string
+  control_v8_7:
+    disposition: enum
+    reasoning: string
+    proposed_brief: boolean
+  proposed_v8_8:
+    disposition: enum
+    candidate_grade_deep_review: boolean
+    proposal_grade: boolean
+    nonstructural_unfrozen: boolean
+    minimum_set:
+      nearest_same_object: [source_id]
+      first_party_family: [source_id]
+      generic_kernel: [source_id]
+      strongest_deployed_union: [source_id]
+    collision_subtractions: [string]
+    atomic_certificate:
+      O: string_or_null
+      I: string_or_null
+      A_b: string_or_null
+      A_c: string_or_null
+      P: string_or_null
+      W_m: string_or_null
+      C: string_or_null
+      F_n: string_or_null
+    model_native_boundary_statement: string
+    hard_gate_violations: [string]
+    terminal_revival_attempted: boolean
+    reasoning: string
+  evidence_used: [source_id]
+  external_material_used: false

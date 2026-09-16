@@ -1,0 +1,1406 @@
+--- |
+  ; ModuleID = '<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\runs\natural\modules\ud__libud.ll'
+  source_filename = "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\\resume1\\resources\\corpus\\embench\\src\\ud\\libud.c"
+  target datalayout = "e-m:e-p:32:32-i64:64-n32-S128"
+  target triple = "riscv32-unknown-unknown-elf"
+  
+  @_MergedGlobals = private global <{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }> zeroinitializer, align 4, !guid !0
+  
+  @chkerr = alias i32, ptr @_MergedGlobals
+  @x = alias [20 x i32], getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 1)
+  @b = alias [20 x i32], getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2)
+  @a = alias [20 x [20 x i32]], getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3)
+  
+  ; Function Attrs: nounwind
+  define dso_local range(i32 0, 2) i32 @verify_benchmark(i32 noundef %0) local_unnamed_addr #0 {
+    %2 = alloca [20 x i32], align 4
+    call void @llvm.lifetime.start.p0(ptr nonnull %2) #8
+    call void @llvm.memset.p0.i32(ptr noundef nonnull align 4 dereferenceable(80) %2, i8 0, i32 80, i1 false)
+    %3 = getelementptr inbounds nuw i8, ptr %2, i32 8
+    store i32 1, ptr %3, align 4
+    %4 = getelementptr inbounds nuw i8, ptr %2, i32 12
+    store i32 1, ptr %4, align 4
+    %5 = getelementptr inbounds nuw i8, ptr %2, i32 16
+    store i32 1, ptr %5, align 4
+    %6 = getelementptr inbounds nuw i8, ptr %2, i32 20
+    store i32 2, ptr %6, align 4
+    %7 = call i32 @memcmp(ptr noundef nonnull getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 1), ptr noundef nonnull %2, i32 noundef 80) #9
+    %8 = or i32 %7, %0
+    %9 = icmp eq i32 %8, 0
+    %10 = zext i1 %9 to i32
+    call void @llvm.lifetime.end.p0(ptr nonnull %2) #8
+    ret i32 %10
+  }
+  
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+  declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+  
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: write)
+  declare void @llvm.memset.p0.i32(ptr writeonly captures(none), i8, i32, i1 immarg) #2
+  
+  declare dso_local i32 @memcmp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+  
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+  declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
+  
+  ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
+  define dso_local void @initialise_benchmark() local_unnamed_addr #4 {
+    ret void
+  }
+  
+  ; Function Attrs: nofree norecurse nounwind memory(readwrite, target_mem: none)
+  define dso_local void @warm_caches(i32 noundef %0) local_unnamed_addr #5 {
+    %2 = tail call fastcc i32 @benchmark_body(i32 noundef %0) #10
+    ret void
+  }
+  
+  ; Function Attrs: nofree noinline norecurse nounwind memory(readwrite, target_mem: none)
+  define internal fastcc i32 @benchmark_body(i32 noundef %0) unnamed_addr #6 {
+    %2 = icmp sgt i32 %0, 0
+    br i1 %2, label %.preheader, label %6
+  
+  .preheader:                                       ; preds = %1
+    br label %3
+  
+  3:                                                ; preds = %.preheader, %3
+    %lsr.iv = phi i32 [ %0, %.preheader ], [ %lsr.iv.next, %3 ]
+    store i32 4, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), align 4, !tbaa !11
+    store i32 3, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 4), align 4, !tbaa !11
+    store i32 4, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 8), align 4, !tbaa !11
+    store i32 5, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 12), align 4, !tbaa !11
+    store i32 6, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 16), align 4, !tbaa !11
+    store i32 7, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 20), align 4, !tbaa !11
+    store i32 29, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), align 4, !tbaa !11
+    store i32 3, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 80), align 4, !tbaa !11
+    store i32 8, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 84), align 4, !tbaa !11
+    store i32 5, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 88), align 4, !tbaa !11
+    store i32 6, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 92), align 4, !tbaa !11
+    store i32 7, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 96), align 4, !tbaa !11
+    store i32 8, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 100), align 4, !tbaa !11
+    store i32 37, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), i32 4), align 4, !tbaa !11
+    store i32 4, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 160), align 4, !tbaa !11
+    store i32 5, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 164), align 4, !tbaa !11
+    store i32 12, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 168), align 4, !tbaa !11
+    store i32 7, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 172), align 4, !tbaa !11
+    store i32 8, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 176), align 4, !tbaa !11
+    store i32 9, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 180), align 4, !tbaa !11
+    store i32 45, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), i32 8), align 4, !tbaa !11
+    store i32 5, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 240), align 4, !tbaa !11
+    store i32 6, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 244), align 4, !tbaa !11
+    store i32 7, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 248), align 4, !tbaa !11
+    store i32 16, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 252), align 4, !tbaa !11
+    store i32 9, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 256), align 4, !tbaa !11
+    store i32 10, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 260), align 4, !tbaa !11
+    store i32 53, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), i32 12), align 4, !tbaa !11
+    store i32 6, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 320), align 4, !tbaa !11
+    store i32 7, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 324), align 4, !tbaa !11
+    store i32 8, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 328), align 4, !tbaa !11
+    store i32 9, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 332), align 4, !tbaa !11
+    store i32 20, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 336), align 4, !tbaa !11
+    store i32 11, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 340), align 4, !tbaa !11
+    store i32 61, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), i32 16), align 4, !tbaa !11
+    store i32 7, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 400), align 4, !tbaa !11
+    store i32 8, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 404), align 4, !tbaa !11
+    store i32 9, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 408), align 4, !tbaa !11
+    store i32 10, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 412), align 4, !tbaa !11
+    store i32 11, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 416), align 4, !tbaa !11
+    store i32 24, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 420), align 4, !tbaa !11
+    store i32 69, ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), i32 20), align 4, !tbaa !11
+    %4 = tail call i32 @ludcmp(i32 poison, i32 noundef 5) #10
+    store volatile i32 0, ptr @_MergedGlobals, align 4, !tbaa !7
+    %lsr.iv.next = add i32 %lsr.iv, -1
+    %5 = icmp eq i32 %lsr.iv.next, 0
+    br i1 %5, label %6, label %3, !llvm.loop !13
+  
+  6:                                                ; preds = %3, %1
+    %7 = load volatile i32, ptr @_MergedGlobals, align 4, !tbaa !7
+    ret i32 %7
+  }
+  
+  ; Function Attrs: nofree noinline norecurse nounwind memory(readwrite, target_mem: none)
+  define dso_local i32 @benchmark() local_unnamed_addr #6 {
+    %1 = tail call fastcc i32 @benchmark_body(i32 noundef 1478) #10
+    ret i32 %1
+  }
+  
+  ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none, target_mem: none)
+  define dso_local noundef i32 @ludcmp(i32 %0, i32 noundef %1) local_unnamed_addr #7 {
+    %3 = alloca [100 x i32], align 4
+    call void @llvm.lifetime.start.p0(ptr nonnull %3) #8
+    %4 = icmp sgt i32 %1, 0
+    br i1 %4, label %.preheader5, label %5
+  
+  .preheader5:                                      ; preds = %2
+    br label %9
+  
+  5:                                                ; preds = %2
+    %6 = load i32, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), align 4, !tbaa !11
+    store i32 %6, ptr %3, align 4, !tbaa !11
+    br label %71
+  
+  7:                                                ; preds = %50
+    %scevgep29 = getelementptr i8, ptr %lsr.iv28, i32 4
+    %scevgep33 = getelementptr i8, ptr %lsr.iv32, i32 80
+    %scevgep43 = getelementptr i8, ptr %lsr.iv42, i32 4
+    %8 = icmp eq i32 %15, %1
+    br i1 %8, label %53, label %9, !llvm.loop !15
+  
+  9:                                                ; preds = %.preheader5, %7
+    %lsr.iv42 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_MergedGlobals, i32 168), %.preheader5 ], [ %scevgep43, %7 ]
+    %lsr.iv32 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_MergedGlobals, i32 244), %.preheader5 ], [ %scevgep33, %7 ]
+    %lsr.iv28 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_MergedGlobals, i32 164), %.preheader5 ], [ %scevgep29, %7 ]
+    %10 = phi i32 [ %15, %7 ], [ 0, %.preheader5 ]
+    %11 = mul i32 %10, 84
+    %12 = add i32 %11, 248
+    %13 = mul i32 %10, 84
+    %14 = add i32 %13, 164
+    %scevgep38 = getelementptr i8, ptr @_MergedGlobals, i32 %14
+    %15 = add nuw nsw i32 %10, 1
+    %16 = getelementptr inbounds nuw [20 x i32], ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 %10
+    %17 = getelementptr inbounds nuw i32, ptr %16, i32 %10
+    br label %20
+  
+  18:                                               ; preds = %32
+    %19 = getelementptr inbounds nuw [20 x i32], ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 %15
+    br label %38
+  
+  20:                                               ; preds = %32, %9
+    %lsr.iv34 = phi ptr [ %scevgep35, %32 ], [ %lsr.iv32, %9 ]
+    %21 = phi i32 [ %15, %9 ], [ %36, %32 ]
+    %22 = icmp eq i32 %10, 0
+    %23 = getelementptr inbounds nuw [20 x i32], ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 %21
+    %24 = getelementptr inbounds nuw i32, ptr %23, i32 %10
+    %25 = load i32, ptr %24, align 4, !tbaa !11
+    br i1 %22, label %32, label %.preheader3
+  
+  .preheader3:                                      ; preds = %20
+    br label %26
+  
+  26:                                               ; preds = %.preheader3, %26
+    %lsr.iv36 = phi ptr [ %lsr.iv34, %.preheader3 ], [ %scevgep37, %26 ]
+    %lsr.iv30 = phi ptr [ %lsr.iv28, %.preheader3 ], [ %scevgep31, %26 ]
+    %27 = phi i32 [ %31, %26 ], [ %25, %.preheader3 ]
+    %28 = load i32, ptr %lsr.iv36, align 4, !tbaa !11
+    %29 = load i32, ptr %lsr.iv30, align 4, !tbaa !11
+    %30 = mul nsw i32 %29, %28
+    %31 = sub nsw i32 %27, %30
+    %scevgep31 = getelementptr i8, ptr %lsr.iv30, i32 80
+    %scevgep37 = getelementptr i8, ptr %lsr.iv36, i32 4
+    %lsr_fold_term_cond.replaced_term_cond39 = icmp eq ptr %scevgep31, %scevgep38
+    br i1 %lsr_fold_term_cond.replaced_term_cond39, label %32, label %26, !llvm.loop !16
+  
+  32:                                               ; preds = %26, %20
+    %33 = phi i32 [ %25, %20 ], [ %31, %26 ]
+    %34 = load i32, ptr %17, align 4, !tbaa !11
+    %35 = sdiv i32 %33, %34
+    store i32 %35, ptr %24, align 4, !tbaa !11
+    %36 = add nuw i32 %21, 1
+    %scevgep35 = getelementptr i8, ptr %lsr.iv34, i32 80
+    %37 = icmp eq i32 %21, %1
+    br i1 %37, label %18, label %20, !llvm.loop !17
+  
+  38:                                               ; preds = %50, %18
+    %indvar50 = phi i32 [ %indvar.next51, %50 ], [ 0, %18 ]
+    %lsr.iv44 = phi ptr [ %scevgep45, %50 ], [ %lsr.iv42, %18 ]
+    %39 = phi i32 [ %15, %18 ], [ %51, %50 ]
+    %40 = shl i32 %indvar50, 2
+    %41 = add i32 %12, %40
+    %scevgep52 = getelementptr i8, ptr @_MergedGlobals, i32 %41
+    %42 = getelementptr inbounds nuw i32, ptr %19, i32 %39
+    %43 = load i32, ptr %42, align 4, !tbaa !11
+    br label %44
+  
+  44:                                               ; preds = %44, %38
+    %lsr.iv48 = phi ptr [ %scevgep49, %44 ], [ %lsr.iv32, %38 ]
+    %lsr.iv46 = phi ptr [ %scevgep47, %44 ], [ %lsr.iv44, %38 ]
+    %45 = phi i32 [ %43, %38 ], [ %49, %44 ]
+    %46 = load i32, ptr %lsr.iv48, align 4, !tbaa !11
+    %47 = load i32, ptr %lsr.iv46, align 4, !tbaa !11
+    %48 = mul nsw i32 %47, %46
+    %49 = sub nsw i32 %45, %48
+    %scevgep47 = getelementptr i8, ptr %lsr.iv46, i32 80
+    %scevgep49 = getelementptr i8, ptr %lsr.iv48, i32 4
+    %lsr_fold_term_cond.replaced_term_cond53 = icmp eq ptr %scevgep47, %scevgep52
+    br i1 %lsr_fold_term_cond.replaced_term_cond53, label %50, label %44, !llvm.loop !18
+  
+  50:                                               ; preds = %44
+    store i32 %49, ptr %42, align 4, !tbaa !11
+    %51 = add nuw i32 %39, 1
+    %scevgep45 = getelementptr i8, ptr %lsr.iv44, i32 4
+    %indvar.next51 = add i32 %indvar50, 1
+    %52 = icmp eq i32 %39, %1
+    br i1 %52, label %7, label %38, !llvm.loop !19
+  
+  53:                                               ; preds = %7
+    %54 = load i32, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), align 4, !tbaa !11
+    store i32 %54, ptr %3, align 4, !tbaa !11
+    br label %55
+  
+  55:                                               ; preds = %67, %53
+    %indvar = phi i32 [ %indvar.next, %67 ], [ 0, %53 ]
+    %lsr.iv21 = phi ptr [ %scevgep22, %67 ], [ getelementptr inbounds nuw (i8, ptr @_MergedGlobals, i32 244), %53 ]
+    %56 = phi i32 [ %69, %67 ], [ 1, %53 ]
+    %57 = shl i32 %indvar, 2
+    %58 = add i32 %57, 4
+    %scevgep25 = getelementptr i8, ptr %3, i32 %58
+    %59 = getelementptr inbounds nuw i32, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), i32 %56
+    %60 = load i32, ptr %59, align 4, !tbaa !11
+    br label %61
+  
+  61:                                               ; preds = %61, %55
+    %lsr.iv23 = phi ptr [ %scevgep24, %61 ], [ %lsr.iv21, %55 ]
+    %lsr.iv19 = phi ptr [ %scevgep20, %61 ], [ %3, %55 ]
+    %62 = phi i32 [ %60, %55 ], [ %66, %61 ]
+    %63 = load i32, ptr %lsr.iv23, align 4, !tbaa !11
+    %64 = load i32, ptr %lsr.iv19, align 4, !tbaa !11
+    %65 = mul nsw i32 %64, %63
+    %66 = sub nsw i32 %62, %65
+    %scevgep20 = getelementptr i8, ptr %lsr.iv19, i32 4
+    %scevgep24 = getelementptr i8, ptr %lsr.iv23, i32 4
+    %lsr_fold_term_cond.replaced_term_cond = icmp eq ptr %scevgep20, %scevgep25
+    br i1 %lsr_fold_term_cond.replaced_term_cond, label %67, label %61, !llvm.loop !20
+  
+  67:                                               ; preds = %61
+    %68 = getelementptr inbounds nuw i32, ptr %3, i32 %56
+    store i32 %66, ptr %68, align 4, !tbaa !11
+    %69 = add nuw i32 %56, 1
+    %scevgep22 = getelementptr i8, ptr %lsr.iv21, i32 80
+    %indvar.next = add i32 %indvar, 1
+    %70 = icmp eq i32 %56, %1
+    br i1 %70, label %71, label %55, !llvm.loop !21
+  
+  71:                                               ; preds = %67, %5
+    %72 = icmp sgt i32 %1, 0
+    %73 = getelementptr inbounds i32, ptr %3, i32 %1
+    %74 = load i32, ptr %73, align 4, !tbaa !11
+    %75 = getelementptr inbounds [20 x i32], ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 %1
+    %76 = getelementptr inbounds i32, ptr %75, i32 %1
+    %77 = load i32, ptr %76, align 4, !tbaa !11
+    %78 = sdiv i32 %74, %77
+    %79 = getelementptr inbounds i32, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 1), i32 %1
+    store i32 %78, ptr %79, align 4, !tbaa !11
+    br i1 %72, label %.preheader, label %106
+  
+  .preheader:                                       ; preds = %71
+    %80 = shl i32 %1, 2
+    %81 = add i32 %80, 4
+    %scevgep = getelementptr i8, ptr @_MergedGlobals, i32 %81
+    %82 = mul i32 %1, 84
+    %83 = add i32 %82, 84
+    %scevgep12 = getelementptr i8, ptr @_MergedGlobals, i32 %83
+    br label %84
+  
+  84:                                               ; preds = %.preheader, %98
+    %lsr.iv13 = phi ptr [ %scevgep12, %.preheader ], [ %scevgep14, %98 ]
+    %lsr.iv8 = phi ptr [ %scevgep, %.preheader ], [ %scevgep9, %98 ]
+    %lsr.iv = phi i32 [ 1, %.preheader ], [ %lsr.iv.next, %98 ]
+    %85 = phi i32 [ %86, %98 ], [ %1, %.preheader ]
+    %86 = add nsw i32 %85, -1
+    %87 = getelementptr inbounds nuw i32, ptr %3, i32 %86
+    %88 = load i32, ptr %87, align 4, !tbaa !11
+    %89 = icmp sgt i32 %85, %1
+    br i1 %89, label %98, label %90
+  
+  90:                                               ; preds = %84
+    br label %91
+  
+  91:                                               ; preds = %91, %90
+    %lsr.iv15 = phi ptr [ %scevgep16, %91 ], [ %lsr.iv13, %90 ]
+    %lsr.iv10 = phi ptr [ %scevgep11, %91 ], [ %lsr.iv8, %90 ]
+    %lsr.iv6 = phi i32 [ %lsr.iv.next7, %91 ], [ %lsr.iv, %90 ]
+    %92 = phi i32 [ %88, %90 ], [ %96, %91 ]
+    %93 = load i32, ptr %lsr.iv15, align 4, !tbaa !11
+    %94 = load i32, ptr %lsr.iv10, align 4, !tbaa !11
+    %95 = mul nsw i32 %94, %93
+    %96 = sub nsw i32 %92, %95
+    %lsr.iv.next7 = add i32 %lsr.iv6, -1
+    %scevgep11 = getelementptr i8, ptr %lsr.iv10, i32 4
+    %scevgep16 = getelementptr i8, ptr %lsr.iv15, i32 4
+    %97 = icmp eq i32 %lsr.iv.next7, 0
+    br i1 %97, label %98, label %91, !llvm.loop !22
+  
+  98:                                               ; preds = %91, %84
+    %99 = phi i32 [ %88, %84 ], [ %96, %91 ]
+    %100 = getelementptr inbounds nuw [20 x i32], ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 %86
+    %101 = getelementptr inbounds nuw i32, ptr %100, i32 %86
+    %102 = load i32, ptr %101, align 4, !tbaa !11
+    %103 = sdiv i32 %99, %102
+    %104 = getelementptr inbounds nuw i32, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 1), i32 %86
+    store i32 %103, ptr %104, align 4, !tbaa !11
+    %lsr.iv.next = add i32 %lsr.iv, 1
+    %scevgep9 = getelementptr i8, ptr %lsr.iv8, i32 -4
+    %scevgep14 = getelementptr i8, ptr %lsr.iv13, i32 -84
+    %105 = icmp samesign ugt i32 %85, 1
+    br i1 %105, label %84, label %106, !llvm.loop !23
+  
+  106:                                              ; preds = %98, %71
+    call void @llvm.lifetime.end.p0(ptr nonnull %3) #8
+    ret i32 0
+  }
+  
+  attributes #0 = { nounwind "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) "target-features"="+m,+a,+c,+zcmp" }
+  attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: write) "target-features"="+m,+a,+c,+zcmp" }
+  attributes #3 = { "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #5 = { nofree norecurse nounwind memory(readwrite, target_mem: none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #6 = { nofree noinline norecurse nounwind memory(readwrite, target_mem: none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none, target_mem: none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #8 = { nounwind }
+  attributes #9 = { nobuiltin nounwind "no-builtins" }
+  attributes #10 = { nobuiltin "no-builtins" }
+  
+  !llvm.module.flags = !{!1, !2, !3, !5}
+  !llvm.ident = !{!6}
+  !llvm.errno.tbaa = !{!7}
+  
+  !0 = !{i64 1708081473746676170}
+  !1 = !{i32 1, !"wchar_size", i32 4}
+  !2 = !{i32 1, !"target-abi", !"ilp32"}
+  !3 = !{i32 6, !"riscv-isa", !4}
+  !4 = !{!"rv32i2p1_m2p0_a2p1_c2p0_zmmul1p0_zaamo1p0_zalrsc1p0_zca1p0_zcmp1p0"}
+  !5 = !{i32 8, !"SmallDataLimit", i32 0}
+  !6 = !{!"clang version 22.1.8 (https://github.com/llvm/llvm-project.git ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"}
+  !7 = !{!8, !8, i64 0}
+  !8 = !{!"int", !9, i64 0}
+  !9 = !{!"omnipotent char", !10, i64 0}
+  !10 = !{!"Simple C/C++ TBAA"}
+  !11 = !{!12, !12, i64 0}
+  !12 = !{!"long", !9, i64 0}
+  !13 = distinct !{!13, !14}
+  !14 = !{!"llvm.loop.mustprogress"}
+  !15 = distinct !{!15, !14}
+  !16 = distinct !{!16, !14}
+  !17 = distinct !{!17, !14}
+  !18 = distinct !{!18, !14}
+  !19 = distinct !{!19, !14}
+  !20 = distinct !{!20, !14}
+  !21 = distinct !{!21, !14}
+  !22 = distinct !{!22, !14}
+  !23 = distinct !{!23, !14}
+...
+---
+name:            verify_benchmark
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%0' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    4
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  80
+fixedStack:      []
+stack:
+  - { id: 0, name: '', type: default, offset: 0, size: 80, alignment: 4, 
+      stack-id: default, callee-saved-register: '', callee-saved-restored: true, 
+      local-offset: -80, debug-info-variable: '', debug-info-expression: '', 
+      debug-info-location: '' }
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    liveins: $x10
+  
+    %0:gpr = COPY $x10
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x10 = ADDI %stack.0, 0
+    $x12 = ADDI $x0, 80
+    $x11 = COPY $x0
+    PseudoCALL target-flags(riscv-call) &memset, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit killed $x12, implicit-def $x2, implicit-def dead $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %5:gpr = ADDI $x0, 1
+    %6:gpr = ADDI $x0, 2
+    SW %5, %stack.0, 8 :: (store (s32) into %ir.3)
+    SW %5, %stack.0, 12 :: (store (s32) into %ir.4)
+    SW %5, %stack.0, 16 :: (store (s32) into %ir.5)
+    SW %6, %stack.0, 20 :: (store (s32) into %ir.6)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    %7:gpr = PseudoMovAddr target-flags(riscv-hi) @_MergedGlobals + 4, target-flags(riscv-lo) @_MergedGlobals + 4
+    $x11 = ADDI %stack.0, 0
+    $x12 = ADDI $x0, 80
+    $x10 = COPY %7
+    PseudoCALL target-flags(riscv-call) @memcmp, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit killed $x12, implicit-def $x2, implicit-def $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %9:gpr = COPY $x10
+    %10:gpr = OR %9, %0
+    %11:gpr = SLTIU %10, 1
+    $x10 = COPY %11
+    PseudoRET implicit $x10
+...
+---
+name:            initialise_benchmark
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:       []
+liveins:         []
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.0):
+    PseudoRET
+...
+---
+name:            warm_caches
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%0' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     true
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    liveins: $x10
+  
+    %0:gpr = COPY $x10
+    $x10 = COPY %0
+    PseudoTAIL target-flags(riscv-call) @benchmark_body, csr_ilp32_lp64, implicit $x2, implicit $x10
+...
+---
+name:            benchmark_body
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 18, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 19, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 20, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 21, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 23, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 24, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 25, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 26, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 27, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 28, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 29, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%2' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    successors: %bb.1(0x50000000), %bb.3(0x30000000)
+    liveins: $x10
+  
+    %29:gpr = COPY $x10
+    BGE $x0, %29, %bb.3
+    PseudoBR %bb.1
+  
+  bb.1..preheader:
+    successors: %bb.2(0x80000000)
+  
+    %4:gpr = PseudoMovAddr target-flags(riscv-hi) @_MergedGlobals, target-flags(riscv-lo) @_MergedGlobals
+    %5:gpr = ADDI $x0, 4
+    %6:gpr = ADDI $x0, 3
+    %7:gpr = ADDI $x0, 5
+    %8:gpr = ADDI $x0, 6
+    %9:gpr = ADDI $x0, 7
+    %10:gpr = ADDI $x0, 29
+    %11:gpr = ADDI $x0, 8
+    %12:gpr = ADDI $x0, 37
+    %13:gpr = ADDI $x0, 12
+    %14:gpr = ADDI $x0, 9
+    %15:gpr = ADDI $x0, 45
+    %16:gpr = ADDI $x0, 16
+    %17:gpr = ADDI $x0, 10
+    %18:gpr = ADDI $x0, 53
+    %19:gpr = ADDI $x0, 20
+    %20:gpr = ADDI $x0, 11
+    %21:gpr = ADDI $x0, 61
+    %22:gpr = ADDI $x0, 24
+    %23:gpr = ADDI $x0, 69
+  
+  bb.2 (%ir-block.3):
+    successors: %bb.3(0x04000000), %bb.2(0x7c000000)
+  
+    SW %21, %4, 100 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), i32 16)`, !tbaa !11)
+    SW %23, %4, 104 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), i32 20)`, !tbaa !11)
+    SW %5, %4, 164 :: (store (s32) into `ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3)`, !tbaa !11)
+    SW %6, %4, 168 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 4)`, !tbaa !11)
+    SW %5, %4, 172 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 8)`, !tbaa !11)
+    SW %7, %4, 176 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 12)`, !tbaa !11)
+    SW %8, %4, 180 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 16)`, !tbaa !11)
+    SW %9, %4, 184 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 20)`, !tbaa !11)
+    SW %6, %4, 244 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 80)`, !tbaa !11)
+    SW %11, %4, 248 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 84)`, !tbaa !11)
+    SW %7, %4, 252 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 88)`, !tbaa !11)
+    SW %8, %4, 256 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 92)`, !tbaa !11)
+    SW %9, %4, 260 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 96)`, !tbaa !11)
+    SW %11, %4, 264 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 100)`, !tbaa !11)
+    SW %5, %4, 324 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 160)`, !tbaa !11)
+    SW %7, %4, 328 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 164)`, !tbaa !11)
+    SW %13, %4, 332 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 168)`, !tbaa !11)
+    SW %9, %4, 336 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 172)`, !tbaa !11)
+    SW %11, %4, 340 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 176)`, !tbaa !11)
+    SW %14, %4, 344 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 180)`, !tbaa !11)
+    SW %7, %4, 404 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 240)`, !tbaa !11)
+    SW %8, %4, 408 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 244)`, !tbaa !11)
+    SW %9, %4, 412 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 248)`, !tbaa !11)
+    SW %16, %4, 416 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 252)`, !tbaa !11)
+    SW %10, %4, 84 :: (store (s32) into `ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2)`, !tbaa !11)
+    SW %12, %4, 88 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), i32 4)`, !tbaa !11)
+    SW %15, %4, 92 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), i32 8)`, !tbaa !11)
+    SW %18, %4, 96 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2), i32 12)`, !tbaa !11)
+    SW %14, %4, 420 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 256)`, !tbaa !11)
+    SW %17, %4, 424 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 260)`, !tbaa !11)
+    SW %8, %4, 484 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 320)`, !tbaa !11)
+    SW %9, %4, 488 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 324)`, !tbaa !11)
+    SW %11, %4, 492 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 328)`, !tbaa !11)
+    SW %14, %4, 496 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 332)`, !tbaa !11)
+    SW %19, %4, 500 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 336)`, !tbaa !11)
+    SW %20, %4, 504 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 340)`, !tbaa !11)
+    SW %9, %4, 564 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 400)`, !tbaa !11)
+    SW %11, %4, 568 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 404)`, !tbaa !11)
+    SW %14, %4, 572 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 408)`, !tbaa !11)
+    SW %17, %4, 576 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 412)`, !tbaa !11)
+    SW %20, %4, 580 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 416)`, !tbaa !11)
+    SW %22, %4, 584 :: (store (s32) into `ptr getelementptr inbounds nuw (i8, ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 3), i32 420)`, !tbaa !11)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    $x11 = ADDI $x0, 5
+    PseudoCALL target-flags(riscv-call) @ludcmp, csr_ilp32_lp64, implicit-def dead $x1, implicit undef $x10, implicit killed $x11, implicit-def $x2, implicit-def dead $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %29:gpr = ADDI %29, -1
+    SW $x0, %4, 0 :: (volatile store (s32) into @_MergedGlobals, !tbaa !7)
+    BNE %29, $x0, %bb.2
+    PseudoBR %bb.3
+  
+  bb.3 (%ir-block.6):
+    %27:gpr = LUI target-flags(riscv-hi) @_MergedGlobals
+    %28:gpr = LW %27, target-flags(riscv-lo) @_MergedGlobals :: (volatile dereferenceable load (s32) from @_MergedGlobals, !tbaa !7)
+    $x10 = COPY %28
+    PseudoRET implicit $x10
+...
+---
+name:            benchmark
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+liveins:         []
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     true
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.0):
+    $x10 = ADDI $x0, 1478
+    PseudoTAIL target-flags(riscv-call) @benchmark_body, csr_ilp32_lp64, implicit $x2, implicit killed $x10
+...
+---
+name:            ludcmp
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 5, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 6, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 7, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 8, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 9, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 10, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 11, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 12, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 13, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 14, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 15, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 16, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 17, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 18, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 19, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 20, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 21, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 22, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 23, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 24, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 25, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 26, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 27, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 28, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 29, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 30, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 31, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 32, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 33, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 34, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 35, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 36, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 37, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 38, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 39, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 40, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 41, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 42, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 43, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 44, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 45, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 46, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 47, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 48, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 49, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 50, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 51, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 52, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 53, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 54, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 55, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 56, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 57, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 58, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 59, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 60, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 61, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 62, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 63, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 64, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 65, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 66, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 67, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 68, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 69, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 70, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 71, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 72, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 73, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 74, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 75, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 76, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 77, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 78, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 79, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 80, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 81, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 82, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 83, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 84, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 85, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 86, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 87, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 88, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 89, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 90, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 91, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 92, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 93, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 94, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 95, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 96, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 97, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 98, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 99, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 100, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 101, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 102, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 103, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 104, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 105, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 106, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 107, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 108, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 109, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 110, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 111, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 112, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 113, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 114, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 115, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 116, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 117, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 118, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 119, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 120, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 121, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 122, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 123, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 124, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 125, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 126, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 127, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 128, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 129, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 130, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 131, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 132, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 133, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 134, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 135, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 136, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 137, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 138, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 139, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 140, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 141, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 142, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 143, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 144, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 145, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 146, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 147, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 148, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 149, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 150, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 151, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 152, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 153, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 154, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 155, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 156, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 157, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 158, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 159, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 160, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 161, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 162, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 163, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 164, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 165, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 166, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 167, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 168, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 169, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 170, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 171, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 172, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 173, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 174, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 175, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 176, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 177, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 178, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 179, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 180, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 181, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 182, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 183, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 184, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 185, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 186, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 187, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 188, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 189, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 190, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 191, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 192, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 193, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 194, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 195, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 196, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 197, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 198, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 199, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 200, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 201, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 202, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 203, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 204, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 205, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 206, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 207, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 208, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 209, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 210, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 211, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 212, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 213, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 214, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 215, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 216, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 217, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 218, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 219, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x11', virtual-reg: '%75' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    4
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  400
+fixedStack:      []
+stack:
+  - { id: 0, name: '', type: default, offset: 0, size: 400, alignment: 4, 
+      stack-id: default, callee-saved-register: '', callee-saved-restored: true, 
+      local-offset: -400, debug-info-variable: '', debug-info-expression: '', 
+      debug-info-location: '' }
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.2):
+    successors: %bb.1(0x50000000), %bb.2(0x30000000)
+    liveins: $x11
+  
+    %75:gpr = COPY $x11
+    %188:gpr = PseudoMovAddr target-flags(riscv-hi) @_MergedGlobals, target-flags(riscv-lo) @_MergedGlobals
+    BGE $x0, %75, %bb.2
+    PseudoBR %bb.1
+  
+  bb.1..preheader5:
+    successors: %bb.4(0x80000000)
+  
+    %192:gpr = COPY $x0
+    %191:gpr = nuw ADDI %188, 164
+    %190:gpr = nuw ADDI %188, 244
+    %189:gpr = nuw ADDI %188, 168
+    %85:gpr = ADDI $x0, 84
+    PseudoBR %bb.4
+  
+  bb.2 (%ir-block.5):
+    successors: %bb.17(0x80000000)
+  
+    %78:gpr = LW %188, 84 :: (dereferenceable load (s32) from `ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2)`, !tbaa !11)
+    SW %78, %stack.0, 0 :: (store (s32) into %ir.3, !tbaa !11)
+    PseudoBR %bb.17
+  
+  bb.3 (%ir-block.7):
+    successors: %bb.13(0x04000000), %bb.4(0x7c000000)
+  
+    %191:gpr = ADDI %191, 4
+    %190:gpr = ADDI %190, 80
+    %189:gpr = ADDI %189, 4
+    BEQ %192, %75, %bb.13
+    PseudoBR %bb.4
+  
+  bb.4 (%ir-block.9):
+    successors: %bb.6(0x80000000)
+  
+    %6:gpr = COPY %192
+    %86:gpr = MUL %6, %85
+    %192:gpr = nuw nsw ADDI %6, 1
+    %89:gpr = SLLI %6, 4
+    %90:gpr = SLLI %6, 6
+    %93:gpr = nuw nsw SLLI %6, 2
+    %91:gpr = ADD %90, %89
+    %179:gpr = ADD %188, %93
+    %94:gpr = ADD %179, %91
+    %88:gpr = ADD %86, %188
+    %7:gpr = ADDI %86, 248
+    %8:gpr = ADDI %88, 164
+    %193:gpr = COPY %190
+    %194:gpr = COPY %192
+    PseudoBR %bb.6
+  
+  bb.5 (%ir-block.18):
+    successors: %bb.10(0x80000000)
+  
+    %199:gpr = COPY $x0
+    %108:gpr = SLLI %192, 4
+    %109:gpr = SLLI %192, 6
+    %110:gpr = ADD %109, %108
+    %187:gpr = ADD %188, %7
+    %112:gpr = nuw ADD %188, %110
+    %200:gpr = COPY %189
+    %201:gpr = COPY %192
+    PseudoBR %bb.10
+  
+  bb.6 (%ir-block.20):
+    successors: %bb.24(0x30000000), %bb.7(0x50000000)
+  
+    %13:gpr = COPY %194
+    %95:gpr = SLLI %13, 4
+    %96:gpr = SLLI %13, 6
+    %97:gpr = ADD %96, %95
+    %101:gpr = ADD %179, %97
+    %198:gpr = LW %101, 164 :: (load (s32) from %ir.24, !tbaa !11)
+    BNE %6, $x0, %bb.7
+  
+  bb.24:
+    successors: %bb.9(0x80000000)
+  
+    PseudoBR %bb.9
+  
+  bb.7..preheader3:
+    successors: %bb.8(0x80000000)
+  
+    %195:gpr = COPY %193
+    %196:gpr = COPY %191
+  
+  bb.8 (%ir-block.26):
+    successors: %bb.9(0x04000000), %bb.8(0x7c000000)
+  
+    %102:gpr = LW %195, 0 :: (load (s32) from %ir.lsr.iv36, !tbaa !11)
+    %103:gpr = LW %196, 0 :: (load (s32) from %ir.lsr.iv30, !tbaa !11)
+    %104:gpr = nsw MUL %103, %102
+    %196:gpr = ADDI %196, 80
+    %198:gpr = nsw SUB %198, %104
+    %195:gpr = ADDI %195, 4
+    BNE %196, %8, %bb.8
+    PseudoBR %bb.9
+  
+  bb.9 (%ir-block.32):
+    successors: %bb.5(0x04000000), %bb.6(0x7c000000)
+  
+    %105:gpr = LW %94, 164 :: (load (s32) from %ir.17, !tbaa !11)
+    %106:gpr = DIV %198, %105
+    SW %106, %101, 164 :: (store (s32) into %ir.24, !tbaa !11)
+    %194:gpr = nuw ADDI %13, 1
+    %193:gpr = ADDI %193, 80
+    BEQ %13, %75, %bb.5
+    PseudoBR %bb.6
+  
+  bb.10 (%ir-block.38):
+    successors: %bb.11(0x80000000)
+  
+    %27:gpr = COPY %201
+    %117:gpr = nuw nsw SLLI %27, 2
+    %29:gpr = nuw ADD %112, %117
+    %204:gpr = LW %29, 164 :: (load (s32) from %ir.42, !tbaa !11)
+    %114:gpr = SLLI %199, 2
+    %28:gpr = ADD %187, %114
+    %202:gpr = COPY %190
+    %203:gpr = COPY %200
+  
+  bb.11 (%ir-block.44):
+    successors: %bb.12(0x04000000), %bb.11(0x7c000000)
+  
+    %118:gpr = LW %202, 0 :: (load (s32) from %ir.lsr.iv48, !tbaa !11)
+    %119:gpr = LW %203, 0 :: (load (s32) from %ir.lsr.iv46, !tbaa !11)
+    %120:gpr = nsw MUL %119, %118
+    %203:gpr = ADDI %203, 80
+    %204:gpr = nsw SUB %204, %120
+    %202:gpr = ADDI %202, 4
+    BNE %203, %28, %bb.11
+    PseudoBR %bb.12
+  
+  bb.12 (%ir-block.50):
+    successors: %bb.3(0x04000000), %bb.10(0x7c000000)
+  
+    SW %204, %29, 164 :: (store (s32) into %ir.42, !tbaa !11)
+    %201:gpr = nuw ADDI %27, 1
+    %200:gpr = ADDI %200, 4
+    %199:gpr = ADDI %199, 1
+    BEQ %27, %75, %bb.3
+    PseudoBR %bb.10
+  
+  bb.13 (%ir-block.53):
+    successors: %bb.14(0x80000000)
+  
+    %205:gpr = COPY $x0
+    %125:gpr = LW %188, 84 :: (dereferenceable load (s32) from `ptr getelementptr inbounds (<{ i32, [20 x i32], [20 x i32], [20 x [20 x i32]] }>, ptr @_MergedGlobals, i32 0, i32 2)`, !tbaa !11)
+    %206:gpr = nuw ADDI %188, 244
+    SW %125, %stack.0, 0 :: (store (s32) into %ir.3, !tbaa !11)
+    %207:gpr = ADDI $x0, 1
+    %137:gpr = ADDI %stack.0, 0
+  
+  bb.14 (%ir-block.55):
+    successors: %bb.15(0x80000000)
+  
+    %42:gpr = COPY %207
+    %130:gpr = nuw nsw SLLI %42, 2
+    %132:gpr = nuw ADD %188, %130
+    %128:gpr = SLLI %205, 2
+    %210:gpr = LW %132, 84 :: (load (s32) from %ir.59, !tbaa !11)
+    %129:gpr = ADD %128, %137
+    %43:gpr = ADDI %129, 4
+    %208:gpr = COPY %206
+    %209:gpr = ADDI %stack.0, 0
+  
+  bb.15 (%ir-block.61):
+    successors: %bb.16(0x04000000), %bb.15(0x7c000000)
+  
+    %133:gpr = LW %208, 0 :: (load (s32) from %ir.lsr.iv23, !tbaa !11)
+    %134:gpr = LW %209, 0 :: (load (s32) from %ir.lsr.iv19, !tbaa !11)
+    %135:gpr = nsw MUL %134, %133
+    %209:gpr = ADDI %209, 4
+    %210:gpr = nsw SUB %210, %135
+    %208:gpr = ADDI %208, 4
+    BNE %209, %43, %bb.15
+    PseudoBR %bb.16
+  
+  bb.16 (%ir-block.67):
+    successors: %bb.17(0x04000000), %bb.14(0x7c000000)
+  
+    %138:gpr = nuw ADD %137, %130
+    SW %210, %138, 0 :: (store (s32) into %ir.68, !tbaa !11)
+    %207:gpr = nuw ADDI %42, 1
+    %206:gpr = ADDI %206, 80
+    %205:gpr = ADDI %205, 1
+    BNE %42, %75, %bb.14
+    PseudoBR %bb.17
+  
+  bb.17 (%ir-block.71):
+    successors: %bb.18(0x50000000), %bb.23(0x30000000)
+  
+    %139:gpr = nsw SLLI %75, 2
+    %140:gpr = ADDI %stack.0, 0
+    %143:gpr = SLLI %75, 4
+    %144:gpr = SLLI %75, 6
+    %145:gpr = ADD %144, %143
+    %147:gpr = ADD %188, %139
+    %141:gpr = ADD %140, %139
+    %148:gpr = ADD %147, %145
+    %142:gpr = LW %141, 0 :: (load (s32) from %ir.73, !tbaa !11)
+    %149:gpr = LW %148, 164 :: (load (s32) from %ir.76, !tbaa !11)
+    %150:gpr = DIV %142, %149
+    SW %150, %147, 4 :: (store (s32) into %ir.79, !tbaa !11)
+    BGE $x0, %75, %bb.23
+    PseudoBR %bb.18
+  
+  bb.18..preheader:
+    successors: %bb.19(0x80000000)
+  
+    %156:gpr = ADDI $x0, 84
+    %157:gpr = MUL %75, %156
+    %212:gpr = ADDI %147, 4
+    %158:gpr = ADD %157, %188
+    %152:gpr = ADDI $x0, 1
+    %211:gpr = ADDI %158, 84
+    %213:gpr = ADDI $x0, 1
+    %214:gpr = COPY %75
+  
+  bb.19 (%ir-block.84):
+    successors: %bb.25(0x40000000), %bb.20(0x40000000)
+  
+    %59:gpr = COPY %214
+    %214:gpr = nsw ADDI %59, -1
+    %159:gpr = nuw nsw SLLI %214, 2
+    %161:gpr = nuw ADD %140, %159
+    %219:gpr = LW %161, 0 :: (load (s32) from %ir.87, !tbaa !11)
+    BGE %75, %59, %bb.20
+  
+  bb.25:
+    successors: %bb.22(0x80000000)
+  
+    PseudoBR %bb.22
+  
+  bb.20 (%ir-block.90):
+    successors: %bb.21(0x80000000)
+  
+    %215:gpr = COPY %211
+    %216:gpr = COPY %212
+    %217:gpr = COPY %213
+  
+  bb.21 (%ir-block.91):
+    successors: %bb.22(0x04000000), %bb.21(0x7c000000)
+  
+    %162:gpr = LW %215, 0 :: (load (s32) from %ir.lsr.iv15, !tbaa !11)
+    %163:gpr = LW %216, 0 :: (load (s32) from %ir.lsr.iv10, !tbaa !11)
+    %164:gpr = nsw MUL %163, %162
+    %217:gpr = ADDI %217, -1
+    %219:gpr = nsw SUB %219, %164
+    %216:gpr = ADDI %216, 4
+    %215:gpr = ADDI %215, 4
+    BNE %217, $x0, %bb.21
+    PseudoBR %bb.22
+  
+  bb.22 (%ir-block.98):
+    successors: %bb.19(0x7c000000), %bb.23(0x04000000)
+  
+    %165:gpr = SLLI %214, 4
+    %166:gpr = SLLI %214, 6
+    %170:gpr = ADD %188, %159
+    %167:gpr = ADD %166, %165
+    %171:gpr = ADD %170, %167
+    %172:gpr = LW %171, 164 :: (load (s32) from %ir.101, !tbaa !11)
+    %173:gpr = DIV %219, %172
+    %213:gpr = ADDI %213, 1
+    SW %173, %170, 4 :: (store (s32) into %ir.104, !tbaa !11)
+    %212:gpr = ADDI %212, -4
+    %211:gpr = ADDI %211, -84
+    BLTU %152, %59, %bb.19
+    PseudoBR %bb.23
+  
+  bb.23 (%ir-block.106):
+    $x10 = COPY $x0
+    PseudoRET implicit killed $x10
+...

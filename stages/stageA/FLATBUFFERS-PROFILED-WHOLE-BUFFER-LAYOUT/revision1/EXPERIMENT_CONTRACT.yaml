@@ -1,0 +1,171 @@
+schema_version: stagea-revision1-v8.7
+assignment_id: STAGEA-L3-20260811-FLATBUFFERS-PROFILED-WHOLE-BUFFER-LAYOUT-REVISION1-V8.7
+topic_id: FLATBUFFERS-PROFILED-WHOLE-BUFFER-LAYOUT
+revision_index: 1
+revision_limit: 1
+stageb_authorization: false
+stageb_user_approval_id: null
+unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\FLATBUFFERS-PROFILED-WHOLE-BUFFER-LAYOUT\revision1
+atomic_revision_gate: TRACE_DERIVED_PROFILE_MATCHED_READER_AND_EXECUTABLE_FRONTIER_FIDELITY_GATE
+scientific_revision_consumption_point: FIRST_ACCEPTED_CORRECTED_NATURAL_CLAIM_BEARING_ROW_AFTER_REVISED_PRECLAIM_PASS
+scientific_revision_consumed_at_contract_freeze: false
+
+exact_object:
+  input: pinned TFLite schema plus identity-labelled rooted logical DAG, fixed values/nulls/presence, vector/key order, logical training profile and ordinary TFL3 framing
+  output: one ordinary raw native FlatBuffers TFL3 buffer
+  same_object_checks:
+    - pinned unmodified tflite::VerifyModelBuffer accepts
+    - pinned generated reader accepts
+    - canonical schema/value/null/presence/vector/key/identity/alias digest equals the source
+    - ordinary non-size-prefixed TFL3 identifier is unchanged
+    - applicable native force-vector alignment holds
+  forbidden:
+    - schema, logical object, record/vector/key order or presence change
+    - alternate reader, format, codec, compression, raw injection, emitter patch or postprocessor
+    - Offset64 or size-prefixed TFLite output
+
+frozen_inputs:
+  corpus_manifest: ..\initial\inputs\natural_corpus_manifest.json
+  corpus_manifest_sha256: 6C8F68ADA4DEF9D0C8751C2FA889A68C49C47BD4E7DC3D3593A34F87799BE757
+  models: 24
+  split: 11_train__13_heldout_by_family
+  arms: 8
+  beam_width: 8
+  transition_cap: 20000
+  flatbuffers_commit: 7e163021e59cca4f8e1e35a7c828b5c6b7915953
+  flatc_version: 25.12.19
+  compiler: llvm-mingw_20260616__clang_22.1.8__ca7933e47d3a3451d81e72ac174dcb5aa28b59d1
+  new_corpus_or_arm_or_config_search: forbidden
+  mechanism_pivot: forbidden
+  result_conditioned_profile_or_tuning: forbidden
+
+training_trace_preregistration:
+  source_split: train_only
+  source_models: exactly_the_11_manifest_records_labelled_train
+  heldout_file_open_during_trace_derivation: forbidden
+  initial_result_file_open_during_trace_derivation: forbidden
+  requests_per_training_model: 64
+  request_seed: request_ordinal_0_through_63
+  event_identity: generated_reader_accessor_mapped_to_canonical_reflection_type_dot_field_endpoint
+  selector_rule: seed_and_request_ordinal_modulo_current_vector_length
+  event_order: exact_native_generated_reader_call_order
+  estimator: raw_event_count_per_logical_endpoint_over_all_11_times_64_training_requests
+  smoothing: none
+  reference_buffer_offsets: forbidden
+  output_conditioning: forbidden
+  replay_rule: cycle_the_frozen_704_request_descriptors_under_the_existing_5000_warm_and_50_cold_denominators
+  artifacts_to_freeze_before_gate_pass:
+    - trace/logical_endpoint_mapping.tsv
+    - trace/request_program.tsv
+    - trace/training_request_trace.tsv
+    - trace/profile_weights.tsv
+    - trace/TRACE_FREEZE.yaml
+
+arms:
+  - generated_pack_default
+  - stable_legal_topo
+  - stable_dedup_off
+  - stable_size_matched_capacity
+  - hot_first_ready
+  - local_field_order
+  - generic_bounded_beam
+  - fb_rcfdp_bounded
+
+useful_residual_action_fraction:
+  frozen_before_results: true
+  denominator: every_selected_candidate_transition_on_all_24_models_including_deterministic_fallback_transitions
+  numerator_conditions:
+    - candidate_prefix_normalized_state_was_reached_by_at_least_two_distinct_native_raw_prefixes_during_quotient_expansion
+    - at_least_one_mapped_B0_B1_or_B2_executable_plan_reaches_the_identical_completion_set
+    - candidate_next_node_and_field_variant_differs_from_every_such_mapped_comparator_next_action
+  mapped_comparator_paths:
+    B0_generated_pack_default: mapped_by_stable_generated_field_order_direct_expansion_for_action_coverage_only__native_pack_remains_independently_executed_for_results
+    B0_stable_and_configs: stable_legal_topo
+    B0_hot: hot_first_ready
+    B1: local_field_order
+    B2: generic_bounded_beam
+  fallback_treatment: fallback_transitions_are_in_denominator_and_have_zero_useful_residual_credit
+  threshold: 0.10
+  reporting: overall_train_heldout
+
+full_cost:
+  components_and_units:
+    trace_training_collection_wall_ms: one_time_measured
+    trace_training_collection_cpu_ms: one_time_measured
+    trace_artifact_bytes: exact
+    graph_profile_extraction_wall_us: per_model_measured
+    graph_profile_extraction_cpu_us: per_model_measured
+    planner_wall_us: per_arm_measured_or_zero_if_not_used
+    planner_cpu_us: per_arm_measured_or_zero_if_not_used
+    builder_wall_us: per_arm_mean_over_30_fresh_builds
+    builder_cpu_us: per_arm_mean_over_30_fresh_builds
+    verifier_wall_us: per_arm_mean_over_200_native_verifications
+    verifier_cpu_us: per_arm_mean_over_200_native_verifications
+    profile_reader_warm_wall_ns: per_arm_mean_over_5000_frozen_trace_requests
+    profile_reader_warm_cpu_ns: per_arm_mean_over_5000_frozen_trace_requests
+    profile_reader_cold_wall_ns: per_arm_mean_over_50_frozen_trace_requests_each_after_identical_8MiB_eviction
+    profile_reader_cold_cpu_ns: per_arm_mean_over_50_frozen_trace_requests_each_after_identical_8MiB_eviction
+    raw_buffer_bytes: exact
+    planner_temp_bytes: measured_high_water_proxy_from_retained_native_prefix_and_backpointer_storage
+    builder_temp_bytes: conservative_max_of_declared_initial_capacity_and_emitted_bytes
+    process_peak_rss_bytes: measured_absolute_working_set_high_water
+    fallback: exact_boolean
+  executable_vector_for_pareto:
+    - raw_buffer_bytes
+    - profile_reader_warm_wall_ns
+    - profile_reader_cold_wall_ns
+    - end_to_end_construction_wall_us
+    - end_to_end_construction_cpu_us
+    - profile_reader_warm_cpu_ns
+    - profile_reader_cold_cpu_ns
+    - process_peak_rss_bytes
+    - total_temporary_bytes
+    - fallback
+  end_to_end_construction_definition: graph_extraction_if_required_plus_planner_plus_builder_plus_verifier
+  pareto_rule: one_executable_arm_vector_weakly_dominates_another_only_if_no_component_is_worse_and_at_least_one_is_strictly_better
+  frontiers:
+    - per_model_all_8_executable_arms
+    - heldout_armwise_p50_vectors
+    - heldout_armwise_p90_vectors
+  coordinatewise_union_use: paired_primary_residuals_only__never_an_executable_pareto_point
+  paired_primary_residuals: candidate_minus_best_eligible_comparator_for_same_model_divided_by_that_comparator
+  percentile_rule: linear_interpolation_at_n_minus_1_times_q
+
+success_rule:
+  - all_same_object_and_arm_executability_checks_pass
+  - useful_residual_action_fraction_overall_at_least_0.10
+  - at_least_one_of_raw_bytes_or_profile_reader_warm_wall_or_profile_reader_cold_wall_has_candidate_minus_union_delta_below_zero_at_both_heldout_p50_and_p90
+  - candidate_is_on_both_heldout_p50_and_p90_full_cost_executable_arm_frontiers
+  - all_resource_costs_remain_within_budget
+
+killers:
+  - any_same_object_reader_verifier_identifier_alignment_failure
+  - revised_tiny_witness_or_exhaustive_oracle_failure
+  - useful_residual_action_fraction_below_0.10
+  - candidate_action_or_benefit_absorbed_by_B1_or_B2
+  - no_heldout_p50_and_p90_primary_residual_after_valid_corrected_run
+  - candidate_absent_from_either_heldout_p50_or_p90_full_cost_frontier
+  - full_cost_consumes_the_only_primary_benefit
+
+resource_budget:
+  execution: PUBLIC_CPU_ONLY
+  workspace_bytes_max: 4294967296
+  cpu_hours_max: 4
+  gpu: false
+  global_install: forbidden
+resource_failure_before_claim:
+  decision: BLOCKED_USER_ACTION_REQUIRED
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed: false
+positive_evidence_ceiling: PRELIMINARY_SUPPORT__NOT_FALSIFIED
+
+post_run_status:
+  revised_preclaim_gate: PASS
+  claim_bearing_rows_before_gate_pass: 0
+  first_accepted_corrected_natural_model: 00_quantize_quantize0
+  first_accepted_corrected_observation_time: 2026-08-11T09:34:45.650613+08:00
+  scientific_revision_consumed: true
+  owner_decision: STOP_RECOMMENDED__OWNER_NONFINAL
+  quality_tier: BELOW_Q2_STOP
+  evidence_ceiling: CORRECTED_TRACE_PROFILED_SAME_OBJECT_24_MODEL_STAGEA_NEGATIVE__OWNER_NONFINAL
+  stageb_authorized: false

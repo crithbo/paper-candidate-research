@@ -1,0 +1,103 @@
+schema: ppc-r9d-command-cost-and-r10-validator-correction-v1
+created_at: 2026-08-26T17:05:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9D-COMMAND-COST-AND-R10-VALIDATOR-CLOSURE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9d-command-cost-preclaim/resources
+
+source_gate:
+  directory: stages/stageA/_reviews/round-20260826-ppc-r9c-preclaim/LLVM-PPC-PREFIX-PRESSURE-PARETODP
+  handoff_sha256: 78C87206CDCBE8FFDD0FFFBEA13BAA459350B193F2E3CE7D5F291B69BD5361A8
+  manifest_sha256: 995156E74438E4A927C6BE05601A5AF3585924E21A1BA780C32C52523DCB38D4
+  mainline_acceptance_sha256: 7CD1ED5BDE21EB1F786E667CAF9A25B01860BF34B64DC616CE0FECE0AE93D1BA
+  decision: REJECT_PRECLAIM_FIDELITY__BOUNDED_ENGINEERING_CORRECTION_EXISTS
+  route_id: PPC_R9D_COMMAND_COST_EDGE_AND_R10_VALIDATOR_CLOSURE_V1
+
+source_owner:
+  directory: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9c-per-action-preclaim
+  handoff_sha256: FDBC8EB59AA86D6309746CD6FDBE1C5075A16CA9E4934D683AF6E9090B236B57
+  manifest_sha256: 378F4C3C655F5128A7F19839AC560981A7EC5F09B58688EFCD74FE6669F8C233
+  mainline_acceptance_sha256: 2F9F23FDB9569595626D68A1A38092ED95264DE400C9305BD4416033D461A0E1
+  accepted_decisive_subtrees:
+    - resources/src/natural_materializer
+    - resources/build/a1_control_replay_1
+    - resources/build/a1_control_replay_2
+  accepted_top_level_inputs: [A1_PRE_CLAIM_PER_ACTION_TPD_GATE.yaml, A1_STRONG_BASELINE_DEPENDENCY_GRAPH.yaml, A14_RAW_INSPECTION_AUDIT.yaml, A15_DETERMINISTIC_COMPARE_AUDIT.yaml, A16_REGRESSION_AUDIT.yaml, FULL_COST_CONSUMER_AUDIT.yaml, STRONG_BASELINE_DEPENDENCY_GRAPH.yaml]
+  copy_attempts_max: 10
+  source_modify_or_delete_allowed: false
+
+classification:
+  blocker_class: SOFT_ENGINEERING_BLOCKER
+  exact_object_changed: false
+  primary_RQ_changed: false
+  atomic_action_or_guarantee_changed: false
+  comparator_union_changed: false
+  natural_denominator_changed: false
+  scientific_revision_consumption: false
+  mechanism_pivot_consumption: false
+  user_gate: NONE
+
+required_atomic_bundle:
+  C0_INPUT_ACCEPTANCE:
+    require: HASH_ACCEPT_ALL_DECLARED_FILES_BEFORE_EDIT_OR_EXECUTION
+  C1_COMMAND_COST_EDGE_MODEL:
+    requirements:
+      - MAP_EACH_OF_56_CURRENT_UNION_COMMAND_METRIC_IDS_PER_REPLAY_TO_CPU_WALL_RSS_STATUS_EXIT_FULL_COST
+      - REPRESENT_SHARED_COMPILE_ONCE_PER_CONFIGURATION_AND_PREVENT_DOUBLE_COUNTING_ACROSS_TWO_LINK_ARMS
+      - RESOLVE_GRAPH_EDGES_TO_EXACT_METRIC_IDS_AND_REQUIRE_ZERO_COMMAND_COST_ORPHANS
+      - CONSUME_BOTH_REPLAY_METRIC_SETS_WITHOUT_RERUNNING_TOOLS
+  C2_NEGATIVE_CONTROLS:
+    required_expected_fail_mutations: [REMOVE_ONE_COMMAND_COST_EDGE, ADD_ONE_UNKNOWN_METRIC_ID_EDGE, MUTATE_ONE_EXIT_STATUS_OR_COST_VALUE]
+    no_new_tolerance_or_exclusion: true
+  C3_R10_PRODUCER_PRECEDENCE:
+    requirements:
+      - BASELINE_GRAPH_MUST_BE_DECLARED_PRODUCER_OUTPUT_NOT_CANDIDATE_INPUT
+      - VALIDATOR_INPUT_SET_MUST_MATCH_ACTUAL_PRODUCERS
+      - UNRESOLVED_OR_NONABSOLUTE_EXECUTION_PATHS_ZERO
+  C4_R10_FULL_COST_DEPENDENCY:
+    future_rows: 32
+    per_process_required_command_costs: {compile: 128, link: 256, inspection: 512}
+    every_command_metric_consumed: true
+    shared_compile_accounting_explicit: true
+    execution_performed: false
+  C5_TWO_REPLAY_CONTROL_AUDIT:
+    reuse_existing_raw_and_metrics_only: true
+    new_compiler_linker_checker_commands: 0
+    cross_replay_semantic_and_cost_edge_validation: required
+  C6_CANONICAL_RESEAL:
+    outputs_required: [PRE_CLAIM_COMMAND_COST_AND_R10_GATE.yaml, COMMAND_COST_EDGE_AUDIT.yaml, NEGATIVE_CONTROL_RESULTS.yaml, R10_PLAN_VALIDATION.yaml, RESOURCE_INVENTORY.yaml, PHASE_CLOSEOUT_RETENTION.yaml, RESUME_CAPSULE.yaml, STAGEA_REPORT.md, handoff.yaml, HASH_MANIFEST.sha256]
+
+implementation_boundary:
+  existing_source_files_modify_max: 2
+  new_source_files_max: 3
+  total_source_files_max: 7
+  allowed_existing_sources: [resources/src/natural_materializer/materializer_harness.py, resources/src/natural_materializer/r10_plan.py]
+  candidate_controller_or_auditor_python_commands_max: 40
+  static_compile_commands_max: 4
+  compiler_linker_readobj_objdump_checker_commands_max: 0
+  selected_or_reserve_tool_invocations_max: 0
+  claim_bearing_runs_max: 0
+  automatic_retry: false
+  result_based_edit_or_exclusion: false
+
+resources_and_lifecycle:
+  network_bytes_max: 0
+  resource_root_logical_bytes_max: 805306368
+  cpu_seconds_max: 7200
+  wall_seconds_max: 14400
+  max_parallel_processes: 1
+  lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  lifecycle_policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  post_close_retained_bytes_max: 805306368
+  downstream_consumer: SAME_INDEPENDENT_STAGEA_GATE
+  cleanup_owner: MAINLINE
+  owner_cleanup_allowed: false
+
+evidence_ceiling: PRECLAIM_ENGINEERING_FIDELITY_ONLY__NO_SELECTED_OR_SCIENTIFIC_INFERENCE
+forbidden_actions: [RUN_COMPILER_LINKER_READOBJ_OBJDUMP_CHECKER_SELECTED_NATURAL_OR_CLAIM, MODIFY_OR_DELETE_R9C, CHANGE_EXACT_OBJECT_RQ_ACTION_GUARANTEE_BASELINES_OR_DENOMINATOR, ADD_COST_TOLERANCE_OR_IGNORE_COMMAND_METRICS, RESULT_BASED_EDIT_RETRY_OR_EXCLUSION, SCIENTIFIC_REVISION_OR_SECOND_PIVOT, SHARED_WRITE_STATE_TRANSITION_CLEANUP_OR_STAGEB]
+success_route: PPC_R9D_PRECLAIM_ENGINEERING_FIDELITY_PASS__RETURN_SAME_INDEPENDENT_GATE
+failure_route: FAIL_CLOSED_PPC_R9D_PRECLAIM__NO_SELECTED_OR_SCIENTIFIC_INFERENCE

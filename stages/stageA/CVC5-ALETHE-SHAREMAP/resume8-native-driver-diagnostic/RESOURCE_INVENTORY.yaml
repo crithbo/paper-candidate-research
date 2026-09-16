@@ -1,0 +1,106 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: CVC5-ALETHE-SHAREMAP
+  assignment_id: SAFE-DIAGNOSTIC-L1-20260816-CVC5-RESUME8-NATIVE-GCC-VERBOSE
+  stage_or_mode: STAGEA_RESOURCE_DIAGNOSTIC_ONLY
+  run_id: resume8-native-gcc-verbose-1
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/CVC5-ALETHE-SHAREMAP/resume8-native-driver-diagnostic
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/CVC5-ALETHE-SHAREMAP/resume8-native-driver-diagnostic/resources
+  inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/CVC5-ALETHE-SHAREMAP/resume8-native-driver-diagnostic/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-16T01:03:11+08:00
+  finalized_at: 2026-08-16T01:06:45+08:00
+root_measurement:
+  logical_bytes: 108549
+  pre_final_snapshot_logical_bytes: 104327
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+  measurement_scope: FINAL_RESOURCE_ROOT_WITH_IMMUTABLE_INVENTORY_SNAPSHOT
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: READY
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: resume4-safe-recovery/resources/env/msys64/mingw64/bin/gcc.exe
+      writable_surfaces: [resources/build, resources/tmp, resources/logs]
+      redirect: NATIVE_PROCESS_WORKING_DIRECTORY_AND_PROCESS_LOCAL_PATH_TEMP_TMP
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 67108864
+  cpu_hours_max: 0.0333333333
+  gpu_hours_max: 0
+  wall_seconds_max: 600
+  attempts_max: 1
+  network_bytes_used: 0
+  stored_bytes_used: 108549
+  attempts_used: 1
+entries:
+  - relative_path: resources/build/carcara-target/release/build/gmp-mpfr-sys-7107cdddf71b20a3/out/build/gmp-build/conftest.c
+    class: BUILD_INPUT
+    provenance: READ_ONLY_EXACT_CONTENT_FROM_RESUME7_DIAGNOSTIC
+    sha256: 9B8044C13CC843FE16795FD957E3EDE9DA9C5C12F3104E538396EA98230389B2
+    deletion_status: SAFE_TO_DELETE_AFTER_ACCEPTED_HANDOFF
+  - relative_path: resources/logs/diagnostic-command.txt
+    class: COMMAND_FREEZE
+    provenance: ASSIGNMENT_EXACT_COMMAND
+    sha256: 018EBE930FAC3F862E5825165550F20BABEF5B2EAD2E488C2F7D6091E0DCD28F
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources/build/carcara-target/release/build/gmp-mpfr-sys-7107cdddf71b20a3/out/build/gmp-build/conftest.exe
+    class: DIAGNOSTIC_OUTPUT
+    provenance: EXACT_SINGLE_NATIVE_GCC_DRIVER_INVOCATION
+    logical_bytes: 102187
+    sha256: 66F10B823E8CC1B056D2255CCEEFA2A941597F853FED9ED55D5524C7356CA33C
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources/logs/diagnostic-status.yaml
+    class: DIAGNOSTIC_STATUS
+    provenance: EXACT_SINGLE_CALL_STATUS_AND_LOADER_RESULT
+    logical_bytes: 1386
+    sha256: 9461588126ABCE994B604318C6537F81C650221AFD76EECE0E0F1F49FA90DAD2
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources/logs/diagnostic.stderr.log
+    class: DIAGNOSTIC_TELEMETRY
+    provenance: STRUCTURED_TELEMETRY_FROM_SINGLE_VERBOSE_DRIVER_CALL
+    logical_bytes: 650
+    sha256: 1C880386260B4FA819165A2B707AFA8AD305E43FCD93B4855F8E547B88467B69
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+  - relative_path: resources/logs/resource-inventory/resume8-native-gcc-verbose-1.yaml
+    class: IMMUTABLE_INVENTORY_SNAPSHOT
+    provenance: PRE_FINAL_SNAPSHOT_OF_CANONICAL_RESOURCE_INVENTORY
+    logical_bytes: 4222
+    sha256: 7B6D793FE2FB5EDB30C933677F702980793C6E3306447717DE79C714B6F2B92B
+    deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY
+shared_assets_consumed: []
+external_system_dependencies:
+  - path: stages/stageA/CVC5-ALETHE-SHAREMAP/resume4-safe-recovery/resources/env/msys64
+    status: READ_ONLY_ASSIGNMENT_LOCAL_UPSTREAM__NOT_COPIED
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: PASS_ZERO_REPARSE_POINTS
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: true
+  result: PASS

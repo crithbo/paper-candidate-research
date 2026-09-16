@@ -1,0 +1,93 @@
+schema: stagea-executable-claim-packet-v2-pilot-v1
+proposal_id: STAGEA_EXECUTABLE_CLAIM_PACKET_V2
+status: USER_APPROVED__ASSIGNMENT_LOCAL_V2_PILOT
+parent_contract: ../RULE-AUDIT-20260829-STAGEA-EXECUTABLE-CLAIM-PACKET-V1/PILOT_CONTRACT.yaml
+
+scientific_contract:
+  unchanged_from_v1: true
+  result_aware_changes: forbidden
+  scientific_revision_limit_changed: false
+  StageB: forbidden
+  Linux_or_system_install: forbidden
+
+state_machine:
+  E0_ASSET_BIND: REUSE_ACCEPTED_V1_OUTPUTS
+  E0_5_BINDING_CLOSURE:
+    purpose: CLOSE_EXACT_CONSUMER_INPUT_TOOL_COMMAND_OUTPUT_AND_COST_BINDINGS_BEFORE_PACKET_VALIDATION
+    visible_scientific_results: NONE
+    tool_or_candidate_execution: false
+    static_edits_max: 3
+    required_fields:
+      - exact_control_input_path_identity_and_hash
+      - exact_selected_and_reserve_input_manifest
+      - complete_required_tool_and_runtime_dependency_list
+      - exact_candidate_and_baseline_argv_arrays
+      - cwd_and_process_local_environment
+      - timeout_stdout_stderr_and_required_output_paths
+      - output_schema_and_units
+      - metric_producer_consumer_closure
+      - full_cost_denominator
+      - natural_legality_and_same_information_witness
+  E1_PACKET_COMPILE:
+    hard_predicates: ALL_E0_5_REQUIRED_FIELDS_COMPLETE__DAG_UNIQUE_ACYCLIC__CONTROL_ROW_COMPLETE__ZERO_ORPHAN_METRICS__ZERO_PLACEHOLDERS
+    false_pass_allowed: false
+  E2_CONTROL_ROW:
+    initial_runs_max: 1
+    one_correction_and_replay_max: 1
+    scientific_denominator: EXCLUDED
+    relative_effect_visibility: HIDDEN
+  C0_PILOT_FREEZE: IMMUTABLE_BEFORE_RESULTS
+  C1_NATURAL_CLAIM_PILOT: SERIAL_APX_PPC_RVV
+  G1_INDEPENDENT_GATE: REQUIRED
+
+asset_consumer_closure:
+  asset_registration_alone_is_insufficient: true
+  consumer_must_declare: [required_tools, required_runtime_libraries, required_fixture_or_corpus, version_and_path_checks]
+  mainline_acceptance: ALL_DECLARED_DEPENDENCIES_PRESENT
+  full_tree_rehash: false
+
+topics:
+  APX:
+    V1_source: stages/stageA/_pilot/20260829-executable-claim-packet/APX
+    E0_5_required:
+      control_row: {source: result_independent_first_frozen_reserve_row, exact_argv: required, exact_input_hash: required, cwd: required, output_paths: required, timeout: required}
+      pilot_rows: 4
+      reserve_rows_max: 2
+    V1_static_validation_invalidated: true
+    correction_budget_used_by_V1: 0
+  PPC:
+    V1_source: stages/stageA/_pilot/20260829-executable-claim-packet/PPC
+    E0_5_required:
+      input_manifest: exact_16_input_manifest
+      required_tools: [llc.exe, ld.lld.exe, llvm-readobj.exe, llvm-objdump.exe]
+      required_fixture: selected-00.ll
+      metric_closure: {baseline: 56, candidate: 15, total: 71, orphan_max: 0, double_count_max: 0}
+      pilot_rows: 8
+      reserve_rows_max: 2
+    correction_budget_used_by_V1: 0
+  RVV:
+    V1_source: stages/stageA/_pilot/20260829-executable-claim-packet/RVV
+    E0_5_required:
+      natural_corpus_selection: RESULT_INDEPENDENT_FROM_EXISTING_LOCAL_LLVM_MIR_OR_FUNCTION_TESTS
+      selected_rows: 4
+      reserve_rows_max: 2
+      baselines: [CURRENT_NATIVE_RVV_GREEDY_OR_EQUIVALENT, LABELED_OR_EXPLICIT_STATE, GENERIC_EXACT_ORACLE]
+      exact_argv_cwd_env_outputs: required
+      full_cost_units_and_consumers: required
+      natural_legality_witness: required
+    correction_budget_used_by_V1: 0
+
+acceptance:
+  valid_natural_claim_topics_min: 2
+  integrated_V2_assignments_max_per_topic: 1
+  engineering_corrections_max_per_topic: 1
+  positive_results_required: false
+  valid_negative_observation_counts_as_success: true
+  result_firewall_violations_max: 0
+  unauthorized_contract_changes_max: 0
+
+stop_and_rollback:
+  E0_5_unclosed_after_three_static_edits: EXECUTION_CONTRACT_HOLD__NO_E2
+  E2_fails_after_one_correction: ABANDON_CURRENT_EXECUTION_ROUTE
+  fewer_than_two_valid_topics: DO_NOT_CREATE_STAGEA_SKILL__KEEP_PARTIAL_RULES_ONLY
+  at_least_two_valid_topics: CREATE_PROJECT_STAGEA_EXECUTABLE_CLAIM_RUNNER_SKILL_AND_INSTALL_ECP_RULES_AT_SAFE_BOUNDARY

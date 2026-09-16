@@ -1,0 +1,42 @@
+schema: R11A_R13B_AGGREGATE_QUARANTINE_LEDGER_V1
+approval_id: R11A-R13B-BATCH01-RAW-CAP-RECOVERY-20260813-R14A
+assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+batch_id: R13B-01
+quarantine_granularity: TRANSACTION_AGGREGATE_ONLY__NO_IDENTITY_OR_CONTENT
+transactions:
+  - transaction_ordinal: 1
+    requested_raw_attempts: 20
+    returned_valid_persistent_locator_count_aggregate_only: 10
+    response_rows_persisted: false
+    content_or_identity_retained: false
+    disposition: PERMANENTLY_CHARGED_AND_QUARANTINED
+  - transaction_ordinal: 2
+    requested_raw_attempts: 20
+    returned_valid_persistent_locator_count_aggregate_only: 10
+    response_rows_persisted: false
+    content_or_identity_retained: false
+    disposition: PERMANENTLY_CHARGED_AND_QUARANTINED
+aggregate:
+  requested_raw_attempts: 40
+  raw_attempts_charged: 40
+  unique_commitments: 0
+  candidate_identity_hashes: 0
+  source_qualified_families: 0
+  new_frozen_artifact_bytes: 0
+  nonpersisted_transport_response_bytes: 45639
+forbidden:
+  - REPLAY
+  - RECONSTRUCTION
+  - REFERENCE
+  - POSTSELECTION
+  - COMMITMENT
+  - PRIVATE_INTERSECTION
+  - SOURCE_QUALIFICATION
+  - FUTURE_SELECTION_SIGNAL
+  - INVENTED_FIRST24_CHRONOLOGY
+  - INVENTED_IDENTITY_OR_ORDER
+contains_identity_plaintext: false
+contains_identity_hashes: false
+contains_historical_private_material: false
+contains_candidate_or_case_semantics: false
+scientific_inference: NONE

@@ -1,0 +1,16 @@
+schema: nonblind-stagea-minimal-canonical-probe-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-P1
+parent_fidelity_acceptance: F0_MAINLINE_FIDELITY_ACCEPTANCE.yaml
+mode: NONBLIND_STAGEA_COMPATIBILITY
+implementation_label: AUTHOR_ARTIFACT_CORE_PLUS_ASSIGNMENT_LOCAL_COMPATIBILITY_HARNESS
+unique_harness_path: resources/src/probe/pgm_minimal_probe.cpp
+allowed_source_change: implement_exactly_one_harness_file_at_unique_harness_path
+inputs: {keys: SplitMix64_seed_0x2026082700010001__1000000_unique_sorted_uint64, queries: 100000_present_plus_100000_absent_seed_0x2026082700020001, comparator: exact_lower_bound_same_array}
+methods: [{epsilon: 4}, {epsilon: 16}, {epsilon: 64}, {epsilon: 256}]
+required_outputs: [per_epsilon_construct_wall_rss_index_bytes_key_bytes, present_absent_query_wall_rank_checksum, rank_disagreement_count, parameter_search_aggregate, legality_witness]
+baseline: exact_binary_search_same_sorted_key_array
+commands_max: {compile: 1, run: 4, retry: 0}
+resource_limits: {stored_bytes_max: 1500000000, single_probe_wall_seconds_max: 21600}
+forbidden: [source_change_other_than_harness, author_source_edit, input_change, result_based_exclusion, production_registration, stageB, claim_above_preliminary_compatibility]
+evidence_ceiling: MINIMAL_CANONICAL_PROBE__NONBLIND_COMPATIBILITY_ONLY__NO_PRODUCTION_CANDIDATE_OR_STAGEB
+next_gate: INDEPENDENT_STAGEA_GATE_THEN_BACKTEST_AUDITOR_GOLD_COMPARISON

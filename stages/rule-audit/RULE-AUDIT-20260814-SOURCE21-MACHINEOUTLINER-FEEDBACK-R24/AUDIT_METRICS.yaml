@@ -1,0 +1,112 @@
+schema_version: 'RULE_AUDIT_METRICS_V1'
+audit_id: 'RULE-AUDIT-20260814-SOURCE21-MACHINEOUTLINER-FEEDBACK-R24'
+evidence_mode: 'READ_ONLY_REGISTERED_ARTIFACT_AUDIT'
+claim_ceiling: 'PROCESS_DIAGNOSIS_AND_ASSIGNMENT_LOCAL_PROPOSAL_ONLY'
+
+source21_reported_funnel:
+  locators: 32
+  fresh_raw: 22
+  C0_source_closures: 10
+  D1: 1
+  deep_reviews: 1
+  clean_stage0_briefs: 1
+  reported_raw_to_C0_fraction: 0.4545
+  C0_to_D1_fraction: 0.1
+  D1_to_brief_fraction: 1.0
+
+source21_by_lane:
+  S1: {locator: 4, reported_fresh_raw: 2, C0: 2, D1: 0, deep: 0, brief: 0}
+  S2: {locator: 4, reported_fresh_raw: 4, C0: 0, D1: 0, deep: 0, brief: 0}
+  S3: {locator: 4, reported_fresh_raw: 4, C0: 2, D1: 0, deep: 0, brief: 0}
+  S4: {locator: 4, reported_fresh_raw: 4, C0: 2, D1: 0, deep: 0, brief: 0}
+  S5: {locator: 8, reported_fresh_raw: 4, C0: 2, D1: 0, deep: 0, brief: 0}
+  S6: {locator: 8, reported_fresh_raw: 4, C0: 2, D1: 1, deep: 1, brief: 1}
+
+funnel_reconciliation_findings:
+  reported_fresh_raw_total: 22
+  audit_reconciled_fresh_raw_from_rows: 20
+  reported_C0_total: 10
+  audit_reconciled_C0_from_fresh_raw: 9
+  discrepancies:
+    - 'S3 reports locator=4 and raw=4 while two of the four rows are explicitly excluded; reconciled fresh raw is two.'
+    - 'S1 spent C0-2 on CUDA mbarrier and then classified it as a historical contained identity, although C0 is downstream of fresh-raw identity filtering.'
+    - 'S2 raw rows are domain-generic labels rather than exact project/version/source-locus opportunity-family identities.'
+  interpretation: 'V5 improved the funnel but pre-raw/C0 eligibility and exact-family telemetry are not yet mechanically reliable.'
+
+machine_outliner_feedback:
+  discovery_status: 'CLEAN_BRIEF_WITH_FINITE_FIDELITY_GAP'
+  primary_decision: 'REVISE_ONCE'
+  confirmation_decision: 'CONFIRM_REVISE_ONCE'
+  quality_tier: 'TIER_B_Q2_VIABLE_CONDITIONAL'
+  stageA_authorized: false
+  stageB_authorized: false
+  primary_repair_vector:
+    - 'OMITTED_FIRST_PARTY_FEATURE'
+    - 'ATOMIC_ACTION_UNCLEAR'
+    - 'EVIDENCE_LOCATOR_OR_VERSION_GAP'
+  decisive_current_union_additions:
+    - 'CGData Write/Read and llvm-cgdata already provide global candidate discovery'
+    - 'current outline() uses scalar priority followed by greedy overlap pruning'
+    - 'local repeated-string discovery may discard overlapping occurrences before the later selector sees them'
+  unresolved_action_boundary: 'SELECTION_ONLY_VERSUS_ENUMERATION_PLUS_SELECTION'
+  revision_gate: 'PINNED_MACHINEOUTLINER_GLOBAL_CANDIDATE_CATALOG__TARGET_COST_CONFLICT_COMPONENT_PARETO_CERTIFICATE'
+
+root_cause:
+  R23_C0_effect: 'PARTIAL_SUCCESS__RESTORED_ONE_ATTACKABLE_BRIEF'
+  remaining_profile_gap: 'ATOMIC_ACTION_SKELETON_DID_NOT_REQUIRE_WITNESS_LOCAL_PRESELECTION_SURVIVAL'
+  execution_gaps:
+    - 'excluded identity consumed C0 capacity'
+    - 'raw denominator remained inconsistent in S3'
+    - 'S2 accepted generic domain buckets instead of exact source-located families'
+  hard_gate_relaxation_justified: false
+
+recommended_pilot:
+  profile_id: 'AFFIRMATIVE_CLIFF_WITNESS_LOCAL_ACTION_SURVIVAL_V6'
+  scope: 'ONE_PROSPECTIVE_SIX_LANE_ASSIGNMENT_ONLY'
+  discovery_claim_pack_mode: 'OFF'
+  lane_count: 6
+  total_locator_ceiling: 48
+  per_lane_locator_ceiling: 8
+  total_fresh_raw_ceiling: 24
+  per_lane_fresh_raw_ceiling: 4
+  total_C0_source_closure_ceiling: 12
+  per_lane_C0_source_closure_ceiling: 2
+  decisive_artifact_role_ceiling_per_C0: 5
+  total_deep_ceiling: 12
+  deep_ceiling_by_lane: {S1: 2, S2: 2, S3: 1, S4: 3, S5: 2, S6: 2}
+  action_survival_check:
+    applies_to: 'C0_ROWS_THAT_WOULD_OTHERWISE_ENTER_D1'
+    scope: 'ONE_DECLARED_WITNESS_IN_ONE_EXPLICITLY_CLAIMED_PIPELINE_MODE'
+    logical_checkpoints: 4
+    additional_artifact_budget: 0
+    status_values:
+      - 'SURVIVES_TO_SELECTOR'
+      - 'PRUNED_BUT_SAME_OBJECT_RECOVERABLE'
+      - 'PRUNED_BY_LEGALITY_OR_OBJECT_CHANGE'
+      - 'UNKNOWN_UNFROZEN'
+  no_outcome_aware_backfill: true
+  no_proposal_quota: true
+  zero_brief_is_legal: true
+
+discovery_stage0_boundary:
+  discovery_requires:
+    - 'one exact source-located witness path'
+    - 'claimed pipeline mode'
+    - 'origin, early transforms/pruning, selector input and survival result'
+    - 'claim wording aligned with selection-only or enumeration-plus-selection'
+  discovery_does_not_require:
+    - 'complete action catalogue across all modes, flags, targets or backends'
+    - 'full recurrence or proof certificate'
+    - 'exhaustive literature collision closure'
+    - 'implementation, build, experiment or result'
+  stage0_retains:
+    - 'complete current native action and flag catalogue'
+    - 'independent current/prior collision audit'
+    - 'target-specific recurrence and degeneration-map attack'
+    - 'Q1/Q2 calibration and full paper-shape verdict'
+
+decision: 'PATCH_RECOMMENDED__ASSIGNMENT_LOCAL_NEXT_BOUNDARY'
+fresh_generic_user_approval_required: false
+historical_backtest_required: false
+prospective_cycle_and_stage0_feedback_required_before_permanent_patch: true
+lane_return_state: 'IDLE_REUSABLE_AWAITING_USER_DIALOGUE'

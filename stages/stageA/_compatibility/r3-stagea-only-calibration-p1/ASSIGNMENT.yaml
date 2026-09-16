@@ -1,0 +1,15 @@
+schema: r3-stagea-only-identity-blind-calibration-assignment-v1
+assignment_id: STAGEA-ONLY-IDENTITY-BLIND-CALIBRATION-R3-P1
+topic_id: STAGE0A_IDENTITY_BLIND_EVIDENCE_BACKTEST_R3
+role_set: [BACKTEST_PACKER, NEW_UNEXPOSED_STAGEA_BLIND_REVIEWER, INDEPENDENT_BACKTEST_AUDITOR]
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/r3-stagea-only-calibration-p1
+status: REVIEWER_ELIGIBILITY_CHECK_PENDING
+proposal: {path: stages/rule-audit/RULE-AUDIT-20260827-R3-STAGEA-ONLY-IDENTITY-BLIND-CALIBRATION-P1/PROPOSED_ASSIGNMENT_CONTRACT.yaml, sha256: BBB0C596A24F0B78FAA3BD429AF7D2209AA0474FCC33A138ACAD234802D5F697}
+population: {positives: 12, stagea_specific_negatives: 4, stage0_survivor_filter: forbidden, replacement: forbidden}
+inputs: {stagea_packet: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/STAGEA_ANONYMIZED_PACKET.yaml, sha256: BA621A4D5006EDDBD8574FCD3521FEECD301E42C8C25E770A87275A142F4F294}, evidence_manifest: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-l2/PACKER_EVIDENCE_CAPSULE_MANIFEST.yaml, sha256: E6CBB4919A7E2D8BB3E80AA450D7037C42884AF6FECEF82551C82A86096DA798}}
+reviewer_requirements: [fresh_unexposed_stagea_reviewer, no_R1_R2_R3_identity_or_gold_exposure, no_project_control_text_injection]
+reviewer_visibility: {identity: false, title_authors_venue_doi_url_locator: false, gold_expected: false, network: false}
+resource_boundary: {network: false, code_artifact_downloads: 0, build_probe_experiment: false, text_packets_logs_only: true}
+outputs_if_reviewer_available: [BLIND_STAGEA_ONLY_COMPATIBILITY_DECISION.yaml, AUDITOR_GOLD_COMPARISON.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+production_candidate_state_changed: false
+stageb_allowed: false

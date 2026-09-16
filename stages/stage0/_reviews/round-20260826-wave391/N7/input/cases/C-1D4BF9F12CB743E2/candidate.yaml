@@ -1,0 +1,21 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-1D4BF9F12CB743E2
+cutoff_date: 2024-05-16
+contribution_type: MEASUREMENT_CHARACTERIZATION
+exact_object: benchmarking, simulation, and application profiling of memory systems through bandwidth-latency behavior
+natural_scenario: real and simulated memory systems across unloaded through saturated traffic regimes
+problem: peak bandwidth and idle latency scalars hide loaded-latency transitions and simulator/application mismatch
+atomic_action: generate controlled traffic, fit bandwidth-latency curves, and project application profile points onto the same surface
+mechanism: curve-based characterization creates a common estimand for real hardware, simulators, and application demand
+information_condition: traffic mix, issued load, measured bandwidth and latency, simulator configuration, and counters
+comparators: [peak_bandwidth_benchmark, idle_latency_tool, fixed_latency_model, protocol_level_memory_simulator]
+claim_endpoint: decision-relevant coverage and cross-surface alignment of memory behavior
+full_cost: [bandwidth, loaded_latency, traffic_mix, repetitions, counters, profiler_overhead, simulator_error]
+minimum_falsifier: curves add no stable information or cannot align real, simulated, and application observations
+source_cards:
+  - {id: S01, year: 1995, role: streaming_bandwidth_benchmark}
+  - {id: S02, year: 2013, role: memory_latency_checker}
+  - {id: S03, year: 2015, role: cycle_level_memory_simulator}
+  - {id: S04, year: 2020, role: modern_DRAM_simulator}
+local_resource_envelope: ROUTE_OUTSIDE_WINDOWS_LOCAL__NUMA_COUNTER_AND_PRIVILEGED_LINUX_INTERFACES_REQUIRED
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

@@ -1,0 +1,61 @@
+schema: stage0a-packer-a1-blindness-and-contamination-audit-v1
+created_at: 2026-08-26T19:28:00+08:00
+assignment_id: BACKTEST-PACKER-20260826-STAGE0A-Q2-LOCAL-RESOURCE-R1-A1
+executor_visible_root_local_source: sealed_executor_input_v2
+auditor_only_root: auditor_key_v2
+case_count: 16
+file_count: 17
+logical_bytes: 29566
+sealed_input_manifest_sha256: 13DD016DD3653CFC777F698C10F8069FB8D952BC7CDF1D1978558F268B7B824A
+manifest_entry_validation: PASS_16_OF_16
+
+replacement_integrity:
+  contaminated_case_id: C-14F00B4F47004C29
+  contaminated_case_sha256: C11CA974BF260440E5AB48309B629DBAE92481AD6C8C684524FE50C207FBDDB6
+  contaminated_case_present_in_v2: false
+  contaminated_identity_present_in_v2: false
+  contaminated_case_denominator_disposition: EXCLUDE_AND_COUNT_CONTAMINATION
+  scientific_judgments_on_contaminated_case: 0
+  replacement_case_id: C-9CFA2F4203AE487D
+  replacement_id_fresh_and_nonsemantic: true
+  other_15_cases_byte_exact: PASS_15_OF_15
+  same_reviewer_reuse_allowed: false
+
+scans:
+  forbidden_prior_tokens:
+    patterns: [backtest, calibration, paper, published, q1, q2, positive, negative_control, known_success, expected_pass]
+    matches: 0
+  hidden_identity_names:
+    patterns: [alive2, alivetoolkit, llvm, nuno, lopes, juneyoung, chung_kil, zhengyang, regehr, pldi, berti, hnsw, ann_benchmarks, cvc5, carcara, pythia, bolt, webgraph, pgm_index, alex, alt02, p10]
+    matches: 0
+  identity_metadata:
+    patterns: [http_url, doi_field, author_field, venue_field, artifact_field, gold_field, expected_decision]
+    matches: 0
+  target_quantitative_results:
+    matches: 0
+  candidate_file_hashes:
+    match_manifest: PASS_16_OF_16
+
+semantic_review:
+  target_title_or_abstract_sentence_copied_verbatim: false
+  author_method_implementation_or_reproduction_script_included: false
+  target_repository_or_git_remote_included: false
+  source_cards_deidentified: true
+  random_ids_semantic: false
+  class_or_expected_route_visible: false
+  local_resource_envelopes_visible_without_identity: true
+  pass1_or_contamination_history_visible: false
+
+required_router_actions_before_executor_dispatch:
+  - copy only sealed_executor_input_v2 subtree by exact manifest hashes
+  - destination directory title prompt context path and IDs must be neutral
+  - source assignment directory must not be visible to executor
+  - do not pass this audit auditor_key_v2 source ledgers replacement ledger or resource preflight
+  - freeze a fresh reviewer distinct from task 01a034d0-cab5-7de1-8f42-4805bc71b74c
+  - if exact hidden identity is recognized emit BLINDING_CONTAMINATION and stop without scientific judgment
+
+auditor_reveal_gate:
+  auditor_key_visible_before_all_executor_outputs_immutable: false
+  required_executor_handoff_acceptance_before_reveal: true
+  packer_scored_cases: false
+result: PASS_DOUBLE_BLIND_V2_PACKET_READY_FOR_MAINLINE_ROUTING_CHECK

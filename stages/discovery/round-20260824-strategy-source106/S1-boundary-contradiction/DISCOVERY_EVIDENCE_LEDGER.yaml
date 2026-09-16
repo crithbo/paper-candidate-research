@@ -1,0 +1,203 @@
+schema_version: discovery-evidence-ledger-v1
+assignment_id: DISCOVERY-S1-20260824-SOURCE106-ACCELERATOR-SOFTWARE-ROTATION-V1
+opportunity_family_id: null
+claim_pack_protocol_revision: DISCOVERY-CLAIM-PACK-V9-R0
+cutoff: '2026-08-24'
+opportunity_family:
+  canonical_signature: null
+  relations: []
+queries:
+  - query_id: Q106-01
+    text: Ramulator2 current FRFCFS AllBank refresh manager row policy address mapper trace frontend
+    purpose: current first-party controller/action closure
+    source_or_search_engine: public web / GitHub first-party repository
+    executed_at: '2026-08-24'
+    filters: [current public source]
+    read_depth: SOURCE
+    key_result_ids: [S106-01]
+    exclusions_with_reasons: []
+    state_change: current generic controller baseline identified
+  - query_id: Q106-02
+    text: public PIM LLM simulator source row buffer refresh trace command carrier
+    purpose: identify a same-object public PIM/LLM carrier and timing action
+    source_or_search_engine: public web / GitHub first-party repositories
+    executed_at: '2026-08-24'
+    filters: [public artifact only, no group repository]
+    read_depth: SOURCE
+    key_result_ids: [S106-02, S106-03, S106-04]
+    exclusions_with_reasons: [PIMSimulator public configuration is not a native LLM carrier, Ramulator built-in traces are generic]
+    state_change: no evidence-qualified same-object refresh action admitted
+  - query_id: Q106-03
+    text: LLM PIM row-hit scheduling current work refresh row buffer
+    purpose: direct/related collision check for ordinary row-buffer residual
+    source_or_search_engine: public web / arXiv
+    executed_at: '2026-08-24'
+    filters: [current and primary public manuscript]
+    read_depth: FULL_TEXT
+    key_result_ids: [S106-05]
+    exclusions_with_reasons: []
+    state_change: ordinary LLM-PIM row-locality/stride action is related-current; only a separately evidenced refresh-specific action could remain
+  - query_id: Q106-04
+    text: public LLM PIM trace simulator dual row buffer sub-batch interleaving
+    purpose: contrary carrier/baseline check
+    source_or_search_engine: public web / GitHub first-party repository
+    executed_at: '2026-08-24'
+    filters: [public artifact only]
+    read_depth: SOURCE
+    key_result_ids: [S106-06, S106-07]
+    exclusions_with_reasons: [artifacts expose existing LLM PIM row-buffer optimizations or generated traces, not a frozen refresh-specific carrier/action]
+    state_change: candidate carriers are related-only or synthetic/generated for this question
+sources:
+  - source_id: S106-01
+    title_or_artifact: CMU-SAFARI/ramulator2 — Ramulator 2.1 User Guide
+    canonical_version: main branch viewed 2026-08-24; public MIT repository
+    locator: https://github.com/CMU-SAFARI/ramulator2/blob/main/README.md
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [GenericDDR, FRFCFS, AllBank, Open row policy, RoBaRaCoCh]
+    repository_commit_config_or_dataset_hash: not frozen because no source download or raw admission
+  - source_id: S106-02
+    title_or_artifact: SAITPublic/PIMSimulator
+    canonical_version: dev branch viewed 2026-08-24; public repository
+    locator: https://github.com/SAITPublic/PIMSimulator
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [HBM2 PIM, bank/row mapping, PIM commands]
+    repository_commit_config_or_dataset_hash: not frozen because no source download or raw admission
+  - source_id: S106-03
+    title_or_artifact: PIMSimulator system_hbm.ini
+    canonical_version: dev branch viewed 2026-08-24
+    locator: https://github.com/SAITPublic/PIMSimulator/blob/dev/system_hbm.ini
+    source_role: CURRENT_FIRST_PARTY
+    read_depth: SOURCE
+    normalized_variants: [open_page, Scheme8, rank_then_bank_round_robin, per_rank]
+    repository_commit_config_or_dataset_hash: not frozen because no source download or raw admission
+  - source_id: S106-04
+    title_or_artifact: arkhadem/aim_simulator
+    canonical_version: main branch viewed 2026-08-24; public MIT repository
+    locator: https://github.com/arkhadem/aim_simulator
+    source_role: NATURAL_CARRIER
+    read_depth: SOURCE
+    normalized_variants: [GDDR6 AiM, trace-driven frontend, ISR trace]
+    repository_commit_config_or_dataset_hash: not frozen because it did not evidence a refresh-specific LLM trace/action
+  - source_id: S106-05
+    title_or_artifact: RH+: Row-Hit-Optimized Scheduling for PIM-based LLM Inference
+    canonical_version: arXiv:2606.05511v1, 2026-06-03
+    locator: https://arxiv.org/abs/2606.05511
+    source_role: CONTRARY
+    read_depth: FULL_TEXT
+    normalized_variants: [HBM3 PIM, GEMV decoding, row-hit stride scheduling]
+    repository_commit_config_or_dataset_hash: arXiv:2606.05511v1
+  - source_id: S106-06
+    title_or_artifact: casys-kaist/NeuPIMs
+    canonical_version: main branch viewed 2026-08-24; public repository
+    locator: https://github.com/casys-kaist/NeuPIMs
+    source_role: NATURAL_CARRIER
+    read_depth: SOURCE
+    normalized_variants: [batched LLM inference, dual-row-buffer PIM, sub-batch interleaving]
+    repository_commit_config_or_dataset_hash: not frozen because no refresh-specific action/carrier was established
+  - source_id: S106-07
+    title_or_artifact: Lucyyannn/PAPI artifact
+    canonical_version: public repository viewed 2026-08-24
+    locator: https://github.com/Lucyyannn/PAPI
+    source_role: NATURAL_CARRIER
+    read_depth: SOURCE
+    normalized_variants: [generated GPT-175B attention/FC traces, modified Ramulator2]
+    repository_commit_config_or_dataset_hash: not frozen because generated traces do not establish a natural refresh-specific carrier
+claims:
+  - claim_id: C106-01
+    text: Current Ramulator2.1 exposes the scheduler, refresh manager, row policy and address mapper as composable controller components, and documents a plugin extension lifecycle plus command tracing/statistics.
+    priority: HIGH
+    priority_rationale: determines whether a proposed controller/measurement action is merely a generic extension.
+    source_links:
+      - source_id: S106-01
+        relation: DIRECT
+        locator: README controller configuration and extension sections
+        evidence_status: DIRECT_OBSERVATION
+        conflict: none found
+        permitted_conclusion: an unspecified refresh-row co-decision or trace-observation add-on is not yet a non-generic residual.
+  - claim_id: C106-02
+    text: Public PIMSimulator exposes row policy, address mapping and scheduling configuration, but the reviewed public material did not establish an LLM-native, versioned refresh-specific command/trace action.
+    priority: HIGH
+    priority_rationale: same-object carrier and atomic-action gate.
+    source_links:
+      - source_id: S106-02
+        relation: DIRECT
+        locator: README overview, HBM2, address mapping
+        evidence_status: DIRECT_OBSERVATION
+        conflict: none found
+        permitted_conclusion: do not infer that a refresh-aware compiler action exists from configurable mapping/policy alone.
+      - source_id: S106-03
+        relation: DIRECT
+        locator: configuration fields
+        evidence_status: DIRECT_OBSERVATION
+        conflict: none found
+        permitted_conclusion: exposed knobs are not evidence of a new same-function algorithm.
+  - claim_id: C106-03
+    text: RH+ already addresses an LLM-PIM row-locality bottleneck by changing address stride for GEMV; it is related-current, so ordinary row-hit/stride proposals cannot be treated as an untouched residual.
+    priority: HIGH
+    priority_rationale: latest collision boundary.
+    source_links:
+      - source_id: S106-05
+        relation: OPPOSE
+        locator: abstract and method statement
+        evidence_status: AUTHOR_CLAIM
+        conflict: RH+ does not itself prove full absorption of a separate refresh-specific action.
+        permitted_conclusion: retain only an independently evidenced refresh-specific, same-object action; none was found in this closure.
+  - claim_id: C106-04
+    text: Available public LLM-PIM simulators/carriers already embody row-buffer/interleaving approaches or require generated/architecture-specific traces; reviewed material did not provide a frozen public carrier that preserves native LLM semantics and exposes the proposed refresh action.
+    priority: HIGH
+    priority_rationale: natural/canonical evidence requirement.
+    source_links:
+      - source_id: S106-04
+        relation: PARTIAL
+        locator: README trace-driven ISR interface
+        evidence_status: DIRECT_OBSERVATION
+        conflict: LLM provenance of test trace not established in reviewed source.
+        permitted_conclusion: it is not admitted as the required carrier.
+      - source_id: S106-06
+        relation: PARTIAL
+        locator: README baselines and trace-generator tree
+        evidence_status: DIRECT_OBSERVATION
+        conflict: no refresh-specific action established.
+        permitted_conclusion: related LLM PIM carrier only, not raw admission.
+      - source_id: S106-07
+        relation: PARTIAL
+        locator: README trace-generation description
+        evidence_status: DIRECT_OBSERVATION
+        conflict: generated model trace may be canonical for its original artifact but does not establish the fixed refresh question here.
+        permitted_conclusion: no natural-carrier closure for this assignment.
+direct_coverage:
+  target_source_or_union: public current controller/PIM/LLM union reviewed in Q106-01..Q106-04
+  predicates:
+    same_object_function_protocol: UNKNOWN
+    same_scenario_workload: UNKNOWN
+    same_or_weaker_information: UNKNOWN
+    atomic_action_covered: UNKNOWN
+    same_or_stronger_legality_quality_guarantee: UNKNOWN
+    same_nonworse_full_cost: UNKNOWN
+    comparable_scale_platform_version_config: UNKNOWN
+    sufficient_read_or_reproduction_depth: UNKNOWN
+independent_prior_current_audit:
+  owner_or_lane: DISCOVERY_S1 source closure; no independent Stage0 audit is implied
+  query_ids: [Q106-01, Q106-02, Q106-03, Q106-04]
+  completed: false
+stopping:
+  high_impact_items_bounded: true
+  latest_and_current_union_checked: true
+  first_party_depth_sufficient: true
+  heterogeneous_independent_path_complete: true
+  contrary_search_complete: true
+  natural_or_canonical_carrier_frozen: false
+  full_cost_frozen: false
+  marginal_sources_no_longer_decision_changing: true
+  decisive_contradictions_resolved_or_bounded: true
+  disposition: NOT_ADMITTED_UNFROZEN
+execution_readiness:
+  state: E0
+  e1_evidence: []
+  e2_authorization_id: ''
+  e2_allowlist: {}
+  e2_result: NOT_RUN_NOT_REQUIRED_FOR_STAGE0
+  scientific_inference_permitted: false
+claim_ceiling: NO_RAW_ADMISSION__NO_CLAIM

@@ -1,0 +1,196 @@
+schema_version: stagea-scientific-revision-contract-v1
+contract_status: FROZEN_BEFORE_FIRST_CLAIM_BEARING_OBSERVATION
+frozen_at: '2026-08-09T22:45:00+08:00'
+lane_id: CANDIDATE-EXECUTION-LANE-1
+assignment_id: STAGEA-L1-20260809-S4-SLO-PAGEPACK-REVISION1
+parent_assignment_id: STAGEA-L1-20260809-S4-SLO-PAGEPACK-INITIAL
+topic_id: S4-SLO-PAGEPACK
+atomic_gate: FAITHFUL_SAME_OBJECT_OBASE_MDK_COMPOSITION_GATE
+scientific_revision_number: 1
+mechanism_pivot_allowed: false
+stage: STAGEA
+stageb: false
+stageb_user_approval_id: null
+cross_assignment_contamination: false
+
+write_scope: stages/stageA/S4-SLO-PAGEPACK/revision1
+resource_limits:
+  workspace_bytes_max: 4294967296
+  cpu_seconds_max: 14400
+  gpu_allowed: false
+  exclusive_device_allowed: false
+  experiment_timeout_seconds_each: 1800
+
+immutable_inputs:
+  natural_trace_path: inputs/meta_kv_202206_trace3_first_120000.csv
+  natural_trace_sha256: E5D16D849BCD2E015C5E54A161E202241E7B7D25696F4055C742D51649DDF2A8
+  natural_trace_bytes: 2832420
+  rows: 120000
+  warmup_rows: 30000
+  evaluation_epochs: 3
+  rows_per_evaluation_epoch: 30000
+  source_initial_stable_path: ../results/primary_stable.json
+  source_initial_stable_file_sha256: C4FB253A84F118D828CDACCF7E5F8024EA5FA939C1CD79C86EFBBDE64D942F6E
+  parent_handoff_sha256: 62962479FD59BD7347A5C5AB142F7506B7529F7BF5D9DA0762C8872DA7FC9A11
+  parent_manifest_sha256: 8A06B69D074DA30278BC3513564961F7C45B6FB2CF3F6644256F8F5AD1A03BB7
+  gate_directory: ../../_reviews/gate-v8.4/S4-SLO-PAGEPACK-initial-closing
+  gate_handoff_sha256: ACD8555EE712DD9A39D63B99E5C26A7CDA6B345D52357FEB3753B582B0664C6D
+  gate_review_sha256: 0B918E067C442074655F48C1A6F41A5D37CFC2B570A9E36FF8FA4549954F1494
+  gate_manifest_sha256: 5C3B6FAA4BB51693A647F97F8725FECA7EC12A56E53426A00E190AB20E75694B
+  gate_manifest_entries_verified_by_mainline: 8_of_8
+  selection_rule: exactly parent amendment 002; recompute and require byte-for-byte selected key/hash/footprint/prediction/initial-page equality with parent primary_stable.json
+
+same_object:
+  id: EPOCHAL_UNMANAGED_POINTER_BASED_OBJECT_HEAP_WITH_POINTER_SAFE_RELOCATION__4KIB_PAGE_TIERING_BACKEND__TRACE_DEFINED_GET_SET_SEMANTICS__FIXED_SLOWDOWN_OR_SLO_CAP
+  page_bytes: 4096
+  object_count_per_epoch: 12
+  backend: fixed abstract 4KiB fast/slow page tier
+  object_payload: opaque bytes represented by a deterministic payload digest; no interior pointers
+  pointer_model: one authoritative OBASE-style Guide per movable object; no hidden aliases; handles cannot escape a public operation
+  relocation_time: evaluation-epoch boundary only
+  trace_semantics: frozen CacheLib-compatible GET/SET/DELETE order, key identity, positive size, op_count multiplicity, update visibility and lifetime
+  forbidden:
+    - infer mobility or aliases from the raw operation trace
+    - change trace, selection, object, page size, backend, SLO, or candidate action
+    - use an oracle, post-hoc envelope, static slow-page prefix, or temperature-only proxy as the deployment comparator
+    - use a constant true, shared digest, or unexecuted assertion as pointer/semantic evidence
+
+pointer_semantic_relocation_replay:
+  protocol_id: OBASE_GUIDE_TAG_ATC_EPOCH_ODM_AUDIT_V1
+  per_method_independent_state: true
+  states:
+    - INACTIVE
+    - PREPARE
+    - ACTIVE
+    - INACTIVE_COMPLETE
+  required_transitions:
+    - increment epoch and enter PREPARE
+    - scan thread-activity index until all active operations observed the new epoch
+    - require all handles/TAG references drained before relocation
+    - enter ACTIVE
+    - per moved object atomic guide load, ATC check, migration-lock CAS, capacity allocation, payload copy, new-guide construction, commit CAS, old-slot retirement
+    - rollback destination and clear lock on any failed allocation/CAS
+    - return to INACTIVE
+  operation_replay:
+    - each GET/SET/DELETE creates a TAG, loads the method-local guide, increments/decrements ATC, applies trace-defined state change, and destroys the TAG
+    - each method computes its own operation transcript digest and final-state digest
+    - equality is checked only after all independent replays finish
+  capacity_checks:
+    - every boundary layout page sum is at most 4096 bytes
+    - every destination allocation fits its assigned page
+    - every in-epoch replacement fits its frozen object slot; otherwise execute and charge fallback
+
+candidate:
+  id: EXACT_JOINT_MIGRATION_SLO_PAGEPACK_REDUCED
+  action_unchanged: ordered object-to-page assignment plus initial set of slow/reclaimed pages
+  solver: exhaustive capacity-legal assignment search and exhaustive page-subset target search
+  information: prior epoch only
+  predicted_policy_replay: initial chosen slow pages promote on first later access; no post-hoc demotion or target change
+  objective_order:
+    - maximize predicted time-averaged reclaimed fast-tier bytes subject to every-window SLO legality
+    - maximize predicted end-window reclaimed fast-tier bytes
+    - minimize migration bytes
+    - minimize total layout pages and fragmentation
+    - canonical layout and slow-page tuple
+  nondegenerate_algorithm: exhaustive joint layout/target decision remains the candidate even if the selected frozen-epoch action is a no-op
+
+faithful_composition:
+  id: OBASE_DEFAULT_NEW_HOT_COLD_CIW3_SAMA_TO_MDK_AGE_RA20_PR5
+  obase_source: official OBASE OSDI 2026 paper, sections 3.2-3.5 and 4.1-4.5
+  obase_configuration:
+    access_tracking: Guide access bit plus SODA discovery
+    heaps: [NEW, HOT, COLD]
+    coldness: consecutive inactive windows
+    initial_cold_threshold_windows: 3
+    layout_action: SAMA-style separate contiguous temperature runs; deterministic footprint-descending first-fit within NEW, HOT, COLD
+    migration: audited OBASE epoch/guide/ATC/ODM protocol above
+    selection_time: boundary, using prior-epoch windows only
+  mdk_source: official MDK OSDI 2026 paper, AGE definition and Linux validation
+  mdk_policy:
+    name: AGE
+    age_threshold: 20 logical scan intervals
+    provenance: paper Linux validation uses 30-second scans and 10-minute AGE; ratio is 20 scans
+    time_mapping: trace lacks wall-clock timestamps, so each 1000 consecutive rows is one logical scan interval; no wall-clock claim is made
+    action: after each scan, reclaim a fast page only when it has not been accessed for 20 full scan intervals; a later access promotes it before service and counts one promotion
+    online: true
+    future_information: none
+  slo_target:
+    metric: MDK/g-swap promotion rate per scan window
+    numerator: unique previously-reclaimed pages promoted in that window
+    denominator: unique managed pages accessed in that window
+    cap_fraction: 0.05
+    zero_denominator_rate: 0
+    legality: every evaluation scan window rate is at most 0.05
+  no_parameter_sweep: true
+  no_post_hoc_choice: true
+  same_information_as_candidate: true
+
+full_cost_ledger:
+  aggregation_rule: no work-to-byte or cross-unit scalar conversion; retain a typed cost vector
+  benefit_fields:
+    - time_averaged_reclaimed_fast_tier_bytes
+    - end_window_reclaimed_fast_tier_bytes
+  byte_fields:
+    - migration_copy_bytes
+    - destination_allocation_bytes
+    - peak_layout_page_footprint_bytes
+    - layout_fragmentation_bytes
+    - retained_metadata_bytes
+    - fallback_copy_or_rollback_bytes
+  event_fields:
+    - exact_solver_states
+    - exact_solver_transitions
+    - candidate_target_subsets
+    - classifications
+    - comparisons
+    - capacity_lookups_and_probes
+    - hash_invocations
+    - guide_loads
+    - tag_creates_and_destroys
+    - atc_increments_and_decrements
+    - atomic_cas_attempts
+    - policy_page_window_checks
+    - promotions
+    - demotions
+    - replay_rows_scanned
+    - selected_operation_rows
+    - fallback_events
+  measured_fields_volatile:
+    - elapsed_ns
+    - cpu_user_us
+    - cpu_system_us
+    - peak_rss_bytes
+  full_cost_coverage:
+    relocation: true
+    layout: true
+    planning: true
+    policy: true
+    metadata: true
+    trace_handling: true
+    semantic_replay: true
+    fallback: true
+  decision_use: costs are reported and used as a Pareto vector; measured timing is supporting volatile evidence and never converted to reclaimed bytes
+
+preregistered_primary_criterion:
+  name: STRICT_LEGAL_FULL_COST_RECLAIMED_BYTE_NONDOMINATED_RESIDUAL_AT_FIXED_SLO
+  candidate_positive_per_epoch: candidate replay is pointer/semantic/capacity legal, every scan window satisfies the same 5% promotion-rate cap, candidate time-averaged reclaimed bytes are strictly greater than the faithful composition, and candidate is not worse on every registered non-common deterministic cost component
+  strict_residual_bytes: candidate time-averaged reclaimed bytes minus faithful-composition time-averaged reclaimed bytes
+  preliminary_support: any of three epochs is positive and no replay/selection/hash invariant fails
+  scientific_stop: all three epochs have no strict positive full-cost residual, including faithful-composition absorption or a zero residual, while all claim-bearing executions and validators succeed
+  positive_claim_ceiling: PRELIMINARY_SUPPORT_OR_NOT_FALSIFIED_ONLY
+  negative_claim_ceiling: FROZEN_THREE_EPOCH_TRACE_LEVEL_SCIENTIFIC_STOP_ONLY
+
+reproducibility:
+  primary_command: node tools/run_revision_probe.mjs --mode primary
+  replay_command: node tools/run_revision_probe.mjs --mode replay
+  validator_command: node tools/validate_revision.mjs
+  stable_nonvolatile_fields: all input hashes, selections, layouts, policy decisions, cost counters, optima, SLO decisions, legality transitions, semantic/final-state hashes and scientific decision
+  excluded_volatile_fields: timestamps, elapsed/cpu timing, RSS, host, PID and Node version
+  require_byte_identical_stable_files: true
+
+failure_policy:
+  pre_claim_observation_resource_failure: BLOCKED_USER_ACTION_REQUIRED
+  evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+  scientific_revision_consumed: false
+  stop_or_reserve_on_resource_failure: false
+

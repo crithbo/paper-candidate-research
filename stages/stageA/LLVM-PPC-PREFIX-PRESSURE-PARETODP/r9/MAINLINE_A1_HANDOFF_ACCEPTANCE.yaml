@@ -1,0 +1,45 @@
+schema: mainline-preclaim-handoff-acceptance-v1
+accepted_at: 2026-08-26T08:27:00+08:00
+accepted_by: MAINLINE
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+addendum_id: PPC-R9-A1-EXPLICIT-SHORT-CFILE-AND-NO-IMPLICIT-BYTECODE
+lane_id: CANDIDATE_EXECUTION_LANE_2
+handoff_sha256: B90B61F54FBBEF18DAF0445FA78B7A56EEB1C7837252BC7431BDB089859916D3
+manifest_sha256: 9B174B6B4AFD7929334ECB963145273FC52DCF0724B3EFAC7DB54A618597045C
+manifest_validation: PASS_111_OF_111
+inventory_sha256: C7C85A2B14AF2679201D979516980C2D01A1FF523AE819A20B1DBD571F327FC1
+retention_sha256: C2691DAD6E72CECA106092A11ABDE3425FD5805DC76568A103D50DF7B7EB73DE
+resume_capsule_sha256: 6C971AB38969710755722CEC1D2559EB67ABA02E82F39D99B83F4E03FBFDAC35
+decision: ACCEPT_FAIL_CLOSED_CHECKER_CONTRACT__INDEPENDENT_MECHANICAL_A2_CORRECTION_ELIGIBLE
+accepted_evidence:
+  short_cfile_static_compile: PASS_ONE_ATTEMPT
+  K0_input_acceptance: REUSED_PASS
+  K1_same_function_materializer: PASS_CONTROL_NON_CLAIM_THROUGH_MACHINEVERIFIER_OBJECT_AND_LINK
+  K2_input_specific_PPC_TPD: PASS_CONTROL_NON_CLAIM_EXACT_FRONTIER
+  K3_candidate_outputs_consumed: true
+  native_checks: PASS_6_OF_7
+  K4_K6: NOT_STARTED_FIRST_FAILURE_STOP
+  selected_or_reserve_tool_invocations: 0
+  claim_bearing_observations: 0
+independent_mechanical_disposition:
+  reviewer: MAINLINE_NOT_IMPLEMENTATION_AUTHOR
+  inspected_source: {path: resources/src/natural_materializer/materializer_harness.py, sha256: A28B269C522A96B81AA79C7F907864BA2277C0E6ABCA1108BACA9010F4C01D80, lines: 345-353}
+  inspected_checker_output: {path: resources/build/a1_gate/native_checkers.json, sha256: DDB782036926F659C9F0959ED574B3A6A08C0FF48B93C59D555D747E25E7398E}
+  positive_invariants_true: 8_OF_8
+  required_negative_invariant: {fixed_synthetic_assembly_witness_used: false}
+  frozen_evaluator: all_bool_over_all_values
+  diagnosis: REQUIRED_FALSE_VALUE_WRONGLY_TREATED_AS_REQUIRED_TRUE
+  mechanism_or_candidate_output_failure: false
+bounded_A2_route:
+  edited_file_only: resources/src/natural_materializer/materializer_harness.py
+  old_sha256: A28B269C522A96B81AA79C7F907864BA2277C0E6ABCA1108BACA9010F4C01D80
+  expected_new_sha256: 6234A3380940D87A2FCDBAA1D08DB3F4893A37901E3854CCD9222F3A035BDC0E
+  expected_new_bytes: 38739
+  semantics: ALL_EIGHT_NAMED_POSITIVE_KEYS_MUST_EXIST_AND_BE_EXACT_TRUE__FIXED_SYNTHETIC_WITNESS_USED_KEY_MUST_EXIST_AND_BE_EXACT_FALSE
+  truth_table_controls_required: POSITIVE_PLUS_NEGATIVE_TRUE_PLUS_NEGATIVE_MISSING_PLUS_EACH_POSITIVE_FALSE
+  other_source_or_command_change_allowed: false
+scientific_state_effect: NONE
+scientific_revision_consumed: false
+cleanup_disposition: DEFER__A2_REUSES_CURRENT_RESOURCE_ROOT_AND_A1_OUTPUTS
+next_action: FREEZE_R9_A2_ONE_FILE_CHECKER_BOOLEAN_CONTRACT_CORRECTION

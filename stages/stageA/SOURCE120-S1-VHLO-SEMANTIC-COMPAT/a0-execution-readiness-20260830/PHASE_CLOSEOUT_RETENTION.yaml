@@ -1,0 +1,21 @@
+schema: phase-closeout-retention-v1
+assignment_id: STAGEA-L2-20260830-VHLO-SEMANTIC-COMPAT-A0
+closeout_kind: A0_EXECUTION_CONTRACT_HOLD
+lifecycle_mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+cleanup_owner: MAINLINE
+owner_cleanup_performed: false
+retain:
+  - {path: OFFICIAL_SOURCE_FREEZE.yaml, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: exact commit and unresolved binding ledger}
+  - {path: NETWORK_TRANSPORT_LEDGER.yaml, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: exhausted correction routes and conservative network accounting}
+  - {path: VHLO_A0_PACKET.json, class: RESUME_CRITICAL_UNTIL_UNBLOCKED, reason: result-independent witness/oracle/denominator/full-cost freeze}
+  - {path: resources/src/control/VHLO_A0_SCHEMA_CONTROL.py, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: exact nonclaim control}
+  - {path: resources/build/control/manual-schema/result.json, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: schema PASS and binding gap evidence}
+  - {path: STAGEA_EXECUTION_READINESS_LEDGER.yaml, class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, reason: topic cumulative A0 and correction budget}
+cleanup_candidates_after_accepted_handoff:
+  - {path: resources/logs/control/manual-schema.stdout.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, expected_files: 1, expected_bytes: 0}
+  - {path: resources/logs/control/manual-schema.stderr.txt, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, expected_files: 1, expected_bytes: 0}
+  - {path: resources/env/git-home, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, expected_files: 0, expected_bytes: 0}
+  - {path: resources/downloads/commit-metadata, class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, expected_files: 0, expected_bytes: 0}
+deletion_gate: MAINLINE_ACCEPTED_HANDOFF_PLUS_CONTAINMENT_REPARSE_ACTIVE_PROCESS_AND_RESUME_CHECKS
+scientific_state_effect: NONE
+

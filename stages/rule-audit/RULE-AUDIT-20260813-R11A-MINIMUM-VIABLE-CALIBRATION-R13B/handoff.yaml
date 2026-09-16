@@ -1,0 +1,155 @@
+handoff_id: RULE-AUDIT-HANDOFF-20260813-R11A-MINIMUM-VIABLE-CALIBRATION-R13B
+audit_id: RULE-AUDIT-20260813-R11A-MINIMUM-VIABLE-CALIBRATION-R13B
+role: RULE_AUDIT_SENTRY
+status: MAINLINE_IMPLEMENTATION_AUTHORIZED
+approval_id: R11A-MINIMUM-VIABLE-CALIBRATION-20260813-R13B
+approval_status: USER_APPROVED
+additional_generic_user_approval_required: false
+workspace_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\rule-audit\RULE-AUDIT-20260813-R11A-MINIMUM-VIABLE-CALIBRATION-R13B
+shared_files_modified: false
+packer_contacted: false
+private_denylist_read: false
+historical_identity_plaintext_read: false
+method_or_stage_started: false
+
+supersession:
+  old_audit_id: RULE-AUDIT-20260813-R11A-PHASE1-IDENTITY-CAPACITY-R13
+  old_manifest_sha256: 892996FB695776CE47277C51A28CB3C5EB4FB58CAF614544E5D8157804C4F933
+  old_proposed_approval_id: R11A-BOUNDED-OPAQUE-IDENTITY-CAPACITY-20260813-R13A
+  exact_status: SUPERSEDED_NOT_APPROVED
+  request_old_r13a_approval: forbidden
+  use_old_128_unique_or_160_raw_plan: forbidden
+
+resume_anchor:
+  assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+  checkpoint_011_sha256: BC280D6E3D9D86841A1B889E308129DED101EF3FEDC4FD5072018E7DEE83A43B
+  blocker_012_sha256: 87F5CCE193AA49B8D6586354FFAAF4BE784B103AA2466CBFDB66DBE3BF0A129B
+  same_assignment_and_index_directory: true
+  overwrite_old_checkpoint_blocker_or_evidence: false
+  resume_allowed_after_mainline_amendment_validation: true
+
+old_to_new:
+  historical_28:
+    new_role: OPEN_DEVELOPMENT_REGRESSION_ONLY
+    blind_weight: 0
+  phase1_eligible_minimum_target_maximum:
+    old: [60, 72, 80]
+    new_initial_exact: 24
+    new_trigger_only_schedule: [30, 36]
+  strata:
+    old_minimum_each: 8
+    new_initial_exact_each: 4
+    new_maximum_each: 6
+  new_development_cases:
+    old: 12
+    new: 0
+  blind_expansion:
+    old: [24, 32, 40]
+    new: [24, 30, 36]
+  contribution_types_minimum: UNCHANGED_AT_5
+  single_type_fraction_maximum: UNCHANGED_AT_0_30
+  scientific_and_statistical_gates: UNCHANGED
+
+existing_checkpoint_011_eligible:
+  count: 2
+  automatic_count_toward_24: false
+  mechanical_checks_required: 6
+  required:
+    - COMMITMENT_PRECEDES_R12A_INTERSECTION
+    - R12A_PRIOR_NONMATCH
+    - COMPLETE_SOURCE_QUALIFICATION
+    - OPEN_DEV_AND_PRIOR_BLIND_EXCLUSION
+    - BLIND_NONEXPOSURE
+    - DETERMINISTIC_SELECTION_AND_CONTRIBUTION_CAP
+  failure_scientific_inference: NONE
+
+rolling_commitment:
+  total_unique_ceiling_including_existing_four: 72
+  total_raw_ceiling_including_existing_four: 88
+  maximum_new_batches: 4
+  new_unique_batch_caps: [20, 20, 20, 8]
+  new_raw_batch_caps: [24, 24, 24, 12]
+  fifth_replacement_or_post_executor_batch: forbidden
+  commitment_precedes_private_intersection_and_source_qualification: true
+  cross_batch_duplicate: REJECT_PRECOMMIT__RAW_CAP_ONLY
+  unhashable_or_ambiguous: REJECT_PRECOMMIT__RAW_CAP_ONLY
+  prior_match: EXCLUDE__UNIQUE_CAP_CONSUMED__NO_SOURCE_QUALIFICATION
+  source_unqualified: NOT_ELIGIBLE__UNIQUE_CAP_CONSUMED__NO_SCIENTIFIC_INFERENCE
+  collision: HASH_COLLISION_FATAL
+
+blind_seal:
+  initial_core_exact: 24
+  initial_per_stratum_exact: 4
+  reserve_tranche_sizes: [6, 6]
+  reserve_added_per_stratum_each_tranche: 1
+  maximum: 36
+  partial_unbalanced_tranche: forbidden
+  all_core_and_available_reserve_identities_artifacts_rank_and_keys_frozen_before_first_executor: true
+  public_seed: DISCOVERY-CLAIM-PACK-V9-R0-R11A-R13B-MVC-SEAL-20260813
+  packer_reentry_after_first_executor: forbidden
+
+auditor_trigger:
+  owner: INDEPENDENT_AUDITOR
+  mainline_mechanical_validation_before_release: required
+  allowlisted:
+    - COVERAGE_TRIGGER
+    - UNCERTAINTY_TRIGGER
+    - DECISION_DISCORDANCE_TRIGGER
+    - OVERALL_INCONCLUSIVE_TRIGGER
+  hard_failure_has_precedence_and_cannot_expand: true
+  answer_score_direction_or_fail_rescue_trigger: forbidden
+  no_trigger_at_24: SEAL_24
+  valid_trigger_at_24: RELEASE_BALANCED_6_TO_30
+  valid_trigger_at_30: RELEASE_BALANCED_6_TO_36
+  expansion_after_36: forbidden
+  trigger_without_presealed_complete_tranche: PILOT_NOT_CALIBRATED_INCONCLUSIVE__PRESEALED_RESERVE_UNAVAILABLE
+
+separation:
+  open_dev_and_blind_roots_manifests_and_scores: STRICTLY_SEPARATE
+  historical_28_in_blind_numerator_denominator: forbidden
+  r12a_prior_nonmatch_required_for_every_new_blind_family: true
+  packer_executor_auditor_independence: preserved
+  prospective_noncanonical_shadow_waves_required: 2
+  production_requires_auditor_pass_and_both_shadow_pass: true
+  discovery_claim_pack_mode: OFF_UNTIL_ALL_GATES_AND_SEPARATE_SAFE_CUTOVER
+
+invariants:
+  q1_q2_same_object_current_collision_strong_baseline: unchanged
+  natural_full_cost_reproducibility_claim_ceiling: unchanged
+  evidence_honesty_and_stop_non_revival: unchanged
+  stageb_and_formal_user_gate: unchanged
+  resource_envelope_increased: false
+  new_download_e2_experiment_install_automation_external_service: forbidden
+
+mainline_implementation_paths:
+  control_root: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\control\minimum-viable-calibration-r13b
+  open_dev_root: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\open-development-regression-r13b
+  blind_index_root: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\index
+  blind_packer_root: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\packer
+
+rollback:
+  revoke_only_r13b_implementation_artifacts: true
+  preserve_all_bytes: true
+  restore_checkpoint_011_and_blocker_012: true
+  restore_or_request_r13a: forbidden
+  capacity_expansion_without_new_user_policy: forbidden
+  scientific_inference: NONE
+
+deliverable_sha256:
+  audit_input_snapshot: 345A08276D45DA1259E71B2E830003142AD4448472541D244274912701B241FF
+  policy_alignment_report: 8E584F04543EB8C2D6184ED7833DD65B2DB61746BF35B1E50579B21332A23858
+  implementation_directive: BB16DA7D6FB95E5A62FA173EC07E7E8DDC4DE0785BED4DCDF284F50FF8A6479B
+  contract_spec: EAC4DEFC3D3ADADB567B8623807D509B736D56823F5750370634F2A87EA3085A
+  rule_change_proposal: F8F8A4E749457AA0FF8547E1C45FA5C5D833C3F6AFB42D8F194F2987AD058EBE
+  draft_mainline_patch: F72987800BA7987E8120E26ACDE7A60B1C85C54FA8D4861DEE7B1DE780FF83EE
+
+mainline_action_now:
+  - VERIFY_R13B_PACKAGE_MANIFEST
+  - FREEZE_ADDITIVE_R13B_CONTROL_AMENDMENT
+  - REGISTER_R13_AS_SUPERSEDED_NOT_APPROVED
+  - FREEZE_OPEN_DEV_BLIND_SEPARATION_AND_EXISTING_TWO_ADMISSION_GATE
+  - ONLY_THEN_RESUME_SAME_PHASE1_ASSIGNMENT
+  - DO_NOT_REQUEST_MORE_GENERIC_USER_APPROVAL
+
+lane_state_after_handoff: IDLE_REUSABLE_AWAITING_USER_DIALOGUE

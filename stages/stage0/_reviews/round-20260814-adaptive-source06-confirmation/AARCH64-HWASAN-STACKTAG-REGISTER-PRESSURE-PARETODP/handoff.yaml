@@ -1,0 +1,26 @@
+assignment_id: STAGE0-C2-20260814-AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP-CONFIRM-V8.7
+topic_id: AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP
+mode: INDEPENDENT_CONFIRMATION_SENTRY
+decision: CONFIRM_REVISE_ONCE
+quality_tier: TIER_B_Q2_VIABLE
+confidence: 0.84
+evidence_ceiling: E1_STATIC_PREFLIGHT__SEARCH_BOUNDED_OPEN
+primary_input_integrity: 4_OF_4_PASS
+primary_manifest_sha256: 1AF7A07297AF488D6CFE99B03E2107EF3F6235FDF7305F1DB7F480EA950D9449
+sole_scientific_revision_gate: SAME_REPORT_TWO_PLAN__LIVE_TAG_RETAG_ASSIGNMENT_FRONTIER_CERTIFICATE
+scientific_revision_executed_by_this_assignment: false
+stagea_authorized: false
+stageb_authorized: false
+independent_findings:
+  - Current HWASan has real base-tag, fixed alloca-number ReTag, tagged-use replacement, alignment, and lifetime tag/untag actions.
+  - AArch64StackTagging is gated by SanitizeMemTag rather than SanitizeHWAddress; its tagp/NextTag actions are not a same-object HWASan baseline or candidate action.
+  - No direct current-union absorption of a correctly defined whole-function HWASan-only frontier was established.
+required_revision_closure:
+  - Correct the native catalogue to HWASan-only action semantics and retain the fixed ABI/unwind/object.
+  - Prove two native-realizable plans preserve the complete declared report/no-report trace vector, including short-granule and lifetime effects.
+  - Prove bounded future-action/full-cost-preserving state and target-specific exact/FPT/certified-Pareto recurrence.
+  - Freeze the finite Stage-A fidelity and full-cost falsifier without running it.
+failure_sentinel: BELOW_Q2_STOP__CURRENT_HWASAN_STACKTAG_COMPOSITION_OR_GENERIC_RA_PACKAGING
+search_boundary: SEARCH_BOUNDED_OPEN
+mainline_notification_required: true
+lane_state_after_mainline_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE

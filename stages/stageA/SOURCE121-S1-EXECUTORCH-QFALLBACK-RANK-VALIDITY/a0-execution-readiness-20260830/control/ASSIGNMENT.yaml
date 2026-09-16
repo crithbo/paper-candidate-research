@@ -1,0 +1,28 @@
+schema: stagea-a0-assignment-v1
+assignment_id: STAGEA-L3-20260830-EXECUTORCH-QFALLBACK-RANK-VALIDITY-A0
+topic_id: SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY
+lane_id: CANDIDATE_EXECUTION_LANE_3
+mode: A0_EXECUTION_READINESS
+stagea_scope_budget_mode: PRODUCTION
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+unique_write_directory: stages/stageA/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/a0-execution-readiness-20260830
+resource_root: stages/stageA/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/a0-execution-readiness-20260830/resources
+stage0_inputs:
+  primary_handoff: {path: stages/stage0/_reviews/round-20260830-source121-primary/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/handoff.yaml, sha256: 01DFD839FAA40F9EDCFD494BD872964B88E85F835413F3DF43F6442EE10A434D}
+  sentry_handoff: {path: stages/stage0/_reviews/round-20260830-source121-sentry/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/handoff.yaml, sha256: 7115845C8DD343C5F08CA809497DCD0A0BF714DA935A9642B163F33D7D385442}
+claim_ceiling: CONDITIONAL_CANONICAL_EXECUTORCH_BENCHMARK_VALIDITY_ONLY
+a0_objective:
+  - freeze exact ExecuTorch current commit and official public model revisions licenses and hashes
+  - freeze one smallest-model legal topology-variation panel before results
+  - freeze portable-only XNNPACK-standard and XNNPACK-extended configurations where legal
+  - freeze source_to_edge_to_runtime output-quality contract and profiling-on/off timing truth
+  - freeze non-overlapping partition/subgraph/delegate-time predictive features with no target leakage
+  - freeze full-cost dimensions including export lowering init artifact size runtime validation observer effect
+  - run one nonclaim schema_and_observability_control_only
+a1_plan: {calibration_models: 2, held_out_models: 1, claim_run_requires_separate_start: true}
+budget: {network_attempts_max: 24, network_bytes_max: 1073741824, stored_bytes_max: 2147483648, cpu_hours_max: 8, gpu_hours_max: 0, a0_initial_round: 1, engineering_correction_batches_max: 2}
+firewall_hidden_until_a1: [rank_agreement, rank_reversal, held_out_gain, observer_effect_direction, candidate_direction]
+allowed_after_start: [official_source_and_model_metadata_acquisition, assignment_local_tools_or_build_within_budget, packet_and_feature_schema, one_nonclaim_control, readiness_inventory_retention_handoff]
+forbidden: [claim_panel_execution, result_visibility, result_aware_model_or_config_selection, proprietary_device_or_model, StageB, shared_write, system_install]
+current_cycle_usage_reset_confirmed: false
+

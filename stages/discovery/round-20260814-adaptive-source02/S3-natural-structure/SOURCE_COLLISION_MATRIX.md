@@ -1,0 +1,14 @@
+# Source and collision matrix
+
+| family | same object / observable | strongest current measurement union | confounds and contrary evidence | full-cost denominator | finite falsifier / closure |
+|---|---|---|---|---|---|
+| CrUX cohort reversal | Monthly CrUX records; reported overall and cohort field UX quantiles | Published CrUX schema/API/dataset plus documented dashboard aggregation | origin eligibility, device/network mix, monthly population composition, percentile non-recomputation under device filter, bin spreading | data acquisition, standardisation/estimation CPU-RSS, retained records, report latency | 20–50 fixed monthly slices; preregister cohort strata; reject if holdout reversal rate is not above sampling uncertainty or vanishes under eligibility controls. |
+| Android Vitals threshold reversal | Play Vitals aggregate/per-device thresholds for one app-release population | Play Console/API current metrics, global and device thresholds, active-device inclusion rules | permission/collection, privacy, daily-active-user definition, device mix, release adoption | API/export, cleaning, estimator CPU-RSS, reporting latency | Cannot freeze a public 20–50 app-release carrier without owner access; retain unfrozen rather than invent one. |
+| Rust Crater cohort bias | Stable/beta build/test outcomes for selected ecosystem packages | Current Crater workflow and result classification | Linux x86_64-only, unavailable crates, flaky/network outcomes, selected GitHub corpus, release age | checkout/build/test wall/CPU-RSS, result storage and triage latency | Freeze 20–50 result snapshots and package cohorts; reject if controlled ranking effect is absent on held-out compiler changes. |
+| Firefox environment split bias | Release-pinned pings and documented environment/session fields | Current Glean/Telemetry probes, ping schema, data-review/collection controls | opt-out, privacy omissions, async environment fields, session split, channel mix | approved-data query, storage, analysis CPU-RSS, reporting latency | Freeze a permissible public aggregate or approved data-access route; reject if effect vanishes under environment/channel standardisation. |
+| Kubernetes TestGrid | Dashboard result history | Dashboard UI | no immutable raw carrier or closed cohort denominator | not applicable | Structural drop before deep review. |
+| LLVM Test Suite/LNT | Benchmark program result data | Test-suite JSON/compare facilities | benchmark suite is not a natural workload | not applicable | Structural drop before deep review. |
+
+## Collision conclusion
+
+No `PROPOSE_STAGE0` claim is made, so no competing paper is characterized as a direct subtractor. The matrix documents current official measurement reality and the strongest contrary explanations rather than treating a dashboard, missing access, or missing experiment as evidence for a new law.

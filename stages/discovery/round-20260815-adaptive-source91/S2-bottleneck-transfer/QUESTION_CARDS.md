@@ -1,0 +1,3 @@
+# QC-S2-91-01
+
+Same object: fixed module/input/version/stock semantics. Whole action: joint legal inline-cache slot layout and specializer/deopt state representation. Valid N2 needs target-specific exact/FPT/Pareto/approximation guarantee; flags, cache policy, generic packing, custom interpreter or changed bytecode fail. Falsifier: pinned stock source already does identical action/objective or witness changes semantics. Carrier/oracle: pinned CPython test and output/exceptions. Full cost: bytes, compile/load CPU/RSS, cache/specialization/deopt/dispatch/runtime. Finite closure: one commit, named sources, two-plan witness, collision search. Status: `EVIDENCE_QUALIFIED_RAW__NOT_READY_FOR_C0__PENDING_UNEXECUTED_SOURCE_CLOSURE`.

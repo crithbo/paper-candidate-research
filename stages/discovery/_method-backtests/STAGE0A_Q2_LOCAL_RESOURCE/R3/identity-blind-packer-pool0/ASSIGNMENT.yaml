@@ -1,0 +1,39 @@
+schema: identity-blind-stage0a-packer-pool0-assignment-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGE0A-IDENTITY-BLIND-EVIDENCE-R3-POOL0
+role: DISCOVERY_BACKTEST_PACKER
+lane_id: BACKTEST-PACKER
+lane_thread_id: 01a034d0-e1e2-7921-bb72-a675ff98d5b0
+topic_id: STAGE0A_IDENTITY_BLIND_EVIDENCE_BACKTEST_R3
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-pool0
+resource_root: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R3/identity-blind-packer-pool0/resources
+status: BOOTSTRAP_ACK_PENDING
+parent_blocker: {path: ../identity-blind-packer/START_FAILURE_BLOCKER.yaml, sha256: 810706DE3D15853D992980437E115486856316E9B67860A989DCD0E0A41CD086}
+scope: METADATA_ONLY_CANDIDATE_UNIVERSE_FREEZE
+population_contract: {candidate_count: 20, per_stratum: 5, final_selection_per_stratum: 3, years: 2019_to_2025}
+strata:
+  - METHOD_ALGORITHM_OR_SYSTEM_ARCHITECTURE
+  - COMPILER_TOOL_OR_THEORY_FORMAL
+  - MEASUREMENT_CHARACTERIZATION_OR_BENCHMARK_DATASET
+  - HARDWARE_ARCHITECTURE_OR_MEMORY_SYSTEM
+candidate_admission:
+  - official_publisher_author_or_arxiv_metadata_page
+  - public_fulltext_route_or_authorized_fulltext_locator
+  - publication_year_2019_to_2025
+  - not_in_frozen_R1_R2_exclusion_unions
+  - not_in_frozen_selected_reviewer_contact_union
+candidate_pool_construction:
+  query_portfolio: [ACM_DL_OR_OFFICIAL_PROCEEDINGS, USENIX_OR_OFFICIAL_PROCEEDINGS, arXiv_OR_AUTHOR_PAGE, OPENREVIEW_OR_OFFICIAL_VENUE_PAGE]
+  per_stratum_first_admitted: 5
+  failed_or_unavailable_candidate_replacement: FIRST_NEXT_ADMITTED_IN_SAME_FROZEN_PORTFOLIO_ORDER_ONLY
+  gate_or_expected_label_access: forbidden
+identity_risk_derivation:
+  score_0: neutral_contract_can_describe_object_action_and_evidence_without_proper_name_unique_acronym_or_named_corpus
+  score_1: one_nonidentity_standard_project_or_benchmark_label_needed
+  score_2: distinctive_product_eponym_or_named_corpus_unavoidable
+identity_key_preimage: lowercase_normalized_title + newline + canonical_doi_or_arxiv_or_official_url
+future_selection_rule: ascending_identity_risk_then_ascending_SHA256_of_identity_key_preimage_then_canonical_url
+reviewer_contact_exclusion_derivation: union_of_R1_CASE_POOL_R1_SOURCE_LEDGER_R2_ENRICHED_MANIFEST_R2_AUDITOR_KEY_AND_BACKTEST_EXECUTOR_PRIOR_SEALED_PACKETS
+network_policy: {allowed: official_metadata_and_fulltext_availability_checks_only, source_attempts_max: 64, stored_bytes_max: 67108864, code_or_artifact_downloads_max: 0}
+forbidden_actions: [final_12_selection, paper_pdf_download, code_download, artifact_download, build, probe, experiment, scoring, packet_creation, production_candidate_registration, StageB]
+required_outputs: [CANDIDATE_SOURCE_POOL.yaml, REVIEWER_CONTACTED_IDENTITY_EXCLUSION.yaml, IDENTITY_RISK_AND_KEY_PREIMAGE_LEDGER.yaml, POOL0_HANDOFF.yaml, HASH_MANIFEST.sha256]
+model_route: {model: gpt-5.6-terra, thinking: medium}

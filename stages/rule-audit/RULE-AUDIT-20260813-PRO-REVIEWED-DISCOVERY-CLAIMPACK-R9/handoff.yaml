@@ -1,0 +1,66 @@
+audit_id: RULE-AUDIT-20260813-PRO-REVIEWED-DISCOVERY-CLAIMPACK-R9
+proposal_id: DISCOVERY-CLAIM-PACK-V9-R0
+source_role: RULE-AUDIT-SENTRY
+destination_role: MAINLINE-CONTROL
+status: USER_APPROVED__MAINLINE_APPLICATION_REQUIRED
+requested_by: USER
+user_approval_present: true
+user_approval_file: USER_APPROVAL_DIRECTIVE.md
+shared_files_modified: false
+academic_research_suite_used: true
+external_sources_verified: true
+decision: PATCH_RECOMMENDED__BACKTEST_REQUIRED
+canonical_production_mode_after_install: OFF
+existing_production_method_changed: false
+existing_assignments_changed: false
+candidate_states_changed: false
+discovery_started: false
+backtest_started: false
+shadow_started: false
+stage0_stagea_stageb_started: false
+experiment_or_download_started: false
+automation_started: false
+method_activation_requirements:
+  - INDEPENDENT_PACKER_EXECUTOR_AUDITOR
+  - PAIRED_SAME_SNAPSHOT_LEGACY_V9
+  - NEW_BLIND_HOLDOUT
+  - PRECOMMITTED_NONINFERIORITY_AND_SAMPLE_STOPPING
+  - ROBUSTNESS_PERTURBATIONS
+  - TWO_PROSPECTIVE_NONCANONICAL_SHADOW_WAVES
+  - MAINLINE_SAFE_BOUNDARY_CUTOVER
+safety_invariants:
+  q2_minimum: PRESERVED
+  q1_priority: PRESERVED
+  same_object: PRESERVED_AND_OPERATIONALIZED
+  current_collision: PRESERVED_AND_OPERATIONALIZED
+  fair_strong_baseline: PRESERVED
+  natural_or_canonical_evidence: PRESERVED
+  full_cost: PRESERVED
+  reproducibility: STRENGTHENED
+  evidence_claim_honesty: STRENGTHENED
+  terminal_stop_non_revival: PRESERVED
+  stageb_and_formal_project_user_gates: PRESERVED
+parallelism:
+  lane_ceiling_change: false
+  existing_ceiling: 6
+  method_and_seat_count_separated: true
+  three_vs_six_requires_separate_test: true
+e2_policy:
+  optional: true
+  claim_bearing: false
+  stage0_admission_gate: false
+  assignment_resource_allowlist_required: true
+  failure_can_cause_scientific_drop_or_stop: false
+artifacts:
+  - RULE_AUDIT_REPORT.md
+  - RULE_CHANGE_PROPOSAL.md
+  - PRO_REVIEW_MAPPING.md
+  - SOURCE_VERIFICATION.md
+  - USER_APPROVAL_DIRECTIVE.md
+  - AUDIT_INPUT_SNAPSHOT.md
+  - MAINLINE_IMPLEMENTATION_SPEC.md
+  - DRAFT_PATCH.diff
+  - PATCH_VALIDATION.md
+  - HASH_MANIFEST.sha256
+next_action: MAINLINE_APPLY_PATCH_AT_SAFE_BOUNDARY_RECORD_HASHES_KEEP_MODE_OFF
+state_after_handoff: IDLE_REUSABLE_AWAITING_USER_DIALOGUE

@@ -1,0 +1,49 @@
+assignment_id: DISCOVERY-S5-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+master_assignment: DISCOVERY-V9-PROSPECTIVE-SHADOW-20260813-R16A
+lane: S5_SCALE_ONLINE_APPROX
+status: COMPLETE_ZERO_PROPOSALS
+next_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+mode:
+  canonical: V8_7_AUTHORITATIVE_OFF
+  shadow: DISCOVERY_CLAIM_PACK_V9_R0_SHADOW_NONCANONICAL
+source_snapshot: neutral-source-snapshot/FAMILY_SIGNATURES.md
+canonical_manifest: canonical-v8.7/HASH_MANIFEST.sha256
+shadow_manifest: shadow-v9/HASH_MANIFEST.sha256
+families:
+  - id: S5R16A-CARGO-INDEX
+    signature: fixed_cargo_registry_index__append_yank_metadata__stock_sparse_git_consumer__index_update_read_network_cost
+    canonical_disposition: DROP__CURRENT_UNION_OR_CONTROLLER
+    shadow_disposition: DROP__CURRENT_UNION_OR_CONTROLLER
+    source_action_correction: shadow_separates_native_append_yank_action_from_refresh_policy
+    cost: index_protocol_bytes_cache_io_parse_resolve_cpu_rss_network
+    leakage_check: PASS__same_snapshot__no_shadow_to_canonical_content
+    stability: STABLE
+  - id: S5R16A-APT-ARCHIVE-INDEX
+    signature: fixed_deb_dsc_tree__apt_reader__native_packages_sources_contents_release_construction__checksum_read_cost
+    canonical_disposition: DROP__CURRENT_UNION_OR_OBJECT_CHANGE
+    shadow_disposition: DROP__CURRENT_UNION_OR_OBJECT_CHANGE
+    source_action_correction: shadow_adds_two_output_reader_checksum_facet
+    cost: scan_cache_compress_checksum_bytes_reader_io_cpu_rss
+    leakage_check: PASS__same_snapshot__no_shadow_to_canonical_content
+    stability: STABLE
+  - id: S5R16A-THINLTO-CACHE
+    signature: fixed_bitcode_options__linked_binary__incremental_index_cache__link_cache_read_cost
+    canonical_disposition: DROP__CONTROLLER
+    shadow_disposition: DROP__CONTROLLER
+    source_action_correction: shadow_identifies_pruning_as_output_invariant_policy
+    cost: thin_link_backend_cache_bytes_disk_io_cpu_rss
+    leakage_check: PASS__same_snapshot__no_shadow_to_canonical_content
+    stability: STABLE
+  - id: S5R16A-CONDA-REPODATA
+    signature: fixed_conda_metadata__solver_repodata__patch_construction__bytes_parse_solve_cost
+    canonical_disposition: NOT_ADMITTED_UNFROZEN
+    shadow_disposition: NOT_ADMITTED_UNFROZEN
+    source_action_correction: shadow_explicitly_records_unclosed_current_writer_config_and_versioned_carrier
+    cost: repodata_patch_bytes_parse_solve_cpu_rss_network
+    leakage_check: PASS__same_snapshot__no_shadow_to_canonical_content
+    stability: STABLE_UNCERTAINTY
+cross_lane_duplicate_check: PENDING_MAINLINE_MECHANICAL_COMPARISON__no_known_signature_match_at_local_freeze
+propose_stage0: []
+canonical_shadow_leakage: PASS
+execution_boundary: NO_E2_NO_EXPERIMENT_NO_INSTALL_NO_SHARED_WRITE
+root_manifest: HASH_MANIFEST.sha256

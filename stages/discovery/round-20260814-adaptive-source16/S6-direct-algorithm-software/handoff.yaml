@@ -1,0 +1,64 @@
+assignment_id: DISCOVERY-S6-20260814-ADAPTIVE-SOURCE16-SEMANTIC-RESIDUAL-V1
+lane: S6_DIRECT_ALGORITHM_SOFTWARE
+method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+pilot_profile: SEMANTIC_RESIDUAL_SOURCE_TRIAGE_V1
+write_directory: stages/discovery/round-20260814-adaptive-source16/S6-direct-algorithm-software
+status: COMPLETE_ZERO_PROPOSALS
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+funnel:
+  unique_opportunity_families: 6
+  candidate_grade_deep_reviews: 2
+  third_depth_trigger_met: false
+  proposed_stage0: 0
+  structural_drops: 4
+  excluded_repeated: 1
+  not_admitted_unfrozen: 0
+triage_order_enforced:
+  - opportunity_anchor
+  - current_native_union
+  - strongest_subtractor
+  - carrier_or_stock_oracle
+  - depth_decision
+deep_reviews:
+  - signature: LLVM_AARCH64_SME_ABI_TRANSITION_PRESERVATION__FIXED_IR_CALLGRAPH_AND_PSTATE_SM_ZA_ABI__JOINT_TRANSITION_LIVENESS_CONSTRUCTOR
+    exact_object: Fixed IR call graph, SME attributes, values, exception behavior, and ABI-visible PSTATE.SM/ZA state.
+    atomic_action: Joint placement of ABI-legal SMSTART/SMSTOP and preservation actions around mixed-interface calls.
+    two_native_legal_plans: ABI-boundary plan versus adjacent compatible-call-region preservation plan.
+    strongest_current_union: SME ABI pass, call lowering, SelectionDAG chains/glue, register masks and register allocation.
+    strongest_subtractor: AArch64 SME ABI and current LLVM SME lowering.
+    union_external_residual: false
+    target_specific_state_and_guarantee: No non-generic state/guarantee remains after mandatory ABI transitions are subtracted.
+    stock_oracle_or_carrier: LLVM AArch64 SME tests; ABI plus call-result equivalence.
+    full_cost: compile CPU-wall-RSS-temp; code bytes; transitions; spill-reload count; call-path latency.
+    finite_falsifier: A two-call mixed-interface pair with same ABI and target-specific guarantee irreducible to current lowering or generic liveness.
+    disposition: STRUCTURAL_DROP__ABI_MANDATED_TRANSITIONS_OR_GENERIC_LIVENESS_SCHEDULING
+  - signature: LLVM_SPIRV_COOPERATIVE_MATRIX_CAPABILITY_OPERATION_CONSTRUCTION__FIXED_KERNEL_CAPABILITY_MATRIX_SEMANTICS__JOINT_TARGET_LOWERING
+    exact_object: Fixed kernel, cooperative-matrix types/dimensions/layouts, capability set and validated SPIR-V behavior.
+    atomic_action: Joint capability-operation construction under unchanged SPIR-V target contract.
+    two_native_legal_plans: No complete validator-accepted, same-capability pair was frozen.
+    strongest_current_union: LLVM SPIR-V target capability-extension selection and standard validation.
+    strongest_subtractor: SPIR-V cooperative-matrix specification and current toolchains.
+    union_external_residual: false
+    target_specific_state_and_guarantee: Candidate reduces to changed capability contract or generic matrix lowering/tiling.
+    stock_oracle_or_carrier: SPIR-V validator plus versioned OpenCL/LLVM matrix tests.
+    full_cost: compile CPU-wall-RSS-temp; module bytes; validation; dispatch; host result check.
+    finite_falsifier: Same-capability validator-accepted two-module pair with non-generic target-specific guarantee.
+    disposition: STRUCTURAL_DROP__CAPABILITY_CONTRACT_OR_GENERIC_MATRIX_LOWERING
+screen_dispositions:
+  - LLVM_RVV_VTYPE_VL_STATE_CONSTRUCTION: STRUCTURAL_DROP__CURRENT_VL_OPTIMIZER_OR_GENERIC_STATE_SCHEDULING
+  - LLVM_DIRECTX_RESOURCE_BINDING_CONSTRUCTION: STRUCTURAL_DROP__RESOURCE_INTERFACE_OR_GENERIC_BINDING_LAYOUT
+  - MLIR_ARMSME_TILE_LOWERING: EXCLUDED_REPEATED__AARCH64_SME_FAMILY_CONTAINMENT
+  - LLVM_SYSTEMZ_POSTRA_BRANCH_RELAXATION: STRUCTURAL_DROP__GENERIC_SCHEDULING
+bounded_source_closure:
+  local_git_head_attempt: SCHANNEL_CREDENTIAL_FAILURE__NOT_ABSENCE_EVIDENCE
+  source_only_closure_count_per_unfrozen_facet: 1
+  search_status: SEARCH_BOUNDED_OPEN
+policy_compliance:
+  network_security_vulnerability_attack_exploit_protocol_security_malicious_traffic_excluded: true
+  no_v9_output: true
+  no_experiment_e2_build_install_large_download_or_automation: true
+  no_stage0_a_b_or_shared_control_write: true
+  no_readiness_result_or_resource_based_scientific_drop: true
+  no_outcome_aware_replacement: true
+next_step: Mainline may minimally accept the bounded zero-proposal package; no mainline action is requested.

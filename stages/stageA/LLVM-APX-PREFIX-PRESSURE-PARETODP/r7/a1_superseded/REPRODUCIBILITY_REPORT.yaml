@@ -1,0 +1,20 @@
+schema: reproducibility-report-v2
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM-A1
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+A1_START_sha256: AFD542875A96F28460DDFFF5C1073AE858A8A679D94310DA6DDFE71CC8F2D512
+run_index:
+  - {id: A10_PASS1_PRESERVATION, classification: CONTROL_NON_CLAIM_BEARING, result: PASS_25_FILES_BYTE_EXACT}
+  - {id: A11_P1_CATALOG_REUSE, classification: CONTROL_NON_CLAIM_BEARING, child_launches: 0, result: PASS_HASH_EXACT_NO_RERUN, sha256: CF406685A11968882608273C9D86B9B1806C562B3B4DD64B933926EDB2F677FC}
+  - {id: A11_R6_FORMAL_CONTROL_REUSE, classification: CONTROL_NON_CLAIM_BEARING, child_launches: 0, result: PASS_HASH_EXACT_NO_RERUN, sha256: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966}
+  - {id: A12_CURRENT_COMPLETE_QUOTED_ARGV, classification: CONTROL_NON_CLAIM_BEARING, attempts: 1_OF_1, child_launches: 1, exit_code: 0, result: FAIL_CLOSED_EXACT_OUTPUT_HASH_MISMATCH, output_sha256: 4AA5C7074E53F774CE1EC2A685246932219377C4AEFC7F739200A3CF8011F8E6}
+  - {id: A13_TUNING_RELOCATION_ENABLED, classification: NOT_RUN, result: ORDERED_FIRST_FAILURE_STOP}
+  - {id: A14_ACTUAL_DP_BASELINE_ORACLE, classification: NOT_RUN, result: ORDERED_FIRST_FAILURE_STOP}
+  - {id: A15_CORPUS_FREEZE, classification: NOT_RUN, result: ORDERED_FIRST_FAILURE_STOP}
+  - {id: A16_R8_PLAN, classification: NOT_RUN, result: ORDERED_FIRST_FAILURE_STOP}
+retry_audit: {automatic_retries: 0, command_changes: 0, child_argv_changes: 0, invoke_expression_uses: 0, string_reparse_uses: 0, output_postprocessing: 0, implementation_edits: 0, result_based_exclusions: 0, reserve_backfills: 0}
+monitoring: {A12_exit_observed: 0, A12_stdout_bytes: 0, A12_stderr_bytes: 0, active_LLVM_processes_at_closeout: 0, hard_timeout_triggered: false}
+budgets: {network_bytes_used: 0, resource_root_logical_bytes: 812743061, resource_root_logical_bytes_max: 2147483648, A1_child_commands_launched: 1, selected_or_reserve_corpus_tool_invocations: 0, claim_bearing_runs: 0, max_parallel_processes_observed: 1, max_parallel_processes_allowed: 2, gpu_hours_used: 0, exact_cpu_and_wall: UNAVAILABLE__NOT_ESTIMATED}
+forbidden_actions: {child_argv_change: NOT_RUN, source_edit: NOT_RUN, retry: NOT_RUN, natural_selected_claim: NOT_RUN, network: NOT_RUN, scientific_revision_or_pivot: NOT_RUN, state_transition: NOT_RUN, cleanup: NOT_RUN, stageb: NOT_RUN}
+result: REPRODUCIBLE_A12_EXIT0_PATH_SENSITIVE_HASH_MISMATCH__NO_SCIENTIFIC_INFERENCE
+

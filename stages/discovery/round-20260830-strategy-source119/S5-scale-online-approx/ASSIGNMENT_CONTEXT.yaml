@@ -1,0 +1,10 @@
+schema: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+identity: {assignment_id: DISCOVERY-S5-20260830-SOURCE119-SCALE-ONLINE-APPROX, topic_id: SOURCE119-PORTFOLIO-S5, lane_id: DISCOVERY_S5, role: DISCOVERY-S5-SCALE-ONLINE-APPROX, thread_id: 01a034d0-c201-7c03-ab03-4c6a2b886820}
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+shared_freeze: {path: stages/discovery/round-20260830-strategy-source119/control/SHARED_FREEZE.yaml, sha256: 99A4288831702CFF826CCB6A8A123E5D1AD5E50E82B84E8B0385DE7DB830915E}
+assignment: {path: stages/discovery/round-20260830-strategy-source119/control/DISCOVERY_S5_ASSIGNMENT.yaml, sha256: FADB36024FEF8FB14C3F0AF8CF1C6EE42B8405A7FAB713655F1FE6807CFA8693}
+boundaries: {unique_write_directory: stages/discovery/round-20260830-strategy-source119/S5-scale-online-approx, resource_root: stages/discovery/round-20260830-strategy-source119/S5-scale-online-approx/resources, network_after_start: true, build_experiment: false}
+required_bootstrap_read: [AGENTS.md, plan.md, related_registry_record, rules/ROLE_DISCOVERY.md, research-topic-discovery/SKILL.md, source-portfolios.md, shared_freeze, assignment]
+next_action: WRITE_BOOTSTRAP_ACK_AND_STOP
+

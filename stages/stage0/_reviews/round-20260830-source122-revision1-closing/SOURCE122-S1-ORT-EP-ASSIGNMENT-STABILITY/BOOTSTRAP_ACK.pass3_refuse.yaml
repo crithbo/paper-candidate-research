@@ -1,0 +1,87 @@
+schema: bootstrap-ack-v1
+ack_disposition: REFUSE
+reack_pass: 3
+identity:
+  assignment_id: STAGE0-CLOSING-20260830-ORT-EP-ASSIGNMENT-STABILITY-REVISION1
+  topic_id: SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+  lane_id: STAGE0_SENTRY
+  thread_id: 01a034d0-cda0-74b3-a099-b4b711d9d8a8
+  role: STAGE0_REVISION_CLOSING
+
+workspace:
+  authoritative_project_root: '<LOCAL_PROJECT_ROOT>'
+  actual_cwd: '<LOCAL_PROJECT_ROOT>'
+  cwd_matches_authoritative_root: true
+  unique_write_directory: stages/stage0/_reviews/round-20260830-source122-revision1-closing/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+  unique_write_directory_confirmed: true
+
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true, route_matches_context: true}
+
+reack2_addendum:
+  path: stages/stage0/_reviews/round-20260830-source122-revision1-closing/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/REACK2_ADDENDUM.yaml
+  expected_sha256: D630F1485489F5CDA617B494013244E292C599C66DCE44636F648A96D2EA2B69
+  actual_sha256: D630F1485489F5CDA617B494013244E292C599C66DCE44636F648A96D2EA2B69
+  hash_matches: true
+
+prior_ack_preservation:
+  pass1: {path: stages/stage0/_reviews/round-20260830-source122-revision1-closing/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/BOOTSTRAP_ACK.pass1_refuse.yaml, expected_sha256: 5B7C9B334D23C6EF6304375F90DF71828AC9FED7C4985677D28A2BB66253384C, actual_sha256: 5B7C9B334D23C6EF6304375F90DF71828AC9FED7C4985677D28A2BB66253384C, byte_exact: true}
+  pass2: {path: stages/stage0/_reviews/round-20260830-source122-revision1-closing/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/BOOTSTRAP_ACK.pass2_refuse.yaml, expected_sha256: 23E868459F9F4E6C21D51D1DA09E6AC509918A7556D655145F6A30EB91B5C5F6, actual_sha256: 23E868459F9F4E6C21D51D1DA09E6AC509918A7556D655145F6A30EB91B5C5F6, byte_exact: true}
+
+context:
+  path: stages/stage0/_reviews/round-20260830-source122-revision1-closing/SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY/ASSIGNMENT_CONTEXT.yaml
+  expected_sha256: E71751F28F601B4A904B02418FBF258D1419E14C59473DFBC7E494285AC0F02F
+  actual_sha256: E71751F28F601B4A904B02418FBF258D1419E14C59473DFBC7E494285AC0F02F
+  hash_matches: true
+  context_mode: DUAL_READ_SHADOW
+  frozen_control_is_root_level: true
+  yaml_root_indentation_confirmed: true
+
+frozen_chain_hashes:
+  agents: {expected: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655, actual: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655, match: true}
+  plan: {expected: 85A4BFF41DCE3520816C35025B804B4DB0A17B0681C64D1857EBB62098323BB7, actual: 85A4BFF41DCE3520816C35025B804B4DB0A17B0681C64D1857EBB62098323BB7, match: true}
+  registry: {expected: 033A0819B81B26F645C23860340792F68FA876834ABCBF3DF1BD145D6228119F, actual: 033A0819B81B26F645C23860340792F68FA876834ABCBF3DF1BD145D6228119F, match: true}
+  role_rule: {expected: BC4A6D6D5DE5CEC3DD69A1F8556276F95B405E81773FFC7F4A860B5769CAF2FE, actual: BC4A6D6D5DE5CEC3DD69A1F8556276F95B405E81773FFC7F4A860B5769CAF2FE, match: true}
+  academic_skill: {expected: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F, actual: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F, match: true}
+  reviewer_workflow: {expected: 5469CDABFEB6FAC7CCBE88CAF1A85C55E9F46977F9DC3AEFC84EFF1CE93E1672, actual: 5469CDABFEB6FAC7CCBE88CAF1A85C55E9F46977F9DC3AEFC84EFF1CE93E1672, match: true}
+
+minimum_input_hashes:
+  control: {expected: C27416EBB7EC5D9679EF7587B7075499D5A3191899BED50434D52C42BA15200C, actual: C27416EBB7EC5D9679EF7587B7075499D5A3191899BED50434D52C42BA15200C, match: true}
+  revision_handoff: {expected: 6BCB0C69C50EF5EC7EF21E11AA48FF27C800A99B3F8B705DB7F1AD5EE1E52985, actual: 6BCB0C69C50EF5EC7EF21E11AA48FF27C800A99B3F8B705DB7F1AD5EE1E52985, match: true}
+  revision_manifest: {expected: A926992EE73AC34862CDCEA8C677B4A9461EE75D852D72BFB72E89D8A2591313, actual: A926992EE73AC34862CDCEA8C677B4A9461EE75D852D72BFB72E89D8A2591313, match: true}
+
+revised_contract_hashes_unchanged: true
+revision_boundary:
+  revision_consumed: true
+  revision_usage: 1_of_1
+  second_revision_authorized: false
+  second_revision_started: false
+
+plan_registry_snapshot:
+  plan_lane_status: ORT_REVISION1_CLOSING_REACK2_PENDING__SOL_HIGH
+  registry_closing_state: BOOTSTRAP_REFUSED_PASS2__WAIT_CONTEXT_INDENTATION_CORRECTION
+  addendum_queue_state_expected: TORCHDYNAMO_REVISION1_ACTIVE__ORT_AT_CLOSING
+  registry_queue_state_actual: ORT_CLOSING_REACK2__TORCHDYNAMO_REVISION_COMPLETE
+  queue_state_matches_addendum: false
+
+permissions_and_stops:
+  start_authorized: false
+  search_started: false
+  external_network_started: false
+  scientific_judgment_started: false
+  scientific_or_resource_action_started: false
+  second_revision_started: false
+  candidate_implementation_started: false
+  build_or_experiment_started: false
+  stagea_started: false
+  stageb_started: false
+  shared_write_started: false
+  current_cycle_usage_reset_confirmed: false
+
+differences_or_ambiguities:
+  - id: REACK2_ADDENDUM_QUEUE_STATE_MISMATCH
+    expected_by_addendum: TORCHDYNAMO_REVISION1_ACTIVE__ORT_AT_CLOSING
+    actual_in_frozen_registry: ORT_CLOSING_REACK2__TORCHDYNAMO_REVISION_COMPLETE
+    effect: "The expected and actual queue states are semantically related but not byte-exact. Bootstrap cannot decide which state label is authoritative."
+
+refusal_reason: REACK2_ADDENDUM_AND_FROZEN_REGISTRY_QUEUE_MISMATCH__FAIL_CLOSED
+next_action: WAIT_FOR_MAINLINE_HASH_PINNED_QUEUE_STATE_CLARIFICATION_OR_MECHANICAL_CORRECTION_AND_REACK

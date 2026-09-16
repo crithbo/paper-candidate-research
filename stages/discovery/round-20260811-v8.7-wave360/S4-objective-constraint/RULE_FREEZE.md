@@ -1,0 +1,7 @@
+# Rule freeze
+
+- Assignment: `DISCOVERY-S4-20260811-V8.7-WAVE360-RSYNC-NATURAL-REGIME-STOCK-ACTION-CLOSURE-DEPTH`.
+- Exact object: fixed rsync revision, source/destination file trees and metadata, transport/protocol settings, and stock receiver result semantics.
+- Frozen controls: `AGENTS.md=66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063`; `plan.md=8E36E689B0B22D2A295C468FA9F08349FD2DD5E3BFFCBF3836AE49867D95BEEF`; `registry.yaml=87D6285B1EEBCCAA586471189E23CB77FFBFBBA924DC61B4E7F06EF6E040FA30`; `ROLE_DISCOVERY.md=FCB9BD73C39F39D31F6C8154E6B48EA23187FF28BDF2BB3D9C59E3D28FA518A3`.
+- Rules: v8.7/R5-P0; `QUALITY_MODE=OFF`.
+- No experiment/benchmark/Stage0/A/B/shared writes/E: references or resource/readiness inference.

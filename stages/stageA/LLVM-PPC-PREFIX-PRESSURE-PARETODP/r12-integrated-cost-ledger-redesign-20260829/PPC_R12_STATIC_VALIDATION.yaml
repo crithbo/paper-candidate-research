@@ -1,0 +1,83 @@
+schema: ppc-r12-static-packet-validation-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R12-INTEGRATED-COST-LEDGER-REDESIGN
+status: PASS_STATIC_CORRECTION2
+checks:
+  exact16_immutable: PASS
+  candidate_15_metrics: PASS
+  baseline_56_unique_metrics_16_bundles: PASS
+  literal_full_cost_producer_argv: PASS
+  all_71_metrics_consumed: PASS
+  all_16_bundle_artifacts_consumed: PASS
+  units_validated: PASS
+  dependency_edges_validated: PASS
+  zero_placeholders: PASS
+  control_effects_hidden: PASS
+  exact_object_and_witness_unchanged: PASS
+  r10_invalid_denominator_reused: false
+static_files:
+  packet: PPC_R12_EXECUTABLE_PACKET.yaml
+  dag: PPC_R12_COMMAND_DAG.json
+  producer: PPC_R12_FULL_COST_LEDGER_PRODUCER.py
+  input_manifest: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/EXACT16_INPUT_MANIFEST.yaml
+  input_manifest_sha256: D278BD508A192186115D337048C44E7DACC7B259ADE1FB114EEE6067378F3F7D
+producer_contract:
+  candidate_metric_count: 15
+  baseline_metric_count: 56
+  unique_metric_count: 71
+  bundle_count: 16
+  required_cost_fields: [cpu_seconds, wall_seconds, peak_rss_bytes, input_bytes, artifact_bytes, typed_relocations, static_uops]
+  duplicate_metric_ids: forbidden
+  missing_metric_ids: forbidden
+correction1_cross_file_equality:
+  packet_manifest_sha256_equals_copy_manifest_source_sha256: true
+  packet_runner_common_collector_destinations_match_copy_rows: true
+  packet_control_input_matches_copy_row_ordinal_00: true
+  dag_candidate_input_and_output_prefixes_match_r12_assignment: true
+  dag_baseline_collector_path_matches_r12_runner_destination: true
+  dag_full_cost_argv_matches_packet_literal_argv: true
+  metric_counts_match_across_packet_dag_producer: true
+  denominator_15_plus_56_equals_71: true
+  bundle_count_16_matches_across_packet_dag_producer: true
+  missing_stages_path_count: 0
+  placeholder_count: 0
+  input_copy_rows: 19
+  input_copy_rows_exact16: true
+  runner_common_collector_destination_prefix: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r12-integrated-cost-ledger-redesign-20260829/resources/src/runner
+  all_argv_paths_are_shared_or_r12_local: true
+  packet_control_input_is_r12_local: true
+  packet_full_cost_input_is_r12_local: true
+  manifest_runner_rows: 3
+  manifest_input_rows: 16
+execution:
+  static_lint_edits_used: 2
+  tool_execution: false
+  control_execution: false
+  claim_execution: false
+  resource_create_or_copy: false
+  network: false
+  shared_write_or_install: false
+result: PASS_STATIC_PACKET_READY_FOR_MAINLINE_ACCEPTANCE
+scientific_inference: NONE
+correction2:
+  packet_sha256: 7CA95F8A7B00F20AEA47F5EC95862ED072FEEB5CDD61EE83878F26CCC85F21DD
+  dag_sha256: 08C45F017143AA1123812E5FA4956466424A3AA70358EC62D0DEAA543B49284A
+  producer_sha256: AD7A61FF5C75E8B4EE95287DFC2E55CB1CC663DAE5A78137435EE48E38F77E34
+  copy_manifest_sha256: CD7499964BDE21072465FC7026BA331668E076058FF7A054FBB435F4AB92F9D7
+  old_v2_executable_argv_refs: 0
+  old_v2_executable_source_refs: 0
+  old_v2_provenance_source_refs: 3
+  original_r6_runtime_input_refs: 0
+  runner_copy_rows: 3
+  selected_copy_rows: 16
+  candidate_metrics: 15
+  baseline_metrics: 56
+  unique_metrics: 71
+  bundles: 16
+  placeholders: 0
+  packet_full_cost_input_r12_local: true
+  packet_dag_full_cost_argv_byte_identical: true
+  producer_consumer_edges_closed: true
+  exact16_selection_unchanged: true
+  baseline_grid_unchanged: true
+  denominator_unchanged: true
+  actual_parse: {dag_nodes: 4, dag_placeholders: 0, full_cost_argv_tokens_packet: 16, full_cost_argv_tokens_dag: 16, full_cost_argv_equal: true, old_candidate_argv_refs: 0, old_baseline_argv_refs: 0, old_r6_input_refs: 0}

@@ -1,0 +1,5 @@
+# S73-01 question card
+
+Exact object: fixed repository object graph and refs, same Git pack/unpack object semantics. Carrier: `IMPLEMENTATION_CARRIER_ONLY`; a public versioned repository route is finite but was not acquired. Candidate `SYSTEM_ARCHITECTURE/N2` action: jointly choose delta base forest, sorted comparison window, depth and pack layout. Full cost: pack CPU/RSS/temp/bytes, unpack/random object read, delta application depth and index access.
+
+Current docs freeze objects sorted by type/size/name, compared within `--window`; `--depth` limits unpack work; current pack-objects supports reuse, delta islands, base offsets, compression, memory and threads controls. Historical Git material already uses cached delta results and a shallower-versus-smaller heuristic. Thus the proposed residual is generic delta compression/packing and not a source-supported Git-specific algorithm/guarantee. Disposition: `EXCLUDED_BEFORE_RAW__STRUCTURAL_DROP__CURRENT_PACK_UNION_PLUS_GENERIC_DELTA_COMPRESSION_PACKING_KERNEL`.

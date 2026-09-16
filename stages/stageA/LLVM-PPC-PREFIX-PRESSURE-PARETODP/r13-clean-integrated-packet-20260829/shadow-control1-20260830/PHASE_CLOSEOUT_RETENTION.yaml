@@ -1,0 +1,14 @@
+schema_version: phase-closeout-retention-v1
+identity: {topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP, assignment_id: STAGEA-L2-20260830-PPC-R13-SHADOW-CONTROL1, stage: A0_EXECUTION_READINESS, closeout_event: CONTROL1_N01_FIRST_FAILURE, generated_at: 2026-08-29T16:42:11Z}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_path: rules/ARTIFACT_LIFECYCLE.md, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824, artifact_state: ARTIFACT_OPEN, legacy_disposition: NOT_APPLICABLE}
+budget: {post_close_retained_bytes_max: 134217728, measured_retained_bytes: 195540, exception_required: false, exception_path: null}
+downstream: {consumer_id: STAGEA_SCOPE_BUDGET_PROSPECTIVE_VALIDATION, input_freeze_path: control/MAINLINE_CONTROL_START.yaml, input_freeze_sha256: 7998DBDCF2649351A1602981210A68FF7844B3BA9243D2BAAB8E0ABA2E53465F, accepted: false, accepted_at: null}
+entries:
+  - {path: resources/src, files: 19, bytes: 179179, tree_sha256: 3B0C502C014B611332D716466DE21F4844281403EF6F48996FA69D5DBB59370F, claim_critical: false, reproducibility_minimum: true, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: false}
+  - {path: resources/src/runner/__pycache__/common.cpython-312.pyc, files: 1, bytes: 12262, sha256: 4C4DFE9A865FEED2BCDD76AC1571339F940CB0ED9542C2101B6E253211716FD4, claim_critical: false, reproducibility_minimum: false, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, delete_after_gate: true}
+  - {path: resources/build/control/candidate/first_failure.json, files: 1, bytes: 327, sha256: 7B3B97192E38DF50FA862110FE421F7D7938490DA3695203FB7B7301016F8E62, claim_critical: false, reproducibility_minimum: true, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: false}
+  - {path: resources/logs/control, files: 5, bytes: 3772, tree_sha256: AA3AE02385D73BE1609C8CB88714C9F06C295D04BF2F9E93E0A2B2F86FFA9886, claim_critical: false, reproducibility_minimum: true, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: false}
+claim_critical_extraction: [CONTROL1_COPY_RECEIPT.yaml, TARGETED_CONTROL_MANIFEST.yaml, CONTROL_HANDOFF.yaml]
+proposed_delete_targets: []
+cleanup_owner: TEMP_MAINLINE
+validation: {all_persisted_entries_classified: true, claim_critical_extracted_and_hashed: true, downstream_gate_satisfied: false, budget_or_exception_pass: true, result: PENDING_CONTROL_HANDOFF_ACCEPTANCE}

@@ -1,0 +1,94 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S2-20260823-PACKROUTE-OBJECT-CLOSURE-REV1
+lane: DISCOVERY-S2-BOTTLENECK-TRANSFER
+investigation_id: PACKROUTE-OBJECT-CLOSURE-REV1
+formal_topic_id: null
+source_cutoff: 2026-08-23T23:59:59+08:00
+unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260823\packroute-object-closure-rev1
+resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260823\packroute-object-closure-rev1\resources
+
+authority:
+  user_attachment: <LOCAL_USER_HOME>\.codex\attachments\6cdeab19-8bc1-4016-b42c-c1a1a1a296e0\pasted-text.txt
+  user_attachment_sha256: 211ACD9455C1210D78A8A3E458DF6242C98A314C8157FF310A30E79974E62DD0
+  prior_handoff: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260823\packroute-discovery-rev0-closure1\handoff.yaml
+  prior_handoff_sha256: 355CD97B60C51BBFCD086C8031B3B306C234EA5B4DA9108A86D3E987A70B8742
+  policy: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+
+frozen_rules:
+  agents_sha256: 26DB9F4C2D43349A2BA5B741947561D4FED2FE5EC65327C02D273D3905F5A522
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  research_topic_discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  source_portfolios_sha256: FE3BC9503F70ED4BD729B338A7729BFA5CA3A3747312D63AF83D59B93FFE1F4D
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  templates:
+    topic_brief_sha256: F1EF88AFE26DB2949E86CD66187821E5331AA3081DF5C76D6D271530CAC87637
+    seed_pool_sha256: 31B6A89548313B51EFD0C7685ACF50EA56D6EC5C0B557BD9E8B920C7E2179470
+    rq_candidate_sha256: 0FF1E7FD811C3BCA84D15DA9713B7A27ED8EB9076C2939316AF43DA85168F5BF
+    question_card_sha256: D157B1B5D14C0DCEB3D238E85075777C3850C7E145ABD5EA8A3A111D3D022739
+    resource_inventory_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+
+modes:
+  discovery_quality_mode: OFF
+  discovery_claim_pack_mode: OFF
+  discovery_rq_frontend_mode: OFF
+  native_first_order: ASSIGNMENT_LOCAL_ADVISORY_ONLY
+
+scope:
+  purpose: VERSION_CONSISTENT_NATIVE_OBJECT_CLOSURE_ONLY
+  frozen_pair:
+    vllm_version: v0.25.1
+    vllm_commit: c71a583aa9f81400528e67e3d818f66b804e8340
+    flashinfer_version: v0.6.13
+  public_checkpoint:
+    identity: kyaky/Qwen3.6-35B-A3B-NVFP4
+    revision: 5a7eae35485cfafadf088012cf9687474a64f40b
+    format: compressed-tensors_NVFP4_W4A16_routed_experts
+  single_question: >-
+    Does a commit-pinned, normally configured vLLM--FlashInfer route exist for this
+    public compressed-tensors W4A16 MoE object such that it enters native B12x
+    W4A16 preparation without environment forcing, monkey patches, private forks,
+    or unmerged changes, and retains both source and prepared representations?
+  required_checks:
+    - VLLM_QUANT_CONFIG_TO_B12X_QUANT_MODE_AND_SOURCE_FORMAT_PROPAGATION
+    - FLASHINFER_V0_6_13_DEFAULT_AND_EXPLICIT_W4A16_SOURCE_FORMAT_BEHAVIOR
+    - RUN_REQUIRES_SOURCE_TENSORS_AND_PREPARED_CACHE_OWNERSHIP
+    - PUBLIC_CHECKPOINT_NATIVE_ROUTE
+    - SAME_OBJECT_SECOND_LEGAL_BACKEND_EXISTS
+    - PR_43341_AND_PR_43929_CLASSIFICATION_AS_MERGED_OR_UNMERGED_CURRENT_EVIDENCE
+  prohibited:
+    - formal_topic_creation
+    - raw_or_stage0_dispatch
+    - environment_variable_forcing
+    - monkey_patch_or_private_fork
+    - model_weights_download
+    - build_or_runtime_execution
+    - performance_or_memory_experiment
+    - borrowing_FlashInfer_main_APIs_into_v0_6_13
+
+source_routes:
+  rule: OFFICIAL_GITHUB_METADATA_TREE_RAW_AND_PR_ROUTES_ONLY
+  deterministic_selection: EXACT_TAG_OR_COMMIT_AND_NAMED_SYMBOL_OR_PR_NUMBER
+  max_network_calls: 18
+  max_persisted_response_bytes: 8388608
+  max_cpu_seconds: 900
+  max_wall_seconds: 1800
+  no_substitute_mirror: true
+  failure_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+
+allowed_dispositions:
+  - CLOSED_TO_TYPED_RQ__OBJECT_EXISTS__RETURN_TO_MAINLINE_WITHOUT_TOPIC_CREATION
+  - EARLY_FATAL__NATIVE_VERSION_CONSISTENT_OBJECT_DOES_NOT_EXIST
+  - EARLY_FATAL__NO_SAME_OBJECT_BACKEND_CHOICE_SET
+  - UNRESOLVED_BACKLOG__NO_SCIENTIFIC_INFERENCE
+  - BLOCKED_USER_ACTION_REQUIRED__RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+
+required_outputs:
+  - DIVERGENCE_SEED_POOL.md
+  - RQ_CANDIDATE.md
+  - VERSIONED_NATIVE_ROUTE_MATRIX.md
+  - OWNERSHIP_AND_BACKEND_CHOICE_AUDIT.md
+  - INVESTIGATION_REPORT.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+

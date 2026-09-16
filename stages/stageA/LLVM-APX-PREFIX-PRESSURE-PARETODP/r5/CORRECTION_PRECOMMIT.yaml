@@ -1,0 +1,35 @@
+schema: correction-precommit-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R5-F2-STOP-AFTER-CORRECTION
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+written_at: 2026-08-26T00:21:51.8171454+08:00
+start_authorization_sha256: E79F5BBDD58F0864E906BAC2B01BE964A1F548C8EDB01373BD9D260B787C5126
+control_sha256: C426CF42A8A8E81A8881FB021DAA0A035C718BA05B712A12F1095724FFDB248D
+classification: COMMAND_MATERIALIZATION_CORRECTION_WITHOUT_WITNESS_OR_SCIENTIFIC_CONTRACT_CHANGE
+parent_failure:
+  stage: X86_ASSEMBLY_PRINTER_AFTER_MACHINE_PIPELINE
+  r4_witness_replay_sha256: B3CE3EEB0FA257F6A12871C5205DAC705CCC88A6C13A1ADC978A1C10E421D3F1
+  assertion: 'Bits != 0 && Cannot print this instruction.'
+fixed_command:
+  text: llc.exe apx_witness.mir -mtriple=x86_64-unknown -mattr=+ndd,+egpr -start-before=x86-compress-evex -stop-after=x86-compress-evex -verify-machineinstrs -o replay_after_x86_compress_evex.mir
+  working_directory: resources/src/harness
+  planned_replays: 2
+  automatic_retry: false
+  extra_variant_allowed: false
+  first_failure_stops_pair: true
+separate_mc_control:
+  source: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r4/WITNESS_REPLAY.yaml
+  ndd_encoding: '62 f4 7c 18 01 ca'
+  legacy_encoding: '89 d0 01 c8'
+  rerun_in_r5: false
+immutable_inputs:
+  tool_manifest_sha256: 0BE2C3F60A6F42886F7951D2887D1A3D936B0E1A26E0C6B9B0B89D421944FB91
+  witness_mir_sha256: 4E26F556BAEAA981D2EFCF80DFCD4B0D46655D9780F81496D60B8BF1402ED243
+  witness_asm_sha256: 523522869EED8CF3A6093360CDD0E1753C21CD5FD6CA8CD5B86313E65999B3CD
+  f3_f4_harness_sha256: 4A195725C28A2BC9F5AFD9C2B59C4F68540599C9526C7BD337E419A4AE74BDD0
+witness_semantic_change: false
+contract_change: false
+target_feature_or_pass_change: false
+tool_or_source_patch: false
+scientific_revision_or_pivot: false
+natural_performance_or_claim_action: false
+result: PRECOMMITTED_BEFORE_FIRST_TOOL_EXECUTION

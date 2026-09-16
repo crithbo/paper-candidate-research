@@ -1,0 +1,27 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE35-BASE-RQ-NONPRODUCT-SHADOW-V1
+selection_rule: >-
+  Select only pre-evidence RQs whose exact identities are outside the Source25–34
+  cooldown list and whose intended comparison does not obviously change the object.
+selected_locators:
+  - signature: RISCV_ZIHINTPAUSE__FIXED_CONCURRENCY_CONTRACT__SPINLOOP_CODEGEN_PLACEMENT
+    anchor:
+      role: official_semantics
+      url: https://docs.riscv.org/reference/isa/unpriv/zihintpause.html
+    current_union:
+      role: official_current_backend_documentation
+      url: https://github.com/llvm/llvm-project/blob/main/llvm/docs/RISCVUsage.rst
+    contrary:
+      role: direct_specification_constraint
+      url: https://docs.riscv.org/reference/isa/unpriv/zihintpause.html
+  - signature: OPENGL_SPIRV_SPECIALIZATION__FIXED_SHADER_RESULT_LAYOUT__MODULE_TO_DRIVER_CONSTRUCTION
+    anchor:
+      role: official_api_registry
+      url: https://registry.khronos.org/OpenGL/extensions/ARB/ARB_gl_spirv.txt
+    current_union:
+      role: official_registry_source
+      url: https://github.com/KhronosGroup/OpenGL-Registry
+    contrary:
+      role: official_spirv_semantics
+      url: https://registry.khronos.org/SPIR-V/specs/unified1/SPIRV.html
+byte_budget: 64MiB_response__128MiB_assignment_storage
+resource_actions: NONE

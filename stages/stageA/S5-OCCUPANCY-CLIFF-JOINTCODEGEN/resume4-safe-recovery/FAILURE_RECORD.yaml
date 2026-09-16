@@ -1,0 +1,33 @@
+schema: safe-recovery-engineering-failure-record-v1
+assignment_id: SAFE-RECOVERY-L2-20260815-S5-GFX11-MIR-RESUME4
+all_failures_before_claim: true
+scientific_inference_allowed: false
+events:
+  - id: F01
+    action: sandboxed HTTPS HEAD
+    result: SCHANNEL_SEC_E_NO_CREDENTIALS
+    disposition: rerun outside sandbox after required approval; official URL succeeded
+  - id: F02
+    action: full Alpine minirootfs extraction with Windows tar
+    result: Unix symlink creation rejected by Windows tar
+    disposition: no retry; partial diagnostic extraction retained; selected header APKs extracted cleanly
+  - id: F03
+    action: first portable-sysroot Clang preflight
+    result: HIP runtime discovery missing under -nogpuinc omission
+    disposition: corrected command without source changes
+  - id: F04
+    action: libcxx source-header preflight
+    result: __config_site missing
+    disposition: acquired official libc++-dev package
+  - id: F05
+    action: exact Clang resource-header preflight
+    result: __clang_cuda_math_forward_declares.h missing
+    disposition: used exact-build resource-dir from immutable resume3
+  - id: F06
+    action: seven-file exploratory natural IR batch
+    result: four paths lacked the compiler-owned HIP math/runtime wrapper under that command form
+    disposition: no failed output counted; retained four previously accepted IRs and used the standard exact wrapper for optical_flow
+scientific_revision_consumed: false
+claim_bearing_observations: 0
+resource_blocker_remaining: false
+

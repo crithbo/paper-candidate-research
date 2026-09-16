@@ -1,0 +1,15 @@
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10-NATURAL-CLAIM-EXECUTION
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+role: CANDIDATE_OWNER
+mode: STAGEA_NATURAL_CLAIM_EXECUTION
+user_approval_id: USER_CONTINUE_APX_PPC_RVV_NEXT_STAGE_20260829
+source_contract: ../r10-natural-claim-contract-20260829/NATURAL_CLAIM_CONTRACT.yaml
+source_contract_sha256: 186EEEBD35CDCCC999014B1A59F8396A2977771C57BD5FB1827228303E451AC0
+source_plan: ../r10-natural-claim-contract-20260829/NATURAL_CLAIM_PLAN.yaml
+source_plan_sha256: CD844580CE09E65BA7F17C0901F81950D792333C3FE11F82794D74F507D72861
+allowed_actions: [copy_hash_pinned_local_inputs_once, execute_exact_32_rows_once, collect_frozen_full_cost_and_legality_outputs, write_assignment_local_report_handoff_manifest]
+forbidden_actions: [network, input_or_command_substitution, retry, result_based_exclusion, source_edit, stageb, shared_state_change]
+resource_policy: {network_bytes_max: 0, copy_attempts_max: 1, resource_root: resources, no_system_or_user_environment_change: true}
+execution: {exact_rows: 32, runs_max: 32, costs_per_process: 896, baseline_graph_producer_precedence_required: true, full_cost_denominator_required: true, legality_witness_required: true}
+claim_ceiling: STAGEA_DIRECTIONAL_ONLY__NO_STAGEB
+stop_conditions: [any_hash_drift, any_missing_input, command_or_cost_closure_failure, witness_failure, candidate_baseline_semantic_mismatch, resource_boundary_violation]

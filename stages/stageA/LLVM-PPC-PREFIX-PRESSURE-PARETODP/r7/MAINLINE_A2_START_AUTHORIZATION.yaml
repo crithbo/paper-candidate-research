@@ -1,0 +1,49 @@
+schema: mainline-a2-start-authorization-v1
+authorized_at: 2026-08-26T05:12:00+08:00
+authorized_by: MAINLINE
+authorization_id: MAINLINE-START-20260826-PPC-R7-A2-H6-ROOT-INDEX
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R7-NATURAL-CLAIM-HARNESS-FIDELITY
+addendum_id: PPC-R7-A2-H6-RESOURCE-ROOT-INDEX-CORRECTION
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+A2_addendum_sha256: C6034B3D79B38F80DCD8112BBFA3116C5ACFA42B7B2D61128241A405091BDC25
+A2_ack_sha256: B8488BD15D80ABA2012143699CC5F786BEC50C258A31D9F5654FF8F88B844138
+A1_acceptance_sha256: BF0568E068A48CE298FF5E2E64BDBEEC5FB3EF91FE6A0817FC2B47A544CA63A7
+start_scope: EXACT_ONE_LINE_H6_RESOURCE_ROOT_INDEX_CORRECTION_AND_ONE_PLAN_GENERATION
+first_actions:
+  - WRITE_A2_CORRECTION_PRECOMMIT
+  - PRESERVE_PASS2_HANDOFF_AND_MANIFEST
+single_edit:
+  file: resources/src/claim_harness/r8_plan.py
+  original_sha256: A7C2027EC8AE52990A407934E1A2B5C10056E46B00EE5F58263A02CE71939604
+  substitution: 'R=H.parents[2] -> R=H.parents[1]'
+  occurrences: 1
+  expected_sha256: A26B4B680DF3413049D1D640BB0A507078AE44AE30E1E8504FB526F4E329AAF2
+  bytes: 1556
+single_command:
+  working_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r7
+  argv: [BUNDLED_WORKSPACE_PYTHON, resources/src/claim_harness/r8_plan.py]
+  attempts_max: 1
+  automatic_retry: false
+  expected_output: resources/src/claim_harness/r8_processes.json
+limits:
+  source_edit_operations_max: 1
+  additional_command_records_max: 1
+  cumulative_command_records_max: 152
+  selected_or_reserve_tool_invocations_max: 0
+  claim_runs_max: 0
+forbidden_actions:
+  - ANY_OTHER_SOURCE_OR_RESOURCE_BYTE_CHANGE_EXCEPT_A2_OUTPUTS_AND_CANONICAL_METADATA
+  - RERUN_H0_H5_OR_SYNTHETIC_TOOL_COMMANDS
+  - ANY_SELECTED_OR_RESERVE_COMPILER_LINKER_VERIFIER_DISASSEMBLY_OR_RESULT_OBSERVATION
+  - CLAIM_RUN
+  - NEW_COPY_EXTRACTION_NETWORK_BUILD_RETRY
+  - SCIENTIFIC_INFERENCE_REVISION_PIVOT_STATE_TRANSITION_CLEANUP_OR_STAGEB
+shared_control_drift_after_start:
+  disposition: EXPECTED_MAINLINE_STATUS_UPDATE_ONLY
+  retain_frozen_A2_snapshot: true
+r8_start_authorized: false
+scientific_revision_consumed: false
+scientific_state_effect: NONE
+next_owner: CANDIDATE_EXECUTION_LANE_1

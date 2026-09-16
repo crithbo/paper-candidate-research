@@ -1,0 +1,22 @@
+schema: independent-stagea-claim-review-assignment-v1
+assignment_id: STAGEA-GATE-20260829-APX-R9-NATURAL-CLAIM-FIRST-FAILURE
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+review_scope: FORMAL_STAGEA_CLAIM_GATE
+questions:
+  - Is S02 zero-action-options a genuine natural failure-region observation under the frozen action contract, an invalid corpus construction, or merely an expected no-op case?
+  - Does the completed S01 two-replay evidence support any narrow preliminary claim despite the incomplete eight-row denominator?
+  - Would treating schema-valid no-action as a retained negative row and continuing the remaining denominator be an engineering reporting correction, a scientific REVISE_ONCE, or forbidden result-aware semantics?
+  - Should the topic receive PASS_RECOMMENDED, REVISE_ONCE, STOP, INCONCLUSIVE_POLICY_HOLD or RESERVE_RECOMMENDED at this gate?
+minimum_inputs:
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/APX_R9_CLAIM_RESULT.yaml, sha256: F485BEBAFA1AFC3D984F02B21CF90FE73564B4A5C922291010C4913C6340D82E}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/STAGEA_REPORT.md, sha256: 01BADA44680895F2173DBE3656A82FFBC077B010DF3319A9D3A1DE3DA76A36D0}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/handoff.yaml, sha256: DF3BD07055DD79DE44E6FA1CA731F774AB6F4EDEC88254C9CBE611229F697473}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/HASH_MANIFEST.sha256, sha256: 405B9394471E5116A05DE26F90E6D616FB659C4920089A090702963C4D3E1E7F}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/claim/controller/outer_full_cost_ledger.json, sha256: 2D07D2A2442CCCD070270FE2E99F4C3E88181BFA56570A925BF413A9CAB8BEC9}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/rows/APX-R8-S02-R1/trace.json, sha256: 9DC09FECC143B33E82E9268BB568472A5A9C63DA9D72884F444E70A1E4E7921F}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/rows/APX-R8-S01-R1/checked.json, sha256: 149930CB5EF541392F912360678EB27B37DC5509959EBC57D889E6D6B9DC4F0A}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/rows/APX-R8-S01-R2/checked.json, sha256: C26AD8A0EA7250FBB7B3014DB4A3D6B3D29E54C1A362F33CFAF9FC00A618A3E5}
+execution_facts: {rows_expected: 8, rows_complete: 2, rows_partial: 1, rows_not_started: 5, commands_started: 19, retries: 0, first_failure: S02_R1_PREPARE_ZERO_ACTION_OPTIONS}
+claim_ceiling_before_review: INCOMPLETE_FROZEN_DENOMINATOR__NO_DIRECTIONAL_CLAIM
+allowed_actions: [read_only_review, targeted_hash_check, write_bootstrap_ack_then_after_start_report_handoff_manifest]
+forbidden_actions: [modify_owner_files, resource_copy, tool_replay, new_experiment, new_claim_run, network, shared_write, state_change, stageb]

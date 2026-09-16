@@ -1,0 +1,36 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4}
+identity:
+  topic_id: JAVASCRIPTCORE_BYTECODE_OSR_STATE_MAP_JOINT_CONSTRUCTOR
+  assignment_id: SOURCE-CLOSURE-RESUME-BATCH05-ITEM01-SOURCE88-S2-JSC-RETRY1
+  stage_or_mode: DISCOVERY_PREBRIEF_SOURCE_COLLISION_AND_CARRIER_CLOSURE_ONLY
+  run_id: BATCH05_ITEM01
+  unique_write_directory: stages/discovery/round-20260815-adaptive-source88/S2-bottleneck-transfer/closure-cq01-retry1
+  resource_root: stages/discovery/round-20260815-adaptive-source88/S2-bottleneck-transfer/closure-cq01-retry1/resources
+  inventory_path: stages/discovery/round-20260815-adaptive-source88/S2-bottleneck-transfer/closure-cq01-retry1/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-15T12:55:00+08:00
+  finalized_at: 2026-08-15T13:12:00+08:00
+root_measurement: {logical_bytes: 1868658, allocated_bytes: null, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true}
+required_directories: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+redirect_preflight:
+  status: PASS__PROCESS_LOCAL_ONLY
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - executable: powershell Invoke-WebRequest
+      writable_surfaces: [resources/downloads, resources/tmp, resources/cache]
+      redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+      evidence: resources/logs/resource-inventory/preflight-v1.yaml
+resource_envelope: {network_bytes_max: 50331648, stored_bytes_max: 50331648, cpu_hours_max: null, gpu_hours_max: 0, wall_seconds_max: 3600, attempts_max: 15, network_bytes_used: 1864440, stored_bytes_used: 1868658, attempts_used: 9}
+entries:
+  - {path: resources/downloads/01-commit-proof.json, class: official_immutable_commit_proof, bytes: 4049, sha256: 9738F0B50A0B183C9EFE9C9A27789540D118A01C10AB498B0BCFB3743CAF006E, commit: f157dd8681ebabd624b90a8069080b87c7938187, license: BSD-2-Clause, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {path: resources/downloads/02-jsc-bytecode-dir.json, class: official_directory_listing, bytes: 299634, sha256: FEBE87E950EB065D9BE7722EBF3C0BDE9447DE06B5BF5230A9B7DC98A042C61A, commit: f157dd8681ebabd624b90a8069080b87c7938187, license: BSD-2-Clause, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {path: resources/downloads/03-jsc-dfg-dir.json, class: official_directory_listing, bytes: 351480, sha256: 2AB2AF79D46C604F3516429C108475D349B357D90D03B80735C189D64E30C648, commit: f157dd8681ebabd624b90a8069080b87c7938187, license: BSD-2-Clause, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {path: resources/downloads/04-jstests-stress-dir.json, class: official_directory_listing, bytes: 1157050, sha256: B859F88BED9E24BE8F79BA704EA510B775D17C2CBAD20357430291709DCAA7AB, commit: f157dd8681ebabd624b90a8069080b87c7938187, license: BSD-2-Clause, deletion_status: RETAIN_REPRODUCIBILITY_DEPENDENCY}
+  - {path: resources/downloads/05-BytecodeGeneratorification.cpp, class: official_pinned_source, bytes: 12835, sha256: 410B624FF0D3DC955BE42D67B7288D598AD4354ACB7201EC1EB7457BD73708A4, commit: f157dd8681ebabd624b90a8069080b87c7938187, license: BSD-2-Clause, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {path: resources/downloads/06-DFGOSRExit.cpp, class: official_pinned_source, bytes: 38458, sha256: 74D048767344B6A66D18927BF1B9DA0F1A8D59D2A3184BA1AD4005B2909AEF48, commit: f157dd8681ebabd624b90a8069080b87c7938187, license: BSD-2-Clause, deletion_status: RETAIN_CLAIM_CRITICAL}
+  - {path: resources/downloads/07-activation-sink-osrexit-default-value-tdz-error.js, class: official_pinned_test, bytes: 934, sha256: BE6916FDA81C8B87B7A8787FFDB840B02D33B129813DF9C468C688EEE8DF5387, commit: f157dd8681ebabd624b90a8069080b87c7938187, license: BSD-2-Clause, deletion_status: RETAIN_CLAIM_CRITICAL}
+shared_assets_consumed: []
+external_system_dependencies: []
+cleanup: {owner: MAINLINE, authorized_descendants: [], performed: false, deleted_entries: [], deleted_logical_bytes: 0, performed_at: null, recoverability: null}
+validation: {resource_root_exact_match: true, root_under_workspace: true, forbidden_root_check: true, reparse_traversal_check: true, required_directories_present: true, persisted_resources_inventoried: true, envelope_within_limit: true, claim_critical_content_hashes_present: true, result: PASS__RESOURCE_ENVELOPE_AND_INVENTORY_COMPLETE}

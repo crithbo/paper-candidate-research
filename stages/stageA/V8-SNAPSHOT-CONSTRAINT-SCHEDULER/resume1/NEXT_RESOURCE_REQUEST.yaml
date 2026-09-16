@@ -1,0 +1,84 @@
+schema: candidate-resource-request-v2
+request_id: V8-EXACT-WIN64-CANDIDATE-BUILD-20260823-THROTTLED
+status: USER_APPROVED_THROTTLED__PRECONDITION_BLOCKED
+user_approval_id: USER_V8_THROTTLED_STAGEA_RESOURCE_ENVELOPE_20260823
+topic_id: V8-SNAPSHOT-CONSTRAINT-SCHEDULER
+assignment_id: STAGEA-L3-20260823-V8-SNAPSHOT-CONSTRAINT-SCHEDULER-RESUME1-THROTTLED-WIN64
+stage: STAGE_A_RESUME_FROM_BLOCKER
+exact_commit: c635f0d160b6e988b5ea5a907511a2929beb5d5e
+platform: windows-x64-native
+write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/resume1
+resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/resume1/resources
+
+scientific_scope:
+  exact_object_unchanged: true
+  claim_ceiling_unchanged: true
+  scientific_revision_consumed_by_resource_bootstrap: false
+  claim_bearing_execution_allowed_only_after_preclaim_gate: true
+  stageb_authorized: false
+
+preferred_route:
+  kind: OFFICIAL_SOURCE_AND_PUBLIC_WINDOWS_BUILD
+  source: https://chromium.googlesource.com/v8/v8.git
+  acquisition: fetch_v8_then_checkout_exact_commit_then_gclient_sync
+  required_outputs: [d8.exe, mksnapshot.exe, cctest.exe, snapshot_blob.bin]
+  required_mutability: serializer_and_snapshot_source_instrumentation_and_rebuild
+  required_toolchain: LICENSE_APPROPRIATE_WINDOWS_CXX_MFC_ATL_SDK_DEBUGGING_TOOLS_MSBUILD_DEPOT_TOOLS_GN_NINJA_PYTHON
+
+throttled_resource_ceiling:
+  public_cpu_only: true
+  gpu: false
+  max_download_gib: 35
+  max_workspace_high_water_gib: 120
+  max_cpu_hours: 24
+  max_wall_hours: 12
+  max_logical_processors: 8
+  required_build_parallelism_cap: 8
+  required_process_priority: BELOW_NORMAL
+  pause_if_available_memory_below_gib: 12
+  stop_if_d_drive_free_below_gib: 150
+  simultaneous_heavy_qrefine_compile_allowed: false
+  system_install_allowed: false
+  global_path_or_registry_change_allowed: false
+
+current_precondition_audit:
+  cl_exe: ABSENT
+  link_exe: ABSENT
+  msbuild_exe: ABSENT
+  vswhere: ABSENT
+  gn_exe: ABSENT
+  ninja_exe: ABSENT
+  python_exe_on_path: ABSENT
+  execution_ready: false
+
+allowed_before_toolchain_pass:
+  - read-only toolchain and disk/memory audit
+  - assignment bootstrap and resource localization preflight
+  - user-provided package metadata/hash/license verification
+
+forbidden_before_toolchain_pass:
+  - source or dependency body download
+  - system installation
+  - build
+  - experiment
+  - claim-bearing observation
+
+minimum_user_action:
+  - provide an existing license-appropriate Windows C++/SDK build environment, or
+  - separately authorize the exact Visual Studio Build Tools/SDK components and system-level installation, or
+  - provide an exact-commit candidate-capable package with source/DEPS, rebuild-capable objects, binaries, symbols, GN args, tool identities, hashes, licenses and notices
+
+fail_closed_conditions:
+  - toolchain precondition remains absent
+  - exact commit/tree/DEPS/license mismatch
+  - process-local resource redirection cannot be proven
+  - effective GN args differ on any format-affecting dimension
+  - matching stock writer/reader smoke fails
+  - any throttled ceiling or memory/disk guard is reached
+  - acquisition requires credentials, unapproved system installation, global mutation, Linux substitution or unofficial mirrors
+
+on_precondition_and_resource_pass:
+  - preserve unmodified stock build and hashes
+  - close the original PRE_CLAIM_CONTRACT_FIDELITY_GATE
+  - begin claim-bearing Stage A only after that gate passes
+

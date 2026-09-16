@@ -1,0 +1,67 @@
+assignment_id: DISCOVERY-S3-20260815-ADAPTIVE-SOURCE92-R40-ORDINARY-BREADTH-V1
+generation_completed_before_evidence_lookup: true
+network_security_exclusion: PASS
+seed_count: 6
+selected_locator_count: 1
+primary_rq_count: 1
+seeds:
+  - id: S3-92-SEED-01
+    engine: CONSTRAINT_MANIPULATION
+    perspective: COMPILER_OR_BACKEND_ENGINEER
+    sketch: "版本化模型中 dispatch lifetime 的重复相位，也许能改变保持同一 executable semantics 的 stream partition constructor；把峰值内存和并行度的默认取舍视为待解释结构而非单一 flag。"
+    anchor_candidate: "PRIVATE_TOOLCHAIN bare-metal compiler deployment guide"
+    disposition: SELECTED_LOCATOR
+  - id: S3-92-SEED-02
+    engine: JANUSIAN_TENSION
+    perspective: HARDWARE_ARCHITECT
+    sketch: "同一公开 NPU 模型系列可同时呈现稳定 operator 骨架与突发激活峰值；只有可验证的离线 placement action 才能将该张力变成论文问题。"
+    anchor_candidate: "immutable official NPU model-release panel"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-92-SEED-03
+    engine: PROBLEM_REFRAMING
+    perspective: MEASUREMENT_REVIEWER
+    sketch: "将跨 release 的 compiler IR 变化从代码覆盖率重述为 layout-independent resource-regime estimand；结果必须改变固定 backend 的离线决策。"
+    anchor_candidate: "version-pinned public compiler-input release series"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-92-SEED-04
+    engine: BISOCIATION_STRUCTURAL_TRANSFER
+    perspective: THEORIST
+    sketch: "把相邻 release 的局部 graph rewrite 映射为 bounded recourse graph，寻找 exact/FPT whole constructor 而非 delta wrapper。"
+    anchor_candidate: "officially versioned verified graph artifact series"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-92-SEED-05
+    engine: ABSTRACTION_LADDER
+    perspective: OPERATOR
+    sketch: "从执行 trace 的重复 phase 上升为可证伪的 cost-regime law，再下落到同对象的 compiler representation action；普通在线选择器不合格。"
+    anchor_candidate: "immutable public accelerator trace release"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-92-SEED-06
+    engine: COMPOSE_DECOMPOSE_SIMPLIFY
+    perspective: MAINTAINER
+    sketch: "分开观察模型图、设备内存与 emitted command stream 的版本变化，测试只有联合离线 constructor 能保持语义并改变 full-cost 的情况。"
+    anchor_candidate: "versioned official compiler/runtime artifact with stock verifier"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+clusters:
+  - id: C1_STATIC_MEMORY_AND_STREAM
+    seed_ids: [S3-92-SEED-01, S3-92-SEED-02, S3-92-SEED-06]
+    representative: S3-92-SEED-01
+  - id: C2_VERSIONED_REGIME_LAW
+    seed_ids: [S3-92-SEED-03, S3-92-SEED-04, S3-92-SEED-05]
+    representative: S3-92-SEED-03
+rq_candidates:
+  - id: S3-92-RQ01
+    seed: S3-92-SEED-01
+    exact_anchor: "PRIVATE_TOOLCHAIN bare-metal deployment guide, current official page checked 2026-08-15"
+    exact_object: "one PRIVATE_TOOLCHAIN-compiled module under stock executable semantics and a fixed backend/target contract"
+    primary_rq: "Does a release-pinned natural model carrier support a non-config, target-specific whole stream-partition construction that preserves PRIVATE_TOOLCHAIN module semantics while improving a reproducible peak-memory/concurrency full-cost trade-off?"
+    contribution_hypothesis: N3_PLUS_N2
+    precommitted_primary_source: "https://PRIVATE_TOOLCHAIN.dev/guides/deployment-configurations/bare-metal/"
+    fallback_transport_only: "https://PRIVATE_TOOLCHAIN.dev/reference/mlir-passes/CodegenCommon/"
+    null_hypothesis: "The apparent decision is just the stock min-peak-memory stream-partitioning configuration, or ordinary tuning, rather than a new same-object constructor."
+    identity_preflight: "Registry shows earlier PRIVATE_TOOLCHAIN AMDGPU scheduler/config absorption notes. This is RELATED_ONLY for the broader project, but sufficient to make a configuration-only restatement ineligible."
+    disposition: EXCLUDED_BEFORE_RAW__CURRENT_CONFIG_AND_GENERIC_SHELL
+portfolio_advisory:
+  engines_used: 6
+  perspective_roles_used: 6
+  note_zh: "六条种子均在外部证据前一次性生成。未被选中的五条没有exact public anchor，保留为非证据 backlog，未计入机会族或raw。"
+

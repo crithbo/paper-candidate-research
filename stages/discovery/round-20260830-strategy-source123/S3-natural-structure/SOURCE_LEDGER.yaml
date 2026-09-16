@@ -1,0 +1,42 @@
+schema: discovery-source-ledger-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE123
+topic_id: SOURCE123-PORTFOLIO-S3
+source_calls_used: 16
+search_or_open_batches: 13
+official_commit_queries: 3
+source_calls_max: 24
+network_bytes_observed: null
+network_bytes_note: 本次运行环境没有提供精确统计，未作估算。
+sources:
+  - {id: S01, role: CURRENT_FATAL, locator: https://github.com/pytorch/ao/issues/2752, depth: OFFICIAL_CURRENT_MIGRATION_RECORD, conclusion: AffineQuantizedTensor layouts including TensorCoreTiledLayout and MarlinSparseLayout are deprecated or deleted in favor of dtype plus packing-format tensor subclasses}
+  - {id: S02, role: CURRENT, locator: https://github.com/pytorch/ao/blob/main/torchao/quantization/quant_api.py, depth: OFFICIAL_CURRENT_SOURCE, conclusion: current Int4WeightOnlyConfig version 2 selects explicit Int4PackingFormat and supports only fixed group-size choices; C01's frozen legacy object is not current}
+  - {id: S03, role: ANCHOR_CURRENT, locator: https://github.com/pytorch/ao/blob/main/torchao/sparsity/README.md, depth: OFFICIAL_CURRENT_DOCS, conclusion: current sparse Marlin already combines INT4 weight-only quantization with 2:4 sparse storage and reports model-level performance}
+  - {id: S04, role: CURRENT_DIRECT, locator: https://arxiv.org/abs/2408.11743, depth: PRIMARY_PAPER, conclusion: Marlin and Sparse-Marlin already offline reshuffle quantized weights group scales and 2:4 metadata for direct tensor-core execution}
+  - {id: S05, role: ANCHOR_CURRENT, locator: https://triton-lang.org/main/getting-started/tutorials/10-block-scaled-matmul.html, depth: OFFICIAL_DOCS_AND_SOURCE, conclusion: Triton MXFP4/MXFP8 stores scale factors in hardware-specific packed layouts for contiguous scale access and validates exact block-scaled products}
+  - {id: S06, role: CURRENT_SPEC, locator: https://docs.nvidia.com/cutlass/latest/media/docs/operators/tutorials/006_block_scaled_gemm.html, depth: OFFICIAL_DOCS, conclusion: Blackwell block-scaled operands require E8M0 scales and Swizzle32x4x4 storage padded to 128 outer rows and four K-scale blocks}
+  - {id: S07, role: CURRENT_SPEC, locator: https://docs.nvidia.com/cutlass/latest/media/docs/cpp/blackwell_functionality.html, depth: OFFICIAL_DOCS, conclusion: scale-factor storage follows a fixed 512-byte basic block and hardware-derived access map}
+  - {id: S08, role: ANCHOR_CURRENT, locator: https://github.com/NVIDIA/cutlass/blob/dc45f979ae336a235da1676b311f35efeb30149a/examples/75_blackwell_grouped_gemm/75_blackwell_grouped_gemm_block_scaled.cu, depth: PINNED_OFFICIAL_SOURCE, conclusion: pinned CUTLASS grouped Blackwell FP4 example implements device-scheduled grouped block-scaled GEMM}
+  - {id: S09, role: CURRENT, locator: https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/fp8_primer.html, depth: OFFICIAL_DOCS, conclusion: MXFP8 scales every 32 elements while NVFP4 uses dynamic block scales plus a tensor-global scale and optionally 2D weight scaling}
+  - {id: S10, role: CURRENT_SOURCE, locator: https://github.com/NVIDIA/TransformerEngine/blob/ace1873f0bca9ab52e23385f38c673164546d28a/transformer_engine/pytorch/ep.py, depth: PINNED_OFFICIAL_SOURCE, conclusion: current expert-parallel path wraps compact E8M0 scales with per-expert token counts explicitly documented as 128-aligned}
+  - {id: S11, role: CURRENT_CONTRARY, locator: https://github.com/NVIDIA/TransformerEngine/issues/2966, depth: OFFICIAL_ISSUE_AND_CURRENT_SOURCE_CHECK, conclusion: natural Mixtral expert splits were not divisible by 32; the issue is closed but current EP source still uses aligned grouped counts}
+  - {id: S12, role: ANCHOR_CURRENT, locator: https://github.com/bitsandbytes-foundation/bitsandbytes/blob/main/bitsandbytes/functional.py, depth: OFFICIAL_CURRENT_SOURCE, conclusion: nested 4-bit quantization already quantizes absmax statistics with fixed state2 block size and records the complete two-level metadata contract}
+  - {id: S13, role: CURRENT_DIRECT, locator: https://github.com/bitsandbytes-foundation/bitsandbytes/blob/main/bitsandbytes/autograd/_functions.py, depth: OFFICIAL_CURRENT_SOURCE, conclusion: current gemm_4bit consumes nested absmax code offset and second-level scale metadata directly in the GEMM path}
+  - {id: S14, role: ANCHOR_CURRENT, locator: https://github.com/ggml-org/llama.cpp/blob/master/ggml/src/ggml-quants.c, depth: OFFICIAL_CURRENT_SOURCE, conclusion: K-quant formats already bit-pack subblock scales and minima inside 256-value super-blocks}
+  - {id: S15, role: CURRENT, locator: https://github.com/ggml-org/llama.cpp/discussions/17393, depth: OFFICIAL_FORMAT_DOCUMENTATION, conclusion: current Q and IQ formats cover linear nonlinear and importance-aware block structures; no source-supported repeated or zero subblock law was established}
+  - {id: S16, role: ANCHOR_CURRENT, locator: https://github.com/IST-DASLab/marlin, depth: OFFICIAL_REPO_AND_PRIMARY_ARTIFACT, conclusion: Marlin explicitly reshuffles both weights and group scales offline into ideal execution layouts}
+  - {id: S17, role: ANCHOR_CURRENT, locator: https://github.com/microsoft/BitBLAS, depth: OFFICIAL_REPO, conclusion: BitBLAS Ladder already transforms packed weights and propagates hardware-aware low-bit layouts with scaling and zero-point options}
+  - {id: S18, role: ANCHOR_CURRENT, locator: https://github.com/dropbox/gemlite, depth: OFFICIAL_REPO, conclusion: current GemLite supports 1/2/4/8-bit weights and any group size divisible by 32 with autotuning; the frozen Mobius locator resolves to the Dropbox-maintained project}
+  - {id: S19, role: CURRENT, locator: https://arxiv.org/abs/2601.19213, depth: PRIMARY_PAPER, conclusion: M2XFP already studies metadata-augmented microscaling formats and narrows generic new-metadata claims}
+  - {id: S20, role: STRONG_BASELINE, locator: https://arxiv.org/abs/2508.16584, depth: PRIMARY_PAPER, conclusion: TMA-Adaptive FP8 grouped GEMM eliminates fixed group padding on Hopper using a descriptor pool and dual-phase residual handling with numerical equivalence}
+  - {id: S21, role: STRONG_BASELINE, locator: https://arxiv.org/abs/2512.14080, depth: PRIMARY_PAPER, conclusion: SonicMoE targets padding waste in grouped GEMM through IO and tile-aware kernels plus token rounding}
+  - {id: S22, role: CURRENT_SOURCE, locator: https://github.com/NVIDIA/cudnn-frontend/blob/606e16f9786ea7a13e0462c8a63edf0d7f72ae85/docs/fe-oss-apis/gemm_fusions/grouped_gemm_quant_unified.md, depth: PINNED_OFFICIAL_SOURCE, conclusion: SM100 block-scaled MoE grouped GEMM uses contiguous grouped rows and padded_offsets with hardware scale tensors}
+  - {id: S23, role: CURRENT_DIRECT_FATAL, locator: https://docs.flashinfer.ai/generated/flashinfer.grouped_mm.moe_gemm_mxfp8_nt_groupwise.html, depth: VERSIONED_OFFICIAL_DOCS_0_6_18, conclusion: FlashInfer implements Blackwell SM120 MXFP8 MoE zero-padding mode with token-packed A CSR m_indptr and support down to one token per expert; only four scale rows per expert remain padded}
+  - {id: S24, role: CURRENT_DIRECT_FATAL_SOURCE, locator: https://github.com/flashinfer-ai/flashinfer/blob/main/tests/gemm/test_group_gemm_fp4.py, depth: OFFICIAL_CURRENT_TEST_SOURCE, conclusion: current grouped FP4 tests use unpadded concatenated activation rows and explicit scale-layout padding under the kernel contract}
+  - {id: S25, role: CURRENT_CONTRARY, locator: https://github.com/flashinfer-ai/flashinfer/issues/2514, depth: OFFICIAL_CURRENT_BUG_RECORD, conclusion: grouped MXFP8-MXFP4 kernels already exercise m_indptr plus 128-aligned scale offsets and expose current numerical-correctness constraints}
+source_boundary: Official repositories, versioned vendor documentation, pinned current commits and primary papers only. No downloads, builds, experiments, persisted source copies or result-aware replacement family.
+query_role_yield:
+  ANCHOR: core
+  CURRENT: current-fatal
+  CONTRARY: current-fatal
+  ESCAPE: exact-history
+

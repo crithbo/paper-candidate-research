@@ -1,0 +1,10 @@
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R11P-BASELINE-COST-COLLECTOR-PRECLAIM
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+role: CANDIDATE_OWNER
+mode: PRECLAIM_IMPLEMENTATION
+purpose: Implement and validate only the single r11 baseline-cost collector defined by the accepted same-object redesign contract.
+allowed_actions: [copy_hash_pinned_minimal_inputs, implement_one_assignment_local_collector, run_preclaim_control_only, write_validation_handoff_manifest]
+forbidden_actions: [network, natural_run, claim_run, input_or_baseline_change, denominator_change, retry, stageb, shared_state_change]
+required_outputs: [baseline_cost_ledger.json, strong_baseline_dependency_graph.json, command_metrics.json]
+required_predicates: [56_unique_baseline_metrics, 16_bundles, graph_audit_all_pass, ledger_cost_dimensions_complete, collector_is_consumable_by_future_71_metric_full_cost]
+first_failure: FAIL_CLOSED__RETURN_TO_MAINLINE__NO_SCIENTIFIC_INFERENCE

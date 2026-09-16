@@ -1,0 +1,42 @@
+schema_version: pre-claim-contract-fidelity-gate-v1
+created_at: 2026-08-26T00:35:33.1028272+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-RVV-R4-PRECLAIM-F1-F5
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+decision: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE
+claim_start_authorized: false
+claim_bearing_observation: false
+natural_or_performance_action: false
+scientific_revision_consumed: false
+ordered_gates:
+  F1_CURRENT_LLVM_ACTIONS:
+    result: PASS
+    artifact: CURRENT_ACTION_CATALOG.yaml
+    current_union: [allocate, hints, evict, recolor, split, whole_spill_reload, rematerialize, hoist_merge_spills, superclass_fallback]
+    PR_105661: UNLANDED_AT_PIN
+  F2_MACHINEVERIFIER_WITNESS:
+    result: FAIL_CLOSED
+    llc_replays: 2_OF_2_EXIT_ZERO
+    replay_sha256_equal: true
+    replay_sha256: 7992C346456BCE4B58B6891FE35E68C5D229FA5C5E5614AB1A6E6D1E9881DDDC
+    witness_geometry: THREE_VRM8NOV0_PLUS_V0_PLUS_EIGHT_ZZZ_VRMF8
+    whole_spill_reload_present: true
+    fractional_spill_reload_present: true
+    failure:
+      noVRegs: false
+      virtual_register_records_retained: true
+      split_escape_observed:
+        - {parent: '%4', children: ['%14', '%15']}
+        - {parent: '%11', children: ['%12', '%13']}
+      exact_reason: FROZEN_WITNESS_DID_NOT_EXCLUDE_SPLIT_ESCAPE_AND_CHECKER_REQUIRED_VIRTUAL_REGISTER_ELIMINATION
+  F3_TYPED_REPLAY: {result: NOT_RUN_ORDERED_STOP_AFTER_F2}
+  F4_QUOTIENT_EQUALITY: {result: NOT_RUN_ORDERED_STOP_AFTER_F2}
+  F5_BASELINE_PARITY: {result: NOT_RUN_ORDERED_STOP_AFTER_F2}
+execution_integrity:
+  automatic_retry: false
+  result_based_rerun_or_exclusion: false
+  harness_build_attempts_used: 0
+  second_build: false
+  upstream_source_patch: false
+  network_bytes: 0
+evidence_ceiling: PRECLAIM_CONTROL_ONLY__NO_SCIENTIFIC_INFERENCE
+next_action: MAINLINE_DISPOSITION_REQUIRED__DO_NOT_START_NATURAL_OR_CLAIM_ASSIGNMENT

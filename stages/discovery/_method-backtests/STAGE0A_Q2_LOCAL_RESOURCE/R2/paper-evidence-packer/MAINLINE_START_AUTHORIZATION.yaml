@@ -1,0 +1,11 @@
+schema: stagea-paper-evidence-packer-start-v1
+assignment_id: BACKTEST-PACKER-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2
+authority: {issued_by: MAINLINE, model: gpt-5.6-terra, thinking: medium}
+decision: START_AUTHORIZED__PAPER_EVIDENCE_CAPSULE_EXTRACTION_ONLY
+scope: [12_positive_paper_evidence_capsules, 4_evidence_defect_negative_capsules]
+allowed_actions: [small_public_paper_or_appendix_or_AE_metadata_lookup, exact_locator_capture, capsule_extraction, capsule_manifest_and_handoff]
+new_large_download_build_experiment_allowed: false
+forbidden: [local_build_probe_experiment, case_replacement, scoring, gate_gold_reveal, production_candidate_registration, StageB, blind_nonblind_metric_merge]
+labels: [PAPER_REPORTED, AUTHOR_ARTIFACT_REPORTED, PROJECT_LOCAL_SUPPLEMENT]
+blind_boundary: PACKER_MAY_CREATE_BLIND_NEUTRAL_PILOT_PACKET_BUT_MUST_NOT_EXPOSE_GOLD_EXPECTED_LABELS_TO_REVIEWER
+next_gate: MAINLINE_CAPSULE_ACCEPTANCE_THEN_CONDITIONAL_FOUR_CASE_BLIND_PILOT_OR_NONBLIND_GATE

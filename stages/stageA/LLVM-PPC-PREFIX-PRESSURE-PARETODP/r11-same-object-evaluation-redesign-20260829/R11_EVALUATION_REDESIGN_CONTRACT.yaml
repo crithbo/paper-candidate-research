@@ -1,0 +1,41 @@
+schema: ppc-r11-same-object-evaluation-redesign-contract-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R11-SAME-OBJECT-EVALUATION-REDESIGN
+mode: CONTRACT_ONLY__NOT_EXECUTED
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+sources:
+  r10b_route_abandonment: {path: ../r10b-baseline-denominator-refreeze-20260829/handoff.yaml, sha256: 1D6987D789B010E1B9F069829A115A50D18DDD16279FEC196FEBB953DB61DA14}
+  frozen_harness: {path: ../r10-natural-claim-execution-20260829/resources/src/natural_materializer/materializer_harness.py, sha256: C504250677F59E3B2EE2C054E51D160EE632D3E9E84688BA93C20C0236525C53}
+same_object_invariants:
+  exact_ppc_object: true
+  same_function_materialization_witness: required_before_each_row
+  strong_current_baseline: exact_existing_8_config_x_2_lld_relax_grid
+  natural_input_requirement: exact_16_selected_inputs_x_2_replays
+  r10_invalid_denominators_forbidden: [896_per_row_expansion, unaggregated_baseline_graph_cost]
+future_row_contract:
+  rows: 32
+  per_input_replays: 2
+  candidate_replay_metrics: {total: 15, candidate: 9, direct_baseline: 6}
+  single_baseline_cost_collector:
+    multiplicity: exactly_one_per_row
+    implementation_boundary: one_new_assignment_local_collector_in_a_separate_future_execution_assignment
+    immutable_harness_call: _run_strong_baseline_grid_for_the_row_input_once
+    required_outputs: [strong_baseline_dependency_graph.json, logs/command_metrics.json, baseline_cost_ledger.json]
+    exact_metric_cardinality: {compile: 8, link: 16, inspection: 32, total: 56, bundles: 16}
+    graph_audit: all_pass_required
+  complete_full_cost_ledger:
+    required_unique_metrics: 71
+    components: [candidate_replay_15, baseline_cost_collector_56]
+    duplicate_metric_ids_allowed: false
+    required_dimensions: [cpu_seconds, wall_seconds, peak_rss_bytes, input_bytes, output_artifact_bytes, exit_code, timeout, command_argv, command_cwd]
+    must_consume: [candidate_command_metrics.json, baseline_cost_ledger.json, strong_baseline_dependency_graph.json]
+    must_not_use: [r10_run_full_cost_partial_9_plus_6_summary]
+preclaim_witness:
+  required: true
+  predicate: same_function_materialization__MachineVerifier__candidate_checker__strong_baseline_graph_audit
+first_failure_policy:
+  trigger: any_input_hash_drift_or_witness_failure_or_collector_failure_or_metric_count_duplicate_or_missing_cost_dimension_or_checker_or_ledger_failure
+  action: FAIL_CLOSED__RETURN_TO_MAINLINE__NO_SCIENTIFIC_INFERENCE
+  automatic_retry: false
+  followup_patch_authorized: false
+execution_performed: false
+evidence_ceiling: NO_NATURAL_OR_SCIENTIFIC_INFERENCE

@@ -1,0 +1,30 @@
+schema: certificate-audit-v3
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R6-UINT32-CHECKER-PORTABILITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+obligation: F3_CERTIFIED_SWAP_SUCCESSOR_BOUNDARY_COST_MULTISET_AUDIT
+status: PASS_PRECLAIM_CONTROL
+implementation_artifacts:
+  checker: {path: resources/src/harness/orbit_pareto.ps1, sha256: C8662B3F0FBE3AC4F371D972F75371300EB847CD969B69A06110E8E47BDBCB26, static_parse_errors: 0}
+  runner: {path: resources/src/harness/run_checker_pair.ps1, sha256: 69582FEA4BE8CFF88B4B9AC88E4D414A9D6A1B471A3488A97571E0ED99CD22AB, static_parse_errors: 0}
+  checker_source_edit_count: 1
+  harness_build_attempts: 0
+deterministic_outputs:
+  replay_1: {path: resources/logs/checker/checker_replay1.json, sha256: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966, result: PASS}
+  replay_2: {path: resources/logs/checker/checker_replay2.json, sha256: 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966, result: PASS}
+  exact_match: true
+bounded_certificate:
+  finite_grammar: true
+  trace_steps: 1
+  native_action_catalog_entries: 10
+  forbidden_proxy_entries: [LOCAL_SWAP_ONLY, EMITTER_PATCH, DERIVED_BYTE_PROXY]
+  exhaustive_scenarios: 64
+  successor_set_mismatches: 0
+  cost_multiset_equal: true
+  corrected_witness_labeled_actions: 3
+  corrected_witness_quotient_actions: 2
+  corrected_witness_pareto_frontier_actions: 2
+  complete_frozen_native_action_grammar_observed: true
+result: PASS_FROZEN_BOUNDED_GRAMMAR_CERTIFICATE
+claim_ceiling: PRECLAIM_CONTROL_ONLY__NO_NATURAL_OR_PERFORMANCE_INFERENCE
+scientific_inference: NONE
+

@@ -1,0 +1,68 @@
+assignment_id: DISCOVERY-S3-20260815-ADAPTIVE-SOURCE94-R40-ORDINARY-BREADTH-V1
+generation_completed_before_evidence_lookup: true
+network_security_exclusion: PASS
+seed_count: 6
+selected_locator_count: 1
+primary_rq_count: 1
+seeds:
+  - id: S3-94-SEED-01
+    engine: JANUSIAN_TENSION
+    perspective: COMPILER_OR_BACKEND_ENGINEER
+    sketch: "相邻 longterm kernel release 有小的文本变更而旧 call-chain locality 可能大体保留；若稳定，离线 source-level function order 可在保持 kernel build contract 下联合优化局部性与版本重排代价。"
+    anchor_candidate: "official kernel.org Linux 6.12 stable release series plus GCC locality pass"
+    disposition: SELECTED_LOCATOR
+  - id: S3-94-SEED-02
+    engine: CONSTRAINT_MANIPULATION
+    perspective: MAINTAINER
+    sketch: "固定程序语义与 loader 后，移除“每版独立 layout”约束；只有比 current native ordering 更强的 whole constructor 才能利用版本稳定性。"
+    anchor_candidate: "immutable official compiler artifact release panel"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-94-SEED-03
+    engine: PROBLEM_REFRAMING
+    perspective: MEASUREMENT_REVIEWER
+    sketch: "从版本间二进制差异重述为 layout-independent call-chain retention estimand；结论必须使具体离线 action 可被拒绝。"
+    anchor_candidate: "public signed program-release series with profile carrier"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-94-SEED-04
+    engine: ABSTRACTION_LADDER
+    perspective: HARDWARE_ARCHITECT
+    sketch: "由模型 release 的 tile/shape phase 提升到 memory hierarchy law，再下落为固定 backend 的 non-controller code generation construction。"
+    anchor_candidate: "version-pinned public accelerator model corpus"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-94-SEED-05
+    engine: BISOCIATION_STRUCTURAL_TRANSFER
+    perspective: THEORIST
+    sketch: "将跨版本局部 call-graph 编辑映射为有界 recourse 图，要求 target-specific exact/FPT skeleton 而非 generic ordering oracle。"
+    anchor_candidate: "official versioned call-graph carrier and executable oracle"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+  - id: S3-94-SEED-06
+    engine: COMPOSE_DECOMPOSE_SIMPLIFY
+    perspective: OPERATOR
+    sketch: "分别冻结发布变更、运行时局部性与重构成本；只有联合 full-cost constructor 能构成自然结构论文入口。"
+    anchor_candidate: "immutable public production-workload release history"
+    disposition: RQ_BACKLOG__NO_EXACT_ANCHOR
+clusters:
+  - id: C1_VERSIONED_CODE_LAYOUT_RECOURSE
+    seed_ids: [S3-94-SEED-01, S3-94-SEED-02, S3-94-SEED-03, S3-94-SEED-05, S3-94-SEED-06]
+    representative: S3-94-SEED-01
+  - id: C2_ACCELERATOR_REGIME
+    seed_ids: [S3-94-SEED-04]
+    representative: S3-94-SEED-04
+rq_candidates:
+  - id: S3-94-RQ01
+    seed: S3-94-SEED-01
+    exact_anchor: "kernel.org Linux 6.12 stable series, deterministic official selection rule: signed source releases 6.12.90 through 6.12.98; GCC current `-fipa-reorder-for-locality` documentation"
+    exact_object: "each fixed Linux 6.12.N source/config compiled into a kernel image under the stock GCC/LTO toolchain; source-program behavior and supported boot/exported interface must remain unchanged."
+    primary_rq: "Across the frozen 6.12.N sequence, is there a held-out-stable, layout-independent call-chain retention law that permits a target-specific version-aware whole function-layout constructor beyond GCC's one-version locality pass, without changing the kernel's observable build/boot contract?"
+    contribution_hypothesis: N3_PLUS_N2
+    primary_sources:
+      - "https://www.kernel.org/pub/linux/kernel/v6.x/"
+      - "https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html"
+    null_hypothesis: "The release transition has no stable retained locality, or the claimed method is merely current GCC locality ordering / generic ordering."
+    identity_preflight: "No exact `FIPA_REORDER_FOR_LOCALITY`, `GCC_LOCALITY_CLONING`, or `GCC_FUNCTION_LOCALITY` label was found in the frozen registry lookup. This is not novelty evidence."
+    disposition: LOCATOR_ONLY__SAME_OBJECT_ORACLE_AND_TARGET_SPECIFIC_ACTION_UNFROZEN
+portfolio_advisory:
+  engines_used: 6
+  perspectives_used: 6
+  note_zh: "种子先于检索一次性生成。五条无exact public anchor者保留非证据backlog，未计入raw或brief。"
+

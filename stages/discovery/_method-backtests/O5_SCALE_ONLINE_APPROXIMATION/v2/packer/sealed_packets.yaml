@@ -1,0 +1,155 @@
+schema_version: discovery-backtest-sealed-packets-v2
+role: DISCOVERY-BACKTEST-PACKER
+opportunity_lens: O5_SCALE_ONLINE_OR_APPROXIMATION
+method_revision: v2
+sealed_at: 2026-08-03T15:40:00+08:00
+executor_rules:
+  - Use only this file and the assigned Discovery role; do not identify hidden targets.
+  - Recover the scale/online/approximation pressure, the new decision structure, error or consistency contract, full cost ledger, contribution route, evidence route, and abstain decision.
+  - Approximation without a decision-relevant error guarantee, or distribution without a scale-induced algorithmic change, is insufficient.
+packets:
+  - packet_id: S5-POS-01
+    label: positive
+    cutoff_date: 2012-03-24
+    domain_tags: [DATABASE_SYSTEM, APPROXIMATE_COMPUTING, DISTRIBUTED_SYSTEM]
+    paper_inputs:
+      - source_id: P01-A
+        citation: "Hellerstein, Haas, and Wang (1997), Online Aggregation, SIGMOD."
+        public_date: 1997-05-01
+        url: https://doi.org/10.1145/253260.253291
+        pre_cutoff_signal: "Progressive estimates and confidence information can make long-running aggregate queries interactive."
+      - source_id: P01-B
+        citation: "Acharya, Gibbons, and Poosala (1999), Aqua: A Fast Decision Support Systems Using Approximate Query Answers, VLDB."
+        public_date: 1999-09-01
+        url: https://www.vldb.org/conf/1999/P3.pdf
+        pre_cutoff_signal: "Precomputed samples and synopses trade storage and accuracy for response time."
+      - source_id: P01-C
+        citation: "Dean and Ghemawat (2004), MapReduce: Simplified Data Processing on Large Clusters, OSDI."
+        public_date: 2004-12-01
+        url: https://www.usenix.org/legacy/event/osdi04/tech/full_papers/dean/dean.pdf
+        pre_cutoff_signal: "Cluster dataflow scales batch processing but interactive full scans remain expensive."
+      - source_id: P01-D
+        citation: "Condie et al. (2010), MapReduce Online, NSDI."
+        public_date: 2010-04-01
+        url: https://www.usenix.org/legacy/events/nsdi10/tech/full_papers/condie.pdf
+        pre_cutoff_signal: "Pipelined dataflow can produce early approximate answers and support online aggregation."
+      - source_id: P01-E
+        citation: "Zaharia et al. (2010), Spark: Cluster Computing with Working Sets, HotCloud."
+        public_date: 2010-06-01
+        url: https://www.usenix.org/legacy/event/hotcloud10/tech/full_papers/Zaharia.pdf
+        pre_cutoff_signal: "In-memory distributed datasets reduce repeated-analysis latency."
+    public_artifacts:
+      - source_id: P01-F
+        name: Apache Spark
+        snapshot_rule: "Repository/release state available by cutoff."
+        url: https://archive.apache.org/dist/spark/
+    environment_at_cutoff:
+      - "Ad-hoc analytic data can exceed interactive full-scan budgets even on clusters; users may accept bounded error or bounded response time."
+      - "A valid mechanism must decide which samples/synopses to maintain and which to use per query, while emitting interpretable uncertainty."
+      - "No hidden target system name, sample family, optimizer, error result, or post-cutoff source is supplied."
+
+  - packet_id: S5-POS-02
+    label: positive
+    cutoff_date: 2017-12-15
+    domain_tags: [DISTRIBUTED_SYSTEM, AI_RUNTIME, ONLINE_COMPUTING]
+    paper_inputs:
+      - source_id: P02-A
+        citation: "Murray et al. (2011), CIEL: A Universal Execution Engine for Distributed Data-Flow Computing, NSDI."
+        public_date: 2011-03-01
+        url: https://www.usenix.org/conference/nsdi11/ciel-universal-execution-engine-distributed-data-flow-computing
+        pre_cutoff_signal: "Dynamic task graphs and fault-tolerant objects support data-dependent distributed computation."
+      - source_id: P02-B
+        citation: "Zaharia et al. (2012), Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing, NSDI."
+        public_date: 2012-04-01
+        url: https://www.usenix.org/conference/nsdi12/technical-sessions/presentation/zaharia
+        pre_cutoff_signal: "Lineage-based datasets make coarse-grained data-parallel recovery efficient."
+      - source_id: P02-C
+        citation: "Murray et al. (2013), Naiad: A Timely Dataflow System, SOSP."
+        public_date: 2013-11-01
+        url: https://doi.org/10.1145/2517349.2522738
+        pre_cutoff_signal: "Timely dataflow unifies iterative and incremental data-parallel computations."
+      - source_id: P02-D
+        citation: "Abadi et al. (2016), TensorFlow: A System for Large-Scale Machine Learning, OSDI."
+        public_date: 2016-11-01
+        url: https://www.usenix.org/conference/osdi16/technical-sessions/presentation/abadi
+        pre_cutoff_signal: "Static dataflow supports large-scale ML but dynamic control and nested parallel workloads remain awkward."
+      - source_id: P02-E
+        citation: "Rocklin (2015), Dask: Parallel Computation with Blocked Algorithms and Task Scheduling, SciPy."
+        public_date: 2015-07-01
+        url: https://doi.org/10.25080/Majora-7b98e3ed-013
+        pre_cutoff_signal: "General dynamic task graphs provide flexible parallel Python execution."
+    public_artifacts:
+      - source_id: P02-F
+        name: Dask
+        snapshot_rule: "Repository state no later than cutoff."
+        url: https://github.com/dask/dask
+    environment_at_cutoff:
+      - "Emerging AI applications combine fine-grained tasks, stateful actors, nested parallelism, heterogeneous durations, online interaction, and failure recovery."
+      - "A credible general system must avoid a centralized scheduling bottleneck while preserving a unified programming surface."
+      - "No hidden target name, scheduler/store architecture, benchmark result, or post-cutoff source is supplied."
+
+  - packet_id: S5-POS-03
+    label: positive
+    cutoff_date: 2013-12-31
+    domain_tags: [DISTRIBUTED_ML, ALGORITHM_RUNTIME, LARGE_SCALE]
+    paper_inputs:
+      - source_id: P03-A
+        citation: "Power and Li (2010), Piccolo: Building Fast, Distributed Programs with Partitioned Tables, OSDI."
+        public_date: 2010-10-01
+        url: https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Power.pdf
+        pre_cutoff_signal: "Partitioned mutable tables simplify distributed iterative algorithms."
+      - source_id: P03-B
+        citation: "Recht et al. (2011), HOGWILD!: A Lock-Free Approach to Parallelizing Stochastic Gradient Descent, NeurIPS."
+        public_date: 2011-12-01
+        url: https://proceedings.neurips.cc/paper/2011/hash/218a0aefd1d1a4be65601cc6ddc1520e-Abstract.html
+        pre_cutoff_signal: "Sparse updates can tolerate asynchronous shared-memory execution."
+      - source_id: P03-C
+        citation: "Low et al. (2012), Distributed GraphLab: A Framework for Machine Learning and Data Mining in the Cloud, PVLDB 5(8)."
+        public_date: 2012-04-01
+        url: https://doi.org/10.14778/2212351.2212354
+        pre_cutoff_signal: "Graph-structured mutable state and consistency models support distributed ML."
+      - source_id: P03-D
+        citation: "Dean et al. (2012), Large Scale Distributed Deep Networks, NeurIPS."
+        public_date: 2012-12-01
+        url: https://proceedings.neurips.cc/paper/2012/hash/6aca97005c68f1206823815f66102863-Abstract.html
+        pre_cutoff_signal: "Large models and data motivate asynchronous parameter replicas and distributed workers."
+      - source_id: P03-E
+        citation: "Ho et al. (2013), More Effective Distributed ML via a Stale Synchronous Parallel Parameter Server, NeurIPS."
+        public_date: 2013-12-01
+        url: https://proceedings.neurips.cc/paper/2013/hash/b7bb35b9c6ca2aee2df08cf09d7016c2-Abstract.html
+        pre_cutoff_signal: "Bounded staleness exposes a convergence-versus-waiting decision."
+    public_artifacts:
+      - source_id: P03-F
+        name: GraphLab
+        snapshot_rule: "Public repository/project state by cutoff."
+        url: https://sourceforge.net/projects/graphlab/files/graphlab/
+    environment_at_cutoff:
+      - "Petabyte data and billion-parameter models require shared parameter access, elastic distribution, sparse communication, consistency choices, and fault handling."
+      - "A reusable contribution must separate application logic from distributed parameter management and price consistency and communication."
+      - "No hidden target framework name, server architecture, experiment, or later implementation is supplied."
+
+  - packet_id: S5-NEG-01
+    label: negative_control
+    cutoff_date: 2015-12-31
+    domain_tags: [ALGORITHM_DATA_STRUCTURE, GRAPH_ALGORITHM]
+    paper_inputs:
+      - source_id: N01-A
+        citation: "Dijkstra (1959), A Note on Two Problems in Connexion with Graphs, Numerische Mathematik 1."
+        public_date: 1959-12-01
+        url: https://doi.org/10.1007/BF01386390
+        pre_cutoff_signal: "Exact nonnegative single-source shortest paths have a classical offline algorithm."
+      - source_id: N01-B
+        citation: "Fredman and Tarjan (1987), Fibonacci Heaps and Their Uses in Improved Network Optimization Algorithms, JACM 34(3)."
+        public_date: 1987-07-01
+        url: https://doi.org/10.1145/28869.28874
+        pre_cutoff_signal: "Priority-queue structure improves classical exact shortest-path complexity."
+      - source_id: N01-C
+        citation: "Cherkassky, Goldberg, and Radzik (1996), Shortest Paths Algorithms: Theory and Experimental Evaluation, Mathematical Programming 73."
+        public_date: 1996-05-01
+        url: https://doi.org/10.1007/BF02592101
+        pre_cutoff_signal: "Strong exact baselines and empirical methodology are established."
+    public_artifacts: []
+    environment_at_cutoff:
+      - "Control slice: one small static graph fully resident in memory, nonnegative fixed weights, one offline exact query, no updates, stream, deadline, approximation tolerance, or scale pressure."
+      - "The packet provides no O5 trigger; changing a priority-queue parameter would be mature implementation work."
+      - "Abstain."

@@ -1,0 +1,20 @@
+schema: ppc-r10b-denominator-validation-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10B-BASELINE-DENOMINATOR-REFREEZE
+static_observations:
+  run_replay_metrics: {all: 15, candidate: 9, direct_baseline: 6}
+  _run_strong_baseline_grid_metrics: {compile: 8, link: 16, inspection: 32, total: 56, bundles: 16}
+  intended_unique_metric_denominator: 71
+  run_full_cost_metric_summaries: {candidate_process_cost: 9, baseline_process_cost: 6, strong_baseline_grid_metrics_aggregated_into_cpu_wall_rss: false}
+  strong_grid_graph_is_consumed_as: dependency_audit_and_static_cost_rows_only
+validation:
+  selected_input_set_preserved: true
+  same_function_witness_preserved: true
+  baseline_configuration_preserved: true
+  nonduplicative_71_metric_denominator_implemented_by_existing_harness: false
+  checker_graph_dependency_closed: true
+  full_cost_graph_dependency_closed: false
+  full_cost_cpu_wall_rss_denominator_closed: false
+result: FAIL_CLOSED__FULL_COST_DENOMINATOR_OMITS_56_STRONG_BASELINE_COMMAND_METRICS
+allowed_remediation_within_r10b: none
+required_disposition: ABANDON_R10_ROUTE__RETURN_TO_STAGEA_SAME_OBJECT_EVALUATION_REDESIGN
+scientific_inference: NONE

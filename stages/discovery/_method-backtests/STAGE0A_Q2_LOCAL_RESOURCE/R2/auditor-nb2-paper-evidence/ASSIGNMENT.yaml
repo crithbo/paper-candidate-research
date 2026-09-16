@@ -1,0 +1,32 @@
+schema: paper-evidence-backtest-auditor-assignment-v1
+assignment_id: BACKTEST-AUDITOR-20260827-STAGEA-PAPER-EVIDENCE-R2-NB2
+role: BACKTEST_AUDITOR
+lane_id: BACKTEST-AUDITOR
+lane_thread_id: 01a034d0-e86d-7ba0-ac31-1ca60477b3ce
+topic_id: STAGEA_PAPER_EVIDENCE_BACKTEST_R2
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/auditor-nb2-paper-evidence
+resource_root: <LOCAL_PROJECT_ROOT>/stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/auditor-nb2-paper-evidence/resources
+status: BOOTSTRAP_ACK_PENDING
+inputs:
+  gate_report: {path: stages/stageA/_compatibility/paper-evidence-20260827/gate/PAPER_EVIDENCE_STAGEA_GATE_REPORT.yaml, sha256: 089C34B34E796598BD7E91A2696946B990697B9A49B1A0D8F134FABD3BAD4569}
+  gate_handoff: {path: stages/stageA/_compatibility/paper-evidence-20260827/gate/handoff.yaml, sha256: 6A8E2628D531733143A89261BE62A7514F0642F6AF4FD6F52E9906BA14296438}
+  gate_manifest: {path: stages/stageA/_compatibility/paper-evidence-20260827/gate/HASH_MANIFEST.sha256, sha256: 8ACF40D84E21C7134E7BFDAF8A3CE54C0565234ABA100A5F00F3CC16E516E977}
+  enriched_capsule_manifest: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/ENRICHED_PAPER_EVIDENCE_CAPSULES_MANIFEST.yaml, sha256: 152E118F169F43DAA7316C19F6EE2745425FE3CF72F7E579B7A29E9643050061}
+  locator_handoff_acceptance: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/MAINLINE_HANDOFF_ACCEPTANCE.yaml, sha256: EBDF2BD43985EEC4831307124154D4163930B029AC31B346167C4AE5B6EBFE0F}
+  auditor_gold_key: {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R2/paper-evidence-packer-locator1/AUDITOR_GOLD_KEY.yaml, sha256: C3F813395CDB4AF93FFDF7DC89E77973FEA24749C3E36FDA6A2CACEB55043D82, visibility: AUDITOR_ONLY}
+  r2_spec: {path: stages/rule-audit/RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2/BACKTEST_ASSIGNMENT_SPEC.md, sha256: 4DFB6C2F538E69F26BEC4B91D58200ABA895D173B29D62F0AA86C5BB01553658}
+  blind_disposition: {path: stages/rule-audit/RULE-AUDIT-20260827-STAGEA-PAPER-EVIDENCE-BACKTEST-R2/BLIND_PILOT_DISPOSITION.yaml, sha256: 3F1D8B9A4A4F7263DBE5F52A9F65B6ED6F219C354758BDDAAD90FBDE5F36312D}
+scope:
+  - compare_immutable_gate_decisions_to_gold_key
+  - distinguish_conditional_pass_among_9_evaluable_positives_from_full_population_12
+  - calculate_immediate_and_after_clarification_outcomes
+  - verify_negative_specificity_and_false_pass_counts
+  - explain_rule_overstrictness_vs_source_evidence_missing_vs_contribution_mismatch
+  - preserve_blind_unavailable_boundary_and_local_supplement_labels
+forbidden_actions: [new_experiment, new_probe, network, resource_creation, production_candidate_registration, StageB]
+forbidden_claims: [independent_reproduction, unbiased_recall, threshold_75_claim, blind_nonblind_metric_merge]
+outputs:
+  report: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/paper-evidence-20260827/FINAL_STAGEA_BACKTEST_REPORT.md
+  handoff: handoff.yaml
+  manifest: HASH_MANIFEST.sha256
+model_route: {model: gpt-5.6-terra, thinking: high}

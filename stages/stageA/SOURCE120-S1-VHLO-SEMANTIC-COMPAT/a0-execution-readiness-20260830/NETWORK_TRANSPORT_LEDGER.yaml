@@ -1,0 +1,16 @@
+schema: vhlo-a0-network-transport-ledger-v1
+assignment_id: STAGEA-L2-20260830-VHLO-SEMANTIC-COMPAT-A0
+attempts_used_conservative: 23
+attempts_max: 24
+native_persisted_bytes: 0
+web_connector_exact_bytes: UNAVAILABLE__NOT_ESTIMATED
+routes:
+  - {kind: curl_official_github_api, attempts: 1, result: SCHANNEL_SEC_E_NO_CREDENTIALS, response_body_bytes: 0}
+  - {kind: web_connector_official_github_pages_and_searches, attempts: 21, result: PARTIAL_STATIC_LOCATOR_SUCCESS, persisted_raw_bytes: 0}
+  - {kind: git_ls_remote_official_github, attempts: 1, result: SCHANNEL_SEC_E_NO_CREDENTIALS, checkout_bytes: 0}
+engineering_corrections:
+  - {batch: 1_of_2, change: native_curl_to_read_only_web_connector, semantic_change: false}
+  - {batch: 2_of_2, change: native_git_to_web_only_static_freeze, semantic_change: false}
+forbidden_after_ledger: [additional_network_attempt, mirror, TLS_bypass, system_change]
+scientific_inference: NONE
+

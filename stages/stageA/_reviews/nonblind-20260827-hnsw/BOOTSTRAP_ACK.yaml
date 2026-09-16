@@ -1,0 +1,101 @@
+schema_version: nonblind-stagea-compatibility-bootstrap-reack-v2
+created_at: 2026-08-27T12:11:55+08:00
+supersedes:
+  path: stages/stageA/_reviews/nonblind-20260827-hnsw/BOOTSTRAP_ACK.pass1_superseded.yaml
+  sha256: CF631925C4263FBBC4500FA81FEEB73214C2E8EE43BD2A0E3C4DB4C7E3A9D856
+  disposition: REFUSE_MISSING_OR_CONFLICTING_CONTEXT
+  preservation: BYTE_IDENTICAL_PASS1_EVIDENCE
+
+identity:
+  lane_id: STAGEA-GATE
+  lane_thread_id: 01a034d0-d990-7d50-9d9f-a6d05a81bf11
+  role_id: STAGEA_GATE_REVIEW
+  assignment_id: NONBLIND-STAGEA-GATE-20260827-HNSW
+  topic_id: NONBLIND_STAGEA_COMPATIBILITY__HNSW
+  subject_assignment: NONBLIND-STAGEA-20260826-HNSW-P1A7-PROBE-RUNTIME
+  owner_lane: CANDIDATE-L1
+  owner_thread: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+  reviewer_owner_independence: reviewer_did_not_implement_or_run_probe
+  authoritative_project_root: <LOCAL_PROJECT_ROOT>
+  actual_cwd: <LOCAL_PROJECT_ROOT>
+  actual_cwd_matches_project_root: true
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/_reviews/nonblind-20260827-hnsw
+
+frozen_hash_ack:
+  assignment_context:
+    path: stages/stageA/_reviews/nonblind-20260827-hnsw/ASSIGNMENT_CONTEXT.yaml
+    sha256: 9A300839A5C5AE26A14458B9012E9ADD0AC8FFE8D98DF8CE8E1B8785C78F408F
+  AGENTS:
+    path: AGENTS.md
+    sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75
+  plan:
+    path: plan.md
+    sha256: 2934D15DF761FE6C57D30CC29417A01F6353B4CC68227DD5C35A0249B24DD5BB
+  registry_snapshot:
+    path: registry.yaml
+    sha256: 041E0808501F80DA569F4F3D565180A902714ED8963DD98ED23E3C42A3CBE26F
+  role_rule:
+    path: rules/ROLE_STAGEA_REVIEW.md
+    sha256: 3F625031306861248D817C36905E3D0AB0DCDB3B8B6B959673975BDB6128FF01
+  skill:
+    path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md
+    sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F
+  template:
+    path: templates/INDEPENDENT_REVIEW_REPORT.md
+    sha256: 248B94097ECA6B39072A5056BA4EE3ABB47F1D30960621792403D0A43FA8B01C
+  source_assignment:
+    path: stages/stageA/_reviews/nonblind-20260827-hnsw/ASSIGNMENT.yaml
+    sha256: D76309E09754A79E3684722FBF75A42581EEACCEC21F13AB5C0C1D464BB49A07
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  assignment_context_complete: true
+  role_rule_complete: true
+  required_skill_complete: true
+  required_template_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: true
+  registry_dual_read_scope: FULL_REGISTRY_SNAPSHOT_HASH_PLUS_NONBLIND_STAGEA_COMPATIBILITY_AND_HNSW_RELATED_RECORDS
+  registry_context_consistent: true
+
+minimum_input_receipt:
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/F0_MAINLINE_FIDELITY_ACCEPTANCE.yaml, expected_sha256: A1B4B3B1D7CAAD4F63437C97905B2ABD31505A40F21112999516EC8D9F2EAB4B, observed_sha256: A1B4B3B1D7CAAD4F63437C97905B2ABD31505A40F21112999516EC8D9F2EAB4B, match: true}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/F0_FIDELITY_CONTRACT_REPORT.yaml, expected_sha256: BABB01AB349E8DC9F896744441FBFC098C653753CF96A5B27B5CB94460FA445B, observed_sha256: BABB01AB349E8DC9F896744441FBFC098C653753CF96A5B27B5CB94460FA445B, match: true}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/P1A7_MAINLINE_PROBE_ACCEPTANCE.yaml, expected_sha256: B0F85E8027FB71B0A38C272AFC394B12F9E3E99DE9FC2411D95D0D580A331AB2, observed_sha256: B0F85E8027FB71B0A38C272AFC394B12F9E3E99DE9FC2411D95D0D580A331AB2, match: true}
+  - {path: stages/stageA/_compatibility/nonblind-20260826/HNSW/P1A7_handoff.yaml, expected_sha256: 39800CE34BEEB127AE4C0BEDDFA93E9103555AD48B550186932E8BF1BE04DA4B, observed_sha256: 39800CE34BEEB127AE4C0BEDDFA93E9103555AD48B550186932E8BF1BE04DA4B, match: true}
+
+boundary_ack:
+  evidence_ceiling: MINIMAL_CANONICAL_PROBE__NONBLIND_COMPATIBILITY_ONLY__NO_PRODUCTION_CANDIDATE_OR_STAGEB
+  status: BOOTSTRAP_REACK_PENDING
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/_reviews/nonblind-20260827-hnsw/resources
+  resources_must_remain_absent: true
+  resource_root_exists: false
+  network_allowed: false
+  experiment_allowed: false
+  state_transition_allowed: false
+  write_scope: ONLY_UNIQUE_WRITE_DIRECTORY
+  forbidden_actions_understood:
+    - new_experiment
+    - new_probe
+    - resource_creation
+    - network
+    - production_candidate_registration
+    - StageB
+    - gold_final_disposition
+  cross_assignment_material_loaded: false
+  contamination_detected: false
+
+execution_ack:
+  scientific_or_resource_action_started: false
+  review_judgment_started: false
+  production_candidate_registration_started: false
+  StageB_started: false
+  gold_final_disposition_started: false
+  resume_point: REVIEW_F0_AND_P1A7_ONLY
+  next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE_AND_START
+  start_authorized_by_mainline: false
+  start_authorization_timestamp: null
+
+differences_or_ambiguities: []
+ack_disposition: READY

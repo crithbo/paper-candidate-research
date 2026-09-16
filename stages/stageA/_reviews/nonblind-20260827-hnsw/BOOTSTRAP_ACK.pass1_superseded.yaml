@@ -1,0 +1,90 @@
+schema_version: nonblind-stagea-compatibility-bootstrap-ack-v1
+created_at: 2026-08-27T12:06:16+08:00
+lane_id: NOT_DECLARED_IN_ASSIGNMENT
+role_id: STAGEA_GATE_REVIEW
+assignment_id: NONBLIND-STAGEA-GATE-20260827-HNSW
+topic_id: HNSW
+assignment_context_path: stages/stageA/_reviews/nonblind-20260827-hnsw/ASSIGNMENT.yaml
+assignment_context_sha256: 345A91FC0591362133A8A81972DD385F9DDDFB9503375372817E0DACAC651B80
+old_chat_memory_required: false
+
+bootstrap_scope:
+  mode: BOOTSTRAP_ONLY
+  source_thread_id: 01a034d0-af48-72a1-a311-7495db80d90f
+  actual_cwd: <LOCAL_PROJECT_ROOT>
+  actual_cwd_is_authoritative_project_root: true
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/_reviews/nonblind-20260827-hnsw
+  only_file_written_by_this_bootstrap: BOOTSTRAP_ACK.yaml
+
+frozen_hash_ack:
+  AGENTS_sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75
+  plan_sha256: 2934D15DF761FE6C57D30CC29417A01F6353B4CC68227DD5C35A0249B24DD5BB
+  registry_snapshot_sha256: NOT_DECLARED__NO_REGISTRY_INPUT_AUTHORIZED_BY_ASSIGNMENT
+  role_rule_sha256: 3F625031306861248D817C36905E3D0AB0DCDB3B8B6B959673975BDB6128FF01
+  skill_hashes:
+    - {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+    - {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/academic-paper-reviewer/WORKFLOW.md, sha256: 5469CDABFEB6FAC7CCBE88CAF1A85C55E9F46977F9DC3AEFC84EFF1CE93E1672}
+  template_hashes:
+    - {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+    - {path: templates/INDEPENDENT_REVIEW_REPORT.md, sha256: 248B94097ECA6B39072A5056BA4EE3ABB47F1D30960621792403D0A43FA8B01C}
+  source_assignment_sha256: 345A91FC0591362133A8A81972DD385F9DDDFB9503375372817E0DACAC651B80
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  role_rule_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: false
+  registry_dual_read_reason: ASSIGNMENT_IS_NOT_ASSIGNMENT_CONTEXT_V1_AND_DOES_NOT_AUTHORIZE_OR_FREEZE_A_REGISTRY_INPUT
+
+input_receipt:
+  F0_MAINLINE_FIDELITY_ACCEPTANCE:
+    path: stages/stageA/_compatibility/nonblind-20260826/HNSW/F0_MAINLINE_FIDELITY_ACCEPTANCE.yaml
+    observed_sha256: A1B4B3B1D7CAAD4F63437C97905B2ABD31505A40F21112999516EC8D9F2EAB4B
+    parent_assignment_expected_sha256: NOT_DECLARED
+    declared_downstream_hashes_present: true
+  P1A7_MAINLINE_PROBE_ACCEPTANCE:
+    path: stages/stageA/_compatibility/nonblind-20260826/HNSW/P1A7_MAINLINE_PROBE_ACCEPTANCE.yaml
+    expected_sha256: B0F85E8027FB71B0A38C272AFC394B12F9E3E99DE9FC2411D95D0D580A331AB2
+    observed_sha256: B0F85E8027FB71B0A38C272AFC394B12F9E3E99DE9FC2411D95D0D580A331AB2
+    match: true
+  P1A7_handoff:
+    path: stages/stageA/_compatibility/nonblind-20260826/HNSW/P1A7_handoff.yaml
+    expected_sha256: 39800CE34BEEB127AE4C0BEDDFA93E9103555AD48B550186932E8BF1BE04DA4B
+    observed_sha256: 39800CE34BEEB127AE4C0BEDDFA93E9103555AD48B550186932E8BF1BE04DA4B
+    match: true
+
+boundary_ack:
+  unique_write_directory_exact: true
+  resource_root_exact: NOT_DECLARED
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  forbidden_actions:
+    - new_experiment
+    - new_probe
+    - production_candidate_registration
+    - StageB
+    - gold_final_disposition
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: CANNOT_VERIFY__ASSIGNMENT_OMITS_OWNER_REVIEWER_THREAD_MAPPING_AND_NONPARTICIPATION_RECORD
+  contamination_detected: false
+
+execution_ack:
+  current_status: NOT_DECLARED
+  resume_point: WRITE_BOOTSTRAP_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE_AND_START
+  next_action: WAIT_FOR_HASH_PINNED_COMPLETED_ASSIGNMENT_CONTEXT_OR_MAINLINE_START
+  user_gate_or_blocker: MAINLINE_START_REQUIRED
+  scientific_or_resource_action_started: false
+
+differences_or_ambiguities:
+  - F0_MAINLINE_FIDELITY_ACCEPTANCE_IS_A_REQUIRED_INPUT_BUT_ITS_FILE_HASH_IS_NOT_PINNED_IN_PARENT_ASSIGNMENT
+  - ASSIGNMENT_OMITS_LANE_ID_AND_OWNER_REVIEWER_THREAD_MAPPING_SO_INDEPENDENCE_CANNOT_BE_VERIFIED
+  - ASSIGNMENT_OMITS_RESOURCE_ROOT_AND_EXPLICIT_ZERO_RESOURCE_BOUNDARY
+  - ASSIGNMENT_OMITS_CURRENT_STATUS_RESUME_POINT_AND_EXPLICIT_MAINLINE_START_AUTHORIZATION_PATH_OR_HASH
+  - ASSIGNMENT_OMITS_FROZEN_HASHES_FOR_AGENTS_PLAN_ROLE_SKILL_AND_TEMPLATES
+  - ASSIGNMENT_IS_NOT_ASSIGNMENT_CONTEXT_V1_AND_DOES_NOT_DECLARE_REGISTRY_DUAL_READ_DISPOSITION
+ack_disposition: REFUSE_MISSING_OR_CONFLICTING_CONTEXT
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

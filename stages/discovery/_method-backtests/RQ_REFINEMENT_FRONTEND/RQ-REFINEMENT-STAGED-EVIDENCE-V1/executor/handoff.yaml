@@ -1,0 +1,52 @@
+assignment_id: BACKTEST-EXECUTOR-L1-20260814-RQ-REFINEMENT-STAGED-EVIDENCE-V1
+role: DISCOVERY_BACKTEST_EXECUTOR_LANE_1
+method_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+write_directory: stages/discovery/_method-backtests/RQ_REFINEMENT_FRONTEND/RQ-REFINEMENT-STAGED-EVIDENCE-V1/executor
+input_scope:
+  sealed_manifest_read: true
+  executor_instructions_read: true
+  local_case_inputs_read_only: true
+  external_material_used: false
+  network_or_search_used: false
+  install_build_experiment_used: false
+  candidate_or_stage_action_used: false
+  auditor_key_access: false
+  source_ledger_access: false
+  packer_report_access: false
+  contamination_audit_access: false
+  target_identity_or_post_cutoff_outcome_access: false
+  allowed_read_compliance: PASS
+case_results:
+  CASE-A:
+    rq_versions_frozen_before_disposition: 3
+    front_end_disposition: EVIDENCE_QUALIFIED_RAW
+    decision: PROPOSE_STAGE0
+    closure_debt: OPEN_BOUNDED__STAGE0
+  CASE-B:
+    rq_versions_frozen_before_disposition: 3
+    front_end_disposition: EVIDENCE_QUALIFIED_RAW
+    decision: PROPOSE_STAGE0
+    closure_debt: OPEN_BOUNDED__STAGE0
+  CASE-C:
+    rq_versions_frozen_before_disposition: 3
+    front_end_disposition: EVIDENCE_QUALIFIED_RAW
+    decision: PROPOSE_STAGE0
+    closure_debt: OPEN_BOUNDED__DISCOVERY_C0_DEEP_THEN_STAGE0
+  CASE-D:
+    rq_versions_frozen_before_disposition: 3
+    front_end_disposition: EXCLUDED_BEFORE_RAW
+    decision: DROP
+    closure_debt: STRUCTURALLY_UNCLOSABLE__KNOWN_DIRECT_FATAL
+reconciliation:
+  case_count: 4
+  seed_ceiling_compliant: true
+  rq_versions_per_retained_seed_compliant: true
+  locator_ceiling_compliant: true
+  evidence_qualified_raw_count: 3
+  direct_fatal_crossing_raw_count: 0
+  propose_stage0_count: 3
+  drop_count: 1
+  abstain_count: 0
+completion_status: COMPLETE
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE
+delivery: MAINLINE_ONLY__NO_AUDITOR_CONTACT

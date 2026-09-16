@@ -1,0 +1,114 @@
+handoff_id: RULE-AUDIT-HANDOFF-20260813-R11A-PHASE1-IDENTITY-CAPACITY-R13
+audit_id: RULE-AUDIT-20260813-R11A-PHASE1-IDENTITY-CAPACITY-R13
+role: RULE_AUDIT_SENTRY
+status: USER_POLICY_DECISION_REQUIRED
+workspace_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\rule-audit\RULE-AUDIT-20260813-R11A-PHASE1-IDENTITY-CAPACITY-R13
+shared_files_modified: false
+packer_contacted: false
+private_denylist_read: false
+historical_identity_plaintext_read: false
+method_or_stage_started: false
+download_or_external_service_started: false
+
+trigger:
+  assignment_id: BACKTEST-PACKER-L1-20260813-DISCOVERY-CLAIM-PACK-V9-R0-R11A-PHASE1-INDEX
+  checkpoint_path: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\index\IN_PROGRESS_CHECKPOINT_002_CUMULATIVE_011.yaml
+  checkpoint_sha256: BC280D6E3D9D86841A1B889E308129DED101EF3FEDC4FD5072018E7DEE83A43B
+  blocker_path: stages\discovery\_method-backtests\DISCOVERY_CLAIM_PACK\V9-R0\paired-blind-r11a\index\IDENTITY_CAPACITY_CONTROL_PLANE_BLOCKER_012.yaml
+  blocker_sha256: 87F5CCE193AA49B8D6586354FFAAF4BE784B103AA2466CBFDB66DBE3BF0A129B
+  current_commitment_count: 4
+  current_eligible_count: 2
+  maximum_reachable_under_current_commitment: 4
+  minimum_required: 60
+  scientific_inference: NONE
+
+recommendation:
+  proposal_id: R11A-BOUNDED-OPAQUE-IDENTITY-CAPACITY-V1
+  proposed_authorization_id: R11A-BOUNDED-OPAQUE-IDENTITY-CAPACITY-20260813-R13A
+  decision: USER_POLICY_DECISION_REQUIRED__ASSIGNMENT_LOCAL_CAPACITY_AMENDMENT_RECOMMENDED
+  same_phase1_assignment: true
+  total_raw_identity_lead_ceiling_including_existing: 160
+  total_unique_commitment_ceiling_including_existing: 128
+  existing_unique_commitments: 4
+  maximum_new_unique_commitments: 124
+  new_batch_unique_ceilings: [32, 32, 32, 28]
+  new_batch_raw_lead_ceilings: [40, 40, 40, 36]
+  fifth_or_replacement_batch_allowed: false
+  eligible_index_minimum_target_maximum: [60, 72, 80]
+  unique_attrition_capacity_at_minimum: 68
+  minimum_overall_eligible_fraction: 0.46875
+  least_privilege_intersection_owner: MAINLINE_CONTROL_PLANE__DETERMINISTIC_NO_MODEL_HASH_INTERSECTION
+  packer_receives_private_denylist: false
+  precommit_before_private_intersection: required
+  full_source_qualification_after_nonmatch_only: true
+  nonmatch_implies_eligibility: false
+  mainline_gate_after_each_batch: required
+  fresh_user_approval_each_batch_within_caps: false
+  fresh_user_approval_for_any_expansion_or_boundary_change: true
+  shared_rule_patch_required: false
+  scientific_backtest_required: false
+  mechanical_validation_required: true
+
+preserved:
+  canonical_mode: OFF
+  r11a_thresholds: UNCHANGED
+  eligible_range_and_target: UNCHANGED_60_72_80
+  six_strata_minimum_each: UNCHANGED_8
+  contribution_type_rules: UNCHANGED
+  source_qualification: UNCHANGED
+  blind_identity_outcome_separation: true
+  normalization_profile: R11A-STABLE-FAMILY-IDENTITY-NORM-V1
+  r12a_private_denylist_and_historical_identities: IMMUTABLE
+  prior_evidence_and_checkpoint: IMMUTABLE
+  phase2_or_downstream_dispatch_allowed_now: false
+  production_cutover_allowed_now: false
+  terminal_stop_revival_allowed: false
+
+budget:
+  r11a_resource_envelope_increased: false
+  network_bytes_max: 1073741824
+  temporary_plus_sealed_bytes_max: 2147483648
+  cpu_hours_max: 16
+  wall_hours_max: 72
+  individual_artifact_bytes_max: 26214400
+  r13_private_control_network_bytes: 0
+  r13_private_control_cpu_hours_max: 1
+  r13_private_control_wall_hours_max: 2
+  r13_private_control_artifact_bytes_max: 33554432
+  new_network_or_download_authority: false
+
+validation:
+  commitment_hash_precedes_intersection: required
+  within_and_cross_batch_duplicate_count_allowed_in_commitment: 0
+  distinct_preimage_hash_collision_count_allowed: 0
+  protected_scalar_leak_count_allowed: 0
+  visible_candidate_set_must_equal_committed_set: true
+  clean_recomputations_required: 2
+  canonical_manifest_verification: exact
+  parser_repair_or_partial_result_allowed: false
+  fail_closed_on_any_validation_failure: true
+
+rollback:
+  action: REVOKE_R13_ARTIFACTS_FROM_INPUT_ALLOWLIST__PRESERVE_ALL_BYTES
+  restored_state: BLOCKED_USER_ACTION_REQUIRED__CONTROL_PLANE_IDENTITY_CAPACITY
+  restored_anchor: CHECKPOINT_011_AND_BLOCKER_012
+  r12a_and_existing_four_commitments_preserved: true
+  scientific_inference: NONE
+
+deliverable_sha256:
+  audit_input_snapshot: ACAE269766CB2807B5AE5063214C76A85C0EA8E6924299132B3DD000F270FA81
+  r13_capacity_control_spec: 400C069A983A043DF1BD602D4E2E4F5B06FF1EB2D780082D1A2AA89533B9C118
+  rule_audit_report: CF31434F1D52B784694EBFBB464C059EDDEFECF6EA0AC870551AD60E4C0AE666
+  rule_change_proposal: 56B274AD038289577D1AC8F94896B37960C7376DD00CE25D0130FF090B49C513
+
+exact_user_approval_wording: >-
+  批准 `R11A-BOUNDED-OPAQUE-IDENTITY-CAPACITY-20260813-R13A`：在同一 R11A Phase-1 assignment 与原写目录内，允许 PACKER 仅用公开候选身份按既有 `R11A-STABLE-FAMILY-IDENTITY-NORM-V1` 追加最多四个不可覆盖的 opaque commitment 批次，新增 unique commitments 依次最多 `32/32/32/28`，连同既有 4 个后累计 unique commitment 上限为 128；累计 raw identity lead 上限为 160，重复、不可哈希、歧义、prior-match 和来源不合格均消耗相应上限，不得第五批、替代批或无限补充。每批必须先冻结 commitment 及 manifest，再由 `MAINLINE_CONTROL_PLANE__DETERMINISTIC_NO_MODEL_HASH_INTERSECTION` 使用既有 R12A 私有 denylist 做离线相交；PACKER 只能收到其自身 opaque ID/hash 的 match boolean、SHA-256 与 normalization profile/version、既有 private root、无标签 source-manifest hashes 和汇总计数，不得收到历史身份明文、历史逐条 hash、目标名、结果、答案、case semantics、class/stratum、contribution type、method label 或私有映射。只有 nonmatch 候选才可继续既有 Phase-1 完整来源资格审查，nonmatch 不构成 eligibility 或科学证据。每批后必须通过主线机械门，验证预承诺顺序、哈希/manifest、跨批去重、碰撞、泄漏、容量算术、来源资格账本和剩余预算；本授权覆盖四批，无需逐批再次请求用户批准，但任何超额、第五/替代批、资源增补、normalization/denylist 变化、私有访问扩张、阈值变化或下游投递都需新的用户批准。保持 Phase-1 的 60–80、目标 72、六 strata 每类至少 8、至少五种 contribution type、单类不超过 30%、来源资格、盲隔离、统计阈值、旧证据与 identity 不变；不新增网络或下载权限，公开来源读取只沿用原 R11A Phase-1 资源与路线。任一缺失、歧义、重复未闭合、碰撞、非确定性、泄漏、预算/边界违例或最终容量不足均 fail closed，回到 checkpoint 011 与 blocker 012，不作科学负推断。不得启动 Phase 2、Executor、Auditor、shadow、Discovery、Stage0/A/B、E2、实验、自动化、外部服务或 production cutover。
+
+mainline_action_now:
+  - REQUEST_EXACT_R13A_USER_APPROVAL
+  - DO_NOT_CONTACT_PACKER_BEFORE_APPROVAL_AND_MAINLINE_AMENDMENT_FREEZE
+  - DO_NOT_READ_OR_EXPOSE_PRIVATE_DENYLIST_TO_ANY_MODEL_LANE
+  - DO_NOT_APPLY_SHARED_RULE_PATCH
+
+lane_state_after_handoff: IDLE_REUSABLE_AWAITING_USER_DIALOGUE

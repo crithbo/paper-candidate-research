@@ -1,0 +1,32 @@
+schema_version: stage0-primary-handoff-v1
+assignment_id: STAGE0-PRIMARY-20260824-CRFEPOCH-HBMPIM-LLM-GEMV-REV0
+topic_id: CRFEPOCH-HBMPIM-LLM-GEMV-REV0
+lane_id: STAGE0_PRIMARY
+role: PRIMARY
+status: COMPLETE__STOP_RECOMMENDED
+decision: STOP
+quality_tier: BELOW_Q2_STOP
+confidence: 0.87
+claim_ceiling: STAGE0_CONDITIONAL_PAPER_POTENTIAL_DECISION_ONLY__NO_MAIN_RESULT
+evidence_ceiling: PUBLIC_SOURCE_FULLTEXT_STATIC_INSPECTION_AND_Q1_Q2_CALIBRATION__NO_CLAIM_BEARING_EXPERIMENT
+scientific_revision: {allowed_total: 1, consumed: 0, remaining: 1}
+mechanism_pivot: {allowed: true, consumed: 0, remaining: 1}
+atomic_repair_trace: {mode: SHADOW, effect_on_decision: NONE, disposition: NOT_APPLICABLE__NO_REVISE_ONCE}
+direct_fatal: false
+current_collision_status: SEARCH_BOUNDED_OPEN__NO_DIRECT_FATAL__STRONG_SUBTRACTORS_RETAINED
+failure_sentinel: NO_NONTRIVIAL_N1_N2_N3__FIXED_SIX_COMMAND_CRF_PROGRAM__ROUTINE_TRANSITION_HOIST
+decisive_evidence:
+  - PIMSimulator dev PIMKernel.cpp executeGemv calls programCrf and resets PC through HAB_TO_HAB_PIM.
+  - PIMSimulator dev PIMCmdGen.h emits six commands for non-tree GEMV; the 32-entry bound is inactive.
+  - UniNDP pinned source aggregates Llama2 operators as independent latency sums and exposes no stock CRF/mode/PC action.
+  - DCC current HBM3-PIM GEMV generator uses reset/load/MAC/writeback/barrier traces but no CRF/program/mode action.
+canonical_outputs:
+  report: STAGE0_REPORT.md
+  q1_matrix: Q1_COMPARATOR_MATRIX.md
+  collision_ledger: CURRENT_COLLISION_LEDGER.md
+  manifest: HASH_MANIFEST.sha256
+sentry_required: false
+sentry_rationale: STOP is not near the human-reserve threshold and does not recommend PASS or REVISE_ONCE.
+next_gate: MAINLINE_REGISTER_STOP__NO_SAME_ID_REVIVAL
+user_action_required: false
+scientific_or_resource_action_started: false

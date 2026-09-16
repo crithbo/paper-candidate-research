@@ -1,0 +1,24 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE53-R40-SKILL-CONSOLIDATED-V1
+method: ALL_HISTORY_FIVE_FIELD_IDENTITY_PREFLIGHT
+checked_surfaces:
+  - registry.yaml
+  - stages/discovery historical S2 handoffs and collision matrices
+result:
+  - seed: S53-01
+    signature: GPU_DIRECT_STORAGE__CUFILE_BATCH_TRANSACTION_SET__BATCH_DESCRIPTOR_REGISTRATION__BYTE_STATUS_READ_RESULT
+    disposition: EXACT_HISTORICAL_IDENTITY__EXCLUDED
+    certificate: >-
+      Source37 S2 records cuFile batch construction with the same fixed transactions,
+      batch-completion construction, and byte-status endpoint; its current contrary is
+      setup-submit-status-cancel-destroy.  Source37 never terminally cooled broad GDS,
+      but it does exclude this exact object/action/endpoint without an external delta.
+    evidence_locator: stages/discovery/round-20260815-adaptive-source37/S2-bottleneck-transfer/SOURCE_COLLISION_MATRIX.md
+  - seed: S53-02
+    signature: MPI4_PARTITIONED_PERSISTENT_P2P__PARTITION_READY_MATERIALIZATION__MESSAGE_COMPLETION
+    disposition: NO_EXACT_HISTORY_MATCH__NOT_NOVELTY_EVIDENCE
+  - seed: S53-03
+    signature: LLVM_OPENMP_OFFLOAD_BINARY__DEVICE_IMAGE_METADATA_LAYOUT__STOCK_LIBOMPTARGET_LOAD
+    disposition: NO_EXACT_HISTORY_MATCH__NOT_NOVELTY_EVIDENCE
+related_only_not_excluded:
+  - generic GPU I/O, compiler offloading, MPI, and accelerator-runtime family overlaps
+no_match_interpretation: no novelty or absence inference

@@ -1,0 +1,48 @@
+schema: candidate-resource-safe-recovery-freeze-v1
+topic_id: CVC5-ALETHE-SHAREMAP
+assignment_id: SAFE-RECOVERY-L1-20260816-CVC5-RESUME5-POSIX-CC
+authorization_id: USER_AUTONOMOUS_SAFE_BLOCKER_RECOVERY_20260815
+lane_id: CANDIDATE_EXECUTION_LANE_1
+created_at: 2026-08-16T00:09:26.5835101+08:00
+write_directory: stages/stageA/CVC5-ALETHE-SHAREMAP/resume5-safe-recovery
+resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\CVC5-ALETHE-SHAREMAP\resume5-safe-recovery\resources
+assignment_control_sha256: BBBE7D295D4B4972DEEF6DEDF7E8DE299A21727750125F9D3E0F39E2BECAC8C7
+resource_policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+frozen_upstream:
+  resume4_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\CVC5-ALETHE-SHAREMAP\resume4-safe-recovery
+  resume4_handoff_sha256: EDB00AAFE044DC8B95E5A9C2B3F6F94D8345E44119A59AAA57C6F260C76E9FD1
+  resume4_manifest_sha256: 86BE87026CB920A0D1AEE3A1467E2F603D779289C1CC49EA367D6B9004A116C6
+  carcara_archive_sha256: FCD42C4ED6501B690E3F363E980B2B1403A1A7C9DF262FECC0A4C831B8960F30
+  cargo_lock_sha256: 0E9C953C2C1B184511E2DFDF19D4BB7C35A6BE55140BC1A3D77179411D7C7378
+  gcc_sha256: AB37C11763FDCB3BF6F809B5D033A31EBEB77F10BA5934C72FA37287EE56144F
+resource_envelope:
+  network_bytes_max: 0
+  persisted_bytes_max: 734003200
+  cpu_seconds_max: 600
+  wall_seconds_max: 1800
+  processors_max: 2
+  clean_build_attempts_max: 1
+process_local_redirects:
+  TEMP: resources/tmp
+  TMP: resources/tmp
+  TMPDIR: resources/tmp
+  HOME: resources/env/home
+  CARGO_HOME: resources/cache/cargo-home
+  CARGO_TARGET_DIR: resources/build/carcara-target
+  PATH_prefixes:
+    - resume3 Rust 1.72 GNU bin (read-only)
+    - resume4 mingw64/bin (read-only)
+    - resume4 usr/bin (read-only)
+  CC: gcc
+  CXX: g++
+  AR: ar
+  CARGO_NET_OFFLINE: true
+  CARGO_BUILD_JOBS: 2
+allowed_action: EXACTLY_ONE_CLEAN_LOCKED_OFFLINE_RELEASE_BUILD_THEN_VERSION_HELP_AND_STOCK_SMOKE_IF_SUCCESS
+network_allowed: false
+source_or_lock_modification_allowed: false
+retry_allowed: false
+claim_bearing_allowed: false
+scientific_revision_consumed: false
+stageb_authorized: false
+

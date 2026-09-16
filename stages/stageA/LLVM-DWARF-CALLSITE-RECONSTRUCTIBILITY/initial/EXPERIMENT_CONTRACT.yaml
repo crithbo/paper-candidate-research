@@ -1,0 +1,117 @@
+schema: stagea-experiment-contract-v1
+assignment_id: STAGEA-L3-20260814-LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY-INITIAL-V8.7
+topic_id: LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY
+contract_status: FROZEN__EXECUTION_FAIL_CLOSED_AT_PRECLAIM_RESOURCE_GATE
+
+same_object:
+  llvm_commit: e72ba6cf366a3180cbf5a8690d9e50665880ab76
+  target: x86_64-unknown-linux-gnu
+  abi: SysV_AMD64
+  optimization_debug_mode: O2_g_instruction_reference_LiveDebugValues
+  fixed_input: one_identical_pre_RA_MachineIR_value_and_call_regmask_trace
+  fixed_observation:
+    - executable_behavior
+    - call_ABI
+    - unwind_and_CFI_legality
+    - native_DWARF_call_site_parameter_observation
+  forbidden_changes:
+    - MIR_or_source_semantics
+    - call_ABI_or_regmask
+    - DWARF_grammar_or_reader
+    - metadata_only_postprocessing
+    - generic_RA_or_ILP_as_candidate
+
+candidate:
+  novelty_route: N2
+  name: TARGET_SPECIFIC_BOUNDED_CALL_CUT_PARETO_DP
+  action: TARGET_SPECIFIC_ALLOCATION_TIME_VALUE_RETENTION_AND_NATIVE_CSR_CFI_PLAN
+  state: [location_alias_descriptor, clobber_and_CSR_mask, frame_and_CFI_obligations, DwarfDebug_forwarding_source_class, entry_value_eligibility, full_cost_vector]
+  guarantee: exact_Pareto_frontier_only_for_frozen_bounded_call_cut_class
+
+required_witness:
+  call_block: non_entry_bb1
+  plan_a: caller_saved_RAX_computed_source_forwarded_to_RDI__unavailable
+  plan_b: callee_saved_RBX_with_save_restore_CFI_forwarded_to_RDI__DW_OP_breg
+  predicates:
+    - same_MIR_value_and_RDI_call_argument
+    - same_executable_behavior_and_call_ABI
+    - MachineVerifier_pass
+    - legal_CSR_save_restore_and_CFI
+    - native_dwarfdump_valid_call_site_parameter
+
+strongest_current_union:
+  - pinned_X86_allocator_coalescing_copy_split_spill_reload_and_CSR_policy
+  - compatible_LiveDebugVariables_and_instruction_reference_lifecycle
+  - fixed_mode_LiveDebugValues
+  - DwarfDebug_call_site_parameter_forwarding_clobber_and_entry_value_actions
+  - legal_fixed_configuration_grid
+  - generic_exact_RA_oracle_as_ceiling_only
+
+metrics_and_denominators:
+  reconstructibility:
+    unit: reconstructed_parameters_per_frozen_eligible_call_site_parameter
+    denominator: identical_frozen_eligible_parameter_set
+    collection: native_llvm_dwarfdump_and_frozen_parser_checked_against_reader
+  text_size:
+    unit: bytes
+    denominator: complete_linked_or_contract_frozen_object_text_section
+    collection: native_llvm_size_or_llvm_readobj_section_accounting
+  dwarf_size:
+    unit: bytes
+    denominator: complete_debug_sections_for_same_object
+    collection: native_llvm_readobj_section_accounting
+  csr_cfi_spill:
+    unit: instructions_frame_bytes_CFI_bytes_and_dynamic_memory_actions
+    denominator: same_function_and_call_trace
+    collection: machine_disassembly_frame_layout_unwind_dump_and_instrumented_counts
+  compile_cpu:
+    unit: process_CPU_seconds
+    boundary: MIR_materialization_through_object_and_debug_emission_including_planner_and_verification
+  compile_wall:
+    unit: seconds
+    boundary: same_as_compile_cpu
+  peak_rss:
+    unit: bytes
+    boundary: writer_planner_verifier_process_tree
+  runtime:
+    unit: cycles_and_nanoseconds
+    denominator: identical_executable_input_and_behavior
+    collection: fixed_repetitions_after_correctness_check
+  failure_fallback:
+    unit: count_and_seconds
+    collection: invalid_plan_rejection_fallback_to_current_union_and_verification
+
+ordered_execution:
+  - PRE_CLAIM_CONTRACT_FIDELITY_GATE
+  - TINY_NATIVE_ACTION_CATALOG_AND_WITNESS_REPLAY
+  - CURRENT_UNION_AND_GENERIC_CEILING_COMPARISON
+  - BOUNDED_NATURAL_CORPUS_DIRECTIONAL_PROBE_ONLY_IF_GATE_PASSES
+
+preclaim_gate_result:
+  status: FAIL_CLOSED__RESOURCE_BLOCKED
+  exact_commit_source_available: false
+  exact_commit_x86_toolchain_available: false
+  target_execution_route_available: false
+  witness_replay_started: false
+  claim_bearing_observation_started: false
+
+natural_probe_if_resumed:
+  minimum_frozen_denominator: 30_natural_optimized_debug_functions
+  start_condition: PRE_CLAIM_CONTRACT_FIDELITY_GATE_PASS
+  status: NOT_STARTED
+
+resource_envelope:
+  existing_local_assets_only: true
+  network_bytes_allowed: 0
+  source_build_allowed: false
+  system_install_allowed: false
+  global_environment_change_allowed: false
+  max_storage: 4_GiB
+  max_cpu: 4_CPU_HOURS
+  max_wall: 24_WALL_HOURS
+
+decision_policy:
+  missing_exact_commit_toolchain: BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+  positive_ceiling: STAGEA_DIRECTIONAL_RISK_PILOT_ONLY
+  stageb_authorized: false
+

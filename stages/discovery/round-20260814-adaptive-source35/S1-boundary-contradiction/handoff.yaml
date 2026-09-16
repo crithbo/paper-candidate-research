@@ -1,0 +1,48 @@
+assignment_id: DISCOVERY-S1-20260814-ADAPTIVE-SOURCE35-BASE-RQ-NONPRODUCT-SHADOW-V1
+lane: S1_BOUNDARY_CONTRADICTION
+write_directory: stages/discovery/round-20260814-adaptive-source35/S1-boundary-contradiction
+status: COMPLETE_ZERO_PROPOSALS
+canonical:
+  method: V8_7_POTENTIAL_READINESS_SEPARATED
+  base_contract: EXACT_SOURCE34_SHARED_RQ_PRODUCTION_BASELINE
+  base_snapshot: CANONICAL_BASE_DECISION.yaml
+  base_snapshot_sha256: B27138FE22A92B4AC8A89F30A6F131B6A0FD6CFA76A757241E9A980A0B3E846D
+  immutable_before_shadow: true
+  counts:
+    divergence_seeds: 8
+    selected_locators: 2
+    raw: 0
+    deep_reviews: 0
+    clean_briefs: 0
+  family_results:
+    - signature: RISCV_ZIHINTPAUSE__FIXED_CONCURRENCY_CONTRACT__SPINLOOP_CODEGEN_PLACEMENT
+      relation: independent_locator
+      canonical_disposition: LOCATOR_ONLY
+      reason: generic_policy_or_tuning_shape__no_noncontroller_constructor_frozen
+    - signature: OPENGL_SPIRV_SPECIALIZATION__FIXED_SHADER_RESULT_LAYOUT__MODULE_TO_DRIVER_CONSTRUCTION
+      relation: independent_locator
+      canonical_disposition: LOCATOR_ONLY
+      reason: driver_owned_configuration_or_postprocessor_shape
+shadow:
+  file: NON_PRODUCT_COUPLING_SHADOW.md
+  mode: SOURCE32_NON_PRODUCT_COUPLING_SURVIVAL_V1_UNCHANGED
+  began_after_base_sha256_seal: true
+  disposition: NOT_APPLICABLE__NO_BASE_RAW
+  counts:
+    NOT_APPLICABLE: 2
+    SHADOW_SURVIVES: 0
+    SHADOW_NOT_READY_NON_PRODUCT_UNPROVEN: 0
+    SHADOW_COLLAPSES_GENERIC_PRODUCT: 0
+  effect_on_canonical: NONE
+  leakage_check: >-
+    Canonical base decision and its SHA were created before this shadow. The shadow neither
+    generated a raw/brief nor changed, blocked, rescued, or vetoed a base disposition.
+resources:
+  inventory: RESOURCE_INVENTORY.yaml
+  status: NO_RESOURCE_ACTIONS
+  costs: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+bounded_search: SEARCH_BOUNDED_OPEN
+next_step: >-
+  No Stage0 recommendation. Reconsider either locator only with external evidence that
+  freezes a non-controller same-object constructor; do not infer scientific STOP.
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

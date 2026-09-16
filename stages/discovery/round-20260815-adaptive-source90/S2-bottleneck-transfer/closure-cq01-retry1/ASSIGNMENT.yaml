@@ -1,0 +1,109 @@
+schema_version: discovery-prebrief-source-and-collision-closure-v2
+assignment_id: SOURCE-CLOSURE-RESUME-BATCH04-ITEM02-SOURCE90-S2-SWIFT-RETRY1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_AND_PRIMARY_COLLISION_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+batch_program: PENDING-RAW-BATCHED-RESUME-20260815
+batch_control: stages/discovery/raw-closure-batches/BATCH-20260815-04/CONTROL.yaml
+batch_order: 2
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+public_acquisition_authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+write_owner: ASSIGNED_LONG_LIVED_SOURCE_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source90/S2-bottleneck-transfer/closure-cq01-retry1
+parent_assignment: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE90-R40-ORDINARY-BREADTH-V1
+parent_assignment_sha256: 1E76411344A7E1C905156D6A7FD7B1FBF71E83876F3410FCC3B3DC84F0A00088
+parent_handoff_sha256: 4375C5787AB659780018C89BE17D0F13743BD76095ECFD0A25D1AC84B9FDF4B6
+parent_queue_sha256: 1EC286CDA1603E6C335FD901CA506BFEAA5D4CBF6FBB471E498BD7E15D8847EE
+parent_question_card_sha256: 6CAFB4FBF074A18B02E506B1CC2B1A6A83F98370E190499794A9085DF61D96E5
+parent_current_check_sha256: 522FFA59C17039E9FD6F9CE737A35DE3CF4F928F01F8954C70732281BC27EB57
+prior_closure_assignment_sha256: 9D5CB62CF929BC4D5CF49FFE731011E9F788289D0974E9AE1340D58B86056427
+prior_closure_handoff_sha256: 6528861CE81451AD88476BC04CDB82ADB88C3CA4D1378A735CC8492F2344A588
+prior_closure_report_sha256: 9CD024C522EACCE956BA6446A2CC33676A6A26B511B9234C7C2BCCAD6D9DAB9E
+prior_closure_manifest_sha256: 9160FFACB5598F45181E312CE48F6A1444A917022566692215F499394DECBC71
+queue_item: S2-90-CQ01
+queue_status_at_freeze: RESUME_AFTER_BOUNDED_PATH_DRIFT__PRIOR_ATTEMPTS_6__NOT_EXHAUSTED
+claim_ceiling: SOURCE_AND_PRIMARY_COLLISION_CLOSURE_ONLY__NO_CLEAN_BRIEF_Q2_PASS_STOP_OR_STAGE_AUTHORITY
+exact_identity:
+  project: swiftlang/swift
+  immutable_commit: d056c33516f5c5e934dfc45bff945ef3bb2771b3
+  family_signature: SWIFT_SIL__FIXED_SWIFT_MODULE_ABI__OWNERSHIP_ARC_LIFETIME_OBJECT_ACCESS_LAYOUT_JOINT_CONSTRUCTOR__TRAFFIC_FULL_COST
+  object: one fixed Swift module, ABI and target under stock ownership, lifetime, object-access, ARC, language and runtime semantics
+  endpoint: unchanged module ABI, ownership/lifetime behavior, object access, runtime results and target semantics
+  candidate_action: jointly choose legal ownership forwarding, ARC boundaries and object access or layout placement
+  full_cost: [compiler_cpu_rss_temp, binary_and_metadata_bytes, allocation_cost, ARC_traffic, cache_and_runtime_cost, transform_overhead]
+version_rule: reuse the prior immutable swiftlang/swift commit exactly; no branch refresh or version substitution
+allowed_official_routes:
+  - https://api.github.com/repos/swiftlang/swift/contents/lib/SILOptimizer/ARC?ref=d056c33516f5c5e934dfc45bff945ef3bb2771b3
+  - https://api.github.com/repos/swiftlang/swift/contents/lib/SILOptimizer/Analysis?ref=d056c33516f5c5e934dfc45bff945ef3bb2771b3
+  - https://api.github.com/repos/swiftlang/swift/contents/lib/SILOptimizer/Transforms?ref=d056c33516f5c5e934dfc45bff945ef3bb2771b3
+  - https://api.github.com/repos/swiftlang/swift/contents/test/SILOptimizer?ref=d056c33516f5c5e934dfc45bff945ef3bb2771b3
+  - https://raw.githubusercontent.com/swiftlang/swift/d056c33516f5c5e934dfc45bff945ef3bb2771b3/docs/SIL.rst
+license_and_provenance: {source_license: Apache-2.0, provenance: official swiftlang/swift repository only}
+deterministic_source_selection:
+  arc_priority_names: [ARCSequenceOpts.cpp, ARCAnalysis.cpp, ARCMatchingSetBuilder.cpp, ARCSequenceDataflow.cpp]
+  arc_max_downloads: 2
+  analysis_tokens_in_order: [ARC, RCIdentity, Alias, Access]
+  analysis_max_downloads: 1
+  transforms_priority_names: [AllocBoxToStack.cpp, AllocStackHoisting.cpp, ObjectOutliner.cpp]
+  transforms_max_downloads: 2
+  rule: use only present direct files from exact listings in priority order and only their pinned download_url; missing names are path-drift telemetry
+deterministic_test_selection:
+  directory: test/SILOptimizer
+  filename_tokens_in_priority_order: [arc_sequence, alloc_box, ownership]
+  rule: choose the lexicographically first direct .sil file containing the first token with any match and use only its pinned download_url for one call
+bounded_primary_collision_search:
+  search_queries_in_order:
+    - 'site:dl.acm.org Swift SIL ARC ownership lifetime layout optimization compiler'
+    - 'site:arxiv.org Swift ARC lifetime object layout optimization SIL'
+  max_search_queries: 2
+  max_primary_candidates_opened: 2
+  candidate_selection_rule: open at most the first primary paper per query whose title or abstract concerns Swift/SIL semantics-preserving joint ARC-lifetime-layout construction; generic ARC placement or unrelated object layout is RELATED only
+  no_match_rule: bounded no-match remains unresolved and is not novelty or current-absence evidence
+fields_to_close:
+  - current SIL ownership, ARC matching/dataflow, allocation/lifetime lowering, access/layout and option union
+  - one fixed in-tree carrier and two complete stock-legal ownership-plus-layout plans if exposed
+  - whether a union-external Swift-native joint action and finite exact/FPT/Pareto/approximation guarantee can be frozen
+  - direct same-object primary collision and strongest generic ARC_placement_plus_object_layout objection
+  - finite falsifier and full-cost reconciliation
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_OR_PRIMARY_COLLISION_OR_GENERIC_ARC_LAYOUT_KERNEL__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+forbidden:
+  - decide clean brief, Q2, PASS, STOP, candidate, or stage state
+  - change module, ABI, target, ownership/lifetime/object-access/runtime semantics, or full-cost denominator
+  - clone, build, install, compile, run tests, benchmark, or make claim-bearing observations
+  - recursive repository tree, archive, issue, pull request, mirror, broad literature review or substitute search query
+  - exceed two frozen searches or open more than two primary candidates
+  - substitute route after 404, empty listing, rate limit or transport failure
+  - infer novelty, current absence, correctness, performance or exhaustion from missing material
+  - read Batch1-3 outputs, Batch4 Item1/rustc output, any other closure output beyond the frozen prior Swift closure, Source91+ outcome, rule-audit result, held queue or terminal identity
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source90/S2-bottleneck-transfer/closure-cq01-retry1/resources
+  inventory: stages/discovery/round-20260815-adaptive-source90/S2-bottleneck-transfer/closure-cq01-retry1/RESOURCE_INVENTORY.yaml
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+resource_envelope:
+  max_acquisition_calls: 15
+  max_search_queries: 2
+  max_primary_candidates_opened: 2
+  max_success_response_bytes_each: 10485760
+  max_network_bytes: 50331648
+  max_persisted_bytes: 50331648
+  max_cpu_hours: 0.75
+  max_gpu_hours: 0
+  max_wall_seconds: 3600
+  pre_call_monotonic_attempt_counter: required
+  build_or_install_allowed: false
+  experiment_allowed: false
+rules:
+  discovery_skill_revision: RESEARCH_TOPIC_DISCOVERY_R1_R40_20260815
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+model_route: {model: gpt-5.6-terra, reasoning: high}
+required_outputs: [SOURCE_CLOSURE_REPORT.md, CURRENT_UPSTREAM_AUDIT.md, PRIMARY_COLLISION_AUDIT.md, RESOURCE_INVENTORY.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+notify_mainline_on_finish_or_blocker: true
+no_next_assignment_may_start: true

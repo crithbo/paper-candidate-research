@@ -1,0 +1,37 @@
+schema: discovery-source-ledger-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE122
+topic_id: SOURCE122-PORTFOLIO-S3
+search_or_open_calls_used: 10
+search_or_open_calls_max: 24
+network_bytes_observed: null
+network_bytes_note: 本次运行环境没有提供精确统计，未作估算。
+sources:
+  - {id: S01, role: ANCHOR, locator: https://github.com/droid-dataset/droid, depth: OFFICIAL_REPO_AND_DATASET_SCHEMA, conclusion: DROID RLDS freezes episode observations robot states actions and instructions but its public step schema does not expose the exact multi-sensor timestamps assumed by RQ01}
+  - {id: S02, role: ANCHOR, locator: https://rh20t.github.io/, depth: OFFICIAL_DATA_FORMAT, conclusion: RH20T exposes per-camera timestamps and timestamped force torque TCP joint gripper and high-frequency streams plus task completion ratings}
+  - {id: S03, role: ANCHOR, locator: https://github.com/google-deepmind/open_x_embodiment, depth: OFFICIAL_REPO, conclusion: datasets are unified as RLDS episodes with heterogeneous action semantics; the RT-1-X example runs from the latest RGB frame at three hertz rather than exposing a cross-modal timing contract}
+  - {id: S04, role: ANCHOR, locator: https://rail-berkeley.github.io/bridgedata/, depth: OFFICIAL_PROJECT_PAGE, conclusion: BridgeData V2 provides 60096 labeled trajectories across 24 environments but the page does not close action-dwell timing or a fixed online speculation endpoint}
+  - {id: S05, role: ANCHOR_CONTRARY, locator: https://maniskill.readthedocs.io/en/latest/user_guide/datasets/demos.html, depth: OFFICIAL_DOCS, conclusion: trajectories contain actions env_states observations success and fail; documentation warns env_states may not be sufficient to reproduce a trajectory}
+  - {id: S06, role: CURRENT_CONTRARY, locator: https://maniskill.readthedocs.io/en/latest/user_guide/datasets/replay.html, depth: OFFICIAL_DOCS, conclusion: use-env-states replay can restore exact observations for difficult cases but action replay may fail under nondeterminism}
+  - {id: S07, role: ANCHOR, locator: https://github.com/stepjam/RLBench, depth: OFFICIAL_REPO, conclusion: demonstrations and simulator tasks expose observations actions and task-generation waypoints; waypoints are privileged task construction rather than a VLA-facing observation field}
+  - {id: S08, role: ANCHOR, locator: https://github.com/Lifelong-Robot-Learning/LIBERO, depth: OFFICIAL_REPO_AND_SOURCE, conclusion: demonstration HDF5 stores states and actions but no source-supported online task-phase label or refresh contract was found}
+  - {id: S09, role: ANCHOR, locator: https://github.com/robocasa/robocasa/blob/main/docs/datasets/using_datasets.md, depth: OFFICIAL_DOCS_SOURCE, conclusion: LeRobot-format episodes contain proprioception actions dones timestamps video and raw MuJoCo states; contact or gripper event labels are not a native frozen field}
+  - {id: S10, role: ANCHOR, locator: https://robomimic.github.io/docs/datasets/overview.html, depth: OFFICIAL_DOCS, conclusion: HDF5 trajectories contain ordered states actions observations rewards and dones but no timestamped deployment cache-decision contract}
+  - {id: S11, role: ANCHOR, locator: https://github.com/tonyzhaozh/act, depth: OFFICIAL_REPO, conclusion: ACT exposes fixed action chunks and optional temporal ensembling in public simulation and real-robot workflows}
+  - {id: S12, role: CURRENT, locator: https://arxiv.org/abs/2502.02175, depth: PRIMARY_ABSTRACT_AND_PROJECT_PAGE, conclusion: VLA-Cache reuses visually unchanged tokens and protects task-relevant tokens on LIBERO SIMPLER and real robot tasks}
+  - {id: S13, role: CURRENT, locator: https://arxiv.org/abs/2505.21200, depth: PRIMARY_ABSTRACT, conclusion: FlashVLA combines action reuse with visual-token selection and directly occupies broad consecutive-action redundancy claims}
+  - {id: S14, role: CURRENT, locator: https://arxiv.org/abs/2601.19634, depth: PRIMARY_ABSTRACT, conclusion: AC2-VLA uses visual language and previous-action context for cognition reuse token pruning and selective component execution}
+  - {id: S15, role: CURRENT_DIRECT, locator: https://arxiv.org/abs/2606.12105, depth: PRIMARY_ABSTRACT, conclusion: DAM-VLA maintains per-modality latent buffers refreshed at sensor rates and read continuously by the action head for asynchronous 100Hz control}
+  - {id: S16, role: CURRENT, locator: https://arxiv.org/abs/2607.24008, depth: PRIMARY_ABSTRACT, conclusion: FutureRTC predicts execution-time visual and proprioceptive contexts to correct asynchronous chunk misalignment}
+  - {id: S17, role: CURRENT, locator: https://arxiv.org/abs/2606.20092, depth: PRIMARY_ABSTRACT_AND_PROJECT_PAGE, conclusion: EventVLA predicts task-critical visual events and stores sparse keyframe evidence for long-horizon action generation}
+  - {id: S18, role: CURRENT_DIRECT, locator: https://arxiv.org/abs/2507.22424, depth: PRIMARY_ABSTRACT, conclusion: Spec-VLA performs speculative VLA decoding with action-token distance-based relaxed acceptance}
+  - {id: S19, role: CURRENT_DIRECT, locator: https://arxiv.org/abs/2604.04161, depth: PRIMARY_ABSTRACT_AND_CVPR_PAPER, conclusion: AAC chooses inference-time action chunk length from predicted action entropy without retraining}
+  - {id: S20, role: CURRENT_DIRECT, locator: https://arxiv.org/abs/2606.00537, depth: PRIMARY_ABSTRACT, conclusion: PACE uses phase-dependent kinematic structure and low-speed transition points in a predicted chunk to choose online execution horizons}
+  - {id: S21, role: CURRENT_DIRECT, locator: https://arxiv.org/abs/2608.10824, depth: PRIMARY_ABSTRACT, conclusion: Gated VLA-Cache uses action-token logit margin to invalidate unreliable visual caches and evaluates on LIBERO with OpenVLA and OpenVLA-OFT}
+  - {id: S22, role: ESCAPE, locator: https://arxiv.org/abs/2406.04806, depth: PRIMARY_ABSTRACT, conclusion: Streaming Diffusion Policy reuses partially denoised future-action trajectories across observations to amortize policy synthesis}
+source_boundary: Ten bounded search/open calls; official repositories and documentation plus primary paper records. No downloads, build, experiment, source persistence, or result-aware replacement family.
+query_role_yield:
+  ANCHOR: core
+  CURRENT: current-fatal
+  CONTRARY: current-fatal
+  ESCAPE: exact-history
+

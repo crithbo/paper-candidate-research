@@ -1,0 +1,32 @@
+schema_version: qrefine-reboot-checkpoint-v1
+assignment_id: STAGEA-L1-20260822-QREFINE-TRITON-W4A16-RESUME2-WSL-UBUNTU2404
+status: APPROVED_REBOOT_PENDING_MAINLINE_COORDINATION
+restart_required: true
+restart_authority: USER_APPROVED_AT_MOST_ONE
+restart_count_before_checkpoint: 0
+lane_must_not_initiate_restart: true
+lane_initiated_restart: false
+reason:
+  wsl_enable_exit: 3010
+  virtual_machine_platform_enable_exit: 3010
+  wsl_post_state: Enabled
+  virtual_machine_platform_post_state: Enabled
+  wsl_runtime_before_restart: NOT_OPERATIONAL__STATUS_EXIT_50
+safe_resume_point: AFTER_ONE_USER_OR_MAINLINE_COORDINATED_WINDOWS_RESTART
+resume_directory: NEW_IMMUTABLE_POST_RESTART_DIRECTORY_REQUIRED
+post_restart_first_checks:
+  - prove_LastBootUpTime_is_later_than_2026_08_21T20_49_19_plus08
+  - audit_WSL_and_VirtualMachinePlatform_are_Enabled
+  - audit_Hyper_V_and_Containers_forbidden_features_unchanged
+  - run_wsl_version_status_and_distribution_list
+  - record_restart_count_exactly_one
+next_phase_only_after_checks: INSTALL_UBUNTU_24_04_LTS
+forbidden_before_resume:
+  - Ubuntu_install
+  - Triton_LLVM_solver_download
+  - PRE_CLAIM_gate
+  - mutant_run
+  - StageB
+checkpoint_evidence:
+  system_change_ledger: SYSTEM_CHANGE_LEDGER.yaml
+  transcript_sha256: 3CB162E706E39491DE7BF1A982C4CC285F44D30ECB0E6DC35B79930345BA2B4C

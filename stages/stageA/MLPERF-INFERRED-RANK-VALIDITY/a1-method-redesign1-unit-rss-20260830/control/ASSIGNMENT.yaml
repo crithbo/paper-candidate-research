@@ -1,0 +1,34 @@
+schema: stagea-same-object-method-redesign-v1
+assignment_id: STAGEA-L1-20260830-MLPERF-RANK-VALIDITY-METHOD-REDESIGN1
+topic_id: MLPERF-INFERRED-RANK-VALIDITY
+lane_id: CANDIDATE_EXECUTION_LANE_1
+mode: A1_DECISIVE_PILOT__SAME_OBJECT_METHOD_REDESIGN_1_OF_1
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+unique_write_directory: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a1-method-redesign1-unit-rss-20260830
+resource_root: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a1-method-redesign1-unit-rss-20260830/resources
+upstream:
+  owner_handoff: {path: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/handoff.yaml, sha256: 3789BBBBA3E47FB8DF53732A2BC7D451C2441CCEF4C85A71C37BD9F3EA64639F}
+  owner_manifest: {path: stages/stageA/MLPERF-INFERRED-RANK-VALIDITY/a0-execution-readiness-20260830/HASH_MANIFEST.sha256, sha256: 443EB90FC3A9842B215D143CBE6E031D267EA3E966BCBA1F3812257D07F1A0F9}
+  independent_gate: {path: stages/stageA/_reviews/20260830-mlperf-rank-validity-final/MLPERF-INFERRED-RANK-VALIDITY/INDEPENDENT_REVIEW_REPORT.md, sha256: DD3CF354D5B8A55D45AB7F6904C98FC88B44FEA70AA6653320DBC4F95A25CE40}
+same_object_invariants:
+  releases: [v5.1_development, v6.0_held_out]
+  formulas: unchanged
+  pair_key: unchanged
+  missingness_policy: unchanged
+  materiality_threshold_relative_error: 0.02
+  denominator: all_rows_and_all_exact_eligible_pairs_in_each_pinned_release
+  cost_dimensions: unchanged
+  claim_ceiling: CANONICAL_MLPERF_BENCHMARK_VALIDITY_ONLY
+redesign_changes_only:
+  unit_normalization: deterministic_documented_MLPerf_scenario_metric_alias_map_with_raw_token_emission
+  rejection_observability: emit_original_unit_token_normalized_token_rule_and_reason_for_every_rejected_row
+  peak_rss: external_process_wrapper_records_Windows_child_peak_working_set_bytes
+  scientific_contract_change: false
+result_independent_freeze:
+  alias_map_source: pinned_official_inference_rules_and_literal_tokens_in_pinned_summary_schema
+  alias_map_must_be_written_before_claim_process: true
+  hidden_scientific_effect_until_complete_run: true
+execution: {static_compile_attempts: 1, claim_processes: 1, retries: 0, network: 0}
+allowed: [bootstrap_ACK, copy_exact_pinned_A0_inputs_once, implement_instrumented_runner_and_peak_RSS_wrapper, freeze_alias_map_and_output_schema, static_compile_once, execute_one_complete_claim_process, write_raw_result_receipt_report_handoff_manifest]
+forbidden: [change_formula_or_pair_key_or_missingness_or_threshold_or_denominator_or_release_or_cost_dimension, result_aware_row_filter, retry, refit_on_v6.0, network, StageB, shared_write]
+

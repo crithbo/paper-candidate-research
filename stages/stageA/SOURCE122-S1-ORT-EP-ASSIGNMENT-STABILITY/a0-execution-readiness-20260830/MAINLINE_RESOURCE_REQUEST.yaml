@@ -1,0 +1,28 @@
+schema: mainline-user-resource-request-v1
+request_id: ORT-CUDA12-CUDNN9-ASSIGNMENT-LOCAL-RUNTIME-20260830
+topic_id: SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+current_decision: A0_RESOURCE_BLOCKED__CUDA_PROVIDER_NOT_INSTANTIATED
+scientific_state: STAGEA_ACTIVE__NO_SCIENTIFIC_INFERENCE
+decisive_blocker: cublasLt64_12.dll_missing__CUDAExecutionProvider_not_instantiated
+official_compatibility:
+  onnxruntime_version: 1.26.0
+  required_cuda: 12.x
+  required_cudnn: 9.x
+  source: https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html
+requested_route:
+  assignment_local_only: true
+  resolver: exact_lock_from_official_PyPI_metadata_before_install
+  package_spec: 'onnxruntime-gpu[cuda,cudnn]==1.26.0'
+  preload: onnxruntime.preload_dlls(directory='')
+  process_local_path_only: true
+  system_or_user_environment_change: false
+  control_replay_count: 1
+requested_budget:
+  network_bytes_max_total: 4294967296
+  stored_bytes_max_total: 4294967296
+  engineering_correction_batch: 2_of_2
+preserve: [exact_ORT_wheel, models, packet, cell_ids, provider_order, relation_instances, holdout, R, failure_penalty, tolerances, denominator, baselines, raw_failed_control]
+forbidden: [CPU_only_substitution, DirectML_substitution, provider_order_change, system_install, PATH_or_registry_write, claim_cells, result_visibility, StageB]
+user_action_required: true
+minimal_user_action: approve request_id and expanded assignment-local budget
+

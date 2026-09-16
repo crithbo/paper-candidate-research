@@ -1,0 +1,68 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+identity:
+  topic_id: V8-SNAPSHOT-CONSTRAINT-SCHEDULER
+  assignment_id: STAGEA-L3-20260823-V8-SNAPSHOT-CONSTRAINT-SCHEDULER-RESUME1-THROTTLED-WIN64
+  stage_or_mode: STAGE_A_RESOURCE_PREFLIGHT
+  run_id: MAINLINE_FREEZE_ONLY
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/resume1
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/resume1/resources
+  inventory_path: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/V8-SNAPSHOT-CONSTRAINT-SCHEDULER/resume1/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-23T17:00:07+08:00
+  finalized_at: null
+root_measurement:
+  logical_bytes: 0
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: NOT_RUN
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools: []
+resource_envelope:
+  network_bytes_max: 37580963840
+  stored_bytes_max: 128849018880
+  cpu_hours_max: 24
+  gpu_hours_max: 0
+  wall_seconds_max: 43200
+  attempts_max: null
+  network_bytes_used: 0
+  stored_bytes_used: 0
+  attempts_used: 0
+entries: []
+shared_assets_consumed: []
+external_system_dependencies:
+  - id: WINDOWS_CXX_SDK_AND_BUILD_TOOLS
+    status: ABSENT_BLOCKER
+    location: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: [resources/tmp]
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: NOT_APPLICABLE_NO_RESOURCE
+  result: PASS_FREEZE_ONLY__NO_RESOURCE_ACTION

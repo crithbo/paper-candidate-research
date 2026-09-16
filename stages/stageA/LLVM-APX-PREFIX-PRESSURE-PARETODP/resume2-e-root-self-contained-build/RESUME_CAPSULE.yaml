@@ -1,0 +1,28 @@
+schema_version: resume-capsule-v1
+assignment_id: STAGEA-L1-20260825-LLVM-APX-RESUME2-E-ROOT-SELF-CONTAINED-BUILD
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+state: BLOCKED_USER_ACTION_REQUIRED__FILESYSTEM_PATH_CAPABILITY
+original_stage: STAGEA_RESOURCE_GATE_RESUME_FROM_BLOCKER
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+claim_ceiling: RESOURCE_GATE_ONLY__NO_APX_NATURAL_OR_PERFORMANCE_CLAIM
+evidence_ceiling: RESOURCE_FAILURE_ONLY__NO_SCIENTIFIC_INFERENCE
+claim_bearing_observation: false
+scientific_revision_consumed: false
+blocker:
+  filesystem: exFAT
+  failed_path_chars: 266
+  ninja_exit_code: 1
+  progress: 2407/3156
+  required_outputs_missing: [llc.exe, llvm-mc.exe, llvm-objdump.exe, llvm-readobj.exe, opt.exe, FileCheck.exe, clang.exe]
+retained_resume_inputs:
+  - {path: resources/downloads/llvm-project-a1194be1baefa99d20a09bd04b16056be0ab7225.tar.gz, sha256: F90FFC22BF3B220B726C2E4D7953076520C4188ED4409213AFB9829B98254747}
+  - {path: resources/downloads/llvm-mingw-20260616-ucrt-x86_64.zip, sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35}
+  - {path: resources/downloads/cmake-4.4.2-py3-none-win_amd64.whl, sha256: C28388FE95298486169C45C0EC8BDF067AABCB59273B98A4CDAE8BE5CD9C74F3}
+  - {path: resources/downloads/ninja-1.13.0-py3-none-win_amd64.whl, sha256: FB8EE8719F8AF47FED145CCED4A85F0755DD55D45B2BDDAF7431FA89803C5F3E}
+  - {path: resources/logs/build_failure_capsule, role: immutable small failure evidence}
+resume_requires_new_user_authority:
+  - short_path_process_namespace_or_exact_prebuilt_bundle
+  - one_new_build_attempt
+  - new_immutable_resume_directory
+forbidden_on_resume_without_new_authority: [retry current build, WSL, system install, global environment change, source patch, natural or claim-bearing run]
+resume_entry: RETURN_TO_MAINLINE_FOR_NEW_ASSIGNMENT

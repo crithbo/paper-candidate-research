@@ -1,0 +1,59 @@
+schema: ppc-r10-row-subcommand-order-plan-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10-NATURAL-CLAIM-EXECUTION
+authorization:
+  acceptance: {path: MAINLINE_ROW_ORDER_ADDENDUM_ACCEPTANCE.yaml, sha256: 78A4CE93D2CDB3FF66487F2A4D5F4DC4A6B973541CCA3945B1FABB5F9B71381D}
+  start: {path: MAINLINE_ROW_ORDER_ADDENDUM_START.yaml, sha256: 065174EC26261D49537A386F012943EEBDEA457B58E1B604B2B38A7B4BE75EC9}
+sources:
+  relocated_plan: {path: RELOCATED_R10_EXECUTION_PLAN.json, sha256: C3087A086E4EE4EF5E5B6E14D15B04F38EF0D94E9397A3AC7E456CB668AE70E2}
+  addendum: {path: ROW_SUBCOMMAND_ORDER_ADDENDUM.yaml, sha256: BB281AB2D5734DC6467F9F3C952494E7092B4DBDE51B427A8130E1DED6D7DE8D}
+  implementation: {path: resources/src/natural_materializer/materializer_harness.py, read_only: true}
+row_order: SELECTED_ORDINAL_THEN_REPLAY_1_THEN_REPLAY_2
+identity_rule: "Every referenced item is uniquely identified by (process_ordinal, source_field, zero_based_array_index); all argv and paths remain exactly those in the frozen relocated plan."
+per_row_reference_order:
+  - {sequence: 1, ref: candidate[0], count: 1, execution: executable, producer_role: candidate_outputs}
+  - {sequence: 2, ref: ablations[0], count: 1, execution: executable, producer_role: ablation_form_fixed_current_ra}
+  - {sequence: 3, ref: ablations[1], count: 1, execution: executable, producer_role: ablation_form_aware_fixed_ra}
+  - {sequence_range: 4-131, ref: baseline_compile[0..127], count: 128, order: zero_based_array_index_ascending, execution: executable, producer_role: baseline_objects}
+  - {sequence_range: 132-387, ref: baseline_link[0..255], count: 256, order: zero_based_array_index_ascending, execution: executable, requires: baseline_compile_outputs, producer_role: linked_baseline_objects}
+  - {sequence_range: 388-899, ref: baseline_inspect[0..511], count: 512, order: zero_based_array_index_ascending, execution: executable, requires: baseline_link_outputs, producer_role: baseline_inspection_outputs}
+  - {sequence: 900, ref: baseline_graph_producer[0], count: 1, execution: NOT_EXECUTABLE_DECLARATION, requires: [baseline_compile_outputs, baseline_link_outputs, baseline_inspect_outputs, baseline_command_metrics], declares: baseline/dependency_graph.json, blocker_if_not_executable: true}
+  - {sequence: 901, ref: checker[0], count: 1, execution: executable_but_blocked_by_sequence_900, requires: [candidate_outputs, baseline/dependency_graph.json]}
+  - {sequence: 902, ref: full_cost[0], count: 1, execution: executable_but_blocked_by_sequence_900, requires: [candidate_outputs, baseline/dependency_graph.json]}
+per_row_referenced_units: 902
+per_row_executable_units_if_graph_producer_were_executable: 902
+per_row_currently_executable_units: 901
+rows:
+  - {process_ordinal: 0, selected_ordinal: 0, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 1, selected_ordinal: 0, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 2, selected_ordinal: 1, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 3, selected_ordinal: 1, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 4, selected_ordinal: 2, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 5, selected_ordinal: 2, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 6, selected_ordinal: 3, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 7, selected_ordinal: 3, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 8, selected_ordinal: 4, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 9, selected_ordinal: 4, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 10, selected_ordinal: 5, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 11, selected_ordinal: 5, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 12, selected_ordinal: 6, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 13, selected_ordinal: 6, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 14, selected_ordinal: 7, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 15, selected_ordinal: 7, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 16, selected_ordinal: 8, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 17, selected_ordinal: 8, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 18, selected_ordinal: 9, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 19, selected_ordinal: 9, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 20, selected_ordinal: 10, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 21, selected_ordinal: 10, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 22, selected_ordinal: 11, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 23, selected_ordinal: 11, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 24, selected_ordinal: 12, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 25, selected_ordinal: 12, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 26, selected_ordinal: 13, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 27, selected_ordinal: 13, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 28, selected_ordinal: 14, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 29, selected_ordinal: 14, replay: 2, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 30, selected_ordinal: 15, replay: 1, subcommand_order: per_row_reference_order}
+  - {process_ordinal: 31, selected_ordinal: 15, replay: 2, subcommand_order: per_row_reference_order}
+execution_disposition: FAIL_CLOSED_PENDING_EXECUTABLE_BASELINE_GRAPH_PRODUCER
+forbidden_actions_observed: [resource_copy_or_mutation, network, tool_run, natural_run, claim_run, retry, source_edit]

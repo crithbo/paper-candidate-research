@@ -1,0 +1,65 @@
+schema_version: pending-raw-batched-resume-v1
+batch_program_id: PENDING-RAW-BATCHED-RESUME-20260815
+batch_id: BATCH-20260815-04
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+public_acquisition_authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+scheduling:
+  mode: SERIAL_WITHIN_BATCH
+  active_assignment_limit: 1
+  status: COMPLETE__TWO_UNRESOLVED__ZERO_BLOCKERS
+  ordered_items:
+    - order: 1
+      queue_id: S2-89-CQ01-RETRY1
+      family: RUSTC_COROUTINE_LIVE_SET_STATE_LAYOUT_JOINT_CONSTRUCTOR
+      state: COMPLETE_ACCEPTED__UNRESOLVED_BACKLOG
+      task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+      dispatch_turn_id: 01a004fc-e467-73d0-90c7-268470d2e70a
+      assignment: stages/discovery/round-20260815-adaptive-source89/S2-bottleneck-transfer/closure-cq01-retry1/ASSIGNMENT.yaml
+      assignment_sha256: E534A39F88165437D8CD28CEBD49D9D7829948AE621CA616E4E8E8F25B2D36D4
+    - order: 2
+      queue_id: S2-90-CQ01-RETRY1
+      family: SWIFT_SIL_OWNERSHIP_ARC_LAYOUT_JOINT_CONSTRUCTOR
+      state: COMPLETE_ACCEPTED__UNRESOLVED_BACKLOG
+      task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+      dispatch_turn_id: 01a00509-57bd-7a30-be1d-78588e7d8358
+      assignment: stages/discovery/round-20260815-adaptive-source90/S2-bottleneck-transfer/closure-cq01-retry1/ASSIGNMENT.yaml
+      assignment_sha256: 79CB5CBC9B110D5EA5D56EFE1D4DE262FB04D9D981267976900350CB04E158BF
+item1_result:
+  disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+  immutable_pin: 68c677ac3f013d2e587f47e198c92e551716191e
+  calls_used: 12
+  persisted_bytes: 570580
+  report_sha256: 4F872B7685E94EDB04894EA9D0989C53E58AE7E7E8C93622162EC1AA6AF1E134
+  handoff_sha256: C105464276D4BDE9EDD01B086A7D2BD91E8D6D8ADCE603081CADB74E7C6BCAF7
+  manifest_sha256: 962C525E6D94C2D457E059F1077E1282B082C4D85FDA4FE8BED93037C22ACA01
+  closure_basis: current StateTransform liveness/saved-local/state/drop coupling is visible, but complete layout action grammar and two stock-legal plans remain unclosed
+  scientific_or_stage_authority: false
+item2_result:
+  disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_COLLISION_OR_GUARANTEE_CLOSURE_INCOMPLETE
+  immutable_pin: d056c33516f5c5e934dfc45bff945ef3bb2771b3
+  calls_used: 10
+  persisted_bytes: 1353324
+  report_sha256: C0D9D96D4334260B2F0CB1F56FEC2C231A140191B9FBE723E2C1E0730EFE8287
+  handoff_sha256: 189164E5D7ACEA22B590EE2D8C96C6189EA73C79B7B10ACE528249B7B132B298
+  manifest_sha256: CC4D8EE699E67E1B4709715F40448FFA465F308CF691B9D536820C4DE92C11E7
+  closure_basis: current ARC pairing and object-access analysis plus alloc-box-to-stack are visible, but complete ownership plus ARC plus layout action grammar and two stock-legal plans remain unclosed
+  scientific_or_stage_authority: false
+batch_summary:
+  processed: 2
+  unresolved_backlog: 2
+  structural_fatal: 0
+  resource_blocker: 0
+  clean_brief_or_stage_authority: 0
+  remaining_unprocessed_raw: 8
+priority_basis: both prior closures were bounded unresolved because frozen paths drifted; retry keeps each immutable commit and uses explicit directory-list selection, with rustc first and Swift isolated
+previous_batch:
+  control: stages/discovery/raw-closure-batches/BATCH-20260815-03/CONTROL.yaml
+  outcome: COMPLETE__TWO_STRUCTURAL_FATAL__ZERO_BLOCKERS
+remaining_unprocessed_raw_at_batch_start: 10
+rules:
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+permissions:
+  additional_user_permission_required: false
+  private_sources_system_install_hardware_budget_expansion_claim_experiment_or_stage_transition: forbidden_without_new_authority

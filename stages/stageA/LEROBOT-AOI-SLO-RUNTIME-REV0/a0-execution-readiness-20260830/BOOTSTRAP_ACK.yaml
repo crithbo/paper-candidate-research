@@ -1,0 +1,89 @@
+schema_version: bootstrap-ack-v1
+created_at: 2026-08-30T05:04:14+08:00
+lane_id: CANDIDATE_EXECUTION_LANE_1
+role_id: CANDIDATE_OWNER
+assignment_id: STAGEA-L1-20260830-LEROBOT-AOI-SLO-RUNTIME-A0
+topic_id: LEROBOT-AOI-SLO-RUNTIME-REV0
+assignment_context_path: stages/stageA/LEROBOT-AOI-SLO-RUNTIME-REV0/a0-execution-readiness-20260830/ASSIGNMENT_CONTEXT.yaml
+assignment_context_sha256: 9521ED3914EDFC4B5AF78515F5ED3FA7F5742A71383623575965A255BD2572E8
+old_chat_memory_required: false
+
+model_route_ack: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true, override_scope: THIS_BOOTSTRAP_COMMAND_ONLY, current_cycle_usage_reset_confirmed: false}
+
+frozen_hash_ack:
+  AGENTS_sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655
+  plan_sha256: 86C1349E5FC8386517452E946D84FF8ECE48CF2B0A3B0E77E5DC385A173CB40A
+  registry_snapshot_sha256: 1A10002F23CB68A76B238CCAB4019737CFFA17C7450E00BFAEC02BA242818C76
+  role_rule_sha256: A015EF2474D741BABA566339A3F1571074CE2423615FDCFFE1DD15749E523938
+  rule_hashes:
+    - {path: rules/AUTONOMOUS_SOFT_BLOCKER_RECOVERY.md, sha256: 243BFCFAD28A116C743AF42567AC4FA2B024E433B8D5B91F61E543E5E02BB1CE}
+    - {path: rules/RESOURCE_LOCALIZATION.md, sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA}
+    - {path: rules/ARTIFACT_LIFECYCLE.md, sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED}
+  skill_hashes:
+    - {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  template_hashes:
+    - {path: templates/BOOTSTRAP_ACK.yaml, sha256: 77B366AF97F0708846D02A78344E4F7810D40B4F8B5577A6BC9C85645CBB321B}
+  source_assignment_sha256: 9932B85F0E956EF40B8CB13AC37F2751B5786C8596B8EB3F1D2CFAE95CC92668
+
+minimum_input_ack:
+  primary_handoff: {sha256: 47491B95C29F135F38DB754B9967D7C65415544CE44FF3766FD3CFFCDC3EB915, verdict: PASS_RECOMMENDED, quality_tier: TIER_B_Q2_VIABLE}
+  sentry_handoff: {sha256: 710D1017909114BF68C29B481C55EF705506A3B8B61F8B97C1537FE2072463EC, disposition: CONFIRM}
+  exact_object: LeRobot_commit_4aaff99be4a1d81568c08c8f0296b41b40c99ec4_distributed_async_protocol
+  claim_ceiling: CANONICAL_SAME_HOST_TIMING_AND_FORMAL_PROVENANCE_ONLY
+
+a0_contract_ack:
+  no_wire_change: true
+  client_local_monotonic_origin_and_contributor_sidecar: frozen_objective
+  short_trace_universe: queue_le4_two_overlapping_chunks_duplicate_timestep_reordered_returns_four_aggregators_empty_mustgo_wallclock_jumps
+  strongest_baseline: joint_static_g_grid_fps_chunk_aggregation_with_equal_occupancy_match
+  natural_carrier: actual_same_host_inference_timing_joined_to_canonical_task_outcome
+  formal_probe_families_planned: 1
+  natural_trace_replay_cases_planned: 1
+  claim_requires_separate_start: true
+  budgets: {network_attempts_max: 24, network_bytes_max: 536870912, stored_bytes_max: 1073741824, cpu_hours_max: 6, gpu_hours_max: 0, engineering_correction_batches_max: 2}
+
+read_ack:
+  AGENTS_complete: true
+  plan_current_dashboard_complete: true
+  role_rule_complete: true
+  required_rules_complete: true
+  required_skills_complete: true
+  required_templates_complete: true
+  stage0_primary_handoff_complete: true
+  stage0_sentry_handoff_complete: true
+  minimum_inputs_complete: true
+  registry_dual_read_performed: true
+
+registry_ack:
+  topic_formal_state: STAGEA_ACTIVE
+  primary_state: COMPLETE_ACCEPTED__PASS_RECOMMENDED__ROUTE_SENTRY
+  sentry_state: COMPLETE_ACCEPTED__CONFIRM_PASS
+  assignment_state: BOOTSTRAP_PENDING
+  lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+
+boundary_ack:
+  cwd_exact: <LOCAL_PROJECT_ROOT>
+  unique_write_directory_exact: stages/stageA/LEROBOT-AOI-SLO-RUNTIME-REV0/a0-execution-readiness-20260830
+  resource_root_exact: stages/stageA/LEROBOT-AOI-SLO-RUNTIME-REV0/a0-execution-readiness-20260830/resources
+  resource_root_absent: true
+  forbidden_inputs_understood: true
+  forbidden_actions_understood: true
+  cross_assignment_material_loaded: false
+  independence_or_role_conflict: NONE
+  contamination_detected: false
+
+execution_ack:
+  current_status: BOOTSTRAP_PENDING
+  resume_point: WAIT_FOR_SEPARATE_MAINLINE_START
+  next_action: WAIT_FOR_MAINLINE_BOOTSTRAP_ACCEPTANCE_AND_START
+  user_gate_or_blocker: MAINLINE_START_REQUIRED
+  network_or_resource_started: false
+  build_or_control_started: false
+  claim_or_stageb_started: false
+  shared_write_started: false
+  scientific_or_resource_action_started: false
+
+differences_or_ambiguities: []
+ack_disposition: READY
+start_authorized_by_mainline: false
+start_authorization_timestamp: null

@@ -1,0 +1,42 @@
+schema: DISCOVERY_SOURCE_CLOSURE_HANDOFF_V1
+assignment_id: SOURCE-CLOSURE-SOURCE59-S1-CQ01-GLIBC-TLSDESC-DSO-LIFETIME-RESUME1-RATE-LIMIT-SAFE
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY__RESUME_FROM_TRANSPORT_RATE_LIMIT
+write_directory: stages/discovery/round-20260815-adaptive-source59/S1-boundary-contradiction/closure-cq01/resume1
+disposition: UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+state_authority: NONE
+forbidden_inference:
+  - No clean-brief, Q2, candidate, PASS, STOP, or stage-state conclusion is made here.
+  - HTTP 429 outcomes are not evidence of absent sources, actions, or test behavior.
+frozen_identity:
+  project: sourceware/glibc
+  commit: e2789c46e3bfdcd67a82bea9946b315c179e83d3
+  exact_object: x86-64 TLSDESC dynamic resolver/relocation and direct TLS-descriptor dlopen/dlclose tests under fixed ABI and DSO-lifetime semantics
+observed_carrier:
+  path: elf/tst-gnu2-tls2.c
+  stock_trace: open0_open1_open2_close0_close1_open0_spawn_open1_access_apply_tls
+  oracle: The source test checks its expected value and forces the GNU2 TLSDESC dynamic slow path after a null DTV entry/module-ID reuse setup.
+bounded_result:
+  current_action_surface: PARTIALLY_PINNED__STATIC_UNDEFWEAK_AND_DYNAMIC_VARIANT_WRAPPER
+  complete_union: NOT_CLOSED__TLS_DESC_C_AND_MODULE_TEST_RATE_LIMITED
+  same_abi_same_lifetime_two_schedule_witness: NOT_FROZEN
+  reason: Two required pre-enumerated source routes returned HTTP 429 before persistence.
+resource_summary:
+  acquisition_calls: 4
+  acquisition_cap: 4
+  persisted_response_bytes: 6408
+  localization_status: CLOSED_WITHIN_CAP__TWO_ROUTE_RATE_LIMITS
+resume_debt:
+  fixed_commit: e2789c46e3bfdcd67a82bea9946b315c179e83d3
+  exact_remaining_paths:
+    - elf/tlsdesc.c
+    - elf/tst-gnu2-tls2mod0.c
+  required_outcome: complete action/lifetime union plus second same-ABI/same-lifetime native schedule, or affirmative current-union/changed-object evidence
+canonical_files:
+  - ASSIGNMENT.yaml
+  - RESOURCE_INVENTORY.yaml
+  - CURRENT_UPSTREAM_AUDIT.md
+  - SOURCE_CLOSURE_REPORT.md
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+next_owner: MAINLINE_ONLY
+lane_status_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE

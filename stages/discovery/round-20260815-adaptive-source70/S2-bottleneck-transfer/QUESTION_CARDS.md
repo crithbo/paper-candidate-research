@@ -1,0 +1,9 @@
+# Question-card outcomes — Source70
+
+| RQ | Exact same-object contract | Current complete/action union | Natural / canonical carrier and oracle | Initial full-cost boundary | Cheapest falsifier | Front-end disposition |
+|---|---|---|---|---|---|---|
+| RQ-S70-01 | Fixed TU/module set, target and stock importer/executable semantics | `clang-scan-deps` P1689 scan; module dependency graph; topological order; compilation actions emitted to the build tool | Versioned C++ module project; compiler/importer success and executable ABI/behavior | scan, BMI build, importer, link CPU/RSS/temp/cache bytes and necessary runtime | Exhibit a target-specific scan/BMI constructor whose effect is not merely DAG scheduling/cache policy | `STRUCTURAL_DROP__GENERIC_DAG_SCHEDULING_OUTSIDE_FIXED_COMPILER_CONSTRUCTOR` |
+| RQ-S70-02 | Fixed OpenMP program, mapped logical objects, device and host/device result | OpenMP `target data`/`target`, map types/modifiers, user mapper and documented libomptarget runtime surface | Public OpenMP target program; stock host/device result and mapped-value oracle | lowering, map construction, transfer, launch, device memory, host/device latency | Exhibit a legal whole-program mapping action beyond clauses/mappers/runtime controls | `EXCLUDED_REPEATED__EXACT_OPENMP_MAP_LOWERING_ENDPOINT` |
+| RQ-S70-03 | Fixed host program, code variants, target GPU and stock module execution | nvFatbin code-object variants; `cuModuleLoadData`; documented lazy/eager kernel/data loading and loader threads | Versioned CUDA application; stock module load and kernel result | fatbin build, image bytes, load/JIT, CPU/RSS/GPU memory, first-launch and steady runtime | Exhibit a reader-equivalent constructor beyond image-set selection, packing or loading policy | `EXCLUDED_REPEATED__EXACT_CUDA_FATBINARY_ENDPOINT` |
+
+No card entered evidence-qualified raw. This is not a conclusion from missing implementation, measurement, resource, or AI readiness.

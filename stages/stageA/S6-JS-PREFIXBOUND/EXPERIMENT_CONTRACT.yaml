@@ -1,0 +1,146 @@
+schema_version: stagea-experiment-contract-v1
+topic_id: S6-JS-PREFIXBOUND
+stage: STAGEA
+frozen_at: 2026-08-09T00:00:00+08:00
+authority:
+  stagea_execution_allowed: true
+  stageb_authorized: false
+  stageb_user_approval_id: null
+  write_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\S6-JS-PREFIXBOUND
+
+object:
+  name: DPOMEGA_LEVEL_MERGE_JOIN_JOIN_AND_SORT_CORE
+  source: https://doi.org/10.1007/s00778-025-00906-y
+  query: conjunctive_equi_join_with_optional_final_order_Omega
+  plan_space: connected_bushy_binary_join_trees_without_cartesian_products
+  physical_join: merge_join_only
+  output_order_rule: chosen_permutation_of_the_cross_cut_join_attribute_set
+  objective: sum_of_join_output_cardinalities_plus_input_partial_sort_costs_plus_final_Omega_sort
+  unchanged:
+    - relation_and_attribute_equivalence_classes
+    - connected_bushy_plan_space
+    - legal_merge_key_permutations
+    - cardinality_and_NDV_profile_within_each_locked_instance
+    - final_output_order_Omega
+    - global_minimum_estimated_join_and_sort_cost
+  excluded:
+    - hash_join_post_pass
+    - PostgreSQL_execution_time_claims
+    - cardinality_estimation_accuracy_claims
+    - cartesian_products
+    - Stage_B_scale_or_integration
+
+formalization:
+  state: "(S, o, g), where S is a connected relation subset, o is the current output order, and g is the exact accumulated join+sort cost"
+  omega_condition_exists_only: "at a valid edge cut, first(o_left) != first(o_right), hence the cut-side input requires a full sort"
+  omega_condition_with_forall: "the common prefix at a valid edge cut is exactly the fixed all-join attribute prefix A_forall^R"
+  future_demand_set: "D_S contains every permutation of every nonempty cross-cut join-key set between S and an adjacent disjoint connected U; for S=R it contains Omega when Omega is nonempty"
+  candidate_signature: "Sigma_S(o) is the vector indexed by D_S of (longest-common-prefix(o,d), exact uniform-segment sort-cost(S,o,d))"
+  naive_signature_under_attack: "longest-common-prefix(o,Omega) only"
+  future_equivalence_obligation: "same S and same candidate signature imply identical incremental cost for every legal first continuation action; because that action overwrites the merge output order with d, all later costs are then identical"
+  candidate_bound: "h=max(h_join,h_sort), where h_join is the exact order-free join-only completion cost and h_sort is the minimum unavoidable next-input/final-Omega sort cost"
+  admissibility_obligation: "for every enumerated reachable (S,o), h <= exact minimum remaining join+sort completion cost"
+
+inputs:
+  exhaustive_family:
+    relation_counts: [3, 4]
+    relation_labels: [R0, R1, R2, R3]
+    join_attribute_alphabet: [A, B]
+    edge_key_choices:
+      - [A]
+      - [B]
+      - [A, B]
+    graph_scope: every_connected_labeled_simple_graph
+    edge_label_scope: every_assignment_of_a_nonempty_key_choice_to_each_edge
+    final_orders:
+      - []
+      - [A]
+      - [B]
+      - [A, B]
+      - [B, A]
+    cardinality_profile: "card(S)=32+7*mask(S)+3*|S|, deterministic and frozen"
+    ndv_profile: "ndv(S,A)=min(card(S),2+mask(S)%5); ndv(S,B)=min(card(S),3+(mask(S)*2)%7)"
+    expected_instance_count: 19440
+  natural_structure_probe:
+    name: JOB_4a
+    repository: https://github.com/gregrahn/join-order-benchmark
+    commit: a39603662e023e449cb2121997a5034df9e02ebf
+    source_url: https://raw.githubusercontent.com/gregrahn/join-order-benchmark/a39603662e023e449cb2121997a5034df9e02ebf/4a.sql
+    local_file: inputs/JOB_4a.sql
+    use: natural_SQL_join_graph_and_equivalence_class_structure_only
+    cost_profile: deterministic_proxy_same_as_formal_family
+    claim_limit: no_natural_cardinality_runtime_or_DBMS_performance_claim
+
+baselines:
+  - name: EXACT_ORDER_STATE_DP
+    role: same_object_offline_exact_ceiling_and_strong_executable_baseline
+    information: identical_to_candidate
+    costed: all_states_transitions_sort_join_and_final_order
+  - name: DPOMEGA_PAPER
+    role: mandatory_same_object_authoritative_algorithmic_baseline
+    version: VLDB_Journal_34_article_31_2025_revised_open_access_2026-02-07
+    execution: authoritative_definition_check_only_no_source_code_claim
+  - name: NAIVE_OMEGA_ONLY_PREFIX_QUOTIENT
+    role: deliberately_weak_ablation_expected_to_be_falsifiable
+  - name: ORDER_FREE_JOIN_RELAXATION
+    role: admissible_bound_component_and_plain_join_methodological_subtractor
+
+metrics:
+  correctness:
+    - exact_optimum_difference_quotient_vs_exact
+    - candidate_signature_future_counterexamples
+    - naive_signature_future_counterexamples
+    - admissibility_violations
+  mechanism:
+    - exact_order_state_count
+    - candidate_signature_class_count
+    - quotient_state_reduction_fraction
+    - number_of_same_signature_pairs_checked
+    - continuation_actions_checked
+  full_cost:
+    - wall_time_seconds
+    - process_cpu_time_seconds
+    - peak_tracemalloc_bytes
+    - generated_instance_count
+    - DP_transition_count
+    - signature_construction_count
+    - bound_evaluation_count
+    - input_retrieval_bytes_and_sha256
+
+randomness:
+  stochastic: false
+  seeds: []
+  enumeration_order: lexicographic
+  floating_point_tolerance: 1.0e-9
+
+commands:
+  python: <LOCAL_USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe
+  retrieve_input: "Invoke-WebRequest -UseBasicParsing -Uri <pinned source_url> -OutFile inputs/JOB_4a.sql"
+  primary: "<LOCAL_USER_HOME>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe run_probe.py --contract EXPERIMENT_CONTRACT.yaml --output artifacts/probe_results.json"
+  replay: "<LOCAL_USER_HOME>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe run_probe.py --contract EXPERIMENT_CONTRACT.yaml --output artifacts/replay_results.json"
+  validate: "<LOCAL_USER_HOME>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe validate_results.py artifacts/probe_results.json artifacts/replay_results.json"
+  timeout_seconds_each: 1800
+
+success_and_stop:
+  pass_recommended_requires:
+    - zero_candidate_signature_future_counterexamples
+    - zero_quotient_vs_exact_optimum_differences
+    - zero_admissibility_violations
+    - positive_state_reduction_on_exhaustive_family
+    - positive_state_reduction_on_JOB_4a_structure
+    - deterministic_replay_exact_match_after_volatile_fields_are_removed
+  stop_immediately_if:
+    - any_candidate_signature_future_counterexample
+    - any_quotient_vs_exact_optimum_difference
+    - any_admissible_bound_overestimate
+    - zero_state_reduction_on_both_exhaustive_and_JOB_4a
+  positive_ceiling: NOT_FALSIFIED_WITH_PRELIMINARY_SUPPORT
+  forbidden_conclusion: MAIN_CLAIM_ESTABLISHED
+
+resource_limits:
+  cpu_only: true
+  gpu_used: false
+  network: one_pinned_small_SQL_file_only
+  large_downloads: false
+  shared_project_write: false
+  formal_large_scale_experiment: false

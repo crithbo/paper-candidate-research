@@ -1,0 +1,57 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE70-R40-ORDINARY-BREADTH-V1
+network_search_calls: 3
+source_roles:
+  - rq: RQ-S70-01
+    role: [ANCHOR, CURRENT, CONTRARY]
+    url: https://clang.llvm.org/docs/StandardCPlusPlusModules.html
+    version_or_date: clang_24.0.0git_page__checked_2026-08-15
+    provenance: official_llvm_documentation
+    finding: P1689 dependency extraction and required topological build ordering are already exported to the build tool.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - rq: RQ-S70-01
+    role: CURRENT_SOURCE
+    url: https://clang.llvm.org/doxygen/DependencyScanningTool_8cpp_source.html
+    version_or_date: current_doxygen__checked_2026-08-15
+    provenance: official_llvm_source_render
+    finding: DependencyScanningTool gathers modular dependencies and emits P1689 rules; the contemplated next action is build-graph scheduling.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - rq: RQ-S70-02
+    role: [ANCHOR, CURRENT]
+    url: https://www.openmp.org/spec-html/5.2/openmpse82.html
+    version_or_date: OpenMP_5_2__checked_2026-08-15
+    provenance: official_specification
+    finding: target-data maps variables to the device environment using `map`, `device`, `use_device_addr`, and `use_device_ptr` semantics.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - rq: RQ-S70-02
+    role: CURRENT
+    url: https://openmp.llvm.org/design/Runtimes.html
+    version_or_date: current_page__checked_2026-08-15
+    provenance: official_llvm_runtime_documentation
+    finding: libomptarget exposes runtime map, memory-manager and JIT feature controls, including documented defaults.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - rq: RQ-S70-03
+    role: [ANCHOR, CURRENT]
+    url: https://docs.nvidia.com/cuda/nvfatbin/index.html
+    version_or_date: CUDA_13_3_page__checked_2026-08-15
+    provenance: official_NVIDIA_documentation
+    finding: nvFatbin constructs a multi-architecture fatbin accepted by `cuModuleLoadData`; only one relevant variant is loaded for a platform.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+  - rq: RQ-S70-03
+    role: CURRENT_CONTRARY
+    url: https://docs.nvidia.com/cuda/cuda-programming-guide/05-appendices/environment-variables.html
+    version_or_date: CUDA_programming_guide__checked_2026-08-15
+    provenance: official_NVIDIA_documentation
+    finding: `CUDA_MODULE_LOADING` and `CUDA_MODULE_DATA_LOADING` default to lazy; eager/lazy and binary-loader thread controls are current union controls.
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+role_yield:
+  anchor: 3
+  current_union_or_direct_collision: 3
+  candidate_eligible: 0
+  exact_history: 2
+  generic_kernel: 1

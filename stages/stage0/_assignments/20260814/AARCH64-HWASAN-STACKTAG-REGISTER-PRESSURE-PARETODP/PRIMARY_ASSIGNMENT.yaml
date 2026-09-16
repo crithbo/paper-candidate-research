@@ -1,0 +1,38 @@
+assignment_id: STAGE0-P1-20260814-AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP-PRIMARY-V8.7
+mode: PRIMARY
+topic_id: AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP
+task_id: 019fbc13-54f3-7412-9cdd-abf95493af42
+status: FROZEN_QUEUED_AFTER_MLIR_REVISION1
+project_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source06-primary\AARCH64-HWASAN-STACKTAG-REGISTER-PRESSURE-PARETODP
+canonical_method: V8_7_POTENTIAL_READINESS_SEPARATED
+discovery_claim_pack_mode: OFF
+quality_floor: TIER_B_Q2_VIABLE
+required_reads:
+  - AGENTS.md
+  - plan.md
+  - registry.yaml
+  - rules\ROLE_STAGE0_REVIEW.md
+  - templates\STAGE0_REPORT.md
+  - templates\Q1_COMPARATOR_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source06\S2-bottleneck-transfer\TOPIC_BRIEF_AARCH64_HWASAN_STACKTAG_REGISTER_PRESSURE_PARETODP.md
+  - stages\discovery\round-20260814-adaptive-source06\S2-bottleneck-transfer\SOURCE_COLLISION_MATRIX.md
+  - stages\discovery\round-20260814-adaptive-source06\S2-bottleneck-transfer\DISCOVERY_LOG.md
+  - stages\discovery\round-20260814-adaptive-source06\S2-bottleneck-transfer\handoff.yaml
+input_hashes:
+  brief_sha256: F20DAFB65B69BF770B196583DC7792E353C094D49442186A50B7EA84BD972056
+  source_collision_matrix_sha256: D3743B60552C218F953097F535FFA26824A81190202997E018418869770DBACE
+  discovery_log_sha256: 636E4D35A356549C44301343D758696B779E63C1DF2C49454938A9368E937616
+  discovery_handoff_sha256: 1B39FBF1AC4BE84809D0A62534094918E23510E539870C3C265A36E5E4287A75
+  discovery_manifest_sha256: 400B8FE79712B6AA27E639FC688C26244D6FF4E11158B6DB0FDC2F0EFC8D994C
+independent_attack_requirements:
+  - Pin current Clang LLVM HWASan AArch64 lowering, stack tagging, base-tag/ReTag behavior, ABI modes, exclusions and downstream RA/frame/unwind union.
+  - Verify exact same function, ABI, output and stock report/no-report semantics for two proposed legal alloca/tag/register-pressure plans.
+  - Decide whether joint alloca layout, tag derivation and temporary/spill realization is target-specific N2 or current pass composition, option tuning or generic RA/layout packaging.
+  - Attack finite state sufficiency, exact/FPT or certified frontier complexity, strongest literature collision, natural corpus, full compile/runtime cost and StageA killer.
+  - Missing implementation or positive results is not a scientific failure; direct same-object absorption, weaker detection, changed ABI or generic remainder is.
+forbidden: [implementation, experiment, benchmark, source_build, system_install, stageA, stageB, shared_control_write]
+required_outputs: [STAGE0_REPORT.md, Q1_COMPARATOR_MATRIX.md, SOURCE_AUDIT.md, handoff.yaml, HASH_MANIFEST.sha256]
+completion:
+  notify_mainline_task_id: 019fd152-f791-7311-891f-bfa69c344a9e
+  return_lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

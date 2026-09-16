@@ -1,0 +1,98 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  artifact_state: ARTIFACT_OPEN__HANDOFF_PENDING
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: STAGE0_PRIMARY_HANDOFF
+  downstream_consumer: MAINLINE_THEN_OPTIONAL_STAGE0_SENTRY
+  post_close_retained_bytes_max: 134217728
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: RESUME_CAPSULE.yaml
+  cleanup_receipt_path: null
+identity:
+  topic_id: ROCKSDB-MULTISST-DICT-TRACE-COVERAGE
+  assignment_id: STAGE0-P1-20260826-ROCKSDB-MULTISST-DICT-TRACE-COVERAGE-PRIMARY
+  stage_or_mode: STAGE0_PRIMARY
+  run_id: STAGE0-S0-S7-20260826
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stage0/_reviews/round-20260826-rocksdb-multisst-primary/ROCKSDB-MULTISST-DICT-TRACE-COVERAGE
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stage0/_reviews/round-20260826-rocksdb-multisst-primary/ROCKSDB-MULTISST-DICT-TRACE-COVERAGE/resources
+  inventory_path: <LOCAL_PROJECT_ROOT>/stages/stage0/_reviews/round-20260826-rocksdb-multisst-primary/ROCKSDB-MULTISST-DICT-TRACE-COVERAGE/RESOURCE_INVENTORY.yaml
+root_measurement:
+  logical_bytes: 0
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: true
+required_directories:
+  downloads: resources/downloads
+  archives: resources/archives
+  src: resources/src
+  build: resources/build
+  env: resources/env
+  cache: resources/cache
+  tmp: resources/tmp
+  logs: resources/logs
+redirect_preflight:
+  status: PASS__TRANSIENT_CONNECTOR_ONLY
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools:
+    - tool: CODEX_WEB_CONNECTOR
+      writable_project_surfaces: []
+      persisted_response_bytes: 0
+resource_envelope:
+  network_bytes_max: 134217728
+  stored_bytes_max: 268435456
+  cpu_seconds_max: 14400
+  wall_seconds_max: 28800
+  attempts_max: 30
+  network_bytes_used: null
+  network_bytes_used_note: UNAVAILABLE_CONNECTOR_TELEMETRY__NOT_ESTIMATED
+  stored_bytes_used_under_resource_root: 0
+  attempts_used: 30
+entries: []
+shared_assets_consumed: []
+external_system_dependencies:
+  - name: CODEX_WEB_CONNECTOR
+    disposition: EXTERNAL_SYSTEM_MANAGED__LOCATION_NOT_GUARANTEED
+    persisted_project_asset: false
+cleanup:
+  owner: MAINLINE
+  authorized_descendants: []
+  allowed_automatic_retention_classes: []
+  closeout_plan_accepted: false
+  downstream_inputs_accepted: false
+  capsule_sealed: false
+  active_owner_or_process_count: 0
+  predelete_target_count: 0
+  predelete_file_count: 0
+  predelete_logical_bytes: 0
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: NOT_APPLICABLE_NO_RESOURCE_FILES
+validation:
+  resource_root_exact_match: true
+  root_under_workspace: true
+  forbidden_root_check: true
+  reparse_traversal_check: true
+  required_directories_present: true
+  persisted_resources_inventoried: true
+  envelope_within_limit: true
+  claim_critical_content_hashes_present: NOT_APPLICABLE_NO_RESOURCE_FILES
+  lifecycle_mode_and_hash_match: true
+  all_persisted_entries_classified: true
+  downstream_consumers_resolved: true
+  deterministic_recovery_routes_complete: NOT_APPLICABLE_NO_RESOURCE_FILES
+  closeout_budget_or_exception_pass: true
+  cleanup_receipt_valid: NOT_APPLICABLE_NO_CLEANUP
+  result: PASS
+

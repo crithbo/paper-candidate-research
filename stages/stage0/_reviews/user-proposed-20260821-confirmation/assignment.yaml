@@ -1,0 +1,89 @@
+schema_version: stage0-assignment-v1
+assignment_id: STAGE0-C1-20260821-USER-QREFINE-PATCHYIELD-CONFIRMATION
+mode: SENTRY
+lane: STAGE0-CONFIRMATION-SENTRY-D
+authority: USER_EXPLICIT_QREFINE_AND_PATCHYIELD_INDEPENDENT_STAGE0_20260821
+status_on_dispatch: ACTIVE
+
+upstream_primary:
+  assignment_id: STAGE0-P1-20260821-USER-QREFINE-PATCHYIELD-PRIMARY
+  directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-primary
+  handoff: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-primary\handoff.yaml
+  handoff_sha256: 9BBF5390E1A21E4526AF1C92358DAE506A3C70A3CCB9821935E609B7CDB0406E
+  manifest_sha256: F69B61E6D218C5D90D68F86C5B04BD8D7067225E27CCE768451019AADCE3CADB
+
+frozen_rules:
+  role_stage0_sha256: BC58D2A365AFF6A0F82290CC3CC4E16177DBFDA69D1B28260084E9BE6B56E48C
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  stage0_report_template_sha256: 321DB6FEF1838EAA4759F3662C27721F2131441DAB8EBF5E58DFCF9DD3004CE7
+  q1_comparator_matrix_template_sha256: ED4EDDAAFC8C06FED20605DF9568158A55B65707DF4B424669C9BECC170EDB87
+  quality_target: Q2_MINIMUM_Q1_PRIORITY
+
+independence:
+  sentry_did_not_participate_in_discovery_or_primary: required
+  recheck_decisive_minimum_sources_independently: required
+  do_not_repeat_full_stage0: true
+  decide_each_topic_separately: true
+  allowed_decisions: [CONFIRM, DISAGREE, PROVENANCE_FAIL]
+
+topics:
+  - topic_id: QREFINE-TRITON-W4A16
+    primary_decision: PASS_RECOMMENDED
+    primary_quality_tier: TIER_B_Q2_VIABLE
+    required_recheck:
+      - exact MLIR boundary and same-object reproducibility
+      - strongest high-level MLIR and backend translation-validation collision
+      - target-aware mixed bit-vector/IEEE contribution residual
+      - Tier B paper shape and finite Stage A killer
+    output_subdirectory: QREFINE-TRITON-W4A16
+
+  - topic_id: PATCHYIELD-CALL
+    primary_decision: REVISE_ONCE
+    primary_atomic_gate: READY_CALL_BOUNDED_BYPASS_16__PROGRESS_INCREMENTAL_FAIR_POLICY_CERTIFICATE
+    required_recheck:
+      - live re-execution causal contract
+      - current vLLM controls and Justitia/VTC/DLPM closest baselines
+      - whether one static certificate can close a non-generic N2 action without changing model, dataset, deadlines, H100, non-preemptive action, or online information
+      - whether the proposed stop sentinel is mechanically fair
+    output_subdirectory: PATCHYIELD-CALL
+
+excluded_topic:
+  topic_id: QNN-KV-HANDOFF-CLOSURE
+  rule: DO_NOT_READ_OR_REVIEW__NOT_A_STAGE0_INPUT
+
+write_boundary:
+  unique_write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-confirmation
+  resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-confirmation\resources
+  resource_inventory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\user-proposed-20260821-confirmation\RESOURCE_INVENTORY.yaml
+  shared_control_write_allowed: false
+
+allowed_actions:
+  - Read the primary batch and the two accepted Discovery inputs named by it.
+  - Independently open only the decisive official/current sources and public papers needed to confirm or disagree.
+  - Persist small source/paper excerpts and provenance under resource_root.
+  - Write per-topic confirmation reports and one batch handoff inside unique_write_directory.
+
+forbidden_actions:
+  - Read QNN inputs.
+  - Design a replacement topic, perform a full new Stage 0 review, execute revision work, build, download models/containers/datasets, use H100/NPU, run scripts/solvers/kernels/agents/experiments, or enter Stage A/B.
+  - Modify upstream outputs, plan.md, registry.yaml, rules, templates, or another assignment directory.
+
+resource_envelope:
+  decisive_routes_max_per_topic: 12
+  accepted_persisted_bytes_total_max: 134217728
+  cpu_time_max: 1h
+  wall_time_max: 2h
+  system_install: false
+  global_environment_change: false
+  failure_consequence: PROVENANCE_FAIL_OR_BLOCKED_USER_ACTION_REQUIRED__NO_SCIENTIFIC_INFERENCE
+
+required_outputs_per_topic:
+  - CONFIRMATION_REPORT.md
+  - SOURCE_LOG.md
+  - HANDOFF.yaml
+
+required_batch_outputs:
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+  - HASH_MANIFEST.sha256
+

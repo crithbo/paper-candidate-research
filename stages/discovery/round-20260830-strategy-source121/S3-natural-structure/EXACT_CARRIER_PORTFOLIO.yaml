@@ -1,0 +1,59 @@
+schema: exact-public-carrier-portfolio-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE121
+topic_id: SOURCE121-PORTFOLIO-S3
+portfolio_scope: LeRobot or public VLA observation-action timestamp datasets and canonical async traces with fixed placement/freshness decisions
+frozen_before_primary_rq_convergence: true
+frozen_before_first_scientific_conclusion: true
+carriers:
+  - id: C01
+    name: LeRobot_distributed_async_inference
+    locator: https://github.com/huggingface/lerobot/tree/4aaff99be4a1d81568c08c8f0296b41b40c99ec4/src/lerobot/async_inference
+    exact_identity: commit_4aaff99be4a1d81568c08c8f0296b41b40c99ec4
+    fields: [observation_capture_timestamp, action_generation_timestamp, action_timestep, action_queue_size, network_latency, inference_latency, chunk_size_threshold, actions_per_chunk]
+    kind: IMPLEMENTATION_CARRIER_ONLY
+  - id: C02
+    name: LeRobot_RTC
+    locator: https://github.com/huggingface/lerobot/tree/4aaff99be4a1d81568c08c8f0296b41b40c99ec4/src/lerobot/policies/rtc
+    exact_identity: commit_4aaff99be4a1d81568c08c8f0296b41b40c99ec4
+    fields: [action_queue, inference_latency, committed_prefix, inpainting, asynchronous_execution]
+    kind: IMPLEMENTATION_CARRIER_ONLY
+  - id: C03
+    name: RoboCasa_dataset_in_LeRobot_format
+    locator: https://github.com/robocasa/robocasa/blob/main/docs/datasets/using_datasets.md
+    exact_identity: official_documentation_as_accessed_2026-08-30
+    fields: [episode_index, frame_index, timestamp, observation_state, action, multi_camera_video, mujoco_state]
+    kind: CANONICAL_BENCHMARK_ONLY
+  - id: C04
+    name: AgiBot_World
+    locator: https://github.com/OpenDriveLab/AgiBot-World
+    exact_identity: official_public_repository_as_accessed_2026-08-30
+    fields: [trajectory, observation, action, timestamp, task, failure_annotation]
+    kind: NATURAL
+  - id: C05
+    name: LIBERO
+    locator: https://github.com/Lifelong-Robot-Learning/LIBERO
+    exact_identity: official_public_repository_as_accessed_2026-08-30
+    fields: [demonstration, image, proprioception, action, language, task_definition]
+    kind: CANONICAL_BENCHMARK_ONLY
+  - id: C06
+    name: robomimic_datasets
+    locator: https://robomimic.github.io/docs/datasets/overview.html
+    exact_identity: official_documentation_as_accessed_2026-08-30
+    fields: [demonstration, action, observation, simulator_state, dataset_type, version]
+    kind: CANONICAL_BENCHMARK_ONLY
+  - id: C07
+    name: BridgeData_V2
+    locator: https://rail-berkeley.github.io/bridgedata/
+    exact_identity: official_project_page_as_accessed_2026-08-30
+    fields: [trajectory, observation, action, language, environment]
+    kind: NATURAL
+  - id: C08
+    name: RLBench
+    locator: https://github.com/stepjam/RLBench
+    exact_identity: official_public_repository_as_accessed_2026-08-30
+    fields: [demonstration, waypoint, observation, action, task, simulator_state]
+    kind: CANONICAL_BENCHMARK_ONLY
+carrier_count: 8
+result_aware_backfill: false
+scientific_denominator_effect: NONE_UNTIL_EVIDENCE_QUALIFIED_RAW_GATE
+

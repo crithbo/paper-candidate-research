@@ -1,0 +1,64 @@
+schema_version: stagea-candidate-owner-scientific-revision-handoff-v1
+lane_id: CANDIDATE-EXECUTION-LANE-1
+assignment_id: STAGEA-L1-20260809-S4-SLO-PAGEPACK-REVISION1
+parent_assignment_id: STAGEA-L1-20260809-S4-SLO-PAGEPACK-INITIAL
+topic_id: S4-SLO-PAGEPACK
+atomic_gate: FAITHFUL_SAME_OBJECT_OBASE_MDK_COMPOSITION_GATE
+completion_status: COMPLETE
+recommended_decision: STOP
+recommended_quality_tier: BELOW_Q2_STOP
+evidence_ceiling: FROZEN_THREE_EPOCH_TRACE_LEVEL_SCIENTIFIC_STOP_ONLY
+claim_bearing_observation: true
+scientific_revision_consumed: true
+scientific_revision_number: 1
+mechanism_pivot_used: false
+cross_assignment_contamination: false
+resource_blocked: false
+stageb: false
+stageb_authorized: false
+stageb_user_approval_id: null
+pending_user_stageb_review: false
+
+input_hashes:
+  revision_contract_sha256: 86A55019EC2A55B8F1ACC83EDC2359E3D01FAED57D11CE3C0419C16EBEF389A4
+  natural_trace_sha256: E5D16D849BCD2E015C5E54A161E202241E7B7D25696F4055C742D51649DDF2A8
+  parent_stable_file_sha256: C4FB253A84F118D828CDACCF7E5F8024EA5FA939C1CD79C86EFBBDE64D942F6E
+  parent_handoff_sha256: 62962479FD59BD7347A5C5AB142F7506B7529F7BF5D9DA0762C8872DA7FC9A11
+  parent_manifest_sha256: 8A06B69D074DA30278BC3513564961F7C45B6FB2CF3F6644256F8F5AD1A03BB7
+  gate_handoff_sha256: ACD8555EE712DD9A39D63B99E5C26A7CDA6B345D52357FEB3753B582B0664C6D
+  gate_review_sha256: 0B918E067C442074655F48C1A6F41A5D37CFC2B570A9E36FF8FA4549954F1494
+  gate_manifest_sha256: 5C3B6FAA4BB51693A647F97F8725FECA7EC12A56E53426A00E190AB20E75694B
+  gate_manifest_entries_verified_by_mainline: 8_of_8
+
+result_hashes:
+  primary_and_replay_stable_file_sha256: 2CA67973C4A80A0470CF354B13F80B48F4802F995BD161CFDF474EFBEF40E19B
+  stable_object_sha256: 4A3CE1B1088554F345D03025B7DAA7D2D7CADCDE246A87869806CD9D724500C9
+  validation_sha256_pre_manifest: 75D311672EC3F2B134AAFF271F39A767A208270CD933CA7B3A70B70286F3AF4E
+
+result:
+  evaluated_epochs: 3
+  strict_full_cost_positive_epochs: 0
+  raw_average_reclaimed_byte_residuals: [4096, -4232, 2595]
+  candidate_slo_legal: [true, true, true]
+  faithful_composition_slo_legal: [false, true, true]
+  all_pointer_semantic_capacity_checks_pass: true
+  byte_identical_dual_replay: true
+  all_nonvolatile_checks_pass: true
+  faithful_composition_benefit_absorbs_all_epochs: false
+  no_strict_full_cost_residual_all_epochs: true
+
+scientific_basis:
+  - exact candidate planning is worse on states, transitions, target-subset evaluations, capacity probes and hashes in all three epochs
+  - epoch 2 has a directly negative reclaimed-byte residual against the legal named composition
+  - raw candidate byte residuals in epochs 1 and 3 fail the preregistered typed full-cost non-dominance requirement
+
+unsupported_claims:
+  - unbounded impossibility
+  - all OBASE or MDK configurations
+  - production CacheLib/OBASE performance or concurrency
+  - wall-clock SLO equivalence
+  - global novelty or paper-wide conclusion
+
+stagea_gate_required: true
+mainline_action: VERIFY_REVISION1_MANIFEST_AND_DISPATCH_INDEPENDENT_STAGEA_GATE_OR_ACCEPT_NARROW_STOP
+lane_state_after_mainline_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE

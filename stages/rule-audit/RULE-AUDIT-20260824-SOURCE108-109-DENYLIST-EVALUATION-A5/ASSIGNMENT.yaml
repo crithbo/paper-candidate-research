@@ -1,0 +1,15 @@
+schema_version: rule-audit-assignment-v1
+audit_id: RULE-AUDIT-20260824-SOURCE108-109-DENYLIST-EVALUATION-A5
+assignment_id: RULE-AUDIT-20260824-SOURCE108-109-DENYLIST-EVALUATION-A5
+lane_id: RULE_AUDIT
+thread_id: 01a02e08-0b16-7ed2-bfc4-f37b5ad86992
+trigger: SOURCE108_AND_SOURCE109_CONSECUTIVE_COMPLETE_ZERO_BRIEF
+mode: PROPOSAL_ONLY
+write_directory: stages/rule-audit/RULE-AUDIT-20260824-SOURCE108-109-DENYLIST-EVALUATION-A5
+question: Compare Source108 hidden predecessor hold with Source109 explicit denylist, localize first failed conversion, evaluate whether explicit denylist reduced execution repeats without improving raw yield, declare recent pilots RETAIN/DOWNGRADE/REMOVE, and recommend at most one future bounded change or NO_CHANGE while Source110 proceeds independently.
+allowed_actions: [READ_REGISTERED_SOURCE108_SOURCE109_AND_A4_INPUTS, DIAGNOSE_TRANSITIONS, WRITE_PROPOSAL_ONLY_OUTPUTS]
+forbidden_actions: [READ_SOURCE110_RESULTS, MODIFY_SHARED_OR_CANDIDATE_FILES, NETWORK_SEARCH_DOWNLOAD_BUILD_EXPERIMENT_QUEUE_BACKTEST_AUTOMATION_STAGE, RELAX_GATES_QUOTA_COOLDOWN_STOP_REVIVAL]
+expected_outputs: [RULE_AUDIT_REPORT.md, RULE_CHANGE_PROPOSAL.md, handoff.yaml, HASH_MANIFEST.sha256]
+resource_actions_allowed: false
+source110_may_continue_without_waiting: true
+

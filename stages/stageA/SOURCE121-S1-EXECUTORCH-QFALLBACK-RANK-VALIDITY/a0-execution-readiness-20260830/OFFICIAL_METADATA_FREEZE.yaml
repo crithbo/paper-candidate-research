@@ -1,0 +1,45 @@
+schema: executorch-official-metadata-freeze-v1
+assignment_id: STAGEA-L3-20260830-EXECUTORCH-QFALLBACK-RANK-VALIDITY-A0
+frozen_at: 2026-08-30
+executorch:
+  repository: https://github.com/pytorch/executorch
+  commit: c27baa8031862fb7528bb87616d6793a032a1257
+  commit_provenance: STAGE0_PRIMARY_CURRENT_SOURCE_FREEZE
+  license: BSD
+  live_api_revalidation: UNAVAILABLE_TLS_TRANSPORT__FROZEN_STAGE0_COMMIT_RETAINED
+  source_anchors:
+    - https://github.com/pytorch/executorch/blob/c27baa8031862fb7528bb87616d6793a032a1257/extension/llm/export/config/llm_config.py
+    - https://github.com/pytorch/executorch/blob/c27baa8031862fb7528bb87616d6793a032a1257/docs/source/llm/export-llm.md
+    - https://github.com/pytorch/executorch/blob/c27baa8031862fb7528bb87616d6793a032a1257/docs/source/backends-overview.md
+models:
+  - id: HuggingFaceTB/SmolLM2-135M
+    revision: 93efa2f097d58c2a74874c7e644dbc9b0cee75a2
+    revision_hash_type: HUGGINGFACE_GIT_COMMIT_SHA
+    license: apache-2.0
+    official_url: https://huggingface.co/HuggingFaceTB/SmolLM2-135M/tree/93efa2f097d58c2a74874c7e644dbc9b0cee75a2
+    role: CALIBRATION_AND_SMALLEST_TOPOLOGY_PANEL
+    approximate_repository_size_from_official_page: 272_MB
+  - id: Qwen/Qwen2.5-0.5B
+    revision: 060db6499f32faf8b98477b0a26969ef7d8b9987
+    revision_hash_type: HUGGINGFACE_GIT_COMMIT_SHA
+    license: apache-2.0
+    official_url: https://huggingface.co/Qwen/Qwen2.5-0.5B/tree/060db6499f32faf8b98477b0a26969ef7d8b9987
+    role: CALIBRATION
+    approximate_repository_size_from_official_page: 1000_MB
+  - id: Qwen/Qwen3-0.6B
+    revision: c1899de289a04d12100db370d81485cdf75e47ca
+    revision_hash_type: HUGGINGFACE_GIT_COMMIT_SHA
+    license: apache-2.0
+    official_url: https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca
+    role: HELD_OUT
+    official_api_model_parameters_bf16: 751632384
+weight_files_downloaded: false
+weight_content_hashes: NOT_REQUIRED_IN_A0__REVISION_HASH_PINNED__A1_MUST_HASH_ACQUIRED_FILES
+network:
+  attempts_used: 22
+  attempts_max: 24
+  exact_connector_bytes_available: false
+  persisted_response_bytes: 0
+  correction_batches_used: 2
+  correction_batches_max: 2
+scientific_inference: NONE

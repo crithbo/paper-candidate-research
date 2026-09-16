@@ -1,0 +1,49 @@
+schema_version: stage0-revision-handoff-v1
+assignment_id: STAGE0-P4R1-20260822-COUPLED-AGENT-SDK-REPLAY-REVISION1
+topic_id: COUPLED-AGENT-SDK-REPLAY-REV0
+role: REVISION_OWNER
+scientific_revision_index: 1
+scientific_revision_limit: 1
+scientific_revision_consumed: true
+disposition: REVISION_GATE_NOT_CLOSED__RETURN_TO_STAGE0_STOP_SENTINEL
+quality_tier: BELOW_Q2_STOP
+failure_sentinel: STOP__GENERIC_TOKEN_COUPLING_OR_NONISOLATED_SDK_BRANCH
+triggered_failure_branch: GENERIC_TOKEN_COUPLING_OR_PAIRED_STATISTICS_ONLY
+stageA_authorized: false
+stageB_authorized: false
+immutable_object_preserved: true
+scientific_basis:
+  C1_native_transition_induction: conditionally_sound_but_safety_only
+  C2_isolation_catalog: conditionally_sound_with_split_reset_fallback
+  C3_sampling_marginals: categorical_distribution_only_not_native_rng_trace
+  C4_fallback_uncomparable: valid_conservative_safeguard_only
+  C5_nonproduct_frontier: fail
+  decisive_reason: >-
+    No SDK-specific action, objective, recurrence guarantee or conservative
+    benefit frontier remains after subtracting CAR, coupled token generation,
+    native fork/rerun, state isolation and generic paired statistics.
+current_union_delta:
+  - native_fork_and_workspace_alias
+  - native_rerun_actions_and_nonidempotent_tool_warning
+  - categorical_not_bitwise_rng_equivalence
+  - CAR_and_token_coupling_component_subtractors
+resources:
+  resource_actions_performed: false
+  network_bytes: 0
+  claim_bearing_execution: false
+next_action:
+  route: INDEPENDENT_STAGE0_CLOSING
+  instruction: >-
+    Closing must independently attack the generic-product conclusion and either
+    confirm scientific STOP or find a concrete union-external target-specific
+    guarantee without authorizing another revision.
+canonical_files:
+  - REVISION_REPORT.md
+  - NATIVE_TRANSITION_AND_ISOLATION_CERTIFICATE.md
+  - MARGINAL_CORRECTNESS_AND_FALLBACK_PROOF.md
+  - NONPRODUCT_FRONTIER_CERTIFICATE.md
+  - CURRENT_UNION_DELTA.md
+  - RESOURCE_INVENTORY.yaml
+  - HASH_MANIFEST.sha256
+lane_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE
+windows_case_note: HANDOFF.yaml aliases handoff.yaml on this case-insensitive filesystem.

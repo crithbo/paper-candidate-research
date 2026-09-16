@@ -1,0 +1,38 @@
+audit_id: RULE-AUDIT-20260815-SOURCE71-72-CONSECUTIVE-ZERO-BRIEF-R56
+role: RULE-AUDIT-SENTRY
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+decision: NO_CHANGE
+recommendation: RETAIN_ORDINARY_R40__NO_SUCCESSOR_MICRO_RULE__KEEP_LOCATOR_BACKLOG_AND_EXACT_IDENTITY_CURRENT_UNION_PLUGIN_GENERIC_KERNEL_SEPARATION
+contract:
+  path: stages/rule-audit/_assignments/RULE_AUDIT_SOURCE71_72_ZERO_BRIEF_R56.yaml
+  sha256: D1461FAED6F91E77D3655EAC3F676A07145D00CFD3100A4047D51D6FC2005EB5
+scope:
+  included: [Source71 canonical control and telemetry, Source72 canonical control and telemetry, current shared rules]
+  explicitly_excluded: [Source73 files outcomes and state, external retrieval download and queue execution, experiments automation and all Stage work]
+canonical_inputs:
+  source71_control_sha256: 58B5718474926B1CFED59EBB2116BB6F8C1B5D355BBB62ECC784C977C2905067
+  source72_control_sha256: 47A81591DFCF1DCAC188A6F64FB3EA2869AF86309E6B2D9AC31369C042CDC38F
+funnel_counts:
+  source71: {admitted_raw: 0, clean_stage0_brief: 0}
+  source72: {admitted_raw: 0, clean_stage0_brief: 0}
+findings:
+  source72_new_attributable_rule_evidence: false
+  healthy_abstentions: [locator backlog without frozen action/carrier/estimand, exact historical identity, current union, no exact anchor, config or plugin boundary, generic SSA alias kernel]
+  rule_defect_observed: false
+authorization:
+  user_policy_approval_required: false
+  backtest_required: false
+  mainline_shared_patch_required: false
+  shared_files_modified: false
+  source73_read: false
+  queue_or_external_action_authorized: false
+mainline_action:
+  - Continue ordinary R40 only at a later safe assignment boundary.
+  - Do not add a successor micro-rule from Source71–72 zero-brief evidence.
+resource_localization: {inventory: RESOURCE_INVENTORY.yaml, resource_action: NONE, validation: PASS__EMPTY_ROOT_NO_RESOURCE_ACTION}
+validation:
+  required_files_present: PASS
+  key_counts_consistent: PASS__SOURCE71_0_0__SOURCE72_0_0
+  scope_respected: PASS__SOURCE73_NOT_READ
+  prohibited_actions_absent: PASS
+  manifest_replay: PASS__5_OF_5

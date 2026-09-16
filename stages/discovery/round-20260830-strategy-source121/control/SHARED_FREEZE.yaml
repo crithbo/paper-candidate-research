@@ -1,0 +1,22 @@
+schema: discovery-shared-freeze-v1
+round_id: SOURCE121
+model_route: {model: gpt-5.6-sol, thinking: high, temporary_user_command_override: true}
+shared_control:
+  agents: {path: AGENTS.md, sha256: 52A10F5B4AD316B0100A3187A40033A516674BCB9EB052992F1487DBD34A3655}
+  plan: {path: plan.md, sha256: EA46D6BC0CFCED44844B8108183E1428FC05D2B6D1F8E2941DF751BC17DEF170}
+  registry: {path: registry.yaml, sha256: B7BE57A3A930751B1A242F960663EDFFD7C8D40B7F2876B8FC7A5A88A94D64EE}
+  role: {path: rules/ROLE_DISCOVERY.md, sha256: 4583C7A555AF03E8365D74FFCB9B890107EB877A35059E3BA7CFDCE45E593EBD}
+  skill: {path: .agents/skills/research-topic-discovery/SKILL.md, sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2}
+  source_portfolios: {path: .agents/skills/research-topic-discovery/references/source-portfolios.md, sha256: FE3BC9503F70ED4BD729B338A7729BFA5CA3A3747312D63AF83D59B93FFE1F4D}
+  academic_skill: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  resource_rule: {path: rules/RESOURCE_LOCALIZATION.md, sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA}
+  lifecycle_rule: {path: rules/ARTIFACT_LIFECYCLE.md, sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED}
+minimum_inputs:
+  authorization: {path: stages/control/user-authorizations/USER_CONTINUOUS_DISCOVERY_STAGEA_SOLHIGH_UNTIL_USAGE_RESET_20260830.yaml, sha256: 8200079139F02DDBB32358EE247D6760480D56AA6971C810D769B9E9F5641A74}
+  control: {path: stages/discovery/round-20260830-strategy-source121/control/CONTROL.yaml, sha256: 463C248D4D0036CE216FA099C2F6990F88C6E7586E588B4AE70ED24572C59CF4}
+  portfolio: {path: stages/discovery/round-20260830-strategy-source121/control/PORTFOLIO_NOTE.yaml, sha256: C9BC8034CC305C97B82EB76E269555308A6143B4089CDE95697C2C4DB3BD9737}
+  lane_assignments: {path: stages/discovery/round-20260830-strategy-source121/control/LANE_ASSIGNMENTS.yaml, sha256: 369C2FE19B42F04C210EABCDBD5AC427550CFE6598B9E0464972022AF0F761D8}
+modes: {rq_frontend: PRODUCTION, claim_pack: OFF, quality: OFF, maturation_repair: OFF_NOT_CALIBRATED, artifact_lifecycle: PRODUCTION_NEW_ASSIGNMENTS_ONLY}
+bootstrap_permissions: [read_frozen_chain, read_related_registry_record, write_BOOTSTRAP_ACK_only]
+forbidden_before_start: [network, source_lookup, raw_or_brief, resource_action, stage0, stagea, stageb, shared_write]
+pause_signal: USAGE_RESET_CONFIRMED__SOFT_PAUSE_AFTER_CURRENT_ITEM__NO_NEW_DISCOVERY_WAVE

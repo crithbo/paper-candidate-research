@@ -1,0 +1,45 @@
+
+<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\LLVM-DWARF-CALLSITE-RECONSTRUCTIBILITY\resume1\witness\plan_rbx.elf:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+00000000002011a0 <foo>:
+  2011a0:      	cmpl	$0x2a, %edi
+  2011a3:      	sete	%al
+  2011a6:      	movzbl	%al, %eax
+  2011a9:      	movl	%eax, 0x1041(%rip)      # 0x2021f0 <result>
+  2011af:      	retq
+
+00000000002011b0 <_start>:
+  2011b0:      	movl	$0x13, %edi
+  2011b5:      	movl	$0x17, %esi
+  2011ba:      	xorl	%edx, %edx
+  2011bc:      	callq	0x2011e0 <baa>
+  2011c1:      	movl	0x1029(%rip), %edi      # 0x2021f0 <result>
+  2011c7:      	xorl	$0x1, %edi
+  2011ca:      	movl	$0xe7, %eax
+  2011cf:      	syscall
+  2011d1:      	ud2
+  2011d3:      	int3
+  2011d4:      	int3
+  2011d5:      	int3
+  2011d6:      	int3
+  2011d7:      	int3
+  2011d8:      	int3
+  2011d9:      	int3
+  2011da:      	int3
+  2011db:      	int3
+  2011dc:      	int3
+  2011dd:      	int3
+  2011de:      	int3
+  2011df:      	int3
+
+00000000002011e0 <baa>:
+  2011e0:      	pushq	%rbx
+  2011e1:      	jmp	0x2011e3 <baa+0x3>
+  2011e3:      	movl	%edi, %ebx
+  2011e5:      	addl	%esi, %ebx
+  2011e7:      	movl	%ebx, %edi
+  2011e9:      	callq	0x2011a0 <foo>
+  2011ee:      	popq	%rbx
+  2011ef:      	retq

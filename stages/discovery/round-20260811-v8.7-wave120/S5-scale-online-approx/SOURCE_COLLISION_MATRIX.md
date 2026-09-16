@@ -1,0 +1,14 @@
+# Current-upstream constructor / action matrix
+
+Each record was checked against its official current documentation and upstream source layout on 2026-08-11. The package makes no absence claim; the check records positive action coverage and relevant default/nondefault entry points.
+
+| Constructor | Official current docs and upstream source reality | Current action/config union | Pre-deep outcome |
+|---|---|---|---|
+| Apache Flink keyed state | [Stateful stream processing](https://nightlies.apache.org/flink/flink-docs-master/docs/concepts/stateful-stream-processing/) and [large-state tuning](https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/state/large_state_tuning/); upstream `flink-runtime` key-group/state assignment paths. | Key groups, max parallelism, checkpoint/savepoint, state backends and compression. | `NOT_ADMITTED_UNFROZEN`: no action-divergence witness. |
+| Apache Flink operator state | [Working with state](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/datastream/fault-tolerance/state/); upstream `flink-runtime` operator-state restore paths. | List-state `snapshotState`/`initializeState`, even-split/union redistribution. | `NOT_ADMITTED_UNFROZEN`. |
+| Apache Kafka consumer groups | [Consumer rebalance protocol](https://kafka.apache.org/42/operations/consumer-rebalance-protocol/), last modified 2026-02-16; upstream group-coordinator/consumer assignor paths. | `group.protocol`, `group.version`, `group.consumer.assignors`, `group.remote.assignor`, server heartbeat/session settings; default uniform/range assignors. | `NOT_ADMITTED_UNFROZEN`. |
+| Apache Pulsar bundles | [Current load-balance concepts](https://pulsar.apache.org/docs/4.2.x/concepts-broker-load-balancing-concepts/); upstream broker load-manager/unload paths. | Automatic/manual unloading, split, pre/post assignment; TransferShedder default extensible LB; threshold settings. | `NOT_ADMITTED_UNFROZEN`. |
+| Apache HBase regions | [Current reference guide](https://hbase.apache.org/book.html); upstream `hbase-server` master assignment/load-balancer paths. | Persisted region-state machine, move/reassign, split/merge, periodic balancing. | `NOT_ADMITTED_UNFROZEN`. |
+| Apache Iceberg rewrites | [RewriteFiles API](https://iceberg.apache.org/javadoc/latest/org/apache/iceberg/RewriteFiles.html), [nightly maintenance](https://iceberg.apache.org/docs/nightly/flink-maintenance/), upstream `core` rewrite/snapshot paths. | Atomic replacement/snapshot validation, binpack/sort/Z-order, partial progress and concurrent group/byte/file thresholds. | `NOT_ADMITTED_UNFROZEN`. |
+
+All six are excluded before candidate-grade deep review because the positive official/current union already expresses the purported migration/rebuild action; absence, version-gap or hidden-config claims were not needed.

@@ -1,0 +1,1656 @@
+--- |
+  ; ModuleID = '<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\resume1\runs\natural\modules\nettle-sha256__nettle-sha256.ll'
+  source_filename = "<LEGACY_LOCAL_PROJECT_ROOT>\\stages\\stageA\\RISCV-ZCMP-CALLEESAVE-PUSHLIST-PARETODP\\resume1\\resources\\corpus\\embench\\src\\nettle-sha256\\nettle-sha256.c"
+  target datalayout = "e-m:e-p:32:32-i64:64-n32-S128"
+  target triple = "riscv32-unknown-unknown-elf"
+  
+  %struct.nettle_hash = type { ptr, i32, i32, i32, ptr, ptr, ptr }
+  %struct.sha256_ctx = type { [8 x i32], i64, [64 x i8], i32 }
+  
+  @sha256_init.H0 = internal constant [8 x i32] [i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534, i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225], align 4
+  @K = internal constant [64 x i32] [i32 1116352408, i32 1899447441, i32 -1245643825, i32 -373957723, i32 961987163, i32 1508970993, i32 -1841331548, i32 -1424204075, i32 -670586216, i32 310598401, i32 607225278, i32 1426881987, i32 1925078388, i32 -2132889090, i32 -1680079193, i32 -1046744716, i32 -459576895, i32 -272742522, i32 264347078, i32 604807628, i32 770255983, i32 1249150122, i32 1555081692, i32 1996064986, i32 -1740746414, i32 -1473132947, i32 -1341970488, i32 -1084653625, i32 -958395405, i32 -710438585, i32 113926993, i32 338241895, i32 666307205, i32 773529912, i32 1294757372, i32 1396182291, i32 1695183700, i32 1986661051, i32 -2117940946, i32 -1838011259, i32 -1564481375, i32 -1474664885, i32 -1035236496, i32 -949202525, i32 -778901479, i32 -694614492, i32 -200395387, i32 275423344, i32 430227734, i32 506948616, i32 659060556, i32 883997877, i32 958139571, i32 1322822218, i32 1537002063, i32 1747873779, i32 1955562222, i32 2024104815, i32 -2067236844, i32 -1933114872, i32 -1866530822, i32 -1538233109, i32 -1090935817, i32 -965641998], align 4
+  @.str = private unnamed_addr constant [7 x i8] c"sha256\00", align 1
+  @nettle_sha256 = dso_local local_unnamed_addr constant %struct.nettle_hash { ptr @.str, i32 112, i32 32, i32 64, ptr @sha256_init, ptr @sha256_update, ptr @sha256_digest }, align 4
+  @msg = dso_local global [56 x i8] c"abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq", align 1
+  @hash = dso_local local_unnamed_addr global [32 x i8] c"$\8Dja\D2\068\B8\E5\C0&\93\0C>`9\A3<\E4Yd\FF!g\F6\EC\ED\D4\19\DB\06\C1", align 8
+  @buffer = dso_local global [32 x i8] zeroinitializer, align 8
+  
+  ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite)
+  define dso_local void @_nettle_write_be32(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+    %4 = lshr i32 %0, 2
+    %5 = and i32 %0, 3
+    %6 = icmp eq i32 %4, 0
+    br i1 %6, label %25, label %.preheader
+  
+  .preheader:                                       ; preds = %3
+    %7 = and i32 %0, -4
+    %scevgep2 = getelementptr i8, ptr %1, i32 %7
+    br label %8
+  
+  8:                                                ; preds = %.preheader, %8
+    %lsr.iv1 = phi ptr [ %2, %.preheader ], [ %scevgep, %8 ]
+    %9 = phi ptr [ %24, %8 ], [ %1, %.preheader ]
+    %10 = load i32, ptr %lsr.iv1, align 4, !tbaa !6
+    %11 = lshr i32 %10, 24
+    %12 = trunc nuw i32 %11 to i8
+    store i8 %12, ptr %9, align 1, !tbaa !10
+    %13 = load i32, ptr %lsr.iv1, align 4, !tbaa !6
+    %14 = lshr i32 %13, 16
+    %15 = trunc i32 %14 to i8
+    %16 = getelementptr i8, ptr %9, i32 1
+    store i8 %15, ptr %16, align 1, !tbaa !10
+    %17 = load i32, ptr %lsr.iv1, align 4, !tbaa !6
+    %18 = lshr i32 %17, 8
+    %19 = trunc i32 %18 to i8
+    %20 = getelementptr i8, ptr %9, i32 2
+    store i8 %19, ptr %20, align 1, !tbaa !10
+    %21 = load i32, ptr %lsr.iv1, align 4, !tbaa !6
+    %22 = trunc i32 %21 to i8
+    %23 = getelementptr i8, ptr %9, i32 3
+    store i8 %22, ptr %23, align 1, !tbaa !10
+    %24 = getelementptr i8, ptr %9, i32 4
+    %scevgep = getelementptr i8, ptr %lsr.iv1, i32 4
+    %lsr_fold_term_cond.replaced_term_cond = icmp eq ptr %24, %scevgep2
+    br i1 %lsr_fold_term_cond.replaced_term_cond, label %25, label %8, !llvm.loop !11
+  
+  25:                                               ; preds = %8, %3
+    %26 = phi ptr [ %1, %3 ], [ %24, %8 ]
+    %27 = icmp eq i32 %5, 0
+    br i1 %27, label %43, label %28
+  
+  28:                                               ; preds = %25
+    %29 = getelementptr inbounds nuw i32, ptr %2, i32 %4
+    %30 = load i32, ptr %29, align 4, !tbaa !6
+    switch i32 %5, label %31 [
+      i32 3, label %32
+      i32 2, label %36
+      i32 1, label %40
+    ]
+  
+  31:                                               ; preds = %28
+    unreachable
+  
+  32:                                               ; preds = %28
+    %33 = lshr i32 %30, 8
+    %34 = trunc i32 %33 to i8
+    %35 = getelementptr i8, ptr %26, i32 2
+    store i8 %34, ptr %35, align 1, !tbaa !10
+    br label %36
+  
+  36:                                               ; preds = %32, %28
+    %37 = lshr i32 %30, 16
+    %38 = trunc i32 %37 to i8
+    %39 = getelementptr inbounds nuw i8, ptr %26, i32 1
+    store i8 %38, ptr %39, align 1, !tbaa !10
+    br label %40
+  
+  40:                                               ; preds = %36, %28
+    %41 = lshr i32 %30, 24
+    %42 = trunc nuw i32 %41 to i8
+    store i8 %42, ptr %26, align 1, !tbaa !10
+    br label %43
+  
+  43:                                               ; preds = %40, %25
+    ret void
+  }
+  
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+  declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+  
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+  declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
+  
+  ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite)
+  define dso_local void @_nettle_sha256_compress(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+    %4 = alloca [16 x i32], align 4
+    call void @llvm.lifetime.start.p0(ptr nonnull %4) #9
+    %5 = load <4 x i8>, ptr %1, align 1, !tbaa !10
+    %6 = zext <4 x i8> %5 to <4 x i32>
+    %7 = shl nuw <4 x i32> %6, <i32 24, i32 16, i32 8, i32 0>
+    %8 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %7)
+    store i32 %8, ptr %4, align 4, !tbaa !6
+    %9 = getelementptr inbounds nuw i8, ptr %1, i32 4
+    %10 = load <4 x i8>, ptr %9, align 1, !tbaa !10
+    %11 = zext <4 x i8> %10 to <4 x i32>
+    %12 = shl nuw <4 x i32> %11, <i32 24, i32 16, i32 8, i32 0>
+    %13 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %12)
+    %14 = getelementptr inbounds nuw i8, ptr %4, i32 4
+    store i32 %13, ptr %14, align 4, !tbaa !6
+    %15 = getelementptr inbounds nuw i8, ptr %1, i32 8
+    %16 = load <4 x i8>, ptr %15, align 1, !tbaa !10
+    %17 = zext <4 x i8> %16 to <4 x i32>
+    %18 = shl nuw <4 x i32> %17, <i32 24, i32 16, i32 8, i32 0>
+    %19 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %18)
+    %20 = getelementptr inbounds nuw i8, ptr %4, i32 8
+    store i32 %19, ptr %20, align 4, !tbaa !6
+    %21 = getelementptr inbounds nuw i8, ptr %1, i32 12
+    %22 = load <4 x i8>, ptr %21, align 1, !tbaa !10
+    %23 = zext <4 x i8> %22 to <4 x i32>
+    %24 = shl nuw <4 x i32> %23, <i32 24, i32 16, i32 8, i32 0>
+    %25 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %24)
+    %26 = getelementptr inbounds nuw i8, ptr %4, i32 12
+    store i32 %25, ptr %26, align 4, !tbaa !6
+    %27 = getelementptr inbounds nuw i8, ptr %1, i32 16
+    %28 = load <4 x i8>, ptr %27, align 1, !tbaa !10
+    %29 = zext <4 x i8> %28 to <4 x i32>
+    %30 = shl nuw <4 x i32> %29, <i32 24, i32 16, i32 8, i32 0>
+    %31 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %30)
+    %32 = getelementptr inbounds nuw i8, ptr %4, i32 16
+    store i32 %31, ptr %32, align 4, !tbaa !6
+    %33 = getelementptr inbounds nuw i8, ptr %1, i32 20
+    %34 = load <4 x i8>, ptr %33, align 1, !tbaa !10
+    %35 = zext <4 x i8> %34 to <4 x i32>
+    %36 = shl nuw <4 x i32> %35, <i32 24, i32 16, i32 8, i32 0>
+    %37 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %36)
+    %38 = getelementptr inbounds nuw i8, ptr %4, i32 20
+    store i32 %37, ptr %38, align 4, !tbaa !6
+    %39 = getelementptr inbounds nuw i8, ptr %1, i32 24
+    %40 = load <4 x i8>, ptr %39, align 1, !tbaa !10
+    %41 = zext <4 x i8> %40 to <4 x i32>
+    %42 = shl nuw <4 x i32> %41, <i32 24, i32 16, i32 8, i32 0>
+    %43 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %42)
+    %44 = getelementptr inbounds nuw i8, ptr %4, i32 24
+    store i32 %43, ptr %44, align 4, !tbaa !6
+    %45 = getelementptr inbounds nuw i8, ptr %1, i32 28
+    %46 = load <4 x i8>, ptr %45, align 1, !tbaa !10
+    %47 = zext <4 x i8> %46 to <4 x i32>
+    %48 = shl nuw <4 x i32> %47, <i32 24, i32 16, i32 8, i32 0>
+    %49 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %48)
+    %50 = getelementptr inbounds nuw i8, ptr %4, i32 28
+    store i32 %49, ptr %50, align 4, !tbaa !6
+    %51 = getelementptr inbounds nuw i8, ptr %1, i32 32
+    %52 = load <4 x i8>, ptr %51, align 1, !tbaa !10
+    %53 = zext <4 x i8> %52 to <4 x i32>
+    %54 = shl nuw <4 x i32> %53, <i32 24, i32 16, i32 8, i32 0>
+    %55 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %54)
+    %56 = getelementptr inbounds nuw i8, ptr %4, i32 32
+    store i32 %55, ptr %56, align 4, !tbaa !6
+    %57 = getelementptr inbounds nuw i8, ptr %1, i32 36
+    %58 = load <4 x i8>, ptr %57, align 1, !tbaa !10
+    %59 = zext <4 x i8> %58 to <4 x i32>
+    %60 = shl nuw <4 x i32> %59, <i32 24, i32 16, i32 8, i32 0>
+    %61 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %60)
+    %62 = getelementptr inbounds nuw i8, ptr %4, i32 36
+    store i32 %61, ptr %62, align 4, !tbaa !6
+    %63 = getelementptr inbounds nuw i8, ptr %1, i32 40
+    %64 = load <4 x i8>, ptr %63, align 1, !tbaa !10
+    %65 = zext <4 x i8> %64 to <4 x i32>
+    %66 = shl nuw <4 x i32> %65, <i32 24, i32 16, i32 8, i32 0>
+    %67 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %66)
+    %68 = getelementptr inbounds nuw i8, ptr %4, i32 40
+    store i32 %67, ptr %68, align 4, !tbaa !6
+    %69 = getelementptr inbounds nuw i8, ptr %1, i32 44
+    %70 = load <4 x i8>, ptr %69, align 1, !tbaa !10
+    %71 = zext <4 x i8> %70 to <4 x i32>
+    %72 = shl nuw <4 x i32> %71, <i32 24, i32 16, i32 8, i32 0>
+    %73 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %72)
+    %74 = getelementptr inbounds nuw i8, ptr %4, i32 44
+    store i32 %73, ptr %74, align 4, !tbaa !6
+    %75 = getelementptr inbounds nuw i8, ptr %1, i32 48
+    %76 = load <4 x i8>, ptr %75, align 1, !tbaa !10
+    %77 = zext <4 x i8> %76 to <4 x i32>
+    %78 = shl nuw <4 x i32> %77, <i32 24, i32 16, i32 8, i32 0>
+    %79 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %78)
+    %80 = getelementptr inbounds nuw i8, ptr %4, i32 48
+    store i32 %79, ptr %80, align 4, !tbaa !6
+    %81 = getelementptr inbounds nuw i8, ptr %1, i32 52
+    %82 = load <4 x i8>, ptr %81, align 1, !tbaa !10
+    %83 = zext <4 x i8> %82 to <4 x i32>
+    %84 = shl nuw <4 x i32> %83, <i32 24, i32 16, i32 8, i32 0>
+    %85 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %84)
+    %86 = getelementptr inbounds nuw i8, ptr %4, i32 52
+    store i32 %85, ptr %86, align 4, !tbaa !6
+    %87 = getelementptr inbounds nuw i8, ptr %1, i32 56
+    %88 = load <4 x i8>, ptr %87, align 1, !tbaa !10
+    %89 = zext <4 x i8> %88 to <4 x i32>
+    %90 = shl nuw <4 x i32> %89, <i32 24, i32 16, i32 8, i32 0>
+    %91 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %90)
+    %92 = getelementptr inbounds nuw i8, ptr %4, i32 56
+    store i32 %91, ptr %92, align 4, !tbaa !6
+    %93 = getelementptr inbounds nuw i8, ptr %1, i32 60
+    %94 = load <4 x i8>, ptr %93, align 1, !tbaa !10
+    %95 = zext <4 x i8> %94 to <4 x i32>
+    %96 = shl nuw <4 x i32> %95, <i32 24, i32 16, i32 8, i32 0>
+    %97 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %96)
+    %98 = getelementptr inbounds nuw i8, ptr %4, i32 60
+    store i32 %97, ptr %98, align 4, !tbaa !6
+    %99 = load i32, ptr %0, align 4, !tbaa !6
+    %100 = getelementptr inbounds nuw i8, ptr %0, i32 4
+    %101 = load i32, ptr %100, align 4, !tbaa !6
+    %102 = getelementptr inbounds nuw i8, ptr %0, i32 8
+    %103 = load i32, ptr %102, align 4, !tbaa !6
+    %104 = getelementptr inbounds nuw i8, ptr %0, i32 12
+    %105 = load i32, ptr %104, align 4, !tbaa !6
+    %106 = getelementptr inbounds nuw i8, ptr %0, i32 16
+    %107 = load i32, ptr %106, align 4, !tbaa !6
+    %108 = getelementptr inbounds nuw i8, ptr %0, i32 20
+    %109 = load i32, ptr %108, align 4, !tbaa !6
+    %110 = getelementptr inbounds nuw i8, ptr %0, i32 24
+    %111 = load i32, ptr %110, align 4, !tbaa !6
+    %112 = getelementptr inbounds nuw i8, ptr %0, i32 28
+    %113 = load i32, ptr %112, align 4, !tbaa !6
+    br label %150
+  
+  114:                                              ; preds = %150
+    %115 = load i32, ptr %4, align 4
+    %116 = getelementptr inbounds nuw i8, ptr %4, i32 56
+    %117 = getelementptr inbounds nuw i8, ptr %4, i32 36
+    %118 = getelementptr inbounds nuw i8, ptr %4, i32 4
+    %119 = getelementptr inbounds nuw i8, ptr %4, i32 60
+    %120 = getelementptr inbounds nuw i8, ptr %4, i32 40
+    %121 = getelementptr inbounds nuw i8, ptr %4, i32 8
+    %122 = getelementptr inbounds nuw i8, ptr %4, i32 44
+    %123 = getelementptr inbounds nuw i8, ptr %4, i32 12
+    %124 = getelementptr inbounds nuw i8, ptr %4, i32 48
+    %125 = getelementptr inbounds nuw i8, ptr %4, i32 16
+    %126 = getelementptr inbounds nuw i8, ptr %4, i32 52
+    %127 = getelementptr inbounds nuw i8, ptr %4, i32 20
+    %128 = getelementptr inbounds nuw i8, ptr %4, i32 24
+    %129 = getelementptr inbounds nuw i8, ptr %4, i32 28
+    %130 = getelementptr inbounds nuw i8, ptr %4, i32 32
+    %131 = load i32, ptr %116, align 4, !tbaa !6
+    %132 = load i32, ptr %117, align 4, !tbaa !6
+    %133 = load i32, ptr %118, align 4, !tbaa !6
+    %134 = load i32, ptr %119, align 4, !tbaa !6
+    %135 = load i32, ptr %120, align 4, !tbaa !6
+    %136 = load <4 x i32>, ptr %121, align 4
+    %137 = shufflevector <4 x i32> %136, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
+    %138 = load i32, ptr %122, align 4, !tbaa !6
+    %139 = load <4 x i32>, ptr %123, align 4
+    %140 = shufflevector <4 x i32> %139, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
+    %141 = load i32, ptr %124, align 4, !tbaa !6
+    %142 = load i32, ptr %125, align 4, !tbaa !6
+    %143 = load i32, ptr %126, align 4, !tbaa !6
+    %144 = load i32, ptr %127, align 4, !tbaa !6
+    %145 = load i32, ptr %128, align 4, !tbaa !6
+    %146 = load i32, ptr %129, align 4, !tbaa !6
+    %147 = load i32, ptr %130, align 4, !tbaa !6
+    %148 = insertelement <2 x i32> %137, i32 %134, i64 1
+    %149 = insertelement <2 x i32> %140, i32 %135, i64 1
+    %scevgep = getelementptr i8, ptr %2, i32 124
+    %scevgep18 = getelementptr i8, ptr %2, i32 316
+    br label %395
+  
+  150:                                              ; preds = %150, %3
+    %151 = phi ptr [ %4, %3 ], [ %394, %150 ]
+    %152 = phi i1 [ true, %3 ], [ false, %150 ]
+    %153 = phi i32 [ %113, %3 ], [ %314, %150 ]
+    %154 = phi i32 [ %111, %3 ], [ %325, %150 ]
+    %155 = phi i32 [ %109, %3 ], [ %336, %150 ]
+    %156 = phi i32 [ %107, %3 ], [ %358, %150 ]
+    %157 = phi i32 [ %105, %3 ], [ %359, %150 ]
+    %158 = phi i32 [ %103, %3 ], [ %370, %150 ]
+    %159 = phi i32 [ %101, %3 ], [ %381, %150 ]
+    %160 = phi i32 [ %99, %3 ], [ %392, %150 ]
+    %161 = phi ptr [ %2, %3 ], [ %393, %150 ]
+    %162 = tail call i32 @llvm.fshl.i32(i32 %156, i32 %156, i32 26)
+    %163 = tail call i32 @llvm.fshl.i32(i32 %156, i32 %156, i32 21)
+    %164 = xor i32 %162, %163
+    %165 = tail call i32 @llvm.fshl.i32(i32 %156, i32 %156, i32 7)
+    %166 = xor i32 %164, %165
+    %167 = xor i32 %154, %155
+    %168 = and i32 %167, %156
+    %169 = xor i32 %168, %154
+    %170 = load i32, ptr %161, align 4, !tbaa !6
+    %171 = load i32, ptr %151, align 4, !tbaa !6
+    %172 = add i32 %153, %166
+    %173 = add i32 %172, %169
+    %174 = add i32 %173, %170
+    %175 = add i32 %174, %171
+    %176 = tail call i32 @llvm.fshl.i32(i32 %160, i32 %160, i32 30)
+    %177 = tail call i32 @llvm.fshl.i32(i32 %160, i32 %160, i32 19)
+    %178 = xor i32 %176, %177
+    %179 = tail call i32 @llvm.fshl.i32(i32 %160, i32 %160, i32 10)
+    %180 = xor i32 %178, %179
+    %181 = and i32 %159, %160
+    %182 = xor i32 %159, %160
+    %183 = and i32 %158, %182
+    %184 = xor i32 %183, %181
+    %185 = add i32 %184, %180
+    %186 = xor i32 %155, %156
+    %187 = getelementptr i8, ptr %161, i32 4
+    %188 = load i32, ptr %187, align 4, !tbaa !6
+    %189 = getelementptr i8, ptr %151, i32 4
+    %190 = load i32, ptr %189, align 4, !tbaa !6
+    %191 = add i32 %188, %154
+    %192 = add i32 %191, %190
+    %193 = getelementptr i8, ptr %161, i32 8
+    %194 = load i32, ptr %193, align 4, !tbaa !6
+    %195 = getelementptr i8, ptr %151, i32 8
+    %196 = load i32, ptr %195, align 4, !tbaa !6
+    %197 = add i32 %194, %155
+    %198 = add i32 %197, %196
+    %199 = getelementptr i8, ptr %161, i32 12
+    %200 = load i32, ptr %199, align 4, !tbaa !6
+    %201 = getelementptr i8, ptr %151, i32 12
+    %202 = load i32, ptr %201, align 4, !tbaa !6
+    %203 = add i32 %200, %156
+    %204 = add i32 %203, %202
+    %205 = getelementptr i8, ptr %161, i32 16
+    %206 = load i32, ptr %205, align 4, !tbaa !6
+    %207 = getelementptr i8, ptr %151, i32 16
+    %208 = load i32, ptr %207, align 4, !tbaa !6
+    %209 = getelementptr i8, ptr %161, i32 20
+    %210 = load i32, ptr %209, align 4, !tbaa !6
+    %211 = getelementptr i8, ptr %151, i32 20
+    %212 = load i32, ptr %211, align 4, !tbaa !6
+    %213 = add i32 %212, %210
+    %214 = getelementptr i8, ptr %161, i32 24
+    %215 = load i32, ptr %214, align 4, !tbaa !6
+    %216 = getelementptr i8, ptr %151, i32 24
+    %217 = load i32, ptr %216, align 4, !tbaa !6
+    %218 = add i32 %217, %215
+    %219 = getelementptr i8, ptr %161, i32 28
+    %220 = load i32, ptr %219, align 4, !tbaa !6
+    %221 = getelementptr i8, ptr %151, i32 28
+    %222 = load i32, ptr %221, align 4, !tbaa !6
+    %223 = add i32 %222, %220
+    %224 = insertelement <2 x i32> poison, i32 %175, i64 0
+    %225 = shufflevector <2 x i32> %224, <2 x i32> poison, <2 x i32> zeroinitializer
+    %226 = insertelement <2 x i32> poison, i32 %185, i64 0
+    %227 = insertelement <2 x i32> %226, i32 %157, i64 1
+    %228 = add <2 x i32> %225, %227
+    %229 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %228, <2 x i32> %228, <2 x i32> <i32 30, i32 26>)
+    %230 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %228, <2 x i32> %228, <2 x i32> <i32 19, i32 21>)
+    %231 = xor <2 x i32> %229, %230
+    %232 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %228, <2 x i32> %228, <2 x i32> <i32 10, i32 7>)
+    %233 = xor <2 x i32> %231, %232
+    %234 = extractelement <2 x i32> %228, i64 0
+    %235 = and i32 %234, %160
+    %236 = extractelement <2 x i32> %228, i64 1
+    %237 = and i32 %236, %186
+    %238 = xor i32 %234, %160
+    %239 = xor i32 %237, %155
+    %240 = and i32 %238, %159
+    %241 = add i32 %192, %239
+    %242 = xor i32 %240, %235
+    %243 = insertelement <2 x i32> poison, i32 %242, i64 0
+    %244 = insertelement <2 x i32> %243, i32 %241, i64 1
+    %245 = add <2 x i32> %233, %244
+    %246 = xor i32 %236, %156
+    %247 = add i32 %206, %236
+    %248 = add i32 %247, %208
+    %249 = shufflevector <2 x i32> %245, <2 x i32> poison, <2 x i32> <i32 1, i32 1>
+    %250 = insertelement <2 x i32> %245, i32 %158, i64 1
+    %251 = add <2 x i32> %249, %250
+    %252 = extractelement <2 x i32> %251, i64 1
+    %253 = and i32 %252, %246
+    %254 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %251, <2 x i32> %251, <2 x i32> <i32 30, i32 26>)
+    %255 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %251, <2 x i32> %251, <2 x i32> <i32 19, i32 21>)
+    %256 = xor <2 x i32> %254, %255
+    %257 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %251, <2 x i32> %251, <2 x i32> <i32 10, i32 7>)
+    %258 = xor <2 x i32> %256, %257
+    %259 = extractelement <2 x i32> %251, i64 0
+    %260 = and i32 %259, %234
+    %261 = xor i32 %259, %234
+    %262 = xor i32 %253, %156
+    %263 = and i32 %261, %160
+    %264 = add i32 %198, %262
+    %265 = xor i32 %263, %260
+    %266 = insertelement <2 x i32> poison, i32 %265, i64 0
+    %267 = insertelement <2 x i32> %266, i32 %264, i64 1
+    %268 = add <2 x i32> %258, %267
+    %269 = extractelement <2 x i32> %268, i64 1
+    %270 = add i32 %269, %159
+    %271 = tail call i32 @llvm.fshl.i32(i32 %270, i32 %270, i32 26)
+    %272 = tail call i32 @llvm.fshl.i32(i32 %270, i32 %270, i32 21)
+    %273 = xor i32 %271, %272
+    %274 = tail call i32 @llvm.fshl.i32(i32 %270, i32 %270, i32 7)
+    %275 = xor i32 %273, %274
+    %276 = xor i32 %252, %236
+    %277 = and i32 %270, %276
+    %278 = xor i32 %277, %236
+    %279 = add i32 %204, %278
+    %280 = xor i32 %270, %252
+    %281 = add i32 %213, %252
+    %282 = add i32 %218, %270
+    %283 = add i32 %279, %275
+    %284 = extractelement <2 x i32> %268, i64 0
+    %285 = add i32 %284, %269
+    %286 = tail call i32 @llvm.fshl.i32(i32 %285, i32 %285, i32 30)
+    %287 = tail call i32 @llvm.fshl.i32(i32 %285, i32 %285, i32 19)
+    %288 = xor i32 %286, %287
+    %289 = tail call i32 @llvm.fshl.i32(i32 %285, i32 %285, i32 10)
+    %290 = xor i32 %288, %289
+    %291 = xor i32 %285, %259
+    %292 = and i32 %291, %234
+    %293 = add i32 %283, %160
+    %294 = tail call i32 @llvm.fshl.i32(i32 %293, i32 %293, i32 26)
+    %295 = tail call i32 @llvm.fshl.i32(i32 %293, i32 %293, i32 21)
+    %296 = xor i32 %294, %295
+    %297 = tail call i32 @llvm.fshl.i32(i32 %293, i32 %293, i32 7)
+    %298 = xor i32 %296, %297
+    %299 = insertelement <2 x i32> poison, i32 %280, i64 0
+    %300 = insertelement <2 x i32> %299, i32 %285, i64 1
+    %301 = shufflevector <2 x i32> %251, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+    %302 = insertelement <2 x i32> %301, i32 %293, i64 0
+    %303 = and <2 x i32> %300, %302
+    %304 = insertelement <2 x i32> %301, i32 %292, i64 1
+    %305 = xor <2 x i32> %303, %304
+    %306 = insertelement <2 x i32> poison, i32 %248, i64 0
+    %307 = insertelement <2 x i32> %306, i32 %290, i64 1
+    %308 = add <2 x i32> %307, %305
+    %309 = insertelement <2 x i32> poison, i32 %298, i64 0
+    %310 = insertelement <2 x i32> %309, i32 %283, i64 1
+    %311 = add <2 x i32> %308, %310
+    %312 = extractelement <2 x i32> %311, i64 1
+    %313 = add <2 x i32> %311, %228
+    %314 = extractelement <2 x i32> %313, i64 0
+    %315 = tail call i32 @llvm.fshl.i32(i32 %314, i32 %314, i32 26)
+    %316 = tail call i32 @llvm.fshl.i32(i32 %314, i32 %314, i32 21)
+    %317 = xor i32 %315, %316
+    %318 = tail call i32 @llvm.fshl.i32(i32 %314, i32 %314, i32 7)
+    %319 = xor i32 %317, %318
+    %320 = xor i32 %293, %270
+    %321 = and i32 %314, %320
+    %322 = xor i32 %321, %270
+    %323 = add i32 %281, %322
+    %324 = add i32 %323, %319
+    %325 = add i32 %324, %259
+    %326 = tail call i32 @llvm.fshl.i32(i32 %325, i32 %325, i32 26)
+    %327 = tail call i32 @llvm.fshl.i32(i32 %325, i32 %325, i32 21)
+    %328 = xor i32 %326, %327
+    %329 = tail call i32 @llvm.fshl.i32(i32 %325, i32 %325, i32 7)
+    %330 = xor i32 %328, %329
+    %331 = xor i32 %314, %293
+    %332 = and i32 %325, %331
+    %333 = xor i32 %332, %293
+    %334 = add i32 %282, %333
+    %335 = add i32 %334, %330
+    %336 = add i32 %335, %285
+    %337 = shufflevector <2 x i32> %311, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
+    %338 = insertelement <2 x i32> %337, i32 %336, i64 1
+    %339 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %338, <2 x i32> %338, <2 x i32> <i32 30, i32 26>)
+    %340 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %338, <2 x i32> %338, <2 x i32> <i32 19, i32 21>)
+    %341 = xor <2 x i32> %339, %340
+    %342 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %338, <2 x i32> %338, <2 x i32> <i32 10, i32 7>)
+    %343 = xor <2 x i32> %341, %342
+    %344 = xor i32 %325, %314
+    %345 = xor i32 %312, %285
+    %346 = and i32 %336, %344
+    %347 = and i32 %345, %259
+    %348 = xor i32 %346, %314
+    %349 = and i32 %312, %285
+    %350 = add i32 %223, %293
+    %351 = xor i32 %347, %349
+    %352 = add i32 %350, %348
+    %353 = insertelement <2 x i32> poison, i32 %351, i64 0
+    %354 = insertelement <2 x i32> %353, i32 %352, i64 1
+    %355 = add <2 x i32> %354, %343
+    %356 = extractelement <2 x i32> %355, i64 1
+    %357 = add <2 x i32> %355, %311
+    %358 = add i32 %356, %312
+    %359 = extractelement <2 x i32> %357, i64 0
+    %360 = tail call i32 @llvm.fshl.i32(i32 %359, i32 %359, i32 30)
+    %361 = tail call i32 @llvm.fshl.i32(i32 %359, i32 %359, i32 19)
+    %362 = xor i32 %360, %361
+    %363 = tail call i32 @llvm.fshl.i32(i32 %359, i32 %359, i32 10)
+    %364 = xor i32 %362, %363
+    %365 = and i32 %359, %312
+    %366 = xor i32 %359, %312
+    %367 = and i32 %366, %285
+    %368 = xor i32 %367, %365
+    %369 = add i32 %364, %368
+    %370 = add i32 %369, %324
+    %371 = tail call i32 @llvm.fshl.i32(i32 %370, i32 %370, i32 30)
+    %372 = tail call i32 @llvm.fshl.i32(i32 %370, i32 %370, i32 19)
+    %373 = xor i32 %371, %372
+    %374 = tail call i32 @llvm.fshl.i32(i32 %370, i32 %370, i32 10)
+    %375 = xor i32 %373, %374
+    %376 = and i32 %370, %359
+    %377 = xor i32 %370, %359
+    %378 = and i32 %377, %312
+    %379 = xor i32 %378, %376
+    %380 = add i32 %375, %379
+    %381 = add i32 %380, %335
+    %382 = tail call i32 @llvm.fshl.i32(i32 %381, i32 %381, i32 30)
+    %383 = tail call i32 @llvm.fshl.i32(i32 %381, i32 %381, i32 19)
+    %384 = xor i32 %382, %383
+    %385 = tail call i32 @llvm.fshl.i32(i32 %381, i32 %381, i32 10)
+    %386 = xor i32 %384, %385
+    %387 = and i32 %381, %370
+    %388 = xor i32 %381, %370
+    %389 = and i32 %388, %359
+    %390 = xor i32 %389, %387
+    %391 = add i32 %386, %390
+    %392 = add i32 %391, %356
+    %393 = getelementptr i8, ptr %161, i32 32
+    %394 = getelementptr i8, ptr %151, i32 32
+    br i1 %152, label %150, label %114, !llvm.loop !13
+  
+  395:                                              ; preds = %395, %114
+    %lsr.iv1 = phi ptr [ %scevgep2, %395 ], [ %scevgep, %114 ]
+    %396 = phi i32 [ %147, %114 ], [ %744, %395 ]
+    %397 = phi i32 [ %146, %114 ], [ %670, %395 ]
+    %398 = phi i32 [ %145, %114 ], [ %591, %395 ]
+    %399 = phi i32 [ %144, %114 ], [ %659, %395 ]
+    %400 = phi i32 [ %143, %114 ], [ %900, %395 ]
+    %401 = phi i32 [ %142, %114 ], [ %567, %395 ]
+    %402 = phi i32 [ %141, %114 ], [ %938, %395 ]
+    %403 = phi i32 [ %138, %114 ], [ %887, %395 ]
+    %404 = phi i32 [ %133, %114 ], [ %539, %395 ]
+    %405 = phi i32 [ %132, %114 ], [ %829, %395 ]
+    %406 = phi i32 [ %131, %114 ], [ %972, %395 ]
+    %407 = phi i32 [ %314, %114 ], [ %943, %395 ]
+    %408 = phi i32 [ %325, %114 ], [ %956, %395 ]
+    %409 = phi i32 [ %336, %114 ], [ %1050, %395 ]
+    %410 = phi i32 [ %370, %114 ], [ %1023, %395 ]
+    %411 = phi i32 [ %381, %114 ], [ %1035, %395 ]
+    %412 = phi i32 [ %392, %114 ], [ %1047, %395 ]
+    %413 = phi i32 [ %115, %114 ], [ %439, %395 ]
+    %414 = phi <2 x i32> [ %148, %114 ], [ %1048, %395 ]
+    %415 = phi <2 x i32> [ %149, %114 ], [ %1049, %395 ]
+    %416 = phi <2 x i32> [ %357, %114 ], [ %1010, %395 ]
+    %scevgep3 = getelementptr i8, ptr %lsr.iv1, i32 -60
+    %417 = extractelement <2 x i32> %416, i64 1
+    %418 = tail call i32 @llvm.fshl.i32(i32 %417, i32 %417, i32 26)
+    %419 = tail call i32 @llvm.fshl.i32(i32 %417, i32 %417, i32 21)
+    %420 = xor i32 %418, %419
+    %421 = tail call i32 @llvm.fshl.i32(i32 %417, i32 %417, i32 7)
+    %422 = xor i32 %420, %421
+    %423 = xor i32 %408, %409
+    %424 = and i32 %423, %417
+    %425 = xor i32 %424, %408
+    %426 = load i32, ptr %scevgep3, align 4, !tbaa !6
+    %427 = tail call i32 @llvm.fshl.i32(i32 %406, i32 %406, i32 15)
+    %428 = tail call i32 @llvm.fshl.i32(i32 %406, i32 %406, i32 13)
+    %429 = xor i32 %427, %428
+    %430 = lshr i32 %406, 10
+    %431 = xor i32 %429, %430
+    %432 = add i32 %431, %405
+    %433 = tail call i32 @llvm.fshl.i32(i32 %404, i32 %404, i32 25)
+    %434 = tail call i32 @llvm.fshl.i32(i32 %404, i32 %404, i32 14)
+    %435 = xor i32 %433, %434
+    %436 = lshr i32 %404, 3
+    %437 = xor i32 %435, %436
+    %438 = add i32 %432, %413
+    %439 = add i32 %438, %437
+    %440 = add i32 %407, %422
+    %441 = add i32 %440, %425
+    %442 = add i32 %441, %426
+    %443 = add i32 %442, %439
+    %444 = tail call i32 @llvm.fshl.i32(i32 %412, i32 %412, i32 30)
+    %445 = tail call i32 @llvm.fshl.i32(i32 %412, i32 %412, i32 19)
+    %446 = xor i32 %444, %445
+    %447 = tail call i32 @llvm.fshl.i32(i32 %412, i32 %412, i32 10)
+    %448 = xor i32 %446, %447
+    %449 = and i32 %411, %412
+    %450 = xor i32 %411, %412
+    %451 = and i32 %410, %450
+    %452 = xor i32 %451, %449
+    %453 = add i32 %452, %448
+    %454 = xor i32 %409, %417
+    %scevgep5 = getelementptr i8, ptr %lsr.iv1, i32 -56
+    %455 = load i32, ptr %scevgep5, align 4, !tbaa !6
+    %456 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %414, <2 x i32> %414, <2 x i32> <i32 25, i32 15>)
+    %457 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %414, <2 x i32> %414, <2 x i32> <i32 14, i32 13>)
+    %458 = lshr <2 x i32> %414, <i32 3, i32 10>
+    %459 = extractelement <2 x i32> %415, i64 1
+    %460 = add i32 %459, %404
+    %461 = add i32 %455, %408
+    %scevgep6 = getelementptr i8, ptr %lsr.iv1, i32 -52
+    %462 = load i32, ptr %scevgep6, align 4, !tbaa !6
+    %463 = tail call i32 @llvm.fshl.i32(i32 %439, i32 %439, i32 15)
+    %464 = tail call i32 @llvm.fshl.i32(i32 %439, i32 %439, i32 13)
+    %465 = xor i32 %463, %464
+    %466 = lshr i32 %439, 10
+    %467 = xor i32 %465, %466
+    %468 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %415, <2 x i32> %415, <2 x i32> splat (i32 25))
+    %469 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %415, <2 x i32> %415, <2 x i32> splat (i32 14))
+    %470 = lshr <2 x i32> %415, splat (i32 3)
+    %471 = extractelement <2 x i32> %414, i64 0
+    %472 = add i32 %467, %471
+    %473 = add i32 %472, %403
+    %474 = add i32 %462, %409
+    %scevgep7 = getelementptr i8, ptr %lsr.iv1, i32 -48
+    %475 = load i32, ptr %scevgep7, align 4, !tbaa !6
+    %476 = extractelement <2 x i32> %415, i64 0
+    %scevgep8 = getelementptr i8, ptr %lsr.iv1, i32 -44
+    %477 = load i32, ptr %scevgep8, align 4, !tbaa !6
+    %478 = add i32 %400, %401
+    %scevgep9 = getelementptr i8, ptr %lsr.iv1, i32 -40
+    %479 = load i32, ptr %scevgep9, align 4, !tbaa !6
+    %480 = add i32 %399, %406
+    %scevgep10 = getelementptr i8, ptr %lsr.iv1, i32 -36
+    %481 = load i32, ptr %scevgep10, align 4, !tbaa !6
+    %482 = extractelement <2 x i32> %414, i64 1
+    %483 = add i32 %398, %482
+    %scevgep11 = getelementptr i8, ptr %lsr.iv1, i32 -32
+    %484 = load i32, ptr %scevgep11, align 4, !tbaa !6
+    %485 = add i32 %397, %439
+    %scevgep12 = getelementptr i8, ptr %lsr.iv1, i32 -28
+    %486 = load i32, ptr %scevgep12, align 4, !tbaa !6
+    %487 = tail call i32 @llvm.fshl.i32(i32 %405, i32 %405, i32 25)
+    %488 = tail call i32 @llvm.fshl.i32(i32 %405, i32 %405, i32 14)
+    %489 = xor i32 %487, %488
+    %490 = lshr i32 %405, 3
+    %491 = xor i32 %489, %490
+    %scevgep13 = getelementptr i8, ptr %lsr.iv1, i32 -24
+    %492 = load i32, ptr %scevgep13, align 4, !tbaa !6
+    %scevgep14 = getelementptr i8, ptr %lsr.iv1, i32 -20
+    %493 = load i32, ptr %scevgep14, align 4, !tbaa !6
+    %494 = tail call i32 @llvm.fshl.i32(i32 %403, i32 %403, i32 25)
+    %495 = tail call i32 @llvm.fshl.i32(i32 %403, i32 %403, i32 14)
+    %496 = xor i32 %494, %495
+    %497 = lshr i32 %403, 3
+    %498 = xor i32 %496, %497
+    %499 = add i32 %498, %459
+    %scevgep15 = getelementptr i8, ptr %lsr.iv1, i32 -16
+    %500 = load i32, ptr %scevgep15, align 4, !tbaa !6
+    %501 = tail call i32 @llvm.fshl.i32(i32 %402, i32 %402, i32 25)
+    %502 = tail call i32 @llvm.fshl.i32(i32 %402, i32 %402, i32 14)
+    %503 = xor i32 %501, %502
+    %504 = lshr i32 %402, 3
+    %505 = xor i32 %503, %504
+    %506 = add i32 %505, %403
+    %scevgep16 = getelementptr i8, ptr %lsr.iv1, i32 -12
+    %507 = load i32, ptr %scevgep16, align 4, !tbaa !6
+    %508 = tail call i32 @llvm.fshl.i32(i32 %400, i32 %400, i32 25)
+    %509 = tail call i32 @llvm.fshl.i32(i32 %400, i32 %400, i32 14)
+    %510 = xor i32 %508, %509
+    %511 = lshr i32 %400, 3
+    %512 = xor i32 %510, %511
+    %513 = add i32 %512, %402
+    %scevgep17 = getelementptr i8, ptr %lsr.iv1, i32 -8
+    %514 = load i32, ptr %scevgep17, align 4, !tbaa !6
+    %515 = tail call i32 @llvm.fshl.i32(i32 %406, i32 %406, i32 25)
+    %516 = tail call i32 @llvm.fshl.i32(i32 %406, i32 %406, i32 14)
+    %517 = xor i32 %515, %516
+    %518 = lshr i32 %406, 3
+    %519 = xor i32 %517, %518
+    %520 = add i32 %400, %519
+    %scevgep4 = getelementptr i8, ptr %lsr.iv1, i32 -4
+    %521 = load i32, ptr %scevgep4, align 4, !tbaa !6
+    %522 = tail call i32 @llvm.fshl.i32(i32 %482, i32 %482, i32 25)
+    %523 = tail call i32 @llvm.fshl.i32(i32 %482, i32 %482, i32 14)
+    %524 = xor i32 %522, %523
+    %525 = lshr i32 %482, 3
+    %526 = xor i32 %524, %525
+    %527 = add i32 %526, %406
+    %528 = load i32, ptr %lsr.iv1, align 4, !tbaa !6
+    %529 = tail call i32 @llvm.fshl.i32(i32 %439, i32 %439, i32 25)
+    %530 = tail call i32 @llvm.fshl.i32(i32 %439, i32 %439, i32 14)
+    %531 = xor i32 %529, %530
+    %532 = lshr i32 %439, 3
+    %533 = xor i32 %531, %532
+    %534 = xor <2 x i32> %456, %457
+    %535 = xor <2 x i32> %534, %458
+    %536 = extractelement <2 x i32> %535, i64 1
+    %537 = add i32 %460, %536
+    %538 = extractelement <2 x i32> %535, i64 0
+    %539 = add i32 %537, %538
+    %540 = insertelement <2 x i32> poison, i32 %539, i64 0
+    %541 = insertelement <2 x i32> %540, i32 %401, i64 1
+    %542 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %541, <2 x i32> %541, <2 x i32> <i32 15, i32 25>)
+    %543 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %541, <2 x i32> %541, <2 x i32> <i32 13, i32 14>)
+    %544 = xor <2 x i32> %542, %543
+    %545 = lshr <2 x i32> %541, <i32 10, i32 3>
+    %546 = xor <2 x i32> %544, %545
+    %547 = extractelement <2 x i32> %546, i64 0
+    %548 = extractelement <2 x i32> %546, i64 1
+    %549 = add i32 %539, %491
+    %550 = add i32 %549, %396
+    %551 = xor <2 x i32> %468, %469
+    %552 = xor <2 x i32> %551, %470
+    %553 = insertelement <2 x i32> poison, i32 %473, i64 0
+    %554 = insertelement <2 x i32> %553, i32 %405, i64 1
+    %555 = add <2 x i32> %552, %554
+    %556 = extractelement <2 x i32> %555, i64 0
+    %557 = add i32 %474, %556
+    %558 = insertelement <2 x i32> %555, i32 %399, i64 1
+    %559 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %558, <2 x i32> %558, <2 x i32> <i32 15, i32 25>)
+    %560 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %558, <2 x i32> %558, <2 x i32> <i32 13, i32 14>)
+    %561 = xor <2 x i32> %559, %560
+    %562 = lshr <2 x i32> %558, <i32 10, i32 3>
+    %563 = xor <2 x i32> %561, %562
+    %564 = extractelement <2 x i32> %563, i64 0
+    %565 = add i32 %478, %564
+    %566 = extractelement <2 x i32> %563, i64 1
+    %567 = add i32 %565, %566
+    %568 = insertelement <2 x i32> poison, i32 %567, i64 0
+    %569 = insertelement <2 x i32> %568, i32 %397, i64 1
+    %570 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %569, <2 x i32> %569, <2 x i32> <i32 15, i32 25>)
+    %571 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %569, <2 x i32> %569, <2 x i32> <i32 13, i32 14>)
+    %572 = xor <2 x i32> %570, %571
+    %573 = lshr <2 x i32> %569, <i32 10, i32 3>
+    %574 = xor <2 x i32> %572, %573
+    %575 = extractelement <2 x i32> %574, i64 0
+    %576 = extractelement <2 x i32> %574, i64 1
+    %577 = add i32 %453, %443
+    %578 = tail call i32 @llvm.fshl.i32(i32 %577, i32 %577, i32 30)
+    %579 = tail call i32 @llvm.fshl.i32(i32 %577, i32 %577, i32 19)
+    %580 = xor i32 %578, %579
+    %581 = tail call i32 @llvm.fshl.i32(i32 %577, i32 %577, i32 10)
+    %582 = xor i32 %580, %581
+    %583 = and i32 %577, %412
+    %584 = xor i32 %577, %412
+    %585 = and i32 %584, %411
+    %586 = xor i32 %585, %583
+    %587 = add i32 %582, %586
+    %588 = add i32 %402, %476
+    %589 = add i32 %588, %547
+    %590 = add i32 %483, %575
+    %591 = add i32 %590, %576
+    %592 = tail call i32 @llvm.fshl.i32(i32 %591, i32 %591, i32 15)
+    %593 = tail call i32 @llvm.fshl.i32(i32 %591, i32 %591, i32 13)
+    %594 = xor i32 %592, %593
+    %595 = lshr i32 %591, 10
+    %596 = xor i32 %594, %595
+    %597 = extractelement <2 x i32> %555, i64 1
+    %598 = add i32 %597, %556
+    %599 = add i32 %506, %567
+    %600 = add i32 %520, %591
+    %601 = insertelement <2 x i32> poison, i32 %443, i64 0
+    %602 = insertelement <2 x i32> %601, i32 %475, i64 1
+    %603 = add <2 x i32> %602, %416
+    %604 = extractelement <2 x i32> %603, i64 0
+    %605 = tail call i32 @llvm.fshl.i32(i32 %604, i32 %604, i32 26)
+    %606 = tail call i32 @llvm.fshl.i32(i32 %604, i32 %604, i32 21)
+    %607 = xor i32 %605, %606
+    %608 = tail call i32 @llvm.fshl.i32(i32 %604, i32 %604, i32 7)
+    %609 = xor i32 %607, %608
+    %610 = and i32 %604, %454
+    %611 = xor i32 %610, %409
+    %612 = add i32 %461, %611
+    %613 = add i32 %612, %609
+    %614 = xor i32 %604, %417
+    %615 = add i32 %477, %604
+    %616 = add i32 %613, %539
+    %617 = add i32 %615, %567
+    %618 = add i32 %616, %410
+    %619 = add i32 %587, %616
+    %620 = tail call i32 @llvm.fshl.i32(i32 %618, i32 %618, i32 26)
+    %621 = tail call i32 @llvm.fshl.i32(i32 %618, i32 %618, i32 21)
+    %622 = xor i32 %620, %621
+    %623 = tail call i32 @llvm.fshl.i32(i32 %618, i32 %618, i32 7)
+    %624 = xor i32 %622, %623
+    %625 = and i32 %618, %614
+    %626 = xor i32 %625, %417
+    %627 = tail call i32 @llvm.fshl.i32(i32 %619, i32 %619, i32 30)
+    %628 = tail call i32 @llvm.fshl.i32(i32 %619, i32 %619, i32 19)
+    %629 = xor i32 %627, %628
+    %630 = tail call i32 @llvm.fshl.i32(i32 %619, i32 %619, i32 10)
+    %631 = xor i32 %629, %630
+    %632 = and i32 %619, %577
+    %633 = xor i32 %619, %577
+    %634 = and i32 %633, %412
+    %635 = xor i32 %634, %632
+    %636 = add i32 %631, %635
+    %637 = add i32 %557, %626
+    %638 = add i32 %637, %624
+    %639 = insertelement <2 x i32> poison, i32 %638, i64 0
+    %640 = shufflevector <2 x i32> %639, <2 x i32> poison, <2 x i32> zeroinitializer
+    %641 = insertelement <2 x i32> poison, i32 %636, i64 0
+    %642 = insertelement <2 x i32> %641, i32 %411, i64 1
+    %643 = add <2 x i32> %640, %642
+    %644 = add i32 %589, %548
+    %645 = extractelement <2 x i32> %643, i64 0
+    %646 = xor i32 %645, %619
+    %647 = insertelement <2 x i32> poison, i32 %644, i64 0
+    %648 = insertelement <2 x i32> %647, i32 %398, i64 1
+    %649 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %648, <2 x i32> %648, <2 x i32> <i32 15, i32 25>)
+    %650 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %648, <2 x i32> %648, <2 x i32> <i32 13, i32 14>)
+    %651 = xor <2 x i32> %649, %650
+    %652 = lshr <2 x i32> %648, <i32 10, i32 3>
+    %653 = xor <2 x i32> %651, %652
+    %654 = extractelement <2 x i32> %653, i64 0
+    %655 = add i32 %480, %654
+    %656 = extractelement <2 x i32> %653, i64 1
+    %657 = xor i32 %618, %604
+    %658 = and i32 %646, %577
+    %659 = add i32 %655, %656
+    %660 = insertelement <2 x i32> poison, i32 %659, i64 0
+    %661 = insertelement <2 x i32> %660, i32 %396, i64 1
+    %662 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %661, <2 x i32> %661, <2 x i32> <i32 15, i32 25>)
+    %663 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %661, <2 x i32> %661, <2 x i32> <i32 13, i32 14>)
+    %664 = xor <2 x i32> %662, %663
+    %665 = lshr <2 x i32> %661, <i32 10, i32 3>
+    %666 = xor <2 x i32> %664, %665
+    %667 = extractelement <2 x i32> %666, i64 0
+    %668 = add i32 %485, %667
+    %669 = extractelement <2 x i32> %666, i64 1
+    %670 = add i32 %668, %669
+    %671 = add i32 %670, %484
+    %672 = add i32 %479, %618
+    %673 = add i32 %672, %659
+    %674 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %643, <2 x i32> %643, <2 x i32> <i32 30, i32 26>)
+    %675 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %643, <2 x i32> %643, <2 x i32> <i32 19, i32 21>)
+    %676 = xor <2 x i32> %674, %675
+    %677 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %643, <2 x i32> %643, <2 x i32> <i32 10, i32 7>)
+    %678 = xor <2 x i32> %676, %677
+    %679 = extractelement <2 x i32> %643, i64 1
+    %680 = and i32 %679, %657
+    %681 = insertelement <2 x i32> poison, i32 %680, i64 0
+    %682 = insertelement <2 x i32> %681, i32 %644, i64 1
+    %683 = add <2 x i32> %603, %682
+    %684 = xor <2 x i32> %603, %682
+    %685 = and i32 %645, %619
+    %686 = shufflevector <2 x i32> %684, <2 x i32> poison, <2 x i32> <i32 poison, i32 0>
+    %687 = add <2 x i32> %683, %686
+    %688 = xor i32 %658, %685
+    %689 = insertelement <2 x i32> %687, i32 %688, i64 0
+    %690 = add <2 x i32> %678, %689
+    %691 = extractelement <2 x i32> %690, i64 1
+    %692 = add i32 %691, %412
+    %693 = tail call i32 @llvm.fshl.i32(i32 %692, i32 %692, i32 26)
+    %694 = tail call i32 @llvm.fshl.i32(i32 %692, i32 %692, i32 21)
+    %695 = xor i32 %693, %694
+    %696 = tail call i32 @llvm.fshl.i32(i32 %692, i32 %692, i32 7)
+    %697 = xor i32 %695, %696
+    %698 = xor i32 %679, %618
+    %699 = and i32 %692, %698
+    %700 = xor i32 %699, %618
+    %701 = add i32 %617, %700
+    %702 = add i32 %701, %697
+    %703 = xor i32 %692, %679
+    %704 = add i32 %679, %481
+    %705 = extractelement <2 x i32> %690, i64 0
+    %706 = add i32 %705, %691
+    %707 = tail call i32 @llvm.fshl.i32(i32 %706, i32 %706, i32 30)
+    %708 = tail call i32 @llvm.fshl.i32(i32 %706, i32 %706, i32 19)
+    %709 = xor i32 %707, %708
+    %710 = tail call i32 @llvm.fshl.i32(i32 %706, i32 %706, i32 10)
+    %711 = xor i32 %709, %710
+    %712 = and i32 %706, %645
+    %713 = xor i32 %706, %645
+    %714 = and i32 %713, %619
+    %715 = xor i32 %714, %712
+    %716 = add i32 %711, %715
+    %717 = insertelement <2 x i32> poison, i32 %702, i64 0
+    %718 = shufflevector <2 x i32> %717, <2 x i32> poison, <2 x i32> zeroinitializer
+    %719 = insertelement <2 x i32> poison, i32 %716, i64 0
+    %720 = insertelement <2 x i32> %719, i32 %577, i64 1
+    %721 = add <2 x i32> %718, %720
+    %722 = extractelement <2 x i32> %721, i64 1
+    %723 = and i32 %722, %703
+    %724 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %721, <2 x i32> %721, <2 x i32> <i32 30, i32 26>)
+    %725 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %721, <2 x i32> %721, <2 x i32> <i32 19, i32 21>)
+    %726 = xor <2 x i32> %724, %725
+    %727 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %721, <2 x i32> %721, <2 x i32> <i32 10, i32 7>)
+    %728 = xor <2 x i32> %726, %727
+    %729 = xor i32 %723, %679
+    %730 = extractelement <2 x i32> %721, i64 0
+    %731 = and i32 %730, %706
+    %732 = xor i32 %730, %706
+    %733 = and i32 %732, %645
+    %734 = add i32 %673, %729
+    %735 = xor i32 %733, %731
+    %736 = insertelement <2 x i32> poison, i32 %735, i64 0
+    %737 = insertelement <2 x i32> %736, i32 %734, i64 1
+    %738 = add <2 x i32> %728, %737
+    %739 = shufflevector <2 x i32> %738, <2 x i32> poison, <2 x i32> <i32 1, i32 1>
+    %740 = insertelement <2 x i32> %738, i32 %619, i64 1
+    %741 = add <2 x i32> %739, %740
+    %742 = extractelement <2 x i32> %741, i64 0
+    %743 = xor i32 %742, %730
+    %744 = add i32 %550, %596
+    %745 = add i32 %671, %692
+    %746 = xor i32 %722, %692
+    %747 = extractelement <2 x i32> %741, i64 1
+    %748 = and i32 %747, %746
+    %749 = xor i32 %748, %692
+    %750 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %741, <2 x i32> %741, <2 x i32> <i32 30, i32 26>)
+    %751 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %741, <2 x i32> %741, <2 x i32> <i32 19, i32 21>)
+    %752 = xor <2 x i32> %750, %751
+    %753 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %741, <2 x i32> %741, <2 x i32> <i32 10, i32 7>)
+    %754 = xor <2 x i32> %752, %753
+    %755 = and i32 %742, %730
+    %756 = add i32 %704, %591
+    %757 = and i32 %743, %706
+    %758 = add i32 %756, %749
+    %759 = xor i32 %757, %755
+    %760 = insertelement <2 x i32> poison, i32 %759, i64 0
+    %761 = insertelement <2 x i32> %760, i32 %758, i64 1
+    %762 = add <2 x i32> %754, %761
+    %763 = extractelement <2 x i32> %762, i64 1
+    %764 = add i32 %763, %645
+    %765 = extractelement <2 x i32> %762, i64 0
+    %766 = add i32 %765, %763
+    %767 = tail call i32 @llvm.fshl.i32(i32 %764, i32 %764, i32 26)
+    %768 = tail call i32 @llvm.fshl.i32(i32 %764, i32 %764, i32 21)
+    %769 = xor i32 %767, %768
+    %770 = tail call i32 @llvm.fshl.i32(i32 %764, i32 %764, i32 7)
+    %771 = xor i32 %769, %770
+    %772 = xor i32 %747, %722
+    %773 = and i32 %764, %772
+    %774 = xor i32 %773, %722
+    %775 = add i32 %745, %774
+    %776 = add i32 %775, %771
+    %777 = tail call i32 @llvm.fshl.i32(i32 %766, i32 %766, i32 30)
+    %778 = tail call i32 @llvm.fshl.i32(i32 %766, i32 %766, i32 19)
+    %779 = xor i32 %777, %778
+    %780 = tail call i32 @llvm.fshl.i32(i32 %766, i32 %766, i32 10)
+    %781 = xor i32 %779, %780
+    %782 = and i32 %766, %742
+    %783 = xor i32 %766, %742
+    %784 = and i32 %783, %730
+    %785 = xor i32 %784, %782
+    %786 = add i32 %781, %785
+    %787 = insertelement <2 x i32> poison, i32 %776, i64 0
+    %788 = shufflevector <2 x i32> %787, <2 x i32> poison, <2 x i32> zeroinitializer
+    %789 = insertelement <2 x i32> poison, i32 %786, i64 0
+    %790 = insertelement <2 x i32> %789, i32 %706, i64 1
+    %791 = add <2 x i32> %788, %790
+    %792 = xor i32 %764, %747
+    %793 = extractelement <2 x i32> %791, i64 1
+    %794 = and i32 %793, %792
+    %795 = add i32 %744, %486
+    %796 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %791, <2 x i32> %791, <2 x i32> <i32 30, i32 26>)
+    %797 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %791, <2 x i32> %791, <2 x i32> <i32 19, i32 21>)
+    %798 = xor <2 x i32> %796, %797
+    %799 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %791, <2 x i32> %791, <2 x i32> <i32 10, i32 7>)
+    %800 = xor <2 x i32> %798, %799
+    %801 = xor i32 %794, %747
+    %802 = extractelement <2 x i32> %791, i64 0
+    %803 = and i32 %802, %766
+    %804 = xor i32 %802, %766
+    %805 = add i32 %795, %722
+    %806 = and i32 %804, %742
+    %807 = add i32 %805, %801
+    %808 = xor i32 %806, %803
+    %809 = insertelement <2 x i32> poison, i32 %808, i64 0
+    %810 = insertelement <2 x i32> %809, i32 %807, i64 1
+    %811 = add <2 x i32> %800, %810
+    %812 = extractelement <2 x i32> %811, i64 1
+    %813 = add i32 %812, %730
+    %814 = extractelement <2 x i32> %811, i64 0
+    %815 = add i32 %814, %812
+    %816 = tail call i32 @llvm.fshl.i32(i32 %813, i32 %813, i32 26)
+    %817 = tail call i32 @llvm.fshl.i32(i32 %813, i32 %813, i32 21)
+    %818 = xor i32 %816, %817
+    %819 = tail call i32 @llvm.fshl.i32(i32 %813, i32 %813, i32 7)
+    %820 = xor i32 %818, %819
+    %821 = xor i32 %793, %764
+    %822 = and i32 %813, %821
+    %823 = xor i32 %822, %764
+    %824 = tail call i32 @llvm.fshl.i32(i32 %670, i32 %670, i32 15)
+    %825 = tail call i32 @llvm.fshl.i32(i32 %670, i32 %670, i32 13)
+    %826 = xor i32 %824, %825
+    %827 = lshr i32 %670, 10
+    %828 = xor i32 %826, %827
+    %829 = add i32 %598, %828
+    %830 = add i32 %829, %492
+    %831 = add i32 %830, %747
+    %832 = add i32 %831, %823
+    %833 = add i32 %832, %820
+    %834 = add i32 %833, %742
+    %835 = tail call i32 @llvm.fshl.i32(i32 %815, i32 %815, i32 30)
+    %836 = tail call i32 @llvm.fshl.i32(i32 %815, i32 %815, i32 19)
+    %837 = xor i32 %835, %836
+    %838 = tail call i32 @llvm.fshl.i32(i32 %815, i32 %815, i32 10)
+    %839 = xor i32 %837, %838
+    %840 = and i32 %815, %802
+    %841 = xor i32 %815, %802
+    %842 = and i32 %841, %766
+    %843 = xor i32 %842, %840
+    %844 = add i32 %839, %843
+    %845 = add i32 %844, %833
+    %846 = tail call i32 @llvm.fshl.i32(i32 %834, i32 %834, i32 26)
+    %847 = tail call i32 @llvm.fshl.i32(i32 %834, i32 %834, i32 21)
+    %848 = xor i32 %846, %847
+    %849 = tail call i32 @llvm.fshl.i32(i32 %834, i32 %834, i32 7)
+    %850 = xor i32 %848, %849
+    %851 = xor i32 %813, %793
+    %852 = and i32 %834, %851
+    %853 = xor i32 %852, %793
+    %854 = tail call i32 @llvm.fshl.i32(i32 %744, i32 %744, i32 15)
+    %855 = tail call i32 @llvm.fshl.i32(i32 %744, i32 %744, i32 13)
+    %856 = xor i32 %854, %855
+    %857 = lshr i32 %744, 10
+    %858 = xor i32 %856, %857
+    %859 = add i32 %499, %644
+    %860 = add i32 %859, %858
+    %861 = add i32 %860, %493
+    %862 = add i32 %861, %764
+    %863 = add i32 %862, %853
+    %864 = add i32 %863, %850
+    %865 = add i32 %864, %766
+    %866 = tail call i32 @llvm.fshl.i32(i32 %845, i32 %845, i32 30)
+    %867 = tail call i32 @llvm.fshl.i32(i32 %845, i32 %845, i32 19)
+    %868 = xor i32 %866, %867
+    %869 = tail call i32 @llvm.fshl.i32(i32 %845, i32 %845, i32 10)
+    %870 = and i32 %845, %815
+    %871 = xor i32 %845, %815
+    %872 = and i32 %871, %802
+    %873 = xor i32 %872, %870
+    %874 = tail call i32 @llvm.fshl.i32(i32 %865, i32 %865, i32 7)
+    %875 = xor i32 %834, %813
+    %876 = and i32 %865, %875
+    %877 = insertelement <2 x i32> poison, i32 %876, i64 0
+    %878 = insertelement <2 x i32> %877, i32 %868, i64 1
+    %879 = insertelement <2 x i32> poison, i32 %813, i64 0
+    %880 = insertelement <2 x i32> %879, i32 %869, i64 1
+    %881 = xor <2 x i32> %878, %880
+    %882 = tail call i32 @llvm.fshl.i32(i32 %829, i32 %829, i32 15)
+    %883 = tail call i32 @llvm.fshl.i32(i32 %829, i32 %829, i32 13)
+    %884 = xor i32 %882, %883
+    %885 = lshr i32 %829, 10
+    %886 = xor i32 %884, %885
+    %887 = add i32 %599, %886
+    %888 = add i32 %887, %500
+    %889 = insertelement <2 x i32> poison, i32 %888, i64 0
+    %890 = insertelement <2 x i32> %889, i32 %533, i64 1
+    %891 = shufflevector <2 x i32> %791, <2 x i32> %414, <2 x i32> <i32 1, i32 3>
+    %892 = add <2 x i32> %890, %891
+    %893 = insertelement <2 x i32> %892, i32 %873, i64 1
+    %894 = add <2 x i32> %881, %893
+    %895 = tail call i32 @llvm.fshl.i32(i32 %887, i32 %887, i32 15)
+    %896 = tail call i32 @llvm.fshl.i32(i32 %887, i32 %887, i32 13)
+    %897 = xor i32 %895, %896
+    %898 = lshr i32 %887, 10
+    %899 = xor i32 %897, %898
+    %900 = add i32 %600, %899
+    %901 = insertelement <2 x i32> poison, i32 %865, i64 0
+    %902 = insertelement <2 x i32> %901, i32 %900, i64 1
+    %903 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %902, <2 x i32> %902, <2 x i32> <i32 26, i32 15>)
+    %904 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %902, <2 x i32> %902, <2 x i32> <i32 21, i32 13>)
+    %905 = xor <2 x i32> %903, %904
+    %906 = lshr i32 %900, 10
+    %907 = insertelement <2 x i32> poison, i32 %874, i64 0
+    %908 = insertelement <2 x i32> %907, i32 %906, i64 1
+    %909 = xor <2 x i32> %905, %908
+    %910 = insertelement <2 x i32> %881, i32 %744, i64 1
+    %911 = add <2 x i32> %892, %910
+    %912 = add <2 x i32> %911, %909
+    %913 = insertelement <2 x i32> %909, i32 %864, i64 1
+    %914 = add <2 x i32> %894, %913
+    %915 = insertelement <2 x i32> poison, i32 %864, i64 0
+    %916 = shufflevector <2 x i32> %915, <2 x i32> %912, <2 x i32> <i32 0, i32 2>
+    %917 = shufflevector <2 x i32> %894, <2 x i32> %791, <2 x i32> <i32 1, i32 2>
+    %918 = add <2 x i32> %916, %917
+    %919 = extractelement <2 x i32> %918, i64 0
+    %920 = and i32 %919, %845
+    %921 = xor i32 %919, %845
+    %922 = and i32 %921, %815
+    %923 = extractelement <2 x i32> %918, i64 1
+    %924 = tail call i32 @llvm.fshl.i32(i32 %923, i32 %923, i32 26)
+    %925 = tail call i32 @llvm.fshl.i32(i32 %923, i32 %923, i32 21)
+    %926 = xor i32 %924, %925
+    %927 = tail call i32 @llvm.fshl.i32(i32 %923, i32 %923, i32 7)
+    %928 = xor i32 %926, %927
+    %929 = xor i32 %865, %834
+    %930 = and i32 %923, %929
+    %931 = xor i32 %930, %834
+    %932 = tail call i32 @llvm.fshl.i32(i32 %860, i32 %860, i32 15)
+    %933 = tail call i32 @llvm.fshl.i32(i32 %860, i32 %860, i32 13)
+    %934 = xor i32 %932, %933
+    %935 = lshr i32 %860, 10
+    %936 = xor i32 %934, %935
+    %937 = add i32 %513, %659
+    %938 = add i32 %937, %936
+    %939 = add i32 %938, %507
+    %940 = add i32 %939, %813
+    %941 = add i32 %940, %931
+    %942 = add i32 %941, %928
+    %943 = add i32 %942, %815
+    %944 = tail call i32 @llvm.fshl.i32(i32 %943, i32 %943, i32 26)
+    %945 = tail call i32 @llvm.fshl.i32(i32 %943, i32 %943, i32 21)
+    %946 = xor i32 %944, %945
+    %947 = tail call i32 @llvm.fshl.i32(i32 %943, i32 %943, i32 7)
+    %948 = xor i32 %946, %947
+    %949 = xor i32 %923, %865
+    %950 = and i32 %943, %949
+    %951 = xor i32 %950, %865
+    %952 = add i32 %900, %514
+    %953 = add i32 %952, %834
+    %954 = add i32 %953, %951
+    %955 = add i32 %954, %948
+    %956 = add i32 %955, %845
+    %957 = insertelement <2 x i32> %918, i32 %956, i64 1
+    %958 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %957, <2 x i32> %957, <2 x i32> <i32 30, i32 26>)
+    %959 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %957, <2 x i32> %957, <2 x i32> <i32 19, i32 21>)
+    %960 = xor <2 x i32> %958, %959
+    %961 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %957, <2 x i32> %957, <2 x i32> <i32 10, i32 7>)
+    %962 = xor <2 x i32> %960, %961
+    %963 = xor i32 %943, %923
+    %964 = and i32 %956, %963
+    %965 = xor i32 %964, %923
+    %966 = tail call i32 @llvm.fshl.i32(i32 %938, i32 %938, i32 15)
+    %967 = tail call i32 @llvm.fshl.i32(i32 %938, i32 %938, i32 13)
+    %968 = xor i32 %966, %967
+    %969 = lshr i32 %938, 10
+    %970 = xor i32 %968, %969
+    %971 = add i32 %527, %670
+    %972 = add i32 %971, %970
+    %973 = add i32 %972, %521
+    %974 = add i32 %973, %865
+    %975 = insertelement <2 x i32> poison, i32 %920, i64 0
+    %976 = insertelement <2 x i32> %975, i32 %974, i64 1
+    %977 = insertelement <2 x i32> poison, i32 %922, i64 0
+    %978 = insertelement <2 x i32> %977, i32 %965, i64 1
+    %979 = add <2 x i32> %976, %978
+    %980 = xor <2 x i32> %976, %978
+    %981 = shufflevector <2 x i32> %980, <2 x i32> %979, <2 x i32> <i32 0, i32 3>
+    %982 = add <2 x i32> %981, %962
+    %983 = add <2 x i32> %982, %914
+    %984 = insertelement <2 x i32> %982, i32 %528, i64 1
+    %985 = add <2 x i32> %912, %984
+    %986 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %983, <2 x i32> %983, <2 x i32> <i32 30, i32 26>)
+    %987 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %983, <2 x i32> %983, <2 x i32> <i32 19, i32 21>)
+    %988 = xor <2 x i32> %986, %987
+    %989 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %983, <2 x i32> %983, <2 x i32> <i32 10, i32 7>)
+    %990 = xor <2 x i32> %988, %989
+    %991 = xor i32 %956, %943
+    %992 = insertelement <2 x i32> %918, i32 %991, i64 1
+    %993 = and <2 x i32> %983, %992
+    %994 = xor <2 x i32> %983, %992
+    %995 = shufflevector <2 x i32> %994, <2 x i32> %993, <2 x i32> <i32 0, i32 3>
+    %996 = insertelement <2 x i32> poison, i32 %845, i64 0
+    %997 = insertelement <2 x i32> %996, i32 %943, i64 1
+    %998 = xor <2 x i32> %995, %997
+    %999 = and <2 x i32> %995, %997
+    %1000 = shufflevector <2 x i32> %999, <2 x i32> %998, <2 x i32> <i32 0, i32 3>
+    %1001 = add <2 x i32> %985, %918
+    %1002 = and <2 x i32> %985, %918
+    %1003 = shufflevector <2 x i32> %1002, <2 x i32> %1001, <2 x i32> <i32 0, i32 3>
+    %1004 = add <2 x i32> %1003, %1000
+    %1005 = xor <2 x i32> %1003, %1000
+    %1006 = shufflevector <2 x i32> %1005, <2 x i32> %1004, <2 x i32> <i32 0, i32 3>
+    %1007 = add <2 x i32> %1006, %990
+    %1008 = insertelement <2 x i32> poison, i32 %942, i64 0
+    %1009 = shufflevector <2 x i32> %1008, <2 x i32> %985, <2 x i32> <i32 0, i32 2>
+    %1010 = add <2 x i32> %1007, %1009
+    %1011 = extractelement <2 x i32> %1010, i64 0
+    %1012 = tail call i32 @llvm.fshl.i32(i32 %1011, i32 %1011, i32 30)
+    %1013 = tail call i32 @llvm.fshl.i32(i32 %1011, i32 %1011, i32 19)
+    %1014 = xor i32 %1012, %1013
+    %1015 = tail call i32 @llvm.fshl.i32(i32 %1011, i32 %1011, i32 10)
+    %1016 = xor i32 %1014, %1015
+    %1017 = extractelement <2 x i32> %985, i64 0
+    %1018 = and i32 %1011, %1017
+    %1019 = xor i32 %1011, %1017
+    %1020 = and i32 %1019, %919
+    %1021 = xor i32 %1020, %1018
+    %1022 = add i32 %1016, %1021
+    %1023 = add i32 %1022, %955
+    %1024 = tail call i32 @llvm.fshl.i32(i32 %1023, i32 %1023, i32 30)
+    %1025 = tail call i32 @llvm.fshl.i32(i32 %1023, i32 %1023, i32 19)
+    %1026 = xor i32 %1024, %1025
+    %1027 = tail call i32 @llvm.fshl.i32(i32 %1023, i32 %1023, i32 10)
+    %1028 = xor i32 %1026, %1027
+    %1029 = and i32 %1023, %1011
+    %1030 = xor i32 %1023, %1011
+    %1031 = and i32 %1030, %1017
+    %1032 = xor i32 %1031, %1029
+    %1033 = add i32 %1028, %1032
+    %1034 = extractelement <2 x i32> %982, i64 1
+    %1035 = add i32 %1033, %1034
+    %1036 = tail call i32 @llvm.fshl.i32(i32 %1035, i32 %1035, i32 30)
+    %1037 = tail call i32 @llvm.fshl.i32(i32 %1035, i32 %1035, i32 19)
+    %1038 = xor i32 %1036, %1037
+    %1039 = tail call i32 @llvm.fshl.i32(i32 %1035, i32 %1035, i32 10)
+    %1040 = xor i32 %1038, %1039
+    %1041 = and i32 %1035, %1023
+    %1042 = xor i32 %1035, %1023
+    %1043 = and i32 %1042, %1011
+    %1044 = xor i32 %1043, %1041
+    %1045 = add i32 %1040, %1044
+    %1046 = extractelement <2 x i32> %1007, i64 1
+    %1047 = add i32 %1045, %1046
+    %1048 = shufflevector <2 x i32> %555, <2 x i32> %912, <2 x i32> <i32 0, i32 3>
+    %1049 = insertelement <2 x i32> %647, i32 %860, i64 1
+    %1050 = extractelement <2 x i32> %983, i64 1
+    %scevgep2 = getelementptr i8, ptr %lsr.iv1, i32 64
+    %lsr_fold_term_cond.replaced_term_cond = icmp eq ptr %scevgep2, %scevgep18
+    br i1 %lsr_fold_term_cond.replaced_term_cond, label %1051, label %395, !llvm.loop !14
+  
+  1051:                                             ; preds = %395
+    %1052 = add i32 %1047, %99
+    store i32 %1052, ptr %0, align 4, !tbaa !6
+    %1053 = add i32 %1035, %101
+    %sunkaddr = getelementptr inbounds i8, ptr %0, i32 4
+    store i32 %1053, ptr %sunkaddr, align 4, !tbaa !6
+    %1054 = add i32 %1023, %103
+    %sunkaddr19 = getelementptr inbounds i8, ptr %0, i32 8
+    store i32 %1054, ptr %sunkaddr19, align 4, !tbaa !6
+    %1055 = add i32 %1011, %105
+    %sunkaddr20 = getelementptr inbounds i8, ptr %0, i32 12
+    store i32 %1055, ptr %sunkaddr20, align 4, !tbaa !6
+    %1056 = extractelement <2 x i32> %1010, i64 1
+    %1057 = add i32 %1056, %107
+    %sunkaddr21 = getelementptr inbounds i8, ptr %0, i32 16
+    store i32 %1057, ptr %sunkaddr21, align 4, !tbaa !6
+    %1058 = add i32 %1050, %109
+    %sunkaddr22 = getelementptr inbounds i8, ptr %0, i32 20
+    store i32 %1058, ptr %sunkaddr22, align 4, !tbaa !6
+    %1059 = add i32 %956, %111
+    %sunkaddr23 = getelementptr inbounds i8, ptr %0, i32 24
+    store i32 %1059, ptr %sunkaddr23, align 4, !tbaa !6
+    %1060 = add i32 %943, %113
+    %sunkaddr24 = getelementptr inbounds i8, ptr %0, i32 28
+    store i32 %1060, ptr %sunkaddr24, align 4, !tbaa !6
+    call void @llvm.lifetime.end.p0(ptr nonnull %4) #9
+    ret void
+  }
+  
+  ; Function Attrs: nounwind
+  define dso_local void @sha256_init(ptr noundef %0) #2 {
+    %2 = tail call ptr @memcpy(ptr noundef %0, ptr noundef nonnull @sha256_init.H0, i32 noundef 32) #10
+    %3 = getelementptr inbounds nuw i8, ptr %0, i32 32
+    store i64 0, ptr %3, align 8, !tbaa !15
+    %4 = getelementptr inbounds nuw i8, ptr %0, i32 104
+    store i32 0, ptr %4, align 8, !tbaa !18
+    ret void
+  }
+  
+  declare dso_local ptr @memcpy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+  
+  ; Function Attrs: nounwind
+  define dso_local void @sha256_update(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2 {
+    %4 = getelementptr inbounds nuw i8, ptr %0, i32 104
+    %5 = load i32, ptr %4, align 8, !tbaa !18
+    %6 = icmp eq i32 %5, 0
+    br i1 %6, label %23, label %7
+  
+  7:                                                ; preds = %3
+    %8 = sub i32 64, %5
+    %9 = icmp ult i32 %1, %8
+    %10 = getelementptr inbounds nuw i8, ptr %0, i32 40
+    %11 = getelementptr inbounds nuw i8, ptr %10, i32 %5
+    br i1 %9, label %19, label %12
+  
+  12:                                               ; preds = %7
+    %13 = tail call ptr @memcpy(ptr noundef nonnull %11, ptr noundef %2, i32 noundef %8) #10
+    tail call void @_nettle_sha256_compress(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull @K) #11
+    %14 = getelementptr inbounds nuw i8, ptr %0, i32 32
+    %15 = load i64, ptr %14, align 8, !tbaa !15
+    %16 = add i64 %15, 1
+    store i64 %16, ptr %14, align 8, !tbaa !15
+    %17 = getelementptr inbounds nuw i8, ptr %2, i32 %8
+    %18 = sub nuw i32 %1, %8
+    br label %23
+  
+  19:                                               ; preds = %7
+    %20 = tail call ptr @memcpy(ptr noundef nonnull %11, ptr noundef %2, i32 noundef %1) #10
+    %sunkaddr = getelementptr inbounds i8, ptr %0, i32 104
+    %21 = load i32, ptr %sunkaddr, align 8, !tbaa !18
+    %22 = add i32 %21, %1
+    br label %41
+  
+  23:                                               ; preds = %12, %3
+    %24 = phi ptr [ %17, %12 ], [ %2, %3 ]
+    %25 = phi i32 [ %18, %12 ], [ %1, %3 ]
+    %26 = icmp ugt i32 %25, 63
+    br i1 %26, label %27, label %36
+  
+  27:                                               ; preds = %23
+    br label %28
+  
+  28:                                               ; preds = %28, %27
+    %29 = phi i32 [ %25, %27 ], [ %34, %28 ]
+    %30 = phi ptr [ %24, %27 ], [ %33, %28 ]
+    tail call void @_nettle_sha256_compress(ptr noundef nonnull %0, ptr noundef %30, ptr noundef nonnull @K) #11
+    %sunkaddr2 = getelementptr inbounds i8, ptr %0, i32 32
+    %31 = load i64, ptr %sunkaddr2, align 8, !tbaa !15
+    %32 = add i64 %31, 1
+    store i64 %32, ptr %sunkaddr2, align 8, !tbaa !15
+    %33 = getelementptr inbounds nuw i8, ptr %30, i32 64
+    %34 = add i32 %29, -64
+    %35 = icmp ugt i32 %34, 63
+    br i1 %35, label %28, label %36, !llvm.loop !19
+  
+  36:                                               ; preds = %28, %23
+    %37 = phi ptr [ %24, %23 ], [ %33, %28 ]
+    %38 = phi i32 [ %25, %23 ], [ %34, %28 ]
+    %39 = getelementptr inbounds nuw i8, ptr %0, i32 40
+    %40 = tail call ptr @memcpy(ptr noundef nonnull %39, ptr noundef %37, i32 noundef %38) #10
+    br label %41
+  
+  41:                                               ; preds = %36, %19
+    %42 = phi i32 [ %22, %19 ], [ %38, %36 ]
+    %sunkaddr3 = getelementptr inbounds i8, ptr %0, i32 104
+    store i32 %42, ptr %sunkaddr3, align 8, !tbaa !18
+    ret void
+  }
+  
+  ; Function Attrs: nounwind
+  define dso_local void @sha256_digest(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #2 {
+    %4 = icmp ult i32 %1, 33
+    br i1 %4, label %6, label %5
+  
+  5:                                                ; preds = %3
+    tail call void @exit(i32 noundef 1) #12
+    unreachable
+  
+  6:                                                ; preds = %3
+    %7 = getelementptr inbounds nuw i8, ptr %0, i32 104
+    %8 = load i32, ptr %7, align 8, !tbaa !18
+    %9 = icmp ult i32 %8, 64
+    br i1 %9, label %11, label %10
+  
+  10:                                               ; preds = %6
+    tail call void @exit(i32 noundef 1) #12
+    unreachable
+  
+  11:                                               ; preds = %6
+    %12 = getelementptr inbounds nuw i8, ptr %0, i32 40
+    %13 = add nuw nsw i32 %8, 1
+    %14 = getelementptr inbounds nuw i8, ptr %12, i32 %8
+    store i8 -128, ptr %14, align 1, !tbaa !10
+    %15 = icmp samesign ugt i32 %8, 55
+    br i1 %15, label %16, label %20
+  
+  16:                                               ; preds = %11
+    %17 = getelementptr inbounds nuw i8, ptr %12, i32 %13
+    %18 = sub nuw nsw i32 63, %8
+    %19 = tail call ptr @memset(ptr noundef nonnull %17, i32 noundef 0, i32 noundef %18) #10
+    tail call void @_nettle_sha256_compress(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull @K) #11
+    br label %20
+  
+  20:                                               ; preds = %16, %11
+    %21 = phi i32 [ 0, %16 ], [ %13, %11 ]
+    %22 = getelementptr inbounds nuw i8, ptr %12, i32 %21
+    %23 = sub nuw nsw i32 56, %21
+    %24 = tail call ptr @memset(ptr noundef nonnull %22, i32 noundef 0, i32 noundef %23) #10
+    %25 = getelementptr inbounds nuw i8, ptr %0, i32 32
+    %26 = load i64, ptr %25, align 8, !tbaa !15
+    %27 = shl i64 %26, 9
+    %sunkaddr = getelementptr inbounds i8, ptr %0, i32 104
+    %28 = load i32, ptr %sunkaddr, align 8, !tbaa !18
+    %29 = shl i32 %28, 3
+    %30 = zext i32 %29 to i64
+    %31 = or i64 %27, %30
+    %32 = lshr i64 %27, 56
+    %33 = trunc nuw i64 %32 to i8
+    %34 = getelementptr inbounds nuw i8, ptr %0, i32 96
+    store i8 %33, ptr %34, align 8, !tbaa !10
+    %35 = lshr i64 %27, 48
+    %36 = trunc i64 %35 to i8
+    %37 = getelementptr inbounds nuw i8, ptr %0, i32 97
+    store i8 %36, ptr %37, align 1, !tbaa !10
+    %38 = lshr i64 %27, 40
+    %39 = trunc i64 %38 to i8
+    %40 = getelementptr inbounds nuw i8, ptr %0, i32 98
+    store i8 %39, ptr %40, align 2, !tbaa !10
+    %41 = lshr i64 %27, 32
+    %42 = trunc i64 %41 to i8
+    %43 = getelementptr inbounds nuw i8, ptr %0, i32 99
+    store i8 %42, ptr %43, align 1, !tbaa !10
+    %44 = lshr i64 %31, 24
+    %45 = trunc i64 %44 to i8
+    %46 = getelementptr inbounds nuw i8, ptr %0, i32 100
+    store i8 %45, ptr %46, align 4, !tbaa !10
+    %47 = lshr i64 %31, 16
+    %48 = trunc i64 %47 to i8
+    %49 = getelementptr inbounds nuw i8, ptr %0, i32 101
+    store i8 %48, ptr %49, align 1, !tbaa !10
+    %50 = lshr i64 %31, 8
+    %51 = trunc i64 %50 to i8
+    %52 = getelementptr inbounds nuw i8, ptr %0, i32 102
+    store i8 %51, ptr %52, align 2, !tbaa !10
+    %53 = trunc i32 %29 to i8
+    %54 = getelementptr inbounds nuw i8, ptr %0, i32 103
+    store i8 %53, ptr %54, align 1, !tbaa !10
+    tail call void @_nettle_sha256_compress(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull @K) #11
+    %55 = lshr i32 %1, 2
+    %56 = and i32 %1, 3
+    %57 = icmp eq i32 %55, 0
+    br i1 %57, label %76, label %.preheader
+  
+  .preheader:                                       ; preds = %20
+    %58 = and i32 %1, -4
+    %scevgep2 = getelementptr i8, ptr %2, i32 %58
+    br label %59
+  
+  59:                                               ; preds = %.preheader, %59
+    %lsr.iv1 = phi ptr [ %0, %.preheader ], [ %scevgep, %59 ]
+    %60 = phi ptr [ %75, %59 ], [ %2, %.preheader ]
+    %61 = load i32, ptr %lsr.iv1, align 4, !tbaa !6
+    %62 = lshr i32 %61, 24
+    %63 = trunc nuw i32 %62 to i8
+    store i8 %63, ptr %60, align 1, !tbaa !10
+    %64 = load i32, ptr %lsr.iv1, align 4, !tbaa !6
+    %65 = lshr i32 %64, 16
+    %66 = trunc i32 %65 to i8
+    %67 = getelementptr i8, ptr %60, i32 1
+    store i8 %66, ptr %67, align 1, !tbaa !10
+    %68 = load i32, ptr %lsr.iv1, align 4, !tbaa !6
+    %69 = lshr i32 %68, 8
+    %70 = trunc i32 %69 to i8
+    %71 = getelementptr i8, ptr %60, i32 2
+    store i8 %70, ptr %71, align 1, !tbaa !10
+    %72 = load i32, ptr %lsr.iv1, align 4, !tbaa !6
+    %73 = trunc i32 %72 to i8
+    %74 = getelementptr i8, ptr %60, i32 3
+    store i8 %73, ptr %74, align 1, !tbaa !10
+    %75 = getelementptr i8, ptr %60, i32 4
+    %scevgep = getelementptr i8, ptr %lsr.iv1, i32 4
+    %lsr_fold_term_cond.replaced_term_cond = icmp eq ptr %75, %scevgep2
+    br i1 %lsr_fold_term_cond.replaced_term_cond, label %76, label %59, !llvm.loop !11
+  
+  76:                                               ; preds = %59, %20
+    %77 = phi ptr [ %2, %20 ], [ %75, %59 ]
+    %78 = icmp eq i32 %56, 0
+    br i1 %78, label %94, label %79
+  
+  79:                                               ; preds = %76
+    %80 = getelementptr inbounds nuw i32, ptr %0, i32 %55
+    %81 = load i32, ptr %80, align 4, !tbaa !6
+    switch i32 %56, label %82 [
+      i32 3, label %83
+      i32 2, label %87
+      i32 1, label %91
+    ]
+  
+  82:                                               ; preds = %79
+    unreachable
+  
+  83:                                               ; preds = %79
+    %84 = lshr i32 %81, 8
+    %85 = trunc i32 %84 to i8
+    %86 = getelementptr i8, ptr %77, i32 2
+    store i8 %85, ptr %86, align 1, !tbaa !10
+    br label %87
+  
+  87:                                               ; preds = %83, %79
+    %88 = lshr i32 %81, 16
+    %89 = trunc i32 %88 to i8
+    %90 = getelementptr inbounds nuw i8, ptr %77, i32 1
+    store i8 %89, ptr %90, align 1, !tbaa !10
+    br label %91
+  
+  91:                                               ; preds = %87, %79
+    %92 = lshr i32 %81, 24
+    %93 = trunc nuw i32 %92 to i8
+    store i8 %93, ptr %77, align 1, !tbaa !10
+    br label %94
+  
+  94:                                               ; preds = %91, %76
+    %95 = tail call ptr @memcpy(ptr noundef nonnull %0, ptr noundef nonnull @sha256_init.H0, i32 noundef 32) #10
+    %sunkaddr3 = getelementptr inbounds i8, ptr %0, i32 32
+    store i64 0, ptr %sunkaddr3, align 8, !tbaa !15
+    %sunkaddr4 = getelementptr inbounds i8, ptr %0, i32 104
+    store i32 0, ptr %sunkaddr4, align 8, !tbaa !18
+    ret void
+  }
+  
+  ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem: none)
+  define dso_local range(i32 0, 2) i32 @verify_benchmark(i32 noundef %0) local_unnamed_addr #4 {
+    %2 = load <8 x i8>, ptr @hash, align 8, !tbaa !10
+    %3 = load <8 x i8>, ptr @buffer, align 8, !tbaa !10
+    %4 = icmp eq <8 x i8> %2, %3
+    %5 = freeze <8 x i1> %4
+    %6 = bitcast <8 x i1> %5 to i8
+    %7 = icmp eq i8 %6, -1
+    %8 = zext i1 %7 to i32
+    ret i32 %8
+  }
+  
+  ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
+  define dso_local void @initialise_benchmark() local_unnamed_addr #5 {
+    ret void
+  }
+  
+  ; Function Attrs: nounwind
+  define dso_local void @warm_caches(i32 noundef %0) local_unnamed_addr #2 {
+    tail call fastcc void @benchmark_body(i32 noundef %0) #11
+    ret void
+  }
+  
+  ; Function Attrs: noinline nounwind
+  define internal fastcc void @benchmark_body(i32 noundef %0) unnamed_addr #6 {
+    %2 = alloca %struct.sha256_ctx, align 8
+    %3 = icmp sgt i32 %0, 0
+    br i1 %3, label %4, label %9
+  
+  4:                                                ; preds = %1
+    br label %5
+  
+  5:                                                ; preds = %5, %4
+    %lsr.iv = phi i32 [ %lsr.iv.next, %5 ], [ %0, %4 ]
+    %6 = call ptr @memset(ptr noundef nonnull @buffer, i32 noundef 0, i32 noundef 32) #10
+    call void @llvm.lifetime.start.p0(ptr nonnull %2) #9
+    %7 = call ptr @memcpy(ptr noundef nonnull %2, ptr noundef nonnull @sha256_init.H0, i32 noundef 32) #10
+    %sunkaddr = getelementptr inbounds i8, ptr %2, i32 32
+    store i64 0, ptr %sunkaddr, align 8, !tbaa !15
+    %sunkaddr1 = getelementptr inbounds i8, ptr %2, i32 104
+    store i32 0, ptr %sunkaddr1, align 8, !tbaa !18
+    call void @sha256_update(ptr noundef nonnull %2, i32 noundef 56, ptr noundef nonnull @msg) #11
+    call void @sha256_digest(ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull @buffer) #11
+    call void @llvm.lifetime.end.p0(ptr nonnull %2) #9
+    %lsr.iv.next = add i32 %lsr.iv, -1
+    %8 = icmp eq i32 %lsr.iv.next, 0
+    br i1 %8, label %9, label %5, !llvm.loop !20
+  
+  9:                                                ; preds = %5, %1
+    ret void
+  }
+  
+  ; Function Attrs: noinline nounwind
+  define dso_local noundef i32 @benchmark() local_unnamed_addr #6 {
+    tail call fastcc void @benchmark_body(i32 noundef 475) #11
+    ret i32 0
+  }
+  
+  ; Function Attrs: noreturn
+  declare dso_local void @exit(i32 noundef) local_unnamed_addr #7
+  
+  declare dso_local ptr @memset(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+  
+  ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+  declare i32 @llvm.fshl.i32(i32, i32, i32) #8
+  
+  ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+  declare <2 x i32> @llvm.fshl.v2i32(<2 x i32>, <2 x i32>, <2 x i32>) #8
+  
+  ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+  declare i32 @llvm.vector.reduce.or.v4i32(<4 x i32>) #8
+  
+  attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) "target-features"="+m,+a,+c,+zcmp" }
+  attributes #2 = { nounwind "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #3 = { "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem: none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #6 = { noinline nounwind "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #7 = { noreturn "no-builtins" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="generic-rv32" "target-features"="+32bit,+a,+c,+i,+m,+relax,+zaamo,+zalrsc,+zca,+zcmp,+zmmul,-b,-d,-e,-experimental-p,-experimental-smpmpmt,-experimental-svukte,-experimental-xrivosvisni,-experimental-xrivosvizip,-experimental-xsfmclic,-experimental-xsfsclic,-experimental-zibi,-experimental-zicfilp,-experimental-zicfiss,-experimental-zvbc32e,-experimental-zvfbfa,-experimental-zvfofp8min,-experimental-zvkgs,-experimental-zvqdotq,-f,-h,-q,-sdext,-sdtrig,-sha,-shcounterenw,-shgatpa,-shlcofideleg,-shtvala,-shvsatpa,-shvstvala,-shvstvecd,-smaia,-smcdeleg,-smcntrpmf,-smcsrind,-smctr,-smdbltrp,-smepmp,-smmpm,-smnpm,-smrnmi,-smstateen,-ssaia,-ssccfg,-ssccptr,-sscofpmf,-sscounterenw,-sscsrind,-ssctr,-ssdbltrp,-ssnpm,-sspm,-ssqosid,-ssstateen,-ssstrict,-sstc,-sstvala,-sstvecd,-ssu64xl,-supm,-svade,-svadu,-svbare,-svinval,-svnapot,-svpbmt,-svvptc,-v,-xandesbfhcvt,-xandesperf,-xandesvbfhcvt,-xandesvdot,-xandesvpackfph,-xandesvsinth,-xandesvsintload,-xcvalu,-xcvbi,-xcvbitmanip,-xcvelw,-xcvmac,-xcvmem,-xcvsimd,-xmipscbop,-xmipscmov,-xmipsexectl,-xmipslsp,-xqccmp,-xqci,-xqcia,-xqciac,-xqcibi,-xqcibm,-xqcicli,-xqcicm,-xqcics,-xqcicsr,-xqciint,-xqciio,-xqcilb,-xqcili,-xqcilia,-xqcilo,-xqcilsm,-xqcisim,-xqcisls,-xqcisync,-xsfcease,-xsfmm128t,-xsfmm16t,-xsfmm32a16f,-xsfmm32a32f,-xsfmm32a8f,-xsfmm32a8i,-xsfmm32t,-xsfmm64a64f,-xsfmm64t,-xsfmmbase,-xsfvcp,-xsfvfbfexp16e,-xsfvfexp16e,-xsfvfexp32e,-xsfvfexpa,-xsfvfexpa64e,-xsfvfnrclipxfqf,-xsfvfwmaccqqq,-xsfvqmaccdod,-xsfvqmaccqoq,-xsifivecdiscarddlone,-xsifivecflushdlone,-xsmtvdot,-xtheadba,-xtheadbb,-xtheadbs,-xtheadcmo,-xtheadcondmov,-xtheadfmemidx,-xtheadmac,-xtheadmemidx,-xtheadmempair,-xtheadsync,-xtheadvdot,-xventanacondops,-xwchc,-za128rs,-za64rs,-zabha,-zacas,-zalasr,-zama16b,-zawrs,-zba,-zbb,-zbc,-zbkb,-zbkc,-zbkx,-zbs,-zcb,-zcd,-zce,-zcf,-zclsd,-zcmop,-zcmt,-zdinx,-zfa,-zfbfmin,-zfh,-zfhmin,-zfinx,-zhinx,-zhinxmin,-zic64b,-zicbom,-zicbop,-zicboz,-ziccamoa,-ziccamoc,-ziccif,-zicclsm,-ziccrse,-zicntr,-zicond,-zicsr,-zifencei,-zihintntl,-zihintpause,-zihpm,-zilsd,-zimop,-zk,-zkn,-zknd,-zkne,-zknh,-zkr,-zks,-zksed,-zksh,-zkt,-ztso,-zvbb,-zvbc,-zve32f,-zve32x,-zve64d,-zve64f,-zve64x,-zvfbfmin,-zvfbfwma,-zvfh,-zvfhmin,-zvkb,-zvkg,-zvkn,-zvknc,-zvkned,-zvkng,-zvknha,-zvknhb,-zvks,-zvksc,-zvksed,-zvksg,-zvksh,-zvkt,-zvl1024b,-zvl128b,-zvl16384b,-zvl2048b,-zvl256b,-zvl32768b,-zvl32b,-zvl4096b,-zvl512b,-zvl64b,-zvl65536b,-zvl8192b,+m,+a,+c,+zcmp" }
+  attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) "target-features"="+m,+a,+c,+zcmp" }
+  attributes #9 = { nounwind }
+  attributes #10 = { nobuiltin nounwind "no-builtins" }
+  attributes #11 = { nobuiltin "no-builtins" }
+  attributes #12 = { nobuiltin noreturn nounwind "no-builtins" }
+  
+  !llvm.module.flags = !{!0, !1, !2, !4}
+  !llvm.ident = !{!5}
+  !llvm.errno.tbaa = !{!6}
+  
+  !0 = !{i32 1, !"wchar_size", i32 4}
+  !1 = !{i32 1, !"target-abi", !"ilp32"}
+  !2 = !{i32 6, !"riscv-isa", !3}
+  !3 = !{!"rv32i2p1_m2p0_a2p1_c2p0_zmmul1p0_zaamo1p0_zalrsc1p0_zca1p0_zcmp1p0"}
+  !4 = !{i32 8, !"SmallDataLimit", i32 0}
+  !5 = !{!"clang version 22.1.8 (https://github.com/llvm/llvm-project.git ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)"}
+  !6 = !{!7, !7, i64 0}
+  !7 = !{!"int", !8, i64 0}
+  !8 = !{!"omnipotent char", !9, i64 0}
+  !9 = !{!"Simple C/C++ TBAA"}
+  !10 = !{!8, !8, i64 0}
+  !11 = distinct !{!11, !12}
+  !12 = !{!"llvm.loop.mustprogress"}
+  !13 = distinct !{!13, !12}
+  !14 = distinct !{!14, !12}
+  !15 = !{!16, !17, i64 32}
+  !16 = !{!"sha256_ctx", !8, i64 0, !17, i64 32, !8, i64 40, !7, i64 104}
+  !17 = !{!"long long", !8, i64 0}
+  !18 = !{!16, !7, i64 104}
+  !19 = distinct !{!19, !12}
+  !20 = distinct !{!20, !12}
+...
+---
+name:            sha256_init
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%0' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0 (%ir-block.1):
+    liveins: $x10
+  
+    %0:gpr = COPY $x10
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    %1:gpr = PseudoMovAddr target-flags(riscv-hi) @sha256_init.H0, target-flags(riscv-lo) @sha256_init.H0
+    $x12 = ADDI $x0, 32
+    $x10 = COPY %0
+    $x11 = COPY %1
+    PseudoCALL target-flags(riscv-call) @memcpy, csr_ilp32_lp64, implicit-def dead $x1, implicit $x10, implicit $x11, implicit killed $x12, implicit-def $x2, implicit-def dead $x10
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    SW $x0, %0, 32 :: (store (s32) into %ir.3, align 8, !tbaa !15)
+    SW $x0, %0, 36 :: (store (s32) into %ir.3 + 4, basealign 8, !tbaa !15)
+    SW $x0, %0, 104 :: (store (s32) into %ir.4, align 8, !tbaa !18)
+    PseudoRET
+...

@@ -1,0 +1,110 @@
+schema_version: assignment-resource-inventory-v2-platform-profiles
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V2_PLATFORM_PROFILES
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: null
+artifact_lifecycle:
+  mode: OFF # OFF | DRY_RUN | PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1_1_PLATFORM_PROFILES
+  policy_sha256: null
+  cutover_id: null
+  artifact_state: ARTIFACT_OPEN
+  legacy_disposition: NOT_APPLICABLE # NOT_APPLICABLE | GRANDFATHERED | MIGRATION_APPROVED
+  closeout_event: null
+  downstream_consumer: null
+  post_close_retained_bytes_max: null
+  phase_closeout_retention_path: null
+  capsule_path: null
+  cleanup_receipt_path: null
+identity:
+  topic_id: null
+  assignment_id: null
+  stage_or_mode: null
+  run_id: null
+  unique_write_directory: null
+  resource_root: null
+  inventory_path: null
+  created_at: null
+  finalized_at: null
+execution_platform:
+  profile: null
+  profile_sha256: null
+  native_os_kernel_arch: null
+  native_workspace_root: null
+  native_resource_root: null
+  backing_store_path: null
+  path_mapping: []
+  filesystem_type: null
+  codex_surface_and_version: null
+  repo_branch_and_commit: null
+  gpu_identity_if_used: null
+root_measurement:
+  logical_bytes: 0
+  allocated_bytes: null
+  measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL
+  measurement_complete: false
+required_directories:
+  downloads: null
+  archives: null
+  src: null
+  build: null
+  env: null
+  cache: null
+  tmp: null
+  logs: null
+redirect_preflight:
+  status: NOT_RUN
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools: []
+resource_envelope:
+  network_bytes_max: null
+  stored_bytes_max: null
+  cpu_hours_max: null
+  gpu_hours_max: null
+  wall_seconds_max: null
+  attempts_max: null
+  network_bytes_used: null
+  stored_bytes_used: null
+  attempts_used: null
+entries: [] # exact paths, bytes/hash scope, creating run, claim/repro flags, consumers, provenance/license, reacquirable, recovery command, retention_class, delete_after_gate, receipt reference
+shared_assets_consumed: []
+external_system_dependencies: []
+cleanup:
+  owner: MAINLINE
+  executor: null # MAINLINE_WINDOWS | MAINLINE_AUTHORIZED_LINUX_LANE
+  mainline_signed_cleanup_packet: null
+  authorized_descendants: []
+  allowed_automatic_retention_classes: []
+  closeout_plan_accepted: false
+  downstream_inputs_accepted: false
+  capsule_sealed: false
+  active_owner_or_process_count: null
+  predelete_target_count: 0
+  predelete_file_count: 0
+  predelete_logical_bytes: 0
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  performed_at: null
+  recoverability: null
+validation:
+  resource_root_exact_match: false
+  root_under_workspace: false
+  platform_profile_and_hash_match: false
+  native_root_and_backing_store_match: false
+  forbidden_mounted_windows_build_root_check: false
+  forbidden_root_check: false
+  reparse_traversal_check: false
+  required_directories_present: false
+  persisted_resources_inventoried: false
+  envelope_within_limit: false
+  claim_critical_content_hashes_present: false
+  lifecycle_mode_and_hash_match: false
+  all_persisted_entries_classified: false
+  downstream_consumers_resolved: false
+  deterministic_recovery_routes_complete: false
+  closeout_budget_or_exception_pass: false
+  cleanup_receipt_valid: false
+  result: NOT_VALIDATED

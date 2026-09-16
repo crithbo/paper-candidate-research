@@ -1,0 +1,37 @@
+schema: bounded-engineering-correction-addendum-ack-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R10-NATURAL-CLAIM-EXECUTION
+lane_id: CANDIDATE_EXECUTION_LANE_2
+cwd_project_root: <LOCAL_PROJECT_ROOT>
+addendum:
+  path: BASELINE_GRAPH_PRODUCER_IMPLEMENTATION_ADDENDUM.yaml
+  sha256: 3B4C776E6E9870EA54E3E422F3BFA9ECE0C383C361BCB0DD4AE9DA221807B895
+prior_outputs:
+  order_plan: {path: ROW_SUBCOMMAND_ORDER_PLAN.yaml, sha256: 823F659CFD818D0700EA11A3C4E3986095028AD478E421EF059AAD580E8537F0}
+  validation: {path: ROW_SUBCOMMAND_ORDER_VALIDATION.yaml, sha256: 453157C0A222CC87B5123A38C539C5529CB345A8DE281C9EBFB6D52D867B2217}
+frozen_inputs:
+  relocated_plan: {path: RELOCATED_R10_EXECUTION_PLAN.json, sha256: C3087A086E4EE4EF5E5B6E14D15B04F38EF0D94E9397A3AC7E456CB668AE70E2}
+  harness: {path: resources/src/natural_materializer/materializer_harness.py, sha256: C504250677F59E3B2EE2C054E51D160EE632D3E9E84688BA93C20C0236525C53, preservation: unchanged}
+  resources: {files: 340, logical_bytes: 127698561, reparse_entries: 0, preservation: unchanged}
+static_interface_audit:
+  existing_function: _run_strong_baseline_grid
+  existing_function_outputs:
+    compile_configs: 8
+    link_bundles: 16
+    native_command_metric_ids: 56
+    graph_path: output_root/strong_baseline_dependency_graph.json
+  frozen_r10_row_requires:
+    command_metric_ids: 896
+    bundles: 256
+    graph_path: baseline/dependency_graph.json
+    consumers: [checker[0], full_cost[0]]
+differences_or_ambiguities:
+  - "The sole authorized function emits 56 metric IDs per invocation, not the frozen 896 IDs per row."
+  - "The sole authorized function emits 16 bundles, not the frozen 256 bundles per row."
+  - "The function writes strong_baseline_dependency_graph.json, not the frozen baseline/dependency_graph.json consumer path."
+  - "Producing the required r10 graph from that function would require an unapproved configuration/input/cost/path transformation, forbidden by the addendum."
+authorized_action_started: false
+scientific_or_resource_action_started: false
+claim_bearing_observation_started: false
+scientific_revision_consumed: false
+ack_disposition: REFUSE
+next_action: RETURN_TO_MAINLINE_FOR_HASH_PINNED_INTERFACE_CORRECTION

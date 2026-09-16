@@ -1,0 +1,28 @@
+schema: pre-claim-actual-apx-tpd-gate-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+exact_object: FIXED_LLVM_MACHINEIR_LIVENESS_X86_64_ABI_UNWIND_APX_TARGET_AND_PROGRAM_SEMANTICS
+exact_commit: a1194be1baefa99d20a09bd04b16056be0ab7225
+ordered_gate:
+  P0_INPUT_ACCEPTANCE: {status: PASS, evidence: SAME_TOPIC_INPUT_ACCEPTANCE.yaml}
+  P1_SOURCE_AND_CURRENT_ACTION_CATALOG: {status: PASS, evidence: [SELECTIVE_SOURCE_EXTRACTION_AUDIT.yaml, CURRENT_NATIVE_ACTION_CATALOG.yaml]}
+  P2_ACTUAL_PER_ACTION_DP_IMPLEMENTATION: {status: NOT_RUN_AS_VALID_GATE, evidence: ACTUAL_DP_IMPLEMENTATION_AUDIT.yaml}
+  P3_STRONG_BASELINE_CONSUMPTION_AND_DISTINCTNESS: {status: FAIL_CLOSED_PRELAUNCH_WRAPPER_PARSE, evidence: STRONG_BASELINE_CONSUMPTION_AUDIT.yaml}
+  P4_TINY_NATIVE_ORACLE_AND_CERTIFICATE: {status: NOT_RUN_ORDERED_STOP, evidence: TINY_ORACLE_AND_CERTIFICATE_AUDIT.yaml}
+  P5_RESULT_INDEPENDENT_NATURAL_CORPUS_FREEZE: {status: NOT_RUN_ORDERED_STOP, selected: 0, reserve: 0, evidence: NATURAL_CORPUS_FREEZE.yaml}
+  P6_R8_FULLY_EXPANDED_PLAN: {status: NOT_RUN_ORDERED_STOP, process_rows: 0, evidence: R8_EXPANDED_COMMAND_PRECOMMIT.yaml}
+first_failure:
+  gate: P3
+  child_process_started: false
+  command_edit_or_retry: false
+claim_bearing_observation_count: 0
+selected_or_reserve_corpus_tool_invocations: 0
+network_bytes: 0
+scientific_revision_consumed: false
+mechanism_pivot_consumed: false
+owner_state_transition_performed: false
+owner_cleanup_performed: false
+result: FAIL_CLOSED_ACTUAL_APX_TPD_OR_CORPUS_PRECLAIM__NO_SELECTED_CORPUS_OR_SCIENTIFIC_INFERENCE
+claim_ceiling: PRECLAIM_CONTROL_ONLY__NO_SCIENTIFIC_INFERENCE
+scientific_inference: NONE
+

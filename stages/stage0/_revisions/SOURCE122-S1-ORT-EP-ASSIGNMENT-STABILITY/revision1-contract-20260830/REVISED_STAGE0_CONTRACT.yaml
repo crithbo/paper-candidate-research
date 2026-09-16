@@ -1,0 +1,59 @@
+schema: stage0-revised-contract-v1
+assignment_id: STAGE0-REVISION1-20260830-ORT-EP-ASSIGNMENT-STABILITY
+topic_id: SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+revision: 1_of_1
+revision_consumed: true
+revision_consumption_event: FIRST_WRITE_OF_REVISED_STAGE0_CONTRACT
+claim_bearing_observation_obtained: false
+scientific_result_generated: false
+
+preservation:
+  exact_object: semantically_equivalent_ONNX_graph_rewrites_and_ORT_optimizer_level_assignment_full_cost_stability
+  research_question: whether_a_source_representation_optimizer_level_decision_remains_valid_on_heldout_semantically_equivalent_representations
+  decision_validity_endpoint: heldout_full_cost_regret_under_frozen_output_quality_threshold
+  evidence_ceiling: CANONICAL_PUBLIC_BENCHMARK_AND_PUBLIC_ORT_STACK_ONLY
+  changed_object_RQ_or_ceiling: false
+
+single_primary_endpoint:
+  runtime_distribution: onnxruntime_gpu
+  exact_version: 1.26.0
+  provider_order: [CUDAExecutionProvider, CPUExecutionProvider]
+  provider_options: FROZEN_IDENTICAL_ACROSS_ALL_CELLS
+  selectable_optimizer_actions: [ORT_ENABLE_BASIC, ORT_ENABLE_EXTENDED, ORT_ENABLE_ALL]
+  diagnostic_only_action: ORT_DISABLE_ALL
+  source_decision_rule: MINIMIZE_FROZEN_FULL_COST_SUBJECT_TO_FROZEN_OUTPUT_QUALITY_THRESHOLD
+  heldout_evaluation: APPLY_SOURCE_SELECTED_ACTION_TO_ALL_HELDOUT_EQUIVALENT_REPRESENTATIONS_AND_MEASURE_REGRET
+  primary_estimand: HELDOUT_REGRET_OF_SOURCE_SELECTED_OPTIMIZER_LEVEL
+  forbidden_endpoint_substitution: [EP_SELECTION, GENERIC_BUG_FINDING, PER_REPRESENTATION_RETUNING, RESULT_AWARE_MODEL_OR_RELATION_SELECTION]
+
+frozen_relation_families:
+  - ONNX_Function_expansion_or_inlining
+  - inverse_Transpose_or_Reshape_identity
+  - Split_then_Concat_reconstruction
+  - constrained_Gemm_to_MatMul_plus_Add
+normalized_away_negative_control: identity_or_inverse_pair_expected_to_be_removed_by_basic_optimization
+
+legality_contract: LEGALITY_AND_LINEAGE_CONTRACT.yaml
+denominator_contract: ALL_CELL_DENOMINATOR.yaml
+q2_and_baseline_contract: Q2_BREADTH_AND_BASELINES.yaml
+stagea_killer_contract: STAGEA_KILLER_PLAN.yaml
+
+fixed_invariants:
+  - one_optimizer_level_endpoint_only
+  - exact_ORT_and_provider_stack_identical_across_cells
+  - heldout_models_and_relations_are_mandatory
+  - all_planned_cells_remain_in_denominator
+  - failures_and_normalized_away_outcomes_are_not_excluded
+  - legality_requires_L0_L1_L2_before_claim_bearing_interpretation
+  - semantic_region_lineage_uses_zero_one_many_quotient
+  - no_private_QNN_or_private_telemetry_requirement
+  - no_search_resource_implementation_experiment_or_StageA_in_this_assignment
+
+current_assignment_effect:
+  revised_contract_packet_written: true
+  revision_consumed: true
+  candidate_implementation_started: false
+  experiment_started: false
+  StageA_or_StageB_started: false
+  formal_state_change_authority: MAINLINE_ONLY
+  next_gate: INDEPENDENT_STAGE0_REVISION_CLOSING

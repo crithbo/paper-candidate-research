@@ -1,0 +1,26 @@
+schema: discovery-rq-candidates-v1
+assignment_id: DISCOVERY-S3-20260830-SOURCE123
+topic_id: SOURCE123-PORTFOLIO-S3
+formed_after_exact_carrier_freeze: true
+formed_before_first_source_call: true
+frontend_mode: PRODUCTION
+frontend_revision: RQ_REFINEMENT_STAGED_EVIDENCE_V1
+primary_rqs:
+  - {id: RQ01, seed: SD01, carrier: C01, rq: Can exact consecutive scale-zero metadata repeats in torchao INT4 TensorCoreTiledLayout be represented by a run-indexed packed layout that reduces metadata traffic without changing AffineQuantizedTensor dequantization or GEMM outputs?, type: COMPILER_TOOL}
+  - {id: RQ02, seed: SD02, carrier: C02, rq: Can torchao MarlinSparseLayout co-pack 2:4 mask and quant-group scale addressing so metadata work follows surviving groups while preserving exact INT4 values and sparse GEMM semantics?, type: METHOD_ALGORITHM}
+  - {id: RQ03, seed: SD03, carrier: C03, rq: Can naturally repeated or small-delta E8M0 scale blocks in Triton MXFP4 block-scaled matmul be losslessly encoded and decoded per warp to improve full-cost single-GPU inference?, type: METHOD_ALGORITHM}
+  - {id: RQ04, seed: SD04, carrier: C04, rq: Can CUTLASS block-scale-factor storage be reordered by a source-supported expert or channel grouping to increase scale-cache reuse while preserving the same narrow-precision GEMM?, type: COMPILER_TOOL}
+  - {id: RQ05, seed: SD05, carrier: C05, rq: Can Transformer Engine's global and block-local scale hierarchy be given separate compiler-managed lifetimes that reduce repeated scale traffic under unchanged MXFP8 or NVFP4 semantics?, type: COMPILER_TOOL}
+  - {id: RQ06, seed: SD06, carrier: C06, rq: Can repeated second-level scale codes in bitsandbytes nested 4-bit quantization be dictionary-packed with a fused decode that improves end-to-end inference without changing quantized values?, type: METHOD_ALGORITHM}
+  - {id: RQ07, seed: SD07, carrier: C07, rq: Can repeated or all-zero subblock metadata in a fixed llama.cpp K-quant format be co-encoded to skip exact scale-min and value decode work without changing GGML tensor semantics?, type: METHOD_ALGORITHM}
+  - {id: RQ08, seed: SD08, carrier: C08, rq: Can a fixed GPTQ column permutation be absorbed into Marlin packed weight and group-scale addressing so runtime activation permutation is eliminated under identical GEMM outputs?, type: METHOD_ALGORITHM}
+  - {id: RQ09, seed: SD09, carrier: C09, rq: Can BitBLAS layout propagation expose and schedule exact group-scale decode reuse across consumer tiles beyond its current transform and autotuning actions?, type: COMPILER_TOOL}
+  - {id: RQ10, seed: SD10, carrier: C10, rq: Can GemLite use a tail-specific exact packed micro-layout for non-multiple group dimensions that improves full-cost small-batch inference beyond padding or branch-based handling?, type: METHOD_ALGORITHM}
+source_roles_precommitted:
+  ANCHOR: official current source and documentation for each packed layout
+  CURRENT: native default and non-default flags layouts and strongest current kernel union
+  CONTRARY: existing offline repacking metadata compression layout propagation and sparse or microscaling kernels
+  ESCAPE: lossless exponent compression bitplane coding and sparse-metadata co-design under other terminology
+result_aware_backfill_forbidden: true
+source_calls_used_at_freeze: 0
+

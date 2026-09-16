@@ -1,0 +1,12 @@
+schema: nonblind-stagea-engineering-failure-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A9-ABSOLUTE-PATH
+decision: FAIL_CLOSED__AUTHOR_EXAMPLE_MAPPED_REQUIRES_POSIX_SYS_MMAN_H__NO_RETRY
+configure: {result: PASS, generator: Ninja, clang: 22.1.8, build_directory: resources/build/pgm-ninja-a9, A8_modified: false}
+build:
+  result: NONZERO
+  failed_target: examples/example_mapped
+  error: "fatal error: sys/mman.h file not found in pgm_index_variants.hpp"
+  source_or_option_or_toolchain_change_attempted: false
+  retry_attempted: false
+subsequent_steps: {ctest: false, fidelity: false, probe: false}
+scientific_boundary: {scientific_inference: NONE, claim: false, production: false, stageB: false, cleanup: false}

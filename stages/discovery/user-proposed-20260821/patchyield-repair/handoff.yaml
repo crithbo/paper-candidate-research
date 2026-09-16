@@ -1,0 +1,53 @@
+assignment_id: DISCOVERY-S5-20260821-USER-PATCHYIELD-STAGE0-REPAIR
+lane: DISCOVERY-S5-SCALE-ONLINE-APPROX
+topic_id: PATCHYIELD-CALL
+write_directory: stages/discovery/user-proposed-20260821/patchyield-repair
+status: READY_FOR_INDEPENDENT_STAGE0
+return_state: IDLE_REUSABLE
+rule_freeze:
+  assignment_sha256: 888F955547D98D089A5D49CFC292EA3F443458A7C4401DACD38769D496963B5C
+  input_archive_sha256: 1F1696FBBF39C4C6810386E8472692EA1E434011B15D02E10F84A3C3F61E9B67
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+scope:
+  mode: TARGETED_REFINEMENT_OF_USER_FROZEN_TOPIC
+  new_discovery_rq: false
+  stage0_run: false
+  stageA_or_claim_bearing_execution: false
+  model_container_dataset_or_h100_download_or_run: false
+input_validation:
+  archive_hash_match: true
+  archive_prefix_boundary_respected: true
+  archive_entries_executed: false
+repair_outcome:
+  primary_evidence: deterministic_live_reexecution_on_same_H100_and_software_snapshot
+  replay_status: debugging_or_sensitivity_only_unless_live_calibrated_and_held_out_validated
+  deadline_anchor: request_arrival
+  fairness_constraint: READY_CALL_BOUNDED_BYPASS_16__ZERO_VIOLATIONS_IN_EVERY_CELL
+  full_cost_separated_from_deadline_and_fairness: true
+  dry_run_no_directory_mutation_by_static_path_audit: true
+  no_default_HOME_or_global_cache_path: true
+stageA_fidelity_plan:
+  status: FINITE_FIDELITY_GAP
+  resource_gate: bookable single H100 SXM 80GB plus frozen artifacts, local NVMe, RAM, CPU, and container/parser bootstrap
+  finite_killer: no stable held-out incremental progress-feature value or any bounded-bypass fairness violation
+  scientific_claim_ceiling: no execution, performance, determinism, fairness-feasibility, novelty, or Stage0 decision claim
+independent_stage0_debt:
+  - current strongest union and collision audit
+  - Q2/Q1 sufficiency calibration
+  - independent judgment of conditional paper shape
+resource_reconciliation:
+  resource_root: resources
+  eight_subdirectories_created: true
+  persisted_external_bytes: 0
+  external_source_checks: 2
+  downloads_builds_installs_experiments: 0
+canonical_outputs:
+  repair_report: REPAIR_REPORT.md
+  replay_and_fairness_contract: REPLAY_AND_FAIRNESS_CONTRACT.yaml
+  question_card: DISCOVERY_QUESTION_CARD.md
+  topic_brief: TOPIC_BRIEF.md
+  scripts: [scripts/bootstrap_assets.sh, scripts/vllm_launch.sh]
+  manifest: HASH_MANIFEST.sha256
+handoff_to_mainline: true

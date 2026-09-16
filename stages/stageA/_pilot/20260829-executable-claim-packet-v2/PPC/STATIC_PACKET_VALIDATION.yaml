@@ -1,0 +1,29 @@
+schema: static-executable-claim-packet-validation-v2
+pilot_assignment: PILOT-V2-PPC-E0_5-BINDING-CLOSURE
+packet: EXECUTABLE_CLAIM_PACKET.yaml
+dag: COMMAND_DAG.json
+validation:
+  packet_yaml_readable: true
+  dag_json_parse: PASS
+  dag_nodes_unique: true
+  dag_edges_reference_existing_nodes: true
+  dag_acyclic_topological_order: true
+  placeholders: 0
+  exact16_manifest_sha256: D278BD508A192186115D337048C44E7DACC7B259ADE1FB114EEE6067378F3F7D
+  exact16_manifest_entries: 16
+  four_native_tools_and_python_bound: true
+  candidate_metric_producer_count: 15
+  baseline_metric_producer_count: 56
+  full_cost_denominator: 71
+  checker_consumes_candidate_and_baseline_outputs: true
+  full_cost_consumes_candidate_and_baseline_outputs: true
+  result_aware_fields_hidden: true
+  e1_tool_execution: false
+  e2_control_execution: false
+  claim_execution: false
+  resource_copy: false
+  shared_install: false
+static_lint_edits_used: 0
+status: PASS_STATIC_PACKET__ZERO_PLACEHOLDERS
+next_gate: E2_CONTROL_ROW_ONLY_AFTER_MAINLINE_ACCEPTANCE
+scientific_inference: NONE

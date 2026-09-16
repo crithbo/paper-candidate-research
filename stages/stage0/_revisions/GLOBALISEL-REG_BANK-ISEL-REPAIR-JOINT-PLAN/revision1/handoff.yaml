@@ -1,0 +1,47 @@
+assignment_id: STAGE0-P1-20260814-GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN-REVISION1-V8.7
+topic_id: GLOBALISEL-REG_BANK-ISEL-REPAIR-JOINT-PLAN
+mode: PRIMARY_REVISION
+revision_budget: 1_of_1_consumed
+atomic_gate: PINNED_RBI_ACTION_CATALOG__NONLOCAL_BOUNDED_REGION_CERTIFICATE
+decision: RECOMMEND_STAGE0_PASS_FOR_CLOSING_REVIEW
+tier: TIER_B_Q2_VIABLE
+confidence: 0.76
+structural_paper_potential: CONDITIONAL_N2__AARCH64_RBI_BOUNDED_NONLOCAL_FRONTIER
+current_evidence_readiness: STATIC_CERTIFICATE_COMPLETE__STAGEA_PRECLAIM_FIDELITY_UNRUN
+evidence_ceiling: STATIC_NATIVE_ACTION_CERTIFICATE__NO_BUILD_NO_PERFORMANCE_CLAIM
+immutable_source_pin:
+  llvm_project_commit: ba5bccfe01368f76e74d6ff4c35f1330e155b4ba
+  target: aarch64-unknown-linux-gnu
+  abi: AAPCS64
+  features: [+neon]
+  target_files:
+    - llvm/lib/Target/AArch64/GISel/AArch64RegisterBankInfo.cpp
+    - llvm/lib/CodeGen/GlobalISel/RegBankSelect.cpp
+witness:
+  region: G_LOAD_s64__G_LOAD_s64__G_OR_s64__G_FADD_s64
+  plans: [P_local_GPR_first, P_joint_FPR_first]
+  declared_costs: {P_local: 9, P_joint: 4}
+  union_external: true
+method:
+  name: A64-RBI-FDP
+  guarantee: exact_static_RBI_repair_planner_Pareto_frontier_on_declared_bounded_grammar
+  nonclaims: [final_RA_optimality, performance_improvement, measured_residual]
+strongest_current_union:
+  - Fast_default_mapping
+  - Greedy_all_target_possible_mappings_with_fixed_strict_tie_behavior
+  - complete_RepairingPlacement_reassign_insert_edge_split_impossible_actions
+  - unchanged_InstructionSelect_RA_scavenging_frame_scheduling_postRA_MC_link
+collision_status: SEARCH_BOUNDED_OPEN
+direct_fatal_found: false
+stageA_authorized: false
+stageB_authorized: false
+stageA_preclaim_killer:
+  corpus: up_to_20_pinned_AArch64_GlobalISel_supported_bounded_regions
+  oracle: independent_tiny_complete_catalog_enumerator
+  stop_if:
+    - verifier_or_semantic_parity_failure
+    - stock_union_reproduces_candidate_frontier
+    - missing_or_illegal_catalog_action
+    - no_p50_or_p90_charged_full_cost_nondominated_point
+next_route: INDEPENDENT_REVISION1_CLOSING_ONLY
+lane_terminal_state: IDLE_REUSABLE_AWAITING_MAINLINE

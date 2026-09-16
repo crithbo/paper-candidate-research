@@ -1,0 +1,19 @@
+schema: assignment-resource-inventory-v1
+identity:
+  assignment_id: NONBLIND-STAGEA-20260826-HNSW
+  topic_id: NONBLIND_STAGEA_COMPATIBILITY__HNSW
+  stage_or_mode: NONBLIND_STAGEA_COMPATIBILITY
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/HNSW
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/HNSW/resources
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+artifact_lifecycle: {mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY, policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6, downstream_consumer: INDEPENDENT_STAGEA_GATE_THEN_BACKTEST_AUDITOR, post_close_retained_bytes_max: 536870912, cleanup_owner: MAINLINE}
+root_measurement: {logical_bytes: 217, file_count: 1, reparse_points: 0, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL}
+required_directories: {downloads: true, archives: true, src: true, build: true, env: true, cache: true, tmp: true, logs: true}
+entries:
+  - {path: resources/logs/S0_cmake.stderr.txt, bytes: 217, sha256: 6996FCE9EBB54A20F65868F8AEE483FB76151F321FD04AF4DB4854C8E16294A6, creating_command: S0_CMAKE_VERSION, retention_class: RESUME_CRITICAL_UNTIL_UNBLOCKED, claim_critical: false, reproducibility_minimum: true}
+network_bytes_used: 0
+stored_bytes_max: 1000000000
+archive_or_source_or_build_created: false
+cleanup_candidates: []
+owner_cleanup_performed: false
+scientific_inference: NONE

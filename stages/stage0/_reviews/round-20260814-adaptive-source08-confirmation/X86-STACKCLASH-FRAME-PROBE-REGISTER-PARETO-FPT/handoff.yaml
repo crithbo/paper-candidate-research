@@ -1,0 +1,22 @@
+assignment_id: STAGE0-C2-20260814-X86-STACKCLASH-FRAME-PROBE-REGISTER-PARETO-FPT-CONFIRM-V8.7
+topic_id: X86-STACKCLASH-FRAME-PROBE-REGISTER-PARETO-FPT
+mode: INDEPENDENT_CONFIRMATION_SENTRY
+decision: CONFIRM_STOP
+quality_tier: BELOW_Q2_STOP
+confidence: 0.91
+primary_input_integrity: 4_OF_4_PASS
+primary_manifest_sha256: 3E604D90D3DDA23D680C3D06B806182917709F2AC38C128E9EEB92973CF695C7
+terminal_sentinel: BELOW_Q2_STOP__STATIC_X86_PROBE_DETERMINISM__CSR_SPILL_COMPOSITION__NO_NATIVE_SCRATCH_ACTION
+stagea_authorized: false
+stageb_authorized: false
+revision_permitted: false
+revision_executed_by_this_assignment: false
+independent_findings:
+  - Greedy already models first-use callee-saved-register cost against spill/split cost.
+  - PEI finalizes CSR/frame structure before x86 prologue insertion.
+  - Static probe block/loop expansion is determined by final offset, alignment and probe size.
+  - The loop uses a fixed R11 prologue temporary, but it is not an allocator-selectable body-live scratch action and does not restore a same-object frontier.
+residual_classification: GENERIC_SCALAR_COST_TUNING_OR_FRAME_PACKING
+search_boundary: SEARCH_BOUNDED_OPEN
+mainline_notification_required: true
+lane_state_after_mainline_acceptance: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,21 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S5-20260824-SOURCE107-SINGLE-GPU-LLM-SOFTWARE-V1
+topic_id: SOURCE107-PORTFOLIO-S5
+lane_id: DISCOVERY_S5
+lane_mode: S5_SCALE_ONLINE_APPROX
+thread_id: 01a02e0a-e6cf-7051-adc8-514d53e55549
+common_contract: stages/discovery/round-20260824-strategy-source107/control/CONTROL.yaml
+common_contract_sha256: F1BE6A196842A5F7EBF5856EDC9E0D3F1D7399CB8C59A14AE11D7B3EF206CC75
+write_directory: stages/discovery/round-20260824-strategy-source107/S5-scale-online-approx
+resource_root: stages/discovery/round-20260824-strategy-source107/S5-scale-online-approx/resources
+focus: KV_SESSION_OR_PREFIX_MEMORY_ONLINE_ALGORITHM_OUTSIDE_CURRENT_VLLM_SGLANG_UNION
+anchor_portfolio: [VLLM_SGLANG_CURRENT_SOURCE_AND_PUBLIC_TRACE]
+forbidden_inputs: [CRFEPOCH_STAGE0_OUTPUTS, GROUP_REPOSITORY]
+forbidden_exact_repeats: SOURCE106_PORTFOLIO_NOTE_IDENTITIES
+model_route: {model: gpt-5.6-terra, reasoning: high}
+discovery_rq_frontend_mode: PRODUCTION
+discovery_claim_pack_mode: OFF
+discovery_quality_mode: OFF
+selective_depth: OFF
+next_action_before_start: WRITE_BOOTSTRAP_ACK_AND_WAIT_FOR_MAINLINE_ACCEPTANCE
+

@@ -1,0 +1,57 @@
+assignment_id: RULE-AUDIT-20260814-SOURCE32-33-CONSECUTIVE-ZERO-BRIEF-R32
+role: RULE_AUDIT_SENTRY
+mode: PROPOSAL_ONLY
+status: COMPLETE__IDLE_REUSABLE_AWAITING_USER_DIALOGUE
+decision: BACKTEST_REQUIRED__PROSPECTIVE_ASSIGNMENT_LOCAL_SHADOW
+plain_conclusion_zh: >-
+  审查速度足以消化目前的 clean brief；真正瓶颈是 12 个 lane-cycle 中 9 个没有 raw，
+  以及 active non-product veto 把所有保留 joint raw 都停在 brief 前。该检查有精度价值，
+  但连续原样阻塞会产生运营性假阴性风险。
+current_status:
+  stagea_gate_pass_progress: 1_OF_5
+  source32_clean_briefs: 0
+  source33_clean_briefs: 0
+  source33_complete_lanes: 6_OF_6
+  stage0_clean_brief_backlog: 0
+  stage0_capacity_assessment: SUFFICIENT__CURRENTLY_UNDERUTILIZED
+bottleneck:
+  primary: SOURCE_ENTRY_LOCATOR_TO_RAW__NINE_OF_TWELVE_LANE_CYCLES_RAW_ZERO
+  secondary: ACTIVE_NON_PRODUCT_VETO__NO_POSITIVE_SURVIVOR_AFTER_TWO_CYCLES
+case_interpretation:
+  SYSTEMZ: HEALTHY_STRUCTURAL_DROP
+  RVV: RECOVERABLE_BOUNDED_UNRESOLVED__NOT_SCIENTIFIC_NEGATIVE
+  NVPTX_TCGEN05: RECOVERABLE_BOUNDED_UNRESOLVED__NOT_SCIENTIFIC_NEGATIVE
+unique_recommendation:
+  boundary: AFTER_SOURCE34_COMPLETE
+  assignment: SOURCE35_ONLY
+  profile: BASE_RQ_CANONICAL_PLUS_NON_PRODUCT_SHADOW_AFTER_COMMIT_V1
+  active_non_product_veto: STOP_AFTER_SOURCE33
+  non_product_analysis: RETAIN_IN_SHADOW_ONLY
+authorization:
+  user_policy_approval_required: false
+  authority: USER_ADAPTIVE_DISCOVERY_CONTINUE_UNTIL_FIVE_STAGEA_PASS_20260814
+  mainline_assignment_local_implementation_authorized: true
+  shared_patch_authorized: false
+  permanent_rule_authorized: false
+source34:
+  action: NO_CHANGE__NO_DELAY__NO_CONTACT
+frozen_controls:
+  lanes_and_capacity: UNCHANGED
+  canonical_method: V8_7
+  rq_frontend: PRODUCTION
+  v9: OFF
+  network_security: EXCLUDED
+  proposal_quota: NONE
+  outcome_aware_backfill: FORBIDDEN
+  science_hard_gates: UNCHANGED
+shared_files_modified: false
+stage_or_experiment_started: false
+deliverables:
+  - AUDIT_INPUT_SNAPSHOT.md
+  - FUNNEL_CAPACITY_ASSESSMENT.md
+  - RULE_AUDIT_REPORT.md
+  - RULE_CHANGE_PROPOSAL.md
+  - RESOURCE_INVENTORY.yaml
+  - HASH_MANIFEST.sha256
+resource_root: <LEGACY_LOCAL_PROJECT_ROOT>\stages\rule-audit\RULE-AUDIT-20260814-SOURCE32-33-CONSECUTIVE-ZERO-BRIEF-R32\resources
+next_role_state: IDLE_REUSABLE_AWAITING_USER_DIALOGUE

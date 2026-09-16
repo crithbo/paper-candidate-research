@@ -1,0 +1,21 @@
+schema_version: assignment-resource-inventory-v1
+assignment_id: SOURCE-CLOSURE-RESUME-BATCH03-ITEM02-SOURCE81-S2-RISCV-GP-V1
+resource_root: stages/discovery/round-20260815-adaptive-source81/S2-bottleneck-transfer/closure-cq01-cq02/resources
+localization:
+  eight_directories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+  preflight: resources/logs/resource-inventory/preflight-v1.yaml
+envelope: {calls_max: 14, calls_used: 12, search_queries_used: 3, primary_candidates_opened: 1, persisted_bytes_max: 50331648, persisted_bytes: 472470}
+provenance: {project: llvm/llvm-project, branch: main, immutable_commit: 367b306e9c12e16621b27e606bfbb765166a6b96, source_license: Apache-2.0 WITH LLVM-exception}
+artifacts:
+  - {path: resources/downloads/01-main-commit.json, bytes: 9419, sha256: 9B845419127952948B11AF73A934B8BBBEA38640A16B9A155592E733C7A74A0F}
+  - {path: resources/downloads/02-RISCV.cpp, bytes: 56292, sha256: B37AD79CFFFAEB35E27A3735F45C4BB4C0E07477E67D32BC19709A1C0BB0D3FC}
+  - {path: resources/downloads/03-Driver.cpp, bytes: 140882, sha256: 0184DF246DCE0390BA84BAD6C77FE4B95AEDAC5381ED459CEDFDE37D5CC4659A}
+  - {path: resources/downloads/04-ScriptParser.cpp, bytes: 61940, sha256: BB8B0F98D26BDB0B7B7F51B7DC20198786977404232A450B936D1AF3090DDF72}
+  - {path: resources/downloads/05-Options.td, bytes: 39318, sha256: 42A4692F4D9DB4E0FEB730A19EA6E85B1658B5CF67038A9B86084B30940D4C56}
+  - {path: resources/downloads/07-RISCVUsage.html, bytes: 164204, sha256: D69031F50F66B01D824F74340F18238F072CE7782B99985827CF0FD734BBC5BC}
+  - {path: resources/downloads/08-riscv-elf-linker-relaxation.html, bytes: 415, sha256: 4FF835AE0177926F023065F324F4CD8A19A8D68109C8400C8AEBCCA6F107CF12}
+telemetry:
+  - {sequence: 6, route: lld/test/ELF/riscv-relax-gp.s, status: HTTP_404_TELEMETRY_ONLY, scientific_inference: NONE}
+  - {search_queries_used: 3, primary_candidates_opened: 1, browser_responses_persisted: false}
+validation: {resource_root_exact_match: true, result: PASS}

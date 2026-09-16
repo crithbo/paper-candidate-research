@@ -1,0 +1,24 @@
+schema_version: r3-stage0-neutral-packet-v1
+packet_visibility: STAGE0_REVIEWER_ONLY
+identity_blind: true
+forbidden_to_reviewer: [identity, title, authors, venue, DOI, locator, gold_label, expected_disposition, network_search, identity_guessing]
+source_evidence_identifiers: [E01, E02, E03, E04, E05, E06, E07, E08, E09, E10, E11, E12]
+cases:
+  - {case_id: R3P01, contribution_type: SYSTEM_ARCHITECTURE, object: per-request storage latency management, proposed_action: lightweight runtime prediction and scheduling, natural_or_canonical_plan: production-like storage traces, full_cost_boundary: inference overhead plus I/O latency, minimum_falsifier: no improvement after counted inference cost}
+  - {case_id: R3P02, contribution_type: THEORY_FORMAL, object: read-only distributed transactions, proposed_action: consistency design under formal performance constraints, natural_or_canonical_plan: transactional storage implementations, full_cost_boundary: communication and metadata, minimum_falsifier: violated stated consistency or performance property}
+  - {case_id: R3P03, contribution_type: METHOD_ALGORITHM, object: distributed analytical query plans, proposed_action: fuse overlapping subqueries to remove redundant I/O, natural_or_canonical_plan: standardized decision-support queries, full_cost_boundary: optimizer plus execution cost, minimum_falsifier: no redundant transfer eliminated}
+  - {case_id: R3P04, contribution_type: THEORY_FORMAL, object: virtual-machine basic-block optimization validation, proposed_action: proof-producing semantic equivalence checking, natural_or_canonical_plan: smart-contract blocks, full_cost_boundary: proof/checker work, minimum_falsifier: inequivalent block accepted}
+  - {case_id: R3P05, contribution_type: COMPILER_TOOL, object: linear-algebra optimization, proposed_action: relational equality-saturation representation and extraction, natural_or_canonical_plan: ML algorithm workloads, full_cost_boundary: compile plus execution time, minimum_falsifier: no valid lower-cost equivalent extraction}
+  - {case_id: R3P06, contribution_type: COMPILER_TOOL, object: tensor graph optimization, proposed_action: equality saturation with scalable extraction, natural_or_canonical_plan: inference computation graphs, full_cost_boundary: search and runtime, minimum_falsifier: invalid or higher-cost selected graph}
+  - {case_id: R3P07, contribution_type: BENCHMARK_DATASET, object: tiny-device ML inference benchmarking, proposed_action: common accuracy-latency-energy benchmark contract, natural_or_canonical_plan: constrained embedded tasks, full_cost_boundary: measurement and quality threshold, minimum_falsifier: incomparable or nonreproducible result}
+  - {case_id: R3P08, contribution_type: BENCHMARK_DATASET, object: cloud and IoT microservice benchmarking, proposed_action: representative end-to-end benchmark suite, natural_or_canonical_plan: service workloads, full_cost_boundary: workload deployment and measurement, minimum_falsifier: invalid workload representation}
+  - {case_id: R3P09, contribution_type: BENCHMARK_DATASET, object: ML training performance comparison, proposed_action: time-to-solution benchmark protocol, natural_or_canonical_plan: multi-system training workloads, full_cost_boundary: quality target plus system cost, minimum_falsifier: throughput-only comparison changes quality}
+  - {case_id: R3P10, contribution_type: HARDWARE_ARCHITECTURE, object: page-cross cache prefetching, proposed_action: adaptive page-cross filtering, natural_or_canonical_plan: benchmark workloads and multicore mixes, full_cost_boundary: predictor and TLB effects, minimum_falsifier: filter harms aggregate performance}
+  - {case_id: R3P11, contribution_type: MEMORY_SYSTEM, object: GPU memory capacity management, proposed_action: split compressed entries across fast and buddy memory, natural_or_canonical_plan: DL and HPC workloads, full_cost_boundary: compression and remote access overhead, minimum_falsifier: capacity gain outweighed by slowdown}
+  - {case_id: R3P12, contribution_type: MEMORY_SYSTEM, object: embedding and tensor operations, proposed_action: near-memory DIMM operations and address mapping, natural_or_canonical_plan: recommendation and tensor workloads, full_cost_boundary: memory and communication path, minimum_falsifier: no bandwidth or latency benefit}
+negative_controls:
+  - {control_id: R3N01, injected_defect: SAME_OBJECT_DIRECT_ABSORPTION}
+  - {control_id: R3N02, injected_defect: PROXY_CHANGE_OBJECT}
+  - {control_id: R3N03, injected_defect: WEAK_COMPARATOR_OR_NONCANONICAL}
+  - {control_id: R3N04, injected_defect: FULL_COST_OMITTED}
+required_output: BLIND_STAGE0_NONCOLLISION_DECISION

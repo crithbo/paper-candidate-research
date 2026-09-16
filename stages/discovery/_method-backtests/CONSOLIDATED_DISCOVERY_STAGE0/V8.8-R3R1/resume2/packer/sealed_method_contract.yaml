@@ -1,0 +1,34 @@
+sealed_validation_contract: blinded_calibration_contract
+case_count: 10
+primary_artifact_count: 30
+artifact_per_case: 3
+ordered_disposition_table:
+  - 'Changed exact object, function, or guarantee; or closure necessarily changes one: STRUCTURAL_DROP.'
+  - 'Source-grounded same-information, same-contract, full-cost replay directly absorbs residual: STRUCTURAL_DROP.'
+  - 'No structural proof, but action certificate A_c/P/W_m/F_n is not frozen: NOT_ADMITTED_UNFROZEN.'
+  - 'Source/data/tool resource blocks closure before any claim-bearing observation: RESOURCE_BLOCKED.'
+  - 'Complete residual and finite falsifier remain: DEEP_DIVE_REQUIRED.'
+  - 'Assignment exclusion applies: EXCLUDED.'
+required_executor_output:
+  - disposition
+  - proposed_brief
+  - candidate_grade_deep_review
+  - proposal_grade
+  - disposition_basis
+  - minimum_set_assessment
+  - structural_proof
+  - failed_candidate_gates
+  - method_hard_gate_bypasses
+certificate_for_every_proposed_brief: [O, I, A_b, A_c, P, W_m, C, F_n]
+disallowed_inferences:
+  - 'Unfrozen action alone is not a structural proof.'
+  - 'A missing runtime, implementation, data source, or tool alone is not a structural disposition.'
+  - 'Failed candidate gates are distinct from method hard-gate bypasses.'
+  - 'No output may revive a terminally excluded object.'
+executor_allowlist:
+  - EXECUTOR_INSTRUCTIONS.md
+  - sealed_method_contract.yaml
+  - scoreability_schema.yaml
+  - EXECUTOR_INPUT/**
+auditor_only_denylist:
+  - 'Every file outside executor_allowlist is auditor-only and prohibited to the executor.'

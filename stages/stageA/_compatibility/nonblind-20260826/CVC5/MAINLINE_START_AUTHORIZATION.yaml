@@ -1,0 +1,26 @@
+schema: nonblind-stagea-compatibility-start-v1
+assignment_id: NONBLIND-STAGEA-20260826-CVC5
+authority: {issued_by: MAINLINE, model: gpt-5.6-terra, thinking: high}
+decision: START_AUTHORIZED__EXACT_OFFICIAL_PORTABLE_RELEASE
+source:
+  provider: official_github_release
+  repository: cvc5/cvc5
+  version: cvc5-1.3.4
+  archive_url: https://github.com/cvc5/cvc5/releases/download/cvc5-1.3.4/cvc5-Win64-x86_64-static.zip
+  archive_path: resources/archives/cvc5-Win64-x86_64-static.zip
+  sha256: 279fe7e95810cfb62433fcfc2932f35325a665f32d3697ff33f75e31d5c6a179
+  redirects_allowed: 1
+  allowed_redirect_chain: github.com_to_release_assets.githubusercontent.com_only
+  download_attempts_max: 1
+resource_layout: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp}
+allowed_command_sequence:
+  - {id: S0, command: create_eight_literal_resource_subdirectories_with_New_Item_Path, stop_on_nonzero: true}
+  - {id: S1, command: Invoke-WebRequest -UseBasicParsing -MaximumRedirection 1 -Uri <archive_url> -OutFile <archive_path>, stop_on_nonzero: true}
+  - {id: S2, command: Get-FileHash -Algorithm SHA256 <archive_path>, require_exact_sha256: 279fe7e95810cfb62433fcfc2932f35325a665f32d3697ff33f75e31d5c6a179, stop_on_nonzero: true}
+  - {id: S3, command: Expand-Archive -LiteralPath <archive_path> -DestinationPath resources/env -Force, stop_on_nonzero: true}
+  - {id: S4, command: resources/env/cvc5-Win64-x86_64-static/bin/cvc5.exe --version, stop_on_nonzero: true}
+  - {id: S5, command: resources/env/cvc5-Win64-x86_64-static/bin/cvc5.exe --lang smt2 resources/src/canonical-small-qf.smt2, purpose: canonical_author_solver_probe_after_fidelity_only, stop_on_nonzero: true}
+fidelity_before_probe: [freeze_exact_official_small_SMTLIB_fixture_and_full_cost_schema, mainline_accept_preclaim_contract_fidelity_gate]
+stop_conditions: [any_failure_or_redirect_chain_mismatch_or_checksum_mismatch_fail_closed_no_retry, resource_root_over_1000000000_bytes]
+prohibitions_remain: [alternate_artifact, retry, TLS_bypass, production_candidate_registration, production_state_transition, stageB, gold_input, blind_metric_merge, cleanup]

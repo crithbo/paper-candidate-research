@@ -1,0 +1,20 @@
+schema: apx-r7c-control-command-precommit-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7C-ACTION-SEMANTICS-BASELINE-ORACLE-CORPUS-CLOSURE
+implementation_freeze: IMPLEMENTATION_FREEZE.yaml
+working_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7c-action-semantics
+python_executable: <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+process_local_redirect: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONDONTWRITEBYTECODE: '1'}
+ordered_commands:
+  - {id: C1_STATIC_COMPILE, classification: STATIC_COMPILE_NO_MODULE_EXECUTION_NO_PIVOT, expected: EXIT0, attempts_max: 1}
+  - {id: C2_NATIVE_CATALOG, argv: ['-B', resources/src/apx_tpd/apx_tpd_r7c.py, catalog, --source-root, resources/src/llvm_subset, --contract, resources/src/apx_tpd/catalog_contract.json, --out, resources/logs/control/r7c/native_action_catalog.json], expected: EXIT0_JSON_PASS, attempts_max: 1}
+  - {id: C2_HANDLER_COVERAGE, argv: ['-B', resources/src/apx_tpd/apx_tpd_r7c.py, handler-audit, --catalog, resources/logs/control/r7c/native_action_catalog.json, --out, resources/logs/control/r7c/action_handler_coverage.json], expected: EXIT0_JSON_PASS_14_OF_14, attempts_max: 1, pivot_consumption_event: true}
+  - {id: C3_NATIVE_PARSER, argv: ['-B', resources/src/apx_tpd/apx_tpd_r7c.py, parse-native, --catalog, resources/logs/control/r7c/native_action_catalog.json, --current-mir, resources/logs/control/a2/llvm_current_complete.mir, --tuning-mir, resources/logs/control/a2/llvm_tuning_relocation_enabled.mir, --out, resources/logs/control/r7c/native_baseline_parser_receipt.json], expected: EXIT0_JSON_PASS, attempts_max: 1}
+  - {id: C4_R6_FORMAL_CONTROL, executable: <LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe, argv: [-NoLogo, -NoProfile, -NonInteractive, -File, resources/src/r6_harness/orbit_pareto.ps1, -OutputPath, resources/logs/control/r7c/r6_formal_control.json], expected: EXIT0_JSON_PASS, attempts_max: 1}
+  - {id: C4_INDEPENDENT_ORACLE, argv: ['-B', resources/src/apx_tpd/independent_oracle.py, --trace, resources/src/apx_tpd/tiny_trace.json, --contract, resources/src/apx_tpd/catalog_contract.json, --out, resources/logs/control/r7c/independent_oracle.json], expected: EXIT0_JSON_PASS, attempts_max: 1}
+  - {id: C4_TINY_PRECLAIM, argv: ['-B', resources/src/apx_tpd/apx_tpd_r7c.py, preclaim, --catalog, resources/logs/control/r7c/native_action_catalog.json, --trace, resources/src/apx_tpd/tiny_trace.json, --r6-control, resources/logs/control/r7c/r6_formal_control.json, --handler-audit, resources/logs/control/r7c/action_handler_coverage.json, --native-receipt, resources/logs/control/r7c/native_baseline_parser_receipt.json, --oracle, resources/logs/control/r7c/independent_oracle.json, --out, resources/logs/control/r7c/preclaim.json], expected: EXIT0_JSON_PASS_ALL_CHECKS, attempts_max: 1}
+  - {id: C5_CORPUS_FREEZE, argv: ['-B', resources/src/apx_tpd/apx_tpd_r7c.py, freeze-corpus, --source-root, resources/src/llvm_subset, --precommit, CORPUS_ELIGIBILITY_PRECOMMIT.yaml, --out, resources/logs/corpus/r7c_same_object_freeze.json], expected: EXIT0_EXACT_16_PLUS_4_ZERO_SELECTED_TOOL, attempts_max: 1}
+  - {id: C6_RESOLVED_PLAN, argv: ['-B', resources/src/apx_tpd/apx_tpd_r7c.py, r8-plan, --corpus, resources/logs/corpus/r7c_same_object_freeze.json, --driver, resources/src/apx_tpd/apx_r8_row_driver.py, --out, R8_RESOLVED_COMMAND_PRECOMMIT.yaml], expected: EXIT0_32_ROWS_ZERO_EXECUTED, attempts_max: 1}
+first_failure_stops: true
+automatic_retry: false
+selected_or_reserve_tool_invocations_max: 0
+claim_bearing_runs_max: 0

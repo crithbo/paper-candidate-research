@@ -1,0 +1,46 @@
+schema: mainline-handoff-acceptance-v1
+accepted_at: 2026-08-25T23:55:00+08:00
+accepted_by: MAINLINE
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L3-20260825-LLVM-APX-R4-PRECLAIM-FIDELITY
+decision: ACCEPT_FAIL_CLOSED_PRECLAIM_HANDOFF__NO_SCIENTIFIC_INFERENCE
+canonical_hashes:
+  handoff_sha256: C68702A2F8BE7E78B676A8BF31611C52DEE02709DAA02CB3C2432DE95D0E15E3
+  manifest_sha256: 2010FE391589AA25E0515F6EB4F32CFD5738BC9D1DFD77DA32229B0CDF1CBE59
+  resource_inventory_sha256: F8D423417D1C552B13C2FF4EFB2A48A33454DD632441F25BA778D381FC7DB48B
+  retention_sha256: 088734AA606DE248CC97F86BF698FD556C2210EBB0C3E1120F23507E8ACB172B
+  resume_capsule_sha256: C453F9CE65FAE831A9CC4BC84222A1CE363D6016F8CA814F5F833945B6C689CC
+  fidelity_gate_sha256: D4619177FCB490F76AAC74063CB741AF24AF15393C3AEDD3A50E4A6DDD4EA6D5
+  witness_replay_sha256: B3CE3EEB0FA257F6A12871C5205DAC705CCC88A6C13A1ADC978A1C10E421D3F1
+validation:
+  canonical_manifest_entries: 24
+  missing_or_hash_mismatch: 0
+  resource_files: 543
+  resource_logical_bytes: 613551030
+  reparse_entries: 0
+  active_clang_cmake_ninja_llc_or_llvm_mc_processes: 0
+  lane_turn_complete_and_not_loaded: true
+accepted_gate_result:
+  F0: PASS
+  F1: PASS_STATIC_PREFLIGHT
+  F2: FAIL_CLOSED_X86_ASSEMBLY_PRINTER_ASSERT
+  F3: NOT_RUN_ORDERED_GATE_STOP
+  F4: NOT_RUN_ORDERED_GATE_STOP
+accepted_evidence_ceiling: PRECLAIM_CONTROL_ONLY__NO_SCIENTIFIC_PASS_STOP_RESERVE_INFERENCE
+claim_bearing_observation_count: 0
+scientific_revision_consumed: false
+mechanism_pivot_consumed: false
+classification: FINITE_ENGINEERING_COMMAND_OR_WITNESS_MATERIALIZATION_CORRECTION_ELIGIBLE_IN_NEW_IMMUTABLE_ASSIGNMENT
+forbidden_inference:
+  - do not infer MachineVerifier PASS from the later AsmPrinter assertion
+  - do not infer candidate or comparator performance
+  - do not infer scientific PASS, STOP or reserve
+downstream_acceptance:
+  exact_tool_bundle: ACCEPTED
+  exact_source_archive_and_commit_metadata: ACCEPTED
+  assignment_local_harness_and_raw_failure_logs: ACCEPTED
+  selective_source_copy: REACQUIRABLE_FROM_RETAINED_EXACT_ARCHIVE
+  future_assignment_required: true
+lifecycle_disposition: ACCEPT_EXACT_MAINLINE_CLEANUP_CANDIDATES_AFTER_PREDELETE_GATES
+owner_lane_released: true
+next_action: MAINLINE_GC_THEN_FREEZE_APX_R5_PRECLAIM_CORRECTION

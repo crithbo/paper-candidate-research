@@ -1,0 +1,52 @@
+schema_version: 1
+assignment_id: STAGE0-C2-20260814-MLIR-VECTOR-REPRESENTATION-REGISTER-PRESSURE-PARETO-DP-REVISION1-CLOSING-V8.7
+topic_id: MLIR-VECTOR-REPRESENTATION-REGISTER-PRESSURE-PARETO-DP
+role: INDEPENDENT_REVISION1_CLOSING
+workspace_root: <LEGACY_LOCAL_PROJECT_ROOT>
+write_directory: stages\stage0\_reviews\round-20260814-adaptive-source02-revision1-closing\MLIR-VECTOR-REPRESENTATION-REGISTER-PRESSURE-PARETO-DP
+decision: INCONCLUSIVE_POLICY_HOLD
+pass_confirmed: false
+scientific_stop: false
+revision_budget: 1_of_1_consumed
+atomic_gate: PINNED_MLIR_REPRESENTATION_ACTIONS__VPLAN_SEPARATED_BOUNDED_FRONTIER_CERTIFICATE
+revision_packet:
+  directory: stages\stage0\_revisions\MLIR-VECTOR-REPRESENTATION-REGISTER-PRESSURE-PARETO-DP\revision1
+  report_sha256: 090DBCEE3357593818C0C37CF37F1D342715939983D7777F3E1BD819C3DDD024
+  action_audit_sha256: 91377251862721A99925ACFE6852A79C646DDE15F2A99CB6A87C54F676CEE658
+  claim_matrix_sha256: 62DEB382D6D37314A973574272D1CD00B69DB03128E7A6017A75E3C02328B097
+  handoff_sha256: AD41D4FB0F5EFC2A7D066795766580CC2873AC915A466D1207405F7216F623D1
+  manifest_sha256: 37430ECF3036E6AF905CBB0A51F8690655B8C9E61ABFA7F15606AC33A1236E09
+  verification: 4_of_4_passed
+decisive_static_failure:
+  operation: vector.interleave
+  submitted_signature: vector_2x1x4xf32_to_vector_2x2x4xf32
+  native_rule: final_dimension_is_doubled
+  required_result_for_submitted_inputs: vector_2x1x8xf32
+  result: witness_is_not_native_legal
+  certificate_impact:
+    - no_same_function_N_M_F_plan_family
+    - no_valid_shape_cast_return_to_submitted_result
+    - no_action_path_bijection_for_declared_grammar
+    - no_exact_frontier_certificate_for_declared_cost_contract
+current_union_findings:
+  VectorLinearize_full_flattening: direct_subtractor_for_F
+  whole_graph_partial_M_selector_found: false
+  VPlan: downstream_VF_UF_register_budget_subtractor_not_present_in_loopless_witness
+  direct_absorption_found: false
+  collision_status: SEARCH_BOUNDED_OPEN
+not_a_stop_premise:
+  - absent_implementation
+  - absent_native_replay
+  - absent_corpus_or_performance_result
+  - absent_final_RA_spill_or_runtime_result
+stageA: false
+stageB: false
+evidence_ceiling: STATIC_CERTIFICATE_REJECTED_AT_CLOSING__NO_SCIENTIFIC_NEGATIVE_INFERENCE
+required_mainline_disposition: INCONCLUSIVE_POLICY_HOLD__INTERLEAVE_WITNESS_NOT_NATIVE_LEGAL
+prohibited_next_actions:
+  - automatic_second_revision
+  - automatic_stageA_or_stageB
+  - scientific_stop_without_direct_negative_evidence
+  - reserve_or_archive_as_substitute_for_hold
+future_reopening_authority: USER_AUTHORIZED_EXCEPTIONAL_ASSIGNMENT_ONLY
+lane_terminal_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,27 @@
+schema_version: assignment-context-v1
+generated_by: MAINLINE
+context_mode: DUAL_READ_SHADOW
+identity: {lane_id: CANDIDATE-L3, lane_thread_id: 01a034d0-d67f-7f32-ab5f-54454407cb22, role_id: CANDIDATE_OWNER, assignment_id: NONBLIND-STAGEA-20260826-CARCARA, topic_id: NONBLIND_STAGEA_COMPATIBILITY__CARCARA, stage_or_mode: NONBLIND_STAGEA_COMPATIBILITY, status: BOOTSTRAP_ACK_PENDING, next_action: READ_ONLY_BOOTSTRAP_ACK_ONLY}
+authority:
+  policy_authority: USER
+  shared_file_writer: MAINLINE
+  canonical_writer: CANDIDATE-L3
+  user_approval_ids: [USER-NONBLIND-STAGEA-COMPATIBILITY-20260826, USER_ASSIGNMENT_LOCAL_TOOL_DOWNLOAD_ONLY]
+  allowed_actions: [after_mainline_START: official_author_artifact_local_replay, preclaim_fidelity_gate, one_minimal_canonical_probe]
+  forbidden_actions: [production_candidate_registration, production_state_transition, stageB, expected_gate_disposition, final_gold_values, blind_metric_merge, system_install, global_environment_change, cleanup]
+  forbidden_inputs: [auditor_key_v2, gold_expected_gate_disposition, final_gold_values, blind_outputs]
+boundaries: {unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/CARCARA, resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/CARCARA/resources, write_allowed_paths: [<LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/CARCARA], network_allowed: true, experiment_allowed: false, state_transition_allowed: false}
+frozen_control:
+  AGENTS: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 2934D15DF761FE6C57D30CC29417A01F6353B4CC68227DD5C35A0249B24DD5BB}
+  registry_snapshot: {path: registry.yaml, sha256: 041E0808501F80DA569F4F3D565180A902714ED8963DD98ED23E3C42A3CBE26F}
+  role_rule: {path: rules/ROLE_CANDIDATE_OWNER.md, sha256: 4373A320D7EF96FB5EB1683872FEC9CDCB9EA6D16ACDF893CA997C5FB2745A1A}
+  conditional_protocols: [{path: rules/RESOURCE_LOCALIZATION.md, sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}, {path: rules/ARTIFACT_LIFECYCLE.md, sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6}]
+  skills: [{path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}]
+minimum_inputs:
+  - {path: stages/stageA/_compatibility/nonblind-20260826/CARCARA/ASSIGNMENT.yaml, sha256: 099EA9C2AF134E1A5479C6D48CDE562A274CBA8E73F32B48AF147A0BE65EAFDC}
+  - {path: stages/discovery/_method-backtests/STAGE0A_Q2_LOCAL_RESOURCE/R1/packer/sealed_executor_input_v2/cases/C-C98C8F4C76584088/candidate.yaml, purpose: neutral_contract_only}
+budget: {stored_bytes_max: 4000000000, build_wall_seconds_max: 7200, single_probe_wall_seconds_max: 21600, parallel_candidate_wip_max: 3}
+claim_ceiling: AUTHOR_ARTIFACT_REPLAY_COMPATIBILITY_ONLY__NOT_AI_AUTONOMOUS_IMPLEMENTATION
+evidence_ceiling: NONBLIND_STAGEA_COMPATIBILITY__NO_PRODUCTION_CANDIDATE_OR_STAGEB
+validation: {source_plan_registry_consistent: true, hashes_complete: true, paths_resolved_under_workspace: true, context_is_sufficient_for_cold_start: true, full_registry_comparison_result: REQUIRED_DUAL_READ, result: VALIDATED}

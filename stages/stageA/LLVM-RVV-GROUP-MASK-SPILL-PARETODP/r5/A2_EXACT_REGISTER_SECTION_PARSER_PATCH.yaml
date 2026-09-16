@@ -1,0 +1,68 @@
+schema: rvv-r5-a2-exact-register-section-parser-patch-v1
+created_at: 2026-08-26T14:04:00+08:00
+created_by: MAINLINE
+authorization_ids: [USER-AUTONOMOUS-SOFT-BLOCKER-REDESIGN-20260826]
+assignment_id: STAGEA-L1-20260826-LLVM-RVV-R5-SPLIT-PROVENANCE-CLOSURE-PRECLAIM-A2
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5
+
+classification:
+  blocker_class: SOFT_ENGINEERING_BLOCKER
+  policy_sha256: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74
+  A1_failure: EXACT_PATCH_BYTES_UNDERSPECIFIED_BEFORE_EDIT
+  A1_source_edit_transactions_used: 0
+  scientific_revision_consumption: false
+  mechanism_pivot_budget: REMAINS_CONSUMED_1_OF_1__NOT_A_SECOND_PIVOT
+
+freeze:
+  A1_handoff_sha256: 279790D4F44FD3E26FE904CE73A572C895F41743FC0BD4D2C20A9E7077031612
+  A1_manifest_sha256: F99D1D84F3B65DD63547CBA23FD52D34EA46A3D355A76FF08A6CF52639EFC397
+  A1_blocker_sha256: 05B259B7187A6939A9E627A196637DA5CA44BB861C6F7F4E32044EBE2301ED48
+  source_path: resources/src/split_closure/split_closure.py
+  original_sha256: 677116E77E1905E96E37D370F78BB93A31EA8720BB98A6B8F4D104547BEE2699
+  original_bytes: 4108
+  expected_sha256: BCD8EA3581F401E4ACEA07EF64D2556E31826D3764E3C10D2B6A3D6B256A84E4
+  expected_bytes: 4272
+
+exact_patch:
+  encoding: UTF8_NO_BOM
+  preserve_existing_line_ending: true
+  occurrence_count_required: 1
+  old_block: |-
+    def parse(path):
+     t=pathlib.Path(path).read_text(); regs={}
+     for b in re.findall(r'- \{ id:.*?\}',t,re.S):
+  new_block: |-
+    def parse(path):
+     t=pathlib.Path(path).read_text(); regs={}
+     sections=re.findall(r'^registers:\s*\n(.*?)(?=^liveins:)',t,re.M|re.S)
+     if len(sections)!=1: raise ValueError(f"register_section_count:{len(sections)}")
+     for b in re.findall(r'- \{ id:.*?\}',sections[0],re.S):
+  apply_method: ONE_APPLY_PATCH_TRANSACTION_REPLACING_ONLY_OLD_BLOCK_WITH_NEW_BLOCK
+  after_patch_requirements: [EXPECTED_SHA256_EXACT, EXPECTED_BYTES_EXACT, ALL_OTHER_BYTES_UNCHANGED]
+
+ordered_gate:
+  A20_PRESERVE_A1: BYTE_EXACT
+  A21_EXACT_PATCH_AND_STATIC_COMPILE: PASS_REQUIRED
+  A22_NEGATIVE_CONTROLS_ON_RETAINED_R1: PASS_ALL_FIVE
+  A23_FRESH_LLC_MACHINEVERIFIER_REPLAY_1: PASS_REQUIRED
+  A24_FRESH_LLC_MACHINEVERIFIER_REPLAY_2: PASS_REQUIRED
+  A25_SPLIT_CLOSURE_AND_TWO_REPLAY_EXACTNESS: PASS_REQUIRED
+  A26_F3_F5: RUN_IN_EXISTING_ORDER_IF_A25_PASS
+  A27_CANONICAL_RESEAL: REQUIRED
+
+limits: {network_bytes_max: 0, source_edit_transactions_max: 1, static_compile_attempts_max: 1, fresh_llc_commands_max: 2, automatic_retry: false, natural_or_selected_tool_invocations_max: 0, claim_bearing_runs_max: 0, owner_cleanup_allowed: false, stageb_allowed: false}
+forbidden_actions: [SEMANTIC_OR_FORMATTING_VARIATION_FROM_EXACT_PATCH, SECOND_PIVOT, SCIENTIFIC_REVISION, NATURAL_SELECTED_CLAIM, RETRY, UPSTREAM_OR_R4_WRITE, CLEANUP, STATE_TRANSITION]
+
+bootstrap:
+  ack_path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5/A2_ACK.yaml
+  read_order: [AGENTS.md, plan.md, ORIGINAL_R5_CONTEXT_CONTROL_AND_A1_ADDENDUM, AUTONOMOUS_SOFT_BLOCKER_RECOVERY, A1_HANDOFF_MANIFEST_AND_BLOCKER, THIS_A2_PATCH, DECISIVE_SOURCE_AND_REPLAY_INPUTS, RELATED_REGISTRY_DUAL_READ]
+  only_ack_before_acceptance: true
+  ready_requires: [ALL_HASHES_MATCH, OLD_BLOCK_OCCURS_EXACTLY_ONCE, IN_MEMORY_PATCH_RECONSTRUCTS_EXPECTED_HASH_AND_BYTES, ZERO_NATURAL_CLAIM_SCIENCE, DIFFERENCES_EMPTY, A2_ACTION_STARTED_FALSE]
+  refuse_on_any_difference: true
+
+success_route: PASS_RVV_SPLIT_PROVENANCE_CLOSURE_PRECLAIM__WAIT_INDEPENDENT_GATE
+failure_route: FAIL_CLOSED_RVV_R5_A2_PRECLAIM__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+next_action: WRITE_A2_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_ACCEPTANCE_AND_A2_START

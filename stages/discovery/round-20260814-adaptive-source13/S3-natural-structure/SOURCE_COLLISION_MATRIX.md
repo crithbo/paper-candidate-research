@@ -1,0 +1,13 @@
+# Accelerator/compiler current-union matrix
+
+| Family | Current first-party union | Fair full-cost denominator | Direct contrary / residual conclusion | Finite falsifier | Disposition |
+|---|---|---|---|---|---|
+| TensorRT-LLM model-to-engine mapping | TensorRT-LLM exposes model parallelism configuration; its backend maps tensor/pipeline/expert parallelism and other model settings to `LLM()`/runtime configuration. TensorRT itself supplies tactic evaluation, selection and engine building. | Build CPU/GPU/wall, host/device workspace/RSS, engine bytes/load, compile/configuration cost, inter-GPU communication and inference latency/throughput at fixed model/revision/shapes/precision. | The proposed model-regime-conditioned tactic/parallelism action is already a configuration/optimizer action in the current union. Rephrasing it as a natural law produces a selector/controller, excluded by contract. | Pin model revisions/configs; reject if stock LLM configuration/current builder expresses the route or if same-model full-cost Pareto vanishes. | `STRUCTURAL_DROP__CURRENT_UNION_ABSORPTION`. |
+| OpenVINO GPU/NPU performance mapping | Current OpenVINO exposes latency/throughput performance hints, automatic batch/parallel-thread/stream choices, device selection, bounded dynamic-shape guidance and compiled model cache. | Compile/load CPU/RSS/cache bytes, device memory, model bytes, first and steady-state latency/throughput at fixed model/device/shape/precision. | A topology-conditioned choice between performance hints/streams/device is current configuration policy; cache is additionally an excluded mature maintenance path. No union-external compiler/architecture action remained. | Pin model/device/config; reject if action is a documented performance hint or requires changing model/device semantics. | `STRUCTURAL_DROP__CURRENT_UNION_ABSORPTION`. |
+
+## Source pins
+
+- TensorRT-LLM and multi-GPU configuration: <https://docs.nvidia.com/tensorrt-llm/>, <https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/tensorrtllm_backend/README.html>; TensorRT engine/action context: <https://docs.nvidia.com/deeplearning/tensorrt/latest/architecture/architecture-overview.html>.
+- OpenVINO GPU performance hints/current behavior: <https://docs.openvino.ai/2024/notebooks/gpu-device-with-output.html>, <https://docs.openvino.ai/2023.3/openvino_docs_OV_UG_supported_plugins_GPU.html>.
+
+Bounded current-source/documentation search; no global novelty assertion. The two structural drops arise from same-object action absorption, not lack of an observed workload law or resources.

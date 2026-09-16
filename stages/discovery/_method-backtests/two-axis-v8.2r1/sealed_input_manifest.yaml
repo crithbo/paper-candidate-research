@@ -1,0 +1,24 @@
+schema_version: discovery-two-axis-sealed-input-v8.2r1
+role: DISCOVERY-BACKTEST-PACKER
+sealed_at: 2026-08-09T12:00:00+08:00
+scope: historical-method-backtest-only
+executor_visible_file: packer/sealed_packets.yaml
+auditor_only_files: [packer/auditor_key.yaml, packer/SOURCE_LEDGER.yaml, packer/snapshots]
+counts:
+  lenses: 6
+  packets: 30
+  positives: 18
+  structural_negatives: 12
+  sources: 18
+  sources_per_packet: 3
+  positive_per_lens: 3
+  negative_per_lens: 2
+integrity:
+  target_strictly_after_cutoff: 18_of_18
+  same_day_cutoffs: 0
+  source_pre_cutoff: 90_of_90_packet_source_uses
+  direct_identity_leakage_scan: zero_matches
+  per_file_hash_manifest: packer/HASH_MANIFEST.sha256
+  source_provenance_ledger: packer/SOURCE_LEDGER.yaml
+status: FAILED_NOT_SEALED
+failure_reason: The required hashed local source-artifact snapshots were not acquired; provenance records alone are insufficient.

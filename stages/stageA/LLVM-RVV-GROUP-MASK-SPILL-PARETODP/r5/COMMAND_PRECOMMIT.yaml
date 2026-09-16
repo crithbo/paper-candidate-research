@@ -1,0 +1,15 @@
+schema: rvv-r5-command-precommit-v1
+recorded_before_actions: true
+copy: {source: r4/resources, destination: r5/resources, attempt: 1/1}
+implementation: {root: resources/src/split_closure, files_max: 4, planned_files: [split_closure.py]}
+commands:
+  - {id: R1_R2, argv: [bundled_python, resources/src/split_closure/split_closure.py, negative, --mir, resources/logs/f2/replay-R1.mir, --output, resources/logs/r5/negative_controls.json]}
+  - {id: R3_1, argv: [resources/env/rvv-toolchain/bin/llc.exe, -mtriple=riscv64, -mattr=+v, -run-pass=greedy, -verify-machineinstrs, resources/src/harness/forced-pressure.mir, -o, resources/logs/r5/replay-R1.mir]}
+  - {id: R3_2, argv: [resources/env/rvv-toolchain/bin/llc.exe, -mtriple=riscv64, -mattr=+v, -run-pass=greedy, -verify-machineinstrs, resources/src/harness/forced-pressure.mir, -o, resources/logs/r5/replay-R2.mir]}
+  - {id: R4, argv: [bundled_python, resources/src/split_closure/split_closure.py, check, --mir, resources/logs/r5/replay-R1.mir, --replay2, resources/logs/r5/replay-R2.mir, --output, resources/logs/r5/split_closure.json]}
+  - {id: R5, argv: [bundled_python, resources/src/harness/rvv_preclaim.py, f3, --output, resources/logs/r5/f3.json]}
+  - {id: R6, argv: [bundled_python, resources/src/harness/rvv_preclaim.py, f4, --output, resources/logs/r5/f4.json]}
+  - {id: R7, argv: [bundled_python, resources/src/harness/rvv_preclaim.py, f5, --output, resources/logs/r5/f5.json]}
+natural_or_selected_tool_invocations: 0
+claim_runs: 0
+automatic_retry: false

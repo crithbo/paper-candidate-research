@@ -1,0 +1,100 @@
+--- |
+  ; ModuleID = 'runs\preclaim\witness.ll'
+  source_filename = "runs\\preclaim\\witness.ll"
+  target datalayout = "e-m:e-p:32:32-i64:64-n32-S128"
+  target triple = "riscv32-unknown-unknown-elf"
+  
+  declare void @clobber() #0
+  
+  ; Function Attrs: nounwind uwtable
+  define i32 @witness(i32 %x, i32 %y) #1 {
+  entry:
+    call void @clobber()
+    %sum = add i32 %x, %y
+    ret i32 %sum
+  }
+  
+  attributes #0 = { "target-features"="+m,+a,+c,+zcmp" }
+  attributes #1 = { nounwind uwtable "target-features"="+m,+a,+c,+zcmp" }
+...
+---
+name:            witness
+alignment:       2
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         false
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   false
+failsVerification: false
+tracksDebugUserValues: false
+registers:
+  - { id: 0, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 1, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 2, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 3, class: gpr, preferred-register: '', flags: [  ] }
+  - { id: 4, class: gpr, preferred-register: '', flags: [  ] }
+liveins:
+  - { reg: '$x10', virtual-reg: '%0' }
+  - { reg: '$x11', virtual-reg: '%1' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    true
+  hasCalls:        true
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 0
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:
+  - { id: 0, size: 4, alignment: 4 }
+  - { id: 1, size: 4, alignment: 4 }
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  varArgsFrameIndex: 0
+  varArgsSaveSize: 0
+body:             |
+  bb.0.entry:
+    liveins: $x10, $x11
+  
+    %1:gpr = COPY $x11
+    %0:gpr = COPY $x10
+    SW %0, %stack.0, 0 :: (store (s32) into %stack.0)
+    SW %1, %stack.1, 0 :: (store (s32) into %stack.1)
+    ADJCALLSTACKDOWN 0, 0, implicit-def dead $x2, implicit $x2
+    PseudoCALL target-flags(riscv-call) @clobber, csr_ilp32_lp64, implicit-def dead $x1, implicit-def $x2
+    ADJCALLSTACKUP 0, 0, implicit-def dead $x2, implicit $x2
+    %3:gpr = LW %stack.0, 0 :: (load (s32) from %stack.0)
+    %4:gpr = LW %stack.1, 0 :: (load (s32) from %stack.1)
+    %2:gpr = ADD %3, %4
+    $x10 = COPY %2
+    PseudoRET implicit $x10
+...

@@ -1,0 +1,16 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-P1A4-NO-CWD
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW-P1
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: P1A3_handoff.yaml, sha256: A13C0A3BA3252300D5B94F25A1DFDE2E380F924D075D6C22C896990C991A3C5D}, {path: resources/src/probe/hnsw_minimal_probe.cpp, retention: A3_EDITED_HARNESS__DO_NOT_MODIFY}]
+only_change: omit_execution_cwd_parameter_and_use_absolute_paths_for_compile_executable_outputs
+absolute_paths:
+  compiler: <LOCAL_PROJECT_ROOT>\stages\stageA\_compatibility\nonblind-20260826\HNSW\resources\env\llvm-mingw-20260616-ucrt-x86_64\bin\clang++.exe
+  harness: <LOCAL_PROJECT_ROOT>\stages\stageA\_compatibility\nonblind-20260826\HNSW\resources\src\probe\hnsw_minimal_probe.cpp
+  include: <LOCAL_PROJECT_ROOT>\stages\stageA\_compatibility\nonblind-20260826\HNSW\resources\src\hnswlib-a4\hnswlib-d9b3608c83d83b46c96e25088cb1d729b29dcfe9
+  executable: <LOCAL_PROJECT_ROOT>\stages\stageA\_compatibility\nonblind-20260826\HNSW\resources\build\probe\hnsw_minimal_probe.exe
+  outputs: <LOCAL_PROJECT_ROOT>\stages\stageA\_compatibility\nonblind-20260826\HNSW\resources\build\probe\cell-{1,2,3}.json
+working_directory: OMITTED__INHERIT_PROCESS_DEFAULT
+fresh_command_budget: {compile: 1, run: 3, retry: 0}
+prohibitions: [harness_edit, input_or_parameter_change, cwd_override, compiler_substitution, result_exclusion, production_or_stageB_action]
+scientific_revision_consumed: false

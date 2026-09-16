@@ -1,0 +1,18 @@
+schema_version: mainline-start-authorization-v1
+issued_by: MAINLINE
+issued_at: 2026-08-24T03:16:00+08:00
+lane_id: RULE_AUDIT
+assignment_id: RULE-AUDIT-20260824-SOURCE102-103-FIRST-FAILED-CONVERSION-A2
+decision: ACCEPT_BOOTSTRAP_ACK__START_AUTHORIZED
+assignment_context: {path: ASSIGNMENT_CONTEXT.yaml, sha256: 047C0A34ACF42F9B39CFBFB09A85B7897FC6D11F73B0902171076AD7E3E56AA2}
+bootstrap_ack: {path: BOOTSTRAP_ACK.yaml, sha256: 7DC34951A31CE4DB9B16768490E90DBF69B7F8437940D906D99CF74B9E82E483, disposition: READY}
+accepted_ack_preconditions: {differences_or_ambiguities: [], scientific_or_resource_action_started: false, start_authorized_by_mainline_at_ack_time: false}
+post_ack_control_transition:
+  plan: {path: plan.md, sha256: 3CD58966C626393441166CF784FD4A5EC55B6EDAEFDFB7FB7878507D00F257F5}
+  registry: {path: registry.yaml, sha256: F85BF773170AF47DFDE318969CC5830861CE13F1E52004A37625A3AE4492BF95}
+  expected_difference: BOOTSTRAP_ACK_PENDING_TO_ACTIVE_START_AUTHORIZED_ONLY
+authorized_next_action: EXECUTE_PROPOSAL_ONLY_ZERO_YIELD_AUDIT
+source104_rule_audit_isolation: RULE_AUDIT_OUTPUT_FORBIDDEN_TO_SOURCE104__SOURCE104_RESULTS_FORBIDDEN_TO_AUDIT
+usage_reset_signal: USAGE_RESET_CONFIRMED__STOP_AFTER_CURRENT_DISCOVERY_WAVE__NO_SUCCESSOR_DISPATCH
+state_transition_authority: MAINLINE_ONLY
+

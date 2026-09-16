@@ -1,0 +1,56 @@
+schema_version: stagea-independent-gate-queue-v8.2
+updated_at: '2026-08-09T12:00:00+08:00'
+task_id: '019fe4aa-3796-7431-a5cd-daec1e21a710'
+role: STAGEA_GATE_REVIEW
+project_root: '<LEGACY_LOCAL_PROJECT_ROOT>'
+write_root: '<LEGACY_LOCAL_PROJECT_ROOT>\stages\stageA\_reviews\gate-v8.2'
+status: WAITING_FOR_MAINLINE_FROZEN_HANDOFF
+
+stagea_semantics:
+  purpose: HIGHEST_RISK_PREMISE_REAL_PILOT
+  positive_ceiling:
+    - NOT_FALSIFIED
+    - PRELIMINARY_SUPPORT
+  main_claim_completion_required: false
+  executable_nonempty_stageb_route_required_for_pass: true
+
+authority:
+  candidate_state_changes_allowed: false
+  candidate_artifact_edits_allowed: false
+  upstream_or_control_file_edits_allowed: false
+  candidate_owner_contact_allowed: false
+  new_decisive_experiments_allowed: false
+  stageb_start_allowed: false
+  review_outputs_only_under_write_root: true
+
+intake_policy:
+  source: MAINLINE_EXPLICIT_PER_TOPIC_FROZEN_HANDOFF_ONLY
+  registry_presence_is_queue_authority: false
+  stagea_directory_presence_is_queue_authority: false
+  preread_unfinished_candidate_allowed: false
+  required_artifacts:
+    - SOURCE_BRIEF
+    - FINAL_STAGE0_REPORT
+    - STAGEA_REPORT
+    - Q1_CALIBRATION_OR_COMPARATOR_MATRIX
+    - RUN_MANIFEST
+    - FROZEN_HANDOFF
+    - HASH_LEDGER
+
+decision_vocabulary:
+  - PASS_RECOMMENDED
+  - RESERVE_RECOMMENDED
+  - REVISE_ONCE
+  - STOP
+
+pass_effect:
+  recommendation_only: PENDING_USER_STAGEB_REVIEW
+  stageb_authorized: false
+  required_before_stageb:
+    - USER_REVIEWS_TOPIC_STAGEA_EVIDENCE_PACKAGE
+    - EXPLICIT_TOPIC_SPECIFIC_USER_APPROVAL
+    - NON_NULL_STAGEB_USER_APPROVAL_ID_RECORDED_BY_MAINLINE
+
+queued_reviews: []
+in_progress_reviews: []
+completed_reviews: []

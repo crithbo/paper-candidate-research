@@ -1,0 +1,40 @@
+assignment_id: DISCOVERY-S6-20260814-ADAPTIVE-SOURCE30-RQ-PRODUCTION-V1
+lane: S6_DIRECT_ALGORITHM_SOFTWARE
+write_directory: stages/discovery/round-20260814-adaptive-source30/S6-direct-algorithm-software
+method: V8_7_POTENTIAL_READINESS_SEPARATED__RQ_REFINEMENT_STAGED_EVIDENCE_V1_PRODUCTION
+v9_output: false
+funnel:
+  offline_seed_non_evidence: 9
+  rq_candidates: 4
+  evidence_qualified_raw: 1
+  C0: 1
+  candidate_grade_deep: 1
+  stage0_brief: 1
+  excluded_before_raw: 2
+  locator_only: 1
+family:
+  id: ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION
+  signature: fixed Armv8.1-M MVE+LOB LLVM MachineFunction and semantics; multiblock VPT/VCTP/DLSTP-WLSTP-LETP region construction; stock LLVM semantics; compile/output full cost
+  relation_to_source28_29: distinct_from_x86_AMX_and_AArch64_SME_ABI_tile_objects
+  disposition: PROPOSE_STAGE0__FINITE_FIDELITY_GAP
+  tier: TIER_B_Q2_VIABLE
+  brief: TOPIC_BRIEF__ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION.md
+  stage0_killers:
+    - No legal same-object two-plan multiblock witness
+    - Current LLVM union already expresses the candidate frontier
+    - Direct same-object constructor collision or generic-CFG reduction
+other_dispositions:
+  - AARCH64_MOPS_EXPANSION: EXCLUDED_BEFORE_RAW__GENERIC_INSTRUCTION_SELECTION_RISK
+  - LOONGARCH_ADDRESS_MATERIALIZATION: EXCLUDED_BEFORE_RAW__REVIEWED_LINKER_LAYOUT_ADJACENCY
+  - COOPERATIVE_MATRIX_REGION_LOWERING: LOCATOR_ONLY__IDENTITY_CLOSURE_DEBT
+required_outputs:
+  - DIVERGENCE_SEED_POOL.md
+  - RQ_CANDIDATES.md
+  - QUESTION_CARDS.md
+  - SOURCE_CLOSURE_QUEUE.yaml
+  - SOURCE_ROLE_LEDGER.yaml
+  - DISCOVERY_LOG.md
+  - SOURCE_COLLISION_MATRIX.md
+  - TOPIC_BRIEF__ARM-MVE-MULTIBLOCK-TAILPRED-LOOP-CONSTRUCTION.md
+  - HASH_MANIFEST.sha256
+lane_return_state: IDLE_REUSABLE_AWAITING_MAINLINE

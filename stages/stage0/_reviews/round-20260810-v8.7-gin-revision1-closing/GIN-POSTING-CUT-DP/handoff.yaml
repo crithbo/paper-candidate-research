@@ -1,0 +1,124 @@
+schema_version: stage0-revision1-closing-handoff-v8.7
+assignment_id: STAGE0-C2-20260810-GIN-POSTING-CUT-DP-REVISION1-CLOSING-V8.7
+topic_id: GIN-POSTING-CUT-DP
+role: STAGE0_CLOSING_CONFIRMATION_SENTRY_D
+
+decision:
+  closing_decision: INCONCLUSIVE_POLICY_HOLD
+  confirm_stage0_pass: false
+  below_q2_stop: false
+  quality_tier_if_eventually_closed: TIER_B_Q2_VIABLE_CONDITIONAL
+  registerable_quality_tier_now: NOT_REGISTERABLE_AS_PASS
+  novelty_route: N2
+  confidence: 0.94
+  evidence_ceiling: PINNED_PG18_SOURCE_AND_STATIC_CERTIFICATE_REVIEW_ONLY__NO_IMPLEMENTATION_NATIVE_OUTPUT_NATURAL_GAIN_OR_MAIN_RESULT
+  latest_collision_status: SEARCH_BOUNDED_OPEN
+
+revision_policy:
+  budget: 1
+  consumed: 1
+  remaining: 0
+  second_revision_authorized: false
+  second_revision_requested_or_proposed_by_closing: false
+  hold_reason: REVISION_CERTIFICATE_FAILS_BUT_NO_SCIENTIFIC_STOP_EVIDENCE_EXISTS
+  prohibited_automatic_routes:
+    - SECOND_REVISE_ONCE
+    - BELOW_Q2_STOP_FROM_MISSING_EVIDENCE_OR_CORRECTABLE_CERTIFICATE_ERROR
+    - HUMAN_RESEARCH_RESERVE
+    - ARCHIVE_OR_WITHDRAW
+
+input_integrity:
+  discovery:
+    directory: '<LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\round-20260810-v8.7-wave46\S3-natural-structure'
+    topic_brief_sha256: 9715270E28906B28E976A74C990D127A10AA787133697960E9C5BFD94C2D83E6
+    handoff_sha256: A1BBFE63F661DA9ED45F468B05EC853AE1F5E8CC55DDD2395A7EAE95EE726B33
+    manifest_self_sha256: 7CF1DF10736DCF06D63E6CD0FDEE37666452ADC56969F3E77CC01EED1A9FA698
+    manifest_verification: 4/4_PASS
+  primary:
+    directory: '<LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\round-20260810-v8.7-wave46-primary\GIN-POSTING-CUT-DP'
+    report_sha256: 23BD55D4C1ED8E767559F8D3E8B5805FFC60D83F21930259B0E6617277255F6E
+    q1_matrix_sha256: EFC26297B5C889958D13879DA5D15ABC69AD9CFF4EC604D77A68171AE9D78AE5
+    source_audit_sha256: 4A2EF1E5854A369C1FBA59CBDAF5DAF8C8DFCA0786258D2734D2615E6AE3A5E2
+    handoff_sha256: DB3A42F6D270DA34B0D7B1CD9B554CE44EB212F534B7AEACB27A5CA07E490F8F
+    manifest_self_sha256: 6C05232FE21B5B13460008AA616BBC84D81047D446E1CCF5F621DECCA3FC4E13
+    manifest_verification: 4/4_PASS
+  confirmation:
+    directory: '<LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_reviews\round-20260810-v8.7-wave46-confirmation\GIN-POSTING-CUT-DP'
+    review_sha256: 9F9221F11F4F60FDC24A4AE359627A095014CA3FBA4B706BA22901F79BC7223F
+    handoff_sha256: D9AAB893C6CE0F50BF1326EF5731189E8F32A87152FD633895EC0E5830175789
+    manifest_self_sha256: B77FF85C66E97B5C9A791E8668856EF5CD066ACF4F4E7B339C4A9FAA86F1230C
+    manifest_verification: 2/2_PASS
+  revision1:
+    directory: '<LEGACY_LOCAL_PROJECT_ROOT>\stages\stage0\_revisions\GIN-POSTING-CUT-DP\revision1'
+    report_sha256: B65680E1FB9E91663750656A270CF76B418361FF386DFF4D37D99A2FF22131CA
+    audit_sha256: 80A2552BD03BC89A96ABBABDEC78BFD4B205C33C7C26BCCD18186B00CD18281D
+    claim_matrix_sha256: 204E9A31B4BB93903BCF7AEEF5F94AE14E7CE8319ADD0823ACE3F438B3C66DBE
+    handoff_sha256: D2C0C572E91E9482318DA6BF82C5B42F062B70567065ABB1E3B90B125DF7DFAD
+    manifest_self_sha256: 4A2BE5D428AC1D3772153C140F26BBA41667248B1F342D892C79AEF54A14AF65
+    manifest_verification: 4/4_PASS
+
+current_upstream:
+  repository: https://github.com/postgres/postgres
+  branch: REL_18_STABLE
+  pinned_commit: a4c41bbcc7b0aed721950303338d75b09eddc295
+  checked_exact_commit_surfaces:
+    - src/backend/access/gin/ginget.c
+    - src/backend/access/gin/gindatapage.c
+    - src/include/access/ginblock.h
+  absence_inference_from_transport_or_search: forbidden
+
+closing_findings:
+  logical_event_layer: PARTIAL_PASS__LAYOUT_INDEPENDENT_NEXT_GT_IS_FINITE
+  reader_search_semantics: >-
+    exact advancePast is converted to the same heap block and next offset before
+    ginFindLeafPage; therefore the frozen witness descends toward L_K_plus_2,
+    not L_K_plus_1.
+  witness_group_arithmetic: GROUP_SIZES_LEGAL_AND_SUM_TO_2K_PLUS_2
+  witness_physical_positions:
+    full_tree: L_K_PLUS_2_IS_POSITION_2_IN_SECOND_INTERNAL_PAGE
+    trace_tree: L_K_PLUS_2_IS_POSITION_K_PLUS_2_MINUS_CEIL_K_OVER_2_EQUALS_U_PLUS_1
+  witness_claimed_saving: INVALID__ONE_COMPARISON_MIDPOINT_AND_CEIL_LOG_DELTA_NOT_DERIVED
+  witness_rightlink_claim: INVALID_FOR_THE_DECLARED_STATIC_DIRECT_SUCCESSOR_TREE
+  rho_frontier: NOT_PROVEN_MARKOV_SUFFICIENT
+  missing_reader_equivalence_components:
+    - CURRENT_BUFFER_VALIDITY_AND_PAGE
+    - DECODED_LIST_END_OFFSET_AND_NLIST
+    - CLOSED_SOURCE_LEAF_DESCRIPTOR_OR_EXPLICIT_PARTIAL_SETTLEMENT
+    - SHARED_ENTRY_EVENT_TEMPORAL_STATE
+    - EXACT_LOSSY_END_AND_RIGHTMOST_TRANSITIONS
+    - GLOBAL_MULTIKEY_WARM_CACHE_STATE_IF_BC_GT_0
+  path_tree_structural_bijection: PLAUSIBLE_FOR_DECLARED_EQUAL_DEPTH_REBUILD_SUBSET
+  path_cost_native_replay_bijection: NOT_CLOSED
+  bellman_exactness: NOT_ESTABLISHED
+  current_strongest_comparator_arbitrary_regroup: NO_VERIFIED_SURFACE
+  current_same_guarantee_direct_absorption: NOT_FOUND__SEARCH_BOUNDED_OPEN
+  full_cost_vector_design: PASS_DESIGN
+  full_cost_additive_proxy: PARTIAL__MAINTENANCE_FORMULA_AND_WARM_CACHE_SEPARABILITY_UNCLOSED
+  same_trace_fairness: PASS_DESIGN
+
+scientific_stop_audit:
+  direct_same_object_collision: false
+  standard_format_cannot_express_regroup: false
+  all_legal_regroups_cost_equivalent_proof: false
+  finite_reader_frontier_impossibility_proof: false
+  full_cost_no_residual_proof: false
+  disposition: NO_SCIENTIFIC_STOP_BASIS
+
+permissions:
+  control_files_modified: false
+  implementation_started: false
+  experiment_or_benchmark_started: false
+  database_or_existing_project_modified: false
+  stage_a_authorized_or_started: false
+  stage_b_authorized_or_started: false
+
+deliverables:
+  closing_review:
+    file: CLOSING_REVIEW.md
+    sha256: F039A2CF7BC2AAFA486A5F8BABE8F505C0D0228940C760636B3A29F834EA2975
+  canonical_manifest:
+    file: HASH_MANIFEST.sha256
+    entry_count: 2
+
+mainline_action: REGISTER_INCONCLUSIVE_POLICY_HOLD_WITHOUT_SECOND_REVISION_OR_SCIENTIFIC_STOP
+lane_after_delivery: IDLE_REUSABLE_AWAITING_MAINLINE

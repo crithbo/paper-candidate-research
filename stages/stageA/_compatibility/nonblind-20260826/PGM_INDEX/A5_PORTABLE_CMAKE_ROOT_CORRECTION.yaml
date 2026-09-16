@@ -1,0 +1,15 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-PGM-INDEX-A5-CMAKE-ROOT
+parent_assignment: NONBLIND-STAGEA-20260826-PGM-INDEX
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: PORTABLE_CMAKE_LAYOUT_BLOCKER.yaml, sha256: 240FF973FA747FC79FD48BAD65A8B2D24E43936BA3A09CB159C0F5AEB00A66F5}]
+verified_existing_layout:
+  executable: resources/env/cmake-3.31.6-windows-x86_64/bin/cmake.exe
+  module_root: resources/env/cmake-3.31.6-windows-x86_64/share/cmake-3.31
+  module_sentinel: resources/env/cmake-3.31.6-windows-x86_64/share/cmake-3.31/Modules/CMake.cmake
+only_change: set_CMAKE_ROOT_process_local_to_verified_module_root_for_portable_cmake_commands
+allowed_command_sequence:
+  - {id: A5S0, command: '$env:CMAKE_ROOT=<verified_module_root>; <portable_cmake_executable> --version', process_local_only: true, stop_on_nonzero: true}
+  - {id: A5S1, command: resume_parent_A2S4_through_parent_S7_with_same_process_local_CMAKE_ROOT, process_local_only: true, stop_on_nonzero: true}
+prohibitions: [archive_redownload, reextract, system_or_user_environment_change, alternate_cmake, retry_after_failure, scientific_probe_before_fidelity]
+scientific_revision_consumed: false

@@ -1,0 +1,18 @@
+schema: nonblind-stagea-engineering-correction-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW-A6-ABSOLUTE-PATH
+parent_assignment: NONBLIND-STAGEA-20260826-HNSW
+classification: ENGINEERING_CORRECTION_IN_CONTRACT
+preserve: [{path: A5_handoff.yaml, sha256: FC80D383CF7677493D3197F050BD80C11A28DF9A308B22C96ECC09DAC9F02453}, {path: resources/build/hnswlib, retention: PRE_A5_FAILED_BUILD__DO_NOT_MODIFY}, {path: resources/build/hnswlib-a5, retention: A5_FAILED_RELATIVE_COMPILER_PATH__DO_NOT_MODIFY}]
+only_change: fresh_build_directory_with_absolute_assignment_local_clang_clangxx_ninja_paths
+fresh_build_directory: resources/build/hnswlib-ninja-a6
+absolute_paths:
+  C: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/HNSW/resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/clang.exe
+  CXX: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/HNSW/resources/env/llvm-mingw-20260616-ucrt-x86_64/bin/clang++.exe
+  NINJA: <LOCAL_PROJECT_ROOT>/stages/stageA/_compatibility/nonblind-20260826/HNSW/resources/env/ninja-1.13.2/ninja.exe
+allowed_command_sequence:
+  - {id: A6S0, command: fresh_directory_must_be_absent_then_create_once, stop_on_nonzero: true}
+  - {id: A6S1, command: portable_cmake -G Ninja -S resources/src/hnswlib-a4/hnswlib-d9b3608c83d83b46c96e25088cb1d729b29dcfe9 -B resources/build/hnswlib-ninja-a6 -DCMAKE_C_COMPILER=<absolute_C> -DCMAKE_CXX_COMPILER=<absolute_CXX> -DCMAKE_MAKE_PROGRAM=<absolute_NINJA> -DHNSWLIB_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Release, stop_on_nonzero: true}
+  - {id: A6S2, command: portable_cmake --build resources/build/hnswlib-ninja-a6 --target test_updates --parallel 2, stop_on_nonzero: true}
+  - {id: A6S3, command: resources/build/hnswlib-ninja-a6/test_updates.exe, stop_on_nonzero: true}
+prohibitions: [modify_or_delete_resources_build_hnswlib, modify_or_delete_resources_build_hnswlib_a5, NMake_generator, redownload, reextract, alternate_toolchain, system_or_global_mutation, scientific_probe_before_fidelity]
+scientific_revision_consumed: false

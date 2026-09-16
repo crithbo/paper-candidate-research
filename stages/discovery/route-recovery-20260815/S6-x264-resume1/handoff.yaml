@@ -1,0 +1,44 @@
+schema: discovery-route-recovery-handoff-v1
+assignment_id: SAFE-ROUTE-RECOVERY-S6-20260815-X264-RESUME1-OFFICIAL-API
+status: COMPLETED__CURRENT_SOURCE_LOCUS_PARTIALLY_CLOSED__NO_SCIENTIFIC_CLAIM
+exact_object: VideoLAN_x264_current_default_branch__fixed_frame_sequence_H264_decoder_semantics
+purpose: CURRENT_OFFICIAL_SOURCE_LOCUS_FOR_LOOKAHEAD_AND_FRAME_TYPE_ACTION_UNION_ONLY
+claim_authority: NONE__ROUTE_AND_CURRENT_UNION_CLOSURE_ONLY
+upstream_pin:
+  official_commit_sha: 0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee
+  commit_metadata_path: resources/downloads/commit-master.json
+  commit_metadata_sha256: 946D6D9C24CB1F2320EA8BC8703BDDC7F63BD21444D5E5DE8D6707F95BBE0347
+official_api_result:
+  attempts_used: 5
+  attempts_max: 5
+  first_attempt: FAILED__LOCAL_TLS_HANDSHAKE__NO_RESPONSE_PERSISTED
+  retry_and_three_raw_requests: SUCCEEDED
+  fetched_paths:
+    - encoder/lookahead.c
+    - encoder/slicetype.c
+    - x264.h
+  unattempted_frozen_path:
+    path: encoder/slicetype.h
+    disposition: BUDGET_EXHAUSTED_AFTER_TRANSPORT_FAILURE__NO_SCIENTIFIC_INFERENCE
+source_union_result:
+  disposition: PARTIALLY_CLOSED__CORE_IMPLEMENTATION_AND_PUBLIC_PARAMETER_SURFACE
+  evidence_file: CURRENT_SOURCE_UNION_CLOSURE.md
+  confirmed_loci:
+    - lookahead queue/thread and direct decision paths
+    - slicetype decision, adaptive B-frame paths, scenecut/keyframe and VBV lookahead
+    - public lookahead/keyframe/B-frame configuration fields
+  prohibited_inferences_not_made:
+    - current absence
+    - novelty or direct collision
+    - raw admission
+    - brief or scientific DROP
+resource_result:
+  inventory: RESOURCE_INVENTORY.yaml
+  resource_root: resources
+  logical_bytes: 144318
+  within_stored_bytes_max: true
+  process_local_redirection_only: true
+  build_or_experiment_run: false
+next_step: Mainline may use this bounded current-source record only within a separately authorized scientific closure; do not infer any candidate disposition from it.
+canonical_manifest: HASH_MANIFEST.sha256
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

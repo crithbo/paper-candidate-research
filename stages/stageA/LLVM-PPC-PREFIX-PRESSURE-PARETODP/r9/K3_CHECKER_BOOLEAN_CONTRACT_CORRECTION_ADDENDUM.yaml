@@ -1,0 +1,176 @@
+schema: ppc-r9-k3-checker-boolean-contract-correction-addendum-v1
+created_at: 2026-08-26T08:31:00+08:00
+created_by: MAINLINE
+authorization_ids:
+  - USER-CONTINUOUS-AUTONOMOUS-CONTINUE-WHEN-NO-USER-BLOCKER-20260825
+  - MAINLINE-R9-A2-REQUIRED-NEGATIVE-INVARIANT-CORRECTION-20260826
+topic_id: LLVM-PPC-PREFIX-PRESSURE-PARETODP
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R9-SAME-FUNCTION-MATERIALIZER-FIDELITY
+addendum_id: PPC-R9-A2-REQUIRED-NEGATIVE-INVARIANT-CHECKER-CORRECTION
+lane_id: CANDIDATE_EXECUTION_LANE_2
+lane_thread_id: 01a034d0-d37f-7ae1-9ccd-635f285d8279
+unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9
+resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources
+
+frozen_shared_snapshot:
+  plan: {path: plan.md, sha256: 617A1D39A13C9720B7956095E9676CC5666E64B9E3B2AC5BD217E56FD3F70297}
+  registry: {path: registry.yaml, sha256: BB7A00B47FEFD3F488415A3B7641BF28325414D06C975DBEAF88FAE5F08982C7}
+  related_records:
+    - autonomous_stagea_wave_20260826.ppc_r9
+    - no_wsl_localized_resource_recovery_20260825.llvm_queue.PPC
+    - candidates.stagea_llvm_ppc_prefix_pressure_paretodp_initial
+    - role_threads.candidate_execution_lane_2
+
+frozen_A1_handoff:
+  handoff: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/handoff.yaml, sha256: B90B61F54FBBEF18DAF0445FA78B7A56EEB1C7837252BC7431BDB089859916D3}
+  manifest: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/HASH_MANIFEST.sha256, sha256: 9B174B6B4AFD7929334ECB963145273FC52DCF0724B3EFAC7DB54A618597045C}
+  inventory: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/RESOURCE_INVENTORY.yaml, sha256: C7C85A2B14AF2679201D979516980C2D01A1FF523AE819A20B1DBD571F327FC1}
+  retention: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/PHASE_CLOSEOUT_RETENTION.yaml, sha256: C2691DAD6E72CECA106092A11ABDE3425FD5805DC76568A103D50DF7B7EB73DE}
+  capsule: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/RESUME_CAPSULE.yaml, sha256: 6C971AB38969710755722CEC1D2559EB67ABA02E82F39D99B83F4E03FBFDAC35}
+  failure: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/A1_K3_NATIVE_CHECKER_FAILURE.yaml, sha256: D71B6AAF92838FC39F12B7E2EB1072B28F4D03A30EC5C8DA9C7038EA6FB6C930}
+  failed_checker_output: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/resources/build/a1_gate/native_checkers.json, sha256: DDB782036926F659C9F0959ED574B3A6A08C0FF48B93C59D555D747E25E7398E}
+  mainline_independent_acceptance: {path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/MAINLINE_A1_HANDOFF_ACCEPTANCE.yaml, sha256: B91D0A4DBEF0B1BA63D6FA159DCDA3E04D8FB0DB3071E08068D745F4111DBF94}
+
+accepted_reuse_without_rerun:
+  K0_INPUT_ACCEPTANCE: PASS
+  K1_CONTROL_MIR_PROBES: PASS_2_OF_2
+  K1_A1_SAME_FUNCTION_MATERIALIZER: PASS_CONTROL_NON_CLAIM
+  K2_A1_INPUT_SPECIFIC_PPC_TPD: PASS_CONTROL_NON_CLAIM
+  A1_native_checker_candidate_output_consumption: PROVED
+  A1_raw_outputs_immutable: true
+  A1_resource_tree: {files: 268, logical_bytes: 245560106, directories_including_root: 187, reparse_entries: 0, active_related_processes: 0}
+  synthetic_tool_records_cumulative_before_A2: 20
+
+source_boundary:
+  edited_file_only:
+    path: resources/src/natural_materializer/materializer_harness.py
+    old_sha256: A28B269C522A96B81AA79C7F907864BA2277C0E6ABCA1108BACA9010F4C01D80
+    old_bytes: 38323
+    expected_new_sha256: 6234A3380940D87A2FCDBAA1D08DB3F4893A37901E3854CCD9222F3A035BDC0E
+    expected_new_bytes: 38739
+  immutable_other_sources:
+    common.py: EE19181CEA403725748E22E0F632ABA97639C81EAABEB0BC6DA16249520414D7
+    r10_plan.py: 0366CCC8D98D0489C604A31A56E29761C3EC9C2E3D8479C7909E99652697890C
+  exact_substitutions:
+    - old: '    invariant_values = list(trace.get("invariants", {}).values())'
+      new_multiline:
+        - '    invariants = trace.get("invariants", {})'
+        - '    required_positive_invariants = ('
+        - '        "same_function",'
+        - '        "same_load_destinations",'
+        - '        "same_load_symbols_and_offsets",'
+        - '        "cfg_labels_equal",'
+        - '        "call_lines_equal",'
+        - '        "return_lines_equal",'
+        - '        "source_function_count_unchanged",'
+        - '        "candidate_generated_from_actual_function_mir",'
+        - '    )'
+      required_count: 1
+    - old: '            and all(bool(value) for value in invariant_values),'
+      new_multiline:
+        - '            and all(invariants.get(name) is True for name in required_positive_invariants)'
+        - '            and invariants.get("fixed_synthetic_assembly_witness_used") is False,'
+      required_count: 1
+  all_other_bytes_unchanged: true
+  edit_transactions_max: 1
+  edit_after_first_A2_tool_command_allowed: false
+
+corrected_contract:
+  positive_invariants: [same_function, same_load_destinations, same_load_symbols_and_offsets, cfg_labels_equal, call_lines_equal, return_lines_equal, source_function_count_unchanged, candidate_generated_from_actual_function_mir]
+  positive_requirement: ALL_EIGHT_NAMED_KEYS_PRESENT_AND_EXACT_TRUE
+  required_negative_invariant: fixed_synthetic_assembly_witness_used
+  negative_requirement: KEY_PRESENT_AND_VALUE_IS_EXACT_FALSE
+  missing_negative_key_passes: false
+  hardcoded_pass_allowed: false
+  candidate_output_consumption_unchanged: true
+
+truth_table_controls:
+  input_base: RETAINED_A1_CANDIDATE_TRACE_AND_OUTPUTS
+  positive_case: ALL_EIGHT_POSITIVE_TRUE_AND_REQUIRED_NEGATIVE_FALSE__EXPECT_EXIT_0
+  negative_cases:
+    - REQUIRED_NEGATIVE_TRUE__EXPECT_EXIT_NONZERO
+    - REQUIRED_NEGATIVE_MISSING__EXPECT_EXIT_NONZERO
+    - EACH_OF_EIGHT_POSITIVE_KEYS_FALSE_ONE_AT_A_TIME__EXPECT_EXIT_NONZERO
+  total_cases: 11
+  separate_output_per_case: true
+  unexpected_exit_stops: true
+  posthoc_case_change_allowed: false
+
+A2_ordered_execution:
+  A20_PRESERVE_A1_CANONICAL:
+    handoff_destination: handoff.pass2_k3_checker_boolean_fail.yaml
+    manifest_destination: HASH_MANIFEST.pass2_k3_checker_boolean_fail.sha256
+    byte_exact_required: true
+  A21_EXACT_ONE_FILE_EDIT_AND_HASH_GATE: PASS_REQUIRED
+  A22_STATIC_COMPILE_EDITED_FILE:
+    explicit_cfile: resources/cache/p/a2m.pyc
+    PYTHONDONTWRITEBYTECODE: '1'
+    attempts_max: 1
+  A23_TRUTH_TABLE_CONTROLS: PASS_11_OF_11_REQUIRED
+  A24_CORRECTED_K3_ON_RETAINED_A1_OUTPUTS: PASS_7_OF_7_REQUIRED
+  A25_K4_ON_RETAINED_A1_OUTPUTS: PASS_REQUIRED
+  A26_K5_TWO_FRESH_FULL_REPLAYS: EXACT_EQUALITY_REQUIRED
+  A27_K6_R10_32_PROCESS_PLAN: GENERATE_VALIDATE_NOT_EXECUTE
+  A28_RESEAL_CANONICAL_HANDOFF: REQUIRED
+  first_failure_policy: STOP_NO_EDIT_RETRY_OR_COMMAND_CHANGE
+
+fresh_replay_boundaries:
+  replay_1_root: resources/build/a2_replay_1
+  replay_2_root: resources/build/a2_replay_2
+  shared_or_overwritten_output_between_replays_allowed: false
+  replay_must_cover: [K1_SAME_FUNCTION_MATERIALIZER, K2_INPUT_SPECIFIC_PPC_TPD, K3_NATIVE_CHECKERS, K4_FULL_COST]
+  exact_semantic_and_raw_equality_required: true
+
+budgets_cumulative:
+  network_bytes_max: 0
+  resource_root_logical_bytes_max: 536870912
+  cpu_seconds_max: 21600
+  wall_seconds_max: 43200
+  max_parallel_processes: 2
+  implementation_files_max: 20
+  synthetic_tool_command_records_max: 300
+  selected_or_reserve_corpus_tool_invocations_max: 0
+  claim_bearing_runs_max: 0
+  automatic_retry: false
+
+allowed_after_A2_start:
+  - PRESERVE_A1_HANDOFF_AND_MANIFEST_BYTE_EXACT
+  - APPLY_ONE_EXACT_EDIT_TO_MATERIALIZER_HARNESS
+  - STATIC_COMPILE_EDITED_FILE_TO_EXPLICIT_A2M_PYC
+  - RUN_ELEVEN_CHECKER_TRUTH_TABLE_CONTROLS
+  - RUN_CORRECTED_K3_AND_K4_ON_RETAINED_A1_OUTPUTS
+  - RUN_TWO_FRESH_FULL_CONTROL_REPLAYS
+  - GENERATE_VALIDATE_BUT_DO_NOT_EXECUTE_R10_PLAN
+  - RESEAL_CANONICAL_A2_HANDOFF_AND_MANIFEST
+
+forbidden:
+  - ANY_A2_ACTION_BEFORE_A2_ACK_ACCEPTANCE_AND_A2_START
+  - MODIFY_COMMON_R10_PLAN_MATERIALIZER_OR_ANY_OTHER_SOURCE_BYTE
+  - MODIFY_A1_RAW_OUTPUTS_OR_OLD_CACHE
+  - RECOPY_INPUTS_OR_RERUN_K0_OR_TWO_ORIGINAL_MIR_PROBES
+  - SELECTED_OR_RESERVE_CORPUS_TOOL_INVOCATION
+  - CLAIM_BEARING_RUN_OR_R10_PLAN_EXECUTION
+  - NETWORK_RETRY_RESULT_BASED_EDIT_EXCLUSION_BACKFILL_OR_COMMAND_CHANGE
+  - SCIENTIFIC_INFERENCE_REVISION_PIVOT_STATE_TRANSITION_CLEANUP_OR_STAGEB
+
+A2_ack:
+  path: stages/stageA/LLVM-PPC-PREFIX-PRESSURE-PARETODP/r9/A2_ACK.yaml
+  bootstrap_only: true
+  must_confirm:
+    - ALL_FROZEN_HASHES_AND_SHARED_RECORDS_MATCH
+    - A1_CANONICAL_AND_RAW_OUTPUTS_UNCHANGED
+    - ORIGINAL_SOURCE_HASHES_MATCH_AND_EXPECTED_EDIT_SIMULATION_MATCHES_6234A338
+    - POSITIVE_NEGATIVE_AND_MISSING_KEY_TRUTH_TABLE_SEMANTICS
+    - RESOURCE_TREE_268_FILES_245560106_BYTES_ZERO_REPARSE_ZERO_ACTIVE
+    - PRESERVATION_EDIT_STATIC_COMPILE_AND_A2_TOOLS_NOT_STARTED
+    - SELECTED_OR_RESERVE_TOOL_ZERO_CLAIM_ZERO_SCIENCE_ZERO
+    - DIFFERENCES_OR_AMBIGUITIES_EMPTY
+    - A2_ACTION_STARTED_FALSE
+  ready_condition: ALL_MATCH
+  refuse_condition: ANY_DIFFERENCE_OR_DRIFT
+
+scientific_revision_consumed: false
+claim_bearing_observation_count: 0
+selected_or_reserve_corpus_tool_invocations: 0
+r10_claim_authorized: false
+next_action: WRITE_A2_ACK_ONLY_THEN_WAIT_FOR_MAINLINE_A2_START

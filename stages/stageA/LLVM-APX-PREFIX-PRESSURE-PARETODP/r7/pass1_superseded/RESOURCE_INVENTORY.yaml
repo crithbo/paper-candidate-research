@@ -1,0 +1,158 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy: {version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1, policy_path: rules/RESOURCE_LOCALIZATION.md, policy_sha256: FBAA7968B761BB20F04B4E0A685FC0A7658B4B18540E41B73CC11F3D4A58CF97}
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: 18A5F472F314EC114FD995BC73D014D5F45C5219D2DCA10CEE37A269F7056AB6
+  cutover_id: MAINLINE-ARTIFACT-LIFECYCLE-PRODUCTION-CUTOVER-20260824
+  artifact_state: HANDOFF_PENDING__PRECLAIM_ENGINEERING_FAILURE
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: APX_R7_ACTUAL_DP_PRECLAIM_HANDOFF_ACCEPTED
+  downstream_consumer: MAINLINE_ENGINEERING_CORRECTION_DISPOSITION
+  post_close_retained_bytes_max: 805306368
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: RESUME_CAPSULE.yaml
+  cleanup_receipt_path: CLEANUP_RECEIPT.yaml
+identity:
+  topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+  assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM
+  stage_or_mode: STAGEA_ACTUAL_ATOMIC_DP_AND_NATURAL_CORPUS_PRECLAIM_ONLY
+  run_id: P0_P1_PASS__P3_PRELAUNCH_FAIL
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7/resources
+  inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-26T12:47:27.8242664+08:00
+  finalized_at: 2026-08-26T13:05:58.9063423+08:00
+root_measurement: {logical_bytes: 812740033, file_count: 8170, directory_count: 84, longest_path_characters: 204, reparse_entries: 0, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true}
+required_directories: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+redirect_preflight: {status: PASS_PROCESS_LOCAL_ONLY, process_local_only: true, system_or_user_environment_modified: false, TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONDONTWRITEBYTECODE: '1', tools: [POWERSHELL_COPY_ITEM, WINDOWS_TAR, CODEX_BUNDLED_PYTHON_NO_BYTECODE, PINNED_LLVM_LLC_NOT_LAUNCHED_AT_FAILURE]}
+resource_envelope:
+  network_bytes_max: 0
+  stored_bytes_max: 2147483648
+  cpu_seconds_max: 21600
+  wall_seconds_max: 43200
+  max_parallel_processes: 2
+  gpu_hours_max: 0
+  network_bytes_used: 0
+  stored_bytes_used: 812740033
+  max_parallel_processes_observed: 1
+  gpu_hours_used: 0
+  exact_cpu_and_wall: UNAVAILABLE__NOT_ESTIMATED
+entries:
+  - id: EXACT_SOURCE_ARCHIVE_COPY
+    path: resources/archives/llvm-project-a1194be1baefa99d20a09bd04b16056be0ab7225.tar.gz
+    logical_bytes: 278674752
+    file_count: 1
+    sha256: F90FFC22BF3B220B726C2E4D7953076520C4188ED4409213AFB9829B98254747
+    creating_run: P0_COPY_SOURCE_ARCHIVE_ATTEMPT_1_OF_1
+    claim_critical: false
+    reproducibility_minimum: false
+    downstream_consumers: [P1_SELECTIVE_EXTRACTION_COMPLETE]
+    provenance: SAME_TOPIC_RESUME2_ACCEPTED_EXACT_ARCHIVE
+    license: LLVM_PROJECT_SOURCE_LICENSES_IN_ARCHIVE
+    reacquirable: true
+    recovery: UPSTREAM_RESUME2_EXACT_ARCHIVE_OR_OFFICIAL_PINNED_REACQUIRE
+    retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF
+    delete_after_gate: MAINLINE_ACCEPTS_R7_HANDOFF_AND_UPSTREAM_ARCHIVE_REVALIDATED
+  - id: EXACT_APX_TOOLCHAIN_COPY
+    path: resources/env/apx-toolchain
+    logical_bytes: 321690391
+    file_count: 97
+    manifest_sha256: 0BE2C3F60A6F42886F7951D2887D1A3D936B0E1A26E0C6B9B0B89D421944FB91
+    manifest_records: 96
+    manifest_failures: 0
+    creating_run: P0_COPY_TOOLCHAIN_ATTEMPT_1_OF_1
+    claim_critical: false
+    reproducibility_minimum: false
+    downstream_consumers: [P3_LLVM_CURRENT_NOT_LAUNCHED]
+    provenance: R3_ACCEPTED_EXACT_TOOL_BUNDLE
+    license: BUNDLE_LICENSES_DIRECTORY
+    reacquirable: true
+    recovery: R3_RETAINS_EXACT_TOOL_BUNDLE
+    retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF
+    delete_after_gate: MAINLINE_ACCEPTS_R7_HANDOFF_AND_R3_TOOL_BUNDLE_REVALIDATED
+  - id: R6_CONTROL_HARNESS_COPY
+    path: resources/src/r6_harness
+    logical_bytes: 18869
+    file_count: 5
+    hashes: [4E26F556BAEAA981D2EFCF80DFCD4B0D46655D9780F81496D60B8BF1402ED243, 523522869EED8CF3A6093360CDD0E1753C21CD5FD6CA8CD5B86313E65999B3CD, C8662B3F0FBE3AC4F371D972F75371300EB847CD969B69A06110E8E47BDBCB26, FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A, 69582FEA4BE8CFF88B4B9AC88E4D414A9D6A1B471A3488A97571E0ED99CD22AB]
+    creating_run: P0_COPY_R6_HARNESS_ATTEMPT_1_OF_1
+    claim_critical: true
+    reproducibility_minimum: true
+    downstream_consumers: [R6_FORMAL_CONTROL_PASS, FUTURE_MAINLINE_CORRECTION]
+    provenance: R6_ACCEPTED_POST_GC_HARNESS
+    license: LLVM_PROJECT_LICENSE
+    reacquirable: true
+    recovery: R6_RETAINS_IDENTICAL_HARNESS
+    retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM
+    delete_after_gate: NEVER_AUTOMATIC
+  - id: SELECTIVE_LLVM_SOURCE_SUBSET
+    path: resources/src/llvm_subset
+    logical_bytes: 190225817
+    file_count: 8049
+    tree_content_manifest: resources/logs/selective_source_manifest.sha256
+    tree_content_manifest_sha256: 35BC8012FDD3E4427F29D03C4B49A6F613B55D58EA56D53B2AFF78333C449B31
+    creating_run: P1_ONE_SELECTIVE_EXTRACTION
+    claim_critical: false
+    reproducibility_minimum: true
+    downstream_consumers: [P1_CATALOG_PASS, FUTURE_MAINLINE_CORRECTION]
+    provenance: EXACT_ARCHIVE_SEVEN_FROZEN_PREFIXES
+    license: LLVM_PROJECT_LICENSES_IN_SUBSET
+    reacquirable: true
+    recovery: REPEAT_ONLY_UNDER_NEW_MAINLINE_ASSIGNMENT_FROM_EXACT_ARCHIVE
+    retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM
+    delete_after_gate: NEVER_AUTOMATIC
+  - id: ACTUAL_DP_FROZEN_IMPLEMENTATION
+    path: resources/src/apx_tpd
+    logical_bytes: 38302
+    file_count: 3
+    hashes: [5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086, BC129B73FC7FABC488C3B4A52C41737EFBE398000542AC2CDCD382E5337CC6CA, AD7F2DBE3F19DFFCD1EB0C3B4FDF80DCDDA7DCC71BACC769FCF40AF022F57910]
+    creating_run: PRE_FIRST_CONTROL_TOOL_IMPLEMENTATION_FREEZE
+    claim_critical: true
+    reproducibility_minimum: true
+    downstream_consumers: [FUTURE_MAINLINE_ENGINEERING_CORRECTION]
+    provenance: ASSIGNMENT_LOCAL_IMPLEMENTATION
+    license: ASSIGNMENT_LOCAL_PROJECT_ARTIFACT
+    reacquirable: false
+    retention_class: RESUME_CRITICAL_UNTIL_UNBLOCKED
+    delete_after_gate: NEVER_AUTOMATIC
+  - id: COMMAND_CATALOG_CONTROL_AND_FAILURE_LOGS
+    path: resources/logs
+    logical_bytes: 22091902
+    file_count: 15
+    key_hashes: [19E3999ABEF14459FD6F7D502481A02FF404FF37A7D720790EF776B2D4B43983, 35BC8012FDD3E4427F29D03C4B49A6F613B55D58EA56D53B2AFF78333C449B31, CF406685A11968882608273C9D86B9B1806C562B3B4DD64B933926EDB2F677FC, 48808188A348B10EA54ACBC1B23E1DF7C68FABBDA65F02ECE8A415217B486966, 38CD8D71DE2DACDBB567537AA38D4F4955141167FF8CE0F76D40F8A42873B273]
+    creating_runs: [P1_ARCHIVE_SCAN, P1_SELECTIVE_SOURCE_MANIFEST, P1_CATALOG, R6_FORMAL_CONTROL, P3_PRELAUNCH_FAILURE]
+    claim_critical: true
+    reproducibility_minimum: true
+    downstream_consumers: [MAINLINE_HANDOFF_AUDIT, FUTURE_ENGINEERING_CORRECTION]
+    provenance: ASSIGNMENT_LOCAL_RAW_AND_AUDIT_LOGS
+    license: MIXED_PROVENANCE_METADATA_ONLY
+    reacquirable: false
+    retention_class: KEEP_CAPSULE_CLAIM_CRITICAL
+    delete_after_gate: NEVER_AUTOMATIC
+  - {id: EMPTY_STANDARD_ROOTS, paths: [resources/downloads, resources/build, resources/cache, resources/tmp], logical_bytes: 0, file_count: 0, claim_critical: false, reproducibility_minimum: false, retention_class: EPHEMERAL_DELETE_BEFORE_CLOSEOUT, delete_after_gate: MAINLINE_ONLY}
+shared_assets_consumed: []
+external_system_dependencies:
+  - {id: POWERSHELL_RUNTIME, disposition: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED}
+  - {id: WINDOWS_TAR, version: 10.0.26100.7623, disposition: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED}
+  - {id: CODEX_BUNDLED_PYTHON, sha256: D8E3F0ADF246DB00358C0C4ED349CF714898178F9558FB0E944F79F5C07F8EAA, disposition: EXTERNAL_SYSTEM_MANAGED__NOT_PROJECT_OWNED}
+cleanup:
+  owner: MAINLINE
+  owner_cleanup_allowed: false
+  authorized_descendants: []
+  allowed_automatic_retention_classes: [EPHEMERAL_DELETE_BEFORE_CLOSEOUT, REACQUIRABLE_DELETE_AFTER_HANDOFF, TRANSFER_TO_DOWNSTREAM_THEN_DELETE_SOURCE_COPY]
+  closeout_plan_accepted: false
+  downstream_inputs_accepted: false
+  capsule_sealed: false
+  active_owner_or_process_count: 0
+  predelete_target_count: 2
+  predelete_file_count: 98
+  predelete_logical_bytes: 600365143
+  performed: false
+  deleted_entries: []
+  deleted_logical_bytes: 0
+  projected_postcleanup_retained_bytes: 212374890
+  performed_at: null
+  recoverability: EXACT_UPSTREAM_ARCHIVE_AND_R3_TOOL_BUNDLE
+validation: {resource_root_exact_match: true, root_under_workspace: true, forbidden_root_check: true, reparse_traversal_check: true, required_directories_present: true, persisted_resources_inventoried: true, envelope_within_limit: true, claim_critical_content_hashes_present: true, lifecycle_mode_and_hash_match: true, all_persisted_entries_classified: true, downstream_consumers_resolved: true, deterministic_recovery_routes_complete: true, closeout_budget_or_exception_pass: true, cleanup_receipt_valid: NOT_APPLICABLE_NOT_PERFORMED, result: PASS_HANDOFF_PENDING_MAINLINE_CLEANUP__NO_SCIENTIFIC_INFERENCE}

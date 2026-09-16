@@ -1,0 +1,34 @@
+assignment_id: DISCOVERY-S6-20260813-R16A-V9-PROSPECTIVE-SHADOW-BATCH01
+track: canonical_v8_7
+frozen_before_shadow: true
+accepted_unique_family_count: 4
+families:
+  - id: S6-R16A-RR_TRACE_EVENT_CONSTRUCTION
+    signature: fixed_linux_user_program_input_and_rr_replay_semantics__recorded_event_stream_and_checkpoint_trace_construction__stock_rr_replay_oracle__record_replay_cpu_rss_trace_bytes_cost
+    disposition: NOT_ADMITTED_UNFROZEN
+    proposed_contribution: target-specific bounded replay-trace constructor with a replay-equivalent cost guarantee
+    natural_carrier: versioned public Linux user-space regression workloads
+    full_cost: record_cpu_rss_trace_bytes_plus_replay_cpu_rss_latency
+  - id: S6-R16A-RUSTC_CGU_PARTITION_CONSTRUCTION
+    signature: fixed_rust_crate_features_target_and_incremental_semantics__monomorphization_to_codegen_unit_partition__codegen_unit_assignment_and_linkage_constructor__stock_rustc_behavior_oracle__compile_incremental_link_memory_bytes_cost
+    disposition: NOT_ADMITTED_UNFROZEN
+    proposed_contribution: target-specific bounded CGU partition constructor with an incremental-build Pareto guarantee
+    natural_carrier: versioned public Rust crate/build histories
+    full_cost: compilation_incremental_link_cpu_rss_temp_bytes
+  - id: S6-R16A-SOUFFLE_RELATION_INDEX_CONSTRUCTION
+    signature: fixed_souffle_datalog_program_and_fact_relation_semantics__relation_index_selection_and_data_structure_construction__stock_result_oracle__compile_evaluate_memory_bytes_cost
+    disposition: STRUCTURAL_DROP
+    direct_absorption: official current automatic relation/index selection covers the proposed generic construction kernel
+    natural_carrier: public Datalog analyses and fact sets
+    full_cost: compile_evaluate_cpu_rss_memory_bytes
+  - id: S6-R16A-OPENJDK_C2_IR_CONSTRUCTION
+    signature: fixed_java_bytecode_profile_target_and_jvm_semantics__c2_ideal_graph_transform_and_schedule_construction__stock_jvm_behavior_oracle__compile_cpu_rss_codecache_bytes_runtime_cost
+    disposition: NOT_ADMITTED_UNFROZEN
+    proposed_contribution: bounded target-specific C2 transform-and-schedule constructor with a semantic-preserving cost guarantee
+    natural_carrier: versioned public Java workloads and bytecode corpora
+    full_cost: compile_cpu_rss_codecache_bytes_runtime
+excluded_non_counted:
+  - id: TREE_SITTER_PARSE_TABLE_CONSTRUCTION
+    disposition: EXCLUDED_REPEATED__CURRENT_UNION_ABSORPTION_KERNEL
+  - id: MOLD_ELF_LAYOUT_CONSTRUCTION
+    disposition: EXCLUDED_POTENTIAL_IMPLEMENTATION_RELABEL__GNU_LD_LLD_LAYOUT_FAMILY

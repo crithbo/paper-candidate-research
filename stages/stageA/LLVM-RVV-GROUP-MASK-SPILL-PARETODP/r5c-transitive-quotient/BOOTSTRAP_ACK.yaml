@@ -1,0 +1,94 @@
+schema_version: bootstrap-ack-v1
+ack_disposition: READY
+start_authorized_by_mainline: false
+scientific_or_resource_action_started: false
+identity:
+  cwd: '<LOCAL_PROJECT_ROOT>'
+  cwd_exact: true
+  lane_id: CANDIDATE_EXECUTION_LANE_1
+  lane_thread_id: 01a034d0-d0a8-72c2-bb87-3ed590d87620
+  old_lane_thread_id: 01a02e0c-2a04-7063-b397-c3cf8970b9f9
+  assignment_id: STAGEA-L1-20260826-LLVM-RVV-R5C-TRANSITIVE-SPLIT-QUOTIENT-DEPENDENCY-CLOSURE
+  topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+  role_id: CANDIDATE_OWNER
+  status: BOOTSTRAP_ACK_PENDING
+context:
+  path: stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient/ASSIGNMENT_CONTEXT.yaml
+  sha256: F6A494EC43692E1A045ABFCCA3E404C5686B0B6F6FE1AE4EF9FDF4660AF94828
+  mode: DUAL_READ_SHADOW
+frozen_snapshots:
+  AGENTS: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75
+  plan: FA7D4D8363F85147C56022BB085C62F1D09A257F4F2932F3ED7AA7E3EC5B7217
+  registry: 397F96554D4FCEF8D5922D67A706534366E149EE9CF0C2E84630DF067B13BB17
+  control: 269A0DFF737FB16CDBE7A94206798EEA05B82EBD07142F4A4B18541D2B0A6638
+  role_rule: 880008B9B042D29198B1A8941E8FB7DB2212181675718DA99BEF7BDF95F1A3C5
+  soft_blocker_recovery: 5CEC68215846B6D32DA8B34D868271E4BE69EA1383DB6FC5B8DF925F31AB1A74
+  all_required_hashes_and_reads: PASS
+source_and_gate:
+  independent_gate_acceptance: 85E6D76FC532F3D98D6DE9D8A2C0DD11CC8CEE3A9CC0759C7B5C2C14241AA0D6
+  independent_gate_handoff: 18BA5DE9CB39FC54B2C569FD44537862ED474712CE286C9ABC4EFC1B96E92936
+  bounded_route: AF88FBA44D8F0BBF8C36414F98C43ADCBD83C79B2165C6C38C608849B0C08F55
+  r5_acceptance: 2366384A4E148A87A0D8B29E561277590F1C334A0DB84AD382A49C35B8A6737A
+  r5_handoff: 967B53E77BA847710B2BFBAD9F1BD119CF004D4DFBE30B7067D634FD3B806A93
+  r5_manifest: 481FB226432012B26E78C348B397AF9741637C0B31FD404CA3DA7877591219FE
+registry_dual_read:
+  rvv_r5: PRECLAIM_FIDELITY_REJECTED__R5C_BOOTSTRAP_PENDING__MECHANISM_PIVOT_CONSUMED__NO_NATURAL_OR_CLAIM
+  rvv_r5c: BOOTSTRAP_ACK_PENDING
+  LLVM_queue_RVV: R5_GATE_REJECTED__R5C_TRANSITIVE_QUOTIENT_BOOTSTRAP_PENDING__PIVOT_CONSUMED__NO_NATURAL_OR_CLAIM
+  current_lane: BOOTSTRAP_ACK_PENDING__RVV_R5C_TRANSITIVE_QUOTIENT_CLOSURE
+  candidate_record: MATCH
+  legacy_old_thread_record_not_current: true
+transitive_split_graph_contract:
+  roots: ALL_NODES_WITH_DESCENDANTS_AND_NO_PARENT__NO_HARDCODED_IDS
+  requirements: [ACYCLIC, EVERY_DESCENDANT_EXACTLY_ONE_ROOT, ALL_PARENT_EDGES, TRANSITIVE_ANCESTRY, NO_ORPHAN_OR_UNKNOWN]
+  per_path: [REGISTER_CLASS, LMUL, MASK_LIVENESS, INTERFERENCE_PHYSREG, SPILL_SLOT, RELOAD_CHAIN, FUTURE_USE_RESTORATION, BACKPOINTER]
+  fail_closed: [MISSING_CHILD, UNKNOWN_PARENT, CROSS_CLASS_OR_LMUL, CYCLE, ORPHAN_DESCENDANT, MULTIROOT_DESCENDANT, MISSING_PHYSREG, MISSING_SPILL, MISSING_RELOAD, MISSING_FUTURE_USE, INCOMPLETE_BACKPOINTER]
+future_action_quotient_contract:
+  state_signature: [TRANSITIVE_SPLIT_GRAPH_HASH, ROOT_TO_LEAF_PATH_OBLIGATIONS, FUTURE_ACTION_SIGNATURE, COST_AND_SPILL_RELOAD_SIGNATURE, MASK_AND_INTERFERENCE_SIGNATURE]
+  successor_relation_explicit: true
+  merge_only_future_action_and_cost_equivalent: true
+  no_closure_argument: FAIL_CLOSED
+  mutated_hash_or_obligation: FAIL_CLOSED
+F4_F5_dependency:
+  F4_requires: [SPLIT_CLOSURE_ARTIFACT_PATH, SPLIT_CLOSURE_SHA256, QUOTIENT_STATE_SIGNATURES, SUCCESSOR_RELATION]
+  F5_requires: [SPLIT_CLOSURE_ARTIFACT_PATH, SPLIT_CLOSURE_SHA256, BASELINE_PARITY_FULL_COST_FIELDS, SPILL_RELOAD_AND_FUTURE_USE_COST]
+  output_dependency_receipts_required: true
+command_receipt_contract:
+  fields: [COMMAND_ID, ARGV, CWD, START_UTC, END_UTC, EXIT_CODE, STDOUT_SHA256, STDERR_SHA256, OUTPUT_PATH, OUTPUT_SHA256, TIMEOUT_SECONDS, RETRY_COUNT]
+  two_fresh_llc_machineverifier_receipts: REQUIRED
+  checker_and_F3_F5_receipts: REQUIRED
+  replay_MIR_byte_exact: REQUIRED
+pivot_and_revision:
+  pivot_state: CONSUMED_1_OF_1
+  second_pivot_allowed: false
+  scientific_revision_consumption: false
+  exact_object_mechanism_action_baselines_gate_changed: false
+permissions_and_budget:
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5c-transitive-quotient/resources
+  resource_root_absent: true
+  source_r5_write_allowed: false
+  input_copy_attempts_max: 1
+  modify_existing_files_max: 2
+  new_files_max: 1
+  control_tool_command_records_max: 64
+  fresh_llc_commands_max: 2
+  network_bytes_max: 0
+  resource_bytes_max: 536870912
+  cpu_seconds_max: 14400
+  wall_seconds_max: 28800
+  automatic_retry: false
+  natural_or_selected_tool_invocations_max: 0
+  claim_bearing_runs_max: 0
+  cleanup_owner: MAINLINE
+  owner_cleanup_allowed: false
+actions_before_START:
+  resources_created: false
+  copy_started: false
+  source_edit_started: false
+  tool_or_checker_started: false
+  natural_or_selected_tool_invocations: 0
+  claim_bearing_observations: 0
+  network_science_cleanup_state_actions: 0
+differences_or_ambiguities: []
+next_action: WAIT_FOR_MAINLINE_ACCEPTANCE_AND_EXPLICIT_START

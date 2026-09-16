@@ -1,0 +1,95 @@
+# SOURCE: https://github.com/llvm/llvm-project/blob/1f112d62e1fa2c4f1a04887abd72da1ed61cf791/llvm/test/CodeGen/AMDGPU/schedule-regpressure-ilp-metric-spills.mir
+# READ_SCOPE: rendered lines 1-120 plus the first scheduling-region prefix through virtual register %77, captured 2026-08-09
+# LICENSE: LLVM Apache-2.0 WITH LLVM-exception
+# RUN: llc -mtriple=amdgpu11.00 -start-before=machine-scheduler -stop-after=greedy,2 -verify-machineinstrs -o - %s
+# UPSTREAM_EXPECTATION: default tracker has no SI_SPILL_; GCN tracker path has six SI_SPILL_V32_SAVE.
+# UPSTREAM_MECHANISM_NOTE: desired occupancy can be reached while RA still spills; high-RP reschedule could further lower pressure.
+
+---
+name: no_sched_metric_due_to_spills_prefix
+tracksRegLiveness: true
+machineFunctionInfo:
+  stackPtrOffsetReg: '$sgpr32'
+  occupancy: 4
+body: |
+  bb.0:
+    liveins: $vgpr0, $sgpr0_sgpr1, $sgpr15
+    %0:sgpr_32 = COPY $sgpr15
+    %1:sgpr_64 = COPY $sgpr0_sgpr1
+    %2:vgpr_32 = COPY $vgpr0
+    %3:sgpr_128 = S_LOAD_DWORDX4_IMM %1, 0, 0
+    %4:sgpr_128 = S_LOAD_DWORDX2_IMM %1, 16, 0
+    %5:sreg_32 = S_LOAD_DWORD_IMM %1, 32, 0
+    %6:sreg_32 = S_LOAD_DWORD_IMM %1, 64, 0
+    %7:sreg_32 = S_LOAD_DWORD_IMM %1, 84, 0
+    %8:sreg_32 = S_LOAD_DWORD_IMM %1, 112, 0
+    %9:sreg_32 = S_LOAD_DWORD_IMM %1, 128, 0
+    %10:sreg_32 = S_LOAD_DWORD_IMM %1, 176, 0
+    %11:sreg_32 = S_LOAD_DWORD_IMM %1, 192, 0
+    %12:sreg_64 = S_LOAD_DWORDX2_IMM %1, 216, 0
+    %13:sreg_32 = S_ADD_I32 %12, 127
+    %14:sreg_32 = S_ASHR_I32 %13, 31
+    %15:sreg_32 = S_LSHR_B32 %14, 25
+    %16:sreg_32 = S_ADD_I32 %13, %15
+    %17:sreg_32 = S_ASHR_I32 %16, 7
+    %18:sreg_32 = S_ADD_I32 %12, 255
+    %19:sreg_32 = S_ASHR_I32 %18, 31
+    %20:sreg_32 = S_LSHR_B32 %19, 24
+    %21:sreg_32 = S_ADD_I32 %18, %20
+    %22:sreg_32 = S_ASHR_I32 %21, 8
+    %23:sreg_32 = S_MUL_I32 %22, %17
+    %24:sreg_32 = S_ASHR_I32 %0, 31
+    %25:sreg_32 = S_ASHR_I32 %23, 31
+    %26:sreg_32 = S_ADD_I32 %0, %24
+    %27:sreg_32 = S_ADD_I32 %23, %25
+    %28:sreg_32 = S_XOR_B32 %26, %24
+    %29:sreg_32 = S_XOR_B32 %27, %25
+    %30:vgpr_32 = V_CVT_F32_U32_e64 %29, 0, 0
+    %31:vgpr_32 = V_RCP_IFLAG_F32_e64 %30, 0, 0
+    %32:vgpr_32 = V_MUL_F32_e64 1333788670, %31
+    %33:vgpr_32 = V_CVT_U32_F32_e64 %32
+    %34:sgpr_256 = S_MOV_B32 0
+    %35:sreg_32 = S_SUB_I32 0, %29
+    %36:sreg_32 = V_READFIRSTLANE_B32 %33
+    %37:sreg_32 = S_MUL_I32 %35, %36
+    %38:sreg_32 = S_MUL_HI_U32 %36, %37
+    %39:sreg_32 = S_ADD_I32 %36, %38
+    %40:sreg_32 = S_MUL_HI_U32 %28, %39
+    %41:sreg_32 = S_MUL_I32 %40, %29
+    %42:sreg_32 = S_SUB_I32 %28, %41
+    %43:sreg_32 = S_SUB_I32 %42, %29
+    %44:sreg_32 = S_CSELECT_B32 %43, %42
+    %45:sreg_32 = S_SUB_I32 %44, %29
+    %46:sreg_32 = S_CSELECT_B32 %45, %44
+    %47:sreg_32 = S_XOR_B32 %46, %24
+    %48:sreg_32 = S_SUB_I32 %47, %24
+    %49:sreg_32 = S_ASHR_I32 %48, 31
+    %50:sreg_32 = S_ASHR_I32 %22, 31
+    %51:sreg_32 = S_XOR_B32 %49, %50
+    %52:sreg_32 = S_ADD_I32 %48, %49
+    %53:sreg_32 = S_ADD_I32 %22, %50
+    %54:sreg_32 = S_XOR_B32 %52, %49
+    %55:sreg_32 = S_XOR_B32 %53, %50
+    %56:vgpr_32 = V_CVT_F32_U32_e64 %55, 0, 0
+    %57:vgpr_32 = V_RCP_IFLAG_F32_e64 %56, 0, 0
+    %58:vgpr_32 = V_MUL_F32_e64 1333788670, %57
+    %59:vgpr_32 = V_CVT_U32_F32_e64 %58
+    %60:sreg_32 = S_SUB_I32 0, %55
+    %61:sreg_32 = V_READFIRSTLANE_B32 %59
+    %62:sreg_32 = S_MUL_I32 %60, %61
+    %63:sreg_32 = S_MUL_HI_U32 %61, %62
+    %64:sreg_32 = S_ADD_I32 %61, %63
+    %65:sreg_32 = S_MUL_HI_U32 %54, %64
+    %66:sreg_32 = S_MUL_I32 %65, %55
+    %67:sreg_32 = S_SUB_I32 %54, %66
+    %68:sreg_32 = S_ADD_I32 %65, 1
+    %69:sreg_32 = S_SUB_I32 %67, %55
+    %70:sreg_32 = S_CSELECT_B32 %68, %65
+    %71:sreg_32 = S_CSELECT_B32 %69, %67
+    %72:sreg_32 = S_ADD_I32 %70, 1
+    %73:sreg_32 = S_CSELECT_B32 %72, %70
+    %74:sreg_32 = S_XOR_B32 %73, %51
+    %75:sreg_32 = S_SUB_I32 %74, %51
+    %76:sreg_32 = S_ASHR_I32 %16, 31
+    %77:sreg_32 = S_ASHR_I32 %11, 31
+...

@@ -1,0 +1,18 @@
+# Ten-genealogy source / collision / action-divergence matrix
+
+| # | New genealogy and same-object witness | Current strongest union | Six-dimensional result | Disposition |
+|---:|---|---|---|---|
+| 1 | Cross-vendor GPU binary: choose one architecture-neutral IR lowering versus vendor binary lowering for identical kernel result. | hetGPU compiler/runtime abstraction with state capture/reload. | The direct paper already covers compiler, runtime, memory/synchronization and migration cost; no non-synonymous union-external action was identified. | `DROP_DIRECT_PAPER_COLLISION` |
+| 2 | Directive GPU portability: choose an OpenMP lowering/layout rule for identical gPLUTO kernel semantics. | 2026 portability study plus existing compiler backend action space. | Candidate needs architecture-specific source/target mapping; comparing AMD versus NVIDIA changes hardware/cost object, while compiler-flag choices are tuning. | `DROP_CHANGED_HARDWARE_OBJECT_OR_TUNING` |
+| 3 | GPU semantic program synthesis: enumerate formula semantics versus syntax for identical examples/specification. | 2025 GPU semantic-enumeration synthesizer. | Full decision/information/resource/quality mechanism is already the paper’s contribution. | `DROP_DIRECT_PAPER_COLLISION` |
+| 4 | CXL tiering: move a page under the same CXL/DRAM capacity and access trace. | FreqTier and CXL tiered-memory studies. | Frequency/overhead trade-off is already a same-information policy family; no new guarantee, action primitive, or natural-object boundary found. | `DROP_FAIR_UNION_POLICY_ABSORPTION` |
+| 5 | OpenMP USM: lower a shared-memory offload access versus explicit mapping for identical program output. | OpenMP USM specification/implementation stack and 2026 study. | USM itself changes the language/runtime memory contract; residual compiler options do not form N1/N2. | `DROP_CONTRACT_CHANGE_OR_CONFIGURATION` |
+| 6 | ByteStore GC: discard stale extents versus compaction for same logical object map. | FAST26 DisCoGC. | The paper supplies the combined discard/compaction construction and TCO/full-cost treatment. | `DROP_DIRECT_PAPER_COLLISION` |
+| 7 | All-flash swap: local core swap resource versus delegated inter-core metadata lookup. | FAST26 ScaleSwap. | Core ownership, assistance and affinity are the existing complete mechanisms; no new action divergence outside them. | `DROP_DIRECT_PAPER_COLLISION` |
+| 8 | Remote NVMe FS: host-side operation versus server-offloaded permission/concurrency/atomic-I/O operation. | FAST26 CETOFS. | Server collaboration creates a new filesystem/control-plane object; within CETOFS it is already direct absorption. | `DROP_CHANGED_OBJECT_OR_DIRECT_COLLISION` |
+| 9 | SSD completion: polling/interrupt completion route versus tag-guided centralized completion. | FAST26 UnICom and DPAS. | Completion primitive and full CPU/latency/security costs are already addressed; remaining thresholds are configuration. | `DROP_DIRECT_COLLISION_OR_TUNING` |
+| 10 | AI cloud I/O: independent I/O versus grouped API/read-write plan for identical training I/O. | FAST26 AITURBO. | Grouped I/O API changes the producer interface; without it residual is a wrapper, with it directly collides. | `DROP_CHANGED_INTERFACE_OR_DIRECT_COLLISION` |
+
+## Reality and fidelity discipline
+
+All claims here are positive source/collision claims, not assertions that a current upstream capability is absent; no issue/future-work premise is used. Every row was checked for decision rule, information, resource budget, quality/guarantee, full cost and generalisation/no-gain. Natural carriers exist in the cited deployed workloads or open programs, but they cannot rescue a directly absorbed or changed-object action. No topic brief is therefore emitted.

@@ -1,0 +1,17 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S5-20260824-SOURCE111-KERNEL-CORPUS-DSL-COMPILER-V1
+topic_id: SOURCE111-PORTFOLIO-S5
+lane_id: DISCOVERY_S5
+lane_mode: S5_SCALE_ONLINE_APPROX
+thread_id: 01a02e0a-e6cf-7051-adc8-514d53e55549
+common_contract: stages/discovery/round-20260824-strategy-source111/control/CONTROL.yaml
+common_contract_sha256: BBB5ACB1471C4A0E0B281D8E49BF5425D1002BB9030D3180B124E4DC1CC09082
+write_directory: stages/discovery/round-20260824-strategy-source111/S5-scale-online-approx
+resource_root: stages/discovery/round-20260824-strategy-source111/S5-scale-online-approx/resources
+focus: LIGER_HELION_KERNEL_CORPUS_MEMORY_SCALE_OR_ONLINE_SELECTION_DISTINCT_FROM_AUTOTUNE
+anchor_portfolio: [LIGER_HELION_CURRENT_SOURCE_CORPUS]
+mandatory_pre_rq_check: READ_ALL_THREE_DENYLIST_FILES_AND_RECORD_PER_SEED_RQ
+forbidden_inputs: [GROUP_REPOSITORY, CRFEPOCH_STAGE0]
+model_route: {model: gpt-5.6-terra, reasoning: high}
+modes: {rq_frontend: PRODUCTION, claim_pack: OFF, quality: OFF, selective_depth: OFF}
+next_action_before_start: WRITE_BOOTSTRAP_ACK_AND_WAIT

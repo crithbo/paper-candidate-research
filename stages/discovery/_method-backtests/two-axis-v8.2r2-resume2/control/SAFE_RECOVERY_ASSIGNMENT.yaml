@@ -1,0 +1,18 @@
+schema: discovery-backtest-packer-resource-recovery-assignment-v1
+assignment_id: SAFE-RECOVERY-PACKER-20260815-TWO-AXIS-V8_2R2-TLS
+task_id: 019fe4e9-9c1d-7ea2-b45d-356f1a9a9545
+role_rule: rules/ROLE_DISCOVERY_BACKTEST.md
+control: stages/stageA/_assignments/20260815/AUTONOMOUS_SAFE_BLOCKER_RECOVERY_CONTROL.yaml
+read_only_inputs:
+  - stages/discovery/_method-backtests/two-axis-v8.2r2/packer
+  - stages/discovery/_method-backtests/two-axis-v8.2r2-resume1/packer
+write_directory: stages/discovery/_method-backtests/two-axis-v8.2r2-resume2/packer
+objective: >-
+  Retry only the seven previously missing legally public first-party artifacts using official
+  routes and current process-local TLS/network capabilities. Freeze exact bytes, provenance,
+  dates and hashes. If all seven close without contamination, rebuild only the PACKER package;
+  do not create or contact EXECUTOR or AUDITOR.
+max_network_attempts_per_artifact: 2
+production_method_change_allowed: false
+scientific_inference_from_failure_allowed: false
+

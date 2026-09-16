@@ -1,0 +1,27 @@
+schema_version: assignment-context-v1
+context_mode: DUAL_READ_SHADOW
+assignment_id: STAGEA-GATE-20260829-APX-R9-CONTROL-AND-FULL-COST-FIDELITY
+topic_id: LLVM-APX-PREFIX-PRESSURE-PARETODP
+lane_id: STAGEA_GATE_REVIEW_LANE_1
+role: INDEPENDENT_STAGEA_REVIEW
+model_route: gpt-5.6-terra
+thinking: high
+unique_write_directory: stages/stageA/_reviews/20260829-apx-r9-preclaim-fidelity/LLVM-APX-PREFIX-PRESSURE-PARETODP
+resource_root: stages/stageA/_reviews/20260829-apx-r9-preclaim-fidelity/LLVM-APX-PREFIX-PRESSURE-PARETODP/resources
+current_state: BOOTSTRAP_PENDING__READ_ONLY_PRECLAIM_FIDELITY
+user_authorization: USER_CONTINUOUS_STAGEA_ECP_AUTONOMY_20260829
+frozen_control:
+  agents: {path: AGENTS.md, sha256: 1399A3FE18D3D3E803A1A839F6C757A885D0A2D12D9343335620B06B41F2BE75}
+  plan: {path: plan.md, sha256: 4D80D51760C3E694CE3A96936DA5FAB41FCE7438721040F433F1851FC1A72278}
+  registry: {path: registry.yaml, sha256: A063AF03EEBFFDBB840DC5725189CAA4D9B300C923952375D2836A664C7DF4F0}
+  role_rule: {path: rules/ROLE_STAGEA_REVIEW.md, sha256: 3F625031306861248D817C36905E3D0AB0DCDB3B8B6B959673975BDB6128FF01}
+  academic_skill: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/SKILL.md, sha256: A6C2F5A569EB005C24A841103CE32E602221F31AE42F10AF302EEC67B12D3F4F}
+  reviewer_workflow: {path: <LOCAL_USER_HOME>/.codex/skills/academic-research-suite/ars/academic-paper-reviewer/WORKFLOW.md, sha256: 5469CDABFEB6FAC7CCBE88CAF1A85C55E9F46977F9DC3AEFC84EFF1CE93E1672}
+  review_template: {path: templates/INDEPENDENT_REVIEW_REPORT.md, sha256: 248B94097ECA6B39072A5056BA4EE3ABB47F1D30960621792403D0A43FA8B01C}
+  assignment: {path: stages/stageA/_reviews/20260829-apx-r9-preclaim-fidelity/LLVM-APX-PREFIX-PRESSURE-PARETODP/control/ASSIGNMENT.yaml, sha256: C665E89F031E63DE9A183977C89B43EE02CE6A15C35B39E6D772F748A960093B}
+minimum_inputs:
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/control/APX-R8-S01-R1/CONTROL_STATUS.json, sha256: 4CFE4D2DE305E7DE8431D082B952990570775C900E613F615FAA42976BC29736}
+  - {path: stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r9-integrated-row-controller-redesign-20260829/resources/logs/control/APX-R8-S01-R1/outer_full_cost_ledger.json, sha256: 15FA62CD6A184DA88C48F8337ADB349B241287C2C6DEFED4DF59998410B4C347}
+allowed_action: WRITE_BOOTSTRAP_ACK_ONLY
+forbidden_actions: [review_judgment_before_start, modify_owner_files, resource_create_or_copy, tool_replay, experiment, claim_run, report_control_effect_values, network, shared_write, state_change, stageb]
+next_action: FULL_READ_AND_WRITE_BOOTSTRAP_ACK_THEN_WAIT

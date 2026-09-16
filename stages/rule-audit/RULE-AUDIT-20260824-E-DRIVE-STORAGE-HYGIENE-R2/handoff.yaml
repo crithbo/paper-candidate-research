@@ -1,0 +1,41 @@
+schema_version: rule-audit-storage-handoff-v1
+audit_id: RULE-AUDIT-20260824-E-DRIVE-STORAGE-HYGIENE-R2
+trigger: USER_DIRECT_E_DRIVE_CLEANUP_AND_RULE_SUPPLEMENT
+workspace_root: <LOCAL_PROJECT_ROOT>
+status: COMPLETE_DRY_RUN__BLOCKED_BY_ROLE_AND_ACTIVE_PROCESS_CHECK
+shared_files_modified: false
+candidate_files_deleted: false
+files_moved_or_archived: false
+
+findings:
+  migrated_project_identity_confirmed: true
+  live_d_drive_authority_references_present: true
+  project_is_git_repository: false
+  root_tmp_bytes: 0
+  node_modules_present: false
+  project_dot_venv_present: false
+  stages_bytes: 5233776702
+  stageA_bytes: 4980383745
+  exact_safe_delete_candidate_files: 5
+  exact_safe_delete_candidate_bytes: 8125013
+  pinned_duplicate_hash_match: PASS_5_OF_5
+  reparse_check: PASS_5_OF_5
+  active_process_check: UNAVAILABLE__ACCESS_DENIED
+
+blocking_conditions:
+  - RULE_AUDIT_IS_NOT_CLEANUP_OWNER_OR_SHARED_FILE_WRITER
+  - ACTIVE_PROCESS_COMMAND_LINE_CHECK_UNAVAILABLE
+  - E_LIVE_ROOT_AUTHORITY_NOT_YET_MIGRATED_FROM_D
+
+recommendation:
+  shared_rule_change: APPLY_E_PATH_MIGRATION_AND_PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  cleanup: MAINLINE_EXACT_ASSIGNMENT_FOR_FIVE_UNPINNED_TRANSPORT_JSON_FILES_ONLY
+  nonterminal_large_directories: KEEP
+  legacy_bulk_cleanup: FORBIDDEN_WITHOUT_SEPARATE_SCOPE
+
+canonical_outputs:
+  summary: {path: DRY_RUN_SUMMARY.md, sha256: 4A4E8F579C84657A2DA337A1581AF06B14234DEC0A550E5B2B846062660F77BD}
+  cleanup_candidates: {path: TEMP_CLEANUP_CANDIDATES.yaml, sha256: 26B653906976194A91D5C9FC1743D12DD1088FC1B3B80D252D4D60B6E95A877B}
+  rule_proposal: {path: PATH_MIGRATION_RULE_PROPOSAL.md, sha256: E284DD513C0A8EF61B2ED3C9C7B64A08AE4BB80ACD3A6EB70BAEE75F8A499F31}
+  advisory_patch: {path: DRAFT_PATCH.diff, sha256: 6C42BF2C4B351787B86A451259057138AE638E08D30443540A49DE83FFD1030D}
+  manifest: HASH_MANIFEST.sha256

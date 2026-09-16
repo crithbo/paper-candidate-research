@@ -1,0 +1,87 @@
+{
+  "schema": "stagea-command-dag-v1",
+  "proposal_id": "STAGEA_EXECUTABLE_CLAIM_PACKET_V1",
+  "assignment_id": "PILOT-RVV-20260829-EXECUTABLE-CLAIM-PACKET",
+  "topic_id": "LLVM-RVV-GROUP-MASK-SPILL-PARETODP",
+  "phase": "E1_PACKET_COMPILE",
+  "status": "STATIC_DAG_COMPILED_WITH_UNRESOLVED_EXECUTION_FIELDS",
+  "claim_visibility": "NONE",
+  "asset": {
+    "asset_id": "ASSET-LLVM-RVV-5BB2565",
+    "mode": "EXECUTE_IN_PLACE_READ_ONLY",
+    "tool_path": "stages/stageA/LLVM-RVV-GROUP-MASK-SPILL-PARETODP/r5d-semantic-injection-20260828/resources/env/rvv-toolchain/bin/llc.exe",
+    "tool_sha256": "65A9EAE8B026DF2328B3A75048959CBF8F9F9AC7F86E854C7DDAC8F86485C643"
+  },
+  "global_constraints": {
+    "network_bytes_max": 0,
+    "automatic_retries": 0,
+    "result_based_exclusion_or_backfill": false,
+    "stageb": false,
+    "shared_state_change": false,
+    "tool_execution_in_e1": false
+  },
+  "nodes": [
+    {
+      "id": "E0_ASSET_BIND",
+      "kind": "READ_ONLY_BIND",
+      "status": "PASS_STATIC",
+      "cwd": null,
+      "argv": null,
+      "env": {},
+      "dependencies": [],
+      "outputs": ["ASSET_BINDING_STATUS.yaml"],
+      "claim_bearing": false
+    },
+    {
+      "id": "C0_INPUT_FREEZE",
+      "kind": "FREEZE_BEFORE_RESULT",
+      "status": "BLOCKED_FIELD_BINDING",
+      "cwd": null,
+      "argv": null,
+      "env": {},
+      "dependencies": ["E0_ASSET_BIND"],
+      "outputs": ["EXACT_NATURAL_INPUT_MANIFEST.yaml"],
+      "missing_fields": ["natural_MIR_paths", "natural_MIR_hashes", "function_or_test_ids"],
+      "claim_bearing": false
+    },
+    {
+      "id": "E1_STATIC_PACKET_COMPILE",
+      "kind": "STATIC_ONLY",
+      "status": "PASS_SERIALIZATION",
+      "cwd": "<LOCAL_PROJECT_ROOT>/stages/stageA/_pilot/20260829-executable-claim-packet/RVV",
+      "argv": null,
+      "env": {"network": "disabled"},
+      "dependencies": ["E0_ASSET_BIND"],
+      "outputs": ["EXECUTABLE_CLAIM_PACKET.yaml", "COMMAND_DAG.json", "STATIC_PACKET_VALIDATION.yaml", "ENGINEERING_CORRECTION_LEDGER.yaml"],
+      "claim_bearing": false
+    },
+    {
+      "id": "E2_CONTROL_ROW",
+      "kind": "CONTROL_NON_CLAIM_BEARING",
+      "status": "NOT_STARTED_FORBIDDEN_IN_E1",
+      "cwd": null,
+      "argv": null,
+      "env": {},
+      "dependencies": ["C0_INPUT_FREEZE", "E1_STATIC_PACKET_COMPILE"],
+      "outputs": ["ENGINEERING_STATUS.yaml"],
+      "claim_bearing": false
+    },
+    {
+      "id": "C1_NATURAL_CLAIM_PILOT",
+      "kind": "CLAIM_BEARING",
+      "status": "NOT_STARTED_REQUIRES_MAINLINE_START",
+      "cwd": null,
+      "argv": null,
+      "env": {},
+      "dependencies": ["E2_CONTROL_ROW"],
+      "outputs": ["claim_raw", "claim_summary"],
+      "row_count": 4,
+      "reserve_rows_max": 2,
+      "claim_bearing": true
+    }
+  ],
+  "unresolved_required_fields": ["exact_natural_mir_corpus", "exact_baseline_artifacts", "frozen_argv_cwd_env", "output_schema_and_metric_consumers", "full_cost_collection_paths"],
+  "static_lint": {"attempts_max": 3, "attempts_used": 0, "mechanical_corrections_used": 0},
+  "scientific_or_resource_action_started": false,
+  "scientific_inference": "NONE"
+}

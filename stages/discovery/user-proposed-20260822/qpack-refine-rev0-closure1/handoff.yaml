@@ -1,0 +1,40 @@
+schema_version: discovery-handoff-v1
+assignment_id: DISCOVERY-S2-20260822-QPACK-REFINE-CLOSURE1
+topic_id: QPACK-REFINE-REV0
+role: DISCOVERY_S2_BOTTLENECK_TRANSFER
+write_directory: <LEGACY_LOCAL_PROJECT_ROOT>\stages\discovery\user-proposed-20260822\qpack-refine-rev0-closure1
+status: COMPLETE
+canonical_disposition: DROP
+stage0_dispatch: NOT_AUTHORIZED__NOT_REQUESTED
+summary_zh: >-
+  已完成唯一一次有界 closure。vLLM v0.26.0 的冻结 W4A16 原生路径已经实现
+  packed-axis 的解包、转置、重打包，并变换 scale/zero-point、执行形状与 group
+  检查、以明确 nibble/group 语义调用 Triton kernel。剩余“refinement checker”仅
+  检查既有动作，属于 direct absorption 后的 checker/wrapper，不形成同对象 N2。
+counts:
+  frozen_opportunity_families: 1
+  raw_admitted: 0
+  clean_stage0_briefs: 0
+  proposed_stage0: 0
+  dropped: 1
+  blocked_user_action_required: 0
+source_audit:
+  source_calls_used_bounded: 9
+  source_calls_limit: 16
+  official_tag: v0.26.0
+  official_commit_prefix: 568afb3
+  current_upstream_reality_check: COMPLETE_FOR_FROZEN_PATH
+  primary_collision_status: SEARCH_BOUNDED_OPEN__NOT_USED_AS_NOVELTY
+direct_fatal:
+  type: CURRENT_NATIVE_UNION_DIRECT_ABSORPTION__CHECKER_WRAPPER_REMAINDER
+  evidence: >-
+    The tag-pinned native source implements the material layout conversion and
+    its associated scale/zero/group/kernel semantics; the proposed extra action
+    is only a checker over that existing constructor.
+resource_status: NO_PERSISTED_EXTERNAL_RESOURCE
+scientific_noninferences:
+  - No conclusion follows from the failed non-persisting git transport attempt.
+  - No conclusion follows from absent model execution, GPU access, implementation, or benchmark result.
+required_mainline_action: NONE__RECORD_CANONICAL_DROP_ONLY
+lane_state_after_handoff: IDLE_REUSABLE_AWAITING_MAINLINE
+

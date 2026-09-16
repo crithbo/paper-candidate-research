@@ -1,0 +1,30 @@
+schema_version: source-ledger-v8.2r2
+visibility: PACKER_AND_AUDITOR_ONLY
+assignment_id: BACKTEST-PACKER-L1-20260809-TWO-AXIS-V8.2R2
+retrieved_at: 2026-08-09T00:00:00+08:00
+artifact_verification_status: FAIL_NO_RETRIEVED_PRIMARY_BYTES
+do_not_dispatch: true
+verified_reused_source_count: 11
+required_replacement_source_count: 7
+verified_replacement_source_count: 0
+replacement_source_ids:
+  - l1_s2
+  - l4_s3
+  - l5_s1
+  - l5_s2
+  - l5_s3
+  - l6_s1
+  - l6_s2
+acquisition_observation:
+  direct_https_attempts:
+    - host: www.usenix.org
+      result: TLS_CREDENTIAL_FAILURE_SEC_E_NO_CREDENTIALS
+    - host: arxiv.org
+      result: TLS_CREDENTIAL_FAILURE_SEC_E_NO_CREDENTIALS
+  decision: >-
+    Do not create source records, byte counts, or SHA-256 values for a source
+    whose primary artifact bytes were not retrieved.
+failure_reason: >-
+  The seven replacement source artifacts cannot be honestly byte-frozen in the
+  current environment. The earlier 11 reusable source records are not copied
+  into a new manifest because a complete 18-source closure is mandatory.

@@ -1,0 +1,93 @@
+schema_version: discovery-prebrief-source-closure-v2
+assignment_id: SOURCE-CLOSURE-RESUME-BATCH03-ITEM01-SOURCE100-S6-SWI-PROLOG-V1
+assignment_type: DISCOVERY_PREBRIEF_SOURCE_CLOSURE_ONLY
+status_at_freeze: READY_FOR_DISPATCH
+batch_program: PENDING-RAW-BATCHED-RESUME-20260815
+batch_control: stages/discovery/raw-closure-batches/BATCH-20260815-03/CONTROL.yaml
+batch_order: 1
+user_authority: USER_PENDING_RAW_BATCHED_RETRY_20260815
+public_acquisition_authority: USER_BLOCKER_AUTONOMOUS_OPEN_SOURCE_ACQUISITION_20260814
+write_owner: ASSIGNED_LONG_LIVED_SOURCE_CLOSURE_LANE_ONLY
+write_directory: stages/discovery/round-20260815-adaptive-source100/S6-direct-algorithm-software/closure-cq01
+parent_assignment: DISCOVERY-S6-20260815-ADAPTIVE-SOURCE100-R40-ORDINARY-BREADTH-V1
+parent_assignment_sha256: 9C9D067F500F0A6546DDAE1E3CE88579B76C3AF88D79FCD6114D998951DE225D
+parent_handoff_sha256: DA7D502937C7F5E568928787F7451F0F0A2FE112A15729A47A55486B11839CE5
+parent_queue_sha256: 8722C55A480ACFD1B1F34F4C59DE1FFB6B006086D52D4D14BB8BB7623CF9E942
+parent_question_card_sha256: 8C73625C14615B7B3B89ADD2BFCEDD3113C49AB2013BDEC08B09725629FACC68
+parent_deep_review_sha256: 2FC52E937B3A183C00EC276FEE8B3E254AB94517F4DFBFBE58A731A4F91CFC75
+parent_source_ledger_sha256: 5E13AE8E0C446FBADD6EA822E3C1D40A40C2D5915992F88A59A40A8A7CBC28BA
+queue_item: S6-S100-CQ01
+queue_status_at_freeze: PENDING_UNEXECUTED__ATTEMPTS_0__NOT_EXHAUSTED
+claim_ceiling: SOURCE_CLOSURE_ONLY__NO_CLEAN_BRIEF_Q2_PASS_STOP_OR_STAGE_AUTHORITY
+exact_identity:
+  project: SWI-Prolog/swipl-devel
+  version: current_default_branch_resolved_once_to_immutable_commit
+  family_signature: SWI_PROLOG_SHARED_INCREMENTAL_TABLE_MAINTENANCE
+  object: fixed pure tabled Prolog program, declared shared and incremental semantics, one fixed update trace, and stock query-answer behavior
+  endpoint: unchanged query answers, table completion/invalidation semantics, shared ownership/wait behavior, and update visibility
+  full_cost: [table_and_worklist_bytes, update_and_reevaluation_cpu_rss, completion_and_wait_latency, synchronization_cost, answer_correctness]
+deterministic_version_rule: query the official repository metadata once, resolve its named default branch once to one immutable commit, and pin every retained source to that commit
+allowed_official_routes:
+  - https://api.github.com/repos/SWI-Prolog/swipl-devel
+  - https://api.github.com/repos/SWI-Prolog/swipl-devel/commits/<resolved_default_branch>
+  - https://api.github.com/repos/SWI-Prolog/swipl-devel/contents/src?ref=<resolved_commit_sha>
+  - https://api.github.com/repos/SWI-Prolog/swipl-devel/contents/boot/tabling.pl?ref=<resolved_commit_sha>
+  - https://api.github.com/repos/SWI-Prolog/swipl-devel/contents/tests/tabling?ref=<resolved_commit_sha>
+  - https://www.swi-prolog.org/pldoc/man?section=tabling-about
+  - https://www.swi-prolog.org/pldoc/man?section=tabling-incremental
+license_and_provenance: {source_license: BSD-2-Clause, provenance: official SWI-Prolog repository and official SWI-Prolog manual only}
+deterministic_source_selection:
+  directory: src
+  explicit_priority_allowlist: [pl-tabling.c, pl-trie.c, pl-wam.c]
+  rule: after the pinned src listing, retain only present direct files in allowlist order and use their pinned download_url entries within the remaining call budget; missing names are path-drift telemetry only
+deterministic_test_selection:
+  directory: tests/tabling
+  filename_tokens_in_priority_order: [incremental, shared, abolish]
+  rule: if the exact directory listing succeeds, choose the lexicographically first direct file containing the first token with any match, then use only its pinned download_url for one call
+fields_to_close:
+  - complete C-core answer-table, worklist, shared/private ownership, completion, invalidation and reevaluation action union
+  - exact ownership, waiting, update visibility and table reclamation boundaries
+  - one stock-legal shared incremental witness and two complete same-program plans if current source exposes them
+  - whether a union-external SWI-Prolog-native per-table shared/private maintenance action and finite guarantee can be frozen
+  - strongest direct current collision and generic scheduler_or_table_controller objection
+  - finite falsifier and full-cost reconciliation
+allowed_dispositions:
+  - CLOSED_TO_CANDIDATE_GRADE_DEEP_REVIEW_INPUT__RETURN_TO_MAINLINE
+  - STRUCTURAL_FATAL__DIRECT_CURRENT_UNION_CHANGED_TABLE_ENDPOINT_OR_GENERIC_TABLE_CONTROLLER__RETURN_TO_MAINLINE
+  - UNRESOLVED_BACKLOG__BOUNDED_SOURCE_OR_CARRIER_CLOSURE_INCOMPLETE
+forbidden:
+  - decide clean brief, Q2, PASS, STOP, candidate, or stage state
+  - change program, update trace, shared/incremental semantics, answer endpoint, or full-cost denominator
+  - clone, build, install, run SWI-Prolog, execute tests, benchmark, or make any claim-bearing observation
+  - general repository tree, archive, issue, pull request, paper, mirror or web search
+  - substitute route after 404, empty listing, rate limit or transport failure
+  - infer current absence, novelty, correctness, performance, or exhaustion from missing material
+  - read Batch1/Batch2 outputs, Source81, any other raw closure output, Source101+ outcome, rule-audit result, held queue, or terminal identity beyond the frozen parent files
+resource_localization:
+  policy_version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  rule_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory_template_sha256: 6B038BB084065CD9AA3F96B297668283AAF4D25C1B0A49146D1B3BDD51A8DD63
+  resource_root: stages/discovery/round-20260815-adaptive-source100/S6-direct-algorithm-software/closure-cq01/resources
+  inventory: stages/discovery/round-20260815-adaptive-source100/S6-direct-algorithm-software/closure-cq01/RESOURCE_INVENTORY.yaml
+  required_subdirectories: [downloads, archives, src, build, env, cache, tmp, logs]
+  process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, XDG_CACHE_HOME: resources/cache}
+resource_envelope:
+  max_acquisition_calls: 10
+  max_success_response_bytes_each: 10485760
+  max_network_bytes: 33554432
+  max_persisted_bytes: 33554432
+  max_cpu_hours: 0.5
+  max_gpu_hours: 0
+  max_wall_seconds: 2700
+  pre_call_monotonic_attempt_counter: required
+  build_or_install_allowed: false
+  experiment_allowed: false
+rules:
+  discovery_skill_revision: RESEARCH_TOPIC_DISCOVERY_R1_R40_20260815
+  discovery_skill_sha256: FC041AE3DB89DDEA1771076E0824929C6AA29C9A34A08BE30C7F322F51721CD2
+  role_discovery_sha256: 3B2CBA116A714BB7F4C4B08FF3DFD2F320BCDF969829BB1F072456CC09283252
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+model_route: {model: gpt-5.6-terra, reasoning: high}
+required_outputs: [SOURCE_CLOSURE_REPORT.md, CURRENT_UPSTREAM_AUDIT.md, RESOURCE_INVENTORY.yaml, handoff.yaml, HASH_MANIFEST.sha256]
+notify_mainline_on_finish_or_blocker: true
+next_batch_item_must_not_be_read_or_started: SOURCE81_RISCV_GP_CQ01_CQ02

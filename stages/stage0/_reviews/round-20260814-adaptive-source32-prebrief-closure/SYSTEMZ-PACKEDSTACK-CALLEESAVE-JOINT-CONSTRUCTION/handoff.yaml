@@ -1,0 +1,29 @@
+assignment_id: STAGE0-P1-20260814-SYSTEMZ-PACKEDSTACK-CALLEESAVE-JOINT-CONSTRUCTION-PREBRIEF-CLOSURE-V8.7
+topic_id: SYSTEMZ-PACKEDSTACK-CALLEESAVE-JOINT-CONSTRUCTION
+mode: PREBRIEF_SOURCE_CLOSURE
+decision: STRUCTURAL_DROP__GENERIC_PRODUCT_OR_CURRENT_UNION_ABSORPTION
+confidence: 0.93
+scope: prebrief_only__not_full_stage0
+exact_object: ONE_PUBLIC_SYSTEMZ_ELF_MACHINEFUNCTION__FIXED_ABI_AND_OBJECT_SEMANTICS
+source_pin:
+  llvm_commit: 72edcedcdf0a8de68338e9b42f4effd1f21e9725
+  source_blobs:
+    - {path: resources/downloads/SystemZFrameLowering.cpp, sha256: 3EB1E9DF1D328649F098176BCBA2865F4C7B3D5005733CEC926F30AA15F45B7F}
+    - {path: resources/downloads/SystemZFrameLowering.h, sha256: BBDF7ED6A3836BB13C514FFB74456402097FE6F07113EB3A26FA2E145AC18397}
+decisive_findings:
+  - packed_stack_is_fixed_by_function_attribute_and_calling_convention
+  - saved_gpr_range_and_fixed_offsets_are_determined_from_CSI_and_ELF_ABI_table
+  - remaining_orderFrameObjects_is_separable_density_based_frame_ordering
+  - no_same_function_two_plan_witness_exists_without_changing_frozen_input_or_semantics
+resource_localization:
+  policy_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+  inventory: RESOURCE_INVENTORY.yaml
+  preflight: PASS_FOR_POWERSHELL_INVOKE_WEBREQUEST_ONLY
+  attempts_used: 3
+  retained_logical_bytes: 82561
+stageA_authorized: false
+stageB_authorized: false
+route_full_stage0_primary: false
+claim_ceiling: static_current_source_action_closure_only
+next_action_for_mainline: REGISTER_PREBRIEF_STRUCTURAL_DROP__DO_NOT_ROUTE_FULL_STAGE0
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

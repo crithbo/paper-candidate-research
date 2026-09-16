@@ -1,0 +1,64 @@
+schema_version: "stagea-independent-gate-handoff-v1"
+assignment_id: "STAGEA-G2-20260809-PB-DELETE-SCHEDULE-INITIAL-CLOSING"
+topic_id: "PB-DELETE-SCHEDULE"
+review_lane: "STAGEA-GATE-REVIEW-LANE-2"
+review_mode: "INITIAL_CLOSING"
+decision: "REVISE_ONCE"
+quality_tier: "TIER_B_Q2_VIABLE"
+confidence: "HIGH"
+evidence_ceiling: "CONTROL_ONLY__SINGLE_ADJACENT_SWAP_PROXY_NEGATIVE__NO_PASS_OR_STOP_INFERENCE"
+pre_claim_contract_fidelity_gate: "FAIL_CLOSED"
+atomic_revision_gate: "PRE_CLAIM_CONTRACT_FIDELITY_GATE__FULL_ORDERED_PARTITION_NATIVE_COMPARATORS_AND_COMPLETE_COST"
+scientific_revision_consumed_before_review: false
+scientific_revision_consumed_by_review_issuance: false
+scientific_revision_consumption_rule: "consume_only_when_corrected_atomic_construct_is_implemented_and_executed"
+mechanism_pivot_consumed: false
+stageb_authorized: false
+stageb_user_approval_id: null
+pending_user_stageb_review: false
+recommended_mainline_action: "REGISTER_STAGEA_REVISE_ONCE_AND_RETURN_FROZEN_OBJECT_TO_OWNER"
+stop_recommended: false
+reserve_recommended: false
+blocked_user_action_required: false
+owner_proxy_result:
+  legal_choice_sample_hits: 24
+  trace_count: 30
+  declared_frontier_pairs: 31181
+  tested_trials: 57
+  accepted_trials: 55
+  candidate_p50_full_time_ns: 260117345.5
+  original_p50_full_time_ns: 138996995.0
+  candidate_p90_full_time_ns: 813385264.8
+  original_p90_full_time_ns: 422362570.6
+  full_cost_rows: 240
+  trace_method_dual_replay_groups: 120
+  dual_replay_hash_mismatches: 0
+  valid_interpretation: "negative_control_for_one_verifier_screened_adjacent_swap_only"
+fidelity_failures:
+  - "complete ordered-partition/batching action replaced by original-or-one-adjacent-swap proxy"
+  - "stable and greedy comparators replaced by predicate-filtered samples over the same proxy"
+  - "24 sampled hits are a valid existence lower bound, but the natural-trace denominator is unclosed and the sample cannot support complete-action density or scheduling-headroom claims"
+  - "candidate selection uses accepted-trial oracle while charging only one selected/designated trial"
+  - "Pareto aggregation omits preregistered peak RSS and disk I/O"
+  - "accepted corpus contains an explicitly synthetic member despite the no-synthetic contract"
+required_revision_acceptance:
+  - "at least 30 demonstrably natural, hash-frozen, contract-eligible traces"
+  - "complete live-state legal ordered-partition/batching constructor over the existing deletion set"
+  - "original, stable, greedy, and candidate methods share action interface, causal information, native format, and checker contract"
+  - "at least one pre-run small witness closes legality and end-to-end equivalence"
+  - "all exploration/planning/checker work is charged; no free verifier oracle"
+  - "one frozen denominator covers preprocessing, extraction/index, planning, construction, proof/kernel bytes, both checkers, RSS, I/O, fallback/failure, output, and objective"
+  - "choice rate distinguishes trace-level existence lower bound from any complete-action density claim"
+input_freeze:
+  discovery_manifest_sha256: "FD232683C16C4A59094E1774B9C650EDD5CFD2B21C62126704EE5E98C965A7E4"
+  stage0_primary_manifest_sha256: "8BFA469EDE4F4E123E65ACC557D020A10CE50ECE6BF0A5BB4FFDA4D63A8D7C61"
+  stage0_confirmation_manifest_sha256: "DAB73ED3DBAEE12DA5FB74D39B12DB2840B6490A1453B51355F974EF908918E1"
+  owner_manifest_sha256: "B1256B2B631BCE9DBEE27E310F56A9A9F19FFB9C69BAC8A0194293A33757AF11"
+mechanical_verification:
+  discovery_manifest: "4/4"
+  stage0_primary_manifest: "4/4"
+  stage0_confirmation_manifest: "2/2"
+  owner_manifest: "38525/38525"
+  owner_file_count_including_manifest: 38526
+  owner_named_hashes_match: true
+lane_state_after_delivery: "IDLE_REUSABLE_AWAITING_MAINLINE"

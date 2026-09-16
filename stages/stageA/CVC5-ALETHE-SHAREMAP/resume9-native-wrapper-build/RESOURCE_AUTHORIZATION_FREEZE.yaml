@@ -1,0 +1,54 @@
+schema: candidate-resource-native-wrapper-build-freeze-v1
+topic_id: CVC5-ALETHE-SHAREMAP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+assignment_id: SAFE-RECOVERY-L1-20260816-CVC5-RESUME9-NATIVE-WRAPPER-BUILD
+authorization_id: USER_AUTONOMOUS_SAFE_BLOCKER_RECOVERY_20260815
+created_at: 2026-08-16T01:16:51+08:00
+write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/CVC5-ALETHE-SHAREMAP/resume9-native-wrapper-build
+resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/CVC5-ALETHE-SHAREMAP/resume9-native-wrapper-build/resources
+control_freeze:
+  assignment_sha256: 8D596E8309702835D44A00F043E065A0F5677964FA9C83CBA04371EFFC42FEE0
+  AGENTS_md_sha256: 26DB9F4C2D43349A2BA5B741947561D4FED2FE5EC65327C02D273D3905F5A522
+  plan_md_sha256: 1EDB9B31BCCCE353FA80692FC3D292858B7E786365CC73FE63825BCF398022A6
+  registry_yaml_sha256: 06D45BA786A111B4D1636A5A138783B240F23DE1A098DE646BB9B81F6C72412D
+  candidate_owner_rule_sha256: A703F21B9F33EE341A942501948BC313FACC9D0BAB15F3EE943FC590B65BF519
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+input_freeze:
+  resume5_handoff_sha256: 0905EAD5DE69FAD99AAA7201BFA1F8449A1F9701D85B0667F712578F2E0B8A79
+  resume5_manifest_sha256: 31CF128747C98CB1EA2A8D9A14876EA4582F8CC6D83CC26A2C2BC126C6D1AF2C
+  resume5_manifest_validation: 17_OF_17_EXACT
+  resume8_handoff_sha256: D4159F6F9D25B69D880DD2606F2B4392D165307CF725A5EB4423D087A2A54171
+  resume8_manifest_sha256: 39C7C3F0B2CABF624327232BE4F205FE393BE25BE457C04F8E71F320FD3BC7F7
+  resume8_manifest_validation: 13_OF_13_EXACT
+  source_manifest_sha256: 79F052442AE3FF77838AEBA558A6493FBBF0A23CB94AD7DB280B031150B7D48F
+  source_validation: 72_OF_72_EXACT
+  cargo_lock_sha256: 0E9C953C2C1B184511E2DFDF19D4BB7C35A6BE55140BC1A3D77179411D7C7378
+tools:
+  cargo_sha256: E91B95ECB8306BB6CA109CAA3F04E178B49EB5AEEA1949CC9BEB032996838D2F
+  rustc_sha256: 0968EB36AB120BBEA43FD9A1D2811570EF900CF4CA7F6A48F122C182C717ED77
+  gcc_sha256: AB37C11763FDCB3BF6F809B5D033A31EBEB77F10BA5934C72FA37287EE56144F
+  gpp_sha256: FE03455C28AB0C69F1ADB0CCDE202124091F01D02B0C0EDE8578F606063CC894
+  ar_sha256: 1B2551C5E8B3F61C80F84A6D526C61FE1E5186806A1696E3A546E26784956923
+  ranlib_sha256: CFAF4E7E8DE15885A5F7D816EC7B0A6D1071BD1B37D12BAF12DDDE84F0C7EE61
+build_contract:
+  exact_command: cargo build --release --locked --offline -p carcara-cli
+  attempts_allowed: 1
+  jobs_max: 2
+  source_copy: resources/src/carcara-carcara-1.1.0
+  cargo_home: resources/cache/cargo-home
+  target_dir: resources/build/carcara-target
+  wrappers: [gcc-relay.cmd, gpp-relay.cmd, ar-relay.cmd, ranlib-relay.cmd]
+  wrapper_rule: FORWARD_ORIGINAL_ARGUMENT_VECTOR_TO_FROZEN_ABSOLUTE_NATIVE_TOOL_AND_RETURN_EXIT_CODE
+  network_bytes_max: 0
+  new_persisted_bytes_max: 838860800
+  cpu_seconds_max: 900
+  wall_seconds_max: 1800
+  processors_max: 2
+kill_boundary:
+  retry: forbidden
+  alternate_toolchain_flags_features_or_versions: forbidden
+  source_lock_feature_test_modification: forbidden
+  claim_bearing_preclaim_science_or_stage_action: forbidden
+claim_bearing: false
+scientific_revision_consumed: false
+stageb_authorized: false

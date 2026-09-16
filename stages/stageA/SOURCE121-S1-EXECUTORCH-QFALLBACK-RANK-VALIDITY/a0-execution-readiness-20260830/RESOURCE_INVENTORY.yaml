@@ -1,0 +1,58 @@
+schema_version: assignment-resource-inventory-v1
+resource_policy:
+  version: ASSIGNMENT_RESOURCE_LOCALIZATION_V1
+  policy_path: rules/RESOURCE_LOCALIZATION.md
+  policy_sha256: E85BF339007F0052896B7566F028F5FBE2BE63A3EC3AB20302318BB313D328AA
+artifact_lifecycle:
+  mode: PRODUCTION_NEW_ASSIGNMENTS_ONLY
+  policy_path: rules/ARTIFACT_LIFECYCLE.md
+  policy_version: PHASE_CLOSEOUT_STORAGE_LIFECYCLE_V1
+  policy_sha256: B9749FBDEDFF83DAF6D7BAFF24FB4BFEA61F792A3225225816055D73D1B232ED
+  cutover_id: MAINLINE-STAGEA-SCOPE-BUDGET-R1-PRODUCTION-20260830
+  artifact_state: ARTIFACT_OPEN
+  legacy_disposition: NOT_APPLICABLE
+  closeout_event: A0_HANDOFF
+  downstream_consumer: MAINLINE_THEN_SEPARATE_A1_OR_HOLD
+  post_close_retained_bytes_max: 536870912
+  phase_closeout_retention_path: PHASE_CLOSEOUT_RETENTION.yaml
+  capsule_path: RESUME_CAPSULE.yaml
+  cleanup_receipt_path: null
+identity:
+  topic_id: SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY
+  assignment_id: STAGEA-L3-20260830-EXECUTORCH-QFALLBACK-RANK-VALIDITY-A0
+  stage_or_mode: A0_EXECUTION_READINESS
+  run_id: EXECUTORCH-A0-20260830
+  unique_write_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/a0-execution-readiness-20260830
+  resource_root: <LOCAL_PROJECT_ROOT>/stages/stageA/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/a0-execution-readiness-20260830/resources
+  inventory_path: <LOCAL_PROJECT_ROOT>/stages/stageA/SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY/a0-execution-readiness-20260830/RESOURCE_INVENTORY.yaml
+  created_at: 2026-08-30T04:45:00+08:00
+  finalized_at: 2026-08-30T05:00:00+08:00
+root_measurement: {logical_bytes: 18470664, file_count: 192, allocated_bytes: null, measurement_method: LOGICAL_FILE_LENGTH_NO_REPARSE_TRAVERSAL, measurement_complete: true}
+required_directories: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+redirect_preflight:
+  status: READY_PROCESS_LOCAL
+  process_local_only: true
+  system_or_user_environment_modified: false
+  tools: [curl.exe, bundled_python]
+resource_envelope:
+  network_bytes_max: 1073741824
+  stored_bytes_max: 2147483648
+  cpu_hours_max: 8
+  gpu_hours_max: 0
+  wall_seconds_max: null
+  attempts_max: 24
+  network_bytes_used: null
+  network_bytes_telemetry: UNAVAILABLE_WEB_CONNECTOR__NOT_ESTIMATED
+  stored_bytes_used: 18470664
+  attempts_used: 23
+  a1_network_processes_used: 1
+  a1_network_processes_max: 2
+entries:
+  - {path: resources/src/a0_schema_observability_control.py, bytes: 2981, sha256: 74D81A510E3C271EB0DEBDB228495D30BDCEADA0FA9BD6510D9BCF975DF7E31B, creating_run: EXECUTORCH-A0-20260830, claim_critical: false, reproducibility_minimum: true, consumer: A0_NONCLAIM_CONTROL, provenance: assignment_local_static_controller, license: project_internal, reacquirable: true, recovery_command: reconstruct_from_manifested_source, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: false}
+  - {path: resources/logs/control/a0_schema_observability.json, bytes: 917, sha256: CCA6D577E703F26D2E4D06D97C5D6D0C8F686031743A948D6521358709B46EA3, creating_run: EXECUTORCH-A0-20260830, claim_critical: false, reproducibility_minimum: true, consumer: MAINLINE_AND_A1_PREFLIGHT, provenance: one_nonclaim_schema_observability_control, license: project_internal, reacquirable: true, recovery_command: run_frozen_control_once_only_under_new_authorization, retention_class: KEEP_CAPSULE_REPRODUCIBILITY_MINIMUM, delete_after_gate: false}
+  - {path: resources/logs/a1/process1-pip-download.log, bytes: 13452509, sha256: D52596328A4074FF108AFCA029E0B59A1DE84C14181C421024215971906445FC, creating_run: EXECUTORCH-A1-RESOURCE-PROCESS1, claim_critical: false, reproducibility_minimum: true, consumer: MAINLINE_RESOURCE_FAILURE_AUDIT, provenance: pip_resolver_full_log, license: project_internal, reacquirable: false, recovery_command: null, retention_class: RESUME_CRITICAL_UNTIL_UNBLOCKED, delete_after_gate: false}
+  - {path: resources/cache/pip, bytes: 5014257, file_count: 189, hash_scope: METADATA_INDEX_NOT_FROZEN_CONTENT, creating_run: EXECUTORCH-A1-RESOURCE-PROCESS1, claim_critical: false, reproducibility_minimum: false, consumer: NONE_AFTER_HANDOFF, provenance: pip_http_metadata_cache, license: mixed_upstream_metadata, reacquirable: true, recovery_command: repeat_only_under_new_MAINLINE_authorization, retention_class: REACQUIRABLE_DELETE_AFTER_HANDOFF, delete_after_gate: MAINLINE_ACCEPTED_HANDOFF}
+shared_assets_consumed: []
+external_system_dependencies: [curl.exe, bundled_python_runtime]
+cleanup: {owner: MAINLINE, authorized_descendants: [], allowed_automatic_retention_classes: [], closeout_plan_accepted: false, downstream_inputs_accepted: false, capsule_sealed: false, active_owner_or_process_count: 0, predelete_target_count: 0, predelete_file_count: 0, predelete_logical_bytes: 0, performed: false, deleted_entries: [], deleted_logical_bytes: 0, performed_at: null, recoverability: OFFICIAL_METADATA_REDOWNLOAD}
+validation: {resource_root_exact_match: true, root_under_workspace: true, forbidden_root_check: true, reparse_traversal_check: true, required_directories_present: true, persisted_resources_inventoried: true, envelope_within_limit: true, claim_critical_content_hashes_present: true, lifecycle_mode_and_hash_match: true, all_persisted_entries_classified: true, downstream_consumers_resolved: true, deterministic_recovery_routes_complete: true, closeout_budget_or_exception_pass: true, cleanup_receipt_valid: false, result: PASS_A0_RESOURCE_ACCOUNTING}

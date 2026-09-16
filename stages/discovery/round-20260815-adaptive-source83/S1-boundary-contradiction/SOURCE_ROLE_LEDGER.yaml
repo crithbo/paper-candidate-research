@@ -1,0 +1,31 @@
+sources:
+  - id: SRC01
+    role: ANCHOR_AND_CURRENT_CONTRACT
+    url: https://www.w3.org/TR/webgpu/
+    project_object_version: W3C WebGPU Recommendation/current published specification
+    selection_rule: official GPUBuffer state/mapping contract
+    provenance: W3C WebGPU specification
+    license: W3C document license
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: mapped buffer has mapped views and is unavailable for queue operations; unmap restores GPU availability
+  - id: SRC02
+    role: CURRENT_SOURCE
+    url: https://chromium.googlesource.com/chromium/src/+/532d576619f0f87688b3b274b8d4156082dd4b77/third_party/blink/renderer/modules/webgpu/gpu_buffer.cc
+    project_object_version: Chromium Blink GPUBuffer source snapshot
+    selection_rule: first-party implementation locus for map/unmap reset handling
+    provenance: Chromium upstream source
+    license: Chromium BSD-style license
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: current implementation locator; no absence claim made
+  - id: SRC03
+    role: CONTRARY
+    url: https://gpuweb.github.io/types/interfaces/GPUBuffer.html
+    project_object_version: generated current WebGPU API reference
+    selection_rule: concise contrary check of mapped-state and unmap semantics
+    provenance: GPUWeb project documentation
+    license: public project documentation
+    response_bytes: UNOBSERVED_BY_RUNTIME__NOT_IMPUTED
+    sha256: NOT_PERSISTED__BROWSER_EVIDENCE_ONLY
+    disposition: map promise only establishes mapping; unmap returns buffer to GPU use

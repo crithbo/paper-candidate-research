@@ -1,0 +1,16 @@
+schema_version: discovery-screening-ledger-v1
+assignment_id: DISCOVERY-S3-20260824-SOURCE107-SINGLE-GPU-LLM-SOFTWARE-V1
+lane_id: DISCOVERY_S3
+generated_at: 2026-08-24T04:40:00+08:00
+isolation: {crfepoch_stage0_output_or_chat_read: false, group_repository_read: false}
+resource_actions: []
+funnel_counts: {seed_non_evidence: 6, selected_rq_candidate: 3, selected_locator: 3, evidence_qualified_raw: 0, candidate_grade_deep_review: 0, clean_stage0_brief: 0}
+query_roles:
+  anchor: [https://github.com/sgl-project/sglang/blob/main/docs/advanced_features/expert_parallelism.md, https://arxiv.org/abs/2608.18261]
+  current: [https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/layers/fused_moe/routed_experts.py]
+  contrary: [https://arxiv.org/abs/2503.09716, https://proceedings.neurips.cc/paper_files/paper/2025/file/74bd547997917a20331d6df5e6049d6a-Paper-Datasets_and_Benchmarks_Track.pdf]
+screen_rows:
+  - {rq_id: S3-107-RQ01, status: EXCLUDED_BEFORE_RAW, reason: CURRENT_ROUTING_LOCALITY_RESIDENCY_PREDICTION_COVERS_FROZEN_ACTION}
+  - {rq_id: S3-107-RQ02, status: EXCLUDED_BEFORE_RAW, reason: CURRENT_FUSED_MOE_DISPATCH_PERMUTE_GROUPED_GEMM_QUANTIZATION_COVERS_ACTION}
+  - {rq_id: S3-107-RQ03, status: EXCLUDED_BEFORE_RAW, reason: CURRENT_ROUTE_AWARE_SINGLE_GPU_BATCHING_AND_COST_BENCHMARK_COVERS_BROAD_ENDPOINT}
+final_disposition: ZERO_CLEAN_BRIEFS__NO_STAGE0_DISPATCH

@@ -1,0 +1,38 @@
+schema: ppc-r4-preclaim-contract-fidelity-gate-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R4-GLOBAL-MODIFIER-ORDER-CORRECTION
+exact_contract_sha256: F36E8CD40E719A9CFEEFBB595EEE05A4FDEEDF490C0ABD6AF40C09D635895E82
+gate_status: FAIL_CLOSED_PRECLAIM__NO_SCIENTIFIC_INFERENCE__NO_SAME_ASSIGNMENT_RETRY
+engineering_correction:
+  authorized_global_modifier_substitutions: PASS_2_OF_2
+  corrected_sha256: 77A92601566F1CD5190B0FD5892EE62C295E00F64AC018BF5782B965DC268F3E
+  corrected_bytes: 2972
+  all_other_source_files_unchanged: PASS_3618_OF_3618
+  source_files_edited: 1
+  source_edits_remaining: 0
+obligations:
+  F1_EXACT_DIRECT_WITNESS: PARTIAL_FRESH_REPLAY_1_ONLY__NOT_PASS
+  F2_NATIVE_VALIDATION: PARTIAL_BLOCKED_AT_FUNCTION_MODIFIER_PARSE_BEFORE_MACHINEVERIFIER__NOT_PASS
+  F3_COMPLETE_NATIVE_UNION: NOT_STARTED
+  F4_TINY_NATIVE_ORACLE: NOT_STARTED
+  F5_FULL_COST_CONTROL: NOT_STARTED_PARTIAL_TELEMETRY_ONLY
+first_failure:
+  stage: F2_LLC_MIR_EMISSION_BEFORE_MACHINEVERIFIER
+  kind: ASSIGNMENT_LOCAL_INPUT_SYNTAX_OUTSIDE_R4_CORRECTION_BOUNDARY
+  command_tag: replay1.llc.mir_emit
+  exit_code: 1
+  timed_out: false
+  retry_count: 0
+  exact_error: "ppc_union_input.ll:6:15: error: expected type"
+  failing_construct: define_hidden_dso_local_function_modifier_order
+  affected_occurrences: 5
+pass_policy_satisfied: false
+claim_bearing_observation_obtained: false
+natural_function_or_corpus_executed: false
+scientific_revision_consumed: false
+scientific_pass_stop_reserve_inference: NONE
+state_transition_performed: false
+stageb_action_performed: false
+owner_cleanup_performed: false
+next_authority: MAINLINE
+next_action: ACCEPT_BLOCKER_AND_DECIDE_IF_A_NEW_EXACT_FUNCTION_MODIFIER_CORRECTION_ASSIGNMENT_IS_AUTHORIZED
+

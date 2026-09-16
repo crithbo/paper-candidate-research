@@ -1,0 +1,28 @@
+schema: executorch-qfallback-a0-precommit-v1
+assignment_id: STAGEA-L3-20260830-EXECUTORCH-QFALLBACK-RANK-VALIDITY-A0
+topic_id: SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY
+written_before_network_or_control: true
+claim_visibility: HIDDEN_UNTIL_SEPARATE_A1_START
+exact_source_route:
+  repository: https://github.com/pytorch/executorch
+  branch: main
+  commit_resolution: official_GitHub_API_head_once
+public_model_panel:
+  - {id: HuggingFaceTB/SmolLM2-135M, role: CALIBRATION_AND_SMALLEST_TOPOLOGY_PANEL, metadata_url: https://huggingface.co/api/models/HuggingFaceTB/SmolLM2-135M}
+  - {id: Qwen/Qwen2.5-0.5B, role: CALIBRATION, metadata_url: https://huggingface.co/api/models/Qwen/Qwen2.5-0.5B}
+  - {id: Qwen/Qwen3-0.6B, role: HELD_OUT, metadata_url: https://huggingface.co/api/models/Qwen/Qwen3-0.6B}
+selection_policy: RESULT_INDEPENDENT_PRE_RESULT
+smallest_model_panel: HuggingFaceTB/SmolLM2-135M
+topology_variants:
+  - PORTABLE_ONLY_NO_XNNPACK_DELEGATION
+  - XNNPACK_STANDARD_SUPPORTED_OPS
+  - XNNPACK_EXTENDED_OPS_WHERE_LEGAL
+quality_contract: SAME_SOURCE_INPUTS_SAME_TOKENIZER_AND_REFERENCE_OUTPUTS__NUMERICAL_TOLERANCE_MUST_BE_PREDECLARED_BEFORE_A1
+profiling_truth: EXTERNAL_TIMER_PROFILING_OFF_IS_PRIMARY_FULL_COST_TRUTH__ETDUMP_ON_IS_OBSERVABILITY_ARM_ONLY
+predictive_features: [partition_count, delegated_subgraph_count, delegated_node_count, fallback_node_count, graph_boundary_count, delegate_init_time, artifact_bytes]
+feature_overlap_rule: NONOVERLAPPING_COUNTS_ONLY__NO_SUM_OF_PARENT_AND_CHILD_DENOMINATORS
+target_leakage_forbidden: [runtime_latency, rank, rank_reversal, held_out_gain, profiling_observer_effect_direction]
+full_cost_dimensions: [metadata_acquisition, model_artifact_bytes, export, lowering, initialization, runtime, validation, observer_effect, peak_rss, persisted_bytes]
+nonclaim_control: SCHEMA_AND_OBSERVABILITY_ONLY
+claim_panel_execution_authorized: false
+result_aware_selection_authorized: false

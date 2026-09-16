@@ -1,0 +1,38 @@
+schema: ppc-r9-same-function-materializer-audit-v1
+gate: K1_SAME_FUNCTION_MIR_MATERIALIZER
+status: PASS_CONTROL_NON_CLAIM_ON_RETAINED_OUTPUTS_AND_TWO_FRESH_REPLAYS_WITH_A3_STRUCTURED_EQUALITY
+control_input: {path: resources/src/r6_input/src/preclaim_harness/ppc_union_input.ll, sha256: 1124F15D99EC0CF7F1688CD20E21416A17C1A075F46419FE95A9E35C262BD939, function: ir_pressure_control, selected_or_reserve_member: false}
+actual_MIR_probe:
+  path: resources/build/k1_probe/control.original.mir
+  sha256: 5E5BC7869492171AAACB5C8A3C197912D2703CB7F98F3916735B60EB8B821DEB
+  direct_PLDpc_loads: 12
+  target_symbol: target_array_ir
+  offsets: [0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88]
+  values_live_across_ir_sink_call: 12
+implementation_source:
+  files: 3
+  audit: IMPLEMENTATION_AUDIT.yaml
+  intended_action: ONE_PADDI8pc_BASE_PLUS_TWELVE_LD_ON_THE_SAME_FUNCTION_AND_LOADS
+  fixed_synthetic_witness_candidate_alternative: false
+  static_syntax_validation_completed: true
+  static_syntax_controller_attempts: 1
+  source_hashes_unchanged: true
+materialized_MIR_emitted: true
+materialized_MIR: {path: resources/build/a1_gate/artifacts/materialized.mir, sha256: 5BE899B33F82E343CB8F7C94C88FFED6BEBE4BF5F0B76C83642A672A358E2E4E}
+candidate_trace: {path: resources/build/a1_gate/candidate_trace.json, sha256: 86F608ED50B8FB078BC58AE917CAC136A8B204C2C5E27F7FD82EA986C39D1D74, status: MATERIALIZED}
+interface_cap_observed: 16
+visible_interface_observed: 13
+machineverifier_status: PASS_EXIT_0
+native_object_status: PASS_CREATED
+native_object: {path: resources/build/a1_gate/artifacts/candidate.o, sha256: DA6417380F2898627E95DA0D09485915D20BD17B1385930BD12F2DF9A1054CDC}
+native_link_status: PASS_CREATED
+native_link: {path: resources/build/a1_gate/artifacts/candidate.elf, sha256: CFF7EDB20F8B8D9EEE808AE081EBE5B949926628B103C2C2ED008D7DDE0B27D0}
+K3_checker_gate: PASS_A2_RETAINED_AND_TWO_FRESH_REPLAYS_7_OF_7_EACH
+A2_source_sha256: 6234A3380940D87A2FCDBAA1D08DB3F4893A37901E3854CCD9222F3A035BDC0E
+A2_truth_table: PASS_11_OF_11
+A2_fresh_replays: {completed: 2, nested_commands_each: 17, materializer_machineverifier_object_link_each: PASS}
+A26_equality_gate: PASS_VIA_A3_STRUCTURED_AFTER_PARSE_AUDITOR_WITHOUT_REPLAY_RERUN
+A3_validation_controls: PASS_7_OF_7
+A3_retained_audit: {status: PASS, file_set: 54_OF_54, classification: 38_RAW_6_NORMALIZED_10_STRUCTURED, differences: 0}
+claim_ceiling: CONTROL_NON_CLAIM_ENGINEERING_ONLY
+scientific_inference: NONE

@@ -1,0 +1,40 @@
+assignment_id: DISCOVERY-S2-20260815-ADAPTIVE-SOURCE75-R40-ORDINARY-BREADTH-V1
+access_date: 2026-08-15
+network_or_resource_actions: []
+sources:
+  - id: SRC-01
+    role: ANCHOR_AND_CURRENT_ACTION_UNION
+    primary: true
+    url: https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Modules.html
+    version_or_date: current manual, accessed 2026-08-15
+    evidence: "-fmodules enablement; CMI artifact; import DAG; -fmodule-only and CMI-reading visibility control."
+    used_for: [S75-L01]
+  - id: SRC-02
+    role: CURRENT_ACTION_UNION_AND_CONTRARY
+    primary: true
+    url: https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Compiled-Module-Interface.html
+    version_or_date: current manual, accessed 2026-08-15
+    evidence: "CMI is compiler-version-specific/rebuildable; atomic write/rename; mmap lazy reads; -fno-module-lazy; file-handle LRU."
+    used_for: [S75-L01]
+  - id: SRC-03
+    role: ANCHOR_AND_NATIVE_SEMANTICS
+    primary: true
+    url: https://www.llvm.org/docs/CodeGenerator.html
+    version_or_date: LLVM 24.0.0git documentation, accessed 2026-08-15
+    evidence: "Compact-unwind versus DWARF cost model, encoding constraints, and final __TEXT,__unwind_info semantics."
+    used_for: [S75-L02]
+  - id: SRC-04
+    role: CURRENT_SOURCE_ACTION_UNION
+    primary: true
+    url: https://llvm.org/doxygen/MachO__x86__64_8cpp_source.html
+    version_or_date: current LLVM source rendering, accessed 2026-08-15
+    evidence: "CompactUnwindManager is instantiated, then prepareForPrune, processAndReserveUnwindInfo, and writeUnwindInfo are installed in the Mach-O JITLink pass configuration."
+    used_for: [S75-L02]
+  - id: SRC-05
+    role: CURRENT_DEFAULT_NONDEFAULT_CONFIG_AND_CONTRARY
+    primary: true
+    url: https://docs.oracle.com/en/java/javase/25/docs/specs/man/java.html
+    version_or_date: JDK 25 command specification, accessed 2026-08-15
+    evidence: "SegmentedCodeCache default condition, fixed non-method/profiled/non-profiled segments, non-resizing property, cache-size flags, and aggressive-sweeping threshold."
+    used_for: [S75-L03]
+search_boundary: "Official/current manuals and official source renderings only. No claim of exhaustive literature collision search is made because no card entered raw/deep/brief."

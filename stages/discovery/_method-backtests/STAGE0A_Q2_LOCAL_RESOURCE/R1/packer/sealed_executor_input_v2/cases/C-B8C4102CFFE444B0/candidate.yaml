@@ -1,0 +1,20 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-B8C4102CFFE444B0
+cutoff_date: 2021-09-24
+contribution_type: SYSTEM_ARCHITECTURE
+exact_object: hardware data prefetching under changing program context and memory-bandwidth state
+natural_scenario: standard CPU workloads across low and high bandwidth pressure
+problem: fixed-context prefetchers either ignore system harm or add feedback after defining an action policy that cannot adapt jointly
+atomic_action: choose prefetch actions from multiple context features and update the policy from a system-aware numerical reward
+mechanism: online reinforcement couples usefulness, timeliness, pollution, and bandwidth feedback to action selection
+information_condition: demand accesses, multiple context features, prefetch outcomes, and current bandwidth state
+comparators: [offset_prefetcher, spatial_pattern_prefetcher, multi_lookahead_offset_prefetcher]
+claim_endpoint: workload-robust speedup at matched bandwidth, storage, and hardware cost
+full_cost: [speedup, coverage, accuracy, timeliness, bandwidth, pollution, storage, area]
+minimum_falsifier: no robust advantage across bandwidth regimes after hardware and traffic costs
+source_cards:
+  - {id: S01, year: 2016, role: best_offset_prefetching}
+  - {id: S02, year: 2019, role: spatial_pattern_prefetching}
+  - {id: S03, year: 2019, role: multi_lookahead_offset_prefetching}
+local_resource_envelope: ROUTE_OUTSIDE_WINDOWS_LOCAL__TRACE_SIMULATION_AND_HARDWARE_COST_EVIDENCE_REQUIRED
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

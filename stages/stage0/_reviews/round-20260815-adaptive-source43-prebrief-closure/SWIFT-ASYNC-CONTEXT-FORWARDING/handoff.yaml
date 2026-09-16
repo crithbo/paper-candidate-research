@@ -1,0 +1,16 @@
+assignment_id: STAGE0-P1-20260815-SWIFT-ASYNC-CONTEXT-FORWARDING-PREBRIEF-CLOSURE-V8.7
+topic_id: SWIFT-ASYNC-CONTEXT-FORWARDING
+mode: PREBRIEF_SOURCE_CLOSURE
+disposition: STRUCTURAL_DROP__CURRENT_SWIFT_ASYNC_UNION_OR_GENERIC_COROUTINE_FRAME_LOWERING
+stage_authorization: {full_stage0_primary: false, stageA: false, stageB: false}
+current_source_pin: 73a9e4a38bbee929938d3644f1153f768e29bfcf
+decisive_evidence: >-
+  Current ABI Task.h represents AsyncContext parent and resume linkage, permits
+  caller-frame allocation, and composes resume, executor, task-local and cancellation
+  state; current GenConcurrency supplies matching IRGen actions.
+reason: >-
+  The frozen forwarding/frame-preservation primitive is current native ABI behavior;
+  residual placement or call ordering is generic coroutine-frame lowering.
+resource_status: {localization: PASS, acquisition_calls: 6, cap: 6, logical_bytes: 619924}
+outputs: {review: SOURCE_CLOSURE_REVIEW.md, resource_inventory: RESOURCE_INVENTORY.yaml, manifest: HASH_MANIFEST.sha256}
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE

@@ -1,0 +1,28 @@
+schema: ppc-r3-exact-direct-witness-v1
+assignment_id: STAGEA-L1-20260826-LLVM-PPC-R3-PRECLAIM-F1-F5
+obligation: F1_EXACT_DIRECT_WITNESS
+status: PARTIAL_REPLAY_1_ONLY__NOT_PASS
+reason_not_pass: deterministic_replays_required_2_but_fail_closed_before_replay_2
+input:
+  path: resources/src/harness/ppc_exact_witness.s
+  sha256: 94343AB218377B6D3A7736F3E280299C6AB80A2751386BD0CC0441B3174F88C5
+  object_contract: hidden_nonpreemptible_non_GOT_two_leaf_loads_same_8_byte_target_no_calls_no_stores
+replay_1:
+  object: {path: resources/build/replay_1/f1_f2/ppc_exact_witness.o, bytes: 1080, sha256: 620283EF95A7D3E09D2B7FF26A4008515D080D72F11DE8CD3DD5C3F6E3BB6ED3}
+  linked_elf: {path: resources/build/replay_1/f1_f2/ppc_exact_witness.elf, bytes: 1304, sha256: 4B5B0018546AEE4E3E1D4B714A30962EF6DE163F087499C8732361D3D25D6E76}
+  object_text_bytes: 32
+  exact_forms:
+    direct: {bytes: 00001004000060E4, instruction: PLD, relocation: R_PPC64_PCREL34, symbol: target_value, addend: 0x0}
+    materialized: {bytes: [0000100600008038, 000064E8], instructions: [PADDI, LD], relocation: R_PPC64_PCREL34, symbol: target_value, addend: 0x0}
+  typed_non_GOT_PCREL34_relocations: 2
+  GOT_PCREL34_relocations: 0
+  assembler: PASS
+  object_readobj: PASS
+  object_objdump: PASS
+  native_link: PASS
+  linked_readobj: PASS
+  linked_objdump: PASS
+replay_2: NOT_STARTED_DUE_FIRST_FAILURE_NO_RETRY
+claim_bearing_observation: false
+scientific_inference: NONE
+

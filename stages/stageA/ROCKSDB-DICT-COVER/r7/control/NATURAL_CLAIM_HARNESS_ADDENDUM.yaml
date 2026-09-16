@@ -1,0 +1,125 @@
+schema: candidate-assignment-compatibility-addendum-v1
+addendum_id: ROCKSDB-R7-NATURAL-KVMAN1-CLAIM-HARNESS-A1
+issued_at: 2026-08-25T17:43:22+08:00
+issued_by: MAINLINE
+authorization_basis: USER-PARALLEL-STAGEA-READY-CANDIDATES-20260825
+assignment_id: STAGEA-L2-20260825-ROCKSDB-DICT-COVER-R7-NATURAL-CLAIM-PILOT
+topic_id: ROCKSDB-DICT-COVER
+disposition: ENGINEERING_COMPATIBILITY_CLOSURE__NO_SCIENTIFIC_REVISION_OR_CONTRACT_CHANGE
+trigger:
+  blocker_path: stages/stageA/ROCKSDB-DICT-COVER/r7/CLAIM_CONSTRUCTION_BLOCKER.yaml
+  blocker_sha256: 0CF4E23D02C312F30FB59BE3F60B73C84A0A0CB256A0968F712F0A3809C306FE
+  input_acceptance_path: stages/stageA/ROCKSDB-DICT-COVER/r7/SAME_TOPIC_CLAIM_INPUT_ACCEPTANCE.yaml
+  input_acceptance_sha256: 0BF1444A3A05667D704FBA8D90CCF72EE3B7D2D990924C3B1473195548233589
+  claim_processes_started: 0
+  claim_observations: 0
+  scientific_revision_consumed: false
+  blocker_classification: INVALID_CLAIM_CONSTRUCTION_INTERFACE__NO_SCIENTIFIC_INFERENCE
+
+unchanged_scientific_contract:
+  exact_contract_sha256: 8B578D63EE6DC515DB60E6D5A7D29AECEE35EAFF816AF7D800888C9746CEDC70
+  exact_object_unchanged: true
+  candidate_core_and_atomic_action_unchanged: true
+  candidate_implementation_sha256_unchanged: 9BB41C3A169E3EC2BF7865C3D1BE135A3EE5F0774C7D88AE096D2B55242AE323
+  rocksdb_and_zstd_commits_unchanged: true
+  baseline_union_unchanged: true
+  methods_grid_manifests_and_replays_unchanged: true
+  native_current_precision_pin_unchanged: true
+  full_cost_metrics_and_frontier_predicate_unchanged: true
+  quiescence_gate_unchanged: true
+  scientific_revision_or_mechanism_pivot: false
+
+preserved_immutable_inputs:
+  - {path: resources/src/harness/rocksdict_preclaim_harness.cc, sha256: 3155101C727F6FF76AA262C1C7E0663B77E6CDF18832DA7C3F3B3EC59D39D0D2, disposition: KEEP_UNMODIFIED_PRECLAIM_EVIDENCE}
+  - {path: resources/build/frozen/rocksdict_preclaim_harness.exe, sha256: 22A57C80065AC0883AA62678DB7BAD7546BDC08A51064EBDA9721DE991DC34D4, disposition: KEEP_UNMODIFIED_PRECLAIM_EVIDENCE}
+  - {path: resources/build/frozen/librocksdb-preclaim.a, sha256: 638973B80FD6181CC0B20DDA025D013CF1EA8C6306E3CC9DEB52C02805D6B6C3, disposition: READ_ONLY_LINK_INPUT}
+  - {path: resources/build/frozen/libzstd.a, sha256: 04DEC078758D0FDF9449D6D3E76FB220174A82527ADC3146323B0C081C60DE91, disposition: READ_ONLY_LINK_INPUT}
+
+new_same_topic_tool_inputs:
+  source_root: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/resume6-e-root-preclaim-fidelity/resources/archives
+  destination_root: <LOCAL_PROJECT_ROOT>/stages/stageA/ROCKSDB-DICT-COVER/r7/resources/archives
+  source_access: READ_ONLY_HASH_PINNED_SAME_TOPIC
+  required_files:
+    - {file: llvm-mingw-20260616-ucrt-x86_64.zip, bytes: 187504083, sha256: B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35}
+    - {file: cmake-4.4.2-windows-x86_64.zip, bytes: 54405968, sha256: E8139D85B3813BC38833142AE1940472E9A587E9B5D2718AC1804C60F4E57A64}
+    - {file: ninja-win-1.13.2.zip, bytes: 291570, sha256: 07FC8261B42B20E71D1720B39068C2E14FFCEE6396B76FB7A795FB460B78DC65}
+  copy_and_hash_acceptance_output: SAME_TOPIC_HARNESS_TOOLCHAIN_INPUT_ACCEPTANCE.yaml
+  source_modify_or_delete_allowed: false
+  extraction_destinations: [resources/env/llvm-mingw, resources/env/cmake, resources/env/ninja]
+
+authorized_new_files_only:
+  - resources/src/claim_harness/rocksdict_claim_harness.cc
+  - resources/src/claim_harness/CMakeLists.txt
+  - resources/src/claim_harness/validate_kvman1.py
+  - resources/src/claim_harness/build_and_smoke.ps1
+  - resources/src/claim_harness/run_claim_matrix.py
+  - resources/src/claim_harness/aggregate_claim_results.py
+  - resources/build/claim-harness/rocksdict_claim_harness.exe
+  - resources/logs/claim_harness_build_and_smoke
+  - resources/logs/claim_harness_provenance.yaml
+
+natural_harness_interface:
+  required_arguments: [--manifest-path, --manifest-id, --mode, --cell, --run-id, --db-path, --result-path, --trace-path]
+  kvman1_parser:
+    magic_exact_bytes: 'KVMAN1\0'
+    record_count: UINT64_LITTLE_ENDIAN
+    per_record_header: TWO_UINT32_LITTLE_ENDIAN_KEY_LEN_VALUE_LEN
+    payload: KEY_BYTES_THEN_VALUE_BYTES
+    validation: [nonempty, exact_record_count, exact_file_consumption_no_trailing_bytes, key_lengths_and_value_lengths_in_bounds, keys_strictly_increasing_and_unique, frozen_manifest_sha256_match]
+  input_use: REPLACE_ONLY_FIXED_MAKEWITNESS_WITH_EXACT_PARSED_MANIFEST_RECORDS
+  rocksdb_options_methods_candidate_and_reader_protocol: IDENTICAL_TO_FROZEN_PRECLAIM_HARNESS_AND_EXPERIMENT_CONTRACT
+  required_result_classification:
+    schema_version: rocksdict-stagea-claim-result-v1
+    run_class: CLAIM_BEARING_NATURAL
+    natural_manifest_used: true
+    claim_bearing: true
+    required_identity_fields: [manifest_id, manifest_sha256, record_count, logical_key_bytes, logical_value_bytes, mode, cell, replay, run_id]
+    required_validity_fields: [pass, sst_file_writer_used, stock_block_based_table, table_creation_reason_compaction, bottommost_level, live_sst_count, live_sst_level, checksums, full_scan_equality, point_equality, range_equality]
+    required_cost_and_mechanism_fields: SAME_AS_FROZEN_OPERATION_INVENTORY_AND_R7_CONTROL
+
+implementation_and_build_gate:
+  upstream_rocksdb_zstd_and_preclaim_harness_modification: forbidden
+  assignment_local_new_harness_implementation: allowed
+  compiler: LLVM_MINGW_CLANGXX_22_1_8_FROM_PINNED_ARCHIVE
+  build_system: ASSIGNMENT_LOCAL_CMAKE_4_4_2_AND_NINJA_1_13_2
+  link_inputs: [resources/build/frozen/librocksdb-preclaim.a, resources/build/frozen/libzstd.a]
+  configure_attempts_max: 1
+  clean_harness_build_attempts_max: 1
+  max_build_jobs: 2
+  automatic_retry: false
+  build_output_must_be_new_and_hash_pinned: true
+  build_provenance_output: CLAIM_HARNESS_BUILD_PROVENANCE.yaml
+
+preclaim_compatibility_smokes_before_quiescence:
+  - PARSE_ONLY_VALIDATE_ALL_20_FROZEN_MANIFESTS_WITHOUT_RUNNING_ROCKSDB
+  - SYNTHETIC_KVMAN1_CONTROL_RUN_WITH_CLAIM_BEARING_FALSE
+  - TWO_IDENTICAL_SYNTHETIC_CONTROL_REPLAYS_EXACT_EQUAL_EXCEPT_DECLARED_VOLATILE_FIELDS
+  - VERIFY_FROZEN_METHOD_CELL_OPTIONS_AND_READER_FIELDS_UNCHANGED
+  smoke_evidence_ceiling: ENGINEERING_CONSTRUCTION_VALIDATION_ONLY__NO_SCIENTIFIC_INFERENCE
+  any_failure: FAIL_CLOSED_INVALID_CLAIM_CONSTRUCTION__NO_CLAIM_RUN
+
+claim_resume:
+  quiescence_gate_must_run_after_all_compatibility_smokes: true
+  first_natural_process_only_after_addendum_start_and_quiescence_pass: true
+  process_count_methods_grid_replays: 560
+  maximum_concurrent_claim_processes: 2
+  result_based_rerun_or_exclusion: forbidden
+  automatic_retry: forbidden
+
+resource_and_lifecycle_delta:
+  network_bytes_max: 0
+  stored_bytes_max_unchanged: 4294967296
+  cpu_seconds_max_unchanged: 14400
+  wall_seconds_max_unchanged: 21600
+  post_close_retained_bytes_max_unchanged: 1610612736
+  cleanup_owner: MAINLINE
+  owner_cleanup_allowed: false
+  extracted_toolchains_and_duplicate_archives: REACQUIRABLE_DELETE_AFTER_HANDOFF_CANDIDATES
+
+forbidden: [modify_frozen_preclaim_source_or_binary, modify_candidate_core_or_upstream_source, contract_or_baseline_change, network, cross_topic_input, system_install, global_environment_change, automatic_retry, second_configure_or_build, natural_run_before_smokes_and_quiescence, scientific_revision, mechanism_pivot, owner_state_transition, owner_cleanup, stageb]
+ack_and_start_gate:
+  addendum_context_required: true
+  addendum_ack_path: stages/stageA/ROCKSDB-DICT-COVER/r7/ADDENDUM_ACK.yaml
+  implementation_or_copy_before_addendum_ack_acceptance: forbidden
+  separate_mainline_addendum_start_required: true
+

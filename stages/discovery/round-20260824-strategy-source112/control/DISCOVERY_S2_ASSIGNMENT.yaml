@@ -1,0 +1,17 @@
+schema_version: discovery-assignment-v1
+assignment_id: DISCOVERY-S2-20260824-SOURCE112-VLA-MULTIMODAL-SPECULATIVE-V1
+topic_id: SOURCE112-PORTFOLIO-S2
+lane_id: DISCOVERY_S2
+lane_mode: S2_BOTTLENECK_TRANSFER
+thread_id: 01a02e08-1076-7df0-83cf-74b2844a3507
+common_contract: stages/discovery/round-20260824-strategy-source112/control/CONTROL.yaml
+common_contract_sha256: 63C7D9850C2599EFA8616723C6363295687E6261683AE9E51103365B2392F293
+write_directory: stages/discovery/round-20260824-strategy-source112/S2-bottleneck-transfer
+resource_root: stages/discovery/round-20260824-strategy-source112/S2-bottleneck-transfer/resources
+focus: VISION_ENCODER_PREFILL_ACTION_DECODER_LATENCY_MEMORY_BOTTLENECK_TRANSFER
+anchor_portfolio: [OPENVLA_LEROBOT_MULTIMODAL_RUNTIME_SOURCE]
+mandatory_pre_rq_check: READ_ALL_PREDECESSOR_DENYLIST_FILES_AND_SOURCE111_ADDENDUM
+forbidden_inputs: [GROUP_REPOSITORY, CRFEPOCH_STAGE0, RULE_AUDIT_A6_OUTPUTS]
+model_route: {model: gpt-5.6-terra, reasoning: high}
+modes: {rq_frontend: PRODUCTION, claim_pack: OFF, quality: OFF, selective_depth: OFF}
+next_action_before_start: WRITE_BOOTSTRAP_ACK_AND_WAIT

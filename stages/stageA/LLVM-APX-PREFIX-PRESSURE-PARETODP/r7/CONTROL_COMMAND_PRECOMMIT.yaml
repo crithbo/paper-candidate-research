@@ -1,0 +1,43 @@
+schema: apx-r7-control-command-precommit-v1
+assignment_id: STAGEA-L3-20260826-LLVM-APX-R7-ACTUAL-DP-AND-CORPUS-PRECLAIM
+implementation_freeze: ACTUAL_DP_IMPLEMENTATION_FREEZE.yaml
+implementation_sha256: 5F09E3B3564F01F0DB864FD5989C5CAE77860377F97EE0A76F520D3C1F5E3086
+working_directory: <LOCAL_PROJECT_ROOT>/stages/stageA/LLVM-APX-PREFIX-PRESSURE-PARETODP/r7
+process_local_redirect: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, PYTHONPYCACHEPREFIX: resources/cache/pycache, PYTHONDONTWRITEBYTECODE: '1'}
+ordered_commands:
+  - id: P1_ACTUAL_NATIVE_ACTION_CATALOG
+    child_command: '<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe -B resources/src/apx_tpd/apx_tpd.py catalog --source-root resources/src/llvm_subset --contract resources/src/apx_tpd/catalog_contract.json --out resources/logs/control/current_native_action_catalog.json'
+    expected: EXIT0_AND_JSON_RESULT_PASS
+    timeout_seconds: 1800
+  - id: P4_R6_FORMAL_CONTROL_REPLAY
+    child_command: '<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe -NoLogo -NoProfile -NonInteractive -File resources/src/r6_harness/orbit_pareto.ps1 -OutputPath resources/logs/control/r6_formal_control.json'
+    expected: EXIT0_AND_JSON_RESULT_PASS
+    timeout_seconds: 1800
+  - id: P3_LLVM_CURRENT_COMPLETE_TINY_OUTPUT
+    child_command: 'resources/env/apx-toolchain/bin/llc.exe resources/src/r6_harness/apx_witness.mir -mtriple=x86_64-unknown -mattr=+ndd,+egpr -start-before=x86-compress-evex -stop-after=x86-compress-evex -verify-machineinstrs -o resources/logs/control/llvm_current_complete.mir'
+    expected: EXIT0_OUTPUT_SHA256_FE044E8C4C64D4A5F93B3CFC315531F1B350CA4A802618C92BF38332C5D5184A
+    timeout_seconds: 1800
+  - id: P3_LLVM_FINITE_TUNING_RELOCATION_ENABLED_TINY_OUTPUT
+    child_command: 'resources/env/apx-toolchain/bin/llc.exe resources/src/r6_harness/apx_witness.mir -mtriple=x86_64-unknown -mattr=+ndd,+egpr -x86-enable-apx-for-relocation -start-before=x86-compress-evex -stop-after=x86-compress-evex -verify-machineinstrs -o resources/logs/control/llvm_tuning_relocation_enabled.mir'
+    expected: EXIT0_AND_DETERMINISTIC_MIR
+    timeout_seconds: 1800
+  - id: P2_P4_ACTUAL_DP_STRONG_BASELINE_ORACLE_CHECK
+    child_command: '<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe -B resources/src/apx_tpd/apx_tpd.py preclaim --catalog resources/logs/control/current_native_action_catalog.json --trace resources/src/apx_tpd/tiny_trace.json --r6-control resources/logs/control/r6_formal_control.json --current-mir resources/logs/control/llvm_current_complete.mir --tuning-mir resources/logs/control/llvm_tuning_relocation_enabled.mir --out resources/logs/control/actual_dp_preclaim.json'
+    expected: EXIT0_AND_JSON_RESULT_PASS_ALL_CHECKS_TRUE
+    timeout_seconds: 1800
+  - id: P5_RESULT_INDEPENDENT_CORPUS_FREEZE
+    child_command: '<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe -B resources/src/apx_tpd/apx_tpd.py freeze-corpus --source-root resources/src/llvm_subset --precommit NATURAL_CORPUS_SELECTION_PRECOMMIT.yaml --out resources/logs/corpus/natural_corpus_freeze.json'
+    expected: EXIT0_EXACT_16_SELECTED_4_RESERVE_ZERO_SELECTED_TOOL
+    timeout_seconds: 1800
+  - id: P6_GENERATE_UNEXECUTED_R8_PLAN
+    child_command: '<LOCAL_USER_HOME>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe -B resources/src/apx_tpd/apx_tpd.py r8-plan --corpus resources/logs/corpus/natural_corpus_freeze.json --out R8_EXPANDED_COMMAND_PRECOMMIT.yaml'
+    expected: EXIT0_32_PROCESS_ROWS_COMMANDS_EXECUTED_IN_R7_ZERO
+    timeout_seconds: 1800
+command_records_max: 500
+commands_precommitted: 7
+max_parallel_processes: 2
+automatic_retry: false
+first_failure_stops: true
+implementation_edit_after_freeze: false
+selected_or_reserve_tool_invocations_max: 0
+claim_runs_max: 0

@@ -1,0 +1,20 @@
+schema: ordinary-candidate-freeze-v1
+case_id: C-BD14C6257DB84D7E
+cutoff_date: 2010-11-24
+contribution_type: METHOD_ALGORITHM
+exact_object: lossless compression of natural web and social graphs through node ordering
+natural_scenario: large sparse graphs whose adjacency lists exhibit community and reference locality
+problem: generic lexical or traversal orders expose only one locality scale and leave compression opportunities unused
+atomic_action: perform label propagation at multiple resolutions and concatenate the resulting nested communities into an order
+mechanism: multiresolution structural locality increases adjacency-list reference reuse and shortens residual gaps
+information_condition: graph adjacency only; no coordinates or target compression result
+comparators: [lexical_order, breadth_first_order, earlier_graph_specific_ordering]
+claim_endpoint: compressed bits per link and access cost after charging ordering time and memory
+full_cost: [ordering_time, ordering_memory, compression_time, bits_per_link, random_access_time]
+minimum_falsifier: no compression improvement over strong orders after ordering and access costs
+source_cards:
+  - {id: S01, year: 2003, role: graph_compression_framework}
+  - {id: S02, year: 2003, role: integer_codes_for_web_graphs}
+  - {id: S03, year: 2010, role: public_natural_graph_collection}
+local_resource_envelope: WINDOWS_NATIVE_CPU__JAVA_LOCAL_CLASSPATH__SMALL_PUBLIC_GRAPH
+identity_guard: IF_EXACT_HIDDEN_SOURCE_IDENTITY_IS_RECOGNIZED_EMIT_BLINDING_CONTAMINATION_AND_STOP_WITHOUT_SCIENTIFIC_JUDGMENT

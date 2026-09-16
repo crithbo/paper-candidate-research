@@ -1,0 +1,28 @@
+schema: nonblind-stagea-compatibility-start-v1
+assignment_id: NONBLIND-STAGEA-20260826-HNSW
+authority: {issued_by: MAINLINE, model: gpt-5.6-terra, thinking: high}
+decision: START_AUTHORIZED__EXACT_AUTHOR_ARTIFACT_ROUTE
+source:
+  provider: official_github
+  repository: nmslib/hnswlib
+  commit: d9b3608c83d83b46c96e25088cb1d729b29dcfe9
+  archive_url: https://codeload.github.com/nmslib/hnswlib/tar.gz/d9b3608c83d83b46c96e25088cb1d729b29dcfe9
+  archive_path: resources/archives/hnswlib-d9b3608c83d83b46c96e25088cb1d729b29dcfe9.tar.gz
+  archive_hash_rule: SINGLE_DOWNLOAD__SHA256_BEFORE_EXTRACTION__RECORD_IN_RESOURCE_INVENTORY
+  redirects_allowed: 0
+  download_attempts_max: 1
+resource_layout: {downloads: resources/downloads, archives: resources/archives, src: resources/src, build: resources/build, env: resources/env, cache: resources/cache, tmp: resources/tmp, logs: resources/logs}
+process_local_redirects: {TEMP: resources/tmp, TMP: resources/tmp, TMPDIR: resources/tmp, CMAKE_BUILD_PARALLEL_LEVEL: 2}
+allowed_command_sequence:
+  - {id: S0, command: cmake --version, purpose: tool_identity_only}
+  - {id: S1, command: tar --version, purpose: tool_identity_only}
+  - {id: S2, command: Invoke-WebRequest -UseBasicParsing -MaximumRedirection 0 -Uri <archive_url> -OutFile <archive_path>, purpose: exact_single_official_acquisition}
+  - {id: S3, command: Get-FileHash -Algorithm SHA256 <archive_path>, purpose: immutable_archive_record_before_extraction}
+  - {id: S4, command: tar -xf <archive_path> -C resources/src, purpose: one_local_extraction_after_hash}
+  - {id: S5, command: cmake -S resources/src/hnswlib-d9b3608c83d83b46c96e25088cb1d729b29dcfe9 -B resources/build/hnswlib -DHNSWLIB_EXAMPLES=ON -DCMAKE_BUILD_TYPE=Release, purpose: author_cmake_configuration}
+  - {id: S6, command: cmake --build resources/build/hnswlib --config Release --target test_updates --parallel 2, purpose: bounded_author_artifact_build}
+  - {id: S7, command: resources/build/hnswlib/test_updates.exe, purpose: canonical_author_update_test__preclaim_only}
+stop_conditions: [archive_download_or_hash_or_extraction_or_configure_or_build_or_test_failure_fail_closed_no_retry, any_redirect_fail_closed, resource_root_over_1000000000_bytes_fail_closed, build_over_7200_seconds_fail_closed]
+fidelity_before_probe: [verify_full_author_artifact_identity, verify_update_test_semantics_and_comparator_alignment, freeze_generated_or_small_public_vector_input_and_full_cost_schema, mainline_accept_fidelity_gate]
+after_fidelity_only: [one_minimal_natural_or_canonical_probe_under_21600_seconds, full_cost_record, immutable_handoff]
+prohibitions_remain: [second_download, retry, alternate_artifact, system_install, global_path_or_registry_change, production_candidate_registration, production_state_transition, stageB, gold_input, blind_metric_merge, cleanup]

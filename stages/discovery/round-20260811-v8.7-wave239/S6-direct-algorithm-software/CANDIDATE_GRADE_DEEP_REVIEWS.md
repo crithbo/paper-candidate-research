@@ -1,0 +1,16 @@
+# Candidate-grade deep review
+
+## D1 — SquashFS joint block/fragment/deduplication construction
+
+| Dimension | Frozen review result |
+|---|---|
+| Same-object semantics | Fixed tree, bytes, required metadata/xattrs, format version and stock reader extraction/mount semantics. No changed payload, reader, filesystem contract, or observable-order shortcut. |
+| Current upstream reality | `plougher/squashfs-tools` calls itself the official repository and points to 4.7.5 as latest release. Current master `mksquashfs.c` exposes `block_size`, `no_fragments`, `always_use_fragments`, `duplicate_checking`, xattr controls, `sorted`, compressor state, fragment table, duplicate tables and ordered queues. Its option table includes `b`, `comp`, `sort`, `action`, xattr selectors and reader/queue controls. This is a source pin to master as retrieved 2026-08-11, not a claim of an immutable commit SHA. |
+| Strongest executable union | Current `mksquashfs` build options plus compression options, fragment/no-fragment/tail behavior, duplicate checking, sort list, `-action` alignment facility, xattr inclusion/exclusion, reproducibility/time controls, parallel reader/order queues and format table regeneration. Defaults and all interactions are not yet fully closed, so this union is conservative and incomplete. |
+| Minimal legal witness | The standard permits a file's tail as a fragment and permits a non-fragment data-block representation under tool controls; both references are regenerated and decode to the same bytes. This witness establishes legal choice, not superiority or union-externality. |
+| Direct subtractors/collision | Upstream itself supplies sort, duplicate checking, fragment packing, alignment actions and compressor controls. Kernel documentation is the native format authority. No primary-paper/tool matrix has yet excluded direct global image-layout algorithms; collision closure is incomplete. |
+| N2/guarantee proposition | Conditional bicriteria constructor over the existing legal actions: minimize image bytes subject to bounded decompression/read amplification (or provide an approximation/recourse bound). It must be an explicit algorithm, not generic packing, a configuration selector or an after-the-fact wrapper. |
+| Natural route | Version-pinned public rootfs tree/manifest (e.g., Buildroot/OpenWrt source-rootfs route), with a deterministic manifest and xattr capture. This is a finite carrier plan, not a downloaded corpus or experimental result. |
+| Full cost | Build CPU/wall/RSS/temp/bytes; stock extraction or mount, sequential/random read/decompress CPU/RSS/I/O; lookup/index memory. |
+| 72-hour fidelity/killer | (1) pin a specific upstream commit and enumerate all source paths/flags affecting fragments, dedupe, sort/actions and write ordering; (2) construct a two-file tail witness and verify image extraction equality with `unsquashfs`; (3) replay strongest configurations/compositions under fixed compressor/block size; (4) stop if the proposed constructor is expressible by that union, requires changed observables, reduces to generic packing, or cannot state a nontrivial bound. |
+| Decision | `NOT_ADMITTED_UNFROZEN`; no brief. Current union and direct-collision closure are incomplete. This is not a STOP and is unrelated to lack of implementation or results. |

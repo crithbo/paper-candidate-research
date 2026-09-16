@@ -1,0 +1,20 @@
+schema: stagea-static-packet-correction-start-v1
+assignment_id: STAGEA-L2-20260829-LLVM-PPC-R12-STATIC-CORRECTION3-FINAL
+correction_ordinal: 3
+static_lint_edits_after_success: 3_of_3
+source_checker_argv:
+  path: stages/stageA/_pilot/20260829-executable-claim-packet-v2/PPC/COMMAND_DAG.json
+  sha256: E3D5771953345AE0DF79A09E0E080504C8EB49AEE94E561C181DB534DA24A4EE
+  field: control_row.checker_argv
+allowed_files: [PPC_R12_EXECUTABLE_PACKET.yaml, PPC_R12_COMMAND_DAG.json, PPC_R12_STATIC_VALIDATION.yaml]
+required_changes:
+  - add one literal N03_NATIVE_CHECKER node using source checker argv with only V2 root to r12 root and runner path relocation
+  - native checker depends on candidate replay and baseline collector and produces resources/build/control/checker/native_checkers.json
+  - rename current full-cost node to N04_FULL_COST_LEDGER and make it depend on candidate, baseline and native checker
+  - preserve candidate15 plus baseline56 equals 71 scientific command metrics and baseline16 bundles
+  - record checker as separate verification_overhead_receipt_required=true outside the frozen 71 metric denominator; do not hide its cost
+  - packet declares checker argv/output/dependency and the 71-plus-verification-overhead accounting boundary
+  - validation parses actual DAG and requires nodes=5, checker argv old refs=0, checker inputs are prior outputs, full-cost depends_on checker, metrics71, bundles16, placeholders0
+forbidden_changes: [producer_source, exact16_selection, baseline_grid, denominator_71, bundle_count_16, object, mechanism, guarantee, result_visibility]
+forbidden_actions: [resource_copy, tool_execution, control_row, claim_row, network, shared_write, cleanup, stageb]
+stop_after: FINAL_STATIC_PACKET_SEALED__WAIT_MAINLINE_AND_INDEPENDENT_PRECLAIM_GATE

@@ -1,0 +1,85 @@
+schema: unresolved-topic-state-reconciliation-v1
+audit_id: RULE-AUDIT-20260830-UNRESOLVED-TOPIC-STATE-RECONCILIATION
+snapshot:
+  plan_sha256: 5E27036F9D0C240CDEBBBFCA44BAFD7126E0CB495F78493E2D82DA23CB76A402
+  registry_sha256: B630D5D372EDD1158152B432BDF1AF04959BB784EEAC0B0939AEFEF60C5F26D5
+counting_unit: UNIQUE_TOPIC_ID
+excluded:
+  - scientific_terminal_STOP_OR_BELOW_Q2
+  - discovery_family_without_topic_id
+  - method_backtest_or_rule_audit
+  - assignment_or_gate_duplicates
+corrected_unresolved_topic_count: 24
+categories:
+  HUMAN_RESEARCH_RESERVE_OR_USER_POLICY_RESERVE:
+    count: 8
+    topics:
+      - AARCH64-SVE-SME-JOINT-STATEFUL-CODEGEN
+      - AIGER-DELTA-SCHEDULE
+      - S1-O6-MOBILE-TRAFFIC-CRITICALITY
+      - QNN-VTCM-HANDOFF
+      - PIM-EMBED-REDUCE-OWNERS
+      - S4-SLO-PAGEPACK
+      - GIN-POSTING-CUT-DP
+      - KALLSYMS-VERSIONAWARE-TOKEN-STABILITY
+  BLOCKED_USER_ACTION_REQUIRED:
+    count: 8
+    topics:
+      - CVC5-ALETHE-SHAREMAP
+      - QREFINE-TRITON-W4A16
+      - V8-SNAPSHOT-CONSTRAINT-SCHEDULER
+      - QNN-KV-HANDOFF-CLOSURE
+      - CAUSECASE-PREFETCH-REV0
+      - LEROBOT-AOI-SLO-RUNTIME-REV0
+      - SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+      - SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET
+  EXECUTION_OR_POLICY_HOLD_NO_AUTOMATIC_ROUTE:
+    count: 6
+    topics:
+      - ROCKSDB-DICT-COVER
+      - LLVM-PPC-PREFIX-PRESSURE-PARETODP
+      - LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+      - SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+      - SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY
+      - TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+  READY_UNSCHEDULED_STAGEA:
+    count: 1
+    topics:
+      - S5-OCCUPANCY-CLIFF-JOINTCODEGEN
+  PENDING_USER_STAGEB_REVIEW:
+    count: 1
+    topics:
+      - S6-JS-PREFIXBOUND
+reconciliation_from_prior_count_20:
+  remove_as_now_terminal:
+    - LLVM-APX-PREFIX-PRESSURE-PARETODP
+    - PARQUET-PAGE-COSEGMENT
+  add_new_nonterminal_topics:
+    - LEROBOT-AOI-SLO-RUNTIME-REV0
+    - SOURCE122-S1-ORT-EP-ASSIGNMENT-STABILITY
+    - SOURCE123-S4-VLLM-CUDAGRAPH-CAPTURESET
+    - SOURCE120-S1-VHLO-SEMANTIC-COMPAT
+    - SOURCE121-S1-EXECUTORCH-QFALLBACK-RANK-VALIDITY
+    - TORCHDYNAMO-GUARD-COVER-CACHE-REV0
+  reclassify_without_count_change:
+    S5-OCCUPANCY-CLIFF-JOINTCODEGEN: BLOCKED_TO_READY_UNSCHEDULED_STAGEA
+    ROCKSDB-DICT-COVER: RESOURCE_RESERVE_TO_POLICY_HOLD_NO_VALID_REVISION_ROUTE
+  arithmetic: 20_MINUS_2_PLUS_6_EQUALS_24
+decisive_new_evidence:
+  APX_terminal:
+    registry_entry: stagea_gate_apx_r12_final_20260830
+    state: COMPLETE_ACCEPTED__STOP__BELOW_Q2
+    terminal_stub: terminal_stub_llvm_apx_prefix_pressure_paretodp
+  PARQUET_terminal:
+    path: stages/stageA/_reviews/gate-v8.7/PARQUET-PAGE-COSEGMENT/exceptional-r3g-closing/handoff.yaml
+    decision: CONFIRM_STOP
+  S5_ready:
+    path: stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/resume4-safe-recovery/handoff.yaml
+    decision: RESOURCE_RECOVERY_PASS__NO_SCIENTIFIC_DECISION
+    preclaim_contract_fidelity_gate: PASS
+    user_action_required: false
+  ROCKSDB_hold:
+    path: stages/stageA/_reviews/round-20260825-rocksdb-r7-invalid-construction/ROCKSDB-DICT-COVER/MAINLINE_HANDOFF_ACCEPTANCE.yaml
+    decision: ACCEPT_RETURN_NO_SCIENTIFIC_INFERENCE_WITH_NO_VALID_REVISION_ROUTE
+shared_files_modified: false
+

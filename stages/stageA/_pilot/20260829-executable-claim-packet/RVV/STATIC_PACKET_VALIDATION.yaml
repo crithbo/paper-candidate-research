@@ -1,0 +1,35 @@
+schema: stagea-static-packet-validation-v1
+proposal_id: STAGEA_EXECUTABLE_CLAIM_PACKET_V1
+assignment_id: PILOT-RVV-20260829-EXECUTABLE-CLAIM-PACKET
+topic_id: LLVM-RVV-GROUP-MASK-SPILL-PARETODP
+phase: E1_PACKET_COMPILE
+lint:
+  attempts_max: 3
+  attempts_used: 0
+  mechanical_corrections_used: 0
+  parser_execution: false
+checks:
+  exact_object_present: PASS
+  primary_rq_present: PASS
+  atomic_action_and_mechanism_present: PASS
+  readonly_asset_record_bound: PASS
+  natural_mir_paths_and_hashes_exact: FAIL_MISSING
+  baseline_artifact_paths_and_hashes_exact: FAIL_MISSING
+  candidate_and_baseline_argv_cwd_env: FAIL_MISSING
+  output_schema_and_metric_consumers: FAIL_MISSING
+  full_cost_dimensions_named: PASS
+  full_cost_units_and_collection_paths: FAIL_MISSING
+  legality_witness_natural_identity: FAIL_MISSING
+  result_independent_selection_rule: PASS
+  selected_reserve_counts_declared: PASS_4_PLUS_2_MAX
+  result_aware_change: PASS_NONE
+  tool_execution: PASS_NONE
+  control_or_claim_execution: PASS_NONE
+  shared_rule_install: PASS_NONE
+  stageb: PASS_NONE
+unresolved_required_fields: [natural_MIR_paths_and_hashes, baseline_artifact_paths_and_hashes, frozen_argv_cwd_env, output_schema_and_metric_consumers, full_cost_units_and_collection_paths, natural_legality_witness]
+overall_result: FAIL_CLOSED_PACKET_NOT_EXECUTABLE
+evidence_ceiling: E1_STATIC_PACKET_ONLY__NO_NATURAL_OR_SCIENTIFIC_INFERENCE
+scientific_revision_consumed: 0
+scientific_or_resource_action_started: false
+scientific_inference: NONE

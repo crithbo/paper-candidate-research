@@ -1,0 +1,10 @@
+# UNIQUE_OPPORTUNITY_FAMILY register
+
+| Family | Same-object contract and atomic action | Strongest current fair union | Natural carrier / full cost | Status |
+|---|---|---|---|---|
+| rustc | Same crate source, toolchain and environment; incremental query invalidation/reuse choice is atomic. Observable artifact and diagnostic category must equal clean compilation. | Current red-green query graph, dep-node validation, cached bitcode/object reuse and clean compilation. | Rust compiler/tests and public crates; parse/typecheck/codegen/link, cache I/O, peak memory, artifact/diagnostic equivalence. | Deep. |
+| Bazel | Same workspace, target, toolchain and declared outputs under a fixed edit sequence; action-key/invalidity choice is atomic. | Skyframe/action graph, local/remote cache and clean build semantics exposed by native system. | Public Bazel workspaces; analysis, action execution, cache transfer, sandboxing, outputs and failure category. | Deep. |
+| TypeScript | Same `tsconfig`, sources and compiler version; `.tsbuildinfo` validity/reuse choice is atomic. | Native incremental mode, stored build information and clean compiler. | Public TypeScript projects; parsing/binding/checking/emission, build-info I/O, memory, emitted files and diagnostics. | Deep. |
+| Nix | Same derivation and fixed sandbox inputs; realization/cache choice is atomic. | Derivation/store model, substituters and declared builders. | Public Nix expressions; evaluation, realization, network/cache, closure and output hashes. | Structural drop. |
+| CMake | Same source/configuration; dependency-graph regeneration choice is atomic. | Generated native build graph, cache and generator semantics. | Public CMake projects; configure/generate/build, cache, native-tool work and outputs. | Structural drop. |
+| GNU Make | Same explicit dependency graph/recipes; ready-target scheduling choice is atomic. | Native dependency graph and parallel scheduler. | Public Make projects; parse, scheduling, recipe cost, outputs and errors. | Structural drop. |

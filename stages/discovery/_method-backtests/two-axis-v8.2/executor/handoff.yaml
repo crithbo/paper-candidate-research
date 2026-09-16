@@ -1,0 +1,23 @@
+schema_version: discovery-backtest-executor-handoff-v8.2
+role: DISCOVERY-BACKTEST-EXECUTOR
+status: FROZEN_AWAITING_AUDITOR
+deliverables:
+  executor_results: EXECUTOR_RESULTS.yaml
+  report: EXECUTOR_REPORT.md
+  method_output: method_output.md
+  command_log: COMMAND_LOG.md
+  hash_manifest: HASH_MANIFEST.sha256
+input_hashes_verified:
+  sealed_input_manifest: 249EEEE1371293218575DBFE6BFECF07CD4B0F3655F49E4163AF8AA60F32900D
+  sealed_packets: FF85DD0DFF5E537CFD9010E1AD2443F77D15E9782F7F39EFD55BEC4BDE0E806F
+contamination_declaration:
+  auditor_key_read_or_searched: false
+  target_identification_or_search: false
+  external_or_post_cutoff_information_used: false
+  experiments_run: false
+  production_discovery_started: false
+executor_notes:
+  - "All 30 packets have required two-axis fields."
+  - "No calibration truth, score, or pass verdict is asserted."
+  - "No input ambiguity prevented a packet-local decision."
+next_role: DISCOVERY-BACKTEST-AUDITOR

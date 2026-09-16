@@ -1,0 +1,66 @@
+schema: candidate-resource-scripted-relay-smoke-build-freeze-v1
+topic_id: CVC5-ALETHE-SHAREMAP
+lane_id: CANDIDATE_EXECUTION_LANE_1
+assignment_id: SAFE-RECOVERY-L1-20260816-CVC5-RESUME12-SCRIPTED-RELAY-SMOKE-BUILD
+authorization_id: USER_AUTONOMOUS_SAFE_BLOCKER_RECOVERY_20260815
+created_at: 2026-08-16T01:51:23.4519188+08:00
+write_directory: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/CVC5-ALETHE-SHAREMAP/resume12-scripted-relay-smoke-build
+resource_root: <LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/CVC5-ALETHE-SHAREMAP/resume12-scripted-relay-smoke-build/resources
+control_freeze:
+  assignment_sha256: DBF942B2A122E0E97A71F0B230EA0815CCB25DD8E0EC2C9A1EE66A86F38C31C3
+  relay_smoke_script_sha256: 9D8BD2BC116A56C7D408BD0F588BA19FD09D6D6B1380590B287DDCC4C9A0675A
+  AGENTS_md_sha256: 26DB9F4C2D43349A2BA5B741947561D4FED2FE5EC65327C02D273D3905F5A522
+  plan_md_sha256: 1EDB9B31BCCCE353FA80692FC3D292858B7E786365CC73FE63825BCF398022A6
+  registry_yaml_sha256: 06D45BA786A111B4D1636A5A138783B240F23DE1A098DE646BB9B81F6C72412D
+  candidate_owner_rule_sha256: A703F21B9F33EE341A942501948BC313FACC9D0BAB15F3EE943FC590B65BF519
+  resource_localization_sha256: A1A1DFB83634F075B2845D57C255CDC53D97B91A6BE5EEFA14953EC4C5B511D4
+input_freeze:
+  resume11_handoff_sha256: 18821234C5BF61DB5719909902E44AA2AC6F8D2925BBE324D01447F5257FBD83
+  resume11_manifest_sha256: 5888AFB4B9359047834538F68C692C0FF3828A4CC7F22785BD6519A62D0CA97C
+  resume11_manifest_validation: 21_OF_21_EXACT
+  relay_binary_sha256: 78978515A5F2A14F733A4B689272438336075B3876A878F1DB66B7341B418E8C
+  source_manifest_sha256: 79F052442AE3FF77838AEBA558A6493FBBF0A23CB94AD7DB280B031150B7D48F
+  source_manifest_validation: 72_OF_72_EXACT
+  cargo_lock_sha256: 0E9C953C2C1B184511E2DFDF19D4BB7C35A6BE55140BC1A3D77179411D7C7378
+  registry_files: 8647
+  registry_logical_bytes: 257457109
+tools:
+  sh_sha256: 41B09F0A9C1C68FD65253A7E8087B3775F0AF245B729ADE74CA4425D14392C2D
+  cargo_sha256: E91B95ECB8306BB6CA109CAA3F04E178B49EB5AEEA1949CC9BEB032996838D2F
+  rustc_sha256: 0968EB36AB120BBEA43FD9A1D2811570EF900CF4CA7F6A48F122C182C717ED77
+  gcc_sha256: AB37C11763FDCB3BF6F809B5D033A31EBEB77F10BA5934C72FA37287EE56144F
+sequential_gates:
+  relay_smoke:
+    max_attempts: 1
+    exact_process: frozen sh.exe with control/relay_smoke.sh as one direct process argument
+    inline_outer_shell_substitution: forbidden
+  carcara_build:
+    max_attempts: 1
+    exact_command: cargo build --release --locked --offline -p carcara-cli
+    jobs_max: 2
+resource_envelope:
+  network_bytes_max: 0
+  new_persisted_bytes_max: 838860800
+  cpu_seconds_max: 900
+  wall_seconds_max: 1800
+  processors_max: 2
+redirect_map:
+  TEMP: resources/tmp
+  TMP: resources/tmp
+  TMPDIR: resources/tmp
+  HOME: resources/env/home
+  CARGO_HOME: resources/cache/cargo-home
+  CARGO_TARGET_DIR: resources/build/carcara-target
+  CARGO_NET_OFFLINE: true
+  CARGO_BUILD_JOBS: 2
+  NUMBER_OF_PROCESSORS: 2
+  PATH: process-local frozen Rust/MSYS2/Windows tools only
+kill_boundary:
+  any_gate_failure: SAFE_RELAY_ROUTES_EXHAUSTED__STOP_AND_PACKAGE
+  retry_or_variant: forbidden
+  source_lock_feature_test_modification: forbidden
+  claim_bearing_preclaim_science_stageb: forbidden
+claim_bearing: false
+scientific_revision_consumed: false
+stageb_authorized: false
+

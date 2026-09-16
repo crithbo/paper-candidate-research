@@ -1,0 +1,47 @@
+assignment_id: DISCOVERY-S6-20260822-QGROUP-GUARD-CLOSURE1
+topic_id: QGROUP-GUARD-REV0
+role: S6-direct-algorithm-software
+status: COMPLETE
+unique_disposition: DROP
+disposition_reason: DIRECT_FATAL__CURRENT_VLLM_V0_26_0_NATIVE_UNION_ABSORBS_PROPOSED_GROUP_METADATA_GUARD_REPAIR
+quality_tier: BELOW_Q2_STOP
+stage0_dispatch: FORBIDDEN__NO_AUTOMATIC_DISPATCH
+scientific_basis:
+  exact_object: grouped W4A16 packed GEMV with group_size=128 and fixed output semantics
+  atomic_action: verify/repair a K tile that would otherwise use one metadata row across groups
+  decisive_current_source: vllm/model_executor/kernels/linear/mixed_precision/triton_w4a16.py@v0.26.0
+  decisive_mechanism: source validates K/group legality, calculates group row from tile start, and clamps BLOCK_K when it would exceed group_size
+  residual: NONE_WITHIN_FROZEN_GUARD_REPAIR_ACTION
+  non_residual_outside_scope: multi-group-per-tile dequantization would be a different kernel action and was not packaged as this candidate
+counts:
+  divergence_seeds: 1
+  rq_candidates: 1
+  evidence_qualified_raw: 0
+  deep_reviews: 1
+  clean_stage0_briefs: 0
+  drops: 1
+  resource_only_blockers: 0
+resource_status:
+  claim_bearing_experiments: NOT_RUN__FORBIDDEN
+  official_api_tree_attempt: RESOURCE_ROUTE_FAILED__TRANSPORT_AUTHENTICATION__NO_FILE_PERSISTED
+  scientific_inference_from_resource_status: FORBIDDEN
+frozen_contract:
+  assignment_sha256: 4419BCE51298242CF3968B67DE2802FC4CAC212E3D29559D602231B62043CD74
+  discovery_quality_mode: OFF
+  claim_pack_mode: OFF
+  rq_frontend_mode: OFF
+  native_first_order: ADVISORY_ONLY
+  registry_frozen_sha256: C661AA449B1CB08B8C6E20DB590B7B48E4C54BD076D31B913FEE2B05C5EE2238
+  registry_observed_post_dispatch_sha256: 4D829D6017D4A57621DD6EC590CFDD7A1F9B9D153A4AAEEBC77BFF5DE7F52B34
+  post_dispatch_registry_use: NONE
+canonical_files:
+  - DIVERGENCE_SEED_POOL.md
+  - RQ_CANDIDATE.md
+  - QUESTION_CARD.md
+  - NATIVE_FIRST_ADVISORY_SKETCH.md
+  - CURRENT_UPSTREAM_AND_COLLISION_AUDIT.md
+  - DISCOVERY_EVIDENCE_LEDGER.yaml
+  - TOPIC_BRIEF.md
+  - RESOURCE_INVENTORY.yaml
+  - handoff.yaml
+next_action: IDLE_REUSABLE_AWAITING_MAINLINE

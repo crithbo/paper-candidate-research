@@ -1,0 +1,26 @@
+schema: discovery-maturation-repair-prospective-shadow-pair-v1
+pair_freeze_id: DMR-V1-PSHADOW-PAIR-20260830
+frozen_before_cycle1_results: true
+method_status: SHADOW_ONLY__PRODUCTION_NOT_AUTHORIZED
+shadow_protocol_path: stages/rule-audit/RULE-AUDIT-20260830-DISCOVERY-MATURATION-REPAIR-FAST-SHADOW-R1/SHADOW_PROTOCOL_SNAPSHOT.md
+shadow_template_path: stages/rule-audit/RULE-AUDIT-20260830-DISCOVERY-MATURATION-REPAIR-FAST-SHADOW-R1/SHADOW_BOUNDED_DEBT_CLOSURE_TEMPLATE.yaml
+cycles: [DMR-V1-PSHADOW-CYCLE-01, DMR-V1-PSHADOW-CYCLE-02]
+common_modes:
+  discovery_claim_pack_mode: OFF
+  discovery_quality_mode: OFF
+  discovery_rq_frontend_mode: PRODUCTION
+  bounded_debt_closure_shadow_test: true
+common_budget_per_lane:
+  canonical_search_or_open_calls_max: 6
+  source_role_budget: {ANCHOR: 2, CURRENT: 2, CONTRARY: 1, ESCAPE: 1}
+  nomination_max: 1
+  candidate_download_build_experiment: 0
+repair_barrier:
+  all_six_nominations_frozen_before_selection: true
+  selected_repairs_per_cycle_max: 2
+  repair_model: gpt-5.6-terra
+  repair_thinking: high
+  primary_sources_per_repair_max: 2
+  backfill_after_result: forbidden
+canonical_firewall: shadow_outputs_cannot_change_canonical_brief_queue_state_or_stage0_dispatch
+stagea_stageb_effect: NONE

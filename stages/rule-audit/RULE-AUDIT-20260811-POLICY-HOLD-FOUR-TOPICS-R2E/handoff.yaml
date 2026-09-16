@@ -1,0 +1,162 @@
+schema_version: rule-audit-handoff-v1
+audit_id: RULE-AUDIT-20260811-POLICY-HOLD-FOUR-TOPICS-R2E
+assignment: RULE-AUDIT-20260811-POLICY-HOLD-FOUR-TOPICS-R2E
+authorization_id: POLICY-HOLD-AUDIT-ONLY-20260811-R2E
+completed_at_local: "2026-08-11"
+completion_status: COMPLETE
+decision_label: USER_POLICY_DECISION_REQUIRED
+lane_state: IDLE_REUSABLE_AWAITING_MAINLINE_AND_USER_DECISION
+
+write_boundary:
+  work_root: "<LEGACY_LOCAL_PROJECT_ROOT>"
+  only_write_directory: stages/rule-audit/RULE-AUDIT-20260811-POLICY-HOLD-FOUR-TOPICS-R2E
+  boundary_respected: true
+  shared_files_modified: false
+  candidate_files_modified: false
+  alternate_drive_referenced: false
+
+actions_not_performed:
+  second_scientific_revision: true
+  experiment_or_candidate_run: true
+  download: true
+  stage0_or_stagea_or_stageb_launch: true
+  shared_control_write: true
+  candidate_status_change: true
+
+input_freeze:
+  verified_at_audit_start: true
+  AGENTS_md_sha256: 66231F71EF6AB250A1AD9FF576D5840978F09EFC03BF5D2F0527D47F4D82B063
+  plan_md_sha256: 6CE3E9207E02F4DC24D7B4126EEB7A9E9210AC51FF1D64440F2C7FF1BE12373D
+  registry_yaml_sha256: E18E1145EDCF11DF0A0843DD93AE9FB65A26C8CF41C64E4B300CA567F175C33D
+  ROLE_RULE_AUDIT_md_sha256: 9D0064D8E448ECFD3761E7125E776074417F81EF7012C9C49967AB7FA7148C99
+  concurrent_registry_drift_detected: true
+  registry_sha256_on_later_read_only_check: 5C1B22A9D06ECDAD8894F40898313F5AD2928BC274824286F8630793623C07FB
+  drift_handling: >-
+    Audit conclusions use the start-verified frozen registry and immutable candidate
+    artifacts only; no later registry state was mixed into the four-topic adjudication.
+
+method:
+  skill: academic-research-suite
+  workflow: academic-pipeline
+  evidence_policy:
+    - separate_evidence_inference_recommendation
+    - fail_closed_on_invalid_construction
+    - explicit_claim_ceiling
+    - reproducible_hashed_handoff
+
+audited_topics:
+  - candidate_id: S4-SLO-PAGEPACK
+    current_frozen_state: STAGEA_INCONCLUSIVE_POLICY_HOLD
+    why_not_pass: >-
+      Relocation legality, frozen comparator fidelity, benefit denominator, and
+      non-dominance/budget semantics are not admissible.
+    why_not_stop: >-
+      The faithful strong comparator was not executed and at least one executed
+      comparator state was itself SLO-illegal, so absorption was not established.
+    failure_class:
+      - CONSTRUCTION_INVALIDITY
+      - COMPARATOR_MISMATCH
+      - METRIC_DENOMINATOR_CONFLICT
+    recommended_user_policy: RETAIN_HOLD_NO_EXCEPTION_NOW
+    decisive_artifacts:
+      owner_revision_report_sha256: D76C27BAB2E3AF16BAE226AB33903D3EC000BE8193BA31717AA136555829A89D
+      closing_gate_report_sha256: AB6B3A416AF1D5D29D5F767708E401A7811BB0E71837D760015A6EC87DCA05
+      closing_handoff_sha256: 36514E7AC96F77ACBFA18D9111675968021318A6E3DD6246DCAB15F2716B6419
+
+  - candidate_id: PARQUET-PAGE-COSEGMENT
+    current_frozen_state: STAGEA_INCONCLUSIVE_POLICY_HOLD
+    why_not_pass: >-
+      Actual arm ordering, typed cost attribution, and the complete native
+      representation family are not closed.
+    why_not_stop: >-
+      The reported 126-131x full-cost loss is an attribution artifact; valid
+      natural non-timing evidence and outside-family actions preserve an unresolved residual.
+    failure_class:
+      - COMPARATOR_COST_ATTRIBUTION
+      - ARM_SCHEDULING
+      - REPRESENTATION_FAMILY_CLOSURE
+    recommended_user_policy: AUTHORIZE_ONE_BOUNDED_FIDELITY_ONLY_EXCEPTION
+    exceptional_revision_already_authorized: false
+    decisive_artifacts:
+      owner_report_sha256: 84184606C71C8D648FF3664C3DA4D57AE48D75758BCDE0F2479AC73D63121890
+      owner_results_sha256: ADB99DB20D4B79F8F142318BF867706C3B4F0CF6A1BAA8B019D9365920642C47
+      closing_gate_report_sha256: 58A5549A5F75DD2078227334614E72303DC3350DCB0C8BB67288F18DA93E76A
+      closing_handoff_sha256: E737B0C75260B34C2134C95AC6E00785D6E76E2B6599034F65F21580DB51EA59
+
+  - candidate_id: GIN-POSTING-CUT-DP
+    current_frozen_state: INCONCLUSIVE_POLICY_HOLD
+    why_not_pass: >-
+      The strict-successor witness conflicts with current-source semantics and
+      rho is not Markov-sufficient under the declared cache model.
+    why_not_stop: >-
+      No direct absorption, same-object impossibility, or complete union coverage
+      was established.
+    failure_class:
+      - CURRENT_SOURCE_SEMANTICS
+      - CERTIFICATE_INVALIDITY
+      - STATE_SUFFICIENCY
+    recommended_user_policy: RETAIN_HOLD_NO_EXCEPTION_NOW
+    decisive_artifacts:
+      revision_report_sha256: B6568075DD51EE5AA66A6ACF8BB631BD0725F12821135C12E5C3C03C6C6A01CA
+      closing_review_sha256: F039A2ED1872868A344F1C3A2F7FA7D974BFEEC3B98B8086A6D403B8B233B975
+      closing_handoff_sha256: 74911156062FD4BBA60CF73D6E6760B08E94281D899375D0E8BEB38C02E0AFB7
+
+  - candidate_id: KALLSYMS-VERSIONAWARE-TOKEN-STABILITY
+    current_frozen_state: INCONCLUSIVE_POLICY_HOLD
+    why_not_pass: >-
+      The sole novelty witness is expressible by the frozen predecessor-token-
+      stability baseline grid and is therefore not union-external.
+    why_not_stop: >-
+      Absorption of one witness does not establish absorption or impossibility of
+      the complete LKF/R0 frontier.
+    failure_class:
+      - BASELINE_UNION_EXTERNALITY_FAILURE
+    recommended_user_policy: RETAIN_LOW_PRIORITY_HOLD_OR_USER_WITHDRAW_WITHOUT_SCIENTIFIC_STOP
+    decisive_artifacts:
+      revision_report_sha256: FBC7523574D8A820FD2611611DF6850B0BFA1A932A2BE13A280B4EEB76A1D470
+      closing_review_sha256: 158CEA98F70E19869815DD050D515A55C4BD69208B44B3CEADAB955EAD04B14D
+      closing_handoff_sha256: 75C1B8F92D59A1C1C8504344C13DF9253BB35A0343D51A77CF43960EDB424991
+
+overall_conclusion:
+  hold_rule_is_working_as_intended: true
+  quality_gate_relaxation_recommended: false
+  automatic_stop_recommended: false
+  automatic_human_reserve_recommended: false
+  automatic_status_change_recommended: false
+  preferred_single_exception_candidate: PARQUET-PAGE-COSEGMENT
+  preferred_other_topic_action: RETAIN_HOLD
+
+proposal:
+  proposal_id: POLICY-HOLD-RESOLUTION-AND-REVISION-ADMISSIBILITY-R2E-P1
+  user_approval_required: true
+  audit_only_approval_does_not_authorize_execution: true
+  exceptional_parquet_revision_approval_required: true
+  future_rule_patch_approval_required: true
+  retrospective_state_migration: false
+  minimum_future_patch: REVISION_ADMISSIBILITY_MATRIX
+  shadow_before_mandatory: 2
+  default_revise_once_rule_unchanged: true
+
+requested_user_decisions:
+  - >-
+    Approve or reject one candidate-specific PARQUET-PAGE-COSEGMENT
+    EXCEPTIONAL_FIDELITY_REPAIR with the frozen boundaries in TOPIC_DECISION_MATRIX.md.
+  - >-
+    Approve or reject two non-blocking future-assignment shadows of
+    REVISION_ADMISSIBILITY_MATRIX before any production rule patch.
+
+deliverables:
+  - file: RULE_AUDIT_REPORT.md
+    sha256: 7B6021B74D31B76BE2EBB6743FA851DFF7DF61C53D6EC9C979BFFF82F21C87A4
+  - file: TOPIC_DECISION_MATRIX.md
+    sha256: 9CF03204443BF8F982A43A03DC266A58C258D151866313E42CAA614630B3C171
+  - file: RULE_CHANGE_PROPOSAL.md
+    sha256: 5F7C848062DD7C66ABC4FDDF0B8B783E06A9C4D975CB94E0FB43C5B06B42B96B
+  - file: handoff.yaml
+    sha256: SELF_HASH_IN_MANIFEST
+
+manifest:
+  file: HASH_MANIFEST.sha256
+  strict_entries_expected: 4
+  self_hash_excluded: true
+

@@ -1,0 +1,44 @@
+schema: ppc-r8-a2-symbol-range-correction-precommit-v1
+created_at: 2026-08-26T06:26:00+08:00
+assignment_id: STAGEA-L2-20260826-LLVM-PPC-R8-ACTUAL-NATURAL-HARNESS-REBUILD
+addendum_id: PPC-R8-A2-ELF-SYMBOL-RANGE-PARSER-CORRECTION
+A2_start_sha256: C8BADC148442BEC5ADD8AC3D48D9E7C5F1B00ED5349C18F63EE8A7B5522D85D6
+recorded_before_preservation_edit_or_run: true
+J0: {disposition: REUSE_PASS_WITHOUT_RERUN, rerun_allowed: false}
+pass1_preservation:
+  source_handoff: handoff.yaml
+  source_handoff_sha256: 9CABD4E700438DE5183CE2FA595D690F2F58F97259D78748C9A901EB6C2B733A
+  destination_handoff: handoff.pass1_function_boundary_parser_fail.yaml
+  source_manifest: HASH_MANIFEST.sha256
+  source_manifest_sha256: 122D85F7872C87BA997FA87719FC0FF6D59FBA60121BE3F3F06BDC956156164F
+  destination_manifest: HASH_MANIFEST.pass1_function_boundary_parser_fail.sha256
+single_edit:
+  file: resources/src/actual_claim_harness/trace_model.py
+  original_sha256: BDA3B305DFD8A17CC723BD62D72C901608EFA33DAD0F396E878F1F54CE0ACB2F
+  operations_max: 1
+  parse_source: resources/build/actual_harness/replay_1/logs/07_readobj_witness.stdout.txt
+  parse_source_sha256: 6778B4F4E17B6A661E89DFD0F15CF74BB25E39069E76D498C55722A23EC3C0A3
+  disassembly_source_sha256: 7C92E636734223DF6194C4EC2430145AAF1079853C89343DF17BBB57AABD5838
+  semantic_change: UNIQUE_FUNCTION_SYMBOL_VALUE_SIZE_HALF_OPEN_RANGE_AND_ENCODED_END_VALIDATION
+  opcode_based_padding_filter: false
+  other_source_edits_allowed: false
+fresh_runs:
+  old_replay_1: INVALIDATED_NON_EVIDENCE__RETAIN_RAW
+  replay_1_output_root: resources/build/actual_harness_a2/replay_1
+  replay_2_output_root: resources/build/actual_harness_a2/replay_2
+  native_commands_per_replay: 11
+  additional_native_command_records_expected: 22
+  additional_total_command_records_max: 24
+  cumulative_total_command_records_max: 36
+  exact_payload_equality_required: true
+  automatic_retry: false
+post_J1:
+  J2_J6_allowed_only_after_J1_pass: true
+  r9_plan_output: resources/src/actual_claim_harness/r9_processes.json
+  r9_process_rows: 32
+  r9_plan_execute: false
+boundaries:
+  selected_or_reserve_corpus_tool_invocations_max: 0
+  claim_runs_max: 0
+  network_bytes_max: 0
+  scientific_inference: NONE

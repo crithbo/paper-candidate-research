@@ -1,0 +1,103 @@
+schema_version: "resource-unblock-handoff-v1"
+topic_id: "S5-OCCUPANCY-CLIFF-JOINTCODEGEN"
+assignment_id: "RESOURCE-UNBLOCK-L2-20260810-S5-R1"
+authorization_id: "UNBLOCK-AUTH-20260810-R1"
+lane_id: "CANDIDATE_EXECUTION_LANE_2"
+source_stage: "STAGEA_RESOURCE_UNBLOCK"
+assignment_state: "COMPLETE_AWAITING_MAINLINE_ACCEPTANCE"
+lane_state: "IDLE_REUSABLE_AWAITING_MAINLINE"
+decision: "RESOURCE_UNBLOCK_COMPLETE__ASSET_READY_ONLY"
+proposed_state: "STAGEA_RESOURCE_ASSET_READY__AWAIT_MAINLINE"
+cross_assignment_contamination_declared: false
+
+write_scope:
+  only_directory: "<LEGACY_LOCAL_PROJECT_ROOT>/stages/stageA/S5-OCCUPANCY-CLIFF-JOINTCODEGEN/revision1-resume2"
+  writes_outside_only_directory: false
+  source_asset_modified: false
+
+input_freeze:
+  revision1_handoff_sha256: "51EEB138E89AB43EC76ECD5C4A1DE24A986C0BEB372EE7AAD800A0736DABADB6"
+  revision1_manifest_sha256: "48E78E80EADA239362E9242B4EACABCA00CE5D7B3F359B0E8B2B5456ED7D25F1"
+  resume1_handoff_sha256: "EBD9AD833023B36AAC43980B669BAEC0AA121CB9561AE6EC5A4A4002AA832B0D"
+  resume1_manifest_sha256: "9F85FDA6AD654D7251439741F890438A66D62618384001FAA530786FF0BF7C25"
+  cleanup_record_sha256: "FB3272C19B4667925B27F4CC8B979469F87D3778AB0BB91A24DA77A247340DE7"
+  source_asset_readonly_validation: "PASS"
+
+resource_result:
+  asset: "llvm-mingw-20260616-ucrt-x86_64.zip"
+  official_url: "https://github.com/mstorsjo/llvm-mingw/releases/download/20260616/llvm-mingw-20260616-ucrt-x86_64.zip"
+  role: "BOOTSTRAP_ASSET_ONLY__NOT_EVALUATED_EXACT_COMMIT_TOOLCHAIN"
+  local_copy_attempts: 1
+  official_download_attempts_used: 0
+  official_download_attempts_remaining_under_r1: 2
+  expected_bytes: 187504083
+  source_bytes: 187504083
+  temporary_copy_bytes: 187504083
+  verified_bytes: 187504083
+  expected_sha256: "B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35"
+  source_sha256: "B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35"
+  temporary_copy_sha256: "B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35"
+  verified_sha256: "B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35"
+  verified_path: "verified/llvm-mingw-20260616-ucrt-x86_64.zip"
+  temporary_copy_remaining: false
+  extracted: false
+  executed: false
+  verification_status: "VERIFIED_EXACT_SIZE_AND_SHA256"
+
+cost:
+  network_bytes: 0
+  added_verified_asset_bytes: 187504083
+  resume2_total_file_bytes_before_handoff_and_manifest: 187516000
+  copy_wall_seconds: 0.055857
+  temporary_hash_gate_wall_seconds: 0.379695
+  post_move_dual_hash_wall_seconds: 0.904118
+  timed_core_wall_seconds: 1.339670
+  build_or_scientific_cpu_hours: 0
+  gpu_or_exclusive_device_time: 0
+
+readiness:
+  asset_ready: true
+  resource_ready: true
+  resource_ready_semantics: "THIS_SINGLE_FROZEN_BOOTSTRAP_ASSET_ONLY"
+  stagea_ready: false
+  exact_commit_toolchain_ready: false
+  natural_mir_ready: false
+  claim_bearing: false
+  scientific_revision: false
+  scientific_revision_consumed: false
+  scientific_pass: false
+  pass_recommended: false
+  stop_recommended: false
+  reserve_recommended: false
+  evidence_ceiling: "RESOURCE_VALIDATION_ONLY__NO_SCIENTIFIC_INFERENCE"
+
+forbidden_or_not_run:
+  extraction: "NOT_RUN"
+  build: "NOT_RUN"
+  tool_execution: "NOT_RUN"
+  mir: "NOT_RUN"
+  baseline: "NOT_RUN"
+  candidate: "NOT_RUN"
+  benchmark: "NOT_RUN"
+  stageb: "NOT_AUTHORIZED_NOT_RUN"
+  system_install: "NOT_RUN"
+  global_environment_mutation: "NOT_RUN"
+  automation: "NOT_RUN"
+
+next_boundary:
+  action: "STOP_AND_WAIT_FOR_MAINLINE"
+  note: "Any extraction, exact-commit build, natural-MIR acquisition, or Stage A probe requires a separate mainline assignment; this resource-only handoff grants none."
+
+authority:
+  pending_user_stageb_review: false
+  stageb_user_approval_id: null
+  stageb_authorized: false
+  execution_allowed: false
+  formal_experiment_allowed: false
+
+file_hashes:
+  RESOURCE_AUTHORIZATION_FREEZE.yaml: "5BCAC15124455C74756759FDFBD7192249E3B248357AD7E655322AE7E62D0491"
+  RESOURCE_UNBLOCK_REPORT.md: "69BC0DBE9D939367D9605FECB896D1E2BA676175655CF57B1D20D439C7DE460A"
+  SOURCE_ASSET_MANIFEST.tsv: "19766C7E538B9B440C401082327DBF6F98ED2AC11C72315E1DC13C8135A5A8AB"
+  COMMAND_LOG.md: "E9DED5458133D18C889FC0C501704E918349A9A7B84C6F8713A315797A1777E2"
+  verified/llvm-mingw-20260616-ucrt-x86_64.zip: "B9B68A4D276E16FA25802AABA458E4638F64B3884C290AACCDC2D87083B6CA35"
